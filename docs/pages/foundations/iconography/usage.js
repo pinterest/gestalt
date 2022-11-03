@@ -107,7 +107,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="home" accessibilityLabel="home" size={24} color="dark" />
+                  <Icon icon="home" accessibilityLabel="home" size={24} color="default" />
                   <Text size="100">home</Text>
                 </Flex>
                 <Flex
@@ -119,7 +119,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="heart" accessibilityLabel="heart" size={24} color="dark" />
+                  <Icon icon="heart" accessibilityLabel="heart" size={24} color="default" />
                   <Text size="100">heart</Text>
                 </Flex>
                 <Flex
@@ -131,7 +131,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="lock" accessibilityLabel="lock" size={24} color="dark" />
+                  <Icon icon="lock" accessibilityLabel="lock" size={24} color="default" />
                   <Text size="100">lock</Text>
                 </Flex>
                 <Flex
@@ -143,7 +143,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="trash-can" accessibilityLabel="trash can" size={24} color="dark" />
+                  <Icon icon="trash-can" accessibilityLabel="trash can" size={24} color="default" />
                   <Text size="100">trash-can</Text>
                 </Flex>
               </Flex>
@@ -163,7 +163,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="search" accessibilityLabel="search" size={24} color="dark" />
+                  <Icon icon="search" accessibilityLabel="search" size={24} color="default" />
                   <Text size="100">search</Text>
                 </Flex>
                 <Flex
@@ -175,7 +175,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="calendar" accessibilityLabel="calendar" size={24} color="dark" />
+                  <Icon icon="calendar" accessibilityLabel="calendar" size={24} color="default" />
                   <Text size="100">calendar</Text>
                 </Flex>
                 <Flex
@@ -187,7 +187,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="visit" accessibilityLabel="visit" size={24} color="dark" />
+                  <Icon icon="visit" accessibilityLabel="visit" size={24} color="default" />
                   <Text size="100">visit</Text>
                 </Flex>
                 <Flex
@@ -199,7 +199,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                   alignItems="center"
                   width={64}
                 >
-                  <Icon icon="globe" accessibilityLabel="globe" size={24} color="dark" />
+                  <Icon icon="globe" accessibilityLabel="globe" size={24} color="default" />
                   <Text size="100">globe</Text>
                 </Flex>
               </Flex>
@@ -231,7 +231,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 justifyContent="center"
               >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={12} color="dark" />
+                  <Icon icon="bell" accessibilityLabel="bell" size={12} color="default" />
                 </Flex>
                 <Text size="100">12px</Text>
               </Flex>
@@ -245,7 +245,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 justifyContent="center"
               >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={14} color="dark" />
+                  <Icon icon="bell" accessibilityLabel="bell" size={14} color="default" />
                 </Flex>
                 <Text size="100">14px</Text>
               </Flex>
@@ -259,7 +259,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 justifyContent="center"
               >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={16} color="dark" />
+                  <Icon icon="bell" accessibilityLabel="bell" size={16} color="default" />
                 </Flex>
                 <Text size="100">16px</Text>
               </Flex>
@@ -273,7 +273,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 justifyContent="center"
               >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={24} color="dark" />
+                  <Icon icon="bell" accessibilityLabel="bell" size={24} color="default" />
                 </Flex>
                 <Text size="100">24px</Text>
               </Flex>
@@ -286,7 +286,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 alignItems="center"
               >
                 <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={32} color="dark" />
+                  <Icon icon="bell" accessibilityLabel="bell" size={32} color="default" />
                 </Flex>
                 <Text size="100">32px </Text>
               </Flex>
@@ -353,7 +353,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
                 }}
                 alignItems="center"
               >
-                <Icon icon="heart" accessibilityLabel="heart" size={24} color="dark" />
+                <Icon icon="heart" accessibilityLabel="heart" size={24} color="default" />
               </Flex>
               <Flex
                 direction="column"
@@ -422,7 +422,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
                     icon="android-share"
                     accessibilityLabel="share for android"
                     size={24}
-                    color="dark"
+                    color="default"
                   />
                   <Text size="100">Android share</Text>
                 </Flex>
@@ -444,7 +444,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
                   }}
                   alignItems="center"
                 >
-                  <Icon icon="share" accessibilityLabel="share for iOS" size={24} color="dark" />
+                  <Icon icon="share" accessibilityLabel="share for iOS" size={24} color="default" />
                   <Text size="100">iOS share</Text>
                 </Flex>
               </Flex>
@@ -474,7 +474,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             description="A11y: Use icons semantically and provide meaningful text whenever it is possible."
             defaultCode={`
 <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-  <Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
+  <Icon icon="sparkle" accessibilityLabel="sparkle" color="default" size={16} />
   <Text>Recommendation text</Text>
 </Flex>
 `}
@@ -484,7 +484,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="don't"
             description="Use icons without labels for decoration or visual interest."
             defaultCode={`
-<Icon icon="sparkle" accessibilityLabel="sparkle" color="dark" size={16} />
+<Icon icon="sparkle" accessibilityLabel="sparkle" color="default" size={16} />
 `}
           />
         </MainSection.Subsection>
@@ -496,7 +496,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             description="A11y: Stick to our [design tokens](/foundations/color/usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
             defaultCode={`
 <Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="dark" size={24} />
+  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="default" size={24} />
 </Box>
 `}
           />
@@ -518,7 +518,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             type="do"
             description="Style: Use our icons following the Gestalt design specs."
             defaultCode={`
-<Icon icon="pincode" accessibilityLabel="pin code" color="dark" size={32} />
+<Icon icon="pincode" accessibilityLabel="pin code" color="default" size={32} />
 `}
           />
           <MainSection.Card
@@ -562,6 +562,17 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             </Flex>
           </MainSection.Card>
         </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Accessibility">
+        <MainSection.Subsection
+          description="
+- Icons must meet the [Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) requirement.
+- Avoid using unfamiliar icons. Always refer to Gestalt available icons. A new icon needs to be user-tested to evaluate comprehension.
+- Icons should be universal across cultures, regions, ages and backgrounds without need for translation. Be mindful of your audience and use symbols and labels that resonate with them.
+- Some icons don't translate well in all cultures, so it's preferred to user-test each icon before it is added to Gestalt.
+"
+        />
       </MainSection>
 
       <MainSection name="Logos as icons">

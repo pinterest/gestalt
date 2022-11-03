@@ -1,27 +1,133 @@
 // @flow strict
 import { useState, type Node, type ElementProps } from 'react';
-import { Box, ComboBox, Flex, Icon, TapArea, Layer, Toast, Tooltip } from 'gestalt';
+import {
+  Box,
+  Flex,
+  Heading,
+  Icon,
+  Pog,
+  Layer,
+  Link,
+  RadioGroup,
+  SearchField,
+  TapArea,
+  Text,
+  Toast,
+} from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
+// $FlowExpectedError[untyped-import]
+import iconCategoryData from './ICON_DATA.json';
 
 const { icons } = Icon;
-type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
+const CATEGORIES = [
+  'Add',
+  'Ads and measurements',
+  'Alignment',
+  'Arrows',
+  'Media controls',
+  'Platform specific',
+  'Reactions and ratings',
+  'Social',
+  'Status',
+  'Text',
+  'Time',
+  'Toggle',
+  'Utility and tools',
+];
 
-function ClickableIcon({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
+type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
+type IconData = {|
+  name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
+  category:
+    | 'Add'
+    | 'Ads and measurements'
+    | 'Alignment'
+    | 'Arrows'
+    | 'Media controls'
+    | 'Platform specific'
+    | 'Reactions and ratings'
+    | 'Social'
+    | 'Status'
+    | 'Text'
+    | 'Time'
+    | 'Toggle'
+    | 'Utility and tools',
+|};
+
+function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
+  const [hovered, setHovered] = useState();
+
   return (
-    <Tooltip text={iconName} accessibilityLabel="">
-      <TapArea rounding="circle" tapStyle="compress" onTap={onTap}>
-        <Box padding={2}>
-          <Icon color="default" accessibilityLabel={iconName} icon={iconName} />
+    <TapArea
+      rounding={2}
+      tapStyle="compress"
+      onTap={onTap}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+    >
+      <Box
+        borderStyle="sm"
+        rounding={2}
+        padding={2}
+        width={150}
+        height={110}
+        color={hovered ? 'inverse' : 'default'}
+        position="relative"
+      >
+        <Flex
+          height="100%"
+          flex="grow"
+          direction="column"
+          gap={2}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Icon
+            color={hovered ? 'inverse' : 'default'}
+            accessibilityLabel={iconName}
+            icon={iconName}
+            size="24"
+          />
+          <Text color={hovered ? 'inverse' : 'default'} size="100">
+            {iconName}
+          </Text>
+        </Flex>
+        <Box
+          position="absolute"
+          bottom
+          right
+          display={hovered ? 'block' : 'none'}
+          dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+        >
+          <Pog
+            icon="copy-to-clipboard"
+            size="xs"
+            iconColor="darkGray"
+            bgColor="lightGray"
+            padding={1}
+          />
         </Box>
-      </TapArea>
-    </Tooltip>
+      </Box>
+    </TapArea>
   );
 }
 
 function findIcon(icon?: string): ?IconName {
   return icons.find((name) => name === icon);
+}
+
+function findIconByCategory(icon?: string, category: string): IconData {
+  // This check ensures there is an actual matching icon in our component
+  // so we don't accidentally show icons that are only in Figma.
+  const iconComponentName = icons.find((name) => name === icon);
+
+  return iconCategoryData.icons.find(
+    ({ name, categories }) => name === iconComponentName && categories.includes(category),
+  );
 }
 
 export default function IconPage(): Node {
@@ -34,22 +140,15 @@ export default function IconPage(): Node {
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
   const [inputValue, setInputValue] = useState();
-  const [selected, setSelected] = useState();
+  const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
   const handleOnChange = ({ value }) => {
-    setSelected();
     setInputValue(value);
     setSuggestedOptions(
       value
         ? iconOptions.filter(({ label }) => label.toLowerCase().includes(value.toLowerCase()))
         : iconOptions,
     );
-  };
-
-  const handleSelect = ({ item }) => {
-    setInputValue(item.label);
-    setSuggestedOptions(iconOptions);
-    setSelected(item);
   };
 
   const buildHandleIconClick = (iconName: string) => () => {
@@ -62,58 +161,106 @@ export default function IconPage(): Node {
     }
   };
 
-  const selectedIcon = findIcon(selected?.label);
+  const renderIconTiles = () =>
+    sortedAlphabetical ? (
+      <Flex gap={3} wrap>
+        {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
+          const icon = findIcon(iconName);
+          return icon ? (
+            <IconTile key={iconName} iconName={icon} onTap={buildHandleIconClick(icon)} />
+          ) : null;
+        })}
+      </Flex>
+    ) : (
+      CATEGORIES.map((category) => {
+        const iconsToRenderByCategory = (suggestedOptions || iconOptions).map(
+          ({ label: iconName }) => {
+            const iconData = findIconByCategory(iconName, category);
+            return iconData ? (
+              <IconTile
+                key={iconName}
+                iconName={iconData.name}
+                onTap={buildHandleIconClick(iconData.name)}
+              />
+            ) : null;
+          },
+        );
+        if (iconsToRenderByCategory.filter(Boolean).length === 0) {
+          return null;
+        }
+        return (
+          <Flex key={category} direction="column" gap={4}>
+            <Heading size="400">{category}</Heading>
+            <Flex gap={3} wrap>
+              {iconsToRenderByCategory}
+            </Flex>
+          </Flex>
+        );
+      })
+    );
+
+  const renderEmptyState = () => (
+    <Flex direction="column" gap={3}>
+      <Heading color="error" size="400">
+        No result found
+      </Heading>
+      <Text>
+        It appears we don&apos;t have an icon that matches your search. Check your spelling or try a
+        different search term.
+      </Text>
+      <Text>
+        Need a new icon?{' '}
+        <Link inline href="/get_started/how_to_work_with_us#Slack-channels">
+          Reach out to us
+        </Link>
+        , and we can evaluate your request.
+      </Text>
+    </Flex>
+  );
 
   return (
-    <Page title="Iconography and SVGs">
+    <Page title="Iconography collection">
       <PageHeader name="Iconography and SVGs" folderName="icons" type="guidelines" />
 
       <MainSection
         name="Icon library"
-        description="Use the combobox on the left to search icons by name. The icon list on the right renders the filtered results. You can also use the icon list to visually search for icons. On hover, a tooltip displays the icon name. On click, the icon name will be copied."
+        description="Use the icon grid to visually search for icons. On click, the icon name will be copied. You can use the search input below to search icons by name, or filter your search by alphabetical or category."
       >
-        <Flex width="100%">
-          <Box width="35%">
-            <ComboBox
-              accessibilityClearButtonLabel="Clear the current value"
-              label="Search icons by name"
-              id="controlled"
-              inputValue={inputValue}
-              noResultText="No results for your selection"
-              options={suggestedOptions}
-              onBlur={() => {
-                if (!selected) setInputValue('');
-                setSuggestedOptions(iconOptions);
-              }}
-              onClear={() => {
-                setInputValue('');
-                setSelected();
-                setSuggestedOptions(iconOptions);
-              }}
-              selectedOption={selected}
-              placeholder="Search"
-              onChange={handleOnChange}
-              onSelect={handleSelect}
-            />
-          </Box>
-          <Box borderStyle="shadow" marginStart={4} overflow="auto" padding={4} width="65%">
-            <Flex
-              gap={{
-                row: 1,
-                column: 0,
-              }}
-              wrap
-            >
-              {selectedIcon ? (
-                <ClickableIcon iconName={selectedIcon} onTap={buildHandleIconClick(selectedIcon)} />
-              ) : (
-                (suggestedOptions || iconOptions).map(({ label: iconName }, index) => {
-                  const icon = findIcon(iconName);
-                  return icon ? (
-                    <ClickableIcon key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
-                  ) : null;
-                })
-              )}
+        <Flex width="100%" direction="column" gap={8}>
+          <Flex gap={6} alignItems="end" wrap>
+            <Flex.Item maxWidth={300} flex="grow">
+              <SearchField
+                accessibilityLabel="Search icons by name"
+                autoComplete="off"
+                accessibilityClearButtonLabel="Clear search field"
+                label="Search icons by name"
+                id="icon-search-field"
+                onChange={handleOnChange}
+                value={inputValue}
+              />
+            </Flex.Item>
+            <RadioGroup legend="Sort by" direction="row" id="directionExample">
+              <RadioGroup.RadioButton
+                checked={sortedAlphabetical}
+                id="sortAlphabetical"
+                label="Alphabetical"
+                name="sortOrder"
+                onChange={() => setSortedAlphabetical(true)}
+                value="alphabetical"
+              />
+              <RadioGroup.RadioButton
+                checked={!sortedAlphabetical}
+                id="sortCategory"
+                label="Category"
+                name="sortOrder"
+                onChange={() => setSortedAlphabetical(false)}
+                value="category"
+              />
+            </RadioGroup>
+          </Flex>
+          <Box>
+            <Flex direction="column" gap={8}>
+              {suggestedOptions.length === 0 ? renderEmptyState() : renderIconTiles()}
             </Flex>
           </Box>
         </Flex>
@@ -136,54 +283,6 @@ export default function IconPage(): Node {
             </Box>
           </Layer>
         )}
-      </MainSection>
-
-      <MainSection name="Custom SVG icons">
-        <MainSection.Subsection
-          description={`
-If you need a new icon for an experiment that is not listed on our [Icon](/web/icon) documentation, use the \`dangerouslySetSvgPath\` prop on [Icon](/web/icon), [IconButton](/web/iconbutton), and [Pog](/web/pog).
-
-However, \`dangerouslySetSvgPath\` only works with one SVG path. For icons with multiple paths and groups, use [Box](/web/box) and \`dangerouslySetInlineStyle\` to pass the custom icon as \`backgroundImage\`.
-
-Once your experiment ships to 100%, ask your designer to follow the directions in the [Icon kit](https://www.figma.com/file/N60WnDx9j6Moz3Dt1rNsq9/Icon-Kit). Once the asset is ready, we can add the icon to Gestalt.
-
-Gestalt icon svg files follow a particular format and use automatic file validation testing.
-
-\`<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-<path d="_______________"/>
-</svg>\`
-
-We override the color in the Gestalt Icon component and Gestalt only uses the \`d\` attribute in the \`path\` tag and the basic attributes for visualizing the raw file in the \`svg\` tag . For consistency, we don't include unnecessary attributes in the \`svg\` and \`path\` tags.
-
-We recommend streamlining (removing strokes, transforms, etc.) and optimizing the SVGs to improve performance and the pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac)
-
-To use svgo, install
-
-\`npm -g install svgo\`
-
-and run
-
-\`svgo -f packages/gestalt/src/icons --config=packages/gestalt/src/icons/svgo.config.js\``}
-        />
-      </MainSection>
-
-      <MainSection name="Accessibility">
-        <MainSection.Subsection
-          description="
-- Icons must meet the [Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) requirement.
-- Avoid using unfamiliar icons. Always refer to Gestalt available icons. A new icon needs to be user tested to evaluate comprehension.
-- Icons should be universal across cultures, regions, ages, and backgrounds without need for translation. Be mindful of your audience and use symbols and labels that resonate with them.
-- Some icons don't translate well in all cultures, so it's preferred to user-test each icon before it is added to Gestalt.
-"
-        />
-      </MainSection>
-
-      <MainSection name="Brand icons">
-        <MainSection.Subsection
-          description={`
-        All brand icons are trademarks of their respective owners. The inclusion of these trademarks does not indicate endorsement of the trademark holder by Pinterest, nor vice-versa. Please do not use brand logos for any purpose except to represent the company, product, or service to which they refer.
-        `}
-        />
       </MainSection>
     </Page>
   );
