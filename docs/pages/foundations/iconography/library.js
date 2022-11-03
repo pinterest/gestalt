@@ -14,7 +14,6 @@ import {
   Text,
   Toast,
 } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 // $FlowExpectedError[untyped-import]
@@ -190,7 +189,9 @@ export default function IconPage(): Node {
         }
         return (
           <Flex key={category} direction="column" gap={4}>
-            <Heading size="400">{category}</Heading>
+            <Heading size="400" accessibilityLevel={2}>
+              {category}
+            </Heading>
             <Flex gap={3} wrap>
               {iconsToRenderByCategory}
             </Flex>
