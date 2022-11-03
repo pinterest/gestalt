@@ -219,71 +219,71 @@ export default function IconPage(): Node {
   );
 
   return (
-    <Page title="Iconography collection">
-      <PageHeader name="Iconography and SVGs" folderName="icons" type="guidelines" />
-
-      <MainSection
+    <Page title="Icon library">
+      <PageHeader
         name="Icon library"
+        folderName="icons"
+        type="guidelines"
         description="Use the icon grid to visually search for icons. On click, the icon name will be copied. You can use the search input below to search icons by name, or filter your search by alphabetical or category."
-      >
-        <Flex width="100%" direction="column" gap={8}>
-          <Flex gap={6} alignItems="end" wrap>
-            <Flex.Item maxWidth={300} flex="grow">
-              <SearchField
-                accessibilityLabel="Search icons by name"
-                autoComplete="off"
-                accessibilityClearButtonLabel="Clear search field"
-                label="Search icons by name"
-                id="icon-search-field"
-                onChange={handleOnChange}
-                value={inputValue}
-              />
-            </Flex.Item>
-            <RadioGroup legend="Sort by" direction="row" id="directionExample">
-              <RadioGroup.RadioButton
-                checked={sortedAlphabetical}
-                id="sortAlphabetical"
-                label="Alphabetical"
-                name="sortOrder"
-                onChange={() => setSortedAlphabetical(true)}
-                value="alphabetical"
-              />
-              <RadioGroup.RadioButton
-                checked={!sortedAlphabetical}
-                id="sortCategory"
-                label="Category"
-                name="sortOrder"
-                onChange={() => setSortedAlphabetical(false)}
-                value="category"
-              />
-            </RadioGroup>
-          </Flex>
-          <Box>
-            <Flex direction="column" gap={8}>
-              {suggestedOptions.length === 0 ? renderEmptyState() : renderIconTiles()}
-            </Flex>
-          </Box>
-        </Flex>
+      />
 
-        {showToastText && (
-          <Layer>
-            <Box
-              dangerouslySetInlineStyle={{
-                __style: {
-                  bottom: 50,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                },
-              }}
-              fit
-              paddingX={1}
-              position="fixed"
-            >
-              <Toast text={showToastText} />
-            </Box>
-          </Layer>
-        )}
-      </MainSection>
+      <Flex width="100%" direction="column" gap={8}>
+        <Flex gap={6} alignItems="end" wrap>
+          <Flex.Item maxWidth={300} flex="grow">
+            <SearchField
+              accessibilityLabel="Search icons by name"
+              autoComplete="off"
+              accessibilityClearButtonLabel="Clear search field"
+              label="Search icons by name"
+              id="icon-search-field"
+              onChange={handleOnChange}
+              value={inputValue}
+            />
+          </Flex.Item>
+          <RadioGroup legend="Sort by" direction="row" id="directionExample">
+            <RadioGroup.RadioButton
+              checked={sortedAlphabetical}
+              id="sortAlphabetical"
+              label="Alphabetical"
+              name="sortOrder"
+              onChange={() => setSortedAlphabetical(true)}
+              value="alphabetical"
+            />
+            <RadioGroup.RadioButton
+              checked={!sortedAlphabetical}
+              id="sortCategory"
+              label="Category"
+              name="sortOrder"
+              onChange={() => setSortedAlphabetical(false)}
+              value="category"
+            />
+          </RadioGroup>
+        </Flex>
+        <Box>
+          <Flex direction="column" gap={8}>
+            {suggestedOptions.length === 0 ? renderEmptyState() : renderIconTiles()}
+          </Flex>
+        </Box>
+      </Flex>
+
+      {showToastText && (
+        <Layer>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            fit
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast text={showToastText} />
+          </Box>
+        </Layer>
+      )}
     </Page>
   );
 }
