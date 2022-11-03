@@ -16,10 +16,13 @@ import DataViz8Colors from '../../../graphics/color-examples/dataViz8Colors.svg'
 type ColorCardProps = {|
   count: number,
 |};
+
 function PaletteGenerator({ count }: ColorCardProps): Node {
   return [...Array(count)].map((step, idx) => {
     const tokenStep = idx + 1;
+
     return (
+      // eslint-disable-next-line react/no-array-index-key
       <Box marginBottom={1} key={`color-${idx}`}>
         <ColorTile
           textColor={tokenStep === 1 || tokenStep === 2 ? 'dark' : 'inverse'}

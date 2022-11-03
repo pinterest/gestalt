@@ -15,8 +15,8 @@ export default function Snapshot(): Node {
           }}
           wrap
         >
-          {icons.map((name, index) => (
-            <Box key={index} padding={2}>
+          {icons.map((name) => (
+            <Box key={name} padding={2}>
               <Icon color="default" accessibilityLabel="" icon={name} />
             </Box>
           ))}
