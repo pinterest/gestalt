@@ -1,3 +1,9 @@
+## 80.0.1 (Nov 3, 2022)
+
+### Patch
+
+- Icons: Update Icon library page ([#2462](https://github.com/pinterest/gestalt/pull/2462)) - [Preview link](https://deploy-preview-2462--gestalt.netlify.app)
+
 ## 80.0.0 (Nov 2, 2022)
 
 ### Major
