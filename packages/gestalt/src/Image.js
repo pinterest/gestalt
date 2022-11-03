@@ -31,15 +31,15 @@ type Props = {|
    */
   elementTiming?: string,
   /**
+   * Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.
+   * Note that this feature is currently experimental; please see the [attribute spec](https://wicg.github.io/priority-hints/) for more details.
+   */
+  fetchPriority?: 'high' | 'low' | 'auto',
+  /**
    * Sets how the image is resized to fit its container. See the [Fit example](https://gestalt.pinterest.systems/web/image#fit) for more details.
    * Note: this doesn't work with srcSet or sizes.
    */
   fit?: 'contain' | 'cover' | 'none',
-  /**
-   * Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.
-   * Note that this feature is currently experimental; please see the [attribute spec](https://wicg.github.io/priority-hints/) for more details.
-   */
-  importance?: 'high' | 'low' | 'auto',
   /**
    * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/web/image#Lazy) for more details.
    */
@@ -88,14 +88,14 @@ type Props = {|
 export default class Image extends PureComponent<Props> {
   static defaultProps: {|
     color: string,
+    fetchPriority?: 'high' | 'low' | 'auto',
     fit?: 'contain' | 'cover' | 'none',
-    importance?: 'high' | 'low' | 'auto',
     loading?: 'eager' | 'lazy' | 'auto',
   |} = {
     // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
+    fetchPriority: 'auto',
     fit: 'none',
-    importance: 'auto',
     loading: 'auto',
   };
 
@@ -141,8 +141,8 @@ export default class Image extends PureComponent<Props> {
       crossOrigin,
       decoding,
       elementTiming,
+      fetchPriority,
       fit,
-      importance,
       loading,
       naturalHeight,
       naturalWidth,
@@ -188,7 +188,7 @@ export default class Image extends PureComponent<Props> {
           crossOrigin={crossOrigin}
           decoding={decoding}
           elementtiming={elementTiming}
-          importance={importance}
+          fetchpriority={fetchPriority}
           loading={loading}
           onError={this.handleError}
           onLoad={this.handleLoad}

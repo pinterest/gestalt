@@ -65,6 +65,14 @@ test('Image with crossorigin specified matches snapshot', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Image with fetchPriority specified matches snapshot', () => {
+  const component = renderer.create(
+    <Image alt="foo" fetchPriority="high" naturalHeight={50} naturalWidth={50} src="foo.png" />,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Image with decoding specified matches snapshot', () => {
   const component = renderer.create(
     <Image alt="foo" decoding="sync" naturalHeight={50} naturalWidth={50} src="foo.png" />,
