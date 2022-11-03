@@ -73,7 +73,6 @@ function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void 
         borderStyle="sm"
         rounding={2}
         padding={2}
-        paddingX={2}
         width={150}
         height={110}
         color={hovered ? 'inverse' : 'default'}
@@ -165,21 +164,21 @@ export default function IconPage(): Node {
   const renderIconTiles = () =>
     sortedAlphabetical ? (
       <Flex gap={3} wrap>
-        {(suggestedOptions || iconOptions).map(({ label: iconName }, index) => {
+        {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
           const icon = findIcon(iconName);
           return icon ? (
-            <IconTile key={index} iconName={icon} onTap={buildHandleIconClick(icon)} />
+            <IconTile key={iconName} iconName={icon} onTap={buildHandleIconClick(icon)} />
           ) : null;
         })}
       </Flex>
     ) : (
-      CATEGORIES.map((category, idx) => {
+      CATEGORIES.map((category) => {
         const iconsToRenderByCategory = (suggestedOptions || iconOptions).map(
-          ({ label: iconName }, index) => {
+          ({ label: iconName }) => {
             const iconData = findIconByCategory(iconName, category);
             return iconData ? (
               <IconTile
-                key={index}
+                key={iconName}
                 iconName={iconData.name}
                 onTap={buildHandleIconClick(iconData.name)}
               />
@@ -190,7 +189,7 @@ export default function IconPage(): Node {
           return null;
         }
         return (
-          <Flex key={idx} direction="column" gap={4}>
+          <Flex key={category} direction="column" gap={4}>
             <Heading size="400">{category}</Heading>
             <Flex gap={3} wrap>
               {iconsToRenderByCategory}
