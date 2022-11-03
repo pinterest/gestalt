@@ -68,7 +68,7 @@ Display generic error messages, such as "There is an error" or remove the accomp
 Consider all text fields as required, unless explicitly noted as optional.
 </Group>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/0a/d6/42/0ad6427f94cef2e8404f1c4eb54d1300.jpg" alt="A form with three fields where the username field is marked as required."/>
+<ImgContainer src="https://i.pinimg.com/originals/5b/72/ce/5b72ceece98e79d97b684103d421288e.jpg" alt="A form with three fields where the username field is marked as required."/>
 <Dont title="Don't" />
 Mark fields as required.
 </Group>
