@@ -48,8 +48,8 @@ export default function Snapshot(): Node {
               </Box>
               <Checkbox id="header_checkbox" onChange={() => {}} indeterminate size="sm" />
             </Table.HeaderCell>
-            {['Campaign', 'Spend'].map((title, idx) => (
-              <Table.HeaderCell key={idx}>
+            {['Campaign', 'Spend'].map((title) => (
+              <Table.HeaderCell key={title}>
                 <Text align={title === 'Spend' ? 'end' : 'start'} weight="bold">
                   {title}
                 </Text>

@@ -108,7 +108,7 @@ export default function Combination({
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => {
           const combinationTitles = Object.keys(combination).map((key) => (
-            <Text align="center" size="200" key={`${i}-${key}`}>
+            <Text align="center" size="200" key={key}>
               {toReactAttribute(key, combination[key])}
             </Text>
           ));
@@ -117,7 +117,7 @@ export default function Combination({
               column={column}
               mdColumn={mdColumn}
               lgColumn={lgColumn}
-              key={i}
+              key={JSON.stringify(combination)}
               padding={4}
               display="flex"
               direction="column"

@@ -87,6 +87,7 @@ export default function ModuleExpandable({
           { badge, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
           index,
         ) => (
+          // eslint-disable-next-line react/no-array-index-key
           <Fragment key={index}>
             {index > 0 && <Divider />}
             <ModuleExpandableItem

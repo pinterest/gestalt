@@ -39,28 +39,26 @@ function QualityTable({ accessibilityData }: {| accessibilityData?: AccessibleSt
         </Table.Header>
       </Box>
       <Table.Body>
-        {['a11yVisual', 'a11yScreenreader', 'a11yNavigation', 'a11yComprehension'].map(
-          (item, index) => {
-            const componentStatus = accessibilityData?.[item] ?? 'notAvailable';
+        {['a11yVisual', 'a11yScreenreader', 'a11yNavigation', 'a11yComprehension'].map((item) => {
+          const componentStatus = accessibilityData?.[item] ?? 'notAvailable';
 
-            return (
-              <Table.Row key={index}>
-                <Table.Cell>
-                  <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <StatusData
-                    text={STATUS_DESCRIPTION[componentStatus].title}
-                    status={componentStatus}
-                  />
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item][componentStatus]}</Text>
-                </Table.Cell>
-              </Table.Row>
-            );
-          },
-        )}
+          return (
+            <Table.Row key={item}>
+              <Table.Cell>
+                <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
+              </Table.Cell>
+              <Table.Cell>
+                <StatusData
+                  text={STATUS_DESCRIPTION[componentStatus].title}
+                  status={componentStatus}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item][componentStatus]}</Text>
+              </Table.Cell>
+            </Table.Row>
+          );
+        })}
       </Table.Body>
     </Table>
   );

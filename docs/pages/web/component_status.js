@@ -55,18 +55,16 @@ export default function ComponentStatus(): Node {
               </Table.Header>
             </Box>
             <Table.Body>
-              {['ready', 'partial', 'planned', 'deprecated', 'notAvailable'].map(
-                (typeStatus, index) => (
-                  <Table.Row key={index}>
-                    <Table.Cell>
-                      <StatusData status={typeStatus} />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Text>{STATUS_DESCRIPTION[typeStatus].description}</Text>
-                    </Table.Cell>
-                  </Table.Row>
-                ),
-              )}
+              {['ready', 'partial', 'planned', 'deprecated', 'notAvailable'].map((typeStatus) => (
+                <Table.Row key={typeStatus}>
+                  <Table.Cell>
+                    <StatusData status={typeStatus} />
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{STATUS_DESCRIPTION[typeStatus].description}</Text>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
             </Table.Body>
           </Table>
         </Column>
@@ -97,7 +95,7 @@ export default function ComponentStatus(): Node {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {componentSortedList.map((item, index) => {
+            {componentSortedList.map((item) => {
               const {
                 badge,
                 android,
@@ -110,7 +108,7 @@ export default function ComponentStatus(): Node {
               } = item.status || {};
 
               return (
-                <Table.Row key={index}>
+                <Table.Row key={item.name}>
                   <Table.Cell>
                     <Text size="200" inline>
                       {figmaOnly ? (
@@ -140,13 +138,13 @@ export default function ComponentStatus(): Node {
                       )}
                     </Text>
                   </Table.Cell>
-                  {[figma, documentation, responsive, iOS, android].map((status, idx) =>
+                  {[figma, documentation, responsive, iOS, android].map((status) =>
                     deprecated ? (
-                      <Table.Cell key={item.name + idx}>
+                      <Table.Cell key={status}>
                         <DeprecatedStatus />
                       </Table.Cell>
                     ) : (
-                      <Table.Cell key={item.name + idx}>
+                      <Table.Cell key={status}>
                         <StatusData status={status || 'notAvailable'} />
                       </Table.Cell>
                     ),

@@ -20,10 +20,10 @@ export default function FoundationsOverview(): Node {
           />
         </IllustrationContainer>
         <IllustrationSection title="" grid="auto-fill" min={312}>
-          {COMPONENT_DATA.foundations.map((element, idx) => (
+          {COMPONENT_DATA.foundations.map((element) => (
             <IllustrationCard
               headingLevel={2}
-              key={idx}
+              key={element.name}
               href={element?.path ?? `/web/${element.name.replace(/\s/g, '_').toLowerCase()}`}
               title={element.name}
               description={element.description}

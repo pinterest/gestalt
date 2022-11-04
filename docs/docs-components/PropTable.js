@@ -48,8 +48,8 @@ function Description(lines: $ReadOnlyArray<string>): Node {
         column: 2,
       }}
     >
-      {lines.map((line, idx) => (
-        <Markdown key={idx} text={line} textColor="subtle" />
+      {lines.map((line) => (
+        <Markdown key={line} text={line} textColor="subtle" />
       ))}
     </Flex>
   );

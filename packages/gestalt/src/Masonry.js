@@ -489,6 +489,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
+              // eslint-disable-next-line react/no-array-index-key
               key={i}
               ref={(el) => {
                 // purposely not checking for layout === 'serverRenderedFlexible' here

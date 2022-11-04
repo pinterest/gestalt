@@ -86,11 +86,11 @@ Not sure which component to use? [Set up time with the Gestalt team.](/get_start
           <Fragment>
             {Object.keys(GENERAL_COMPONENT_CATEGORY_MAP)
               .sort()
-              .map((category, idx) => (
+              .map((category) => (
                 <List
                   platform={platform}
                   headingLevel={3}
-                  key={idx}
+                  key={category}
                   array={GENERAL_COMPONENT_CATEGORY_MAP[category]}
                   title={category}
                 />

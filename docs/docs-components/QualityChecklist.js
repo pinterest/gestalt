@@ -42,10 +42,10 @@ export default function QualityChecklist({ component }: Props): Node {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {['figma', 'responsive', 'iOS', 'android'].map((item, index) => {
+            {['figma', 'responsive', 'iOS', 'android'].map((item) => {
               const componentStatus = componentData?.status?.[item] ?? 'notAvailable';
               return (
-                <Table.Row key={index}>
+                <Table.Row key={item}>
                   <Table.Cell>
                     <Text>{COMPONENT_STATUS_MESSAGING[item].title}</Text>
                   </Table.Cell>

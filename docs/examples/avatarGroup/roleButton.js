@@ -20,8 +20,8 @@ const collaborators = [
 function List(): Node {
   return (
     <Flex direction="column" gap={{ column: 2, row: 0 }}>
-      {collaborators.map(({ name, src }, index) => (
-        <Flex key={index} alignItems="center" gap={{ row: 2, column: 0 }}>
+      {collaborators.map(({ name, src }) => (
+        <Flex key={name} alignItems="center" gap={{ row: 2, column: 0 }}>
           <Avatar size="md" name={name} src={src} />
           <Text weight="bold">{name}</Text>
         </Flex>

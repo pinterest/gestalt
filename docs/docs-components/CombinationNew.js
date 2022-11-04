@@ -75,7 +75,7 @@ export default function CombinationNew({
 
     return (
       <MainSectionCard
-        key={i}
+        key={JSON.stringify(combination)}
         cardSize="sm"
         shadeColor={cardShadeColor}
         title={hideTitle ? undefined : combinationTitles}

@@ -23,8 +23,8 @@ function HeaderRow({ id }: {| id: string |}): Node {
           </Box>
           <Checkbox id={id} onChange={() => {}} indeterminate size="sm" />
         </Table.HeaderCell>
-        {['Status', 'Audience'].map((title, idx) => (
-          <Table.HeaderCell key={idx}>
+        {['Status', 'Audience'].map((title) => (
+          <Table.HeaderCell key={title}>
             <Text weight="bold">{title}</Text>
           </Table.HeaderCell>
         ))}

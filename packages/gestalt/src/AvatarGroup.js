@@ -120,6 +120,7 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     <CollaboratorAvatar
       hovered={hovered}
       index={index}
+      // eslint-disable-next-line react/no-array-index-key
       key={`collaboratorStack-${name}-${index}`}
       name={name}
       pileCount={pileCount}

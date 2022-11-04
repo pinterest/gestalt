@@ -77,6 +77,7 @@ export default function ModuleExpandableItem({
                 <Box column={6} marginStart={6}>
                   <Flex direction="column" gap={{ column: 2, row: 0 }}>
                     {summary.map((item, i) => (
+                      // eslint-disable-next-line react/no-array-index-key
                       <Text key={i} size="200" lineClamp={1}>
                         {item}
                       </Text>

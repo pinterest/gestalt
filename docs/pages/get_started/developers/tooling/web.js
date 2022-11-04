@@ -99,8 +99,8 @@ export default function ToolingPage(): Node {
                 'Documentation site in gestalt.pinterest.systems',
                 'https://gestalt.pinterest.systems/',
               ],
-            ].map((item, idx) => (
-              <ListElement key={idx} text={item[0]} href={item[1]} />
+            ].map((item) => (
+              <ListElement key={item[0]} text={item[0]} href={item[1]} />
             ))}
           </ul>
         </Flex>
@@ -429,9 +429,9 @@ The following table lists the currently available metrics to track Gestalt adopt
                   '# most used CSS attributes passed to dangerouslySetInlineStyle; # per site',
                   'http://go/metrics_dangerouslySetInlineStyle_keys',
                 ],
-              ].map((item, idx) => (
+              ].map((item) => (
                 <TableEntry
-                  key={`table_entry_${idx}`}
+                  key={`table_entry: ${item[0]}`}
                   metric={item[0]}
                   description={item[1]}
                   href={item[2]}

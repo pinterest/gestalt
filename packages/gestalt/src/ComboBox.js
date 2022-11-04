@@ -388,6 +388,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             isHovered={index === hoveredItemIndex}
             id={id}
             index={index}
+            // eslint-disable-next-line react/no-array-index-key
             key={`${id}${index}`}
             label={comboBoxItemlabel}
             subtext={subtext}

@@ -229,6 +229,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
       {tags ? (
         <div className={classes} style={tagsWrapperStyle}>
           {tags.map((tag, tagIndex) => (
+            // eslint-disable-next-line react/no-array-index-key
             <Box key={tagIndex} marginEnd={1} marginBottom={1}>
               {tag}
             </Box>

@@ -28,7 +28,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     if (nestingLevel === 0) {
       return (
         <SideNavigation.Section key={`${navItem.sectionName}`} label={navItem.sectionName}>
-          {navItem.pages.map((pageInfo, i) => {
+          {navItem.pages.map((pageInfo) => {
             if (typeof pageInfo === 'string') {
               const href = `/${convertNamesForURL(navItem.sectionName)}/${convertNamesForURL(
                 pageInfo,
@@ -38,7 +38,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
                   active={isActiveTab(href)}
                   label={pageInfo}
                   onClick={() => setIsSidebarOpen?.(false)}
-                  key={`${pageInfo}--${i}`}
+                  key={pageInfo}
                   href={href}
                 />
               );
@@ -51,7 +51,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     if (nestingLevel === 1) {
       return (
         <SideNavigation.Group key={`${navItem.sectionName}`} label={navItem.sectionName}>
-          {navItem.pages.map((nestedPage, i) => {
+          {navItem.pages.map((nestedPage) => {
             if (typeof nestedPage === 'string') {
               const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
                 navItem.sectionName,
@@ -61,7 +61,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
                   active={isActiveTab(href)}
                   label={nestedPage}
                   onClick={() => setIsSidebarOpen?.(false)}
-                  key={`${nestedPage}--${i}`}
+                  key={nestedPage}
                   href={href}
                 />
               );
@@ -74,7 +74,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     }
     return (
       <SideNavigation.NestedGroup key={`${navItem.sectionName}`} label={navItem.sectionName}>
-        {navItem.pages.map((nestedPage, i) => {
+        {navItem.pages.map((nestedPage) => {
           if (typeof nestedPage === 'string') {
             const href = `/${convertNamesForURL(previousSectionName)}/${convertNamesForURL(
               navItem.sectionName,
@@ -84,7 +84,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
                 active={isActiveTab(href)}
                 label={nestedPage}
                 onClick={() => setIsSidebarOpen?.(false)}
-                key={`${nestedPage}--${i}`}
+                key={nestedPage}
                 href={href}
               />
             );
