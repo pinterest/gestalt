@@ -2,6 +2,38 @@
   "year": "2022",
   "digests": [
     {
+      "month": "October",
+      "summary": "",
+      "posts": [
+        {
+          "title": "Gestalt Eng October Newsletter",
+          "audience": ["Engineering"],
+          "content": "A recap of significant changes from October."
+        },
+        {
+          "title": "Search improvements",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/ff/5d/25/ff5d256987b4e9f7e22f15ec7dd5c3fd.png",
+          "imageAltText": "Screenshot of search improvements",
+          "content": "We know, our docs search feature has been a bit…lackluster. We feel that pain too. This month we made a couple of changes to improve that experience. We added an 'also known as' section to the top of every component page, helping you find the component you're looking for even if you know it by a different name. And we removed the Component Overview and Component Status pages from the search results, improving the relevance of the hits. And we'll continue to improve search in the future!"
+        },
+        {
+          "title": "New components: ModalAlert and DefaultLabelProvider",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/7b/12/47/7b124767712384336078fe73013f7f13.png",
+          "imageAltText": "Screenshot of ModalAlert",
+          "content": "We released two new components: ModalAlert and DefaultLabelProvider.\n\n[ModalAlert](https://gestalt.pinterest.systems/web/modalalert) is a focused, simple alert dialog that fulfills one of the most common modal usages in a much simpler way than our Modal component. Check it out, and look for other focused user messaging components in the near future.\n\nYou probably won't need to interact directly with [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider) much, unless you maintain a repo using Gestalt. It's an root-level Provider that supplies default values for common labels, like ModalAlert's `accessibilityDismissButtonLabel`. This means fewer props are required at the component callsite, making implementation faster and easier. Apps that require translations, like Pinboard, can pass those in [where DefaultLabelProvider is implemented](https://phabricator.pinadmin.com/diffusion/P/browse/master/webapp/app/packages/gestaltExtensions/GestaltDefaultLabelProvider.js). Apps that do not require translations can implement the Provider with no additional work needed, getting the labels for free!"
+        },
+        {
+          "title": "Component updates: Flex, Text, all inputs",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/47/26/97/472697315f8ab0a251d38cc0d308e3f3.png",
+          "imageAltText": "Screenshot of TextField error state",
+          "content": "For a more consistent user experience, we standardized error states across all our input components: [Checkbox](https://gestalt.pinterest.systems/web/checkbox), [ComboBox](https://gestalt.pinterest.systems/web/combobox), [NumberField](https://gestalt.pinterest.systems/web/numberfield), [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup), [SearchField](https://gestalt.pinterest.systems/web/searchfield), [SelectList](https://gestalt.pinterest.systems/web/selectlist), [TextArea](https://gestalt.pinterest.systems/web/textarea), and [TextField](https://gestalt.pinterest.systems/web/textfield). We also added a `dataTestId` prop to [Flex](https://gestalt.pinterest.systems/web/flex) (and Flex.Item) to allow for easier testing without needing to wrap with additional Boxes. Look for more `dataTestId`s to be added to other components in the future. Finally, we also removed the rarely-used 'justify' option for [Text's](https://gestalt.pinterest.systems/web/text) `align` prop to match design guidance."
+        }
+      ]
+    },
+    {
       "week": "October 28, 2022",
       "summary": "New animation guidelines, additional icons added to Figma and upcoming accessibility training",
       "posts": [
