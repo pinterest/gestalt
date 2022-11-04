@@ -1,3 +1,9 @@
+## 80.0.5 (Nov 4, 2022)
+
+### Patch
+
+- Internal: turn on `react/no-array-index-key` lint rule ([#2472](https://github.com/pinterest/gestalt/pull/2472)) - [Preview link](https://deploy-preview-2472--gestalt.netlify.app)
+
 ## 80.0.4 (Nov 4, 2022)
 
 ### Patch
