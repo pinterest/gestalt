@@ -1,3 +1,9 @@
+## 80.0.7 (Nov 4, 2022)
+
+### Patch
+
+- TextField - iOS: Update docs images ([#2471](https://github.com/pinterest/gestalt/pull/2471)) - [Preview link](https://deploy-preview-2471--gestalt.netlify.app)
+
 ## 80.0.6 (Nov 4, 2022)
 
 ### Patch
