@@ -1,3 +1,9 @@
+## 80.0.3 (Nov 4, 2022)
+
+### Patch
+
+- Docs: fix typos ([#2476](https://github.com/pinterest/gestalt/pull/2476)) - [Preview link](https://deploy-preview-2476--gestalt.netlify.app)
+
 ## 80.0.2 (Nov 3, 2022)
 
 ### Patch
