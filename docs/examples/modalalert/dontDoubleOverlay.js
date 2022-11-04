@@ -44,7 +44,7 @@ export default function DoOverlayPage(): Node {
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Delete board 70s Furniture"
-            heading="Delete this board"
+            heading="Delete this board?"
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
