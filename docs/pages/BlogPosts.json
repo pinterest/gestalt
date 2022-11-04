@@ -2,6 +2,33 @@
   "year": "2022",
   "digests": [
     {
+      "week": "November 4, 2022",
+      "summary": "",
+      "posts": [
+        {
+          "title": "Updated Icon library page",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/98/61/6b/98616b7f23f4e4f725db66a4f4cc52f6.png",
+          "imageAltText": "screenshot of gestalt icon library",
+          "content": "The big update for this week is our newly enhanced [Icon library page](https://gestalt.pinterest.systems/foundations/iconography/library) in our Gestalt docs. We've also updated our Gestalt Figma Foundations library to follow this same structure.\n\n The goal of this work is to make the process of finding a Gestalt icon _much easier_. We have more enhancements on the way, so stay tuned."
+        },
+        {
+          "title": "Accessibility enhancements to Link, Button, TapArea and IconButton components",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/09/19/0d/09190d2903d81f722b0041a12f32b3e4.png",
+          "imageAltText": "screenshot describing how screen readers see a gestalt external link",
+          "content": "The vast majority of screen readers don't inform users that target='_blank' links open in new tabs, so we added functionality to [Link](https://gestalt.pinterest.systems/web/link), [Button](https://gestalt.pinterest.systems/web/button), [TapArea](https://gestalt.pinterest.systems/web/taparea) and [IconButton](https://gestalt.pinterest.systems/web/iconbutton) to ensure it's explicitly called out. This is yet another update to ensure Pinterest can be equally enjoyed by all."
+        },
+        {
+          "title": "New/improved Gestalt Figma components",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/6a/03/18/6a0318b3f0860f648ddf0c18e374d913.png",
+          "imageAltText": "screenshot of figma gestalt components",
+          "content": "* We dramatically simplified the PageHeader component to a svelte 4 variants, which should make for a much simpler experience. \n * We added a FeedCard Figma components for iOS (with Android and Web not far behind). **Note: FeedCard is not an official Gestalt component at this point**"
+        }
+      ]
+    },
+    {
       "month": "October",
       "summary": "",
       "posts": [
