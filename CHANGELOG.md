@@ -1,3 +1,9 @@
+## 80.0.6 (Nov 4, 2022)
+
+### Patch
+
+- TextField - Android: Update docs images ([#2470](https://github.com/pinterest/gestalt/pull/2470)) - [Preview link](https://deploy-preview-2470--gestalt.netlify.app)
+
 ## 80.0.5 (Nov 4, 2022)
 
 ### Patch
