@@ -1,3 +1,9 @@
+## 80.0.8 (Nov 5, 2022)
+
+### Patch
+
+- Docs: 11/4 weekly update ([#2478](https://github.com/pinterest/gestalt/pull/2478)) - [Preview link](https://deploy-preview-2478--gestalt.netlify.app)
+
 ## 80.0.7 (Nov 4, 2022)
 
 ### Patch
