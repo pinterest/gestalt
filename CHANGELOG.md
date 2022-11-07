@@ -1,3 +1,9 @@
+## 80.0.11 (Nov 7, 2022)
+
+### Patch
+
+- Docs: use SegmentedControl for component overview sort control ([#2477](https://github.com/pinterest/gestalt/pull/2477)) - [Preview link](https://deploy-preview-2477--gestalt.netlify.app)
+
 ## 80.0.10 (Nov 7, 2022)
 
 ### Patch
