@@ -1,3 +1,9 @@
+## 80.0.9 (Nov 7, 2022)
+
+### Patch
+
+- Docs: Fix page jumps on Sheet & Modal pages ([#2480](https://github.com/pinterest/gestalt/pull/2480)) - [Preview link](https://deploy-preview-2480--gestalt.netlify.app)
+
 ## 80.0.8 (Nov 5, 2022)
 
 ### Patch
