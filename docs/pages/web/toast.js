@@ -1,8 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
-import { Button, Link, Image, Text, Toast } from 'gestalt';
-import Combination from '../../docs-components/Combination.js';
-import Example from '../../docs-components/Example.js';
+import { type Node } from 'react';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -13,22 +10,19 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Toast">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Toast"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 <Toast
-  button={<Button key="button-key" text="Undo" size="lg" />}
+  primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
   text={
-    <React.Fragment>
-      Saved to{' '}
-      <Text inline weight="bold">
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
-          Home decor
-        </Link>
-      </Text>
-    </React.Fragment>
+    <Text inline> Saved to
+      <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        Home decor
+      </Link>
+    </Text>
   }
   thumbnail={
     <Image
@@ -71,11 +65,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <Example
-          id="displayExample"
-          name="Example: How to display"
+        <MainSection.Subsection
           description="Toasts should be displayed in the center of the viewport, opposite the main navbar (e.g. at the top of the viewport on mobile, bottom of the viewport on desktop). Though not implemented here, Toasts are meant to be ephemeral and disappear after a few seconds."
-          defaultCode={`
+          title="How to display"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
 
@@ -101,16 +97,14 @@ function ToastExample() {
             position="fixed"
           >
             <Toast
-              button={<Button key="button-key" text="Undo" size="lg" />}
+              primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
               text={
-                <React.Fragment>
+                <Text inline>
                   Saved to{' '}
-                  <Text inline weight="bold">
-                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
-                      Home decor
-                    </Link>
-                  </Text>
-                </React.Fragment>
+                  <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                    Home decor
+                  </Link>
+                </Text>
               }
               thumbnail={
                 <Image
@@ -127,41 +121,35 @@ function ToastExample() {
     </Box>
   );
 }`}
-        />
-        <Example
-          id="textOnlyExample"
-          name="Example: Simple Text"
-          defaultCode={`
-<Flex justifyContent="center" width="100%">
-  <Toast text="Section created!" />
-</Flex>
-`}
-        />
-        <Example
-          id="complexTextExample"
-          name="Example: Complex Text"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description="When passing in your own Text component for `text`, do not specify `color` on Text. Toast will automatically pick the correct text color for the given `variant`."
-          defaultCode={`
+          title="Complex Text"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     text={
-      <React.Fragment>
+      <Text inline>
         Saved to{' '}
-        <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
-            Home decor
-          </Link>
-        </Text>
-      </React.Fragment>
+        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          Home decor
+        </Link>
+      </Text>
     }
   />
 </Flex>
 `}
-        />
-        <Example
-          id="errorVariantExample"
-          name="Example: Error variant"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Error">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     text="Oops! Something went wrong. Please try again later."
@@ -169,22 +157,22 @@ function ToastExample() {
   />
 </Flex>
 `}
-        />
-        <Example
-          id="imageTextExample"
-          name="Example: Image + Text"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Thumbnail">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
     text={
-      <React.Fragment>
+      <Text inline>
         Saved to{' '}
-        <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
-            Home decor
-          </Link>
-        </Text>
-      </React.Fragment>
+        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          Home decor
+        </Link>
+      </Text>
     }
     thumbnail={
       <Image
@@ -197,109 +185,50 @@ function ToastExample() {
   />
 </Flex>
 `}
-        />
-        <Example
-          id="imageTextButtonExample"
-          name="Example: Image + Text + Button"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Primary action">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
-    button={<Button key="button-key" text="Undo" size="lg" />}
+    primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
     text={
-      <React.Fragment>
+      <Text inline>
         Saved to{' '}
-        <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
-            Home decor
-          </Link>
-        </Text>
-      </React.Fragment>
+        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          Home decor
+        </Link>
+      </Text>
     }
-    thumbnail={
-      <Image
-        alt="Modern ceramic vase pin."
-        naturalHeight={564}
-        naturalWidth={564}
-        src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-      />
+
+  />
+</Flex>`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="_dangerouslySetPrimaryAction">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex justifyContent="center" width="100%">
+  <Toast
+    _dangerouslySetPrimaryAction={<Button accessibilityLabel="test" size="lg" text="Undo" />}
+    text={
+      <Text inline>
+        Saved to{' '}
+        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          Home decor
+        </Link>
+      </Text>
     }
   />
 </Flex>
 `}
-        />
-        <Combination
-          id="combinations-overview"
-          layout="12column"
-          name="Combinations: Overview"
-          showValues={false}
-          text={[
-            'Section created!',
-            <Fragment key="saved-text">
-              Saved to{' '}
-              <Text inline weight="bold">
-                <Link
-                  inline
-                  target="blank"
-                  href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                  underline="hover"
-                >
-                  Home decor
-                </Link>
-              </Text>
-            </Fragment>,
-          ]}
-          thumbnail={[
-            null,
-            <Image
-              key="image-key"
-              alt="Modern ceramic vase pin."
-              naturalHeight={564}
-              naturalWidth={564}
-              src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-            />,
-          ]}
-          button={[null, <Button key="button-key" text="Undo" size="lg" />]}
-        >
-          {(props) => <Toast {...props} />}
-        </Combination>
-        <Combination
-          id="combinations-thumbnail"
-          layout="12column"
-          name="Combinations: Thumbnail shapes"
-          showValues={false}
-          thumbnailShape={['circle', 'square']}
-        >
-          {(props) => (
-            <Toast
-              {...props}
-              thumbnail={
-                <Image
-                  key="image-key"
-                  alt="Blush and sage plant print."
-                  naturalHeight={751}
-                  naturalWidth={564}
-                  src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-                />
-              }
-              text={
-                <Fragment>
-                  Saved to{' '}
-                  <Text inline weight="bold">
-                    <Link
-                      inline
-                      target="blank"
-                      href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                      underline="hover"
-                    >
-                      Home decor
-                    </Link>
-                  </Text>
-                </Fragment>
-              }
-              button={<Button key="button-key" text="Undo" size="lg" />}
-            />
-          )}
-        </Combination>
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

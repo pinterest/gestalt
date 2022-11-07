@@ -37,6 +37,99 @@ exports[`<Toast /> Error Toast 1`] = `
 </div>
 `;
 
+exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
+<div
+  className="box marginBottom3 paddingX4"
+  role="status"
+  style={
+    Object {
+      "maxWidth": "min(500px, 100vw)",
+      "minWidth": 330,
+      "width": 330,
+    }
+  }
+>
+  <div
+    className="box dark fit paddingX6 paddingY6 pill shadow"
+  >
+    <div
+      className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
+    >
+      <div
+        className="FlexItem flexGrow"
+        style={
+          Object {
+            "maxWidth": undefined,
+          }
+        }
+      >
+        <div
+          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
+        >
+          <span
+            className="textColorOverrideLight"
+          >
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            >
+              Saved to
+               
+              <a
+                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Home decor
+              </a>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="FlexItem flexNone"
+      >
+        <button
+          aria-label="test"
+          className="button hideOutline inline accessibilityOutline parentButton"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <div
+            className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
+          >
+            <div
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            >
+              Undo
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Toast /> Text + Image + Button 1`] = `
 <div
   className="box marginBottom3 paddingX4"
@@ -87,11 +180,11 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           <span
             className="textColorOverrideLight"
           >
-            Saved to
-             
             <span
               className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
+              Saved to
+               
               <a
                 className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
@@ -118,6 +211,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="FlexItem flexNone"
       >
         <button
+          aria-label="Test"
           className="button hideOutline inline accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
@@ -197,11 +291,11 @@ exports[`<Toast /> Text + Image 1`] = `
           <span
             className="textColorOverrideLight"
           >
-            Saved to
-             
             <span
               className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
+              Saved to
+               
               <a
                 className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"

@@ -1,5 +1,4 @@
 // @flow strict
-import { Fragment } from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
 import Link from './Link.js';
@@ -31,18 +30,16 @@ describe('<Toast />', () => {
           />
         }
         text={
-          <Fragment>
+          <Text inline weight="bold">
             Saved to{' '}
-            <Text inline weight="bold">
-              <Link
-                inline
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                underline="hover"
-              >
-                Home decor
-              </Link>
-            </Text>
-          </Fragment>
+            <Link
+              inline
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              underline="hover"
+            >
+              Home decor
+            </Link>
+          </Text>
         }
       />,
     ).toJSON();
@@ -59,20 +56,39 @@ describe('<Toast />', () => {
           />
         }
         text={
-          <Fragment>
+          <Text inline weight="bold">
             Saved to{' '}
-            <Text inline weight="bold">
-              <Link
-                inline
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                underline="hover"
-              >
-                Home decor
-              </Link>
-            </Text>
-          </Fragment>
+            <Link
+              inline
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              underline="hover"
+            >
+              Home decor
+            </Link>
+          </Text>
         }
-        button={<Button size="lg" text="Undo" />}
+        primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('Text + _dangerouslySetPrimaryAction', () => {
+    const tree = create(
+      <Toast
+        text={
+          <Text inline weight="bold">
+            Saved to{' '}
+            <Link
+              inline
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              underline="hover"
+            >
+              Home decor
+            </Link>
+          </Text>
+        }
+        _dangerouslySetPrimaryAction={<Button accessibilityLabel="test" size="lg" text="Undo" />}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Toast, Button, Image } from 'gestalt';
+import { Toast, Image } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
     <Toast
-      button={<Button key="button-key" text="Undo" size="lg" />}
+      primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
       text="Home decor"
       thumbnail={
         <Image
