@@ -162,7 +162,6 @@ export default class Image extends PureComponent<Props> {
 
     return (
       <Box
-        height={isScaledImage ? '100%' : undefined}
         position="relative"
         dangerouslySetInlineStyle={{
           __style: {
@@ -170,6 +169,7 @@ export default class Image extends PureComponent<Props> {
             paddingBottom: isScaledImage ? undefined : `${(naturalHeight / naturalWidth) * 100}%`,
           },
         }}
+        {...(isScaledImage ? { height: '100%' } : {})}
       >
         <img
           alt={alt}
