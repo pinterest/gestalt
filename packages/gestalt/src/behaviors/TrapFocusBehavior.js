@@ -53,7 +53,8 @@ export default function TrapFocusBehavior({ children }: Props): ReactNode {
 
     // Focus the first child element among all the focusable, interactive elements within `children`
     const focusFirstChild = () => {
-      if (element) {
+      const withinIframe = window !== window.parent;
+      if (element && !withinIframe) {
         focusElement(queryFocusableAll(element)[0]);
       }
     };
