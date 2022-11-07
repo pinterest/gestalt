@@ -94,8 +94,9 @@ function MainSectionSubsection({
               column: 4,
             }}
           >
-            {arrayChildren.map((child) => (
-              <Flex.Item flex="grow" key={child}>
+            {arrayChildren.map((child, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Flex.Item flex="grow" key={index}>
                 {child}
               </Flex.Item>
             ))}
