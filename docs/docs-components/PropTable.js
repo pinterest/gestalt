@@ -5,7 +5,7 @@ import Card from './Card.js';
 import Markdown from './Markdown.js';
 import clipboardCopy from './clipboardCopy.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
-import { capitalizeFirstLetter } from './utils.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import { useAppContext } from './appContext.js';
 
 const unifyQuotes = (input) => input?.replace(/'/g, '"');

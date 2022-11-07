@@ -7,7 +7,7 @@ import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
 import Markdown from './Markdown.js';
-import { capitalizeFirstLetter } from './utils.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import OpenSandboxButton from './buttons/OpenSandboxButton.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
 

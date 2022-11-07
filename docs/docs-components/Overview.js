@@ -1,24 +1,29 @@
 // @flow strict
 import { Fragment, useState, type Node } from 'react';
-import { Box, RadioGroup, Flex, Text } from 'gestalt';
+import { Box, Flex, SegmentedControl } from 'gestalt';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 import List from './OverviewList.js';
 import IllustrationContainer from './IllustrationContainer.js';
 import { type ListItemType } from './COMPONENT_DATA.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
+
+const sortOrders = ['alphabetical', 'categorical'];
+
+type Props = {|
+  buildingBlockComponents?: $ReadOnlyArray<ListItemType>,
+  generalComponents: $ReadOnlyArray<ListItemType>,
+  platform: 'Web' | 'Android' | 'iOS',
+  utilityComponents?: $ReadOnlyArray<ListItemType>,
+|};
 
 export default function Overview({
   buildingBlockComponents,
   generalComponents,
   platform,
   utilityComponents,
-}: {|
-  buildingBlockComponents?: $ReadOnlyArray<ListItemType>,
-  generalComponents: $ReadOnlyArray<ListItemType>,
-  platform: 'Web' | 'Android' | 'iOS',
-  utilityComponents?: $ReadOnlyArray<ListItemType>,
-|}): Node {
-  const [order, setOrder] = useState('alphabetical');
+}: Props): Node {
+  const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
   const alphabeticalComponentList = [
     ...(utilityComponents ?? []),
@@ -48,38 +53,19 @@ Not sure which component to use? [Set up time with the Gestalt team.](/get_start
             type="guidelines"
           />
         </IllustrationContainer>
-        <IllustrationContainer justifyContent="start">
-          <Flex gap={6} alignItems="center">
-            <Box aria-hidden>
-              <Text size="200">Sort by</Text>
-            </Box>
-            <RadioGroup
-              id="overview"
-              legendDisplay="hidden"
-              legend="Sort Gestalt components alphabetically or categorically"
-              direction="row"
-            >
-              <RadioGroup.RadioButton
-                checked={order === 'alphabetical'}
-                id="alphabetical"
-                label="Alphabetical"
-                name="overviewSort"
-                onChange={() => setOrder('alphabetical')}
-                value="alphabetical"
-                size="sm"
-              />
-              <RadioGroup.RadioButton
-                checked={order === 'category'}
-                id="category"
-                label="Category"
-                name="overviewSort"
-                onChange={() => setOrder('category')}
-                value="category"
-                size="sm"
-              />
-            </RadioGroup>
-          </Flex>
+
+        <IllustrationContainer>
+          <Box flex="none" minWidth={230} width="40%">
+            <SegmentedControl
+              items={sortOrders.map(capitalizeFirstLetter)}
+              onChange={({ activeIndex }) => {
+                setOrder(sortOrders[activeIndex]);
+              }}
+              selectedItemIndex={sortOrders.findIndex((item) => item === order)}
+            />
+          </Box>
         </IllustrationContainer>
+
         {order === 'alphabetical' ? (
           <List platform={platform} headingLevel={2} array={alphabeticalComponentList} />
         ) : (
