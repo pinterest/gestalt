@@ -1,3 +1,9 @@
+## 80.0.12 (Nov 7, 2022)
+
+### Patch
+
+- DefaultLabelProvider: add fallback objects to prevent destructuring errors ([#2483](https://github.com/pinterest/gestalt/pull/2483)) - [Preview link](https://deploy-preview-2483--gestalt.netlify.app)
+
 ## 80.0.11 (Nov 7, 2022)
 
 ### Patch
