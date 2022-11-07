@@ -76,8 +76,8 @@ export function useDefaultLabelContext<C: ValidComponent>(
 
   // If no Context value provided, return fallback labels
   if (!labels) {
-    return fallbackLabels[componentName];
+    return fallbackLabels[componentName] ?? {};
   }
 
-  return labels[componentName];
+  return labels[componentName] ?? {};
 }
