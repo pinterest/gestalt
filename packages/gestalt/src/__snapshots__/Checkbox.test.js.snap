@@ -441,6 +441,11 @@ exports[`Checkbox with an image 1`] = `
             onError={[Function]}
             onLoad={[Function]}
             src="https://i.ibb.co/FY2MKr5/stock6.jpg"
+            style={
+              Object {
+                "objectFit": "none",
+              }
+            }
           />
         </div>
       </div>

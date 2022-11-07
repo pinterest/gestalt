@@ -18,6 +18,11 @@ exports[`Image matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
+    style={
+      Object {
+        "objectFit": "none",
+      }
+    }
   />
 </div>
 `;
@@ -41,6 +46,11 @@ exports[`Image with crossorigin specified matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
+    style={
+      Object {
+        "objectFit": "none",
+      }
+    }
   />
 </div>
 `;
@@ -86,6 +96,11 @@ exports[`Image with fetchPriority specified matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
+    style={
+      Object {
+        "objectFit": "none",
+      }
+    }
   />
 </div>
 `;
@@ -95,17 +110,24 @@ exports[`Image with fit: contain and role matches snapshot 1`] = `
   className="box relative"
   style={
     Object {
+      "backgroundColor": "transparent",
       "height": "100%",
+      "paddingBottom": undefined,
     }
   }
 >
-  <div
-    className="contain"
+  <img
+    alt="foo"
+    className="img contain"
+    importance="auto"
+    loading="auto"
+    onError={[Function]}
+    onLoad={[Function]}
     role="presentation"
+    src="foo.png"
     style={
       Object {
-        "backgroundColor": "transparent",
-        "backgroundImage": "url('foo.png')",
+        "objectFit": "contain",
       }
     }
   />
@@ -122,18 +144,23 @@ exports[`Image with fit: contain matches snapshot 1`] = `
   className="box relative"
   style={
     Object {
+      "backgroundColor": "transparent",
       "height": "100%",
+      "paddingBottom": undefined,
     }
   }
 >
-  <div
-    aria-label="foo"
-    className="contain"
-    role="img"
+  <img
+    alt="foo"
+    className="img contain"
+    importance="auto"
+    loading="auto"
+    onError={[Function]}
+    onLoad={[Function]}
+    src="foo.png"
     style={
       Object {
-        "backgroundColor": "transparent",
-        "backgroundImage": "url('foo.png')",
+        "objectFit": "contain",
       }
     }
   />
@@ -150,18 +177,23 @@ exports[`Image with fit: cover matches snapshot 1`] = `
   className="box relative"
   style={
     Object {
+      "backgroundColor": "transparent",
       "height": "100%",
+      "paddingBottom": undefined,
     }
   }
 >
-  <div
-    aria-label="foo"
-    className="cover"
-    role="img"
+  <img
+    alt="foo"
+    className="img cover"
+    importance="auto"
+    loading="auto"
+    onError={[Function]}
+    onLoad={[Function]}
+    src="foo.png"
     style={
       Object {
-        "backgroundColor": "transparent",
-        "backgroundImage": "url('foo.png')",
+        "objectFit": "cover",
       }
     }
   />
@@ -191,6 +223,11 @@ exports[`Image with overlay matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
+    style={
+      Object {
+        "objectFit": "none",
+      }
+    }
   />
   <div
     className="absolute bottom0 box left0 overflowHidden right0 top0"
