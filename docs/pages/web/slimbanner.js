@@ -6,7 +6,6 @@ import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import responsiveExample from '../../examples/slimbanner/responsiveExample.js';
@@ -445,11 +444,17 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="The SlimBanner message can be complemented with a helper Link."
-          title="helperLink"
+          description={`\`message\` props accepts both strings and [Text](/Text). Use strings for simple messages without any visual style. SlimBanner will handle the message style and the adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to inline texts and links within the same Text component.
+
+The SlimBanner message strings can be complemented with a helper Link. When passing rich Text components, \`helperLink\` isn't rendered to prevent unnecessary visual load.
+
+Due to localization constrains, \`message\` and \`helperLink\` prop texts cannot belong to the same statement. They must be independent sentences separated by a period.
+`}
+          title="Message"
         >
           <MainSection.Card
-            cardSize="lg"
+            title="Simple message string with helperText"
+            cardSize="md"
             defaultCode={`
 <SlimBanner
   type="info"
@@ -461,6 +466,26 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
       href: 'http://www.pinterest.com',
       onClick: () => {},
     }}
+/>
+`}
+          />
+          <MainSection.Card
+            title="Rich message with Text component"
+            cardSize="md"
+            defaultCode={`
+<SlimBanner
+  type="recommendation"
+  message={<Text inline>The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text>}
+  primaryAction={{
+    accessibilityLabel: 'Increase spend',
+    label: 'Increase spend',
+    onClick: () => {},
+  }}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: () => {},
+  }}
+  iconAccessibilityLabel="Recommendation"
 />
 `}
           />

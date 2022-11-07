@@ -56,7 +56,7 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
 </div>
 `;
 
-exports[`SlimBanner renders helper link 1`] = `
+exports[`SlimBanner renders complex message 1`] = `
 <div
   className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
   style={
@@ -82,31 +82,35 @@ exports[`SlimBanner renders helper link 1`] = `
         <span
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
         >
-          test
+          The campaign
            
           <span
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
-            <a
-              aria-label="Learn more Pinterest.com"
-              className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
-              href="http://www.pinterest.com"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-              target={null}
-            >
-              Learn more
-            </a>
+            Back to School
           </span>
+           
+          is regularly hitting its
+           
+          <a
+            className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+            href="http://www.pinterest.com"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            target={null}
+          >
+            daily cap
+          </a>
+          . Consider raising daily caps to increase scale for a similar CPC and CTR.
         </span>
       </div>
     </div>
@@ -197,6 +201,217 @@ exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
         >
           test
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SlimBanner renders primary action and dismiss button 1`] = `
+<div
+  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="box"
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          test
+        </span>
+      </div>
+    </div>
+    <div
+      className="FlexItem flexNone"
+    >
+      <div
+        className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
+      >
+        <div
+          className="FlexItem"
+        >
+          <div
+            className="box flexNone mdDisplayFlex xsDisplayNone"
+          >
+            <button
+              aria-label="test"
+              className="button hideOutline block accessibilityOutline parentButton"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <div
+                className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                >
+                  test
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div
+          className="FlexItem"
+        >
+          <button
+            aria-label="test"
+            className="parentButton"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="button tapTransition enabled"
+            >
+              <div
+                className="pog transparent"
+                style={
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  }
+                }
+              >
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="icon defaultIcon iconBlock"
+                  height={12}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={12}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="box flexNone marginTop4 mdDisplayNone selfEnd xsDisplayFlex"
+  >
+    <button
+      aria-label="test"
+      className="button hideOutline block accessibilityOutline parentButton"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+      >
+        <div
+          className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+        >
+          test
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SlimBanner renders simple message with helper link 1`] = `
+<div
+  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="box"
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          test
+           
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            <a
+              aria-label="Learn more Pinterest.com"
+              className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+              href="http://www.pinterest.com"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Learn more
+            </a>
+          </span>
         </span>
       </div>
     </div>

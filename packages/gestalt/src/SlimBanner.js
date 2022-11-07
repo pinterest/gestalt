@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { isValidElement, Fragment, type Element, type Node } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
 import Flex from './Flex.js';
@@ -116,7 +116,7 @@ type Props = {|
    */
   dismissButton?: DismissButtonType,
   /**
-   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [helperLink variant](https://gestalt.pinterest.systems/web/slimbanner#helperLink) to learn more.
+   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [Message variant](https://gestalt.pinterest.systems/web/slimbanner#Message) to learn more.
    */
   helperLink?: HelperLinkType,
   /**
@@ -124,10 +124,10 @@ type Props = {|
    */
   iconAccessibilityLabel?: string,
   /**
-   * Main content of SlimBanner. Content should be [localized](https://gestalt.pinterest.systems/web/slimbanner#Localization).
+   * Main content of SlimBanner. Content should be [localized](https://gestalt.pinterest.systems/web/slimbanner#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/slimbanner#Message) to learn more.
    *
    */
-  message: string,
+  message: string | Element<typeof Text>,
   /**
    * Main action for users to take on SlimBanner. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
@@ -202,15 +202,18 @@ export default function SlimBanner({
 
         <Flex.Item flex="grow">
           <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
-            <Text inline>
-              {message}
-              {helperLink ? (
-                <Fragment>
-                  {' '}
-                  <HelperLink {...helperLink} />
-                </Fragment>
-              ) : null}
-            </Text>
+            {typeof message === 'string' ? (
+              <Text inline>
+                {message}
+                {helperLink ? (
+                  <Fragment>
+                    {' '}
+                    <HelperLink {...helperLink} />
+                  </Fragment>
+                ) : null}
+              </Text>
+            ) : null}
+            {typeof message !== 'string' && isValidElement(message) ? message : null}
           </Box>
         </Flex.Item>
 
