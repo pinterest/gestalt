@@ -42,7 +42,6 @@ export default function ScrollableContainerB() {
           />
           {isOpen && (
             <Dropdown
-              isWithinFixedContainer
               anchor={anchorRef.current}
               id="demo-dropdown-example"
               onDismiss={() => setIsOpen(!isOpen)}
