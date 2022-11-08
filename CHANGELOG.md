@@ -1,3 +1,9 @@
+## 80.0.13 (Nov 8, 2022)
+
+### Patch
+
+- Docs: fix empty import from 'react' ([#2486](https://github.com/pinterest/gestalt/pull/2486)) - [Preview link](https://deploy-preview-2486--gestalt.netlify.app)
+
 ## 80.0.12 (Nov 7, 2022)
 
 ### Patch
