@@ -19,7 +19,7 @@ export default function PageHeaderExample(): Node {
       const text = `item ${index}`;
       return (
         <Dropdown.Item
-          key={index}
+          key={text}
           onSelect={handleSelect}
           option={{ value: text, label: text }}
           selected={selectedElement}

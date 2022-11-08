@@ -217,7 +217,7 @@ class Contents extends Component<Props, State> {
       return null;
     }
 
-    const { id, anchor } = this.props;
+    const { anchor, id, scrollBoundaryContainerRef } = this.props;
 
     const viewportAvailable = window.innerHeight;
     const popoverHeight = document.getElementById(id ?? '')?.clientHeight;
@@ -229,12 +229,11 @@ class Contents extends Component<Props, State> {
       : false;
 
     // As the popover's `maxHeight` is 90%(90vh) we use the value below to keep the popover on viewport vertical center.
-    const defaultTopPadding = '5vh';
+    // const defaultTopPadding = '5vh';
 
     // Absolute popover Y in screen
-    const popoverY = document.getElementById(id ?? '')?.getBoundingClientRect().top;
-    const isNegativeAbsolutePopoverY = popoverY !== undefined && popoverY < 0;
-    const topValue = `calc(${document.documentElement?.scrollTop ?? 0}px + ${defaultTopPadding})`;
+    // const popoverY = document.getElementById(id ?? '')?.getBoundingClientRect().top;
+    // const isNegativeAbsolutePopoverY = popoverY !== undefined && popoverY < 0;
 
     const anchorElement = anchor.getBoundingClientRect();
     const isInViewport =
@@ -243,18 +242,43 @@ class Contents extends Component<Props, State> {
       anchorElement.bottom <= (window.innerHeight || document.documentElement?.clientHeight) &&
       anchorElement.right <= (window.innerWidth || document.documentElement?.clientWidth);
 
+    let containerHeight =
+      scrollBoundaryContainerRef?.offsetHeight ?? anchor?.parentElement?.offsetHeight ?? 0;
+    containerHeight = (containerHeight / 10) * 9;
+
+    const topValue = (containerHeight / 10) * 0.5;
+
+    // topValue = anchorElement.top >= 0 ? anchorElement.top : topValue;
+
     // The `scrollPosition` is required to cases which popover has opened on the scrolled screen
-    const overridePropsToMaxPopoverSize =
-      isInViewport && (shouldRenderOnScreenTop || isNegativeAbsolutePopoverY)
-        ? { top: topValue }
-        : null;
+    const overridePropsToMaxPopoverSize = isInViewport
+      ? {
+          top: topValue,
+        }
+      : null;
+
+    // - Case >= 90% screen
+    // Enquanto a ANCORA ESTIVER NA TELA
+    // 1. POSICAO ABSOLUTA
+    // 2. TOPO 5vh
 
     return overridePropsToMaxPopoverSize;
   }
 
   render(): Node {
-    const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
-      this.props;
+    const {
+      accessibilityLabel,
+      anchor,
+      bgColor,
+      border,
+      caret,
+      children,
+      id,
+      role,
+      rounding,
+      scrollBoundaryContainerRef,
+      width,
+    } = this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
@@ -263,7 +287,9 @@ class Contents extends Component<Props, State> {
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
-    const overridePropsToMaxPopoverSize = this.balancePopoverPosition() ?? {};
+    // let containerHeight = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
+    // containerHeight = (containerHeight / 10) * 9;
+    // const topValue = (containerHeight / 10) * 0.5;
 
     return (
       <div
@@ -281,7 +307,7 @@ class Contents extends Component<Props, State> {
         style={{
           visibility,
           ...popoverOffset,
-          ...overridePropsToMaxPopoverSize,
+          // top: topValue ?? null,
         }}
       >
         {caret && popoverDir && (
@@ -311,7 +337,10 @@ class Contents extends Component<Props, State> {
             styles.maxDimensions,
             width !== null && styles.minDimensions,
           )}
-          style={{ maxWidth: width }}
+          style={{
+            maxWidth: width,
+            // maxHeight: containerHeight ?? null,
+          }}
         >
           {children}
         </div>
