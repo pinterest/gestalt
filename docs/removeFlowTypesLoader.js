@@ -11,11 +11,13 @@ module.exports = function removeFlowTypesLoader(source /*: string */) {
 
   // $FlowFixMe[prop-missing]
   prettier.resolveConfig(process.cwd()).then((prettierOptions) => {
-    // $FlowFixMe[prop-missing]
-    const formatted = prettier.format(removed, {
-      ...prettierOptions,
-      parser: 'babel',
-    });
+    const formatted = prettier
+      // $FlowFixMe[prop-missing]
+      .format(removed, {
+        ...prettierOptions,
+        parser: 'babel',
+      })
+      .replace(`import {} from 'react';\n`, '');
 
     const json = JSON.stringify(formatted)
       .replace(/\u2028/g, '\\u2028')
