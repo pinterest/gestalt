@@ -1,3 +1,9 @@
+## 80.1.0 (Nov 8, 2022)
+
+### Minor
+
+- Tabs: convert Tabs Docs to use Sandpack editor ([#2482](https://github.com/pinterest/gestalt/pull/2482)) - [Preview link](https://deploy-preview-2482--gestalt.netlify.app)
+
 ## 80.0.13 (Nov 8, 2022)
 
 ### Patch
