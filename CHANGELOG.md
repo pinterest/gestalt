@@ -1,3 +1,9 @@
+## 81.0.0 (Nov 8, 2022)
+
+### Major
+
+- Image: replace `importance` prop with `fetchPriority` ([#2474](https://github.com/pinterest/gestalt/pull/2474)) - [Preview link](https://deploy-preview-2474--gestalt.netlify.app)
+
 ## 80.1.0 (Nov 8, 2022)
 
 ### Minor
