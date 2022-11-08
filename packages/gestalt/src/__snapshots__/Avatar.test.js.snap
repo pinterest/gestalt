@@ -134,11 +134,6 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div
@@ -222,11 +217,6 @@ exports[`Avatar renders the correct size - lg 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div
@@ -273,11 +263,6 @@ exports[`Avatar renders the correct size - md 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div
@@ -324,11 +309,6 @@ exports[`Avatar renders the correct size - sm 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div
@@ -375,11 +355,6 @@ exports[`Avatar renders the correct size - xl 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div
@@ -426,11 +401,6 @@ exports[`Avatar renders the correct size - xs 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div
@@ -477,11 +447,6 @@ exports[`Avatar renders the correct src 1`] = `
         onError={[Function]}
         onLoad={[Function]}
         src="http://pinterest.com/img/strave.png"
-        style={
-          Object {
-            "objectFit": "none",
-          }
-        }
       />
     </div>
     <div

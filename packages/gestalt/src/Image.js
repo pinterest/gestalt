@@ -149,15 +149,14 @@ export default class Image extends PureComponent<Props> {
       srcSet,
     } = this.props;
 
-    const isScaledImage = fit === 'cover' || fit === 'contain';
     const childContent = children ? (
       <Box position="absolute" top left bottom right overflow="hidden">
         {children}
       </Box>
     ) : null;
 
+    const isScaledImage = fit === 'cover' || fit === 'contain';
     const fitStyles = fit === 'cover' || fit === 'contain' ? styles[fit] : undefined;
-
     const imageStyles = classnames(styles.img, fitStyles);
 
     return (
@@ -185,7 +184,7 @@ export default class Image extends PureComponent<Props> {
           sizes={sizes}
           src={src}
           srcSet={srcSet}
-          style={{ objectFit: fit }}
+          {...(isScaledImage ? { style: { objectFit: fit } } : {})}
         />
         {childContent}
       </Box>

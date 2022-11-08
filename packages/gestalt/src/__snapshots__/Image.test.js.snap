@@ -18,11 +18,6 @@ exports[`Image matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
-    style={
-      Object {
-        "objectFit": "none",
-      }
-    }
   />
 </div>
 `;
@@ -46,11 +41,6 @@ exports[`Image with crossorigin specified matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
-    style={
-      Object {
-        "objectFit": "none",
-      }
-    }
   />
 </div>
 `;
@@ -96,11 +86,6 @@ exports[`Image with fetchPriority specified matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
-    style={
-      Object {
-        "objectFit": "none",
-      }
-    }
   />
 </div>
 `;
@@ -223,11 +208,6 @@ exports[`Image with overlay matches snapshot 1`] = `
     onError={[Function]}
     onLoad={[Function]}
     src="foo.png"
-    style={
-      Object {
-        "objectFit": "none",
-      }
-    }
   />
   <div
     className="absolute bottom0 box left0 overflowHidden right0 top0"

@@ -40,7 +40,6 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
                       fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                      style="object-fit: none;"
                     />
                   </div>
                   <div
@@ -144,7 +143,6 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                         fetchpriority="auto"
                         loading="auto"
                         src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                        style="object-fit: none;"
                       />
                     </div>
                     <div
@@ -243,7 +241,6 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                       fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                      style="object-fit: none;"
                     />
                   </div>
                   <div
@@ -284,7 +281,6 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                       fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                      style="object-fit: none;"
                     />
                   </div>
                   <div
@@ -457,7 +453,6 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
                         fetchpriority="auto"
                         loading="auto"
                         src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                        style="object-fit: none;"
                       />
                     </div>
                     <div
@@ -516,7 +511,6 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
                       fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                      style="object-fit: none;"
                     />
                   </div>
                   <div
@@ -574,7 +568,6 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
                       fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                      style="object-fit: none;"
                     />
                   </div>
                   <div
@@ -632,7 +625,6 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
                       fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-                      style="object-fit: none;"
                     />
                   </div>
                   <div
