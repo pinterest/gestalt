@@ -9,6 +9,7 @@ import TableFooter from './TableFooter.js';
 import TableHeader from './TableHeader.js';
 import TableHeaderCell from './TableHeaderCell.js';
 import TableRowExpandable from './TableRowExpandable.js';
+import TableRowDrawer from './TableRowDrawer.js';
 import TableRow from './TableRow.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 import { TableContextProvider } from './contexts/TableContext.js';
@@ -122,3 +123,5 @@ Table.Row = TableRow;
 Table.SortableHeaderCell = TableSortableHeaderCell;
 
 Table.RowExpandable = TableRowExpandable;
+
+Table.RowDrawer = TableRowDrawer;

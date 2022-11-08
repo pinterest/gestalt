@@ -1599,6 +1599,16 @@ function Example() {
             id="Table.RowExpandable"
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title={generatedDocGen?.TableRowDrawer?.displayName}
+          description={generatedDocGen?.TableRowDrawer?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.TableRowDrawer}
+            name="Table.RowDrawer"
+            id="Table.RowDrawer"
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
@@ -2487,6 +2497,80 @@ function Example() {
         />
       </MainSection.Subsection>
       <MainSection.Subsection
+        title="Table Row Drawer"
+        description="Drawer row that is able to hold additional content."
+      >
+        <MainSection.Card
+          cardSize="lg"
+          defaultCode={`
+<Table accessibilityLabel="Table Row Drawer">
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>
+        <Text weight="bold">Campaign</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text align="forceRight" weight="bold">Spend</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text align="forceRight" weight="bold">Impressions</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text align="forceRight" weight="bold">CTR</Text>
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+
+  <Table.Body>
+    <Table.RowDrawer
+      id="drawerExample"
+      drawerContents={
+        <SlimBanner
+          type="recommendation"
+          iconAccessibilityLabel="Recommendation"
+          message="Increasing your daily spend could increase clicks by 20%"
+          primaryAction={{
+            accessibilityLabel: 'Apply for increasing your daily spend',
+            label: 'Apply',
+            onClick: () => {},
+          }}
+        />
+        }
+    >
+      <Table.Cell>
+        <Text>Training treats</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text align="forceRight">$3,200</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text align="forceRight">3.4k</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text align="forceRight">0.07%</Text>
+      </Table.Cell>
+    </Table.RowDrawer>
+    <Table.Row>
+      <Table.Cell>
+        <Text>Vegan cuisine</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text align="forceRight">$5,000</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text align="forceRight">20k</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text align="forceRight">0.10%</Text>
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+        `}
+        />
+      </MainSection.Subsection>
+
+      <MainSection.Subsection
         title="Sortable header cells"
         description="Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column."
       >
@@ -2609,6 +2693,7 @@ export async function getStaticProps(): Promise<{|
       'TableSortableHeaderCell',
       'TableRow',
       'TableRowExpandable',
+      'TableRowDrawer',
     ],
   });
 
@@ -2622,6 +2707,8 @@ export async function getStaticProps(): Promise<{|
   docGen.TableRow.props.children.flowType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Cell | typeof Table.HeaderCell | typeof Table.SortableHeaderCell>>';
   docGen.TableRowExpandable.props.children.flowType.raw =
+    'React.ChildrenArray<React.Element<typeof Table.Cell>>';
+  docGen.TableRowDrawer.props.children.flowType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Cell>>';
 
   return {

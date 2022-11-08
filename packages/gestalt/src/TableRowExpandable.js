@@ -58,7 +58,9 @@ export default function TableRowExpandable({
   hoverStyle = 'gray',
 }: Props): Node {
   const [expanded, setExpanded] = useState(false);
-  const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
+  const cstr = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
+  const cstd = cx(styles.drawer);
+
   const { stickyColumns } = useTableContext();
   const rowRef = useRef();
   const [columnWidths, setColumnWidths] = useState([]);
@@ -92,7 +94,7 @@ export default function TableRowExpandable({
 
   return (
     <Fragment>
-      <tr className={cs} ref={rowRef}>
+      <tr className={cstr} ref={rowRef}>
         <TableCell
           shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
           previousTotalWidth={0}
@@ -111,7 +113,7 @@ export default function TableRowExpandable({
       </tr>
       {expanded && (
         <tr id={id}>
-          <td colSpan={Children.count(children) + 1}>
+          <td className={cstd} colSpan={Children.count(children) + 1}>
             <Box padding={6}>{expandedContents}</Box>
           </td>
         </tr>
