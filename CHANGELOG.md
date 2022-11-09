@@ -1,3 +1,9 @@
+## 81.2.0 (Nov 9, 2022)
+
+### Minor
+
+- Image: use img for scaled images ([#2485](https://github.com/pinterest/gestalt/pull/2485)) - [Preview link](https://deploy-preview-2485--gestalt.netlify.app)
+
 ## 81.1.0 (Nov 9, 2022)
 
 ### Minor
