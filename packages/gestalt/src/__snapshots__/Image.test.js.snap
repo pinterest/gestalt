@@ -104,7 +104,7 @@ exports[`Image with fit: contain and role matches snapshot 1`] = `
   <img
     alt="foo"
     className="img scaledImg"
-    importance="auto"
+    fetchpriority="auto"
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
@@ -138,7 +138,7 @@ exports[`Image with fit: contain matches snapshot 1`] = `
   <img
     alt="foo"
     className="img scaledImg"
-    importance="auto"
+    fetchpriority="auto"
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
@@ -171,7 +171,7 @@ exports[`Image with fit: cover matches snapshot 1`] = `
   <img
     alt="foo"
     className="img scaledImg"
-    importance="auto"
+    fetchpriority="auto"
     loading="auto"
     onError={[Function]}
     onLoad={[Function]}
