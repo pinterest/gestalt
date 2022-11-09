@@ -1,8 +1,8 @@
 // @flow strict
-import { useEffect, useRef, useState } from 'react';
+import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, IconButton, Dropdown } from 'gestalt';
 
-export default function FixedButton() {
+export default function FixedButton(): Node {
   const [elements, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState(null);
   const [isOpen, setIsOpen] = useState(false);

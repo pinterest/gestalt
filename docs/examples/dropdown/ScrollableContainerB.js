@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Box, Button, Dropdown, ScrollBoundaryContainer } from 'gestalt';
 
-export default function ScrollableContainerB() {
+export default function ScrollableContainerB(): Node {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedElement, setSelectedElement] = useState(null);
   const [elements, setElements] = useState([]);
