@@ -1,5 +1,6 @@
 // @flow strict
 import { PureComponent, type Node } from 'react';
+import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Image.css';
 
@@ -148,39 +149,30 @@ export default class Image extends PureComponent<Props> {
       srcSet,
     } = this.props;
 
-    const isScaledImage = shouldScaleImage(fit);
     const childContent = children ? (
       <Box position="absolute" top left bottom right overflow="hidden">
         {children}
       </Box>
     ) : null;
 
-    return isScaledImage ? (
-      <Box height="100%" position="relative">
-        <div
-          aria-label={role === 'presentation' ? undefined : alt}
-          className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
-          style={{
-            backgroundColor: color,
-            backgroundImage: `url('${src}')`,
-          }}
-          role={role}
-        />
-        {childContent}
-      </Box>
-    ) : (
+    const isScaledImage = shouldScaleImage(fit);
+    const fitStyles = fit === 'cover' || fit === 'contain' ? styles.scaledImg : undefined;
+    const imageStyles = classnames(styles.img, fitStyles);
+
+    return (
       <Box
         position="relative"
         dangerouslySetInlineStyle={{
           __style: {
             backgroundColor: color,
-            paddingBottom: `${(naturalHeight / naturalWidth) * 100}%`,
+            paddingBottom: isScaledImage ? undefined : `${(naturalHeight / naturalWidth) * 100}%`,
           },
         }}
+        {...(isScaledImage ? { height: '100%' } : {})}
       >
         <img
           alt={alt}
-          className={styles.img}
+          className={imageStyles}
           crossOrigin={crossOrigin}
           decoding={decoding}
           elementtiming={elementTiming}
@@ -188,10 +180,11 @@ export default class Image extends PureComponent<Props> {
           loading={loading}
           onError={this.handleError}
           onLoad={this.handleLoad}
+          role={role === 'presentation' ? 'presentation' : undefined}
           sizes={sizes}
           src={src}
           srcSet={srcSet}
-          role={role === 'presentation' ? 'presentation' : undefined}
+          {...(isScaledImage ? { style: { objectFit: fit } } : {})}
         />
         {childContent}
       </Box>
