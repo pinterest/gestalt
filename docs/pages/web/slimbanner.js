@@ -444,49 +444,46 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`\`message\` props accepts both strings and [Text](/Text). Use strings for simple messages without any visual style. SlimBanner will handle the message style and the adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to inline texts and links within the same Text component.
+          description={`The \`message\` prop accepts both strings and [Text](/Text). Use strings for simple messages without any visual style. SlimBanner will handle the message style and the adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to inline text and links within the same Text component.
 
-The SlimBanner message strings can be complemented with a helper Link. When passing rich Text components, \`helperLink\` isn't rendered to prevent unnecessary visual load.
+The SlimBanner \`message\` string can be complemented with a \`helperLink\`. When passing a Text component, \`helperLink\` isn't rendered to prevent unnecessary visual load.
 
-Due to localization constrains, \`message\` and \`helperLink\` prop texts cannot belong to the same statement. They must be independent sentences separated by a period.
+Due to localization constrains, the contents of \`message\` and \`helperLink\` cannot belong to the same sentence. They must be independent sentences separated by a period.
 `}
           title="Message"
         >
           <MainSection.Card
-            title="Simple message string with helperText"
             cardSize="md"
             defaultCode={`
-<SlimBanner
-  type="info"
-  message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
-  iconAccessibilityLabel="Information"
-  helperLink={{
-      text: 'Learn more',
-      accessibilityLabel: 'Learn more about campaign budget optimization',
-      href: 'http://www.pinterest.com',
+<Flex direction="column" gap={6}>
+  <Text weight="bold">Simple message string with helperText</Text>
+  <SlimBanner
+    type="info"
+    message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+    iconAccessibilityLabel="Information"
+    helperLink={{
+        text: 'Learn more',
+        accessibilityLabel: 'Learn more about campaign budget optimization',
+        href: 'http://www.pinterest.com',
+        onClick: () => {},
+      }}
+  />
+  <Text weight="bold">Rich message with Text component</Text>
+  <SlimBanner
+    type="recommendation"
+    message={<Text inline>The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text>}
+    primaryAction={{
+      accessibilityLabel: 'Increase spend',
+      label: 'Increase spend',
       onClick: () => {},
     }}
-/>
-`}
-          />
-          <MainSection.Card
-            title="Rich message with Text component"
-            cardSize="md"
-            defaultCode={`
-<SlimBanner
-  type="recommendation"
-  message={<Text inline>The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text>}
-  primaryAction={{
-    accessibilityLabel: 'Increase spend',
-    label: 'Increase spend',
-    onClick: () => {},
-  }}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  iconAccessibilityLabel="Recommendation"
-/>
+    dismissButton={{
+      accessibilityLabel: 'Dismiss banner',
+      onDismiss: () => {},
+    }}
+    iconAccessibilityLabel="Recommendation"
+  />
+</Flex>
 `}
           />
         </MainSection.Subsection>

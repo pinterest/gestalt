@@ -17,7 +17,6 @@ const getChildrenToArray = ({
   const navigationChildren = [];
 
   let recursionLevel = 0;
-
   const getChildren = ({ nodeChildren }) =>
     Children.toArray(nodeChildren).forEach((child) => {
       // Detect incorrect subcomponent usage at the main level
