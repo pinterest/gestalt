@@ -1,3 +1,9 @@
+## 81.1.0 (Nov 9, 2022)
+
+### Minor
+
+- Image: pass event object through on load and error ([#2469](https://github.com/pinterest/gestalt/pull/2469)) - [Preview link](https://deploy-preview-2469--gestalt.netlify.app)
+
 ## 81.0.0 (Nov 8, 2022)
 
 ### Major
