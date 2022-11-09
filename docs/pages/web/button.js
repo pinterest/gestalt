@@ -9,9 +9,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
-
 import SandpackExample from '../../docs-components/SandpackExample.js';
-// Examples
 import main from '../../examples/button/main.js';
 import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo.js';
 import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont.js';

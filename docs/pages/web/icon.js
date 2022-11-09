@@ -8,23 +8,24 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
 import docgen, { overrideTypes, type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import main from '../../examples/icon/main.js';
+import doIntentional from '../../examples/icon/doIntentional.js';
+import dontRepurpose from '../../examples/icon/dontRepurpose.js';
+import doClarity from '../../examples/icon/doClarity.js';
+import dontInteractive from '../../examples/icon/dontInteractive.js';
+import builtInIcon from '../../examples/icon/builtInIcon.js';
+import customIcon from '../../examples/icon/customIcon.js';
+
+const HEIGHT = 150;
 
 export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-          <Flex gap={{ column: 0, row: 1 }}>
-              <Icon icon="pin" accessibilityLabel="Pin" color="default" />
-            <Text align="center" color="default" weight="bold">
-              Pinterest
-            </Text>
-          </Flex>`}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={HEIGHT} />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -57,21 +58,28 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use icons intentionally, ensuring the Icon choice is easily recognizable and makes sense in the context. "
-            defaultCode={`
-  <Flex gap={{ column: 0, row: 1 }}>
-    <Icon icon="eye" accessibilityLabel="Number of views" color="default" />
-    <Text weight="bold" size="300">4</Text>
-  </Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Use icons intentionally"
+                code={doIntentional}
+                hideEditor
+                previewHeight={HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Repurpose icons. Using icons for their intended meaning supports good comprehension."
-            defaultCode={`
-  <Flex gap={{ column: 0, row: 2 }}>
-    <Icon icon="sound" accessibilityLabel="" color="default" />
-    <Text size="300" weight="bold">24 monthly views</Text>
-  </Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't repurpose icons"
+                code={dontRepurpose}
+                hideEditor
+                hideControls
+                previewHeight={HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -79,24 +87,28 @@ export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Pair text and icons when possible to provide better clarity."
-            defaultCode={`
-<Flex gap={{ column: 0, row: 1 }}>
-  <Icon icon="tag" accessibilityLabel="" color="default" />
-  <Text size="300" weight="bold">
-    Shopping spotlight
-  </Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Pair icons with text for clarity"
+                code={doClarity}
+                hideEditor
+                previewHeight={HEIGHT}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Don't create interactive Icons using TapArea. Use [IconButton](/web/iconbutton) instead."
-            defaultCode={`
-<Tooltip text="Share pin" accessibilityLabel="">
-  <TapArea>
-    <Icon icon="share" accessibilityLabel="Share Pin" color="default" />
-  </TapArea>
-</Tooltip>`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use interactive icons with TapArea"
+                code={dontInteractive}
+                hideEditor
+                hideControls
+                previewHeight={HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -117,21 +129,25 @@ If an icon has a visible label that describes what the icon represents, \`access
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Flex gap={{ column: 0, row: 1 }}>
-  <Icon icon="eye" accessibilityLabel="Number of views" color="default" />
-  <Text weight="bold" size="300">4</Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Use icons intentionally"
+                code={doIntentional}
+                previewHeight={HEIGHT}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Flex gap={{ column: 0, row: 1 }}>
-  <Icon icon="tag" accessibilityLabel="" color="default" />
-  <Text align="center" weight="bold">
-    Shopping spotlight
-  </Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Pair icons with text for clarity"
+                code={doClarity}
+                previewHeight={HEIGHT}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -190,25 +206,25 @@ Should be used sparingly and only in places where the UI is very dense and a lar
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Tooltip text="Built-in Gestalt Icon">
-  <Icon
-    accessibilityLabel="Go to next steps"
-    icon="directional-arrow-right"
-  />
-</Tooltip>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Built-in icon"
+                code={builtInIcon}
+                previewHeight={HEIGHT}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Tooltip text="Custom Icon">
-  <Icon
-    accessibilityLabel="Go to next steps"
-    dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
-  />
-</Tooltip>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Custom icon"
+                code={customIcon}
+                previewHeight={HEIGHT}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -234,6 +250,7 @@ Use a descriptive label to describe the Icon
           />
         </MainSection.Subsection>
       </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
