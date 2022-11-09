@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useRef, useEffect } from 'react';
+import { type Node, useState, useRef, useEffect } from 'react';
 import { Box, Button, Dropdown, ScrollBoundaryContainer } from 'gestalt';
 
 export default function ScrollableContainerB(): Node {
