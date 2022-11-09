@@ -9,7 +9,7 @@ exports[`Popover renders 1`] = `
     style={
       Object {
         "left": -10,
-        "top": 0,
+        "top": 8,
         "visibility": "visible",
       }
     }
@@ -37,7 +37,7 @@ exports[`Popover renders as blue 1`] = `
     style={
       Object {
         "left": -10,
-        "top": 0,
+        "top": 8,
         "visibility": "visible",
       }
     }
@@ -65,7 +65,7 @@ exports[`Popover renders as error 1`] = `
     style={
       Object {
         "left": -10,
-        "top": 0,
+        "top": 8,
         "visibility": "visible",
       }
     }

@@ -7,7 +7,7 @@ exports[`Controller renders 1`] = `
     style={
       Object {
         "left": -10,
-        "top": 0,
+        "top": 4,
         "visibility": "visible",
       }
     }

@@ -9,7 +9,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
     <div>
       <div
         class="container rounding4 contents maxDimensions minDimensions"
-        style="visibility: visible; top: 0px; left: -10px;"
+        style="visibility: visible; top: 8px; left: -10px;"
         tabindex="-1"
       >
         <div
@@ -544,7 +544,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
     <div>
       <div
         class="container rounding4 contents maxDimensions minDimensions"
-        style="visibility: visible; top: 0px; left: -10px;"
+        style="visibility: visible; top: 8px; left: -10px;"
         tabindex="-1"
       >
         <div

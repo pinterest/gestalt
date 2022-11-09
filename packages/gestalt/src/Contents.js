@@ -230,7 +230,8 @@ class Contents extends Component<Props, State> {
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
-    const { top: topValue, height: containerHeight } = this.handlePopoverSize();
+    const { top, height: containerHeight } = this.handlePopoverSize();
+    const topValue = top ? { top } : {};
 
     return (
       <div
@@ -248,7 +249,7 @@ class Contents extends Component<Props, State> {
         style={{
           visibility,
           ...popoverOffset,
-          top: topValue ?? null,
+          ...topValue,
         }}
       >
         {caret && popoverDir && (
