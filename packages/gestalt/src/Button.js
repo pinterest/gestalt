@@ -175,6 +175,8 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
     colorClass = 'darkModeRed';
   }
 
+  colorClass = 'blue';
+
   const { isFocusVisible } = useFocusVisible();
 
   const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
