@@ -155,7 +155,7 @@ export default class Image extends PureComponent<Props> {
       </Box>
     ) : null;
 
-    const isScaledImage = fit === 'cover' || fit === 'contain';
+    const isScaledImage = shouldScaleImage(fit);
     const fitStyles = fit === 'cover' || fit === 'contain' ? styles.scaledImg : undefined;
     const imageStyles = classnames(styles.img, fitStyles);
 
