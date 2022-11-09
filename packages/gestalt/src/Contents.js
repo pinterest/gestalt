@@ -205,7 +205,15 @@ class Contents extends Component<Props, State> {
   };
 
   handlePopoverSize() {
-    const { anchor, scrollBoundaryContainerRef } = this.props;
+    const { anchor, id, scrollBoundaryContainerRef } = this.props;
+
+    const viewportAvailable = window.innerHeight;
+    const popoverHeight = document.getElementById(id ?? '')?.clientHeight;
+    // Trigger (in percentage) to indicate if it should handle the popover or not;
+    const percentageLimit = 90;
+    const shouldRenderOnScreenTop = popoverHeight
+      ? Math.round((popoverHeight / viewportAvailable) * 100) >= percentageLimit
+      : false;
 
     let height = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
 
@@ -216,7 +224,7 @@ class Contents extends Component<Props, State> {
 
     height = (height / 10) * 9;
 
-    return { top, height };
+    return { top: shouldRenderOnScreenTop ? top : null, height };
   }
 
   render(): Node {
@@ -231,7 +239,7 @@ class Contents extends Component<Props, State> {
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
     const { top, height: containerHeight } = this.handlePopoverSize();
-    const topValue = top ? { top } : {};
+    const topValue = top != null ? { top } : {};
 
     return (
       <div
