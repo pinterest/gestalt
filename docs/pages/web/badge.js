@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -19,6 +20,17 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
     `}
       />
 
+      <SlimBanner
+        helperLink={{
+          text: 'Learn more',
+          accessibilityLabel: 'Learn more about the upcoming changes under an experiment',
+          href: '#Type',
+          onClick: () => {},
+        }}
+        iconAccessibilityLabel="Component under experiment"
+        message={`Badge is under an experiment that modifies its design (font size and spacing). Badge type="info" supports an information Icon and a Tooltip.`}
+        type="info"
+      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
@@ -140,6 +152,11 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         description={`Be sure to localize the \`text\` prop. Note that localization can lengthen text by 20 to 30 percent. `}
       />
       <MainSection name="Variants">
+        <SlimBanner
+          iconAccessibilityLabel="Component under experiment"
+          message={`Badge is under an experiment that modifies its design (font size and spacing). Badge type="info" supports an information Icon and a Tooltip.`}
+          type="infoBare"
+        />
         <MainSection.Subsection
           title="Type"
           description={`
@@ -183,7 +200,15 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <Text>Info</Text>
         </Table.Cell>
         <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="New" type="info"/></Text>
+          <Text size="300">Ads & Campaigns
+            <Badge
+              text="New"
+              type="info"
+              tooltip={{
+              text: 'Informative Badge provides a built-in Tooltips',
+              idealDirection: 'up',
+            }}/>
+          </Text>
         </Table.Cell>
       </Table.Row>
       <Table.Row>

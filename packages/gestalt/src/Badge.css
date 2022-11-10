@@ -11,6 +11,28 @@
   white-space: nowrap;
 }
 
+.NewBadge {
+  composes: antialiased sansSerif from "./Typography.css";
+  composes: inlineBlock from "./Layout.css";
+  composes: rounding1 from "./Borders.css";
+  composes: fontWeightSemiBold from "./Typography.css";
+  color: var(--color-text-inverse);
+  font-size: 14px;
+  height: 20px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+
+.info {
+  background-color: var(--g-blue);
+}
+
+.info:hover,
+.info:focus {
+  background-color: var(--g-blueHovered);
+}
+
 .middle {
   vertical-align: middle;
 }

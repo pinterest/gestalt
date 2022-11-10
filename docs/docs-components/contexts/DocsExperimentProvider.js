@@ -11,6 +11,7 @@ import { useAppContext } from '../appContext.js';
 
 const enabledExperiments = {
   TextField: ['web_unauth_show_password_button', 'mweb_unauth_show_password_button'],
+  Badge: ['web_gestalt_slim_badge', 'mweb_gestalt_slim_badge'],
 };
 
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
