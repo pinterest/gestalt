@@ -1,3 +1,9 @@
+## 81.3.2 (Nov 10, 2022)
+
+### Patch
+
+- Docs: Update typo in Android Button height ([#2492](https://github.com/pinterest/gestalt/pull/2492)) - [Preview link](https://deploy-preview-2492--gestalt.netlify.app)
+
 ## 81.3.1 (Nov 10, 2022)
 
 ### Patch
