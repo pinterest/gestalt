@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { Box } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -11,7 +12,7 @@ export default function DropdownShowCase(): Node {
       <MainSection name="Examples">
         <MainSection.Subsection>
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="More items then height of viewport"
             description="testing"
             defaultCode={`
@@ -43,7 +44,7 @@ function PopoverOverflowingViewport() {
     });
 
   return (
-    <Box height={500}>
+    <Box height={500} width="100%">
       <Flex justifyContent="center" alignItems="center" height="100%">
         <Box>
           <Button
@@ -74,11 +75,11 @@ function PopoverOverflowingViewport() {
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="CornerTop"
             description="testing"
             defaultCode={`
-function CornerTop(): Node {
+function CornerTop() {
   const [elements, setElements] = React.useState([]);
   const [selectedElement, setSelectedElement] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState('');
@@ -107,7 +108,7 @@ function CornerTop(): Node {
     });
 
   return (
-    <Box padding={2} height={500}>
+    <Box padding={2} height={500} width="100%">
       <Flex justifyContent="between" alignItems="start" width="100%">
         <IconButton
           accessibilityLabel="Menu open button"
@@ -151,7 +152,7 @@ function CornerTop(): Node {
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="CornerTop"
             description="testing"
             defaultCode={`
@@ -184,7 +185,7 @@ function CornerBottom() {
     });
 
   return (
-    <Box padding={2} height={500}>
+    <Box padding={2} height={500} width="100%">
       <Flex justifyContent="between" alignItems="end" height="100%">
         <IconButton
           accessibilityLabel="Menu open button"
@@ -230,12 +231,12 @@ function CornerBottom() {
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Inner Sheet"
             description="Dropdown inner sheet tab"
             defaultCode={`
 function InnerSheet() {
-  const [shouldShow, setShouldShow] = React.useState(true);
+  const [shouldShow, setShouldShow] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedElement, setSelectedElement] = React.useState(null);
   const [elements, setElements] = React.useState([]);
@@ -266,8 +267,8 @@ function InnerSheet() {
     });
 
   return (
-    <Fragment>
-      <Box padding={8}>
+    <React.Fragment>
+      <Box padding={8} width="100%">
         <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
       </Box>
       {shouldShow && (
@@ -299,13 +300,13 @@ function InnerSheet() {
           </Sheet>
         </Layer>
       )}
-    </Fragment>
+    </React.Fragment>
   );
 }
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Scrollable container"
             description="Dropdown inner scrollable container, should have a 'ScrollBoundaryContainer' around the dropdown implementation"
             defaultCode={`
@@ -337,7 +338,7 @@ function ScrollableContainer() {
     });
 
   return (
-    <Box padding={8} height={500} overflow="scrollY">
+    <Box padding={8} height={500} overflow="scrollY" width="100%">
       <Box height={1000}>
         <ScrollBoundaryContainer>
           <Button
@@ -366,7 +367,7 @@ function ScrollableContainer() {
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Scrollable container 2"
             description="Dropdown inner scrollable container, should have a 'ScrollBoundaryContainer' around the dropdown implementation"
             defaultCode={`
@@ -398,7 +399,7 @@ function ScrollableContainerB() {
     });
 
   return (
-    <Box padding={8} height={500} overflow="scrollY" color="successBase">
+    <Box padding={8} height={500} overflow="scrollY" color="successBase" width="100%">
       <Box height={300} color="errorBase" overflow="hidden">
         <ScrollBoundaryContainer>
           <Button
@@ -426,7 +427,7 @@ function ScrollableContainerB() {
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Page Header"
             description="Dropdown inner Page Header"
             defaultCode={`
@@ -456,7 +457,7 @@ function PageHeaderExample() {
     });
 
   return (
-    <Box height={500} color="lightWash">
+    <Box height={500} color="lightWash" width="100%">
       <PageHeader
         title="Dropdown Showcase"
         primaryAction={{
@@ -471,7 +472,7 @@ function PageHeaderExample() {
             `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Fixed button"
             description="Dropdown inner fixed button"
             defaultCode={`
@@ -503,24 +504,27 @@ function FixedButton() {
     });
 
   return (
-    <Box position="fixed" padding={8} bottom right>
-      <IconButton
-        accessibilityLabel="Fixed button"
-        icon="arrow-up"
-        onClick={() => setIsOpen(!isOpen)}
-        ref={anchorRef}
-        selected={isOpen}
-        size="lg"
-      />
-      {isOpen && (
-        <Dropdown
-          anchor={anchorRef.current}
-          id="demo-dropdown-example"
-          onDismiss={() => setIsOpen(false)}
-        >
-          {preRenderItems()}
-        </Dropdown>
-      )}
+    <Box height={500} width="100%">
+      <Box position="fixed" width="100%" right bottom>
+        <IconButton
+          accessibilityLabel="Fixed button"
+          icon="arrow-up"
+          onClick={() => setIsOpen(!isOpen)}
+          ref={anchorRef}
+          selected={isOpen}
+          size="lg"
+        />
+        {isOpen && (
+          <Dropdown
+            isWithinFixedContainer
+            anchor={anchorRef.current}
+            id="demo-dropdown-example"
+            onDismiss={() => setIsOpen(false)}
+          >
+            {preRenderItems()}
+          </Dropdown>
+        )}
+      </Box>
     </Box>
   );
 }

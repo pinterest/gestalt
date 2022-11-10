@@ -205,7 +205,7 @@ class Contents extends Component<Props, State> {
   };
 
   handlePopoverSize() {
-    const { anchor, id, scrollBoundaryContainerRef } = this.props;
+    const { anchor, id, scrollBoundaryContainerRef, positionRelativeToAnchor } = this.props;
 
     const viewportAvailable = window.innerHeight;
     const popoverHeight = document.getElementById(id ?? '')?.clientHeight;
@@ -224,7 +224,7 @@ class Contents extends Component<Props, State> {
 
     height = (height / 10) * 9;
 
-    return { top: shouldRenderOnScreenTop ? top : null, height };
+    return { top: shouldRenderOnScreenTop && !positionRelativeToAnchor ? top : null, height };
   }
 
   render(): Node {
