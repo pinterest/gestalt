@@ -23,7 +23,7 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 
 1. **lg (60dp)**
    Large should be primarily used on Pinner, business and internal surfaces.
-2. **sm (44dp)**
+2. **sm (48dp)**
    Small should be used sparingly and only in places where the UI is very dense.
 
 <TwoCol>
