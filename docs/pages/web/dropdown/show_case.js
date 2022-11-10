@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
