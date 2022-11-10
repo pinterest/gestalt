@@ -1,5 +1,5 @@
 // @flow strict
-import { isValidElement, Fragment, type Element, type Node } from 'react';
+import { Children, Fragment, type Element, type Node } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
 import Flex from './Flex.js';
@@ -213,7 +213,9 @@ export default function SlimBanner({
                 ) : null}
               </Text>
             ) : null}
-            {typeof message !== 'string' && isValidElement(message) ? message : null}
+            {typeof message !== 'string' && Children.only(message).type.displayName === 'Text'
+              ? message
+              : null}
           </Box>
         </Flex.Item>
 

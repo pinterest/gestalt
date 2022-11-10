@@ -38,7 +38,7 @@
 
 ### Minor
 
-- Icon: convert Tabs Docs to use Sandpack editor ([#2488](https://github.com/pinterest/gestalt/pull/2488)) - [Preview link](https://deploy-preview-2488--gestalt.netlify.app)
+- Icon: convert Icon Docs to use Sandpack editor ([#2488](https://github.com/pinterest/gestalt/pull/2488)) - [Preview link](https://deploy-preview-2488--gestalt.netlify.app)
 
 ## 81.2.0 (Nov 9, 2022)
 

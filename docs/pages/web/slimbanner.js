@@ -444,11 +444,12 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`The \`message\` prop accepts both strings and [Text](/Text). Use strings for simple messages without any visual style. SlimBanner will handle the message style and the adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to inline text and links within the same Text component.
+          description={`
+The \`message\` prop accepts either a string or [Text](/Text). Use a string for simple messages without any visual style. SlimBanner will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
 
 The SlimBanner \`message\` string can be complemented with a \`helperLink\`. When passing a Text component, \`helperLink\` isn't rendered to prevent unnecessary visual load.
 
-Due to localization constrains, the contents of \`message\` and \`helperLink\` cannot belong to the same sentence. They must be independent sentences separated by a period.
+Due to localization constraints, the contents of \`message\` and \`helperLink\` cannot belong to the same sentence. They must be independent sentences separated by a period. Don't attempt to construct a compound sentence using \`message\` and \`helperLink\`.
 `}
           title="Message"
         >
@@ -468,10 +469,12 @@ Due to localization constrains, the contents of \`message\` and \`helperLink\` c
         onClick: () => {},
       }}
   />
+
   <Text weight="bold">Rich message with Text component</Text>
+
   <SlimBanner
     type="recommendation"
-    message={<Text inline>The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text>}
+    message={<Text inline> The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text> }
     primaryAction={{
       accessibilityLabel: 'Increase spend',
       label: 'Increase spend',
@@ -483,6 +486,8 @@ Due to localization constrains, the contents of \`message\` and \`helperLink\` c
     }}
     iconAccessibilityLabel="Recommendation"
   />
+
+
 </Flex>
 `}
           />
@@ -491,15 +496,15 @@ Due to localization constrains, the contents of \`message\` and \`helperLink\` c
         <MainSection.Subsection
           title="Primary action"
           description={`
-          SlimBanners can have a primary action. This action can be a [Link](/web/link), by specifying the \`href\` property, or a [Button](/web/button), when no \`href\` is supplied.
+SlimBanners can have a primary action. This action can be a [Link](/web/link), by specifying the \`href\` property, or a [Button](/web/button), when no \`href\` is supplied.
 
-        SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
 
-        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/web/modal) with an application flow. Be sure to localize the labels of the actions.
+For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/web/modal) with an application flow. Be sure to localize the labels of the actions.
 
-        If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
+If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
 
-        Note that actions are not available on compact ("___Bare" type) SlimBanners.
+Note that actions are not available on compact ("___Bare" type) SlimBanners.
           `}
         >
           <MainSection.Card
@@ -611,7 +616,11 @@ Tooltip provides helpful information regarding an interactive UI element, typica
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const docGen = await docgen({ componentName: 'SlimBanner' });
+
+  docGen.props.message.flowType.raw = '{| string | React.Element<typeof Text>>> |}';
+
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'SlimBanner' }) },
+    props: { generatedDocGen: docGen },
   };
 }
