@@ -1,3 +1,9 @@
+## 81.3.1 (Nov 10, 2022)
+
+### Patch
+
+- Docs: Fixed accessibility section in Android Button guidelines ([#2490](https://github.com/pinterest/gestalt/pull/2490)) - [Preview link](https://deploy-preview-2490--gestalt.netlify.app)
+
 ## 81.3.0 (Nov 9, 2022)
 
 ### Minor
