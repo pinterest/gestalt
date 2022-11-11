@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with drawer 1`] = `
+<div
+  className="box overflowAuto"
+  style={
+    Object {
+      "maxHeight": undefined,
+    }
+  }
+  tabIndex="0"
+>
+  <table
+    className="table"
+  >
+    <caption
+      className="absolute box overflowHidden"
+      style={
+        Object {
+          "clip": "rect(1px, 1px, 1px, 1px)",
+          "height": 1,
+          "whiteSpace": "nowrap",
+          "width": 1,
+        }
+      }
+    >
+      Table Row Drawer
+    </caption>
+    <thead
+      className="thead"
+    >
+      <tr>
+        <th
+          className="th"
+          scope="col"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            TestA
+          </div>
+        </th>
+        <th
+          className="th"
+          scope="col"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            TestB
+          </div>
+        </th>
+        <th
+          className="th"
+          scope="col"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            TestC
+          </div>
+        </th>
+        <th
+          className="th"
+          scope="col"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            TestD
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="tbody"
+    >
+      <tr
+        aria-details="drawerTest"
+      >
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row1A
+          </div>
+        </td>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row1B
+          </div>
+        </td>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row1C
+          </div>
+        </td>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row1D
+          </div>
+        </td>
+      </tr>
+      <tr
+        id="drawerTest"
+      >
+        <td
+          className="drawer"
+          colSpan={5}
+        >
+          <div
+            className="box paddingX2 paddingY2"
+          >
+            <div
+              className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex"
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+            >
+              <div
+                className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
+              >
+                <div
+                  className="FlexItem selfStart"
+                >
+                  <svg
+                    aria-hidden={null}
+                    aria-label="test"
+                    className="icon recommendationIcon iconBlock"
+                    height={16}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={16}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+                <div
+                  className="FlexItem flexGrow"
+                >
+                  <div
+                    className="box"
+                    style={
+                      Object {
+                        "marginTop": "-1px",
+                      }
+                    }
+                  >
+                    <span
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      Test SlimBanner
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row2A
+          </div>
+        </td>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row2B
+          </div>
+        </td>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row2C
+          </div>
+        </td>
+        <td
+          className="td"
+          style={
+            Object {
+              "left": undefined,
+              "right": undefined,
+            }
+          }
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            Row2D
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

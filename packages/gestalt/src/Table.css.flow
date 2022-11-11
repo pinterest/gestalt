@@ -3,6 +3,7 @@
 declare module.exports: {|
   +'columnSticky': string,
   +'columnStickyShadow': string,
+  +'drawer': string,
   +'horizontalScrollLeft': string,
   +'horizontalScrollRight': string,
   +'hoverShadeGray': string,

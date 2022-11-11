@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
-import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
@@ -58,7 +57,7 @@ export default function TableRowExpandable({
   hoverStyle = 'gray',
 }: Props): Node {
   const [expanded, setExpanded] = useState(false);
-  const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
+
   const { stickyColumns } = useTableContext();
   const rowRef = useRef();
   const [columnWidths, setColumnWidths] = useState([]);
@@ -92,7 +91,7 @@ export default function TableRowExpandable({
 
   return (
     <Fragment>
-      <tr className={cs} ref={rowRef}>
+      <tr className={hoverStyle === 'gray' ? styles.hoverShadeGray : null} ref={rowRef}>
         <TableCell
           shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
           previousTotalWidth={0}
@@ -111,7 +110,7 @@ export default function TableRowExpandable({
       </tr>
       {expanded && (
         <tr id={id}>
-          <td colSpan={Children.count(children) + 1}>
+          <td className={styles.drawer} colSpan={Children.count(children) + 1}>
             <Box padding={6}>{expandedContents}</Box>
           </td>
         </tr>

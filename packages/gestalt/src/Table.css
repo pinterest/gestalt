@@ -42,12 +42,16 @@
   box-shadow: -8px 0 8px -8px var(--color-border-container);
 }
 
-.thead tr:last-child th {
-  border-bottom: 1px solid var(--color-border-container);
+.thead tr:not(:first-child) th {
+  border-top: 1px solid var(--color-border-container);
 }
 
-.tbody tr:not(:last-child) td {
-  border-bottom: 1px solid var(--color-border-container);
+.tbody tr td {
+  border-top: 1px solid var(--color-border-container);
+}
+
+.tbody tr td.drawer {
+  border-top: none;
 }
 
 .hoverShadeGray:hover {
