@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
-import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import { useTableContext } from './contexts/TableContext.js';
@@ -28,8 +27,6 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
   const rowRef = useRef();
   const [columnWidths, setColumnWidths] = useState([]);
 
-  const cs = cx(styles.drawer);
-
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
       const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
@@ -56,7 +53,7 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>
       <tr id={id}>
-        <td className={cs} colSpan={Children.count(children) + 1}>
+        <td className={styles.drawer} colSpan={Children.count(children) + 1}>
           <Box padding={2}>{drawerContents}</Box>
         </td>
       </tr>

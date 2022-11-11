@@ -1521,8 +1521,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableHeader}
-            name="Table.Header"
-            id="Table.Header"
+            name={generatedDocGen?.TableHeader?.displayName}
+            id={generatedDocGen?.TableHeader?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1531,8 +1531,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableBody}
-            name="Table.Body"
-            id="Table.Body"
+            name={generatedDocGen?.TableBody?.displayName}
+            id={generatedDocGen?.TableBody?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1541,8 +1541,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableFooter}
-            name="Table.Footer"
-            id="Table.Footer"
+            name={generatedDocGen?.TableFooter?.displayName}
+            id={generatedDocGen?.TableFooter?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1551,8 +1551,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableCell}
-            name="Table.Cell"
-            id="Table.Cell"
+            name={generatedDocGen?.TableCell?.displayName}
+            id={generatedDocGen?.TableCell?.displayName}
             excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
           />
         </MainSection.Subsection>
@@ -1562,8 +1562,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableHeaderCell}
-            name="Table.HeaderCell"
-            id="Table.HeaderCell"
+            name={generatedDocGen?.TableHeaderCell?.displayName}
+            id={generatedDocGen?.TableHeaderCell?.displayName}
             excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
           />
         </MainSection.Subsection>
@@ -1573,8 +1573,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableSortableHeaderCell}
-            name="Table.SortableHeaderCell"
-            id="Table.SortableHeaderCell"
+            name={generatedDocGen?.TableSortableHeaderCell?.displayName}
+            id={generatedDocGen?.TableSortableHeaderCell?.displayName}
             excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
           />
         </MainSection.Subsection>
@@ -1584,8 +1584,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableRow}
-            name="Table.Row"
-            id="Table.Row"
+            name={generatedDocGen?.TableRow?.displayName}
+            id={generatedDocGen?.TableRow?.displayName}
           />
         </MainSection.Subsection>
 
@@ -1595,8 +1595,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableRowExpandable}
-            name="Table.RowExpandable"
-            id="Table.RowExpandable"
+            name={generatedDocGen?.TableRowExpandable?.displayName}
+            id={generatedDocGen?.TableRowExpandable?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -1605,8 +1605,8 @@ function Example() {
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableRowDrawer}
-            name="Table.RowDrawer"
-            id="Table.RowDrawer"
+            name={generatedDocGen?.TableRowDrawer?.displayName}
+            id={generatedDocGen?.TableRowDrawer?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
