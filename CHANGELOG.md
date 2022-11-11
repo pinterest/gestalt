@@ -1,3 +1,9 @@
+## 81.4.0 (Nov 11, 2022)
+
+### Minor
+
+- Table: new Table.RowDrawer subcomponent ([#2487](https://github.com/pinterest/gestalt/pull/2487)) - [Preview link](https://deploy-preview-2487--gestalt.netlify.app)
+
 ## 81.3.2 (Nov 10, 2022)
 
 ### Patch
