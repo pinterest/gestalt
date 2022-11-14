@@ -1,3 +1,9 @@
+## 81.4.1 (Nov 14, 2022)
+
+### Patch
+
+- Docs: fix 10 out of 16 flow fixme's ([#2494](https://github.com/pinterest/gestalt/pull/2494)) - [Preview link](https://deploy-preview-2494--gestalt.netlify.app)
+
 ## 81.4.0 (Nov 11, 2022)
 
 ### Minor
