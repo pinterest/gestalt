@@ -8,9 +8,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-// $FlowExpectedError[untyped-import]
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
-// $FlowExpectedError[untyped-import]
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';

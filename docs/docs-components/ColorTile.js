@@ -1,9 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Text, useColorScheme } from 'gestalt';
-// $FlowExpectedError[untyped-import]
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
-// $FlowExpectedError[untyped-import]
 import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 type Props = {|
