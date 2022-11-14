@@ -14,9 +14,6 @@ import { type Context, type Node, createContext, useContext } from 'react';
  */
 
 export type DefaultLabelContextType = {|
-  Badge: {|
-    accessibilityInfoLabel: string,
-  |},
   Link: {|
     accessibilityNewTabLabel: string,
   |},
@@ -36,9 +33,6 @@ export type DefaultLabelContextType = {|
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
-  Badge: {
-    accessibilityInfoLabel: 'Information.',
-  },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
   },

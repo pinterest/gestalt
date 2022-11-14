@@ -16,9 +16,6 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
-          Badge: {
-            accessibilityInfoLabel: 'Information.',
-          },
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
           },

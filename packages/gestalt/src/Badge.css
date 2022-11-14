@@ -23,14 +23,13 @@
   white-space: nowrap;
 }
 
-
 .info {
-  background-color: var(--g-blue);
+  background-color: var(--color-background-info-base);
 }
 
-.info:hover,
-.info:focus {
-  background-color: var(--g-blueHovered);
+.interactiveInfo:hover,
+.interactiveInfo:focus {
+  background-color: var(--color-background-info-strong);
 }
 
 .middle {

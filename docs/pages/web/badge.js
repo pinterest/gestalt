@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import { SlimBanner } from 'gestalt';
 import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -8,6 +7,10 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import {
+  BareSlimBannerExperiment,
+  SlimBannerExperiment,
+} from '../../docs-components/SlimBannerExperiment.js';
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -18,19 +21,16 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         defaultCode={`
 <Text>Update your pronouns in your profile settings <Badge text="New" /></Text>
     `}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName={generatedDocGen?.displayName}
+            description="update its visual design: font size, spacing, and a new information Icon and Tooltip for type='info'."
+            pullRequest={2491}
+            section="#Type"
+          />
+        }
       />
 
-      <SlimBanner
-        helperLink={{
-          text: 'Learn more',
-          accessibilityLabel: 'Learn more about the upcoming changes under an experiment',
-          href: '#Type',
-          onClick: () => {},
-        }}
-        iconAccessibilityLabel="Component under experiment"
-        message={`Badge is under an experiment that modifies its design (font size and spacing). Badge type="info" supports an information Icon and a Tooltip.`}
-        type="info"
-      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
@@ -152,11 +152,6 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         description={`Be sure to localize the \`text\` prop. Note that localization can lengthen text by 20 to 30 percent. `}
       />
       <MainSection name="Variants">
-        <SlimBanner
-          iconAccessibilityLabel="Component under experiment"
-          message={`Badge is under an experiment that modifies its design (font size and spacing). Badge type="info" supports an information Icon and a Tooltip.`}
-          type="infoBare"
-        />
         <MainSection.Subsection
           title="Type"
           description={`
@@ -181,6 +176,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Highlights a suggestion that will improve the experience and achieve better results. For example, 'Recommended for you'.
  `}
         >
+          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             defaultCode={`
   <Table accessibilityLabel="Type examples">
@@ -200,15 +196,23 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <Text>Info</Text>
         </Table.Cell>
         <Table.Cell>
-          <Text size="300">Ads & Campaigns
-            <Badge
-              text="New"
-              type="info"
-              tooltip={{
-              text: 'Informative Badge provides a built-in Tooltips',
-              idealDirection: 'up',
-            }}/>
-          </Text>
+          <Flex direction="column" gap={2}>
+            <Text size="300">Ads & Campaigns
+              <Badge
+                text="New"
+                type="info"
+              />
+            </Text>
+            <Text size="300">Ads & Campaigns
+              <Badge
+                text="New"
+                type="info"
+                _tooltip={{
+                text: 'This is a new feature',
+                idealDirection: 'up',
+              }}/>
+            </Text>
+          </Flex>
         </Table.Cell>
       </Table.Row>
       <Table.Row>

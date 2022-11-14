@@ -11,6 +11,7 @@ import Flex from './Flex.js';
 import Mask from './Mask.js';
 import Image from './Image.js';
 import Dropdown from './Dropdown.js';
+import useInExperiment from './useInExperiment.js';
 import { type ActionType } from './PageHeader.js';
 
 export function PageHeaderTitle({
@@ -57,9 +58,31 @@ export function PageHeaderBadge({
   badgeText: string,
   badgeTooltipText?: string,
 |}): Node {
+  const inBadgeExp = useInExperiment({
+    webExperimentName: 'web_gestalt_redesigned_badge',
+    mwebExperimentName: 'mweb_gestalt_redesigned_badge',
+  });
+
+  if (inBadgeExp) {
+    return badgeTooltipText ? (
+      <Badge
+        text={badgeText}
+        type="info"
+        position="middle"
+        _tooltip={{
+          accessibilityLabel: '',
+          text: badgeTooltipText,
+          idealDirection: 'up',
+        }}
+      />
+    ) : (
+      <Badge text={badgeText} type="info" position="middle" />
+    );
+  }
+
   return badgeTooltipText ? (
     <Tooltip accessibilityLabel="" text={badgeTooltipText} idealDirection="up">
-      <Badge text={badgeText} type="info" position="top" />
+      <Badge text={badgeText} type="info" position={inBadgeExp ? 'middle' : 'top'} />
     </Tooltip>
   ) : (
     <Badge text={badgeText} type="info" position="top" />
