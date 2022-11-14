@@ -11,6 +11,7 @@ import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
+import { FixedZIndex } from './zIndex.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
@@ -171,17 +172,18 @@ export default function Modal({
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {Boolean(heading) && (
-                  <div
-                    className={classnames(modalStyles.shadowContainer, {
-                      [modalStyles.shadow]: showTopShadow,
-                    })}
+                  <Box
+                    borderStyle={showTopShadow ? 'shadow' : undefined}
+                    position="relative"
+                    fit
+                    zIndex={new FixedZIndex(1)}
                   >
                     {typeof heading === 'string' ? (
                       <Header align={align} heading={heading} subHeading={subHeading} />
                     ) : (
                       heading
                     )}
-                  </div>
+                  </Box>
                 )}
                 {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to Sheet */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
@@ -196,13 +198,14 @@ export default function Modal({
                   </ScrollBoundaryContainerProvider>
                 )}
                 {Boolean(footer) && (
-                  <div
-                    className={classnames(modalStyles.shadowContainer, {
-                      [modalStyles.shadow]: showBottomShadow,
-                    })}
+                  <Box
+                    borderStyle={showBottomShadow ? 'shadow' : undefined}
+                    position="relative"
+                    fit
+                    zIndex={new FixedZIndex(1)}
                   >
                     <Box padding={6}>{footer}</Box>
-                  </div>
+                  </Box>
                 )}
               </Box>
             </div>

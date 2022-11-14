@@ -206,11 +206,7 @@ function Sheet(props: SheetProps): Node {
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {heading && (
-                  <div
-                    className={classnames(sheetStyles.shadowContainer, {
-                      [sheetStyles.shadow]: showTopShadow,
-                    })}
-                  >
+                  <Box borderStyle={showTopShadow ? 'shadow' : undefined} position="relative" fit>
                     <Flex alignItems="center" flex="grow" justifyContent="between">
                       <Box flex="grow">
                         <Header heading={heading} />
@@ -223,7 +219,7 @@ function Sheet(props: SheetProps): Node {
                       </Box>
                     </Flex>
                     {subHeading}
-                  </div>
+                  </Box>
                 )}
                 {!heading && (
                   <Box display="flex" flex="grow" justifyContent="end" marginBottom={8}>
@@ -251,13 +247,13 @@ function Sheet(props: SheetProps): Node {
                   </InternalScrollBoundaryContainer>
                 </ScrollBoundaryContainerProvider>
                 {Boolean(footer) && (
-                  <div
-                    className={classnames(sheetStyles.shadowContainer, {
-                      [sheetStyles.shadow]: showBottomShadow,
-                    })}
+                  <Box
+                    borderStyle={showBottomShadow ? 'shadow' : undefined}
+                    position="relative"
+                    fit
                   >
                     <Box padding={8}>{footer}</Box>
-                  </div>
+                  </Box>
                 )}
               </Box>
             </div>

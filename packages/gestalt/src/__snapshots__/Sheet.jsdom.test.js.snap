@@ -23,7 +23,7 @@ exports[`Sheet should render all props with nodes 1`] = `
           style="width: 100%;"
         >
           <div
-            class="shadowContainer"
+            class="box fit relative"
           >
             <div
               class="Flex rowGap0 columnGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
@@ -84,7 +84,7 @@ exports[`Sheet should render all props with nodes 1`] = `
             <section />
           </div>
           <div
-            class="shadowContainer"
+            class="box fit relative"
           >
             <div
               class="box paddingX8 paddingY8"
@@ -122,7 +122,7 @@ exports[`Sheet should render all props with render props 1`] = `
           style="width: 100%;"
         >
           <div
-            class="shadowContainer"
+            class="box fit relative"
           >
             <div
               class="Flex rowGap0 columnGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
@@ -187,7 +187,7 @@ exports[`Sheet should render all props with render props 1`] = `
             />
           </div>
           <div
-            class="shadowContainer"
+            class="box fit relative"
           >
             <div
               class="box paddingX8 paddingY8"

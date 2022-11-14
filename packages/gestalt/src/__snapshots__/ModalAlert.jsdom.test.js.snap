@@ -26,7 +26,8 @@ exports[`Modal Modal renders 1`] = `
             style="width: 100%;"
           >
             <div
-              class="shadowContainer"
+              class="box fit relative"
+              style="z-index: 1;"
             >
               <div
                 class="box paddingX6 paddingY6"
@@ -94,7 +95,8 @@ exports[`Modal Modal renders 1`] = `
               </div>
             </div>
             <div
-              class="shadowContainer"
+              class="box fit relative"
+              style="z-index: 1;"
             >
               <div
                 class="box paddingX6 paddingY6"

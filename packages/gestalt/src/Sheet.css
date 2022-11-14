@@ -70,11 +70,3 @@ html[dir="rtl"] .wrapperAnimationIn {
 html[dir="rtl"] .wrapperAnimationOut {
   animation: slide-out-rtl 400ms ease-in-out;
 }
-
-.shadowContainer {
-  composes: borderBox relative fit from "./Layout.css";
-}
-
-.shadow {
-  composes: shadow from "./Borders.css";
-}
