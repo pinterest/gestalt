@@ -1,5 +1,13 @@
 // @flow strict
-import { type Node, type Ref, useCallback, useEffect, useState, useRef, useMemo } from 'react';
+import {
+  type Node,
+  type ElementRef,
+  useCallback,
+  useEffect,
+  useState,
+  useRef,
+  useMemo,
+} from 'react';
 import { Box, Dropdown, Flex, IconButton, Label, Link, Sticky, Switch, Tabs, Text } from 'gestalt';
 import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
@@ -14,7 +22,7 @@ function SettingsDropdown({
   anchorRef,
   closeDropdown,
 }: {|
-  anchorRef: Ref<typeof IconButton>,
+  anchorRef: {| current: ?ElementRef<typeof IconButton> |},
   closeDropdown: () => void,
 |}) {
   const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
@@ -35,8 +43,6 @@ function SettingsDropdown({
   };
   return (
     <Dropdown
-      // $FlowFixMe[cannot-read] Flow is wrong here
-      // $FlowFixMe[prop-missing]
       anchor={anchorRef.current}
       id="site-settings-dropdown"
       onDismiss={closeDropdown}

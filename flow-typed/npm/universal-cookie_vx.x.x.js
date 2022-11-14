@@ -21,5 +21,9 @@ declare module 'universal-cookie' {
     ...
   };
 
-  declare module.exports: (string) => Cookies;
+  declare class UniversalCookie {
+    constructor(cookies: string): Cookies;
+  }
+
+  declare export default typeof UniversalCookie;
 }
