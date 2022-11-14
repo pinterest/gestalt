@@ -123,10 +123,10 @@ export default function MessagingPriorityAndPlacementPage(): Node {
           <Heading size="300" accessibilityLevel={4}>
             Blocking content—the most prominent
           </Heading>
-          <Box width={678} height={409}>
+          <Box maxWidth={678} maxHeight={409}>
             <Blocking />
           </Box>
-          <Box width={556}>
+          <Box maxWidth={556}>
             <Text>
               Messages that block the surface below them are placed in the center of the screen,
               both vertically and horizontally. They should be used sparingly to avoid blocking
@@ -142,7 +142,7 @@ export default function MessagingPriorityAndPlacementPage(): Node {
               </Link>
             </Text>
           </Flex>
-          <Box marginTop={4} marginBottom={2} width={556}>
+          <Box marginTop={4} marginBottom={2} maxWidth={556}>
             <Text>
               Blocking content slows a person down from their usual flow, so here are some
               guidelines on when it’s okay to block content.
@@ -282,10 +282,10 @@ export default function MessagingPriorityAndPlacementPage(): Node {
               Ephemeral—less prominent
             </Heading>
           </Box>
-          <Box width={678} height={409}>
+          <Box maxWidth={678} maxHeight={409}>
             <Emphemeral />
           </Box>
-          <Box width={556} marginTop={4} marginBottom={0}>
+          <Box maxWidth={556} marginTop={4} marginBottom={0}>
             <Text>
               Small overlays that appear for a short period of time, usually 3–5 seconds depending
               on content. They do not prevent a user from accessing the main content and navigation
@@ -308,10 +308,10 @@ export default function MessagingPriorityAndPlacementPage(): Node {
           <Heading size="300" accessibilityLevel={4}>
             Top of the page—very prominent
           </Heading>
-          <Box width={678} height={409}>
+          <Box maxWidth={678} maxHeight={409}>
             <TopPage />
           </Box>
-          <Box width={556} marginBottom={-4}>
+          <Box maxWidth={556} marginBottom={-4}>
             <Text>
               Place messages at the top of a page, below the main app nav if the alert or
               information applies to the entire page. Avoid stacking messages so that a person’s
@@ -343,10 +343,10 @@ export default function MessagingPriorityAndPlacementPage(): Node {
           <Heading size="300" accessibilityLevel={4}>
             Ephemeral—less prominent
           </Heading>
-          <Box width={678} height={409}>
+          <Box maxWidth={678} maxHeight={409}>
             <Section />
           </Box>
-          <Box width={556}>
+          <Box maxWidth={556}>
             <Text>
               Place messages at the top of a page, below the main app nav if the alert or
               information applies to the entire page. Avoid stacking messages so that a person’s

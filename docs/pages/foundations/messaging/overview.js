@@ -7,7 +7,7 @@ import MainSection from '../../../docs-components/MainSection.js';
 
 export default function MessagingPrinciples(): Node {
   return (
-    <Page title="Messaging overview">
+    <Page title="Messaging principles">
       <PageHeader
         badge="pilot"
         name="Messaging overview"
@@ -60,6 +60,7 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
               alt="Mobile phone screen of a Pin close-up. There is a small red dot next to the user's profile in the bottom nav bar."
               naturalHeight={1}
               naturalWidth={1}
+              fit="contain"
               src="https://i.pinimg.com/originals/72/52/51/725251998a88d92a653cc3bcd08ca2ee.png"
             />
           </Box>
@@ -81,6 +82,7 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
             alt="Mobile phone screen of a Pinner profile with a Callout Banner warning the user of an issue that needs to be fixed."
             naturalHeight={1}
             naturalWidth={1}
+            fit="contain"
             src="https://i.pinimg.com/originals/f5/15/d4/f515d4e36832a2637d2d5a53b32e2deb.png"
           />
         </Box>
@@ -96,6 +98,7 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
             alt="Mobile phone screen with a success toast message."
             naturalHeight={1}
             naturalWidth={1}
+            fit="contain"
             src="https://i.pinimg.com/originals/86/1c/4d/861c4dba8f3280333eb00f1fc712e891.png"
           />
         </Box>
@@ -114,6 +117,7 @@ Claire goes back to find some other pins, then decides it’s time to get back t
             alt="Mobile phone screen with an error modal message."
             naturalHeight={1}
             naturalWidth={1}
+            fit="contain"
             src="https://i.pinimg.com/originals/83/f9/a1/83f9a155d2602483eea851350c755a6e.png"
           />
         </Box>
@@ -132,6 +136,7 @@ The recommendation is dismissible since it’s not required and may get in the w
             alt="Desktop screen with a recommendation inside of a data table showing ad campaigns."
             naturalHeight={1}
             naturalWidth={1}
+            fit="contain"
             src="https://i.pinimg.com/originals/65/e4/30/65e43065fa1f96bd25bbcfd9e5a2151e.png"
           />
         </Box>
@@ -148,6 +153,7 @@ The recommendation is dismissible since it’s not required and may get in the w
             alt="Desktop screen with a message confirming an action"
             naturalHeight={1}
             naturalWidth={1}
+            fit="contain"
             src="https://i.pinimg.com/originals/ad/c7/7f/adc77f21e86c2c8c1780b572c35e0c7a.png"
           />
         </Box>
@@ -164,6 +170,7 @@ The recommendation is dismissible since it’s not required and may get in the w
             alt="Desktop screen showin a success banner."
             naturalHeight={1}
             naturalWidth={1}
+            fit="contain"
             src="https://i.pinimg.com/originals/20/3f/14/203f14d057e9b3cae2ff02b4d32c5a35.png"
           />
         </Box>
