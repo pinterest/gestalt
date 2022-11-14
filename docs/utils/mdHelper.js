@@ -45,12 +45,12 @@ export async function getAllMarkdownPosts(): Promise<$ReadOnlyArray<$ReadOnlyArr
     ) => {
       // for each choice
       pageItems.forEach((page) => {
-        if (page.sectionName) {
-          // $FlowFixMe[incompatible-type] This is a siteIndexType because it has a section name and isn't a string
-          const siteIndexSection: siteIndexType = page;
+        if (typeof page !== 'string') {
+          const siteIndexSection = page;
           addUrlPaths(siteIndexSection.pages, pages.concat([siteIndexSection.sectionName]));
-        } else {
-          // $FlowFixMe[incompatible-call] No section name exists, so it's a string
+        }
+        // No section name exists, so it's a string
+        else {
           pagePaths.push(pages.concat([page]));
         }
       });

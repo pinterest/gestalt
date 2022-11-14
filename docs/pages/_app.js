@@ -49,8 +49,6 @@ function GestaltApp(
     );
   }
 
-  // Flow is wrong here https://github.com/reactivestack/cookies/tree/master/packages/universal-cookie
-  // $FlowFixMe[invalid-constructor]
   const cookies = new Cookies(cookieHeader);
 
   return (

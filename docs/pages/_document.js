@@ -1,12 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
 import Cookies from 'universal-cookie';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 class GestaltDocument extends Document {
-  // $FlowFixMe[signature-verification-failure]
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext): Promise<{||}> {
     const initialProps = await Document.getInitialProps(ctx);
 
     const cookieHeader = ctx?.req?.headers?.cookie;
@@ -19,8 +18,6 @@ class GestaltDocument extends Document {
 
   render(): Node {
     const { props } = this;
-    // Flow is wrong here https://github.com/reactivestack/cookies/tree/master/packages/universal-cookie
-    // $FlowFixMe[invalid-constructor]
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
 

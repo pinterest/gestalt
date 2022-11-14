@@ -88,10 +88,15 @@ function GridComponent({ data }: { data: Pin, ... }) {
 }
 
 class ExampleMasonry extends Component<Props, State> {
-  // ref on a component gets the mounted instance of the component
+  // Ref on a component gets the mounted instance of the component
   // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
-  // $FlowFixMe[unclear-type]
-  grid: ?Masonry<*>;
+  grid: ?Masonry<{|
+    color: string,
+    height: number,
+    name: string,
+    src: string,
+    width: number,
+  |}>;
 
   scrollContainer: ?HTMLElement;
 

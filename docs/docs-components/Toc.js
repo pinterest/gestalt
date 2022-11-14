@@ -17,8 +17,11 @@ function throttle(func, wait) {
     }
     previous = Date.now();
     timeout = null;
-    // $FlowIssue[incompatible-type]
-    result = func.apply(context, args);
+    if (args) {
+      result = func.apply(context, args);
+    } else {
+      result = func.apply(context);
+    }
     if (!timeout) {
       context = null;
       args = null;
@@ -39,8 +42,11 @@ function throttle(func, wait) {
         timeout = null;
       }
       previous = now;
-      // $FlowFixMe[incompatible-type]
-      result = func.apply(context, args);
+      if (args) {
+        result = func.apply(context, args);
+      } else {
+        result = func.apply(context);
+      }
       if (!timeout) {
         context = null;
         args = null;
