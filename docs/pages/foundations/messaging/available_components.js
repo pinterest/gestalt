@@ -3,7 +3,7 @@ import { Text, Flex, Box, Link } from 'gestalt';
 import { type Node } from 'react';
 import Example from '../../../docs-components/Example.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
-import modalExample from '../../../examples/modal/limitActionsExample.js';
+import defaultExample from '../../../examples/modalalert/defaultExample.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -84,18 +84,18 @@ export default function MessagingComponentsPage(): Node {
           </Text>
         </Flex>
       </MainSection>
-      <MainSection name="Modal">
-        <SandpackExample code={modalExample} name="Modal Main Example" hideEditor />
+      <MainSection name="ModalAlert">
+        <SandpackExample code={defaultExample} name="Modal Main Example" hideEditor />
         <Flex direction="column" gap={4}>
           <Text>
             A modal dialog can be used to alert a user of an issue, or to request confirmation after
-            a user-generated action. Modal overlays and blocks page content until it is dismissed by
-            the user.
+            a user-generated action. ModalAlert overlays and blocks page content until it is
+            dismissed by the user.
           </Text>
 
           <Text>
-            <Link href="/web/modal" underline="always">
-              Go to the Modal component
+            <Link href="/web/modalalert" underline="always">
+              Go to the ModalAlert component
             </Link>
           </Text>
         </Flex>

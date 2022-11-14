@@ -121,14 +121,18 @@ export default function MessagingPriorityAndPlacementPage(): Node {
       >
         <MainSection.Subsection title="Overlays">
           <Heading size="300" accessibilityLevel={4}>
-            Blocking—the most prominent
+            Blocking content—the most prominent
           </Heading>
-          <Blocking />
-          <Text>
-            Messages that block the surface below them are placed in the center of the screen, both
-            vertically and horizontally. They should be used sparingly to avoid blocking people from
-            productivity and inspiration.
-          </Text>
+          <Box width={678} height={409}>
+            <Blocking />
+          </Box>
+          <Box width={556}>
+            <Text>
+              Messages that block the surface below them are placed in the center of the screen,
+              both vertically and horizontally. They should be used sparingly to avoid blocking
+              people from productivity and inspiration.
+            </Text>
+          </Box>
 
           <Flex gap={2}>
             <Text weight="bold">Current components:</Text>
@@ -138,10 +142,12 @@ export default function MessagingPriorityAndPlacementPage(): Node {
               </Link>
             </Text>
           </Flex>
-          <Text>
-            Blocking content slows a person down from their usual flow, so here are some guidelines
-            on when it’s okay to block content.
-          </Text>
+          <Box marginTop={4} marginBottom={2} width={556}>
+            <Text>
+              Blocking content slows a person down from their usual flow, so here are some
+              guidelines on when it’s okay to block content.
+            </Text>
+          </Box>
           <Box>
             <Flex alignItems="center">
               <Box padding={4} width="50%">
@@ -266,66 +272,88 @@ export default function MessagingPriorityAndPlacementPage(): Node {
               </Flex>
             </Box>
           </Box>
-        </MainSection.Subsection>
-        <MainSection.Subsection title="Non-blocking">
-          <Heading size="300" accessibilityLevel={4}>
-            Ephemeral—less prominent
-          </Heading>
-          <Emphemeral />
-          <Text>
-            Small overlays that appear for a short period of time, usually 3–5 seconds depending on
-            content. They do not prevent a user from accessing the main content and navigation on
-            the surface underneath.
-          </Text>
-          <Flex gap={2}>
-            <Text weight="bold">Current components:</Text>
+          <Box marginBottom={4} marginTop={8}>
+            <Heading size="300" accessibilityLevel={4}>
+              Not blocking content
+            </Heading>
+          </Box>
+          <Box marginTop={-4}>
+            <Heading size="200" accessibilityLevel={5}>
+              Ephemeral—less prominent
+            </Heading>
+          </Box>
+          <Box width={678} height={409}>
+            <Emphemeral />
+          </Box>
+          <Box width={556} marginTop={4} marginBottom={0}>
             <Text>
-              <Link href="/web/toast" underline="always">
-                Toast
-              </Link>
+              Small overlays that appear for a short period of time, usually 3–5 seconds depending
+              on content. They do not prevent a user from accessing the main content and navigation
+              on the surface underneath.
             </Text>
-          </Flex>
+          </Box>
+          <Box marginBottom={4}>
+            <Flex gap={2}>
+              <Text weight="bold">Current components:</Text>
+              <Text>
+                <Link href="/web/toast" underline="always">
+                  Toast
+                </Link>
+              </Text>
+            </Flex>
+          </Box>
         </MainSection.Subsection>
+
         <MainSection.Subsection title="On surface">
           <Heading size="300" accessibilityLevel={4}>
             Top of the page—very prominent
           </Heading>
-          <TopPage />
-          <Text>
-            Place messages at the top of a page, below the main app nav if the alert or information
-            applies to the entire page. Avoid stacking messages so that a person’s view isn’t
-            cluttered and they can’t focus on the main information they came to see and interact
-            with. Show the highest-severity ones first.
-          </Text>
-          <Flex gap={2}>
-            <Text weight="bold">Current components:</Text>
+          <Box width={678} height={409}>
+            <TopPage />
+          </Box>
+          <Box width={556} marginBottom={-4}>
             <Text>
-              <Link href="/web/callout" underline="always">
-                Callout
-              </Link>
+              Place messages at the top of a page, below the main app nav if the alert or
+              information applies to the entire page. Avoid stacking messages so that a person’s
+              view isn’t cluttered and they can’t focus on the main information they came to see and
+              interact with. Show the highest-severity ones first.
             </Text>
-            <Text>
-              <Link href="/web/slimbanner" underline="always">
-                SlimBanner
-              </Link>
-            </Text>
-            <Text>
-              <Link href="/web/upsell" underline="always">
-                Upsell
-              </Link>
-            </Text>
-          </Flex>
+          </Box>
+          <Box marginTop={4} marginBottom={4}>
+            <Flex gap={2}>
+              <Text weight="bold">Current components:</Text>
+              <Text>
+                <Link href="/web/callout" underline="always">
+                  Callout
+                </Link>
+              </Text>
+              <Text>
+                <Link href="/web/slimbanner" underline="always">
+                  SlimBanner
+                </Link>
+              </Text>
+              <Text>
+                <Link href="/web/upsell" underline="always">
+                  Upsell
+                </Link>
+              </Text>
+            </Flex>
+          </Box>
 
           <Heading size="300" accessibilityLevel={4}>
             Ephemeral—less prominent
           </Heading>
-          <Section />
-          <Text>
-            Place messages at the top of a page, below the main app nav if the alert or information
-            applies to the entire page. Avoid stacking messages so that a person’s view isn’t
-            cluttered and they can’t focus on the main information they came to see and interact
-            with. Show the highest-severity ones first.
-          </Text>
+          <Box width={678} height={409}>
+            <Section />
+          </Box>
+          <Box width={556}>
+            <Text>
+              Place messages at the top of a page, below the main app nav if the alert or
+              information applies to the entire page. Avoid stacking messages so that a person’s
+              view isn’t cluttered and they can’t focus on the main information they came to see and
+              interact with. Show the highest-severity ones first.
+            </Text>
+          </Box>
           <Flex gap={2}>
             <Text weight="bold">Current components:</Text>
             <Text>
