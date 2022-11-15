@@ -1,3 +1,9 @@
+## 81.4.2 (Nov 15, 2022)
+
+### Patch
+
+- Modal, Sheet: refactored internals to use Box borderStyle rather than CSS ([#2495](https://github.com/pinterest/gestalt/pull/2495)) - [Preview link](https://deploy-preview-2495--gestalt.netlify.app)
+
 ## 81.4.1 (Nov 14, 2022)
 
 ### Patch
