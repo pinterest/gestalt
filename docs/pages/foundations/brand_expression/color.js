@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Flex, Box, Link, Image, Heading } from 'gestalt';
+import { Text, Flex, Image, Heading } from 'gestalt';
 import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -23,7 +23,9 @@ The Core brand team created a baseline brand palette with some of our extended c
         naturalWidth={1798}
         alt=""
       />
-      <Text>Brand color swatches available in Figma (Baseline brand colors library)</Text>
+      <Text align="center" size="100">
+        Brand color swatches available in Figma (Baseline brand colors library)
+      </Text>
       <Text>
         See below an example of brand expression in the product UI using color fill combined with
         other visual assets.{' '}
@@ -34,7 +36,9 @@ The Core brand team created a baseline brand palette with some of our extended c
         naturalWidth={1792}
         alt=""
       />
-      <Text>Idea Pin tips - Using color fills to bring brand expression </Text>
+      <Text align="center" size="100">
+        Idea Pin tips - Using color fills to bring brand expression{' '}
+      </Text>
       <Text>
         Reach out to Core Brand for photography guidance, imagery and other types of visual assets.{' '}
       </Text>
@@ -50,124 +54,94 @@ For more information about colors, check out our color documentation.
         />
       </MainSection.Subsection>
       <MainSection.Subsection title="Color fills and typography">
-        <Heading>Headings</Heading>
-        <Text>
-          Avoid using extended colors to text elements, as changing colors could lead to usability
-          and cognitive issues due to their semantic meaning and required contrast level. Refer to
-          our text color tokens for guidance.
-        </Text>
-        <Heading>Body</Heading>
-        <Text>
-          <p>
-            Body should always be $color-text-default (default color), $color-text-inverse (text
-            over a dark-colored background), or $color-text-subtle (secondary color), with the
-            exception of status text colors, as they are needed to convey a certain meaning for
-            specific cases.
-          </p>
-          <p>
-            Avoid using alternative colors on body content, which could lead to accessibility
-            issues.{' '}
-          </p>
-          <p>
-            Please note: It only applies to product UI elements. For marketing websites, materials
-            or promotional landing pages reach out to Core Brand for text color guidance.
-          </p>
-          <p>
-            See below examples of UI elements using the appropriate text colors over color fills.
-          </p>
-        </Text>
-        <Flex gap={4}>
-          <Flex.Item>
-            <Image
-              src="https://i.pinimg.com/originals/6e/f3/5c/6ef35ce8021c2aa5502c18f50f2ef966.png"
-              naturalHeight={480}
-              naturalWidth={718}
-              alt=""
-            />
-            <Text>Matchacado-green-500 + $color-text-inverse</Text>
-          </Flex.Item>
-          <Flex.Item>
-            <Image
-              src="https://i.pinimg.com/originals/e8/49/7c/e8497ce56cdab39f1af97864e31d5a99.png"
-              naturalHeight={416}
-              naturalWidth={686}
-              alt=""
-            />
-            <Text>Firetine-orange-100 + $color-text-default</Text>
-          </Flex.Item>
-          <Flex.Item>
-            <Image
-              src="https://i.pinimg.com/originals/b2/f4/a4/b2f4a4bb96fa7579d13be3c6b1a60874.png"
-              naturalHeight={410}
-              naturalWidth={694}
-              alt=""
-            />
-            <Text>Spabattical-teal-700 + $color-text-inverse</Text>
-          </Flex.Item>
-          <Flex.Item>
-            <Image
-              src="https://i.pinimg.com/originals/c6/3a/6e/c63a6e92a920f4b25698e64c4648b004.png"
-              naturalHeight={358}
-              naturalWidth={686}
-              alt=""
-            />
-            <Text>Spabattical-teal-100 + $color-text-default</Text>
-          </Flex.Item>
+        <Heading size="300">Headings</Heading>
+        <Markdown text="Avoid using extended colors to text elements, as changing colors could lead to usability and cognitive issues due to their semantic meaning and required contrast level. Refer to our text color tokens for guidance." />
+        <Heading size="300">Body</Heading>
+        <Markdown
+          text={`Body should always be $color-text-default (default color), $color-text-inverse (text over a dark-colored background), or $color-text-subtle (secondary color), with the exception of status text colors, as they are needed to convey a certain meaning for specific cases.
+
+Avoid using alternative colors on body content, which could lead to accessibility issues.
+
+Please note: It only applies to product UI elements. For marketing websites, materials or promotional landing pages reach out to Core Brand for text color guidance.
+
+See below examples of UI elements using the appropriate text colors over color fills.`}
+        />
+        <Flex gap={12} direction="column">
+          <Flex gap={12} wrap alignItems="end">
+            <Flex.Item minWidth={320} flex="grow">
+              <Image
+                src="https://i.pinimg.com/originals/6e/f3/5c/6ef35ce8021c2aa5502c18f50f2ef966.png"
+                naturalHeight={480}
+                naturalWidth={718}
+                alt=""
+              />
+              <Text align="center" size="100">
+                Matchacado-green-500 + $color-text-inverse
+              </Text>
+            </Flex.Item>
+            <Flex.Item minWidth={320} flex="grow">
+              <Image
+                src="https://i.pinimg.com/originals/e8/49/7c/e8497ce56cdab39f1af97864e31d5a99.png"
+                naturalHeight={416}
+                naturalWidth={686}
+                alt=""
+              />
+              <Text align="center" size="100">
+                Firetine-orange-100 + $color-text-default
+              </Text>
+            </Flex.Item>
+          </Flex>
+          <Flex gap={12} wrap alignItems="end">
+            <Flex.Item minWidth={320} flex="grow">
+              <Image
+                src="https://i.pinimg.com/originals/b2/f4/a4/b2f4a4bb96fa7579d13be3c6b1a60874.png"
+                naturalHeight={410}
+                naturalWidth={694}
+                alt=""
+              />
+              <Text align="center" size="100">
+                Spabattical-teal-700 + $color-text-inverse
+              </Text>
+            </Flex.Item>
+            <Flex.Item minWidth={320} flex="grow">
+              <Image
+                src="https://i.pinimg.com/originals/c6/3a/6e/c63a6e92a920f4b25698e64c4648b004.png"
+                naturalHeight={358}
+                naturalWidth={686}
+                alt=""
+              />
+              <Text align="center" size="100">
+                Spabattical-teal-100 + $color-text-default
+              </Text>
+            </Flex.Item>
+          </Flex>
         </Flex>
       </MainSection.Subsection>
       <MainSection.Subsection title="Color fills and iconography">
-        <Text>
-          <p>
-            When playing with color fills, we recommend using a tool like aremycolorsaccessible.com
-            to check the foreground color against the background color. In Figma, you can use the
-            Able or Pinterest brand color palettes plugins to check color contrast in your designs.
-          </p>
-          <p>
-            Section 508, which aligns with WCAG 2.0 Level AA, establishes a legal standard for the
-            contrast level essential between text and its background. The baseline AA contrast
-            standard is 4.5:1 for most text and 3:1 for large text.{' '}
-          </p>
-          <p>
-            Make sure your color fills have great contrast in our light and dark mode color themes.
-          </p>
-          <p>
-            Don’t use color exclusively to convey meaning. Color should only be used as an
-            enhancement — if color is the only cue, that cue won’t get through as intended to
-            everyone.{' '}
-          </p>
-        </Text>
+        <Markdown
+          text={`When playing with color fills, we recommend using a tool like aremycolorsaccessible.com to check the foreground color against the background color. In Figma, you can use the Able or Pinterest brand color palettes plugins to check color contrast in your designs.
+
+Section 508, which aligns with WCAG 2.0 Level AA, establishes a legal standard for the contrast level essential between text and its background. The baseline AA contrast standard is 4.5:1 for most text and 3:1 for large text.
+
+Make sure your color fills have great contrast in our light and dark mode color themes.
+
+Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone.`}
+        />
       </MainSection.Subsection>
       <MainSection name="Accessibility">
         <MainSection.Subsection>
-          <Text>
-            <p>
-              Gestalt icons should always use established colors, as our color props are
-              semantically aligned with our iconography principles.
-            </p>
-            <p>
-              If colors are needed to express a brand moment on the product, consider adding a
-              colored background to the icon instead of adding alternative colors to the icon
-              component. Ensure it meets the WCAG 2.1 AA accessibility standard with the proper
-              contrast between foreground and background. See the examples below.
-            </p>
-          </Text>
+          <Markdown
+            text={`Gestalt icons should always use established colors, as our color props are semantically aligned with our iconography principles.
+
+If colors are needed to express a brand moment on the product, consider adding a colored background to the icon instead of adding alternative colors to the icon component. Ensure it meets the WCAG 2.1 AA accessibility standard with the proper contrast between foreground and background. See the examples below.`}
+          />
         </MainSection.Subsection>
         <MainSection.Subsection title="Extended color palette">
-          <Text>
-            <p>
-              The extended color palette displays all the available shades and tints of each color
-              in the palette. The colors are named and numbered for easy reference. The usage of
-              these colors come in handy for brand moments. In order to ensure accessible contrast
-              for color pairings, we require our darkGray Text color to be used for any colors 400
-              and below. For 500 and above, we recommend using white. Learn more by checking our
-              color palette documentation.
-            </p>
-            <p>
-              The 450 colors are primarily reserved for Brand usage as they are among the least
-              accessible colors. This set works best within larger brand moments, and is not
-              commonly used for functional color pairings.
-            </p>
-          </Text>
+          <Markdown
+            text={`The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors come in handy for brand moments. In order to ensure accessible contrast for color pairings, we require our darkGray Text color to be used for any colors 400 and below. For 500 and above, we recommend using white. Learn more by checking our color palette documentation.
+
+The 450 colors are primarily reserved for Brand usage as they are among the least accessible colors. This set works best within larger brand moments, and is not commonly used for functional color pairings.`}
+          />
         </MainSection.Subsection>
       </MainSection>
     </Page>

@@ -85,7 +85,7 @@ We suggest continuously checking for comprehension and usability when bringing b
               </Heading>
               <Text>
                 <ul>
-                  <li>Dashboards(when applicable and it doesn't break a component)</li>
+                  <li>Dashboards(when applicable and it does not break a component)</li>
                 </ul>
               </Text>
             </Flex.Item>
@@ -145,7 +145,7 @@ We suggest continuously checking for comprehension and usability when bringing b
       <MainSection name="Accessibility">
         <Text>
           <p>
-            Be mindful of color usage. Pinterest's goal as a company is to meet{' '}
+            Be mindful of color usage. Pinterest\'s goal as a company is to meet{' '}
             <Link inline href="https://www.w3.org/TR/WCAG21/">
               WCAG 2.1 AA standards
             </Link>
