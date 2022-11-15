@@ -178,12 +178,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Layouts',
       {
         sectionName: 'Messaging',
-        pages: [
-          'Principles',
-          'Available components',
-          'Priority and placement',
-          'A messaging story',
-        ],
+        pages: ['Overview', 'Available components', 'Priority and placement'],
       },
       'Screen sizes',
 
