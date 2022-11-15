@@ -1,3 +1,9 @@
+## 81.4.4 (Nov 15, 2022)
+
+### Patch
+
+- Docs: Fix dark mode colors for data viz page ([#2498](https://github.com/pinterest/gestalt/pull/2498)) - [Preview link](https://deploy-preview-2498--gestalt.netlify.app)
+
 ## 81.4.3 (Nov 15, 2022)
 
 ### Patch
