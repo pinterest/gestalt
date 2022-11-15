@@ -15,12 +15,3 @@
 .wrapper:focus {
   outline: none;
 }
-
-.shadowContainer {
-  composes: borderBox relative fit from "./Layout.css";
-  z-index: 1;
-}
-
-.shadow {
-  composes: shadow from "./Borders.css";
-}
