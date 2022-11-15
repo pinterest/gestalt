@@ -1,11 +1,14 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { isValidElement, type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
+import Link from './Link.js';
 import Mask from './Mask.js';
+import Button from './Button.js';
 import Text from './Text.js';
 import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import ToastPrimaryAction from './ToastPrimaryAction.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const TOAST_MAX_WIDTH_PX = 500;
@@ -14,9 +17,22 @@ const TEXT_MAX_WIDTH_PX = 127;
 
 type Props = {|
   /**
-   * Add an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
+   * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
    */
-  button?: Node,
+  _dangerouslySetPrimaryAction?: Node,
+  /**
+   * Adds an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
+   */
+  primaryAction?: {|
+    accessibilityLabel: string,
+    href?: string,
+    label: string,
+    onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+    rel?: $ElementType<React$ElementConfig<typeof Link>, 'rel'>,
+    size?: $ElementType<React$ElementConfig<typeof Button>, 'size'>,
+    target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+  |},
+
   /**
    * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
    */
@@ -44,11 +60,12 @@ type Props = {|
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
-  button,
+  primaryAction,
   text,
   thumbnail,
   thumbnailShape = 'square',
   variant = 'default',
+  _dangerouslySetPrimaryAction,
 }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -80,7 +97,7 @@ export default function Toast({
   }
 
   const hasImage = thumbnail != null;
-  const hasButton = button != null;
+  const hasButton = primaryAction != null;
 
   return (
     <Box
@@ -107,16 +124,28 @@ export default function Toast({
               </Mask>
             </Flex.Item>
           ) : null}
-
           <Flex.Item flex="grow" maxWidth={hasImage && hasButton ? TEXT_MAX_WIDTH_PX : undefined}>
-            <Text align={!thumbnail && !button ? 'center' : 'start'} color={textColor}>
+            <Text align={!thumbnail && !primaryAction ? 'center' : 'start'} color={textColor}>
               {textElement}
             </Text>
           </Flex.Item>
-
-          {button ? (
+          {primaryAction || _dangerouslySetPrimaryAction ? (
             // Allow button text to wrap on mobile
-            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>{button}</Flex.Item>
+            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+              {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
+              {!_dangerouslySetPrimaryAction &&
+              primaryAction?.accessibilityLabel &&
+              primaryAction?.label ? (
+                <ToastPrimaryAction
+                  accessibilityLabel={primaryAction.accessibilityLabel}
+                  href={primaryAction.href}
+                  rel={primaryAction?.rel}
+                  target={primaryAction?.target}
+                  label={primaryAction.label}
+                  onClick={primaryAction.onClick}
+                />
+              ) : null}
+            </Flex.Item>
           ) : null}
         </Flex>
       </Box>

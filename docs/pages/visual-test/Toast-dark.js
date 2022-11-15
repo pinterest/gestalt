@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import { ColorSchemeProvider, Toast, Button, Image, Box } from 'gestalt';
+import { ColorSchemeProvider, Toast, Image, Box } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default">
         <Toast
-          button={<Button key="button-key" text="Undo" size="lg" />}
+          primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
           text="Home decor"
           thumbnail={
             <Image
