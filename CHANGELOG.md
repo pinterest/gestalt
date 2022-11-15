@@ -1,3 +1,9 @@
+## 82.0.1 (Nov 15, 2022)
+
+### Patch
+
+- Bump loader-utils from 3.2.0 to 3.2.1 ([#2500](https://github.com/pinterest/gestalt/pull/2500)) - [Preview link](https://deploy-preview-2500--gestalt.netlify.app)
+
 ## 82.0.0 (Nov 15, 2022)
 
 ### Major
