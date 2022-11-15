@@ -1,3 +1,9 @@
+## 82.0.0 (Nov 15, 2022)
+
+### Major
+
+- Toast: refactor 'button' prop to 'primaryAction' to enable upcoming redesign changes ([#2481](https://github.com/pinterest/gestalt/pull/2481)) - [Preview link](https://deploy-preview-2481--gestalt.netlify.app)
+
 ## 81.4.4 (Nov 15, 2022)
 
 ### Patch
