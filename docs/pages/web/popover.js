@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -548,7 +549,7 @@ For the \`role\` prop, use:
             sandpackExample={
               <SandpackExample
                 code={defaultExample}
-                name="Double modal example"
+                name="Aria example"
                 hideEditor
                 hideControls
                 previewHeight={PREVIEW_HEIGHT}
@@ -560,7 +561,19 @@ For the \`role\` prop, use:
       <MainSection
         name="Localization"
         description="Be sure to localize any text elements within Popover, along with `accessibilityLabel` and `accessibilityDismissButtonLabel`. Note that localization can lengthen text by 20 to 30 percent."
-      />
+      >
+        <SlimBanner
+          iconAccessibilityLabel="Recommendation"
+          message="Popovers with a dismiss button announce to assistive technologies that the button will dismiss the Popover. Localize the default label with DefaultLabelProvider."
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
@@ -827,15 +840,26 @@ function PopoverExample() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Dismiss button"
-          description={` We highly recommend including a dismiss button on all Popovers with \`showDismissButton\`. This improves accessibility and gives users an immediate action for closing Popover. A default label of "Close popover" is provided through [DefaultLabelProvider](/web/utilities/defaultlabelprovider), but a more unique label can be provided with the \`accessibilityDismissButtonLabel\` prop. Don't forget to localize this label as well.
+          description={` We highly recommend including a dismiss button on all Popovers with \`showDismissButton\`. This improves accessibility and gives users an immediate action for closing Popover. A label for the button can be provided with the \`accessibilityDismissButtonLabel\` prop. Don't forget to localize this label as well.
 `}
         >
+          <SlimBanner
+            iconAccessibilityLabel="Recommendation"
+            message="Popovers with a dismiss button announce to assistive technologies that the button will dismiss the Popover with a default label of 'Close popover'. Localize the default label with DefaultLabelProvider."
+            type="recommendationBare"
+            helperLink={{
+              text: 'Learn more',
+              accessibilityLabel: 'Learn more about DefaultLabelProvider',
+              href: '/web/utilities/defaultlabelprovider',
+              onClick: () => {},
+            }}
+          />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={defaultExample}
-                name="Double modal example"
+                name="Dismiss button example"
                 hideEditor
                 hideControls
                 previewHeight={PREVIEW_HEIGHT}

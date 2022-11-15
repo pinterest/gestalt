@@ -20,11 +20,12 @@ type Props = {|
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
+  size?: $ElementType<React$ElementConfig<typeof Pog>, 'size'>,
 |};
 
 const InternalDismissIconButtonWithForwardRef: React$AbstractComponent<Props, HTMLButtonElement> =
   forwardRef<Props, HTMLButtonElement>(function IconButton(
-    { accessibilityLabel, accessibilityControls, onClick }: Props,
+    { accessibilityLabel, accessibilityControls, onClick, size = 'lg' }: Props,
     ref,
   ): Node {
     const innerRef = useRef(null);
@@ -91,7 +92,12 @@ const InternalDismissIconButtonWithForwardRef: React$AbstractComponent<Props, HT
           })}
           style={compressStyle || undefined}
         >
-          <Pog focused={isFocusVisible && isFocused} hovered={isHovered} icon="cancel" size="lg" />
+          <Pog
+            focused={isFocusVisible && isFocused}
+            hovered={isHovered}
+            icon="cancel"
+            size={size}
+          />
         </div>
       </button>
     );

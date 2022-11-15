@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node, useRef, useEffect } from 'react';
 import Controller from './Controller.js';
-import IconButton from './IconButton.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import InternalDismissButton from './InternalDismissButton.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -17,7 +17,7 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Describe's the dismiss button's purpose. Default is "Close popover". Must be translated.
+   * Describe's the dismiss button's purpose. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more. Must be localized.
    */
   accessibilityDismissButtonLabel?: string,
   /**
@@ -99,10 +99,10 @@ export default function Popover({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
-  const ref = useRef();
+  const dismissButtonRef = useRef();
 
   useEffect(() => {
-    ref.current?.focus();
+    dismissButtonRef.current?.focus();
   }, []);
 
   if (!anchor) {
@@ -129,15 +129,13 @@ export default function Popover({
       {showDismissButton ? (
         <Flex direction="column">
           <Box alignSelf="end" padding={1}>
-            <IconButton
-              icon="cancel"
+            <InternalDismissButton
               accessibilityLabel={
                 accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
               }
-              size="xs"
-              iconColor={color === 'white' ? 'darkGray' : 'white'}
               onClick={onDismiss}
-              ref={ref}
+              size="xs"
+              ref={dismissButtonRef}
             />
           </Box>
           {children}
