@@ -22,6 +22,9 @@ describe('useDefaultLabelContext', () => {
           ModalAlert: {
             accessibilityDismissButtonLabel: 'Close modal',
           },
+          Popover: {
+            accessibilityDismissButtonLabel: 'Close popover',
+          },
           ComboBox: {
             accessibilityClearButtonLabel: 'Clear input',
           },

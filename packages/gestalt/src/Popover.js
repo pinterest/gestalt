@@ -1,6 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
 import Controller from './Controller.js';
+import IconButton from './IconButton.js';
+import Box from './Box.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -12,6 +15,10 @@ type Props = {|
    * Unique label to describe each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
   accessibilityLabel?: string,
+  /**
+   * Describe's the dismiss button's purpose. Default is "Close popover". Must be translated.
+   */
+  accessibilityDismissButtonLabel?: string,
   /**
    * The reference element, typically [Button](https://gestalt.pinterest.systems/web/button) or [IconButton](https://gestalt.pinterest.systems/web/iconbutton), that Popover uses to set its position.
    */
@@ -57,6 +64,10 @@ type Props = {|
    */
   showCaret?: boolean,
   /**
+   * Shows a dismiss button on Popover. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more.
+   */
+  showDismissButton?: boolean,
+  /**
    * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/web/popover#Size) variant to learn more.
    */
   size?: Size,
@@ -69,8 +80,10 @@ type Props = {|
  */
 export default function Popover({
   accessibilityLabel = 'Popover',
+  accessibilityDismissButtonLabel,
   anchor,
   children,
+  showDismissButton,
   onKeyDown,
   id,
   idealDirection,
@@ -82,6 +95,9 @@ export default function Popover({
   showCaret = false,
   size = 'sm',
 }: Props): null | Node {
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('Popover');
+
   if (!anchor) {
     return null;
   }
@@ -103,6 +119,19 @@ export default function Popover({
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
     >
+      {showDismissButton && (
+        <Box position="absolute" top right padding={1}>
+          <IconButton
+            icon="cancel"
+            accessibilityLabel={
+              accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+            }
+            size="xs"
+            iconColor={color === 'white' ? 'darkGray' : 'white'}
+            onClick={onDismiss}
+          />
+        </Box>
+      )}
       {children}
     </Controller>
   );

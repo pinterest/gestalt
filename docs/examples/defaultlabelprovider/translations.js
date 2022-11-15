@@ -10,6 +10,9 @@ const labels = {
   ModalAlert: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close modal'),
   },
+  Popover: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Close popover'),
+  },
   ComboBox: {
     accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
   },

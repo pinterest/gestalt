@@ -6,8 +6,11 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultExample from '../../examples/popover/defaultExample.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+
+const PREVIEW_HEIGHT = 550;
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -525,6 +528,7 @@ function PopoverExample() {
 We recommend passing the following ARIA attribute to Popover for a better screen reader experience:
 
 - \`accessibilityLabel\`: describes the main purpose of a Popover for the screen reader. Should be unique and concise. For example, "Save to board" instead of "Popover".  It populates [aria-label](https://w3c.github.io/aria-practices/#dialog_roles_states_props).
+- \`accessibilityDismissButtonLabel\`: describes the purpose of the dismiss button on Popover for the screen reader. Should be clear and concise. For example, "Close board selection popover" instead of "Close".
 
 To further assist screen readers, we recommend passing the following ARIA attributes to the _anchor element_:
 
@@ -540,128 +544,21 @@ For the \`role\` prop, use:
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
-
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const List = ({ title }) => (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Text color="default" size="100">
-        { title }
-      </Text>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-          ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-          ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-        ].map((data, index) => (
-            <TapArea key={index} onTap={() => {
-              setSelectedBoard(data[1]);
-              setOpen(false);
-            }}>
-              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                <Box height={50} width={50} overflow="hidden" rounding={2}>
-                  <Mask rounding={2}>
-                    <Image
-                      alt={data[2]}
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={50}
-                      naturalWidth={50}
-                      src={data[0]}
-                    />
-                  </Mask>
-                </Box>
-                <Text align="center" color="default" weight="bold">
-                  {data[1]}
-                </Text>
-              </Flex>
-            </TapArea>
-        ))}
-      </Flex>
-    </Flex>
-  );
-
-  return (
-    <React.Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Button
-          accessibilityHaspopup={true}
-          accessibilityExpanded={open}
-          accessibilityControls="example-a11y"
-          color="white"
-          iconEnd="arrow-down"
-          onClick={() => setOpen(!open)}
-          ref={anchorRef}
-          size="lg"
-          selected={open}
-          text={selectedBoard}
-        />
-        <Button color="red" onClick={() => {}} size="lg" text="Save" />
-      </Flex>
-      {open && (
-        <Layer>
-          <Popover
-            accessibilityLabel="Save to board"
-            anchor={anchorRef.current}
-            id="example-a11y"
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            role="listbox"
-            size="xl"
-          >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                  <Text align="center" color="default" weight="bold">
-                    Save to board
-                  </Text>
-                  <SearchBoardField />
-                </Flex>
-              </Box>
-              <Box height={300} overflow="scrollY">
-                <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List title="Top choices"/>
-                    <List title="All boards"/>
-                  </Flex>
-                </Box>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-  `}
+            sandpackExample={
+              <SandpackExample
+                code={defaultExample}
+                name="Double modal example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
       <MainSection
         name="Localization"
-        description="Be sure to localize any text elements within Popover. Note that localization can lengthen text by 20 to 30 percent."
+        description="Be sure to localize any text elements within Popover, along with `accessibilityLabel` and `accessibilityDismissButtonLabel`. Note that localization can lengthen text by 20 to 30 percent."
       />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -925,6 +822,24 @@ function PopoverExample() {
     </ScrollBoundaryContainer>
   )
 }`}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Dismiss button"
+          description={` We highly recommend including a dismiss button on all Popovers with \`showDismissButton\`. This improves accessibility and gives users an immediate action for closing Popover. A default label of "Close popover" is provided through [DefaultLabelProvider](/web/utilities/defaultlabelprovider), but a more unique label can be provided with the \`accessibilityDismissButtonLabel\` prop. Don't forget to localize this label as well.
+`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={defaultExample}
+                name="Double modal example"
+                hideEditor
+                hideControls
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
