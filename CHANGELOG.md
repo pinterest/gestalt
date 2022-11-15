@@ -1,3 +1,9 @@
+## 81.4.3 (Nov 15, 2022)
+
+### Patch
+
+- Messaging guidelines: updated Messaging guidelines ([#2496](https://github.com/pinterest/gestalt/pull/2496)) - [Preview link](https://deploy-preview-2496--gestalt.netlify.app)
+
 ## 81.4.2 (Nov 15, 2022)
 
 ### Patch
