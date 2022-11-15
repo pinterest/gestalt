@@ -22,8 +22,7 @@ function PaletteGenerator({ count }: ColorCardProps): Node {
     const tokenStep = idx + 1;
 
     return (
-      // eslint-disable-next-line react/no-array-index-key
-      <Box marginBottom={1} key={`color-${idx}`}>
+      <Box marginBottom={1} key={`color-${tokenStep}`}>
         <ColorTile
           textColor={tokenStep === 1 || tokenStep === 2 ? 'dark' : 'inverse'}
           description={`Data Visualization 0${tokenStep}`}
@@ -64,7 +63,7 @@ export default function ColorPage(): Node {
       </MainSection>
       <MainSection
         name="Semantic colors"
-        description="Semantic colors are used to indicate positive or negative performance in data. For positive color, we use a slightly darker Matchacado color for text/icon associated with data to make sure text has enough contrast."
+        description="Semantic colors are used to indicate positive or negative performance in data. For positive color, we use a slightly darker Matchacado color for text/icons associated with data to make sure text has enough contrast."
       >
         <Flex
           direction="column"
@@ -222,7 +221,7 @@ export default function ColorPage(): Node {
       <MainSection
         name="Pairings to avoid"
         description={`
-        Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors in a different way. In this case, avoid using the pairings below as neighboring colors. These pairings are hard to tell apart when used:
+        Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors differently. In this case, avoid using the pairings below as neighboring colors. These pairings are hard to tell apart when used:
 
         - for lines or small points under normal vision
         - for large areas under red-green or yellow-blue color blindness`}
