@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState, useEffect } from 'react';
+import { type Node, useRef, useState } from 'react';
 import {
   Popover,
   Box,
@@ -14,12 +14,6 @@ import {
 } from 'gestalt';
 
 function SearchBoardField(): Node {
-  const ref = useRef();
-
-  useEffect(() => {
-    ref.current?.focus();
-  }, []);
-
   return (
     <SearchField
       accessibilityLabel="Search boards field"
@@ -27,7 +21,6 @@ function SearchBoardField(): Node {
       onChange={() => {}}
       placeholder="Search boards"
       size="lg"
-      ref={ref}
     />
   );
 }
