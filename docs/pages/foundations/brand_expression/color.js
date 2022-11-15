@@ -17,17 +17,23 @@ We recommend using the extended color palette to bring attention to a specific b
 
 The Core brand team created a baseline brand palette with some of our extended colors; you can enable it as a library in your Figma file.`}
       />
-      <Image src="https://i.ibb.co/7bQQYkX/stock2.jpg" />
+      <Image
+        src="https://i.pinimg.com/originals/6d/5d/f1/6d5df1699ff6d7f176302f94dc28306e.png"
+        naturalHeight={1036}
+        naturalWidth={1798}
+        alt=""
+      />
       <Text>Brand color swatches available in Figma (Baseline brand colors library)</Text>
       <Text>
         See below an example of brand expression in the product UI using color fill combined with
         other visual assets.{' '}
       </Text>
-      <Flex>
-        <Flex.Item>Image 1</Flex.Item>
-        <Flex.Item>Image 2</Flex.Item>
-        <Flex.Item>Image 3</Flex.Item>
-      </Flex>
+      <Image
+        src="https://i.pinimg.com/originals/5d/cf/95/5dcf95eb3addf436c1404daf4874d580.png"
+        naturalHeight={1216}
+        naturalWidth={1792}
+        alt=""
+      />
       <Text>Idea Pin tips - Using color fills to bring brand expression </Text>
       <Text>
         Reach out to Core Brand for photography guidance, imagery and other types of visual assets.{' '}
@@ -70,21 +76,41 @@ For more information about colors, check out our color documentation.
             See below examples of UI elements using the appropriate text colors over color fills.
           </p>
         </Text>
-        <Flex>
+        <Flex gap={4}>
           <Flex.Item>
-            <Image src="https://i.ibb.co/7bQQYkX/stock2.jpg" />
+            <Image
+              src="https://i.pinimg.com/originals/6e/f3/5c/6ef35ce8021c2aa5502c18f50f2ef966.png"
+              naturalHeight={480}
+              naturalWidth={718}
+              alt=""
+            />
             <Text>Matchacado-green-500 + $color-text-inverse</Text>
           </Flex.Item>
           <Flex.Item>
-            <Image src="https://i.ibb.co/7bQQYkX/stock2.jpg" />
+            <Image
+              src="https://i.pinimg.com/originals/e8/49/7c/e8497ce56cdab39f1af97864e31d5a99.png"
+              naturalHeight={416}
+              naturalWidth={686}
+              alt=""
+            />
             <Text>Firetine-orange-100 + $color-text-default</Text>
           </Flex.Item>
           <Flex.Item>
-            <Image src="https://i.ibb.co/7bQQYkX/stock2.jpg" />
+            <Image
+              src="https://i.pinimg.com/originals/b2/f4/a4/b2f4a4bb96fa7579d13be3c6b1a60874.png"
+              naturalHeight={410}
+              naturalWidth={694}
+              alt=""
+            />
             <Text>Spabattical-teal-700 + $color-text-inverse</Text>
           </Flex.Item>
           <Flex.Item>
-            <Image src="https://i.ibb.co/7bQQYkX/stock2.jpg" />
+            <Image
+              src="https://i.pinimg.com/originals/c6/3a/6e/c63a6e92a920f4b25698e64c4648b004.png"
+              naturalHeight={358}
+              naturalWidth={686}
+              alt=""
+            />
             <Text>Spabattical-teal-100 + $color-text-default</Text>
           </Flex.Item>
         </Flex>
