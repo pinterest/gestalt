@@ -131,7 +131,7 @@ export default function DismissButton(): Node {
             size="xl"
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board

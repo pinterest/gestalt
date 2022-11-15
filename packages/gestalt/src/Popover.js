@@ -1,8 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useRef, useEffect } from 'react';
 import Controller from './Controller.js';
 import IconButton from './IconButton.js';
 import Box from './Box.js';
+import Flex from './Flex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
@@ -98,6 +99,12 @@ export default function Popover({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current?.focus();
+  }, []);
+
   if (!anchor) {
     return null;
   }
@@ -119,20 +126,25 @@ export default function Popover({
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
     >
-      {showDismissButton && (
-        <Box position="absolute" top right padding={1}>
-          <IconButton
-            icon="cancel"
-            accessibilityLabel={
-              accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
-            }
-            size="xs"
-            iconColor={color === 'white' ? 'darkGray' : 'white'}
-            onClick={onDismiss}
-          />
-        </Box>
+      {showDismissButton ? (
+        <Flex direction="column">
+          <Box alignSelf="end" padding={1}>
+            <IconButton
+              icon="cancel"
+              accessibilityLabel={
+                accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+              }
+              size="xs"
+              iconColor={color === 'white' ? 'darkGray' : 'white'}
+              onClick={onDismiss}
+              ref={ref}
+            />
+          </Box>
+          {children}
+        </Flex>
+      ) : (
+        children
       )}
-      {children}
     </Controller>
   );
 }
