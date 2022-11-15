@@ -115,62 +115,58 @@ Claire goes back to find some other pins, then decides it’s time to get back t
         <Box width={375} height={780} marginTop={2}>
           <Image
             alt="Mobile phone screen with an error modal message."
-            naturalHeight={1}
-            naturalWidth={1}
+            naturalHeight={1896}
+            naturalWidth={3080}
             fit="contain"
             src="https://i.pinimg.com/originals/83/f9/a1/83f9a155d2602483eea851350c755a6e.png"
           />
         </Box>
       </Box>
 
-      <Box width="100%" marginBottom={12} marginTop={-7}>
+      <Box width="100%" marginBottom={8} marginTop={-7}>
         <MainSection.Subsection
           title="Recommendation banner"
           description="Claire goes to her desktop to resume ads work for her employer, Dressy. She opens her Pinterest Business account on her desktop and navigates to the ads page. A recommendation message is placed right beneath the ad campaign that it refers to so she knows which ad campaign could use improvements.
 
 The recommendation is dismissible since it’s not required and may get in the way of glancing at all the other campaigns."
         />
-
-        <Box width={960} height={579}>
+        <Box maxWidth={960} maxHeight={579}>
           <Image
             alt="Desktop screen with a recommendation inside of a data table showing ad campaigns."
-            naturalHeight={1}
-            naturalWidth={1}
-            fit="contain"
+            naturalHeight={1896}
+            naturalWidth={3080}
             src="https://i.pinimg.com/originals/65/e4/30/65e43065fa1f96bd25bbcfd9e5a2151e.png"
           />
         </Box>
       </Box>
 
-      <Box width="100%" marginBottom={12} marginTop={-7}>
+      <Box width="100%" marginBottom={8} marginTop={-7}>
         <MainSection.Subsection
           title="Confirmation modal"
           description="Claire decides to skip the recommendation for a moment and create an Idea Pin that needs more attention for an Ad campaign. As she organizes and deletes images and videos in her pins, she gets a confirmation modal confirming that she wants to delete an image, as this is irreversible. Being that this may happen multiple times in her edit flows, the option to not show again also appears. *For destructive, irreversible tasks that are not part of creating and editing, we don’t provide a “don’t show again” option.*"
         />
 
-        <Box width={960} height={579}>
+        <Box maxWidth={960} maxHeight={579}>
           <Image
             alt="Desktop screen with a message confirming an action"
-            naturalHeight={1}
-            naturalWidth={1}
-            fit="contain"
+            naturalHeight={1896}
+            naturalWidth={3080}
             src="https://i.pinimg.com/originals/ad/c7/7f/adc77f21e86c2c8c1780b572c35e0c7a.png"
           />
         </Box>
       </Box>
 
-      <Box width="100%" marginBottom={12} marginTop={-7}>
+      <Box width="100%" marginBottom={8} smMarginBottom={4} marginTop={-7}>
         <MainSection.Subsection
           title="Success banner vs Toast"
           description="Claire completes the Idea Pin and turns it into an ad campaign. After publishing it, she gets a Success Banner at the top of the page instead of a Toast since the messaging requires more wording for clarity. Luckily, the banner is still dismissible."
         />
 
-        <Box width={960} height={579} marginBottom={-6}>
+        <Box maxWidth={960} maxHeight={579}>
           <Image
             alt="Desktop screen showin a success banner."
-            naturalHeight={1}
-            naturalWidth={1}
-            fit="contain"
+            naturalHeight={1896}
+            naturalWidth={3080}
             src="https://i.pinimg.com/originals/20/3f/14/203f14d057e9b3cae2ff02b4d32c5a35.png"
           />
         </Box>
