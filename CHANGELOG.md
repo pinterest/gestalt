@@ -1,3 +1,9 @@
+## 82.1.3 (Nov 16, 2022)
+
+### Patch
+
+- Internal: cleanup/refactor how we handle autogen props ([#2504](https://github.com/pinterest/gestalt/pull/2504)) - [Preview link](https://deploy-preview-2504--gestalt.netlify.app)
+
 ## 82.1.2 (Nov 16, 2022)
 
 ### Patch
