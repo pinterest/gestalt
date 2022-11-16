@@ -1,3 +1,9 @@
+## 82.1.0 (Nov 16, 2022)
+
+### Minor
+
+- SlimBanner: extend "message" prop to accept Text component for rich-styled messages ([#2484](https://github.com/pinterest/gestalt/pull/2484)) - [Preview link](https://deploy-preview-2484--gestalt.netlify.app)
+
 ## 82.0.2 (Nov 16, 2022)
 
 ### Patch
