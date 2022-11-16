@@ -12,10 +12,186 @@ export default function DropdownShowCase(): Node {
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            title="More items then height of viewport"
-            description="testing"
+            title="More items on list then viewport supports"
+            description="This case shows you a list of items and your viewport has less available height then your dropdown list requests."
             defaultCode={`
-function PopoverOverflowingViewport() {
+function Example() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedDropdown, setSelectedDropdown] = React.useState(null);
+  const anchorRef = React.useRef(null);
+
+  const filteredVariants = new Array(100).fill({ value: 'test', status: 'active' });
+
+  const openDropdown = () => setOpen(true);
+  const closeDropdown = () => setOpen(false);
+
+  // DOM structure based on error: https://pinterest.slack.com/archives/C13KLG5P0/p1658953735281499
+  return (
+    <React.Fragment>
+      <Box width={360}>
+        <TapArea onTap={openDropdown} ref={anchorRef}>
+          <Box
+            borderStyle="lg"
+            rounding={4}
+            padding={3}
+            display="flex"
+            alignItems="center"
+            justifyContent="between"
+            data-test-id="selected-variant"
+          >
+            <Box width={240}>
+              <Text lineClamp={1}>
+                <Text weight="bold" inline>
+                  Whatever:
+                </Text>
+              </Text>
+            </Box>
+            <Flex
+              alignItems="center"
+              gap={{ row: 3, column: 0, }}
+            >
+              <Icon
+                color="default"
+                icon="arrow-down"
+                size={12}
+                accessibilityLabel="a11y test"
+              />
+            </Flex>
+          </Box>
+        </TapArea>
+      </Box>
+      {open && (
+        <Dropdown
+          anchor={anchorRef.current}
+          onDismiss={closeDropdown}
+          id="testing component"
+          zIndex={new FixedZIndex(999)}
+        >
+          {filteredVariants.map(({ value: variant, status }) => (
+            <Dropdown.Item
+              key={variant}
+              onSelect={({ item }) => {
+                setSelectedDropdown(item);
+                closeDropdown();
+              }}
+              option={{ value: variant, label: variant }}
+              selected={selectedDropdown}
+            >
+              <Flex alignItems="center" justifyContent="start" width={352}>
+                <Box width={240} marginEnd={5}>
+                  <Text>{variant}</Text>
+                </Box>
+                {status === 'outOfStock' && <Text>Out of stock</Text>}
+              </Flex>
+            </Dropdown.Item>
+          ))}
+        </Dropdown>
+      )}
+    </React.Fragment>
+  );
+}
+            `}
+          />
+          <MainSection.Card
+            cardSize="lg"
+            title="Popover example - It must be add on Popover showcase Popover page"
+            description="The case bellow show a Popover inner Sheet and the Popover height is higher then available sheet viewport"
+            defaultCode={`
+function Example() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  // DOM structure based on this related error: https://pinterest.slack.com/archives/C13KLG5P0/p1661909002686629
+  return (
+    <React.Fragment>
+      <Box padding={8} width="100%">
+        <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
+      </Box>
+      {shouldShow && (
+        <Layer>
+          <Sheet
+            accessibilityDismissButtonLabel="Close sheet"
+            accessibilitySheetLabel="Example dropdown inner sheet"
+            heading="Dropdown inner sheet"
+            onDismiss={() => setShouldShow(false)}
+            size="md"
+          >
+            <IconButton
+              accessibilityLabel="Menu open button"
+              icon="arrow-down"
+              onClick={() => setIsOpen(!isOpen)}
+              ref={anchorRef}
+              selected={isOpen}
+              size="lg"
+            />
+            {isOpen && (
+              <Box zIndex={new FixedZIndex(1000000000)}>
+                <Popover
+                  color="white"
+                  anchor={anchorRef.current}
+                  idealDirection="down"
+                  onDismiss={() => setIsOpen(!isOpen)}
+                  shouldFocus={false}
+                  size="md"
+                >
+                  <Box paddingY={6} width={360} height={1000}>
+                    <Box paddingX={4} marginBottom={4}>
+                      <Box marginStart={2} marginBottom={2}>
+                        <Text>
+                          Sort by
+                        </Text>
+                      </Box>
+                    </Box>
+                    <Box paddingX={4} marginBottom={4} paddingY={4}>
+                      <Box marginStart={2} marginBottom={2}>
+                        <Text>
+                          Filter by format type
+                        </Text>
+                      </Box>
+                    </Box>
+                    <Box paddingX={4} marginBottom={6}>
+                      <Box
+                        marginStart={2}
+                        marginEnd={2}
+                        direction="row"
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="between"
+                      >
+                        <Label htmlFor="existingAdsFilter">
+                          <Text size="300">
+                            Existing ads only
+                          </Text>
+                        </Label>
+                      </Box>
+                    </Box>
+                    <Divider />
+                    <TapArea fullHeight onTap={() => resetState()}>
+                      <Box height="100%" marginTop={5}>
+                        <Text align="center" weight="bold">
+                          Clear all
+                        </Text>
+                      </Box>
+                    </TapArea>
+                  </Box>
+                </Popover>
+              </Box>
+            )}
+          </Sheet>
+        </Layer>
+      )}
+    </React.Fragment>
+  )
+}
+            `}
+          />
+          <MainSection.Card
+            cardSize="lg"
+            title="More items then height of viewport"
+            description="This example is common when the dropdown list is higher then viewport available"
+            defaultCode={`
+function Example() {
   const [elements, setElements] = React.useState([]);
   const [selectedElement, setSelectedElement] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -75,10 +251,10 @@ function PopoverOverflowingViewport() {
           />
           <MainSection.Card
             cardSize="lg"
-            title="CornerTop"
-            description="testing"
+            title="Anchors on screen top corners"
+            description="This case is when the anchor of dropdown is positioned on top screen corners"
             defaultCode={`
-function CornerTop() {
+function Example() {
   const [elements, setElements] = React.useState([]);
   const [selectedElement, setSelectedElement] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState('');
@@ -152,10 +328,10 @@ function CornerTop() {
           />
           <MainSection.Card
             cardSize="lg"
-            title="CornerTop"
-            description="testing"
+            title="Anchors on screen bottom corners"
+            description="This case is when the anchor of dropdown is positioned on bottom screen corners"
             defaultCode={`
-function CornerBottom() {
+function Example() {
   const [elements, setElements] = React.useState([]);
   const [selectedElement, setSelectedElement] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState('');
@@ -231,10 +407,10 @@ function CornerBottom() {
           />
           <MainSection.Card
             cardSize="lg"
-            title="Inner Sheet"
-            description="Dropdown inner sheet tab"
+            title="Dropdown rendered inner sheet"
+            description="This case shows the Dropdown inner a Sheet component"
             defaultCode={`
-function InnerSheet() {
+function Example() {
   const [shouldShow, setShouldShow] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedElement, setSelectedElement] = React.useState(null);
@@ -419,110 +595,6 @@ function ScrollableContainerB() {
             </Dropdown>
           )}
         </ScrollBoundaryContainer>
-      </Box>
-    </Box>
-  );
-}
-            `}
-          />
-          <MainSection.Card
-            cardSize="lg"
-            title="Page Header"
-            description="Dropdown inner Page Header"
-            defaultCode={`
-function PageHeaderExample() {
-  const [selectedElement, setSelectedElement] = React.useState(null);
-  const [elements, setElements] = React.useState([]);
-
-  React.useEffect(() => {
-    setElements(new Array(10).fill(undefined));
-  }, [setElements]);
-
-  const handleSelect = ({ item }) => {
-    setSelectedElement(item);
-  };
-
-  const preRenderItems = () =>
-    elements.map((item, index) => {
-      const text = \`item \${index}\`;
-      return (
-        <Dropdown.Item
-          key={text}
-          onSelect={handleSelect}
-          option={{ value: text, label: text }}
-          selected={selectedElement}
-        />
-      );
-    });
-
-  return (
-    <Box height={500} color="lightWash" width="100%">
-      <PageHeader
-        title="Dropdown Showcase"
-        primaryAction={{
-          component: <Button text="Menu open button" size="lg" />,
-          dropdownItems: preRenderItems(),
-        }}
-        dropdownAccessibilityLabel="More options"
-      />
-    </Box>
-  );
-}
-            `}
-          />
-          <MainSection.Card
-            cardSize="lg"
-            title="Fixed button"
-            description="Dropdown inner fixed button"
-            defaultCode={`
-function FixedButton() {
-  const [elements, setElements] = React.useState([]);
-  const [selectedElement, setSelectedElement] = React.useState(null);
-  const [isOpen, setIsOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  React.useEffect(() => {
-    setElements(new Array(10).fill(undefined));
-  }, [setElements]);
-
-  const handleSelect = ({ item }) => {
-    setSelectedElement(item);
-  };
-
-  const preRenderItems = () =>
-    elements.map((item, index) => {
-      const text = \`item \${index}\`;
-      return (
-        <Dropdown.Item
-          key={text}
-          onSelect={handleSelect}
-          option={{ value: text, label: text }}
-          selected={selectedElement}
-        />
-      );
-    });
-
-  return (
-    <Box height={500} width="100%">
-      <Box position="fixed" width="100%" right bottom>
-        <IconButton
-          accessibilityLabel="Fixed button"
-          icon="arrow-up"
-          onClick={() => setIsOpen(!isOpen)}
-          ref={anchorRef}
-          selected={isOpen}
-          size="lg"
-        />
-        {isOpen && (
-          <Dropdown
-            isWithinFixedContainer
-            anchor={anchorRef.current}
-            id="demo-dropdown-example"
-            onDismiss={() => setIsOpen(false)}
-          >
-            {preRenderItems()}
-          </Dropdown>
-        )}
       </Box>
     </Box>
   );

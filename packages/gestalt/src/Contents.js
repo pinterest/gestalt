@@ -61,7 +61,6 @@ type State = {|
   caretOffset: CaretOffset,
   popoverDir: ?PopoverDir,
   popoverRef: ?HTMLElement,
-  anchorHeight: ?number,
 |};
 
 class Contents extends Component<Props, State> {
@@ -83,7 +82,6 @@ class Contents extends Component<Props, State> {
     },
     popoverDir: null,
     popoverRef: null,
-    anchorHeight: undefined,
   };
 
   componentDidMount() {
@@ -204,24 +202,37 @@ class Contents extends Component<Props, State> {
     }
   };
 
+  // Calculate a new `Top` position and `Heigh` size of `div` when the children elements
+  // has higher then the available viewport on screen
   handlePopoverSize() {
+    if (!window || !document) {
+      return { top: null, height: null };
+    }
+
     const { anchor, id, scrollBoundaryContainerRef, positionRelativeToAnchor } = this.props;
 
     const viewportAvailable = window.innerHeight;
     const popoverHeight = document.getElementById(id ?? '')?.clientHeight;
+
     // Trigger (in percentage) to indicate if it should handle the popover or not;
     const percentageLimit = 90;
     const shouldRenderOnScreenTop = popoverHeight
       ? Math.round((popoverHeight / viewportAvailable) * 100) >= percentageLimit
       : false;
 
+    // Define the height based the reference to render: ScrollBoundaryContainer or screen viewport
     let height = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
 
     const anchorElement = anchor.getBoundingClientRect();
+    // Get the top of dropdown container reference
     const topContainer = scrollBoundaryContainerRef?.getBoundingClientRect().top ?? 0;
+
+    // 5% of height available
     let top = (height / 10) * 0.5;
+    // If the anchor isn't on top of container use the top calculated before
     top = anchorElement.top > topContainer ? top : 0;
 
+    // 90% of height available on container reference
     height = (height / 10) * 9;
 
     return { top: shouldRenderOnScreenTop && !positionRelativeToAnchor ? top : null, height };
@@ -239,7 +250,8 @@ class Contents extends Component<Props, State> {
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
     const { top, height: containerHeight } = this.handlePopoverSize();
-    const topValue = top != null ? { top } : {};
+    // Top value is used only when the current top value is negative
+    const topValue = top != null && popoverOffset.top < 0 ? { top } : {};
 
     return (
       <div
