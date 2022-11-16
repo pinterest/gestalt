@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Flex, Link, Heading, Image, Box } from 'gestalt';
+import { Text, Flex, Heading, Image, Box } from 'gestalt';
 import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -55,8 +55,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="UI elements and Brand expression">
-          <Flex gap={8} wrap>
-            <Flex.Item flexBasis="0" flex="grow" minWidth={300} maxWidth="33%">
+          <Box display="flex" wrap>
+            <Box lgColumn={4} mdColumn={12} smColumn={12}>
               <Heading color="success" size="200">
                 UI elements to bring brand expression
               </Heading>
@@ -69,8 +69,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                   <li>Modals/Sheets</li>
                 </ul>
               </Text>
-            </Flex.Item>
-            <Flex.Item flexBasis="0" flex="grow" minWidth={300} maxWidth="33%">
+            </Box>
+            <Box lgColumn={4} mdColumn={12} smColumn={12}>
               <Heading color="subtle" size="200">
                 Consider brand expression
               </Heading>
@@ -79,8 +79,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                   <li>Dashboards(when applicable and it does not break a component)</li>
                 </ul>
               </Text>
-            </Flex.Item>
-            <Flex.Item flexBasis="0" flex="grow" minWidth={300} maxWidth="33%">
+            </Box>
+            <Box lgColumn={4} mdColumn={12} smColumn={12}>
               <Heading color="error" size="200">
                 Elements to avoid brand expression
               </Heading>
@@ -93,8 +93,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                   <li>Form components </li>
                 </ul>
               </Text>
-            </Flex.Item>
-          </Flex>
+            </Box>
+          </Box>
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Best practices">
@@ -226,14 +226,14 @@ Ensure to add ALT text to your image, so users who rely on assistive technologie
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Accessibility](/web/popover)**
+**[Accessibility](/foundations/accessibility)**
+How to create accessible designs and components that contribute to an accessible product
 
+**[Color](/foundations/color/palette)**
+Palettes and guidelines for using color across product interfaces and surfaces
 
-**[Color](/web/upsell)**
-
-
-**[Design tokens](/web/upsell)**
-
+**[Design tokens](/foundations/design_tokens)**
+An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.
 
       `}
         />
