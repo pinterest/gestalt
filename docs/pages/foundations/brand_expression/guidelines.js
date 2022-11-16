@@ -215,16 +215,16 @@ Ensure to add ALT text to your image, so users who rely on assistive technologie
         />
       </MainSection>
       <MainSection name="Localization">
-        <Text>
-          Make sure to localize in-product marketing assets considering all the languages and
-          cultures.
-        </Text>
+        <Markdown
+          text="Make sure to localize in-product marketing assets considering all the languages and
+          cultures."
+        />
       </MainSection>
       <MainSection name="Voice and tone">
-        <Text>
-          Check out our [brand voice
-          guidelines](https://www.figma.com/proto/dOKezQeD0AKtnIaurwW1oz/Pinterest-Brand-Voice?page-id=1645%3A3096&node-id=1645%3A3097&viewport=323%2C48%2C0.07&scaling=scale-down).
-        </Text>
+        <Markdown
+          text="
+          Check out our [brand voice guidelines](https://www.figma.com/proto/dOKezQeD0AKtnIaurwW1oz/Pinterest-Brand-Voice?page-id=1645%3A3096&node-id=1645%3A3097&viewport=323%2C48%2C0.07&scaling=scale-down)."
+        />
       </MainSection>
       <MainSection name="Related">
         <MainSection.Subsection
