@@ -23,9 +23,7 @@ type Props = {|
   /**
    * Use numbers for pixels: height={100} and strings for percentages: height="100%".
    *
-   * Overflow property only works for elements with a specified height, however, it is not required if the parent component sets the height.
-   *
-   * Link: https://gestalt.pinterest.systems/web/text#align
+   * Overflow property only works for elements with a specified height. It is not required if the parent component sets the height. See the [height variant](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Height) for more details.
    */
   height?: number | string,
   overflow?: ScrollBoundaryContainerOverflow,

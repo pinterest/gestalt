@@ -13,53 +13,36 @@ type BadgeType = {|
 |};
 
 type Props = {|
-  //
   /**
-   * Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text.
-   *
-   * Link: https://gestalt.pinterest.systems/web/text#static-badge
+   * Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text. See the [badge variant](https://gestalt.pinterest.systems/web/module#Static-Badge) for more details.
    */
   badge?: BadgeType,
   /**
-   * Content to display underneath Module title
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-default
+   * Content to display underneath Module title.
    */
   children?: Node,
   /**
-   * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library).
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-icon
+   * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library). See the [icon variant](https://gestalt.pinterest.systems/web/module#Static-Icon) for more details.
    */
   icon?: $Keys<typeof icons>,
   /**
-   * Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label.
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-icon
+   * Label to provide information about the icon used for screen readers. Can be used in two scenarios: to describe the error icon that appears when `type` is `error`, and to describe the provided `icon` prop when `type` is `info`. Be sure to localize the label. See the [icon variant](https://gestalt.pinterest.systems/web/module#Static-Icon) for more details.
    */
   iconAccessibilityLabel?: string,
   /**
-   * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`.
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-iconbutton
+   * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`. See the [icon button variant](https://gestalt.pinterest.systems/web/module#Static-IconButton) for more details.
    */
   iconButton?: Element<typeof IconButton>,
   /**
    * Unique id to identify this Module
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-default
    */
   id: string,
   /**
    * Title of this Module. Be sure to localize the text.
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-default
    */
   title?: string,
   /**
-   * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`.
-   *
-   * Link: https://gestalt.pinterest.systems/web/module#static-error
+   * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`. See the [error variant](https://gestalt.pinterest.systems/web/module#Static-Error) for more details.
    */
   type?: 'error' | 'info',
 |};

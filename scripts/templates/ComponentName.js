@@ -6,14 +6,12 @@ import styles from './ComponentName.css';
 type Props = {|
   /**
    * Prop description.
-   *
-   * Link: https://gestalt.pinterest.systems/componentname#prop
    */
   accessibilityLabel?: string,
 |};
 
 /**
- * [ComponentName] https://gestalt.pinterest.systems/componentname component should be used for ... on the page.
+ * [ComponentName] https://gestalt.pinterest.systems/web/componentname component should be used for ... on the page.
  * ![ComponentName light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComponentName.spec.mjs-snapshots/ComponentName-chromium-darwin.png)
  * ![ComponentName dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComponentName-dark.spec.mjs-snapshots/ComponentName-dark-chromium-darwin.png)
  */
