@@ -6,7 +6,6 @@ import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import responsiveExample from '../../examples/slimbanner/responsiveExample.js';
@@ -445,23 +444,51 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="The SlimBanner message can be complemented with a helper Link."
-          title="helperLink"
+          description={`
+The \`message\` prop accepts either a string or [Text](/Text). Use a string for simple messages without any visual style. SlimBanner will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
+
+The SlimBanner \`message\` string can be complemented with a \`helperLink\`. When passing a Text component, \`helperLink\` isn't rendered to prevent unnecessary visual load.
+
+Due to localization constraints, the contents of \`message\` and \`helperLink\` cannot belong to the same sentence. They must be independent sentences separated by a period. Don't attempt to construct a compound sentence using \`message\` and \`helperLink\`.
+`}
+          title="Message"
         >
           <MainSection.Card
-            cardSize="lg"
+            cardSize="md"
             defaultCode={`
-<SlimBanner
-  type="info"
-  message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
-  iconAccessibilityLabel="Information"
-  helperLink={{
-      text: 'Learn more',
-      accessibilityLabel: 'Learn more about campaign budget optimization',
-      href: 'http://www.pinterest.com',
+<Flex direction="column" gap={6}>
+  <Text weight="bold">Simple message string with helperText</Text>
+  <SlimBanner
+    type="info"
+    message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+    iconAccessibilityLabel="Information"
+    helperLink={{
+        text: 'Learn more',
+        accessibilityLabel: 'Learn more about campaign budget optimization',
+        href: 'http://www.pinterest.com',
+        onClick: () => {},
+      }}
+  />
+
+  <Text weight="bold">Rich message with Text component</Text>
+
+  <SlimBanner
+    type="recommendation"
+    message={<Text inline> The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text> }
+    primaryAction={{
+      accessibilityLabel: 'Increase spend',
+      label: 'Increase spend',
       onClick: () => {},
     }}
-/>
+    dismissButton={{
+      accessibilityLabel: 'Dismiss banner',
+      onDismiss: () => {},
+    }}
+    iconAccessibilityLabel="Recommendation"
+  />
+
+
+</Flex>
 `}
           />
         </MainSection.Subsection>
@@ -469,15 +496,15 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
         <MainSection.Subsection
           title="Primary action"
           description={`
-          SlimBanners can have a primary action. This action can be a [Link](/web/link), by specifying the \`href\` property, or a [Button](/web/button), when no \`href\` is supplied.
+SlimBanners can have a primary action. This action can be a [Link](/web/link), by specifying the \`href\` property, or a [Button](/web/button), when no \`href\` is supplied.
 
-        SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
 
-        For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/web/modal) with an application flow. Be sure to localize the labels of the actions.
+For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/web/modal) with an application flow. Be sure to localize the labels of the actions.
 
-        If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
+If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
 
-        Note that actions are not available on compact ("___Bare" type) SlimBanners.
+Note that actions are not available on compact ("___Bare" type) SlimBanners.
           `}
         >
           <MainSection.Card
@@ -589,7 +616,11 @@ Tooltip provides helpful information regarding an interactive UI element, typica
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const docGen = await docgen({ componentName: 'SlimBanner' });
+
+  docGen.props.message.flowType.raw = '{| string | React.Element<typeof Text>>> |}';
+
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'SlimBanner' }) },
+    props: { generatedDocGen: docGen },
   };
 }

@@ -1,6 +1,8 @@
 // @flow strict
 import { create } from 'react-test-renderer';
 import SlimBanner from './SlimBanner.js';
+import Text from './Text.js';
+import Link from './Link.js';
 
 describe('SlimBanner', () => {
   it('renders neutral type with message', () => {
@@ -30,7 +32,7 @@ describe('SlimBanner', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders helper link', () => {
+  it('renders simple message with helper link', () => {
     const tree = create(
       <SlimBanner
         message="test"
@@ -39,6 +41,45 @@ describe('SlimBanner', () => {
           accessibilityLabel: 'Learn more Pinterest.com',
           href: 'http://www.pinterest.com',
           onClick: () => {},
+        }}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders complex message', () => {
+    const tree = create(
+      <SlimBanner
+        message={
+          <Text inline>
+            The campaign{' '}
+            <Text inline weight="bold">
+              Back to School
+            </Text>{' '}
+            is regularly hitting its{' '}
+            <Link inline href="http://www.pinterest.com">
+              daily cap
+            </Link>
+            . Consider raising daily caps to increase scale for a similar CPC and CTR.
+          </Text>
+        }
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders primary action and dismiss button', () => {
+    const tree = create(
+      <SlimBanner
+        message="test"
+        primaryAction={{
+          accessibilityLabel: 'test',
+          label: 'test',
+          onClick: () => {},
+        }}
+        dismissButton={{
+          accessibilityLabel: 'test',
+          onDismiss: () => {},
         }}
       />,
     ).toJSON();

@@ -79,7 +79,7 @@ type Props = {|
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)
  */
-export default function Text({
+function Text({
   align = 'start',
   children,
   color = 'default',
@@ -127,3 +127,7 @@ export default function Text({
     </Tag>
   );
 }
+
+Text.displayName = 'Text';
+
+export default Text;
