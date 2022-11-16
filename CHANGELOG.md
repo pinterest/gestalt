@@ -1,3 +1,9 @@
+## 82.1.4 (Nov 16, 2022)
+
+### Patch
+
+- ActivationCard: fix typo in docs ([#2505](https://github.com/pinterest/gestalt/pull/2505)) - [Preview link](https://deploy-preview-2505--gestalt.netlify.app)
+
 ## 82.1.3 (Nov 16, 2022)
 
 ### Patch
