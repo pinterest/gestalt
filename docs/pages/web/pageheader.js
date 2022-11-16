@@ -409,12 +409,7 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const docGen = await docgen({ componentName: 'PageHeader' });
-  docGen.props.primaryAction.flowType.raw =
-    '{| component: React.Element<typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip>>, dropdownItems: $ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>> |}';
-  docGen.props.secondaryAction.flowType.raw =
-    '{| component: React.Element<typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip>>, dropdownItems: $ReadOnlyArray<React.Element<typeof DropdownItem | typeof DropdownLink>>> |}';
   return {
-    props: { generatedDocGen: docGen },
+    props: { generatedDocGen: await docgen({ componentName: 'PageHeader' }) },
   };
 }
