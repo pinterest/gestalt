@@ -1,3 +1,9 @@
+## 82.1.1 (Nov 16, 2022)
+
+### Patch
+
+- Docs: fix GeneratedPropTable regex ([#2503](https://github.com/pinterest/gestalt/pull/2503)) - [Preview link](https://deploy-preview-2503--gestalt.netlify.app)
+
 ## 82.1.0 (Nov 16, 2022)
 
 ### Minor
