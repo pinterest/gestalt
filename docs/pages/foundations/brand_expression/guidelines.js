@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Flex, Heading, Image, Box } from 'gestalt';
+import { Text, Heading, Image, Box } from 'gestalt';
 import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -57,7 +57,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
         <MainSection.Subsection title="UI elements and Brand expression">
           <Box display="flex" wrap>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
-              <Heading color="success" size="200">
+              <Heading color="success" size="200" accessibilityLevel={4}>
                 UI elements to bring brand expression
               </Heading>
               <Text>
@@ -71,7 +71,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
               </Text>
             </Box>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
-              <Heading color="subtle" size="200">
+              <Heading color="subtle" size="200" accessibilityLevel={4}>
                 Consider brand expression
               </Heading>
               <Text>
@@ -81,7 +81,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
               </Text>
             </Box>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
-              <Heading color="error" size="200">
+              <Heading color="error" size="200" accessibilityLevel={4}>
                 Elements to avoid brand expression
               </Heading>
               <Text>

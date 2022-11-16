@@ -54,9 +54,13 @@ For more information about colors, check out our color documentation.
         />
       </MainSection.Subsection>
       <MainSection.Subsection title="Color fills and typography">
-        <Heading size="300">Headings</Heading>
+        <Heading size="300" accessibilityLevel={4}>
+          Headings
+        </Heading>
         <Markdown text="Avoid using extended colors to text elements, as changing colors could lead to usability and cognitive issues due to their semantic meaning and required contrast level. Refer to our text color tokens for guidance." />
-        <Heading size="300">Body</Heading>
+        <Heading size="300" accessibilityLevel={4}>
+          Body
+        </Heading>
         <Markdown
           text={`Body should always be $color-text-default (default color), $color-text-inverse (text over a dark-colored background), or $color-text-subtle (secondary color), with the exception of status text colors, as they are needed to convey a certain meaning for specific cases.
 
