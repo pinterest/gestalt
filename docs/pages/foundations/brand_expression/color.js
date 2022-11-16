@@ -21,7 +21,7 @@ The Core brand team created a [baseline brand palette](https://www.figma.com/fil
         src="https://i.pinimg.com/originals/6d/5d/f1/6d5df1699ff6d7f176302f94dc28306e.png"
         naturalHeight={1036}
         naturalWidth={1798}
-        alt=""
+        alt="screenshot of brand color swatches in Figma"
       />
       <Text align="center" size="100">
         Brand color swatches available in Figma (Baseline brand colors library)
@@ -34,7 +34,7 @@ The Core brand team created a [baseline brand palette](https://www.figma.com/fil
         src="https://i.pinimg.com/originals/5d/cf/95/5dcf95eb3addf436c1404daf4874d580.png"
         naturalHeight={1216}
         naturalWidth={1792}
-        alt=""
+        alt="three examples of brand expression in the product using appropriate colors"
       />
       <Text align="center" size="100">
         Idea Pin tips - Using color fills to bring brand expression{' '}
@@ -77,7 +77,7 @@ See below examples of UI elements using the appropriate text colors over color f
                     src="https://i.pinimg.com/originals/6e/f3/5c/6ef35ce8021c2aa5502c18f50f2ef966.png"
                     naturalHeight={480}
                     naturalWidth={718}
-                    alt=""
+                    alt="example of using a green background with white text"
                   />
                   <Text align="center" size="100">
                     Matchacado-green-500 + $color-text-inverse
@@ -90,7 +90,7 @@ See below examples of UI elements using the appropriate text colors over color f
                     src="https://i.pinimg.com/originals/e8/49/7c/e8497ce56cdab39f1af97864e31d5a99.png"
                     naturalHeight={416}
                     naturalWidth={686}
-                    alt=""
+                    alt="example of a using light orange background with dark text"
                   />
                   <Text align="center" size="100">
                     Firetine-orange-100 + $color-text-default
@@ -105,7 +105,7 @@ See below examples of UI elements using the appropriate text colors over color f
                     src="https://i.pinimg.com/originals/b2/f4/a4/b2f4a4bb96fa7579d13be3c6b1a60874.png"
                     naturalHeight={410}
                     naturalWidth={694}
-                    alt=""
+                    alt="example of a using dark teal background with white text and button"
                   />
                   <Text align="center" size="100">
                     Spabattical-teal-700 + $color-text-inverse
@@ -118,7 +118,7 @@ See below examples of UI elements using the appropriate text colors over color f
                     src="https://i.pinimg.com/originals/c6/3a/6e/c63a6e92a920f4b25698e64c4648b004.png"
                     naturalHeight={358}
                     naturalWidth={686}
-                    alt=""
+                    alt="example of using a light teal background with dark text"
                   />
                   <Text align="center" size="100">
                     Spabattical-teal-100 + $color-text-default
@@ -140,7 +140,7 @@ If colors are needed to express a brand moment on the product, consider adding a
                 src="https://i.pinimg.com/originals/01/1c/d3/011cd3c155d18d68e5c66ab8a5dcee81.png"
                 naturalWidth={261}
                 naturalHeight={242}
-                alt=""
+                alt="example of using a colored background with an icon as a light brand moment"
               />
             </Box>
             <Box mdColumn={6} lgColumn={2} smColumn={12}>
@@ -148,7 +148,7 @@ If colors are needed to express a brand moment on the product, consider adding a
                 src="https://i.pinimg.com/originals/56/70/3b/56703b409d6b0b89f6d585e180771dde.png"
                 naturalWidth={262}
                 naturalHeight={242}
-                alt=""
+                alt="example of using a colored background with an icon as a light brand moment"
               />
             </Box>
             <Box mdColumn={6} lgColumn={2} smColumn={12}>
@@ -156,7 +156,7 @@ If colors are needed to express a brand moment on the product, consider adding a
                 src="https://i.pinimg.com/originals/e2/2e/af/e22eaf06ab4771f4aa295d8a63ffbcb7.png"
                 naturalWidth={261}
                 naturalHeight={242}
-                alt=""
+                alt="example of using a colored background with an icon as a light brand moment"
               />
             </Box>
             <Box mdColumn={6} lgColumn={6} smColumn={12}>
@@ -164,7 +164,7 @@ If colors are needed to express a brand moment on the product, consider adding a
                 src="https://i.pinimg.com/originals/15/cc/dc/15ccdc0c40829fbfc48622f886f16a93.png"
                 naturalWidth={718}
                 naturalHeight={332}
-                alt=""
+                alt="example of using a colored background with a colored icon as a light brand moment"
               />
             </Box>
           </Box>
