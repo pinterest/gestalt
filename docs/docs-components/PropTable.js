@@ -38,6 +38,14 @@ const transformDefaultValue = (input) => {
 
 const sortBy = (list, fn) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
+function FormattedCode({ children }: {| children: Node |}) {
+  return (
+    <code>
+      <pre style={{ margin: 0, overflowX: 'scroll', minWidth: 510 }}>{children}</pre>
+    </code>
+  );
+}
+
 function Description(lines: $ReadOnlyArray<string>): Node {
   return (
     <Flex
@@ -231,7 +239,9 @@ export default function PropTable({
 
                         <Td border={!propNameHasSecondRow}>
                           <Flex justifyContent="between">
-                            <code>{nullable ? `?${unifyQuotes(type)}` : unifyQuotes(type)}</code>
+                            <FormattedCode>
+                              {nullable ? `?${unifyQuotes(type)}` : unifyQuotes(type)}
+                            </FormattedCode>
 
                             <IconButton
                               accessibilityLabel="Copy Flow type"
