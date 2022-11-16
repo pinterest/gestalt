@@ -49,16 +49,12 @@ type Props = {|
   onDismiss: () => void,
   /**
    * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
-   *
-   * Default: 'dialog'
    */
   role?: 'alertdialog' | 'dialog',
   /**
    * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/web/modal#Sizes) for more info.
    *
-   * sm: `540px` | md: `720px` | lg: `900px` | number
-   *
-   * Default: 'sm'
+   * sm: `540px` | md: `720px` | lg: `900px`
    */
   size?: 'sm' | 'md' | 'lg' | number,
   /**

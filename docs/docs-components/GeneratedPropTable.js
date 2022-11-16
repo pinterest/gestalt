@@ -3,6 +3,22 @@ import { type Node } from 'react';
 import { type DocGen } from './docgen.js';
 import PropTable from './PropTable.js';
 
+// Note if the prop has responsive versions (e.g. margin, smMargin, mdMargin, lgMargin)
+function getResponsive(description?: string): {|
+  description?: string,
+  responsive?: boolean,
+|} {
+  const input = description ?? '';
+  const match = input.match(/(?<main>Responsive: (?<typeOverride>.*))/);
+  const groups = match?.groups ?? {};
+
+  return {
+    description: groups.main ? input.replace(groups.main, '') : description,
+    responsive: Boolean(groups.typeOverride?.replace(/'/g, '')),
+  };
+}
+
+// Provide a different type to display when needed
 function getTypeOverrideValue(description?: string): {|
   description?: string,
   typeOverride?: string,
@@ -33,6 +49,7 @@ function getDefaultValue(description?: string): {|
 }
 
 // Support the older-style links in props, where the prop name is a link
+// As of Nov '22, only used in Module and Text
 function getHref(description?: string): {|
   description?: string,
   href?: string,
@@ -45,6 +62,10 @@ function getHref(description?: string): {|
     description: groups.main ? input.replace(groups.main, '') : description,
     href: groups.href ? [...groups.href.split('#')].pop() : undefined,
   };
+}
+
+function removeDomain(description) {
+  return { description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '') };
 }
 
 type Props = {|
@@ -75,21 +96,20 @@ export default function GeneratedPropTable({
         return null;
       }
 
-      // Remove domain so local development (localhost) isn't broken
-      const descriptionWithoutDomain = description?.replace(
-        /https:\/\/gestalt\.pinterest\.systems/g,
-        '',
+      const { description: descriptionWithoutOverrides, ...overrides } = [
+        removeDomain,
+        getHref,
+        getDefaultValue,
+        getTypeOverrideValue,
+        getResponsive,
+      ].reduce(
+        (acc, cur) => ({
+          // $FlowFixMe[exponential-spread]
+          ...acc,
+          ...cur(acc.description),
+        }),
+        { description: description ?? '' },
       );
-
-      // Parse out older-style links
-      const { description: descriptionWithoutLink, href } = getHref(descriptionWithoutDomain);
-
-      // Parse out default value override
-      const { description: descriptionWithoutDefault, defaultValue: defaultValueOverride } =
-        getDefaultValue(descriptionWithoutLink);
-
-      const { description: descriptionWithoutTypeOverride, typeOverride } =
-        getTypeOverrideValue(descriptionWithoutDefault);
 
       // Trim leading `|`
       const transformedType = (
@@ -111,12 +131,12 @@ export default function GeneratedPropTable({
 
       return {
         name: key,
-        type: typeOverride ?? transformedType,
-        description: descriptionWithoutTypeOverride?.trim(),
+        type: transformedType,
+        description: descriptionWithoutOverrides?.trim(),
         required,
-        defaultValue: defaultValueOverride ?? defaultValue?.value?.replace(/'/g, ''),
+        defaultValue: defaultValue?.value?.replace(/'/g, ''),
         nullable: flowType?.nullable || false,
-        href,
+        ...overrides,
       };
     })
     .filter(Boolean);
