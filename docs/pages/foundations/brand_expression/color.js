@@ -177,9 +177,7 @@ If colors are needed to express a brand moment on the product, consider adding a
 
 Make sure your color fills have great contrast in our light and dark mode color themes.
 
-Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone.
-
-            `}
+Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone.`}
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Extended color palette">
