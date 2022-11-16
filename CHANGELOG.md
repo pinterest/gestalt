@@ -1,3 +1,9 @@
+## 82.0.2 (Nov 16, 2022)
+
+### Patch
+
+- Docs: updated image dimensions for messaging guidelines ([#2501](https://github.com/pinterest/gestalt/pull/2501)) - [Preview link](https://deploy-preview-2501--gestalt.netlify.app)
+
 ## 82.0.1 (Nov 15, 2022)
 
 ### Patch
