@@ -1,3 +1,9 @@
+## 82.1.2 (Nov 16, 2022)
+
+### Patch
+
+- Docs: add formatting for prop types ([#2502](https://github.com/pinterest/gestalt/pull/2502)) - [Preview link](https://deploy-preview-2502--gestalt.netlify.app)
+
 ## 82.1.1 (Nov 16, 2022)
 
 ### Patch
