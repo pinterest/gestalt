@@ -221,7 +221,10 @@ Ensure to add ALT text to your image, so users who rely on assistive technologie
         </Text>
       </MainSection>
       <MainSection name="Voice and tone">
-        <Text>Check out our brand voice guidelines.</Text>
+        <Text>
+          Check out our [brand voice
+          guidelines](https://www.figma.com/proto/dOKezQeD0AKtnIaurwW1oz/Pinterest-Brand-Voice?page-id=1645%3A3096&node-id=1645%3A3097&viewport=323%2C48%2C0.07&scaling=scale-down).
+        </Text>
       </MainSection>
       <MainSection name="Related">
         <MainSection.Subsection
