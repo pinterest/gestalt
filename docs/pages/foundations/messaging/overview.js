@@ -1,5 +1,5 @@
 // @flow strict
-import { Flex, Box, Image, SlimBanner } from 'gestalt';
+import { Box, Image, SlimBanner } from 'gestalt';
 import React, { type Node } from 'react';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -54,22 +54,19 @@ Below is a brief user journey of how messages work together along with other com
 
 This isn’t a highly urgent issue, so we don’t display a prominent modal, banner or other message component just yet; just a little nudge that tells her she needs to look at her profile."
         />
-        <Flex gap={{ column: 0, row: 2 }} direction="row" wrap maxWidth={556}>
-          <Box width={490} height={780} marginBottom={4} marginTop={2}>
-            <Image
-              alt="Mobile phone screen of a Pin close-up. There is a small red dot next to the user's profile in the bottom nav bar."
-              naturalHeight={1}
-              naturalWidth={1}
-              fit="contain"
-              src="https://i.pinimg.com/originals/72/52/51/725251998a88d92a653cc3bcd08ca2ee.png"
-            />
-          </Box>
-          <SlimBanner
-            type="infoBare"
-            iconAccessibilityLabel="Information"
-            message="Note: Alert indicator is not currently a Gestalt component, but a Variant in other components like Tabs."
+        <Box maxWidth={375} maxHeight={780} marginBottom={4} marginTop={2}>
+          <Image
+            alt="Mobile phone screen of a Pin close-up. There is a small red dot next to the user's profile in the bottom nav bar."
+            naturalHeight={1680}
+            naturalWidth={1056}
+            src="https://i.pinimg.com/originals/72/52/51/725251998a88d92a653cc3bcd08ca2ee.png"
           />
-        </Flex>
+        </Box>
+        <SlimBanner
+          type="infoBare"
+          iconAccessibilityLabel="Information"
+          message="Note: Alert indicator is not currently a Gestalt component, but a Variant in other components like Tabs."
+        />
       </Box>
       <Box width="100%" marginBottom={12} marginTop={-7}>
         <MainSection.Subsection
@@ -77,12 +74,11 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
           description="Tapping on her profile leads her to a warning banner about needing to set a password for better security. Being that it’s prominent and at the top of the page, she figures it’s important, so she taps on the primary banner button to update her password."
         />
 
-        <Box width={375} height={780} marginBottom={12} marginTop={2}>
+        <Box maxWidth={375} maxHeight={780} marginBottom={12} marginTop={2}>
           <Image
             alt="Mobile phone screen of a Pinner profile with a Callout Banner warning the user of an issue that needs to be fixed."
-            naturalHeight={1}
-            naturalWidth={1}
-            fit="contain"
+            naturalHeight={1680}
+            naturalWidth={808}
             src="https://i.pinimg.com/originals/f5/15/d4/f515d4e36832a2637d2d5a53b32e2deb.png"
           />
         </Box>
@@ -93,12 +89,11 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
           description="After setting her new password, Claire gets a short and brief success toast just to verify that the changes went through. She is now ready to start pinning!"
         />
 
-        <Box width={375} height={780} marginBottom={4} marginTop={2}>
+        <Box maxWidth={375} maxHeight={780} marginBottom={4} marginTop={2}>
           <Image
             alt="Mobile phone screen with a success toast message."
-            naturalHeight={1}
-            naturalWidth={1}
-            fit="contain"
+            naturalHeight={1680}
+            naturalWidth={808}
             src="https://i.pinimg.com/originals/86/1c/4d/861c4dba8f3280333eb00f1fc712e891.png"
           />
         </Box>
@@ -112,12 +107,11 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
 Claire goes back to find some other pins, then decides it’s time to get back to work."
         />
 
-        <Box width={375} height={780} marginTop={2}>
+        <Box maxWidth={375} maxHeight={780} marginTop={2}>
           <Image
             alt="Mobile phone screen with an error modal message."
-            naturalHeight={1896}
-            naturalWidth={3080}
-            fit="contain"
+            naturalHeight={1680}
+            naturalWidth={808}
             src="https://i.pinimg.com/originals/83/f9/a1/83f9a155d2602483eea851350c755a6e.png"
           />
         </Box>
