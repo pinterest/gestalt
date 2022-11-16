@@ -13,9 +13,9 @@ export default function MessagingComponentsPage(): Node {
       <Markdown
         text={`Pinterest product UI should be comprised of our hero and neutrals colors. We should continue to use our baseline color palette to allow photography, actions, and content to stand out. However, there are situations where color fills can help to express brand moments on product surfaces.
 
-We recommend using the extended color palette to bring attention to a specific brand or marketing moment, such as celebratory news, a new feature announcement, or educational flows. However, be mindful of color choices when applying color fills to UI elements next to status messages, as they use semantic colors to convey a specific meaning. See background color usage for reference.
+We recommend using the [extended color palette](https://gestalt.pinterest.systems/foundations/color/palette#Colors) to bring attention to a specific brand or marketing moment, such as celebratory news, a new feature announcement, or educational flows. However, be mindful of color choices when applying color fills to UI elements next to status messages, as they use semantic colors to convey a specific meaning. See [background color usage](https://gestalt.pinterest.systems/foundations/color/usage#Base-background-colors) for reference.
 
-The Core brand team created a baseline brand palette with some of our extended colors; you can enable it as a library in your Figma file.`}
+The Core brand team created a [baseline brand palette](https://www.figma.com/file/xjnifcms6gq4TVuHpbUSju/?node-id=2%3A13134) with some of our extended colors; you can enable it as a library in your Figma file.`}
       />
       <Image
         src="https://i.pinimg.com/originals/6d/5d/f1/6d5df1699ff6d7f176302f94dc28306e.png"
@@ -45,12 +45,12 @@ The Core brand team created a baseline brand palette with some of our extended c
       <MainSection name="Color usage">
         <MainSection.Subsection title="Color fills and dark-mode">
           <Markdown
-            text={`Aim for sufficient color contrast in all appearances, no matter the color theme (light or dark mode). Our colors were defined to support you in achieving a reasonable contrast ratio between your foreground and background content in both appearances. At a minimum, ensure the contrast ratio between colors is no lower than 4.5:1, as this ratio ensures that your foreground content stands out from the background and helps your content meet recommended WCAG 2.1 AA accessibility standards.
+            text={`Aim for sufficient color contrast in all appearances, no matter the color theme (light or dark mode). Our colors were defined to support you in achieving a reasonable contrast ratio between your foreground and background content in both appearances. At a minimum, ensure the contrast ratio between colors is no lower than 4.5:1, as this ratio ensures that your foreground content stands out from the background and helps your content meet recommended [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/).
 
-We suggest checking Brand color expression + accessibility for references on color combination considering both themes. You can also use color pairing Figma plugin to test your color contrast level.
+We suggest checking [Brand color expression + accessibility](https://brand.pinterest.com/color/) for references on color combination considering both themes. You can also use [color pairing Figma plugin](https://www.figma.com/proto/WojVVmZpVP1aJcWPekckkP/Pinterest-Brand-Figma-Plugins?page-id=0%3A1&node-id=3%3A454&viewport=311%2C48%2C0.65&scaling=contain&starting-point-node-id=10%3A179) to test your color contrast level.
 When using images or icons over color fills, ensure they look good in both themes. For icons, use the appropriate color tokens for each theme to provide readability and a great usability experience. For images, we suggest using the same asset if it looks good in both light and dark appearances. Consider softening the image treatment to avoid eye strain or to improve visibility; use your best judgment.
 
-For more information about colors, check out our color documentation.
+For more information about colors, check out our [color documentation](/foundations/color/palette).
 `}
           />
         </MainSection.Subsection>

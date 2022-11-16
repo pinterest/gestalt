@@ -153,7 +153,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
           </MainSection.Card>
           <MainSection.Card
             type="do"
-            description="Apply text over color fills using the appropriate text [color tokens](/foundations/design_tokens#Text-color). It will ensure an accessible, readable experience."
+            description="Apply text over color fills using the appropriate [text color tokens](/foundations/design_tokens#Text-color). It will ensure an accessible, readable experience."
           >
             <Box width="100%" height="100%" overflow="hidden">
               <Image
