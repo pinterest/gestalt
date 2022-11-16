@@ -15,14 +15,15 @@ type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
   /**
-   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.
-   *
-   * Link: https://gestalt.pinterest.systems/web/text#align
+   * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See the [alignment variant](https://gestalt.pinterest.systems/web/text#Alignment) for more details.
    */
   align?: 'start' | 'end' | 'center' | 'forceLeft' | 'forceRight',
+  /**
+   * The text content to be displayed.
+   */
   children?: Node,
   /**
-   * Link: https://gestalt.pinterest.systems/web/text#color
+   * The color of the text content. See the [colors variant](https://gestalt.pinterest.systems/web/text#Colors) for more details.
    */
   color?:
     | 'default'
@@ -36,27 +37,23 @@ type Props = {|
     | 'light'
     | 'dark',
   /**
-   * Link: https://gestalt.pinterest.systems/web/text#inline
+   * Indicates how the text should flow with the surrounding content. See the [block vs inline variant](https://gestalt.pinterest.systems/web/text#Block-vs.-inline) for more details.
    */
   inline?: boolean,
   /**
-   * Link: https://gestalt.pinterest.systems/web/text#styles
+   * Indicates if the text should be displayed in italic. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
    */
   italic?: boolean,
   /**
-   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers.
-   *
-   * Link: https://gestalt.pinterest.systems/web/text#Overflow-and-truncation
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [overflow and truncation variant](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) for more details.
    */
   lineClamp?: number,
   /**
-   * Link: https://gestalt.pinterest.systems/web/text#Overflow-and-truncation
+   * Indicates how the text content should handle overflowing its container. See the [overflow and truncation variant](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) for more details.
    */
   overflow?: Overflow,
   /**
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size).
-   *
-   * Link: https://gestalt.pinterest.systems/web/text#size
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
    */
   size?: Size,
   /**
@@ -64,17 +61,17 @@ type Props = {|
    */
   title?: string,
   /**
-   * Link: https://gestalt.pinterest.systems/web/text#styles
+   * Indicates if the text content should be underlined. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
    */
   underline?: boolean,
   /**
-   * Link: https://gestalt.pinterest.systems/web/text#styles
+   * Indicates the font weight for the text content. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
    */
   weight?: 'bold' | 'normal',
 |};
 
 /**
- * The [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
+ * [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
  *
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)

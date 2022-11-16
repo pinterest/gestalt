@@ -48,22 +48,6 @@ function getDefaultValue(description?: string): {|
   };
 }
 
-// Support the older-style links in props, where the prop name is a link
-// As of Nov '22, only used in Module and Text
-function getHref(description?: string): {|
-  description?: string,
-  href?: string,
-|} {
-  const input = description ?? '';
-  const match = input.match(/(?<main>Link: (?<href>.*))/);
-  const groups = match?.groups ?? {};
-
-  return {
-    description: groups.main ? input.replace(groups.main, '') : description,
-    href: groups.href ? [...groups.href.split('#')].pop() : undefined,
-  };
-}
-
 function removeDomain(description) {
   return { description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '') };
 }
@@ -98,7 +82,6 @@ export default function GeneratedPropTable({
 
       const { description: descriptionWithoutOverrides, ...overrides } = [
         removeDomain,
-        getHref,
         getDefaultValue,
         getTypeOverrideValue,
         getResponsive,
