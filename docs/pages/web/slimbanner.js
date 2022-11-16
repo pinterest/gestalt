@@ -616,11 +616,7 @@ Tooltip provides helpful information regarding an interactive UI element, typica
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const docGen = await docgen({ componentName: 'SlimBanner' });
-
-  docGen.props.message.flowType.raw = '{| string | React.Element<typeof Text>>> |}';
-
   return {
-    props: { generatedDocGen: docGen },
+    props: { generatedDocGen: await docgen({ componentName: 'SlimBanner' }) },
   };
 }
