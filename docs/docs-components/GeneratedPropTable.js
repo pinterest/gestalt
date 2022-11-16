@@ -9,12 +9,12 @@ function getResponsive(description?: string): {|
   responsive?: boolean,
 |} {
   const input = description ?? '';
-  const match = input.match(/(?<main>Responsive: (?<typeOverride>.*))/);
+  const match = input.match(/(?<main>Responsive: (?<responsive>.*))/);
   const groups = match?.groups ?? {};
 
   return {
     description: groups.main ? input.replace(groups.main, '') : description,
-    responsive: Boolean(groups.typeOverride?.replace(/'/g, '')),
+    responsive: Boolean(groups.responsive?.replace(/'/g, '')),
   };
 }
 
