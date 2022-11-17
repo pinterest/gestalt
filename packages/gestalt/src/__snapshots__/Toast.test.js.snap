@@ -13,21 +13,16 @@ exports[`<Toast /> Error Toast 1`] = `
   }
 >
   <div
-    className="box errorBase fit paddingX6 paddingY6 pill shadow"
+    className="box errorBase fit paddingX6 paddingY6 pill"
   >
     <div
       className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
-        style={
-          Object {
-            "maxWidth": undefined,
-          }
-        }
       >
         <div
-          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 inverseText alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -45,23 +40,18 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
     Object {
       "maxWidth": "min(500px, 100vw)",
       "minWidth": 330,
-      "width": 330,
+      "width": undefined,
     }
   }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill"
   >
     <div
       className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
-        style={
-          Object {
-            "maxWidth": undefined,
-          }
-        }
       >
         <div
           className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
@@ -143,7 +133,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill"
   >
     <div
       className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
@@ -168,11 +158,6 @@ exports[`<Toast /> Text + Image + Button 1`] = `
       </div>
       <div
         className="FlexItem flexGrow"
-        style={
-          Object {
-            "maxWidth": 127,
-          }
-        }
       >
         <div
           className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
@@ -254,7 +239,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill"
   >
     <div
       className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
@@ -279,11 +264,6 @@ exports[`<Toast /> Text + Image 1`] = `
       </div>
       <div
         className="FlexItem flexGrow"
-        style={
-          Object {
-            "maxWidth": undefined,
-          }
-        }
       >
         <div
           className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
@@ -336,18 +316,13 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill shadow"
+    className="box dark fit paddingX6 paddingY6 pill"
   >
     <div
       className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
-        style={
-          Object {
-            "maxWidth": undefined,
-          }
-        }
       >
         <div
           className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"

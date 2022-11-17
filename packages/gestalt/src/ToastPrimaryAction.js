@@ -19,7 +19,7 @@ export default function ToastPrimaryAction({
   label,
   onClick,
   rel,
-  size,
+  size = 'lg',
   target,
 }: Props): Node {
   if (href && label)
@@ -38,6 +38,6 @@ export default function ToastPrimaryAction({
 
   if (label)
     return (
-      <Button accessibilityLabel={accessibilityLabel} text={label} size="lg" onClick={onClick} />
+      <Button accessibilityLabel={accessibilityLabel} text={label} size={size} onClick={onClick} />
     );
 }
