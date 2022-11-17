@@ -1,3 +1,9 @@
+## 83.0.0 (Nov 17, 2022)
+
+### Major
+
+- Toast: restricting text prop from Node to only string and Text ([#2507](https://github.com/pinterest/gestalt/pull/2507)) - [Preview link](https://deploy-preview-2507--gestalt.netlify.app)
+
 ## 82.1.5 (Nov 17, 2022)
 
 ### Patch
