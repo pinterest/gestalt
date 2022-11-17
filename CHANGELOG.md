@@ -1,3 +1,9 @@
+## 82.1.5 (Nov 17, 2022)
+
+### Patch
+
+- Bump minimatch from 3.0.4 to 3.0.8 ([#2506](https://github.com/pinterest/gestalt/pull/2506)) - [Preview link](https://deploy-preview-2506--gestalt.netlify.app)
+
 ## 82.1.4 (Nov 16, 2022)
 
 ### Patch
