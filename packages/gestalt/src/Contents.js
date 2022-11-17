@@ -251,7 +251,7 @@ class Contents extends Component<Props, State> {
 
     const { top, height: containerHeight } = this.handlePopoverSize();
     // Top value is used only when the current top value is negative
-    const topValue = top != null && popoverOffset?.top < 0 ? { top } : {};
+    const topValue = top != null && (popoverOffset?.top ?? 0) < 0 ? { top } : {};
 
     return (
       <div
