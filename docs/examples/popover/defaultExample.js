@@ -13,18 +13,6 @@ import {
   Image,
 } from 'gestalt';
 
-function SearchBoardField(): Node {
-  return (
-    <SearchField
-      accessibilityLabel="Search boards field"
-      id="searchField"
-      onChange={() => {}}
-      placeholder="Search boards"
-      size="lg"
-    />
-  );
-}
-
 function List({
   title,
   setSelectedBoard,
@@ -129,7 +117,13 @@ export default function DismissButton(): Node {
                   <Text align="center" color="default" weight="bold">
                     Save to board
                   </Text>
-                  <SearchBoardField />
+                  <SearchField
+                    accessibilityLabel="Search boards field"
+                    id="searchField"
+                    onChange={() => {}}
+                    placeholder="Search boards"
+                    size="lg"
+                  />
                 </Flex>
               </Box>
               <Box height={300} overflow="scrollY">
