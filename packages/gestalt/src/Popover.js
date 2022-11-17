@@ -17,7 +17,7 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * Describe's the dismiss button's purpose. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more. Must be localized.
+   * Describes the dismiss button's purpose. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more. Must be localized.
    */
   accessibilityDismissButtonLabel?: string,
   /**
