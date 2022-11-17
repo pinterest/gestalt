@@ -102,6 +102,9 @@ function Example() {
   const [shouldShow, setShouldShow] = React.useState(false);
   const anchorRef = React.useRef(null);
 
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
   // DOM structure based on this related error: https://pinterest.slack.com/archives/C13KLG5P0/p1661909002686629
   return (
     <React.Fragment>
@@ -109,7 +112,7 @@ function Example() {
         <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
       </Box>
       {shouldShow && (
-        <Layer>
+        <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Close sheet"
             accessibilitySheetLabel="Example dropdown inner sheet"
@@ -238,6 +241,7 @@ function Example() {
               anchor={anchorRef.current}
               id="demo-dropdown-example"
               onDismiss={() => setIsOpen(false)}
+              zIndex={new FixedZIndex(1000)}
             >
               {preRenderItems()}
             </Dropdown>
@@ -483,7 +487,7 @@ function Example() {
           <MainSection.Card
             cardSize="lg"
             title="Scrollable container"
-            description="Dropdown inner scrollable container, should have a 'ScrollBoundaryContainer' around the dropdown implementation"
+            description="Dropdown inner scrollable container, should have a 'ScrollBoundaryContainer' around the dropdown implementation. The `maxHeight` used to limit the dropdown list height is based on ScrollBoundaryContainer height."
             defaultCode={`
 function ScrollableContainer() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -525,7 +529,6 @@ function ScrollableContainer() {
           />
           {isOpen && (
             <Dropdown
-              isWithinFixedContainer
               anchor={anchorRef.current}
               id="demo-dropdown-example"
               onDismiss={() => setIsOpen(!isOpen)}
@@ -544,7 +547,7 @@ function ScrollableContainer() {
           <MainSection.Card
             cardSize="lg"
             title="Scrollable container 2"
-            description="Dropdown inner scrollable container, should have a 'ScrollBoundaryContainer' around the dropdown implementation"
+            description="Dropdown inner scrollable container, should have a 'ScrollBoundaryContainer' around the dropdown implementation. The `maxHeight` used to limit the dropdown list height is based on ScrollBoundaryContainer height."
             defaultCode={`
 function ScrollableContainerB() {
   const [isOpen, setIsOpen] = React.useState(false);
