@@ -6,6 +6,7 @@ import { AppContextProvider, AppContextConsumer } from './appContext.js';
 import { NavigationContextProvider } from './navigationContext.js';
 import AppLayout from './AppLayout.js';
 import { LocalFilesProvider } from './contexts/LocalFilesProvider.js';
+import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
 
 type Props = {|
   children?: Node,
@@ -53,22 +54,24 @@ export default function App({ children, files }: Props): Node {
     };
   }, [router.events]);
 
-  // NOTE: there are other Providers added in pages/_app.js
+  // See additional Providers added in pages/_app.js (dependent for Playwright visual diff testing)
   return (
-    <AppContextProvider>
-      <AppContextConsumer>
-        {({ colorScheme }) => (
-          <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
-            <OnLinkNavigationProvider onNavigation={useOnNavigation}>
-              <NavigationContextProvider>
-                <LocalFilesProvider files={files}>
-                  <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
-                </LocalFilesProvider>
-              </NavigationContextProvider>
-            </OnLinkNavigationProvider>
-          </ColorSchemeProvider>
-        )}
-      </AppContextConsumer>
-    </AppContextProvider>
+    <DocsExperimentProvider>
+      <AppContextProvider>
+        <AppContextConsumer>
+          {({ colorScheme }) => (
+            <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
+              <OnLinkNavigationProvider onNavigation={useOnNavigation}>
+                <NavigationContextProvider>
+                  <LocalFilesProvider files={files}>
+                    <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
+                  </LocalFilesProvider>
+                </NavigationContextProvider>
+              </OnLinkNavigationProvider>
+            </ColorSchemeProvider>
+          )}
+        </AppContextConsumer>
+      </AppContextProvider>
+    </DocsExperimentProvider>
   );
 }

@@ -103,14 +103,19 @@ yarn generate ComponentName
   yarn playwright:test accessibility/
   ```
 
-  - Run [Playwright visual diff snapshot tests](https://playwright.dev/docs/test-snapshots). If any component changes are expected to visually modify your component, you must update the snapshot tests
+  - Run [Playwright visual diff snapshot tests](https://playwright.dev/docs/test-snapshots). If any component changes are expected to visually modify your component, you must update the snapshot tests. Make sure your macOS version matches the one set in [Playwright's config file](https://github.com/pinterest/gestalt/blob/master/.github/workflows/playwright.yml#L13)
+
 
   ```bash
-  # Start the documentation server (required for updating macOS snapshots)
-  yarn start
+  # Update all Gestalt packages builds running rollup
+  yarn build
   #
-  # Update visual test snapshots
+  # Update visual all test snapshots with the latest builds
   yarn playwright:test visual-test/ --update-snapshots
+
+  # Update visual a specific test snapshots with the latest builds
+  yarn playwright:test visual-test/<filename> --update-snapshots
+
   ```
 
   - Update CSS flow types
