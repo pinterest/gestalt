@@ -136,6 +136,7 @@ export default function Popover({
               onClick={onDismiss}
               size="xs"
               ref={dismissButtonRef}
+              iconColor={color === 'white' ? 'darkGray' : 'white'}
             />
           </Box>
           {children}

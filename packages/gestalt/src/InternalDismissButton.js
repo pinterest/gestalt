@@ -17,6 +17,7 @@ import useTapFeedback from './useTapFeedback.js';
 type Props = {|
   accessibilityLabel: string,
   accessibilityControls?: string,
+  iconColor?: $ElementType<React$ElementConfig<typeof Pog>, 'iconColor'>,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
@@ -25,7 +26,13 @@ type Props = {|
 
 const InternalDismissIconButtonWithForwardRef: React$AbstractComponent<Props, HTMLButtonElement> =
   forwardRef<Props, HTMLButtonElement>(function IconButton(
-    { accessibilityLabel, accessibilityControls, onClick, size = 'lg' }: Props,
+    {
+      accessibilityLabel,
+      accessibilityControls,
+      iconColor = 'darkGray',
+      onClick,
+      size = 'lg',
+    }: Props,
     ref,
   ): Node {
     const innerRef = useRef(null);
@@ -96,6 +103,7 @@ const InternalDismissIconButtonWithForwardRef: React$AbstractComponent<Props, HT
             focused={isFocusVisible && isFocused}
             hovered={isHovered}
             icon="cancel"
+            iconColor={iconColor}
             size={size}
           />
         </div>
