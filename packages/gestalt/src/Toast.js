@@ -1,5 +1,5 @@
 // @flow strict
-import { isValidElement, type Element, type Node } from 'react';
+import { Children, isValidElement, type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
@@ -34,10 +34,9 @@ type Props = {|
   |},
 
   /**
-   * Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Do not specify a Text color within this property, as the color is automatically determined based on the `variant`.
+   * Main content of Toast. Content should be [localized](https://gestalt.pinterest.systems/web/toast#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/toast#Text) to learn more.
    */
-  // $FlowFixMe[unclear-type]
-  text: string | Element<*>,
+  text: string | Element<typeof Text>,
   /**
    * An optional thumbnail image to displayed next to the text.
    */
@@ -76,10 +75,15 @@ export default function Toast({
 
   let containerColor = isDarkMode ? 'light' : 'dark';
   let textColor = isDarkMode ? 'dark' : 'light';
-  let textElement = text;
 
-  // If `text` is a Node, we need to override any text colors within to ensure they all match
-  if (typeof text !== 'string') {
+  let textElement: Element<'span'> | string;
+
+  if (typeof text === 'string') {
+    textElement = text;
+  }
+
+  // If `text` is a Text component, we need to override any text colors within to ensure they all match
+  if (typeof text !== 'string' && Children.only(text).type.displayName === 'Text') {
     let textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark
       : styles.textColorOverrideLight;

@@ -64,6 +64,11 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
+      <MainSection
+        name="Localization"
+        description={`Remember to localize \`text\` and any string within \`primaryAction\`.`}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description="Toasts should be displayed in the center of the viewport, opposite the main navbar (e.g. at the top of the viewport on mobile, bottom of the viewport on desktop). Though not implemented here, Toasts are meant to be ephemeral and disappear after a few seconds."
@@ -125,8 +130,12 @@ function ToastExample() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="When passing in your own Text component for `text`, do not specify `color` on Text. Toast will automatically pick the correct text color for the given `variant`."
-          title="Complex Text"
+          description={`
+The \`text\` prop accepts either a string or [Text](/Text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.
+
+If  confirmation toast's text with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`variant\`.
+`}
+          title="Text"
         >
           <MainSection.Card
             cardSize="lg"
