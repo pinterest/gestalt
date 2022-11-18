@@ -162,6 +162,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Principles', 'Guidelines', 'Implementation'],
       },
       {
+        sectionName: 'Brand expression',
+        pages: ['Guidelines', 'Color fills'],
+      },
+      {
         sectionName: 'Color',
         pages: ['Palette', 'Usage', 'Examples'],
       },
