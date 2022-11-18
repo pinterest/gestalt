@@ -1,3 +1,9 @@
+## 83.1.0 (Nov 18, 2022)
+
+### Minor
+
+- Popover: Add new option for dismiss button ([#2497](https://github.com/pinterest/gestalt/pull/2497)) - [Preview link](https://deploy-preview-2497--gestalt.netlify.app)
+
 ## 83.0.2 (Nov 18, 2022)
 
 ### Patch
