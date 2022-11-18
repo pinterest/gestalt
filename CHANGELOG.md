@@ -1,3 +1,9 @@
+## 83.0.1 (Nov 18, 2022)
+
+### Patch
+
+- Playwright: updating config to run on macOS 12 to fix snapshot differences due to different macOS versions between local and CI, & disabling them in CI ([#2509](https://github.com/pinterest/gestalt/pull/2509)) - [Preview link](https://deploy-preview-2509--gestalt.netlify.app)
+
 ## 83.0.0 (Nov 17, 2022)
 
 ### Major
