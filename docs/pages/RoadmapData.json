@@ -76,7 +76,7 @@
     {
       "task": "Multi-select component",
       "deadline": "Quarter 4",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Pilot component for supporting selection of multiple items in a dropdown context.",
       "link": ""
@@ -92,7 +92,7 @@
     {
       "task": "Modal/Sheet component",
       "deadline": "Quarter 4",
-      "status": "inProgress",
+      "status": "problem",
       "platform": "Mobile web",
       "description": "Development of a mobile-specific treatment of the Modal component.",
       "link": ""
@@ -100,7 +100,7 @@
     {
       "task": "Popover component",
       "deadline": "Quarter 4",
-      "status": "inProgress",
+      "status": "problem",
       "platform": "Mobile web",
       "description": "Development of a mobile-specific treatment of the Popover component.",
       "link": ""
@@ -116,7 +116,7 @@
     {
       "task": "Button component update",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Visual updates to the Button component on the Web platform.",
       "link": ""
@@ -124,7 +124,7 @@
     {
       "task": "Button component",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Android/iOS",
       "description": "Development of the Button component for Android and iOS.",
       "link": ""
@@ -132,7 +132,7 @@
     {
       "task": "IconButton component",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Android/iOS",
       "description": "Development of the IconButton component for Android and iOS.",
       "link": ""
@@ -140,7 +140,7 @@
     {
       "task": "Icon component",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Android",
       "description": "Development of the Icon component for Android.",
       "link": ""
@@ -148,7 +148,7 @@
     {
       "task": "Avatar component",
       "deadline": "",
-      "status": "unstarted",
+      "status": "ok",
       "platform": "Android",
       "description": "Development of the Avatar component for Android.",
       "link": ""
@@ -164,7 +164,7 @@
     {
       "task": "Masonry component enhancements",
       "deadline": "",
-      "status": "inProgress",
+      "status": "problem",
       "platform": "Web",
       "description": "Develop general technical improvements to Masonry.",
       "link": ""
@@ -188,7 +188,7 @@
     {
       "task": "Border color and radius design tokens",
       "deadline": "",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Addition of tokens to support border radius and border color styling.",
       "link": ""
@@ -300,7 +300,7 @@
     {
       "task": "Masonry component design guidelines",
       "deadline": "Quarter 2",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "Web",
       "description": "Addition of best practices, accessibility, localization and related components to Masonry web documentation.",
       "link": ""
@@ -452,7 +452,7 @@
     {
       "task": "Help/guidance pattern guidelines",
       "deadline": "Quarter 4",
-      "status": "unstarted",
+      "status": "problem",
       "platform": "",
       "description": "Publish best practices for providing in-product contextual help and guidance using Gestalt.",
       "link": ""
