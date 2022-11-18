@@ -1,3 +1,9 @@
+## 83.0.2 (Nov 18, 2022)
+
+### Patch
+
+- Docs: Add new Brand expression guidelines ([#2499](https://github.com/pinterest/gestalt/pull/2499)) - [Preview link](https://deploy-preview-2499--gestalt.netlify.app)
+
 ## 83.0.1 (Nov 18, 2022)
 
 ### Patch
