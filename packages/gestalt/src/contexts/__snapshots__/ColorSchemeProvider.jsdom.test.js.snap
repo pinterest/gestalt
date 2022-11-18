@@ -46,6 +46,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-default: #111111;
   --color-background-info-base: #75bfff;
   --color-background-info-weak: #003c96;
+  --color-background-info-strong: #abdbff;
   --color-background-error-base: #f47171;
   --color-background-error-weak: #660000;
   --color-background-warning-base: #fdc900;
@@ -135,6 +136,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-info-weak: #d7edff;
+  --color-background-info-strong: #005fcb;
   --color-background-error-base: #cc0000;
   --color-background-error-weak: #ffe0e0;
   --color-background-warning-base: #bd5b00;
@@ -224,6 +226,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-info-weak: #d7edff;
+  --color-background-info-strong: #005fcb;
   --color-background-error-base: #cc0000;
   --color-background-error-weak: #ffe0e0;
   --color-background-warning-base: #bd5b00;
@@ -313,6 +316,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-info-weak: #d7edff;
+  --color-background-info-strong: #005fcb;
   --color-background-error-base: #cc0000;
   --color-background-error-weak: #ffe0e0;
   --color-background-warning-base: #bd5b00;
@@ -403,6 +407,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-default: #111111;
   --color-background-info-base: #75bfff;
   --color-background-info-weak: #003c96;
+  --color-background-info-strong: #abdbff;
   --color-background-error-base: #f47171;
   --color-background-error-weak: #660000;
   --color-background-warning-base: #fdc900;
