@@ -1,3 +1,9 @@
+## 83.1.1 (Nov 18, 2022)
+
+### Patch
+
+- Changed images to fit="contain" ([#2512](https://github.com/pinterest/gestalt/pull/2512)) - [Preview link](https://deploy-preview-2512--gestalt.netlify.app)
+
 ## 83.1.0 (Nov 18, 2022)
 
 ### Minor
