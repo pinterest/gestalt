@@ -1,6 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useRef, useEffect } from 'react';
 import Controller from './Controller.js';
+import Box from './Box.js';
+import Flex from './Flex.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import InternalDismissButton from './InternalDismissButton.js';
 
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -12,6 +16,10 @@ type Props = {|
    * Unique label to describe each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
   accessibilityLabel?: string,
+  /**
+   * Describes the dismiss button's purpose. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more. Must be localized.
+   */
+  accessibilityDismissButtonLabel?: string,
   /**
    * The reference element, typically [Button](https://gestalt.pinterest.systems/web/button) or [IconButton](https://gestalt.pinterest.systems/web/iconbutton), that Popover uses to set its position.
    */
@@ -57,6 +65,10 @@ type Props = {|
    */
   showCaret?: boolean,
   /**
+   * Shows a dismiss button on Popover. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more.
+   */
+  showDismissButton?: boolean,
+  /**
    * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/web/popover#Size) variant to learn more.
    */
   size?: Size,
@@ -69,8 +81,10 @@ type Props = {|
  */
 export default function Popover({
   accessibilityLabel = 'Popover',
+  accessibilityDismissButtonLabel,
   anchor,
   children,
+  showDismissButton,
   onKeyDown,
   id,
   idealDirection,
@@ -82,6 +96,15 @@ export default function Popover({
   showCaret = false,
   size = 'sm',
 }: Props): null | Node {
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('Popover');
+
+  const dismissButtonRef = useRef();
+
+  useEffect(() => {
+    dismissButtonRef.current?.focus();
+  }, []);
+
   if (!anchor) {
     return null;
   }
@@ -103,7 +126,24 @@ export default function Popover({
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
     >
-      {children}
+      {showDismissButton ? (
+        <Flex direction="column">
+          <Box alignSelf="end" padding={2}>
+            <InternalDismissButton
+              accessibilityLabel={
+                accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+              }
+              onClick={onDismiss}
+              size="xs"
+              ref={dismissButtonRef}
+              iconColor={color === 'white' ? 'darkGray' : 'white'}
+            />
+          </Box>
+          {children}
+        </Flex>
+      ) : (
+        children
+      )}
     </Controller>
   );
 }

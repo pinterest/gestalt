@@ -20,6 +20,9 @@ export type DefaultLabelContextType = {|
   ModalAlert: {|
     accessibilityDismissButtonLabel: string,
   |},
+  Popover: {|
+    accessibilityDismissButtonLabel: string,
+  |},
   ComboBox: {|
     accessibilityClearButtonLabel: string,
   |},
@@ -35,6 +38,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   ModalAlert: {
     accessibilityDismissButtonLabel: 'Close modal',
+  },
+  Popover: {
+    accessibilityDismissButtonLabel: 'Close popover',
   },
   ComboBox: {
     accessibilityClearButtonLabel: 'Clear input',
