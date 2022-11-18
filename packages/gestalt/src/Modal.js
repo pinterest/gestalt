@@ -169,7 +169,7 @@ export default function Modal({
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {Boolean(heading) && (
                   <Box
-                    borderStyle={showTopShadow ? 'shadow' : undefined}
+                    borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
                     position="relative"
                     fit
                     zIndex={new FixedZIndex(1)}
@@ -195,7 +195,7 @@ export default function Modal({
                 )}
                 {Boolean(footer) && (
                   <Box
-                    borderStyle={showBottomShadow ? 'shadow' : undefined}
+                    borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
                     position="relative"
                     fit
                     zIndex={new FixedZIndex(1)}
