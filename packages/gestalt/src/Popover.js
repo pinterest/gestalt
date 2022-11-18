@@ -128,7 +128,7 @@ export default function Popover({
     >
       {showDismissButton ? (
         <Flex direction="column">
-          <Box alignSelf="end" padding={1}>
+          <Box alignSelf="end" padding={2}>
             <InternalDismissButton
               accessibilityLabel={
                 accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
