@@ -4,14 +4,15 @@ import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import Markdown from '../../../docs-components/Markdown.js';
 
 export default function MessagingComponentsPage(): Node {
   return (
     <Page title="Brand expression">
-      <PageHeader badge="pilot" name="Brand expression" type="guidelines" />
-      <Markdown
-        text={`We consider brand expression in the product the combination of visual elements (colors, typography, photography, motion, and other assets) to provide a delightful experience for Pinners by bringing Pinterest brand touch-points through the user experience, such as promoting a new feature, launching new tools, and reinforcing marketing messages within the product UI.
+      <PageHeader
+        badge="pilot"
+        name="Brand expression"
+        type="guidelines"
+        description={`We consider brand expression in the product the combination of visual elements (colors, typography, photography, motion, and other assets) to provide a delightful experience for Pinners by bringing Pinterest brand touch-points through the user experience, such as promoting a new feature, launching new tools, and reinforcing marketing messages within the product UI.
 
 The guidelines below aim to guide you on how to incorporate brand expression into the product, adding unique value to Pinners. They aren't intended to determine what specific surfaces must look like; instead, it is meant to illustrate the principles and general usage of brand expressions respecting usability and accessibility best practices.
 
@@ -47,13 +48,11 @@ We suggest continuously checking for comprehension and usability when bringing b
         `}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection>
-          <Markdown
-            text={`Be mindful of when and where to bring brand expressions into your design. If color fills, imagery and other brand elements are needed to reinforce brand touch-points within your design, then go for it; if not, aim to follow our [foundation guidelines](/foundations/overview). A consistent design allows Pinterest content to shine while ensuring a great usability experience.
+        <MainSection.Subsection
+          description={`Be mindful of when and where to bring brand expressions into your design. If color fills, imagery and other brand elements are needed to reinforce brand touch-points within your design, then go for it; if not, aim to follow our [foundation guidelines](/foundations/overview). A consistent design allows Pinterest content to shine while ensuring a great usability experience.
 
 Below we list the UI elements you can use and the ones you should avoid when bringing brand expression within your product UI. `}
-          />
-        </MainSection.Subsection>
+        />
         <MainSection.Subsection title="UI elements and Brand expression">
           <Box display="flex" wrap>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
@@ -125,6 +124,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
               />
             </Box>
           </MainSection.Card>
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
             description="Use color fills in celebratory moments, such as telling good news or highlighting Pinner's achievements."
@@ -151,6 +152,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
               />
             </Box>
           </MainSection.Card>
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
             description="Apply text over color fills using the appropriate [text color tokens](/foundations/design_tokens#Text-color). It will ensure an accessible, readable experience."
@@ -177,6 +180,8 @@ Below we list the UI elements you can use and the ones you should avoid when bri
               />
             </Box>
           </MainSection.Card>
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
             description="Use color fills when announcing new features (e.g., new way to search for hairstyle ideas)."
@@ -205,27 +210,23 @@ Below we list the UI elements you can use and the ones you should avoid when bri
           </MainSection.Card>
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Accessibility">
-        <Markdown
-          text={`Be mindful of color usage. Pinterest’s goal as a company is to meet [WCAG 2.1 AA standards](https://www.w3.org/TR/WCAG21/), so we recommend using a tool like [aremycolorsaccessible.com](https://www.aremycolorsaccessible.com/)  to check the foreground color against the background color. In Figma, you can use the [Able](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility) or [Pinterest brand color palettes](https://www.figma.com/community/plugin/1019681360638128106/Pinterest-Brand-color-palettes) plugins to check color contrast in your designs.
+      <MainSection
+        name="Accessibility"
+        description={`Be mindful of color usage. Pinterest’s goal as a company is to meet [WCAG 2.1 AA standards](https://www.w3.org/TR/WCAG21/), so we recommend using a tool like [aremycolorsaccessible.com](https://www.aremycolorsaccessible.com/)  to check the foreground color against the background color. In Figma, you can use the [Able](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility) or [Pinterest brand color palettes](https://www.figma.com/community/plugin/1019681360638128106/Pinterest-Brand-color-palettes) plugins to check color contrast in your designs.
 
 When adding photography or any imagery source, ensure it translates well in both themes (light and dark-mode). Your image source should be equally visible in both themes, especially when you have colored backgrounds contrasting with a photo or an illustration.
 
 Ensure to add ALT text to your image, so users who rely on assistive technologies can access your image content.`}
-        />
-      </MainSection>
-      <MainSection name="Localization">
-        <Markdown
-          text="Make sure to localize in-product marketing assets considering all the languages and
+      />
+      <MainSection
+        name="Localization"
+        description="Make sure to localize in-product marketing assets considering all the languages and
           cultures."
-        />
-      </MainSection>
-      <MainSection name="Voice and tone">
-        <Markdown
-          text="
-          Check out our [brand voice guidelines](https://www.figma.com/proto/dOKezQeD0AKtnIaurwW1oz/Pinterest-Brand-Voice?page-id=1645%3A3096&node-id=1645%3A3097&viewport=323%2C48%2C0.07&scaling=scale-down)."
-        />
-      </MainSection>
+      />
+      <MainSection
+        name="Voice and tone"
+        description="Check out our [brand voice guidelines](https://www.figma.com/proto/dOKezQeD0AKtnIaurwW1oz/Pinterest-Brand-Voice?page-id=1645%3A3096&node-id=1645%3A3097&viewport=323%2C48%2C0.07&scaling=scale-down)."
+      />
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
