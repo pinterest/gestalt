@@ -10,7 +10,7 @@ jobs:
   playwright-run:
     name: Test (${{ matrix.shard }})
     timeout-minutes: 60
-    runs-on: macos-latest
+    runs-on: macos-12
     strategy:
       fail-fast: false
       matrix:
