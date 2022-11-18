@@ -107,6 +107,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/f6/9e/e2/f69ee288852ea88d893d33f85616e0ce.png"
                 naturalWidth={762}
                 naturalHeight={610}
+                fit="contain"
                 alt="example of appropriate use of brand baseline colors to emphasize a brand moment"
               />
             </Box>
@@ -120,6 +121,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/47/dd/95/47dd959f8b00e15ca9d1fad1c41508ca.png"
                 naturalWidth={752}
                 naturalHeight={612}
+                fit="contain"
                 alt="example of inappropriate use of alternative colors to emphasize a brand moment"
               />
             </Box>
@@ -135,6 +137,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/f3/28/c9/f328c971f43eabac1a9577ac229a90ef.png"
                 naturalWidth={767}
                 naturalHeight={590}
+                fit="contain"
                 alt="example of using color fills in a celebratory moment"
               />
             </Box>
@@ -148,6 +151,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/4d/d8/a5/4dd8a5d093c6bcce384a3b50dc57e9d6.png"
                 naturalWidth={834}
                 naturalHeight={614}
+                fit="contain"
                 alt="example of inappropriately adding text over photography"
               />
             </Box>
@@ -163,6 +167,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/ee/92/be/ee92be2b2750c84fcf3073fb13dec636.png"
                 naturalWidth={686}
                 naturalHeight={358}
+                fit="contain"
                 alt="example of using appropriate colors with typography"
               />
             </Box>
@@ -176,6 +181,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/31/d0/f0/31d0f02d6ed561591968a8cea0aa1abe.png"
                 naturalWidth={734}
                 naturalHeight={614}
+                fit="contain"
                 alt="example of using inappropriate colors with typography"
               />
             </Box>
@@ -191,6 +197,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/dd/8e/a4/dd8ea46b19b81846ee2f66ed322789f5.png"
                 naturalWidth={750}
                 naturalHeight={580}
+                fit="contain"
                 alt="example of using color fills to announce a new feature"
               />
             </Box>
@@ -204,6 +211,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 src="https://i.pinimg.com/originals/2e/d8/60/2ed8607acc2c012c841e8aba59b38cae.png"
                 naturalWidth={887}
                 naturalHeight={614}
+                fit="contain"
                 alt="example of using color fills in core UI patterns"
               />
             </Box>
