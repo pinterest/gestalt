@@ -6,7 +6,6 @@ import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {

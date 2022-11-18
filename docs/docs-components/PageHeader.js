@@ -1,11 +1,12 @@
 // @flow strict
 import { type Node, type Element } from 'react';
-import { Badge, Box, Flex, Heading, Text, Tooltip, SlimBanner, Link } from 'gestalt';
+import { Badge, Box, Flex, Heading, Text, Tooltip, Link, SlimBanner } from 'gestalt';
 import COMPONENT_DATA from './COMPONENT_DATA.js';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
+import { SlimBannerExperiment } from './SlimBannerExperiment.js';
 
 const buildSourceLinkPath = (componentName) => {
   const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
@@ -43,7 +44,7 @@ type Props = {|
   name: string,
   shadedCodeExample?: boolean,
   showCode?: boolean,
-  slimBanner?: Element<typeof SlimBanner> | null,
+  slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
 |};
 
