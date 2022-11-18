@@ -127,6 +127,12 @@
           "value": "{color.blue.skycicle.100.value}",
           "darkValue": "{color.blue.skycicle.800.value}",
           "comment": "Weak background color to indicate neutral information, can be used behind text"
+        },
+
+        "strong": {
+          "value": "{color.blue.skycicle.600.value}",
+          "darkValue": "{color.blue.skycicle.200.value}",
+          "comment": "Strong background color to indicate neutral information, can be used for hover"
         }
       },
       "error": {
