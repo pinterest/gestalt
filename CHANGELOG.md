@@ -1,3 +1,9 @@
+## 83.1.3 (Nov 21, 2022)
+
+### Patch
+
+- Docs: added cookies to support activation/deactivation of experiments from ExperimentProvidern in Docs ([#2511](https://github.com/pinterest/gestalt/pull/2511)) - [Preview link](https://deploy-preview-2511--gestalt.netlify.app)
+
 ## 83.1.2 (Nov 21, 2022)
 
 ### Patch
