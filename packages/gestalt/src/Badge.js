@@ -85,7 +85,7 @@ export default function Badge({ position = 'middle', text, type = 'info', _toolt
   const csNewBadge = cx(styles.NewBadge, styles[position], {
     [styles.darkWash]: type === 'darkWash',
     [styles.lightWash]: type === 'lightWash',
-    [styles.info]: isInfoType,
+    [colors.infoBase]: isInfoType,
     [styles.interactiveInfo]: shouldUseTooltip,
     [colors.errorBase]: type === 'error',
     [colors.warningBase]: type === 'warning',

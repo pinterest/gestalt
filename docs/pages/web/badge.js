@@ -14,9 +14,9 @@ import {
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Badge">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Badge"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 <Text>Update your pronouns in your profile settings <Badge text="New" /></Text>

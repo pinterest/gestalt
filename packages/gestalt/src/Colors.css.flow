@@ -31,6 +31,7 @@ declare module.exports: {|
   +'greenBg': string,
   +'infoBase': string,
   +'infoIcon': string,
+  +'infoStrong': string,
   +'infoWeak': string,
   +'inverse': string,
   +'inverseIcon': string,

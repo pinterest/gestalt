@@ -58,6 +58,10 @@
   background-color: var(--color-background-info-base);
 }
 
+.infoStrong {
+  background-color: var(--color-background-info-strong);
+}
+
 .infoWeak {
   background-color: var(--color-background-info-weak);
 }

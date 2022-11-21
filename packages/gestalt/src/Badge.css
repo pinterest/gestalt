@@ -23,10 +23,6 @@
   white-space: nowrap;
 }
 
-.info {
-  background-color: var(--color-background-info-base);
-}
-
 .interactiveInfo:hover,
 .interactiveInfo:focus {
   background-color: var(--color-background-info-strong);
