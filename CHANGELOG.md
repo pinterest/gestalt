@@ -1,3 +1,9 @@
+## 83.2.0 (Nov 21, 2022)
+
+### Minor
+
+- Badge: new experimental Badge redesign ([#2491](https://github.com/pinterest/gestalt/pull/2491)) - [Preview link](https://deploy-preview-2491--gestalt.netlify.app)
+
 ## 83.1.3 (Nov 21, 2022)
 
 ### Patch
