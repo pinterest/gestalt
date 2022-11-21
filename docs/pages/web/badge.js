@@ -7,6 +7,10 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import {
+  BareSlimBannerExperiment,
+  SlimBannerExperiment,
+} from '../../docs-components/SlimBannerExperiment.js';
 
 export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -17,6 +21,14 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         defaultCode={`
 <Text>Update your pronouns in your profile settings <Badge text="New" /></Text>
     `}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName={generatedDocGen?.displayName}
+            description="update its visual design: font size, spacing, and a new information Icon and Tooltip for type='info'."
+            pullRequest={2491}
+            section="#Type"
+          />
+        }
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -164,6 +176,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           Highlights a suggestion that will improve the experience and achieve better results. For example, 'Recommended for you'.
  `}
         >
+          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             defaultCode={`
   <Table accessibilityLabel="Type examples">
@@ -183,7 +196,23 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           <Text>Info</Text>
         </Table.Cell>
         <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="New" type="info"/></Text>
+          <Flex direction="column" gap={2}>
+            <Text size="300">Ads & Campaigns
+              <Badge
+                text="New"
+                type="info"
+              />
+            </Text>
+            <Text size="300">Ads & Campaigns
+              <Badge
+                text="New"
+                type="info"
+                _tooltip={{
+                text: 'This is a new feature',
+                idealDirection: 'up',
+              }}/>
+            </Text>
+          </Flex>
         </Table.Cell>
       </Table.Row>
       <Table.Row>

@@ -110,7 +110,7 @@ export default function PageHeader({
                 <Tooltip inline text={badgeMap[badge].tooltipText}>
                   <Badge
                     text={badgeMap[badge].text}
-                    position="top"
+                    position="middle"
                     type={badgeMap[badge].type || 'info'}
                   />
                 </Tooltip>
