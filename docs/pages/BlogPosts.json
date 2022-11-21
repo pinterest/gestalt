@@ -2,8 +2,62 @@
   "year": "2022",
   "digests": [
     {
+      "week": "November 18, 2022",
+      "summary": "Image component improvements and quality-of-life updates to docs / Figma libraries",
+      "posts": [
+        {
+          "title": "New Brand expression guidelines are online",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/81/10/46/81104653fb15af386a74d376ca9b0ad6.png",
+          "imageAltText": "screenshot of brand expression guidelines",
+          "content": "We've just published our pilot version of brand expression guidelines to our documentation. We currently cover [general guidelines](https://gestalt.pinterest.systems/foundations/brand_expression/guidelines) as well as [color fill guidance](https://gestalt.pinterest.systems/foundations/brand_expression/color_fills). We have plans to add upon this subject, so please let us know what additional information you'd like to see here."
+        },
+        {
+          "title": "SlimBanner now allows formatted text",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/c9/20/0b/c9200b800465bc5a14903375fc0b5bb8.png",
+          "imageAltText": "screenshot of slimbanner",
+          "content": "If you're itching to bold or italicize some text within [SlimBanner](https://gestalt.pinterest.systems/web/slimbanner), well now you can! SlimBanner's message prop now accepts String or Text node types. You can read all about it in our [SlimBanner's message prop documentation](https://gestalt.pinterest.systems/web/slimbanner#Message)."
+        },
+        {
+          "title": "More Figma library updates",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/1a/0e/3f/1a0e3f5f36390b2e4afe9ba4bcf2835e.png",
+          "imageAltText": "screenshot Figma page navigation",
+          "content": "* We updated all the components names by removing the category prefix to improve the assets search experience and match our docs structure. This should not affect design files, but please let us know if you run into any issues.\n* We cleaned some empty layers inside components to provide a cleaner Figma file structure."
+        }
+      ]
+    },
+    {
+      "week": "November 11, 2022",
+      "summary": "Image component improvements and quality-of-life updates to docs / Figma libraries",
+      "posts": [
+        {
+          "title": "Enhancements to Image component",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/a7/b9/36/a7b936bac363ab3f32900a08b3087592.png",
+          "imageAltText": "screenshot of image component",
+          "content": "We've made the following improvements to [Image](https://gestalt.pinterest.systems/web/image)\n * We now pass the event through the onError and onLoad handlers, so you can better react to the successful/failed load of an image\n * We now always use the <img> element under the hood, regardless of the value for the fit prop"
+        },
+        {
+          "title": "Quality-of-life improvements to the Gestalt docs",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/73/e2/f0/73e2f03ab772d964fc08e8384db38ee7.png",
+          "imageAltText": "screenshot of gestalt component overview",
+          "content": "* We made the sorting affordance in our [Components Overview](https://gestalt.pinterest.systems/web/overview) pages clearer for those of you who want to group components by category.\n* We fixed a quite-annoying page jump issue on our [Sheet](https://gestalt.pinterest.systems/web/sheet) & [Modal](https://gestalt.pinterest.systems/web/modal) pages\n• We converted code samples for [Tabs](https://gestalt.pinterest.systems/web/tabs) and [Icon](https://gestalt.pinterest.systems/web/icon) over to our new-and-improved structure."
+        },
+        {
+          "title": "Figma Gestalt library enhancements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/33/bc/43/33bc4345fc9f8c5908ab77fda6fecae4.png",
+          "imageAltText": "screenshot of primary navigation component",
+          "content": "* FeedCard components have been added to our Figma Web/Android Gestalt libraries\n* We updated our iconography page in the Figma Foundations library to mimic our new [Iconography library](https://gestalt.pinterest.systems/foundations/iconography/library) on the Gestalt docs\n* Updates to made to the Primary Navigation business variant to better reflect its current state in the product"
+        }
+      ]
+    },
+    {
       "week": "November 4, 2022",
-      "summary": "",
+      "summary": "New Icon library, accessibility enhancements to clickable components and Figma library updates",
       "posts": [
         {
           "title": "Updated Icon library page",
