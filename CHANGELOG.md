@@ -1,3 +1,9 @@
+## 83.1.2 (Nov 21, 2022)
+
+### Patch
+
+- Docs: Weekly update catchup ([#2515](https://github.com/pinterest/gestalt/pull/2515)) - [Preview link](https://deploy-preview-2515--gestalt.netlify.app)
+
 ## 83.1.1 (Nov 18, 2022)
 
 ### Patch
