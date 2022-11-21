@@ -56,8 +56,8 @@ export default function App({ children, files }: Props): Node {
 
   // See additional Providers added in pages/_app.js (dependent for Playwright visual diff testing)
   return (
-    <DocsExperimentProvider>
-      <AppContextProvider>
+    <AppContextProvider>
+      <DocsExperimentProvider>
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
@@ -71,7 +71,7 @@ export default function App({ children, files }: Props): Node {
             </ColorSchemeProvider>
           )}
         </AppContextConsumer>
-      </AppContextProvider>
-    </DocsExperimentProvider>
+      </DocsExperimentProvider>
+    </AppContextProvider>
   );
 }

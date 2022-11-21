@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { ExperimentProvider } from 'gestalt';
+import { useAppContext } from '../appContext.js';
 
 /**
  * To implement experimental behavior in the docs:
@@ -8,7 +9,9 @@ import { ExperimentProvider } from 'gestalt';
  * - Unless you want the experimental behavior live on the docs for everyone, REMOVE YOUR EXPERIMENT HERE before merging your PR!
  * */
 
-const enabledExperiments = [];
+const enabledExperiments = {
+  TextField: ['web_unauth_show_password_button', 'mweb_unauth_show_password_button'],
+};
 
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(
@@ -31,8 +34,12 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
 type Props = {| children: Node |};
 
 export default function DocsExperimentProvider({ children }: Props): Node {
+  const { experiments } = useAppContext();
+
   return (
-    <ExperimentProvider value={buildExperimentsObj(enabledExperiments)}>
+    <ExperimentProvider
+      value={buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? [])}
+    >
       {children}
     </ExperimentProvider>
   );
