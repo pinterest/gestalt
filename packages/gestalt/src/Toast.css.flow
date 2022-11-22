@@ -3,4 +3,6 @@
 declare module.exports: {|
   +'textColorOverrideDark': string,
   +'textColorOverrideLight': string,
+  +'textErrorColorOverrideLight': string,
+  +'toast': string,
 |};

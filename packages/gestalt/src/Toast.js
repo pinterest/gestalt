@@ -17,7 +17,7 @@ const TOAST_MAX_WIDTH_PX = 500;
 const TOAST_WIDTH_PX = 330;
 
 const EXP_SIZE_THUMBNAIL = 32;
-const EXP_TOAST_MAX_WIDTH = 716;
+const EXP_SIZE_ICON = 24;
 
 type Props = {|
   /**
@@ -96,8 +96,11 @@ export default function Toast({
     let textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark
       : styles.textColorOverrideLight;
+
     if (isErrorVariant) {
-      textColorOverrideStyles = styles.textColorOverrideLight;
+      textColorOverrideStyles = inToastExp
+        ? styles.textErrorColorOverrideLight
+        : styles.textColorOverrideLight;
     }
 
     textElement = <span className={textColorOverrideStyles}>{text}</span>;
@@ -112,68 +115,67 @@ export default function Toast({
   const hasPrimaryAction = primaryAction || _dangerouslySetPrimaryAction;
 
   if (inToastExp) {
-    return (
-      <Box
-        // Ensure that maxWidth isn't greater than viewport width (for small screens)
-        maxWidth={`min(${EXP_TOAST_MAX_WIDTH}px, 100vw)`}
-        role="status"
-        rounding={4}
-      >
-        <Box color={containerColor} paddingX={4} paddingY={3} fit rounding={4}>
-          <Flex alignItems="center" gap={4}>
-            {!!thumbnail && !isErrorVariant ? (
-              <Flex.Item flex="none">
-                <Mask
-                  height={EXP_SIZE_THUMBNAIL}
-                  rounding={thumbnailShape === 'circle' ? 'circle' : 2}
-                  width={EXP_SIZE_THUMBNAIL}
-                >
-                  {thumbnail}
-                </Mask>
-              </Flex.Item>
-            ) : null}
-            {isErrorVariant ? (
-              <Flex.Item flex="none">
-                <Icon
-                  color="inverse"
-                  icon="workflow-status-problem"
-                  accessibilityLabel="problem"
-                  size={32}
-                />
-              </Flex.Item>
-            ) : null}
-            <Flex.Item flex="grow">
-              <Text
-                weight={isErrorVariant ? 'bold' : undefined}
-                align={!thumbnail && !primaryAction ? 'center' : 'start'}
-                color={textColor}
+    const toastContent = (
+      <Box color={containerColor} paddingX={4} paddingY={3} width="100%" rounding={4}>
+        <Flex alignItems="center" gap={4}>
+          {!!thumbnail && !isErrorVariant ? (
+            <Flex.Item flex="none">
+              <Mask
+                height={EXP_SIZE_THUMBNAIL}
+                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
+                width={EXP_SIZE_THUMBNAIL}
               >
-                {textElement}
-              </Text>
+                {thumbnail}
+              </Mask>
             </Flex.Item>
+          ) : null}
+          {isErrorVariant ? (
+            <Flex.Item flex="none">
+              <Icon
+                color="inverse"
+                icon="workflow-status-problem"
+                accessibilityLabel="problem"
+                size={EXP_SIZE_ICON}
+              />
+            </Flex.Item>
+          ) : null}
+          <Flex.Item flex="grow">
+            <Text
+              weight={isErrorVariant ? 'bold' : undefined}
+              align="start"
+              color={textColor}
+              lineClamp={2}
+            >
+              {textElement}
+            </Text>
+          </Flex.Item>
 
-            {primaryAction || _dangerouslySetPrimaryAction ? (
-              // Allow button text to wrap on mobile
-              <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
-                {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
-                {!_dangerouslySetPrimaryAction &&
-                primaryAction?.accessibilityLabel &&
-                primaryAction?.label ? (
-                  <ToastPrimaryAction
-                    accessibilityLabel={primaryAction.accessibilityLabel}
-                    href={primaryAction.href}
-                    rel={primaryAction?.rel}
-                    size="sm"
-                    target={primaryAction?.target}
-                    label={primaryAction.label}
-                    onClick={primaryAction.onClick}
-                  />
-                ) : null}
-              </Flex.Item>
-            ) : null}
-          </Flex>
-        </Box>
+          {primaryAction || _dangerouslySetPrimaryAction ? (
+            // Allow button text to wrap on mobile
+            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+              {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
+              {!_dangerouslySetPrimaryAction &&
+              primaryAction?.accessibilityLabel &&
+              primaryAction?.label ? (
+                <ToastPrimaryAction
+                  accessibilityLabel={primaryAction.accessibilityLabel}
+                  href={primaryAction.href}
+                  rel={primaryAction?.rel}
+                  size="sm"
+                  target={primaryAction?.target}
+                  label={primaryAction.label}
+                  onClick={primaryAction.onClick}
+                />
+              ) : null}
+            </Flex.Item>
+          ) : null}
+        </Flex>
       </Box>
+    );
+    return (
+      <div className={styles.toast} role="status">
+        {toastContent}
+      </div>
     );
   }
 

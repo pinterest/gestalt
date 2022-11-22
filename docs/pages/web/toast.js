@@ -109,9 +109,11 @@ function ToastExample() {
                 transform: 'translateX(-50%)',
               },
             }}
-            fit
+            width="100%"
             paddingX={1}
             position="fixed"
+            display="flex"
+            justifyContent="center"
           >
             <Toast
               primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
