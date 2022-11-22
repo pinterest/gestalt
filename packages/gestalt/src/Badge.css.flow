@@ -4,7 +4,6 @@ declare module.exports: {|
   +'Badge': string,
   +'NewBadge': string,
   +'darkWash': string,
-  +'info': string,
   +'interactiveInfo': string,
   +'lightWash': string,
   +'middle': string,
