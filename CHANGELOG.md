@@ -1,3 +1,9 @@
+## 83.2.1 (Nov 22, 2022)
+
+### Patch
+
+- Badge: refactor Color tokens in CSS and implement them in Badge ([#2517](https://github.com/pinterest/gestalt/pull/2517)) - [Preview link](https://deploy-preview-2517--gestalt.netlify.app)
+
 ## 83.2.0 (Nov 21, 2022)
 
 ### Minor
