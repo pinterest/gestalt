@@ -49,14 +49,16 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
 
   return (
     <Fragment>
-      <tr aria-details={id} ref={rowRef}>
+      <tr aria-details={drawerContents ? id : undefined} ref={rowRef}>
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>
-      <tr id={id}>
-        <td className={styles.drawer} colSpan={Children.count(children) + 1}>
-          <Box padding={2}>{drawerContents}</Box>
-        </td>
-      </tr>
+      {drawerContents ? (
+        <tr id={id}>
+          <td className={styles.drawer} colSpan={Children.count(children) + 1}>
+            <Box padding={2}>{drawerContents}</Box>
+          </td>
+        </tr>
+      ) : null}
     </Fragment>
   );
 }
