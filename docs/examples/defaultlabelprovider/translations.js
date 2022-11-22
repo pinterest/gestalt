@@ -42,6 +42,9 @@ const labels = {
   HelpButton: {
     tooltipMessage: myI18nTranslator('Click to learn more'),
   },
+  Toast: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Close toast'),
+  },
 };
 
 const pronouns = [

@@ -49,6 +49,9 @@ describe('useDefaultLabelContext', () => {
           HelpButton: {
             tooltipMessage: 'Click to learn more',
           },
+          Toast: {
+            accessibilityDismissButtonLabel: 'Close toast',
+          },
         }}
       >
         <TestComponent />

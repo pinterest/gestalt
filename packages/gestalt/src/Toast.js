@@ -4,22 +4,67 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
-import Mask from './Mask.js';
 import Button from './Button.js';
 import Text from './Text.js';
+import Image from './Image.js';
+import Avatar from './Avatar.js';
 import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import ToastPrimaryAction from './ToastPrimaryAction.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import {
+  ToastImageThumbnail,
+  ToastIconThumbnail,
+  ToastAvatarThumbnail,
+  ToastTypeThumbnail,
+  ToastMessage,
+} from './ToastComponents.js';
+import InternalDismissButton from './InternalDismissButton.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
-const SIZE_THUMBNAIL = 32;
-const SIZE_ICON = 24;
+const DEFAULT_COLORS = {
+  containerColor: 'inverse',
+  textColor: 'inverse',
+  iconColor: 'white',
+};
+
+const COLORS_BY_TYPE = Object.freeze({
+  default: DEFAULT_COLORS,
+  success: DEFAULT_COLORS,
+  error: { ...DEFAULT_COLORS, containerColor: 'errorBase' },
+  progress: {
+    containerColor: 'secondary',
+    textColor: 'default',
+    iconColor: 'darkGray',
+  },
+});
 
 type Props = {|
   /**
    * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
    */
   _dangerouslySetPrimaryAction?: Node,
+  /**
+   * Adds a dismiss button to Toast. See the [Dismissible variant](https://gestalt.pinterest.systems/web/toast#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/toast#Accessibility).
+   *
+   */
+  dismissButton?: {|
+    accessibilityLabel?: string,
+    onDismiss: () => void,
+  |},
+  /**
+   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the subtext. See the [helper link variant](https://gestalt.pinterest.systems/web/toast#helperLink) to learn more.
+   */
+  helperLink?: {|
+    text: string,
+    accessibilityLabel: string,
+    href: string,
+    onClick?: ({|
+      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+  |},
   /**
    * Adds an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
    */
@@ -40,15 +85,14 @@ type Props = {|
   /**
    * An optional thumbnail image to displayed next to the text.
    */
-  thumbnail?: Node,
+  thumbnail?:
+    | {| image: Element<typeof Image> |}
+    | {| avatar: Element<typeof Avatar> |}
+    | {| icon: Element<typeof Icon> |},
   /**
-   * The masked shape of the thumbnail.
+   * See the [type variant](https://gestalt.pinterest.systems/web/toast#Type) to learn more.
    */
-  thumbnailShape?: 'circle' | 'square',
-  /**
-   * Use the `'error'` variant to indicate an error message. Generally not recommended given the ephemeral nature of Toasts.
-   */
-  variant?: 'default' | 'error',
+  type?: 'success' | 'error' | 'progress',
 |};
 
 /**
@@ -59,22 +103,19 @@ type Props = {|
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
+  _dangerouslySetPrimaryAction,
+  dismissButton,
+  helperLink,
   primaryAction,
   text,
   thumbnail,
-  thumbnailShape = 'square',
-  variant = 'default',
-  _dangerouslySetPrimaryAction,
+  type,
 }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-  const isErrorVariant = variant === 'error';
 
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
-
-  let containerColor = isDarkMode ? 'light' : 'dark';
-  let textColor = isDarkMode ? 'dark' : 'light';
 
   let textElement: Element<'span'> | string;
 
@@ -83,58 +124,69 @@ export default function Toast({
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  if (typeof text !== 'string' && Children.only(text).type.displayName === 'Text') {
+  const isTextNode = typeof text !== 'string' && Children.only(text).type.displayName === 'Text';
+
+  if (isTextNode) {
     let textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark
       : styles.textColorOverrideLight;
 
-    if (isErrorVariant) {
+    if (type === 'error') {
       textColorOverrideStyles = styles.textErrorColorOverrideLight;
     }
 
     textElement = <span className={textColorOverrideStyles}>{text}</span>;
   }
 
-  // Error variant does not currently support dark mode
-  if (isErrorVariant) {
-    containerColor = 'errorBase';
-    textColor = 'inverse';
-  }
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('Toast');
+
+  const { containerColor, textColor, iconColor } = COLORS_BY_TYPE[type ?? 'default'];
+
+  const isNeutralToast = type === undefined;
 
   return (
     <div className={styles.toast} role="status">
       <Box color={containerColor} paddingX={4} paddingY={3} width="100%" rounding={4}>
         <Flex alignItems="center" gap={4}>
-          {!!thumbnail && !isErrorVariant ? (
+          {isNeutralToast &&
+          !!thumbnail?.image &&
+          Children.only(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
-              <Mask
-                height={SIZE_THUMBNAIL}
-                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
-                width={SIZE_THUMBNAIL}
-              >
-                {thumbnail}
-              </Mask>
+              <ToastImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
           ) : null}
-          {isErrorVariant ? (
+
+          {isNeutralToast &&
+          !!thumbnail?.icon &&
+          Children.only(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
-              <Icon
-                color="inverse"
-                icon="workflow-status-problem"
-                accessibilityLabel="problem"
-                size={SIZE_ICON}
-              />
+              <ToastIconThumbnail thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
+
+          {isNeutralToast &&
+          !!thumbnail?.avatar &&
+          Children.only(thumbnail.avatar).type.displayName === 'Avatar' ? (
+            <Flex.Item flex="none">
+              <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+            </Flex.Item>
+          ) : null}
+
+          {type ? (
+            <Flex.Item flex="none">
+              <ToastTypeThumbnail type={type} />
+            </Flex.Item>
+          ) : null}
+
           <Flex.Item flex="grow">
-            <Text
-              weight={isErrorVariant ? 'bold' : undefined}
-              align="start"
-              color={textColor}
-              lineClamp={2}
-            >
-              {textElement}
-            </Text>
+            <ToastMessage
+              text={isTextNode ? undefined : textElement}
+              textElement={isTextNode ? textElement : undefined}
+              helperLink={helperLink}
+              textColor={textColor}
+              type={type}
+            />
           </Flex.Item>
 
           {primaryAction || _dangerouslySetPrimaryAction ? (
@@ -154,6 +206,19 @@ export default function Toast({
                   onClick={primaryAction.onClick}
                 />
               ) : null}
+            </Flex.Item>
+          ) : null}
+
+          {dismissButton ? (
+            <Flex.Item flex="none">
+              <InternalDismissButton
+                iconColor={iconColor}
+                accessibilityLabel={
+                  dismissButton?.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
+                }
+                onClick={dismissButton.onDismiss}
+                size="xs"
+              />
             </Flex.Item>
           ) : null}
         </Flex>
