@@ -454,7 +454,7 @@ Due to localization constraints, the contents of \`message\` and \`helperLink\` 
           title="Message"
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             defaultCode={`
 <Flex direction="column" gap={6}>
   <Text weight="bold">Simple message string with helperText</Text>

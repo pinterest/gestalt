@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SlimBanner renders an icon with accessibility label 1`] = `
-<div
-  className="box errorWeak itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
->
+Array [
   <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="box errorWeak itemsCenter mdDirectionRow mdDisplayNone paddingX4 paddingY0 paddingY4 rounding4 xsDirectionColumn xsDisplayFlex"
     style={
       Object {
         "width": "100%",
@@ -18,382 +11,144 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
     }
   >
     <div
-      className="FlexItem selfStart"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="accessibility label with error"
-        className="icon errorIcon iconBlock"
-        height={16}
-        role="img"
-        viewBox="0 0 24 24"
-        width={16}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="FlexItem flexGrow"
-    >
-      <div
-        className="box"
-        style={
-          Object {
-            "marginTop": "-1px",
-          }
+      className="Flex rowGap4 columnGap0 flexGrow itemsStart xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
         }
-      >
-        <span
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-        >
-          test
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`SlimBanner renders complex message 1`] = `
-<div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
->
-  <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
-    style={
-      Object {
-        "width": "100%",
       }
-    }
-  >
-    <div
-      className="FlexItem flexGrow"
     >
       <div
-        className="box"
+        className="FlexItem selfStart"
       >
-        <span
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        <svg
+          aria-hidden={null}
+          aria-label="accessibility label with error"
+          className="icon errorIcon iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
         >
-          The campaign
-           
-          <span
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
-          >
-            Back to School
-          </span>
-           
-          is regularly hitting its
-           
-          <a
-            className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
-            href="http://www.pinterest.com"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            target={null}
-          >
-            daily cap
-          </a>
-          . Consider raising daily caps to increase scale for a similar CPC and CTR.
-        </span>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`SlimBanner renders neutral type with message 1`] = `
-<div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
->
-  <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="FlexItem flexGrow"
-    >
       <div
-        className="box"
+        className="FlexItem flexGrow"
       >
-        <span
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-        >
-          test
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
-<div
-  className="box itemsCenter mdDirectionRow paddingX0 paddingY0 paddingY1 rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
->
-  <div
-    className="Flex rowGap2 columnGap0 flexGrow itemsCenter xsDirectionRow"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="FlexItem selfStart"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="accessibility label with error"
-        className="icon errorIcon iconBlock"
-        height={16}
-        role="img"
-        viewBox="0 0 24 24"
-        width={16}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="FlexItem flexGrow"
-    >
-      <div
-        className="box"
-        style={
-          Object {
-            "marginTop": "-1px",
+        <div
+          className="box"
+          style={
+            Object {
+              "marginTop": "-1px",
+            }
           }
-        }
-      >
-        <span
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
         >
-          test
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`SlimBanner renders primary action and dismiss button 1`] = `
-<div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
->
-  <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="FlexItem flexGrow"
-    >
-      <div
-        className="box"
-      >
-        <span
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-        >
-          test
-        </span>
-      </div>
-    </div>
-    <div
-      className="FlexItem flexNone"
-    >
-      <div
-        className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
-      >
-        <div
-          className="FlexItem"
-        >
-          <div
-            className="box flexNone mdDisplayFlex xsDisplayNone"
-          >
-            <button
-              aria-label="test"
-              className="button hideOutline block accessibilityOutline parentButton"
-              disabled={false}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
-            >
-              <div
-                className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
-              >
-                <div
-                  className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
-                >
-                  test
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
-        <div
-          className="FlexItem"
-        >
-          <button
-            aria-label="test"
-            className="parentButton"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <div
-              className="button tapTransition enabled"
-            >
-              <div
-                className="pog transparent"
-                style={
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  }
-                }
-              >
-                <svg
-                  aria-hidden={true}
-                  aria-label=""
-                  className="icon defaultIcon iconBlock"
-                  height={12}
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width={12}
-                >
-                  <path
-                    d="test-file-stub"
-                  />
-                </svg>
-              </div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="box flexNone marginTop4 mdDisplayNone selfEnd xsDisplayFlex"
-  >
-    <button
-      aria-label="test"
-      className="button hideOutline block accessibilityOutline parentButton"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
-    >
-      <div
-        className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
-      >
-        <div
-          className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
-        >
-          test
-        </div>
-      </div>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`SlimBanner renders simple message with helper link 1`] = `
-<div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "width": "100%",
-    }
-  }
->
-  <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="FlexItem flexGrow"
-    >
-      <div
-        className="box"
-      >
-        <span
-          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-        >
-          test
-           
           <span
             className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
+            test
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="box errorWeak itemsCenter mdDirectionRow mdDisplayFlex paddingX4 paddingY0 paddingY4 rounding4 xsDirectionColumn xsDisplayNone"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem selfStart"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="accessibility label with error"
+          className="icon errorIcon iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+          style={
+            Object {
+              "marginTop": "-1px",
+            }
+          }
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`SlimBanner renders complex message 1`] = `
+Array [
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayNone paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsStart xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            The campaign
+             
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            >
+              Back to School
+            </span>
+             
+            is regularly hitting its
+             
             <a
-              aria-label="Learn more Pinterest.com"
               className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
               href="http://www.pinterest.com"
               onBlur={[Function]}
@@ -409,12 +164,670 @@ exports[`SlimBanner renders simple message with helper link 1`] = `
               rel=""
               target={null}
             >
-              Learn more
+              daily cap
             </a>
+            . Consider raising daily caps to increase scale for a similar CPC and CTR.
           </span>
-        </span>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayFlex paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayNone"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            The campaign
+             
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            >
+              Back to School
+            </span>
+             
+            is regularly hitting its
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+              href="http://www.pinterest.com"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              daily cap
+            </a>
+            . Consider raising daily caps to increase scale for a similar CPC and CTR.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`SlimBanner renders neutral type with message 1`] = `
+Array [
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayNone paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsStart xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayFlex paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayNone"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
+Array [
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayNone paddingX0 paddingY0 paddingY1 rounding4 xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap2 columnGap0 flexGrow itemsStart xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem selfStart"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="accessibility label with error"
+          className="icon errorIcon iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+          style={
+            Object {
+              "marginTop": "-1px",
+            }
+          }
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayFlex paddingX0 paddingY0 paddingY1 rounding4 xsDirectionColumn xsDisplayNone"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap2 columnGap0 flexGrow itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem selfStart"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="accessibility label with error"
+          className="icon errorIcon iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+          style={
+            Object {
+              "marginTop": "-1px",
+            }
+          }
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`SlimBanner renders primary action and dismiss button 1`] = `
+Array [
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayNone paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsStart xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+      <div
+        className="FlexItem flexNone"
+      >
+        <div
+          className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="box flexNone mdDisplayFlex xsDisplayNone"
+            >
+              <button
+                aria-label="test"
+                className="button hideOutline block accessibilityOutline parentButton"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+                >
+                  <div
+                    className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                  >
+                    test
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <button
+              aria-label="test"
+              className="parentButton"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <div
+                className="button tapTransition enabled"
+              >
+                <div
+                  className="pog transparent"
+                  style={
+                    Object {
+                      "height": 24,
+                      "width": 24,
+                    }
+                  }
+                >
+                  <svg
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon defaultIcon iconBlock"
+                    height={12}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={12}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box flexNone marginTop4 mdDisplayNone selfEnd xsDisplayFlex"
+    >
+      <button
+        aria-label="test"
+        className="button hideOutline block accessibilityOutline parentButton"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+        >
+          <div
+            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+          >
+            test
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>,
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayFlex paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayNone"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
+      </div>
+      <div
+        className="FlexItem flexNone"
+      >
+        <div
+          className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="box flexNone mdDisplayFlex xsDisplayNone"
+            >
+              <button
+                aria-label="test"
+                className="button hideOutline block accessibilityOutline parentButton"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+                >
+                  <div
+                    className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                  >
+                    test
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <button
+              aria-label="test"
+              className="parentButton"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <div
+                className="button tapTransition enabled"
+              >
+                <div
+                  className="pog transparent"
+                  style={
+                    Object {
+                      "height": 24,
+                      "width": 24,
+                    }
+                  }
+                >
+                  <svg
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon defaultIcon iconBlock"
+                    height={12}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={12}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box flexNone marginTop4 mdDisplayNone selfEnd xsDisplayFlex"
+    >
+      <button
+        aria-label="test"
+        className="button hideOutline block accessibilityOutline parentButton"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+        >
+          <div
+            className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+          >
+            test
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`SlimBanner renders simple message with helper link 1`] = `
+Array [
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayNone paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsStart xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+             
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              <a
+                aria-label="Learn more Pinterest.com"
+                className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+                href="http://www.pinterest.com"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Learn more
+              </a>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="box itemsCenter mdDirectionRow mdDisplayFlex paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayNone"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="FlexItem flexGrow"
+      >
+        <div
+          className="box"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+          >
+            test
+             
+            <span
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              <a
+                aria-label="Learn more Pinterest.com"
+                className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+                href="http://www.pinterest.com"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+                target={null}
+              >
+                Learn more
+              </a>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;

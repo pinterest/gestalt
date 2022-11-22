@@ -176,68 +176,97 @@ export default function SlimBanner({
   // Buttons not allowed on compact SlimBanners
   const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
-  return (
-    <Box
-      alignItems="center"
-      color={isBare ? 'transparent' : backgroundColor}
-      display="flex"
-      direction="column"
-      mdDirection="row"
-      padding={isBare ? 0 : 4}
-      paddingY={isBare ? 1 : 0}
-      rounding={4}
-      width="100%"
-    >
-      <Flex alignItems="center" gap={{ row: isBare ? 2 : 4, column: 0 }} flex="grow" width="100%">
-        {!isDefault && iconAccessibilityLabel && (
-          <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
-            <Icon
-              accessibilityLabel={iconAccessibilityLabel}
-              color={iconColor}
-              icon={icon}
-              size={16}
-            />
-          </Flex.Item>
-        )}
+  const startIcon =
+    !isDefault && iconAccessibilityLabel ? (
+      <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
+        <Icon accessibilityLabel={iconAccessibilityLabel} color={iconColor} icon={icon} size={16} />
+      </Flex.Item>
+    ) : null;
 
-        <Flex.Item flex="grow">
-          <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
-            {typeof message === 'string' ? (
-              <Text inline>
-                {message}
-                {helperLink ? (
-                  <Fragment>
-                    {' '}
-                    <HelperLink {...helperLink} />
-                  </Fragment>
-                ) : null}
-              </Text>
+  const textContent = (
+    <Flex.Item flex="grow">
+      <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
+        {typeof message === 'string' ? (
+          <Text inline>
+            {message}
+            {helperLink ? (
+              <Fragment>
+                {' '}
+                <HelperLink {...helperLink} />
+              </Fragment>
             ) : null}
-            {typeof message !== 'string' && Children.only(message).type.displayName === 'Text'
-              ? message
-              : null}
+          </Text>
+        ) : null}
+        {typeof message !== 'string' && Children.only(message).type.displayName === 'Text'
+          ? message
+          : null}
+      </Box>
+    </Flex.Item>
+  );
+
+  const mdActions = shouldShowButtons ? (
+    <Flex.Item flex="none">
+      <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
+        {primaryAction && (
+          <Box display="none" mdDisplay="flex" flex="none">
+            <PrimaryAction {...primaryAction} />
           </Box>
-        </Flex.Item>
-
-        {shouldShowButtons && (
-          <Flex.Item flex="none">
-            <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
-              {primaryAction && (
-                <Box display="none" mdDisplay="flex" flex="none">
-                  <PrimaryAction {...primaryAction} />
-                </Box>
-              )}
-
-              {dismissButton && <DismissButton {...dismissButton} />}
-            </Flex>
-          </Flex.Item>
         )}
+
+        {dismissButton && <DismissButton {...dismissButton} />}
       </Flex>
-      {!isBare && primaryAction && (
-        <Box display="flex" mdDisplay="none" flex="none" alignSelf="end" marginTop={4}>
-          <PrimaryAction {...primaryAction} />
-        </Box>
-      )}
+    </Flex.Item>
+  ) : null;
+
+  const actions = !isBare && primaryAction && (
+    <Box display="flex" mdDisplay="none" flex="none" alignSelf="end" marginTop={4}>
+      <PrimaryAction {...primaryAction} />
     </Box>
+  );
+
+  return (
+    <Fragment>
+      {/* We should avoid responsive Box duplication using responsive Flex props */}
+      <Box
+        alignItems="center"
+        color={isBare ? 'transparent' : backgroundColor}
+        display="flex"
+        mdDisplay="none"
+        direction="column"
+        mdDirection="row"
+        padding={isBare ? 0 : 4}
+        paddingY={isBare ? 1 : 0}
+        rounding={4}
+        width="100%"
+      >
+        {/* alignItems="start" */}
+        <Flex alignItems="start" gap={{ row: isBare ? 2 : 4, column: 0 }} flex="grow" width="100%">
+          {startIcon}
+          {textContent}
+          {mdActions}
+        </Flex>
+        {actions}
+      </Box>
+      <Box
+        alignItems="center"
+        color={isBare ? 'transparent' : backgroundColor}
+        display="none"
+        mdDisplay="flex"
+        direction="column"
+        mdDirection="row"
+        padding={isBare ? 0 : 4}
+        paddingY={isBare ? 1 : 0}
+        rounding={4}
+        width="100%"
+      >
+        {/* alignItems="center" */}
+        <Flex alignItems="center" gap={{ row: isBare ? 2 : 4, column: 0 }} flex="grow" width="100%">
+          {startIcon}
+          {textContent}
+          {mdActions}
+        </Flex>
+        {actions}
+      </Box>
+    </Fragment>
   );
 }
