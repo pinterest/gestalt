@@ -1,3 +1,9 @@
+## 83.3.0 (Nov 22, 2022)
+
+### Minor
+
+- Toast: new experimental Toast redesign ([#2508](https://github.com/pinterest/gestalt/pull/2508)) - [Preview link](https://deploy-preview-2508--gestalt.netlify.app)
+
 ## 83.2.1 (Nov 22, 2022)
 
 ### Patch
