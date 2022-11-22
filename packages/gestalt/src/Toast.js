@@ -1,6 +1,7 @@
 // @flow strict
 import { Children, isValidElement, type Element, type Node } from 'react';
 import Box from './Box.js';
+import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
 import Mask from './Mask.js';
@@ -9,11 +10,14 @@ import Text from './Text.js';
 import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import ToastPrimaryAction from './ToastPrimaryAction.js';
+import useInExperiment from './useInExperiment.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const TOAST_MAX_WIDTH_PX = 500;
 const TOAST_WIDTH_PX = 330;
-const TEXT_MAX_WIDTH_PX = 127;
+
+const EXP_SIZE_THUMBNAIL = 32;
+const EXP_TOAST_MAX_WIDTH = 716;
 
 type Props = {|
   /**
@@ -66,6 +70,11 @@ export default function Toast({
   variant = 'default',
   _dangerouslySetPrimaryAction,
 }: Props): Node {
+  const inToastExp = useInExperiment({
+    webExperimentName: 'web_gestalt_redesigned_toast',
+    mwebExperimentName: 'mweb_gestalt_redesigned_toast',
+  });
+
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
@@ -97,11 +106,76 @@ export default function Toast({
   // Error variant does not currently support dark mode
   if (isErrorVariant) {
     containerColor = 'errorBase';
-    textColor = 'light';
+    textColor = 'inverse';
   }
 
-  const hasImage = thumbnail != null;
-  const hasButton = primaryAction != null;
+  const hasPrimaryAction = primaryAction || _dangerouslySetPrimaryAction;
+
+  if (inToastExp) {
+    return (
+      <Box
+        // Ensure that maxWidth isn't greater than viewport width (for small screens)
+        maxWidth={`min(${EXP_TOAST_MAX_WIDTH}px, 100vw)`}
+        role="status"
+        rounding={4}
+      >
+        <Box color={containerColor} paddingX={4} paddingY={3} fit rounding={4}>
+          <Flex alignItems="center" gap={4}>
+            {!!thumbnail && !isErrorVariant ? (
+              <Flex.Item flex="none">
+                <Mask
+                  height={EXP_SIZE_THUMBNAIL}
+                  rounding={thumbnailShape === 'circle' ? 'circle' : 2}
+                  width={EXP_SIZE_THUMBNAIL}
+                >
+                  {thumbnail}
+                </Mask>
+              </Flex.Item>
+            ) : null}
+            {isErrorVariant ? (
+              <Flex.Item flex="none">
+                <Icon
+                  color="inverse"
+                  icon="workflow-status-problem"
+                  accessibilityLabel="problem"
+                  size={32}
+                />
+              </Flex.Item>
+            ) : null}
+            <Flex.Item flex="grow">
+              <Text
+                weight={isErrorVariant ? 'bold' : undefined}
+                align={!thumbnail && !primaryAction ? 'center' : 'start'}
+                color={textColor}
+              >
+                {textElement}
+              </Text>
+            </Flex.Item>
+
+            {primaryAction || _dangerouslySetPrimaryAction ? (
+              // Allow button text to wrap on mobile
+              <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+                {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
+                {!_dangerouslySetPrimaryAction &&
+                primaryAction?.accessibilityLabel &&
+                primaryAction?.label ? (
+                  <ToastPrimaryAction
+                    accessibilityLabel={primaryAction.accessibilityLabel}
+                    href={primaryAction.href}
+                    rel={primaryAction?.rel}
+                    size="sm"
+                    target={primaryAction?.target}
+                    label={primaryAction.label}
+                    onClick={primaryAction.onClick}
+                  />
+                ) : null}
+              </Flex.Item>
+            ) : null}
+          </Flex>
+        </Box>
+      </Box>
+    );
+  }
 
   return (
     <Box
@@ -113,22 +187,18 @@ export default function Toast({
       role="status"
       // Button text and text can be long, so allow toast to expand
       // to max width if button is present
-      width={hasButton ? undefined : TOAST_WIDTH_PX}
+      width={hasPrimaryAction ? undefined : TOAST_WIDTH_PX}
     >
-      <Box borderStyle="shadow" color={containerColor} fit padding={6} rounding="pill">
+      <Box color={containerColor} fit padding={6} rounding="pill">
         <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
           {thumbnail ? (
             <Flex.Item flex="none">
-              <Mask
-                height={thumbnailShape === 'rectangle' ? 64 : 48}
-                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
-                width={48}
-              >
+              <Mask height={48} rounding={thumbnailShape === 'circle' ? 'circle' : 2} width={48}>
                 {thumbnail}
               </Mask>
             </Flex.Item>
           ) : null}
-          <Flex.Item flex="grow" maxWidth={hasImage && hasButton ? TEXT_MAX_WIDTH_PX : undefined}>
+          <Flex.Item flex="grow">
             <Text align={!thumbnail && !primaryAction ? 'center' : 'start'} color={textColor}>
               {textElement}
             </Text>

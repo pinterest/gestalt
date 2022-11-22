@@ -7,6 +7,10 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import {
+  BareSlimBannerExperiment,
+  SlimBannerExperiment,
+} from '../../docs-components/SlimBannerExperiment.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -15,25 +19,33 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-<Toast
-  primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
-  text={
-    <Text inline> Saved to
-      <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
-        Home decor
-      </Link>
-    </Text>
-  }
-  thumbnail={
-    <Image
-      alt="Modern ceramic vase pin."
-      naturalHeight={564}
-      naturalWidth={564}
-      src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-    />
-  }
-/>
-        `}
+  <Toast
+    primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+    text={
+      <Text inline> Saved to
+        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+          Home decor
+        </Link>
+      </Text>
+    }
+    thumbnail={
+      <Image
+        alt="Modern ceramic vase pin."
+        naturalHeight={564}
+        naturalWidth={564}
+        src="https://i.ibb.co/Lx54BCT/stock1.jpg"
+      />
+    }
+  />
+`}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName={generatedDocGen?.displayName}
+            description="update its visual design: spacing, elements sizing, and a new error Icon for variant='error'"
+            pullRequest={2508}
+            section="#"
+          />
+        }
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -137,6 +149,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
 `}
           title="Text"
         >
+          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -156,13 +169,15 @@ If  confirmation toast's text with more complex style is required, such as bold 
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Error">
+          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
-    text="Oops! Something went wrong. Please try again later."
+    text="You're offline."
     variant="error"
+    primaryAction={{ accessibilityLabel: 'Reconnect', label: 'Reconnect' }}
   />
 </Flex>
 `}
@@ -170,6 +185,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Thumbnail">
+          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -198,12 +214,13 @@ If  confirmation toast's text with more complex style is required, such as bold 
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Primary action">
+          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
 <Flex justifyContent="center" width="100%">
   <Toast
-    primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+    primaryAction={{ accessibilityLabel: 'Test', label: 'Undo' }}
     text={
       <Text inline>
         Saved to{' '}
@@ -215,27 +232,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
 
   />
 </Flex>`}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="_dangerouslySetPrimaryAction">
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-<Flex justifyContent="center" width="100%">
-  <Toast
-    _dangerouslySetPrimaryAction={<Button accessibilityLabel="test" size="lg" text="Undo" />}
-    text={
-      <Text inline>
-        Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
-          Home decor
-        </Link>
-      </Text>
-    }
-  />
-</Flex>
-`}
           />
         </MainSection.Subsection>
       </MainSection>
