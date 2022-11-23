@@ -1,3 +1,9 @@
+## 83.3.1 (Nov 23, 2022)
+
+### Patch
+
+- Docs: Foundations overview updates ([#2516](https://github.com/pinterest/gestalt/pull/2516)) - [Preview link](https://deploy-preview-2516--gestalt.netlify.app)
+
 ## 83.3.0 (Nov 22, 2022)
 
 ### Minor
