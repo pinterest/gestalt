@@ -75,6 +75,8 @@ import DesignTokens from '../graphics/foundations/design-tokens.svg';
 import Iconography from '../graphics/foundations/iconography.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
+import BrandExpression from '../graphics/foundations/brand_expression.svg';
+import Messaging from '../graphics/foundations/messaging.svg';
 
 export type Category =
   | 'Actions'
@@ -146,6 +148,13 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/animation/principles',
   },
   {
+    svg: <BrandExpression />,
+    name: 'Brand expression',
+    description: 'Guidelines for representing brand moments in product',
+    category: 'Foundations',
+    path: '/foundations/brand_expression/guidelines',
+  },
+  {
     svg: <Color />,
     name: 'Color',
     description: 'Palettes and guidelines for using color across product interfaces and surfaces',
@@ -174,6 +183,14 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
       'How and when to lift UI elements from the base surface via color, borders, shadows and other methods',
     category: 'Foundations',
     path: '/foundations/elevation',
+  },
+  {
+    svg: <Messaging />,
+    name: 'Messsaing',
+    description:
+      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
+    category: 'Foundations',
+    path: '/foundations/messaging/overview',
   },
   {
     svg: <Typography />,
