@@ -5,7 +5,7 @@ exports[`Checkbox 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -63,7 +63,7 @@ exports[`Checkbox checked 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -135,7 +135,7 @@ exports[`Checkbox disabled & checked 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -207,7 +207,7 @@ exports[`Checkbox disabled 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -265,7 +265,7 @@ exports[`Checkbox indeterminate 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -337,7 +337,7 @@ exports[`Checkbox small 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -395,7 +395,7 @@ exports[`Checkbox with an image 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -480,7 +480,7 @@ exports[`Checkbox with error 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -552,7 +552,7 @@ exports[`Checkbox with error 1`] = `
                       className="Flex rowGap0 columnGap0 xsDirectionColumn"
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -595,7 +595,7 @@ exports[`Checkbox with helperText 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"
@@ -672,7 +672,7 @@ exports[`Checkbox without label 1`] = `
   className="box"
 >
   <div
-    className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
   >
     <div
       className="box paddingX1 relative"

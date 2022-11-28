@@ -17,7 +17,7 @@ exports[`Fieldset renders 1`] = `
     className="box"
   >
     <div
-      className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
     >
       <div
         className="box paddingX1 relative"
@@ -72,7 +72,7 @@ exports[`Fieldset renders 1`] = `
     className="box"
   >
     <div
-      className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
     >
       <div
         className="box paddingX1 relative"
@@ -143,7 +143,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="box"
   >
     <div
-      className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
     >
       <div
         className="box paddingX1 relative"
@@ -198,7 +198,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="box"
   >
     <div
-      className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
     >
       <div
         className="box paddingX1 relative"
@@ -270,7 +270,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="box"
   >
     <div
-      className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
     >
       <div
         className="box paddingX1 relative"
@@ -325,7 +325,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="box"
   >
     <div
-      className="box itemsStart marginEndN1 marginStartN1 xsDisplayFlex"
+      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
     >
       <div
         className="box paddingX1 relative"
@@ -400,7 +400,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
                 className="Flex rowGap0 columnGap0 xsDirectionColumn"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"

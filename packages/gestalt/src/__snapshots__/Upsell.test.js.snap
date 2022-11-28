@@ -13,10 +13,10 @@ exports[`<Upsell /> Basic Upsell 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -51,7 +51,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
     }
   >
     <div
-      className="box flexGrow itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box flexGrow justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box flexNone marginBottom4 smMarginBottom0"
@@ -86,7 +86,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
         </div>
       </div>
       <div
-        className="box flexGrow itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+        className="box flexGrow marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -177,7 +177,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   type="submit"
                 >
                   <div
-                    className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+                    className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
                   >
                     <div
                       className="FlexItem"
@@ -262,7 +262,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box flexNone marginBottom4 smMarginBottom0"
@@ -297,7 +297,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         </div>
       </div>
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -328,11 +328,11 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -352,7 +352,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -433,10 +433,10 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -467,11 +467,11 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -491,7 +491,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -572,10 +572,10 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -606,11 +606,11 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label="Learn more: upsell messages"
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -630,7 +630,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -645,11 +645,11 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         </a>
       </div>
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -669,7 +669,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -701,10 +701,10 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -735,11 +735,11 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -759,7 +759,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -791,10 +791,10 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -825,7 +825,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <button
           aria-label=""
@@ -871,10 +871,10 @@ exports[`<Upsell /> message + title 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"

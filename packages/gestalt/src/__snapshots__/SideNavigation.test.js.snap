@@ -87,7 +87,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                 target={null}
               >
                 <div
-                  className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                  className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
                       "minHeight": 44,
@@ -237,7 +237,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                     target={null}
                   >
                     <div
-                      className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "minHeight": 44,
@@ -353,7 +353,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                     target={null}
                   >
                     <div
-                      className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "minHeight": 44,
@@ -538,7 +538,7 @@ exports[`SideNavigation renders Sections 1`] = `
                     target={null}
                   >
                     <div
-                      className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "minHeight": 44,
@@ -634,7 +634,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                 target={null}
               >
                 <div
-                  className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                  className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
                       "minHeight": 44,
@@ -728,7 +728,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                 target={null}
               >
                 <div
-                  className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                  className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
                       "minHeight": 44,
@@ -805,7 +805,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                 target={null}
               >
                 <div
-                  className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                  className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
                       "minHeight": 44,
@@ -904,7 +904,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                     target={null}
                   >
                     <div
-                      className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "minHeight": 44,
@@ -982,7 +982,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "minHeight": 44,
@@ -1062,7 +1062,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                   className="liItem"
                 >
                   <div
-                    className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 44,
@@ -1141,7 +1141,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                         target={null}
                       >
                         <div
-                          className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                          className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "minHeight": 44,
@@ -1196,7 +1196,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                         target={null}
                       >
                         <div
-                          className="box itemsCenter paddingY2 rounding2 xsDisplayFlex"
+                          className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "minHeight": 44,

@@ -555,7 +555,11 @@ Note that actions are not available on compact ("___Bare" type) SlimBanners.
         <MainSection.Subsection
           title="Responsive"
           description={`
-          SlimBanner is responsive to different [viewport breakpoints](/foundations/screen_sizes#Web-(px)).
+SlimBanner is responsive to different [viewport breakpoints](/foundations/screen_sizes#Web-(px)).
+
+Therefore, SlimBanner behavior relies on the window size and requires SlimBanner to be used on a full-window width to correctly respond to different breakpoints.
+
+SlimBanner doesn't depend on DeviceTypeProvider to display a mobile view; instead, it adjusts to the smallest viewport breakpoint. The example below forces a mobile viewport width to render SlimBanner at that particular viewport.
           `}
         >
           <MainSection.Card

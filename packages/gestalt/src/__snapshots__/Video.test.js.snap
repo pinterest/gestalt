@@ -188,7 +188,7 @@ exports[`Video with children 1`] = `
       className="box flexGrow paddingX2 paddingY2"
     >
       <div
-        className="box flexGrow itemsCenter relative xsDisplayFlex"
+        className="box flexGrow relative xsDisplayFlex xsItemsCenter"
         style={
           Object {
             "height": 16,

@@ -13,7 +13,7 @@ exports[`<Callout /> Error Callout 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -41,7 +41,7 @@ exports[`<Callout /> Error Callout 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -68,7 +68,7 @@ exports[`<Callout /> Info Callout 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -96,7 +96,7 @@ exports[`<Callout /> Info Callout 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -123,7 +123,7 @@ exports[`<Callout /> Warning Callout 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -151,7 +151,7 @@ exports[`<Callout /> Warning Callout 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -178,7 +178,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -206,7 +206,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="box marginBottom2"
@@ -229,11 +229,11 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -253,7 +253,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -334,7 +334,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -362,7 +362,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="box marginBottom2"
@@ -385,11 +385,11 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label="Learn more: callout messages"
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg transparent"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg transparent"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -409,7 +409,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -424,11 +424,11 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         </a>
       </div>
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -448,7 +448,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -480,7 +480,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -508,7 +508,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="box marginBottom2"
@@ -531,11 +531,11 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -555,7 +555,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -587,7 +587,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -615,7 +615,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="box marginBottom2"
@@ -638,7 +638,7 @@ exports[`<Callout /> message + title + primaryAction without href 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <button
           aria-label=""
@@ -684,7 +684,7 @@ exports[`<Callout /> message + title 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
@@ -712,7 +712,7 @@ exports[`<Callout /> message + title 1`] = `
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+          className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
             className="box marginBottom2"

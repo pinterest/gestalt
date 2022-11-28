@@ -2,7 +2,7 @@
 
 exports[`VideoPlayhead 1`] = `
 <div
-  className="box flexGrow itemsCenter relative xsDisplayFlex"
+  className="box flexGrow relative xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "height": 16,

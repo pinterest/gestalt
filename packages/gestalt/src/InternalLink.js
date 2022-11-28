@@ -127,7 +127,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
           [layoutStyles.justifyCenter]: true,
-          [layoutStyles.itemsCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
           [buttonStyles.button]: true,
           [buttonStyles.disabled]: disabled,
           [buttonStyles.selected]: !disabled && selected,

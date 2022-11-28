@@ -59,7 +59,7 @@ exports[`UpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
         >
           <div
             className="FlexItem"

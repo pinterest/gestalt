@@ -48,6 +48,13 @@ There's a little preamble here, but it culminates in a big object mapping the ac
 
 */
 
+const alignItems: Functor<AlignItems> = mapping({
+  start: layout.xsItemsStart,
+  end: layout.xsItemsEnd,
+  center: layout.xsItemsCenter,
+  baseline: layout.xsItemsBaseline,
+  // default: stretch
+});
 const display: Functor<Display> = mapping({
   none: styles.xsDisplayNone,
   flex: styles.xsDisplayFlex,
@@ -61,6 +68,13 @@ const direction: Functor<Direction> = mapping({
   column: styles.xsDirectionColumn,
 });
 
+const smAlignItems: Functor<AlignItems> = mapping({
+  start: layout.smItemsStart,
+  end: layout.smItemsEnd,
+  center: layout.smItemsCenter,
+  baseline: layout.smItemsBaseline,
+  // default: stretch
+});
 const smDisplay: Functor<Display> = mapping({
   none: styles.smDisplayNone,
   flex: styles.smDisplayFlex,
@@ -74,6 +88,13 @@ const smDirection: Functor<Direction> = mapping({
   column: styles.smDirectionColumn,
 });
 
+const mdAlignItems: Functor<AlignItems> = mapping({
+  start: layout.mdItemsStart,
+  end: layout.mdItemsEnd,
+  center: layout.mdItemsCenter,
+  baseline: layout.mdItemsBaseline,
+  // default: stretch
+});
 const mdDisplay: Functor<Display> = mapping({
   none: styles.mdDisplayNone,
   flex: styles.mdDisplayFlex,
@@ -87,6 +108,13 @@ const mdDirection: Functor<Direction> = mapping({
   column: styles.mdDirectionColumn,
 });
 
+const lgAlignItems: Functor<AlignItems> = mapping({
+  start: layout.lgItemsStart,
+  end: layout.lgItemsEnd,
+  center: layout.lgItemsCenter,
+  baseline: layout.lgItemsBaseline,
+  // default: stretch
+});
 const lgDisplay: Functor<Display> = mapping({
   none: styles.lgDisplayNone,
   flex: styles.lgDisplayFlex,
@@ -109,13 +137,6 @@ const alignContent: Functor<AlignContent> = mapping({
   between: layout.contentBetween,
   around: layout.contentAround,
   evenly: layout.contentEvenly,
-  // default: stretch
-});
-const alignItems: Functor<AlignItems> = mapping({
-  start: layout.itemsStart,
-  end: layout.itemsEnd,
-  center: layout.itemsCenter,
-  baseline: layout.itemsBaseline,
   // default: stretch
 });
 const alignSelf: Functor<AlignSelf> = mapping({
@@ -310,24 +331,27 @@ Unfortunately Flow doesn't like that for the vast majority of the fields. :(
 */
 
 export const propToFn = {
+  alignItems,
   display,
   column,
   direction,
 
+  smAlignItems,
   smDisplay,
   smColumn,
   smDirection,
 
+  mdAlignItems,
   mdDisplay,
   mdColumn,
   mdDirection,
 
+  lgAlignItems,
   lgDisplay,
   lgColumn,
   lgDirection,
 
   alignContent,
-  alignItems,
   alignSelf,
   bottom,
   borderStyle,

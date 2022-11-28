@@ -313,11 +313,11 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     className="box"
   >
     <div
-      className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
+      className="box marginEndAuto marginStartAuto marginTop8 paddingX1 pill xsItemsCenter"
     >
       <a
         aria-label="Learn more about tags"
-        className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+        className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
@@ -337,7 +337,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         target={null}
       >
         <div
-          className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
         >
           <div
             className="FlexItem"
@@ -472,11 +472,11 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     className="box"
   >
     <div
-      className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
+      className="box marginEndAuto marginStartAuto marginTop8 paddingX1 pill xsItemsCenter"
     >
       <a
         aria-label="Learn more about tags"
-        className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+        className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
         href="https://pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
@@ -496,7 +496,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         target={null}
       >
         <div
-          className="Flex rowGap2 columnGap0 itemsCenter justifyCenter xsDirectionRow"
+          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
         >
           <div
             className="FlexItem"

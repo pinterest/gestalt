@@ -36,13 +36,13 @@ exports[`ModuleExpandableItem renders correctly 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -110,13 +110,13 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -207,13 +207,13 @@ exports[`ModuleExpandableItem renders correctly with children 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -281,13 +281,13 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -377,13 +377,13 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -473,13 +473,13 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -601,13 +601,13 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol6"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -728,13 +728,13 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"

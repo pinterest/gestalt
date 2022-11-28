@@ -94,8 +94,22 @@ type Props = {
    *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
    * Default: 'stretch'
+   *
+   * Also available in responsive sizes: `smAlignItems`, `mdAlignItems`, `lgAlignItems`. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
    */
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  /**
+   * The alignItems style in sm or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   */
+  smAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  /**
+   * The alignItems style in md or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   */
+  mdAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  /**
+   * The alignItems style in lg or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   */
+  lgAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   /**
    * Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
    *

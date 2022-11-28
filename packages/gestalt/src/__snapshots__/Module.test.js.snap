@@ -12,7 +12,7 @@ exports[`Module renders a badge correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -84,7 +84,7 @@ exports[`Module renders a title correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -127,7 +127,7 @@ exports[`Module renders an error correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -198,7 +198,7 @@ exports[`Module renders an icon button correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -301,7 +301,7 @@ exports[`Module renders an icon correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"

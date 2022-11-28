@@ -174,7 +174,7 @@ exports[`renders correctly with drawer 1`] = `
             className="box paddingX2 paddingY2"
           >
             <div
-              className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex"
+              className="box mdDirectionRow paddingX4 paddingY0 paddingY4 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
               style={
                 Object {
                   "width": "100%",
@@ -182,7 +182,7 @@ exports[`renders correctly with drawer 1`] = `
               }
             >
               <div
-                className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+                className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
                 style={
                   Object {
                     "width": "100%",

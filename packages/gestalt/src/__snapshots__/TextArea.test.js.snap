@@ -72,7 +72,7 @@ exports[`TextArea TextArea with error 1`] = `
                 className="Flex rowGap0 columnGap0 xsDirectionColumn"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -270,7 +270,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -330,7 +330,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -390,7 +390,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 columnGap0 itemsCenter xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
           style={
             Object {
               "height": "100%",

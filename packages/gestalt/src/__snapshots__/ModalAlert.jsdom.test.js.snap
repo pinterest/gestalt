@@ -33,7 +33,7 @@ exports[`Modal Modal renders 1`] = `
                 class="box paddingX6 paddingY6"
               >
                 <div
-                  class="Flex rowGap4 columnGap4 flexGrow itemsCenter xsDirectionRow"
+                  class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
                 >
                   <div
                     class="FlexItem flexGrow"
