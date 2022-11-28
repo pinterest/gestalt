@@ -1,3 +1,9 @@
+## 83.4.0 (Nov 28, 2022)
+
+### Minor
+
+- Box, Flex, SlimBanner: add responsive alignItems prop (Box, Flex), implement below small breakpoint start alignment of elements (SlimBanner) ([#2522](https://github.com/pinterest/gestalt/pull/2522)) - [Preview link](https://deploy-preview-2522--gestalt.netlify.app)
+
 ## 83.3.1 (Nov 23, 2022)
 
 ### Patch
