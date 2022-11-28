@@ -86,7 +86,7 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
         <div
           className={classnames(
             flexStyles.Flex,
-            layoutStyles.itemsCenter,
+            layoutStyles.xsItemsCenter,
             layoutStyles.justifyCenter,
           )}
         >

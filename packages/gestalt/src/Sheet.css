@@ -39,7 +39,7 @@
 }
 
 .container {
-  composes: fixed borderBox flex justifyEnd left0 top0 itemsCenter from "./Layout.css";
+  composes: fixed borderBox flex justifyEnd left0 top0 xsItemsCenter from "./Layout.css";
   composes: xsCol12 from "./Column.css";
   height: 100%;
 }

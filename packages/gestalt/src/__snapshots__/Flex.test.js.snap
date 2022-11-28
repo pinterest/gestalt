@@ -2,7 +2,7 @@
 
 exports[`Flex aligns items 1`] = `
 <div
-  className="Flex rowGap0 columnGap0 itemsEnd xsDirectionRow"
+  className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsEnd"
 >
   <div />
   <div />

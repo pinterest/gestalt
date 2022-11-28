@@ -27,7 +27,7 @@ exports[`SelectList renders an option group 1`] = `
     }
   >
     <div
-      className="absolute bottom0 box itemsCenter right0 top0 xsDisplayFlex"
+      className="absolute bottom0 box right0 top0 xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "paddingRight": 14,
@@ -119,7 +119,7 @@ exports[`SelectList renders with a hidden label 1`] = `
     }
   >
     <div
-      className="absolute bottom0 box itemsCenter right0 top0 xsDisplayFlex"
+      className="absolute bottom0 box right0 top0 xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "paddingRight": 14,
@@ -183,7 +183,7 @@ exports[`SelectList renders with typical props 1`] = `
     }
   >
     <div
-      className="absolute bottom0 box itemsCenter right0 top0 xsDisplayFlex"
+      className="absolute bottom0 box right0 top0 xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "paddingRight": 14,

@@ -39,13 +39,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -154,13 +154,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -269,13 +269,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -410,13 +410,13 @@ exports[`Module Expandable renders correctly with one item 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -559,13 +559,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol12"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -656,13 +656,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -771,13 +771,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
             >
               <div
                 className="box xsCol6"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"

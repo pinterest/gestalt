@@ -34,7 +34,7 @@
   composes: block from "./Layout.css";
   composes: borderBox from "./Layout.css";
   composes: flex from "./Layout.css";
-  composes: itemsCenter from "./Layout.css";
+  composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
   composes: sizeLg from "./Borders.css";
   composes: solid from "./Borders.css";

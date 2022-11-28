@@ -141,24 +141,92 @@
   flex-wrap: wrap;
 }
 
-.itemsStart {
+/* Align items */
+
+.xsItemsStart {
   align-items: flex-start;
 }
 
-.itemsEnd {
+.xsItemsEnd {
   align-items: flex-end;
 }
 
-.itemsCenter {
+.xsItemsCenter {
   align-items: center;
 }
 
-.itemsBaseline {
+.xsItemsBaseline {
   align-items: baseline;
 }
 
-.itemsStretch {
+.xsItemsStretch {
   align-items: stretch;
+}
+
+@media (--g-sm) {
+  .smItemsStart {
+    align-items: flex-start;
+  }
+
+  .smItemsEnd {
+    align-items: flex-end;
+  }
+
+  .smItemsCenter {
+    align-items: center;
+  }
+
+  .smItemsBaseline {
+    align-items: baseline;
+  }
+
+  .smItemsStretch {
+    align-items: stretch;
+  }
+}
+
+@media (--g-md) {
+  .mdItemsStart {
+    align-items: flex-start;
+  }
+
+  .mdItemsEnd {
+    align-items: flex-end;
+  }
+
+  .mdItemsCenter {
+    align-items: center;
+  }
+
+  .mdItemsBaseline {
+    align-items: baseline;
+  }
+
+  .mdItemsStretch {
+    align-items: stretch;
+  }
+}
+
+@media (--g-lg) {
+  .lgItemsStart {
+    align-items: flex-start;
+  }
+
+  .lgItemsEnd {
+    align-items: flex-end;
+  }
+
+  .lgItemsCenter {
+    align-items: center;
+  }
+
+  .lgItemsBaseline {
+    align-items: baseline;
+  }
+
+  .lgItemsStretch {
+    align-items: stretch;
+  }
 }
 
 .selfStart {

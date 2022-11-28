@@ -15,8 +15,22 @@ type Props = {|
   alignContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch',
   /**
    * Defines the default behaviour for how flex items are laid out along the cross axis on the current line. Think of it as the `justify-content` version for the cross axis (perpendicular to the main axis).
+   *
+   * Also available in responsive sizes: `smAlignItems`, `mdAlignItems`, `lgAlignItems`. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
    */
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  /**
+   * The alignItems style in sm or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   */
+  smAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  /**
+   * The alignItems style in md or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   */
+  mdAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  /**
+   * The alignItems style in lg or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   */
+  lgAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   /**
    * Allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.
    */
@@ -83,6 +97,9 @@ type Props = {|
 const allowedProps = [
   'alignContent',
   'alignItems',
+  'smAlignItems',
+  'mdAlignItems',
+  'lgAlignItems',
   'alignSelf',
   'children',
   'direction',
@@ -107,7 +124,6 @@ const allowedProps = [
  *
  */
 export default function Flex({
-  alignItems,
   children: childrenProp,
   dataTestId,
   direction = 'row',
@@ -138,7 +154,6 @@ export default function Flex({
     baseStyles: `${styles.Flex} ${gapStyles}`,
     props: {
       ...rest,
-      alignItems,
       children,
       direction,
       justifyContent,

@@ -2,7 +2,7 @@
 
 exports[`SlimBanner renders an icon with accessibility label 1`] = `
 <div
-  className="box errorWeak itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box errorWeak mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -10,7 +10,7 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
     style={
       Object {
         "width": "100%",
@@ -58,7 +58,7 @@ exports[`SlimBanner renders an icon with accessibility label 1`] = `
 
 exports[`SlimBanner renders complex message 1`] = `
 <div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -66,7 +66,7 @@ exports[`SlimBanner renders complex message 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
     style={
       Object {
         "width": "100%",
@@ -120,7 +120,7 @@ exports[`SlimBanner renders complex message 1`] = `
 
 exports[`SlimBanner renders neutral type with message 1`] = `
 <div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -128,7 +128,7 @@ exports[`SlimBanner renders neutral type with message 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
     style={
       Object {
         "width": "100%",
@@ -154,7 +154,7 @@ exports[`SlimBanner renders neutral type with message 1`] = `
 
 exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
 <div
-  className="box itemsCenter mdDirectionRow paddingX0 paddingY0 paddingY1 rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow paddingX0 paddingY0 paddingY1 rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -162,7 +162,7 @@ exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
   }
 >
   <div
-    className="Flex rowGap2 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
     style={
       Object {
         "width": "100%",
@@ -210,7 +210,7 @@ exports[`SlimBanner renders non-neutral compact with accessibility label 1`] = `
 
 exports[`SlimBanner renders primary action and dismiss button 1`] = `
 <div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -218,7 +218,7 @@ exports[`SlimBanner renders primary action and dismiss button 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
     style={
       Object {
         "width": "100%",
@@ -242,7 +242,7 @@ exports[`SlimBanner renders primary action and dismiss button 1`] = `
       className="FlexItem flexNone"
     >
       <div
-        className="Flex rowGap4 columnGap0 itemsCenter xsDirectionRow"
+        className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -363,7 +363,7 @@ exports[`SlimBanner renders primary action and dismiss button 1`] = `
 
 exports[`SlimBanner renders simple message with helper link 1`] = `
 <div
-  className="box itemsCenter mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -371,7 +371,7 @@ exports[`SlimBanner renders simple message with helper link 1`] = `
   }
 >
   <div
-    className="Flex rowGap4 columnGap0 flexGrow itemsCenter xsDirectionRow"
+    className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
     style={
       Object {
         "width": "100%",

@@ -1,7 +1,7 @@
 .pog {
   composes: circle from "./Borders.css";
   composes: flex from "./Layout.css";
-  composes: itemsCenter from "./Layout.css";
+  composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
 }
 

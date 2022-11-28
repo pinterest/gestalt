@@ -112,7 +112,7 @@ exports[`NumberField NumberField with error 1`] = `
                 className="Flex rowGap0 columnGap0 xsDirectionColumn"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 itemsCenter xsDirectionRow"
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
