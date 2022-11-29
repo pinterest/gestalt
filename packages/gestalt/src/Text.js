@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { forwardRef, type AbstractComponent, type Element, type Node } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
@@ -10,6 +10,7 @@ function isNotNullish(val): boolean {
   return val !== null && val !== undefined;
 }
 
+type As = 'span' | 'div';
 type Overflow = 'normal' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
@@ -53,6 +54,10 @@ type Props = {|
    */
   overflow?: Overflow,
   /**
+   * Ref that is forwarded to the underlying element. See the [ref variant](https://gestalt.pinterest.systems/web/text#Refs) for more details.
+   */
+  ref?: HTMLDivElement | HTMLSpanElement,
+  /**
    * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
    */
   size?: Size,
@@ -76,55 +81,61 @@ type Props = {|
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)
  */
-function Text({
-  align = 'start',
-  children,
-  color = 'default',
-  inline = false,
-  italic = false,
-  lineClamp,
-  overflow = 'breakWord',
-  size = '300',
-  title,
-  underline = false,
-  weight = 'normal',
-}: Props): Node {
-  const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
+const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
+  function Text(
+    {
+      align = 'start',
+      children,
+      color = 'default',
+      inline = false,
+      italic = false,
+      lineClamp,
+      overflow = 'breakWord',
+      size = '300',
+      title,
+      underline = false,
+      weight = 'normal',
+    }: Props,
+    ref,
+  ): Element<As> {
+    const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
-  const cs = cx(
-    styles.Text,
-    typography[`fontSize${size}`],
-    color && colorClass,
-    align === 'center' && typography.alignCenter,
-    align === 'justify' && typography.alignJustify,
-    align === 'start' && typography.alignStart,
-    align === 'end' && typography.alignEnd,
-    align === 'forceLeft' && typography.alignForceLeft,
-    align === 'forceRight' && typography.alignForceRight,
-    overflow === 'breakWord' && typography.breakWord,
-    overflow === 'noWrap' && typography.noWrap,
-    italic && typography.fontStyleItalic,
-    underline && typography.underline,
-    weight === 'bold' && typography.fontWeightSemiBold,
-    weight === 'normal' && typography.fontWeightNormal,
-    isNotNullish(lineClamp) && typography.lineClamp,
-  );
+    const cs = cx(
+      styles.Text,
+      typography[`fontSize${size}`],
+      color && colorClass,
+      align === 'center' && typography.alignCenter,
+      align === 'justify' && typography.alignJustify,
+      align === 'start' && typography.alignStart,
+      align === 'end' && typography.alignEnd,
+      align === 'forceLeft' && typography.alignForceLeft,
+      align === 'forceRight' && typography.alignForceRight,
+      overflow === 'breakWord' && typography.breakWord,
+      overflow === 'noWrap' && typography.noWrap,
+      italic && typography.fontStyleItalic,
+      underline && typography.underline,
+      weight === 'bold' && typography.fontWeightSemiBold,
+      weight === 'normal' && typography.fontWeightNormal,
+      isNotNullish(lineClamp) && typography.lineClamp,
+    );
 
-  const Tag = inline ? 'span' : 'div';
+    const Tag: As = inline ? 'span' : 'div';
 
-  return (
-    <Tag
-      className={cs}
-      title={
-        title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
-      }
-      {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
-    >
-      {children}
-    </Tag>
-  );
-}
+    return (
+      <Tag
+        className={cs}
+        title={
+          title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
+        }
+        {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    );
+  },
+);
 
-Text.displayName = 'Text';
+TextWithForwardRef.displayName = 'Text';
 
-export default Text;
+export default TextWithForwardRef;
