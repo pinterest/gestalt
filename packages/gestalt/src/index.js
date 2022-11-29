@@ -28,6 +28,7 @@ import Flex from './Flex.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
+import IconButtonFloating from './IconButtonFloating.js';
 import Image from './Image.js';
 import Label from './Label.js';
 import Layer from './Layer.js';
@@ -103,6 +104,7 @@ export {
   Heading,
   Icon,
   IconButton,
+  IconButtonFloating,
   Image,
   Label,
   Layer,
