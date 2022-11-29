@@ -1,3 +1,9 @@
+## 83.4.2 (Nov 29, 2022)
+
+### Patch
+
+- Internal: upgrade prettier to 2.8.0 ([#2523](https://github.com/pinterest/gestalt/pull/2523)) - [Preview link](https://deploy-preview-2523--gestalt.netlify.app)
+
 ## 83.4.1 (Nov 29, 2022)
 
 ### Patch
