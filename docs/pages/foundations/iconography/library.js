@@ -13,6 +13,7 @@ import {
   TapArea,
   Text,
   Toast,
+  Tooltip,
 } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -53,70 +54,77 @@ type IconData = {|
     | 'Time'
     | 'Toggle'
     | 'Utility and tools',
+  description: string,
 |};
 
-function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
+function IconTile({
+  iconName,
+  iconDescription = 'Description coming soon',
+  onTap,
+}: {|
+  iconName: IconName,
+  iconDescription: string,
+  onTap: () => void,
+|}) {
   const [hovered, setHovered] = useState();
 
   return (
-    <TapArea
-      rounding={2}
-      tapStyle="compress"
-      onTap={onTap}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={() => setHovered(false)}
-    >
-      <Box
-        borderStyle="sm"
+    <Tooltip text={iconDescription} accessibilityLabel={iconDescription} idealDirection="down">
+      <TapArea
         rounding={2}
-        padding={2}
-        width={150}
-        height={110}
-        color={hovered ? 'inverse' : 'default'}
-        position="relative"
+        tapStyle="compress"
+        onTap={onTap}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
       >
-        <Flex
-          height="100%"
-          flex="grow"
-          direction="column"
-          gap={2}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Icon
-            color={hovered ? 'inverse' : 'default'}
-            accessibilityLabel={iconName}
-            icon={iconName}
-            size="24"
-          />
-          <Text color={hovered ? 'inverse' : 'default'} size="100">
-            {iconName}
-          </Text>
-        </Flex>
         <Box
-          position="absolute"
-          bottom
-          right
-          display={hovered ? 'block' : 'none'}
-          dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+          borderStyle="sm"
+          rounding={2}
+          padding={2}
+          width={150}
+          height={110}
+          color={hovered ? 'inverse' : 'default'}
+          position="relative"
         >
-          <Pog
-            icon="copy-to-clipboard"
-            size="xs"
-            iconColor="darkGray"
-            bgColor="lightGray"
-            padding={1}
-          />
+          <Flex
+            height="100%"
+            flex="grow"
+            direction="column"
+            gap={2}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Icon
+              color={hovered ? 'inverse' : 'default'}
+              accessibilityLabel=""
+              icon={iconName}
+              size="24"
+            />
+            <Text color={hovered ? 'inverse' : 'default'} size="100">
+              {iconName}
+            </Text>
+          </Flex>
+          <Box
+            position="absolute"
+            bottom
+            right
+            display={hovered ? 'block' : 'none'}
+            dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+          >
+            <Pog
+              icon="copy-to-clipboard"
+              size="xs"
+              iconColor="darkGray"
+              bgColor="lightGray"
+              padding={1}
+            />
+          </Box>
         </Box>
-      </Box>
-    </TapArea>
+      </TapArea>{' '}
+    </Tooltip>
   );
-}
-
-function findIcon(icon?: string): ?IconName {
-  return icons.find((name) => name === icon);
 }
 
 function findIconByCategory(icon?: string, category: string): IconData {
@@ -164,10 +172,15 @@ export default function IconPage(): Node {
     sortedAlphabetical ? (
       <Flex gap={3} wrap>
         {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
-          const icon = findIcon(iconName);
-          return icon ? (
-            <IconTile key={iconName} iconName={icon} onTap={buildHandleIconClick(icon)} />
-          ) : null;
+          const filteredIconData = iconCategoryData.icons.find((icon) => icon.name === iconName);
+          return (
+            <IconTile
+              key={iconName}
+              iconName={iconName}
+              onTap={buildHandleIconClick(iconName)}
+              iconDescription={filteredIconData?.description}
+            />
+          );
         })}
       </Flex>
     ) : (
@@ -179,6 +192,7 @@ export default function IconPage(): Node {
               <IconTile
                 key={iconName}
                 iconName={iconData.name}
+                iconDescription={iconData.description}
                 onTap={buildHandleIconClick(iconData.name)}
               />
             ) : null;
