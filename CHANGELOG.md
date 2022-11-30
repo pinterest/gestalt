@@ -1,3 +1,9 @@
+## 83.5.0 (Nov 30, 2022)
+
+### Minor
+
+- Text: add forwardRef to component ([#2526](https://github.com/pinterest/gestalt/pull/2526)) - [Preview link](https://deploy-preview-2526--gestalt.netlify.app)
+
 ## 83.4.2 (Nov 29, 2022)
 
 ### Patch
