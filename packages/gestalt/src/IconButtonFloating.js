@@ -1,8 +1,9 @@
 // @flow strict
-import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type Node } from 'react';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
+import TapArea from './TapArea.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
@@ -10,7 +11,7 @@ type Props = {|
    * String that clients such as VoiceOver will read to describe the icon button. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modalalert#Accessibility) for more info.
    */
   accessibilityLabel: string,
-  icon?: $Keys<typeof icons>,
+  icon: $Keys<typeof icons>,
   onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>
@@ -21,6 +22,7 @@ type Props = {|
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
+  selected?: boolean,
 |};
 
 /**
@@ -31,36 +33,36 @@ By default, it has a circular shape with a floating elevation shadow style built
 IconButtonFloating is typically found in the Home feed, boards, and dashboards, supporting Pinners to perform core actions.
  */
 const IconButtonFloatingWithForwardRef: React$AbstractComponent<Props, HTMLButtonElement> =
-  forwardRef<Props, HTMLButtonElement>(function IconButtonFloating(props: Props, ref): Node {
-    const {
+  forwardRef<Props, HTMLButtonElement>(function IconButtonFloating(
+    {
       accessibilityControls,
       accessibilityExpanded,
       accessibilityHaspopup,
       accessibilityLabel,
       icon,
       onClick,
-    } = props;
-
-    const innerRef = useRef(null);
-    // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
-    // that renders <IconButtonFloating ref={inputRef} /> to call inputRef.current.focus()
-    useImperativeHandle(ref, () => innerRef.current);
-
+      selected,
+    }: Props,
+    ref,
+  ): Node {
     return (
-      <Box borderStyle="shadow" rounding="circle">
-        <IconButton
-          accessibilityControls={accessibilityControls}
-          accessibilityExpanded={accessibilityExpanded}
-          accessibilityHaspopup={accessibilityHaspopup}
-          size="xl"
-          onClick={onClick}
-          accessibilityLabel={accessibilityLabel}
-          icon={icon}
-          bgColor="white"
-          ref={innerRef}
-          role="button"
-        />
-      </Box>
+      <TapArea tapStyle="compress" rounding="circle" fullWidth={false} fullHeight={false}>
+        <Box borderStyle="shadow" rounding="circle">
+          <IconButton
+            accessibilityControls={accessibilityControls}
+            accessibilityExpanded={accessibilityExpanded}
+            accessibilityHaspopup={accessibilityHaspopup}
+            size="xl"
+            onClick={onClick}
+            accessibilityLabel={accessibilityLabel}
+            icon={icon}
+            bgColor="white"
+            ref={ref}
+            role="button"
+            selected={selected}
+          />
+        </Box>
+      </TapArea>
     );
   });
 

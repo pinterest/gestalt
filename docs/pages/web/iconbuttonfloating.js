@@ -40,6 +40,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         icon="add"
         onClick={() => setOpen((prevVal) => !prevVal)}
         ref={anchorRef}
+        selected={open}
       />
       {open && (
         <Dropdown
@@ -88,10 +89,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             title="When to use"
             description={`
-- Interface space is limited. Prioritize using a [Button](/web/button) if space is available.
-- Triggering a [Modal](/web/modal) to complete a related task.
-- Creating visual separation of actions in text-heavy content.
-- Lower-emphasis actions that don't impede users from completing a task.
+            - To represent a primary or common action when it has to be visible all the time on the screen on top of everything.
+            - Triggering a Modal or a Popover to complete a related task.
+            - Only if it is the most suitable way to present a screen's high-emphasis action.
         `}
           />
           <MainSection.Card
@@ -99,10 +99,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-- Displaying icons that don't have actions associated with them. Use an [Icon](/web/icon) instead.
-- Displaying multiple IconButtons on a surface that uses the same icon for different actions.
-- Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
-- Destructive, high-emphasis actions, e.g "delete", "remove".
+            - There isn't a need for a fixed FAB visible all the time on the screen.
+            - To replace [IconButton](/web/iconbutton) established patterns, such as nav elements.
         `}
           />
         </MainSection.Subsection>
@@ -112,36 +110,36 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use IconButton to perform low-emphasis actions, such as opening a [Modal](/web/modal) to edit a board."
+            description="Use when an action have to be visible at all times in a sticky way where content can scroll underneath."
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Pair IconButton with a regular button to perform a high-emphasis action. IconButton should be a secondary action among regular buttons."
+            description="Layer notification badges on top of the FAB. This pattern is typically used on IconButton part of a nav component, and a FAB shouldn't contain notifications found elsewhere on a screen as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description='Consider grouping multiple actions in an "ellipsis" IconButton to avoid distraction with an overload of icons.'
+            description="Use the FAB for positive and supportive actions like Create, Help or Maximize."
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
+            description="Use the FAB for negative and destructive actions like, Delete or Remove. "
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Display a [Tooltip](/web/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
+            description="Use the designated size and style."
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Add an IconButton on top of images unless it has a background that ensures easy readability and accessible contrast. Check the [background color](#Color) variant to learn more."
+            description="Scale or style the FAB. Consistent button sizes promote a cohesive user experience."
           />
         </MainSection.Subsection>
       </MainSection>
@@ -299,24 +297,18 @@ Follow these guidelines for \`bgColor\`
           </CombinationNew>
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Writing"
-        description="When pairing IconButton with [Tooltip](/web/tooltip), refer to the Tooltip component for writing guidelines.
-
-"
-      >
+      <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
             description={`
-- Use a descriptive label to describe the IconButton action by beginning with a verb.
-`}
+            - Use a descriptive label to describe the IconButton action by beginning with a verb.`}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".`}
+            description={`- Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".`}
           />
         </MainSection.Subsection>
       </MainSection>
