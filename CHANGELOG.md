@@ -1,3 +1,9 @@
+## 83.5.5 (Dec 1, 2022)
+
+### Patch
+
+- Docs: Add Icon descriptions to library page ([#2530](https://github.com/pinterest/gestalt/pull/2530)) - [Preview link](https://deploy-preview-2530--gestalt.netlify.app)
+
 ## 83.5.4 (Dec 1, 2022)
 
 ### Patch
