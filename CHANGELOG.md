@@ -1,3 +1,9 @@
+## 83.5.1 (Dec 1, 2022)
+
+### Patch
+
+- Docs: Fix typo in designer getting started ([#2529](https://github.com/pinterest/gestalt/pull/2529)) - [Preview link](https://deploy-preview-2529--gestalt.netlify.app)
+
 ## 83.5.0 (Nov 30, 2022)
 
 ### Minor
