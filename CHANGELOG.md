@@ -1,3 +1,9 @@
+## 83.5.4 (Dec 1, 2022)
+
+### Patch
+
+- Table.Drawer: fix subcomponent so no empty drawer shows no extra space ([#2519](https://github.com/pinterest/gestalt/pull/2519)) - [Preview link](https://deploy-preview-2519--gestalt.netlify.app)
+
 ## 83.5.3 (Dec 1, 2022)
 
 ### Patch
