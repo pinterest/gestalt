@@ -14,7 +14,7 @@ html:not([dir="rtl"]) .button {
 }
 
 .secondary {
-  composes: lightGrayBg from "./Colors.css";
+  composes: secondary from "./Colors.css";
 }
 
 .button.secondary:hover,
@@ -27,7 +27,7 @@ html:not([dir="rtl"]) .button {
 }
 
 .errorBase {
-  composes: redBg from "./Colors.css";
+  composes: errorBase from "./Colors.css";
 }
 
 .errorBase:hover,
