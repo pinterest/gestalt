@@ -3,12 +3,12 @@
     {
       "name": "add",
       "categories": "Add",
-      "description": "Use this icon to indicate the ability to create or add content"
+      "description": "Indicates the ability to create or add content"
     },
     {
       "name": "add-circle",
       "categories": "Add",
-      "description": "Use this icon to indicate the ability to display more content or additional information"
+      "description": "Indicates the ability to display more content or additional information"
     },
     {
       "name": "add-layout",
@@ -25,12 +25,12 @@
     {
       "name": "ad",
       "categories": "Ads and measurements",
-      "description": "Use this icon to indicate an ad type"
+      "description": "Indicates an ad type"
     },
     {
       "name": "ad-group",
       "categories": "Ads and measurements",
-      "description": "Use this icon to indicate a group of ads accounts"
+      "description": "Indicates a group of ads accounts"
     },
     {
       "name": "ads-overview",
