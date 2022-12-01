@@ -109,7 +109,7 @@ export default function MessagingComponentsPage(): Node {
           defaultCode={`
 <Flex justifyContent="center" alignItems="center" direction="column" gap={4}>
   <Toast
-    primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+    primaryAction={{ accessibilityLabel: 'Undo action', label: 'Undo', size: 'lg' }}
     text={
       <Text>
         Saved to{' '}
@@ -130,7 +130,7 @@ export default function MessagingComponentsPage(): Node {
     }
   />
   <Toast
-    primaryAction={{ accessibilityLabel: 'Test', label: 'Save to a board', size: 'lg' }}
+    primaryAction={{ accessibilityLabel: 'Undo save to board', label: 'Save to a board', size: 'lg' }}
     text="Saved"
     thumbnail={
       <Image
