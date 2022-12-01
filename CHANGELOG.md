@@ -1,3 +1,9 @@
+## 83.5.3 (Dec 1, 2022)
+
+### Patch
+
+- Modal, Sheet: Update shadows to new tokens ([#2514](https://github.com/pinterest/gestalt/pull/2514)) - [Preview link](https://deploy-preview-2514--gestalt.netlify.app)
+
 ## 83.5.2 (Dec 1, 2022)
 
 ### Patch
