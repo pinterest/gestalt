@@ -206,7 +206,11 @@ function Sheet(props: SheetProps): Node {
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {heading && (
-                  <Box borderStyle={showTopShadow ? 'shadow' : undefined} position="relative" fit>
+                  <Box
+                    borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
+                    position="relative"
+                    fit
+                  >
                     <Flex alignItems="center" flex="grow" justifyContent="between">
                       <Box flex="grow">
                         <Header heading={heading} />
@@ -248,7 +252,7 @@ function Sheet(props: SheetProps): Node {
                 </ScrollBoundaryContainerProvider>
                 {Boolean(footer) && (
                   <Box
-                    borderStyle={showBottomShadow ? 'shadow' : undefined}
+                    borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
                     position="relative"
                     fit
                   >
