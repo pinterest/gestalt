@@ -1,3 +1,9 @@
+## 83.5.2 (Dec 1, 2022)
+
+### Patch
+
+- Tag: fix background color and dark mode ([#2521](https://github.com/pinterest/gestalt/pull/2521)) - [Preview link](https://deploy-preview-2521--gestalt.netlify.app)
+
 ## 83.5.1 (Dec 1, 2022)
 
 ### Patch
