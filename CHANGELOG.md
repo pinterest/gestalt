@@ -1,3 +1,9 @@
+## 83.5.6 (Dec 1, 2022)
+
+### Patch
+
+- Bump decode-uri-component from 0.2.0 to 0.2.2 ([#2532](https://github.com/pinterest/gestalt/pull/2532)) - [Preview link](https://deploy-preview-2532--gestalt.netlify.app)
+
 ## 83.5.5 (Dec 1, 2022)
 
 ### Patch
