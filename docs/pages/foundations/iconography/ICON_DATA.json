@@ -197,7 +197,7 @@
     {
       "name": "switch-account",
       "categories": "Arrows",
-      "description": "Indicates the ability to reoder pages"
+      "description": "Indicates the ability to reorder pages"
     },
     {
       "name": "minimize",
@@ -355,6 +355,10 @@
       "description": "Indicates an unselected love reaction"
     },
     {
+      "name": "heart-broken",
+      "categories": ["Reactions and ratings", "Toggle"]
+    },
+    {
       "name": "star",
       "categories": "Reactions and ratings",
       "description": "Indicates the ability to add to favorites, or to represent a review rating"
@@ -363,6 +367,11 @@
       "name": "star-half",
       "categories": "Reactions and ratings",
       "description": "Indicates a half-star review rating"
+    },
+    {
+      "name": "smiley",
+      "categories": "Reactions and ratings",
+      "description": "Indicates a mild happy reaction"
     },
     {
       "name": "smiley-outline",
@@ -594,6 +603,11 @@
       "description": "Indicates a code view or connection"
     },
     {
+      "name": "cog",
+      "categories": "Utility and tools",
+      "description": "Indicates setting options"
+    },
+    {
       "name": "color-picker",
       "categories": "Utility and tools",
       "description": "Indicates the ability to pick a specific color"
@@ -666,6 +680,11 @@
       "description": "Indicates an overflow menu"
     },
     {
+      "name": "ellipsis-circle-outline",
+      "categories": "Utility and tools",
+      "description": "Indicates an overflow menu"
+    },
+    {
       "name": "envelope",
       "categories": "Utility and tools",
       "description": "Indicates the ability to send content"
@@ -711,12 +730,12 @@
       "description": "Indicates a visual search feature"
     },
     {
-      "name": "flip-horizontal",
+      "name": "flipHorizontal",
       "categories": "Utility and tools",
       "description": "Indicates the ability to flip an image horizontally"
     },
     {
-      "name": "flip-vertical",
+      "name": "flipVertical",
       "categories": "Utility and tools",
       "description": "Indicates the ability to flip an image vertically"
     },
@@ -751,10 +770,6 @@
       "description": "Indicates more information is available"
     },
     {
-      "name": "information",
-      "categories": "Utility and tools"
-    },
-    {
       "name": "key",
       "categories": "Utility and tools",
       "description": "Indicates keywords"
@@ -773,6 +788,10 @@
       "name": "lightbulb",
       "categories": "Utility and tools",
       "description": "Indicates insights or educational content such as trends"
+    },
+    {
+      "name": "lightning-bolt-circle",
+      "categories": "Utility and tools"
     },
     {
       "name": "lips",
@@ -818,11 +837,10 @@
       "categories": "Utility and tools",
       "description": "Indicates a condensed menu"
     },
-
     {
-      "name": "nut",
-      "categories": "Utility and tools",
-      "description": "Indicates setting options"
+      "name": "move",
+      "categories": ["Arrows", "Utility and tools"],
+      "description": "Indicates an ability to move an object"
     },
     {
       "name": "people",
@@ -845,9 +863,17 @@
       "description": "Indicates the ability to save Pins"
     },
     {
+      "name": "pin-hide",
+      "categories": "Utility and tools"
+    },
+    {
       "name": "pincode",
       "categories": "Utility and tools",
       "description": "Indicates the ability to scan and open a Pincode"
+    },
+    {
+      "name": "protect",
+      "categories": "Utility and tools"
     },
     {
       "name": "publish",
