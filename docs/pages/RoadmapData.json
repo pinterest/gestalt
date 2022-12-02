@@ -60,7 +60,7 @@
     {
       "task": "Gestalt illustration library",
       "deadline": "Quarter 3",
-      "status": "inProgress",
+      "status": "ok",
       "platform": "Android/iOS/Web",
       "description": "Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).",
       "link": ""
