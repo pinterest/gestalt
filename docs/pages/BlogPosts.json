@@ -15,9 +15,9 @@
         {
           "title": "New experimental versions of Toast and Badge",
           "audience": ["Design", "Engineering"],
-          "imageSrc": "https://i.pinimg.com/originals/d2/19/4f/d2194f0a7f837289142c4a4407e8bc6f.png",
+          "imageSrc": "https://i.pinimg.com/originals/c8/5f/a7/c85fa7391ea6df5dfce44e5d5bbaf63a.png",
           "imageAltText": "screenshots of new toast and badge components",
-          "content": "We're super excited to share some experimental updates to [Toast]() and [Badge](). \n * Toast is getting a little more svelte and a little less round. These changes should allow Toasts to take less room on the screen and _get out of the way_. \n * On the opposite end, Badge is getting a little bigger - specifically its text size is being increased to improve legibility. We've also added the option to add a tooltip to our info Badge to provide extra context. \n\n You can preview both of these updates in our docs by clicking the \"Activate experiments\" button at the top of the page. Please holler if you see any issues or have any feedback. "
+          "content": "We're super excited to share some experimental updates to [Toast](https://gestalt.pinterest.systems/web/toast) and [Badge](https://gestalt.pinterest.systems/web/badge). \n * Toast is getting a little more svelte and a little less round. These changes should allow Toasts to take less room on the screen and _get out of the way_. \n * On the opposite end, Badge is getting a little bigger - specifically its text size is being increased to improve legibility. We've also added the option to add a tooltip to our info Badge to provide extra context. \n\n You can preview both of these updates in our docs by clicking the \"Activate experiments\" button at the top of the page. Please holler if you see any issues or have any feedback. "
         },
         {
           "title": "Loads of Figma library updates",
