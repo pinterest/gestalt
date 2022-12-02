@@ -107,18 +107,18 @@ export default function MessagingComponentsPage(): Node {
           showCode={false}
           showHeading={false}
           defaultCode={`
-<Flex justifyContent="center" alignItems="center" direction="column" width="100%">
+<Flex justifyContent="center" alignItems="center" direction="column" gap={4}>
   <Toast
-    button={<Button key="button-key" text="Undo" size="lg" />}
+    primaryAction={{ accessibilityLabel: 'Undo action', label: 'Undo', size: 'lg' }}
     text={
-      <React.Fragment>
+      <Text>
         Saved to{' '}
         <Text inline weight="bold">
           <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
             Home decor
           </Link>
         </Text>
-      </React.Fragment>
+      </Text>
     }
     thumbnail={
       <Image
@@ -130,7 +130,7 @@ export default function MessagingComponentsPage(): Node {
     }
   />
   <Toast
-    button={<Button key="button-key" text="Save to a board" size="lg" />}
+    primaryAction={{ accessibilityLabel: 'Undo save to board', label: 'Save to a board', size: 'lg' }}
     text="Saved"
     thumbnail={
       <Image
