@@ -1,3 +1,9 @@
+## 83.5.7 (Dec 2, 2022)
+
+### Patch
+
+- Docs: fix in Toast ([#2531](https://github.com/pinterest/gestalt/pull/2531)) - [Preview link](https://deploy-preview-2531--gestalt.netlify.app)
+
 ## 83.5.6 (Dec 1, 2022)
 
 ### Patch
