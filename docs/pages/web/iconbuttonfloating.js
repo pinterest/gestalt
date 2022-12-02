@@ -200,7 +200,7 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           IconButtonFloating should typically be placed in the bottom edge of the screen (bottom right for LTR languages, and bottom left for RTL languages). This applies to supportive actions, such as opening related content and resources.
 
           **Centered placement**
-          Use centered placement when leading Pinners to an action or task that should remain present when scrolling, such as creating a new board.
+          Use a centered placement when leading Pinners to an action or task that should remain present when scrolling, such as creating a new board.
 `}
         />
       </MainSection>
