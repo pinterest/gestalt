@@ -15,7 +15,7 @@
         {
           "title": "New experimental versions of Toast and Badge",
           "audience": ["Design", "Engineering"],
-          "imageSrc": "https://i.pinimg.com/originals/c8/5f/a7/c85fa7391ea6df5dfce44e5d5bbaf63a.png",
+          "imageSrc": "https://i.pinimg.com/originals/fb/7d/e3/fb7de3b1a53c951c4d1888678831e5fb.png",
           "imageAltText": "screenshots of new toast and badge components",
           "content": "We're super excited to share some experimental updates to [Toast](https://gestalt.pinterest.systems/web/toast) and [Badge](https://gestalt.pinterest.systems/web/badge). \n * Toast is getting a little more svelte and a little less round. These changes should allow Toasts to take less room on the screen and _get out of the way_. \n * On the opposite end, Badge is getting a little bigger - specifically its text size is being increased to improve legibility. We've also added the option to add a tooltip to our info Badge to provide extra context. \n\n You can preview both of these updates in our docs by clicking the \"Activate experiments\" button at the top of the page. Please holler if you see any issues or have any feedback. "
         },
@@ -24,7 +24,7 @@
           "audience": ["Design"],
           "imageSrc": "https://i.pinimg.com/originals/6e/5c/a0/6e5ca01301305455f79b65daf1b2eda5.png",
           "imageAltText": "screenshots of figma components",
-          "content": "* **Update PrimaryNavigation for Web:** We added the Create dropdown next to the tabs to match the current experience. Expect more updates to this component in the near/mid future. \n * **Support for agency imagery styles:** We added the Big 6 agencies avatars as imagery styles in our Foundations library. \n * **Major Table component updates:** \n Table is one of our most frequently-detached components because it's   \n\t * Added the ability to left and right align all cells including headers \n\t * Added cells for buttons \n\t * Added the new [table row drawer](https://gestalt.pinterest.systems/web/table#Table-Row-Drawer) feature \n\t* All cells can be replaced with custom content without having to detach the instance"
+          "content": "* **Update PrimaryNavigation for Web:** We added the Create dropdown next to the tabs to match the current experience. Expect more updates to this component in the near/mid future. \n * **Support for agency imagery styles:** We added the Big 6 agencies avatars as imagery styles in our Foundations library. \n * **Major Table component updates:** \n Table is one of our most frequently-detached components because it's   \n\t * Added the ability to left and right align all cells including headers \n\t * Added cells for buttons \n\t * Added the new [table row drawer](https://gestalt.pinterest.systems/web/table#Table-Row-Drawer) feature \n\t* All cells can be replaced with custom content without having to detach the instance \n\t * Added the ability to include subtext in all text cells"
         }
       ]
     },
