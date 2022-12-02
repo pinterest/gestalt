@@ -1,7 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { IconButton, SlimBanner } from 'gestalt';
-import CombinationNew from '../../docs-components/CombinationNew.js';
+
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -17,7 +16,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-      function FABExample() {
+      function IconButtonFloatingExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const anchorRef = React.useRef(null);
@@ -99,7 +98,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-            - There isn't a need for a fixed FAB visible all the time on the screen.
+            - There isn't a need for a fixed IconButtonFloating visible all the time on the screen.
             - To replace [IconButton](/web/iconbutton) established patterns, such as nav elements.
         `}
           />
@@ -115,19 +114,19 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Layer notification badges on top of the FAB. This pattern is typically used on IconButton part of a nav component, and a FAB shouldn't contain notifications found elsewhere on a screen as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
+            description="Layer notification badges on top of IconButtonFloating. This pattern is typically used on IconButton part of a nav component, and a IconButtonFloating shouldn't contain notifications found elsewhere on a screen as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use the FAB for positive and supportive actions like Create, Help or Maximize."
+            description="Use IconButtonFloating for positive and supportive actions like Create, Help or Maximize."
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use the FAB for negative and destructive actions like, Delete or Remove. "
+            description="Use IconButtonFloating for negative and destructive actions like, Delete or Remove. "
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -139,7 +138,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Scale or style the FAB. Consistent button sizes promote a cohesive user experience."
+            description="Scale or style IconButtonFloating. Consistent button sizes promote a cohesive user experience."
           />
         </MainSection.Subsection>
       </MainSection>
@@ -147,9 +146,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection
           title="ARIA attributes"
           description={`
-IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/web/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
+IconButtonFloating conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/web/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
 
-If IconButton is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+If IconButtonFloating is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 
 - \`accessibilityControls\`: informs the screen reader that IconButton controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to IconButton. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
@@ -160,142 +159,51 @@ If IconButton is used as a control button to show/hide a Popover-based component
           <MainSection.Subsection
             title="Keyboard interaction"
             description={`
-The default behaviour for IconButton is to be focusable in sequential keyboard navigation in the order defined by the document's source order.
-
-Use \`tabIndex\` to remove IconButton from the sequential keyboard navigation to improve accessibility. The example below shows a common use case when two consecutive and visually different elements perform the same action. One of them, in this case IconButton, can be removed from keyboard navigation to prevent screen readers from announcing the same interaction twice.
-If IconButton is disabled, it's also unreachable from keyboard navigation.`}
+IconButtonFloating should be contained within the \`role="contentinfo"\` container on a page. This gives screen reader users the ability to skip any main content and go directly to the action buttons. If there are multiple IconButtonFloatings, they should all be contained within the \`role="contentinfo"\` container.`}
           />
           <MainSection.Card cardSize="lg" />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`.">
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="IconButtons with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Role"
-          columns={2}
-          description="IconButton can be use for navigation or actions."
-        >
-          <MainSection.Card
-            cardSize="md"
-            title="role = link"
-            description={`If IconButton acts as a link, set \`role = link\` and pass role-specific [props](#role_linkProps).
-
-\`target\` is optional and defines the frame or window to open the anchor defined on href:
-* "null" opens the anchor in the same window.
-* "blank" opens the anchor in a new window. IconButtons announce to assistive technologies that the link opens in a new tab. Localize the default label with [DefaultLabelProvider](/web/utilities/defaultlabelprovider).
-* "self" opens an anchor in the same frame.
-
-\`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.
-
-IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.`}
-          />
-          <MainSection.Card
-            cardSize="md"
-            title="role = button"
-            description="If IconButton acts as a button, pass role-specific [props](#role_buttonProps)."
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
           title="Size"
-          description={`IconButton is available in 5 fixed sizes:
-
-1. \`xl\` (56px)
-    Extra large IconButtons should be used sparingly and only in places where the UI has a case for an extra-large IconButton.
-2. \`lg\` (48px)
-    Large is the only size that should be used on Pinner surfaces.
-3. \`md\` (40px)
-    Medium is the size used on more dense UI such as business surfaces or internal tools.
-4. \`sm\` (32px)
-    Small IconButton should be used sparingly and only in places where the UI is very dense.
-5. \`xs\` (24px)
-    Use sparingly and only in places where the UI is very dense or has a case for an extra-small IconButton as they can be hard to see for people with visual impairments.
-
-Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
-        >
-          <CombinationNew size={['xl', 'lg', 'md', 'sm', 'xs']}>
-            {({ size }) => (
-              <IconButton
-                accessibilityLabel={`Example size ${size}`}
-                bgColor="lightGray"
-                icon="add"
-                iconColor="darkGray"
-                size={size}
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
+          columns={2}
+          description="IconButtonFloating size is only available in a single size, 56px. Keeping the size consistent will promote a cohesive Pinner experience and avoid usability issues. "
+        />
         <MainSection.Subsection
-          title="Icon color"
-          description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
+          title="Color"
+          description={`
+          IconButtonFloating is provided in two colors schemes. It can be presented in combinations of icon and background colors.
 
-Follow these guidelines for \`iconColor\`
+          - Dark Gray Icon ("darkGray") + White ("white") background + $elevation-floating
+          Color combination in light-mode UI.
 
-1. Red ("red"). High emphasis, used for primary actions.
-2. Dark Gray ("darkGray"). Medium emphasis, used for secondary actions.
-3. Gray ("gray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
-4. White ("white"). Used in a dark mode scheme or over a dark-colored background creating better visibility.
-`}
-        >
-          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white']}>
-            {({ iconColor }) => (
-              <IconButton
-                accessibilityLabel={`Example icon color ${iconColor}`}
-                icon="add"
-                iconColor={iconColor}
-                size="md"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
+          -  White ("white") Icon + $color-background-elevation-floating
+          Color combination in dark-mode UI.
+          `}
+        />
         <MainSection.Subsection
-          title="Background color"
-          description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
+          title="Elevation"
+          description={`
+          **Floating**
+          IconButtonFloating is lifted off of the background with shadows built-in ($elevation-floating). The floating elevation serves as an affordance for floating actions.
 
-Follow these guidelines for \`bgColor\`
+          In dark mode, the elevation is achieved with colors instead of shadows ($color-background-elevation-floating). See [elevation guidelines](/foundations/elevation) for reference. `}
+        />
+        <MainSection.Subsection
+          title="Placement"
+          description={`
+          A consistent position improves discoverability as it appears across a responsive range of surfaces. In most cases, only one IconButtonFloating should be present on a screen. The exception is using a centered IconButtonFloating as a primary action, like board creation.
 
-1. Red ("red"). High emphasis, used for primary actions.
-2. Light Gray ("lightGray"). Medium emphasis, used for secondary actions.
-3. Transparent Dark Gray ("transparentDarkGray"). Medium emphasis, used for secondary actions, usually above a colored background.
-4. Gray ("gray"). Used for tertiary actions or in cases where the primary "red" is not an option. Medium emphasis when placed on dark backgrounds, used for secondary actions.
-5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
-6. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
-7. Dark Gray ("darkGray"). Used as the [selected state](#Selected-state) for IconButton.
+          **Default**
+          IconButtonFloating default placement is set to stick to the bottom-end of the screen. This applies to supportive actions, such as opening related content and resources.
+
+          **Bottom-center**
+          Use bottom-center placement when leading Pinners to an action or task, such as creating a new board.
 
 `}
-        >
-          <CombinationNew
-            bgColor={[
-              'red',
-              'lightGray',
-              'transparentDarkGray',
-              'gray',
-              'white',
-              'transparent',
-              'darkGray',
-            ]}
-          >
-            {({ bgColor }) => (
-              <IconButton
-                accessibilityLabel={`Example background color ${bgColor}`}
-                bgColor={bgColor}
-                icon="add"
-                size="md"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
+        />
       </MainSection>
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
@@ -322,11 +230,11 @@ Button allows users to take actions, and make choices using text labels to expre
 **[Icon](/web/icon)**
 IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt [Icon](/web/icon) library.
 
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+**[IconButton](/web/iconbutton)**
+Use IconButton when only an icon is needed instead of text, and the action does not float over other content.
 
 **[Dropdown](/web/dropdown)**
-It's most common to anchor Dropdown to [Button](/web/button) or IconButton.
+It's most common to anchor Dropdown to [Button](/web/button), IconButton, or IconButtonFloating.
       `}
         />
       </MainSection>{' '}
