@@ -3,7 +3,37 @@
   color: var(--color-text-light) !important;
 }
 
+.textErrorColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  font-weight: var(--font-weight-semibold) !important;
+}
+
 .textColorOverrideDark * {
   /* stylelint-disable-next-line declaration-no-important */
   color: var(--color-text-dark) !important;
+}
+
+.toast {
+  border-radius: 16px;
+  margin-left: 32px;
+  margin-right: 32px;
+
+  /*  Ensure that maxWidth isn't greater than viewport width (for small screens)  */
+  max-width: "min(716px, 100vw)";
+  width: 100%;
+}
+
+@media (--g-sm) {
+  .toast {
+    border-radius: 16px;
+    display: inline-block;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    /*  Ensure that maxWidth isn't greater than viewport width (for small screens)  */
+    max-width: "min(716px, 100vw)";
+    width: auto;
+  }
 }
