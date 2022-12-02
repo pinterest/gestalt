@@ -1,3 +1,9 @@
+## 83.5.8 (Dec 2, 2022)
+
+### Patch
+
+- Toast: new Toast design adjustments ([#2518](https://github.com/pinterest/gestalt/pull/2518)) - [Preview link](https://deploy-preview-2518--gestalt.netlify.app)
+
 ## 83.5.7 (Dec 2, 2022)
 
 ### Patch
