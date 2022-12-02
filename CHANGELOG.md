@@ -1,3 +1,9 @@
+## 83.5.10 (Dec 2, 2022)
+
+### Patch
+
+- Docs: Add icon descriptions to Iconography library page ([#2537](https://github.com/pinterest/gestalt/pull/2537)) - [Preview link](https://deploy-preview-2537--gestalt.netlify.app)
+
 ## 83.5.9 (Dec 2, 2022)
 
 ### Patch
