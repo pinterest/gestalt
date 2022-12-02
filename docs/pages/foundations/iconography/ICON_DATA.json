@@ -12,15 +12,18 @@
     },
     {
       "name": "add-layout",
-      "categories": "Add"
+      "categories": "Add",
+      "description": "Indicates the ability to choose a new file and create a layout"
     },
     {
       "name": "add-person",
-      "categories": "Add"
+      "categories": "Add",
+      "description": "Indicates the ability to add a new person/collaborator"
     },
     {
       "name": "add-pin",
-      "categories": "Add"
+      "categories": "Add",
+      "description": "Indicates the ability to send a Pin"
     },
     {
       "name": "ad",
@@ -34,79 +37,98 @@
     },
     {
       "name": "ads-overview",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates ads overview"
     },
     {
       "name": "ads-stats",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates ads stats"
     },
     {
       "name": "graph-bar",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates a graph-bar data format"
     },
     {
       "name": "graph-pie",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates a graph-pie data format"
     },
     {
       "name": "insights-audience",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates insights from the audience"
     },
     {
       "name": "insights-conversions",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates insights conversion data"
     },
     {
       "name": "overview",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates a dashboard overview"
     },
     {
       "name": "target",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates the target audience"
     },
     {
       "name": "trending",
-      "categories": "Ads and measurements"
+      "categories": "Ads and measurements",
+      "description": "Indicates trends"
     },
     {
       "name": "align-bottom",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a bottom alignment"
     },
     {
       "name": "align-bottom-center",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a bottom-center alignment"
     },
     {
       "name": "align-bottom-left",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a bottom-left alignment"
     },
     {
       "name": "align-bottom-right",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a bottom-right alignment"
     },
     {
       "name": "align-middle",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a middle alignment"
     },
     {
       "name": "align-top",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a top alignment"
     },
     {
       "name": "align-top-center",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a top-center alignment"
     },
     {
       "name": "align-top-left",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a top-left alignment"
     },
     {
       "name": "align-top-right",
-      "categories": "Alignment"
+      "categories": "Alignment",
+      "description": "Indicates a top-right alignment"
     },
     {
       "name": "arrow-back",
-      "categories": ["Arrows", "Platform specific"]
+      "categories": ["Arrows", "Platform specific"],
+      "description": "On iOS, indicates backward movement"
     },
     {
       "name": "arrow-circle-down",
@@ -114,327 +136,408 @@
     },
     {
       "name": "arrow-circle-forward",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates a forward movement"
     },
     {
       "name": "arrow-circle-left",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates a backward movement"
     },
     {
       "name": "arrow-circle-up",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the ability to choose a file to upload"
     },
     {
       "name": "arrow-counter-clockwise",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates a backward action"
     },
     {
       "name": "arrow-down",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates a list or more content available to view/expand"
     },
     {
       "name": "arrow-end",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the end of a sequence in a list of items or pages"
     },
     {
       "name": "arrow-forward",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the ability to move forward"
     },
     {
       "name": "arrow-start",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the beginning of a sequence in a list of items or pages"
     },
     {
       "name": "arrow-up",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates an expanded content is being displayed"
     },
     {
       "name": "arrow-up-left",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates going to a previous content/page"
     },
     {
       "name": "arrow-up-right",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates going to a different content/page when inside of a dropdown list"
     },
     {
       "name": "scale",
-      "categories": ["Arrows", "Utility and tools"]
+      "categories": ["Arrows", "Utility and tools"],
+      "description": "Indicates the ability to scale an image"
     },
     {
       "name": "switch-account",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the ability to reoder pages"
     },
     {
       "name": "minimize",
-      "categories": ["Arrows", "Utility and tools"]
+      "categories": ["Arrows", "Utility and tools"],
+      "description": "Indicates the ability to minimize the view"
     },
     {
       "name": "maximize",
-      "categories": ["Arrows", "Utility and tools"]
+      "categories": ["Arrows", "Utility and tools"],
+      "description": "Indicates the ability to maximize the view"
     },
     {
       "name": "chevron-up-circle",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates an expanded content is being displayed. Background is needed to emphasize visibility"
     },
     {
       "name": "directional-arrow-left",
-      "categories": ["Arrows", "Platform specific"]
+      "categories": ["Arrows", "Platform specific"],
+      "description": "On Android, indicates backward movement. Also used on web to indicate backward movement"
     },
     {
       "name": "directional-arrow-right",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates forward movement"
     },
     {
       "name": "sort-ascending",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the ability to sort a list in an ascending format"
     },
     {
       "name": "sort-descending",
-      "categories": "Arrows"
+      "categories": "Arrows",
+      "description": "Indicates the ability to sort a list in a descending format"
     },
     {
       "name": "camera",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to open the camera settings"
     },
     {
       "name": "camera-roll",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the camera-roll content"
     },
     {
       "name": "captions",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to show or hide captions in a video context"
     },
     {
       "name": "forward",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates a forward movement in a video context"
     },
     {
       "name": "flash",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to enable a flash feature"
     },
     {
       "name": "mute",
-      "categories": ["Media controls", "Toggle"]
+      "categories": ["Media controls", "Toggle"],
+      "description": "Indicates the ability to mute the audio"
     },
     {
       "name": "music-off",
-      "categories": ["Media controls", "Toggle"]
+      "categories": ["Media controls", "Toggle"],
+      "description": "Indicates the ability to turn the music off"
     },
     {
       "name": "music-on",
-      "categories": ["Media controls", "Toggle"]
+      "categories": ["Media controls", "Toggle"],
+      "description": "Indicates the ability to turn the music on"
     },
     {
       "name": "pause",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to pause video or audio"
     },
     {
       "name": "play",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to play a video"
     },
     {
       "name": "rewind",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to rewind a video content"
     },
     {
       "name": "sound",
-      "categories": ["Media controls", "Toggle"]
+      "categories": ["Media controls", "Toggle"],
+      "description": "Indicates the ability to turn the audio on"
     },
     {
       "name": "video-camera",
-      "categories": "Media controls"
+      "categories": "Media controls",
+      "description": "Indicates the ability to use a video camera"
     },
     {
       "name": "android-share",
-      "categories": "Platform specific"
+      "categories": "Platform specific",
+      "description": "On Android, indicates the ability to share an element"
     },
     {
       "name": "check",
-      "categories": "Platform specific"
+      "categories": "Platform specific",
+      "description": "Instead of a radio button on iOS, use the check icon"
     },
     {
       "name": "hand-pointing",
-      "categories": "Platform specific"
+      "categories": "Platform specific",
+      "description": "Indicates a hand point gesture"
     },
     {
       "name": "share",
-      "categories": "Platform specific"
+      "categories": "Platform specific",
+      "description": "On iOS, indicates the ability to share an element"
     },
     {
       "name": "send",
-      "categories": "Platform specific"
+      "categories": "Platform specific",
+      "description": "Indicates the ability to send a message"
     },
     {
       "name": "face-happy",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates a super happy feeling or satisfied opinion"
     },
     {
       "name": "face-neutral",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates a neutral feeling or opinion"
     },
     {
       "name": "face-sad",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates a sad/unsatisfied feeling or opinion"
     },
     {
       "name": "face-smiley",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates a mild happy feeling or opinion"
     },
     {
       "name": "heart",
-      "categories": ["Reactions and ratings", "Toggle"]
+      "categories": ["Reactions and ratings", "Toggle"],
+      "description": "Indicates a loved feedback"
     },
     {
       "name": "heart-outline",
-      "categories": ["Reactions and ratings", "Toggle"]
+      "categories": ["Reactions and ratings", "Toggle"],
+      "description": "Indicates an unselected love reaction"
     },
     {
       "name": "star",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates the ability to add to favorites, or to represent a review rating"
     },
     {
       "name": "star-half",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates a half-star review rating"
     },
     {
       "name": "smiley-outline",
-      "categories": "Reactions and ratings"
+      "categories": "Reactions and ratings",
+      "description": "Indicates an unselected mild happy reaction"
     },
     {
       "name": "facebook",
-      "categories": "Social"
+      "categories": "Social",
+      "description": "Indicates a Facebook service"
     },
     {
       "name": "gmail",
-      "categories": "Social"
+      "categories": "Social",
+      "description": "Indicates a Gmail service"
     },
     {
       "name": "google-plus",
-      "categories": "Social"
+      "categories": "Social",
+      "description": "Indicates a Google Plus service"
     },
     {
       "name": "twitter",
-      "categories": "Social"
+      "categories": "Social",
+      "description": "Indicates a Twitter service"
     },
     {
       "name": "pinterest",
-      "categories": ["Social", "Utility and tools"]
+      "categories": ["Social", "Utility and tools"],
+      "description": "Indicates the Pinterest logo"
     },
     {
       "name": "workflow-status-all",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates the workflow status all"
     },
     {
       "name": "workflow-status-canceled",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as canceled"
     },
     {
       "name": "workflow-status-halted",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as halted"
     },
     {
       "name": "workflow-status-in-progress",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as in progress"
     },
     {
       "name": "workflow-status-ok",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as completed or a success"
     },
     {
       "name": "workflow-status-problem",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as a problem or to convey an error"
     },
     {
       "name": "workflow-status-unstarted",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as unstarted"
     },
     {
       "name": "workflow-status-warning",
-      "categories": "Status"
+      "categories": "Status",
+      "description": "Indicates an element's state as warning"
     },
     {
       "name": "alphabetical",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates an alphabetical list"
     },
     {
       "name": "text-align-center",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates a text centered-alignment"
     },
     {
       "name": "text-align-left",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates a text left-alignment"
     },
     {
       "name": "text-align-right",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates a text right-alignment"
     },
     {
       "name": "text-all-caps",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates all caps text format"
     },
     {
       "name": "text-extra-small",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates an extra-small text size"
     },
     {
       "name": "text-large",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates a large text size"
     },
     {
       "name": "text-line-height",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates the ability to change a text line-height"
     },
     {
       "name": "text-medium",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates a medium text size"
     },
     {
       "name": "overlay-text",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates text overlay settings"
     },
     {
       "name": "text-sentence-case",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates text sentence case format"
     },
     {
       "name": "text-size",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates the ability to change the text size settings"
     },
     {
       "name": "text-small",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates a small text size"
     },
     {
       "name": "text-spacing",
-      "categories": "Text"
+      "categories": "Text",
+      "description": "Indicates the ability to change text spacing between characters"
     },
     {
       "name": "calendar",
-      "categories": "Time"
+      "categories": "Time",
+      "description": "Indicates date selection"
     },
     {
       "name": "clock",
-      "categories": "Time"
+      "categories": "Time",
+      "description": "Indicates time"
     },
     {
       "name": "history",
-      "categories": "Time"
+      "categories": "Time",
+      "description": "Indicates history view"
     },
     {
       "name": "eye",
-      "categories": "Toggle"
+      "categories": "Toggle",
+      "description": "Indicates the ability to view data, or convey a number of views"
     },
     {
       "name": "eye-hide",
-      "categories": "Toggle"
+      "categories": "Toggle",
+      "description": "Indicates the ability to hide items, such as passwords or confidential information"
     },
     {
       "name": "globe",
-      "categories": "Toggle"
+      "categories": "Toggle",
+      "description": "Indicates the ability to claim a website account"
     },
     {
       "name": "globe-checked",
-      "categories": "Toggle"
+      "categories": "Toggle",
+      "description": "Indicates a profile-verified URL"
     },
     {
       "name": "360",
@@ -443,63 +546,77 @@
     {
       "name": "accessibility",
       "categories": "Utility and tools",
-      "description": "Use this icon to indicate accessibility features or adjustments"
+      "description": "Indicates accessibility features or adjustments"
     },
     {
       "name": "apps",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a collection of apps"
     },
     {
       "name": "alert",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates an alert message bringing awareness to an important content"
     },
     {
       "name": "angled-pin",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the number of times a Pin was saved to a board"
     },
     {
       "name": "bell",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates notifications"
     },
     {
       "name": "cancel",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates closing or dismissing a message"
     },
     {
       "name": "canonical-pin",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a list/sequence of saved Pins"
     },
     {
       "name": "check-circle",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a to-do list"
     },
     {
       "name": "clear",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to clear the entered text in form elements"
     },
     {
       "name": "code",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a code view or connection"
     },
     {
       "name": "color-picker",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to pick a specific color"
     },
     {
       "name": "color-solid",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a solid color"
     },
     {
       "name": "color-split",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates color split"
     },
     {
       "name": "compass",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates directions"
     },
     {
       "name": "compose",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to compose a new content"
     },
     {
       "name": "conversion-tag",
@@ -507,7 +624,8 @@
     },
     {
       "name": "copy-to-clipboard",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to copy items to clipboard"
     },
     {
       "name": "credit-card",
@@ -515,19 +633,23 @@
     },
     {
       "name": "crop",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to crop an image"
     },
     {
       "name": "dash",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates there isn't data/numbers to show"
     },
     {
       "name": "download",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to download items"
     },
     {
       "name": "drag-drop",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to drag and drop items"
     },
     {
       "name": "duplicate",
@@ -535,79 +657,98 @@
     },
     {
       "name": "edit",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to edit something"
     },
     {
       "name": "ellipsis",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates an overflow menu"
     },
     {
       "name": "envelope",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to send content"
     },
     {
       "name": "file-box",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a file box collection"
     },
     {
       "name": "file-unknown",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates an unknown file"
     },
     {
       "name": "fill-opaque",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates an opaque fill"
     },
     {
       "name": "fill-transparent",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a transparent fill"
     },
     {
       "name": "filter",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to filter options"
     },
     {
       "name": "folder",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a folder storage"
     },
     {
       "name": "flag",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a flagged item"
     },
     {
       "name": "flashlight",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a visual search feature"
     },
     {
       "name": "flip-horizontal",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to flip an image horizontally"
     },
     {
       "name": "flip-vertical",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to flip an image vertically"
     },
     {
       "name": "gif",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a GIF media"
     },
     {
       "name": "handle",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to reorder elements"
     },
     {
       "name": "home",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a home screen or feed"
     },
     {
       "name": "idea-pin",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates IdeaPin format"
     },
     {
       "name": "impressum",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a legal statement of ownership/authorship"
     },
     {
       "name": "info-circle",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates more information is available"
     },
     {
       "name": "information",
@@ -615,43 +756,53 @@
     },
     {
       "name": "key",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates keywords"
     },
     {
       "name": "knoop",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a loading behavior"
     },
     {
       "name": "layout",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a layout setting"
     },
     {
       "name": "lightbulb",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates insights or educational content such as trends"
     },
     {
       "name": "lips",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to try a lipstick color"
     },
     {
       "name": "link",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a link source, to copy a link to clipboard, or to jump into a new page section"
     },
     {
       "name": "location",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a location orientation"
     },
     {
       "name": "lock",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates private content"
     },
     {
       "name": "logo-large",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a large logo size"
     },
     {
       "name": "logo-small",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a small logo size"
     },
     {
       "name": "logout",
@@ -659,152 +810,189 @@
     },
     {
       "name": "megaphone",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates engagement or announcement"
     },
     {
       "name": "menu",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a condensed menu"
     },
 
     {
       "name": "nut",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates setting options"
     },
     {
       "name": "people",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates users"
     },
     {
       "name": "person",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates profile or a person"
     },
     {
       "name": "phone",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a phone service or number"
     },
     {
       "name": "pin",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to save Pins"
     },
     {
       "name": "pincode",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to scan and open a Pincode"
     },
     {
       "name": "publish",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to move Pins within sections/boards"
     },
     {
       "name": "question-mark",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates help is available"
     },
     {
       "name": "refresh",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to refresh content"
     },
     {
       "name": "reorder-images",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to reorder images"
     },
     {
       "name": "replace",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to replace an item, usually an image"
     },
     {
       "name": "report",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to report an inappropriate content"
     },
     {
       "name": "remove",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to remove an item"
     },
     {
       "name": "rotate",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to rotate an element"
     },
     {
       "name": "search",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to reorder images"
     },
     {
       "name": "security",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates security standards"
     },
     {
       "name": "shopping-bag",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a shopping bag on shopping experience"
     },
     {
       "name": "skintone",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to select skintones"
     },
     {
       "name": "sparkle",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates more ideas and recommendations"
     },
     {
       "name": "speech",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to comment"
     },
     {
       "name": "speech-ellipsis",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the messages inbox"
     },
     {
       "name": "speech-exclamation-point",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates an alert message"
     },
     {
       "name": "story-pin",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a Story Pin"
     },
     {
       "name": "tag",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to view products and shop"
     },
     {
       "name": "terms",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates terms and services"
     },
     {
       "name": "trash-can",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to delete items"
     },
     {
       "name": "upload-feed",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to upload the feed"
     },
     {
       "name": "visit",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates an external link or domain"
     },
     {
       "name": "margins-large",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a large margin configuration"
     },
     {
       "name": "margins-medium",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a medium margin configuration"
     },
     {
       "name": "margins-small",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a small margin configuration"
     },
     {
       "name": "view-type-default",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to change the view type to default"
     },
     {
       "name": "view-type-dense",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to change the view type to dense"
     },
     {
       "name": "view-type-list",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to change the view type to a list"
     },
     {
       "name": "view-type-space",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to change the view type to space"
     }
   ]
 }
