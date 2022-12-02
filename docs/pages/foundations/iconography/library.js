@@ -179,7 +179,7 @@ export default function IconPage(): Node {
       <Flex gap={3} wrap>
         {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
           const filteredIconData = iconCategoryData.icons.find((icon) => icon.name === iconName);
-          console.log(iconOptions.sort());
+
           return (
             <IconTile
               key={iconName}
