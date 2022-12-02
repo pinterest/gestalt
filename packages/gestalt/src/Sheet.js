@@ -78,6 +78,8 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
+const PADDING_BOINTS = 6;
+
 /*
 
 Internal components <Header> and <DismissButton>
@@ -85,7 +87,7 @@ Internal components <Header> and <DismissButton>
 */
 function Header({ heading }: {| heading: string |}) {
   return (
-    <Box display="flex" justifyContent="start" padding={8}>
+    <Box display="flex" justifyContent="start" padding={PADDING_BOINTS}>
       <Heading size="500" accessibilityLevel={1}>
         {heading}
       </Heading>
@@ -244,7 +246,7 @@ function Sheet(props: SheetProps): Node {
                 <ScrollBoundaryContainerProvider>
                   <InternalScrollBoundaryContainer
                     onScroll={updateShadows}
-                    padding={8}
+                    padding={PADDING_BOINTS}
                     ref={contentRef}
                   >
                     {children}
@@ -256,7 +258,7 @@ function Sheet(props: SheetProps): Node {
                     position="relative"
                     fit
                   >
-                    <Box padding={8}>{footer}</Box>
+                    <Box padding={PADDING_BOINTS}>{footer}</Box>
                   </Box>
                 )}
               </Box>
