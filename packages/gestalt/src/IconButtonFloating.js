@@ -6,6 +6,18 @@ import icons from './icons/index.js';
 
 type Props = {|
   /**
+   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityControls?: string,
+  /**
+   * Indicates that IconButtonFloating hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityExpanded?: boolean,
+  /**
+   * Indicates that this component controls the appearance of interactive popup elements, such as Dropdown or Modal. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityHaspopup?: boolean,
+  /**
    * String that clients such as VoiceOver will read to describe the icon button. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/iconbuttonfloating#Accessibility) for more info.
    */
   accessibilityLabel: string,
@@ -24,18 +36,6 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
-  /**
-   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
-   */
-  accessibilityControls?: string,
-  /**
-   * Indicates that IconButtonFloating hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
-   */
-  accessibilityExpanded?: boolean,
-  /**
-   * Indicates that this component controls the appearance of interactive popup elements, such as Dropdown or Modal. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
-   */
-  accessibilityHaspopup?: boolean,
   /**
    * Toggles between binary states: on/off, selected/unselected, open/closed
    */
