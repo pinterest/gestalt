@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import {
   Box,
   Button,
@@ -26,7 +26,7 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
       }
       size="sm"
     >
-      <Box paddingX={6}>
+      <Fragment>
         <Box marginBottom={6}>
           <TextField
             id="name"
@@ -44,7 +44,7 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
           name="languages"
           onChange={() => {}}
         />
-      </Box>
+      </Fragment>
     </Modal>
   );
 }

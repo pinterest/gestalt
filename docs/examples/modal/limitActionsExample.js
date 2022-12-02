@@ -18,12 +18,10 @@ function ModalWithSubHeading({ onDismiss }: {| onDismiss: () => void |}) {
       }
       size="sm"
     >
-      <Box paddingX={6}>
-        <Text>
-          Want to continue where you left off? Click &quot;Resume&quot; to continue creating your
-          account or &quot;Cancel&quot; to start over.
-        </Text>
-      </Box>
+      <Text>
+        Want to continue where you left off? Click &quot;Resume&quot; to continue creating your
+        account or &quot;Cancel&quot; to start over.
+      </Text>
     </Modal>
   );
 }

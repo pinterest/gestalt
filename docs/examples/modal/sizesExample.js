@@ -43,9 +43,7 @@ export default function SizesExample(): Node {
               footer={<Heading size="500">Footer</Heading>}
               size="sm"
             >
-              <Box padding={6}>
-                <Heading size="500">Children</Heading>
-              </Box>
+              <Heading size="500">Children</Heading>
             </Modal>
           </Layer>
         )}

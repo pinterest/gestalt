@@ -28,7 +28,7 @@ Object {
               style="width: 100%;"
             >
               <div
-                class="box flexGrow overflowAuto paddingX0 paddingY0 relative"
+                class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
                 style="height: 100%;"
               >
                 Modal content
@@ -61,7 +61,7 @@ Object {
             style="width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX0 paddingY0 relative"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               Modal content

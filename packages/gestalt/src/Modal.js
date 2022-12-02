@@ -40,6 +40,10 @@ type Props = {|
    */
   footer?: Node,
   /**
+   * The main Modal content has a default padding. For those cases where full bleed is needed, set `fullBleed` to "false".
+   */
+  fullBleed?: boolean,
+  /**
    * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
   heading?: Node,
@@ -103,6 +107,7 @@ export default function Modal({
   closeOnOutsideClick = true,
   onDismiss,
   footer,
+  fullBleed = false,
   heading,
   role = 'dialog',
   size = 'sm',
@@ -177,7 +182,7 @@ export default function Modal({
                     {typeof heading === 'string' ? (
                       <Header align={align} heading={heading} subHeading={subHeading} />
                     ) : (
-                      heading
+                      <Box padding={6}>{heading}</Box>
                     )}
                   </Box>
                 )}
@@ -188,7 +193,11 @@ export default function Modal({
                   </Box>
                 ) : (
                   <ScrollBoundaryContainerProvider>
-                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
+                    <InternalScrollBoundaryContainer
+                      onScroll={updateShadows}
+                      ref={contentRef}
+                      padding={fullBleed ? 0 : 6}
+                    >
                       {children}
                     </InternalScrollBoundaryContainer>
                   </ScrollBoundaryContainerProvider>
