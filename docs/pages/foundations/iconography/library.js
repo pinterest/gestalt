@@ -140,10 +140,16 @@ function findIconByCategory(icon?: string, category: string): IconData {
 export default function IconPage(): Node {
   const [showToastText, setShowToastText] = useState(false);
 
-  const iconOptions = icons.map((name, index) => ({
-    label: name,
-    value: `value${index}`,
-  }));
+  const iconOptions = icons
+    .map((name, index) => ({
+      label: name,
+      value: `value${index}`,
+    }))
+    .sort(({ label: aName }, { label: bName }) => {
+      if (aName < bName) return -1;
+      if (aName > bName) return 1;
+      return 0;
+    });
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
   const [inputValue, setInputValue] = useState();
@@ -173,6 +179,7 @@ export default function IconPage(): Node {
       <Flex gap={3} wrap>
         {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
           const filteredIconData = iconCategoryData.icons.find((icon) => icon.name === iconName);
+
           return (
             <IconTile
               key={iconName}
