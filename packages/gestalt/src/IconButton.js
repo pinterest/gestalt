@@ -54,6 +54,7 @@ type IconButtonType = {|
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
+  accessibilityPopupRole?: 'menu' | 'dialog',
   role?: 'button',
   selected?: boolean,
   type?: 'submit' | 'button',
@@ -206,13 +207,19 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       </InternalLink>
     );
   } else {
-    const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected, type } =
-      props;
+    const {
+      accessibilityControls,
+      accessibilityExpanded,
+      accessibilityHaspopup,
+      accessibilityPopupRole,
+      selected,
+      type,
+    } = props;
     buttonComponent = (
       <button
         aria-controls={accessibilityControls}
         aria-expanded={accessibilityExpanded}
-        aria-haspopup={accessibilityHaspopup}
+        aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
         aria-label={accessibilityLabel}
         className={classnames(styles.parentButton)}
         disabled={disabled}

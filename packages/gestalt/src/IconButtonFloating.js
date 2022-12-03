@@ -10,13 +10,13 @@ type Props = {|
    */
   accessibilityControls?: string,
   /**
-   * Indicates that IconButtonFloating hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Used to indicates that IconButtonFloating hides or exposes a Dropdown and details whether it is currently open or closed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityExpanded?: boolean,
   /**
-   * Indicates that this component controls the appearance of interactive popup elements, such as Dropdown or Modal. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
    */
-  accessibilityHaspopup?: boolean,
+  accessibilityPopupRole?: 'menu' | 'dialog',
   /**
    * String that clients such as VoiceOver will read to describe the icon button. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/iconbuttonfloating#Accessibility) for more info.
    */
@@ -28,7 +28,7 @@ type Props = {|
   /**
    * Callback fired when the component is clicked, pressed or tapped.
    */
-  onClick?: ({|
+  onClick: ({|
     event:
       | SyntheticMouseEvent<HTMLButtonElement>
       | SyntheticKeyboardEvent<HTMLButtonElement>
@@ -37,7 +37,7 @@ type Props = {|
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
-   * Toggles between binary states: on/off, selected/unselected, open/closed
+   * Indicates whether the associated Dropdown is open or close. Not used when IconButtonFloating opens a dialog.
    */
   selected?: boolean,
 |};
@@ -58,7 +58,7 @@ const IconButtonFloatingWithForwardRef: React$AbstractComponent<Props, unionRefs
   {
     accessibilityControls,
     accessibilityExpanded,
-    accessibilityHaspopup,
+    accessibilityPopupRole,
     accessibilityLabel,
     icon,
     onClick,
@@ -71,7 +71,7 @@ const IconButtonFloatingWithForwardRef: React$AbstractComponent<Props, unionRefs
       <IconButton
         accessibilityControls={accessibilityControls}
         accessibilityExpanded={accessibilityExpanded}
-        accessibilityHaspopup={accessibilityHaspopup}
+        accessibilityPopupRole={accessibilityPopupRole}
         accessibilityLabel={accessibilityLabel}
         bgColor="white"
         icon={icon}

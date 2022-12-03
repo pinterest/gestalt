@@ -34,7 +34,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <IconButtonFloating
         accessibilityControls="sections-dropdown-example"
         accessibilityExpanded={open}
-        accessibilityHaspopup
+        accessibilityPopupRole="menu"
         accessibilityLabel="Create Pin Menu"
         icon="add"
         onClick={() => setOpen((prevVal) => !prevVal)}
@@ -99,7 +99,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             title="When not to use"
             description={`
             - There isn't a need for a fixed IconButtonFloating visible all the time on the screen.
-            - To replace [IconButton](/web/iconbutton) established patterns, such as nav elements.
+            - To replace [IconButton](/web/iconbutton) established patterns, such as navigation elements.
         `}
           />
         </MainSection.Subsection>
@@ -114,7 +114,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Layer notification badges on top of IconButtonFloating. This pattern is typically used on IconButtons part of a nav component, and IconButtonFloating shouldn't contain notifications found elsewhere on a screen, as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
+            description="Layer notification badges on top of IconButtonFloating. This pattern is typically used on IconButtons part of a navigation component, and IconButtonFloating shouldn't contain notifications found elsewhere on a screen, as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -150,9 +150,9 @@ IconButtonFloating conveys the component behavior using iconography. IconButtonF
 
 If IconButtonFloating is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
 
-- \`accessibilityControls\`: informs the screen reader that IconButtonFloating controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
-- \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to IconButtonFloating. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
-- \`accessibilityExpanded\`: informs the screen reader whether an anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityControls\`: informs the screen reader that IconButtonFloating controls the display of a [Dropdown](/web/dropdown). Not needed if IconButtonFloating opens a Modal or other dialog. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityPopupRole\`: informs the screen reader that there’s either a \`menu\` component, like Dropdown, or a \`dialog\` component, like Modal or Popover, attached to IconButtonFloating. It populates [aria-haspopup](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup).
+- \`accessibilityExpanded\`: informs the screen reader whether an anchored Dropdown component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
         >
           <MainSection.Card cardSize="lg" />
@@ -172,22 +172,10 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           description="IconButtonFloating size is only available in a single size, 56px. Keeping the size consistent will promote a cohesive Pinner experience and avoid usability issues. "
         />
         <MainSection.Subsection
-          title="Color"
-          description={`
-          IconButtonFloating is provided in two colors schemes. It can be presented in combinations of icon and background colors.
-
-          - Dark Gray Icon ("darkGray") + White ("white") background + $elevation-floating
-          Color combination in light-mode UI.
-
-          -  White ("white") Icon + $color-background-elevation-floating
-          Color combination in dark-mode UI.
-          `}
-        />
-        <MainSection.Subsection
           title="Elevation"
           description={`
           **Floating**
-          IconButtonFloating is lifted off of the background with shadows built-in ($elevation-floating). The floating elevation serves as an affordance for floating actions.
+          IconButtonFloating is lifted off of the background with shadows built-in ($elevation-floating). It must be absolutely positioned to achieve the floating effect.
 
           In dark mode, the elevation is achieved with colors instead of shadows ($color-background-elevation-floating). See [elevation guidelines](/foundations/elevation) for reference. `}
         />

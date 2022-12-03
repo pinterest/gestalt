@@ -145,6 +145,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               'Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
           },
           {
+            name: 'accessibilityPopupRole',
+            type: `'menu' | 'dialog'`,
+            description:
+              'Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
+          },
+          {
             name: 'role',
             type: 'button',
             description:
