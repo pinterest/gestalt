@@ -20,7 +20,7 @@ export default function Example(): Node {
       <IconButtonFloating
         accessibilityControls="sections-dropdown-example"
         accessibilityExpanded={open}
-        accessibilityHaspopup
+        accessibilityPopupRole="menu"
         accessibilityLabel="Create Pin Menu"
         icon="add"
         onClick={() => setOpen((prevVal) => !prevVal)}
