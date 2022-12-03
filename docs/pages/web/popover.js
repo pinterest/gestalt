@@ -88,7 +88,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="main-example"
-          color="white"
+          color="default"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -237,7 +237,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="popover-search"
-          color="white"
+          color="default"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -256,9 +256,10 @@ function PopoverExample() {
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
             size="xl"
+            showDismissButton
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
@@ -465,7 +466,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="popover-search-boards"
-          color="white"
+          color="default"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -485,9 +486,10 @@ function PopoverExample() {
             positionRelativeToAnchor={false}
             showCaret
             size="xl"
+            showDismissButton
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
@@ -550,8 +552,6 @@ For the \`role\` prop, use:
               <SandpackExample
                 code={defaultExample}
                 name="Aria example"
-                hideEditor
-                hideControls
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -593,7 +593,7 @@ We recommend using \`"xs\`" for education Popovers and \`"xl\`" for more complex
         <MainSection.Subsection
           title="Color and caret"
           description={`
-When building in-product education, be sure to pass in \`color="blue"\` and \`showCaret="true"\`, as seen in the first example, and use [Experience HQ](https://ehq.pinadmin.com/) for the configuration. For Popovers that aren’t education, use the default \`color="white"\` and \`showCaret="false"\`, as seen in the second example. Avoid using any other configurations as they are legacy colors.
+When building in-product education, be sure to pass in \`color="blue"\` and \`showCaret="true"\`, as seen in the first example, and use [Experience HQ](https://ehq.pinadmin.com/) for the configuration. For Popovers that aren’t education, use the default \`color="default"\` and \`showCaret="false"\`, as seen in the second example. Avoid using any other configurations as they are legacy colors.
 `}
         >
           <MainSection.Card
@@ -713,7 +713,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="popover-search-board-2"
-          color="white"
+          color="default"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -824,7 +824,7 @@ function PopoverExample() {
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Button
-                  color="white"
+                  color="default"
                   onClick={() => setOpen(false)}
                   size="lg"
                   text="Got it!"
@@ -860,8 +860,6 @@ function PopoverExample() {
               <SandpackExample
                 code={defaultExample}
                 name="Dismiss button example"
-                hideEditor
-                hideControls
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -974,9 +972,10 @@ function ScrollBoundaryContainerExample() {
               onDismiss={() => setOpenPopover(false)}
               positionRelativeToAnchor={false}
               size="xl"
+              showDismissButton
             >
               <Box width={360}>
-                <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+                <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                   <Flex direction="column" gap={{ column: 6, row: 0 }}>
                     <Text align="center" color="default" weight="bold">
                       Save to board
@@ -1022,7 +1021,7 @@ function ScrollBoundaryContainerExample() {
                     flex="grow"
                   >
                     <Button
-                      color="white"
+                      color="default"
                       text="Delete"
                       size="lg"
                       onClick={() => setShowSheet(false)}
@@ -1121,7 +1120,7 @@ function Example() {
   return (
     <ScrollBoundaryContainer>
       <Box
-        color="white"
+        color="default"
         display="flex"
         alignItems="center"
         ref={viewRef}
@@ -1212,7 +1211,7 @@ function Example() {
 
   return (
     <ScrollBoundaryContainer height={200}>
-      <Box color="white" ref={viewRef} padding={4} width={600}>
+      <Box color="default" ref={viewRef} padding={4} width={600}>
         <Flex gap={{ column: 0, row: 4 }}>
           <Box width={200}>
             <Text>
