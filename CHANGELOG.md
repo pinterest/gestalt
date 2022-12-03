@@ -1,3 +1,9 @@
+## 83.5.11 (Dec 3, 2022)
+
+### Patch
+
+- Docs: Update alphabetical order in icon library ([#2538](https://github.com/pinterest/gestalt/pull/2538)) - [Preview link](https://deploy-preview-2538--gestalt.netlify.app)
+
 ## 83.5.10 (Dec 2, 2022)
 
 ### Patch
