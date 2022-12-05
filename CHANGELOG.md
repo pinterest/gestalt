@@ -1,3 +1,9 @@
+## 83.6.0 (Dec 5, 2022)
+
+### Minor
+
+- IconButtonFloating: Add new component for floating actions ([#2524](https://github.com/pinterest/gestalt/pull/2524)) - [Preview link](https://deploy-preview-2524--gestalt.netlify.app)
+
 ## 83.5.12 (Dec 5, 2022)
 
 ### Patch
