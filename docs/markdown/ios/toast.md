@@ -153,7 +153,7 @@ Placement is always centered at the top of the screen and not blocking any navig
   </Group>
   <Group>
   <Dont title="Don't" />
-  - Use lengthy, technical jargon or local idioms that will be hard to translate to other languages
+  - Use long technical jargon or local idioms that will be hard to translate to other languages
   </Group>
 </TwoCol>
 
