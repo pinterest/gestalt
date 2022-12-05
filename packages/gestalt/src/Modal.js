@@ -40,10 +40,6 @@ type Props = {|
    */
   footer?: Node,
   /**
-   * The main Modal content has a default padding. For those cases where full bleed is needed, set `fullBleed` to "false".
-   */
-  fullBleed?: boolean,
-  /**
    * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
   heading?: Node,
@@ -51,6 +47,10 @@ type Props = {|
    * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
    */
   onDismiss: () => void,
+  /**
+   * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
+   */
+  padding?: 'default' | 'none',
   /**
    * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
    */
@@ -107,7 +107,7 @@ export default function Modal({
   closeOnOutsideClick = true,
   onDismiss,
   footer,
-  fullBleed = false,
+  padding = 'default',
   heading,
   role = 'dialog',
   size = 'sm',
@@ -196,7 +196,7 @@ export default function Modal({
                     <InternalScrollBoundaryContainer
                       onScroll={updateShadows}
                       ref={contentRef}
-                      padding={fullBleed ? 0 : 6}
+                      padding={padding === 'none' ? 0 : 6}
                     >
                       {children}
                     </InternalScrollBoundaryContainer>
