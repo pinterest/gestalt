@@ -13,6 +13,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
+        badge="pilot"
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
