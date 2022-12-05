@@ -1,3 +1,9 @@
+## 83.5.12 (Dec 5, 2022)
+
+### Patch
+
+- Popover: Update docs examples ([#2539](https://github.com/pinterest/gestalt/pull/2539)) - [Preview link](https://deploy-preview-2539--gestalt.netlify.app)
+
 ## 83.5.11 (Dec 3, 2022)
 
 ### Patch
