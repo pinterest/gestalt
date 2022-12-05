@@ -88,7 +88,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="main-example"
-          color="default"
+          color="white"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -237,7 +237,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="popover-search"
-          color="default"
+          color="white"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -466,7 +466,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="popover-search-boards"
-          color="default"
+          color="white"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -593,7 +593,7 @@ We recommend using \`"xs\`" for education Popovers and \`"xl\`" for more complex
         <MainSection.Subsection
           title="Color and caret"
           description={`
-When building in-product education, be sure to pass in \`color="blue"\` and \`showCaret="true"\`, as seen in the first example, and use [Experience HQ](https://ehq.pinadmin.com/) for the configuration. For Popovers that aren’t education, use the default \`color="default"\` and \`showCaret="false"\`, as seen in the second example. Avoid using any other configurations as they are legacy colors.
+When building in-product education, be sure to pass in \`color="blue"\` and \`showCaret="true"\`, as seen in the first example, and use [Experience HQ](https://ehq.pinadmin.com/) for the configuration. For Popovers that aren’t education, use the default \`color="white"\` and \`showCaret="false"\`, as seen in the second example. Avoid using any other configurations as they are legacy colors.
 `}
         >
           <MainSection.Card
@@ -713,7 +713,7 @@ function PopoverExample() {
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
           accessibilityControls="popover-search-board-2"
-          color="default"
+          color="white"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
           ref={anchorRef}
@@ -824,7 +824,7 @@ function PopoverExample() {
                   New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
                 </Text>
                 <Button
-                  color="default"
+                  color="white"
                   onClick={() => setOpen(false)}
                   size="lg"
                   text="Got it!"
@@ -1021,7 +1021,7 @@ function ScrollBoundaryContainerExample() {
                     flex="grow"
                   >
                     <Button
-                      color="default"
+                      color="white"
                       text="Delete"
                       size="lg"
                       onClick={() => setShowSheet(false)}
