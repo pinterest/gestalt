@@ -16,7 +16,7 @@ type Props = {|
   /**
    * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
    */
-  accessibilityPopupRole?: 'menu' | 'dialog',
+  accessibilityPopupRole: 'menu' | 'dialog',
   /**
    * String that clients such as VoiceOver will read to describe the icon button. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/iconbuttonfloating#Accessibility) for more info.
    */
