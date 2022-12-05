@@ -256,9 +256,10 @@ function PopoverExample() {
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
             size="xl"
+            showDismissButton
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
@@ -485,9 +486,10 @@ function PopoverExample() {
             positionRelativeToAnchor={false}
             showCaret
             size="xl"
+            showDismissButton
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
@@ -550,8 +552,6 @@ For the \`role\` prop, use:
               <SandpackExample
                 code={defaultExample}
                 name="Aria example"
-                hideEditor
-                hideControls
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -860,8 +860,6 @@ function PopoverExample() {
               <SandpackExample
                 code={defaultExample}
                 name="Dismiss button example"
-                hideEditor
-                hideControls
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -974,9 +972,10 @@ function ScrollBoundaryContainerExample() {
               onDismiss={() => setOpenPopover(false)}
               positionRelativeToAnchor={false}
               size="xl"
+              showDismissButton
             >
               <Box width={360}>
-                <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+                <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                   <Flex direction="column" gap={{ column: 6, row: 0 }}>
                     <Text align="center" color="default" weight="bold">
                       Save to board
@@ -1121,7 +1120,7 @@ function Example() {
   return (
     <ScrollBoundaryContainer>
       <Box
-        color="white"
+        color="default"
         display="flex"
         alignItems="center"
         ref={viewRef}
@@ -1212,7 +1211,7 @@ function Example() {
 
   return (
     <ScrollBoundaryContainer height={200}>
-      <Box color="white" ref={viewRef} padding={4} width={600}>
+      <Box color="default" ref={viewRef} padding={4} width={600}>
         <Flex gap={{ column: 0, row: 4 }}>
           <Box width={200}>
             <Text>
