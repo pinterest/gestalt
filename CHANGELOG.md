@@ -1,3 +1,9 @@
+## 84.0.1 (Dec 6, 2022)
+
+### Patch
+
+- Datepicker: update locales in Docs ([#2540](https://github.com/pinterest/gestalt/pull/2540)) - [Preview link](https://deploy-preview-2540--gestalt.netlify.app)
+
 ## 84.0.0 (Dec 6, 2022)
 
 ### Major
