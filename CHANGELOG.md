@@ -1,3 +1,9 @@
+## 84.0.0 (Dec 6, 2022)
+
+### Major
+
+- Modal: add default padding to main content and heading and padding prop ([#2536](https://github.com/pinterest/gestalt/pull/2536)) - [Preview link](https://deploy-preview-2536--gestalt.netlify.app)
+
 ## 83.6.2 (Dec 6, 2022)
 
 ### Patch
