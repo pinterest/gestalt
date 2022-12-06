@@ -1,3 +1,9 @@
+## 83.6.1 (Dec 6, 2022)
+
+### Patch
+
+- Docs: November newsletter ([#2542](https://github.com/pinterest/gestalt/pull/2542)) - [Preview link](https://deploy-preview-2542--gestalt.netlify.app)
+
 ## 83.6.0 (Dec 5, 2022)
 
 ### Minor
