@@ -68,7 +68,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
               alt={imageAltText ?? ''}
               naturalHeight={900}
               naturalWidth={1600}
-              fit="cover"
+              fit="contain"
             />
           </Mask>
         </Box>

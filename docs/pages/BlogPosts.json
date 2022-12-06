@@ -29,6 +29,52 @@
       ]
     },
     {
+      "month": "November",
+      "summary": "",
+      "posts": [
+        {
+          "title": "Gestalt Eng November Newsletter",
+          "audience": ["Engineering"],
+          "content": "A recap of significant changes from November."
+        },
+        {
+          "title": "New icon library UI",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/eb/af/06/ebaf069996f33fde8bd1b9658c5e92b0.png",
+          "imageAltText": "Screenshot of icon library",
+          "content": "We overhauled our [icon library](https://gestalt.pinterest.systems/foundations/iconography/library)! Icons are searchable by name and description. Click the icon card to copy the icon name to your clipboard for easy use within Icon or IconButton."
+        },
+        {
+          "title": "Rich text styling in SlimBanner",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/95/3f/d8/953fd857709cf299fddfe23c59708c6c.png",
+          "imageAltText": "Screenshot of SlimBanner rich text styling",
+          "content": "[SlimBanner's `message` prop](https://gestalt.pinterest.systems/web/slimbanner#Message) now accepts Text in addition to strings, allowing for rich text styling — including links!"
+        },
+        {
+          "title": "New Table.RowDrawer subcomponent",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/32/ab/8a/32ab8a86cce6a501baf75497e39831b7.png",
+          "imageAltText": "Screenshot of Table.RowDrawer",
+          "content": "Table now includes a [new Table.RowDrawer subcomponent](https://gestalt.pinterest.systems/web/table#Table.RowDrawer) to allow for expandable content within a row. In this example, closing the SlimBanner would collapse the expanded row to be indistinguishable from the other rows."
+        },
+        {
+          "title": "Component updates: Box, Button, Flex, IconButton, Image, Link, TapArea, Popover",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/8f/70/06/8f7006e878b1cf29164b8fbda93b07fa.png",
+          "imageAltText": "Screenshot of Popover with dismiss button",
+          "content": "[Button](https://gestalt.pinterest.systems/web/button#rel-and-target), [IconButton](https://gestalt.pinterest.systems/web/iconbutton#Role), [Link](https://gestalt.pinterest.systems/web/link#Target), and [TapArea](https://gestalt.pinterest.systems/web/taparea) have improved accessibility for screen readers when opening in a new tab/window, providing the user with necessary context to understand the element's behavior. [Image](https://gestalt.pinterest.systems/web/image) now passes through the `event` object in `onLoad` and `onError` to allow for more precise responses to these events. We replaced Image's `importance` prop with `fetchPriority` for use in performance tweaks in Chromium-based browsers. Image also now always outputs `<img>` — previously it would output a `<div>` when the image was scaled, as a hack to support IE11. [Popover](https://gestalt.pinterest.systems/web/popover#Dismiss-button) has a new prop, `showDismissButton`, to give users an obvious affordance to close the element. Finally, [Box](https://gestalt.pinterest.systems/web/box) and [Flex](https://gestalt.pinterest.systems/web/flex) now include responsive props for `alignItems` to enable flexbox layouts that vary by viewport width."
+        },
+        {
+          "title": "Docs updates",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/c6/f5/b4/c6f5b4530ab4382757f609d592fe8ec0.png",
+          "imageAltText": "Screenshot of messaging guidelines",
+          "content": "We added guidelines for [animation](https://gestalt.pinterest.systems/foundations/animation/principles) and [messaging](https://gestalt.pinterest.systems/foundations/messaging/overview) to our docs site. More specific components for these purposes will follow next year. Also a huge shout-out to Christian Vuerings for fixing the annoying bug on [Modal](https://gestalt.pinterest.systems/web/modal) and [Sheet](https://gestalt.pinterest.systems/web/sheet) where focus would get stolen as code examples lazy-loaded!"
+        }
+      ]
+    },
+    {
       "week": "November 18, 2022",
       "summary": "Image component improvements and quality-of-life updates to docs / Figma libraries",
       "posts": [
