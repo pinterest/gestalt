@@ -1,3 +1,9 @@
+## 84.0.2 (Dec 6, 2022)
+
+### Patch
+
+- Bump express from 4.17.1 to 4.18.2 ([#2543](https://github.com/pinterest/gestalt/pull/2543)) - [Preview link](https://deploy-preview-2543--gestalt.netlify.app)
+
 ## 84.0.1 (Dec 6, 2022)
 
 ### Patch
