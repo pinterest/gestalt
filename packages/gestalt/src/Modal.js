@@ -48,6 +48,10 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
+   * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
+   */
+  padding?: 'default' | 'none',
+  /**
    * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
    */
   role?: 'alertdialog' | 'dialog',
@@ -103,6 +107,7 @@ export default function Modal({
   closeOnOutsideClick = true,
   onDismiss,
   footer,
+  padding = 'default',
   heading,
   role = 'dialog',
   size = 'sm',
@@ -177,7 +182,7 @@ export default function Modal({
                     {typeof heading === 'string' ? (
                       <Header align={align} heading={heading} subHeading={subHeading} />
                     ) : (
-                      heading
+                      <Box padding={6}>{heading}</Box>
                     )}
                   </Box>
                 )}
@@ -188,7 +193,11 @@ export default function Modal({
                   </Box>
                 ) : (
                   <ScrollBoundaryContainerProvider>
-                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
+                    <InternalScrollBoundaryContainer
+                      onScroll={updateShadows}
+                      ref={contentRef}
+                      padding={padding === 'none' ? 0 : 6}
+                    >
                       {children}
                     </InternalScrollBoundaryContainer>
                   </ScrollBoundaryContainerProvider>

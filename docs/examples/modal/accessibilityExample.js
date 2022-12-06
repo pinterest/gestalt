@@ -1,7 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
 import {
-  Box,
   Button,
   CompositeZIndex,
   FixedZIndex,
@@ -26,21 +25,19 @@ export default function AccessibilityExample(): Node {
         accessibilityModalLabel="Choose how to claim site"
         align="start"
         heading={
-          <Box padding={6}>
-            <Flex justifyContent="between">
-              <Heading size="500" accessibilityLevel={1}>
-                Pick claim option
-              </Heading>
-              <IconButton
-                accessibilityLabel="Dismiss modal"
-                bgColor="white"
-                icon="cancel"
-                iconColor="darkGray"
-                onClick={() => {}}
-                size="sm"
-              />
-            </Flex>
-          </Box>
+          <Flex justifyContent="between">
+            <Heading size="500" accessibilityLevel={1}>
+              Pick claim option
+            </Heading>
+            <IconButton
+              accessibilityLabel="Dismiss modal"
+              bgColor="white"
+              icon="cancel"
+              iconColor="darkGray"
+              onClick={() => {}}
+              size="sm"
+            />
+          </Flex>
         }
         onDismiss={() => {
           setShowModal(!showModal);
@@ -53,28 +50,26 @@ export default function AccessibilityExample(): Node {
         }
         size="sm"
       >
-        <Box padding={6}>
-          <RadioGroup id="claim-option" legend="Claim options" legendDisplay="hidden">
-            <RadioGroup.RadioButton
-              checked={claim === 'tag'}
-              id="claimTag"
-              label="Add HTML tag"
-              helperText="Paste this tag into the <head> section of your site's index.html file"
-              name="claim-type"
-              onChange={() => setClaim('tag')}
-              value="tag"
-            />
-            <RadioGroup.RadioButton
-              checked={claim === 'file'}
-              id="claimFile"
-              label="Upload HTML file"
-              helperText="Download this file and upload it to your website's root directory"
-              name="claim-type"
-              onChange={() => setClaim('file')}
-              value="file"
-            />
-          </RadioGroup>
-        </Box>
+        <RadioGroup id="claim-option" legend="Claim options" legendDisplay="hidden">
+          <RadioGroup.RadioButton
+            checked={claim === 'tag'}
+            id="claimTag"
+            label="Add HTML tag"
+            helperText="Paste this tag into the <head> section of your site's index.html file"
+            name="claim-type"
+            onChange={() => setClaim('tag')}
+            value="tag"
+          />
+          <RadioGroup.RadioButton
+            checked={claim === 'file'}
+            id="claimFile"
+            label="Upload HTML file"
+            helperText="Download this file and upload it to your website's root directory"
+            name="claim-type"
+            onChange={() => setClaim('file')}
+            value="file"
+          />
+        </RadioGroup>
       </Modal>
     </Layer>
   );
