@@ -1,3 +1,9 @@
+## 83.6.2 (Dec 6, 2022)
+
+### Patch
+
+- Sheet: reduce internal padding to from 8 to 6 boints ([#2535](https://github.com/pinterest/gestalt/pull/2535)) - [Preview link](https://deploy-preview-2535--gestalt.netlify.app)
+
 ## 83.6.1 (Dec 6, 2022)
 
 ### Patch
