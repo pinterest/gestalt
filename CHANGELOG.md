@@ -1,3 +1,9 @@
+## 84.0.3 (Dec 6, 2022)
+
+### Patch
+
+- Tokens: Update wash for opacity-100 ([#2541](https://github.com/pinterest/gestalt/pull/2541)) - [Preview link](https://deploy-preview-2541--gestalt.netlify.app)
+
 ## 84.0.2 (Dec 6, 2022)
 
 ### Patch
