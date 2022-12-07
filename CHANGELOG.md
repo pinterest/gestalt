@@ -1,3 +1,9 @@
+## 84.0.4 (Dec 7, 2022)
+
+### Patch
+
+- Docs: Add more Icon descriptions ([#2544](https://github.com/pinterest/gestalt/pull/2544)) - [Preview link](https://deploy-preview-2544--gestalt.netlify.app)
+
 ## 84.0.3 (Dec 6, 2022)
 
 ### Patch
