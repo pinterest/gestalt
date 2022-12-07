@@ -356,7 +356,8 @@
     },
     {
       "name": "heart-broken",
-      "categories": ["Reactions and ratings", "Toggle"]
+      "categories": ["Reactions and ratings", "Toggle"],
+      "description": "Indicates a heart-broken reaction"
     },
     {
       "name": "star",
@@ -605,7 +606,7 @@
     {
       "name": "cog",
       "categories": "Utility and tools",
-      "description": "Indicates setting options"
+      "description": "Indicates setting options are available"
     },
     {
       "name": "color-picker",
@@ -634,7 +635,8 @@
     },
     {
       "name": "conversion-tag",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates code sources or API references"
     },
     {
       "name": "copy-to-clipboard",
@@ -643,7 +645,8 @@
     },
     {
       "name": "credit-card",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates a credit card option is available as a payment method"
     },
     {
       "name": "crop",
@@ -667,7 +670,8 @@
     },
     {
       "name": "duplicate",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to duplicate an element or asset"
     },
     {
       "name": "edit",
@@ -791,7 +795,8 @@
     },
     {
       "name": "lightning-bolt-circle",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates service-amp is available"
     },
     {
       "name": "lips",
@@ -825,7 +830,8 @@
     },
     {
       "name": "logout",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to end access to a session"
     },
     {
       "name": "megaphone",
@@ -864,7 +870,8 @@
     },
     {
       "name": "pin-hide",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the ability to hide a pin"
     },
     {
       "name": "pincode",
@@ -873,7 +880,8 @@
     },
     {
       "name": "protect",
-      "categories": "Utility and tools"
+      "categories": "Utility and tools",
+      "description": "Indicates the data or content is protected, or privacy"
     },
     {
       "name": "publish",
