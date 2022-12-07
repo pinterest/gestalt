@@ -1,3 +1,9 @@
+## 84.0.5 (Dec 7, 2022)
+
+### Patch
+
+- Box, Flex: remove responsive alignItems props from table ([#2547](https://github.com/pinterest/gestalt/pull/2547)) - [Preview link](https://deploy-preview-2547--gestalt.netlify.app)
+
 ## 84.0.4 (Dec 7, 2022)
 
 ### Patch
