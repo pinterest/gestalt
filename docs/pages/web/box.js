@@ -28,6 +28,9 @@ import zIndex from '../../examples/box/zIndex.js';
 import visuallyHidden from '../../examples/box/visuallyHidden.js';
 
 const ignoredProps = [
+  'smAlignItems',
+  'mdAlignItems',
+  'lgAlignItems',
   'smColumn',
   'mdColumn',
   'lgColumn',
