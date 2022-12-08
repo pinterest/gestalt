@@ -12,6 +12,7 @@ export default function Example(): Node {
           id="size variant pixel input"
           label="Enter Pulsar size in pixels"
           min={20}
+          max={200}
           step={10}
           onChange={({ value }) => setSizePx(value)}
         />
