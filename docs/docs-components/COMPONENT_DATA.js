@@ -23,6 +23,7 @@ import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
+import List from '../graphics/general/List.svg';
 import Masonry from '../graphics/general/Masonry.svg';
 import Modal from '../graphics/general/Modal.svg';
 import ModalAlert from '../graphics/general/ModalAlert.svg';
@@ -1369,10 +1370,10 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <svg />,
+    svg: <List />,
     name: 'List',
-    aliases: [],
-    description: 'List',
+    aliases: ['Unordered List', 'Ordered list', '<ol>', '<ul>', '<li>'],
+    description: 'List allows users to view individual, but related, text items grouped together.',
     category: 'Structure',
     status: {
       accessible: {
