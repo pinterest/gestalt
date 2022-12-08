@@ -15,8 +15,8 @@ export default function ComponentNamePage({
   generatedDocGen: DocGen,
 |}): Node {
   return (
-    <Page title="ComponentName">
-      <PageHeader name="ComponentName" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
@@ -89,31 +89,7 @@ Code for this example goes here
           description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
           title="Variant using CombinationNew"
         >
-          <CombinationNew
-            color={[
-              'red',
-              'white',
-              'lightGray',
-              'gray',
-              'darkGray',
-              'green',
-              'pine',
-              'olive',
-              'blue',
-              'navy',
-              'midnight',
-              'purple',
-              'orchid',
-              'eggplant',
-              'maroon',
-              'watermelon',
-              'orange',
-              'transparent',
-              'transparentDarkGray',
-              'lightWash',
-              'darkWash',
-            ]}
-          >
+          <CombinationNew color={['red', 'white']}>
             {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
           </CombinationNew>
         </MainSection.Subsection>
