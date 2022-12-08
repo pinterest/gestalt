@@ -1,3 +1,9 @@
+## 84.1.1 (Dec 8, 2022)
+
+### Patch
+
+- Internal: fixes in scaffolding script ([#2554](https://github.com/pinterest/gestalt/pull/2554)) - [Preview link](https://deploy-preview-2554--gestalt.netlify.app)
+
 ## 84.1.0 (Dec 8, 2022)
 
 ### Minor
