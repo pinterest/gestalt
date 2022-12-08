@@ -1,3 +1,9 @@
+## 84.0.6 (Dec 8, 2022)
+
+### Patch
+
+- Docs: strip eslint disable comments from Sandpack examples ([#2549](https://github.com/pinterest/gestalt/pull/2549)) - [Preview link](https://deploy-preview-2549--gestalt.netlify.app)
+
 ## 84.0.5 (Dec 7, 2022)
 
 ### Patch
