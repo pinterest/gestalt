@@ -402,7 +402,12 @@ export default function SideNavigationPage({
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Counters"
-          description="Counters can be included as indicators of the number of items on a page or section. Only include counters if it’s information that’s useful to the user to know before clicking on a menu item. Only supported in SideNavigation.TopItem and SideNavigation.Group."
+          description="Counters can be included as indicators of the number of items on a page or section.
+
+Only include counters if the information is useful for the user to know before clicking on a menu item.
+
+To prevent visual overload, do not include counters in the parent if the children have counters.
+"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={counterExample} name="Counters example" />}

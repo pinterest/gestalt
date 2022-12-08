@@ -111,7 +111,7 @@ export default function SideNavigationGroupContent({
               role="status"
               marginEnd={display === 'static' ? -2 : undefined}
             >
-              <Text align="end" color="default">
+              <Text align="end" color="subtle">
                 {counter.number}
               </Text>
             </Box>
