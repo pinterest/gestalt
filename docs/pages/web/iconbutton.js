@@ -369,7 +369,7 @@ IconButtons that act as links can be paired with OnLinkNavigationProvider. See [
           description={`IconButton is available in 5 fixed sizes:
 
 1. \`xl\` (56px)
-    Extra large IconButtons should be used sparingly and only in places where the UI has a case for an extra-large IconButton.
+    Extra large IconButtons should be used sparingly and only in places where the UI has a case for an extra-large IconButton. A common use case is [IconButtonFloating](/web/iconbuttonfloating).
 2. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
 3. \`md\` (40px)

@@ -67,13 +67,13 @@ const IconButtonFloatingWithForwardRef: React$AbstractComponent<Props, unionRefs
   ref,
 ): Node {
   return (
-    <Box borderStyle="shadow" rounding="circle">
+    <Box borderStyle="shadow" rounding="circle" color="default">
       <IconButton
         accessibilityControls={accessibilityControls}
         accessibilityExpanded={accessibilityExpanded}
         accessibilityPopupRole={accessibilityPopupRole}
         accessibilityLabel={accessibilityLabel}
-        bgColor="white"
+        bgColor="transparent"
         icon={icon}
         onClick={onClick}
         ref={ref}

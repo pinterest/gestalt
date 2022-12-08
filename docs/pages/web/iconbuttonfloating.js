@@ -8,6 +8,13 @@ import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/iconbuttonfloating/main.js';
+import doForScroll from '../../examples/iconbuttonfloating/doForScroll.js';
+import doCenter from '../../examples/iconbuttonfloating/doCenter.js';
+import dontNotification from '../../examples/iconbuttonfloating/dontNotification.js';
+import dontNegative from '../../examples/iconbuttonfloating/dontNegative.js';
+import a11y from '../../examples/iconbuttonfloating/a11y.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -16,71 +23,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         badge="pilot"
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        defaultCode={`
-      function IconButtonFloatingExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-
-  const onSelect = ({ item }) => {
-    if (selected.some(({ value }) => value === item.value)) {
-      setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));
-    } else {
-      setSelected((selectedValue) => [...selectedValue, item]);
-    }
-  };
-
-  return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
-      <IconButtonFloating
-        accessibilityControls="sections-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityPopupRole="menu"
-        accessibilityLabel="Create Pin Menu"
-        icon="add"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-      />
-      {open && (
-        <Dropdown
-          anchor={anchorRef.current}
-          id="sections-dropdown-example"
-          onDismiss={() => setOpen(false)}
-        >
-          <Dropdown.Section label="Create">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="Add">
-            <Dropdown.Item
-              badge={{ text: 'New' }}
-              onSelect={onSelect}
-              option={{ value: 'Note', label: 'Note' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Section', label: 'Section' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-
-      `}
-      />
+      >
+        <SandpackExample code={main} name="Main example" hideEditor />
+      </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -92,7 +37,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             - To represent a primary or common action when it has to be visible all the time on the screen on top of everything.
             - Triggering a Modal or a Popover to complete a related task.
             - Only if it is the most suitable way to present a screen's high-emphasis action.
-        `}
+            `}
           />
           <MainSection.Card
             cardSize="md"
@@ -111,11 +56,22 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use when an action has to be visible at all times in a sticky way where content can scroll underneath."
+            sandpackExample={
+              <SandpackExample code={doForScroll} name="Scroll example" hideEditor />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Layer notification badges on top of IconButtonFloating. This pattern is typically used on IconButtons part of a navigation component, and IconButtonFloating shouldn't contain notifications found elsewhere on a screen, as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
+            sandpackExample={
+              <SandpackExample
+                code={dontNotification}
+                name="Notification example"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -123,23 +79,20 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use IconButtonFloating for positive and supportive actions like Create, Help or Maximize."
+            sandpackExample={<SandpackExample code={doCenter} name="Center example" hideEditor />}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use IconButtonFloating for negative and destructive actions like Delete or Remove. "
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Use the designated size and style."
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Scale or style IconButtonFloating. Consistent button sizes promote a cohesive user experience."
+            sandpackExample={
+              <SandpackExample
+                code={dontNegative}
+                name="Negative example"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -156,13 +109,15 @@ If IconButtonFloating is used as a control button to show/hide a Popover-based c
 - \`accessibilityExpanded\`: informs the screen reader whether an anchored Dropdown component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
         >
-          <MainSection.Card cardSize="lg" />
           <MainSection.Subsection
             title="Keyboard interaction"
             description={`
 IconButtonFloating should be contained within the \`role="contentinfo"\` container on a page. This gives screen reader users the ability to skip any main content and go directly to the action buttons. If there are multiple IconButtonFloatings, they should all be contained within the \`role="contentinfo"\` container.`}
           />
-          <MainSection.Card cardSize="lg" />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={a11y} name="A11Y example" />}
+          />
         </MainSection.Subsection>
       </AccessibilitySection>
       <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
@@ -170,20 +125,18 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
         <MainSection.Subsection
           title="Size"
           columns={2}
-          description="IconButtonFloating size is only available in a single size, 56px. Keeping the size consistent will promote a cohesive Pinner experience and avoid usability issues. "
-        />
+          description="IconButtonFloating size is only available in a single size, 56px (the equivalent of [IconButton's size='xl'](/web/iconbutton#Size)). Keeping the size consistent will promote a cohesive Pinner experience and avoid usability issues. "
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={doForScroll} name="Scroll Placement example" />}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
-          title="Elevation"
-          description={`
-          **Floating**
-          IconButtonFloating is lifted off of the background with shadows built-in ($elevation-floating). It must be absolutely positioned to achieve the floating effect.
-
-          In dark mode, the elevation is achieved with colors instead of shadows ($color-background-elevation-floating). See [elevation guidelines](/foundations/elevation) for reference. `}
-        />
-        <MainSection.Subsection
+          columns={2}
           title="Placement"
           description={`
-          IconButtonFloating is always placed along the bottom of the screen. A consistent position improves discoverability when IconButtonFloating appears across a responsive range of surfaces. For example, an IconButtonFloating used to open resources should remain in the same spot on the page across surfaces. In most cases, only one IconButtonFloating should be present on a screen. The exception is using a centered IconButtonFloating as a primary action, like board creation.
+          IconButtonFloating is always placed along the bottom of the screen. A consistent position improves discoverability when IconButtonFloating appears across a responsive range of surfaces. For example, an IconButtonFloating used to open resources should remain in the same spot on the page across surfaces. In most cases, only one IconButtonFloating should be present on a screen. The exception is using a centered IconButtonFloating as a primary action, like Pin or board creation.
 
           **Bottom edge placement**
           IconButtonFloating should typically be placed in the bottom edge of the screen (bottom right for LTR languages, and bottom left for RTL languages). This applies to supportive actions, such as opening related content and resources.
@@ -191,7 +144,18 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           **Centered placement**
           Use a centered placement when leading Pinners to an action or task that should remain present when scrolling, such as creating a new board.
 `}
-        />
+        >
+          <MainSection.Card
+            title="Bottom edge placement"
+            cardSize="md"
+            sandpackExample={<SandpackExample code={doForScroll} name="Scroll Placement example" />}
+          />
+          <MainSection.Card
+            title="Centered placement"
+            cardSize="md"
+            sandpackExample={<SandpackExample code={a11y} name="A11Y Placement example" />}
+          />
+        </MainSection.Subsection>
       </MainSection>
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
