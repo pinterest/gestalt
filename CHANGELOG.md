@@ -1,3 +1,9 @@
+## 84.0.7 (Dec 8, 2022)
+
+### Patch
+
+- Tag: migrate docs examples to Sandpack ([#2548](https://github.com/pinterest/gestalt/pull/2548)) - [Preview link](https://deploy-preview-2548--gestalt.netlify.app)
+
 ## 84.0.6 (Dec 8, 2022)
 
 ### Patch
