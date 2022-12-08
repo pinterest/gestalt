@@ -1,3 +1,9 @@
+## 84.1.2 (Dec 8, 2022)
+
+### Patch
+
+- Spinner: convert docs examples to Sandpack ([#2545](https://github.com/pinterest/gestalt/pull/2545)) - [Preview link](https://deploy-preview-2545--gestalt.netlify.app)
+
 ## 84.1.1 (Dec 8, 2022)
 
 ### Patch
