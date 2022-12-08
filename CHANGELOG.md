@@ -1,3 +1,9 @@
+## 84.1.0 (Dec 8, 2022)
+
+### Minor
+
+- SideNavigation: support counter prop in all subcomponents ([#2552](https://github.com/pinterest/gestalt/pull/2552)) - [Preview link](https://deploy-preview-2552--gestalt.netlify.app)
+
 ## 84.0.7 (Dec 8, 2022)
 
 ### Patch
