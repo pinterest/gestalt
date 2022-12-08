@@ -179,7 +179,7 @@ export default function SideNavigationTopItem({
                 <Box display="visuallyHidden">{`, `}</Box>
                 {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
                 <Box aria-label={counter.accessibilityLabel} role="status" marginEnd={-2}>
-                  <Text align="end" color={textColor}>
+                  <Text align="end" color="subtle">
                     {counter.number}
                   </Text>
                 </Box>
