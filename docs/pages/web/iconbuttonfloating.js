@@ -11,7 +11,6 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/iconbuttonfloating/main.js';
 import doForScroll from '../../examples/iconbuttonfloating/doForScroll.js';
-import doCenter from '../../examples/iconbuttonfloating/doCenter.js';
 import dontNotification from '../../examples/iconbuttonfloating/dontNotification.js';
 import dontNegative from '../../examples/iconbuttonfloating/dontNegative.js';
 import a11y from '../../examples/iconbuttonfloating/a11y.js';
@@ -63,7 +62,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Layer notification badges on top of IconButtonFloating. This pattern is typically used on IconButtons part of a navigation component, and IconButtonFloating shouldn't contain notifications found elsewhere on a screen, as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss it since it doesn't offer a visually supportive affordance besides color."
+            description="Layer notification badges on top of IconButtonFloating. This pattern is typically used on IconButtons as part of a navigation component. IconButtonFloating shouldn't contain notifications found elsewhere on a screen, as it can lead to cognitive and usability issues. Users with color-blinded vision could also miss the intention of the notification since it doesn't offer a visually supportive affordance besides color."
             sandpackExample={
               <SandpackExample
                 code={dontNotification}
@@ -79,7 +78,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use IconButtonFloating for positive and supportive actions like Create, Help or Maximize."
-            sandpackExample={<SandpackExample code={doCenter} name="Center example" hideEditor />}
+            sandpackExample={<SandpackExample code={a11y} name="Center example" hideEditor />}
           />
           <MainSection.Card
             cardSize="md"
@@ -102,17 +101,17 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
 IconButtonFloating conveys the component behavior using iconography. IconButtonFloating requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/web/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
 
-If IconButtonFloating is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+If IconButtonFloating is used as a control button to show/hide a [Popover-based component](/web/popover), we recommend passing the following ARIA attributes to assist screen readers:
 
-- \`accessibilityControls\`: informs the screen reader that IconButtonFloating controls the display of a [Dropdown](/web/dropdown). Not needed if IconButtonFloating opens a Modal or other dialog. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
-- \`accessibilityPopupRole\`: informs the screen reader that there’s either a \`menu\` component, like Dropdown, or a \`dialog\` component, like Modal or Popover, attached to IconButtonFloating. It populates [aria-haspopup](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup).
-- \`accessibilityExpanded\`: informs the screen reader whether an anchored Dropdown component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityControls\`: informs the screen reader that IconButtonFloating controls the display of a [Dropdown](/web/dropdown). Not needed if IconButtonFloating opens a Modal or other dialog. This populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityPopupRole\`: informs the screen reader that there’s either a \`menu\` component, like Dropdown, or a \`dialog\` component, like Modal or Popover, attached to IconButtonFloating. This populates [aria-haspopup](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup).
+- \`accessibilityExpanded\`: informs the screen reader whether an anchored Dropdown component is currently open or closed. This populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
         >
           <MainSection.Subsection
             title="Keyboard interaction"
             description={`
-IconButtonFloating should be contained within the \`role="contentinfo"\` container on a page. This gives screen reader users the ability to skip any main content and go directly to the action buttons. If there are multiple IconButtonFloatings, they should all be contained within the \`role="contentinfo"\` container.`}
+IconButtonFloating should be contained within the \`role="contentinfo"\` container on a page. This gives screen reader users the ability to skip any main content and go directly to the action buttons using the rotor. If there are multiple IconButtonFloatings, they should all be contained within the \`role="contentinfo"\` container.`}
           />
           <MainSection.Card
             cardSize="lg"
@@ -136,7 +135,7 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           columns={2}
           title="Placement"
           description={`
-          IconButtonFloating is always placed along the bottom of the screen. A consistent position improves discoverability when IconButtonFloating appears across a responsive range of surfaces. For example, an IconButtonFloating used to open resources should remain in the same spot on the page across surfaces. In most cases, only one IconButtonFloating should be present on a screen. The exception is using a centered IconButtonFloating as a primary action, like Pin or board creation.
+          IconButtonFloating is always placed along the bottom of the screen. A consistent position improves discoverability when IconButtonFloating appears across a wide range of surfaces. For example, an IconButtonFloating used to open resources should remain in the same spot on the page across surfaces. In most cases, only one IconButtonFloating should be present on a screen. The exception is using a centered IconButtonFloating as a primary action, like Pin or board creation.
 
           **Bottom edge placement**
           IconButtonFloating should typically be placed in the bottom edge of the screen (bottom right for LTR languages, and bottom left for RTL languages). This applies to supportive actions, such as opening related content and resources.
@@ -168,7 +167,7 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description={`- Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".`}
+            description={`- Use the words "image" or "icon" in the description label. Instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -180,13 +179,13 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
 Use IconButton when only an icon is needed instead of text, and the action does not float over other content.
 
 **[Button](/web/button)**
-Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
+Button allows users to take actions and make choices using text labels to express what action will occur when the user interacts with it.
 
 **[Icon](/web/icon)**
-IconButtonFloating uses icons instead of text to convey available actions on a screen. Use an existing Icon from the Gestalt [Icon](/web/icon) library.
+IconButtonFloating uses icons instead of text to convey available actions on a screen. Use an existing Icon from the [Gestalt Icon library](/foundations/iconography/library).
 
 **[Dropdown](/web/dropdown)**
-It's most common to anchor Dropdown to [Button](/web/button), IconButton, or IconButtonFloating.
+IconButtonFloating is commonly paired with Dropdown to display a menu of options or actions.
       `}
         />
       </MainSection>{' '}
@@ -195,6 +194,16 @@ It's most common to anchor Dropdown to [Button](/web/button), IconButton, or Ico
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docgen({ componentName: 'IconButtonFloating' });
+
+  generatedDocGen.props.icon = {
+    ...generatedDocGen.props.icon,
+    flowType: {
+      name: 'string',
+      raw: 'Icon[icon]',
+    },
+  };
+
   return {
     props: { generatedDocGen: await docgen({ componentName: 'IconButtonFloating' }) },
   };

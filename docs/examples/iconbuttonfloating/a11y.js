@@ -2,7 +2,52 @@
 import { useState, useRef, type Node } from 'react';
 import { IconButtonFloating, Dropdown, Box, Flex, Image, Mask } from 'gestalt';
 
-export default function DoForScroll(): Node {
+const pins = [
+  {
+    color: '#2b3938',
+    height: 316,
+    src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
+    width: 474,
+    name: 'the Hang Son Doong cave in Vietnam',
+  },
+  {
+    color: '#8e7439',
+    height: 1081,
+    src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
+    width: 474,
+    name: 'La Gran Muralla, Pekín, China',
+  },
+  {
+    color: '#698157',
+    height: 711,
+    src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
+    width: 474,
+    name: 'Plitvice Lakes National Park, Croatia',
+  },
+  {
+    color: '#4e5d50',
+    height: 632,
+    src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
+    width: 474,
+    name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
+  },
+  {
+    color: '#6d6368',
+    height: 710,
+    src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
+    width: 474,
+    name: 'Border of China and Vietnam',
+  },
+  {
+    color: '#2b3938',
+    height: 316,
+    src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
+    width: 474,
+    name: 'the Hang Son Doong cave in Vietnam',
+  },
+];
+
+export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState([]);
   const anchorRef = useRef(null);
@@ -15,85 +60,25 @@ export default function DoForScroll(): Node {
     }
   };
 
-  const pins = [
-    {
-      color: '#2b3938',
-      height: 316,
-      src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
-      width: 474,
-      name: 'the Hang Son Doong cave in Vietnam',
-    },
-    {
-      color: '#8e7439',
-      height: 1081,
-      src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
-      width: 474,
-      name: 'La Gran Muralla, Pekín, China',
-    },
-    {
-      color: '#698157',
-      height: 711,
-      src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
-      width: 474,
-      name: 'Plitvice Lakes National Park, Croatia',
-    },
-    {
-      color: '#4e5d50',
-      height: 632,
-      src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
-      width: 474,
-      name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
-    },
-    {
-      color: '#6d6368',
-      height: 710,
-      src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
-      width: 474,
-      name: 'Border of China and Vietnam',
-    },
-    {
-      color: '#2b3938',
-      height: 316,
-      src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
-      width: 474,
-      name: 'the Hang Son Doong cave in Vietnam',
-    },
-  ];
-
   return (
     <Box margin={3}>
       <Box role="main">
         <Flex justifyContent="center" width="100%" height="100%" gap={5} alignItems="center" wrap>
-          {pins.map((pin) => (
-            <Box key={pin.name} height={170} width={100}>
-              <Mask rounding={2} width="100%" height="100%">
+          {[...new Array(3)].map(() =>
+            pins.map((pin) => (
+              <Mask rounding={2} key={pin.name} height={170} width={100}>
                 <Image
                   alt={pin.name}
                   role="presentation"
-                  color="#000"
+                  color="white"
                   fit="cover"
                   naturalHeight={1}
                   naturalWidth={1}
                   src={pin.src}
                 />
               </Mask>
-            </Box>
-          ))}
-          {pins.reverse().map((pin) => (
-            <Box key={pin.name} height={170} width={100}>
-              <Mask rounding={2} width="100%" height="100%">
-                <Image
-                  alt={pin.name}
-                  role="presentation"
-                  color="#000"
-                  fit="cover"
-                  naturalHeight={1}
-                  naturalWidth={1}
-                  src={pin.src}
-                />
-              </Mask>
-            </Box>
-          ))}
+            )),
+          )}
         </Flex>
       </Box>
       <Box
