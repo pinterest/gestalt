@@ -1,42 +1,27 @@
 // @flow strict
 import { type Node } from 'react';
-import Example from '../../docs-components/Example.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import main from '../../examples/pulsar/main.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import paused from '../../examples/pulsar/paused.js';
+import positioning from '../../examples/pulsar/positioning.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import size from '../../examples/pulsar/size.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Pulsar">
-      <PageHeader
-        name="Pulsar"
-        description={generatedDocGen?.description}
-        defaultCode={`
-function PulsarExample() {
-  const [isPulsing, setIsPulsing] = React.useState(true);
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Primary Pulsar example" hideEditor previewHeight={250} />
+      </PageHeader>
 
-  const text = isPulsing ? 'Click to pause' : 'Click to show';
-
-  return (
-    <Box display="flex" direction="column">
-      <Box marginBottom={4}>
-        <Button
-          text={text}
-          onClick={() => setIsPulsing(!isPulsing)}
-          size="md"
-        />
-      </Box>
-      <Pulsar paused={!isPulsing} />
-    </Box>
-  );
-}
-`}
-      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -62,93 +47,38 @@ function PulsarExample() {
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <Example
+        <MainSection.Subsection
           description={`
-    Pulsars can be shown and hidden using the \`paused\` prop.
+    Pulsar can be shown or hidden using the \`paused\` prop.
   `}
-          name="Example"
-          defaultCode={`
-  function PulsarExample() {
-    const [isPulsing, setIsPulsing] = React.useState(true);
-
-    const text = isPulsing ? 'Click to pause' : 'Click to show';
-
-    return (
-      <Box display="flex" direction="column">
-        <Box marginBottom={4}>
-          <Button
-            text={text}
-            onClick={() => setIsPulsing(!isPulsing)}
-            size="md"
+          title="Paused"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={paused} name="Paused variant" />}
           />
-        </Box>
-        <Pulsar paused={!isPulsing} />
-      </Box>
-    );
-  }
-`}
-        />
-        <Example
-          description="
+        </MainSection.Subsection>
 
-  "
-          name="Example: Popover"
-          defaultCode={`
-class PopoverExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-    this.handleClick = this._handleClick.bind(this);
-    this.handleDismiss = this._handleDismiss.bind(this);
-    this.anchorRef = React.createRef();
-  }
-
-  _handleClick() {
-    this.setState(() => ({ open: !this.state.open }));
-  }
-  _handleDismiss() {
-    this.setState(() => ({ open: false }));
-  }
-
-  render() {
-    return (
-      <Box marginTop={10}>
-        <Box display="inlineBlock" ref={this.anchorRef}>
-          <div style={{
-            position: "absolute",
-            top: 10,
-            left: 10,
-            pointerEvents: "none", }}>
-              <Pulsar paused={this.state.open} />
-          </div>
-          <Button
-            accessibilityExpanded={!!this.state.open}
-            accessibilityHaspopup
-            onClick={this.handleClick}
-            text={this.state.open ? 'Hide Popover' : 'Show Popover'}
+        <MainSection.Subsection
+          description={`
+    When needed, Pulsar can be displayed at different sizes using the \`size\` prop.
+  `}
+          title="Size"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={size} name="Paused variant" />}
           />
-        </Box>
-        {this.state.open && (
-          <Popover
-            anchor={this.anchorRef.current}
-            color="darkGray"
-            idealDirection="right"
-            onDismiss={this.handleDismiss}
-            shouldFocus={false}
-          >
-            <Box column={12} padding={3}>
-              <Text color="inverse" weight="bold">
-                Create a board to save Pins about Kitchen Design for later
-              </Text>
-            </Box>
-          </Popover>
-        )}
-      </Box>
-    );
-  }
-}
-`}
-        />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+    Pulsar should be centered over the target element.
+  `}
+          title="Positioning"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={positioning} name="Paused variant" />}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
