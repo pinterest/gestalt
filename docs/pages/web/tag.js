@@ -1,21 +1,24 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTable from '../../docs-components/PropTable.js';
-import Example from '../../docs-components/Example.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import disabled from '../../examples/tag/disabled.js';
+import dismissable from '../../examples/tag/dismissable.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import error from '../../examples/tag/error.js';
+import main from '../../examples/tag/main.js';
+import MainSection from '../../docs-components/MainSection.js';
+import maxWidth from '../../examples/tag/maxWidth.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import PropTable from '../../docs-components/PropTable.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/tag/defaultExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={defaultExample} name="Tag Main Example" hideEditor />
+        <SandpackExample code={main} name="Tag Main Example" hideEditor />
       </PageHeader>
 
       <PropTable
@@ -79,62 +82,53 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <Example
-          description="Default standalone Tag"
-          name="Standalone"
-          defaultCode={`
-function Example(props) {
-  const [showTag, setShowTag] = React.useState(true);
-  return showTag ? (
-    <Tag
-      onRemove={() => setShowTag(false)}
-      removeIconAccessibilityLabel="Remove New tag"
-      text="New"
-    />
-  ) : null;
-}
-  `}
-        />
-        <Example
-          description="Disabled standalone Tag"
-          name="Disabled"
-          defaultCode={`
-<Tag disabled text="New" />
-  `}
-        />
-        <Example
-          description="Standalone Tag in an error state"
-          name="Error"
-          defaultCode={`
-function Example(props) {
-  const [showTag, setShowTag] = React.useState(true);
-  return showTag ? (
-    <Tag
-      errorMessage="Error"
-      onRemove={() => setShowTag(false)}
-      removeIconAccessibilityLabel="Remove New tag"
-      text="New"
-    />
-  ) : null;
-}
-  `}
-        />
-        <Example
-          description="Tags have a max width of 300px, and will clip longer text"
-          name="Max width"
-          defaultCode={`
-function Example(props) {
-  const [showTag, setShowTag] = React.useState(true);
-  return showTag ? (
-    <Tag
-      onRemove={() => setShowTag(false)}
-      removeIconAccessibilityLabel="Remove long example tag"
-      text="The quick brown fox jumps over the lazy dog"
-    />
-  ) : null;
-}
-  `}
-        />
+        <MainSection.Subsection
+          description={`
+        If not disabled, Tags are dismissable by the "X" affordance, which triggers the \`onRemove\` callback. Be sure to provide \`removeIconAccessibilityLabel\`!
+        `}
+          title="Dismissable"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={dismissable} name="Dismissable variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+        When disabled, Tags are visible but cannot be removed.
+
+        If this condition is constant (not determined dynamically), \`onRemove\` and \`removeIconAccessibilityLabel\` can be omitted.
+        `}
+          title="Disabled"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={disabled} name="Disabled variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+        Use the \`errorMessage\` to communicate an error state to the user.
+
+        Note that the message is only available to screen readers. You should indicate the error in the surrounding UI, including how to correct it.
+        `}
+          title="Error"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={error} name="Error variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+        Tag has a maximum width of 300px. Longer text will be truncated, but can be seen by hovering over the Tag.
+        `}
+          title="Max width"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={maxWidth} name="Max width variant" />}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
