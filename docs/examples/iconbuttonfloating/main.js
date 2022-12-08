@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, useRef, type Node } from 'react';
-import { IconButtonFloating, Dropdown, Flex } from 'gestalt';
+import { IconButtonFloating, Box, Dropdown, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
@@ -17,15 +17,18 @@ export default function Example(): Node {
 
   return (
     <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
-      <IconButtonFloating
-        accessibilityControls="sections-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityPopupRole="menu"
-        accessibilityLabel="Create Pin Menu"
-        icon="add"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-      />
+      <Box role="contentinfo">
+        <IconButtonFloating
+          accessibilityControls="sections-dropdown-example"
+          accessibilityExpanded={open}
+          accessibilityPopupRole="menu"
+          accessibilityLabel="Create Pin Menu"
+          icon="add"
+          onClick={() => setOpen((prevVal) => !prevVal)}
+          ref={anchorRef}
+          selected={open}
+        />
+      </Box>
       {open && (
         <Dropdown
           anchor={anchorRef.current}
