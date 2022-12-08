@@ -8,7 +8,7 @@ const currentDirectory = __dirname;
 const root = path.join(__dirname, '../');
 const accessibilityIntegrationTests = path.join(root, 'playwright/accessibility');
 const visualIntegrationTests = path.join(root, 'playwright/visual-test');
-const docs = path.join(root, 'docs/pages');
+const docs = path.join(root, 'docs/pages/web');
 const visualtestingPages = path.join(root, 'docs/pages/visual-test');
 
 const gestaltPackages = path.join(root, 'packages/gestalt/src');
@@ -27,12 +27,9 @@ function logSuccess(message) {
 async function generateFile({ componentName, outputPath, template, log }) {
   await fs.promises.writeFile(
     outputPath,
-    (
-      await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8')
-    )
+    (await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8'))
       .replace(/ComponentName/g, componentName)
-      .replace(/componentname/g, componentName.toLowerCase())
-      .replace(/componentName/g, componentName.toLowerCase()),
+      .replace(/componentname/g, componentName.toLowerCase()),
   );
 
   logSuccess(log);
