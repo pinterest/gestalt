@@ -10,6 +10,12 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import doWait from '../../examples/spinner/doWait';
+import dontWait from '../../examples/spinner/dontWait';
+import doLocation from '../../examples/spinner/doLocation';
+import dontMultiple from '../../examples/spinner/dontMultiple';
+import doOverlay from '../../examples/spinner/doOverlay';
+import dontLabel from '../../examples/spinner/dontLabel';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -46,11 +52,95 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
+      <MainSection name="Best Practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Only show Spinner if the expected wait time is perceptible — typically more than a second. Remember that wait times can vary based on the user's network connection."
+            sandpackExample={
+              <SandpackExample code={doWait} name="Do - Wait" hideEditor previewHeight={400} />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Spinner if the wait time is likely longer than 10 seconds. Show incremental loading/completion progress instead."
+            sandpackExample={
+              <SandpackExample code={dontWait} name="Don't - Wait" hideEditor previewHeight={400} />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Show Spinner where the content is being loaded or updated to create a clear association with where results will appear."
+            sandpackExample={
+              <SandpackExample
+                code={doLocation}
+                name="Do - Location"
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Show more than one Spinner at a time to avoid an overly-busy interface. Show a single Spinner over the collection of loading content instead."
+            sandpackExample={
+              <SandpackExample
+                code={dontMultiple}
+                name="Don't - Multiple"
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Screen underlying content when overlaid by Spinner."
+            sandpackExample={
+              <SandpackExample
+                code={doOverlay}
+                name="Do - Overlay"
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Display a loading label adjacent to Spinner when the label is redundant."
+            sandpackExample={
+              <SandpackExample
+                code={dontLabel}
+                name="Don't - Label"
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <AccessibilitySection
         name={generatedDocGen?.displayName}
         description={`
       Be sure to include \`accessibilityLabel\`. Labels should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface). Don't forget to localize the label!
       `}
+      />
+
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize \`accessibilityLabel\`. Be mindful of label length so that it isn't truncated in languages with lengthier character counts.`}
       />
 
       <MainSection name="Variants">
