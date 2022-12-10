@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 // @flow strict
 import { useEffect, useState, Fragment, type Node } from 'react';
 import { Box, Divider, DeviceTypeProvider } from 'gestalt';
@@ -46,24 +45,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setIsSidebarOpen]);
 
-  return isYIRPage ? (
-    <Box minHeight="100vh" color="default">
-      {children}
-    </Box>
-  ) : isMobile && isSidebarOpen ? (
-    <Box
-      position="absolute"
-      top
-      bottom
-      left
-      right
-      overflow="scroll"
-      display="block"
-      mdDisplay="none"
-    >
-      <DocsSideNavigation />
-    </Box>
-  ) : (
+  let pageContent = (
     <Box minHeight="100vh" color="default">
       <SkipToContent />
       <Header />
@@ -147,4 +129,31 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
       </Box>
     </Box>
   );
+
+  if (isYIRPage) {
+    pageContent = (
+      <Box minHeight="100vh" color="default">
+        {children}
+      </Box>
+    );
+  }
+
+  if (isMobile && isSidebarOpen) {
+    pageContent = (
+      <Box
+        position="absolute"
+        top
+        bottom
+        left
+        right
+        overflow="scroll"
+        display="block"
+        mdDisplay="none"
+      >
+        <DocsSideNavigation />
+      </Box>
+    );
+  }
+
+  return pageContent;
 }
