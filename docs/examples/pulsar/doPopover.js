@@ -1,0 +1,52 @@
+// @flow strict
+import { type Node, useRef, useState } from 'react';
+import { Box, Button, Flex, Popover, Pulsar, Text } from 'gestalt';
+
+export default function Example(): Node {
+  const [showEducation, setShowEducation] = useState(true);
+  const anchorRef = useRef();
+
+  return (
+    <Flex justifyContent="center" height="100%" width="100%">
+      <Box dangerouslySetInlineStyle={{ __style: { marginTop: 80 } }} position="relative">
+        <Button
+          onClick={() => {
+            setShowEducation(true);
+          }}
+          text="Promote"
+        />
+
+        <Box ref={anchorRef} position="absolute" top marginTop={-9} marginStart={-3}>
+          <Pulsar paused={!showEducation} size={110} />
+        </Box>
+      </Box>
+
+      {showEducation && (
+        <Popover
+          anchor={anchorRef.current}
+          color="blue"
+          idealDirection="down"
+          showCaret
+          onDismiss={() => {}}
+          positionRelativeToAnchor={false}
+          size="xs"
+        >
+          <Box paddingX={6} paddingY={2}>
+            <Flex alignItems="center" direction="column" gap={3}>
+              <Text color="inverse" align="center">
+                Promote your newly created Pin
+              </Text>
+
+              <Button
+                text="Got it"
+                onClick={() => {
+                  setShowEducation(false);
+                }}
+              />
+            </Flex>
+          </Box>
+        </Popover>
+      )}
+    </Flex>
+  );
+}
