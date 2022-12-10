@@ -743,3 +743,80 @@ html[dir="rtl"] .Markdown ul + pre {
 .Markdown pre.language-bash code {
   background-color: var(--g-colorGray0);
 }
+
+/* Year In Review CSS */
+
+.year-in-review .h1Font {
+  font-size: 48px;
+  color: var(--color-text-light);
+  margin: 0;
+  text-align: center;
+  line-height: 110%;
+}
+
+.year-in-review .halfAndHalf {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    var(--color-purple-mysticool-200) 0%,
+    var(--color-purple-mysticool-200) 50%,
+    var(--color-blue-skycicle-450) 50%,
+    var(--color-blue-skycicle-450) 100%
+  );
+}
+
+.year-in-review h2 {
+  font-size: 36px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.year-in-review .iFc {
+  line-height: 1.5;
+}
+
+.year-in-review .statsNumber {
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+  font-size: 36px;
+}
+
+.year-in-review .backButton {
+  border-radius: 100px;
+  border: 3px solid #111;
+  display: flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background-light);
+}
+
+@media all and (min-width: 768px) {
+  .year-in-review .h1Font {
+    font-size: 96px;
+  }
+
+  .year-in-review h2 {
+    font-size: 64px;
+  }
+
+  .year-in-review .statsNumber {
+    font-size: 64px;
+  }
+
+  .year-in-review .backButton {
+    padding: 8px 24px;
+  }
+}
+
+@media all and (min-width: 1312px) {
+  .year-in-review .h1Font {
+    font-size: 128px;
+  }
+
+  .year-in-review h2 {
+    font-size: 96px;
+  }
+}

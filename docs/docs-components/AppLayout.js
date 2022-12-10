@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 // @flow strict
 import { useEffect, useState, Fragment, type Node } from 'react';
 import { Box, Divider, DeviceTypeProvider } from 'gestalt';
@@ -28,6 +29,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
 
   const isHomePage = router?.route === '/home';
+  const isYIRPage = router?.route === '/year_in_review';
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
@@ -44,7 +46,11 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setIsSidebarOpen]);
 
-  return isMobile && isSidebarOpen ? (
+  return isYIRPage ? (
+    <Box minHeight="100vh" color="default">
+      {children}
+    </Box>
+  ) : isMobile && isSidebarOpen ? (
     <Box
       position="absolute"
       top
