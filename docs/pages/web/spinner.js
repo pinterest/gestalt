@@ -67,7 +67,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use Spinner if the wait time is likely longer than 10 seconds. Show incremental loading/completion progress instead."
             sandpackExample={
-              <SandpackExample code={dontWait} name="Don't - Wait" hideEditor previewHeight={400} />
+              <SandpackExample
+                code={dontWait}
+                name="Don't - Wait"
+                hideControls
+                hideEditor
+                previewHeight={400}
+              />
             }
           />
         </MainSection.Subsection>
@@ -94,6 +100,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 code={dontMultiple}
                 name="Don't - Multiple"
+                hideControls
                 hideEditor
                 previewHeight={400}
               />
@@ -123,6 +130,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 code={dontLabel}
                 name="Don't - Label"
+                hideControls
                 hideEditor
                 previewHeight={400}
               />
