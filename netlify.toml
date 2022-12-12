@@ -6,7 +6,7 @@
   targetPort = 3000
   port = 8888
   framework = "#custom"
-  autoLaunch = true
+  autoLaunch = false
 
 [[headers]]
   for = "/*"
