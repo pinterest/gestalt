@@ -1,3 +1,9 @@
+## 84.1.8 (Dec 12, 2022)
+
+### Patch
+
+- Spinner: add Best Practices and Localization sections ([#2556](https://github.com/pinterest/gestalt/pull/2556)) - [Preview link](https://deploy-preview-2556--gestalt.netlify.app)
+
 ## 84.1.7 (Dec 12, 2022)
 
 ### Patch
