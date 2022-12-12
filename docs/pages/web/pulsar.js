@@ -78,6 +78,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 code={dontPopover}
                 name="Don't - Popover"
+                hideControls
                 hideEditor
                 previewHeight={bestPracticesHeight}
               />
@@ -109,6 +110,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 code={dontStatus}
                 name="Don't - Status"
+                hideControls
                 hideEditor
                 previewHeight={bestPracticesHeight}
               />
@@ -138,6 +140,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 code={dontMultiple}
                 name="Don't - Multiple"
+                hideControls
                 hideEditor
                 previewHeight={bestPracticesHeight}
               />
@@ -167,6 +170,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 code={dontPosition}
                 name="Don't - Positioning"
+                hideControls
                 hideEditor
                 previewHeight={bestPracticesHeight}
               />
