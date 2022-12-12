@@ -104,7 +104,6 @@ yarn generate ComponentName
 
   - Run [Playwright visual diff snapshot tests](https://playwright.dev/docs/test-snapshots). If any component changes are expected to visually modify your component, you must update the snapshot tests. Make sure your macOS version matches the one set in [Playwright's config file](https://github.com/pinterest/gestalt/blob/master/.github/workflows/playwright.yml#L13)
 
-
   ```bash
   # Update all Gestalt packages builds running rollup
   yarn build
@@ -166,7 +165,6 @@ A Gestalt Core maintainer will add a semver label (patch release / minor release
 ### Scope of work
 
 When pushing new changes to GitHub, your PR title should be aligned with the scope of your work. If your goal was to change the default color of a component, keep the scope of changes to that specific task and word the title to exactly reflect those changes.
-
 
 ### Changes not allowed
 
