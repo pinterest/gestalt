@@ -75,7 +75,7 @@ function List({
   );
 }
 
-export default function DismissButton(): Node {
+export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
   const anchorRef = useRef();
@@ -99,6 +99,7 @@ export default function DismissButton(): Node {
           <Button color="red" onClick={() => {}} size="lg" text="Save" />
         </Flex>
       </Box>
+
       {open && (
         <Layer>
           <Popover

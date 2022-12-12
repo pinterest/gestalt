@@ -1,142 +1,35 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
+import a11y from '../../examples/popover/a11y.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
+import doEducate from '../../examples/popover/doEducate.js';
+import dontCaret from '../../examples/popover/dontCaret.js';
+import dontCritical from '../../examples/popover/dontCritical.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import main from '../../examples/popover/main.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/popover/defaultExample.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-
-const PREVIEW_HEIGHT = 550;
+import variantAnchor from '../../examples/popover/variantAnchor.js';
+import variantColorCaret from '../../examples/popover/variantColorCaret.js';
+import variantIdealDirection from '../../examples/popover/variantIdealDirection.js';
+import variantLayer from '../../examples/popover/variantLayer.js';
+import variantScrollingContainers from '../../examples/popover/variantScrollingContainers.js';
+import variantVisibility from '../../examples/popover/variantVisibility.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Popover">
-      <PageHeader
-        name="Popover"
-        description={generatedDocGen?.description}
-        defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={400} />
+      </PageHeader>
 
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const List = ({ title }) => (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Text color="default" size="100">
-        { title }
-      </Text>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-          ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-          ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-        ].map((data, index) => (
-            <TapArea key={index} onTap={() => {
-              setSelectedBoard(data[1]);
-              setOpen(false);
-            }}>
-              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                <Box height={50} width={50} overflow="hidden" rounding={2}>
-                  <Mask rounding={2}>
-                    <Image
-                      alt={data[2]}
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={50}
-                      naturalWidth={50}
-                      src={data[0]}
-                    />
-                  </Mask>
-                </Box>
-                <Text align="center" color="default" weight="bold">
-                  {data[1]}
-                </Text>
-              </Flex>
-            </TapArea>
-        ))}
-      </Flex>
-    </Flex>
-  );
-
-  return (
-    <React.Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Button
-          accessibilityHaspopup={true}
-          accessibilityExpanded={open}
-          accessibilityControls="main-example"
-          color="white"
-          iconEnd="arrow-down"
-          onClick={() => setOpen(!open)}
-          ref={anchorRef}
-          size="lg"
-          selected={open}
-          text={selectedBoard}
-        />
-        <Button color="red" onClick={() => {}} size="lg" text="Save" />
-      </Flex>
-      {open && (
-        <Layer>
-          <Popover
-            accessibilityLabel="Save to board"
-            anchor={anchorRef.current}
-            id="main-example"
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-            showDismissButton
-          >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
-                <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                  <Text align="center" color="default" weight="bold">
-                    Save to board
-                  </Text>
-                  <SearchBoardField />
-                </Flex>
-              </Box>
-              <Box height={300} overflow="scrollY">
-                <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List title="Top choices"/>
-                    <List title="All boards"/>
-                  </Flex>
-                </Box>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-  `}
-      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -162,360 +55,64 @@ function PopoverExample() {
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
             description="Use Popover to display a lightweight task related to the content on screen."
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
-
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const List = ({ title }) => (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Text color="default" size="100">
-        { title }
-      </Text>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-          ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-          ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-        ].map((data, index) => (
-            <TapArea key={index} onTap={() => {
-              setSelectedBoard(data[1]);
-              setOpen(false);
-            }}>
-              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                <Box height={50} width={50} overflow="hidden" rounding={2}>
-                  <Mask rounding={2}>
-                    <Image
-                      alt={data[2]}
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={50}
-                      naturalWidth={50}
-                      src={data[0]}
-                    />
-                  </Mask>
-                </Box>
-                <Text align="center" color="default" weight="bold">
-                  {data[1]}
-                </Text>
-              </Flex>
-            </TapArea>
-        ))}
-      </Flex>
-    </Flex>
-  );
-
-  return (
-    <React.Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Button
-          accessibilityHaspopup={true}
-          accessibilityExpanded={open}
-          accessibilityControls="popover-search"
-          color="white"
-          iconEnd="arrow-down"
-          onClick={() => setOpen(!open)}
-          ref={anchorRef}
-          size="lg"
-          selected={open}
-          text={selectedBoard}
-        />
-        <Button color="red" onClick={() => {}} size="lg" text="Save" />
-      </Flex>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            id="popover-search"
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-            showDismissButton
-          >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
-                <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                  <Text align="center" color="default" weight="bold">
-                    Save to board
-                  </Text>
-                  <SearchBoardField />
-                </Flex>
-              </Box>
-              <Box height={300} overflow="scrollY">
-                <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List title="Top choices"/>
-                    <List title="All boards"/>
-                  </Flex>
-                </Box>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-  `}
+            sandpackExample={
+              <SandpackExample code={main} hideEditor name="Do - Lightweight" previewHeight={400} />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use Popover to communicate critical information, such as an error or interaction feedback. Instead, use the error supplied directly to the form element. See [related](#Related) to learn more."
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  const viewRef = React.useRef();
-
-  const isInViewport = () => {
-    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
-    const isVisible = rect
-      ? rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      : undefined;
-
-    if (isVisible) {
-      setOpen(true)
-    }
-}
-
-  React.useEffect(() => {
-    isInViewport()
-    document.addEventListener('scroll', isInViewport), [document, isInViewport]
-  });
-
-  return (
-    <React.Fragment>
-      <Box display="flex" alignItems="center" ref={viewRef} height={200}>
-        <TextField
-          id="field"
-          onChange={() => {}}
-          label="Name"
-          value="Cats"
-          ref={anchorRef}
-        />
-      </Box>
-      {open &&
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="red"
-            idealDirection="down"
-            showCaret
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            size="xs"
-          >
-            <Box padding={3}>
-              <Text color="inverse" align="center">
-                You already have a board with that name
-              </Text>
-            </Box>
-          </Popover>
-        </Layer>}
-    </React.Fragment>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample
+                code={dontCritical}
+                hideControls
+                hideEditor
+                name="Don't - Critical"
+                previewHeight={400}
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
             description="Use Popover to educate users on a new or existing feature. When Popover is triggered automatically, like in the case of user education, be sure to use a blue background and include a caret pointing to the feature. See the [color and caret](#Color-and-caret) variant to learn more."
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-
-  React.useEffect(() => {
-    setOpen(true)
-  }, []);
-
-  return (
-    <React.Fragment>
-      <IconButton
-        accessibilityLabel="Default IconButton"
-        iconColor="darkGray"
-        icon="filter"
-        onClick={() => {}}
-        ref={anchorRef}
-        size="lg"
-      />
-      {open &&
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="blue"
-            idealDirection="down"
-            showCaret
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            size="xs"
-          >
-            <Box padding={3}>
-              <Text color="inverse" align="center">
-                Filter your board to see your favorite Pins, and more
-              </Text>
-            </Box>
-          </Popover>
-        </Layer>}
-    </React.Fragment>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample
+                code={doEducate}
+                hideEditor
+                name="Do - Educate"
+                previewHeight={400}
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Include a caret if Popover was triggered by user interaction, such as clicking or focusing on [Button](/web/button) or [IconButton](/web/iconbutton)."
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
-
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const List = ({ title }) => (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Text color="default" size="100">
-        { title }
-      </Text>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-          ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-          ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-        ].map((data, index) => (
-            <TapArea key={index} onTap={() => {
-              setSelectedBoard(data[1]);
-              setOpen(false);
-            }}>
-              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                <Box height={50} width={50} overflow="hidden" rounding={2}>
-                  <Mask rounding={2}>
-                    <Image
-                      alt={data[2]}
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={50}
-                      naturalWidth={50}
-                      src={data[0]}
-                    />
-                  </Mask>
-                </Box>
-                <Text align="center" color="default" weight="bold">
-                  {data[1]}
-                </Text>
-              </Flex>
-            </TapArea>
-        ))}
-      </Flex>
-    </Flex>
-  );
-
-  return (
-    <React.Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Button
-          accessibilityHaspopup={true}
-          accessibilityExpanded={open}
-          accessibilityControls="popover-search-boards"
-          color="white"
-          iconEnd="arrow-down"
-          onClick={() => setOpen(!open)}
-          ref={anchorRef}
-          size="lg"
-          selected={open}
-          text={selectedBoard}
-        />
-        <Button color="red" onClick={() => {}} size="lg" text="Save" />
-      </Flex>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            id="popover-search-boards"
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            showCaret
-            size="xl"
-            showDismissButton
-          >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
-                <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                  <Text align="center" color="default" weight="bold">
-                    Save to board
-                  </Text>
-                  <SearchBoardField />
-                </Flex>
-              </Box>
-              <Box height={300} overflow="scrollY">
-                <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List title="Top choices"/>
-                    <List title="All boards"/>
-                  </Flex>
-                </Box>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-  `}
+            sandpackExample={
+              <SandpackExample
+                code={dontCaret}
+                hideControls
+                hideEditor
+                name="Don't - Caret"
+                previewHeight={400}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Keyboard interaction"
@@ -549,15 +146,12 @@ For the \`role\` prop, use:
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={defaultExample}
-                name="Aria example"
-                previewHeight={PREVIEW_HEIGHT}
-              />
+              <SandpackExample code={a11y} name="Aria example" previewHeight={550} />
             }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
+
       <MainSection
         name="Localization"
         description="Be sure to localize any text elements within Popover, along with `accessibilityLabel` and `accessibilityDismissButtonLabel`. Note that localization can lengthen text by 20 to 30 percent."
@@ -574,6 +168,7 @@ For the \`role\` prop, use:
           }}
         />
       </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
@@ -598,166 +193,16 @@ When building in-product education, be sure to pass in \`color="blue"\` and \`sh
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-
-  React.useEffect(() => {
-    setOpen(true)
-  }, []);
-
-  return (
-    <ScrollBoundaryContainer>
-      <Flex width={400} justifyContent="center">
-        <IconButton
-          accessibilityLabel="Default IconButton"
-          icon="filter"
-          iconColor="darkGray"
-          onClick={() => {}}
-          ref={anchorRef}
-          size="lg"
-        />
-        {open &&
-          <Layer>
-            <Popover
-              anchor={anchorRef.current}
-              color="blue"
-              id="popover-educate-2"
-              idealDirection="down"
-              showCaret
-              onDismiss={() => {}}
-              positionRelativeToAnchor={false}
-              size="xs"
-            >
-              <Box padding={3}>
-                <Text color="inverse" align="center">
-                  Filter your board to see your favorite Pins, and more
-                </Text>
-              </Box>
-            </Popover>
-          </Layer>}
-      </Flex>
-    </ScrollBoundaryContainer>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={variantColorCaret} name="Variant - Color/Caret" />
+            }
           />
+
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
-
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const List = ({ title }) => (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Text color="default" size="100">
-        { title }
-      </Text>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-          ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-          ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-        ].map((data, index) => (
-            <TapArea key={index} onTap={() => {
-              setSelectedBoard(data[1]);
-              setOpen(false);
-            }}>
-              <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                <Box height={50} width={50} overflow="hidden" rounding={2}>
-                  <Mask rounding={2}>
-                    <Image
-                      alt={data[2]}
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={50}
-                      naturalWidth={50}
-                      src={data[0]}
-                    />
-                  </Mask>
-                </Box>
-                <Text align="center" color="default" weight="bold">
-                  {data[1]}
-                </Text>
-              </Flex>
-            </TapArea>
-        ))}
-      </Flex>
-    </Flex>
-  );
-
-  return (
-    <React.Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Button
-          accessibilityHaspopup={true}
-          accessibilityExpanded={open}
-          accessibilityControls="popover-search-board-2"
-          color="white"
-          iconEnd="arrow-down"
-          onClick={() => setOpen(!open)}
-          ref={anchorRef}
-          size="lg"
-          selected={open}
-          text={selectedBoard}
-        />
-        <Button color="red" onClick={() => {}} size="lg" text="Save" />
-      </Flex>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            id="popover-search-board-2"
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-          >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                  <Text align="center" color="default" weight="bold">
-                    Save to board
-                  </Text>
-                  <SearchBoardField />
-                </Flex>
-              </Box>
-              <Box height={300} overflow="scrollY">
-                <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List title="Top choices"/>
-                    <List title="All boards"/>
-                  </Flex>
-                </Box>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-  `}
+            sandpackExample={
+              <SandpackExample code={main} name="Variant - Color/Caret 2" previewHeight={400} />
+            }
           />
         </MainSection.Subsection>
 
@@ -771,73 +216,10 @@ Popover calculates its position based on the bounding box of the \`anchor\`. The
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function PopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  const viewRef = React.useRef();
-
-  const isInViewport = () => {
-    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
-    const isVisible = rect
-      ? rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      : undefined;
-
-    if (isVisible) {
-      setOpen(true)
-    }
-  }
-
-  React.useEffect(() => {
-    isInViewport()
-    document.addEventListener('scroll', isInViewport), [document, isInViewport]
-  });
-
-  return (
-    <ScrollBoundaryContainer>
-      <Box ref={viewRef} width={300} height={220}>
-        <Box display="flex" justifyContent="center" ref={anchorRef}>
-          <Tabs
-            activeTabIndex={1}
-            onChange={() => {}}
-            tabs={[{ href: '#Anchor', text: 'Created'}]}
-          />
-        </Box>
-      </Box>
-      {open &&
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="blue"
-            idealDirection="down"
-            showCaret
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            size={240}
-          >
-            <Box padding={3}>
-              <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
-                <Text color="inverse" align="center">
-                  New look! Click Created to see Pins you've published. Click Saved to see your saved Pins and boards.
-                </Text>
-                <Button
-                  color="white"
-                  onClick={() => setOpen(false)}
-                  size="lg"
-                  text="Got it!"
-                />
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>}
-    </ScrollBoundaryContainer>
-  )
-}`}
+            sandpackExample={<SandpackExample code={variantAnchor} name="Variant - Anchor" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Dismiss button"
           description={` We highly recommend including a dismiss button on all Popovers with \`showDismissButton\`. This improves accessibility and gives users an immediate action for closing Popover. A label for the button can be provided with the \`accessibilityDismissButtonLabel\` prop. Don't forget to localize this label as well.
@@ -857,14 +239,11 @@ function PopoverExample() {
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={defaultExample}
-                name="Dismiss button example"
-                previewHeight={PREVIEW_HEIGHT}
-              />
+              <SandpackExample code={a11y} name="Dismiss button example" previewHeight={550} />
             }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="With Layer"
           description={`
@@ -875,213 +254,17 @@ Using \`Layer\` with Popover eliminates the need to use \`z-index\` to solve sta
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ScrollBoundaryContainerExample() {
-  const [showSheet, setShowSheet] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorDropdownRef = React.useRef(null);
-  const handleSelect = ({ item }) => setSelected(item);
-
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const SelectBoard = () => {
-    const [openPopover, setOpenPopover] = React.useState(false);
-    const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-    const anchorRef = React.useRef();
-
-    const List = ({ title }) => (
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <Text color="default" size="100">
-          { title }
-        </Text>
-        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-          {[
-            ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-            ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-            ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-          ].map((data, index) => (
-              <TapArea
-                key={index}
-                onTap={() => {
-                  setSelectedBoard(data[1]);
-                  setOpenPopover(false);
-                }}
-                rounding={2}
-              >
-                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                  <Box height={50} width={50} overflow="hidden" rounding={2}>
-                    <Mask rounding={2}>
-                      <Image
-                        alt={data[2]}
-                        color="rgb(231, 186, 176)"
-                        naturalHeight={50}
-                        naturalWidth={50}
-                        src={data[0]}
-                      />
-                    </Mask>
-                  </Box>
-                  <Text align="center" color="default" weight="bold">
-                    {data[1]}
-                  </Text>
-                </Flex>
-              </TapArea>
-          ))}
-        </Flex>
-      </Flex>
-    );
-
-    return (
-      <React.Fragment>
-          <Flex direction="column" gap={{ column: 2, row: 0 }}>
-            <Text size="100">Board</Text>
-            <Button
-              accessibilityHaspopup={true}
-              accessibilityExpanded={openPopover}
-              accessibilityControls="popover-search-board-3"
-              iconEnd="arrow-down"
-              label="Select Board"
-              onClick={() => setOpenPopover(!openPopover)}
-              text={selectedBoard}
-              ref={anchorRef}
-            />
-          </Flex>
-        {openPopover && (
-          <Layer>
-            <Popover
-              anchor={anchorRef.current}
-              id="popover-search-board-3"
-              idealDirection="down"
-              onDismiss={() => setOpenPopover(false)}
-              positionRelativeToAnchor={false}
-              size="xl"
-              showDismissButton
-            >
-              <Box width={360}>
-                <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
-                  <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                    <Text align="center" color="default" weight="bold">
-                      Save to board
-                    </Text>
-                    <SearchBoardField/>
-                  </Flex>
-                </Box>
-                <Box height={300} overflow="scrollY">
-                  <Box marginEnd={4} marginStart={4}>
-                    <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                      <List title="Top choices"/>
-                      <List title="All boards"/>
-                    </Flex>
-                  </Box>
-                </Box>
-              </Box>
-            </Popover>
-          </Layer>
-        )}
-      </React.Fragment>
-    )
-  }
-
-  return (
-    <React.Fragment>
-      <Button
-        accessibilityHaspopup={true}
-        accessibilityExpanded={showSheet}
-        accessibilityControls="popover-sheet"
-        text="Edit Pin"
-        onClick={() => setShowSheet(true)}
-        size="lg"
-      />
-      {showSheet && (
-        <Layer zIndex={new FixedZIndex(11)}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close edit Pin sheet"
-            accessibilitySheetLabel="Edit your Pin details"
-            heading="Edit Pin"
-            footer={
-                <Flex>
-                  <Flex.Item
-                    flex="grow"
-                  >
-                    <Button
-                      color="white"
-                      text="Delete"
-                      size="lg"
-                      onClick={() => setShowSheet(false)}
-                    />
-                  </Flex.Item>
-                  <Flex gap={{ column: 0, row: 2 }}>
-                    <Button
-                      text="Cancel"
-                      size="lg"
-                      onClick={() => setShowSheet(false)}
-                    />
-                    <Button
-                      text="Done"
-                      color="red"
-                      size="lg"
-                      type="submit"
-                      onClick={() => setShowSheet(false)}
-                    />
-                  </Flex>
-                </Flex>
+            sandpackExample={
+              <SandpackExample
+                code={variantLayer}
+                name="Variant - Layer"
+                previewHeight={800}
+                layout="column"
+              />
             }
-            onDismiss={() => setShowSheet(false)}
-            size="lg"
-          >
-            <Box id="popover-sheet" display="flex" height={400} paddingX={8}>
-              <Flex gap={{ row: 8, column: 0 }} width="100%">
-                <Box width={200} paddingX={2} rounding={4}>
-                  <Mask rounding={4}>
-                    <Image
-                      alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={751}
-                      naturalWidth={564}
-                      src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-                    />
-                  </Mask>
-                </Box>
-                <Flex.Item flex="grow">
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <SelectBoard/>
-                    <TextArea
-                      id="note"
-                      onChange={() => {}}
-                      placeholder="Add note"
-                      label="Note"
-                      value=""
-                    />
-                  </Flex>
-                </Flex.Item>
-              </Flex>
-              </Box>
-          </Sheet>
-        </Layer>
-      )}
-    </React.Fragment>
-  )
-}
-`}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Ideal direction"
           description={`
@@ -1092,90 +275,16 @@ Adjust the \`idealDirection\` as necessary to ensure the visibility of Popover a
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  const viewRef = React.useRef();
-
-  const isInViewport = () => {
-    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
-    const isVisible = rect
-      ? rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      : undefined;
-
-    if (isVisible) {
-      setOpen(true)
-    }
-  }
-
-  React.useEffect(() => {
-    isInViewport()
-    document.addEventListener('scroll', isInViewport), [document, isInViewport]
-  });
-
-  return (
-    <ScrollBoundaryContainer>
-      <Box
-        color="default"
-        display="flex"
-        alignItems="center"
-        ref={viewRef}
-        padding={4}
-        width={600}
-        height={200}
-      >
-        <Flex gap={{ column: 0, row: 2 }}>
-          <Box width={300}>
-            <Text>
-              You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website.
-            </Text>
-          </Box>
-          <Button
-            ref={anchorRef}
-            href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-            iconEnd="visit"
-            onClick={() => setOpen(false)}
-            role="link"
-            size="lg"
-            target="blank"
-            text="Help"
-          />
-        </Flex>
-      </Box>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="blue"
-            idealDirection="right"
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            showCaret
-            size="xs"
-          >
-            <Box
-              padding={3}
-              display="flex"
-              alignItems="center"
-              direction="column"
-            >
-              <Text color="inverse" align="center">
-                Need help with something? Check out our Help Center.
-              </Text>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </ScrollBoundaryContainer>
-    )
-}`}
-            shaded
+            sandpackExample={
+              <SandpackExample
+                code={variantIdealDirection}
+                name="Variant - Ideal direction"
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Within scrolling containers"
           description={`
@@ -1184,82 +293,31 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  const viewRef = React.useRef();
-
-  const isInViewport = () => {
-    const rect = viewRef && viewRef.current && viewRef.current.getBoundingClientRect();
-    const isVisible = rect
-      ? rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      : undefined;
-
-    if (isVisible) {
-      setOpen(true)
-    }
-  }
-
-  React.useEffect(() => {
-    isInViewport()
-    document.addEventListener('scroll', isInViewport), [document, isInViewport]
-  });
-
-  return (
-    <ScrollBoundaryContainer height={200}>
-      <Box color="default" ref={viewRef} padding={4} width={600}>
-        <Flex gap={{ column: 0, row: 4 }}>
-          <Box width={200}>
-            <Text>
-              You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website. If there are any errors with your data source file, you can learn how to troubleshoot them below. After you click Create Pins, you'll land back at the main data source page while your feed is being processed. Wait for a confirmation email from Pinterest about the status of your data source submission.
-            </Text>
-          </Box>
-          <Button
-            ref={anchorRef}
-            href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-            iconEnd="visit"
-            onClick={() => setOpen(false)}
-            role="link"
-            size="lg"
-            target="blank"
-            text="Help"
+            sandpackExample={
+              <SandpackExample
+                code={variantScrollingContainers}
+                name="Variant - Scrolling containers"
+                layout="column"
+              />
+            }
           />
-          {open && (
-            <Layer>
-              <Popover
-                anchor={anchorRef.current}
-                color="blue"
-                idealDirection="right"
-                onDismiss={() => {}}
-                positionRelativeToAnchor={false}
-                showCaret
-                size="xs"
-              >
-                <Box
-                  padding={3}
-                  display="flex"
-                  alignItems="center"
-                  direction="column"
-                >
-                  <Text color="inverse" align="center">
-                    Need help with something? Check out our Help Center.
-                  </Text>
-                </Box>
-              </Popover>
-            </Layer>
-          )}
-        </Flex>
-      </Box>
-    </ScrollBoundaryContainer>
-)}`}
-            shaded
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Visibility on page load"
+          description={`
+Popover's positioning algorithm requires that the anchor element renders before Popover is rendered. If Popover should be visible on page load, use \`useEffect\` to toggle the visibility after the first render.
+`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={variantVisibility} name="Variant - Visibility on page load" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
