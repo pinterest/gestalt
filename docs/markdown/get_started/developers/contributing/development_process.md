@@ -65,8 +65,7 @@ git remote -v
 
 Whenever you make changes to Gestalt, please test them out locally before making a PR.
 
-To start the documentation server, run `yarn start`, which will automatically open the docs in a new browser tab.
-If that tab doesn't launch automatically, navigate to <ins>http://localhost:8888</ins>
+To start the documentation server, run `yarn start`. In your favorite browser, navigate to <ins>http://localhost:8888</ins>.
 
 ## Create a pull request
 
