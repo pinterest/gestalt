@@ -1,3 +1,9 @@
+## 84.1.6 (Dec 12, 2022)
+
+### Patch
+
+- Internal: do not autolaunch browser in dev ([#2560](https://github.com/pinterest/gestalt/pull/2560)) - [Preview link](https://deploy-preview-2560--gestalt.netlify.app)
+
 ## 84.1.5 (Dec 12, 2022)
 
 ### Patch
