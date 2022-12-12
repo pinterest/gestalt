@@ -1,10 +1,14 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, Button, Flex, Popover, Pulsar, Text } from 'gestalt';
 
 export default function Example(): Node {
-  const [showEducation, setShowEducation] = useState(true);
+  const [showEducation, setShowEducation] = useState(false);
   const anchorRef = useRef();
+
+  useEffect(() => {
+    setShowEducation(true);
+  }, []);
 
   return (
     <Flex justifyContent="center" height="100%" width="100%">
