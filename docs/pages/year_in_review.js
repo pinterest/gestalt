@@ -5,13 +5,14 @@ import { type Node } from 'react';
 import { Box, Button, Flex, Heading, Icon, Text } from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
-import DiscoBall from '../graphics/year-in-review/disco.svg';
 import Pencil from '../graphics/year-in-review/pencil.svg';
 import Tokens from '../graphics/year-in-review/tokens.svg';
 import Figma from '../graphics/year-in-review/figma.svg';
 import DSD from '../graphics/year-in-review/dsd.svg';
 import TheYear from '../graphics/year-in-review/theYear.svg';
 import Vibes from '../graphics/year-in-review/vibes.svg';
+import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
+import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
 // $FlowExpectedError[untyped-import]
 import discoStars from '../graphics/year-in-review/discoStars.json';
 import GestaltLogo from '../docs-components/GestaltLogo.js';
@@ -54,15 +55,29 @@ export default function Blog(): Node {
           }}
         >
           <Flex direction="column" alignItems="center">
-            <DiscoBall width="500px" />
-            <Box position="absolute" dangerouslySetInlineStyle={{ __style: { top: '135px' } }}>
+            <Box marginTop={-3} column={6} mdColumn={3}>
               <Lottie animationData={discoStars} loop={5} />
             </Box>
-            <Heading align="center" accessibilityLevel={2} color="light">
-              Gestalt 2022
-            </Heading>
+            <h2 className="gestalt2022">Gestalt 2022</h2>
             <h1 className="h1Font">Year in Review</h1>
           </Flex>
+          <Box position="absolute" bottom marginStart={10}>
+            <KnobShadow width="150px" />
+          </Box>
+          <Box
+            position="absolute"
+            top
+            right
+            marginStart={10}
+            dangerouslySetInlineStyle={{
+              __style: {
+                top: '30%',
+                right: '15%',
+              },
+            }}
+          >
+            <AsteriskFilled width="150px" />
+          </Box>
         </Box>
         <Flex direction="column" alignItems="center">
           <div className="halfAndHalf">
@@ -99,7 +114,7 @@ export default function Blog(): Node {
           dangerouslySetInlineStyle={{
             __style: { backgroundColor: 'var(--color-purple-mysticool-200)' },
           }}
-          paddingY={12}
+          paddingY={6}
           paddingX={8}
         >
           <Flex direction="column" alignItems="center" justifyContent="center">
@@ -212,7 +227,9 @@ export default function Blog(): Node {
             <Flex direction="column" alignItems="center" justifyContent="center">
               <Box marginBottom={8}>
                 <Heading align="center" accessibilityLevel={2}>
-                  Extreme makeover: Figma edition
+                  Extreme makeover:
+                  <br />
+                  Figma edition
                 </Heading>
               </Box>
               <Flex gap={4} direction="column" maxWidth="660px">
@@ -366,7 +383,7 @@ export default function Blog(): Node {
           paddingY={12}
         >
           <Flex direction="column" alignItems="center" justifyContent="center">
-            <Box>
+            <Box paddingX={10}>
               <Heading align="center" accessibilityLevel={2} color="light">
                 This was truly the year
               </Heading>
@@ -381,7 +398,7 @@ export default function Blog(): Node {
             >
               <Flex
                 direction="column"
-                gap={4}
+                gap={12}
                 maxWidth="550px"
                 alignItems="center"
                 mdAlignItems="start"

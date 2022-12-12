@@ -746,12 +746,19 @@ html[dir="rtl"] .Markdown ul + pre {
 
 /* Year In Review CSS */
 
+.year-in-review .bwj {
+  line-height: 1.5;
+}
+
 .year-in-review .h1Font {
   font-size: 48px;
+  font-family: PinterestSans;
+  font-weight: normal;
+  font-style: italic;
   color: var(--color-text-light);
   margin: 0;
   text-align: center;
-  line-height: 110%;
+  line-height: 1.1;
 }
 
 .year-in-review .halfAndHalf {
@@ -770,15 +777,25 @@ html[dir="rtl"] .Markdown ul + pre {
 .year-in-review h2 {
   font-size: 36px;
   font-style: italic;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
+  font-family: PinterestSans;
+  line-height: 1.1;
 }
 
-.year-in-review .iFc {
-  line-height: 1.5;
+.year-in-review .gestalt2022 {
+  font-size: 24px;
+  font-family: PinterestSans;
+  font-style: normal;
+  font-weight: normal;
+  color: var(--color-text-light);
+  margin: 0;
 }
+
+
 
 .year-in-review .statsNumber {
   margin: 0;
+  font-family: PinterestSans;
   font-weight: var(--font-weight-bold);
   font-size: 36px;
 }
@@ -809,6 +826,10 @@ html[dir="rtl"] .Markdown ul + pre {
   .year-in-review .backButton {
     padding: 8px 24px;
   }
+
+  .year-in-review .gestalt2022 {
+    font-size: 48px;
+  }
 }
 
 @media all and (min-width: 1312px) {
@@ -819,4 +840,14 @@ html[dir="rtl"] .Markdown ul + pre {
   .year-in-review h2 {
     font-size: 96px;
   }
+
+  .year-in-review .gestalt2022 {
+    font-size: 64px;
+  }
+}
+
+@font-face {
+  font-family: "PinterestSans";
+  src: local("PinterestSans"),
+  url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
 }
