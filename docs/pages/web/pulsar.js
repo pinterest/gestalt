@@ -20,8 +20,6 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import size from '../../examples/pulsar/size.js';
 
-const bestPracticesHeight = 600;
-
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
@@ -66,7 +64,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 code={doPopover}
                 name="Do - Popover"
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={300}
               />
             }
           />
@@ -80,7 +78,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Don't - Popover"
                 hideControls
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={300}
               />
             }
           />
@@ -96,7 +94,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 code={doHighlight}
                 name="Do - Highlight"
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={400}
               />
             }
           />
@@ -112,7 +110,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Don't - Status"
                 hideControls
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={400}
               />
             }
           />
@@ -128,7 +126,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 code={doPrioritize}
                 name="Do - Prioritize"
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={400}
               />
             }
           />
@@ -142,7 +140,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Don't - Multiple"
                 hideControls
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={400}
               />
             }
           />
@@ -158,7 +156,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 code={doPosition}
                 name="Do - Positioning"
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={500}
               />
             }
           />
@@ -172,7 +170,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Don't - Positioning"
                 hideControls
                 hideEditor
-                previewHeight={bestPracticesHeight}
+                previewHeight={500}
               />
             }
           />
