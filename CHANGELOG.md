@@ -1,3 +1,9 @@
+## 84.1.7 (Dec 12, 2022)
+
+### Patch
+
+- Pulsar: add Best Practices ([#2557](https://github.com/pinterest/gestalt/pull/2557)) - [Preview link](https://deploy-preview-2557--gestalt.netlify.app)
+
 ## 84.1.6 (Dec 12, 2022)
 
 ### Patch
