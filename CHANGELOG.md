@@ -1,3 +1,9 @@
+## 84.1.5 (Dec 12, 2022)
+
+### Patch
+
+- Internal: add markdown lint config file, ease some rules ([#2561](https://github.com/pinterest/gestalt/pull/2561)) - [Preview link](https://deploy-preview-2561--gestalt.netlify.app)
+
 ## 84.1.4 (Dec 9, 2022)
 
 ### Patch
