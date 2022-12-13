@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Heading, Icon, Text } from 'gestalt';
+import { Box, Button, Flex, Heading, Icon, Text, FixedZIndex } from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
 import Pencil from '../graphics/year-in-review/pencil.svg';
@@ -13,9 +13,13 @@ import TheYear from '../graphics/year-in-review/theYear.svg';
 import Vibes from '../graphics/year-in-review/vibes.svg';
 import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
+import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
+
 // $FlowExpectedError[untyped-import]
 import discoStars from '../graphics/year-in-review/discoStars.json';
 import GestaltLogo from '../docs-components/GestaltLogo.js';
+
+const FRONT_ZINDEX = new FixedZIndex(10);
 
 type PostProps = {|
   description: string,
@@ -61,10 +65,11 @@ export default function Blog(): Node {
             <h2 className="gestalt2022">Gestalt 2022</h2>
             <h1 className="h1Font">Year in Review</h1>
           </Flex>
-          <Box position="absolute" bottom marginStart={10}>
-            <KnobShadow width="150px" />
+          <Box width="10%" position="absolute" bottom marginStart={10}>
+            <KnobShadow width="100%" className="flyInLeft" />
           </Box>
           <Box
+            width="10%"
             position="absolute"
             top
             right
@@ -76,7 +81,22 @@ export default function Blog(): Node {
               },
             }}
           >
-            <AsteriskFilled width="150px" />
+            <AsteriskFilled className="introAsterisk" width="100%" />
+          </Box>
+          <Box
+            width="10%"
+            position="absolute"
+            top
+            right
+            marginStart={10}
+            dangerouslySetInlineStyle={{
+              __style: {
+                top: '70%',
+                right: '10%',
+              },
+            }}
+          >
+            <DonutHalf className="introHalfDonut" width="100%" />
           </Box>
         </Box>
         <Flex direction="column" alignItems="center">
@@ -91,6 +111,7 @@ export default function Blog(): Node {
                 },
               }}
               margin={4}
+              zIndex={FRONT_ZINDEX}
             >
               <Flex gap={4} direction="column">
                 <Text size="400">

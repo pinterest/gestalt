@@ -186,7 +186,7 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   },
   {
     svg: <Messaging />,
-    name: 'Messsaing',
+    name: 'Messaging',
     description:
       'How to communicate errors, warnings, successes, recommendations and general information on system status.',
     category: 'Foundations',

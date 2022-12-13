@@ -772,6 +772,7 @@ html[dir="rtl"] .Markdown ul + pre {
     var(--color-blue-skycicle-450) 50%,
     var(--color-blue-skycicle-450) 100%
   );
+
 }
 
 .year-in-review h2 {
@@ -850,4 +851,75 @@ html[dir="rtl"] .Markdown ul + pre {
   font-family: "PinterestSans";
   src: local("PinterestSans"),
   url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
+}
+
+/* Year in review animations */
+
+.introAsterisk {
+  opacity: 0;
+  animation: fly-in-right 1s ease-out 0s forwards, spin-counter-clockwise 2s ease-in-out 1s forwards 2;
+}
+
+.introHalfDonut {
+  opacity: 0;
+  animation: fly-in-right 1s ease-out 0s forwards, rock 2s ease-in-out 1s forwards 2;
+}
+
+.flyInLeft {
+  opacity: 0;
+  animation: fly-in-left 1s ease-out 0s forwards;
+}
+
+
+@keyframes fly-in-right {
+  from {
+    transform: translate(100%, 500px) rotate(180deg);
+  }
+  to {
+    transform: translate(0%, 0px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fly-in-left {
+  from {
+    transform: translate(-100%, 500px) rotate(-100deg);
+  }
+  to {
+    transform: translate(0%, 0px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform:  rotate(-180deg);
+  }
+}
+
+@keyframes rock {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(20deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
