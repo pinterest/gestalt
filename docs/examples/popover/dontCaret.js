@@ -135,7 +135,7 @@ export default function Example(): Node {
             showDismissButton
             showCaret
           >
-            <Box width={360}>
+            <Box width={300}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
