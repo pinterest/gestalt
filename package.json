@@ -116,6 +116,7 @@
     "lint:js": "eslint --max-warnings 0 .",
     "lint:sh": "shellcheck $(find . -type f -iname '*.sh' ! -path '*/node_modules/*' ! -path '*/.git/*')",
     "playwright:test": "npx playwright test playwright/accessibility/ --config=playwright/playwright.config.js",
+    "playwright:update-visual-test": "npx playwright test --config=playwright/playwright.config.js",
     "precommit": "lint-staged",
     "prettier": "prettier",
     "start": "netlify dev -c \"yarn dev\"",
