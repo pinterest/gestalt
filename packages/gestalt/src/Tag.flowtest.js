@@ -16,4 +16,4 @@ const MissingProp = <Tag />;
 const InvalidProps = <Tag nonexisting={33} />;
 
 // $FlowExpectedError[incompatible-type]
-const IncompleteProps = <Tag text="New" />;
+const IncompleteProps = <Tag />;
