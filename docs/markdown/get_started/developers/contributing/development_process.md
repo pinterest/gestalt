@@ -108,11 +108,10 @@ yarn generate ComponentName
   # Update all Gestalt packages builds running rollup
   yarn build
   #
-  # Update visual all test snapshots with the latest builds
-  yarn playwright:test visual-test/ --update-snapshots
 
-  # Update visual a specific test snapshots with the latest builds
-  yarn playwright:test visual-test/<filename> --update-snapshots
+  # Update a specific visual test snapshots with the latest builds
+  yarn playwright:update-visual-test playwright/visual-test/<filename>  --update-snapshots
+
 
   ```
 
