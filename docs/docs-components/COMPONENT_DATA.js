@@ -18,6 +18,7 @@ import Dropdown from '../graphics/general/Dropdown.svg';
 import RadioGroup from '../graphics/general/RadioGroup.svg';
 import Heading from '../graphics/general/Heading.svg';
 import IconButton from '../graphics/general/IconButton.svg';
+import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
@@ -186,7 +187,7 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   },
   {
     svg: <Messaging />,
-    name: 'Messsaing',
+    name: 'Messaging',
     description:
       'How to communicate errors, warnings, successes, recommendations and general information on system status.',
     category: 'Foundations',
@@ -1171,7 +1172,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <IconButton />,
+    svg: <IconButtonFloating />,
     name: 'IconButtonFloating',
     aliases: ['Glyph button', 'Floating action button', 'FAB', 'Quick create'],
     description:
