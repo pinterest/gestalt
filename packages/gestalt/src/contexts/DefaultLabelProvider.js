@@ -14,6 +14,9 @@ import { type Context, type Node, createContext, useContext } from 'react';
  */
 
 export type DefaultLabelContextType = {|
+  ComboBox: {|
+    accessibilityClearButtonLabel: string,
+  |},
   Link: {|
     accessibilityNewTabLabel: string,
   |},
@@ -23,8 +26,10 @@ export type DefaultLabelContextType = {|
   Popover: {|
     accessibilityDismissButtonLabel: string,
   |},
-  ComboBox: {|
-    accessibilityClearButtonLabel: string,
+  Tag: {|
+    accessibilityErrorIconLabel: string,
+    accessibilityRemoveIconLabel: string,
+    accessibilityWarningIconLabel: string,
   |},
   TextField: {|
     accessibilityHidePasswordLabel: string,
@@ -33,6 +38,9 @@ export type DefaultLabelContextType = {|
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
+  ComboBox: {
+    accessibilityClearButtonLabel: 'Clear input',
+  },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
   },
@@ -42,8 +50,10 @@ export const fallbackLabels: DefaultLabelContextType = {
   Popover: {
     accessibilityDismissButtonLabel: 'Close popover',
   },
-  ComboBox: {
-    accessibilityClearButtonLabel: 'Clear input',
+  Tag: {
+    accessibilityErrorIconLabel: 'Error',
+    accessibilityRemoveIconLabel: 'Remove tag',
+    accessibilityWarningIconLabel: 'Warning',
   },
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',

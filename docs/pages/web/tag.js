@@ -5,14 +5,15 @@ import disabled from '../../examples/tag/disabled.js';
 import dismissable from '../../examples/tag/dismissable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import error from '../../examples/tag/error.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import main from '../../examples/tag/main.js';
 import MainSection from '../../docs-components/MainSection.js';
 import maxWidth from '../../examples/tag/maxWidth.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import PropTable from '../../docs-components/PropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import warning from '../../examples/tag/warning.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -21,42 +22,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <SandpackExample code={main} name="Tag Main Example" hideEditor />
       </PageHeader>
 
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        props={[
-          {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: false,
-            description:
-              'Set a disabled state so the tag looks inactive and cannot be interacted with.',
-          },
-          {
-            name: 'errorMessage',
-            type: 'string',
-            description:
-              "Set an error state on the tag. The message is used as an accessibility label for the error icon. Keep it short so it doesn't overwhelm the user.",
-          },
-          {
-            name: 'onRemove',
-            type: '({| event: SyntheticMouseEvent<> |}) => void',
-            description:
-              'Callback fired when the tag is removed. Should handle state updates to stop rendering the component. Required unless the tag is in a disabled state.',
-          },
-          {
-            name: 'removeIconAccessibilityLabel',
-            type: 'string',
-            description:
-              'Accessibility label for the icon button to remove the tag, ideally something like "Remove [Tag Name] Tag". Required unless the tag is in a disabled state.',
-          },
-          {
-            name: 'text',
-            type: 'string',
-            required: true,
-            description: 'Short text to render inside the tag.',
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -73,7 +39,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             title="When not to use"
             description={`
-          - As a replacement for the [Badge](/web/badge), as the Badge is a singular element that gives context to a specific subject.
+          - As a replacement for the [Badge](/web/badge), as Badge is a singular element that gives context to a specific subject.
         `}
           />
         </MainSection.Subsection>
@@ -84,7 +50,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`
-        If not disabled, Tags are dismissable by the "X" affordance, which triggers the \`onRemove\` callback. Be sure to provide \`removeIconAccessibilityLabel\`!
+        If not disabled, Tags are dismissable by the "X" affordance, which triggers the \`onRemove\` callback. If your app uses [DefaultLabelProvider](/web/utilities/defaultlabelprovider), a default value for this label will be used. This can be overridden with a more specific label if desired.
         `}
           title="Dismissable"
         >
@@ -97,7 +63,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
         When disabled, Tags are visible but cannot be removed.
 
-        If this condition is constant (not determined dynamically), \`onRemove\` and \`removeIconAccessibilityLabel\` can be omitted.
+        If this condition is constant (not determined dynamically), \`onRemove\` can be omitted.
         `}
           title="Disabled"
         >
@@ -108,14 +74,23 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         <MainSection.Subsection
           description={`
-        Use the \`errorMessage\` to communicate an error state to the user.
-
-        Note that the message is only available to screen readers. You should indicate the error in the surrounding UI, including how to correct it.
+        Use \`type="error"\` to communicate an error state to the user.
         `}
           title="Error"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={error} name="Error variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+        Use \`type="warning"\` to communicate an error state to the user.
+        `}
+          title="Warning"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={warning} name="Warning variant" />}
           />
         </MainSection.Subsection>
 

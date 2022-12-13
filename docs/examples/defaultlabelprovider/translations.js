@@ -3,7 +3,11 @@ import { type Node, useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
 const myI18nTranslator = (val) => val.toUpperCase();
+
 const labels = {
+  ComboBox: {
+    accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
+  },
   Link: {
     accessibilityNewTabLabel: myI18nTranslator('Opens a new tab'),
   },
@@ -13,8 +17,10 @@ const labels = {
   Popover: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close popover'),
   },
-  ComboBox: {
-    accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
+  Tag: {
+    accessibilityErrorIconLabel: myI18nTranslator('Error'),
+    accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),
+    accessibilityWarningIconLabel: myI18nTranslator('Warning'),
   },
   TextField: {
     accessibilityHidePasswordLabel: myI18nTranslator('Hide password'),

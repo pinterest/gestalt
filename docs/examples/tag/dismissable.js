@@ -12,7 +12,6 @@ export default function Example(): Node {
         onRemove={() => {
           setTags((currTags) => currTags.slice(0, currTags.length - 1));
         }}
-        removeIconAccessibilityLabel="Remove tag"
         text="Tag"
       />
     );

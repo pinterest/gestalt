@@ -173,6 +173,84 @@ exports[`Tag renders a disabled tag 1`] = `
 </div>
 `;
 
+exports[`Tag renders a tag with a warning state 1`] = `
+<div
+  aria-disabled={false}
+  className="box rounding2 warningBase xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginEnd2 marginStart2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Warning"
+        className="icon inverseIcon iconBlock"
+        height={12}
+        role="img"
+        viewBox="0 0 24 24"
+        width={12}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      title="New"
+    >
+      <span
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
+      >
+        New
+      </span>
+    </div>
+    <div
+      className="box marginStart1"
+    >
+      <button
+        className="button warningBase hideOutline tapTransition accessibilityOutline"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Remove tag"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Tag renders a tag with an error state 1`] = `
 <div
   aria-disabled={false}
@@ -197,7 +275,7 @@ exports[`Tag renders a tag with an error state 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Something went wrong"
+        aria-label="Error"
         className="icon inverseIcon iconBlock"
         height={12}
         role="img"
@@ -234,7 +312,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       >
         <svg
           aria-hidden={null}
-          aria-label="Remove New tag"
+          aria-label="Remove tag"
           className="icon inverseIcon iconBlock"
           height={8}
           role="img"
