@@ -1,3 +1,9 @@
+## 84.1.10 (Dec 13, 2022)
+
+### Patch
+
+- Internal: change in visual diff command to be able to run vis diff tests locally ([#2565](https://github.com/pinterest/gestalt/pull/2565)) - [Preview link](https://deploy-preview-2565--gestalt.netlify.app)
+
 ## 84.1.9 (Dec 13, 2022)
 
 ### Patch
