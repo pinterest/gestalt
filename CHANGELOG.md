@@ -1,3 +1,9 @@
+## 84.1.9 (Dec 13, 2022)
+
+### Patch
+
+- Docs: Update graphic for IconButtonFloating ([#2566](https://github.com/pinterest/gestalt/pull/2566)) - [Preview link](https://deploy-preview-2566--gestalt.netlify.app)
+
 ## 84.1.8 (Dec 12, 2022)
 
 ### Patch
