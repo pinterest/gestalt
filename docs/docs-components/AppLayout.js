@@ -10,6 +10,7 @@ import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
 import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDeviceTypeProvider.js';
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
+import YearInReviewBanner from './YearInReviewBanner.js';
 
 const CONTENT_MAX_WIDTH_PX = 1546;
 const HEADER_HEIGHT_PX = 75;
@@ -28,7 +29,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
 
   const isHomePage = router?.route === '/home';
-  const isYIRPage = router?.route === '/year_in_review';
+  const isYIRPage = router?.route === '/year_in_review_2022';
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
@@ -49,6 +50,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
     <Box minHeight="100vh" color="default">
       <SkipToContent />
       <Header />
+      <YearInReviewBanner />
       {isSidebarOpen && (
         <Fragment>
           {/* The <div> element has a child <button> element that allows keyboard interaction */}

@@ -746,6 +746,10 @@ html[dir="rtl"] .Markdown ul + pre {
 
 /* Year In Review CSS */
 
+.year-in-review {
+  overflow: hidden;
+}
+
 .year-in-review .bwj {
   line-height: 1.5;
 }
@@ -783,16 +787,24 @@ html[dir="rtl"] .Markdown ul + pre {
   line-height: 1.1;
 }
 
-.year-in-review .gestalt2022 {
-  font-size: 24px;
-  font-family: PinterestSans;
+.year-in-review .headingUnderline {
+  display: inline;
   font-style: normal;
-  font-weight: normal;
-  color: var(--color-text-light);
-  margin: 0;
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
+  font-family: PinterestSans;
+  line-height: 1.1;
+  margin:0;
 }
 
-
+.year-in-review .gestalt2022 {
+  color: var(--color-text-light);
+  font-family: PinterestSans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+}
 
 .year-in-review .statsNumber {
   margin: 0;
@@ -802,49 +814,19 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .year-in-review .backButton {
-  border-radius: 100px;
-  border: 3px solid #111;
-  display: flex;
-  padding: 4px 12px;
-  justify-content: center;
   align-items: center;
   background-color: var(--color-background-light);
+  border-radius: 100px;
+  border: 3px solid #111;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 4px 12px;
 }
 
-@media all and (min-width: 768px) {
-  .year-in-review .h1Font {
-    font-size: 96px;
-  }
+.year-in-review .backButton:hover {
 
-  .year-in-review h2 {
-    font-size: 64px;
-  }
-
-  .year-in-review .statsNumber {
-    font-size: 64px;
-  }
-
-  .year-in-review .backButton {
-    padding: 8px 24px;
-  }
-
-  .year-in-review .gestalt2022 {
-    font-size: 48px;
-  }
-}
-
-@media all and (min-width: 1312px) {
-  .year-in-review .h1Font {
-    font-size: 128px;
-  }
-
-  .year-in-review h2 {
-    font-size: 96px;
-  }
-
-  .year-in-review .gestalt2022 {
-    font-size: 64px;
-  }
+  background-color: var(--color-background-secondary-base);
 }
 
 @font-face {
@@ -865,8 +847,16 @@ html[dir="rtl"] .Markdown ul + pre {
   animation: fly-in-right 1s ease-out 0s forwards, rock 2s ease-in-out 1s forwards 2;
 }
 
-.flyInLeft {
+.fadeInRight, .fadeInLeft {
   opacity: 0;
+  display: none;
+}
+
+.fadeInRight.animate {
+  animation: fly-in-right 1s ease-out 0s forwards;
+}
+
+.fadeInLeft.animate {
   animation: fly-in-left 1s ease-out 0s forwards;
 }
 
@@ -911,7 +901,7 @@ html[dir="rtl"] .Markdown ul + pre {
     transform: rotate(20deg);
   }
   20% {
-    transform: rotate(0deg);
+    transform: rotate(-10deg);
   }
   30% {
     transform: rotate(20deg);
@@ -921,5 +911,56 @@ html[dir="rtl"] .Markdown ul + pre {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@media all and (min-width: 768px) {
+  .year-in-review .h1Font {
+    font-size: 96px;
+  }
+
+  .year-in-review h2 {
+    font-size: 64px;
+  }
+
+  .year-in-review .statsNumber {
+    font-size: 64px;
+  }
+
+  .year-in-review .backButton {
+    padding: 8px 24px;
+  }
+
+  .year-in-review .gestalt2022 {
+    font-size: 48px;
+  }
+
+  .fadeInRight, .fadeInLeft {
+    display: block;
+  }
+}
+
+@media all and (min-width: 1312px) {
+  .year-in-review .h1Font {
+    font-size: 128px;
+  }
+
+  .year-in-review h2 {
+    font-size: 96px;
+  }
+
+  .year-in-review .gestalt2022 {
+    font-size: 64px;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .fadeInLeft.animate,
+  .fadeInRight.animate,
+  .introHalfDonut,
+  .introAsterisk {
+    animation: none;
+    opacity: 1;
+    transform: translate(0%, 0px) rotate(0deg);
   }
 }

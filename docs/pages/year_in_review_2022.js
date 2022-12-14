@@ -1,25 +1,43 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable @next/next/no-html-link-for-pages */
 // @flow strict
-import { type Node } from 'react';
-import { Box, Button, Flex, Heading, Icon, Text, FixedZIndex } from 'gestalt';
+import { type Node, useEffect } from 'react';
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Icon,
+  Text,
+  FixedZIndex,
+  CompositeZIndex,
+  useReducedMotion,
+} from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
-import Pencil from '../graphics/year-in-review/pencil.svg';
-import Tokens from '../graphics/year-in-review/tokens.svg';
-import Figma from '../graphics/year-in-review/figma.svg';
-import DSD from '../graphics/year-in-review/dsd.svg';
-import TheYear from '../graphics/year-in-review/theYear.svg';
-import Vibes from '../graphics/year-in-review/vibes.svg';
-import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
+
+import Link from 'next/link';
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
+import Circle from '../graphics/year-in-review/circle.svg';
+import CircleShadow from '../graphics/year-in-review/circleShadow.svg';
+import Donut from '../graphics/year-in-review/donut.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
+import DonutShadow from '../graphics/year-in-review/donutShadow.svg';
+import DSD from '../graphics/year-in-review/dsd.svg';
+import Figma from '../graphics/year-in-review/figma.svg';
+import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
+import Pencil from '../graphics/year-in-review/pencil.svg';
+import Sparkle from '../graphics/year-in-review/sparkle.svg';
+import SparkleShadow from '../graphics/year-in-review/sparkleShadow.svg';
+import TheYear from '../graphics/year-in-review/theYear.svg';
+import Tokens from '../graphics/year-in-review/tokens.svg';
+import Vibes from '../graphics/year-in-review/vibes.svg';
 
 // $FlowExpectedError[untyped-import]
 import discoStars from '../graphics/year-in-review/discoStars.json';
 import GestaltLogo from '../docs-components/GestaltLogo.js';
 
-const FRONT_ZINDEX = new FixedZIndex(10);
+const INTRO_ZINDEX = new FixedZIndex(10);
+const BUTTON_ZINDEX = new CompositeZIndex([INTRO_ZINDEX]);
+const SIDE_GAP = 8;
 
 type PostProps = {|
   description: string,
@@ -42,31 +60,53 @@ function StatsItem({ number, description, direction = 'row' }: PostProps): Node 
   );
 }
 
-export default function Blog(): Node {
+export default function YearInReview2022(): Node {
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const animatedDecor = [
+      ...document.querySelectorAll('.fadeInRight'),
+      ...document.querySelectorAll('.fadeInLeft'),
+    ];
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry && entry.isIntersecting) {
+        entry.target?.classList?.add('animate');
+      }
+    });
+
+    animatedDecor.forEach((obj) => {
+      observer.observe(obj);
+    });
+  }, []);
+
   return (
     <div className="year-in-review">
       <Flex flex="grow" direction="column">
-        <Box position="fixed" top left padding={4} mdPadding={8}>
-          <a className="backButton" href="/home">
-            <Icon icon="home" color="dark" accessibilityLabel="Home" size={28} />
-            <GestaltLogo height={50} width={50} />
-          </a>
+        <Box position="fixed" top left padding={4} mdPadding={8} zIndex={BUTTON_ZINDEX}>
+          <Link href="/home">
+            <div className="backButton">
+              <Icon icon="home" color="dark" accessibilityLabel="Home" size={28} />
+              <GestaltLogo height={50} width={50} />
+            </div>
+          </Link>
         </Box>
         <Box
           width="100%"
           dangerouslySetInlineStyle={{
             __style: { backgroundColor: 'var(--color-blue-skycicle-450)' },
           }}
+          position="relative"
         >
           <Flex direction="column" alignItems="center">
             <Box marginTop={-3} column={6} mdColumn={3}>
-              <Lottie animationData={discoStars} loop={5} />
+              <Lottie animationData={discoStars} autoplay={!shouldReduceMotion} />
             </Box>
             <h2 className="gestalt2022">Gestalt 2022</h2>
             <h1 className="h1Font">Year in Review</h1>
           </Flex>
           <Box width="10%" position="absolute" bottom marginStart={10}>
-            <KnobShadow width="100%" className="flyInLeft" />
+            <KnobShadow width="100%" className="fadeInLeft animate" />
           </Box>
           <Box
             width="10%"
@@ -86,13 +126,11 @@ export default function Blog(): Node {
           <Box
             width="10%"
             position="absolute"
-            top
-            right
             marginStart={10}
             dangerouslySetInlineStyle={{
               __style: {
-                top: '70%',
-                right: '10%',
+                bottom: '-10%',
+                right: '5%',
               },
             }}
           >
@@ -111,7 +149,7 @@ export default function Blog(): Node {
                 },
               }}
               margin={4}
-              zIndex={FRONT_ZINDEX}
+              zIndex={INTRO_ZINDEX}
             >
               <Flex gap={4} direction="column">
                 <Text size="400">
@@ -136,14 +174,28 @@ export default function Blog(): Node {
             __style: { backgroundColor: 'var(--color-purple-mysticool-200)' },
           }}
           paddingY={6}
-          paddingX={8}
+          paddingX={SIDE_GAP}
+          position="relative"
         >
           <Flex direction="column" alignItems="center" justifyContent="center">
             <Heading accessibilityLevel={2} align="center">
-              Document revitalization
+              What&apos;s up, docs?
             </Heading>
             <Box maxWidth="760px" width="100%" marginBottom={6}>
               <Pencil />
+            </Box>
+            <Box
+              width="10%"
+              position="absolute"
+              marginStart={10}
+              dangerouslySetInlineStyle={{
+                __style: {
+                  top: '50%',
+                  right: '-5%',
+                },
+              }}
+            >
+              <Donut className="fadeInRight" width="100%" />
             </Box>
             <Flex gap={4} maxWidth="660px" direction="column">
               <Text size="400">
@@ -159,10 +211,35 @@ export default function Blog(): Node {
                 (46% giving the highest marks) and 73% of designers saying they view our docs at
                 least weekly—that’s up 59 from the first half of 2020!
               </Text>
+              <Box
+                width="10%"
+                position="absolute"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    bottom: '10%',
+                    left: '-5%',
+                  },
+                }}
+              >
+                <Circle className="fadeInLeft" width="100%" />
+              </Box>
             </Flex>
           </Flex>
         </Box>
-        <Box color="light" margin={12} display="flex" justifyContent="center">
+        <Box color="light" padding={12} display="flex" justifyContent="center" position="relative">
+          <Box
+            width="10%"
+            maxWidth="175px"
+            position="absolute"
+            dangerouslySetInlineStyle={{
+              __style: {
+                top: '-15%',
+                left: '10%',
+              },
+            }}
+          >
+            <DonutShadow className="fadeInLeft" width="100%" />
+          </Box>
           <Flex alignItems="center" justifyContent="between" gap={12} maxWidth="660px" flex="grow">
             <StatsItem
               direction="column"
@@ -175,15 +252,52 @@ export default function Blog(): Node {
               description="Users who visited our docs compared to 2021"
             />
           </Flex>
+          <Box
+            width="8%"
+            maxWidth="175px"
+            position="absolute"
+            dangerouslySetInlineStyle={{
+              __style: {
+                right: '10%',
+                transform: 'rotate(180deg)',
+              },
+            }}
+          >
+            <KnobShadow width="100%" className="fadeInRight" />
+          </Box>
         </Box>
         <Box>
           <Tokens />
-          <Box paddingY={12} paddingX={8}>
+          <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
             <Flex direction="column" alignItems="center" justifyContent="center">
-              <Box marginBottom={8} paddingX={8}>
+              <Box marginBottom={8} paddingX={SIDE_GAP}>
                 <Heading align="center" accessibilityLevel={2}>
-                  Component + token highlights
+                  Components + tokens
                 </Heading>
+              </Box>
+              <Box
+                width="10%"
+                position="absolute"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    top: '25%',
+                    right: '5%',
+                  },
+                }}
+              >
+                <DonutShadow className="fadeInRight" width="100%" />
+              </Box>
+              <Box
+                width="10%"
+                position="absolute"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    top: '40%',
+                    left: '5%',
+                  },
+                }}
+              >
+                <Sparkle className="fadeInLeft" width="100%" />
               </Box>
               <Flex gap={4} direction="column" maxWidth="660px">
                 <Text size="400">
@@ -244,7 +358,7 @@ export default function Blog(): Node {
           }}
         >
           <Figma />
-          <Box paddingX={8}>
+          <Box paddingX={SIDE_GAP} position="relative">
             <Flex direction="column" alignItems="center" justifyContent="center">
               <Box marginBottom={8}>
                 <Heading align="center" accessibilityLevel={2}>
@@ -282,6 +396,30 @@ export default function Blog(): Node {
                   we will be talking much more about this soon.{' '}
                 </Text>
               </Flex>
+              <Box
+                width="10%"
+                position="absolute"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    top: '70%',
+                    right: '5%',
+                  },
+                }}
+              >
+                <SparkleShadow className="fadeInRight" width="100%" />
+              </Box>
+              <Box
+                width="10%"
+                position="absolute"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    top: '30%',
+                    left: '5%',
+                  },
+                }}
+              >
+                <DonutShadow className="fadeInLeft" width="100%" />
+              </Box>
               <Box paddingY={12}>
                 <Flex direction="column" gap={4}>
                   <StatsItem number="1.92M" description="Total Gestalt Figma component insert" />
@@ -294,16 +432,16 @@ export default function Blog(): Node {
         </Box>
         <Box marginBottom={12}>
           <DSD />
-          <Box paddingX={8}>
+          <Box paddingX={SIDE_GAP}>
             <Flex alignItems="center" justifyContent="center" direction="column">
               <Box paddingY={12}>
                 <Heading align="center" accessibilityLevel={2}>
                   Design Systems Day-um!
                 </Heading>
               </Box>
-              <Flex alignItems="center" justifyContent="center" gap={12} maxWidth="660px" wrap>
-                <Flex.Item>
-                  <Flex direction="column" gap={4} flex="shrink">
+              <Flex alignItems="start" justifyContent="center" gap={12} wrap>
+                <Flex.Item flexBasis={600}>
+                  <Flex direction="column" gap={4}>
                     <Text size="400">
                       Next, filed under “Things that make the Gestalt team awesome” was our first
                       conference,{' '}
@@ -324,18 +462,25 @@ export default function Blog(): Node {
                     </Text>
                   </Flex>
                 </Flex.Item>
-                <Flex gap={12}>
+                <Box
+                  smDirection="row"
+                  mdDirection="column"
+                  display="flex"
+                  justifyContent="between"
+                  alignItems="start"
+                >
                   <StatsItem
                     direction="column"
                     number="88%"
                     description="Attendees responded the conference helped them learn how to improve product quality"
                   />
+                  <Box padding={6} />
                   <StatsItem
                     direction="column"
                     number="90"
                     description="Total conference attendees"
                   />
-                </Flex>
+                </Box>
               </Flex>
             </Flex>
           </Box>
@@ -345,7 +490,7 @@ export default function Blog(): Node {
             __style: { backgroundColor: 'var(--color-purple-mysticool-200)' },
           }}
           paddingY={12}
-          paddingX={8}
+          paddingX={SIDE_GAP}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -354,59 +499,87 @@ export default function Blog(): Node {
           <Box maxWidth="890px" width="100%" marginBottom={6}>
             <Vibes />
           </Box>
-          <Flex direction="column" gap={12}>
-            <Heading align="center" accessibilityLevel={2}>
-              Lastly, vibes
-            </Heading>
-            <Flex
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-              gap={4}
-              maxWidth="660px"
+          <Box position="relative" width="100%">
+            <Box
+              width="10%"
+              position="absolute"
+              dangerouslySetInlineStyle={{
+                __style: {
+                  top: '70%',
+                  right: '5%',
+                },
+              }}
             >
-              <Text size="400">
-                We left customer feedback for last to end with a bang. Our core engineering
-                customers gave us a 96% overall satisfaction rating (+2 from last year) with 70% of
-                giving us highest marks (+13 from last year). And design? We saw a 95% overall
-                satisfaction rating (+33 from last year) with 23% of giving us highest marks—+12
-                from last year!
-              </Text>
-              <Text size="400">
-                90% of product designers responded that Gestalt speeds up their workflow with 35%
-                giving highest marks. And if that isn’t bonkers enough, 100% of engineers in our
-                core customer base responded that Gestalt speeds up their workflow (66% giving us
-                highest marks). In this day and age, we can’t agree on anything, but it turns out we
-                all agree Gestalt helps you work faster.{' '}
-                <Text size="400" weight="bold" inline>
-                  #gestalt2024
+              <CircleShadow className="fadeInRight" width="100%" />
+            </Box>
+            <Box
+              width="10%"
+              position="absolute"
+              dangerouslySetInlineStyle={{
+                __style: {
+                  top: '10%',
+                  left: '5%',
+                },
+              }}
+            >
+              <SparkleShadow className="fadeInLeft" width="100%" />
+            </Box>
+            <Flex direction="column" gap={12} alignItems="center">
+              <Heading align="center" accessibilityLevel={2}>
+                Impeccable vibes
+              </Heading>
+
+              <Flex
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                gap={4}
+                maxWidth="660px"
+              >
+                <Text size="400">
+                  We left customer feedback for last to end with a bang. Our core engineering
+                  customers gave us a 96% overall satisfaction rating (+2 from last year) with 70%
+                  of giving us highest marks (+13 from last year). And design? We saw a 95% overall
+                  satisfaction rating (+33 from last year) with 23% of giving us highest marks—+12
+                  from last year!
                 </Text>
-              </Text>
+                <Text size="400">
+                  90% of product designers responded that Gestalt speeds up their workflow with 35%
+                  giving highest marks. And if that isn’t bonkers enough, 100% of engineers in our
+                  core customer base responded that Gestalt speeds up their workflow (66% giving us
+                  highest marks). In this day and age, we can’t agree on anything, but it turns out
+                  we all agree Gestalt helps you work faster.{' '}
+                  <Text size="400" weight="bold" inline>
+                    #gestalt2024
+                  </Text>
+                </Text>
+              </Flex>
+              <Flex justifyContent="between" gap={12}>
+                <StatsItem
+                  direction="column"
+                  number="95.5%"
+                  description="Design sentiment compared to the second half of 2021—a “paltry” 32 point increase!"
+                />
+                <StatsItem
+                  direction="column"
+                  number="100%"
+                  description="Engineers responded that Gestalt speeds up their workflow."
+                />
+              </Flex>
             </Flex>
-            <Flex justifyContent="between" gap={12}>
-              <StatsItem
-                direction="column"
-                number="95.5%"
-                description="Design sentiment compared to the second half of 2021—a “paltry” 32 point increase!"
-              />
-              <StatsItem
-                direction="column"
-                number="100%"
-                description="Engineers responded that Gestalt speeds up their workflow."
-              />
-            </Flex>
-          </Flex>
+          </Box>
         </Box>
         <Box
           dangerouslySetInlineStyle={{
             __style: { backgroundColor: 'var(--color-teal-spabattical-700)' },
           }}
           paddingY={12}
+          paddingX={4}
         >
           <Flex direction="column" alignItems="center" justifyContent="center">
             <Box paddingX={10}>
               <Heading align="center" accessibilityLevel={2} color="light">
-                This was truly the year
+                This <p className="headingUnderline">was</p> the year
               </Heading>
             </Box>
 
