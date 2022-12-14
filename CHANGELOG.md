@@ -1,3 +1,9 @@
+## 84.1.11 (Dec 14, 2022)
+
+### Patch
+
+- Popover: migrate docs examples to Sandpack ([#2563](https://github.com/pinterest/gestalt/pull/2563)) - [Preview link](https://deploy-preview-2563--gestalt.netlify.app)
+
 ## 84.1.10 (Dec 13, 2022)
 
 ### Patch
