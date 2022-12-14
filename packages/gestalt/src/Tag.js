@@ -12,22 +12,22 @@ import Text from './Text.js';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 
-const backgroundColorByType = {
+const backgroundColorByType = Object.freeze({
   default: 'secondary',
   error: 'errorBase',
   warning: 'warningBase',
-};
+});
 
-const foregroundColorByType = {
+const foregroundColorByType = Object.freeze({
   default: 'default',
   error: 'inverse',
   warning: 'inverse',
-};
+});
 
-const iconsByType = {
+const iconsByType = Object.freeze({
   error: 'workflow-status-problem',
   warning: 'workflow-status-warning',
-};
+});
 
 type Props = {|
   /**
