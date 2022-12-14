@@ -94,8 +94,6 @@ export default function Tag({
     },
   );
 
-  const borderStyle = disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {};
-
   if (!disabled && !onRemove) {
     throw new Error('Non-disabled Tags must include an onRemove handler');
   }
@@ -105,7 +103,7 @@ export default function Tag({
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
-        __style: borderStyle,
+        __style: disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {},
       }}
       display="inlineBlock"
       height={32}
