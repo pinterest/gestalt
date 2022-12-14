@@ -31,7 +31,7 @@ const iconsByType = Object.freeze({
 
 type Props = {|
   /**
-   * If your app uses DefaultLabelProvider, a default value for this label will be used. This can be overridden with a more specific label if desired. This populates the `aria-label` on the remove icon.
+   * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
   accessibilityRemoveIconLabel?: string,
   /**
@@ -39,9 +39,9 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the Tag. This prop is required for non-disabled tags.
+   * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the Tag.
    */
-  onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
+  onRemove: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
   /**
    * Short text to render inside the Tag.
    */
@@ -93,10 +93,6 @@ export default function Tag({
       [focusStyles.accessibilityOutline]: isFocusVisible,
     },
   );
-
-  if (!disabled && !onRemove) {
-    throw new Error('Non-disabled Tags must include an onRemove handler');
-  }
 
   return (
     <Box

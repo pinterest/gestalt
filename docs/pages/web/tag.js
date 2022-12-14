@@ -63,7 +63,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
         When disabled, Tags are visible but cannot be removed.
 
-        If this condition is constant (not determined dynamically), \`onRemove\` can be omitted.
+        If this condition is constant (not determined dynamically), \`onRemove\` can use a no-op (e.g. \`() => {}\`).
         `}
           title="Disabled"
         >
@@ -85,7 +85,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         <MainSection.Subsection
           description={`
-        Use \`type="warning"\` to communicate an error state to the user.
+        Use \`type="warning"\` to communicate a warning state to the user.
         `}
           title="Warning"
         >

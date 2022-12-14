@@ -11,7 +11,7 @@ describe('Tag', () => {
   });
 
   it('renders a disabled tag', () => {
-    const tree = create(<Tag text="New" disabled />).toJSON();
+    const tree = create(<Tag disabled onRemove={() => {}} text="New" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

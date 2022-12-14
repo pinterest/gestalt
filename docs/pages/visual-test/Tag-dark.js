@@ -13,7 +13,7 @@ export default function Snapshot(): Node {
         }}
       >
         <Tag onRemove={() => {}} text="New" />
-        <Tag disabled text="Disabled" />
+        <Tag disabled onRemove={() => {}} text="Disabled" />
         <Tag onRemove={() => {}} type="error" text="Error" />
         <Tag onRemove={() => {}} type="warning" text="Warning" />
         <Tag
