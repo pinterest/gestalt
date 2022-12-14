@@ -9,28 +9,29 @@ type Props = {|
 |};
 
 export default function ListText({ text }: Props): Node {
+  const { name: colorSchemeName } = useColorScheme();
+
+  // Flow shuold catch if text is missing. In case Flow is not enabled and text is missing, the errors are not that helpful. This surfaces the problem more explicitly.
   if (!text) {
     throw new Error(`Gestalt List is missing \`label\` prop or a \`text\` prop within List.Item.`);
   }
 
-  const { name: colorSchemeName } = useColorScheme();
-
-  const isDarkMode = colorSchemeName === 'darkMode';
-
-  let labelElement: Element<'span'> | string | Node = text;
-
   if (typeof text === 'string') {
-    labelElement = <Text>{text}</Text>;
+    return <Text>{text}</Text>;
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
   if (typeof text !== 'string' && Children.only(text)?.type.displayName === 'Text') {
+    const isDarkMode = colorSchemeName === 'darkMode';
+
     const textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideLight
       : styles.textColorOverrideDark;
 
-    labelElement = <span className={textColorOverrideStyles}>{text}</span>;
+    return <span className={textColorOverrideStyles}>{text}</span>;
   }
 
-  return labelElement;
+  throw new Error(
+    `Gestalt List has a \`label\` prop or a \`text\` prop that is not a string nor a Text component.`,
+  );
 }

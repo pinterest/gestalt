@@ -426,8 +426,7 @@ To prevent visual overload, do not include counters in the parent if the childre
 
         <MainSection.Subsection
           title="Subcomponent composability"
-          description={`
-Under the hood, SideNavigation recognizes subcomponents by display name. SideNavigation requires its own subcomponents as children to build the list of navigation items.
+          description={`SideNavigation requires its own subcomponents as children to build the list of navigation items.
 
 When building SideNavigation, we might want to render different combinations of subcomponents conditionally. SideNavigation supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases. More logic complexity might break the correct SideNavigation behavior.
           `}

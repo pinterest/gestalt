@@ -9,31 +9,25 @@ import ListText from './ListText.js';
 import NestedList from './NestedList.js';
 import styles from './List.css';
 import getChildrenToArray from './List/getChildrenToArray.js';
-import { ListProvider, useList } from './contexts/ListProvider.js';
+import { ListProvider } from './contexts/ListProvider.js';
 import { NestingProvider } from './contexts/NestingProvider.js';
 
+const UNORDERED_SEQUENCE = ['desc', 'circle'];
+const ORDERED_SEQUENCE = ['decimal', 'upper-latin', 'lower-latin'];
+
+// These sequences are used to style list-style-type in List.Item. Lists can mix ordered and unordered list. These sequences support carrying the item style independently from the nested level.
 const STYLE_SEQUENCE_UNORDERED = Object.freeze([
-  'desc',
-  'circle',
-  'desc',
-  'circle',
-  'desc',
-  'circle',
+  ...UNORDERED_SEQUENCE,
+  ...UNORDERED_SEQUENCE,
+  ...UNORDERED_SEQUENCE,
 ]);
-const STYLE_SEQUENCE_ORDERED = Object.freeze([
-  'decimal',
-  'upper-latin',
-  'lower-latin',
-  'decimal',
-  'upper-latin',
-  'lower-latin',
-]);
+const STYLE_SEQUENCE_ORDERED = Object.freeze([...ORDERED_SEQUENCE, ...ORDERED_SEQUENCE]);
 
 type ListType = 'bare' | 'ordered' | 'unordered';
 
 type Props = {|
   /**
-   * The list content. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
+   * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
    */
   children: Node,
   /**
@@ -47,7 +41,7 @@ type Props = {|
   /**
    * The spacing used in List. See the [spacing variant](https://gestalt.pinterest.systems/web/list#Spacing) for guidance.
    */
-  size?: 'regular' | 'condensed',
+  spacing?: 'regular' | 'condensed',
   /**
    * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
    */
@@ -59,63 +53,46 @@ type Props = {|
  * ![List light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/List.spec.mjs-snapshots/List-chromium-darwin.png)
  * ![List dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/List-dark.spec.mjs-snapshots/List-dark-chromium-darwin.png)
  */
-function List({ label, labelDisplay = 'visible', size = 'regular', type, children }: Props): Node {
-  const { type: inheritedType, style: inheritedStyle } = useList();
+function List({
+  label,
+  labelDisplay = 'visible',
+  spacing = 'regular',
+  type,
+  children,
+}: Props): Node {
   const id = useId();
 
-  let listType: ?ListType = type;
+  const listType = type ?? 'unordered';
 
-  if (!listType && inheritedType) {
-    listType = inheritedType;
-  }
-
-  if (!listType) {
-    listType = 'unordered';
-  }
+  const hiddenLabel = labelDisplay === 'hidden';
 
   const ListElement = listType === 'ordered' ? 'ol' : 'ul';
 
   const listChildren = getChildrenToArray({ children, filterLevel: 'List' });
 
-  const didTypeChanged = !!inheritedType && !!type && inheritedType !== type;
-
-  const newInheritedStyleOl =
-    !didTypeChanged && listType === 'ordered' ? inheritedStyle?.ol.slice(1) : inheritedStyle?.ol;
-
-  const newInheritedStyleUl =
-    !didTypeChanged && listType === 'unordered' ? inheritedStyle?.ul.slice(1) : inheritedStyle?.ul;
+  const className = classnames(styles.list, {
+    [styles.bareList]: type === 'bare',
+    [styles.regular]: type === 'regular',
+    [styles.condensed]: type === 'condensed',
+  });
 
   return (
     <ListProvider
       type={listType}
-      size={size}
-      style={
-        inheritedStyle
-          ? {
-              ol: newInheritedStyleOl ?? [],
-              ul: newInheritedStyleUl ?? [],
-            }
-          : { ol: STYLE_SEQUENCE_ORDERED, ul: STYLE_SEQUENCE_UNORDERED }
-      }
+      spacing={spacing}
+      style={{ ol: STYLE_SEQUENCE_ORDERED, ul: STYLE_SEQUENCE_UNORDERED }}
     >
       <NestingProvider componentName="List" maxNestedLevels={6}>
         <Flex direction="column">
           <Box
             id={id}
-            display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
-            marginBottom={labelDisplay === 'hidden' ? 0 : 3}
+            display={hiddenLabel ? 'visuallyHidden' : 'block'}
+            marginBottom={hiddenLabel ? 0 : 3}
           >
             <ListText text={label} />
           </Box>
           <Text>
-            <ListElement
-              aria-labelledby={id}
-              className={classnames(styles.list, {
-                [styles.bareList]: type === 'bare',
-                [styles.regular]: type === 'regular',
-                [styles.condensed]: type === 'condensed',
-              })}
-            >
+            <ListElement aria-labelledby={id} className={className}>
               {listChildren}
             </ListElement>
           </Text>

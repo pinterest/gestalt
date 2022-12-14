@@ -34,7 +34,7 @@ export default function ListPage({
             type="do"
             title="When to use"
             description={`
-- To present a grouping of simple, related, information. For more complex data, use [Table](/web/table).
+- To present a grouping of simple, related information. For more complex data, use [Table](/web/table).
 - To break up related content into easily digestable chunks.
         `}
           />
@@ -44,7 +44,7 @@ export default function ListPage({
             title="When not to use"
             description={`
 - When whole list items are navigational. Use a navigational component like [Tabs](/web/tabs) or [SideNavigation](/web/sidenavigation) instead.
-- When list items require interaction. Use a [RadioGroup](/web/radiogroup) or [CheckBox](/web/checkbox) with [FieldSet](/web/fieldset) instead.
+- When list items require interaction. Use [RadioGroup](/web/radiogroup) or [CheckBox](/web/checkbox) with [FieldSet](/web/fieldset) instead.
         `}
           />
         </MainSection.Subsection>
@@ -55,7 +55,7 @@ export default function ListPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use a list when you are displaying more than two items or points."
+            description="Use List when you are displaying more than two items or points."
             defaultCode={`
 <List label="Use the synchronous analytics endpoints if:" type="unordered">
   <List.Item text="You need data from the last 90 days" />
@@ -68,7 +68,7 @@ export default function ListPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use a list if you are displaying less than two items. Instead, find another way to phrase it as plain text on the page."
+            description="Use List if you are displaying fewer than two items. Instead, consider how to present the information as plain text on the page."
             defaultCode={`
 <Flex gap={12} direction="column" gap={4} maxWidth={600}>
   <Heading accessibilityLevel="none">August 15, 2022</Heading>
@@ -100,7 +100,7 @@ export default function ListPage({
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use a list if the whole list item is selectable. Instead use a navigational component or a [FieldSet](/web/fieldset)."
+            description="Use List if the whole list item is selectable. Instead use a navigational component or [FieldSet](/web/fieldset)."
             defaultCode={`
 <Flex gap={12} direction="column" gap={4} maxWidth={600}>
   <List label="Need more help?" type="unordered">
@@ -130,11 +130,11 @@ export default function ListPage({
           title="Labels"
           columns={2}
           description={`
-List comes with a label built-in: just use the \`label\` prop. This label is used to name the list to screen reader users.
+List comes with a label built-in: just use the \`label\` prop.
 
 If List is labeled by content elsewhere on the page or a more descriptive label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
-The following examples showcase different cases where labels need to be hidden`}
+The following examples showcase different cases where labels need to be hidden.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -152,7 +152,7 @@ The following examples showcase different cases where labels need to be hidden`}
           <MainSection.Card
             defaultCode={`
 <Flex direction="column" gap={2}>
-  <Text>The Save button is one of the best ways to get your content onto Pinterest --through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
+  <Text>The Save button is one of the best ways to get your content onto Pinterest —through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
   <List labelDisplay="hidden" label="Best practices for Save Button for developers" type="unordered">
     <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
     <List.Item text="Use the Save button that’s best for your website" />
@@ -238,7 +238,7 @@ __2. Condensed__: Space between lines is reduced for all style varients to 8px f
         >
           <MainSection.Card
             defaultCode={`
-<List label={<Text weight="bold">Regular spacing</Text>} type="unordered" size="regular">
+<List label={<Text weight="bold">Regular spacing</Text>} type="unordered" spacing="regular">
   <List.Item text="List item text" />
   <List.Item text="List item text">
     <List.NestedList>
@@ -259,7 +259,7 @@ __2. Condensed__: Space between lines is reduced for all style varients to 8px f
           />
           <MainSection.Card
             defaultCode={`
-<List label={<Text weight="bold">Condensed spacing</Text>} type="unordered" size="condensed">
+<List label={<Text weight="bold">Condensed spacing</Text>} type="unordered" spacing="condensed">
 <List.Item text="List item text" />
   <List.Item text="List item text">
     <List.NestedList>
@@ -283,7 +283,7 @@ __2. Condensed__: Space between lines is reduced for all style varients to 8px f
         <MainSection.Subsection
           title="Nesting"
           description={`
-List allows a maximum of six nested list items levels. Unordered lists alternate between a filled and hollow dots. Ordered lists alternate a sequence of numbers, uppercase letters, and lowercase letters. Unordered and ordered lists can be combinaded as well.`}
+List allows a maximum of six nested list items levels. Unordered lists alternate between a filled and hollow dots. Ordered lists alternate a sequence of numbers, uppercase letters, and lowercase letters. Unordered and and ordered lists can be combined as well.`}
           columns={2}
         >
           <MainSection.Card
@@ -390,11 +390,11 @@ List allows a maximum of six nested list items levels. Unordered lists alternate
           title="Text and label"
           columns={2}
           description={`
-List's 'label' prop and ListItem's 'text' prop accept either a string or [Text](/web/text). Use a string when no visual style is needed. List will handle the text style and adherence to design guidelines.
+List's \`label\` prop and ListItem's \`text\` prop accept either a string or [Text](/web/text). Use a string when no visual style is needed. List will handle the text style and adherence to design guidelines.
 
-If more complex style is required, such as bold text, different size, or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`variant\`.
+If custom styles are required, such as bold text, a different size, or inline links, use Text to wrap the content with any additional Text or Link components as needed. If using a Text component, do not specify \`color\`. Toast will automatically pick the correct text color for the given \`variant\`.
 
-List's 'label' prop is used for accessibility purposes, see the [accessibility guidelines section](/web/list#Accessibility) for more information.`}
+List's \`label\` prop is used for accessibility purposes. See the [accessibility guidelines section](/web/list#Accessibility) for more information.`}
         >
           <MainSection.Card
             title="Default label with strings"
@@ -435,7 +435,7 @@ List's 'label' prop is used for accessibility purposes, see the [accessibility g
             title="Hidden label"
             defaultCode={`
 <Flex direction="column" gap={2}>
-  <Text>The Save button is one of the best ways to get your content onto Pinterest --through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
+  <Text>The Save button is one of the best ways to get your content onto Pinterest —through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
   <List labelDisplay="hidden" label="Best practices for Save Button for developers" type="unordered">
     <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
     <List.Item text="Use the Save button that’s best for your website" />
@@ -449,7 +449,7 @@ List's 'label' prop is used for accessibility purposes, see the [accessibility g
         <MainSection.Subsection
           title="Subcomponent composability"
           description={`
-Under the hood, List recognizes subcomponents by display name. List requires its own subcomponents as children to build the list.
+List requires its own subcomponents as children to build the list.
 
 When building List, we might want to render different combinations of subcomponents conditionally. List supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases.
           `}
@@ -492,17 +492,18 @@ function Example() {
             cardSize="md"
             type="do"
             description={`
-- __Length.__ Content should be short and to the point. Text can be sentance fragments. If you are looking to present more complex information, use [Table](/web/table) instead.
+- __Length.__ Content should be short and to the point. Text can be sentence fragments. If you are looking to present more complex information, use [Table](/web/table) instead.
 - __Formatting.__ Text should be in sentence case, with a capital letter at the beginning of the phrase.
-- __Phrasing.__ Phrase items in a similar way. For example, use a verb for the first word in each sentance (Download, Get, Book).
+- __Phrasing.__ Phrase items in a similar way. For example, use a verb for the first word in each sentence (Download, Get, Book).
 `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description={`
-- __Puctuation.__ For short phrases, do not use periods, commas, semicolors, or any sort of punctuation at the end of each line. If the content is longer than two sentances, add a period at the end of all sentances.”
-- __Phrasing.__ Avoid repeating the first word in each list item. (i.e. Take a nap, Take a hike, Take a lap) instead say (Lie down for a nap, Go on a hike, Run a lap).
+- __Puctuation.__ For short phrases, do not use periods, commas, semicolons, or any sort of punctuation at the end of each line. If the content is longer than two sentences, add a period at the end of all sentences.
+
+- __Phrasing.__ Avoid repeating the first word in each list item. Instead of "Take a nap, Take a hike, Take a lap", try something like "Lie down for a nap, Go on a hike, Run a lap".
 
 `}
           />

@@ -9,7 +9,7 @@ import { useList } from './contexts/ListProvider.js';
 
 type Props = {|
   /**
-   * The list content. See [subcomponents](/web/list#Subcomponents).
+   * Use List.NestedList to build nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
    */
   children?: Node,
   /**
@@ -19,18 +19,20 @@ type Props = {|
 |};
 
 /**
- * [List.Item]() is [List](https://gestalt.pinterest.systems/web/list) subcomponent. List.Item represent the `\<li\>` tag right below `\<ul\>` or `\<ol\>` tag list.
+ * [List.Item](https://gestalt.pinterest.systems/web/list#List.Item) is a subcomponent of [List](https://gestalt.pinterest.systems/web/list). List.Item represents the `<li>` tag nested within a `<ul>` or `<ol>` list tag.
  */
 function ListItem({ text, children }: Props): Node {
-  const { type, size, style } = useList();
+  const { type, spacing, style } = useList();
 
-  const isBare = type === 'bare';
   const isOrdered = type === 'ordered';
   const isUnordered = type === 'unordered';
+
+  const listChildren = getChildrenToArray({ children, filterLevel: 'ListItem' });
+
   const className = classnames({
-    [styles.noStyle]: isBare,
-    [styles.listItem]: size === 'regular',
-    [styles.listItemCondensed]: size === 'condensed',
+    [styles.noStyle]: type === 'bare',
+    [styles.listItem]: spacing === 'regular',
+    [styles.listItemCondensed]: spacing === 'condensed',
     [styles.ulItemDot]: isUnordered && style?.ul[0] === 'desc',
     [styles.ulItemCircle]: isUnordered && style?.ul[0] === 'circle',
     [styles.olItem1]: isOrdered && style?.ol[0] === 'decimal',
@@ -38,12 +40,10 @@ function ListItem({ text, children }: Props): Node {
     [styles.olItema]: isOrdered && style?.ol[0] === 'lower-latin',
   });
 
-  const listChildren = getChildrenToArray({ children, filterLevel: 'ListItem' });
-
   return (
     <li className={className}>
       <ListText text={text} />
-      {listChildren ?? null}
+      {listChildren}
     </li>
   );
 }

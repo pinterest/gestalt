@@ -1,7 +1,7 @@
 // @flow strict
 import { cloneElement, Fragment, Children, type Node } from 'react';
 
-const ALLOWED_CHILDREN_MAP = {
+const ALLOWED_CHILDREN_BY_PARENT = {
   List: 'List.Item',
   NestedList: 'List.Item',
   ListItem: 'Nested.List',
@@ -29,13 +29,13 @@ const getChildrenToArray = ({
       }
 
       // Detect incorrect nested component usage
-      if (ALLOWED_CHILDREN_MAP[filterLevel] !== child.type.displayName) {
+      if (ALLOWED_CHILDREN_BY_PARENT[filterLevel] !== child.type.displayName) {
         throw new Error(
           `Gestalt ${child.type.displayName} cannot be used within Gestalt ${filterLevel}`,
         );
       }
 
-      if (ALLOWED_CHILDREN_MAP[filterLevel] === child.type.displayName) {
+      if (ALLOWED_CHILDREN_BY_PARENT[filterLevel] === child.type.displayName) {
         return navigationChildren.push(child);
       }
 
