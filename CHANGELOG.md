@@ -1,3 +1,9 @@
+## 85.0.0 (Dec 15, 2022)
+
+### Major
+
+- Tag: major refactor, add warning state ([#2564](https://github.com/pinterest/gestalt/pull/2564)) - [Preview link](https://deploy-preview-2564--gestalt.netlify.app)
+
 ## 84.1.11 (Dec 14, 2022)
 
 ### Patch
