@@ -1,3 +1,9 @@
+## 85.1.0 (Dec 15, 2022)
+
+### Minor
+
+- List: new component ([#2553](https://github.com/pinterest/gestalt/pull/2553)) - [Preview link](https://deploy-preview-2553--gestalt.netlify.app)
+
 ## 85.0.0 (Dec 15, 2022)
 
 ### Major
