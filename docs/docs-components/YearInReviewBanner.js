@@ -1,15 +1,21 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Button, Text, TapArea, Flex, Heading } from 'gestalt';
+// $FlowExpectedError[untyped-import]
+import Lottie from 'lottie-react';
+// $FlowExpectedError[untyped-import]
+import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
+import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
+import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 
 export default function YearInReviewBanner(): Node {
   return (
     <TapArea role="link" href="/year_in_review_2022">
       <Box
+        color="infoWeak"
         dangerouslySetInlineStyle={{
           __style: {
-            backgroundColor: 'var(--color-blue-skycicle-100)',
-            border: '2px solid #111',
+            border: '2px solid var(--color-border-default)',
           },
         }}
         width="100%"
@@ -17,17 +23,36 @@ export default function YearInReviewBanner(): Node {
         paddingX={12}
         paddingY={4}
         display="flex"
-        alignContent="center"
-        flex="grow"
+        alignItems="center"
+        justifyContent="around"
+        overflow="hidden"
       >
-        <Flex alignItems="center" justifyContent="between" wrap gap={3} flex="grow">
-          <Box width="100px" />
-          <Flex direction="column" gap={2}>
-            <Heading accessibilityLevel={2} size="500">
-              Hey! Check out our 2022 recap.
-            </Heading>
-            <Text>We’ve done so much this year and can’t wait to share it with you.</Text>
-          </Flex>
+        <Flex alignItems="center" justifyContent="end" flex="grow" wrap gap={6}>
+          <Box display="none" mdDisplay="block" height="100%" position="relative">
+            <Flex alignItems="end">
+              <Box
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    transform: 'rotate(-45deg)',
+                  },
+                }}
+              >
+                <DonutHalf width="50px" height="50px" />
+              </Box>
+              <Box width="200px" height="160px" marginTop={-6} display="none" mdDisplay="block">
+                <Lottie animationData={discoStars} />
+              </Box>
+              <Asterisk width="40px" height="40px" />
+            </Flex>
+          </Box>
+          <Flex.Item flex="grow">
+            <Flex direction="column" gap={2} flex="grow">
+              <Heading accessibilityLevel={2} size="500">
+                Hey! Check out our 2022 recap.
+              </Heading>
+              <Text>We’ve done so much this year and can’t wait to share it with you.</Text>
+            </Flex>
+          </Flex.Item>
           <Button selected text="View the recap" iconEnd="directional-arrow-right" size="lg" />
         </Flex>
       </Box>

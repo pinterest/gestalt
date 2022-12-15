@@ -44,7 +44,7 @@ export default function HomePage(): Node {
                 justifyContent="end"
                 marginStart={8}
               >
-                <Hero />
+                <Hero animate={false} />
               </Box>
             </Box>
           </IllustrationSection>

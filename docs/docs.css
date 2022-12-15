@@ -748,6 +748,7 @@ html[dir="rtl"] .Markdown ul + pre {
 
 .year-in-review {
   overflow: hidden;
+  background-color: var(--color-background-light);
 }
 
 .year-in-review .bwj {
@@ -804,6 +805,18 @@ html[dir="rtl"] .Markdown ul + pre {
   font-style: normal;
   font-weight: normal;
   margin: 0;
+}
+
+.year-in-review .statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.year-in-review .statsGrid .statsNumber{
+  justify-self: end;
 }
 
 .year-in-review .statsNumber {
@@ -863,7 +876,7 @@ html[dir="rtl"] .Markdown ul + pre {
 
 @keyframes fly-in-right {
   from {
-    transform: translate(100%, 500px) rotate(180deg);
+    transform: translate(20%, 500px) rotate(180deg);
   }
   to {
     transform: translate(0%, 0px) rotate(0deg);
@@ -873,7 +886,7 @@ html[dir="rtl"] .Markdown ul + pre {
 
 @keyframes fly-in-left {
   from {
-    transform: translate(-100%, 500px) rotate(-100deg);
+    transform: translate(-20%, 500px) rotate(-100deg);
   }
   to {
     transform: translate(0%, 0px) rotate(0deg);
