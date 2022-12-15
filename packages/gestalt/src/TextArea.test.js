@@ -89,19 +89,19 @@ describe('TextArea', () => {
             key="a"
             text="a@pinterest.com"
             onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove email tag"
+            accessibilityRemoveIconLabel="Remove email tag"
           />,
           <Tag
             key="b"
             text="b@pinterest.com"
             onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove email tag"
+            accessibilityRemoveIconLabel="Remove email tag"
           />,
           <Tag
             key="c"
             text="c@pinterest.com"
             onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove email tag"
+            accessibilityRemoveIconLabel="Remove email tag"
           />,
         ]}
       />,

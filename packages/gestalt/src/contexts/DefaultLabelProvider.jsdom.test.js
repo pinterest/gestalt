@@ -16,6 +16,9 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
+          ComboBox: {
+            accessibilityClearButtonLabel: 'Clear input',
+          },
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
           },
@@ -25,8 +28,10 @@ describe('useDefaultLabelContext', () => {
           Popover: {
             accessibilityDismissButtonLabel: 'Close popover',
           },
-          ComboBox: {
-            accessibilityClearButtonLabel: 'Clear input',
+          Tag: {
+            accessibilityErrorIconLabel: 'Error',
+            accessibilityRemoveIconLabel: 'Remove tag',
+            accessibilityWarningIconLabel: 'Warning',
           },
           TextField: {
             accessibilityHidePasswordLabel: 'Hide password',

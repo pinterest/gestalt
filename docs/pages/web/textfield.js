@@ -680,7 +680,7 @@ function Example(props) {
         setTags([...newTags]);
         ref.current.focus();
       }}
-      removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
+      accessibilityRemoveIconLabel={\`Remove \${tag} tag\`}
       text={tag}
     />
   ));

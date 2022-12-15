@@ -40,7 +40,7 @@ describe('ComboBox', () => {
     <Tag
       key={pronoun}
       onRemove={() => {}}
-      removeIconAccessibilityLabel={REMOVE_TAG}
+      accessibilityRemoveIconLabel={REMOVE_TAG}
       text={pronoun}
     />
   ));

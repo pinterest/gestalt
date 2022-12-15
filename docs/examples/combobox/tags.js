@@ -70,8 +70,8 @@ export default function Example(): Node {
   const renderedTags = selected.map((pronoun) => (
     <Tag
       key={pronoun}
+      accessibilityRemoveIconLabel={`Remove ${pronoun} tag`}
       onRemove={() => handleRemoveTag(pronoun)}
-      removeIconAccessibilityLabel={`Remove ${pronoun} tag`}
       text={pronoun}
     />
   ));
