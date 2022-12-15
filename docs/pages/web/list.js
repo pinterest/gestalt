@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import Page from '../../docs-components/Page.js';
@@ -15,15 +16,23 @@ export default function ListPage({
   return (
     <Page title={generatedDocGen?.List.displayName}>
       <PageHeader
+        badge="pilot"
         name={generatedDocGen?.List.displayName}
         description={generatedDocGen?.List.description}
         defaultCode={`
 <List label="This application will be able to" type="unordered">
-  <List.Item text="Access your follows and followers" />
+  <List.Item text="Access your follows and followers"></List.Item>
   <List.Item text="Create new Pins for you" />
   <List.Item text="Follow things for you" />
 </List>
 `}
+        slimBanner={
+          <SlimBanner
+            type="warning"
+            iconAccessibilityLabel="Warning"
+            message="List is in pilot phase. The API and subcomponents might change before its stable version."
+          />
+        }
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen.List} />
 
@@ -138,7 +147,7 @@ The following examples showcase different cases where labels need to be hidden.`
         >
           <MainSection.Card
             defaultCode={`
-<Flex gap={2} direction="column">
+<Flex gap={4} direction="column">
   <Heading accessibilityLevel="none" size="500">Asynchronous Analytics Endpoints</Heading>
   <List labelDisplay="hidden" label="Use the synchronous analytics endpoints if:" type="unordered">
     <List.Item text="You need data from the last 90 days" />
@@ -151,7 +160,7 @@ The following examples showcase different cases where labels need to be hidden.`
           />
           <MainSection.Card
             defaultCode={`
-<Flex direction="column" gap={2}>
+<Flex gap={4} direction="column">
   <Text>The Save button is one of the best ways to get your content onto Pinterest —through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
   <List labelDisplay="hidden" label="Best practices for Save Button for developers" type="unordered">
     <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
@@ -241,17 +250,13 @@ __2. Condensed__: Space between lines is reduced for all style varients to 8px f
 <List label={<Text weight="bold">Regular spacing</Text>} type="unordered" spacing="regular">
   <List.Item text="List item text" />
   <List.Item text="List item text">
-    <List.NestedList>
-      <List.Item text="List item text">
-        <List.NestedList>
-          <List.Item text="List item text" />
-          <List.Item text="List item text" />
-          <List.Item text="List item text" />
-        </List.NestedList>
-      </List.Item>
-      <List.Item text="List item text" />
-      <List.Item text="List item text" />
-    </List.NestedList>
+    <List.Item text="List item text">
+        <List.Item text="List item text" />
+        <List.Item text="List item text" />
+        <List.Item text="List item text" />
+    </List.Item>
+    <List.Item text="List item text" />
+    <List.Item text="List item text" />
   </List.Item>
   <List.Item text="List item text" />
 </List>
@@ -260,19 +265,15 @@ __2. Condensed__: Space between lines is reduced for all style varients to 8px f
           <MainSection.Card
             defaultCode={`
 <List label={<Text weight="bold">Condensed spacing</Text>} type="unordered" spacing="condensed">
-<List.Item text="List item text" />
+  <List.Item text="List item text" />
   <List.Item text="List item text">
-    <List.NestedList>
-      <List.Item text="List item text">
-        <List.NestedList>
-          <List.Item text="List item text" />
-          <List.Item text="List item text" />
-          <List.Item text="List item text" />
-        </List.NestedList>
-      </List.Item>
-      <List.Item text="List item text" />
-      <List.Item text="List item text" />
-    </List.NestedList>
+    <List.Item text="List item text">
+        <List.Item text="List item text" />
+        <List.Item text="List item text" />
+        <List.Item text="List item text" />
+    </List.Item>
+    <List.Item text="List item text" />
+    <List.Item text="List item text" />
   </List.Item>
   <List.Item text="List item text" />
 </List>
@@ -290,25 +291,15 @@ List allows a maximum of six nested list items levels. Unordered lists alternate
             defaultCode={`
 <List label={<Text weight="bold">Bare unordered nested</Text>} type="bare">
   <List.Item text="List item text">
-    <List.NestedList>
+    <List.Item text="List item text">
       <List.Item text="List item text">
-        <List.NestedList>
+        <List.Item text="List item text">
           <List.Item text="List item text">
-            <List.NestedList>
-              <List.Item text="List item text">
-                <List.NestedList>
-                  <List.Item text="List item text">
-                    <List.NestedList>
-                      <List.Item text="List item text" />
-                    </List.NestedList>
-                  </List.Item>
-                </List.NestedList>
-              </List.Item>
-            </List.NestedList>
+            <List.Item text="List item text" />
           </List.Item>
-        </List.NestedList>
+        </List.Item>
       </List.Item>
-    </List.NestedList>
+    </List.Item>
   </List.Item>
 </List>`}
           />
@@ -316,25 +307,15 @@ List allows a maximum of six nested list items levels. Unordered lists alternate
             defaultCode={`
 <List label={<Text weight="bold">Unordered nested</Text>} type="unordered">
   <List.Item text="List item text">
-    <List.NestedList>
+    <List.Item text="List item text">
       <List.Item text="List item text">
-        <List.NestedList>
+        <List.Item text="List item text">
           <List.Item text="List item text">
-            <List.NestedList>
-              <List.Item text="List item text">
-                <List.NestedList>
-                  <List.Item text="List item text">
-                    <List.NestedList>
-                      <List.Item text="List item text" />
-                    </List.NestedList>
-                  </List.Item>
-                </List.NestedList>
-              </List.Item>
-            </List.NestedList>
+            <List.Item text="List item text" />
           </List.Item>
-        </List.NestedList>
+        </List.Item>
       </List.Item>
-    </List.NestedList>
+    </List.Item>
   </List.Item>
 </List>`}
           />
@@ -342,42 +323,34 @@ List allows a maximum of six nested list items levels. Unordered lists alternate
             defaultCode={`
 <List label={<Text weight="bold">Ordered nested</Text>} type="ordered">
   <List.Item text="List item text">
-    <List.NestedList>
+    <List.Item text="List item text">
       <List.Item text="List item text">
-        <List.NestedList>
+        <List.Item text="List item text">
           <List.Item text="List item text">
-            <List.NestedList>
-              <List.Item text="List item text">
-                <List.NestedList>
-                  <List.Item text="List item text">
-                    <List.NestedList>
-                      <List.Item text="List item text" />
-                    </List.NestedList>
-                  </List.Item>
-                </List.NestedList>
-              </List.Item>
-            </List.NestedList>
+            <List.Item text="List item text" />
           </List.Item>
-        </List.NestedList>
+        </List.Item>
       </List.Item>
-    </List.NestedList>
+    </List.Item>
   </List.Item>
 </List>`}
           />
           <MainSection.Card
             defaultCode={`
-<List label={<Text weight="bold">Mixed nested</Text>} type="ordered">
+<List spacing="condensed" label={<Text weight="bold">Mixed nested</Text>} type="ordered">
   <List.Item text="List item text" />
   <List.Item text="List item text">
     <List.NestedList type="unordered">
+      <List.Item text="List item text"/>
       <List.Item text="List item text">
-        <List.NestedList>
           <List.Item text="List item text" />
-          <List.Item text="List item text" />
-          <List.Item text="List item text" />
-        </List.NestedList>
+          <List.Item text="List item text">
+            <List.NestedList type="ordered">
+              <List.Item text="List item text" />
+              <List.Item text="List item text" />
+            </List.NestedList>
+          </List.Item>
       </List.Item>
-      <List.Item text="List item text" />
       <List.Item text="List item text" />
     </List.NestedList>
   </List.Item>
@@ -434,7 +407,7 @@ List's \`label\` prop is used for accessibility purposes. See the [accessibility
           <MainSection.Card
             title="Hidden label"
             defaultCode={`
-<Flex direction="column" gap={2}>
+<Flex direction="column" gap={4}>
   <Text>The Save button is one of the best ways to get your content onto Pinterest —through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
   <List labelDisplay="hidden" label="Best practices for Save Button for developers" type="unordered">
     <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
@@ -465,11 +438,11 @@ function Example() {
       { someCondition && <List.Item text="List item text z" /> }
       <List.Item text="List item text 0">
         { someCondition
-          && <List.NestedList>
+          && <React.Fragment>
               <List.Item text="List item text 1" />
               <List.Item text="List item text 2" />
               <List.Item text="List item text 3" />
-            </List.NestedList>
+            </React.Fragment>
           }
       </List.Item>
       { someCondition
@@ -535,9 +508,9 @@ export async function getServerSideProps(): Promise<{|
     componentName: ['List', 'ListItem', 'NestedList'],
   });
 
-  docGen.List.props.children.flowType.raw = '<Element<typeof ListItem>>';
-  docGen.NestedList.props.children.flowType.raw = '<Element<typeof ListItem>>';
-  docGen.ListItem.props.children.flowType.raw = '<Element<typeof NestedList>>';
+  docGen.List.props.children.flowType.raw = '<Element<typeof List.Item>>';
+  docGen.NestedList.props.children.flowType.raw = '<Element<typeof List.Item>>';
+  docGen.ListItem.props.children.flowType.raw = '<Element<typeof Nested.List | typeof List.Item>>';
 
   return {
     props: {

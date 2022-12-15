@@ -10,17 +10,21 @@ type ListType = 'bare' | 'ordered' | 'unordered';
 
 type Props = {|
   /**
-   * Use List.Item to build nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
+   * Use List.Item to modify the type of nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#List.Item).
    */
   children: Node,
   /**
    * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
    */
-  type?: ListType,
+  type: ListType,
 |};
 
 /**
- * [List.NestedList](https://gestalt.pinterest.systems/web/list#List.NestedList) is a subcomponent of [List](https://gestalt.pinterest.systems/web/list). List.NestedList represents the `<ul>` or `<ol>` tag nested within List.Item's `<li>`. Same component as List but with a more restricted API. Should not be used at the top level, use List instead.
+ * [List.NestedList](https://gestalt.pinterest.systems/web/list#List.NestedList) is a subcomponent of [List](https://gestalt.pinterest.systems/web/list). List.NestedList represents the `<ul>` or `<ol>` tag nested within List.Item's `<li>`. Same component as List but with a more restricted API.
+ *
+ * For nested lists without `type` prop changes, nest [List.Item](https://gestalt.pinterest.systems/web/list#List.Item) into each other. Only use List.NestedList to change the type in a nested list. See [mixed nested use case](https://gestalt.pinterest.systems/web/list#Nesting) for a valid use case.
+ *
+ * Should not be used at the top level, use List instead.
  */ function NestedList({ type, children }: Props): Node {
   const { type: inheritedType, spacing: inheritedSpacing, style: inheritedStyle } = useList();
 
@@ -52,6 +56,6 @@ type Props = {|
   );
 }
 
-NestedList.displayName = 'Nested.List';
+NestedList.displayName = 'List.NestedList';
 
 export default NestedList;

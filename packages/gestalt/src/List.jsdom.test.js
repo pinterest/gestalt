@@ -17,25 +17,15 @@ describe('List', () => {
     return (
       <List labelDisplay={labelDisplay} label={text ? <Text>Numbers</Text> : 'Numbers'} type={type}>
         <List.Item text={text ? <Text>1</Text> : '1'}>
-          <List.NestedList>
-            <List.Item text="2">
-              <List.NestedList>
-                <List.Item text="3">
-                  <List.NestedList>
-                    <List.Item text="4">
-                      <List.NestedList>
-                        <List.Item text="5">
-                          <List.NestedList>
-                            <List.Item text="6" />
-                          </List.NestedList>
-                        </List.Item>
-                      </List.NestedList>
-                    </List.Item>
-                  </List.NestedList>
+          <List.Item text="2">
+            <List.Item text="3">
+              <List.Item text="4">
+                <List.Item text="5">
+                  <List.Item text="6" />
                 </List.Item>
-              </List.NestedList>
+              </List.Item>
             </List.Item>
-          </List.NestedList>
+          </List.Item>
         </List.Item>
       </List>
     );

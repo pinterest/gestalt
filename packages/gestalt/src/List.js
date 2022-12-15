@@ -27,7 +27,7 @@ type ListType = 'bare' | 'ordered' | 'unordered';
 
 type Props = {|
   /**
-   * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
+   * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#List.Item).
    */
   children: Node,
   /**
@@ -72,8 +72,8 @@ function List({
 
   const className = classnames(styles.list, {
     [styles.bareList]: type === 'bare',
-    [styles.regular]: type === 'regular',
-    [styles.condensed]: type === 'condensed',
+    [styles.regular]: spacing === 'regular',
+    [styles.condensed]: spacing === 'condensed',
   });
 
   return (
@@ -87,7 +87,7 @@ function List({
           <Box
             id={id}
             display={hiddenLabel ? 'visuallyHidden' : 'block'}
-            marginBottom={hiddenLabel ? 0 : 3}
+            marginBottom={hiddenLabel ? 0 : 4}
           >
             <ListText text={label} />
           </Box>

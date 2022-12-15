@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Heading, Image, Box } from 'gestalt';
+import { Heading, Image, Box, List } from 'gestalt';
 import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -59,39 +59,34 @@ Below we list the UI elements you can use and the ones you should avoid when bri
               <Heading color="success" size="200" accessibilityLevel={4}>
                 UI elements to bring brand expression
               </Heading>
-              <Text>
-                <ul>
-                  <li>Product upsells</li>
-                  <li>Hero banners</li>
-                  <li>Cards</li>
-                  <li>Carousels</li>
-                  <li>Modals/Sheets</li>
-                </ul>
-              </Text>
+
+              <List label="UI elements to bring brand expression" labelDisplay="hidden">
+                <List.Item text="Product upsells" />
+                <List.Item text="Hero banners" />
+                <List.Item text="Cards" />
+                <List.Item text="Carousels" />
+                <List.Item text="Modals/Sheets" />
+              </List>
             </Box>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
               <Heading color="subtle" size="200" accessibilityLevel={4}>
                 Consider brand expression
               </Heading>
-              <Text>
-                <ul>
-                  <li>Dashboards(when applicable and it does not break a component)</li>
-                </ul>
-              </Text>
+              <List label="When to consider brand expression" labelDisplay="hidden">
+                <List.Item text="Dashboards(when applicable and it does not break a component" />
+              </List>
             </Box>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
               <Heading color="error" size="200" accessibilityLevel={4}>
                 Elements to avoid brand expression
               </Heading>
-              <Text>
-                <ul>
-                  <li>Core UI patterns</li>
-                  <li>Text components</li>
-                  <li>CTAs and other action components </li>
-                  <li>Tables</li>
-                  <li>Form components </li>
-                </ul>
-              </Text>
+              <List label="Elements to avoid brand expression" labelDisplay="hidden">
+                <List.Item text="Core UI patterns" />
+                <List.Item text="Text components" />
+                <List.Item text="CTAs and other action components" />
+                <List.Item text="Tables" />
+                <List.Item text="Form components" />
+              </List>
             </Box>
           </Box>
         </MainSection.Subsection>

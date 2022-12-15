@@ -5,7 +5,7 @@ exports[`List renders a bare unordered list 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r0:"
   >
     <div
@@ -105,7 +105,7 @@ exports[`List renders an condensed list 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r6:"
   >
     <div
@@ -140,7 +140,7 @@ exports[`List renders an list item with custom text 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r7:"
   >
     <div
@@ -179,7 +179,7 @@ exports[`List renders an list with a custom label 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r4:"
   >
     <span
@@ -218,7 +218,7 @@ exports[`List renders an list with a hidden label 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom0 xsDisplayVisuallyHidden"
+    className="box xsDisplayVisuallyHidden"
     id=":r5:"
   >
     <div
@@ -253,7 +253,7 @@ exports[`List renders an mixed list 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r3:"
   >
     <div
@@ -277,9 +277,27 @@ exports[`List renders an mixed list 1`] = `
         >
           List item text
         </div>
+      </li>
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
         <ul
           className="list"
         >
+          <li
+            className="listItem ulItemDot"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+          </li>
           <li
             className="listItem ulItemDot"
           >
@@ -300,9 +318,58 @@ exports[`List renders an mixed list 1`] = `
                   List item text
                 </div>
               </li>
+              <li
+                className="listItem ulItemCircle"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  List item text
+                </div>
+                <ol
+                  className="list"
+                >
+                  <li
+                    className="listItem olItem1"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                  </li>
+                  <li
+                    className="listItem olItem1"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                  </li>
+                </ol>
+              </li>
             </ul>
           </li>
+          <li
+            className="listItem ulItemDot"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+          </li>
         </ul>
+      </li>
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
       </li>
     </ol>
   </div>
@@ -314,7 +381,7 @@ exports[`List renders an ordered list 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r2:"
   >
     <div
@@ -414,7 +481,7 @@ exports[`List renders an unordered list 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="box marginBottom3 xsDisplayBlock"
+    className="box xsDisplayBlock"
     id=":r1:"
   >
     <div

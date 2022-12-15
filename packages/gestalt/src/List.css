@@ -1,10 +1,10 @@
 .bareList:first-child {
-  margin: 0;
   padding-inline-start: 0;
 }
 
 .list {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding-inline-start: 16px;
 }
 
@@ -14,8 +14,9 @@
 }
 
 .condensed {
-  margin: -8px;
-  padding-inline-start: -8px;
+  margin-bottom: -8px;
+  margin-top: -8px;
+
 }
 
 .listItem {

@@ -1383,7 +1383,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yNavigation: 'ready',
         a11yComprehension: 'ready',
       },
-      badge: 'New',
+      badge: 'Pilot',
       android: 'notAvailable',
       deprecated: false,
       documentation: 'partial',
