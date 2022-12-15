@@ -1,7 +1,6 @@
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
-import ModalAlert from './ModalAlert.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
 import Badge from './Badge.js';
@@ -34,9 +33,11 @@ import Label from './Label.js';
 import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
 import Link from './Link.js';
+import List from './List.js';
 import Mask from './Mask.js';
 import Masonry from './Masonry.js';
 import Modal from './Modal.js';
+import ModalAlert from './ModalAlert.js';
 import Module from './Module.js';
 import NumberField from './NumberField.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
@@ -75,7 +76,6 @@ import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 
 export {
   ActivationCard,
-  ModalAlert,
   Avatar,
   AvatarGroup,
   Badge,
@@ -110,9 +110,11 @@ export {
   Layer,
   Letterbox,
   Link,
+  List,
   Mask,
   Masonry,
   Modal,
+  ModalAlert,
   Module,
   NumberField,
   OnLinkNavigationProvider,

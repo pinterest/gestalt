@@ -114,7 +114,12 @@ export default function SideNavigationGroupMobile({
   const passedChildren = isTopLevel ? topLevelChildrenList : childrenList;
 
   const elevateChildrenToParent = useCallback(
-    () => setSelectedMobileChildren(<NestingProvider>{passedChildren}</NestingProvider>),
+    () =>
+      setSelectedMobileChildren(
+        <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
+          {passedChildren}
+        </NestingProvider>,
+      ),
     [passedChildren, setSelectedMobileChildren],
   );
 
@@ -128,7 +133,7 @@ export default function SideNavigationGroupMobile({
 
   return (
     <li className={classnames(styles.liItem)}>
-      <NestingProvider>
+      <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
         <TapArea
           accessibilityControls={display === 'expandable' ? itemId : undefined}
           accessibilityExpanded={display === 'expandable' ? expanded : undefined}

@@ -1,0 +1,63 @@
+.bareList:first-child {
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.list {
+  margin: 0;
+  padding-inline-start: 16px;
+}
+
+.regular {
+  margin-bottom: -16px;
+  margin-top: -16px;
+}
+
+.condensed {
+  margin: -8px;
+  padding-inline-start: -8px;
+}
+
+.listItem {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.listItemCondensed {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.noStyle {
+  list-style-type: none;
+}
+
+.ulItemDot {
+  list-style-type: disc;
+}
+
+.ulItemCircle {
+  list-style-type: circle;
+}
+
+.olItem1 {
+  list-style-type: decimal;
+}
+
+.olItemA {
+  list-style-type: upper-latin;
+}
+
+.olItema {
+  list-style-type: lower-latin;
+}
+
+.textColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}

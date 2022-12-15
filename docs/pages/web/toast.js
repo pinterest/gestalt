@@ -145,7 +145,7 @@ function ToastExample() {
 
         <MainSection.Subsection
           description={`
-The \`text\` prop accepts either a string or [Text](/Text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.
+The \`text\` prop accepts either a string or [Text](/web/text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.
 
 If  confirmation toast's text with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`variant\`.
 `}

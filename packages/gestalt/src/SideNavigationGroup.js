@@ -129,7 +129,7 @@ export default function SideNavigationGroup({
 
   return (
     <li className={classnames(styles.liItem)}>
-      <NestingProvider>
+      <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
         {display === 'expandable' ? (
           <TapArea
             accessibilityControls={display === 'expandable' ? itemId : undefined}

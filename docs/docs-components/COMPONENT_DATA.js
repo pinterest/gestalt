@@ -23,6 +23,7 @@ import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
+import List from '../graphics/general/List.svg';
 import Masonry from '../graphics/general/Masonry.svg';
 import Modal from '../graphics/general/Modal.svg';
 import ModalAlert from '../graphics/general/ModalAlert.svg';
@@ -1334,6 +1335,55 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'partial',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <List />,
+    name: 'List',
+    aliases: ['Unordered List', 'Ordered list', '<ol>', '<ul>', '<li>'],
+    description: 'List allows users to view individual, but related, text items grouped together.',
+    category: 'Structure',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'New',
       android: 'notAvailable',
       deprecated: false,
       documentation: 'partial',
