@@ -254,8 +254,8 @@ export default function YearInReview2022(): Node {
                   brand-spankin’ new component guidelines for Android and iOS.{' '}
                 </Text>
                 <Text size="400">
-                  What has this work led to? Well, a whole lot more traffic. 186% unique users, 169%
-                  sessions and 142% page views. Higher satisfaction too: 86% overall docs
+                  What has this work led to? Well, a whole lot more traffic. 192% unique users, 178%
+                  sessions and 150% page views. Higher satisfaction too: 86% overall docs
                   satisfaction (46% giving the highest marks) and 73% of designers saying they view
                   our docs at least weekly—that’s up 59 from the first half of 2020!
                 </Text>
@@ -302,7 +302,7 @@ export default function YearInReview2022(): Node {
               flex="grow"
             >
               <StatsColumn
-                number="186%"
+                number="192%"
                 description="Users who visited our docs compared to 2021"
               />
               <StatsColumn number="73%" description="Designers using docs weekly (or more!)" />
@@ -356,7 +356,7 @@ export default function YearInReview2022(): Node {
                 </Box>
                 <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
-                    Gestalt shipped 31 component additions and updates this year, including some
+                    Gestalt shipped 38 component additions and updates this year, including some
                     game-changers like the new{' '}
                     <GestaltLink href="/web/sidenavigation" inline>
                       SideNavigation
@@ -588,7 +588,7 @@ export default function YearInReview2022(): Node {
                 <CircleShadow className="fadeInRight" width="100%" />
               </Box>
               <Box
-                width="10%"
+                width="8%"
                 position="absolute"
                 dangerouslySetInlineStyle={{
                   __style: {
