@@ -777,7 +777,6 @@ html[dir="rtl"] .Markdown ul + pre {
     var(--color-blue-skycicle-450) 50%,
     var(--color-blue-skycicle-450) 100%
   );
-
 }
 
 .year-in-review h2 {
@@ -805,7 +804,7 @@ html[dir="rtl"] .Markdown ul + pre {
   justify-content: center;
 }
 
-.year-in-review .statsGrid .statsNumber{
+.year-in-review .statsGrid .statsNumber {
   justify-self: end;
 }
 
@@ -836,29 +835,31 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .year-in-review .backButton:hover {
-
   background-color: var(--color-background-secondary-base);
 }
 
 @font-face {
   font-family: "PinterestSans";
   src: local("PinterestSans"),
-  url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
+    url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
 }
 
 /* Year in review animations */
 
 .introAsterisk {
   opacity: 0;
-  animation: fly-in-right 1s ease-out 0s forwards, spin-counter-clockwise 2s ease-in-out 1s forwards 2;
+  animation: fly-in-right 1s ease-out 0s forwards,
+    spin-counter-clockwise 2s ease-in-out 1s forwards 2;
 }
 
 .introHalfDonut {
   opacity: 0;
-  animation: fly-in-right 1s ease-out 0s forwards, rock 2s ease-in-out 1s forwards 2;
+  animation: fly-in-right 1s ease-out 0s forwards,
+    rock 2s ease-in-out 1s forwards 2;
 }
 
-.fadeInRight, .fadeInLeft {
+.fadeInRight,
+.fadeInLeft {
   opacity: 0;
   display: none;
 }
@@ -887,15 +888,15 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .logo1 {
-  fill: #FFF;
-  animation: background-flash 3s linear  infinite;
+  fill: #fff;
+  animation: background-flash 3s linear infinite;
 }
 .logo2 {
-  fill: #FFF;
-  animation: background-flash 3s linear 1s infinite ;
+  fill: #fff;
+  animation: background-flash 3s linear 1s infinite;
 }
 .logo3 {
-  fill: #FFF;
+  fill: #fff;
   animation: background-flash 3s linear 2s infinite;
 }
 
@@ -927,7 +928,7 @@ html[dir="rtl"] .Markdown ul + pre {
     transform: rotate(-180deg);
   }
   100% {
-    transform:  rotate(-180deg);
+    transform: rotate(-180deg);
   }
 }
 
@@ -975,7 +976,7 @@ html[dir="rtl"] .Markdown ul + pre {
     font-size: 64px;
   }
 
-  .year-in-review .statsDescription{
+  .year-in-review .statsDescription {
     font-size: var(--font-size-400);
   }
 
@@ -987,7 +988,8 @@ html[dir="rtl"] .Markdown ul + pre {
     font-size: 48px;
   }
 
-  .fadeInRight, .fadeInLeft {
+  .fadeInRight,
+  .fadeInLeft {
     display: block;
   }
 }
@@ -1011,19 +1013,18 @@ html[dir="rtl"] .Markdown ul + pre {
     fill: #111;
   }
   33% {
-    fill: #111
+    fill: #111;
   }
   33.33% {
     fill: #fff;
   }
-
 }
 
 @media (prefers-reduced-motion) {
   .fadeInLeft.animate,
   .fadeInRight.animate,
-  [class^=token],
-  [class^=logo],
+  [class^="token"],
+  [class^="logo"],
   .introHalfDonut,
   .introAsterisk {
     animation: none;
@@ -1031,5 +1032,3 @@ html[dir="rtl"] .Markdown ul + pre {
     transform: translate(0%, 0px) rotate(0deg);
   }
 }
-
-
