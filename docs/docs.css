@@ -826,8 +826,8 @@ html[dir="rtl"] .Markdown ul + pre {
 .year-in-review .backButton {
   align-items: center;
   background-color: var(--color-background-light);
-  border-radius: 100px;
   border: 3px solid var(--color-background-dark);
+  border-radius: 100px;
   cursor: pointer;
   display: flex;
   justify-content: center;
