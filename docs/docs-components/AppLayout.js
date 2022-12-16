@@ -10,10 +10,12 @@ import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
 import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDeviceTypeProvider.js';
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
+import YearInReviewBanner from './YearInReviewBanner.js';
 
 const CONTENT_MAX_WIDTH_PX = 1546;
 const HEADER_HEIGHT_PX = 75;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
+const fullBleedNoNavigationPages = ['/year_in_review_2022'];
 
 type Props = {|
   children?: Node,
@@ -28,6 +30,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
 
   const isHomePage = router?.route === '/home';
+  const isFullBleedLayout = fullBleedNoNavigationPages.includes(router?.route);
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
@@ -44,23 +47,11 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setIsSidebarOpen]);
 
-  return isMobile && isSidebarOpen ? (
-    <Box
-      position="absolute"
-      top
-      bottom
-      left
-      right
-      overflow="scroll"
-      display="block"
-      mdDisplay="none"
-    >
-      <DocsSideNavigation />
-    </Box>
-  ) : (
+  let pageContent = (
     <Box minHeight="100vh" color="default">
       <SkipToContent />
       <Header />
+      {isHomePage && <YearInReviewBanner />}
       {isSidebarOpen && (
         <Fragment>
           {/* The <div> element has a child <button> element that allows keyboard interaction */}
@@ -141,4 +132,31 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
       </Box>
     </Box>
   );
+
+  if (isFullBleedLayout) {
+    pageContent = (
+      <Box minHeight="100vh" color="default" role="main">
+        {children}
+      </Box>
+    );
+  }
+
+  if (isMobile && isSidebarOpen) {
+    pageContent = (
+      <Box
+        position="absolute"
+        top
+        bottom
+        left
+        right
+        overflow="scroll"
+        display="block"
+        mdDisplay="none"
+      >
+        <DocsSideNavigation />
+      </Box>
+    );
+  }
+
+  return pageContent;
 }
