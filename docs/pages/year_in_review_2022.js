@@ -98,6 +98,12 @@ export default function YearInReview2022(): Node {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (document) {
+      document.title = `2022 Year in Review - Gestalt`;
+    }
+  }, []);
+
+  useEffect(() => {
     const animatedDecor = [
       ...document.querySelectorAll('.fadeInRight'),
       ...document.querySelectorAll('.fadeInLeft'),
