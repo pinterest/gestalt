@@ -209,9 +209,11 @@ export default function YearInReview2022(): Node {
                   </Text>
                   <Text size="400">
                     The Gestalt team had lofty ambitions and even loftier hopes for 2022. We said
-                    “this is the year” many times and—spoiler alert—it was! 2022 has exceeded our
-                    expectations. Read on for a short and sweet summary of our biggest moments
-                    building Pinterest’s design foundations.
+                    “this is the year” many times and—spoiler alert—it was!
+                  </Text>
+                  <Text size="400">
+                    2022 has exceeded our expectations. Read on for a short and sweet summary of our
+                    biggest moments building Pinterest’s design foundations.
                   </Text>
                 </Flex>
               </Box>
@@ -413,7 +415,7 @@ export default function YearInReview2022(): Node {
                   />
                   <StatsGrid number="~2k" description="In-product accessibility enhancements" />
                   <StatsGrid
-                    number="8342"
+                    number="8,342"
                     description="Lines of code removed due to Gestalt adoption"
                   />
                 </div>
