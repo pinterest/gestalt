@@ -118,7 +118,15 @@ export default function YearInReview2022(): Node {
     <div className="year-in-review">
       <ColorSchemeProvider colorScheme="light" id="gestalt-yir">
         <Flex flex="grow" direction="column">
-          <Box position="fixed" top left padding={4} mdPadding={8} zIndex={BUTTON_ZINDEX}>
+          <Box
+            role="navigation"
+            position="fixed"
+            top
+            left
+            padding={4}
+            mdPadding={8}
+            zIndex={BUTTON_ZINDEX}
+          >
             <Link href="/home">
               <div className="backButton">
                 <Icon icon="home" color="dark" accessibilityLabel="Home" size={28} />
