@@ -544,7 +544,7 @@ function Example(props) {
 
         <MainSection.Subsection
           title="Password"
-          description={`TextField with \`type="password"\` shows obfuscated characters by default. Add \`showPasswordVisibilityToggle\` to provide an icon button that allows the user to toggle password visibility. This creates a more accessible experience by allowing the user to confirm what they have entered before submitting the form.`}
+          description={`TextField with \`type="password"\` shows obfuscated characters by default. An icon button at the end of the field allows the user to toggle password visibility. This creates a more accessible experience by allowing the user to confirm what they have entered before submitting the form.`}
         >
           <MainSection.Card
             defaultCode={`
@@ -557,7 +557,6 @@ function Example(props) {
                 label="Account password"
                 onChange={({ value }) => setPassword(value)}
                 placeholder="Password"
-                showPasswordVisibilityToggle
                 type="password"
                 value={password}
               />

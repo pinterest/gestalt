@@ -98,10 +98,6 @@ type Props = {|
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * For `type="password"`, show an icon button to allow the user to toggle the visibility of their password. Passwords are obfuscated by default but can be shown in plain text for better user feedback.
-   */
-  showPasswordVisibilityToggle?: boolean,
-  /**
    * List of tags to display in the component.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
@@ -148,7 +144,6 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     onKeyDown,
     placeholder,
     readOnly = false,
-    showPasswordVisibilityToggle,
     size = 'md',
     tags,
     type: typeProp = 'text',
@@ -171,27 +166,26 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useDefaultLabelContext('TextField');
 
-  const iconButton =
-    showPasswordVisibilityToggle && isPasswordField ? (
-      <InternalTextFieldIconButton
-        accessibilityChecked={!isCurrentlyPasswordType}
-        accessibilityLabel={
-          isCurrentlyPasswordType
-            ? accessibilityShowPasswordLabel ?? ''
-            : accessibilityHidePasswordLabel ?? ''
-        }
-        icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
-        onClick={() => {
-          setType(isCurrentlyPasswordType ? 'text' : 'password');
-        }}
-        role="switch"
-        tooltipText={
-          isCurrentlyPasswordType
-            ? accessibilityShowPasswordLabel ?? ''
-            : accessibilityHidePasswordLabel ?? ''
-        }
-      />
-    ) : undefined;
+  const iconButton = isPasswordField ? (
+    <InternalTextFieldIconButton
+      accessibilityChecked={!isCurrentlyPasswordType}
+      accessibilityLabel={
+        isCurrentlyPasswordType
+          ? accessibilityShowPasswordLabel ?? ''
+          : accessibilityHidePasswordLabel ?? ''
+      }
+      icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+      onClick={() => {
+        setType(isCurrentlyPasswordType ? 'text' : 'password');
+      }}
+      role="switch"
+      tooltipText={
+        isCurrentlyPasswordType
+          ? accessibilityShowPasswordLabel ?? ''
+          : accessibilityHidePasswordLabel ?? ''
+      }
+    />
+  ) : undefined;
 
   return (
     <InternalTextField
