@@ -135,7 +135,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
 
   if (isFullBleedLayout) {
     pageContent = (
-      <Box minHeight="100vh" color="default">
+      <Box minHeight="100vh" color="default" role="main">
         {children}
       </Box>
     );

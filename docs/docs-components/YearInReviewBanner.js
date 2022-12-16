@@ -12,8 +12,8 @@ export default function YearInReviewBanner(): Node {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div role="banner">
-      <TapArea role="link" href="/year_in_review_2022">
+    <div role="banner" aria-label="Check out the 2022 Gestalt Recap">
+      <TapArea role="link" href="/year_in_review_2022" accessibilityLabel="2022 Year In Review">
         <Box
           color="infoWeak"
           dangerouslySetInlineStyle={{

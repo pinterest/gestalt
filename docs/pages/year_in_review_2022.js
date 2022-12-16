@@ -128,7 +128,7 @@ export default function YearInReview2022(): Node {
             zIndex={BUTTON_ZINDEX}
           >
             <Link href="/home">
-              <div className="backButton">
+              <div className="backButton" role="link" aria-label="Back to Gestalt Home">
                 <Icon icon="home" color="dark" accessibilityLabel="Home" size={28} />
                 <GestaltLogo height={50} width={50} />
               </div>
