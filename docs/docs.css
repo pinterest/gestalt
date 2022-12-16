@@ -756,20 +756,17 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .year-in-review .h1Font {
-  font-size: 48px;
-  font-family: PinterestSans;
-  font-weight: normal;
-  font-style: italic;
   color: var(--color-text-light);
+  font-family: PinterestSans;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.1;
   margin: 0;
   text-align: center;
-  line-height: 1.1;
 }
 
 .year-in-review .halfAndHalf {
-  display: flex;
-  justify-content: center;
-  width: 100%;
   background: linear-gradient(
     to top,
     var(--color-purple-mysticool-200) 0%,
@@ -777,6 +774,9 @@ html[dir="rtl"] .Markdown ul + pre {
     var(--color-blue-skycicle-450) 50%,
     var(--color-blue-skycicle-450) 100%
   );
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .year-in-review h2 {
@@ -797,10 +797,10 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .year-in-review .statsGrid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 1em;
   align-items: center;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 2fr;
   justify-content: center;
 }
 
@@ -809,18 +809,18 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .year-in-review .statsNumber {
-  margin: 0;
-  font-family: PinterestSans;
-  font-weight: var(--font-weight-bold);
+  font-family: PinterestSans system-ui;
   font-size: var(--font-size-600);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
 }
 
 .year-in-review .statsDescription {
-  margin: 0;
   font-family: var(--font-family-default-latin);
   font-size: var(--font-size-100);
   font-weight: var(--font-weight-normal);
   line-height: 1.2;
+  margin: 0;
 }
 
 .year-in-review .backButton {
@@ -839,7 +839,7 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 @font-face {
-  font-family: "PinterestSans";
+  font-family: PinterestSans;
   src: local("PinterestSans"),
     url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
 }
@@ -847,21 +847,21 @@ html[dir="rtl"] .Markdown ul + pre {
 /* Year in review animations */
 
 .introAsterisk {
-  opacity: 0;
   animation: fly-in-right 1s ease-out 0s forwards,
     spin-counter-clockwise 2s ease-in-out 1s forwards 2;
+  opacity: 0;
 }
 
 .introHalfDonut {
-  opacity: 0;
   animation: fly-in-right 1s ease-out 0s forwards,
     rock 2s ease-in-out 1s forwards 2;
+  opacity: 0;
 }
 
 .fadeInRight,
 .fadeInLeft {
-  opacity: 0;
   display: none;
+  opacity: 0;
 }
 
 .fadeInRight.animate {
@@ -873,37 +873,40 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .token1 {
-  transform-origin: 85px 266px;
   animation: rock 4s linear infinite;
+  transform-origin: 85px 266px;
 }
 
 .token2 {
-  transform-origin: 807px 91px;
   animation: spin 4s linear infinite;
+  transform-origin: 807px 91px;
 }
 
 .token3 {
-  transform-origin: 1176px 85px;
   animation: rock 4s linear 1s infinite;
+  transform-origin: 1176px 85px;
 }
 
 .logo1 {
-  fill: #fff;
   animation: background-flash 3s linear infinite;
+  fill: #fff;
 }
+
 .logo2 {
-  fill: #fff;
   animation: background-flash 3s linear 1s infinite;
-}
-.logo3 {
   fill: #fff;
+}
+
+.logo3 {
   animation: background-flash 3s linear 2s infinite;
+  fill: #fff;
 }
 
 @keyframes fly-in-right {
   from {
     transform: translate(20%, 500px) rotate(180deg);
   }
+
   to {
     transform: translate(0%, 0px) rotate(0deg);
     opacity: 1;
@@ -914,6 +917,7 @@ html[dir="rtl"] .Markdown ul + pre {
   from {
     transform: translate(-20%, 500px) rotate(-100deg);
   }
+
   to {
     transform: translate(0%, 0px) rotate(0deg);
     opacity: 1;
@@ -924,32 +928,30 @@ html[dir="rtl"] .Markdown ul + pre {
   0% {
     transform: rotate(0deg);
   }
+
   80% {
     transform: rotate(-180deg);
   }
+
   100% {
     transform: rotate(-180deg);
   }
 }
 
 @keyframes rock {
-  0% {
+  0%,
+  40%,
+  100% {
     transform: rotate(0deg);
   }
-  10% {
-    transform: rotate(20deg);
-  }
-  20% {
-    transform: rotate(-10deg);
-  }
+
+  10%,
   30% {
     transform: rotate(20deg);
   }
-  40% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
+
+  20% {
+    transform: rotate(-10deg);
   }
 }
 
@@ -1012,9 +1014,11 @@ html[dir="rtl"] .Markdown ul + pre {
   0% {
     fill: #111;
   }
+
   33% {
     fill: #111;
   }
+
   33.33% {
     fill: #fff;
   }
@@ -1029,6 +1033,6 @@ html[dir="rtl"] .Markdown ul + pre {
   .introAsterisk {
     animation: none;
     opacity: 1;
-    transform: translate(0%, 0px) rotate(0deg);
+    transform: translate(0, 0) rotate(0);
   }
 }
