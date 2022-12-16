@@ -747,8 +747,8 @@ html[dir="rtl"] .Markdown ul + pre {
 /* Year In Review CSS */
 
 .year-in-review {
-  overflow: hidden;
   background-color: var(--color-background-light);
+  overflow: hidden;
 }
 
 .year-in-review .bwj {
@@ -757,7 +757,7 @@ html[dir="rtl"] .Markdown ul + pre {
 
 .year-in-review .h1Font {
   color: var(--color-text-light);
-  font-family: PinterestSans;
+  font-family: PinterestSans, system-ui;
   font-size: 48px;
   font-style: italic;
   font-weight: normal;
@@ -780,16 +780,16 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .year-in-review h2 {
+  font-family: PinterestSans, system-ui;
   font-size: var(--font-size-600);
   font-style: italic;
   font-weight: var(--font-weight-bold);
-  font-family: PinterestSans;
   line-height: 1.1;
 }
 
 .year-in-review .gestalt2022 {
   color: var(--color-text-light);
-  font-family: PinterestSans;
+  font-family: PinterestSans, system-ui;
   font-size: 24px;
   font-style: normal;
   font-weight: normal;
@@ -804,15 +804,15 @@ html[dir="rtl"] .Markdown ul + pre {
   justify-content: center;
 }
 
-.year-in-review .statsGrid .statsNumber {
-  justify-self: end;
-}
-
 .year-in-review .statsNumber {
-  font-family: PinterestSans system-ui;
+  font-family: PinterestSans, system-ui;
   font-size: var(--font-size-600);
   font-weight: var(--font-weight-bold);
   margin: 0;
+}
+
+.year-in-review .statsGrid .statsNumber {
+  justify-self: end;
 }
 
 .year-in-review .statsDescription {
@@ -827,7 +827,7 @@ html[dir="rtl"] .Markdown ul + pre {
   align-items: center;
   background-color: var(--color-background-light);
   border-radius: 100px;
-  border: 3px solid #111;
+  border: 3px solid var(--color-background-dark);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -839,7 +839,7 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 @font-face {
-  font-family: PinterestSans;
+  font-family: PinterestSans, system-ui;
   src: local("PinterestSans"),
     url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
 }
@@ -908,8 +908,8 @@ html[dir="rtl"] .Markdown ul + pre {
   }
 
   to {
-    transform: translate(0%, 0px) rotate(0deg);
     opacity: 1;
+    transform: translate(0, 0) rotate(0);
   }
 }
 
@@ -919,14 +919,14 @@ html[dir="rtl"] .Markdown ul + pre {
   }
 
   to {
-    transform: translate(0%, 0px) rotate(0deg);
     opacity: 1;
+    transform: translate(0, 0) rotate(0);
   }
 }
 
 @keyframes spin-counter-clockwise {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
 
   80% {
@@ -942,7 +942,7 @@ html[dir="rtl"] .Markdown ul + pre {
   0%,
   40%,
   100% {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
 
   10%,

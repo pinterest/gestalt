@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, Fragment } from 'react';
+import { type Node, useEffect, useState, Fragment } from 'react';
 import {
   Box,
   Button,
@@ -20,6 +20,7 @@ import Link from 'next/link';
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
 import Circle from '../graphics/year-in-review/circle.svg';
 import CircleShadow from '../graphics/year-in-review/circleShadow.svg';
+import DiscoSVG from '../graphics/year-in-review/disco.svg';
 import Donut from '../graphics/year-in-review/donut.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import DonutShadow from '../graphics/year-in-review/donutShadow.svg';
@@ -30,8 +31,6 @@ import Sparkle from '../graphics/year-in-review/sparkle.svg';
 import SparkleShadow from '../graphics/year-in-review/sparkleShadow.svg';
 import Tokens from '../graphics/year-in-review/tokens.svg';
 
-// $FlowExpectedError[untyped-import]
-import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
 // $FlowExpectedError[untyped-import]
 import Pencil from '../graphics/year-in-review/lottie/pencil.json';
 // $FlowExpectedError[untyped-import]
@@ -78,25 +77,25 @@ function StatsGrid({ number, description }: GridProps): Node {
   );
 }
 
+type AnimationProps = {|
+  shouldReduceMotion: boolean,
+|};
+
+function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
+  const [animationData, setAnimationData] = useState();
+  useEffect(() => {
+    // $FlowExpectedError[untyped-import]
+    import(`../graphics/year-in-review/lottie/discoStars.json`).then((res) =>
+      setAnimationData(res.default),
+    );
+  }, []);
+
+  if (!animationData) return <DiscoSVG />;
+  return <Lottie animationData={animationData} autoplay={!shouldReduceMotion} />;
+}
+
 export default function YearInReview2022(): Node {
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    const animatedDecor = [
-      ...document.querySelectorAll('.fadeInRight'),
-      ...document.querySelectorAll('.fadeInLeft'),
-    ];
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry && entry.isIntersecting) {
-        entry.target?.classList?.add('animate');
-      }
-    });
-
-    animatedDecor.forEach((obj) => {
-      observer.observe(obj);
-    });
-  }, []);
 
   useEffect(() => {
     const animatedDecor = [
@@ -137,7 +136,7 @@ export default function YearInReview2022(): Node {
           >
             <Flex direction="column" alignItems="center">
               <Box marginTop={-3} column={6} mdColumn={3}>
-                <Lottie animationData={discoStars} autoplay={!shouldReduceMotion} />
+                <DiscoAnimation shouldReduceMotion={shouldReduceMotion} />
               </Box>
               <h2 className="gestalt2022">Gestalt 2022</h2>
               <h1 className="h1Font">Year in Review</h1>
