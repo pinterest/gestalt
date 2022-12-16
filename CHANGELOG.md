@@ -1,3 +1,9 @@
+## 85.1.1 (Dec 16, 2022)
+
+### Patch
+
+- Checkbox, Switch: add Android & iOS docs pages ([#2570](https://github.com/pinterest/gestalt/pull/2570)) - [Preview link](https://deploy-preview-2570--gestalt.netlify.app)
+
 ## 85.1.0 (Dec 15, 2022)
 
 ### Minor
