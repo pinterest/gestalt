@@ -1,3 +1,9 @@
+## 85.1.2 (Dec 16, 2022)
+
+### Patch
+
+- Tag: add Best Practices, Localization to docs ([#2569](https://github.com/pinterest/gestalt/pull/2569)) - [Preview link](https://deploy-preview-2569--gestalt.netlify.app)
+
 ## 85.1.1 (Dec 16, 2022)
 
 ### Patch
