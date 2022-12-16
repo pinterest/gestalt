@@ -188,12 +188,18 @@ const components = {
       )}
     </Box>
   ),
-  ThreeCol: ({ children }: {| children: Node |}) => (
+  ThreeCol: ({
+    children,
+    spacing = 'default',
+  }: {|
+    children: Node,
+    spacing?: 'default' | 'expanded',
+  |}) => (
     <div
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(250px, .33fr))',
-        gap: '2px',
+        gap: spacing === 'default' ? '2px' : '8px',
       }}
     >
       {children}

@@ -93,7 +93,7 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 1. **Indeterminate**
 1. **Disabled**
 
-<ThreeCol>
+<ThreeCol spacing="expanded">
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/45/01/9f/45019f108f27c0d3aa9480fcf001b115.jpg" noPadding alt="Example of unchecked checkbox" />
     **Unchecked**
