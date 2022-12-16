@@ -891,6 +891,7 @@ html[dir="rtl"] .Markdown ul + pre {
   animation: background-flash 3s linear  infinite;
 }
 .logo2 {
+  fill: #FFF;
   animation: background-flash 3s linear 1s infinite ;
 }
 .logo3 {
