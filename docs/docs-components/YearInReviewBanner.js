@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Text, TapArea, Flex, Heading } from 'gestalt';
+import { Box, Button, Text, TapArea, Flex, Heading, useReducedMotion } from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
 // $FlowExpectedError[untyped-import]
@@ -9,6 +9,8 @@ import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 
 export default function YearInReviewBanner(): Node {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <TapArea role="link" href="/year_in_review_2022">
       <Box
@@ -40,7 +42,7 @@ export default function YearInReviewBanner(): Node {
                 <DonutHalf width="50px" height="50px" />
               </Box>
               <Box width="200px" height="160px" marginTop={-6} display="none" mdDisplay="block">
-                <Lottie animationData={discoStars} />
+                <Lottie animationData={discoStars} autoplay={!shouldReduceMotion} />
               </Box>
               <Asterisk width="40px" height="40px" />
             </Flex>

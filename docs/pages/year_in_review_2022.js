@@ -11,6 +11,7 @@ import {
   FixedZIndex,
   CompositeZIndex,
   useReducedMotion,
+  Link as GestaltLink,
 } from 'gestalt';
 // $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
@@ -23,12 +24,11 @@ import Donut from '../graphics/year-in-review/donut.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import DonutShadow from '../graphics/year-in-review/donutShadow.svg';
 import DSD from '../graphics/year-in-review/dsd.svg';
-import Figma from '../graphics/year-in-review/figma.svg';
+import FigmaSVG from '../graphics/year-in-review/figma.svg';
 import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
 import Sparkle from '../graphics/year-in-review/sparkle.svg';
 import SparkleShadow from '../graphics/year-in-review/sparkleShadow.svg';
 import Tokens from '../graphics/year-in-review/tokens.svg';
-import Vibes from '../graphics/year-in-review/vibes.svg';
 
 // $FlowExpectedError[untyped-import]
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
@@ -36,6 +36,11 @@ import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
 import Pencil from '../graphics/year-in-review/lottie/pencil.json';
 // $FlowExpectedError[untyped-import]
 import Steps from '../graphics/year-in-review/lottie/steps.json';
+// $FlowExpectedError[untyped-import]
+import Vibes from '../graphics/year-in-review/lottie/vibes.json';
+// $FlowExpectedError[untyped-import]
+import Figma from '../graphics/year-in-review/lottie/figma.json';
+
 import GestaltLogo from '../docs-components/GestaltLogo.js';
 
 const INTRO_ZINDEX = new FixedZIndex(10);
@@ -53,7 +58,7 @@ function StatsColumn({ number, description }: StatsProps): Node {
     <Flex gap={2} alignItems="start" direction="column">
       <p className="statsNumber">{number} </p>
       <Flex.Item maxWidth="250px">
-        <Text size="400">{description}</Text>
+        <p className="statsDescription">{description}</p>
       </Flex.Item>
     </Flex>
   );
@@ -67,14 +72,31 @@ type GridProps = {|
 function StatsGrid({ number, description }: GridProps): Node {
   return (
     <Fragment>
-      <p className="statsNumber">{number} </p>
-      <Text size="400">{description}</Text>
+      <p className="statsNumber">{number}</p>
+      <p className="statsDescription">{description}</p>
     </Fragment>
   );
 }
 
 export default function YearInReview2022(): Node {
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const animatedDecor = [
+      ...document.querySelectorAll('.fadeInRight'),
+      ...document.querySelectorAll('.fadeInLeft'),
+    ];
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry && entry.isIntersecting) {
+        entry.target?.classList?.add('animate');
+      }
+    });
+
+    animatedDecor.forEach((obj) => {
+      observer.observe(obj);
+    });
+  }, []);
 
   useEffect(() => {
     const animatedDecor = [
@@ -105,6 +127,7 @@ export default function YearInReview2022(): Node {
               </div>
             </Link>
           </Box>
+
           <Box
             width="100%"
             dangerouslySetInlineStyle={{
@@ -167,18 +190,15 @@ export default function YearInReview2022(): Node {
               >
                 <Flex gap={4} direction="column">
                   <Text size="400">
-                    It’s that time again. The days are getting shorter and so we’re obligated to
-                    share what we did for the past year. Everybody’s doing it and who are we to buck
-                    convention?
+                    It’s that time again. The days are getting shorter, the nights are getting
+                    longer and people are sending out unsolicited updates on what they did this
+                    year. Everybody’s doing it, and, hey, who are we to buck tradition?
                   </Text>
                   <Text size="400">
-                    The Gestalt team had high ambitions and even higher hopes for 2022. “This is the
-                    year,” was said a few times and—spoiler alert— it was. This year exceeded nearly
-                    all our expectations, and we’re going to cover exactly why that’s the case.
-                  </Text>
-                  <Text size="400">
-                    We know your time’s precious, so we promise to keep this short, sweet and
-                    awesome.
+                    The Gestalt team had lofty ambitions and even loftier hopes for 2022. We said
+                    “this is the year” many times and—spoiler alert—it was! 2022 has exceeded our
+                    expectations. Read on for a short and sweet summary of our biggest moments
+                    building Pinterest’s design foundations.
                   </Text>
                 </Flex>
               </Box>
@@ -269,13 +289,10 @@ export default function YearInReview2022(): Node {
               flex="grow"
             >
               <StatsColumn
-                number="73%"
-                description="Of designers viewing our docs at least weekly"
-              />
-              <StatsColumn
                 number="186%"
                 description="Users who visited our docs compared to 2021"
               />
+              <StatsColumn number="73%" description="Designers using docs weekly (or more!)" />
             </Flex>
             <Box
               width="8%"
@@ -326,38 +343,51 @@ export default function YearInReview2022(): Node {
                 </Box>
                 <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
-                    Shocking as it may sound, our team worked on components and tokens this year. We
-                    shipped 31 component additions/updates including some big guns like the
-                    PageHeader overhaul and the brand new SideNavigation.
+                    Gestalt shipped 31 component additions and updates this year, including some
+                    game-changers like the new{' '}
+                    <GestaltLink href="/web/sidenavigation" inline>
+                      SideNavigation
+                    </GestaltLink>{' '}
+                    and our big{' '}
+                    <GestaltLink href="/web/pageheader" inline>
+                      PageHeader
+                    </GestaltLink>{' '}
+                    overhaul.
                   </Text>
                   <Text size="400">
-                    Our components continue to be used more and more. 2022 saw a 11% bump in overall
-                    Gestalt instances in the Web codebase. More excitingly, we saw a 28% increase in
-                    non-primitive components (think SlimBanner as opposed to Text).
+                    2022 saw a 11% bump in overall use of Gestalt instances in the Pinterest Web
+                    codebase. We were most excited to see a 28% increase in our more complex
+                    components (think something like{' '}
+                    <GestaltLink href="/web/slimbanner" inline>
+                      SlimBanner
+                    </GestaltLink>{' '}
+                    as opposed to{' '}
+                    <GestaltLink href="/web/text" inline>
+                      Text
+                    </GestaltLink>
+                    ).
                   </Text>
                   <Text size="400">
-                    We added 3 new token families to Gestalt, specifically data visualization
-                    colors, elevation and opacity. That’s cool, but the highlight for 2022 was what
-                    we did with tokens we already had. Nothing big, we just shipped a tokenized dark
-                    mode for mobile web in 4 engineering days and revamped our type treatments on
-                    the Web platform across the entire product. You know, whatevs.
+                    We added 3 new token families to Gestalt: data visualization colors, elevation
+                    and opacity. We revamped our type treatments on the Web platform across the
+                    entire product. Our proudest achievement here? Shipping a tokenized dark mode
+                    for mobile web in just four engineering days. You know, no big deal...just
+                    kidding, it’s a very big deal!
                   </Text>
                   <Text size="400">
-                    We took accessibility literally and made 12 component improvements to Gestalt.
-                    These included things like{' '}
-                    <Text weight="bold" inline size="400">
-                      more accessible error messages in our form fields, a more semantic-friendly
-                      Image and an accessibility-friendly RadioGroup component
-                    </Text>
-                    . 12 may not seem like a big number, so here’s a bigger one: 2,000. That’s
-                    roughly the number of accessibility improvements our 12 updates made in product.
+                    We made 12 accessibility improvements to Gestalt because we take the
+                    abbreviation A11Y literally. These improvements included more accessible error
+                    messages in our form fields, a more semantic-friendly Image and an
+                    accessibility-friendly RadioGroup component. 12 may not seem like an impressive
+                    number, so here’s a bigger one: 2,000. That’s roughly the number of improvements
+                    our Gestalt accessibility updates made in product.
                   </Text>
                   <Text size="400">
                     Speaking of in-product improvements, we found the time to replace legacy custom
                     components with Gestalt equivalents. This work improved overall product
-                    consistency AND gave us permission to remove stuff. There’s nothing more joyous
-                    than that! There were 8,342 lines in our Web codebase that didn’t spark joy. You
-                    can guess what happened next...
+                    consistency and gave us permission to remove 8,342 lines in our Web codebase
+                    that didn’t “spark joy.” Don’t worry, we donated them to some engineers in
+                    need...
                   </Text>
                 </Flex>
                 <Box paddingY={8} width="75%">
@@ -366,11 +396,11 @@ export default function YearInReview2022(): Node {
                 <div className="statsGrid">
                   <StatsGrid
                     number="28%"
-                    description="Increase in higher-order Gestalt component instances"
+                    description="Increase in complex Gestalt component instances"
                   />
-                  <StatsGrid number="~1.5k" description="In-product accessibility enhancements" />
+                  <StatsGrid number="~2k" description="In-product accessibility enhancements" />
                   <StatsGrid
-                    number="8.3k"
+                    number="8342"
                     description="Lines of code removed due to Gestalt adoption"
                   />
                 </div>
@@ -379,10 +409,20 @@ export default function YearInReview2022(): Node {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-teal-spabattical-100)' },
+              __style: {
+                backgroundColor: 'var(--color-teal-spabattical-100)',
+                border: '4px solid #111',
+                borderBottom: 'none',
+              },
             }}
           >
-            <Figma />
+            <Box>
+              {shouldReduceMotion ? (
+                <FigmaSVG />
+              ) : (
+                <Lottie animationData={Figma} autoplay={!shouldReduceMotion} />
+              )}
+            </Box>
             <Box paddingX={SIDE_GAP} position="relative">
               <Flex direction="column" alignItems="center" justifyContent="center">
                 <Box marginBottom={8}>
@@ -394,31 +434,38 @@ export default function YearInReview2022(): Node {
                 </Box>
                 <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
-                    That covers engineering, but what about design? 2022 was intended to be our
-                    love-letter to our amazing designers—starting with our Figma libraries. And,
-                    oof, they needed work. Honestly, if we covered everything we did, we’d need
-                    another year-in-review altogether. So here’s the gist:{' '}
+                    You’ve seen our engineering achievements, but what about design? 2022 was our
+                    love letter to the amazing Pinterest designers—starting with our Figma
+                    libraries. And{' '}
+                    <Text size="400" inline italic>
+                      oof
+                    </Text>
+                    , they really needed work! If we told you everything we did, we’d be here until
+                    2023! So here are some of our faves:
                   </Text>
                   <Text size="400">
-                    We completely restructured and simplified all our libraries. We used Figma’s
-                    fancy new component properties to cut total variants by a silly amount. Dark
-                    mode variants were added to all mobile components and we shipped a complete
-                    rethink of our Pin component. Pin is literally in our company name, so we should
-                    probably get that one right...
+                    We completely restructured and simplified all our libraries. We used Figma’s new
+                    component properties to cut 500 total variants. Dark mode variants were added to
+                    all mobile components and we shipped a complete redesign of our Pin component.{' '}
+                    <Text size="400" inline italic>
+                      Pin
+                    </Text>{' '}
+                    is literally in our company name, so it was really important for us to get that
+                    one right.
                   </Text>
                   <Text size="400">
-                    The results? Massive. Specifically, 1.92 MILLION inserts in these past 12
+                    The results? Massive. Specifically, 1.92 million inserts in these past 12
                     months. The detaches? Paltry. Specifically, 0.56% of all inserts. The feedback?
-                    Rad. A 86% satisfaction from designers, which is nice, but given that’s a 21%
-                    bump from the last year, it turns nice to niceeeeeee.
+                    Rad. A 86% satisfaction from designers, which is a hefty 21% bump from the last
+                    year.
                   </Text>
                   <Text size="400">
                     We also saw a Gestalt Figma component adoption high of 45% this year which was
-                    roughly a 15% improvement from when we started tracking in this Spring. “Wait”,
-                    you say. “How are you measuring adoption rates of your Figma components?”
-                    Because we friggin’ built the ability to track adoption of our components within
-                    designs in near real time! Yes, it’s very exciting. Yes, it changes everything.
-                    And yes, we will be talking much more about this soon.{' '}
+                    roughly a 15% improvement from when we started tracking in Q2. How can we
+                    measure adoption rates of Figma components? Because we built the ability to
+                    track adoption of our components within designs in near real time! Yes, it’s
+                    very exciting. Yes, it changes everything. And yes, we will be talking much more
+                    about this in 2023.
                   </Text>
                 </Flex>
                 <Box
@@ -468,23 +515,17 @@ export default function YearInReview2022(): Node {
                   <Flex.Item flexBasis={600}>
                     <Flex direction="column" gap={4}>
                       <Text size="400">
-                        Next, filed under “Things that make the Gestalt team awesome” was our first
-                        conference,{' '}
-                        <Text size="400" weight="bold" inline>
-                          Design Systems Day
-                        </Text>
-                        . And while we may think design systems deserve more than a day, it was one
-                        hell of a day. We had 6 sessions which included 8 external speakers from{' '}
-                        <Text size="400" weight="bold" inline>
-                          Meta, Procter & Gamble and Spotify
-                        </Text>
-                        . Roughly 90 people attended the conference, which ain’t shabby for our
-                        first time out the gate.
+                        File this under “things that make the Gestalt team awesome:” our first
+                        conference, Design Systems Day. And while we know design systems programming
+                        can fill more than one day, it was one heck of a day! We hosted 6 sessions,
+                        which included 8 external speakers from Meta, Procter & Gamble and Spotify
+                        alongside some of our Pinterest colleagues. 90 people attended the
+                        conference, which ain’t too shabby for our first time out the gate.
                       </Text>
                       <Text size="400">
-                        The upshot is that 88% of attendees responded they gained helpful
-                        information to improve product quality. That seems well worth a day (or
-                        five) in our book.
+                        We’re already making plans for our second Design Systems Day in 2023 because
+                        88% of attendees told us that they gained helpful information to improve
+                        Pinterest product quality—well worth a day (or five) in our book.
                       </Text>
                     </Flex>
                   </Flex.Item>
@@ -517,8 +558,8 @@ export default function YearInReview2022(): Node {
             justifyContent="center"
             direction="column"
           >
-            <Box maxWidth="890px" width="100%" marginBottom={6}>
-              <Vibes />
+            <Box maxWidth="890px">
+              <Lottie animationData={Vibes} autoplay={!shouldReduceMotion} />
             </Box>
             <Box position="relative" width="100%">
               <Box
@@ -558,21 +599,18 @@ export default function YearInReview2022(): Node {
                   maxWidth={MAX_CONTENT_WIDTH}
                 >
                   <Text size="400">
-                    We left customer feedback for last to end with a bang. Our core engineering
-                    customers gave us a 96% overall satisfaction rating (+2 from last year) with 70%
-                    of giving us highest marks (+13 from last year). And design? We saw a 95%
-                    overall satisfaction rating (+33 from last year) with 23% of giving us highest
-                    marks—+12 from last year!
+                    We saved customer feedback for last to end this post (and 2022) with a bang! Our
+                    core engineering customers gave us a 96% overall satisfaction rating (+2% from
+                    last year) with 70% of giving us highest marks (+13% from last year). And
+                    design? We saw a 95% overall satisfaction rating (+33% from last year) with 23%
+                    of giving us perfect scores (+12% from last year)!
                   </Text>
                   <Text size="400">
                     90% of product designers responded that Gestalt speeds up their workflow with
-                    35% giving highest marks. And if that isn’t bonkers enough, 100% of engineers in
-                    our core customer base responded that Gestalt speeds up their workflow (66%
-                    giving us highest marks). In this day and age, we can’t agree on anything, but
-                    it turns out we all agree Gestalt helps you work faster.{' '}
-                    <Text size="400" weight="bold" inline>
-                      #gestalt2024
-                    </Text>
+                    35% giving highest marks. And if that isn’t impressive enough, 100% of engineers
+                    in our core customer base responded that Gestalt speeds up their workflow (with
+                    66% giving us perfect scores). Even when it seems like no one can agree on
+                    anything, all of us can agree that Gestalt helps us work faster.
                   </Text>
                 </Flex>
                 <Flex flex="grow" justifyContent="between" gap={12}>
@@ -582,7 +620,7 @@ export default function YearInReview2022(): Node {
                   />
                   <StatsColumn
                     number="100%"
-                    description="Engineers responded that Gestalt speeds up their workflow."
+                    description="Engineers in our core customer base responded that Gestalt speeds up their workflow"
                   />
                 </Flex>
               </Flex>
@@ -598,7 +636,7 @@ export default function YearInReview2022(): Node {
             <Flex direction="column" alignItems="center" justifyContent="center">
               <Box paddingX={10}>
                 <Heading align="center" accessibilityLevel={2} color="light">
-                  This <p className="headingUnderline">was</p> the year
+                  This was the year
                 </Heading>
               </Box>
 
@@ -617,12 +655,12 @@ export default function YearInReview2022(): Node {
                   mdAlignItems="start"
                 >
                   <Text color="light" size="400">
-                    Years from now, when we look back at the history of Gestalt and relish how it’s
-                    become everything we ever wanted it to be, we’ll say that 2022 was the turning
-                    point. This year has been hard—exhaustingly hard. But what this small-yet-mighty
-                    team has accomplished is, well, an accomplishment. And we’re going to ride that
-                    high into 2023 where we think some real Merlin-level magic can begin to take
-                    shape. So, stay tuned, stay frosty and stay excellent. We’ll see you next year.
+                    At times, this year has been exhausting and hard. But what our small but mighty
+                    team has accomplished is a huge achievement! Years from now, when we look back
+                    at the history of Gestalt and relish how it’s finally everything we ever wanted
+                    it to be, we’ll pinpoint 2022 as the turning point. Now we’re going to celebrate
+                    and ride this high into 2023 so we can work some serious, high-level design
+                    systems magic. Stay tuned, stay frosty, stay excellent—we’ll see you next year!
                   </Text>
                   <Button role="link" href="/home" text="Head back to Gestalt" />
                 </Flex>
