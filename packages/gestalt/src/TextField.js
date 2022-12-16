@@ -3,9 +3,7 @@ import { forwardRef, type Element, type Node, useEffect, useState } from 'react'
 import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
-import { useExperimentContext } from './contexts/ExperimentProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
@@ -100,6 +98,10 @@ type Props = {|
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
+   * For `type="password"`, show an icon button to allow the user to toggle the visibility of their password. Passwords are obfuscated by default but can be shown in plain text for better user feedback.
+   */
+  showPasswordVisibilityToggle?: boolean,
+  /**
    * List of tags to display in the component.
    */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
@@ -146,6 +148,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     onKeyDown,
     placeholder,
     readOnly = false,
+    showPasswordVisibilityToggle,
     size = 'md',
     tags,
     type: typeProp = 'text',
@@ -153,8 +156,6 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   }: Props,
   ref,
 ): Node {
-  const deviceType = useDeviceType();
-
   /**
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */
@@ -167,26 +168,11 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const isPasswordField = typeProp === 'password';
   const isCurrentlyPasswordType = type === 'password';
 
-  const { anyEnabled: inWebShowPasswordExp } = useExperimentContext(
-    'web_unauth_show_password_button',
-  );
-  const { anyEnabled: inMwebShowPasswordExp } = useExperimentContext(
-    'mweb_unauth_show_password_button',
-  );
-  let inShowPasswordExp = false;
-
-  if (deviceType) {
-    if (deviceType === 'desktop') {
-      inShowPasswordExp = inWebShowPasswordExp;
-    } else {
-      inShowPasswordExp = inMwebShowPasswordExp;
-    }
-  }
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useDefaultLabelContext('TextField');
 
   const iconButton =
-    inShowPasswordExp && isPasswordField ? (
+    showPasswordVisibilityToggle && isPasswordField ? (
       <InternalTextFieldIconButton
         accessibilityChecked={!isCurrentlyPasswordType}
         accessibilityLabel={
