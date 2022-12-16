@@ -1,3 +1,9 @@
+## 85.1.3 (Dec 16, 2022)
+
+### Patch
+
+- Docs: Add 2022 Year in Review page ([#2558](https://github.com/pinterest/gestalt/pull/2558)) - [Preview link](https://deploy-preview-2558--gestalt.netlify.app)
+
 ## 85.1.2 (Dec 16, 2022)
 
 ### Patch
