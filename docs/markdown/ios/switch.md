@@ -104,13 +104,13 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c0/4c/97/c04c970f0d926842cf4ef89ad42b9347.jpg" noPadding alt="Example of disabled inactive state of Switch" />
-    **Disabled | Inactive state**
+    <ImgContainer src="https://i.pinimg.com/originals/80/29/45/802945dd6c7a4dcf2eb43bc4d1cc9f3f.jpg" noPadding alt="Example of default active state of Switch" />
+    **Default | Active state**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/80/29/45/802945dd6c7a4dcf2eb43bc4d1cc9f3f.jpg" noPadding alt="Example of default active state of Switch" />
-    **Default | Active state**
+    <ImgContainer src="https://i.pinimg.com/originals/c0/4c/97/c04c970f0d926842cf4ef89ad42b9347.jpg" noPadding alt="Example of disabled inactive state of Switch" />
+    **Disabled | Inactive state**
   </Group>
 
   <Group>
