@@ -8,7 +8,7 @@ test('Year in review  Accessibility check', async ({ page }) => {
     page,
     rules: {
       /* The svg decor shares IDs, but won't affect accessibility */
-      'duplicate-id-active': { enabled: false },
+      'duplicate-id': { enabled: false },
     },
   });
 });
