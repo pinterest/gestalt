@@ -11,15 +11,6 @@ pre {
   word-break: break-word !important; /* stylelint-disable-line declaration-no-important */
 }
 
-ul {
-  margin: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
 .reset {
   border: 0;
   font: inherit;
@@ -65,8 +56,13 @@ li {
 
 .Markdown pre {
   background-color: rgb(236 236 236 / 0.5);
+  margin: 40px;
   overflow: auto;
   padding: 5px;
+}
+
+.Markdown .md-hint {
+  margin: 40px;
 }
 
 .Markdown code {
@@ -91,29 +87,15 @@ li {
   margin-top: 24px;
 }
 
-.Markdown ul {
-  padding-inline-start: 20px;
+.Markdown div > ol,
+.Markdown div > ul {
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
-.Markdown ul + pre {
-  margin-left: 40px;
-}
-
-.Markdown ul ~ .md-hint {
-  margin-left: 40px;
-}
-
-.Markdown ul + details {
-  margin-left: 40px;
-}
-
-html[dir="rtl"] .Markdown ul + pre {
-  margin-right: 40px;
-}
-
-.Markdown li {
-  margin-bottom: 10px;
-  margin-top: 10px;
+.Markdown details {
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .Markdown a {

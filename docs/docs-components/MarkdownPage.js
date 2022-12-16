@@ -2,7 +2,7 @@
 
 // ignoring: since we do in fact want to render each component md block again
 
-import { Text, Box, Link, Flex, Icon } from 'gestalt';
+import { Text, Box, Link, Flex, Icon, List } from 'gestalt';
 import Image from 'next/image';
 import { MDXProvider } from '@mdx-js/react';
 import { type Node } from 'react';
@@ -31,6 +31,28 @@ type Props = {|
 |};
 
 const components = {
+  ul: (props) => {
+    const filtered = Object.values(props.children).filter((a) => a !== '\n');
+    return (
+      <List>
+        {filtered.map((a) => (
+          // $FlowFixMe[incompatible-use]
+          <List.Item key={JSON.stringify(a?.props.child)} text={<Text>{a?.props.children}</Text>} />
+        ))}
+      </List>
+    );
+  },
+  ol: (props) => {
+    const filtered = Object.values(props.children).filter((a) => a !== '\n');
+    return (
+      <List type="ordered">
+        {filtered.map((a) => (
+          // $FlowFixMe[incompatible-use]
+          <List.Item key={JSON.stringify(a?.props.child)} text={<Text>{a?.props.children}</Text>} />
+        ))}
+      </List>
+    );
+  },
   small: (props) => <Text size="100">{props.children}</Text>,
   pre: (props: {|
     children: {| props: {| className: $ReadOnlyArray<string>, children: string | null |} |},
@@ -88,8 +110,6 @@ const components = {
       style={{
         padding: '1rem',
         backgroundColor: 'var(--g-colorGray100)',
-        marginTop: '16px',
-        marginBottom: '16px',
       }}
     >
       <Flex

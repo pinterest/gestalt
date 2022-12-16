@@ -2,21 +2,14 @@
   padding-inline-start: 0;
 }
 
+.parentList {
+  margin: 0;
+}
+
 .list {
   margin-left: 0;
   margin-right: 0;
   padding-inline-start: 16px;
-}
-
-.regular {
-  margin-bottom: -16px;
-  margin-top: -16px;
-}
-
-.condensed {
-  margin-bottom: -8px;
-  margin-top: -8px;
-
 }
 
 .listItem {
@@ -24,7 +17,53 @@
   margin-top: 16px;
 }
 
+/* last should precede first for single item lists */
+
+.listItem:last-child {
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
+.listItem:first-child {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
 .listItemCondensed {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+/* last should precede first for single item lists */
+
+.listItemCondensed:last-child {
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.listItemCondensed:first-child {
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* last should precede first for single item lists */
+
+.list .list > .listItem:last-child {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.list .list > .listItem:first-child {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.list .list > .listItemCondensed:last-child {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.list .list > .listItemCondensed:first-child {
   margin-bottom: 8px;
   margin-top: 8px;
 }

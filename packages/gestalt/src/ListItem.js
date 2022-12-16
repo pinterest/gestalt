@@ -3,14 +3,14 @@ import { type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Text from './Text.js';
 import ListText from './ListText.js';
+import List from './InternalList.js'; // eslint-disable import/no-cycle
 import styles from './List.css';
 import getChildrenToArray from './List/getChildrenToArray.js';
 import { useList } from './contexts/ListProvider.js';
-import NestedList from './NestedList.js';
 
 type Props = {|
   /**
-   * Use List.Item to build nested lists. Use List.NestedList to combine different types nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
+   * Use List.Item to build nested lists. Use List to combine different types nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
    */
   children?: Node,
   /**
@@ -22,7 +22,7 @@ type Props = {|
 /**
  * [List.Item](https://gestalt.pinterest.systems/web/list#List.Item) is a subcomponent of [List](https://gestalt.pinterest.systems/web/list). List.Item represents the `<li>` tag nested within a `<ul>` or `<ol>` list tag.
  *
- * Lists that don't require a alternating between "ordered", "unordered" or "base" can just nest List.Item into each other to build nested lists. If type alternation is required, use [List.NestedList](https://gestalt.pinterest.systems/web/list#List.NestedList)
+ * Lists that don't require a alternating between "ordered", "unordered" or "base" can just nest List.Item into each other to build nested lists. If type alternation is required, use [List](https://gestalt.pinterest.systems/web/list#List)
  *
  */
 function ListItem({ text, children }: Props): Node {
@@ -32,26 +32,26 @@ function ListItem({ text, children }: Props): Node {
   const isUnordered = inheritedType === 'unordered';
 
   // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
-  let listChildren: Element<typeof NestedList> | $ReadOnlyArray<any> | null = null;
+  let listChildren: Element<typeof List> | $ReadOnlyArray<any> | null = null;
 
   if (children) {
     listChildren = getChildrenToArray({ children, filterLevel: 'ListItem' });
 
     if (listChildren.length > 1) {
       listChildren = (
-        <NestedList type={inheritedType ?? 'unordered'}>
+        <List type={inheritedType ?? 'unordered'}>
           {listChildren.filter((child) => {
             if (child?.type?.displayName === 'List.Item') return true;
             throw new Error(
-              `Gestalt List.Item children can only be a wrapping List.NestedList or a group of List.Item, but not mixed.`,
+              `Gestalt List.Item children can only be a wrapping List or a group of List.Item, but not mixed.`,
             );
           })}
-        </NestedList>
+        </List>
       );
     }
 
     if (listChildren[0]?.type?.displayName === 'List.Item') {
-      listChildren = <NestedList type={inheritedType ?? 'unordered'}>{listChildren}</NestedList>;
+      listChildren = <List type={inheritedType ?? 'unordered'}>{listChildren}</List>;
     }
   }
 

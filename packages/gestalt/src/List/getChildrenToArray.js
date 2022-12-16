@@ -4,7 +4,7 @@ import { cloneElement, Fragment, Children, type Node } from 'react';
 const ALLOWED_CHILDREN_BY_PARENT = {
   List: ['List.Item'],
   NestedList: ['List.Item'],
-  ListItem: ['List.Item', 'List.NestedList'],
+  ListItem: ['List', 'InternalList', 'List.Item'],
 };
 
 const getChildrenToArray = ({
@@ -12,14 +12,14 @@ const getChildrenToArray = ({
   filterLevel,
 }: {|
   children: Node,
-  filterLevel: 'List' | 'NestedList' | 'ListItem',
+  filterLevel: 'List' | 'ListItem',
   // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
 |}): $ReadOnlyArray<any> => {
   const navigationChildren = [];
   let recursionLevel = 0;
 
-  const getChildren = ({ nodeChildren }) => {
-    return Children.toArray(nodeChildren).forEach((child) => {
+  const getChildren = ({ nodeChildren }) =>
+    Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid
       if (child?.type === Fragment) {
         recursionLevel += 1;
@@ -36,11 +36,14 @@ const getChildrenToArray = ({
       }
 
       if (ALLOWED_CHILDREN_BY_PARENT[filterLevel].includes(child.type.displayName)) {
-        if (['List', 'NestedList'].includes(filterLevel)) {
+        if (filterLevel === 'List') {
           return navigationChildren.push(child);
         }
 
-        if (filterLevel === 'ListItem' && child.type.displayName === 'List.NestedList') {
+        if (
+          filterLevel === 'ListItem' &&
+          ['List', 'InternalList'].includes(child.type.displayName)
+        ) {
           return navigationChildren.push(child);
         }
 
@@ -51,7 +54,6 @@ const getChildrenToArray = ({
 
       throw new Error(`${child.type.displayName} cannot be used with Gestalt List`);
     });
-  };
 
   getChildren({ nodeChildren: children });
 

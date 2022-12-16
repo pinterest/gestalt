@@ -68,19 +68,19 @@ describe('List', () => {
       <List label="label test" type="ordered">
         <List.Item text="List item text" />
         <List.Item text="List item text">
-          <List.NestedList type="unordered">
+          <List type="unordered">
             <List.Item text="List item text" />
             <List.Item text="List item text">
               <List.Item text="List item text" />
               <List.Item text="List item text">
-                <List.NestedList type="ordered">
+                <List type="ordered">
                   <List.Item text="List item text" />
                   <List.Item text="List item text" />
-                </List.NestedList>
+                </List>
               </List.Item>
             </List.Item>
             <List.Item text="List item text" />
-          </List.NestedList>
+          </List>
         </List.Item>
         <List.Item text="List item text" />
       </List>,

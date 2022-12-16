@@ -107,12 +107,9 @@ yarn generate ComponentName
   ```bash
   # Update all Gestalt packages builds running rollup
   yarn build
-  #
 
   # Update a specific visual test snapshots with the latest builds
   yarn playwright:update-visual-test playwright/visual-test/<filename>  --update-snapshots
-
-
   ```
 
   - Update CSS flow types
