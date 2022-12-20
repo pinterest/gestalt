@@ -35,7 +35,6 @@ type Props = {|
  * [Card](https://gestalt.pinterest.systems/web/card) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
  * ![Card light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Card.spec.mjs-snapshots/Card-chromium-darwin.png)
  * ![Card dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Card-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
-
  */
 export default function Card({ active, children, image, onMouseEnter, onMouseLeave }: Props): Node {
   const [hovered, setHovered] = useState(false);

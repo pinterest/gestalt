@@ -75,6 +75,10 @@ function SegmentedControlItem({
  * [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol)  may be used to group multiple selections. The controls display the current state and related state.
  *
  * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should also be updated.
+ *
+ * ![SegmendtedControl light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmendtedControl.spec.mjs-snapshots/SegmendtedControl-chromium-darwin.png)
+ * ![SegmendtedControl dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmendtedControl-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
+ *
  */
 export default function SegmentedControl({
   items,
