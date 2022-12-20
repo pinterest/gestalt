@@ -18,7 +18,7 @@ type Props = {|
  * [Pulsar](https://gestalt.pinterest.systems/web/pulsar ) brings focus to a specific element on the screen, acting like "training wheels" to guide people towards the intended way to perform the action. Pulsar is used in isolation or combination with other education components for more instruction.
  *
  * ![Pulsar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar.spec.mjs-snapshots/Pulsar-chromium-darwin.png)
- * ![Pulsar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
+ * ![Pulsar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar-dark.spec.mjs-snapshots/Pulsar-dark-chromium-darwin.png)
  */
 export default function Pulsar({ paused, size = 136 }: Props): Node {
   return (
