@@ -35,6 +35,9 @@ type Props = {|
 
 /**
  * [Mask](https://gestalt.pinterest.systems/web/mask) is used to display content in a specific shape.
+ *
+ * ![Mask light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Mask.spec.mjs-snapshots/Mask-chromium-darwin.png)
+ *
  */
 export default function Mask({
   children,
