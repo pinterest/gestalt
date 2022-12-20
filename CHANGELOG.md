@@ -1,3 +1,9 @@
+## 85.1.4 (Dec 20, 2022)
+
+### Patch
+
+- Card, Letterbox, Mask, Masonry: updated visual tests snapshots ([#2572](https://github.com/pinterest/gestalt/pull/2572)) - [Preview link](https://deploy-preview-2572--gestalt.netlify.app)
+
 ## 85.1.3 (Dec 16, 2022)
 
 ### Patch
