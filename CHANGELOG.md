@@ -1,3 +1,9 @@
+## 85.1.5 (Dec 20, 2022)
+
+### Patch
+
+- Modal, Sheet, Popover, Pulsar, SegmentedControl, Tabs: updated visual tests snapshots ([#2573](https://github.com/pinterest/gestalt/pull/2573)) - [Preview link](https://deploy-preview-2573--gestalt.netlify.app)
+
 ## 85.1.4 (Dec 20, 2022)
 
 ### Patch
