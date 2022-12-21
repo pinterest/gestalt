@@ -76,6 +76,9 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 /**
  * [TapArea](https://gestalt.pinterest.systems/tapArea) allows components to be clickable and touchable in an accessible way
+ *
+ * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
+ *
  */
 const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
