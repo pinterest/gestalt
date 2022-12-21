@@ -1,3 +1,9 @@
+## 85.1.8 (Dec 21, 2022)
+
+### Patch
+
+- ScrollBoundaryContainer, Layer, Sticky, TapArea, Spinner: add SVG to Flow description ([#2576](https://github.com/pinterest/gestalt/pull/2576)) - [Preview link](https://deploy-preview-2576--gestalt.netlify.app)
+
 ## 85.1.7 (Dec 21, 2022)
 
 ### Patch
