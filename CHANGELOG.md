@@ -1,3 +1,9 @@
+## 85.1.6 (Dec 21, 2022)
+
+### Patch
+
+- Internal: fixes ([#2574](https://github.com/pinterest/gestalt/pull/2574)) - [Preview link](https://deploy-preview-2574--gestalt.netlify.app)
+
 ## 85.1.5 (Dec 20, 2022)
 
 ### Patch
