@@ -1,3 +1,9 @@
+## 85.1.7 (Dec 21, 2022)
+
+### Patch
+
+- ModalAlert, SideNavigation, ZIndex, IconButtonFloating: updated visual tests snapshots ([#2575](https://github.com/pinterest/gestalt/pull/2575)) - [Preview link](https://deploy-preview-2575--gestalt.netlify.app)
+
 ## 85.1.6 (Dec 21, 2022)
 
 ### Patch
