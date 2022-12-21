@@ -46,10 +46,14 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
  * [IconButtonFloating](https://gestalt.pinterest.systems/web/iconbuttonfloating) represents the primary or most common action on the screen. As the name suggests, it floats over the content and is always on top of everything on the screen. Similar to [IconButton](https://gestalt.pinterest.systems/web/iconbutton), the floating version uses icons instead of text to convey available actions. However, it is used when the action needs to be visible at all times in a sticky way where content can scroll underneath. IconButtonFloating remains in place on scroll.
-
-By default, it has a circular shape with a [floating elevation](https://gestalt.pinterest.systems/foundations/elevation) shadow style built-in. When pressed, it will open more related actions by triggering [Dropdown](https://gestalt.pinterest.systems/web/dropdown) or [Modal](https://gestalt.pinterest.systems/web/modal).
-
-IconButtonFloating is typically found in the Home feed, boards, and dashboards, allowing Pinners to perform core actions.
+ *
+ * By default, it has a circular shape with a [floating elevation](https://gestalt.pinterest.systems/foundations/elevation) shadow style built-in. When pressed, it will open more related actions by triggering [Dropdown](https://gestalt.pinterest.systems/web/dropdown) or [Modal](https://gestalt.pinterest.systems/web/modal).
+ *
+ * IconButtonFloating is typically found in the Home feed, boards, and dashboards, allowing Pinners to perform core actions.
+ *
+ * ![IconButtonFloating light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating.spec.mjs-snapshots/IconButtonFloating-chromium-darwin.png)
+ * ![IconButtonFloating dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating-dark.spec.mjs-snapshots/IconButtonFloating-dark-chromium-darwin.png)
+ *
  */
 const IconButtonFloatingWithForwardRef: React$AbstractComponent<Props, unionRefs> = forwardRef<
   Props,
