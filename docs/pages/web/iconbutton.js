@@ -103,7 +103,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           {
             name: 'size',
             type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-            defaultValue: 'md',
+            defaultValue: 'lg',
             description:
               'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
           },
