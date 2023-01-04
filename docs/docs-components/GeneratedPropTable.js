@@ -4,47 +4,50 @@ import { type DocGen } from './docgen.js';
 import PropTable from './PropTable.js';
 
 // Note if the prop has responsive versions (e.g. margin, smMargin, mdMargin, lgMargin)
-function getResponsive(description?: string): {|
+function getResponsive(description?: string): {
   description?: string,
   responsive?: boolean,
-|} {
+  ...
+} {
   const input = description ?? '';
   const match = input.match(/(?<main>Responsive: (?<responsive>.*))/);
   const groups = match?.groups ?? {};
 
   return {
     description: groups.main ? input.replace(groups.main, '') : description,
-    responsive: Boolean(groups.responsive?.replace(/'/g, '')),
+    ...(groups.responsive ? { responsive: Boolean(groups.responsive?.replace(/'/g, '')) } : {}),
   };
 }
 
 // Provide a different type to display when needed
-function getTypeOverrideValue(description?: string): {|
+function getTypeOverrideValue(description?: string): {
   description?: string,
   typeOverride?: string,
-|} {
+  ...
+} {
   const input = description ?? '';
   const match = input.match(/(?<main>Type: (?<typeOverride>.*))/);
   const groups = match?.groups ?? {};
 
   return {
     description: groups.main ? input.replace(groups.main, '') : description,
-    typeOverride: groups.typeOverride?.replace(/'/g, ''),
+    ...(groups.typeOverride ? { typeOverride: groups.typeOverride?.replace(/'/g, '') } : {}),
   };
 }
 
 // Provide a default value where the actual one can't be parsed, e.g. Box
-function getDefaultValue(description?: string): {|
+function getDefaultValue(description?: string): {
   description?: string,
   defaultValue?: string,
-|} {
+  ...
+} {
   const input = description ?? '';
   const match = input.match(/(?<main>Default: (?<defaultValue>.*))/);
   const groups = match?.groups ?? {};
 
   return {
     description: groups.main ? input.replace(groups.main, '') : description,
-    defaultValue: groups.defaultValue?.replace(/'/g, ''),
+    ...(groups.defaultValue ? { defaultValue: groups.defaultValue?.replace(/'/g, '') } : {}),
   };
 }
 
