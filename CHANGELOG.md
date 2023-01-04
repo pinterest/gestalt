@@ -1,3 +1,9 @@
+## 85.1.9 (Jan 4, 2023)
+
+### Patch
+
+- Docs: fix manual prop table value on IconButton hi ([#2579](https://github.com/pinterest/gestalt/pull/2579)) - [Preview link](https://deploy-preview-2579--gestalt.netlify.app)
+
 ## 85.1.8 (Dec 21, 2022)
 
 ### Patch
