@@ -18,13 +18,13 @@
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyPropValue ~/path/to/your/code
- * --component=string
- * --subcomponent=string
- * --previousProp=string
- * --nextProp=string
- * --previousValue=string|number|boolean
- * --nextValue=string|number|boolean
+ yarn codemod modifyPropValue ~/path/to/your/code \
+  --component=string \
+  --subcomponent=string \
+  --previousProp=string \
+  --nextProp=string \
+  --previousValue=string|number|boolean \
+  --nextValue=string|number|boolean
  *
  *
  * If all options passed, prop+value combination are replaced with new prop+value combination (REPLACE)

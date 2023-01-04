@@ -15,7 +15,10 @@
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod modifyProp ~/path/to/your/code --component=<value> --previousProp=<value> --nextProp=<value>
+ yarn codemod modifyProp ~/path/to/your/code \
+  --component=string \
+  --previousProp=string \
+  --nextProp=string
  *
  *
  * If all options passed, previous prop is replaced with next prop value (REPLACE)
