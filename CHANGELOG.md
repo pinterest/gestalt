@@ -1,3 +1,9 @@
+## 86.0.1 (Jan 4, 2023)
+
+### Patch
+
+- Internal: actually fix autogen props default values ([#2584](https://github.com/pinterest/gestalt/pull/2584)) - [Preview link](https://deploy-preview-2584--gestalt.netlify.app)
+
 ## 86.0.0 (Jan 4, 2023)
 
 ### Major
