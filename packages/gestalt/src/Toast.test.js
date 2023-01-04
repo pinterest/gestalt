@@ -33,7 +33,7 @@ describe('<Toast />', () => {
           <Text inline weight="bold">
             Saved to{' '}
             <Link
-              inline
+              display="inlineBlock"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               underline="hover"
             >
@@ -59,7 +59,7 @@ describe('<Toast />', () => {
           <Text inline weight="bold">
             Saved to{' '}
             <Link
-              inline
+              display="inlineBlock"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               underline="hover"
             >
@@ -80,7 +80,7 @@ describe('<Toast />', () => {
           <Text inline weight="bold">
             Saved to{' '}
             <Link
-              inline
+              display="inlineBlock"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               underline="hover"
             >

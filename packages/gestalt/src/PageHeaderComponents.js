@@ -150,7 +150,7 @@ export function PageHeaderSubtext({
                 href={helperLink.href}
                 onClick={helperLink.onClick}
                 target="blank"
-                inline
+                display="inlineBlock"
               >
                 {helperLink.text}
               </Link>

@@ -15,14 +15,14 @@ export default function Screenshot(): Node {
         >
           <Text inline>
             Visit our{' '}
-            <Link inline href="https://pinterest.com">
+            <Link display="inlineBlock" href="https://pinterest.com">
               Business Help Center
             </Link>
           </Text>
           <Text inline size="400" color="success">
             <Link
               href="https://authy.com/download/"
-              inline
+              display="inlineBlock"
               externalLinkIcon={{ size: '400', color: 'success' }}
               target="blank"
               rel="nofollow"

@@ -74,6 +74,10 @@ type Props = {|
    */
   children?: Node,
   /**
+   * Determines how Link is positioned relative to surrounding elements, such as [Text](https://gestalt.pinterest.systems/web/text). See the [inline variant](https://gestalt.pinterest.systems/web/link#Inline) to learn more.
+   */
+  display?: 'inline' | 'inlineBlock' | 'block',
+  /**
    * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/web/link#externalLinkIcon-and-rel) to learn more.
    */
   externalLinkIcon?: ExternalLinkIcon,
@@ -85,10 +89,6 @@ type Props = {|
    * Unique id attribute of the anchor tag.
    */
   id?: string,
-  /**
-   * Properly positions Link relative to an inline element, such as [Text](https://gestalt.pinterest.systems/web/text), using the inline property. See the [underline variant](https://gestalt.pinterest.systems/web/link#Underline) to learn more.
-   */
-  inline?: boolean,
   /**
    * Callback triggered when when the element loses focus.
    */
@@ -149,10 +149,10 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   {
     accessibilityLabel,
     children,
+    display = 'block',
     externalLinkIcon = 'none',
     href,
     id,
-    inline = false,
     onBlur,
     onClick,
     onFocus,
@@ -187,7 +187,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   const { isFocusVisible } = useFocusVisible();
 
-  let underlineStyle = inline ? 'always' : 'hover';
+  let underlineStyle = ['inline', 'inlineBlock'].includes(display) ? 'always' : 'hover';
 
   if (underline && underline !== 'auto') {
     underlineStyle = underline;
@@ -198,9 +198,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
     getRoundingClassName(rounding),
+    layoutStyles[display],
     {
-      [layoutStyles.inlineBlock]: inline,
-      [layoutStyles.block]: !inline,
       [textStyles.underline]: underlineStyle === 'always',
       [styles.hoverNoUnderline]: underlineStyle === 'always',
       [textStyles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',

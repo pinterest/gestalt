@@ -21,7 +21,7 @@ function ListElement({ text, href }: {| text: string, href: string |}) {
         <Link
           accessibilityLabel={`${text}, opens new window`}
           target="blank"
-          inline
+          display="inlineBlock"
           href={href}
           onClick={() => trackButtonClick(text)}
           externalLinkIcon="default"
@@ -295,7 +295,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                   <Text inline>Drag this link: </Text>
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <Link
-                    inline
+                    display="inlineBlock"
                     onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
                     // eslint-disable-next-line no-script-url, no-template-curly-in-string

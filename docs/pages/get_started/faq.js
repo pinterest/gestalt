@@ -10,7 +10,7 @@ function InlineLink({ children, href }: {| children: string, href: string |}) {
   return (
     <Fragment>
       {' '}
-      <Link inline href={href}>
+      <Link display="inlineBlock" href={href}>
         {children}
       </Link>{' '}
     </Fragment>

@@ -360,11 +360,11 @@ export default function YearInReview2022(): Node {
                   <Text size="400">
                     Gestalt shipped 38 component additions and updates this year, including some
                     game-changers like the new{' '}
-                    <GestaltLink href="/web/sidenavigation" inline>
+                    <GestaltLink href="/web/sidenavigation" display="inlineBlock">
                       SideNavigation
                     </GestaltLink>{' '}
                     and our big{' '}
-                    <GestaltLink href="/web/pageheader" inline>
+                    <GestaltLink href="/web/pageheader" display="inlineBlock">
                       PageHeader
                     </GestaltLink>{' '}
                     overhaul.
@@ -373,11 +373,11 @@ export default function YearInReview2022(): Node {
                     2022 saw a 11% bump in overall use of Gestalt instances in the Pinterest Web
                     codebase. We were most excited to see a 28% increase in our more complex
                     components (think something like{' '}
-                    <GestaltLink href="/web/slimbanner" inline>
+                    <GestaltLink href="/web/slimbanner" display="inlineBlock">
                       SlimBanner
                     </GestaltLink>{' '}
                     as opposed to{' '}
-                    <GestaltLink href="/web/text" inline>
+                    <GestaltLink href="/web/text" display="inlineBlock">
                       Text
                     </GestaltLink>
                     ).

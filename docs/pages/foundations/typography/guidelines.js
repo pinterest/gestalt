@@ -504,7 +504,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <Box color="infoWeak" paddingX={6} paddingY={8}>
             <Text color="dark">
               This is a paragraph with a{' '}
-              <Link href="https://gestalt.pinterest.systems" underline="always" inline>
+              <Link href="https://gestalt.pinterest.systems" underline="always" display="inlineBlock">
                 link
               </Link>{' '}
               inside of it. Remember, the whole is different from the sum of its parts.
