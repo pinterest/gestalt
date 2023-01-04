@@ -1,3 +1,9 @@
+## 85.1.10 (Jan 4, 2023)
+
+### Patch
+
+- Internal: Revert "Bump minimatch from 3.0.4 to 3.0.8 ([#2506](https://github.com/pinterest/gestalt/pull/2506)) - [Preview link](https://deploy-preview-2506--gestalt.netlify.app)" ([#2583](https://github.com/pinterest/gestalt/pull/2583)) - [Preview link](https://deploy-preview-2583--gestalt.netlify.app)
+
 ## 85.1.9 (Jan 4, 2023)
 
 ### Patch
