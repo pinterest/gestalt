@@ -1,3 +1,9 @@
+## 85.1.12 (Jan 4, 2023)
+
+### Patch
+
+- Internal: tweak generic codemods for easier copy/paste-ability ([#2582](https://github.com/pinterest/gestalt/pull/2582)) - [Preview link](https://deploy-preview-2582--gestalt.netlify.app)
+
 ## 85.1.11 (Jan 4, 2023)
 
 ### Patch
