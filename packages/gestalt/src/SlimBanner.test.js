@@ -57,7 +57,7 @@ describe('SlimBanner', () => {
               Back to School
             </Text>{' '}
             is regularly hitting its{' '}
-            <Link inline href="http://www.pinterest.com">
+            <Link display="inlineBlock" href="http://www.pinterest.com">
               daily cap
             </Link>
             . Consider raising daily caps to increase scale for a similar CPC and CTR.

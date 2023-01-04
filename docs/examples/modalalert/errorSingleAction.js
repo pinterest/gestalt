@@ -24,7 +24,7 @@ export default function ErrorSingleAction(): Node {
           Review our{' '}
           <Link
             underline="always"
-            inline
+            display="inlineBlock"
             href="https://policy.pinterest.com/en/community-guidelines"
           >
             content policy.

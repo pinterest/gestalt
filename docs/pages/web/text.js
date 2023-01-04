@@ -485,7 +485,7 @@ function Example() {
             <Link
               accessibilityLabel="Visit our Help Site"
               href="#"
-              inline
+              display="inline"
             >
               Visit our Help Site
             </Link>
@@ -496,7 +496,7 @@ function Example() {
             <Link
               accessibilityLabel="Visit our Help Site"
               href="#"
-              inline
+              display="inline"
             >
             Visit our Help Site
             </Link>

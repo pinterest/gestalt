@@ -57,7 +57,7 @@ export default function Example(): Node {
             <Link
               accessibilityLabel="Learn how trends on Pinterest work"
               target="blank"
-              inline
+              display="inlineBlock"
               href="https://business.pinterest.com/content/pinterest-predicts/"
             >
               {' '}

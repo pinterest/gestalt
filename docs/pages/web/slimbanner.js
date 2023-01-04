@@ -474,7 +474,7 @@ Due to localization constraints, the contents of \`message\` and \`helperLink\` 
 
   <SlimBanner
     type="recommendation"
-    message={<Text inline> The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link inline href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text> }
+    message={<Text inline> The campaign <Text inline weight="bold">Back to School</Text> is regularly hitting its <Link display="inline" href="">daily cap</Link>. Consider raising daily caps to increase scale for a similar CPC and CTR.</Text> }
     primaryAction={{
       accessibilityLabel: 'Increase spend',
       label: 'Increase spend',

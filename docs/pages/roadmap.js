@@ -105,7 +105,7 @@ export default function RoadmapPage(): Node {
         <Text>
           {`The following reflects all public-facing work the Gestalt team plans to ship in ${roadmapData.year}.`}{' '}
           For more details on our latest updates, visit the{' '}
-          <Link href="/whats_new" inline>
+          <Link href="/whats_new" display="inlineBlock">
             What&apos;s New page.
           </Link>
         </Text>
@@ -119,7 +119,7 @@ export default function RoadmapPage(): Node {
           <Text>
             <Link
               href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog"
-              inline
+              display="inlineBlock"
             >
               Visit our internal roadmap <InternalOnlyIconButton />
             </Link>

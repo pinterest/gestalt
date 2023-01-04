@@ -63,7 +63,7 @@ export default function Page({
 
         {!hideEditLink && (
           <Box marginTop={12}>
-            <Link href={editPageUrl} target="blank" inline>
+            <Link href={editPageUrl} target="blank" display="inlineBlock">
               <Text underline>Edit page on GitHub</Text>
             </Link>
           </Box>

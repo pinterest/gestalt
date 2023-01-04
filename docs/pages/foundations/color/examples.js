@@ -39,7 +39,7 @@ export default function ColorExamplesPage(): Node {
                   Having a limited range of colors supports consistency, making our product easier
                   to interact with. Keep in mind that continuous use of high-contrast and saturated
                   colors can create fatigue and eye strain. See our{' '}
-                  <Link inline href="/foundations/color/usage">
+                  <Link display="inlineBlock" href="/foundations/color/usage">
                     <Text underline>color usage guidelines</Text>
                   </Link>{' '}
                   for more information about our color choices.
@@ -56,7 +56,7 @@ export default function ColorExamplesPage(): Node {
                   ways. For example, colors often change between light and dark modes to help
                   portray elevation and hierarchy, while ensuring proper contrast and legibility.
                   Any colors used should be consistent with the full{' '}
-                  <Link inline href="/foundations/color/palette#Extended-palette">
+                  <Link display="inlineBlock" href="/foundations/color/palette#Extended-palette">
                     <Text inline underline>
                       Pinterest color palette
                     </Text>
@@ -73,7 +73,7 @@ export default function ColorExamplesPage(): Node {
                 <Text>
                   All color pairings must pass WCAG&apos;s AA color contrast standards. Using our
                   color tokens properly ensures our colors meet legibility standards. Check out our{' '}
-                  <Link inline href="/foundations/accessibility">
+                  <Link display="inlineBlock" href="/foundations/accessibility">
                     <Text inline underline>
                       accessibility guidelines
                     </Text>

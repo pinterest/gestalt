@@ -43,7 +43,7 @@ function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperL
       <Link
         accessibilityLabel={accessibilityLabel}
         href={href}
-        inline
+        display="inlineBlock"
         onClick={onClick}
         target={target}
       >
