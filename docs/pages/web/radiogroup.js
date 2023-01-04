@@ -754,7 +754,7 @@ function RadioButtonExample() {
         <Text size="200">
           Choose your primary goal for this account to help us better understand your needs
           <Text inline size="200" weight="bold">
-            <Link inline target="blank" href="https://www.pinterest.com/">
+            <Link display="inline" target="blank" href="https://www.pinterest.com/">
               Additional information
             </Link>
           </Text>

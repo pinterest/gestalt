@@ -181,7 +181,7 @@ function CheckboxExample() {
         <Text size="200">
           Choose up to 3.
           <Text inline size="200" weight="bold">
-            <Link inline target="blank" href="https://www.pinterest.com/">
+            <Link display="inline" target="blank" href="https://www.pinterest.com/">
               Additional information
             </Link>
           </Text>

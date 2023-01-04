@@ -114,7 +114,7 @@ export default function MessagingComponentsPage(): Node {
       <Text>
         Saved to{' '}
         <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
+          <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
             Home decor
           </Link>
         </Text>

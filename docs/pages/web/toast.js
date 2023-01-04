@@ -23,7 +23,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
     text={
       <Text inline> Saved to
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
@@ -120,7 +120,7 @@ function ToastExample() {
               text={
                 <Text inline>
                   Saved to{' '}
-                  <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                  <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                     Home decor
                   </Link>
                 </Text>
@@ -160,7 +160,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
     text={
       <Text inline>
         Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
@@ -196,7 +196,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
     text={
       <Text inline>
         Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
@@ -226,7 +226,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
     text={
       <Text inline>
         Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
