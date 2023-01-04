@@ -1,3 +1,9 @@
+## 86.0.0 (Jan 4, 2023)
+
+### Major
+
+- Link: replace `inline` prop with `display` ([#2581](https://github.com/pinterest/gestalt/pull/2581)) - [Preview link](https://deploy-preview-2581--gestalt.netlify.app)
+
 ## 85.1.12 (Jan 4, 2023)
 
 ### Patch
