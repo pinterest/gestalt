@@ -86,7 +86,11 @@ import 'gestalt-datepicker/dist/gestalt-datepicker.css';
         >
           <Text>
             Gestalt is a{' '}
-            <Link display="inlineBlock" href="https://yarnpkg.com/lang/en/docs/workspaces/" target="blank">
+            <Link
+              display="inlineBlock"
+              href="https://yarnpkg.com/lang/en/docs/workspaces/"
+              target="blank"
+            >
               <Text weight="bold"> multi-project monorepo.</Text>
             </Link>
             The docs and components are all organized as separate packages that share similar
@@ -131,7 +135,11 @@ yarn start
         >
           <Text>
             Install the{' '}
-            <Link display="inlineBlock" href="https://www.npmjs.com/package/@types/gestalt" target="blank">
+            <Link
+              display="inlineBlock"
+              href="https://www.npmjs.com/package/@types/gestalt"
+              target="blank"
+            >
               <Text weight="bold">DefinitelyTyped</Text>
             </Link>{' '}
             definitions.
