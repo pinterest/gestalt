@@ -8,6 +8,8 @@ import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import inline from '../../examples/link/inline.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -18,7 +20,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         defaultCode={`
 <Text inline>
 To see how you can grow your business, visit
-  <Link href="https://business.pinterest.com/advertise" inline externalLinkIcon="default" target="blank">Pinterest Ads</Link>
+  <Link href="https://business.pinterest.com/advertise" display="inlineBlock" externalLinkIcon="default" target="blank">Pinterest Ads</Link>
 </Text>
         `}
       />
@@ -61,7 +63,7 @@ To see how you can grow your business, visit
     <Text weight="bold" align="center"> Product details </Text>
     <Text> Tennis-inspired retro sneaker by Pinterest, elevated with a stacked midsole for extra height and a chunky profile. </Text>
     <Text inline> Ships from and sold by
-      <Link href="http://www.pinterest.com" inline> pinterest.com </Link>
+      <Link href="http://www.pinterest.com" display="inline"> pinterest.com </Link>
     </Text>
   </Flex>
 </Box>
@@ -75,12 +77,12 @@ To see how you can grow your business, visit
   <Text weight="bold"> Need help? </Text>
   <Text inline> Find tips and best practices on the
     <Text weight="bold" inline>
-      <Link href="https://business.pinterest.com/" inline underline="hover"> Pinterest Business Site </Link>
+      <Link href="https://business.pinterest.com/" display="inline" underline="hover"> Pinterest Business Site </Link>
     </Text>
   </Text>
   <Text inline> Troubleshoot issues with the
     <Text weight="bold" inline>
-      <Link href="https://help.pinterest.com" inline underline="hover"> Pinterest Help Center </Link>
+      <Link href="https://help.pinterest.com" display="inline" underline="hover"> Pinterest Help Center </Link>
     </Text>
   </Text>
 </Flex>
@@ -103,11 +105,11 @@ To see how you can grow your business, visit
   </Box>
   <Text>
     <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" inline underline="hover"> Shanice Romero </Link>
+      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Shanice Romero </Link>
     </Text>
     {" "}saved to
     <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" inline underline="hover"> Capoeira </Link>
+      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Capoeira </Link>
     </Text>
     </Text>
 </Flex>
@@ -178,14 +180,14 @@ To see how you can grow your business, visit
   <Text size="100" align="center">
     By continuing, you agree to Pinterest's
     <Text size="100" inline>
-      <Link href="https://www.pinterest.com" inline>
+      <Link href="https://www.pinterest.com" display="inline">
         {' '}
         Business Terms of Service{' '}
       </Link>
     </Text>{' '}
     and acknowledge you've read our
     <Text size="100" inline>
-      <Link href="https://www.pinterest.com" inline>
+      <Link href="https://www.pinterest.com" display="inline">
         {' '}
         Privacy Policy{' '}
       </Link>
@@ -228,14 +230,14 @@ To see how you can grow your business, visit
   <Text size="100" align="center">
     By continuing, you agree to Pinterest's
     <Text size="100" inline weight="bold">
-      <Link href="https://www.pinterest.com" inline>
+      <Link href="https://www.pinterest.com" display="inline">
         {' '}
         Business Terms of Service{' '}
       </Link>
     </Text>{' '}
     and acknowledge you've read our
     <Text size="100" inline weight="bold">
-      <Link href="https://www.pinterest.com" inline>
+      <Link href="https://www.pinterest.com" display="inline">
         {' '}
         Privacy Policy{' '}
       </Link>
@@ -254,7 +256,7 @@ Display the external icon ("visit" icon) when the link text needs support to con
             defaultCode={`
 <Text inline>
   To receive push notifications instead of texts,
-  <Link href="https://authy.com/download/" inline externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>.
+  <Link href="https://authy.com/download/" display="inline" externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>.
 </Text>
 `}
           />
@@ -265,7 +267,7 @@ Display the external icon ("visit" icon) when the link text needs support to con
 <Flex gap={2} justifyContent="center" width="100%">
   <Text inline> Visit
     <Text inline>
-      <Link href="https://www.w3.org/WAI/standards-guidelines/" inline> WCAG accessibility resources</Link>
+      <Link href="https://www.w3.org/WAI/standards-guidelines/" display="inline"> WCAG accessibility resources</Link>
     </Text>
   </Text>
   <Icon icon="link" accessibilityLabel="" color="default" />
@@ -282,7 +284,7 @@ Add clarity to external links through explicit link text and predictable destina
             defaultCode={`
 <Text inline>
   Go to
-  <Link href="https://developers.pinterest.com/account-setup/" inline externalLinkIcon="default" target="blank">My Apps</Link>.
+  <Link href="https://developers.pinterest.com/account-setup/" display="inline" externalLinkIcon="default" target="blank">My Apps</Link>.
 </Text>
 `}
           />
@@ -295,17 +297,17 @@ Displaying multiple icons within the same text block can cause unnecessary visua
             defaultCode={`
 <Flex gap={2} direction="column" justifyContent="center" width="100%">
   <Text inline>- Comply with our
-    <Link href="https://policy.pinterest.com/en/developer-guidelines" inline externalLinkIcon="default"> Development guidelines</Link>{" "}
+    <Link href="https://policy.pinterest.com/en/developer-guidelines" display="inlineBlock" externalLinkIcon="default"> Development guidelines</Link>{" "}
     or ensure you are currently logged into an existing
-    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" inline externalLinkIcon="default">business account.</Link>
+    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" display="inlineBlock" externalLinkIcon="default">business account.</Link>
   </Text>
   <Text inline>-
-    <Link href="" inline externalLinkIcon="default">Create a Pinterest business account</Link>{" "}
+    <Link href="" display="inlineBlock" externalLinkIcon="default">Create a Pinterest business account</Link>{" "}
     or ensure you are currently logged into an existing
-    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" inline externalLinkIcon="default">business account</Link>
+    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" display="inlineBlock" externalLinkIcon="default">business account</Link>
   </Text>
   <Text inline>-
-    <Link href="https://developers.pinterest.com/account-setup/" inline externalLinkIcon="default">Go to My Apps</Link>
+    <Link href="https://developers.pinterest.com/account-setup/" display="inlineBlock" externalLinkIcon="default">Go to My Apps</Link>
   </Text>
 </Flex>
             `}
@@ -320,7 +322,7 @@ Provide a meaningful descriptive label to the link that clearly indicates the li
 <Text>
       Visit{' '}
       <Text inline>
-        <Link inline href="https://pinterest.com">
+        <Link display="inline" href="https://pinterest.com">
           Pinterest.com
         </Link>
       </Text>{' '}
@@ -335,7 +337,7 @@ Provide a meaningful descriptive label to the link that clearly indicates the li
 <Text>
   For more information,{' '}
   <Text inline>
-    <Link accessibilityLabel="visit https://pinterest.com" inline href="https://pinterest.com">
+    <Link accessibilityLabel="visit https://pinterest.com" display="inline" href="https://pinterest.com">
       click here
     </Link>
   </Text>
@@ -371,7 +373,7 @@ Accessible content is critical if we consider that assistive technology also pre
     <Label htmlFor="1">
       <Text>
         Use sites you visit to improve which recommendations and ads you see on Pinterest.{' '}
-        <Link accessibilityLabel="Learn more about personalization and data" inline href="https://pinterest.com/_/_/help/article/personalization-and-data#info-ad">
+        <Link accessibilityLabel="Learn more about personalization and data" display="inline" href="https://pinterest.com/_/_/help/article/personalization-and-data#info-ad">
           Learn more
         </Link>
       </Text>
@@ -387,7 +389,7 @@ Accessible content is critical if we consider that assistive technology also pre
     <Label htmlFor="2">
       <Text>
         Share activity for ads performance reporting.{' '}
-        <Link accessibilityLabel="Learn more about ads performance reporting" inline href="https://www.pinterest.com/_/_/help/article/ads-performance-reporting">
+        <Link accessibilityLabel="Learn more about ads performance reporting" display="inline" href="https://www.pinterest.com/_/_/help/article/ads-performance-reporting">
           Learn more
         </Link>
       </Text>
@@ -403,7 +405,7 @@ Accessible content is critical if we consider that assistive technology also pre
     <Label htmlFor="3">
       <Text>
         Use your activity to improve ads you see about Pinterest on other sites or apps you may visit.{' '}
-        <Link accessibilityLabel="Learn more about third-party analytics" inline href="https://www.pinterest.com/_/_/help/article/third-party-analytics-or-advertising-providers-pinterest-uses-or-allows">
+        <Link accessibilityLabel="Learn more about third-party analytics" display="inline" href="https://www.pinterest.com/_/_/help/article/third-party-analytics-or-advertising-providers-pinterest-uses-or-allows">
           Learn more
         </Link>
       </Text>
@@ -537,7 +539,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
     <Text color="inverse" weight="bold" size="600">Tips</Text>
       <Flex gap={{ row: 1, column: 0 }} alignItems="center">
         <Text color="inverse" size="400" align="center" weight="bold">
-          <Link href="https://pinterest.com" inline>Add a Pinterest widget</Link>{" "}
+          <Link href="https://pinterest.com" display="inline">Add a Pinterest widget</Link>{" "}
           and get inspired right from your phone's home screen.
         </Text>
       </Flex>
@@ -546,6 +548,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
 `}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Link and color"
           description={`Link uses the typography color tokens. Keep in mind colors should be used purposefully and consistently as they convey meaning in multiple ways. See below how to use colors on links.
@@ -564,6 +567,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
     Reserved color for links within documentation and internal subsites when a color is needed to convey interactivity. Please note: This color shouldn't be used on links across Pinterest customer-facing UI.
           `}
         />
+
         <MainSection.Subsection
           title="Underline"
           columns={2}
@@ -573,7 +577,7 @@ We recommend showing the underline on the link, at least upon a hover behavior; 
 
 Don’t underline [Text](/web/text) that isn’t a Link, as underline has a strong link affordance.
 
-Link with \`inline={true}\` defaults the underline style to "always" to follow design guidelines while \`inline={false}\` defaults the underline style to "hover". On hover, \`underline="always"\` removes the underline, while \`underline="hover"\` adds it.
+Link with \`display="inline"\` or \`display="inlineBlock"\` sets the underline style to "always" to follow design guidelines while \`display="block"\` sets the underline style to "hover". On hover, \`underline="always"\` removes the underline, while \`underline="hover"\` adds it.
 
 However, Link's underline style can be overridden at any time using the \`underline\` prop.
 
@@ -585,7 +589,7 @@ However, Link's underline style can be overridden at any time using the \`underl
             defaultCode={`
 <Text inline>
   Find tips and best practices on the
-  <Link href="https://business.pinterest.com/" inline> Pinterest Business Site </Link>
+  <Link href="https://business.pinterest.com/" display="inline"> Pinterest Business Site </Link>
 </Text>
 `}
           />
@@ -633,11 +637,11 @@ However, Link's underline style can be overridden at any time using the \`underl
   </Box>
   <Text>
     <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" inline underline="hover"> Shanice Romero </Link>
+      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Shanice Romero </Link>
     </Text>
     {" "}saved to
     <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" inline underline="hover"> Capoeira </Link>
+      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Capoeira </Link>
     </Text>
     </Text>
 </Flex>
@@ -648,12 +652,30 @@ However, Link's underline style can be overridden at any time using the \`underl
             defaultCode={`
 <Flex gap={{ column: 2, row: 0 }} direction="column">
   <Text weight="bold">
-    <Link href="https://www.pinterest.com" inline underline="none">I'm a link with no underline</Link>
+    <Link href="https://www.pinterest.com" display="inline" underline="none">I'm a link with no underline</Link>
   </Text>
 </Flex>
 `}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Inline"
+          description={`
+        By default, Link is a [block-level element](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements). When Link needs to be displayed inline with the surrounding elements, you can use the \`display\` prop set to \`"inline"\` or \`"inlineBlock"\`. As shown below, the primary difference is how the words _within_ the Link wrap when width is restricted. \`"inline"\` will wrap by word, whereas \`"inlineBlock"\` will wrap the entire block of words.
+
+        Note that when \`display="inline"\` is used, \`tapStyle="compress"\` is _not_ respected.
+
+        Which should you choose? If you need inline Links, you most likely want \`display="inline"\`. Only choose \`display="inlineBlock"\` if you need the compress animation on click/tap.
+
+        Play around with the container width on the examples below and note how each responds to wrapping.
+        `}
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={inline} name="Inline example" />}
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Target"
           description={`\`target\` is optional and defines the frame or window to open the anchor defined on \`href\`:
@@ -678,7 +700,7 @@ However, Link's underline style can be overridden at any time using the \`underl
             defaultCode={`
 <Text inline>
   Find tips and best practices on the
-  <Link href="https://business.pinterest.com/" inline> Pinterest Business Site</Link>
+  <Link href="https://business.pinterest.com/" display="inline"> Pinterest Business Site</Link>
 </Text>
 `}
           />
@@ -704,7 +726,7 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
           defaultCode={`
 <Text inline>
   To receive push notifications instead of texts,
-  <Link href="https://authy.com/download/" inline externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>
+  <Link href="https://authy.com/download/" display="inline" externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>
 </Text>
 `}
         />
@@ -713,13 +735,13 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
 <Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Text inline size="100">
     Visit
-    <Link href="https://authy.com/download/" inline externalLinkIcon={{ size: "100" }} target="blank" rel="nofollow">
+    <Link href="https://authy.com/download/" display="inline" externalLinkIcon={{ size: "100" }} target="blank" rel="nofollow">
     MyBusiness.com
     </Link>{" "}
     for shipping details
   </Text>
   <Text inline size="400" color="success">
-    <Link href="https://authy.com/download/" inline externalLinkIcon={{ size: "400", color: "success" }} target="blank" rel="nofollow">
+    <Link href="https://authy.com/download/" display="inline" externalLinkIcon={{ size: "400", color: "success" }} target="blank" rel="nofollow">
       MyBusiness.com
     </Link>{" "}
     was successfully claimed
