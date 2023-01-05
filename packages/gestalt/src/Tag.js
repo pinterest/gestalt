@@ -9,7 +9,7 @@ import focusStyles from './Focus.css';
 import Icon from './Icon.js';
 import styles from './Tag.css';
 import Text from './Text.js';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 
 const backgroundColorByType = Object.freeze({

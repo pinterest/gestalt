@@ -6,7 +6,7 @@ import focusStyles from './Focus.css';
 import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import InternalLink from './InternalLink.js';

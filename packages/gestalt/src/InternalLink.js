@@ -13,7 +13,7 @@ import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
 import layoutStyles from './Layout.css';
 import iconButtonStyles from './IconButton.css';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';

@@ -11,7 +11,7 @@ import {
 import classnames from 'classnames';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import styles from './Link.css';
 import textStyles from './Typography.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';

@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import Pog from './Pog.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 
