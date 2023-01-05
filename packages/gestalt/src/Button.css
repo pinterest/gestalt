@@ -14,7 +14,7 @@
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
-  composes: fullWidth from "./Touchable.css";
+  composes: fullWidth from "./TapArea.css";
 }
 
 .sm {

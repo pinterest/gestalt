@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import styles from './Touchable.css';
+import styles from './TapArea.css';
 import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
