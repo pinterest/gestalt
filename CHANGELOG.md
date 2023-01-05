@@ -1,3 +1,9 @@
+## 86.0.2 (Jan 5, 2023)
+
+### Patch
+
+- Fix content height according of available viewport ([#2562](https://github.com/pinterest/gestalt/pull/2562)) - [Preview link](https://deploy-preview-2562--gestalt.netlify.app)
+
 ## 86.0.1 (Jan 4, 2023)
 
 ### Patch
