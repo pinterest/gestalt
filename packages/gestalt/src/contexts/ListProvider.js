@@ -35,9 +35,9 @@ function ListProvider({ children, type, spacing, style }: Props): Element<typeof
   return (
     <Provider
       value={{
-        // List Provider is within List and NestedList. Both List and NestedList have type prop. The type set on the component has prevalence above the inherit in the provider.
+        // List Provider is within List. Only List has a type prop. The type set on the component has prevalence above the inherit in the provider.
         type: type ?? inheritedType,
-        // List Provider is within List and NestedList. Only List has spacing prop. The spacing set on the List must be passed down on the nested providers so it does not get overriden. However, the top provider needs the spacing value set on List.
+        // List Provider is within List. Only List has a spacing prop. The spacing set on the List must be passed down on the nested providers so it does not get overriden. However, the top provider needs the spacing value set on List.
         spacing: inheritedSpacing ?? spacing,
         style,
       }}

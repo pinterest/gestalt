@@ -3,7 +3,6 @@ import { cloneElement, Fragment, Children, type Node } from 'react';
 
 const ALLOWED_CHILDREN_BY_PARENT = {
   List: ['List.Item'],
-  NestedList: ['List.Item'],
   ListItem: ['List', 'InternalList', 'List.Item'],
 };
 

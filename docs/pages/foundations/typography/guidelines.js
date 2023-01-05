@@ -727,7 +727,7 @@ Use standards that will make it easier to translate to other languages:
             type="do"
             description="Align, space and style text so that a user can easily read it and understand what actions to take."
             defaultCode={`
-<Flex direction="column">
+<Flex direction="column" gap={4}>
   <Heading accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
     <List label="Shopify Marketing permissions" labelDisplay="hidden">
       <List.Item text="See your account settings"/>
@@ -746,7 +746,7 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
             defaultCode={`
-<Flex direction="column" gap={2} alignItems="center" >
+<Flex direction="column" gap={4} alignItems="center" >
   <Heading align="center" accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
   <Text color="subtle">See your account settings</Text>
   <Text color="subtle">Create new Pins for you</Text>

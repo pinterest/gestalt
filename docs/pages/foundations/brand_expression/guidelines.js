@@ -1,5 +1,5 @@
 // @flow strict
-import { Heading, Image, Box, List } from 'gestalt';
+import { Heading, Image, Box, List, Flex } from 'gestalt';
 import { type Node } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -56,37 +56,42 @@ Below we list the UI elements you can use and the ones you should avoid when bri
         <MainSection.Subsection title="UI elements and Brand expression">
           <Box display="flex" wrap>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
-              <Heading color="success" size="200" accessibilityLevel={4}>
-                UI elements to bring brand expression
-              </Heading>
-
-              <List label="UI elements to bring brand expression" labelDisplay="hidden">
-                <List.Item text="Product upsells" />
-                <List.Item text="Hero banners" />
-                <List.Item text="Cards" />
-                <List.Item text="Carousels" />
-                <List.Item text="Modals/Sheets" />
-              </List>
+              <Flex direction="column" gap={4}>
+                <Heading color="success" size="200" accessibilityLevel={4}>
+                  UI elements to bring brand expression
+                </Heading>
+                <List label="UI elements to bring brand expression" labelDisplay="hidden">
+                  <List.Item text="Product upsells" />
+                  <List.Item text="Hero banners" />
+                  <List.Item text="Cards" />
+                  <List.Item text="Carousels" />
+                  <List.Item text="Modals/Sheets" />
+                </List>
+              </Flex>
             </Box>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
-              <Heading color="subtle" size="200" accessibilityLevel={4}>
-                Consider brand expression
-              </Heading>
-              <List label="When to consider brand expression" labelDisplay="hidden">
-                <List.Item text="Dashboards(when applicable and it does not break a component" />
-              </List>
+              <Flex direction="column" gap={4}>
+                <Heading color="subtle" size="200" accessibilityLevel={4}>
+                  Consider brand expression
+                </Heading>
+                <List label="When to consider brand expression" labelDisplay="hidden">
+                  <List.Item text="Dashboards(when applicable and it does not break a component" />
+                </List>
+              </Flex>
             </Box>
             <Box lgColumn={4} mdColumn={12} smColumn={12}>
-              <Heading color="error" size="200" accessibilityLevel={4}>
-                Elements to avoid brand expression
-              </Heading>
-              <List label="Elements to avoid brand expression" labelDisplay="hidden">
-                <List.Item text="Core UI patterns" />
-                <List.Item text="Text components" />
-                <List.Item text="CTAs and other action components" />
-                <List.Item text="Tables" />
-                <List.Item text="Form components" />
-              </List>
+              <Flex direction="column" gap={4}>
+                <Heading color="error" size="200" accessibilityLevel={4}>
+                  Elements to avoid brand expression
+                </Heading>
+                <List label="Elements to avoid brand expression" labelDisplay="hidden">
+                  <List.Item text="Core UI patterns" />
+                  <List.Item text="Text components" />
+                  <List.Item text="CTAs and other action components" />
+                  <List.Item text="Tables" />
+                  <List.Item text="Form components" />
+                </List>
+              </Flex>
             </Box>
           </Box>
         </MainSection.Subsection>

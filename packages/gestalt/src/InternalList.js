@@ -24,10 +24,25 @@ const STYLE_SEQUENCE_ORDERED = Object.freeze([...ORDERED_SEQUENCE, ...ORDERED_SE
 type ListType = 'bare' | 'ordered' | 'unordered';
 
 type Props = {|
+  /**
+   * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#List.Item).
+   */
   children: Node,
+  /**
+   * The label for the list. Be sure to localize the text. See the [label variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
+   */
   label?: string | Element<typeof Text>,
+  /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [accessibility section](https://gestalt.pinterest.systems/web/list#Accessibility) and the [label variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
+   */
   labelDisplay?: 'visible' | 'hidden',
+  /**
+   * The spacing used in List. See the [spacing variant](https://gestalt.pinterest.systems/web/list#Spacing) for guidance.
+   */
   spacing?: 'regular' | 'condensed',
+  /**
+   * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
+   */
   type?: ListType,
 |};
 
@@ -57,10 +72,10 @@ function InternalList({
     [styles.parentList]: isListParent,
   });
 
-  // Check if NestedList got a type value different from the inherited one.
+  // Check if a nested List get a type value different from the inherited one.
   const didTypeChanged = !!type && inheritedType !== type;
 
-  // If NestedList type didn't change, slice the inherited style sequence for the type selected so the children have access to the correct sequence left.
+  // If a nested List type didn't change, slice the inherited style sequence for the type selected so the children have access to the correct sequence left.
   const newInheritedStyleOl =
     !didTypeChanged && listType === 'ordered' ? inheritedStyle?.ol.slice(1) : inheritedStyle?.ol;
   const newInheritedStyleUl =

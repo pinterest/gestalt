@@ -133,7 +133,7 @@ export default function ListPage({
           description={`
 List comes with a label built-in: just use the \`label\` prop.
 
-We recommend using a label prop in all lists. The label will be announced by the screenreader describing the purpose or contents of the list. Even though, text preceding the list can introduce the list, screenreaders will read both pieces of information in sequential order. When using the \`label\` prop, the information is embedded into the list announcement supporting the comprehension of the list.
+We recommend using a \`label\` prop in all lists. The label will be announced by the screenreader describing the purpose or contents of the list. Even though text preceding the list can introduce the list, screenreaders will read both pieces of information in sequential order. When using the \`label\` prop, the information is embedded into the list announcement supporting the comprehension of the list.
 
 However, if List is labeled by content elsewhere on the page or a more descriptive label is needed, the \`labelDisplay\` prop can be set to 'hidden'. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
