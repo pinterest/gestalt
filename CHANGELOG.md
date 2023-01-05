@@ -1,3 +1,9 @@
+## 86.0.4 (Jan 5, 2023)
+
+### Patch
+
+- Internal: add Flow stub for lottie-react ([#2586](https://github.com/pinterest/gestalt/pull/2586)) - [Preview link](https://deploy-preview-2586--gestalt.netlify.app)
+
 ## 86.0.3 (Jan 5, 2023)
 
 ### Patch
