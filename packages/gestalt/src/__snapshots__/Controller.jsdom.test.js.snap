@@ -39,6 +39,7 @@ exports[`Controller renders 1`] = `
       id=""
       style={
         Object {
+          "maxHeight": 691.1999999999999,
           "maxWidth": 230,
         }
       }
