@@ -17,7 +17,6 @@ import {
 } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-// $FlowExpectedError[untyped-import]
 import iconCategoryData from './ICON_DATA.json';
 
 const { icons } = Icon;
@@ -37,32 +36,12 @@ const CATEGORIES = [
   'Utility and tools',
 ];
 
-type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
-type IconData = {|
-  name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
-  category:
-    | 'Add'
-    | 'Ads and measurements'
-    | 'Alignment'
-    | 'Arrows'
-    | 'Media controls'
-    | 'Platform specific'
-    | 'Reactions and ratings'
-    | 'Social'
-    | 'Status'
-    | 'Text'
-    | 'Time'
-    | 'Toggle'
-    | 'Utility and tools',
-  description: string,
-|};
-
 function IconTile({
   iconName,
   iconDescription = 'Description coming soon',
   onTap,
 }: {|
-  iconName: IconName,
+  iconName: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
   iconDescription: string,
   onTap: () => void,
 |}) {
@@ -127,7 +106,7 @@ function IconTile({
   );
 }
 
-function findIconByCategory(icon?: string, category: string): IconData {
+function findIconByCategory(icon?: string, category: string) {
   // This check ensures there is an actual matching icon in our component
   // so we don't accidentally show icons that are only in Figma.
   const iconComponentName = icons.find((name) => name === icon);
@@ -185,7 +164,7 @@ export default function IconPage(): Node {
               key={iconName}
               iconName={iconName}
               onTap={buildHandleIconClick(iconName)}
-              iconDescription={filteredIconData?.description}
+              iconDescription={filteredIconData?.description ?? ''}
             />
           );
         })}
@@ -199,7 +178,7 @@ export default function IconPage(): Node {
               <IconTile
                 key={iconName}
                 iconName={iconData.name}
-                iconDescription={iconData.description}
+                iconDescription={iconData.description ?? ''}
                 onTap={buildHandleIconClick(iconData.name)}
               />
             ) : null;
