@@ -1,3 +1,9 @@
+## 86.0.3 (Jan 5, 2023)
+
+### Patch
+
+- Internal: rename Touchable.css to TapArea.css ([#2585](https://github.com/pinterest/gestalt/pull/2585)) - [Preview link](https://deploy-preview-2585--gestalt.netlify.app)
+
 ## 86.0.2 (Jan 5, 2023)
 
 ### Patch
