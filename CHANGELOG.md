@@ -1,3 +1,9 @@
+## 86.0.5 (Jan 5, 2023)
+
+### Patch
+
+- Internal: add Flow types to icon data ([#2587](https://github.com/pinterest/gestalt/pull/2587)) - [Preview link](https://deploy-preview-2587--gestalt.netlify.app)
+
 ## 86.0.4 (Jan 5, 2023)
 
 ### Patch
