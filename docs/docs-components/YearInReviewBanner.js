@@ -1,7 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Button, Text, TapArea, Flex, Heading, useReducedMotion } from 'gestalt';
-// $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
 // $FlowExpectedError[untyped-import]
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';

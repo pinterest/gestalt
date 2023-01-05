@@ -13,7 +13,6 @@ import {
   useReducedMotion,
   Link as GestaltLink,
 } from 'gestalt';
-// $FlowExpectedError[untyped-import]
 import Lottie from 'lottie-react';
 
 import Link from 'next/link';
