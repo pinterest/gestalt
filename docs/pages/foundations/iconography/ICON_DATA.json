@@ -3,7 +3,7 @@
     {
       "name": "360",
       "categories": ["Utility and tools"],
-      "keywords": ["label-360", "view"]
+      "keywords": ["label", "view"]
     },
     {
       "name": "accessibility",
@@ -33,25 +33,25 @@
       "name": "add-circle",
       "categories": ["Add"],
       "description": "Indicates the ability to display more content or additional information",
-      "keywords": ["plus-circle", "create", "new"]
+      "keywords": ["plus circle", "create", "new"]
     },
     {
       "name": "add-layout",
       "categories": ["Add"],
       "description": "Indicates the ability to choose a new file and create a layout",
-      "keywords": ["plus-layout", "create", "new"]
+      "keywords": ["plus layout", "create", "new"]
     },
     {
       "name": "add-person",
       "categories": ["Add"],
       "description": "Indicates the ability to add a new person/collaborator",
-      "keywords": ["plus-person", "collaborator", "create", "new", "share"]
+      "keywords": ["plus person", "collaborator", "create", "new", "share"]
     },
     {
       "name": "add-pin",
       "categories": ["Add"],
       "description": "Indicates the ability to send a Pin",
-      "keywords": ["plus-pin", "create", "new"]
+      "keywords": ["plus pin", "create", "new"]
     },
     {
       "name": "ads-overview",
