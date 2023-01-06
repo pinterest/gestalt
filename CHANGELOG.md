@@ -1,3 +1,9 @@
+## 88.0.1 (Jan 6, 2023)
+
+### Patch
+
+- Dropdown: Update custom item example ([#2589](https://github.com/pinterest/gestalt/pull/2589)) - [Preview link](https://deploy-preview-2589--gestalt.netlify.app)
+
 ## 88.0.0 (Jan 6, 2023)
 
 ### Major
