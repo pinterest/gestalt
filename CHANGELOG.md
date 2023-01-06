@@ -1,3 +1,9 @@
+## 88.0.2 (Jan 6, 2023)
+
+### Patch
+
+- Icons: Add keywords to icon search page ([#2594](https://github.com/pinterest/gestalt/pull/2594)) - [Preview link](https://deploy-preview-2594--gestalt.netlify.app)
+
 ## 88.0.1 (Jan 6, 2023)
 
 ### Patch
