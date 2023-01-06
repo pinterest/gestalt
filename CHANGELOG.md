@@ -1,3 +1,9 @@
+## 87.0.5 (Jan 6, 2023)
+
+### Patch
+
+- Internal: add Flow declarations for Lottie JSON animations ([#2593](https://github.com/pinterest/gestalt/pull/2593)) - [Preview link](https://deploy-preview-2593--gestalt.netlify.app)
+
 ## 87.0.4 (Jan 6, 2023)
 
 ### Patch
