@@ -116,6 +116,15 @@ function findIconByCategory(icon?: string, category: string) {
   );
 }
 
+function iconHasKeyword(iconName?: string, searchTerm: string) {
+  return (
+    iconCategoryData.icons.find(
+      ({ name, keywords }) =>
+        name === iconName && keywords?.find((word) => word.includes(searchTerm)),
+    ) !== undefined
+  );
+}
+
 export default function IconPage(): Node {
   const [showToastText, setShowToastText] = useState(false);
 
@@ -138,7 +147,10 @@ export default function IconPage(): Node {
     setInputValue(value);
     setSuggestedOptions(
       value
-        ? iconOptions.filter(({ label }) => label.toLowerCase().includes(value.toLowerCase()))
+        ? iconOptions.filter(
+            ({ label }) =>
+              label.toLowerCase().includes(value.toLowerCase()) || iconHasKeyword(label, value),
+          )
         : iconOptions,
     );
   };

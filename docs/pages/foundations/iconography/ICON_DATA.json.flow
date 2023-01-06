@@ -21,5 +21,6 @@ declare module.exports: {|
       | 'Utility and tools'
     >,
     +description: ?string,
+    +keywords: Array<string>,
   |}>,
 |};
