@@ -2,7 +2,6 @@
 import { type Node } from 'react';
 import { Box, Button, Text, TapArea, Flex, Heading, useReducedMotion } from 'gestalt';
 import Lottie from 'lottie-react';
-// $FlowExpectedError[untyped-import]
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';

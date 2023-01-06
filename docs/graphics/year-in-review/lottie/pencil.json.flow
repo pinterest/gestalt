@@ -1,0 +1,472 @@
+// @flow strict
+
+declare module.exports: {|
+  +v: string,
+  +meta: {|
+    +g: string,
+    +a: string,
+    +k: string,
+    +d: string,
+    +tc: string,
+  |},
+  +fr: number,
+  +ip: number,
+  +op: number,
+  +w: number,
+  +h: number,
+  +nm: string,
+  +ddd: number,
+  +assets: $ReadOnlyArray<{|
+    +id: string,
+    +w: number,
+    +h: number,
+    +u: string,
+    +p: string,
+    +e: number,
+  |}>,
+  +layers: $ReadOnlyArray<{|
+    +ddd: number,
+    +ind: number,
+    +ty: number,
+    +nm: string,
+    +sr: number,
+    +ks: {|
+      +o: {|
+        +a: number,
+        +k:
+          | number
+          | $ReadOnlyArray<{|
+              +i: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +o: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +t: number,
+              +s: $ReadOnlyArray<number>,
+            |}>,
+        +ix: number,
+      |},
+      +r: {|
+        +a: number,
+        +k:
+          | $ReadOnlyArray<{|
+              +i: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +o: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +t: number,
+              +s: $ReadOnlyArray<number>,
+            |}>
+          | number
+          | $ReadOnlyArray<{|
+              +i: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +o: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +t: number,
+              +s: $ReadOnlyArray<number>,
+            |}>
+          | $ReadOnlyArray<{|
+              +i: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +o: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +t: number,
+              +s: $ReadOnlyArray<number>,
+            |}>,
+        +ix: number,
+      |},
+      +p: {|
+        +a: number,
+        +k:
+          | $ReadOnlyArray<{|
+              +i: ?{|
+                +x: number,
+                +y: number,
+              |},
+              +o: ?{|
+                +x: number,
+                +y: number,
+              |},
+              +t: number,
+              +s: $ReadOnlyArray<number>,
+              +to: ?$ReadOnlyArray<number>,
+              +ti: ?$ReadOnlyArray<number>,
+            |}>
+          | $ReadOnlyArray<number>,
+        +ix: number,
+      |},
+      +a: {|
+        +a: number,
+        +k: $ReadOnlyArray<number>,
+        +ix: number,
+      |},
+      +s: {|
+        +a: number,
+        +k: $ReadOnlyArray<number>,
+        +ix: number,
+      |},
+    |},
+    +ao: number,
+    +ip: number,
+    +op: number,
+    +st: number,
+    +bm: number,
+    +parent: ?number,
+    +refId: ?string,
+    +shapes:
+      | ?$ReadOnlyArray<{|
+          +ty: string,
+          +it: $ReadOnlyArray<{|
+            +ind: ?number,
+            +ty: string,
+            +ix: ?number,
+            +ks: ?{|
+              +a: number,
+              +k: {|
+                +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +c: boolean,
+              |},
+              +ix: number,
+            |},
+            +nm: string,
+            +mn: ?string,
+            +hd: ?boolean,
+            +c: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +o: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +w: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +lc: ?number,
+            +lj: ?number,
+            +ml: ?number,
+            +bm: ?number,
+            +p: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +a: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +s: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +r: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sk: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sa: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+          |}>,
+          +nm: string,
+          +np: number,
+          +cix: number,
+          +bm: number,
+          +ix: number,
+          +mn: string,
+          +hd: boolean,
+        |}>
+      | $ReadOnlyArray<{|
+          +ty: string,
+          +it: $ReadOnlyArray<{|
+            +ind: ?number,
+            +ty: string,
+            +ix: ?number,
+            +ks: ?{|
+              +a: number,
+              +k: {|
+                +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +c: boolean,
+              |},
+              +ix: number,
+            |},
+            +nm: string,
+            +mn: ?string,
+            +hd: ?boolean,
+            +c: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +o: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +w: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +lc: ?number,
+            +lj: ?number,
+            +ml: ?number,
+            +bm: ?number,
+            +p: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +a: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +s: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +r: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sk: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sa: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+          |}>,
+          +nm: string,
+          +np: number,
+          +cix: number,
+          +bm: number,
+          +ix: number,
+          +mn: string,
+          +hd: boolean,
+        |}>
+      | $ReadOnlyArray<{|
+          +ty: string,
+          +it: $ReadOnlyArray<{|
+            +ind: ?number,
+            +ty: string,
+            +ix: ?number,
+            +ks: ?{|
+              +a: number,
+              +k: {|
+                +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +c: boolean,
+              |},
+              +ix: number,
+            |},
+            +nm: string,
+            +mn: ?string,
+            +hd: ?boolean,
+            +c: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +o: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +w: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +lc: ?number,
+            +lj: ?number,
+            +ml: ?number,
+            +bm: ?number,
+            +r:
+              | ?number
+              | {|
+                  +a: number,
+                  +k: number,
+                  +ix: number,
+                |},
+            +p: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +a: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +s: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +sk: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sa: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+          |}>,
+          +nm: string,
+          +np: number,
+          +cix: number,
+          +bm: number,
+          +ix: number,
+          +mn: string,
+          +hd: boolean,
+        |}>
+      | $ReadOnlyArray<{|
+          +ty: string,
+          +it: ?$ReadOnlyArray<{|
+            +ind: ?number,
+            +ty: string,
+            +ix: ?number,
+            +ks: ?{|
+              +a: number,
+              +k: {|
+                +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
+                +c: boolean,
+              |},
+              +ix: number,
+            |},
+            +nm: string,
+            +mn: ?string,
+            +hd: ?boolean,
+            +c: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +o: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +w: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +lc: ?number,
+            +lj: ?number,
+            +ml: ?number,
+            +bm: ?number,
+            +p: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +a: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +s: ?{|
+              +a: number,
+              +k: $ReadOnlyArray<number>,
+              +ix: number,
+            |},
+            +r: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sk: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+            +sa: ?{|
+              +a: number,
+              +k: number,
+              +ix: number,
+            |},
+          |}>,
+          +nm: string,
+          +np: ?number,
+          +cix: ?number,
+          +bm: ?number,
+          +ix: number,
+          +mn: string,
+          +hd: boolean,
+          +s: ?{|
+            +a: number,
+            +k: number,
+            +ix: number,
+          |},
+          +e: ?{|
+            +a: number,
+            +k: $ReadOnlyArray<{|
+              +i: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +o: ?{|
+                +x: $ReadOnlyArray<number>,
+                +y: $ReadOnlyArray<number>,
+              |},
+              +t: number,
+              +s: $ReadOnlyArray<number>,
+            |}>,
+            +ix: number,
+          |},
+          +o: ?{|
+            +a: number,
+            +k: number,
+            +ix: number,
+          |},
+          +m: ?number,
+        |}>,
+  |}>,
+  +markers: $ReadOnlyArray<mixed>,
+|};

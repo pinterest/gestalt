@@ -13,9 +13,10 @@ import {
   useReducedMotion,
   Link as GestaltLink,
 } from 'gestalt';
-import Lottie from 'lottie-react';
-
 import Link from 'next/link';
+import Lottie from 'lottie-react';
+import GestaltLogo from '../docs-components/GestaltLogo.js';
+// SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
 import Circle from '../graphics/year-in-review/circle.svg';
 import CircleShadow from '../graphics/year-in-review/circleShadow.svg';
@@ -29,17 +30,11 @@ import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
 import Sparkle from '../graphics/year-in-review/sparkle.svg';
 import SparkleShadow from '../graphics/year-in-review/sparkleShadow.svg';
 import Tokens from '../graphics/year-in-review/tokens.svg';
-
-// $FlowExpectedError[untyped-import]
+// Lottie animations
 import Pencil from '../graphics/year-in-review/lottie/pencil.json';
-// $FlowExpectedError[untyped-import]
 import Steps from '../graphics/year-in-review/lottie/steps.json';
-// $FlowExpectedError[untyped-import]
 import Vibes from '../graphics/year-in-review/lottie/vibes.json';
-// $FlowExpectedError[untyped-import]
 import Figma from '../graphics/year-in-review/lottie/figma.json';
-
-import GestaltLogo from '../docs-components/GestaltLogo.js';
 
 const INTRO_ZINDEX = new FixedZIndex(10);
 const BUTTON_ZINDEX = new CompositeZIndex([INTRO_ZINDEX]);
@@ -83,7 +78,6 @@ type AnimationProps = {|
 function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
   const [animationData, setAnimationData] = useState();
   useEffect(() => {
-    // $FlowExpectedError[untyped-import]
     import(`../graphics/year-in-review/lottie/discoStars.json`).then((res) =>
       setAnimationData(res.default),
     );
