@@ -1,3 +1,9 @@
+## 87.0.4 (Jan 6, 2023)
+
+### Patch
+
+- Internal: add flow declarations for @testing-library/user-event ([#2592](https://github.com/pinterest/gestalt/pull/2592)) - [Preview link](https://deploy-preview-2592--gestalt.netlify.app)
+
 ## 87.0.3 (Jan 6, 2023)
 
 ### Patch
