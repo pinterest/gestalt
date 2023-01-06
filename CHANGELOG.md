@@ -1,3 +1,9 @@
+## 87.0.2 (Jan 6, 2023)
+
+### Patch
+
+- Internal: add Flow declaration for blog posts json ([#2590](https://github.com/pinterest/gestalt/pull/2590)) - [Preview link](https://deploy-preview-2590--gestalt.netlify.app)
+
 ## 87.0.1 (Jan 6, 2023)
 
 ### Patch
