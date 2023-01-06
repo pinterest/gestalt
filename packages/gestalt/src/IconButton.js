@@ -42,7 +42,7 @@ type BaseIconButton = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| dangerouslyDisableOnNavigation: () => void |},
   >,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,
   tooltip?: TooltipProps,
