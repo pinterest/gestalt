@@ -1,10 +1,10 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node, useState, useRef } from 'react';
 import { Avatar, Box, IconButton, Dropdown, Flex, Text } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample(): Node {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
 
   return (
     <Flex justifyContent="center">

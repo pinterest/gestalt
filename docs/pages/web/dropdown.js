@@ -504,7 +504,7 @@ function CustomContentDropdownExample() {
         <MainSection.Subsection
           title="Custom item content limitations"
           description={`
-          If using custom content, do not include interactive elements, like a TextArea or Button. Because the Dropdown.Item and Dropdown.Link already act as buttons and links, respectively, they cannot include focusable elements as children. [Learn more about nested interactive controls](https://dequeuniversity.com/rules/axe/4.2/nested-interactive).
+          If using custom content, do not include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children. [Learn more about nested interactive controls](https://dequeuniversity.com/rules/axe/4.2/nested-interactive)
           `}
         >
           <MainSection.Card
@@ -1017,7 +1017,7 @@ function BadgesDropdownExample() {
         >
           <SlimBanner
             iconAccessibilityLabel="Localize the default label"
-            message="Accessibility note: custom content cannot include interactive elements, like a TextArea or Button. Because the Dropdown.Item and Dropdown.Link already act as buttons and links, respectively, they cannot include focusable elements as children."
+            message="Accessibility note: custom content cannot include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children."
             type="info"
             helperLink={{
               text: 'Learn more',
