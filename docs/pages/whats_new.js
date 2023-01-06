@@ -15,11 +15,9 @@ const badges = {
   Engineering: <Badge key="engineering" type="success" text="Engineering" />,
 };
 
-type Audience = 'Design' | 'Engineering';
-
 export type Post = {|
   +title: string,
-  +audience: $ReadOnlyArray<Audience>,
+  +audience: $ReadOnlyArray<'Design' | 'Engineering'>,
   +imageSrc: string,
   +imageAltText: string,
   +content: string,
