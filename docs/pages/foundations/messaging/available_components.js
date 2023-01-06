@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Flex, Box, Link } from 'gestalt';
+import { Text, Flex, Box, Link, List } from 'gestalt';
 import { type Node } from 'react';
 import Example from '../../../docs-components/Example.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
@@ -153,17 +153,13 @@ export default function MessagingComponentsPage(): Node {
           <Text>
             Toasts are the least disruptive of messages in that they are ephemeral and don’t require
             a user to act or dismiss them. They appear opposite a surface’s main navigation and
-            overlay content without fully blocking it. They can be used to:
+            overlay content without fully blocking it.
           </Text>
-          <Text>
-            <ul>
-              <li>Acknowledge a user action immediately after it happens</li>
-              <li>Acknowledge a user action while nudging them to improve their experience</li>
-              <li>
-                Alert users of connectivity issues or unknown errors without disrupting their flow
-              </li>
-            </ul>
-          </Text>
+          <List label="Toasts can be used to:">
+            <List.Item text="Acknowledge a user action immediately after it happens" />
+            <List.Item text="Acknowledge a user action while nudging them to improve their experience" />
+            <List.Item text="Alert users of connectivity issues or unknown errors without disrupting their flow" />
+          </List>
           <Text>
             <Link href="/web/toast" underline="always">
               Go to the Toast component

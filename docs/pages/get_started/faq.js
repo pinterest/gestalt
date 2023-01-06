@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
-import { Box, Flex, Heading, Link, Text } from 'gestalt';
+import { List, Box, Flex, Heading, Link, Text } from 'gestalt';
 import Markdown from '../../docs-components/Markdown.js';
 import Card from '../../docs-components/Card.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -29,15 +29,13 @@ export default function DocsPage(): Node {
             Using Gestalt guarantees adherence and compliance to Pinterest design standards and best
             practices which results in UI and UX consistency across surfaces.
           </Text>
-          <Text>
-            Gestalt also provides:
-            <ul>
-              <li>Styled, tested, and accessible components</li>
-              <li>Right-to-left, internationalization, and dark-mode support</li>
-              <li>Low maintenance (automatic design and code updates cross-platform)</li>
-              <li>Well-documented components and continuous Gestalt team support</li>
-            </ul>
-          </Text>
+          <List label="Gestalt also provides:">
+            <List.Item text="Styled, tested, and accessible components" />
+            <List.Item text="Right-to-left, internationalization, and dark-mode support" />
+            <List.Item text="Low maintenance (automatic design and code updates cross-platform)" />
+            <List.Item text="Well-documented components and continuous Gestalt team support" />
+          </List>
+
           <Text>
             Gestalt increases designers and developers velocity with the highest design and code
             quality.

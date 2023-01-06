@@ -8,25 +8,15 @@ describe('List', () => {
     const tree = create(
       <List label="label test" type="bare">
         <List.Item text="List item text">
-          <List.NestedList>
+          <List.Item text="List item text">
             <List.Item text="List item text">
-              <List.NestedList>
+              <List.Item text="List item text">
                 <List.Item text="List item text">
-                  <List.NestedList>
-                    <List.Item text="List item text">
-                      <List.NestedList>
-                        <List.Item text="List item text">
-                          <List.NestedList>
-                            <List.Item text="List item text" />
-                          </List.NestedList>
-                        </List.Item>
-                      </List.NestedList>
-                    </List.Item>
-                  </List.NestedList>
+                  <List.Item text="List item text" />
                 </List.Item>
-              </List.NestedList>
+              </List.Item>
             </List.Item>
-          </List.NestedList>
+          </List.Item>
         </List.Item>
       </List>,
     ).toJSON();
@@ -37,25 +27,15 @@ describe('List', () => {
     const tree = create(
       <List label="label test" type="unordered">
         <List.Item text="List item text">
-          <List.NestedList>
+          <List.Item text="List item text">
             <List.Item text="List item text">
-              <List.NestedList>
+              <List.Item text="List item text">
                 <List.Item text="List item text">
-                  <List.NestedList>
-                    <List.Item text="List item text">
-                      <List.NestedList>
-                        <List.Item text="List item text">
-                          <List.NestedList>
-                            <List.Item text="List item text" />
-                          </List.NestedList>
-                        </List.Item>
-                      </List.NestedList>
-                    </List.Item>
-                  </List.NestedList>
+                  <List.Item text="List item text" />
                 </List.Item>
-              </List.NestedList>
+              </List.Item>
             </List.Item>
-          </List.NestedList>
+          </List.Item>
         </List.Item>
       </List>,
     ).toJSON();
@@ -67,25 +47,15 @@ describe('List', () => {
     const tree = create(
       <List label="label test" type="ordered">
         <List.Item text="List item text">
-          <List.NestedList>
+          <List.Item text="List item text">
             <List.Item text="List item text">
-              <List.NestedList>
+              <List.Item text="List item text">
                 <List.Item text="List item text">
-                  <List.NestedList>
-                    <List.Item text="List item text">
-                      <List.NestedList>
-                        <List.Item text="List item text">
-                          <List.NestedList>
-                            <List.Item text="List item text" />
-                          </List.NestedList>
-                        </List.Item>
-                      </List.NestedList>
-                    </List.Item>
-                  </List.NestedList>
+                  <List.Item text="List item text" />
                 </List.Item>
-              </List.NestedList>
+              </List.Item>
             </List.Item>
-          </List.NestedList>
+          </List.Item>
         </List.Item>
       </List>,
     ).toJSON();
@@ -96,15 +66,23 @@ describe('List', () => {
   it('renders an mixed list', () => {
     const tree = create(
       <List label="label test" type="ordered">
+        <List.Item text="List item text" />
         <List.Item text="List item text">
-          <List.NestedList type="unordered">
+          <List type="unordered">
+            <List.Item text="List item text" />
             <List.Item text="List item text">
-              <List.NestedList>
-                <List.Item text="List item text" />
-              </List.NestedList>
+              <List.Item text="List item text" />
+              <List.Item text="List item text">
+                <List type="ordered">
+                  <List.Item text="List item text" />
+                  <List.Item text="List item text" />
+                </List>
+              </List.Item>
             </List.Item>
-          </List.NestedList>
+            <List.Item text="List item text" />
+          </List>
         </List.Item>
+        <List.Item text="List item text" />
       </List>,
     ).toJSON();
 
