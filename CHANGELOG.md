@@ -1,3 +1,9 @@
+## 88.0.0 (Jan 6, 2023)
+
+### Major
+
+- TextField: Ship password visibility experiment ([#2571](https://github.com/pinterest/gestalt/pull/2571)) - [Preview link](https://deploy-preview-2571--gestalt.netlify.app)
+
 ## 87.0.5 (Jan 6, 2023)
 
 ### Patch
