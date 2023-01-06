@@ -1,3 +1,9 @@
+## 87.0.3 (Jan 6, 2023)
+
+### Patch
+
+- Internal: create Flow declaration stub for style-dictionary ([#2591](https://github.com/pinterest/gestalt/pull/2591)) - [Preview link](https://deploy-preview-2591--gestalt.netlify.app)
+
 ## 87.0.2 (Jan 6, 2023)
 
 ### Patch
