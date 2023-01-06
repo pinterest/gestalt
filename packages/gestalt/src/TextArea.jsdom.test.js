@@ -1,7 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-// $FlowFixMe[untyped-import]
 import userEvent from '@testing-library/user-event';
 import TextArea from './TextArea.js';
 import expectToThrow from './utils/testing/expectToThrow.js';
