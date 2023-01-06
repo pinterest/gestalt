@@ -7,10 +7,6 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import {
-  BareSlimBannerExperiment,
-  SlimBannerExperiment,
-} from '../../docs-components/SlimBannerExperiment.js';
 
 export default function TextFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -39,14 +35,6 @@ function Example(props) {
   );
 }
 `}
-        slimBanner={
-          <SlimBannerExperiment
-            componentName={generatedDocGen?.displayName}
-            description="is under an experiment to improve its password typing UI: adds an 'show/hide password' icon button for type='password'."
-            pullRequest={1995}
-            section="#Password"
-          />
-        }
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -554,25 +542,27 @@ function Example(props) {
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Password">
-          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
+        <MainSection.Subsection
+          title="Password"
+          description={`TextField with \`type="password"\` shows obfuscated characters by default. An icon button at the end of the field allows the user to toggle password visibility. This creates a more accessible experience by allowing the user to confirm what they have entered before submitting the form.`}
+        >
           <MainSection.Card
             defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState();
+          function Example(props) {
+            const [password, setPassword] = React.useState();
 
-  return (
-    <TextField
-      id="enter-password"
-      label="Account password"
-      onChange={({ value }) => setValue(value)}
-      placeholder="Password"
-      value={value}
-      type="password"
-    />
-  );
-}
-`}
+            return (
+              <TextField
+                id="enter-password"
+                label="Account password"
+                onChange={({ value }) => setPassword(value)}
+                placeholder="Password"
+                type="password"
+                value={password}
+              />
+            );
+          }
+          `}
           />
         </MainSection.Subsection>
 
