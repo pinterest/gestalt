@@ -1,3 +1,9 @@
+## 87.0.0 (Jan 6, 2023)
+
+### Major
+
+- List, Docs: component adjustments to increase dev velocity, implemented List in Docs ([#2568](https://github.com/pinterest/gestalt/pull/2568)) - [Preview link](https://deploy-preview-2568--gestalt.netlify.app)
+
 ## 86.0.5 (Jan 5, 2023)
 
 ### Patch
