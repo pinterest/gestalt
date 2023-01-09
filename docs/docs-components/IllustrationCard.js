@@ -28,7 +28,7 @@ function IllustrationCard({
 
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
-      <Box minWidth={280}>
+      <Box minWidth={245}>
         <Card>
           <Flex direction="column" height={320}>
             <Box

@@ -142,16 +142,20 @@ export default function PageHeader({
             </Flex>
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
+
             {defaultCode && (
-              <MainSection.Card
-                cardSize="lg"
-                defaultCode={defaultCode}
-                shaded={shadedCodeExample}
-                showCode={showCode}
-                hideCodePreview
-              />
+              <Box marginTop={2}>
+                <MainSection.Card
+                  cardSize="lg"
+                  defaultCode={defaultCode}
+                  shaded={shadedCodeExample}
+                  showCode={showCode}
+                  hideCodePreview
+                />
+              </Box>
             )}
-            {children}
+
+            {children ? <Box marginTop={2}>{children}</Box> : null}
           </Flex>
         </Flex>
       </Flex>

@@ -12,7 +12,8 @@ import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDevice
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 import YearInReviewBanner from './YearInReviewBanner.js';
 
-const CONTENT_MAX_WIDTH_PX = 1546;
+const CONTENT_MAX_WIDTH_PX = 894;
+const HOME_PAGE_CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = ['/year_in_review_2022'];
@@ -104,6 +105,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
         <Box width="100%" minWidth={0}>
           <Box
             padding={4}
+            mdPaddingY={12}
             mdPadding={8}
             marginBottom={12}
             width="100%"
@@ -111,7 +113,10 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
             mdDisplay="flex"
             justifyContent="center"
           >
-            <Box width="100%" maxWidth={CONTENT_MAX_WIDTH_PX}>
+            <Box
+              width="100%"
+              maxWidth={isHomePage ? HOME_PAGE_CONTENT_MAX_WIDTH_PX : CONTENT_MAX_WIDTH_PX}
+            >
               {children}
             </Box>
           </Box>

@@ -4,7 +4,7 @@ import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
-const DETAIL_PAGE_MAX_WIDTH = 1314;
+const DETAIL_PAGE_MAX_WIDTH = 672;
 
 type Props = {|
   children: Node,
