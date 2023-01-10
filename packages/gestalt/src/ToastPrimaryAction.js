@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, type ElementConfig } from 'react';
 import Button from './Button.js';
 import Link from './Link.js';
 
@@ -7,10 +7,10 @@ type Props = {|
   accessibilityLabel: string,
   href?: string,
   label: string,
-  onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-  rel?: $ElementType<React$ElementConfig<typeof Link>, 'rel'>,
-  size?: $ElementType<React$ElementConfig<typeof Button>, 'size'>,
-  target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+  onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+  rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
+  size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
+  target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
 |};
 
 export default function ToastPrimaryAction({

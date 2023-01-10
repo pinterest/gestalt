@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, isValidElement, type Element, type Node } from 'react';
+import { Children, isValidElement, type Element, type Node, type ElementConfig } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
@@ -31,10 +31,10 @@ type Props = {|
     accessibilityLabel: string,
     href?: string,
     label: string,
-    onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-    rel?: $ElementType<React$ElementConfig<typeof Link>, 'rel'>,
-    size?: $ElementType<React$ElementConfig<typeof Button>, 'size'>,
-    target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+    onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+    rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
+    size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
+    target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
   |},
 
   /**

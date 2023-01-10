@@ -8,6 +8,7 @@ InternalDismissIconButton aims to replace "dismiss" IconButtons in components th
 import {
   type Node,
   type AbstractComponent,
+  type ElementConfig,
   forwardRef,
   useImperativeHandle,
   useState,
@@ -24,11 +25,11 @@ import useTapFeedback from './useTapFeedback.js';
 type Props = {|
   accessibilityLabel: string,
   accessibilityControls?: string,
-  iconColor?: $ElementType<React$ElementConfig<typeof Pog>, 'iconColor'>,
+  iconColor?: $ElementType<ElementConfig<typeof Pog>, 'iconColor'>,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
-  size?: $ElementType<React$ElementConfig<typeof Pog>, 'size'>,
+  size?: $ElementType<ElementConfig<typeof Pog>, 'size'>,
 |};
 
 const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> =
