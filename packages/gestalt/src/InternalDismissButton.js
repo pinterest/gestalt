@@ -5,7 +5,14 @@ InternalDismissIconButton aims to replace "dismiss" IconButtons in components th
 */
 
 // @flow strict
-import { type Node, forwardRef, useImperativeHandle, useState, useRef } from 'react';
+import {
+  type Node,
+  type AbstractComponent,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import Pog from './Pog.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -24,7 +31,7 @@ type Props = {|
   size?: $ElementType<React$ElementConfig<typeof Pog>, 'size'>,
 |};
 
-const InternalDismissIconButtonWithForwardRef: React$AbstractComponent<Props, HTMLButtonElement> =
+const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> =
   forwardRef<Props, HTMLButtonElement>(function IconButton(
     {
       accessibilityLabel,

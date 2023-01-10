@@ -1,5 +1,13 @@
 // @flow strict-local
-import { forwardRef, useEffect, useImperativeHandle, useState, useRef, type Element } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+  useRef,
+  type Element,
+  type AbstractComponent,
+} from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
@@ -140,7 +148,7 @@ type Props = {|
  * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)
  * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.mjs-snapshots/DatePicker-closed-dark-chromium-darwin.png)
  */
-const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
+const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
   HTMLDivElement,
 >(function DatePicker(

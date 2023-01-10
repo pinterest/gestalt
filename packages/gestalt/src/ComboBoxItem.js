@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node } from 'react';
+import { forwardRef, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import Text from './Text.js';
 import Icon from './Icon.js';
@@ -32,7 +32,7 @@ type Props = {|
   value: string,
 |};
 
-const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(

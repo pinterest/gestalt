@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type ElementRef } from 'react';
+import { forwardRef, type ElementRef, type AbstractComponent } from 'react';
 import { Box, Icon, Label, TextField } from 'gestalt';
 import classnames from 'classnames';
 import styles from './DatePicker.css';
@@ -92,7 +92,7 @@ function textFieldForwardRef(props, ref) {
 
 textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 
-export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): React$AbstractComponent<
+export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): AbstractComponent<
   Props,
   HTMLInputElement,
 >);

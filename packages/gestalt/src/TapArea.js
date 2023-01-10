@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './TapArea.css';
 import InternalLink from './InternalLink.js';
@@ -80,7 +80,7 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
  * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
  *
  */
-const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function TapArea(props: unionProps, ref): Node {
