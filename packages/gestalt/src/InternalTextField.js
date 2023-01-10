@@ -1,5 +1,5 @@
 // @flow strict
-import { useImperativeHandle, useRef, forwardRef, type Element, type Node, useState } from 'react';
+import { useImperativeHandle, useRef, forwardRef, type Element, type Node, type AbstractComponent, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import { type MaxLength } from './TextField.js';
@@ -62,7 +62,7 @@ type Props = {|
   value?: string,
 |};
 
-const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
+const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> =
   forwardRef<Props, HTMLInputElement>(function TextField(
     {
       accessibilityControls,

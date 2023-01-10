@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, useState, useRef, useImperativeHandle } from 'react';
+import { forwardRef, type Node, type AbstractComponent, useState, useRef, useImperativeHandle } from 'react';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
@@ -87,7 +87,7 @@ type Props = {|
  * ![SearchField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField-dark.spec.mjs-snapshots/SearchField-dark-chromium-darwin.png)
  *
  */
-const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function SearchField(

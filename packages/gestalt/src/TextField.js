@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Element, type Node, useEffect, useState } from 'react';
+import { forwardRef, type Element, type Node, type AbstractComponent, useEffect, useState } from 'react';
 import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
@@ -122,7 +122,7 @@ type Props = {|
  * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.mjs-snapshots/TextField-dark-chromium-darwin.png)
  *
  */
-const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function TextField(

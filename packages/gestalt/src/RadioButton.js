@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, useState } from 'react';
+import { forwardRef, type Node, type AbstractComponent, useState } from 'react';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
@@ -60,7 +60,7 @@ type Props = {|
 /**
  * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
  */
-const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const RadioButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function RadioButton(

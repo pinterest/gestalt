@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, useCallback, useState } from 'react';
+import { forwardRef, type Node, type AbstractComponent, useCallback, useState } from 'react';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import AddCollaboratorsButton from './AvatarGroupAddCollaboratorsButton.js';
@@ -74,7 +74,7 @@ type Props = {|
  * ![AvatarGroup light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/AvatarGroup.spec.mjs-snapshots/AvatarGroup-chromium-darwin.png)
  * ![AvatarGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/AvatarGroup-dark.spec.mjs-snapshots/AvatarGroup-dark-chromium-darwin.png)
  */
-const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = forwardRef<
+const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRef<
   Props,
   UnionRefs,
 >(function AvatarGroup(
