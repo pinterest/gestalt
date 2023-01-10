@@ -529,13 +529,11 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .algolia-autocomplete
-  .algolia-docsearch-suggestion--title:not(
-    .algolia-autocomplete
-      .ds-dropdown-menu
-      .ds-suggestion.ds-cursor
-      .algolia-docsearch-suggestion
-      .algolia-docsearch-suggestion--content
-  ) {
+  .algolia-docsearch-suggestion--title:not(.algolia-autocomplete
+    .ds-dropdown-menu
+    .ds-suggestion.ds-cursor
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--content) {
   color: var(--g-colorGray300);
   /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.9em;
@@ -742,4 +740,33 @@ html[dir="rtl"] .Markdown ul + pre {
 .Markdown code.language-bash,
 .Markdown pre.language-bash code {
   background-color: var(--g-colorGray0);
+}
+
+/**
+Default table styling for MDX Pages
+**/
+.mdx-page table {
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border: 1px solid var(--g-colorGray150);
+}
+
+.mdx-page table tr {
+  vertical-align: top;
+  border-top: 1px solid var(--g-colorGray150);
+}
+
+.mdx-page table th {
+  padding: 0.5rem 1.25rem;
+}
+.mdx-page table td {
+  vertical-align: top;
+  padding: 1rem 1.25rem;
+}
+
+.mdx-page table tr br {
+  display: block;
+  content: "";
+  margin-top: 1em;
 }
