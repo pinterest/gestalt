@@ -48,6 +48,10 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
+   * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
+   */
+  padding?: 'default' | 'none',
+  /**
    * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
    */
   role?: 'alertdialog' | 'dialog',
@@ -94,6 +98,10 @@ function Header({
 
 /**
  * A [Modal](https://gestalt.pinterest.systems/web/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. Modal should be used to gather short bits of information from the user. For confirmation of an action or acknowledgment, use [ModalAlert](https://gestalt.pinterest.systems/web/modalalert).
+ *
+ * ![Modal light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal.spec.mjs-snapshots/Modal-chromium-darwin.png)
+ * ![Modal dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal-dark.spec.mjs-snapshots/Modal-dark-chromium-darwin.png)
+ *
  */
 export default function Modal({
   _dangerouslyDisableScrollBoundaryContainer = false,
@@ -103,6 +111,7 @@ export default function Modal({
   closeOnOutsideClick = true,
   onDismiss,
   footer,
+  padding = 'default',
   heading,
   role = 'dialog',
   size = 'sm',
@@ -177,7 +186,7 @@ export default function Modal({
                     {typeof heading === 'string' ? (
                       <Header align={align} heading={heading} subHeading={subHeading} />
                     ) : (
-                      heading
+                      <Box padding={6}>{heading}</Box>
                     )}
                   </Box>
                 )}
@@ -188,7 +197,11 @@ export default function Modal({
                   </Box>
                 ) : (
                   <ScrollBoundaryContainerProvider>
-                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
+                    <InternalScrollBoundaryContainer
+                      onScroll={updateShadows}
+                      ref={contentRef}
+                      padding={padding === 'none' ? 0 : 6}
+                    >
                       {children}
                     </InternalScrollBoundaryContainer>
                   </ScrollBoundaryContainerProvider>

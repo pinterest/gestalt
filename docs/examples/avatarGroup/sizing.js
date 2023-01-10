@@ -31,7 +31,7 @@ export default function Example(): Node {
             <Text inline>The </Text>
             <Text inline weight="bold">
               <Link
-                inline
+                display="inlineBlock"
                 href="https://www.pinterest.com/search/boards/?q=quick%20vegan%20recipes&rs=typed&term_meta[]=quick%7Ctyped&term_meta[]=vegan%7Ctyped&term_meta[]=recipes%7Ctyped"
               >
                 Quick Vegan Recipes{' '}

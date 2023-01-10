@@ -18,10 +18,12 @@ import Dropdown from '../graphics/general/Dropdown.svg';
 import RadioGroup from '../graphics/general/RadioGroup.svg';
 import Heading from '../graphics/general/Heading.svg';
 import IconButton from '../graphics/general/IconButton.svg';
+import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
+import List from '../graphics/general/List.svg';
 import Masonry from '../graphics/general/Masonry.svg';
 import Modal from '../graphics/general/Modal.svg';
 import ModalAlert from '../graphics/general/ModalAlert.svg';
@@ -186,7 +188,7 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   },
   {
     svg: <Messaging />,
-    name: 'Messsaing',
+    name: 'Messaging',
     description:
       'How to communicate errors, warnings, successes, recommendations and general information on system status.',
     category: 'Foundations',
@@ -656,7 +658,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
@@ -669,7 +671,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
   },
@@ -1171,6 +1173,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
+    svg: <IconButtonFloating />,
+    name: 'IconButtonFloating',
+    aliases: ['Glyph button', 'Floating action button', 'FAB', 'Quick create'],
+    description:
+      'IconButtonFloating provides an action that floats over the content and remains in place when scrolled.',
+    category: 'Actions',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'planned',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'planned',
+      figma: 'ready',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: 'notAvailable',
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: 'notAvailable',
+    },
+  },
+  {
     svg: <Image />,
     name: 'Image',
     aliases: ['<img>', 'Picture', 'Photo'],
@@ -1283,6 +1335,55 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'partial',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <List />,
+    name: 'List',
+    aliases: ['Unordered List', 'Ordered list', '<ol>', '<ul>', '<li>'],
+    description: 'List allows users to view individual, but related, text items grouped together.',
+    category: 'Structure',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
       android: 'notAvailable',
       deprecated: false,
       documentation: 'partial',
@@ -2196,7 +2297,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
@@ -2209,7 +2310,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
   },

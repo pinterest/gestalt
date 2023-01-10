@@ -8,6 +8,10 @@ type Props = {|
    */
   active?: 'page' | 'section',
   /**
+   * When supplied, will display a counter. See the [Counter](https://gestalt.pinterest.systems/web/sidenavigation#Counter) variant to learn more.
+   */
+  counter?: {| number: string, accessibilityLabel: string |},
+  /**
    * Directs users to the url when item is selected.
    */
   href: string,
@@ -31,8 +35,22 @@ type Props = {|
 /**
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
  */
-export default function SideNavigationNestedItem({ active, href, label, onClick }: Props): Node {
-  return <SideNavigationTopItem active={active} href={href} label={label} onClick={onClick} />;
+export default function SideNavigationNestedItem({
+  active,
+  counter,
+  href,
+  label,
+  onClick,
+}: Props): Node {
+  return (
+    <SideNavigationTopItem
+      active={active}
+      counter={counter}
+      href={href}
+      label={label}
+      onClick={onClick}
+    />
+  );
 }
 
 SideNavigationNestedItem.displayName = 'SideNavigation.NestedItem';

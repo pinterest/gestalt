@@ -13,10 +13,10 @@ import {
   TapArea,
   Text,
   Toast,
+  Tooltip,
 } from 'gestalt';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-// $FlowExpectedError[untyped-import]
 import iconCategoryData from './ICON_DATA.json';
 
 const { icons } = Icon;
@@ -36,90 +36,77 @@ const CATEGORIES = [
   'Utility and tools',
 ];
 
-type IconName = $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>;
-type IconData = {|
-  name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
-  category:
-    | 'Add'
-    | 'Ads and measurements'
-    | 'Alignment'
-    | 'Arrows'
-    | 'Media controls'
-    | 'Platform specific'
-    | 'Reactions and ratings'
-    | 'Social'
-    | 'Status'
-    | 'Text'
-    | 'Time'
-    | 'Toggle'
-    | 'Utility and tools',
-|};
-
-function IconTile({ iconName, onTap }: {| iconName: IconName, onTap: () => void |}) {
+function IconTile({
+  iconName,
+  iconDescription = 'Description coming soon',
+  onTap,
+}: {|
+  iconName: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
+  iconDescription: string,
+  onTap: () => void,
+|}) {
   const [hovered, setHovered] = useState();
 
   return (
-    <TapArea
-      rounding={2}
-      tapStyle="compress"
-      onTap={onTap}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={() => setHovered(false)}
-    >
-      <Box
-        borderStyle="sm"
+    <Tooltip text={iconDescription} accessibilityLabel={iconDescription} idealDirection="down">
+      <TapArea
         rounding={2}
-        padding={2}
-        width={150}
-        height={110}
-        color={hovered ? 'inverse' : 'default'}
-        position="relative"
+        tapStyle="compress"
+        onTap={onTap}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
       >
-        <Flex
-          height="100%"
-          flex="grow"
-          direction="column"
-          gap={2}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Icon
-            color={hovered ? 'inverse' : 'default'}
-            accessibilityLabel={iconName}
-            icon={iconName}
-            size="24"
-          />
-          <Text color={hovered ? 'inverse' : 'default'} size="100">
-            {iconName}
-          </Text>
-        </Flex>
         <Box
-          position="absolute"
-          bottom
-          right
-          display={hovered ? 'block' : 'none'}
-          dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+          borderStyle="sm"
+          rounding={2}
+          padding={2}
+          width={150}
+          height={110}
+          color={hovered ? 'inverse' : 'default'}
+          position="relative"
         >
-          <Pog
-            icon="copy-to-clipboard"
-            size="xs"
-            iconColor="darkGray"
-            bgColor="lightGray"
-            padding={1}
-          />
+          <Flex
+            height="100%"
+            flex="grow"
+            direction="column"
+            gap={2}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Icon
+              color={hovered ? 'inverse' : 'default'}
+              accessibilityLabel=""
+              icon={iconName}
+              size="24"
+            />
+            <Text color={hovered ? 'inverse' : 'default'} size="100">
+              {iconName}
+            </Text>
+          </Flex>
+          <Box
+            position="absolute"
+            bottom
+            right
+            display={hovered ? 'block' : 'none'}
+            dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+          >
+            <Pog
+              icon="copy-to-clipboard"
+              size="xs"
+              iconColor="darkGray"
+              bgColor="lightGray"
+              padding={1}
+            />
+          </Box>
         </Box>
-      </Box>
-    </TapArea>
+      </TapArea>{' '}
+    </Tooltip>
   );
 }
 
-function findIcon(icon?: string): ?IconName {
-  return icons.find((name) => name === icon);
-}
-
-function findIconByCategory(icon?: string, category: string): IconData {
+function findIconByCategory(icon?: string, category: string) {
   // This check ensures there is an actual matching icon in our component
   // so we don't accidentally show icons that are only in Figma.
   const iconComponentName = icons.find((name) => name === icon);
@@ -129,13 +116,28 @@ function findIconByCategory(icon?: string, category: string): IconData {
   );
 }
 
+function iconHasKeyword(iconName?: string, searchTerm: string) {
+  return (
+    iconCategoryData.icons.find(
+      ({ name, keywords }) =>
+        name === iconName && keywords?.find((word) => word.includes(searchTerm)),
+    ) !== undefined
+  );
+}
+
 export default function IconPage(): Node {
   const [showToastText, setShowToastText] = useState(false);
 
-  const iconOptions = icons.map((name, index) => ({
-    label: name,
-    value: `value${index}`,
-  }));
+  const iconOptions = icons
+    .map((name, index) => ({
+      label: name,
+      value: `value${index}`,
+    }))
+    .sort(({ label: aName }, { label: bName }) => {
+      if (aName < bName) return -1;
+      if (aName > bName) return 1;
+      return 0;
+    });
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
   const [inputValue, setInputValue] = useState();
@@ -145,7 +147,10 @@ export default function IconPage(): Node {
     setInputValue(value);
     setSuggestedOptions(
       value
-        ? iconOptions.filter(({ label }) => label.toLowerCase().includes(value.toLowerCase()))
+        ? iconOptions.filter(
+            ({ label }) =>
+              label.toLowerCase().includes(value.toLowerCase()) || iconHasKeyword(label, value),
+          )
         : iconOptions,
     );
   };
@@ -164,10 +169,16 @@ export default function IconPage(): Node {
     sortedAlphabetical ? (
       <Flex gap={3} wrap>
         {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
-          const icon = findIcon(iconName);
-          return icon ? (
-            <IconTile key={iconName} iconName={icon} onTap={buildHandleIconClick(icon)} />
-          ) : null;
+          const filteredIconData = iconCategoryData.icons.find((icon) => icon.name === iconName);
+
+          return (
+            <IconTile
+              key={iconName}
+              iconName={iconName}
+              onTap={buildHandleIconClick(iconName)}
+              iconDescription={filteredIconData?.description ?? ''}
+            />
+          );
         })}
       </Flex>
     ) : (
@@ -179,6 +190,7 @@ export default function IconPage(): Node {
               <IconTile
                 key={iconName}
                 iconName={iconData.name}
+                iconDescription={iconData.description ?? ''}
                 onTap={buildHandleIconClick(iconData.name)}
               />
             ) : null;
@@ -211,7 +223,7 @@ export default function IconPage(): Node {
       </Text>
       <Text>
         Need a new icon?{' '}
-        <Link inline href="/get_started/how_to_work_with_us#Slack-channels">
+        <Link display="inlineBlock" href="/get_started/how_to_work_with_us#Slack-channels">
           Reach out to us
         </Link>
         , and we can evaluate your request.

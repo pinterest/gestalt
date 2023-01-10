@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
@@ -8,6 +9,8 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import customItem from '../../examples/dropdown/customItem.js';
 
 export default function DropdownPage({
   generatedDocGen,
@@ -498,6 +501,16 @@ function CustomContentDropdownExample() {
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
           `}
         />
+        <MainSection.Subsection
+          title="Custom item content limitations"
+          description={`
+          If using custom content, do not include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children. [Learn more about nested interactive controls](https://dequeuniversity.com/rules/axe/4.2/nested-interactive)
+          `}
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={customItem} name="Custom item example" />}
+          />
+        </MainSection.Subsection>
       </AccessibilitySection>
       <MainSection name="Localization">
         <MainSection.Subsection
@@ -997,66 +1010,25 @@ function BadgesDropdownExample() {
         <MainSection.Subsection
           title="Custom item content"
           description={`
-      If needed, users can supply custom content to each Dropdown.Item or Dropdown.Link. This can be useful when extra functionality is needed. However, please use with caution and only when absolutely necessary.
+      If needed, users can supply custom content to each Dropdown.Item or Dropdown.Link. This can be useful when extra functionality is needed, like showing an Avatar. However, please use with caution and only when absolutely necessary.
 
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
           `}
         >
+          <SlimBanner
+            iconAccessibilityLabel="Localize the default label"
+            message="Accessibility note: custom content cannot include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children."
+            type="info"
+            helperLink={{
+              text: 'Learn more',
+              accessibilityLabel: 'Learn more about nested interactive elements',
+              href: 'https://dequeuniversity.com/rules/axe/4.2/nested-interactive',
+              onClick: () => {},
+            }}
+          />
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function CustomIconButtonPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="custom-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="custom-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Link
-            isExternal
-            option={{ value: 'item 1', label: 'Custom link 1' }}
-          >
-            <Box width="100%">
-              <Text>
-                <Link hoverStyle="none" href="https://pinterest.com" target="blank">
-                  Custom link 1
-                </Link>
-              </Text>
-            </Box>
-          </Dropdown.Link>
-          <Dropdown.Link
-            isExternal
-            option={{ value: 'item 2', label: 'Another custom link' }}
-          >
-            <Box width="100%">
-              <Text>
-                <Link hoverStyle="none" href="https://google.com" target="blank">
-                  Another custom link
-                </Link>
-              </Text>
-            </Box>
-          </Dropdown.Link>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={<SandpackExample code={customItem} name="Custom item example" />}
           />
         </MainSection.Subsection>
 

@@ -13,6 +13,24 @@ import {
   Image,
 } from 'gestalt';
 
+const images = [
+  {
+    url: 'https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp',
+    title: 'Fashion',
+    alt: 'Thumbnail image: a white dress with red flowers',
+  },
+  {
+    url: 'https://i.ibb.co/swC1qpp/IMG-0494.jpg',
+    title: 'Food',
+    alt: 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice',
+  },
+  {
+    url: 'https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp',
+    title: 'Home',
+    alt: 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture',
+  },
+];
+
 function List({
   title,
   setSelectedBoard,
@@ -28,27 +46,11 @@ function List({
         {title}
       </Text>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          [
-            'https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp',
-            'Fashion',
-            'Thumbnail image: a white dress with red flowers',
-          ],
-          [
-            'https://i.ibb.co/swC1qpp/IMG-0494.jpg',
-            'Food',
-            'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice',
-          ],
-          [
-            'https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp',
-            'Home',
-            'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture',
-          ],
-        ].map((data) => (
+        {images.map(({ alt, title: imageTitle, url }) => (
           <TapArea
-            key={data[1]}
+            key={imageTitle}
             onTap={() => {
-              setSelectedBoard(data[1]);
+              setSelectedBoard(imageTitle);
               setOpen(false);
             }}
           >
@@ -56,16 +58,16 @@ function List({
               <Box height={50} width={50} overflow="hidden" rounding={2}>
                 <Mask rounding={2}>
                   <Image
-                    alt={data[2]}
+                    alt={alt}
                     color="rgb(231, 186, 176)"
                     naturalHeight={50}
                     naturalWidth={50}
-                    src={data[0]}
+                    src={url}
                   />
                 </Mask>
               </Box>
               <Text align="center" color="default" weight="bold">
-                {data[1]}
+                {imageTitle}
               </Text>
             </Flex>
           </TapArea>
@@ -75,7 +77,7 @@ function List({
   );
 }
 
-export default function DismissButton(): Node {
+export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
   const anchorRef = useRef();
@@ -99,6 +101,7 @@ export default function DismissButton(): Node {
           <Button color="red" onClick={() => {}} size="lg" text="Save" />
         </Flex>
       </Box>
+
       {open && (
         <Layer>
           <Popover
@@ -111,7 +114,7 @@ export default function DismissButton(): Node {
             showDismissButton
             size="xl"
           >
-            <Box width={360}>
+            <Box width={300}>
               <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">

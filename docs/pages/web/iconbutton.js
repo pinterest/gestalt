@@ -103,7 +103,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           {
             name: 'size',
             type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-            defaultValue: 'md',
+            defaultValue: 'lg',
             description:
               'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
           },
@@ -143,6 +143,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type: 'boolean',
             description:
               'Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
+          },
+          {
+            name: 'accessibilityPopupRole',
+            type: `'menu' | 'dialog'`,
+            description:
+              'Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
           },
           {
             name: 'role',
@@ -363,7 +369,7 @@ IconButtons that act as links can be paired with OnLinkNavigationProvider. See [
           description={`IconButton is available in 5 fixed sizes:
 
 1. \`xl\` (56px)
-    Extra large IconButtons should be used sparingly and only in places where the UI has a case for an extra-large IconButton.
+    Extra large IconButtons should be used sparingly and only in places where the UI has a case for an extra-large IconButton. A common use case is [IconButtonFloating](/web/iconbuttonfloating).
 2. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
 3. \`md\` (40px)

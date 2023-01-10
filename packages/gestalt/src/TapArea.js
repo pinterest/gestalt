@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import styles from './Touchable.css';
+import styles from './TapArea.css';
 import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
@@ -76,6 +76,9 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 /**
  * [TapArea](https://gestalt.pinterest.systems/tapArea) allows components to be clickable and touchable in an accessible way
+ *
+ * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
+ *
  */
 const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,

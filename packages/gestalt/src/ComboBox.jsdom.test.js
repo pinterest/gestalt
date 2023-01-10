@@ -1,6 +1,5 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-// $FlowFixMe[untyped-import]
 import userEvent from '@testing-library/user-event';
 import ComboBox from './ComboBox.js';
 import Tag from './Tag.js';
@@ -40,7 +39,7 @@ describe('ComboBox', () => {
     <Tag
       key={pronoun}
       onRemove={() => {}}
-      removeIconAccessibilityLabel={REMOVE_TAG}
+      accessibilityRemoveIconLabel={REMOVE_TAG}
       text={pronoun}
     />
   ));

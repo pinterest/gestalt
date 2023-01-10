@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box } from 'gestalt';
-import MainSection from '../components/MainSection.js';
-import PageHeader from '../components/PageHeader.js';
-import Page from '../components/Page.js';
-import GeneratedPropTable from '../components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../components/docgen.js';
-import CombinationNew from '../components/CombinationNew.js';
-import QualityChecklist from '../components/QualityChecklist.js';
+import MainSection from '../../docs-components/MainSection.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import Page from '../../docs-components/Page.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
 export default function ComponentNamePage({
   generatedDocGen,
@@ -15,8 +15,8 @@ export default function ComponentNamePage({
   generatedDocGen: DocGen,
 |}): Node {
   return (
-    <Page title="ComponentName">
-      <PageHeader name="ComponentName" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
@@ -89,31 +89,7 @@ Code for this example goes here
           description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
           title="Variant using CombinationNew"
         >
-          <CombinationNew
-            color={[
-              'red',
-              'white',
-              'lightGray',
-              'gray',
-              'darkGray',
-              'green',
-              'pine',
-              'olive',
-              'blue',
-              'navy',
-              'midnight',
-              'purple',
-              'orchid',
-              'eggplant',
-              'maroon',
-              'watermelon',
-              'orange',
-              'transparent',
-              'transparentDarkGray',
-              'lightWash',
-              'darkWash',
-            ]}
-          >
+          <CombinationNew color={['red', 'white']}>
             {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
           </CombinationNew>
         </MainSection.Subsection>

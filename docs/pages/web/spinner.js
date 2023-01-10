@@ -1,39 +1,34 @@
 // @flow strict
 import { type Node } from 'react';
-import Example from '../../docs-components/Example.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import delay from '../../examples/spinner/delay.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import doLocation from '../../examples/spinner/doLocation.js';
+import dontLabel from '../../examples/spinner/dontLabel.js';
+import dontMultiple from '../../examples/spinner/dontMultiple.js';
+import dontWait from '../../examples/spinner/dontWait.js';
+import doOverlay from '../../examples/spinner/doOverlay.js';
+import doWait from '../../examples/spinner/doWait.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import main from '../../examples/spinner/main.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Spinner">
-      <PageHeader
-        name="Spinner"
-        description={generatedDocGen?.description}
-        defaultCode={`
-function SpinnerExample() {
-  const [show, setShow] = React.useState(true);
-
-  return (
-    <Box>
-      <Box paddingY={2}>
-        <Button
-          text={!show ? "Show spinner" : "Hide spinner"}
-          onClick={() => setShow(!show)}
-          size="md"
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name="Primary Spinner example"
+          hideEditor
+          previewHeight={150}
         />
-      </Box>
-      <Spinner show={show} accessibilityLabel="Example spinner" />
-    </Box>
-  );
-}
-`}
-      />
+      </PageHeader>
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
@@ -56,35 +51,117 @@ function SpinnerExample() {
           />
         </MainSection.Subsection>
       </MainSection>
-      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection name="Best Practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Only show Spinner if the expected wait time is perceptible — typically more than a second. Remember that wait times can vary based on the user's network connection."
+            sandpackExample={
+              <SandpackExample code={doWait} name="Do - Wait" hideEditor previewHeight={400} />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use Spinner if the wait time is likely longer than 10 seconds. Show incremental loading/completion progress instead."
+            sandpackExample={
+              <SandpackExample
+                code={dontWait}
+                name="Don't - Wait"
+                hideControls
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Show Spinner where the content is being loaded or updated to create a clear association with where results will appear."
+            sandpackExample={
+              <SandpackExample
+                code={doLocation}
+                name="Do - Location"
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Show more than one Spinner at a time to avoid an overly-busy interface. Show a single Spinner over the collection of loading content instead."
+            sandpackExample={
+              <SandpackExample
+                code={dontMultiple}
+                name="Don't - Multiple"
+                hideControls
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Screen underlying content when overlaid by Spinner."
+            sandpackExample={
+              <SandpackExample
+                code={doOverlay}
+                name="Do - Overlay"
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Display a loading label adjacent to Spinner when the label is redundant."
+            sandpackExample={
+              <SandpackExample
+                code={dontLabel}
+                name="Don't - Label"
+                hideControls
+                hideEditor
+                previewHeight={400}
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description={`
+      Be sure to include \`accessibilityLabel\`. Labels should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface). Don't forget to localize the label!
+      `}
+      />
+
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize \`accessibilityLabel\`. Be mindful of label length so that it isn't truncated in languages with lengthier character counts.`}
+      />
 
       <MainSection name="Variants">
-        <Example
+        <MainSection.Subsection
           description={`
-    Spinners indicate when a user has to wait for something else to occur. They delay showing for 300ms to improve perceived performance.
-
-    The label on a spinner is for accessibility. You should pick labels that relate to the specific part of the product it's being used in ("Loading homefeed" for instance).
+    By default, Spinner uses a 300ms delay to improve perceived performance. This can be disabled if needed.
   `}
-          name="Example"
-          defaultCode={`
-function SpinnerExample() {
-  const [show, setShow] = React.useState(false);
-
-  return (
-    <Box>
-      <Box paddingY={2}>
-        <Button
-          text={!show ? "Show spinner" : "Hide spinner"}
-          onClick={() => setShow(!show)}
-          size="md"
-        />
-      </Box>
-      <Spinner show={show} accessibilityLabel="Example spinner" />
-    </Box>
-  );
-}
-`}
-        />
+          title="Delay"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={delay} name="Delay variant" />}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

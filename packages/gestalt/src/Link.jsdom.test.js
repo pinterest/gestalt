@@ -19,7 +19,7 @@ describe('Link', () => {
     render(
       <Link
         href="https://business.pinterest.com/advertise"
-        inline
+        display="inline"
         externalLinkIcon="default"
         target="blank"
       >
@@ -42,7 +42,7 @@ describe('Link', () => {
       <Link
         accessibilityLabel="Visit Pinterest"
         href="https://business.pinterest.com/advertise"
-        inline
+        display="inline"
         externalLinkIcon="default"
         target="blank"
       />,

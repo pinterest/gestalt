@@ -23,7 +23,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
     text={
       <Text inline> Saved to
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
@@ -109,16 +109,18 @@ function ToastExample() {
                 transform: 'translateX(-50%)',
               },
             }}
-            fit
+            width="100%"
             paddingX={1}
             position="fixed"
+            display="flex"
+            justifyContent="center"
           >
             <Toast
               primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
               text={
                 <Text inline>
                   Saved to{' '}
-                  <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                  <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                     Home decor
                   </Link>
                 </Text>
@@ -143,7 +145,7 @@ function ToastExample() {
 
         <MainSection.Subsection
           description={`
-The \`text\` prop accepts either a string or [Text](/Text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.
+The \`text\` prop accepts either a string or [Text](/web/text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.
 
 If  confirmation toast's text with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`variant\`.
 `}
@@ -158,7 +160,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
     text={
       <Text inline>
         Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
@@ -194,7 +196,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
     text={
       <Text inline>
         Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>
@@ -224,7 +226,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
     text={
       <Text inline>
         Saved to{' '}
-        <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
           Home decor
         </Link>
       </Text>

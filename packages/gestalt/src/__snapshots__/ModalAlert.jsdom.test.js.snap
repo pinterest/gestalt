@@ -85,14 +85,10 @@ exports[`Modal Modal renders 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX0 paddingY0 relative"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
-              <div
-                class="box paddingX6"
-              >
-                Modal content
-              </div>
+              Modal content
             </div>
             <div
               class="box fit relative"

@@ -11,7 +11,6 @@ import { useAppContext } from '../appContext.js';
 
 const enabledExperiments = {
   Badge: ['web_gestalt_redesigned_badge', 'mweb_gestalt_redesigned_badge'],
-  TextField: ['web_unauth_show_password_button', 'mweb_unauth_show_password_button'],
   Toast: ['web_gestalt_redesigned_toast', 'mweb_gestalt_redesigned_toast'],
 };
 

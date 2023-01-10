@@ -5,8 +5,8 @@
       "comment": "Transparent - When a transparent alpha value is needed (without a background)"
     },
     "100": {
-      "value": "0.03",
-      "comment": "Pin wash - Permanent overlay used on Pin images to ensure a visual separation between the white background and any Pin images that have pure white peripheries. Note: iOS uses 4%"
+      "value": "0.04",
+      "comment": "Pin wash - Permanent overlay used on Pin images to ensure a visual separation between the white background and any Pin images that have pure white peripheries"
     },
     "200": {
       "value": "0.2",
@@ -22,7 +22,7 @@
     },
     "500": {
       "value": "0.9",
-      "comment": "Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash ($color-background-wash-light instead of $color-background-wash-dark)."
+      "comment": "Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash ($color-background-wash-light instead of $color-background-wash-dark)"
     }
   }
 }

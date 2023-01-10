@@ -11,15 +11,6 @@ pre {
   word-break: break-word !important; /* stylelint-disable-line declaration-no-important */
 }
 
-ul {
-  margin: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
 .reset {
   border: 0;
   font: inherit;
@@ -65,8 +56,13 @@ li {
 
 .Markdown pre {
   background-color: rgb(236 236 236 / 0.5);
+  margin: 40px;
   overflow: auto;
   padding: 5px;
+}
+
+.Markdown .md-hint {
+  margin: 40px;
 }
 
 .Markdown code {
@@ -91,29 +87,15 @@ li {
   margin-top: 24px;
 }
 
-.Markdown ul {
-  padding-inline-start: 20px;
+.Markdown div > ol,
+.Markdown div > ul {
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
-.Markdown ul + pre {
-  margin-left: 40px;
-}
-
-.Markdown ul ~ .md-hint {
-  margin-left: 40px;
-}
-
-.Markdown ul + details {
-  margin-left: 40px;
-}
-
-html[dir="rtl"] .Markdown ul + pre {
-  margin-right: 40px;
-}
-
-.Markdown li {
-  margin-bottom: 10px;
-  margin-top: 10px;
+.Markdown details {
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .Markdown a {
@@ -742,6 +724,7 @@ html[dir="rtl"] .Markdown ul + pre {
   background-color: var(--g-colorGray0);
 }
 
+
 /**
 Default table styling for MDX Pages
 **/
@@ -769,4 +752,298 @@ Default table styling for MDX Pages
   display: block;
   content: "";
   margin-top: 1em;
+ }
+
+/* Year In Review CSS */
+
+.year-in-review {
+  background-color: var(--color-background-light);
+  overflow: hidden;
+}
+
+.year-in-review .bwj {
+  line-height: 1.5;
+}
+
+.year-in-review .h1Font {
+  color: var(--color-text-light);
+  font-family: PinterestSans, system-ui;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+.year-in-review .halfAndHalf {
+  background: linear-gradient(
+    to top,
+    var(--color-purple-mysticool-200) 0%,
+    var(--color-purple-mysticool-200) 50%,
+    var(--color-blue-skycicle-450) 50%,
+    var(--color-blue-skycicle-450) 100%
+  );
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.year-in-review h2 {
+  font-family: PinterestSans, system-ui;
+  font-size: var(--font-size-600);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+}
+
+.year-in-review .gestalt2022 {
+  color: var(--color-text-light);
+  font-family: PinterestSans, system-ui;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+}
+
+.year-in-review .statsGrid {
+  align-items: center;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+}
+
+.year-in-review .statsNumber {
+  font-family: PinterestSans, system-ui;
+  font-size: var(--font-size-600);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.year-in-review .statsGrid .statsNumber {
+  justify-self: end;
+}
+
+.year-in-review .statsDescription {
+  font-family: var(--font-family-default-latin);
+  font-size: var(--font-size-100);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.year-in-review .backButton {
+  align-items: center;
+  background-color: var(--color-background-light);
+  border: 3px solid var(--color-background-dark);
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 4px 12px;
+}
+
+.year-in-review .backButton:hover {
+  background-color: var(--color-background-secondary-base);
+}
+
+@font-face {
+  font-family: PinterestSans, system-ui;
+  src: local("PinterestSans"),
+    url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
+}
+
+/* Year in review animations */
+
+.introAsterisk {
+  animation: fly-in-right 1s ease-out 0s forwards,
+    spin-counter-clockwise 2s ease-in-out 1s forwards 2;
+  opacity: 0;
+}
+
+.introHalfDonut {
+  animation: fly-in-right 1s ease-out 0s forwards,
+    rock 2s ease-in-out 1s forwards 2;
+  opacity: 0;
+}
+
+.fadeInRight,
+.fadeInLeft {
+  display: none;
+  opacity: 0;
+}
+
+.fadeInRight.animate {
+  animation: fly-in-right 1s ease-out 0s forwards;
+}
+
+.fadeInLeft.animate {
+  animation: fly-in-left 1s ease-out 0s forwards;
+}
+
+.token1 {
+  animation: rock 4s linear infinite;
+  transform-origin: 85px 266px;
+}
+
+.token2 {
+  animation: spin 4s linear infinite;
+  transform-origin: 807px 91px;
+}
+
+.token3 {
+  animation: rock 4s linear 1s infinite;
+  transform-origin: 1176px 85px;
+}
+
+.logo1 {
+  animation: background-flash 3s linear infinite;
+  fill: #fff;
+}
+
+.logo2 {
+  animation: background-flash 3s linear 1s infinite;
+  fill: #fff;
+}
+
+.logo3 {
+  animation: background-flash 3s linear 2s infinite;
+  fill: #fff;
+}
+
+@keyframes fly-in-right {
+  from {
+    transform: translate(20%, 500px) rotate(180deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes fly-in-left {
+  from {
+    transform: translate(-20%, 500px) rotate(-100deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes rock {
+  0%,
+  40%,
+  100% {
+    transform: rotate(0);
+  }
+
+  10%,
+  30% {
+    transform: rotate(20deg);
+  }
+
+  20% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media all and (min-width: 768px) {
+  .year-in-review .h1Font {
+    font-size: 96px;
+  }
+
+  .year-in-review h2 {
+    font-size: 64px;
+  }
+
+  .year-in-review .statsNumber {
+    font-size: 64px;
+  }
+
+  .year-in-review .statsDescription {
+    font-size: var(--font-size-400);
+  }
+
+  .year-in-review .backButton {
+    padding: 8px 24px;
+  }
+
+  .year-in-review .gestalt2022 {
+    font-size: 48px;
+  }
+
+  .fadeInRight,
+  .fadeInLeft {
+    display: block;
+  }
+}
+
+@media all and (min-width: 1312px) {
+  .year-in-review .h1Font {
+    font-size: 128px;
+  }
+
+  .year-in-review h2 {
+    font-size: 96px;
+  }
+
+  .year-in-review .gestalt2022 {
+    font-size: 64px;
+  }
+}
+
+@keyframes background-flash {
+  0% {
+    fill: #111;
+  }
+
+  33% {
+  
+    fill: #111;
+  }
+
+  33.33% {
+    fill: #fff;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .fadeInLeft.animate,
+  .fadeInRight.animate,
+  [class^="token"],
+  [class^="logo"],
+  .introHalfDonut,
+  .introAsterisk {
+    animation: none;
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
 }

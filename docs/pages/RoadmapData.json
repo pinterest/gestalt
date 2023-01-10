@@ -5,7 +5,7 @@
       "task": "InfoButton component",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Creation of a component to provide contextual information for elements within a layout.",
       "link": ""
     },
@@ -13,7 +13,7 @@
       "task": "Form component",
       "deadline": "Quarter 3",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of a component to encapsulate and structure form elements in a layout.",
       "link": ""
     },
@@ -21,7 +21,7 @@
       "task": "Badge component improvements",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Expanding on Badge to include additional colors and states.",
       "link": ""
     },
@@ -29,7 +29,7 @@
       "task": "PageHeader component",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Adjustments to the existing PageHeader component to be more compatible with product needs.",
       "link": ""
     },
@@ -37,7 +37,7 @@
       "task": "Side nav menu component",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Creation of a baseline component to support side navigation layout patterns.",
       "link": ""
     },
@@ -45,7 +45,7 @@
       "task": "Link component improvements",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Update Link component to support external indicator and more accessible styling.",
       "link": ""
     },
@@ -53,15 +53,15 @@
       "task": "InfoButton integration in input components",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Providing the ability in form components to add an InfoButton to provide contextual help.",
       "link": ""
     },
     {
       "task": "Gestalt illustration library",
       "deadline": "Quarter 3",
-      "status": "inProgress",
-      "platform": "Android/iOS/Web",
+      "status": "ok",
+      "platforms": ["Android", "iOS", "Web"],
       "description": "Creation of a baseline set of illustrations that cover high-frequency product states (e.g., Error, Success, Empty).",
       "link": ""
     },
@@ -69,7 +69,7 @@
       "task": "Gestalt animation support",
       "deadline": "Quarter 3",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Built-in animation capabilities within Gestalt to support high-frequency UI transitions within the product.",
       "link": ""
     },
@@ -77,7 +77,7 @@
       "task": "Multi-select component",
       "deadline": "Quarter 4",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Pilot component for supporting selection of multiple items in a dropdown context.",
       "link": ""
     },
@@ -85,7 +85,7 @@
       "task": "Pagination component",
       "deadline": "Quarter 4",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Pilot component for paginating through content.",
       "link": ""
     },
@@ -93,7 +93,7 @@
       "task": "Modal/Sheet component",
       "deadline": "Quarter 4",
       "status": "problem",
-      "platform": "Mobile web",
+      "platforms": ["Mobile web"],
       "description": "Development of a mobile-specific treatment of the Modal component.",
       "link": ""
     },
@@ -101,7 +101,7 @@
       "task": "Popover component",
       "deadline": "Quarter 4",
       "status": "problem",
-      "platform": "Mobile web",
+      "platforms": ["Mobile web"],
       "description": "Development of a mobile-specific treatment of the Popover component.",
       "link": ""
     },
@@ -109,7 +109,7 @@
       "task": "Dropdown component",
       "deadline": "Quarter 4",
       "status": "unstarted",
-      "platform": "Mobile web",
+      "platforms": ["Mobile web"],
       "description": "Development of a mobile-specific treatment of the Dropdown component.",
       "link": ""
     },
@@ -117,7 +117,7 @@
       "task": "Button component update",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Visual updates to the Button component on the Web platform.",
       "link": ""
     },
@@ -125,7 +125,7 @@
       "task": "Button component",
       "deadline": "",
       "status": "problem",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Development of the Button component for Android and iOS.",
       "link": ""
     },
@@ -133,7 +133,7 @@
       "task": "IconButton component",
       "deadline": "",
       "status": "problem",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Development of the IconButton component for Android and iOS.",
       "link": ""
     },
@@ -141,7 +141,7 @@
       "task": "Icon component",
       "deadline": "",
       "status": "problem",
-      "platform": "Android",
+      "platforms": ["Android"],
       "description": "Development of the Icon component for Android.",
       "link": ""
     },
@@ -149,7 +149,7 @@
       "task": "Avatar component",
       "deadline": "",
       "status": "ok",
-      "platform": "Android",
+      "platforms": ["Android"],
       "description": "Development of the Avatar component for Android.",
       "link": ""
     },
@@ -157,7 +157,7 @@
       "task": "RadioGroup component",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Create new component to create accessible Radio button groups in forms, deprecate singular RadioButton.",
       "link": ""
     },
@@ -165,7 +165,7 @@
       "task": "Masonry component enhancements",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop general technical improvements to Masonry.",
       "link": ""
     },
@@ -173,7 +173,7 @@
       "task": "Device type hooks",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop functionality to unlock device-specific UI in Gestalt.",
       "link": ""
     },
@@ -181,7 +181,7 @@
       "task": "Context logging hooks",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop functionality to allow for generic logic to be added on component interaction.",
       "link": ""
     },
@@ -189,7 +189,7 @@
       "task": "Border color and radius design tokens",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of tokens to support border radius and border color styling.",
       "link": ""
     },
@@ -197,7 +197,7 @@
       "task": "Color opacity design tokens",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of tokens to support opacity styling.",
       "link": ""
     },
@@ -205,7 +205,7 @@
       "task": "Elevation design tokens",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of tokens to support the styling of elevated elements within a layout.",
       "link": ""
     },
@@ -213,7 +213,7 @@
       "task": "Gestalt docs IA update",
       "deadline": "",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Update of the Gestalt docs site’s information architecture to support pattern guidelines and mobile component documentation.",
       "link": ""
     },
@@ -221,7 +221,7 @@
       "task": "Visual component overview",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Provide a visual component overview within the Gestalt docs to make finding components faster/easier.",
       "link": ""
     },
@@ -229,7 +229,7 @@
       "task": "Public roadmap in Gestalt site",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Publish and maintain a public roadmap for Gestalt development.",
       "link": "/roadmap"
     },
@@ -237,7 +237,7 @@
       "task": "Elevation visual guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Development of usage guidelines and best practices for usage of elevation within Gestalt.",
       "link": ""
     },
@@ -245,7 +245,7 @@
       "task": "Status component design guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Status web documentation.",
       "link": "/web/status"
     },
@@ -253,7 +253,7 @@
       "task": "Datapoint component design guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Datapoint web documentation.",
       "link": ""
     },
@@ -261,7 +261,7 @@
       "task": "Tag component design guidelines",
       "deadline": "Quarter 1",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Tag web documentation.",
       "link": ""
     },
@@ -269,7 +269,7 @@
       "task": "Badge component design guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Badge web documentation.",
       "link": ""
     },
@@ -277,7 +277,7 @@
       "task": "Button component design guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Button mobile documentation.",
       "link": ""
     },
@@ -285,7 +285,7 @@
       "task": "IconButton component design guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to IconButton mobile documentation.",
       "link": ""
     },
@@ -293,7 +293,7 @@
       "task": "Modal/Sheet component design guidelines",
       "deadline": "Quarter 1",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Modal/Sheet mobile documentation.",
       "link": ""
     },
@@ -301,7 +301,7 @@
       "task": "Masonry component design guidelines",
       "deadline": "Quarter 2",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Masonry web documentation.",
       "link": ""
     },
@@ -309,7 +309,7 @@
       "task": "Link component design guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Link web documentation.",
       "link": ""
     },
@@ -317,7 +317,7 @@
       "task": "Heading component design guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Heading web documentation.",
       "link": ""
     },
@@ -325,7 +325,7 @@
       "task": "Text component design guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Text web documentation.",
       "link": ""
     },
@@ -333,7 +333,7 @@
       "task": "Tabs component design guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Tabs mobile documentation.",
       "link": ""
     },
@@ -341,7 +341,7 @@
       "task": "Popover component design guidelines",
       "deadline": "Quarter 3",
       "status": "inProgress",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Popover mobile documentation.",
       "link": ""
     },
@@ -349,7 +349,7 @@
       "task": "Avatar component design guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Avatar mobile documentation.",
       "link": ""
     },
@@ -357,7 +357,7 @@
       "task": "Product color visual guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Publish guidelines and best practices for utilizing color within Gestalt.",
       "link": ""
     },
@@ -365,7 +365,7 @@
       "task": "Typographic visual guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Publish guidelines and best practices for typographic treatment within Gestalt.",
       "link": ""
     },
@@ -373,7 +373,7 @@
       "task": "Component scorecard",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Provide detailed info on the status and health of each component in the Gestalt docs.",
       "link": ""
     },
@@ -381,7 +381,7 @@
       "task": "Dark mode visual guidelines",
       "deadline": "Quarter 2",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Publish guidelines for designing for dark mode using Gestalt.",
       "link": ""
     },
@@ -389,7 +389,7 @@
       "task": "Toast component design guidelines",
       "deadline": "Quarter 3",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Toast mobile documentation.",
       "link": ""
     },
@@ -397,7 +397,7 @@
       "task": "Icon component design guidelines",
       "deadline": "Quarter 3",
       "status": "ok",
-      "platform": "Android/iOS",
+      "platforms": ["Android", "iOS"],
       "description": "Addition of best practices, accessibility, localization and related components to Icon mobile documentation.",
       "link": ""
     },
@@ -405,7 +405,7 @@
       "task": "Checkbox component design guidelines",
       "deadline": "Quarter 3",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Checkbox web documentation.",
       "link": ""
     },
@@ -413,7 +413,7 @@
       "task": "Toast component design guidelines",
       "deadline": "Quarter 3",
       "status": "inProgress",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Toast web documentation.",
       "link": ""
     },
@@ -421,7 +421,7 @@
       "task": "RadioGroup component design guidelines",
       "deadline": "Quarter 3",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to RadioGroup web documentation.",
       "link": ""
     },
@@ -429,7 +429,7 @@
       "task": "Switch component design guidelines",
       "deadline": "Quarter 3",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to Switch web documentation.",
       "link": ""
     },
@@ -437,7 +437,7 @@
       "task": "TextArea component design guidelines",
       "deadline": "Quarter 4",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to TextArea web documentation.",
       "link": ""
     },
@@ -445,7 +445,7 @@
       "task": "ButtonGroup component design guidelines",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Addition of best practices, accessibility, localization and related components to ButtonGroup web documentation.",
       "link": ""
     },
@@ -453,7 +453,7 @@
       "task": "Help/guidance pattern guidelines",
       "deadline": "Quarter 4",
       "status": "problem",
-      "platform": "",
+      "platforms": [],
       "description": "Publish best practices for providing in-product contextual help and guidance using Gestalt.",
       "link": ""
     },
@@ -461,7 +461,7 @@
       "task": "Iconography pattern guidelines",
       "deadline": "Quarter 4",
       "status": "ok",
-      "platform": "",
+      "platforms": [],
       "description": "Publish guidelines on appropriate usage of iconography with Gestalt.",
       "link": ""
     },
@@ -469,7 +469,7 @@
       "task": "Form autofix",
       "deadline": "Quarter 1",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop a lint rule to automatically convert <form>​ instances to our upcoming <Form>​ component",
       "link": ""
     },
@@ -477,7 +477,7 @@
       "task": "Box duplicate props autofix",
       "deadline": "Quarter 1",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop a lint rule to automatically combine props on Box where possible.",
       "link": ""
     },
@@ -485,7 +485,7 @@
       "task": "Generalized component name codemod",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop a generic codemod to automatically rename components of Gestalt component instances.",
       "link": ""
     },
@@ -493,7 +493,7 @@
       "task": "Generalized prop naming codemod",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop a generic codemod to automatically change prop names of Gestalt component instances.",
       "link": ""
     },
@@ -501,7 +501,7 @@
       "task": "Generalized prop value change codemod",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop a generic codemod to automatically change prop values of Gestalt component instances.",
       "link": ""
     },
@@ -509,7 +509,7 @@
       "task": "Generalized prop value detection codemod",
       "deadline": "",
       "status": "ok",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop a generic codemod to automatically detect specific Gestalt component instances for manual modification.",
       "link": ""
     },
@@ -517,7 +517,7 @@
       "task": "Testing helpers library",
       "deadline": "",
       "status": "problem",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Develop infrastructure to support Gestalt component integration testing in Cypress.",
       "link": ""
     },
@@ -525,7 +525,7 @@
       "task": "Visual diff testing",
       "deadline": "",
       "status": "inProgress",
-      "platform": "Web",
+      "platforms": ["Web"],
       "description": "Ship visual diff tests for all Gestalt components to guard against UI regressions.",
       "link": ""
     }

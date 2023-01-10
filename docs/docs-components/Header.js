@@ -157,7 +157,7 @@ function Header() {
       display="flex"
       direction="row"
       alignItems="center"
-      role="banner"
+      role="navigation"
     >
       <Box marginStart={-2} display="flex" alignItems="center">
         {/* Small-screen menu button */}

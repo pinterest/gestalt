@@ -1,5 +1,5 @@
 // @flow strict
-import { Text, Flex, Box, Link } from 'gestalt';
+import { Text, Flex, Box, Link, List } from 'gestalt';
 import { type Node } from 'react';
 import Example from '../../../docs-components/Example.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
@@ -107,18 +107,18 @@ export default function MessagingComponentsPage(): Node {
           showCode={false}
           showHeading={false}
           defaultCode={`
-<Flex justifyContent="center" alignItems="center" direction="column" width="100%">
+<Flex justifyContent="center" alignItems="center" direction="column" gap={4}>
   <Toast
-    button={<Button key="button-key" text="Undo" size="lg" />}
+    primaryAction={{ accessibilityLabel: 'Undo action', label: 'Undo', size: 'lg' }}
     text={
-      <React.Fragment>
+      <Text>
         Saved to{' '}
         <Text inline weight="bold">
-          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
+          <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
             Home decor
           </Link>
         </Text>
-      </React.Fragment>
+      </Text>
     }
     thumbnail={
       <Image
@@ -130,7 +130,7 @@ export default function MessagingComponentsPage(): Node {
     }
   />
   <Toast
-    button={<Button key="button-key" text="Save to a board" size="lg" />}
+    primaryAction={{ accessibilityLabel: 'Undo save to board', label: 'Save to a board', size: 'lg' }}
     text="Saved"
     thumbnail={
       <Image
@@ -153,17 +153,13 @@ export default function MessagingComponentsPage(): Node {
           <Text>
             Toasts are the least disruptive of messages in that they are ephemeral and don’t require
             a user to act or dismiss them. They appear opposite a surface’s main navigation and
-            overlay content without fully blocking it. They can be used to:
+            overlay content without fully blocking it.
           </Text>
-          <Text>
-            <ul>
-              <li>Acknowledge a user action immediately after it happens</li>
-              <li>Acknowledge a user action while nudging them to improve their experience</li>
-              <li>
-                Alert users of connectivity issues or unknown errors without disrupting their flow
-              </li>
-            </ul>
-          </Text>
+          <List label="Toasts can be used to:">
+            <List.Item text="Acknowledge a user action immediately after it happens" />
+            <List.Item text="Acknowledge a user action while nudging them to improve their experience" />
+            <List.Item text="Alert users of connectivity issues or unknown errors without disrupting their flow" />
+          </List>
           <Text>
             <Link href="/web/toast" underline="always">
               Go to the Toast component

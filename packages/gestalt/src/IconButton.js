@@ -8,7 +8,7 @@ import Tooltip from './Tooltip.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type Indexable } from './zIndex.js';
 import styles from './IconButton.css';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
@@ -54,6 +54,7 @@ type IconButtonType = {|
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
+  accessibilityPopupRole?: 'menu' | 'dialog',
   role?: 'button',
   selected?: boolean,
   type?: 'submit' | 'button',
@@ -206,13 +207,19 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
       </InternalLink>
     );
   } else {
-    const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected, type } =
-      props;
+    const {
+      accessibilityControls,
+      accessibilityExpanded,
+      accessibilityHaspopup,
+      accessibilityPopupRole,
+      selected,
+      type,
+    } = props;
     buttonComponent = (
       <button
         aria-controls={accessibilityControls}
         aria-expanded={accessibilityExpanded}
-        aria-haspopup={accessibilityHaspopup}
+        aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
         aria-label={accessibilityLabel}
         className={classnames(styles.parentButton)}
         disabled={disabled}

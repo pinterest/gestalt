@@ -17,6 +17,8 @@ import flexItem from '../../examples/flex/flexItem.js';
 import flexBasis from '../../examples/flex/flexBasis.js';
 import overflowing from '../../examples/flex/overflowing.js';
 
+const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];
+
 export default function DocsPage({
   generatedDocGen,
 }: {|
@@ -31,7 +33,7 @@ export default function DocsPage({
         <SandpackExample code={main} name="Main example source" hideEditor previewHeight={150} />
       </PageHeader>
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} excludeProps={ignoredProps} />
 
       <AccessibilitySection name={generatedDocGen?.Flex?.displayName} />
 

@@ -6,7 +6,7 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
 import Text from './Text.js';
-import styles from './Touchable.css';
+import styles from './TapArea.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';

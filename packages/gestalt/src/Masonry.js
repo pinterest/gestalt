@@ -106,6 +106,9 @@ type State<T> = {|
 
 /**
  * [Masonry](https://gestalt.pinterest.systems/web/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
+ *
+ * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.mjs-snapshots/Masonry-chromium-darwin.png)
+ *
  */
 export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {

@@ -2,7 +2,9 @@
 import { type Node, useState } from 'react';
 import DatePicker from 'gestalt-datepicker';
 import {
+  af,
   arSA,
+  bg,
   cs,
   da,
   de,
@@ -12,7 +14,9 @@ import {
   es,
   fi,
   fr,
+  he,
   hi,
+  hr,
   hu,
   id,
   it,
@@ -35,6 +39,7 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
+import { Box } from 'gestalt';
 import Example from '../../docs-components/Example.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import Combination from '../../docs-components/Combination.js';
@@ -46,38 +51,42 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 const localeMap = {
-  'ar-SA': { localeData: arSA, lang: ' Arabic (Saudi Arabia)' },
-  'cs-CZ': { localeData: cs, lang: ' Czech' },
-  'da-DK': { localeData: da, lang: ' Danish' },
-  de: { localeData: de, lang: ' German' },
-  'el-GR': { localeData: el, lang: ' Greek' },
-  'en-GB': { localeData: enGB, lang: ' English (British)' },
-  'en-US': { localeData: enUS, lang: ' English (US)' },
-  es: { localeData: es, lang: ' Spanish' },
-  'fi-FI': { localeData: fi, lang: ' Finnish' },
-  fr: { localeData: fr, lang: ' French' },
-  'hi-IN': { localeData: hi, lang: ' Hindi' },
-  'hu-HU': { localeData: hu, lang: ' Hungarian' },
-  'id-ID': { localeData: id, lang: ' Indonesian' },
-  it: { localeData: it, lang: ' Italian' },
-  ja: { localeData: ja, lang: ' Japanese' },
-  'ko-KR': { localeData: ko, lang: ' Korean' },
-  'ms-MY': { localeData: ms, lang: ' Malay' },
-  'nb-NO': { localeData: nb, lang: ' Norwegian (Bokm\u00e5l)' },
-  nl: { localeData: nl, lang: ' Dutch' },
-  'pl-PL': { localeData: pl, lang: ' Polish (Poland)' },
-  'pt-BR': { localeData: ptBR, lang: ' Portuguese (Brazilian)' },
-  'pt-PT': { localeData: pt, lang: ' Portuguese (Portugal)' },
-  'ro-RO': { localeData: ro, lang: ' Romanian' },
-  'ru-RU': { localeData: ru, lang: ' Russian' },
-  'sk-SK': { localeData: sk, lang: ' Slovak' },
-  'sv-SE': { localeData: sv, lang: ' Swedish' },
-  'th-TH': { localeData: th, lang: ' Thai' },
-  tr: { localeData: tr, lang: ' Turkish' },
-  'uk-UA': { localeData: uk, lang: ' Ukrainian' },
-  'vi-VN': { localeData: vi, lang: ' Vietnamese' },
-  'zh-CN': { localeData: zhCN, lang: ' Chinese (Simplified)' },
-  'zh-TW': { localeData: zhTW, lang: ' Chinese (Traditional)' },
+  'af': { localeData: af, lang: 'Afrikaans' },
+  'ar-SA': { localeData: arSA, lang: 'Arabic (Saudi Arabia)' },
+  'bg': { localeData: bg, lang: 'Bulgarian' },
+  'cs-CZ': { localeData: cs, lang: 'Czech' },
+  'da-DK': { localeData: da, lang: 'Danish' },
+  de: { localeData: de, lang: 'German' },
+  'el-GR': { localeData: el, lang: 'Greek' },
+  'en-GB': { localeData: enGB, lang: 'English (British)' },
+  'en-US': { localeData: enUS, lang: 'English (US)' },
+  es: { localeData: es, lang: 'Spanish' },
+  'fi-FI': { localeData: fi, lang: 'Finnish' },
+  fr: { localeData: fr, lang: 'French' },
+  he: { localeData: he, lang: 'Hebrew' },
+  'hi-IN': { localeData: hi, lang: 'Hindi' },
+  'hr': { localeData: hr, lang: 'Croatian' },
+  'hu-HU': { localeData: hu, lang: 'Hungarian' },
+  'id-ID': { localeData: id, lang: 'Indonesian' },
+  it: { localeData: it, lang: 'Italian' },
+  ja: { localeData: ja, lang: 'Japanese' },
+  'ko-KR': { localeData: ko, lang: 'Korean' },
+  'ms-MY': { localeData: ms, lang: 'Malay' },
+  'nb-NO': { localeData: nb, lang: 'Norwegian (Bokm\u00e5l)' },
+  nl: { localeData: nl, lang: 'Dutch' },
+  'pl-PL': { localeData: pl, lang: 'Polish (Poland)' },
+  'pt-BR': { localeData: ptBR, lang: 'Portuguese (Brazilian)' },
+  'pt-PT': { localeData: pt, lang: 'Portuguese (Portugal)' },
+  'ro-RO': { localeData: ro, lang: 'Romanian' },
+  'ru-RU': { localeData: ru, lang: 'Russian' },
+  'sk-SK': { localeData: sk, lang: 'Slovak' },
+  'sv-SE': { localeData: sv, lang: 'Swedish' },
+  'th-TH': { localeData: th, lang: 'Thai' },
+  tr: { localeData: tr, lang: 'Turkish' },
+  'uk-UA': { localeData: uk, lang: 'Ukrainian' },
+  'vi-VN': { localeData: vi, lang: 'Vietnamese' },
+  'zh-CN': { localeData: zhCN, lang: 'Chinese (Simplified)' },
+  'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
 export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -372,13 +381,15 @@ import { it } from 'date-fns/locale';
             const [date, setDate] = useState(new Date());
 
             return (
-              <DatePicker
-                id={`example-${localeDataCode}`}
-                label={localeMap[localeDataCode].lang}
-                onChange={({ value }) => setDate(value)}
-                value={date}
-                localeData={localeMap[localeDataCode].localeData}
-              />
+              <Box width="100%" height="100%" color="default">
+                <DatePicker
+                  id={`example-${localeDataCode}`}
+                  label={localeMap[localeDataCode].lang}
+                  onChange={({ value }) => setDate(value)}
+                  value={date}
+                  localeData={localeMap[localeDataCode].localeData}
+                />
+              </Box>
             );
           }}
         </Combination>

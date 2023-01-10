@@ -32,7 +32,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                 class="box flexGrow"
               >
                 <div
-                  class="box paddingX8 paddingY8 xsDisplayFlex"
+                  class="box paddingX6 paddingY6 xsDisplayFlex"
                 >
                   <h1
                     class="Heading fontSize500 defaultText alignStart breakWord"
@@ -78,7 +78,7 @@ exports[`Sheet should render all props with nodes 1`] = `
             <nav />
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
             style="height: 100%;"
           >
             <section />
@@ -87,7 +87,7 @@ exports[`Sheet should render all props with nodes 1`] = `
             class="box fit relative"
           >
             <div
-              class="box paddingX8 paddingY8"
+              class="box paddingX6 paddingY6"
             >
               <footer />
             </div>
@@ -131,7 +131,7 @@ exports[`Sheet should render all props with render props 1`] = `
                 class="box flexGrow"
               >
                 <div
-                  class="box paddingX8 paddingY8 xsDisplayFlex"
+                  class="box paddingX6 paddingY6 xsDisplayFlex"
                 >
                   <h1
                     class="Heading fontSize500 defaultText alignStart breakWord"
@@ -179,7 +179,7 @@ exports[`Sheet should render all props with render props 1`] = `
             />
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
             style="height: 100%;"
           >
             <button
@@ -190,7 +190,7 @@ exports[`Sheet should render all props with render props 1`] = `
             class="box fit relative"
           >
             <div
-              class="box paddingX8 paddingY8"
+              class="box paddingX6 paddingY6"
             >
               <button
                 type="submit"
@@ -265,7 +265,7 @@ exports[`Sheet should render animation in 1`] = `
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
             style="height: 100%;"
           >
             <section />
@@ -338,7 +338,7 @@ exports[`Sheet should render animation out 1`] = `
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX8 paddingY8 relative"
+            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
             style="height: 100%;"
           >
             <section />

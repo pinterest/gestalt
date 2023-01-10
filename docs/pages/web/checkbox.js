@@ -546,7 +546,7 @@ function Example() {
             <Label htmlFor="sites2">
               Use sites you visit to improve which recommendations and ads you see on Pinterest.
             </Label>
-            <Link href="#" inline>
+            <Link href="#" display="inline">
               Learn more
             </Link>
           </Text>
@@ -562,7 +562,7 @@ function Example() {
             <Label htmlFor="partner2">
               Use partner info to improve which recommendations and ads you see on Pinterest.
             </Label>
-            <Link href="#" inline>
+            <Link href="#" display="inline">
               Learn more
             </Link>
           </Text>
@@ -579,7 +579,7 @@ function Example() {
               Use your activity to improve ads you see about Pinterest on other sites or apps you
               may visit.
             </Label>
-            <Link href="#" inline>
+            <Link href="#" display="inline">
               Learn more
             </Link>
           </Text>

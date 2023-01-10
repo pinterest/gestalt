@@ -3,9 +3,7 @@ import { forwardRef, type Element, type Node, useEffect, useState } from 'react'
 import InternalTextField from './InternalTextField.js';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
-import { useExperimentContext } from './contexts/ExperimentProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
@@ -153,8 +151,6 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   }: Props,
   ref,
 ): Node {
-  const deviceType = useDeviceType();
-
   /**
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */
@@ -167,45 +163,29 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const isPasswordField = typeProp === 'password';
   const isCurrentlyPasswordType = type === 'password';
 
-  const { anyEnabled: inWebShowPasswordExp } = useExperimentContext(
-    'web_unauth_show_password_button',
-  );
-  const { anyEnabled: inMwebShowPasswordExp } = useExperimentContext(
-    'mweb_unauth_show_password_button',
-  );
-  let inShowPasswordExp = false;
-
-  if (deviceType) {
-    if (deviceType === 'desktop') {
-      inShowPasswordExp = inWebShowPasswordExp;
-    } else {
-      inShowPasswordExp = inMwebShowPasswordExp;
-    }
-  }
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useDefaultLabelContext('TextField');
 
-  const iconButton =
-    inShowPasswordExp && isPasswordField ? (
-      <InternalTextFieldIconButton
-        accessibilityChecked={!isCurrentlyPasswordType}
-        accessibilityLabel={
-          isCurrentlyPasswordType
-            ? accessibilityShowPasswordLabel ?? ''
-            : accessibilityHidePasswordLabel ?? ''
-        }
-        icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
-        onClick={() => {
-          setType(isCurrentlyPasswordType ? 'text' : 'password');
-        }}
-        role="switch"
-        tooltipText={
-          isCurrentlyPasswordType
-            ? accessibilityShowPasswordLabel ?? ''
-            : accessibilityHidePasswordLabel ?? ''
-        }
-      />
-    ) : undefined;
+  const iconButton = isPasswordField ? (
+    <InternalTextFieldIconButton
+      accessibilityChecked={!isCurrentlyPasswordType}
+      accessibilityLabel={
+        isCurrentlyPasswordType
+          ? accessibilityShowPasswordLabel ?? ''
+          : accessibilityHidePasswordLabel ?? ''
+      }
+      icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+      onClick={() => {
+        setType(isCurrentlyPasswordType ? 'text' : 'password');
+      }}
+      role="switch"
+      tooltipText={
+        isCurrentlyPasswordType
+          ? accessibilityShowPasswordLabel ?? ''
+          : accessibilityHidePasswordLabel ?? ''
+      }
+    />
+  ) : undefined;
 
   return (
     <InternalTextField

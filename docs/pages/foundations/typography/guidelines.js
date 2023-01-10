@@ -504,7 +504,11 @@ Line height is automatically determined by a font’s size. For more info, refer
           <Box color="infoWeak" paddingX={6} paddingY={8}>
             <Text color="dark">
               This is a paragraph with a{' '}
-              <Link href="https://gestalt.pinterest.systems" underline="always" inline>
+              <Link
+                href="https://gestalt.pinterest.systems"
+                underline="always"
+                display="inlineBlock"
+              >
                 link
               </Link>{' '}
               inside of it. Remember, the whole is different from the sum of its parts.
@@ -723,19 +727,17 @@ Use standards that will make it easier to translate to other languages:
             type="do"
             description="Align, space and style text so that a user can easily read it and understand what actions to take."
             defaultCode={`
-<Box>
+<Flex direction="column" gap={4}>
   <Heading accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
-  <Text>
-    <ul>
-      <li>See your account settings</li>
-      <li>Create new Pins for you</li>
-      <li>Send messages on behalf of you</li>
-      <li>Follow things for you</li>
-      <li>See your secret Pins</li>
-      <li>See your secret boards</li>
-    </ul>
-  </Text>
-</Box>
+    <List label="Shopify Marketing permissions" labelDisplay="hidden">
+      <List.Item text="See your account settings"/>
+      <List.Item text="Create new Pins for you"/>
+      <List.Item text="Send messages on behalf of you"/>
+      <List.Item text="Follow things for you"/>
+      <List.Item text="See your secret Pins"/>
+      <List.Item text="See your secret boards"/>
+    </List>
+</Flex>
 `}
           />
 
@@ -744,7 +746,7 @@ Use standards that will make it easier to translate to other languages:
             type="don't"
             description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
             defaultCode={`
-<Flex direction="column" gap={{ column: 2, row: 0 }} alignItems="center" >
+<Flex direction="column" gap={4} alignItems="center" >
   <Heading align="center" accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
   <Text color="subtle">See your account settings</Text>
   <Text color="subtle">Create new Pins for you</Text>

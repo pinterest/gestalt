@@ -5,7 +5,9 @@
  * Ex. <Flyout /> to <Popover />
  *
  * TO RUN THIS CODEMOD
- * yarn codemod renameComponent ~/path/to/your/code --componentName=<value> --nextComponentName=<value>
+yarn codemod renameComponent ~/path/to/your/code \
+  --componentName=string \
+  --nextComponentName=string
  * E.g. yarn codemod renameComponent ~/code/pinboard/webapp --componentName=Box --nextComponentName=RenamedBox
  *
  * OPTIONS:

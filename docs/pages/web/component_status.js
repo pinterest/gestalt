@@ -126,7 +126,7 @@ export default function ComponentStatus(): Node {
                             item?.path ??
                             `/web/${item.name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
                           }
-                          inline
+                          display="inlineBlock"
                         >
                           {item.name}
                           {badge ? (

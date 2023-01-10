@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Text from './Text.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import layoutStyles from './Layout.css';
 import flexStyles from './Flex.css';
 import bordersStyles from './Borders.css';

@@ -11,7 +11,7 @@ export default function Example(): Node {
           <Link
             accessibilityLabel="Open the settings page"
             target="blank"
-            inline
+            display="inlineBlock"
             underline="none"
             href="https://www.pinterest.com/settings/"
           >

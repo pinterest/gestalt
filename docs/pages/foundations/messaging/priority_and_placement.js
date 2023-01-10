@@ -232,7 +232,7 @@ export default function MessagingPriorityAndPlacementPage(): Node {
                     <Text>
                       To acknowledge completion of a task that doesn’t require follow up, like
                       pinning to a board. Use{' '}
-                      <Link href="/web/toast" underline="always" inline>
+                      <Link href="/web/toast" underline="always" display="inlineBlock">
                         Toast
                       </Link>{' '}
                       instead.
@@ -247,7 +247,7 @@ export default function MessagingPriorityAndPlacementPage(): Node {
                   <Box padding={4} width="50%">
                     <Text>
                       To provide general information and recommendations. Use{' '}
-                      <Link href="/web/callout" underline="always" inline>
+                      <Link href="/web/callout" underline="always" display="inlineBlock">
                         Callout
                       </Link>{' '}
                       instead.

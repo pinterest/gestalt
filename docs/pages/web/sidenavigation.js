@@ -402,7 +402,12 @@ export default function SideNavigationPage({
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Counters"
-          description="Counters can be included as indicators of the number of items on a page or section. Only include counters if it’s information that’s useful to the user to know before clicking on a menu item. Only supported in SideNavigation.TopItem and SideNavigation.Group."
+          description="Counters can be included as indicators of the number of items on a page or section.
+
+Only include counters if the information is useful for the user to know before clicking on a menu item.
+
+To prevent visual overload, do not include counters in the parent if the children have counters.
+"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={counterExample} name="Counters example" />}
@@ -421,8 +426,7 @@ export default function SideNavigationPage({
 
         <MainSection.Subsection
           title="Subcomponent composability"
-          description={`
-Under the hood, SideNavigation recognizes subcomponents by display name. SideNavigation requires its own subcomponents as children to build the list of navigation items.
+          description={`SideNavigation requires its own subcomponents as children to build the list of navigation items.
 
 When building SideNavigation, we might want to render different combinations of subcomponents conditionally. SideNavigation supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases. More logic complexity might break the correct SideNavigation behavior.
           `}

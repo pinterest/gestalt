@@ -12,11 +12,11 @@
  *
  *
  * TO RUN THIS CODEMOD
- * yarn codemod detectManualReplacement ~/path/to/your/code
- * --component=string
- * --subcomponent=string
- * --prop=string
- * --value=string|number|boolean
+yarn codemod detectManualReplacement ~/path/to/your/code \
+  --component=string \
+  --subcomponent=string \
+  --prop=string \
+  --value=string|number|boolean
  *
  * E.g. yarn codemod detectManualReplacement ~/code/pinboard/webapp --component=Box --prop=color value=error
  *

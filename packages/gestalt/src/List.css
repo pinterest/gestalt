@@ -1,0 +1,103 @@
+.bareList:first-child {
+  padding-inline-start: 0;
+}
+
+.parentList {
+  margin: 0;
+}
+
+.list {
+  margin-left: 0;
+  margin-right: 0;
+  padding-inline-start: 16px;
+}
+
+.listItem {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+/* last should precede first for single item lists */
+
+.listItem:last-child {
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
+.listItem:first-child {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.listItemCondensed {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+/* last should precede first for single item lists */
+
+.listItemCondensed:last-child {
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.listItemCondensed:first-child {
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* last should precede first for single item lists */
+
+.list .list > .listItem:last-child {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.list .list > .listItem:first-child {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.list .list > .listItemCondensed:last-child {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.list .list > .listItemCondensed:first-child {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.noStyle {
+  list-style-type: none;
+}
+
+.ulItemDot {
+  list-style-type: disc;
+}
+
+.ulItemCircle {
+  list-style-type: circle;
+}
+
+.olItem1 {
+  list-style-type: decimal;
+}
+
+.olItemA {
+  list-style-type: upper-latin;
+}
+
+.olItema {
+  list-style-type: lower-latin;
+}
+
+.textColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}

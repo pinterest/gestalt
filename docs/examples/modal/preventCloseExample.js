@@ -37,9 +37,7 @@ export default function PreventCloseExample(): Node {
               </Flex>
             }
           >
-            <Box padding={6}>
-              <Text align="start">Click on the button to close the modal</Text>
-            </Box>
+            <Text align="start">Click on the button to close the modal</Text>
           </Modal>
         </Layer>
       )}

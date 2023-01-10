@@ -1,40 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Icon, Link, Image, Text, Table } from 'gestalt';
+import { Box, Button, Flex, Icon, Link, Image, List, Text, Table } from 'gestalt';
 import MainSection from '../../../../docs-components/MainSection.js';
 import { MAX_WIDTH } from '../../../../docs-components/MainSectionSubsection.js';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import Page from '../../../../docs-components/Page.js';
 import PageHeader from '../../../../docs-components/PageHeader.js';
 import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
-
-function ListElement({ text, href }: {| text: string, href: string |}) {
-  return (
-    <li>
-      <Flex
-        alignItems="center"
-        gap={{
-          row: 1,
-          column: 0,
-        }}
-      >
-        <Link
-          accessibilityLabel={`${text}, opens new window`}
-          target="blank"
-          inline
-          href={href}
-          onClick={() => trackButtonClick(text)}
-          externalLinkIcon="default"
-        >
-          <Text underline inline>
-            {text}
-          </Text>
-        </Link>
-        {href.startsWith('http://go') ? <InternalOnlyIconButton size="sm" /> : null}
-      </Flex>
-    </li>
-  );
-}
 
 function TableEntry({
   metric,
@@ -78,32 +50,42 @@ export default function ToolingPage(): Node {
     <Page title="Tooling">
       <PageHeader name="Web tooling" type="guidelines" />
       <MainSection name="Core design system">
-        <MainSection.Subsection />
-        <Flex
-          gap={{
-            row: 0,
-            column: 2,
-          }}
-          maxWidth={MAX_WIDTH}
-          direction="column"
-        >
-          <Text>The core Gestalt Design System consists of:</Text>
-          <ul>
-            {[
-              ['Gestalt Design Libraries', 'http://go/gestaltFigma'],
-              ['Reusable component library in Github', 'https://github.com/pinterest/gestalt'],
-              ['Gestalt component extensions in Pinboard', 'http://go/gestaltExtensions'],
+        <List label="The core Gestalt Design System consists of:">
+          {[
+            ['Gestalt Design Libraries', 'http://go/gestaltFigma'],
+            ['Reusable component library in Github', 'https://github.com/pinterest/gestalt'],
+            ['Gestalt component extensions in Pinboard', 'http://go/gestaltExtensions'],
 
-              ['Gestalt Flow types library in Pinboard', 'http://go/gestaltExtensionsTypes'],
-              [
-                'Documentation site in gestalt.pinterest.systems',
-                'https://gestalt.pinterest.systems/',
-              ],
-            ].map((item) => (
-              <ListElement key={item[0]} text={item[0]} href={item[1]} />
-            ))}
-          </ul>
-        </Flex>
+            ['Gestalt Flow types library in Pinboard', 'http://go/gestaltExtensionsTypes'],
+            [
+              'Documentation site in gestalt.pinterest.systems',
+              'https://gestalt.pinterest.systems/',
+            ],
+          ].map((item) => (
+            <List.Item
+              key={item[0]}
+              text={
+                <Text>
+                  <Flex gap={1}>
+                    <Link
+                      accessibilityLabel={`${item[0]}. ${
+                        item[1].startsWith('http://go') ? 'Restricted access.' : ''
+                      }`}
+                      href={item[1]}
+                      target="blank"
+                      display="inline"
+                      onClick={() => trackButtonClick(item[0])}
+                      externalLinkIcon="default"
+                    >
+                      {item[0]}
+                    </Link>
+                    {item[1].startsWith('http://go') ? <InternalOnlyIconButton size="sm" /> : null}
+                  </Flex>
+                </Text>
+              }
+            />
+          ))}
+        </List>
       </MainSection>
       <MainSection name="A tooling ecosystem">
         <MainSection.Subsection
@@ -295,7 +277,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                   <Text inline>Drag this link: </Text>
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <Link
-                    inline
+                    display="inlineBlock"
                     onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
                     // eslint-disable-next-line no-script-url, no-template-curly-in-string

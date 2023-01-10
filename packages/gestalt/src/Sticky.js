@@ -30,6 +30,8 @@ const DEFAULT_ZINDEX = new FixedZIndex(1);
 
 /**
  * [Sticky](https://gestalt.pinterest.systems/web/sticky) allows an element to become fixed when it reaches a threshold (top, left, bottom, or right).
+ *
+ * ![Sticky](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Sticky.svg)
  */
 export default function Sticky(props: Props): Node {
   const { children, height } = props;

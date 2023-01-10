@@ -4,7 +4,7 @@ import { type Node } from 'react';
 import IllustrationCard from '../docs-components/IllustrationCard.js';
 import IllustrationSection from '../docs-components/IllustrationSection.js';
 import Page from '../docs-components/Page.js';
-import Hero from '../graphics/home-page/HeroGraphic.js';
+import HeroGraphic from '../graphics/home-page/HeroGraphic.js';
 import Design from '../graphics/home-page/design.svg';
 import Development from '../graphics/home-page/development.svg';
 import HowToWork from '../graphics/home-page/how-to-work-with-us.svg';
@@ -44,7 +44,7 @@ export default function HomePage(): Node {
                 justifyContent="end"
                 marginStart={8}
               >
-                <Hero />
+                <HeroGraphic animate={false} />
               </Box>
             </Box>
           </IllustrationSection>

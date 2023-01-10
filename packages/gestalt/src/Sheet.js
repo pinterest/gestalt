@@ -78,6 +78,8 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
+const PADDING_BOINTS = 6;
+
 /*
 
 Internal components <Header> and <DismissButton>
@@ -85,7 +87,7 @@ Internal components <Header> and <DismissButton>
 */
 function Header({ heading }: {| heading: string |}) {
   return (
-    <Box display="flex" justifyContent="start" padding={8}>
+    <Box display="flex" justifyContent="start" padding={PADDING_BOINTS}>
       <Heading size="500" accessibilityLevel={1}>
         {heading}
       </Heading>
@@ -113,9 +115,8 @@ function DismissButton({
 }
 
 /*
-
-<Sheet> component: the one with the actual component logic
-
+ *
+ * <Sheet> component: the one with the actual component logic
  */
 function Sheet(props: SheetProps): Node {
   const {
@@ -244,7 +245,7 @@ function Sheet(props: SheetProps): Node {
                 <ScrollBoundaryContainerProvider>
                   <InternalScrollBoundaryContainer
                     onScroll={updateShadows}
-                    padding={8}
+                    padding={PADDING_BOINTS}
                     ref={contentRef}
                   >
                     {children}
@@ -256,7 +257,7 @@ function Sheet(props: SheetProps): Node {
                     position="relative"
                     fit
                   >
-                    <Box padding={8}>{footer}</Box>
+                    <Box padding={PADDING_BOINTS}>{footer}</Box>
                   </Box>
                 )}
               </Box>
@@ -274,6 +275,9 @@ function Sheet(props: SheetProps): Node {
 
 /**
  * [Sheets](https://gestalt.pinterest.systems/web/sheet ) are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have default, internal padding for content.
+ *
+ * ![Sheet light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Sheet.spec.mjs-snapshots/Sheet-chromium-darwin.png)
+ * ![Sheet dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Sheet-dark.spec.mjs-snapshots/Sheet-dark-chromium-darwin.png)
  */
 function AnimatedSheet(props: AnimatedSheetProps): Node {
   const {

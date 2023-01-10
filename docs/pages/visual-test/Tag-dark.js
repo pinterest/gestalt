@@ -12,17 +12,12 @@ export default function Snapshot(): Node {
           column: 2,
         }}
       >
-        <Tag onRemove={() => {}} removeIconAccessibilityLabel="Remove" text="New" />
-        <Tag disabled text="Disabled" />
+        <Tag onRemove={() => {}} text="New" />
+        <Tag disabled onRemove={() => {}} text="Disabled" />
+        <Tag onRemove={() => {}} type="error" text="Error" />
+        <Tag onRemove={() => {}} type="warning" text="Warning" />
         <Tag
           onRemove={() => {}}
-          errorMessage="NOPE"
-          removeIconAccessibilityLabel="Remove"
-          text="Error"
-        />
-        <Tag
-          onRemove={() => {}}
-          removeIconAccessibilityLabel="Remove"
           text="Some really long text that just keeps going on and on and on and on and on and on"
         />
       </Flex>

@@ -1,12 +1,11 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
+import blogPosts from './BlogPosts.json';
 import MainSection from '../docs-components/MainSection.js';
 import Markdown from '../docs-components/Markdown.js';
 import Page from '../docs-components/Page.js';
 import PageHeader from '../docs-components/PageHeader.js';
-// $FlowExpectedError[untyped-import]
-import blogPosts from './BlogPosts.json';
 
 const POST_WIDTH_PX = 600;
 const POST_IMAGE_HEIGHT_PX = 340;
@@ -16,39 +15,20 @@ const badges = {
   Engineering: <Badge key="engineering" type="success" text="Engineering" />,
 };
 
-type PostProps = {|
-  audience: $ReadOnlyArray<'Design' | 'Engineering'>,
-  content: string,
-  imageAltText?: string,
-  imageSrc?: string,
-  title: string,
+export type Post = {|
+  +title: string,
+  +audience: $ReadOnlyArray<'Design' | 'Engineering'>,
+  +imageSrc: string,
+  +imageAltText: string,
+  +content: string,
 |};
 
-function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostProps): Node {
+function PostLayout({ audience, content, imageAltText, imageSrc, title }: Post): Node {
   return (
-    <Flex
-      direction="column"
-      gap={{
-        row: 0,
-        column: 2,
-      }}
-    >
-      <Flex
-        direction="column"
-        gap={{
-          row: 0,
-          column: 1,
-        }}
-      >
+    <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={1}>
         <Heading size="400">{title}</Heading>
-        <Flex
-          gap={{
-            row: 2,
-            column: 0,
-          }}
-        >
-          {audience.map((item) => badges[item])}
-        </Flex>
+        <Flex gap={2}>{audience.map((item) => badges[item])}</Flex>
       </Flex>
 
       {imageSrc && (
@@ -68,7 +48,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: PostPr
               alt={imageAltText ?? ''}
               naturalHeight={900}
               naturalWidth={1600}
-              fit="cover"
+              fit="contain"
             />
           </Mask>
         </Box>
@@ -136,20 +116,14 @@ export default function Blog(): Node {
 
       <Flex direction="column" gap={12}>
         {filteredDigests.map(({ month, week, posts, summary }, i) => (
-          <Flex key={`digest-${week ?? month}`} direction="column" gap={12}>
+          <Flex key={`digest-${week ?? month ?? ''}`} direction="column" gap={12}>
             {i > 0 && <Divider />}
 
             <MainSection
-              name={week ? `Week of ${week}` : `Month of ${month}`}
+              name={week ? `Week of ${week}` : `Month of ${month ?? ''}`}
               description={summary}
             >
-              <Flex
-                direction="column"
-                gap={{
-                  row: 0,
-                  column: 8,
-                }}
-              >
+              <Flex direction="column" gap={8}>
                 {posts.map(
                   (post) =>
                     (filter === 'All' || post.audience.includes(filter)) && (

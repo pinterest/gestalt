@@ -319,7 +319,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                             role="status"
                           >
                             <div
-                              className="Text fontSize300 defaultText alignEnd breakWord fontWeightNormal"
+                              className="Text fontSize300 subtleText alignEnd breakWord fontWeightNormal"
                             >
                               20
                             </div>
@@ -441,7 +441,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                             role="status"
                           >
                             <div
-                              className="Text fontSize300 defaultText alignEnd breakWord fontWeightNormal"
+                              className="Text fontSize300 subtleText alignEnd breakWord fontWeightNormal"
                             >
                               20
                             </div>

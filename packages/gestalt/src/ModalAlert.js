@@ -88,37 +88,35 @@ function Header({
   onDismiss: () => void,
 |}) {
   return (
-    <Box padding={6}>
-      <Flex flex="grow" alignItems="center" gap={4}>
-        {type !== 'default' && (
-          <Box>
-            <Icon
-              size="20"
-              accessibilityLabel={type}
-              icon={ICON_COLOR_MAP[type].icon}
-              color={ICON_COLOR_MAP[type].color}
-            />
-          </Box>
-        )}
-        <Flex.Item flex="grow">
-          <Heading size="400" accessibilityLevel={1}>
-            {heading}
-          </Heading>
-        </Flex.Item>
-        {type === 'default' && (
-          <Box marginStart={2}>
-            <IconButton
-              accessibilityLabel={accessibilityDismissButtonLabel}
-              bgColor="white"
-              icon="cancel"
-              iconColor="darkGray"
-              onClick={onDismiss}
-              size="sm"
-            />
-          </Box>
-        )}
-      </Flex>
-    </Box>
+    <Flex flex="grow" alignItems="center" gap={4}>
+      {type !== 'default' && (
+        <Box>
+          <Icon
+            size="20"
+            accessibilityLabel={type}
+            icon={ICON_COLOR_MAP[type].icon}
+            color={ICON_COLOR_MAP[type].color}
+          />
+        </Box>
+      )}
+      <Flex.Item flex="grow">
+        <Heading size="400" accessibilityLevel={1}>
+          {heading}
+        </Heading>
+      </Flex.Item>
+      {type === 'default' && (
+        <Box marginStart={2}>
+          <IconButton
+            accessibilityLabel={accessibilityDismissButtonLabel}
+            bgColor="white"
+            icon="cancel"
+            iconColor="darkGray"
+            onClick={onDismiss}
+            size="sm"
+          />
+        </Box>
+      )}
+    </Flex>
   );
 }
 
@@ -156,6 +154,10 @@ function ModalAlertAction({ data, type }: {| data: ActionDataType, type: string 
 
 /**
  * A [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
+ *
+ * ![ModalAlert light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ModalAlert.spec.mjs-snapshots/ModalAlert-chromium-darwin.png)
+ * ![ModalAlert dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ModalAlert-dark.spec.mjs-snapshots/ModalAlert-dark-chromium-darwin.png)
+ *
  */
 export default function ModalAlert({
   accessibilityDismissButtonLabel,
@@ -204,7 +206,7 @@ export default function ModalAlert({
       role="alertdialog"
       size="sm"
     >
-      <Box paddingX={6}>{children}</Box>
+      {children}
     </Modal>
   );
 }

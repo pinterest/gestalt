@@ -1,5 +1,4 @@
 // @flow strict
-// $FlowExpectedError[untyped-import]
 const StyleDictionary = require('style-dictionary');
 
 const { fileHeader } = StyleDictionary.formatHelpers;

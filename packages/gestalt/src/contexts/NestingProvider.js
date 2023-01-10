@@ -6,6 +6,8 @@ type NestingContextType = {|
 |};
 
 type Props = {|
+  componentName: 'SideNavigation' | 'List',
+  maxNestedLevels: number,
   children: Node,
 |};
 
@@ -15,22 +17,30 @@ const NestingContext: Context<NestingContextType> = createContext<NestingContext
 
 const { Provider } = NestingContext;
 
-function NestingProvider({ children }: Props): Element<typeof Provider> {
+function NestingProvider({
+  componentName,
+  children,
+  maxNestedLevels,
+}: Props): Element<typeof Provider> {
   const { nestedLevel } = useContext(NestingContext);
 
   const nextNestedLevel = (nestedLevel ?? 0) + 1;
 
-  if (nextNestedLevel > 2) {
+  if (nextNestedLevel > maxNestedLevels) {
     throw new Error(
-      'Gestalt SideNavigation does not allow more than 2 nested levels of navigation',
+      `Gestalt ${componentName} does not allow more than ${maxNestedLevels} nested levels`,
     );
   }
 
-  const nestingContext = {
-    nestedLevel: nextNestedLevel,
-  };
-
-  return <Provider value={nestingContext}>{children}</Provider>;
+  return (
+    <Provider
+      value={{
+        nestedLevel: nextNestedLevel,
+      }}
+    >
+      {children}
+    </Provider>
+  );
 }
 
 function useNesting(): NestingContextType {
