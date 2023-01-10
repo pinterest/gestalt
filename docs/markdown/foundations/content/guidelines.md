@@ -23,6 +23,25 @@ Put your best stuff up top. Ask yourself: Would people stop what they’re doing
 ## Formatting
 ### Dates and abbreviations
 
+| Format             | Rule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dates              | - Abbreviate the name of the month without a period and without a ƒst/nd/rd/th on the day<br/>Dec 10 (not: Dec. 10th), May 9, 2010. Exception: In longform writing (like a blogpost), spell the month (December 10, 2010)<br/>- In UI writing, use numerals, separated with a slash: 10/10/10<br/>- For single digit days/months, don’t use a zero: 2/5/15<br/>- If you’re not sure if you should capitalize a holiday (or, ahem, if it gets an apostrophe), please look it up: Fourth of July, Mother’s Day |
+| Countries          | - Don’t abbreviate unless space is an issue. Then: Use standard postal codes: US (United States), FR (France), IN (India), JP (Japan), EG (Egypt), BR (Brazil), etc.                                                                                                                                                                                                                                                                                                                                     |
+| Days               | - Don’t abbreviate unless space is an issue. Then:<br/>- Mon, Tue, Wed, Thu, Fri, Sat, Sun <br/>- M, Tu, W, Th, F, Sa, Su (if space is super, duper tight)                                                                                                                                                                                                                                                                                                                                                 |
+| Decades            | - 1930s, ’30s, mid-’30s<br/>- 20th century                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Measurements       | - in, ft, yd, qt, oz, lb (no periods)                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Time               | - If space isn’t an issue (see: Timestamps section): Just now!, minutes, hours, days, weeks, months, years <br/>- If space is an issue:sec, min, hr, d, w, mo, y                                                                                                                                                                                                                                                                                                                                          |
+| Months             | - Don’t abbreviate unless space is an issue. Then use (without a period): Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec                                                                                                                                                                                                                                                                                                                                                                     |
+| Numbers            | - See Numbers section                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Financial quarters | - Abbreviate the quarter, spell out the year (ex: Q3 2017)                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Time               | - Lowercase am/pm, no space:9:15am, 1:23pm, 9am, 1pm (not 9:00am, 1:00pm)                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Years              | - 20 BC, 25 AD (rather than 1500 BCE and 1986 CE)                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Other              | - Don’t use Latin abbreviations like “i.e.” or “e.g.” and use “ex:” (abbreviation for “example”) instead<br/>- Always spell out “okay”                                                                                                                                                                                                                                                                                                                                                                    |
+|                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+
 --- 
 
 ### Links
@@ -166,7 +185,6 @@ When you’re using numbers in tight spaces or places people are likely to scan,
      - The top ten tricks to making successful Pins for your business
   </Group>
 </TwoCol>
-
 ---
 
 ### Timestamps
@@ -284,6 +302,8 @@ According to the AP Style Guide/Purdue Writing Lab (our when-in-doubt go-to), yo
 
 Pinterest’s UI is clean, light and modern, which means using as little punctuation as possible. For tips about punctuation for longform writing, refer to the [AP Style Guide](https://owl.purdue.edu/owl/subject_specific_writing/journalism_and_journalistic_writing/ap_style.html).
 
+<br/>
+
 | Punctuation              | Rule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ampersand (&)        | Don’t use! Use a plus sign if you must.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -301,8 +321,9 @@ Pinterest’s UI is clean, light and modern, which means using as little punctua
 | Quotation marks (“)  | If necessary, always use double quotes and not single quotes. “Hello, Dolly, ‘sup,” not ‘Hello, Dolly, ‘sup’<br/>When in doubt, refer to the AP Style Guide about when a title should go in italics (*Titanic*) or quotation marks (“My Heart Will Go On”)<br/>Use sentence structure or bolding in UI to set off a board title rather than quotes, if possible                                                                                                                                                                            |
 | Serial comma         | See Oxford comma                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 ---
+## Language and terminology
 
-## Inclusive language
+### Inclusive language
 
 Using correct terminology to describe different groups is extremely important (and it comes up a lot in areas like marketing materials and internal communications). When in doubt or when looking for something more specific, email the D+I team; you can also refer to [A Progressive’s Style Guide](https://s3.amazonaws.com/s3.sumofus.org/images/SUMOFUS_PROGRESSIVE-STYLEGUIDE.pdf) as a fantastic free resource.
 
@@ -359,7 +380,7 @@ Using correct terminology to describe different groups is extremely important (a
 
 ---
 
-## Legal language
+### Legal language
 
 Even when we’re talking in the fine print, we should still be straightforward and conversational.
 
@@ -386,43 +407,528 @@ To protect our trademark for Pin, we have to be thoughtful in how we use the wor
 
 ---
 
-## Feature naming
+### Feature naming
 
+Before you pick a proper name for a new feature, consider if it even needs it. New names clutter up the experience and add to the Pinner’s cognitive load, so the bar for introducing new terminology should be high. Most products/features don't actually need to be called anything (like, "send a Pin" is an action, not a proper Send-a-Pin name).
 
-
-
-
-
-
-
-
-
-
-THIS IS THE END OF THE DOCUMENT. 
-<br/>
-<br/><br/><br/><br/>
+You can also use a Namestorm document to help develop and present a recommended name.
 
 <TwoCol>
   <Group>
     <Do title="Do examples"/>
-     - women in urban Ethiopia
-     - people ages 30-39
-     - Explore keto and paleo recipes
-     - My gender is non-binary
-     - Tiffany, who uses a wheelchair, 
-     - ethnic minority/underrepresented minority/people of color
+     - Consider what’s industry standard
+     - Use parallel construction
+     - Be clear, conversational and descriptive—feature names should capture what the feature is/does in a way that makes sense to real people
+     - Choose a name that works throughout all instances in the interface, across all platforms and contexts 
+     - Always use lowercase letters for the new name in UI
+     - In longform writing, like if you’re announcing an official product release or writing product tips, follow the capitalization that was used in the launch documentation. Depending on the product, that might be title case (ex: Promoted Video) or it might be sentence case (ex: Save button). 
   </Group>
   <Group>
   <Dont title="Don't examples"/>
-     - African women
-     - Ethiopians
-     - Gen Xers
-     - elderly Pinners
-        - *If you must use a decade-y phrase because a sales report requires it (for example, Millennials), refer to [Grammar Girl’s guide to title casing](https://www.quickanddirtytips.com/articles/when-to-capitalize-generation-names/).
-     - Try these keto recipes
-     - Lose weight with these keto ideas
-     - My gender is other
-     - Tiffany, who is physically disabled, 
-     - minority
+     - Don’t clutter up our experience with confusingly similar terminology (like “recommendations” AND “suggestions”)
   </Group>
 </TwoCol>
+
+“Pinterest Business” refers to our business marketing programs and channels. It is NOT a master brand for products or partnerships. For example, you’d say “Read the latest updates on the Pinterest Business blog” or “Visit the Pinterest Business page.” You wouldn’t say “Our latest products from Pinterest Business.” In that case, it’s just “Pinterest.”  
+
+For more information about when to use “Pinterest Business” and when to use “Pinterest,” refer to our brand guidelines.  
+
+---
+
+### Using "inspiration"
+
+*What we mean by “inspiration”:* Ask someone what inspires them, and their mind goes to heroic figures like Olympic athletes or people who’ve overcome great hardships. They don’t usually think of a chicken recipe. But on Pinterest, that’s exactly what counts as inspiring. From small, everyday stuff like chicken recipes, all the way to big-life ideas that get you bicycling across the country or send your career in a new direction. Anything that sparks you to try something new, or think about life in a new way, or spend a meaningful moment with the people you care about—that’s inspiration on Pinterest. 
+
+A little “inspiration” goes a long way: It can be tempting to start peppering “inspiration” across all our experiences (it’s right there in our mission statement!), but much like how we limit the use of Pinterest red in our app and marketing, we don’t splash “inspiration” everywhere. Instead we use it sparingly and thoughtfully.
+
+<TwoCol>
+  <Group>
+    <Do title="Do examples"/>
+     - Good: Use “inspiration” in super high-level descriptions of our company in the press:
+        -  Example 1—The inspiration company
+        - Example 2—Pinterest is the home of inspiration
+     - Even better: Let other people do the describing. When we claim to be “inspirational,” it sounds less believable than it does coming from an outside source. Much better to leave it to the people who actually made Pinterest the go-to spot for inspirational ideas in the first place: Our Pinners!
+        - Example 1—Pinner mindset video tagline: “Inspired on Pinterest” 
+        - Example 2—Directly quoting Pinners: “I love looking at Pinterest for art inspiration.”
+     - Talking to advertisers: A big part of the inspiration people discover on Pinterest comes from businesses. 
+     - Example—“Pinterest is a positive place where people get paired with the inspiration to create a life they love—including products, experiences and other inspiration from businesses.”
+  </Group>
+  <Group>
+  <Dont title="Don't examples"/>
+     - Don’t clutter up our experience with confusingly similar terminology (like “recommendations” AND “suggestions”)
+  </Group>
+</TwoCol>
+
+---
+
+### Using "you" and "me"
+
+The you/me debate has raged throughout product writing circles for years, and the writing team here at Pinterest had done its own share of epic mulling on the matter.
+
+Where we landed: It’s Pinterest standard to talk to “you” vs. speaking on your behalf (“me”). That’s because Pinterest is all about YOU.
+
+This rule is how we make sure we’re consistently addressing you in the same way across our interface and marketing. Our (now old!) mission = “help you discover and do what you love.” When you first sign up, we ask what topics “you” are into. Recommended Pins are “picked for you” or “inspired by your boards.” And when you search for stuff you saved, you’re looking through “your Pins.”
+
+First person-y lingo is reserved for the rare times when Pinterest speaks on its own behalf (“we found some new ideas for you”).
+
+<TwoCol>
+  <Group>
+    <Do title="Do examples"/>
+     - See your new board
+     - Your profile
+     - Keep your board secret
+  </Group>
+  <Group>
+  <Dont title="Don't examples"/>
+     - See my new board
+     - My profile
+     - Keep my board secret
+  </Group>
+</TwoCol>
+
+---
+
+## UI elements
+
+### Buttons
+
+Buttons should be descriptive but short.
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - If your object is already described on the screen, buttons only need a verb
+     - If your object isn’t described on the screen, buttons need a verb + the object
+     - Use fewer than 3 words
+     - Use sentence case
+     - Examples:
+        - Save
+        - Edit profile
+        - See job openings
+        - Cancel
+        - No thanks 
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t use punctuation
+     - Examples:
+        - Save changes
+        - Edit
+        - Jobs
+        - No, thanks
+  </Group>
+</TwoCol>
+
+---
+
+### Confirmations and toasts
+
+Confirmations are like little high-fives that let people know that the action they just took was successful. 
+
+Always use a toast, unless there’s another visual indicator that an action’s been taken (for example: if you follow someone there’s an animation showing their icon going into your following tab—so you wouldn’t need a toast there). 
+
+**Elements**
+- Header/title: Let the Pinner know the action they just took was successful.
+- Subhead/main text: Use if needed, but it’s optional. Ask yourself if a visual element might help more than additional text would.
+- Buttons: No buttons in confirmations! 
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Explain what just happened
+     - Keep it short and light
+     - Include an exclamation point if the toast is under ~4-5 words (even if the toast is a negative action)
+     - Examples: 
+        - Pin sent!
+        - Delete undone!
+        - 3 Pins deleted!
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t sound like a robot
+     - Don’t include an exclamation point if you say it out loud and it doesn’t sound like something you’d...actually exclaim
+        - The action was successful
+        - You saved 3 Pins to Uniform
+        - We’ll send your feedback to Felicia
+  </Group>
+</TwoCol>
+
+---
+
+### Education
+
+Education for a new (or existing!) feature can be a tooltip or a screen takeover, often using progressive disclosure or multiple screens. 
+
+Use the following principles when writing education:
+
+- Set expectations up front about what the new product does
+- Guide people to anticipate (and take) next steps—what action will occur after they tap on this button or tab?
+- Identify potential questions or points of anxiety about the new product, and give people context and information to feel confident and knowledgeable so they feel confident and comfortable.
+- Celebrate a job well done—either with judicious use of positive writing like an exclamation point or “yay,” or some kind of delightful design element.help center
+
+PS: When working with designers on education, consider what education should look like. (Ex: Is a banner being used when just a temporary flyout is needed?) Currently, we have a number of different education design options:
+- Tooltip
+- Flyout 
+- Modal (screen takeover)
+- Empty state text
+- Banners
+
+---
+
+### Emoji
+
+Okay, okay. We’re loosening up about emoji, since it’s a natural part of human communication. Don’t go crazy and start using, like, flags and onigiri and stuff though. Check out these handy-dandy guidelines:
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Limit emoji to infrequent, one-off elements, like notifications
+     - Use extremely common emojis from this list: ❤️, ✔️, 📌, 🔥, ✨, 💡, ⭐️, 📣
+     - Use emojis as an addition to the copy, not instead of a word (so “Look who's checking out your Pins  “ rather than “You've got  on your Pins”)
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t use emoji in the product, in permanent parts of the UI
+     - Don’t use unique or unusual emojis, even in the name of “delight”
+     - Don’t use emojis for negativity (like error messages)
+     - Don’t use emoji in an experience where whimsy or delight could be established through existing design assets instead. Check with your designer first!
+  </Group>
+</TwoCol>
+
+---
+
+### Error messages
+
+Error messages should clearly describe what happened and what the person can do to fix the problem—without overwhelming them with unnecessary info. 
+
+**Elements**
+
+Use titles and text wisely—quickly explain the problem in the title, then follow up with more details
+- Title: Let the Pinner know why they’re seeing the error, but keep it short. Include a “Sorry!” or “Oops!” at the beginning to lighten things up a bit. 
+  - Sorry is a good fit for when we or our servers screwed up 
+  - Oops is a good fit for when we're not sure whether it's us or them (or when it's them)
+- Text: Give more details about why they’re seeing the error and how to resolve it if they can. 
+- Buttons: A good ol’ [Okay] works in most cases
+<br/>
+Use red text inline when someone submits a form that’s missing a required field. 
+- Don’t use punctuation. Exception: Errors that are more than one sentence or if you want to use an exclamation point
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Use super-simple language
+     - Clearly explain what happened
+     - Help people fix the problem
+     - Be tone-sensitive
+     - Limit calls to action—don’t give Pinners too many ways to solve a problem or multiple buttons/steps to work through 
+     - If error is a full and complete sentence, use a period at the end
+     - Don’t use periods for one-word errors
+     - Use conversational, normalizing words like Psst!, Hmm, Oops, and Um
+     - Examples: 
+        - Choose a board for your Pin and try again.
+        - You can't follow this board because this person blocked you. 
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t use emoji in the product, in permanent parts of the UI
+     - Don’t use unique or unusual emojis, even in the name of “delight”
+     - Don’t use emojis for negativity (like error messages)
+     - Don’t use emoji in an experience where whimsy or delight could be established through existing design assets instead. Check with your designer first!
+     - Examples: 
+        - Parameter 'board_id' is required.
+        - You’re not allowed to do that. 
+  </Group>
+</TwoCol>
+
+---
+
+### Mobile UI
+
+Use mobile-appropriate terms for gestures (ex: swipe and tap, not click), and keep things short.
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Tap 
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Click
+  </Group>
+</TwoCol>
+
+---
+
+### Notifications
+
+Notifications (including push notifications) are lightweight messages that let Pinners know about what’s happening with the Pins they saved, the people they follow and more. 
+
+**Elements**
+
+- Title: No titles in notifications!
+- Body: Include up to 3 subjects (ex: Tiffani, Mia and 5 others NOT Tiffani, Mia, Long, Ricky and 17 other people) and keep them to two lines of text, max. 
+- Buttons: No buttons in notifications! 
+
+<TwoCol>
+  <Group>
+    <Do title="Do examples"/>
+     - Mac saved your Pin
+     - Sadia invited you to a group board
+  </Group>
+  <Group>
+  <Dont title="Don't examples"/>
+     - Check out what we’re doing for Fashion Week!!!!
+     - Based on your search for "dogs,” you’ll love these ideas!  [ Okay ]
+  </Group>
+</TwoCol>
+
+---
+
+## Syntax and structure
+
+### Parallel structure
+
+When you’re presenting multiple options (ex: bulleted lists, menus), use a similar structure for each item so everything’s easy to scan and understand.  
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Start all items the same way (ex: all verbs, all nouns)
+     - Use the same structure (ex: if one option ends in “-ing” then all options should end that way)
+     - Examples: 
+        - Log out
+        - Get help
+        - Report a bug
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t use a variety of different structures in the same series
+     - Examples: 
+        - Log out
+        - Help center
+        - Report a bug
+  </Group>
+</TwoCol>
+
+You should also use a parallel structure for multi-screen education punctuation, too. By which we mean: If your education is sentences across three screens, if one of them ends with a period, they all should.
+
+Try this...
+- Find new ideas to try. 
+- Pinterest is the home of the world’s best ideas. Do you have a free account?
+- Sign up for one today.
+
+Not this...
+- Find new ideas to try
+- Pinterest is the home of the world’s best ideas. Do you have a free account?
+- Sign up for one today
+
+See? Just one two-sentence screen turns them all into punctuated screens. However, if all of these were one-phrase screens (Find new ideas to try / Pinterest is the home of the world’s best ideas / Sign up for an account today), no punctuation would be needed. So it goes!
+
+---
+
+### Addressing people by name
+
+Calling out someone by name can be a very effective way to grab their attention, but it can get old quick. That’s why we do it only sparingly. 
+
+When using the Pinner’s name (or, for that matter, their board’s name) in UI, we recommend you don’t use apostrophes (ex: “Pins from Evany,” not “Evany’s Pins”). There’s too much that can go wrong.
+
+<TwoCol>
+  <Group>
+    <Do title="Do examples"/>
+     - Got it! You won't see Pins from Matt in the future.
+     - Want to see a new board from Davy Jones?
+  </Group>
+  <Group>
+  <Dont title="Don't examples"/>
+     - Got it! You won't see Matt's Pins in the future. 
+     - See Davy Jones's new board
+  </Group>
+</TwoCol>
+
+---
+
+### Placeholder text
+
+Also called “ghost text” (whOooOooo), this should be either exemplary (filling in an exact example of what someone would write in the text field) or descriptive (displaying how the function should work or what purpose it serves, if an example would be confusing to the user).
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Use general and realistic (rather than “funny”) example text
+     - Open descriptive placeholder text with a verb to immerse people in the action
+     - Examples: 
+        - www.yoursite.com
+        - Add what your board’s about
+        - Pick an end date or range of dates 
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Use questions
+     - Use the first person
+     - Use a one-word placeholder like "Add" that doesn't illustrate the feature's function or value
+     - Examples: 
+        - www.mysite.com
+        - What’s this board about?
+        - My board is about bull terriers 
+        - June 19, 2002
+  </Group>
+</TwoCol>
+
+---
+
+### Progressive disclosures
+
+Give people the minimum amount of info they need to complete the task at hand.
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Break info into small bites
+     - Show info when it’s most helpful
+     - Make added details optional, so people who want more info can easily get it, but the experience isn’t cluttered with “in the weeds” details
+     - Examples: 
+        - Step one (Pin view): See something you want to save for later? Just tap Save.
+        - Step two (create board view): You collect your Pins on boards. Make as many as you need!
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t overwhelm people by listing all the possible information they might need up front
+     - Examples: 
+        - Solo info dialog (Pin view):See something you want to save for yourself? Go ahead and tap Save. Then you’ll need to create a board for your Pin to live on.
+  </Group>
+</TwoCol>
+
+---
+
+### Referencing the interface
+
+When you’re describing something the Pinner has to do on Pinterest, sometimes it’s helpful to reference the thing they need to click or select.
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Refer to the elements of the interface only if it isn’t otherwise clear what you’re talking about
+     - Use menu and button (and occasionally icon)
+     - Examples: 
+        - Use + to add a Pin
+        - Select Log out from the menu
+        - Type in your search
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t describe the interface element unless it’s absolutely necessary for clarity—for more details, see our full list of terms
+     - Don’t use words like “click” or “tap” if possible, or assume universal accessibility
+     - Examples: 
+        - Select the “+” button to add a Pin
+        - Select Log out from the dropdown menu
+        - Click here to begin your search
+  </Group>
+</TwoCol>
+---
+
+### Rhetorical questions
+
+Avoid them, unless it’s the shortest and most direct way to get the message across (ex: in a confirmation toast). For a gut-check, ask yourself: “Would I actually say this out loud?” The answer’s probably “nah.”
+
+<TwoCol>
+  <Group>
+    <Do title="Do examples"/>
+     - Delete group board
+     - Enjoy!
+     - Keep scrolling to see more
+  </Group>
+  <Group>
+  <Dont title="Don't examples"/>
+     - How about deleting this group board?
+     - Are we having fun yet?
+     - Want more Pinterest?
+  </Group>
+</TwoCol>
+
+---
+
+### Settings
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - Use Yes | No for toggles
+     - Use sentence case for settings fields
+     - Use “you/your”
+     - Examples: 
+       - Also get an email when someone: Comments on your Pin
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - Don’t use On | Off for toggles
+     - Don’t use “me/mine”
+     - Examples:
+        - Also get an email when someone: Comments on my Pin
+  </Group>
+</TwoCol>
+
+---
+
+### Specific verbs
+
+In UI writing, sometimes it’s hard to choose between two seemingly similar verbs. Here are some tips:
+
+**Pick vs. choose vs. select:**
+Pick and choose sound more conversational in en_US/UK, and should always be used when discussing taste (“Pick your favorite topics!”) or other more human concepts. If you’re thinking about saying “choose,” try “pick” instead (unless you’re trying to avoid monotony). 
+
+*Pick:*
+- Pick 5 topics you love
+
+<br/>
+
+**See vs. view:**
+View derives from some action on the user's part (choosing filters, say) and See comes from work Pinterest’s already done for the user (like providing additional search results/related Pins).
+
+*See:*
+- Come see! (tooltip on more ideas tabs)
+- See ideas trending in Hounds (email notif)
+
+*View:*
+- View your map (map button CTA)
+- View in chronological order (made up filter sort)
+
+---
+
+### Tenses
+
+Use the [present perfect](https://www.grammarly.com/blog/present-perfect-continuous-tense/) tense in UI writing, even when using a contraction seems more conversational. 
+
+<TwoCol>
+  <Group>
+    <Do title="Do"/>
+     - You have a new follower
+  </Group>
+  <Group>
+  <Dont title="Don't"/>
+     - You've got a new follower
+  </Group>
+</TwoCol>
+
+---
+
+### Pin puns
+
+We all love a good Pin pun, but unfortunately, they don’t translate very well. We save Pin puns for internal comms, but don’t use them in external language or content. 
+
+---
+
+## More resources
+
+**Pinterest resources**
+- [Pinterest Content Design Hub](https://coda.io/d/Content-Design-Hub_d3AuBYHVHhZ/Content-Design-Hub_suVcA#_lucnd): A central hub for everything Content Design at Pinterest. 
+- [Pinterest Dictionary](https://docs.google.com/document/d/1JQWpTbnIj3w1lJtZoyYcOieSveOsGjuSeHqMdAfetU4/edit): A glossary of Content Design terminology at Pinterest. 
+- [Pinterest Brand Guidelines](https://brand.pinterest.com/): Standards for brand design at Pinterest. *Always check with the brand design team to make sure you're using the latest guidelines.*
+
+**There’s a world outside of Pinterest?!**
+- [Writing + content strategy resources](https://docs.google.com/document/d/1KIpmqk6peL8C-qAbFcEKBlwCZz3fhRntAJDK7mtsJik/edit): Bay Area-writing classes, articles about writing and more!
+- [The AP Style Guide](https://owl.purdue.edu/owl/subject_specific_writing/journalism_and_journalistic_writing/ap_style.html): When in doubt, refer to…
+- [A Progressive’s Style Guide](https://s3.amazonaws.com/s3.sumofus.org/images/SUMOFUS_PROGRESSIVE-STYLEGUIDE.pdf): When in doubt about how to refer to a specific group of people, refer to…
+
+---
+
+
