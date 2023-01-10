@@ -1,6 +1,6 @@
 // @flow strict
 import { useEffect, useState, Fragment, type Node } from 'react';
-import { Box, Divider, DeviceTypeProvider } from 'gestalt';
+import { Box, Divider, DeviceTypeProvider, Flex } from 'gestalt';
 import { useRouter } from 'next/router';
 import Header from './Header.js';
 import SkipToContent from './SkipToContent.js';
@@ -12,8 +12,7 @@ import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDevice
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 import YearInReviewBanner from './YearInReviewBanner.js';
 
-const CONTENT_MAX_WIDTH_PX = 894;
-const HOME_PAGE_CONTENT_MAX_WIDTH_PX = 1200;
+const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = ['/year_in_review_2022'];
@@ -113,12 +112,14 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
             mdDisplay="flex"
             justifyContent="center"
           >
-            <Box
+            <Flex
               width="100%"
-              maxWidth={isHomePage ? HOME_PAGE_CONTENT_MAX_WIDTH_PX : CONTENT_MAX_WIDTH_PX}
+              maxWidth={CONTENT_MAX_WIDTH_PX}
+              alignItems="center"
+              direction="column"
             >
               {children}
-            </Box>
+            </Flex>
           </Box>
           <Box
             role="contentinfo"

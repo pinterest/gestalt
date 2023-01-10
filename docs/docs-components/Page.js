@@ -4,13 +4,15 @@ import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
-const DETAIL_PAGE_MAX_WIDTH = 672;
+const DETAIL_PAGE_MAX_WIDTH = 894;
+const FULL_WIDTH_MAX_WIDTH = 1200;
 
 type Props = {|
   children: Node,
   title: string,
   hideSideNav?: boolean,
   hideEditLink?: boolean,
+  isFullWidth?: boolean,
   pageSourceUrl?: string,
 |};
 
@@ -19,6 +21,7 @@ export default function Page({
   children,
   hideSideNav = false,
   hideEditLink = false,
+  isFullWidth = false,
   pageSourceUrl,
 }: Props): Node {
   const sections = Children.toArray(children);
@@ -35,7 +38,7 @@ export default function Page({
 
   return (
     <Flex>
-      <Box flex="grow" maxWidth={hideSideNav ? '100%' : DETAIL_PAGE_MAX_WIDTH}>
+      <Box flex="grow" maxWidth={isFullWidth ? FULL_WIDTH_MAX_WIDTH : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
           <Flex
             gap={{

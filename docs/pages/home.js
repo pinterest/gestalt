@@ -14,7 +14,7 @@ import Roadmap from '../graphics/home-page/roadmap.svg';
 
 export default function HomePage(): Node {
   return (
-    <Page title="Welcome to Gestalt" hideSideNav hideEditLink>
+    <Page title="Welcome to Gestalt" hideSideNav hideEditLink isFullWidth>
       <Box width="100%">
         <Flex direction="column">
           {/* Hero */}
