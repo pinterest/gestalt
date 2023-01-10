@@ -12,7 +12,6 @@ type Props = {|
   title: string,
   hideSideNav?: boolean,
   hideEditLink?: boolean,
-  isFullWidth?: boolean,
   pageSourceUrl?: string,
 |};
 
@@ -21,7 +20,6 @@ export default function Page({
   children,
   hideSideNav = false,
   hideEditLink = false,
-  isFullWidth = false,
   pageSourceUrl,
 }: Props): Node {
   const sections = Children.toArray(children);
@@ -37,8 +35,8 @@ export default function Page({
   }, [page]);
 
   return (
-    <Flex>
-      <Box flex="grow" maxWidth={isFullWidth ? FULL_WIDTH_MAX_WIDTH : DETAIL_PAGE_MAX_WIDTH}>
+    <Flex width="100%">
+      <Box flex="grow" maxWidth={hideSideNav ? FULL_WIDTH_MAX_WIDTH : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
           <Flex
             gap={{

@@ -117,6 +117,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
               maxWidth={CONTENT_MAX_WIDTH_PX}
               alignItems="center"
               direction="column"
+              flex="none"
             >
               {children}
             </Flex>
