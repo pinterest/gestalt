@@ -124,7 +124,7 @@ function InternalButtonContent({
  * ![Button dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Button-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
  *
  */
-const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function Button(props: unionProps, ref): Node {

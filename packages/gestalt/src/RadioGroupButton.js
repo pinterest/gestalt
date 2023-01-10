@@ -66,7 +66,7 @@ type Props = {|
  * ![RadioGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/RadioGroup-dark.spec.mjs-snapshots/RadioGroup-dark-chromium-darwin.png)
  *
  */
-const RadioGroupButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function RadioButton(

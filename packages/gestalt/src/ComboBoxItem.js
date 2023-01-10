@@ -32,7 +32,7 @@ type Props = {|
   value: string,
 |};
 
-const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(

@@ -113,7 +113,7 @@ type Props = {|
  * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.mjs-snapshots/NumberField-dark-chromium-darwin.png)
  *
  */
-const NumberFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function NumberField(

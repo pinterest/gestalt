@@ -92,7 +92,7 @@ function textFieldForwardRef(props, ref) {
 
 textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 
-export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): React$AbstractComponent<
+export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): AbstractComponent<
   Props,
   HTMLInputElement,
 >);

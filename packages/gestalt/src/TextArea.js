@@ -114,7 +114,7 @@ type Props = {|
  * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea-dark.spec.mjs-snapshots/TextArea-dark-chromium-darwin.png)
  *
  */
-const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
+const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,
   HTMLTextAreaElement,
 >(function TextArea(

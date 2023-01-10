@@ -80,7 +80,7 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
  * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
  *
  */
-const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function TapArea(props: unionProps, ref): Node {

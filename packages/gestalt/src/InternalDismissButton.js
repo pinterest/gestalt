@@ -24,7 +24,7 @@ type Props = {|
   size?: $ElementType<React$ElementConfig<typeof Pog>, 'size'>,
 |};
 
-const InternalDismissIconButtonWithForwardRef: React$AbstractComponent<Props, HTMLButtonElement> =
+const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> =
   forwardRef<Props, HTMLButtonElement>(function IconButton(
     {
       accessibilityLabel,

@@ -48,7 +48,7 @@ type Props = {|
   textWeight?: FontWeight,
 |};
 
-const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(

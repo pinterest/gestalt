@@ -62,7 +62,7 @@ type Props = {|
   value?: string,
 |};
 
-const InternalTextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
+const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> =
   forwardRef<Props, HTMLInputElement>(function TextField(
     {
       accessibilityControls,

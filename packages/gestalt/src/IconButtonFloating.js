@@ -55,7 +55,7 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButtonFloating dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating-dark.spec.mjs-snapshots/IconButtonFloating-dark-chromium-darwin.png)
  *
  */
-const IconButtonFloatingWithForwardRef: React$AbstractComponent<Props, unionRefs> = forwardRef<
+const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<
   Props,
   unionRefs,
 >(function IconButtonFloating(

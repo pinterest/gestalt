@@ -79,7 +79,7 @@ type Props = {|
  * ![Checkbox dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Checkbox-dark.spec.mjs-snapshots/Checkbox-dark-chromium-darwin.png)
  *
  */
-const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function Checkbox(

@@ -80,7 +80,7 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
-const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function IconButton(props: unionProps, ref): Node {
