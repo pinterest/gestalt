@@ -1,5 +1,12 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent, useState, useRef, useImperativeHandle } from 'react';
+import {
+  forwardRef,
+  type Node,
+  type AbstractComponent,
+  useState,
+  useRef,
+  useImperativeHandle,
+} from 'react';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';

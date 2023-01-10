@@ -1,5 +1,12 @@
 // @flow strict
-import { type Node, type AbstractComponent, forwardRef, useImperativeHandle, useState, useRef } from 'react';
+import {
+  type Node,
+  type AbstractComponent,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import icons from './icons/index.js';
 import InternalLink from './InternalLink.js';

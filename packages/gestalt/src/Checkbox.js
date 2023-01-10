@@ -1,5 +1,13 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useEffect, useRef, useState } from 'react';
+import {
+  forwardRef,
+  type Node,
+  type AbstractComponent,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
