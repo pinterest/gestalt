@@ -730,6 +730,12 @@
       "keywords": ["mouth", "lipstick"]
     },
     {
+      "name": "live",
+      "categories": ["Utility and tools"],
+      "description": "Indicates live videos, Pinterest tv",
+      "keywords": ["tv", "television", "video"]
+    },
+    {
       "name": "location",
       "categories": ["Utility and tools"],
       "description": "Indicates a location orientation",
