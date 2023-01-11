@@ -263,13 +263,13 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     window.removeEventListener('resize', this.handleResize);
   }
 
-  static getDerivedStateFromProps<T>(
-    props: Props<T>,
-    state: State<T>,
+  static getDerivedStateFromProps<K>(
+    props: Props<K>,
+    state: State<K>,
   ): null | {|
     hasPendingMeasurements: boolean,
     isFetching?: boolean,
-    items: $ReadOnlyArray<T>,
+    items: $ReadOnlyArray<K>,
   |} {
     const { items } = props;
     const { measurementStore } = state;
