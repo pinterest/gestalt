@@ -1,3 +1,9 @@
+## 88.0.3 (Jan 11, 2023)
+
+### Patch
+
+- Internal: update release.yml to use dangerismycat account ([#2605](https://github.com/pinterest/gestalt/pull/2605)) - [Preview link](https://deploy-preview-2605--gestalt.netlify.app)
+
 ## 88.0.2 (Jan 6, 2023)
 
 ### Patch
