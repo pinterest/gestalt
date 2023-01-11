@@ -6,6 +6,18 @@
       "keywords": ["label", "view"]
     },
     {
+      "name": "3D",
+      "categories": ["Utility and tools"],
+      "description": "Indicates 3D format is available",
+      "keywords": ["three-dimensional", "spacial"]
+    },
+    {
+      "name": "3D-move",
+      "categories": ["Utility and tools"],
+      "description": "Indicates the ability to rotate a 3D element",
+      "keywords": ["three-dimensional", "spacial", "rotate"]
+    },
+    {
       "name": "accessibility",
       "categories": ["Utility and tools"],
       "description": "Indicates accessibility features or adjustments",
@@ -144,6 +156,12 @@
       "keywords": ["diagonal"]
     },
     {
+      "name": "apple",
+      "categories": ["Social"],
+      "description": "Indicates Apple service or feature",
+      "keywords": ["fruit", "ios"]
+    },
+    {
       "name": "apps",
       "categories": ["Utility and tools"],
       "description": "Indicates a collection of apps",
@@ -203,6 +221,11 @@
       "keywords": ["next", "chevron", "right"]
     },
     {
+      "name": "arrow-left-curved",
+      "categories": ["Arrows"],
+      "keywords": ["back", "left", "previous", "angle"]
+    },
+    {
       "name": "arrow-start",
       "categories": ["Arrows"],
       "description": "Indicates the beginning of a sequence in a list of items or pages",
@@ -227,6 +250,12 @@
       "keywords": ["angled"]
     },
     {
+      "name": "board",
+      "categories": ["Utility and tools"],
+      "description": "Indicates a board",
+      "keywords": ["layout", "grid"]
+    },
+    {
       "name": "bell",
       "categories": ["Utility and tools"],
       "description": "Indicates notifications",
@@ -237,6 +266,12 @@
       "categories": ["Time"],
       "description": "Indicates date selection",
       "keywords": ["date", "schedule", "time"]
+    },
+    {
+      "name": "calendar-check",
+      "categories": ["Time"],
+      "description": "Indicates a date is selected",
+      "keywords": ["date", "schedule", "time", "date picker", "success"]
     },
     {
       "name": "camera",
@@ -371,6 +406,12 @@
       "keywords": ["minus", "empty", "remove"]
     },
     {
+      "name": "desktop",
+      "categories": ["Toggle"],
+      "description": "Indicates a desktop screen",
+      "keywords": ["screen", "size", "break point", "responsive", "computer"]
+    },
+    {
       "name": "directional-arrow-left",
       "categories": ["Arrows", "Platform specific"],
       "description": "On Android, indicates backward movement. Also used on web to indicate backward movement",
@@ -501,6 +542,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a flagged item",
       "keywords": ["priority", "highlight"]
+    },
+    {
+      "name": "flame",
+      "categories": ["Ads and measurements"],
+      "description": "Indicates trends",
+      "keywords": ["fire", "hot", "trend"]
     },
     {
       "name": "flash",
@@ -664,6 +711,12 @@
       "keywords": ["stories"]
     },
     {
+      "name": "image-portrait",
+      "categories": ["Utility and tools"],
+      "description": "Indicates portrait-mode orientation",
+      "keywords": ["orientation", "picture", "photo"]
+    },
+    {
       "name": "impressum",
       "categories": ["Utility and tools"],
       "description": "Indicates a legal statement of ownership/authorship",
@@ -686,6 +739,12 @@
       "categories": ["Ads and measurements"],
       "description": "Indicates insights conversion data",
       "keywords": ["metrics", "measurement"]
+    },
+    {
+      "name": "instagram",
+      "categories": ["Social"],
+      "description": "Indicates the Instagram service",
+      "keywords": ["social", "service", "share"]
     },
     {
       "name": "key",
@@ -730,6 +789,12 @@
       "keywords": ["mouth", "lipstick"]
     },
     {
+      "name": "live",
+      "categories": ["Utility and tools"],
+      "description": "Indicates live videos, Pinterest tv",
+      "keywords": ["tv", "television", "video"]
+    },
+    {
       "name": "location",
       "categories": ["Utility and tools"],
       "description": "Indicates a location orientation",
@@ -758,6 +823,18 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to end access to a session",
       "keywords": ["power", "end"]
+    },
+    {
+      "name": "magic-pen",
+      "categories": ["Utility and tools"],
+      "description": "Indicates the ability to select an object or an entire area of an image",
+      "keywords": ["wand"]
+    },
+    {
+      "name": "manage-access",
+      "categories": ["Utility and tools"],
+      "description": "Indicates the ability to manage access to docs or dashboards",
+      "keywords": ["management", "access", "share", "private"]
     },
     {
       "name": "margins-large",
@@ -800,6 +877,12 @@
       "categories": ["Arrows", "Utility and tools"],
       "description": "Indicates the ability to minimize the view",
       "keywords": ["decrease", "shrink"]
+    },
+    {
+      "name": "mobile",
+      "categories": ["Toggle"],
+      "description": "Indicates mobile screen",
+      "keywords": ["screen", "size", "break point", "responsive", "phone"]
     },
     {
       "name": "move",
@@ -950,6 +1033,18 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to rotate an element",
       "keywords": ["turn", "orientation"]
+    },
+    {
+      "name": "save-outline",
+      "categories": ["Toggle"],
+      "description": "Indicates the ability to save a pin or video ",
+      "keywords": ["favorite", "library", "bookmark"]
+    },
+    {
+      "name": "saved",
+      "categories": ["Toggle"],
+      "description": "Indicates a pin or video is saved",
+      "keywords": ["favorite", "library", "bookmark"]
     },
     {
       "name": "scale",
@@ -1162,6 +1257,18 @@
       "keywords": ["kerning"]
     },
     {
+      "name": "thumbs-down",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates a dislike reaction",
+      "keywords": ["dislike", "no"]
+    },
+    {
+      "name": "thumbs-up",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates a like reaction",
+      "keywords": ["like", "yes", "approve"]
+    },
+    {
       "name": "trash-can",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to delete items",
@@ -1186,10 +1293,22 @@
       "keywords": []
     },
     {
+      "name": "video-advance-10-seconds",
+      "categories": ["Media controls"],
+      "description": "Indicates the ability to advance videos by 10 seconds",
+      "keywords": ["speed up", "forward", "skip"]
+    },
+    {
       "name": "video-camera",
       "categories": ["Media controls"],
       "description": "Indicates the ability to use a video camera",
       "keywords": ["record"]
+    },
+    {
+      "name": "video-rewind-10-seconds",
+      "categories": ["Media controls"],
+      "description": "Indicates the ability to rewind videos by 10 seconds",
+      "keywords": ["back", "repeat"]
     },
     {
       "name": "view-type-default",
@@ -1220,6 +1339,18 @@
       "categories": ["Utility and tools"],
       "description": "Indicates an external link or domain",
       "keywords": ["external", "link", "new window"]
+    },
+    {
+      "name": "whats-app",
+      "categories": ["Social"],
+      "description": "Indicates the WhatsApp service",
+      "keywords": ["social", "chat", "service", "share"]
+    },
+    {
+      "name": "wifi-no",
+      "categories": ["Social"],
+      "description": "Indicates there is no wifi available",
+      "keywords": ["connection", "internet", "offline", "signal"]
     },
     {
       "name": "workflow-status-all",

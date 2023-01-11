@@ -1,4 +1,6 @@
 // @flow strict
+import threeD from './3d.svg';
+import threeDMove from './3d-move.svg';
 import ad from './ad.svg';
 import add from './add.svg';
 import addCircle from './add-circle.svg';
@@ -19,6 +21,7 @@ import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
 import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
+import apple from './apple.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
 import arrowCircleDown from './arrow-circle-down.svg';
@@ -27,11 +30,14 @@ import arrowCircleUp from './arrow-circle-up.svg';
 import arrowDown from './arrow-down.svg';
 import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
+import arrowLeftCurved from './arrow-left-curved.svg';
 import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpRight from './arrow-up-right.svg';
+import board from './board.svg';
 import bell from './bell.svg';
 import calendar from './calendar.svg';
+import calendarCheck from './calendar-check.svg';
 import camera from './camera.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
@@ -52,6 +58,7 @@ import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
+import desktop from './desktop.svg';
 import directionalArrowLeft from './directional-arrow-left.svg';
 import directionalArrowRight from './directional-arrow-right.svg';
 import download from './download.svg';
@@ -72,6 +79,7 @@ import fillOpaque from './fill-opaque.svg';
 import fillTransparent from './fill-transparent.svg';
 import filter from './filter.svg';
 import flag from './flag.svg';
+import flame from './flame.svg';
 import flash from './flash.svg';
 import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
@@ -91,20 +99,25 @@ import heartBroken from './heart-broken.svg';
 import history from './history.svg';
 import home from './home.svg';
 import ideaPin from './idea-pin.svg';
+import imagePortrait from './image-portrait.svg';
 import impressum from './impressum.svg';
 import infoCircle from './info-circle.svg';
 import insightsAudience from './insights-audience.svg';
 import insightsConversions from './insights-conversions.svg';
+import instagram from './instagram.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
 import lightningBoltCircle from './lightning-bolt-circle.svg';
 import link from './link.svg';
+import live from './live.svg';
 import location from './location.svg';
 import lock from './lock.svg';
 import logoLarge from './logo-large.svg';
 import logoSmall from './logo-small.svg';
 import logout from './logout.svg';
+import magicPen from './magic-pen.svg';
+import manageAccess from './manage-access.svg';
 import marginsLarge from './margins-large.svg';
 import marginsMedium from './margins-medium.svg';
 import marginsSmall from './margins-small.svg';
@@ -112,6 +125,7 @@ import maximize from './maximize.svg';
 import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
+import mobile from './mobile.svg';
 import move from './move.svg';
 import mute from './mute.svg';
 import musicOff from './music-off.svg';
@@ -137,6 +151,8 @@ import reorderImages from './reorder-images.svg';
 import replace from './replace.svg';
 import report from './report.svg';
 import rotate from './rotate.svg';
+import saveOutline from './save-outline.svg';
+import saved from './saved.svg';
 import scale from './scale.svg';
 import search from './search.svg';
 import security from './security.svg';
@@ -168,14 +184,20 @@ import textSentenceCase from './text-sentence-case.svg';
 import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
 import textSpacing from './text-spacing.svg';
+import thumbsDown from './thumbs-down.svg';
+import thumbsUp from './thumbs-up.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
 import twitter from './twitter.svg';
+import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
+import videoRewind10Seconds from './video-rewind-10-seconds.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 import visit from './visit.svg';
+import whatsApp from './whats-app.svg';
+import wifiNo from './wifi-no.svg';
 import workflowStatusAll from './workflow-status-all.svg';
 import workflowStatusCanceled from './workflow-status-canceled.svg';
 import workflowStatusHalted from './workflow-status-halted.svg';
@@ -186,6 +208,8 @@ import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 import workflowStatusWarning from './workflow-status-warning.svg';
 
 const icons = Object.freeze({
+  '3D': threeD,
+  '3D-move': threeDMove,
   ad,
   'ad-group': adGroup,
   add,
@@ -206,6 +230,7 @@ const icons = Object.freeze({
   'align-top': alignTop,
   'android-share': androidShare,
   'angled-pin': angledPin,
+  apple,
   apps,
   'arrow-back': arrowBack,
   'arrow-circle-down': arrowCircleDown,
@@ -214,11 +239,14 @@ const icons = Object.freeze({
   'arrow-down': arrowDown,
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
+  'arrow-left-curved': arrowLeftCurved,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-right': arrowUpRight,
+  board,
   bell,
   calendar,
+  'calendar-check': calendarCheck,
   camera,
   'camera-roll': cameraRoll,
   cancel,
@@ -237,6 +265,7 @@ const icons = Object.freeze({
   'copy-to-clipboard': copyToClipboard,
   crop,
   dash,
+  desktop,
   'conversion-tag': conversionTag,
   'credit-card': creditCard,
   'directional-arrow-left': directionalArrowLeft,
@@ -260,6 +289,7 @@ const icons = Object.freeze({
   'fill-transparent': fillTransparent,
   filter,
   flag,
+  flame,
   flash,
   flashlight,
   flipHorizontal,
@@ -279,20 +309,25 @@ const icons = Object.freeze({
   history,
   home,
   'idea-pin': ideaPin,
+  'image-portrait': imagePortrait,
   impressum,
   'insights-audience': insightsAudience,
   'insights-conversions': insightsConversions,
+  instagram,
   'info-circle': infoCircle,
   key,
   knoop,
   lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
   link,
+  live,
   location,
   lock,
   'logo-large': logoLarge,
   'logo-small': logoSmall,
   logout,
+  'manage-access': manageAccess,
+  'magic-pen': magicPen,
   'margins-large': marginsLarge,
   'margins-medium': marginsMedium,
   'margins-small': marginsSmall,
@@ -300,6 +335,7 @@ const icons = Object.freeze({
   megaphone,
   menu,
   minimize,
+  mobile,
   move,
   mute,
   'music-off': musicOff,
@@ -324,6 +360,8 @@ const icons = Object.freeze({
   replace,
   report,
   rotate,
+  saved,
+  'save-outline': saveOutline,
   scale,
   search,
   security,
@@ -355,14 +393,20 @@ const icons = Object.freeze({
   'text-size': textSize,
   'text-small': textSmall,
   'text-spacing': textSpacing,
+  'thumbs-down': thumbsDown,
+  'thumbs-up': thumbsUp,
   'trash-can': trashCan,
   trending,
   twitter,
+  'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
+  'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   visit,
+  'whats-app': whatsApp,
+  'wifi-no': wifiNo,
   'workflow-status-all': workflowStatusAll,
   'workflow-status-canceled': workflowStatusCanceled,
   'workflow-status-halted': workflowStatusHalted,
