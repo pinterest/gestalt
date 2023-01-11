@@ -263,7 +263,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     window.removeEventListener('resize', this.handleResize);
   }
 
-  static getDerivedStateFromProps(
+  static getDerivedStateFromProps<T>(
     props: Props<T>,
     state: State<T>,
   ): null | {|
