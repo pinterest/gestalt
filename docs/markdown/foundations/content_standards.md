@@ -25,7 +25,7 @@ Put your best stuff up top. Ask yourself: Would people stop what they’re doing
 
 | Format             | Rule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dates              | - Abbreviate the name of the month without a period and without a ƒst/nd/rd/th on the day<br/>Dec 10 (not: Dec. 10th), May 9, 2010. Exception: In longform writing (like a blogpost), spell the month (December 10, 2010)<br/>- In UI writing, use numerals, separated with a slash: 10/10/10<br/>- For single digit days/months, don’t use a zero: 2/5/15<br/>- If you’re not sure if you should capitalize a holiday (or, ahem, if it gets an apostrophe), please look it up: Fourth of July, Mother’s Day |
+| Dates              | - Abbreviate the name of the month without a period and without a ƒst/nd/rd/th on the day<br/> - Dec 10 (not: Dec. 10th), May 9, 2010. Exception: In longform writing (like a blogpost), spell the month (December 10, 2010)<br/>- In UI writing, use numerals, separated with a slash: 10/10/10<br/>- For single digit days/months, don’t use a zero: 2/5/15<br/>- If you’re not sure if you should capitalize a holiday (or, ahem, if it gets an apostrophe), please look it up: Fourth of July, Mother’s Day |
 | Countries          | - Don’t abbreviate unless space is an issue. Then: Use standard postal codes: US (United States), FR (France), IN (India), JP (Japan), EG (Egypt), BR (Brazil), etc.                                                                                                                                                                                                                                                                                                                                     |
 | Days               | - Don’t abbreviate unless space is an issue. Then:<br/>- Mon, Tue, Wed, Thu, Fri, Sat, Sun <br/>- M, Tu, W, Th, F, Sa, Su (if space is super, duper tight)                                                                                                                                                                                                                                                                                                                                                 |
 | Decades            | - 1930s, ’30s, mid-’30s<br/>- 20th century                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -36,11 +36,7 @@ Put your best stuff up top. Ask yourself: Would people stop what they’re doing
 | Financial quarters | - Abbreviate the quarter, spell out the year (ex: Q3 2017)                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Time               | - Lowercase am/pm, no space:9:15am, 1:23pm, 9am, 1pm (not 9:00am, 1:00pm)                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Years              | - 20 BC, 25 AD (rather than 1500 BCE and 1986 CE)                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Other              | - Don’t use Latin abbreviations like “i.e.” or “e.g.” and use “ex:” (abbreviation for “example”) instead<br/>- Always spell out “okay”                                                                                                                                                                                                                                                                                                                                                                    |
-|                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-
+| Other              | - Don’t use Latin abbreviations like “i.e.” or “e.g.” and use “ex:” (abbreviation for “example”) instead<br/>- Always spell out “okay”                                                                                                                                                                                                                                                  |
 
 --- 
 
@@ -50,14 +46,19 @@ Put your best stuff up top. Ask yourself: Would people stop what they’re doing
 Links should be a part of a sentence, and it should be clear where you go or what happens once you click. 
 
 In UI writing, if you have a one-sentence string with a link to follow, put it on a separate line:
-We all love Story Pins
+
+
+> We all love Story Pins
 [See why](https://gestalt.pinterest.systems/home)
 
 If this isn't possible, punctuate the one-sentence string to visually separate it from the link:
-We all love Story Pins. [See why](https://gestalt.pinterest.systems/home)
+
+
+> We all love Story Pins. [See why](https://gestalt.pinterest.systems/home)
 
 In longform writing, make sure to punctuate when the link falls at the end of a sentence. Make sure the punctuation is not part of the hyperlinked phrase:
-We all love Story Pins. If you still have questions, head over to our [Help Center](https://gestalt.pinterest.systems/home).
+
+> We all love Story Pins. If you still have questions, head over to our [Help Center](https://gestalt.pinterest.systems/home).
 
 <TwoCol>
   <Group>
@@ -137,8 +138,6 @@ Everyone loves a good list! Lists help break up text and make things scannable, 
 ---
 
 ### Numbers
-<br/>
-**Numbers**
 When you’re using numbers in tight spaces or places people are likely to scan, numerals can make your copy easier to read fast. Use numerals (1, 2, 15) unless it looks jarring written out (unless this looks jarring with the number “one”).
 <br/>
 - Abbreviate once you hit a thousand and round to the nearest hundred (except prices and percentages). Once you hit a million, round to the nearest hundred thousand. 
@@ -160,7 +159,7 @@ When you’re using numbers in tight spaces or places people are likely to scan,
 <br/>
 **ZIP Code**
   - Always capitalize ZIP
-  - Use 5-digit pattern (80538)
+  - Use a 5-digit pattern (80538)
 <br/>
 **Decimals**
   - For values > 0, show one decimal place (5.2 is good)
@@ -630,10 +629,6 @@ Use red text inline when someone submits a form that’s missing a required fiel
   </Group>
   <Group>
   <Dont title="Don't"/>
-     - Don’t use emoji in the product, in permanent parts of the UI
-     - Don’t use unique or unusual emojis, even in the name of “delight”
-     - Don’t use emojis for negativity (like error messages)
-     - Don’t use emoji in an experience where whimsy or delight could be established through existing design assets instead. Check with your designer first!
      - Examples: 
         - Parameter 'board_id' is required.
         - You’re not allowed to do that. 
