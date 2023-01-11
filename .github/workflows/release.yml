@@ -70,7 +70,7 @@ jobs:
         run: yarn install
       - name: Setup GitHub access tokens
         env:
-          GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+          PINTEREST_GESTALT_PERSONAL_TOKEN: ${{ secrets.PINTEREST_GESTALT_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> ~/.netrc
           echo "login pinterest-gestalt" >> ~/.netrc
@@ -94,7 +94,7 @@ jobs:
       - name: Trigger VSCode Gestalt release
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+          github-token: ${{ secrets.PINTEREST_GESTALT_PERSONAL_TOKEN }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: 'pinterest',
