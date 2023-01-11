@@ -73,8 +73,8 @@ jobs:
           GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> ~/.netrc
-          echo "login christianvuerings" >> ~/.netrc
-          echo "password $GITHUB_PERSONAL_TOKEN" >> ~/.netrc
+          echo "login pinterest-gestalt" >> ~/.netrc
+          echo "password $PINTEREST_GESTALT_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
         id: release
         run: ./scripts/releaseSteps.js
