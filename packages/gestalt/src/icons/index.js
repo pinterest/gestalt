@@ -110,6 +110,7 @@ import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
 import lightningBoltCircle from './lightning-bolt-circle.svg';
 import link from './link.svg';
+import live from './live.svg';
 import location from './location.svg';
 import lock from './lock.svg';
 import logoLarge from './logo-large.svg';
@@ -319,6 +320,7 @@ const icons = Object.freeze({
   lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
   link,
+  live,
   location,
   lock,
   'logo-large': logoLarge,
