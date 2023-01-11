@@ -70,11 +70,11 @@ jobs:
         run: yarn install
       - name: Setup GitHub access tokens
         env:
-          PINTEREST_GESTALT_PERSONAL_TOKEN: ${{ secrets.PINTEREST_GESTALT_PERSONAL_TOKEN }}
+          RYAN_GITHUB_PERSONAL_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> ~/.netrc
-          echo "login pinterest-gestalt" >> ~/.netrc
-          echo "password $PINTEREST_GESTALT_PERSONAL_TOKEN" >> ~/.netrc
+          echo "login dangerismycat" >> ~/.netrc
+          echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
         id: release
         run: ./scripts/releaseSteps.js
@@ -94,7 +94,7 @@ jobs:
       - name: Trigger VSCode Gestalt release
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.PINTEREST_GESTALT_PERSONAL_TOKEN }}
+          github-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: 'pinterest',
