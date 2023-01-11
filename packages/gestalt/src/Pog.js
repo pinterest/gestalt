@@ -26,6 +26,7 @@ const OLD_TO_NEW_COLOR_MAP = {
   'gray': 'subtle',
   'darkGray': 'default',
   'red': 'error',
+  'brandPrimary': 'brandPrimary',
 };
 
 const defaultIconButtonIconColors = {
@@ -78,7 +79,7 @@ type Props = {|
   /**
    * Color applied to the [Icon](https://gestalt.pinterest.systems/web/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
   /**
    * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
    */
