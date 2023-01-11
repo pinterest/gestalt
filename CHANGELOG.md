@@ -1,3 +1,9 @@
+## 89.0.0 (Jan 11, 2023)
+
+### Major
+
+- Internal: NO BREAKING CHANGES - fix lint errors in codemod readme.md ([#2607](https://github.com/pinterest/gestalt/pull/2607)) - [Preview link](https://deploy-preview-2607--gestalt.netlify.app)
+
 ## 88.1.0 (Jan 11, 2023)
 
 ### Minor
