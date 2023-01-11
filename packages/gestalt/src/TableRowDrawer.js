@@ -3,6 +3,7 @@ import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useStat
 import styles from './Table.css';
 import Box from './Box.js';
 import { useTableContext } from './contexts/TableContext.js';
+import getChildrenCount from './Table/getChildrenCount.js';
 
 type Props = {|
   /**
@@ -50,11 +51,12 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
   return (
     <Fragment>
       <tr aria-details={drawerContents ? id : undefined} ref={rowRef}>
+        {/* This needs to be fixed for children wrapped in React.Fragment when sticky columns are present */}
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>
       {drawerContents ? (
         <tr id={id}>
-          <td className={styles.drawer} colSpan={Children.count(children) + 1}>
+          <td className={styles.drawer} colSpan={getChildrenCount(children)}>
             <Box padding={2}>{drawerContents}</Box>
           </td>
         </tr>
