@@ -1,3 +1,9 @@
+## 89.0.1 (Jan 11, 2023)
+
+### Patch
+
+- Masonary: Update getDerivedStateFromProps Flowtype ([#2604](https://github.com/pinterest/gestalt/pull/2604)) - [Preview link](https://deploy-preview-2604--gestalt.netlify.app)
+
 ## 89.0.0 (Jan 11, 2023)
 
 ### Major
