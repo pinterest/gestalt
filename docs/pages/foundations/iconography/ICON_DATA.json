@@ -54,12 +54,6 @@
       "keywords": ["plus layout", "create", "new"]
     },
     {
-      "name": "add-person",
-      "categories": ["Add"],
-      "description": "Indicates the ability to add a new person/collaborator",
-      "keywords": ["plus person", "collaborator", "create", "new", "share"]
-    },
-    {
       "name": "add-pin",
       "categories": ["Add"],
       "description": "Indicates the ability to send a Pin",
@@ -263,13 +257,13 @@
     },
     {
       "name": "calendar",
-      "categories": ["Time"],
+      "categories": ["Time", "Toggle"],
       "description": "Indicates date selection",
       "keywords": ["date", "schedule", "time"]
     },
     {
       "name": "calendar-check",
-      "categories": ["Time"],
+      "categories": ["Time", "Toggle"],
       "description": "Indicates a date is selected",
       "keywords": ["date", "schedule", "time", "date picker", "success"]
     },
@@ -939,6 +933,12 @@
       "keywords": ["user", "avatar", "profile", "audience"]
     },
     {
+      "name": "person-add",
+      "categories": ["Add"],
+      "description": "Indicates the ability to add a new person/collaborator",
+      "keywords": ["plus person", "collaborator", "create", "new", "share"]
+    },
+    {
       "name": "phone",
       "categories": ["Utility and tools"],
       "description": "Indicates a phone service or number",
@@ -1348,7 +1348,7 @@
     },
     {
       "name": "wifi-no",
-      "categories": ["Social"],
+      "categories": ["Utility and tools"],
       "description": "Indicates there is no wifi available",
       "keywords": ["connection", "internet", "offline", "signal"]
     },

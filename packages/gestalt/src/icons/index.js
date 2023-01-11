@@ -150,6 +150,7 @@ import reorderImages from './reorder-images.svg';
 import replace from './replace.svg';
 import report from './report.svg';
 import rotate from './rotate.svg';
+import saveOutline from './save-outline.svg';
 import saved from './saved.svg';
 import scale from './scale.svg';
 import search from './search.svg';
@@ -357,6 +358,7 @@ const icons = Object.freeze({
   replace,
   report,
   rotate,
+  'save-outline': saveOutline,
   saved,
   scale,
   search,
