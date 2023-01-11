@@ -1,3 +1,9 @@
+## 88.1.0 (Jan 11, 2023)
+
+### Minor
+
+- Internal: fix lint errors in readme.md ([#2606](https://github.com/pinterest/gestalt/pull/2606)) - [Preview link](https://deploy-preview-2606--gestalt.netlify.app)
+
 ## 88.0.3 (Jan 11, 2023)
 
 ### Patch
