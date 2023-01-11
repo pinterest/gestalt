@@ -2,6 +2,7 @@
 import { Badge, Box, Card, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
 import illustrations, { type IllustrationTypes } from '../graphics/index.js';
+import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
 
 export type IllustrationCardProps = {|
   headingLevel: 2 | 3,
@@ -28,7 +29,7 @@ function IllustrationCard({
 
   return (
     <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
-      <Box minWidth={245}>
+      <Box minWidth={MIN_SVG_ILLUSTRATION_WIDTH}>
         <Card>
           <Flex direction="column" height={320}>
             <Box

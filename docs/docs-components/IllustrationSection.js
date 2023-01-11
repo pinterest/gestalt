@@ -4,7 +4,7 @@ import { type Node } from 'react';
 import IllustrationContainer from './IllustrationContainer.js';
 
 // Matches minWidth in IllustrationCard
-const MIN_SVG_ILLUSTRATION_WIDTH = 245;
+export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 
 type Props = {|
   title?: string,

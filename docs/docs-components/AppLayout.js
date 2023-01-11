@@ -12,7 +12,7 @@ import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDevice
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 import YearInReviewBanner from './YearInReviewBanner.js';
 
-const CONTENT_MAX_WIDTH_PX = 1200;
+export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = ['/year_in_review_2022'];
