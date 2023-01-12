@@ -1,3 +1,9 @@
+## 89.0.2 (Jan 12, 2023)
+
+### Patch
+
+- Updated Data visualization menu item to be sentence case ([#2609](https://github.com/pinterest/gestalt/pull/2609)) - [Preview link](https://deploy-preview-2609--gestalt.netlify.app)
+
 ## 89.0.1 (Jan 11, 2023)
 
 ### Patch
