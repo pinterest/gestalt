@@ -176,7 +176,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Palette', 'Usage', 'Examples'],
       },
       {
-        sectionName: 'Data Visualization',
+        sectionName: 'Data visualization',
         pages: ['Palette', 'Usage'],
       },
       'Design tokens',
