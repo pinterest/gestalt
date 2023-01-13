@@ -1,3 +1,9 @@
+## 89.0.4 (Jan 13, 2023)
+
+### Patch
+
+- Docs: add December newsletter ([#2614](https://github.com/pinterest/gestalt/pull/2614)) - [Preview link](https://deploy-preview-2614--gestalt.netlify.app)
+
 ## 89.0.3 (Jan 13, 2023)
 
 ### Patch
