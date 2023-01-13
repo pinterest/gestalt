@@ -470,7 +470,7 @@ export function buildStyles<T: Object>({
   // eslint-disable-next-line no-restricted-syntax
   for (const prop in props) {
     if (
-      // $FlowFixMe[method-unbinding]
+      // $FlowExpectedError[method-unbinding]
       Object.prototype.hasOwnProperty.call(propToFn, prop) &&
       !omitProps.includes(prop) &&
       (!allowlistProps || allowlistProps.includes(prop))
