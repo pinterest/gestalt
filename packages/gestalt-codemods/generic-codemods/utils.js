@@ -6,6 +6,7 @@ import {
   type JSCodeShift,
   type JSXNodeType,
   type NodePathType,
+  type GenericObjectType,
 } from './flowtypes.js';
 
 /**
@@ -347,6 +348,77 @@ const throwErrorMessageWithNodesData = ({
 const saveToSource = ({ src }: {| src: Collection |}): string | null =>
   src.modified ? src.toSource({ quote: 'double' }) : null;
 
+type Key = {|
+  type: string,
+  name: string,
+  typeAnnotation: null,
+  optional: boolean,
+|};
+
+type Property = {|
+  type: string,
+  value: GenericObjectType,
+  key: Key,
+  kind: string,
+  method: boolean,
+  shorthand: boolean,
+  computed: boolean,
+  decorators: null,
+|};
+
+type jsxObjectExpression = {|
+  type: string,
+  loc: null,
+  properties: $ReadOnlyArray<Property>,
+|};
+
+class JSCSObjectExpression {
+  constructor(object: GenericObjectType, j: JSCodeShift): jsxObjectExpression {
+    // eslint-disable-next-line no-constructor-return
+    return {
+      type: 'ObjectExpression',
+      loc: null,
+      properties: this.createPropList(object, j),
+    };
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  createPropList(object: GenericObjectType, j: JSCodeShift): $ReadOnlyArray<Property> {
+    const properties = [];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of Object.entries(object)) {
+      let tmpValue: GenericObjectType;
+      if (typeof value === 'string') {
+        tmpValue = j.stringLiteral(value);
+      }
+      if (typeof value === 'number') {
+        tmpValue = j.numericLiteral(value);
+      }
+      if (typeof value === 'boolean') {
+        tmpValue = j.booleanLiteral(value);
+      }
+
+      properties.push({
+        type: 'Property',
+        value: tmpValue,
+        key: {
+          type: 'Identifier',
+          name: key,
+          typeAnnotation: null,
+          optional: false,
+        },
+        kind: 'init',
+        method: false,
+        shorthand: false,
+        computed: false,
+        decorators: null,
+      });
+    }
+
+    return properties;
+  }
+}
+
 export {
   buildReplaceWithModifiedAttributes,
   buildReplaceWithRenamedComponent,
@@ -362,4 +434,5 @@ export {
   saveToSource,
   throwErrorIfSpreadProps,
   throwErrorMessageWithNodesData,
+  JSCSObjectExpression,
 };
