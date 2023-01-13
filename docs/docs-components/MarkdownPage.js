@@ -90,8 +90,16 @@ const components = {
       <hr />
     </Box>
   ),
-  PrivateLink: ({ children, href }: {| href: string, children: string | null |}) => (
-    <Link href={href} target="blank">
+  PrivateLink: ({
+    children,
+    href,
+    display,
+  }: {|
+    href: string,
+    children: string | null,
+    display: 'inline' | 'inlineBlock' | 'block',
+  |}) => (
+    <Link href={href} target="blank" display={display || 'block'}>
       <Flex
         alignItems="baseline"
         gap={{
