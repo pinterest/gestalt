@@ -1,3 +1,9 @@
+## 89.0.3 (Jan 13, 2023)
+
+### Patch
+
+- Internal: Flow fixes ([#2611](https://github.com/pinterest/gestalt/pull/2611)) - [Preview link](https://deploy-preview-2611--gestalt.netlify.app)
+
 ## 89.0.2 (Jan 12, 2023)
 
 ### Patch
