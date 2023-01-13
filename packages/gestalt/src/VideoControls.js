@@ -101,11 +101,11 @@ function VideoControls({
     setShowFullscreenButton(
       typeof document !== 'undefined' &&
         (document.fullscreenEnabled ||
-          // $FlowFixMe[prop-missing]
+          // $FlowExpectedError[prop-missing]
           document.webkitFullscreenEnabled ||
-          // $FlowFixMe[prop-missing]
+          // $FlowExpectedError[prop-missing]
           document.mozFullScreenEnabled ||
-          // $FlowFixMe[prop-missing]
+          // $FlowExpectedError[prop-missing]
           document.msFullscreenEnabled),
     );
   }, []);
