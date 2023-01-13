@@ -7,8 +7,22 @@ import ColorTile from '../../../docs-components/ColorTile.js';
 import Page from '../../../docs-components/Page.js';
 import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter.js';
 
-const MAIN_STEPS = ['01', '02', '03', '04', '05', '06'];
-const EXTENDED_STEPS = ['07', '08', '09', '10', '11', '12'];
+const MAIN_STEPS = [
+  { name: '01', lightText: 'light', darkText: 'light' },
+  { name: '02', lightText: 'dark', darkText: 'dark' },
+  { name: '03', lightText: 'light', darkText: 'light' },
+  { name: '04', lightText: 'dark', darkText: 'dark' },
+  { name: '05', lightText: 'dark', darkText: 'dark' },
+  { name: '06', lightText: 'dark', darkText: 'light' },
+];
+const EXTENDED_STEPS = [
+  { name: '07', lightText: 'dark', darkText: 'dark' },
+  { name: '08', lightText: 'light', darkText: 'light' },
+  { name: '09', lightText: 'dark', darkText: 'dark' },
+  { name: '10', lightText: 'light', darkText: 'light' },
+  { name: '11', lightText: 'light', darkText: 'dark' },
+  { name: '12', lightText: 'light', darkText: 'dark' },
+];
 
 type ColorCardProps = {|
   colorScheme: 'light' | 'dark',
@@ -37,15 +51,43 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
               fullTokenName="color-data-visualization-success-text"
             />
           </Flex>
-          <ColorTile
-            textColor={colorScheme}
-            description="Error (Graph and Text)"
-            fullTokenName="color-data-visualization-error"
-          />
+          <Flex direction="column">
+            <ColorTile
+              textColor={colorScheme}
+              description="Error (Graph)"
+              fullTokenName="color-data-visualization-error-graph"
+            />
+            <ColorTile
+              textColor={colorScheme}
+              description="Error (Text/Icon)"
+              fullTokenName="color-data-visualization-error-text"
+            />
+          </Flex>
         </Flex>
         <Flex />
       </Box>
     </ColorSchemeProvider>
+  );
+}
+
+function getColorTiles(colors, mode = 'light'): Node {
+  return (
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 1,
+      }}
+    >
+      {colors.map((step) => (
+        <ColorTile
+          key={`${step.name}`}
+          textColor={step[`${mode}Text`]}
+          description={`Data Visualization ${step.name}`}
+          fullTokenName={`color-data-visualization-${step.name}`}
+        />
+      ))}
+    </Flex>
   );
 }
 
@@ -86,22 +128,7 @@ export default function ColorPage(): Node {
                   }}
                 >
                   <Text weight="bold">Main palette</Text>
-                  <Flex
-                    direction="column"
-                    gap={{
-                      row: 0,
-                      column: 1,
-                    }}
-                  >
-                    {MAIN_STEPS.map((step) => (
-                      <ColorTile
-                        key={`${step}`}
-                        textColor={step === '01' || step === '02' ? 'dark' : 'light'}
-                        description={`Data Visualization ${step}`}
-                        fullTokenName={`color-data-visualization-${step}`}
-                      />
-                    ))}
-                  </Flex>
+                  {getColorTiles(MAIN_STEPS)}
                 </Flex>
                 <Flex
                   direction="column"
@@ -111,22 +138,7 @@ export default function ColorPage(): Node {
                   }}
                 >
                   <Text weight="bold">Extended palette</Text>
-                  <Flex
-                    direction="column"
-                    gap={{
-                      row: 0,
-                      column: 1,
-                    }}
-                  >
-                    {EXTENDED_STEPS.map((step) => (
-                      <ColorTile
-                        key={`${step}`}
-                        textColor={step === '10' ? 'dark' : 'light'}
-                        description={`Data Visualization ${step}`}
-                        fullTokenName={`color-data-visualization-${step}`}
-                      />
-                    ))}
-                  </Flex>
+                  {getColorTiles(EXTENDED_STEPS)}
                 </Flex>
               </Flex>
             </Box>
@@ -151,22 +163,7 @@ export default function ColorPage(): Node {
                   }}
                 >
                   <Text weight="bold">Main palette</Text>
-                  <Flex
-                    direction="column"
-                    gap={{
-                      row: 0,
-                      column: 1,
-                    }}
-                  >
-                    {MAIN_STEPS.map((step) => (
-                      <ColorTile
-                        key={`${step}`}
-                        textColor="dark"
-                        description={`Data Visualization ${step}`}
-                        fullTokenName={`color-data-visualization-${step}`}
-                      />
-                    ))}
-                  </Flex>
+                  {getColorTiles(MAIN_STEPS, 'dark')}
                 </Flex>
                 <Flex
                   direction="column"
@@ -176,22 +173,7 @@ export default function ColorPage(): Node {
                   }}
                 >
                   <Text weight="bold">Extended palette</Text>
-                  <Flex
-                    direction="column"
-                    gap={{
-                      row: 0,
-                      column: 1,
-                    }}
-                  >
-                    {EXTENDED_STEPS.map((step) => (
-                      <ColorTile
-                        key={`${step}`}
-                        textColor={step === '12' ? 'light' : 'dark'}
-                        description={`Data Visualization ${step}`}
-                        fullTokenName={`color-data-visualization-${step}`}
-                      />
-                    ))}
-                  </Flex>
+                  {getColorTiles(EXTENDED_STEPS, 'dark')}
                 </Flex>
               </Flex>
             </Box>

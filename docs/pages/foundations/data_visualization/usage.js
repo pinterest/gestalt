@@ -5,13 +5,41 @@ import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import ColorTile from '../../../docs-components/ColorTile.js';
 import Page from '../../../docs-components/Page.js';
-import DataVizPrimary from '../../../graphics/color-examples/dataVizPrimary.svg';
-import DataVizSuccessError from '../../../graphics/color-examples/dataVizSuccessError.svg';
-import DataViz2Colors from '../../../graphics/color-examples/dataViz2Colors.svg';
-import DataViz3Colors from '../../../graphics/color-examples/dataViz3Colors.svg';
-import DataViz4Colors from '../../../graphics/color-examples/dataViz4Colors.svg';
-import DataViz6Colors from '../../../graphics/color-examples/dataViz6Colors.svg';
-import DataViz8Colors from '../../../graphics/color-examples/dataViz8Colors.svg';
+import DataVizPrimary from '../../../graphics/data-viz-color-examples/dataVizPrimary.svg';
+import DataVizSuccessError from '../../../graphics/data-viz-color-examples/dataVizSuccessError.svg';
+import DataViz2Colors from '../../../graphics/data-viz-color-examples/dataViz2Colors.svg';
+import DataViz3Colors from '../../../graphics/data-viz-color-examples/dataViz3Colors.svg';
+import DataViz4Colors from '../../../graphics/data-viz-color-examples/dataViz4Colors.svg';
+import DataViz6Colors from '../../../graphics/data-viz-color-examples/dataViz6Colors.svg';
+import DataViz8Colors from '../../../graphics/data-viz-color-examples/dataViz8Colors.svg';
+
+const COLOR_TEXT_PAIRINGS = {
+  '01': 'light',
+  '02': 'dark',
+  '03': 'light',
+  '04': 'dark',
+  '05': 'dark',
+  '06': 'default',
+  '07': 'dark',
+  '08': 'light',
+  '09': 'light',
+  '10': 'light',
+  '11': 'light',
+  '12': 'light',
+};
+
+const DO_NOT_PAIR_COLORS = [
+  [1, 8],
+  [2, 6],
+  [7, 9],
+  [5, 3],
+  [7, 6],
+  [4, 9],
+  [2, 7],
+  [7, 11],
+  [4, 6],
+  [6, 11],
+];
 
 type ColorCardProps = {|
   count: number,
@@ -24,13 +52,43 @@ function PaletteGenerator({ count }: ColorCardProps): Node {
     return (
       <Box marginBottom={1} key={`color-${tokenStep}`}>
         <ColorTile
-          textColor={tokenStep === 1 || tokenStep === 2 ? 'dark' : 'inverse'}
+          textColor={COLOR_TEXT_PAIRINGS[`0${tokenStep}`]}
           description={`Data Visualization 0${tokenStep}`}
           fullTokenName={`color-data-visualization-0${tokenStep}`}
         />
       </Box>
     );
   });
+}
+
+type PairSetProps = {|
+  color1: number,
+  color2: number,
+|};
+
+function DoNotPairSet({ color1, color2 }: PairSetProps): Node {
+  const firstColor = color1 < 10 ? `0${color1}` : `${color1}`;
+  const secondColor = color2 < 10 ? `0${color2}` : `${color2}`;
+  return (
+    <Flex
+      direction="column"
+      gap={{
+        row: 0,
+        column: 1,
+      }}
+    >
+      <ColorTile
+        textColor={COLOR_TEXT_PAIRINGS[firstColor]}
+        description={`Data Visualization ${firstColor}`}
+        fullTokenName={`color-data-visualization-${firstColor}`}
+      />
+      <ColorTile
+        textColor={COLOR_TEXT_PAIRINGS[secondColor]}
+        description={`Data Visualization ${secondColor}`}
+        fullTokenName={`color-data-visualization-${secondColor}`}
+      />
+    </Flex>
+  );
 }
 
 export default function ColorPage(): Node {
@@ -53,7 +111,7 @@ export default function ColorPage(): Node {
           direction="column"
         >
           <ColorTile
-            textColor="inverse"
+            textColor="dark"
             description="Primary"
             fullTokenName="color-data-visualization-primary"
           />
@@ -91,11 +149,24 @@ export default function ColorPage(): Node {
                 fullTokenName="color-data-visualization-success-text"
               />
             </Flex>
-            <ColorTile
-              textColor="inverse"
-              description="Error (Graph and Text)"
-              fullTokenName="color-data-visualization-error"
-            />
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 1,
+              }}
+            >
+              <ColorTile
+                textColor="inverse"
+                description="Error (Graph)"
+                fullTokenName="color-data-visualization-error-graph"
+              />
+              <ColorTile
+                textColor="inverse"
+                description="Error (Text/Icon)"
+                fullTokenName="color-data-visualization-error-text"
+              />
+            </Flex>
           </Flex>
 
           <DataVizSuccessError />
@@ -226,186 +297,16 @@ export default function ColorPage(): Node {
         - for lines or small points under normal vision
         - for large areas under red-green or yellow-blue color blindness`}
       >
-        <Flex gap={6} wrap>
-          <Flex
-            direction="column"
-            gap={{
-              row: 0,
-              column: 6,
-            }}
-          >
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 04"
-                fullTokenName="color-data-visualization-04"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 08"
-                fullTokenName="color-data-visualization-08"
-              />
-            </Flex>
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="dark"
-                description="Data Visualization 01"
-                fullTokenName="color-data-visualization-01"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 11"
-                fullTokenName="color-data-visualization-11"
-              />
-            </Flex>
-
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="dark"
-                description="Data Visualization 02"
-                fullTokenName="color-data-visualization-02"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 04"
-                fullTokenName="color-data-visualization-04"
-              />
-            </Flex>
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 03"
-                fullTokenName="color-data-visualization-03"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 05"
-                fullTokenName="color-data-visualization-05"
-              />
-            </Flex>
-            <Flex
-              direction="column"
-              gap={{
-                row: 2,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 08"
-                fullTokenName="color-data-visualization-08"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 11"
-                fullTokenName="color-data-visualization-11"
-              />
-            </Flex>
-          </Flex>
-          <Flex
-            direction="column"
-            gap={{
-              row: 2,
-              column: 6,
-            }}
-          >
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 07"
-                fullTokenName="color-data-visualization-07"
-              />
-              <ColorTile
-                textColor="dark"
-                description="Data Visualization 10"
-                fullTokenName="color-data-visualization-10"
-              />
-            </Flex>
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 07"
-                fullTokenName="color-data-visualization-07"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 11"
-                fullTokenName="color-data-visualization-11"
-              />
-            </Flex>
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 04"
-                fullTokenName="color-data-visualization-04"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 11"
-                fullTokenName="color-data-visualization-11"
-              />
-            </Flex>
-            <Flex
-              direction="column"
-              gap={{
-                row: 0,
-                column: 1,
-              }}
-            >
-              <ColorTile
-                textColor="dark"
-                description="Data Visualization 01"
-                fullTokenName="color-data-visualization-01"
-              />
-              <ColorTile
-                textColor="inverse"
-                description="Data Visualization 04"
-                fullTokenName="color-data-visualization-04"
-              />
-            </Flex>
-          </Flex>
+        <Flex
+          wrap
+          gap={{
+            row: 4,
+            column: 5,
+          }}
+        >
+          {DO_NOT_PAIR_COLORS.map((set) => (
+            <DoNotPairSet key={set.toString()} color1={set[0]} color2={set[1]} />
+          ))}
         </Flex>
       </MainSection>
     </Page>
