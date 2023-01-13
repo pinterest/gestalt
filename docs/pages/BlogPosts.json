@@ -10,7 +10,7 @@
           "audience": ["Design", "Engineering"],
           "imageSrc": "https://i.pinimg.com/originals/da/d4/01/dad401cd2d1b5f5d82ab939436cafb83.png",
           "imageAltText": "wireframe of docs site",
-          "content": "What's better than icons? More icons. We've added a bunch of icons to our codebase that were previously only available in our Figma library.\n\nWhich icons you ask? Well, these:\n`3D`, `3D-move`, `apple`, `arrow-left-curved`, `board`, `calendar-check`, `desktop`, `flame`, `image-portrait`, `instagram`, `live`, `magic-pen`, `manage-access`, `mobile`, `person-add`, `save-outline`, `saved`, `thumbs-down`, `thumbs-up`, `video-advance-10-seconds`, `video-rewind-10-seconds`, `whats-app` and `wifi-no`."
+          "content": "What's better than icons? More icons. We've added a bunch of [icons to our codebase](https://gestalt.pinterest.systems/foundations/iconography/library) that were previously only available in our Figma library.\n\nWhich icons you ask? Well, these:\n`3D`, `3D-move`, `apple`, `arrow-left-curved`, `board`, `calendar-check`, `desktop`, `flame`, `image-portrait`, `instagram`, `live`, `magic-pen`, `manage-access`, `mobile`, `person-add`, `save-outline`, `saved`, `thumbs-down`, `thumbs-up`, `video-advance-10-seconds`, `video-rewind-10-seconds`, `whats-app` and `wifi-no`."
         },
         {
           "title": "Improved content widths in docs",
