@@ -158,7 +158,7 @@ The recommendation is dismissible since it’s not required and may get in the w
 
         <Box maxWidth={960} maxHeight={579}>
           <Image
-            alt="Desktop screen showin a success banner."
+            alt="Desktop screen showing a success banner."
             naturalHeight={1896}
             naturalWidth={3080}
             src="https://i.pinimg.com/originals/20/3f/14/203f14d057e9b3cae2ff02b4d32c5a35.png"

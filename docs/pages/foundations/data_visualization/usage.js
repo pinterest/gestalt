@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex } from 'gestalt';
+import { Box, Flex, Image, SlimBanner } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import ColorTile from '../../../docs-components/ColorTile.js';
@@ -22,7 +22,7 @@ const COLOR_TEXT_PAIRINGS = {
   '06': 'default',
   '07': 'dark',
   '08': 'light',
-  '09': 'light',
+  '09': 'dark',
   '10': 'light',
   '11': 'light',
   '12': 'light',
@@ -297,16 +297,32 @@ export default function ColorPage(): Node {
         - for lines or small points under normal vision
         - for large areas under red-green or yellow-blue color blindness`}
       >
-        <Flex
-          wrap
-          gap={{
-            row: 4,
-            column: 5,
-          }}
-        >
-          {DO_NOT_PAIR_COLORS.map((set) => (
-            <DoNotPairSet key={set.toString()} color1={set[0]} color2={set[1]} />
-          ))}
+        {' '}
+        <Flex gap={6} direction="column">
+          <Flex
+            wrap
+            gap={{
+              row: 4,
+              column: 5,
+            }}
+          >
+            {DO_NOT_PAIR_COLORS.map((set) => (
+              <DoNotPairSet key={set.toString()} color1={set[0]} color2={set[1]} />
+            ))}
+          </Flex>
+          <SlimBanner
+            type="info"
+            iconAccessibilityLabel="Info"
+            message="Example of how a person with green-red color blindness might see these pairings"
+          />
+          <Box maxWidth={620} maxHeight={620}>
+            <Image
+              alt="Color pairings shown with deuteranopia"
+              naturalHeight={1106}
+              naturalWidth={1082}
+              src="https://i.ibb.co/WftKzmC/Color-Pairings-Img.jpg"
+            />
+          </Box>
         </Flex>
       </MainSection>
     </Page>

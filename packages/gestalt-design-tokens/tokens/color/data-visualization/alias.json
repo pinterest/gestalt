@@ -20,7 +20,7 @@
       },
       "error": {
         "graph": {
-          "value": "#F20000",
+          "value": "#ED0000",
           "darkValue": "{color.red.pushpin.300.value}",
           "comment": "Semantic color used to show negative changes in graphs"
         },
