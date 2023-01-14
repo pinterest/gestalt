@@ -121,7 +121,7 @@ export default function ColorPage(): Node {
       </MainSection>
       <MainSection
         name="Semantic colors"
-        description="Semantic colors are used to indicate positive or negative performance in data. For positive color, we use a slightly darker Matchacado color for text/icons associated with data to make sure text has enough contrast."
+        description="Semantic colors are used to indicate positive or negative performance in data. In both cases, we use a slightly darker color for text and icons associated with data to make sure text has enough contrast."
       >
         <Flex
           direction="column"
