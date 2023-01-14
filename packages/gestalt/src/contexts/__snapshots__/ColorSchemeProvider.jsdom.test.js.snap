@@ -163,7 +163,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-data-visualization-primary: #0081fe;
   --color-data-visualization-success-graph: #008753;
   --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error-graph: #f20000;
+  --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
   --color-data-visualization-01: #003c96;
   --color-data-visualization-02: #11a69c;
@@ -253,7 +253,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-data-visualization-primary: #0081fe;
   --color-data-visualization-success-graph: #008753;
   --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error-graph: #f20000;
+  --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
   --color-data-visualization-01: #003c96;
   --color-data-visualization-02: #11a69c;
@@ -343,7 +343,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-data-visualization-primary: #0081fe;
   --color-data-visualization-success-graph: #008753;
   --color-data-visualization-success-text: #005f3e;
-  --color-data-visualization-error-graph: #f20000;
+  --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
   --color-data-visualization-01: #003c96;
   --color-data-visualization-02: #11a69c;
