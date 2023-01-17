@@ -181,7 +181,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           'Voice',
           'Formatting',
           'Grammar',
-          'Inclusive Language',
+          'Inclusive language',
           'UI elements',
           'Syntax structure',
           'Resources',
