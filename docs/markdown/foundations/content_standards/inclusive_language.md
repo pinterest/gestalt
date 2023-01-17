@@ -58,17 +58,17 @@ Using correct terminology to describe different groups is extremely important (a
 </TwoCol>
 
 
-### Legal language
+## Legal language
 
 Even when we’re talking in the fine print, we should still be straightforward and conversational.
 
-**How to talk about privacy:** 
+### Talking about privacy
 Use “private” or “privacy” for personal information issues only. Don’t refer to board settings or posts as “private”—say “secret” instead.
 
-**How to talk about *Pinterest business***
+### Talking about Pinterest Business
 “Pinterest Business” refers to our business marketing programs and channels. It is NOT a master brand for products or partnerships. For example, you’d say “Read the latest updates on the Pinterest Business blog” or “Visit the Pinterest Business page.” You wouldn’t say “Our latest products from Pinterest Business.” In that case, it’s just “Pinterest.” For more information about when to use “Pinterest Business” and when to use “Pinterest,” refer to our brand guidelines.  
 
-**How to use *Pin***:
+### Talking about 'Pin'
 To protect our trademark for Pin, we have to be thoughtful in how we use the word “Pin” in all of our writing. Within the UI, consider if it might be better to use “Pin” or “idea” for clarity.
 
 - **Write *Pin*:**
@@ -84,7 +84,7 @@ To protect our trademark for Pin, we have to be thoughtful in how we use the wor
   - When it would be redundant to have the word “idea” repeat multiple times throughout the same surface: Can you mix “idea” and “Pin,” or find ways to reword the copy and CTA so that you don’t need to use either? 
 
 
-### Feature naming
+## Feature naming
 
 Before you pick a proper name for a new feature, consider if it even needs it. New names clutter up the experience and add to the Pinner’s cognitive load, so the bar for introducing new terminology should be high. Most products/features don't actually need to be called anything (like, "send a Pin" is an action, not a proper Send-a-Pin name).
 
@@ -111,7 +111,7 @@ You can also use a Namestorm document to help develop and present a recommended 
 For more information about when to use “Pinterest Business” and when to use “Pinterest,” refer to our brand guidelines.  
 
 
-### Using "inspiration"
+## Using "inspiration"
 
 *What we mean by “inspiration”:* Ask someone what inspires them, and their mind goes to heroic figures like Olympic athletes or people who’ve overcome great hardships. They don’t usually think of a chicken recipe. But on Pinterest, that’s exactly what counts as inspiring. From small, everyday stuff like chicken recipes, all the way to big-life ideas that get you bicycling across the country or send your career in a new direction. Anything that sparks you to try something new, or think about life in a new way, or spend a meaningful moment with the people you care about—that’s inspiration on Pinterest. 
 
@@ -135,7 +135,7 @@ A little “inspiration” goes a long way: It can be tempting to start pepperin
   </Group>
 </TwoCol>
 
-### Using "you" and "me"
+## Using "you" and "me"
 
 The you/me debate has raged throughout product writing circles for years, and the writing team here at Pinterest had done its own share of epic mulling on the matter.
 

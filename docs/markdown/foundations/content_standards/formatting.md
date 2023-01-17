@@ -4,7 +4,7 @@ description: When writing dates, using numbers or links, here are a few formatti
 fullwidth: true
 ---
 
-### Dates and abbreviations
+## Dates and abbreviations
 
 | Format             | Rule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -22,7 +22,7 @@ fullwidth: true
 | Other              | - Don’t use Latin abbreviations like “i.e.” or “e.g.” and use “ex:” (abbreviation for “example”) instead<br/>- Always spell out “okay”                                                                                                                                                                                                                                                  |
 
 
-### Links
+## Links
 
 **When adding links on Pinterest**
 Links should be a part of a sentence, and it should be clear where you go or what happens once you click. 
@@ -100,7 +100,7 @@ In longform writing, make sure to punctuate when the link falls at the end of a 
 </TwoCol>
 
 
-### Lists
+## Lists
 Everyone loves a good list! Lists help break up text and make things scannable, so we’re totally into them. 
 
 <TwoCol>
@@ -117,7 +117,7 @@ Everyone loves a good list! Lists help break up text and make things scannable, 
   </Group>
 </TwoCol>
 
-### Numbers
+## Numbers
 When you’re using numbers in tight spaces or places people are likely to scan, numerals can make your copy easier to read fast. Use numerals (1, 2, 15) unless it looks jarring written out (unless this looks jarring with the number “one”).
 <br/>
 - Abbreviate once you hit a thousand and round to the nearest hundred (except prices and percentages). Once you hit a million, round to the nearest hundred thousand. 
@@ -165,7 +165,7 @@ When you’re using numbers in tight spaces or places people are likely to scan,
   </Group>
 </TwoCol>
 
-### Timestamps
+## Timestamps
 Timestamps should make sense when you scan them—no one should have to do lots of mental math to figure out when something happened. In small spaces (like messages) we can abbreviate. 
 
 <TwoCol>
@@ -187,7 +187,7 @@ Timestamps should make sense when you scan them—no one should have to do lots 
   </Group>
 </TwoCol>
 
-**Using timestamps in small spaces...**
+**Using Timestamps in small spaces...**
 - Xm
 - Xh
 - Xd

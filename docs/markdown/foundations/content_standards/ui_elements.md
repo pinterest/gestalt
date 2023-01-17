@@ -4,7 +4,7 @@ description: Here are a few guidelines we recommend you follow when writing near
 fullwidth: true
 ---
 
-### Buttons
+## Buttons
 Buttons should be descriptive but short.
 
 <TwoCol>
@@ -34,7 +34,7 @@ Buttons should be descriptive but short.
 
 ---
 
-### Confirmations and toasts
+## Confirmations and toasts
 
 Confirmations are like little high-fives that let people know that the action they just took was successful. 
 
@@ -68,7 +68,7 @@ Always use a toast, unless there’s another visual indicator that an action’s
 
 ---
 
-### Education
+## Education
 
 Education for a new (or existing!) feature can be a tooltip or a screen takeover, often using progressive disclosure or multiple screens. 
 
@@ -88,7 +88,7 @@ PS: When working with designers on education, consider what education should loo
 
 ---
 
-### Emoji
+## Emoji
 
 Okay, okay. We’re loosening up about emoji, since it’s a natural part of human communication. Don’t go crazy and start using, like, flags and onigiri and stuff though. Check out these handy-dandy guidelines:
 
@@ -110,7 +110,7 @@ Okay, okay. We’re loosening up about emoji, since it’s a natural part of hum
 
 ---
 
-### Error messages
+## Error messages
 
 Error messages should clearly describe what happened and what the person can do to fix the problem—without overwhelming them with unnecessary info. 
 
@@ -151,7 +151,7 @@ Use red text inline when someone submits a form that’s missing a required fiel
 
 ---
 
-### Mobile UI
+## Mobile UI
 
 Use mobile-appropriate terms for gestures (ex: swipe and tap, not click), and keep things short.
 
@@ -168,7 +168,7 @@ Use mobile-appropriate terms for gestures (ex: swipe and tap, not click), and ke
 
 ---
 
-### Notifications
+## Notifications
 
 Notifications (including push notifications) are lightweight messages that let Pinners know about what’s happening with the Pins they saved, the people they follow and more. 
 

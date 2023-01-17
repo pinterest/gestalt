@@ -4,7 +4,7 @@ description: When writing sentences and or presenting information, use these gui
 fullwidth: true
 ---
 
-### Parallel structure
+## Parallel structure
 
 When you’re presenting multiple options (ex: bulleted lists, menus), use a similar structure for each item so everything’s easy to scan and understand.  
 
@@ -42,7 +42,7 @@ Not this...
 
 See? Just one two-sentence screen turns them all into punctuated screens. However, if all of these were one-phrase screens (Find new ideas to try / Pinterest is the home of the world’s best ideas / Sign up for an account today), no punctuation would be needed. So it goes!
 
-### Addressing people by name
+## Addressing people by name
 
 Calling out someone by name can be a very effective way to grab their attention, but it can get old quick. That’s why we do it only sparingly. 
 
@@ -61,7 +61,7 @@ When using the Pinner’s name (or, for that matter, their board’s name) in UI
   </Group>
 </TwoCol>
 
-### Placeholder text
+## Placeholder text
 
 Also called “ghost text” (whOooOooo), this should be either exemplary (filling in an exact example of what someone would write in the text field) or descriptive (displaying how the function should work or what purpose it serves, if an example would be confusing to the user).
 
@@ -88,7 +88,7 @@ Also called “ghost text” (whOooOooo), this should be either exemplary (filli
   </Group>
 </TwoCol>
 
-### Progressive disclosures
+## Progressive disclosures
 
 Give people the minimum amount of info they need to complete the task at hand.
 
@@ -110,7 +110,7 @@ Give people the minimum amount of info they need to complete the task at hand.
   </Group>
 </TwoCol>
 
-### Referencing the interface
+## Referencing the interface
 
 When you’re describing something the Pinner has to do on Pinterest, sometimes it’s helpful to reference the thing they need to click or select.
 
@@ -135,7 +135,7 @@ When you’re describing something the Pinner has to do on Pinterest, sometimes 
   </Group>
 </TwoCol>
 
-### Rhetorical questions
+## Rhetorical questions
 
 Avoid them, unless it’s the shortest and most direct way to get the message across (ex: in a confirmation toast). For a gut-check, ask yourself: “Would I actually say this out loud?” The answer’s probably “nah.”
 
@@ -154,7 +154,7 @@ Avoid them, unless it’s the shortest and most direct way to get the message ac
   </Group>
 </TwoCol>
 
-### Settings
+## Settings
 
 <TwoCol>
   <Group>
@@ -175,7 +175,7 @@ Avoid them, unless it’s the shortest and most direct way to get the message ac
 </TwoCol>
 
 
-### Specific verbs
+## Specific verbs
 
 In UI writing, sometimes it’s hard to choose between two seemingly similar verbs. Here are some tips:
 
@@ -198,7 +198,7 @@ View derives from some action on the user's part (choosing filters, say) and See
 - View your map (map button CTA)
 - View in chronological order (made up filter sort)
 
-### Tenses
+## Tenses
 
 Use the [present perfect](https://www.grammarly.com/blog/present-perfect-continuous-tense/) tense in UI writing, even when using a contraction seems more conversational. 
 
@@ -214,6 +214,6 @@ Use the [present perfect](https://www.grammarly.com/blog/present-perfect-continu
 </TwoCol>
 
 
-### Pin puns
+## Pin puns
 
 We all love a good Pin pun, but unfortunately, they don’t translate very well. We save Pin puns for internal comms, but don’t use them in external language or content. 

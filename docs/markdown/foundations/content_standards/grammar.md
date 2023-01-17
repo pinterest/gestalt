@@ -5,7 +5,7 @@ fullwidth: true
 ---
 
 
-### Capitalization
+## Capitalization
 Sentence case is easy to read, and feels way more conversational (vs. title case, which feels very Grand and Self Important). It’s our go-to approach, with only a few exceptions.
 
 **Use sentence case**
@@ -36,13 +36,13 @@ Sentence case is easy to read, and feels way more conversational (vs. title case
 - Generation names (ex: Baby Boomers, Gen X)
 
 
-### Contractions
+## Contractions
 
 Use contractions whenever possible to make your work conversational, in UI and blog posts. (“Isn’t” is just warmer than “is not;” always opt for “it’s” rather than “it is.”) 
 - Don’t use old-timey or made-up sounding contractions like “shant” or “t’wouldn’t,” please.
 - Don’t use double negatives like “I won’t bake no cake.”
 
-### Hyphenation
+## Hyphenation
 According to the AP Style Guide/Purdue Writing Lab (our when-in-doubt go-to), you should
 - Hyphenate a phrase when it’s acting like an adjective, coming before a noun 
 - Don’t hyphenate an entire descriptive phrases 
@@ -72,7 +72,7 @@ According to the AP Style Guide/Purdue Writing Lab (our when-in-doubt go-to), yo
   </Group>
 </TwoCol>
 
-### Punctuation
+## Punctuation
 
 Pinterest’s UI is clean, light and modern, which means using as little punctuation as possible. For tips about punctuation for longform writing, refer to the [AP Style Guide](https://owl.purdue.edu/owl/subject_specific_writing/journalism_and_journalistic_writing/ap_style.html).
 
