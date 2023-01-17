@@ -32,7 +32,6 @@ Buttons should be descriptive but short.
   </Group>
 </TwoCol>
 
----
 
 ## Confirmations and toasts
 
@@ -66,7 +65,6 @@ Always use a toast, unless there’s another visual indicator that an action’s
   </Group>
 </TwoCol>
 
----
 
 ## Education
 
@@ -86,7 +84,6 @@ PS: When working with designers on education, consider what education should loo
 - Empty state text
 - Banners
 
----
 
 ## Emoji
 
@@ -108,7 +105,6 @@ Okay, okay. We’re loosening up about emoji, since it’s a natural part of hum
   </Group>
 </TwoCol>
 
----
 
 ## Error messages
 
@@ -149,7 +145,6 @@ Use red text inline when someone submits a form that’s missing a required fiel
   </Group>
 </TwoCol>
 
----
 
 ## Mobile UI
 
@@ -166,7 +161,6 @@ Use mobile-appropriate terms for gestures (ex: swipe and tap, not click), and ke
   </Group>
 </TwoCol>
 
----
 
 ## Notifications
 
