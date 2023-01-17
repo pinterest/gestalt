@@ -161,11 +161,11 @@ export default function Toc({ cards }: Props): Node {
       mdMarginTop={-6}
       lgMarginTop={-8}
       maxHeight={`calc(100% - ${HEADER_HEIGHT_PX}px - ${FOOTER_HEIGHT_PX}px)`}
-      minWidth={240}
       overflow="auto"
       paddingY={8} // re-apply just the padding we need
       position="fixed"
       role="navigation"
+      width={240}
     >
       {anchors.map((anchor) => {
         const isActive = activeState === anchor.id;

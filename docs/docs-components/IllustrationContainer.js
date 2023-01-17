@@ -10,8 +10,6 @@ type Props = {|
 function IllustrationContainer({ children, justifyContent = 'center' }: Props): Node {
   return (
     <Box
-      marginStart={-8}
-      marginEnd={-8}
       smMarginEnd={0}
       smMarginStart={0}
       paddingX={12}

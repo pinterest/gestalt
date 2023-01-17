@@ -26,7 +26,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <Combination
         id="stateCombinations"
-        name="Combinations: State"
+        name="States"
         hovered={[false, true]}
         focused={[false, true]}
         active={[false, true]}
@@ -35,29 +35,31 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </Combination>
       <Combination
         id="sizeCombinations"
-        name="Combinations: Size with default padding"
+        name="Sizes with default padding"
         size={['xs', 'sm', 'md', 'lg', 'xl']}
+        hasCheckerboard={false}
       >
-        {(props) => <Pog icon="heart" {...props} />}
+        {(props) => <Pog bgColor="lightGray" icon="heart" {...props} />}
       </Combination>
       <Combination
         id="paddingCombinations"
-        name="Combinations: Size with custom padding"
+        name="Sizes with custom padding"
         size={['xs', 'sm', 'md', 'lg', 'xl']}
         padding={[1, 2, 3, 4, 5]}
+        hasCheckerboard={false}
       >
-        {(props) => <Pog icon="heart" {...props} />}
+        {(props) => <Pog bgColor="lightGray" icon="heart" {...props} />}
       </Combination>
       <Combination
         id="iconColorCombinations"
-        name="Combinations: Icon Color"
-        iconColor={['darkGray', 'gray', 'red', 'white']}
+        name="Icon Colors"
+        iconColor={['darkGray', 'gray', 'red', 'white', 'brandPrimary']}
       >
         {(props) => <Pog icon="heart" {...props} />}
       </Combination>
       <Combination
         id="backgroundColorCombinations"
-        name="Combinations: Background Color"
+        name="Background Colors"
         bgColor={['transparent', 'transparentDarkGray', 'darkGray', 'white', 'lightGray', 'gray']}
       >
         {(props) => <Pog icon="heart" {...props} />}

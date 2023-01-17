@@ -150,7 +150,7 @@ function Header() {
 
   return (
     <Box
-      paddingY={2}
+      paddingY={3}
       paddingX={4}
       color="default"
       borderStyle="raisedTopShadow"

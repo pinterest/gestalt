@@ -12,6 +12,7 @@ import {
   type Ref,
   type Element,
   type Node,
+  type AbstractComponent,
 } from 'react';
 import Box from './Box.js';
 import ComboBoxItem from './ComboBoxItem.js';
@@ -161,7 +162,7 @@ type Props = {|
  * ![Combobox open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open-dark.spec.mjs-snapshots/ComboBox-open-dark-chromium-darwin.png)
  *
  */
-const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function ComboBox(

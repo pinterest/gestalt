@@ -1,3 +1,45 @@
+## 89.0.4 (Jan 13, 2023)
+
+### Patch
+
+- Docs: add December newsletter ([#2614](https://github.com/pinterest/gestalt/pull/2614)) - [Preview link](https://deploy-preview-2614--gestalt.netlify.app)
+
+## 89.0.3 (Jan 13, 2023)
+
+### Patch
+
+- Internal: Flow fixes ([#2611](https://github.com/pinterest/gestalt/pull/2611)) - [Preview link](https://deploy-preview-2611--gestalt.netlify.app)
+
+## 89.0.2 (Jan 12, 2023)
+
+### Patch
+
+- Updated Data visualization menu item to be sentence case ([#2609](https://github.com/pinterest/gestalt/pull/2609)) - [Preview link](https://deploy-preview-2609--gestalt.netlify.app)
+
+## 89.0.1 (Jan 11, 2023)
+
+### Patch
+
+- Masonary: Update getDerivedStateFromProps Flowtype ([#2604](https://github.com/pinterest/gestalt/pull/2604)) - [Preview link](https://deploy-preview-2604--gestalt.netlify.app)
+
+## 89.0.0 (Jan 11, 2023)
+
+### Major
+
+- Internal: NO BREAKING CHANGES - fix lint errors in codemod readme.md ([#2607](https://github.com/pinterest/gestalt/pull/2607)) - [Preview link](https://deploy-preview-2607--gestalt.netlify.app)
+
+## 88.1.0 (Jan 11, 2023)
+
+### Minor
+
+- Internal: fix lint errors in readme.md ([#2606](https://github.com/pinterest/gestalt/pull/2606)) - [Preview link](https://deploy-preview-2606--gestalt.netlify.app)
+
+## 88.0.3 (Jan 11, 2023)
+
+### Patch
+
+- Internal: update release.yml to use dangerismycat account ([#2605](https://github.com/pinterest/gestalt/pull/2605)) - [Preview link](https://deploy-preview-2605--gestalt.netlify.app)
+
 ## 88.0.2 (Jan 6, 2023)
 
 ### Patch

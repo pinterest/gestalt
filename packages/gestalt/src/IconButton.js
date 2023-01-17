@@ -1,5 +1,12 @@
 // @flow strict
-import { type Node, forwardRef, useImperativeHandle, useState, useRef } from 'react';
+import {
+  type Node,
+  type AbstractComponent,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import icons from './icons/index.js';
 import InternalLink from './InternalLink.js';
@@ -42,7 +49,7 @@ type BaseIconButton = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| dangerouslyDisableOnNavigation: () => void |},
   >,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,
   tooltip?: TooltipProps,
@@ -80,7 +87,7 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
-const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function IconButton(props: unionProps, ref): Node {

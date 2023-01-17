@@ -403,9 +403,11 @@ Follow these guidelines for \`iconColor\`
 2. Dark Gray ("darkGray"). Medium emphasis, used for secondary actions.
 3. Gray ("gray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 4. White ("white"). Used in a dark mode scheme or over a dark-colored background creating better visibility.
+5. Brand primary ("brandPrimary"). Used to represent the Pinterest brand.
+
 `}
         >
-          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white']}>
+          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}

@@ -7,6 +7,7 @@ import {
   type Node,
   type Element,
   type Ref,
+  type ElementConfig,
 } from 'react';
 import classnames from 'classnames';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
@@ -40,8 +41,8 @@ type ExternalLinkIcon =
   | 'none'
   | 'default'
   | {|
-      color: $ElementType<React$ElementConfig<typeof Icon>, 'color'>,
-      size: $ElementType<React$ElementConfig<typeof Text>, 'size'>,
+      color: $ElementType<ElementConfig<typeof Icon>, 'color'>,
+      size: $ElementType<ElementConfig<typeof Text>, 'size'>,
     |};
 
 function ExternalIcon({ externalLinkIcon }: {| externalLinkIcon: ExternalLinkIcon |}): Node {

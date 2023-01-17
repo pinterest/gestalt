@@ -75,6 +75,5 @@ export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
     props.style = inlineStyle;
   }
 
-  // $FlowFixMe[incompatible-exact]
-  return props;
+  return { ...props };
 };
