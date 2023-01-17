@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node, type ElementConfig, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Pog from './Pog.js';
@@ -17,7 +17,7 @@ type Props = {|
   onClick: () => void,
   pogPadding?: 1 | 2,
   role?: 'switch',
-  tapStyle?: $ElementType<React$ElementConfig<typeof TapArea>, 'tapStyle'>,
+  tapStyle?: $ElementType<ElementConfig<typeof TapArea>, 'tapStyle'>,
   tooltipText?: string,
 |};
 

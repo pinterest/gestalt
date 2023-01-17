@@ -3,7 +3,8 @@ import { Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
 import IllustrationContainer from './IllustrationContainer.js';
 
-const MIN_SVG_ILLUSTRATION_WIDTH = 285;
+// Matches minWidth in IllustrationCard
+export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 
 type Props = {|
   title?: string,

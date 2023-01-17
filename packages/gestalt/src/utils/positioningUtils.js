@@ -44,7 +44,7 @@ export const getContainerNode = ({
   // append the portal
   let containerNode = null;
   // currentNode references the DOM node used while traversing up nodes in the DOM tree
-  let currentNode = initialPositionRef;
+  let currentNode: ?HTMLElement | Node = initialPositionRef;
 
   while (!containerNode) {
     // To find ScrollBoundaryContainer parents, currentNode is traversed up accessing its parent node
@@ -57,7 +57,6 @@ export const getContainerNode = ({
       ) {
         containerNode = scrollBoundaryContainerRef;
       }
-      // $FlowFixMe[incompatible-type]
       currentNode = currentNode.parentNode;
     } else {
       break;

@@ -232,7 +232,7 @@ export default function IconPage(): Node {
   );
 
   return (
-    <Page title="Icon library">
+    <Page title="Icon library" hideSideNav>
       <PageHeader
         name="Icon library"
         folderName="icons"

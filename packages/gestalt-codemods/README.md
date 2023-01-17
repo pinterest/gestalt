@@ -99,13 +99,13 @@ BEFORE YOU START DEVELOPING CODEMODS READ THE FOLLOWING SECTIONS
 
 If it's a custom codemods, create a folder within `packages/gestalt-codemods` for the next major version (check the [Releases page](https://github.com/pinterest/gestalt/releases) to see the most recent version number).
 
-2. Add a couple of sub-folders, `__tests__` and `__testfixtures__`.
+1. Add a couple of sub-folders, `__tests__` and `__testfixtures__`.
 
-3. Create a file with a name describing the change your codemod will be making, like `button-replace-color-with-type.js`. Create a corresponding `.test.js` file in the `__tests__` folder.
+1. Create a file with a name describing the change your codemod will be making, like `button-replace-color-with-type.js`. Create a corresponding `.test.js` file in the `__tests__` folder.
 
 ### Develop your codemod
 
-4. You can pattern-match (really copy/paste/adjust) the test file from previous ones. It's largely boilerplate. In addition to the file name, the main part you'll change is to individually list the fixtures files you'll create in `__testfixtures__`.
+1. You can pattern-match (really copy/paste/adjust) the test file from previous ones. It's largely boilerplate. In addition to the file name, the main part you'll change is to individually list the fixtures files you'll create in `__testfixtures__`.
 
 In the codemod file, add a usage comment at the top describing the purpose of the codemod (expected input and output) as well as a CLI command for easy copy/paste usage:
 
@@ -113,7 +113,7 @@ In the codemod file, add a usage comment at the top describing the purpose of th
 yarn codemod --parser=flow -t=packages/gestalt-codemods/{version number}/{codemod file name} relative/path/to/code/to/modify
 ```
 
-5. Now comes the fun part: create your transform function! We use [jscodeshift](https://github.com/facebook/jscodeshift), so you'll want to familiarize yourself with that specific flavor of AST traversal and manipulation. [AST Explorer](https://astexplorer.net/) is invaluable for familiarizing yourself with how specific blocks of code are parsed in an AST.
+1. Now comes the fun part: create your transform function! We use [jscodeshift](https://github.com/facebook/jscodeshift), so you'll want to familiarize yourself with that specific flavor of AST traversal and manipulation. [AST Explorer](https://astexplorer.net/) is invaluable for familiarizing yourself with how specific blocks of code are parsed in an AST.
 
 We recommend taking a test-driven approach. Create input files in the `__testfixtures__` folder to replicate all the expected usages that will need to be transformed. Each `.input.js` file should have a corresponding `.output.js` file with the expected output after running the codemod. We recommend creating the input files, duplicating them to create the output files, then manually making the expected changes. Be thorough, and think like a testing engineer! You want to make sure you capture every edge/corner case that might exist: was the component import renamed? Was the prop given a variable as a value? Or does it use a ternary? Are the ternary values primitives or variables themselves? There are limits to what codemods can do — but not many! Remember to also test instances where the codemod should _not_ change anything.
 
