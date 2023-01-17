@@ -1,10 +1,8 @@
 ---
-title: Language and Terminology
+title: Inclusive Language
 description: Here are a few guidelines we recommend you follow when writing about groups and using certain terms
 fullwidth: true
 ---
-
-### Inclusive language
 
 Using correct terminology to describe different groups is extremely important (and it comes up a lot in areas like marketing materials and internal communications). When in doubt or when looking for something more specific, email the D+I team; you can also refer to [A Progressive’s Style Guide](https://s3.amazonaws.com/s3.sumofus.org/images/SUMOFUS_PROGRESSIVE-STYLEGUIDE.pdf) as a fantastic free resource.
 
