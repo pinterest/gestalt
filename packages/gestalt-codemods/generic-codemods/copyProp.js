@@ -122,7 +122,6 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
       // NoOBJECT/NoOBJECT
       if (isNullOrUndefined(previousPropNode) && isNullOrUndefined(nextPropNode)) {
-        console.log('NoOBJECT/NoOBJECT');
         jSXWithMatchingAttributesCollection.forEach((previousNode) => {
           previousValue = previousNode.get().value.value;
         });
@@ -130,7 +129,6 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
       // OBJECT/NoOBJECT
       if (!isNullOrUndefined(previousPropNode) && isNullOrUndefined(nextPropNode)) {
-        console.log('OBJECT/NoOBJECT');
         jSXWithMatchingAttributesCollection.forEach((previousNode) => {
           const tmpValue = previousNode.get().value.value;
           const { properties } = tmpValue.expression;
@@ -141,11 +139,9 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
       // NoOBJECT/OBJECT
       if (isNullOrUndefined(previousPropNode) && !isNullOrUndefined(nextPropNode)) {
-        console.log('NoOBJECT/OBJECT');
         jSXWithMatchingAttributesCollection.forEach((previousNode) => {
           const { value } =
             previousNode.get().value.value.expression ?? previousNode.get().value.value;
-          console.log(value);
           const newObject = new JSCSObjectExpression({ [nextPropNode ?? '']: value }, j);
           previousValue = j.jsxExpressionContainer(newObject);
         });
@@ -153,7 +149,6 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
       // OBJECT/OBJECT
       if (!isNullOrUndefined(previousPropNode) && !isNullOrUndefined(nextPropNode)) {
-        console.log('OBJECT/OBJECT');
         jSXWithMatchingAttributesCollection.forEach((previousNode) => {
           const { properties } = previousNode.get().value.value.expression;
           const previousPropValue = properties?.find((item) => item.key.name === previousPropNode)
