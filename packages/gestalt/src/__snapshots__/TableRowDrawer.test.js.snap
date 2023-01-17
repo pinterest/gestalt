@@ -168,7 +168,7 @@ exports[`renders correctly with drawer 1`] = `
       >
         <td
           className="drawer"
-          colSpan={5}
+          colSpan={4}
         >
           <div
             className="box paddingX2 paddingY2"
