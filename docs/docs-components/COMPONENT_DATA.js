@@ -73,6 +73,7 @@ import Animation from '../graphics/foundations/animation.svg';
 import Elevation from '../graphics/foundations/elevation.svg';
 import Typography from '../graphics/foundations/typography.svg';
 import Color from '../graphics/foundations/color.svg';
+import Content from '../graphics/foundations/content.svg';
 import DesignTokens from '../graphics/foundations/design-tokens.svg';
 import Iconography from '../graphics/foundations/iconography.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
@@ -163,6 +164,14 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     category: 'Foundations',
     path: '/foundations/color/palette',
   },
+  {
+    svg: <Content />,
+    name: 'Content Standards',
+    description: 'When writing at Pinterest, keep these guiding words in mind',
+    category: 'Foundations',
+    path: '/foundations/content_standards/voice',
+  },
+
   {
     svg: <DesignTokens />,
     name: 'Design tokens',
