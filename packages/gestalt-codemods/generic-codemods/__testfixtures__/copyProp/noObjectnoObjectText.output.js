@@ -1,7 +1,5 @@
 import { IconButton } from 'gestalt';
 
 export default function TestComp() {
-  return (
-    <IconButton good="good" test="good" />
-  );
+  return <IconButton good="good" test="good" />;
 }
