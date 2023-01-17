@@ -46,7 +46,7 @@ describe('copyProp: noObjectObject', () => {
 });
 
 describe('copyProp: ObjectNoObject', () => {
-  ['copyProp/ObjectNoObject'].forEach((test) => {
+  ['copyProp/objectNoObject'].forEach((test) => {
     defineTest(
       __dirname,
       'copyProp',
@@ -64,7 +64,7 @@ describe('copyProp: ObjectNoObject', () => {
 });
 
 describe('copyProp: ObjectObject', () => {
-  ['copyProp/ObjectObject'].forEach((test) => {
+  ['copyProp/objectObject'].forEach((test) => {
     defineTest(
       __dirname,
       'copyProp',
