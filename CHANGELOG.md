@@ -1,3 +1,9 @@
+## 89.0.5 (Jan 17, 2023)
+
+### Patch
+
+- Table: fix unresponsive Table.Rowdrawer and Table.RowExpandable to wrapped children in React.Fragment ([#2608](https://github.com/pinterest/gestalt/pull/2608)) - [Preview link](https://deploy-preview-2608--gestalt.netlify.app)
+
 ## 89.0.4 (Jan 13, 2023)
 
 ### Patch
