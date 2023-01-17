@@ -133,7 +133,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
           const tmpValue = previousNode.get().value.value;
           const { properties } = tmpValue.expression;
           const prop = properties.find((item) => item.key.name === previousPropNode);
-          previousValue = j.stringLiteral(prop.value.value);
+          previousValue = prop.value.value;
         });
       }
 
