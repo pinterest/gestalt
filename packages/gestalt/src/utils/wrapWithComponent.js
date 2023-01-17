@@ -1,5 +1,5 @@
 // @flow strict
-import { type ChildrenArray, type ComponentType, type Node, isValidElement } from 'react';
+import { type ComponentType, type Node, isValidElement } from 'react';
 
 // $FlowIgnore[unclear-type]
 type UnknownComponent = ComponentType<any>;
@@ -12,7 +12,7 @@ const isComponent = (AComponent: UnknownComponent, AnotherComponent: UnknownComp
 
 // Checks whether `element` is a React element of type `Component` (or one of
 // the passed components, if `Component` is an array of React components).
-function isElementOfType<P>(element: ?Node, Component: ChildrenArray<ComponentType<P>>): boolean {
+function isElementOfType<P>(element: ?Node, Component: ComponentType<P>): boolean {
   if (
     element === null ||
     element === undefined ||
@@ -28,10 +28,8 @@ function isElementOfType<P>(element: ?Node, Component: ChildrenArray<ComponentTy
   const { type } = element;
   const Components = Array.isArray(Component) ? Component : [Component];
 
-  return Components.some(
-    // $FlowFixMe[incompatible-call]
-    (AComponent) => typeof type !== 'string' && isComponent(AComponent, type),
-  );
+  // $FlowExpectedError[incompatible-call]
+  return Components.some((AComponent) => typeof type !== 'string' && isComponent(AComponent, type));
 }
 
 // Conditionally wraps `element` in `Component` if it is not already an instance of

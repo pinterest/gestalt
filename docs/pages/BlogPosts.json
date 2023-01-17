@@ -25,6 +25,51 @@
           "imageSrc": "https://i.pinimg.com/originals/59/1d/dc/591ddc1224a7b6568b224d2034f935d8.png",
           "imageAltText": "emoji broom",
           "content": "A clean library is an awesome library, and we sure do like awesome. So, to better acheive awesomeness, we cleaned up our Figma Web library by renaming random layers to make search within layers possible, fixing our files/layers to follow naming convention, reordering layers, deleting empty/duplicated layers and fixing group/frame inconsistencies. We're planning to make the same improvements to our Android and iOS libraries shortly."
+        },
+       ],
+     },
+      "month": "December",
+      "summary": "",
+      "posts": [
+        {
+          "title": "Gestalt Eng December Newsletter",
+          "audience": ["Engineering"],
+          "content": "A recap of significant changes from December."
+        },
+        {
+          "title": "2022 Year in Review",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/ad/cb/f1/adcbf16cebb0e9668c618f45269275ba.png",
+          "imageAltText": "Screenshot of Year in Review page header graphic",
+          "content": "We accomplished a lot in 2022, so we created [a special recap page](https://gestalt.pinterest.systems/year_in_review_2022) — see what you might have missed over the past year!"
+        },
+        {
+          "title": "New component: IconButtonFloating",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/05/0a/cd/050acd0f538bb334c81bf6f006bf2795.png",
+          "imageAltText": "Screenshot of IconButtonFloating component",
+          "content": "We released our new [IconButtonFloating](https://gestalt.pinterest.systems/web/iconbuttonfloating) component! Also known as a floating action button or FAB, this icon button floats over content and remains in place as content scrolls beneath it. We'll soon begin replacing existing floating action buttons in the app with this new component."
+        },
+        {
+          "title": "New component: List",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/e0/80/b5/e080b5182d52d4f523af51973eacbd45.png",
+          "imageAltText": "Screenshot of List component",
+          "content": "This one's been a long time coming — we finally released our [List](https://gestalt.pinterest.systems/web/list) component! Essentially a wrapper around the `<ol>`/`<ul>` elements, this component allows for easy creation of accessible lists, even deeply-nested ones."
+        },
+        {
+          "title": "Component updates: Dropdown, Modal, Popover, Tag, Text",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/05/32/5e/05325e5f6792659b31028fa875297ee7.png",
+          "imageAltText": "Screenshot of Tag warning state",
+          "content": "We finally fixed a long-running issue with [Dropdown](https://gestalt.pinterest.systems/web/dropdown)/[Popover](https://gestalt.pinterest.systems/web/popover), where long lists of items could render partially off-screen. We tweaked the internal padding of [Modal](https://gestalt.pinterest.systems/web/modal) to more closely match Sheet's styling. [Tag](https://gestalt.pinterest.systems/web/tag#Warning) now has a warning state. And finally, we added `forwardRef` to [Text](https://gestalt.pinterest.systems/web/text#Refs) to help with certain specific situations."
+        },
+        {
+          "title": "Docs updates",
+          "audience": ["Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/8c/e0/04/8ce004e9b40bb81c368f0656f4717605.png",
+          "imageAltText": "Screenshot of Spinner best practice",
+          "content": "We converted 4 pages to use Sandpack code examples ([Popover](https://gestalt.pinterest.systems/web/popover), [Pulsar](https://gestalt.pinterest.systems/web/pulsar), [Spinner](https://gestalt.pinterest.systems/web/spinner), [Tag](https://gestalt.pinterest.systems/web/tag)) and added Best Practices guidelines for 3 pages ([Pulsar](https://gestalt.pinterest.systems/web/pulsar), [Spinner](https://gestalt.pinterest.systems/web/spinner), [Tag](https://gestalt.pinterest.systems/web/tag))."
         }
       ]
     },

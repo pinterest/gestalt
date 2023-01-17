@@ -1,3 +1,21 @@
+## 89.0.5 (Jan 17, 2023)
+
+### Patch
+
+- Table: fix unresponsive Table.Rowdrawer and Table.RowExpandable to wrapped children in React.Fragment ([#2608](https://github.com/pinterest/gestalt/pull/2608)) - [Preview link](https://deploy-preview-2608--gestalt.netlify.app)
+
+## 89.0.4 (Jan 13, 2023)
+
+### Patch
+
+- Docs: add December newsletter ([#2614](https://github.com/pinterest/gestalt/pull/2614)) - [Preview link](https://deploy-preview-2614--gestalt.netlify.app)
+
+## 89.0.3 (Jan 13, 2023)
+
+### Patch
+
+- Internal: Flow fixes ([#2611](https://github.com/pinterest/gestalt/pull/2611)) - [Preview link](https://deploy-preview-2611--gestalt.netlify.app)
+
 ## 89.0.2 (Jan 12, 2023)
 
 ### Patch

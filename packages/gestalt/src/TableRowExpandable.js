@@ -5,6 +5,7 @@ import Box from './Box.js';
 import IconButton from './IconButton.js';
 import TableCell from './TableCell.js';
 import { useTableContext } from './contexts/TableContext.js';
+import getChildrenCount from './Table/getChildrenCount.js';
 
 type Props = {|
   /**
@@ -106,11 +107,13 @@ export default function TableRowExpandable({
             size="xs"
           />
         </TableCell>
+        {/* This needs to be fixed for children wrapped in React.Fragment when sticky columns are present */}
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>
       {expanded && (
         <tr id={id}>
-          <td className={styles.drawer} colSpan={Children.count(children) + 1}>
+          {/* + 1 is added to colSpan to account for the icon button cell */}
+          <td className={styles.drawer} colSpan={getChildrenCount(children) + 1}>
             <Box padding={6}>{expandedContents}</Box>
           </td>
         </tr>
