@@ -176,6 +176,18 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Palette', 'Usage', 'Examples'],
       },
       {
+        sectionName: 'Content standards',
+        pages: [
+          'Voice',
+          'Formatting',
+          'Grammar',
+          'Inclusive language',
+          'UI elements',
+          'Syntax structure',
+          'Resources',
+        ],
+      },
+      {
         sectionName: 'Data visualization',
         pages: ['Palette', 'Usage'],
       },

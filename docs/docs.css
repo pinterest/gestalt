@@ -726,6 +726,37 @@ pre {
   background-color: var(--g-colorGray0);
 }
 
+/**
+Default table styling for MDX Pages
+**/
+
+.mdx-page table {
+  border: 1px solid var(--g-colorGray150);
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.mdx-page table tr {
+  border-top: 1px solid var(--g-colorGray150);
+  vertical-align: top;
+}
+
+.mdx-page table th {
+  padding: 0.5rem 1.25rem;
+}
+
+.mdx-page table td {
+  padding: 1rem 1.25rem;
+  vertical-align: top;
+}
+
+.mdx-page table tr br {
+  content: "";
+  display: block;
+  margin-top: 1rem;
+}
+
 /* Year In Review CSS */
 
 .year-in-review {
