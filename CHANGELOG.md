@@ -1,3 +1,9 @@
+## 89.0.6 (Jan 18, 2023)
+
+### Patch
+
+- Docs: Add Content Guidelines Page ([#2599](https://github.com/pinterest/gestalt/pull/2599)) - [Preview link](https://deploy-preview-2599--gestalt.netlify.app)
+
 ## 89.0.5 (Jan 17, 2023)
 
 ### Patch
