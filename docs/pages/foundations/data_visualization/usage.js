@@ -24,8 +24,8 @@ const COLOR_TEXT_PAIRINGS = {
   '08': 'light',
   '09': 'dark',
   '10': 'light',
-  '11': 'light',
-  '12': 'light',
+  '11': 'inverse',
+  '12': 'inverse',
 };
 
 const DO_NOT_PAIR_COLORS = [
