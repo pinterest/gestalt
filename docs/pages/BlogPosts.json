@@ -2,6 +2,33 @@
   "year": "2022",
   "digests": [
     {
+      "week": "January 13, 2023",
+      "summary": "More icons, better docs readability and Figma library cleanups.",
+      "posts": [
+        {
+          "title": "20+ new icons added to the codebase",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/da/d4/01/dad401cd2d1b5f5d82ab939436cafb83.png",
+          "imageAltText": "wireframe of docs site",
+          "content": "What's better than icons? More icons. We've added a bunch of [icons to our codebase](https://gestalt.pinterest.systems/foundations/iconography/library) that were previously only available in our Figma library.\n\nWhich icons you ask? Well, these:\n`3D`, `3D-move`, `apple`, `arrow-left-curved`, `board`, `calendar-check`, `desktop`, `flame`, `image-portrait`, `instagram`, `live`, `magic-pen`, `manage-access`, `mobile`, `person-add`, `save-outline`, `saved`, `thumbs-down`, `thumbs-up`, `video-advance-10-seconds`, `video-rewind-10-seconds`, `whats-app` and `wifi-no`."
+        },
+        {
+          "title": "Improved content widths in docs",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/57/fc/7c/57fc7c16fb13e5a323b8873e9ac9a56d.png",
+          "imageAltText": "grid of icons",
+          "content": "Content widths across the site have been adjusted to a max of 1200 for better readability. The right-side content navigator is also now closer to the content so it’s easier to discover and reach in order to quickly jump to the content you are looking for."
+        },
+        {
+          "title": "Hygiene improvements to our Figma Web library",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/59/1d/dc/591ddc1224a7b6568b224d2034f935d8.png",
+          "imageAltText": "emoji broom",
+          "content": "A clean library is an awesome library, and we sure do like awesome. So, to better achieve awesomeness, we cleaned up our Figma Web library by renaming random layers to make search within layers possible, fixing our files/layers to follow naming convention, reordering layers, deleting empty/duplicated layers and fixing group/frame inconsistencies. We're planning to make the same improvements to our Android and iOS libraries shortly."
+        }
+      ]
+    },
+    {
       "month": "December",
       "summary": "",
       "posts": [
