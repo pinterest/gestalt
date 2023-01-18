@@ -26,9 +26,9 @@
           "imageAltText": "emoji broom",
           "content": "A clean library is an awesome library, and we sure do like awesome. So, to better achieve awesomeness, we cleaned up our Figma Web library by renaming random layers to make search within layers possible, fixing our files/layers to follow naming convention, reordering layers, deleting empty/duplicated layers and fixing group/frame inconsistencies. We're planning to make the same improvements to our Android and iOS libraries shortly."
         }
-       ]
-     },
-     {
+      ]
+    },
+    {
       "month": "December",
       "summary": "",
       "posts": [
