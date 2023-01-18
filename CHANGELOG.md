@@ -1,3 +1,9 @@
+## 89.0.7 (Jan 18, 2023)
+
+### Patch
+
+- Docs: Jan 13 weekly digest ([#2613](https://github.com/pinterest/gestalt/pull/2613)) - [Preview link](https://deploy-preview-2613--gestalt.netlify.app)
+
 ## 89.0.6 (Jan 18, 2023)
 
 ### Patch
