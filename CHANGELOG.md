@@ -1,3 +1,9 @@
+## 90.0.0 (Jan 19, 2023)
+
+### Major
+
+- Data Visualization: Update palette and add new error tokens ([#2610](https://github.com/pinterest/gestalt/pull/2610)) - [Preview link](https://deploy-preview-2610--gestalt.netlify.app)
+
 ## 89.0.7 (Jan 18, 2023)
 
 ### Patch
