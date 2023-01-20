@@ -158,13 +158,13 @@ class ExampleMasonry extends Component<Props, State> {
             <Masonry
               columnWidth={170}
               gutterWidth={5}
-              Item={GridComponent}
               items={this.state.pins}
               layout={this.props.layout}
               minCols={1}
               ref={(ref) => {
                 this.grid = ref;
               }}
+              renderItem={({ data }) => <GridComponent data={data} />}
               scrollContainer={() => scrollContainer}
             />
           )}
@@ -189,10 +189,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
     ~~~jsx
     <Masonry
-      Item={Item}
       items={this.state.pins}
       loadItems={this.loadItems}
       minCols={1}
+      renderItem={({ data }) => <Item data={data} />}
     />
     ~~~
   `}
@@ -203,7 +203,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     When layout is set to \`flexible\`, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
-    <Masonry layout="flexible" Item={Item} items={items} minCols={1} />
+    <Masonry layout="flexible" items={items} minCols={1} renderItem={({ data }) => <Item data={data} />} />
     ~~~
     `}
         name="Flexible item width"
@@ -215,7 +215,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     When the \`flexible\` property is omitted, the item width will be fixed to \`columnWidth\`.
 
     ~~~jsx
-    <Masonry Item={Item} items={items} minCols={1} />
+    <Masonry items={items} minCols={1} renderItem={({ data }) => <Item data={data} />} />
     ~~~
   `}
         name="Non-flexible item width"
@@ -227,7 +227,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     Using the \`uniformRow\` layout.
 
     ~~~jsx
-    <Masonry Item={Item} items={items} layout="uniformRow" />;
+    <Masonry items={items} layout="uniformRow" renderItem={({ data }) => <Item data={data} />} />;
     ~~~
   `}
         name="Uniform row heights"

@@ -43,13 +43,14 @@ import { type Node } from 'react';
 import layoutStyles from './Layout.css';
 
 type Props = {|
-  Item: ({| idx: number |}) => Node,
+  Item?: ({| idx: number |}) => Node,
   layout: $ReadOnlyArray<{|
     top: number,
     left: number,
     width: number,
     height: number,
   |}>,
+  renderItem?: ({| idx: number |}) => Node,
   viewportTop?: number,
   viewportLeft?: number,
   viewportWidth?: number,
@@ -60,7 +61,7 @@ type Props = {|
  * https://gestalt.pinterest.systems/collection
  */
 export default function Collection(props: Props): Node {
-  const { Item, layout = [], viewportTop = 0, viewportLeft = 0 } = props;
+  const { Item, layout = [], renderItem, viewportTop = 0, viewportLeft = 0 } = props;
 
   // Calculate the full dimensions of the item layer
   const width = Math.max(...layout.map((item) => item.left + item.width));
@@ -87,7 +88,7 @@ export default function Collection(props: Props): Node {
     <div className={layoutStyles.relative} style={{ width, height }}>
       {items.map(({ idx, ...style }) => (
         <div key={idx} className={layoutStyles.absolute} style={style}>
-          <Item idx={idx} />
+          {renderItem ? renderItem({ idx }) : Item ? <Item idx={idx} /> : null}
         </div>
       ))}
     </div>
