@@ -1,3 +1,9 @@
+## 90.0.1 (Jan 20, 2023)
+
+### Patch
+
+- Tokens: Update text and icon subtle color ([#2617](https://github.com/pinterest/gestalt/pull/2617)) - [Preview link](https://deploy-preview-2617--gestalt.netlify.app)
+
 ## 90.0.0 (Jan 19, 2023)
 
 ### Major
