@@ -88,7 +88,7 @@ export default function Collection(props: Props): Node {
     <div className={layoutStyles.relative} style={{ width, height }}>
       {items.map(({ idx, ...style }) => (
         <div key={idx} className={layoutStyles.absolute} style={style}>
-          {renderItem ? renderItem({ idx }) : Item ? <Item idx={idx} /> : null}
+          {renderItem ? renderItem({ idx }) : Item && <Item idx={idx} />}
         </div>
       ))}
     </div>
