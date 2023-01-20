@@ -24,6 +24,7 @@ import warningSingleAction from '../../examples/modalalert/warningSingleAction.j
 import errorMultiAction from '../../examples/modalalert/errorMultiAction.js';
 import errorSingleAction from '../../examples/modalalert/errorSingleAction.js';
 import withCheckbox from '../../examples/modalalert/withCheckbox.js';
+import mobileExample from '../../examples/modalalert/mobileExample.js';
 
 const PREVIEW_HEIGHT = 450;
 
@@ -298,6 +299,61 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <MainSection
+        name="Mobile"
+        description={`ModalAlert requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+
+For mobile, all \`size\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
+`}
+      >
+        <MainSection.Card
+          cardSize="lg"
+          sandpackExample={
+            <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
+          }
+          defaultCode={`
+function Example() {
+  const [showModal, setShowModal] = React.useState(false);
+
+  return showModal ? (
+    <DeviceTypeProvider deviceType="mobile">
+      <Layer zIndex={new FixedZIndex(11)}>
+        <ModalAlert
+          type="warning"
+          accessibilityModalLabel="Mobile ModalAlert example"
+          heading="Heading"
+          onDismiss={() => setShowModal(false)}
+          primaryAction={{
+            accessibilityLabel: 'Primary',
+            label: 'Primary',
+            onClick: () => {},
+          }}
+          secondaryAction={{
+            accessibilityLabel: 'Secondary',
+            label: 'Secondary',
+            onClick: () => {},
+          }}
+        >
+          <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+        </ModalAlert>
+      </Layer>
+    </DeviceTypeProvider>
+  ) : (
+    <Box padding={2}>
+      <Button
+        accessibilityLabel="Show ModalAlert"
+        color="red"
+        text="Show ModalAlert"
+        size="lg"
+        onClick={() => setShowModal(true)}
+      />
+    </Box>
+  );
+}`}
+        />
+      </MainSection>
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

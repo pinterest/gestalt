@@ -14,6 +14,7 @@ import limitActionsExample from '../../examples/modal/limitActionsExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
 import sizesExample from '../../examples/modal/sizesExample.js';
 import preventCloseExample from '../../examples/modal/preventCloseExample.js';
+import mobileExample from '../../examples/modal/mobileExample.js';
 
 export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   const PREVIEW_HEIGHT = 450;
@@ -244,6 +245,59 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             }
           />
         </MainSection.Subsection>
+        <MainSection
+          name="Mobile"
+          description={`Modal requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+
+For mobile, all \`size\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
+`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
+            }
+            defaultCode={`
+function Example() {
+  const [showModal, setShowModal] = React.useState(false);
+
+  return showModal ? (
+    <DeviceTypeProvider deviceType="mobile">
+      <Layer zIndex={new FixedZIndex(11)}>
+        <Modal
+          align="center"
+          accessibilityModalLabel="Mobile Modal example"
+          heading="Heading"
+          subHeading="SubHeading"
+          onDismiss={() => setShowModal(false)}
+          footer={
+            <Flex justifyContent="center" gap={2}>
+              <Button color="gray" text="Secondary" />
+              <Button color="red" text="Primary" />
+            </Flex>
+          }
+          size="lg"
+        >
+          <Box>
+           {Array(100).fill(<Text>Content</Text>)}
+          </Box>
+        </Modal>
+      </Layer>
+    </DeviceTypeProvider>
+  ) : (
+    <Box padding={2}>
+      <Button
+        accessibilityLabel="Show Modal"
+        color="red"
+        text="Show Modal"
+        size="lg"
+        onClick={() => setShowModal(true)}
+      />
+    </Box>
+  );
+}`}
+          />
+        </MainSection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

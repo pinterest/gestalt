@@ -4,6 +4,12 @@
   height: 100%;
 }
 
+.mobileWrapper {
+  composes: relative overflowAuto flex from "./Layout.css";
+  composes: whiteBgElevated from "./Colors.css";
+  height: 100%;
+}
+
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
   composes: whiteBgElevated from "./Colors.css";

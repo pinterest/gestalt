@@ -4,7 +4,9 @@ import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
+import MobileModal from './MobileModal.js';
 import focusStyles from './Focus.css';
+import modalStyles from './Modal.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
@@ -12,7 +14,7 @@ import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import { FixedZIndex } from './zIndex.js';
-import modalStyles from './Modal.css';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Props = {|
   /**
@@ -100,6 +102,7 @@ function Header({
  * A [Modal](https://gestalt.pinterest.systems/web/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. Modal should be used to gather short bits of information from the user. For confirmation of an action or acknowledgment, use [ModalAlert](https://gestalt.pinterest.systems/web/modalalert).
  *
  * ![Modal light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal.spec.mjs-snapshots/Modal-chromium-darwin.png)
+ *  ![Modal mobile](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal-mobile.spec.mjs-snapshots/Modal-mobile-chromium-darwin.png)
  * ![Modal dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal-dark.spec.mjs-snapshots/Modal-dark-chromium-darwin.png)
  *
  */
@@ -117,6 +120,9 @@ export default function Modal({
   size = 'sm',
   subHeading,
 }: Props): Node {
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
   const contentRef = useRef<?HTMLElement>(null);
@@ -165,6 +171,23 @@ export default function Modal({
 
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
+  if (isMobile) {
+    return (
+      <MobileModal
+        accessibilityModalLabel={accessibilityModalLabel}
+        align={align}
+        onDismiss={onDismiss}
+        footer={footer}
+        padding={padding}
+        heading={heading}
+        role={role}
+        subHeading={subHeading}
+      >
+        {children}
+      </MobileModal>
+    );
+  }
+
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
@@ -192,7 +215,13 @@ export default function Modal({
                 )}
                 {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to Sheet */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
-                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
+                  <Box
+                    flex="grow"
+                    overflow="auto"
+                    onScroll={updateShadows}
+                    ref={contentRef}
+                    padding={padding === 'none' ? 0 : 6}
+                  >
                     {children}
                   </Box>
                 ) : (

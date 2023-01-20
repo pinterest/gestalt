@@ -8,6 +8,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Modal from './Modal.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type ActionDataType = {|
   accessibilityLabel: string,
@@ -87,6 +88,9 @@ function Header({
   heading: string,
   onDismiss: () => void,
 |}) {
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
   return (
     <Flex flex="grow" alignItems="center" gap={4}>
       {type !== 'default' && (
@@ -104,7 +108,7 @@ function Header({
           {heading}
         </Heading>
       </Flex.Item>
-      {type === 'default' && (
+      {type === 'default' && !isMobile && (
         <Box marginStart={2}>
           <IconButton
             accessibilityLabel={accessibilityDismissButtonLabel}
@@ -156,6 +160,7 @@ function ModalAlertAction({ data, type }: {| data: ActionDataType, type: string 
  * A [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
  *
  * ![ModalAlert light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ModalAlert.spec.mjs-snapshots/ModalAlert-chromium-darwin.png)
+ * ![ModalAlert mobile](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ModalAlert-mobile.spec.mjs-snapshots/ModalAlert-mobile-chromium-darwin.png)
  * ![ModalAlert dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ModalAlert-dark.spec.mjs-snapshots/ModalAlert-dark-chromium-darwin.png)
  *
  */
@@ -170,7 +175,7 @@ export default function ModalAlert({
   secondaryAction,
 }: Props): Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
-    useDefaultLabelContext('ModalAlert');
+    useDefaultLabelContext('Modal');
 
   Object.entries({ primaryAction, secondaryAction }).forEach(([key, value]) => {
     if (
