@@ -1,5 +1,5 @@
 // @flow strict
-import { type ComponentType, type Node, Component as ReactComponent } from 'react';
+import { type Node, Component as ReactComponent } from 'react';
 import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
@@ -31,16 +31,7 @@ type Props<T> = {|
    */
   gutterWidth?: number,
   /**
-   * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item. *Note that this [must be a stable reference!](https://www.developerway.com/posts/react-re-renders-guide#part3.1)* If using a component declared within a parent function component, you must use [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback) to ensure a stable reference.
-   * This is deprecated in favor of the `renderItem` prop
-   */
-  Item?: ComponentType<{|
-    data: T,
-    itemIdx: number,
-    isMeasuring: boolean,
-  |}>,
-  /**
-   * An array of items to display that contains the data to be rendered by `<Item />`.
+   * An array of items to display that contains the data to be rendered by `renderItem()`.
    */
   items: $ReadOnlyArray<T>,
   /**
@@ -76,7 +67,7 @@ type Props<T> = {|
   /**
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    */
-  renderItem?: ({|
+  renderItem: ({|
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
@@ -386,23 +377,13 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  renderItem(item: {| +data: T, +itemIdx: number, +isMeasuring: boolean |}): Node {
-    const { Item, renderItem } = this.props;
-    if (renderItem) {
-      return renderItem(item);
-    }
-    if (Item) {
-      return <Item data={item.data} itemIdx={item.itemIdx} isMeasuring={item.isMeasuring} />;
-    }
-    return null;
-  }
-
   renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
     itemData,
     idx,
     position,
   ) => {
     const {
+      renderItem,
       scrollContainer,
       virtualize,
       virtualBoundsTop,
@@ -447,7 +428,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {this.renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
       </div>
     );
 
@@ -461,6 +442,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       items,
       layout,
       minCols,
+      renderItem,
       scrollContainer,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
@@ -533,7 +515,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
               }}
             >
-              {this.renderItem({ data: item, itemIdx: i, isMeasuring: false })}
+              {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
             </div>
           ))}
         </div>
@@ -584,7 +566,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     }
                   }}
                 >
-                  {this.renderItem({ data, itemIdx: measurementIndex, isMeasuring: true })}
+                  {renderItem({ data, itemIdx: measurementIndex, isMeasuring: true })}
                 </div>
               );
             })}
