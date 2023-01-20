@@ -10,7 +10,7 @@ type Props = {|
 |};
 
 function ColorPalette({ name, tokenId }: Props): Node {
-  const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+  const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 550, 600, 700, 800, 900];
   const colorId = `${tokenId}-${name.toLowerCase()}`;
   return (
     <Box marginTop={8} marginBottom={8}>

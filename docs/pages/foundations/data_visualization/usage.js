@@ -320,7 +320,7 @@ export default function ColorPage(): Node {
               alt="Color pairings shown with deuteranopia"
               naturalHeight={1106}
               naturalWidth={1082}
-              src="https://i.ibb.co/WftKzmC/Color-Pairings-Img.jpg"
+              src="https://i.ibb.co/zhf8MHC/color-pairings-img-1-20.png"
             />
           </Box>
         </Flex>

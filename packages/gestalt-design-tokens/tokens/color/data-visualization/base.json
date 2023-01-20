@@ -16,7 +16,7 @@
         "comment": "Third option for data visualization colors"
       },
       "04": {
-        "value": "#F2681F",
+        "value": "#D17711",
         "darkValue": "#FDA600",
         "comment": "Fourth option for data visualization colors"
       },
@@ -41,7 +41,7 @@
         "comment": "Eighth option for data visualization colors"
       },
       "09": {
-        "value": "#D17711",
+        "value": "#F2681F",
         "darkValue": "{color.orange.firetini.450.value}",
         "comment": "Ninth option for data visualization colors"
       },
