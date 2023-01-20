@@ -31,9 +31,9 @@ export default function Snapshot(): Node {
         <Masonry
           columnWidth={50}
           gutterWidth={3}
+          Item={GridComponent}
           items={dataObject}
           minCols={1}
-          renderITem={({ data }) => <GridComponent data={data} />}
         />
       </Box>
     </ColorSchemeProvider>
