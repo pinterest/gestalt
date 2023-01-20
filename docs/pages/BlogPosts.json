@@ -2,6 +2,33 @@
   "year": "2022",
   "digests": [
     {
+      "week": "January 20, 2023",
+      "summary": "Updated dataviz palette and Figma library quality-of-life improvements.",
+      "posts": [
+        {
+          "title": "Improved data visualization color palette",
+          "audience": ["Design", "Engineering"],
+          "imageSrc": "https://i.pinimg.com/originals/41/42/20/4142203008d1d0c0862784eaec920fed.png",
+          "imageAltText": "bar chart with new dataviz colors",
+          "content": "We made updates to our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) based on internal feedback. These updates focus on improving visual appeal, while also making some minor improvements for color blindness. We also added [an example to the docs](https://gestalt.pinterest.systems/foundations/data_visualization/usage#Pairings-to-avoid) of what poor color pairing can mean for someone with red/green color blindness. Last but not least, we streamlined naming in our Figma file so that it matches the web tokens.\n\nThis work unlocks our ability to begin building official Gestalt dataviz components!"
+        },
+        {
+          "title": "More/better Figma imagery styles for inclusive pins",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/b9/94/20/b994209cde3193b92c715feabff45bbf.png",
+          "imageAltText": "collection of pins with new imagery styles",
+          "content": "We updated our imagery styles in the Gestalt foundations Figma library to bring more realistic and diverse pins. It also includes two new categories, Beauty and DYI. All the images are drawn from our brand assets, so they are rights-ready for mock-ups that need to be shown in external docs or marketing campaigns.\n\nThese new imagery styles should enable designers to quickly and effectively include relevant imagery content into their designs."
+        },
+        {
+          "title": "Handoff kit flow component improvements",
+          "audience": ["Design"],
+          "imageSrc": "https://i.pinimg.com/originals/ec/6d/40/ec6d4000d74e88679dcaa2977df2a5c6.png",
+          "imageAltText": "example of flow component in dark mode",
+          "content": "We made some fixes to nested components in our flow connectors to link to the main source file and included support for dark mode.\n\nThis is yet another step towards helping make design specifications clear, consistent and easy to produce."
+        }
+      ]
+    },
+    {
       "week": "January 13, 2023",
       "summary": "More icons, better docs readability and Figma library cleanups.",
       "posts": [
