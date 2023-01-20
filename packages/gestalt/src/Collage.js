@@ -192,14 +192,14 @@ export default function Collage(props: Props): Node {
   });
   return (
     <Collection
-      Item={({ idx: index }) =>
+      layout={positions}
+      renderItem={({ idx: index }) =>
         renderImage({
           index,
           width: positions[index].width,
           height: positions[index].height,
         })
       }
-      layout={positions}
     />
   );
 }

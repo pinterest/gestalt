@@ -4,7 +4,7 @@ import Masonry from './Masonry.js';
 function Item() {
   return <div />;
 }
-const Valid = <Masonry items={[]} Item={Item} />;
+const Valid = <Masonry items={[]} renderItem={() => <Item />} />;
 
 // $FlowExpectedError[prop-missing]
 const MissingProp = <Masonry />;
