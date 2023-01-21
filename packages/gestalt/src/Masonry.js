@@ -32,7 +32,7 @@ type Props<T> = {|
   gutterWidth?: number,
   /**
    * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item. *Note that this [must be a stable reference!](https://www.developerway.com/posts/react-re-renders-guide#part3.1)* If using a component declared within a parent function component, you must use [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback) to ensure a stable reference.
-   * This is deprecated in favor of the `renderItem` prop
+   * This is DEPRECATED and will be removed in the next major release. Please use `renderItem` prop instead.
    */
   Item?: ComponentType<{|
     data: T,
@@ -40,7 +40,7 @@ type Props<T> = {|
     isMeasuring: boolean,
   |}>,
   /**
-   * An array of items to display that contains the data to be rendered by `<Item />`.
+   * An array of items to display that contains the data to be rendered by `renderItem()` (fallback to the deprecated `<Item />` if `renderItem` is not passed).
    */
   items: $ReadOnlyArray<T>,
   /**
