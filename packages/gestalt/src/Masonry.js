@@ -32,14 +32,15 @@ type Props<T> = {|
   gutterWidth?: number,
   /**
    * A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item. *Note that this [must be a stable reference!](https://www.developerway.com/posts/react-re-renders-guide#part3.1)* If using a component declared within a parent function component, you must use [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback) to ensure a stable reference.
+   * This is DEPRECATED and will be removed in the next major release. Please use `renderItem` prop instead.
    */
-  Item: ComponentType<{|
+  Item?: ComponentType<{|
     data: T,
     itemIdx: number,
     isMeasuring: boolean,
   |}>,
   /**
-   * An array of items to display that contains the data to be rendered by `<Item />`.
+   * An array of items to display that contains the data to be rendered by `renderItem()` (fallback to the deprecated `<Item />` if `renderItem` is not passed).
    */
   items: $ReadOnlyArray<T>,
   /**
@@ -72,6 +73,14 @@ type Props<T> = {|
    * Minimum number of columns to display.
    */
   minCols: number,
+  /**
+   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   */
+  renderItem?: ({|
+    +data: T,
+    +itemIdx: number,
+    +isMeasuring: boolean,
+  |}) => Node,
   /**
    * A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    * This is required if the grid is expected to be scrollable.
@@ -377,13 +386,23 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
+  renderItem(item: {| +data: T, +itemIdx: number, +isMeasuring: boolean |}): Node {
+    const { Item, renderItem } = this.props;
+    if (renderItem) {
+      return renderItem(item);
+    }
+    if (Item) {
+      return <Item data={item.data} itemIdx={item.itemIdx} isMeasuring={item.isMeasuring} />;
+    }
+    throw new Error('Please add the required renderItem prop.');
+  }
+
   renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
     itemData,
     idx,
     position,
   ) => {
     const {
-      Item,
       scrollContainer,
       virtualize,
       virtualBoundsTop,
@@ -428,7 +447,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           height: layoutNumberToCssDimension(height),
         }}
       >
-        <Item data={itemData} itemIdx={idx} isMeasuring={false} />
+        {this.renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
       </div>
     );
 
@@ -439,7 +458,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const {
       columnWidth,
       gutterWidth: gutter,
-      Item,
       items,
       layout,
       minCols,
@@ -515,7 +533,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
               }}
             >
-              <Item data={item} itemIdx={i} isMeasuring={false} />
+              {this.renderItem({ data: item, itemIdx: i, isMeasuring: false })}
             </div>
           ))}
         </div>
@@ -566,7 +584,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     }
                   }}
                 >
-                  <Item data={data} itemIdx={measurementIndex} isMeasuring />
+                  {this.renderItem({ data, itemIdx: measurementIndex, isMeasuring: true })}
                 </div>
               );
             })}
