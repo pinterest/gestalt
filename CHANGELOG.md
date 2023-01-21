@@ -1,3 +1,9 @@
+## 90.1.0 (Jan 21, 2023)
+
+### Minor
+
+- Masonry: replace the `Item` prop with the `renderItem` prop ([#2616](https://github.com/pinterest/gestalt/pull/2616)) - [Preview link](https://deploy-preview-2616--gestalt.netlify.app)
+
 ## 90.0.2 (Jan 20, 2023)
 
 ### Patch
