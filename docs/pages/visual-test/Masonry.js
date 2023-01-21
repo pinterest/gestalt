@@ -27,12 +27,13 @@ export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" width={300} padding={1}>
+        {/* $FlowFixMe[prop-missing] */}
         <Masonry
           columnWidth={50}
           gutterWidth={3}
           items={dataObject}
           minCols={1}
-          renderItem={({ data }) => <GridComponent data={data} />}
+          renderITem={({ data }) => <GridComponent data={data} />}
         />
       </Box>
     </ColorSchemeProvider>
