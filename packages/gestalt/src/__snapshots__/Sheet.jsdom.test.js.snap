@@ -14,6 +14,7 @@ exports[`Sheet should render all props with nodes 1`] = `
       <div
         aria-label="Sheet"
         class="wrapper hideOutline wrapperAnimationIn"
+        id=":r0:"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -29,32 +30,28 @@ exports[`Sheet should render all props with nodes 1`] = `
               class="Flex rowGap0 columnGap0 flexGrow justifyBetween xsDirectionRow xsItemsCenter"
             >
               <div
-                class="box flexGrow"
+                class="box flexGrow paddingX6 paddingY6 xsDisplayFlex"
               >
-                <div
-                  class="box paddingX6 paddingY6 xsDisplayFlex"
+                <h1
+                  class="Heading fontSize500 defaultText alignStart breakWord"
                 >
-                  <h1
-                    class="Heading fontSize500 defaultText alignStart breakWord"
-                  >
-                    Sheet title
-                  </h1>
-                </div>
+                  Sheet title
+                </h1>
               </div>
               <div
                 class="box flexNone paddingX6 paddingY7"
               >
                 <button
+                  aria-controls=":r0:"
                   aria-label="Dismiss"
                   class="parentButton"
-                  tabindex="0"
                   type="button"
                 >
                   <div
                     class="button tapTransition enabled"
                   >
                     <div
-                      class="pog white"
+                      class="pog transparent focused"
                       style="height: 40px; width: 40px;"
                     >
                       <svg
@@ -113,6 +110,7 @@ exports[`Sheet should render all props with render props 1`] = `
       <div
         aria-label="Sheet"
         class="wrapper hideOutline wrapperAnimationIn"
+        id=":r1:"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -128,32 +126,28 @@ exports[`Sheet should render all props with render props 1`] = `
               class="Flex rowGap0 columnGap0 flexGrow justifyBetween xsDirectionRow xsItemsCenter"
             >
               <div
-                class="box flexGrow"
+                class="box flexGrow paddingX6 paddingY6 xsDisplayFlex"
               >
-                <div
-                  class="box paddingX6 paddingY6 xsDisplayFlex"
+                <h1
+                  class="Heading fontSize500 defaultText alignStart breakWord"
                 >
-                  <h1
-                    class="Heading fontSize500 defaultText alignStart breakWord"
-                  >
-                    Sheet title
-                  </h1>
-                </div>
+                  Sheet title
+                </h1>
               </div>
               <div
                 class="box flexNone paddingX6 paddingY7"
               >
                 <button
+                  aria-controls=":r1:"
                   aria-label="Dismiss"
                   class="parentButton"
-                  tabindex="0"
                   type="button"
                 >
                   <div
                     class="button tapTransition enabled"
                   >
                     <div
-                      class="pog white"
+                      class="pog transparent focused"
                       style="height: 40px; width: 40px;"
                     >
                       <svg
@@ -218,6 +212,7 @@ exports[`Sheet should render animation in 1`] = `
       <div
         aria-label="Sheet"
         class="wrapper hideOutline wrapperAnimationIn"
+        id=":r2:"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -234,16 +229,16 @@ exports[`Sheet should render animation in 1`] = `
               style="z-index: 1;"
             >
               <button
+                aria-controls=":r2:"
                 aria-label="Dismiss"
                 class="parentButton"
-                tabindex="0"
                 type="button"
               >
                 <div
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog white"
+                    class="pog transparent focused"
                     style="height: 40px; width: 40px;"
                   >
                     <svg
@@ -291,6 +286,7 @@ exports[`Sheet should render animation out 1`] = `
       <div
         aria-label="Sheet"
         class="wrapper hideOutline wrapperAnimationOut"
+        id=":r3:"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -307,16 +303,16 @@ exports[`Sheet should render animation out 1`] = `
               style="z-index: 1;"
             >
               <button
+                aria-controls=":r3:"
                 aria-label="Dismiss"
                 class="parentButton"
-                tabindex="0"
                 type="button"
               >
                 <div
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog white"
+                    class="pog transparent focused"
                     style="height: 40px; width: 40px;"
                   >
                     <svg

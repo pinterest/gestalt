@@ -28,6 +28,9 @@ describe('useDefaultLabelContext', () => {
           Popover: {
             accessibilityDismissButtonLabel: 'Close popover',
           },
+          Sheet: {
+            accessibilityDismissButtonLabel: 'Close sheet',
+          },
           Tag: {
             accessibilityErrorIconLabel: 'Error',
             accessibilityRemoveIconLabel: 'Remove tag',

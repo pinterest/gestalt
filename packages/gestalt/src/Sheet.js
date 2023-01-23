@@ -1,277 +1,57 @@
 // @flow strict
 
-/*
-
-# Welcome to Sheet!
-
-This guide will help you navigate and understand its design. This file is roughly organized like:
-
-  1. Internal components <Header> and <DismissButton>
-  2. Sheet function: the one with the actual component logic
-  3. AnimatedSheet function: adds animation capabilities
-
-This is how all these components are used:
-
-a. The default export is <AnimatedSheet>
-b. AnimatedSheet includes <Sheet>
-c. Sheet is the actual component logic which includes the internal components <Header> and <DismissButton>.
-
-*/
-
-import { type Node, useCallback, useState, useEffect, useRef } from 'react';
-import classnames from 'classnames';
-import { ESCAPE } from './keyCodes.js';
-import AnimationController, { useAnimation } from './AnimationController.js';
-import Box from './Box.js';
-import Backdrop from './Backdrop.js';
-import Flex from './Flex.js';
-import focusStyles from './Focus.css';
-import IconButton from './IconButton.js';
-import Heading from './Heading.js';
-import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
-import sheetStyles from './Sheet.css';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
-import { FixedZIndex } from './zIndex.js';
+import { type Node } from 'react';
+import AnimationController from './AnimationController.js';
+import InternalSheet from './InternalSheet.js';
 
 type Size = 'sm' | 'md' | 'lg';
 
 type OnAnimationEndStateType = 'in' | 'out';
 
-type SheetMainProps = {|
-  accessibilityDismissButtonLabel: string,
-  accessibilitySheetLabel: string,
-  children: Node,
-  closeOnOutsideClick?: boolean,
-  footer?: Node,
-  onAnimationEnd?: ({| animationState: OnAnimationEndStateType |}) => void,
-  onDismiss: () => void,
-  size?: Size,
-|};
-
-type SheetProps = {|
-  ...SheetMainProps,
-  heading?: string,
-  subHeading?: Node,
-|};
-
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
-type AnimatedSheetMainProps = {|
-  ...SheetMainProps,
+type Props = {|
+  /**
+    Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button. See the [Accessibility section](#Accessibility) for more info.
+   */
+  accessibilityDismissButtonLabel: string,
+  /**
+   * Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet. See the [Accessibility section](#Accessibility) for more info.
+   */
+  accessibilitySheetLabel: string,
+  /**
+   * Supply the container element(s) or render prop that will be used as Sheet's main content. See the [animation variant](#Animation) for info on how to add exit animations to Sheet content..
+   */
   children: NodeOrRenderProp,
+  /**
+   * Indicate whether clicking on the backdrop (gray area) outside of Sheet will automatically close it. See the [outside click variant](#Preventing-close-on-outside-click) for more info.
+   */
+  closeOnOutsideClick?: boolean,
+  /**
+   * Supply the container element(s) or render prop that will be used as Sheet's custom footer. See the [footer variant](#Footer) for more info..
+   */
   footer?: NodeOrRenderProp,
-|};
-
-type AnimatedSheetWithHeadingProps = {|
-  ...AnimatedSheetMainProps,
-  heading: string,
+  /**
+   * The text used for Sheet's heading. Be sure to localize this text. See the [heading variant](#Heading) for more info.
+   */
+  heading?: string,
+  /**
+   * Callback fired when the Sheet in/out animations end. See the [animation](#Animation) variant to learn more.
+   */
+  onAnimationEnd?: ({| animationState: OnAnimationEndStateType |}) => void,
+  /**
+   * Callback fired when the Sheet is dismissed by clicking on the Dismiss button, pressing the ESC key, or clicking on the backdrop outside of the Sheet (if `closeOnOutsideClick` is true).
+   */
+  onDismiss: () => void,
+  /**
+   * Determine the width of the Sheet component. See the [size variant](#Sizes) for more info.
+   */
+  size?: Size,
+  /**
+   * Supply the container element(s) or render prop that will be used as Sheet's sub-heading docked under the heading. See the [sub-heading variant](#Sub-heading) for more info.
+   */
   subHeading?: NodeOrRenderProp,
 |};
-
-type AnimatedSheetProps = AnimatedSheetMainProps | AnimatedSheetWithHeadingProps;
-
-const SIZE_WIDTH_MAP = {
-  sm: 540,
-  md: 720,
-  lg: 900,
-};
-
-const PADDING_BOINTS = 6;
-
-/*
-
-Internal components <Header> and <DismissButton>
-
-*/
-function Header({ heading }: {| heading: string |}) {
-  return (
-    <Box display="flex" justifyContent="start" padding={PADDING_BOINTS}>
-      <Heading size="500" accessibilityLevel={1}>
-        {heading}
-      </Heading>
-    </Box>
-  );
-}
-
-function DismissButton({
-  accessibilityDismissButtonLabel,
-  onClick,
-}: {|
-  accessibilityDismissButtonLabel: string,
-  onClick: () => void,
-|}) {
-  return (
-    <IconButton
-      accessibilityLabel={accessibilityDismissButtonLabel}
-      bgColor="white"
-      icon="cancel"
-      iconColor="darkGray"
-      onClick={onClick}
-      size="md"
-    />
-  );
-}
-
-/*
- *
- * <Sheet> component: the one with the actual component logic
- */
-function Sheet(props: SheetProps): Node {
-  const {
-    accessibilityDismissButtonLabel,
-    accessibilitySheetLabel,
-    children,
-    closeOnOutsideClick = true,
-    footer,
-    heading,
-    onAnimationEnd,
-    onDismiss,
-    size = 'sm',
-    subHeading,
-  } = props;
-
-  const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
-  const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-  const { animationState: animationStateFromHook, onAnimationEnd: onAnimationEndFromHook } =
-    useAnimation();
-  const contentRef = useRef<?HTMLElement>(null);
-
-  // Handle onDismiss triggering from ESC keyup event
-  useEffect(() => {
-    function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE) {
-        onDismiss();
-      }
-    }
-
-    window.addEventListener('keyup', handleKeyUp);
-    return function cleanup() {
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, [onDismiss]);
-
-  const handleOnAnimationEnd = useCallback(() => {
-    onAnimationEndFromHook?.();
-    onAnimationEnd?.({ animationState: animationStateFromHook === 'in' ? 'in' : 'out' });
-  }, [animationStateFromHook, onAnimationEnd, onAnimationEndFromHook]);
-
-  // Handle onDismiss triggering from outside click
-  const handleOutsideClick = useCallback(() => {
-    if (closeOnOutsideClick) {
-      onDismiss();
-    }
-  }, [closeOnOutsideClick, onDismiss]);
-
-  // Handle the shadows on top and bottom of the content area when scrolling
-  const updateShadows = useCallback(() => {
-    const target = contentRef.current;
-    if (!target) {
-      return;
-    }
-    const hasVerticalScrollbar = target.clientHeight < target.scrollHeight;
-    setShowTopShadow(hasVerticalScrollbar && target.scrollTop > 0);
-    setShowBottomShadow(
-      hasVerticalScrollbar && target.offsetHeight + target.scrollTop < target.scrollHeight,
-    );
-  }, []);
-
-  useEffect(() => {
-    updateShadows();
-    window.addEventListener('resize', updateShadows);
-    return () => {
-      window.removeEventListener('resize', updateShadows);
-    };
-  }, [updateShadows]);
-
-  return (
-    <StopScrollBehavior>
-      <TrapFocusBehavior>
-        <div className={sheetStyles.container}>
-          <Backdrop
-            animationState={animationStateFromHook}
-            closeOnOutsideClick={closeOnOutsideClick}
-            onClick={handleOutsideClick}
-          >
-            <div
-              aria-label={accessibilitySheetLabel}
-              className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
-                [sheetStyles.wrapperAnimationIn]: animationStateFromHook === 'in',
-                [sheetStyles.wrapperAnimationOut]: animationStateFromHook === 'out',
-              })}
-              onAnimationEnd={handleOnAnimationEnd}
-              role="dialog"
-              style={{ width: SIZE_WIDTH_MAP[size] }}
-              tabIndex={-1}
-            >
-              <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
-                {heading && (
-                  <Box
-                    borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
-                    position="relative"
-                    fit
-                  >
-                    <Flex alignItems="center" flex="grow" justifyContent="between">
-                      <Box flex="grow">
-                        <Header heading={heading} />
-                      </Box>
-                      <Box flex="none" paddingX={6} paddingY={7}>
-                        <DismissButton
-                          accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
-                          onClick={onDismiss}
-                        />
-                      </Box>
-                    </Flex>
-                    {subHeading}
-                  </Box>
-                )}
-                {!heading && (
-                  <Box display="flex" flex="grow" justifyContent="end" marginBottom={8}>
-                    <Box
-                      flex="none"
-                      paddingX={6}
-                      paddingY={7}
-                      position="absolute"
-                      zIndex={new FixedZIndex(1)}
-                    >
-                      <DismissButton
-                        accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
-                        onClick={onDismiss}
-                      />
-                    </Box>
-                  </Box>
-                )}
-                <ScrollBoundaryContainerProvider>
-                  <InternalScrollBoundaryContainer
-                    onScroll={updateShadows}
-                    padding={PADDING_BOINTS}
-                    ref={contentRef}
-                  >
-                    {children}
-                  </InternalScrollBoundaryContainer>
-                </ScrollBoundaryContainerProvider>
-                {Boolean(footer) && (
-                  <Box
-                    borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
-                    position="relative"
-                    fit
-                  >
-                    <Box padding={PADDING_BOINTS}>{footer}</Box>
-                  </Box>
-                )}
-              </Box>
-            </div>
-          </Backdrop>
-        </div>
-      </TrapFocusBehavior>
-    </StopScrollBehavior>
-  );
-}
-
-/**
- * <AnimatedSheet> component: adds animation capabilities
- */
 
 /**
  * [Sheets](https://gestalt.pinterest.systems/web/sheet ) are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have default, internal padding for content.
@@ -279,43 +59,45 @@ function Sheet(props: SheetProps): Node {
  * ![Sheet light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Sheet.spec.mjs-snapshots/Sheet-chromium-darwin.png)
  * ![Sheet dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Sheet-dark.spec.mjs-snapshots/Sheet-dark-chromium-darwin.png)
  */
-function AnimatedSheet(props: AnimatedSheetProps): Node {
-  const {
-    accessibilityDismissButtonLabel,
-    accessibilitySheetLabel,
-    children,
-    closeOnOutsideClick,
-    onAnimationEnd,
-    onDismiss,
-    footer,
-    heading = undefined,
-    size,
-    subHeading = undefined,
-  } = props;
-
+function Sheet({
+  accessibilityDismissButtonLabel,
+  accessibilitySheetLabel,
+  children,
+  closeOnOutsideClick,
+  footer,
+  heading,
+  onAnimationEnd,
+  onDismiss,
+  size,
+  subHeading,
+}: Props): Node {
   return (
     <AnimationController onDismissEnd={onDismiss}>
-      {({ onDismissStart }) => (
-        <Sheet
-          accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
-          accessibilitySheetLabel={accessibilitySheetLabel}
-          closeOnOutsideClick={closeOnOutsideClick}
-          footer={typeof footer === 'function' ? footer({ onDismissStart }) : footer}
-          heading={heading}
-          onAnimationEnd={onAnimationEnd}
-          onDismiss={onDismissStart}
-          size={size}
-          subHeading={
-            typeof subHeading === 'function' ? subHeading({ onDismissStart }) : subHeading
-          }
-        >
-          {typeof children === 'function' ? children({ onDismissStart }) : children}
-        </Sheet>
-      )}
+      {({ onDismissStart }) => {
+        function buildDismissableSubcomponent(component) {
+          return typeof component === 'function' ? component({ onDismissStart }) : component;
+        }
+
+        return (
+          <InternalSheet
+            accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
+            accessibilitySheetLabel={accessibilitySheetLabel}
+            closeOnOutsideClick={closeOnOutsideClick}
+            footer={buildDismissableSubcomponent(footer)}
+            heading={heading}
+            onAnimationEnd={onAnimationEnd}
+            onDismiss={onDismissStart}
+            size={size}
+            subHeading={buildDismissableSubcomponent(subHeading)}
+          >
+            {buildDismissableSubcomponent(children)}
+          </InternalSheet>
+        );
+      }}
     </AnimationController>
   );
 }
 
-AnimatedSheet.displayName = 'Sheet';
+Sheet.displayName = 'Sheet';
 
-export default AnimatedSheet;
+export default Sheet;

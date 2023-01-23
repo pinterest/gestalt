@@ -100,7 +100,7 @@ describe('Sheet', () => {
     );
 
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(screen.getByRole('dialog')).toBe(document.activeElement);
+    expect(screen.getByRole('button')).toBe(document.activeElement);
   });
 
   it('should trigger onAnimationEnd', () => {
