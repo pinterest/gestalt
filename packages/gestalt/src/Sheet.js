@@ -4,10 +4,6 @@ import { type Node } from 'react';
 import AnimationController from './AnimationController.js';
 import InternalSheet from './InternalSheet.js';
 
-type Size = 'sm' | 'md' | 'lg';
-
-type OnAnimationEndStateType = 'in' | 'out';
-
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
 type Props = {|
@@ -38,7 +34,7 @@ type Props = {|
   /**
    * Callback fired when the Sheet in/out animations end. See the [animation](#Animation) variant to learn more.
    */
-  onAnimationEnd?: ({| animationState: OnAnimationEndStateType |}) => void,
+  onAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
   /**
    * Callback fired when the Sheet is dismissed by clicking on the Dismiss button, pressing the ESC key, or clicking on the backdrop outside of the Sheet (if `closeOnOutsideClick` is true).
    */
@@ -46,7 +42,7 @@ type Props = {|
   /**
    * Determine the width of the Sheet component. See the [size variant](#Sizes) for more info.
    */
-  size?: Size,
+  size?: 'sm' | 'md' | 'lg',
   /**
    * Supply the container element(s) or render prop that will be used as Sheet's sub-heading docked under the heading. See the [sub-heading variant](#Sub-heading) for more info.
    */
@@ -63,37 +59,28 @@ function Sheet({
   accessibilityDismissButtonLabel,
   accessibilitySheetLabel,
   children,
-  closeOnOutsideClick,
+  closeOnOutsideClick = true,
   footer,
   heading,
   onAnimationEnd,
   onDismiss,
-  size,
+  size = 'sm',
   subHeading,
 }: Props): Node {
   return (
     <AnimationController onDismissEnd={onDismiss}>
-      {({ onDismissStart }) => {
-        function buildDismissableSubcomponent(component) {
-          return typeof component === 'function' ? component({ onDismissStart }) : component;
-        }
-
-        return (
-          <InternalSheet
-            accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
-            accessibilitySheetLabel={accessibilitySheetLabel}
-            closeOnOutsideClick={closeOnOutsideClick}
-            footer={buildDismissableSubcomponent(footer)}
-            heading={heading}
-            onAnimationEnd={onAnimationEnd}
-            onDismiss={onDismissStart}
-            size={size}
-            subHeading={buildDismissableSubcomponent(subHeading)}
-          >
-            {buildDismissableSubcomponent(children)}
-          </InternalSheet>
-        );
-      }}
+      <InternalSheet
+        accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
+        accessibilitySheetLabel={accessibilitySheetLabel}
+        closeOnOutsideClick={closeOnOutsideClick}
+        footer={footer}
+        heading={heading}
+        onAnimationEnd={onAnimationEnd}
+        size={size}
+        subHeading={subHeading}
+      >
+        {children}
+      </InternalSheet>
     </AnimationController>
   );
 }

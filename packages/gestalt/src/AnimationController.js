@@ -14,10 +14,9 @@ PS: This animation is controlled by useReducedMotion.
 Example:
 
 function AnimationExample() {
-  const AnimatedComponent = ({
-    onDismissStart,
-  }) => {
+  const AnimatedComponent = () => {
     const { animationState, onAnimationEnd } = useAnimation();
+    const { onDismissStart } = useAnimationController();
 
     let className;
     if (['in', 'out'].includes(animationState)) {
@@ -79,9 +78,7 @@ function AnimationExample() {
       />
       {shouldShow && (
         <AnimationController onDismissEnd={() => setShouldShow(false)}>
-          {({ onDismissStart }) => (
-            <AnimatedComponent onDismissStart={onDismissStart} />
-          )}
+            <AnimatedComponent  />
         </AnimationController>
       )}
     </React.Fragment>
@@ -117,6 +114,7 @@ export type AnimationStateType = 'in' | 'postIn' | 'out' | 'postOut' | null;
 type AnimationType = {|
   animationState: AnimationStateType,
   setAnimationState: ((AnimationStateType) => void) | null,
+  onDismissStart: () => void,
 |};
 
 type UseAnimationType = {|
@@ -125,13 +123,14 @@ type UseAnimationType = {|
 |};
 
 type AnimationControllerProps = {|
-  children: ({| onDismissStart: () => void |}) => Node,
+  children: Node,
   onDismissEnd: () => void,
 |};
 
 const initialState = {
   animationState: null,
   setAnimationState: null,
+  onDismissStart: () => {},
 };
 
 const AnimationContext: Context<AnimationType> = createContext<AnimationType>(initialState);
@@ -149,6 +148,10 @@ export function useAnimation(): UseAnimationType {
     onAnimationEnd: animationState ? onAnimationEnd : null,
   };
 }
+
+type AnimationControllerContextType = {|
+  onDismissStart: () => void,
+|};
 
 function AnimationController({
   children,
@@ -168,17 +171,22 @@ function AnimationController({
     }
   }, [animationState, onDismissEnd]);
 
-  const contextValue = useMemo(() => ({ animationState, setAnimationState }), [animationState]);
+  const contextValue = useMemo(
+    () => ({ animationState, setAnimationState, onDismissStart }),
+    [animationState, onDismissStart],
+  );
 
   if (animationState === 'postOut') {
     return null;
   }
 
-  return (
-    <AnimationContext.Provider value={contextValue}>
-      {children({ onDismissStart })}
-    </AnimationContext.Provider>
-  );
+  return <AnimationContext.Provider value={contextValue}>{children}</AnimationContext.Provider>;
+}
+
+export function useAnimationController(): AnimationControllerContextType {
+  const { onDismissStart } = useContext(AnimationContext);
+
+  return { onDismissStart };
 }
 
 export default AnimationController;

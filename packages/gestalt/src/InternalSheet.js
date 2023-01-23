@@ -3,12 +3,11 @@
 import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
-import { useAnimation } from './AnimationController.js';
+import { useAnimation, useAnimationController } from './AnimationController.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
-import IconButton from './IconButton.js';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import InternalDismissButton from './InternalDismissButton.js';
@@ -21,23 +20,18 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 export const PADDING_BOINTS = 6;
 
-type Size = 'sm' | 'md' | 'lg';
-
-type OnAnimationEndStateType = 'in' | 'out';
-
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
 type InternalSheetProps = {|
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
-  children: Node,
-  closeOnOutsideClick?: boolean,
-  footer?: Node,
-  heading?: string,
-  onAnimationEnd?: ({| animationState: OnAnimationEndStateType |}) => void,
-  onDismiss: () => void,
-  size?: Size,
-  subHeading?: Node,
+  children: NodeOrRenderProp,
+  closeOnOutsideClick: boolean,
+  footer: NodeOrRenderProp,
+  heading: NodeOrRenderProp,
+  onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
+  size: 'sm' | 'md' | 'lg',
+  subHeading: NodeOrRenderProp,
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -50,12 +44,11 @@ export default function InternalSheet({
   accessibilityDismissButtonLabel,
   accessibilitySheetLabel,
   children,
-  closeOnOutsideClick = true,
+  closeOnOutsideClick,
   footer,
   heading,
   onAnimationEnd,
-  onDismiss,
-  size = 'sm',
+  size,
   subHeading,
 }: InternalSheetProps): Node {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
@@ -64,6 +57,8 @@ export default function InternalSheet({
 
   const { animationState: animationStateFromHook, onAnimationEnd: onAnimationEndFromHook } =
     useAnimation();
+
+  const { onDismissStart } = useAnimationController();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Sheet');
@@ -84,7 +79,7 @@ export default function InternalSheet({
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
       if (event.keyCode === ESCAPE) {
-        onDismiss();
+        onDismissStart();
       }
     }
 
@@ -92,7 +87,7 @@ export default function InternalSheet({
     return function cleanup() {
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [onDismiss]);
+  }, [onDismissStart]);
 
   const handleOnAnimationEnd = useCallback(() => {
     onAnimationEndFromHook?.();
@@ -102,9 +97,9 @@ export default function InternalSheet({
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
     if (closeOnOutsideClick) {
-      onDismiss();
+      onDismissStart();
     }
-  }, [closeOnOutsideClick, onDismiss]);
+  }, [closeOnOutsideClick, onDismissStart]);
 
   // Handle the shadows on top and bottom of the content area when scrolling
   const updateShadows = useCallback(() => {
@@ -133,6 +128,10 @@ export default function InternalSheet({
     );
   }
 
+  function buildDismissableSubcomponent(component) {
+    return typeof component === 'function' ? component({ onDismissStart }) : component;
+  }
+
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
@@ -155,7 +154,7 @@ export default function InternalSheet({
               tabIndex={-1}
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
-                {heading && (
+                {Boolean(heading) && (
                   <Box
                     borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
                     position="relative"
@@ -169,7 +168,7 @@ export default function InternalSheet({
                         flex="grow"
                       >
                         <Heading size="500" accessibilityLevel={1}>
-                          {heading}
+                          {buildDismissableSubcomponent(heading)}
                         </Heading>
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
@@ -179,13 +178,13 @@ export default function InternalSheet({
                             accessibilityDismissButtonLabel ??
                             accessibilityDismissButtonLabelDefault
                           }
-                          onClick={onDismiss}
+                          onClick={onDismissStart}
                           size="md"
                           ref={dismissButtonRef}
                         />
                       </Box>
                     </Flex>
-                    {subHeading}
+                    {buildDismissableSubcomponent(subHeading)}
                   </Box>
                 )}
                 {!heading && (
@@ -202,7 +201,7 @@ export default function InternalSheet({
                         accessibilityLabel={
                           accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
                         }
-                        onClick={onDismiss}
+                        onClick={onDismissStart}
                         size="md"
                         ref={dismissButtonRef}
                       />
@@ -215,7 +214,7 @@ export default function InternalSheet({
                     padding={PADDING_BOINTS}
                     ref={contentRef}
                   >
-                    {children}
+                    {buildDismissableSubcomponent(children)}
                   </InternalScrollBoundaryContainer>
                 </ScrollBoundaryContainerProvider>
                 {Boolean(footer) && (
@@ -224,7 +223,7 @@ export default function InternalSheet({
                     position="relative"
                     fit
                   >
-                    <Box padding={PADDING_BOINTS}>{footer}</Box>
+                    <Box padding={PADDING_BOINTS}>{buildDismissableSubcomponent(footer)}</Box>
                   </Box>
                 )}
               </Box>

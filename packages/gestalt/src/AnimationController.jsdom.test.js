@@ -1,12 +1,16 @@
 // @flow strict
 import { fireEvent, getNodeText, render } from '@testing-library/react';
-import AnimationController, { useAnimation } from './AnimationController.js';
+import AnimationController, {
+  useAnimation,
+  useAnimationController,
+} from './AnimationController.js';
 import * as useReducedMotionHook from './useReducedMotion.js'; // eslint-disable-line import/no-namespace
 
 jest.mock('./useReducedMotion.js');
 
-function AnimatedComponent({ onDismissStart }: {| onDismissStart: () => void |}) {
+function AnimatedComponent() {
   const { animationState, onAnimationEnd } = useAnimation();
+  const { onDismissStart } = useAnimationController();
 
   return (
     <button
@@ -30,7 +34,7 @@ describe('AnimationController', () => {
   it('should initial render with animationState in', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+        <AnimatedComponent />
       </AnimationController>,
     );
 
@@ -43,7 +47,7 @@ describe('AnimationController', () => {
 
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+        <AnimatedComponent />
       </AnimationController>,
     );
 
@@ -54,7 +58,7 @@ describe('AnimationController', () => {
   it('should transition animationState from in to postIn', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+        <AnimatedComponent />
       </AnimationController>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
@@ -67,7 +71,7 @@ describe('AnimationController', () => {
   it('should transition animationState to out when onDismissStart() is called', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+        <AnimatedComponent />
       </AnimationController>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
@@ -80,7 +84,7 @@ describe('AnimationController', () => {
   it('should not render children when animationState is postOut', () => {
     const { getByLabelText, queryByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+        <AnimatedComponent />
       </AnimationController>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
@@ -97,7 +101,7 @@ describe('AnimationController', () => {
 
     const { getByLabelText, queryByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+        <AnimatedComponent />
       </AnimationController>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
