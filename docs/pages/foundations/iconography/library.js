@@ -22,7 +22,7 @@ import iconCategoryData from './ICON_DATA.json';
 const { icons } = Icon;
 const CATEGORIES = [
   'Add',
-  'Ads and measurements',
+  'Ads and measurement',
   'Alignment',
   'Arrows',
   'Media controls',

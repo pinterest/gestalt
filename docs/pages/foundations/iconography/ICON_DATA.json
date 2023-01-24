@@ -25,13 +25,13 @@
     },
     {
       "name": "ad",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates an ad type",
       "keywords": ["promotion", "campaign"]
     },
     {
       "name": "ad-group",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates a group of ads accounts",
       "keywords": ["ads", "promotions", "campaigns"]
     },
@@ -61,13 +61,13 @@
     },
     {
       "name": "ads-overview",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates ads overview",
       "keywords": ["dashboard", "summary", "measurement"]
     },
     {
       "name": "ads-stats",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates ads stats",
       "keywords": ["data", "metrics"]
     },
@@ -539,7 +539,7 @@
     },
     {
       "name": "flame",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates trends",
       "keywords": ["fire", "hot", "trend"]
     },
@@ -632,7 +632,7 @@
     },
     {
       "name": "graph-bar",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates a graph-bar data format",
       "keywords": [
         "chart",
@@ -645,7 +645,7 @@
     },
     {
       "name": "graph-pie",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates a graph-pie data format",
       "keywords": [
         "chart",
@@ -724,13 +724,13 @@
     },
     {
       "name": "insights-audience",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates insights from the audience",
       "keywords": ["metrics", "users", "audience", "measurement"]
     },
     {
       "name": "insights-conversions",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates insights conversion data",
       "keywords": ["metrics", "measurement"]
     },
@@ -739,6 +739,12 @@
       "categories": ["Social"],
       "description": "Indicates the Instagram service",
       "keywords": ["social", "service", "share"]
+    },
+    {
+      "name": "invoice",
+      "categories": ["Ads and measurement"],
+      "description": "Indicates the ability to see or take action on an invoice",
+      "keywords": ["receipt", "billing", "payment"]
     },
     {
       "name": "key",
@@ -910,7 +916,7 @@
     },
     {
       "name": "overview",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates a dashboard overview",
       "keywords": ["summary", "layout", "grid", "square"]
     },
@@ -1174,7 +1180,7 @@
     },
     {
       "name": "target",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates the target audience",
       "keywords": ["bullseye"]
     },
@@ -1276,7 +1282,7 @@
     },
     {
       "name": "trending",
-      "categories": ["Ads and measurements"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates trends",
       "keywords": ["arrow up"]
     },

@@ -7,7 +7,7 @@ declare module.exports: {|
     +name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
     +categories: $ReadOnlyArray<
       | 'Add'
-      | 'Ads and measurements'
+      | 'Ads and measurement'
       | 'Alignment'
       | 'Arrows'
       | 'Media controls'
