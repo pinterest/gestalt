@@ -9,7 +9,7 @@ exports[`Sheet should render all props with nodes 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="Sheet"
@@ -105,7 +105,7 @@ exports[`Sheet should render all props with render props 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="Sheet"
@@ -207,7 +207,7 @@ exports[`Sheet should render animation in 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="Sheet"
@@ -281,7 +281,7 @@ exports[`Sheet should render animation out 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationOut zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="Sheet"

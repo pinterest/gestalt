@@ -1,7 +1,7 @@
 // @flow strict
 
 import { type Node } from 'react';
-import AnimationController from './AnimationController.js';
+import AnimationProvider from './AnimationContext.js';
 import InternalSheet from './InternalSheet.js';
 
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
@@ -68,7 +68,7 @@ function Sheet({
   subHeading,
 }: Props): Node {
   return (
-    <AnimationController onDismissEnd={onDismiss}>
+    <AnimationProvider onDismiss={onDismiss}>
       <InternalSheet
         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
         accessibilitySheetLabel={accessibilitySheetLabel}
@@ -81,7 +81,7 @@ function Sheet({
       >
         {children}
       </InternalSheet>
-    </AnimationController>
+    </AnimationProvider>
   );
 }
 

@@ -3,7 +3,7 @@
 import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
-import { useAnimation, useAnimationController } from './AnimationController.js';
+import { useAnimation } from './AnimationContext.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
 import Flex from './Flex.js';
@@ -55,10 +55,7 @@ export default function InternalSheet({
 
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
 
-  const { animationState: animationStateFromHook, onAnimationEnd: onAnimationEndFromHook } =
-    useAnimation();
-
-  const { onDismissStart } = useAnimationController();
+  const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Sheet');
@@ -79,7 +76,7 @@ export default function InternalSheet({
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
       if (event.keyCode === ESCAPE) {
-        onDismissStart();
+        onAnimatedDismiss();
       }
     }
 
@@ -87,19 +84,20 @@ export default function InternalSheet({
     return function cleanup() {
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [onDismissStart]);
+  }, [onAnimatedDismiss]);
 
   const handleOnAnimationEnd = useCallback(() => {
-    onAnimationEndFromHook?.();
-    onAnimationEnd?.({ animationState: animationStateFromHook === 'in' ? 'in' : 'out' });
-  }, [animationStateFromHook, onAnimationEnd, onAnimationEndFromHook]);
+    const animationStatus = animationState === 'opening' ? 'in' : 'out';
+    handleAnimation?.();
+    onAnimationEnd?.({ animationState: animationStatus });
+  }, [animationState, onAnimationEnd, handleAnimation]);
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
     if (closeOnOutsideClick) {
-      onDismissStart();
+      onAnimatedDismiss();
     }
-  }, [closeOnOutsideClick, onDismissStart]);
+  }, [closeOnOutsideClick, onAnimatedDismiss]);
 
   // Handle the shadows on top and bottom of the content area when scrolling
   const updateShadows = useCallback(() => {
@@ -129,7 +127,9 @@ export default function InternalSheet({
   }
 
   function buildDismissableSubcomponent(component) {
-    return typeof component === 'function' ? component({ onDismissStart }) : component;
+    return typeof component === 'function'
+      ? component({ onDismissStart: onAnimatedDismiss })
+      : component;
   }
 
   return (
@@ -137,7 +137,7 @@ export default function InternalSheet({
       <TrapFocusBehavior>
         <div className={sheetStyles.container}>
           <Backdrop
-            animationState={animationStateFromHook}
+            animationState={animationState}
             closeOnOutsideClick={closeOnOutsideClick}
             onClick={handleOutsideClick}
           >
@@ -145,8 +145,8 @@ export default function InternalSheet({
               id={id}
               aria-label={accessibilitySheetLabel}
               className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
-                [sheetStyles.wrapperAnimationIn]: animationStateFromHook === 'in',
-                [sheetStyles.wrapperAnimationOut]: animationStateFromHook === 'out',
+                [sheetStyles.wrapperAnimationIn]: animationState === 'opening',
+                [sheetStyles.wrapperAnimationOut]: animationState === 'closing',
               })}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
@@ -178,7 +178,7 @@ export default function InternalSheet({
                             accessibilityDismissButtonLabel ??
                             accessibilityDismissButtonLabelDefault
                           }
-                          onClick={onDismissStart}
+                          onClick={onAnimatedDismiss}
                           size="md"
                           ref={dismissButtonRef}
                         />
@@ -201,7 +201,7 @@ export default function InternalSheet({
                         accessibilityLabel={
                           accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
                         }
-                        onClick={onDismissStart}
+                        onClick={onAnimatedDismiss}
                         size="md"
                         ref={dismissButtonRef}
                       />
