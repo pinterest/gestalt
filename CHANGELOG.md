@@ -1,3 +1,9 @@
+## 90.1.1 (Jan 24, 2023)
+
+### Patch
+
+- Bump ua-parser-js from 1.0.2 to 1.0.33 ([#2621](https://github.com/pinterest/gestalt/pull/2621)) - [Preview link](https://deploy-preview-2621--gestalt.netlify.app)
+
 ## 90.1.0 (Jan 21, 2023)
 
 ### Minor
