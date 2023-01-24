@@ -38,7 +38,7 @@ describe('AnimationProvider', () => {
     expect(getNodeText(getByLabelText('animated'))).toEqual('opening');
   });
 
-  it('should initial render with animationState noMotionMount when useReduceMotion() is true', () => {
+  it('should initial render with animationState null when useReduceMotion() is true', () => {
     useReducedMotionMock.mockReturnValue(true);
 
     const { getByLabelText } = render(
@@ -48,10 +48,10 @@ describe('AnimationProvider', () => {
     );
 
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual('noMotionMount');
+    expect(getNodeText(getByLabelText('animated'))).toEqual('');
   });
 
-  it('should transition animationState from opening to motionMount', () => {
+  it('should transition animationState from opening to null', () => {
     const { getByLabelText } = render(
       <AnimationProvider onDismiss={jest.fn()}>
         <AnimatedComponent />
@@ -61,7 +61,7 @@ describe('AnimationProvider', () => {
     fireEvent.animationEnd(getByLabelText('animated'));
 
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual('motionMount');
+    expect(getNodeText(getByLabelText('animated'))).toEqual('');
   });
 
   it('should transition animationState to closing when onDismissStart() is called', () => {

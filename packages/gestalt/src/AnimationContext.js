@@ -25,12 +25,7 @@ function flushSync(callback) {
   }
 }
 
-export type AnimationStateType =
-  | 'opening'
-  | 'closing'
-  | 'motionMount'
-  | 'noMotionMount'
-  | 'unmount';
+export type AnimationStateType = null | 'opening' | 'closing' | 'unmount';
 
 type AnimationType = {|
   animationState: AnimationStateType,
@@ -49,7 +44,8 @@ type AnimationProviderProps = {|
 |};
 
 const initialState = {
-  animationState: 'noMotionMount',
+  // null equals to 'noMotionMount'. null here is used to mount Sheet with reduced motion, no animation.
+  animationState: null,
   setAnimationState: null,
 };
 
@@ -65,8 +61,8 @@ export default function AnimationProvider({
   const reducedMotion = useReducedMotion();
 
   const [animationState, setAnimationState] = useState<AnimationStateType>(
-    // 'noMotionMount' equals to null. Only used to mount Sheet with reduced motion, no animation.
-    reducedMotion ? 'noMotionMount' : 'opening',
+    //  null equals to 'noMotionMount'. null here is used to mount Sheet with reduced motion, no animation.
+    reducedMotion ? null : 'opening',
   );
 
   // we manage 'unmount'
@@ -99,7 +95,8 @@ export function useAnimation(): UseAnimationType {
 
   const handleAnimation = useCallback(() => {
     if (['opening', 'closing'].includes(animationState) && setAnimationState)
-      flushSync(() => setAnimationState(animationState === 'opening' ? 'motionMount' : 'unmount'));
+      //  null equals to 'motionMount'. null here is used to used to mount Sheet with motion.
+      flushSync(() => setAnimationState(animationState === 'opening' ? null : 'unmount'));
   }, [animationState, setAnimationState]);
 
   return {
