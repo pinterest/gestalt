@@ -1,3 +1,9 @@
+## 90.2.0 (Jan 24, 2023)
+
+### Minor
+
+- Icon: Add invoice icon ([#2622](https://github.com/pinterest/gestalt/pull/2622)) - [Preview link](https://deploy-preview-2622--gestalt.netlify.app)
+
 ## 90.1.1 (Jan 24, 2023)
 
 ### Patch
