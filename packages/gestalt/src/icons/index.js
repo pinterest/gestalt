@@ -105,6 +105,7 @@ import infoCircle from './info-circle.svg';
 import insightsAudience from './insights-audience.svg';
 import insightsConversions from './insights-conversions.svg';
 import instagram from './instagram.svg';
+import invoice from './invoice.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
@@ -314,6 +315,7 @@ const icons = Object.freeze({
   'insights-audience': insightsAudience,
   'insights-conversions': insightsConversions,
   instagram,
+  'invoice': invoice,
   'info-circle': infoCircle,
   key,
   knoop,
