@@ -1,7 +1,7 @@
 // @flow strict
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
-import * as AnimationControllerModule from './AnimationController.js'; // eslint-disable-line import/no-namespace
+import * as AnimationControllerModule from './AnimationContext.js'; // eslint-disable-line import/no-namespace
 
 describe('Sheet', () => {
   let useAnimationMock;
@@ -54,7 +54,7 @@ describe('Sheet', () => {
 
   it('should render animation in', () => {
     useAnimationMock.mockReturnValue({
-      animationState: 'in',
+      animationState: 'opening',
     });
 
     const { container } = render(
@@ -72,7 +72,7 @@ describe('Sheet', () => {
 
   it('should render animation out', () => {
     useAnimationMock.mockReturnValue({
-      animationState: 'out',
+      animationState: 'closing',
     });
 
     const { container } = render(
@@ -100,14 +100,14 @@ describe('Sheet', () => {
     );
 
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(screen.getByRole('dialog')).toBe(document.activeElement);
+    expect(screen.getByRole('button')).toBe(document.activeElement);
   });
 
   it('should trigger onAnimationEnd', () => {
     const mockOnAnimationEnd = jest.fn();
     useAnimationMock.mockReturnValue({
-      animationState: 'postIn',
-      onAnimationEnd: mockOnAnimationEnd,
+      animationState: 'motionMount',
+      handleAnimation: mockOnAnimationEnd,
     });
 
     render(

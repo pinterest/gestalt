@@ -50,23 +50,11 @@ const InvalidWithRenderProps = (
   </Sheet>
 );
 
-const NoSubHeadingWithoutHeading = (
-  // $FlowExpectedError[incompatible-type]
-  <Sheet
-    accessibilityDismissButtonLabel="Dismiss"
-    accessibilitySheetLabel="Sheet"
-    onDismiss={() => {}}
-    subHeading={<nav />}
-  >
-    <section />
-  </Sheet>
-);
-
-// $FlowExpectedError[incompatible-type]
+// $FlowExpectedError[prop-missing]
 const MissingProp = <Sheet />;
 
 const NonExistingProp = (
-  // $FlowExpectedError[incompatible-type]
+  // $FlowExpectedError[prop-missing]
   <Sheet
     accessibilityDismissButtonLabel="Dismiss"
     accessibilitySheetLabel="Sheet"
@@ -78,11 +66,11 @@ const NonExistingProp = (
 );
 
 const InvalidTypeProp = (
-  // $FlowExpectedError[incompatible-type]
   <Sheet
     accessibilityDismissButtonLabel="Dismiss"
     accessibilitySheetLabel="Sheet"
     onDismiss={() => {}}
+    // $FlowExpectedError[incompatible-type]
     size="xxl"
   >
     <section />

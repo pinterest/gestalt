@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, type Node, useCallback, useState } from 'react';
 import {
   Box,
   Button,
@@ -15,19 +15,22 @@ import {
 } from 'gestalt';
 
 function SheetWithFooter({ onDismiss }: {| onDismiss: () => void |}) {
+  const footer = useCallback(
+    ({ onDismissStart }) => (
+      <Flex alignItems="center" justifyContent="between">
+        <Button color="transparent" text="Delete" />
+        <Button color="red" text="Apply changes" onClick={onDismissStart} />
+      </Flex>
+    ),
+    [],
+  );
   return (
     <Sheet
       accessibilityDismissButtonLabel="Close"
       accessibilitySheetLabel="Bulk edit for 5 ad groups of Nordstrom Account"
       heading="Editing 5 ad groups"
       onDismiss={onDismiss}
-      // eslint-disable-next-line react/no-unstable-nested-components
-      footer={({ onDismissStart }) => (
-        <Flex alignItems="center" justifyContent="between">
-          <Button color="transparent" text="Delete" />
-          <Button color="red" text="Apply changes" onClick={onDismissStart} />
-        </Flex>
-      )}
+      footer={footer}
       size="md"
     >
       <Flex
@@ -120,12 +123,12 @@ function SheetWithFooter({ onDismiss }: {| onDismiss: () => void |}) {
 }
 
 export default function FooterExample(): Node {
-  const [shouldShow, setShouldShow] = React.useState(true);
+  const [shouldShow, setShouldShow] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Box padding={8}>
         <Button text="View footer example" onClick={() => setShouldShow(true)} />
       </Box>
@@ -134,6 +137,6 @@ export default function FooterExample(): Node {
           <SheetWithFooter onDismiss={() => setShouldShow(false)} />
         </Layer>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }

@@ -17,6 +17,9 @@ const labels = {
   Popover: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close popover'),
   },
+  Sheet: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Close sheet'),
+  },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),
     accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),

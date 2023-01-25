@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import PropTable from '../../docs-components/PropTable.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -21,7 +21,182 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
 
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        defaultCode={`
+function AccessibilityExample() {
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <React.Fragment>
+      <Box padding={8}>
+        <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
+      </Box>
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <Sheet
+            accessibilityDismissButtonLabel="Close audience creation sheet"
+            accessibilitySheetLabel="Audience list creation for new campaign"
+            heading="Create a new audience list"
+            onDismiss={() => setShouldShow(false)}
+            footer={({ onDismissStart }) => (
+              <Flex alignItems="center" justifyContent="end">
+                <Button color="red" text="Create" onClick={onDismissStart} />
+              </Flex>
+            )}
+            size="md"
+          >
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 12,
+              }}
+            >
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
+                <Box>
+                  <Text inline weight="bold">
+                    Step 1:
+                  </Text>
+                  <Text inline> Audience list details</Text>
+                </Box>
+                <TextField
+                  id="audience-name"
+                  label="Audience name"
+                  placeholder="Name your audience"
+                  onChange={() => {}}
+                />
+                <TextField
+                  id="desc"
+                  label="Audience description"
+                  placeholder="Describe your audience"
+                  onChange={() => {}}
+                />
+                <Fieldset legend="When adding this audience list to an ad group:">
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 3,
+                    }}
+                  >
+                    <RadioButton
+                      label="Include list"
+                      name="audience"
+                      value="include"
+                      onChange={() => {}}
+                      id="include"
+                    />
+                    <RadioButton
+                      label="Exclude list"
+                      name="audience"
+                      value="include"
+                      onChange={() => {}}
+                      id="exclude"
+                    />
+                  </Flex>
+                </Fieldset>
+              </Flex>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
+                <Box>
+                  <Text inline weight="bold">
+                    Step 2:
+                  </Text>
+                  <Text inline> Select conversion source</Text>
+                </Box>
+                <Text>
+                  To use a conversion source other than a Pinterest Tag, add a filter and configure
+                  the source of this event.
+                </Text>
+                <Fieldset legend="Select conversion source:" legendDisplay="hidden">
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 3,
+                    }}
+                  >
+                    <RadioButton
+                      label="Pinterest Tag"
+                      name="source"
+                      value="pin"
+                      onChange={() => {}}
+                      id="tag"
+                    />
+                    <RadioButton
+                      label="Mobile Measurement Partners (MMP)"
+                      name="source"
+                      value="mmp"
+                      onChange={() => {}}
+                      id="mmp"
+                    />
+                    <RadioButton
+                      label="Conversion Upload"
+                      name="source"
+                      value="conversion"
+                      onChange={() => {}}
+                      id="upload"
+                    />
+                    <RadioButton
+                      label="API"
+                      name="source"
+                      value="api"
+                      onChange={() => {}}
+                      id="api"
+                    />
+                  </Flex>
+                </Fieldset>
+              </Flex>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
+                <Box>
+                  <Text inline weight="bold">
+                    Step 3:
+                  </Text>
+                  <Text inline> Set a filter</Text>
+                </Box>
+                <TextField
+                  id="users"
+                  label="Users in the past few days"
+                  placeholder="Ex. 4"
+                  onChange={() => {}}
+                />
+                <Checkbox
+                  label="Include past traffic data"
+                  name="traffic"
+                  id="traffic"
+                  onChange={() => {}}
+                />
+              </Flex>
+            </Flex>
+          </Sheet>
+        </Layer>
+      )}
+    </React.Fragment>
+  );
+}
+      `}
+      >
         <SandpackExample
           code={defaultExample}
           name="Sheet Main Example"
@@ -30,88 +205,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
         />
       </PageHeader>
 
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        props={[
-          {
-            name: 'accessibilityDismissButtonLabel',
-            type: 'string',
-            required: true,
-            defaultValue: null,
-            description:
-              'Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button. See the [Accessibility section](#Accessibility) for more info.',
-          },
-          {
-            name: 'accessibilitySheetLabel',
-            type: 'string',
-            required: true,
-            defaultValue: null,
-            description:
-              'Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet. See the [Accessibility section](#Accessibility) for more info.',
-          },
-          {
-            name: 'children',
-            type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
-            required: false,
-            defaultValue: null,
-            description:
-              "Supply the container element(s) or render prop that will be used as Sheet's main content. See the [animation variant](#Animation) for info on how to add exit animations to Sheet content.",
-          },
-          {
-            name: 'closeOnOutsideClick',
-            type: 'boolean',
-            required: false,
-            defaultValue: true,
-            description:
-              'Indicate whether clicking on the backdrop (gray area) outside of Sheet will automatically close it. See the [outside click variant](#Preventing-close-on-outside-click) for more info.',
-          },
-          {
-            name: 'footer',
-            type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
-            required: false,
-            defaultValue: null,
-            description:
-              "Supply the container element(s) or render prop that will be used as Sheet's custom footer. See the [footer variant](#Footer) for more info.",
-          },
-          {
-            name: 'heading',
-            type: `string`,
-            required: false,
-            defaultValue: null,
-            description:
-              "The text used for Sheet's heading. Be sure to localize this text. See the [heading variant](#Heading) for more info.",
-          },
-          {
-            name: 'onAnimationEnd',
-            type: "({ animationState: 'in' | 'out' }) => void",
-            description:
-              'Callback fired when the Sheet in/out animations end. See the [animation](#Animation) variant to learn more. ',
-          },
-          {
-            name: 'onDismiss',
-            type: '() => void',
-            required: true,
-            defaultValue: null,
-            description:
-              'Callback fired when the Sheet is dismissed by clicking on the Dismiss button, pressing the ESC key, or clicking on the backdrop outside of the Sheet (if `closeOnOutsideClick` is true).',
-          },
-          {
-            name: 'size',
-            type: `"sm" | "md" | "lg"`,
-            defaultValue: 'sm',
-            description:
-              'Determine the width of the Sheet component. See the [size variant](#Sizes) for more info.',
-          },
-          {
-            name: 'subHeading',
-            type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
-            required: false,
-            defaultValue: null,
-            description:
-              "Supply the container element(s) or render prop that will be used as Sheet's sub-heading docked under the heading. See the [sub-heading variant](#Sub-heading) for more info.",
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>

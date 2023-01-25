@@ -26,6 +26,9 @@ export type DefaultLabelContextType = {|
   Popover: {|
     accessibilityDismissButtonLabel: string,
   |},
+  Sheet: {|
+    accessibilityDismissButtonLabel: string,
+  |},
   Tag: {|
     accessibilityErrorIconLabel: string,
     accessibilityRemoveIconLabel: string,
@@ -49,6 +52,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Popover: {
     accessibilityDismissButtonLabel: 'Close popover',
+  },
+  Sheet: {
+    accessibilityDismissButtonLabel: 'Close sheet',
   },
   Tag: {
     accessibilityErrorIconLabel: 'Error',
