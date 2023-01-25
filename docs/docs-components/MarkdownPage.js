@@ -11,7 +11,7 @@ import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 import MainSection from './MainSection.js';
 
-import LockIcon from './LockIcon.js';
+import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 import { MAX_WIDTH } from './MainSectionSubsection.js';
 
 import 'highlight.js/styles/a11y-light.css';
@@ -108,7 +108,7 @@ const components = {
         }}
       >
         <Text underline>{children}</Text>
-        <LockIcon size={16} />
+        <InternalOnlyIconButton size="sm" />
       </Flex>
     </Link>
   ),
