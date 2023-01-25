@@ -1,3 +1,9 @@
+## 91.0.1 (Jan 25, 2023)
+
+### Patch
+
+- Docs: Add details about icon creation ([#2623](https://github.com/pinterest/gestalt/pull/2623)) - [Preview link](https://deploy-preview-2623--gestalt.netlify.app)
+
 ## 91.0.0 (Jan 25, 2023)
 
 ### Major
