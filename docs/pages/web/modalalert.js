@@ -312,45 +312,6 @@ For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice 
           sandpackExample={
             <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
           }
-          defaultCode={`
-function Example() {
-  const [showModal, setShowModal] = React.useState(false);
-
-  return showModal ? (
-    <DeviceTypeProvider deviceType="mobile">
-      <Layer zIndex={new FixedZIndex(11)}>
-        <ModalAlert
-          type="warning"
-          accessibilityModalLabel="Mobile ModalAlert example"
-          heading="Heading"
-          onDismiss={() => setShowModal(false)}
-          primaryAction={{
-            accessibilityLabel: 'Primary',
-            label: 'Primary',
-            onClick: () => {},
-          }}
-          secondaryAction={{
-            accessibilityLabel: 'Secondary',
-            label: 'Secondary',
-            onClick: () => {},
-          }}
-        >
-          <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
-        </ModalAlert>
-      </Layer>
-    </DeviceTypeProvider>
-  ) : (
-    <Box padding={2}>
-      <Button
-        accessibilityLabel="Show ModalAlert"
-        color="red"
-        text="Show ModalAlert"
-        size="lg"
-        onClick={() => setShowModal(true)}
-      />
-    </Box>
-  );
-}`}
         />
       </MainSection>
 

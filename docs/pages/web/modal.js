@@ -257,45 +257,6 @@ For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice 
             sandpackExample={
               <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
             }
-            defaultCode={`
-function Example() {
-  const [showModal, setShowModal] = React.useState(false);
-
-  return showModal ? (
-    <DeviceTypeProvider deviceType="mobile">
-      <Layer zIndex={new FixedZIndex(11)}>
-        <Modal
-          align="center"
-          accessibilityModalLabel="Mobile Modal example"
-          heading="Heading"
-          subHeading="SubHeading"
-          onDismiss={() => setShowModal(false)}
-          footer={
-            <Flex justifyContent="center" gap={2}>
-              <Button color="gray" text="Secondary" />
-              <Button color="red" text="Primary" />
-            </Flex>
-          }
-          size="lg"
-        >
-          <Box>
-           {Array(100).fill(<Text>Content</Text>)}
-          </Box>
-        </Modal>
-      </Layer>
-    </DeviceTypeProvider>
-  ) : (
-    <Box padding={2}>
-      <Button
-        accessibilityLabel="Show Modal"
-        color="red"
-        text="Show Modal"
-        size="lg"
-        onClick={() => setShowModal(true)}
-      />
-    </Box>
-  );
-}`}
           />
         </MainSection>
       </MainSection>
