@@ -1,3 +1,9 @@
+## 92.0.0 (Jan 25, 2023)
+
+### Major
+
+- Modal, ModalAlert: implement adaptive Modal, ModalAlert for mobile ([#2618](https://github.com/pinterest/gestalt/pull/2618)) - [Preview link](https://deploy-preview-2618--gestalt.netlify.app)
+
 ## 91.0.1 (Jan 25, 2023)
 
 ### Patch
