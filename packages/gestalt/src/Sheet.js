@@ -10,7 +10,7 @@ type Props = {|
   /**
     Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button. See the [Accessibility section](#Accessibility) for more info.
    */
-  accessibilityDismissButtonLabel: string,
+  accessibilityDismissButtonLabel?: string,
   /**
    * Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet. See the [Accessibility section](#Accessibility) for more info.
    */

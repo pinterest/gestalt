@@ -23,7 +23,7 @@ export const PADDING_BOINTS = 6;
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
 type InternalSheetProps = {|
-  accessibilityDismissButtonLabel: string,
+  accessibilityDismissButtonLabel?: string,
   accessibilitySheetLabel: string,
   children: NodeOrRenderProp,
   closeOnOutsideClick: boolean,

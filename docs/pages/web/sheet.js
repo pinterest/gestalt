@@ -24,7 +24,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        defaultCode={`\
+        defaultCode={`
 function AccessibilityExample() {
   const [shouldShow, setShouldShow] = React.useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);

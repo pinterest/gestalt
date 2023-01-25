@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, type Node, useCallback, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,12 +16,21 @@ import {
 } from 'gestalt';
 
 export default function AccessibilityExample(): Node {
-  const [shouldShow, setShouldShow] = React.useState(true);
+  const [shouldShow, setShouldShow] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
+  const footer = useCallback(
+    ({ onDismissStart }) => (
+      <Flex alignItems="center" justifyContent="end">
+        <Button color="red" text="Create" onClick={onDismissStart} />
+      </Flex>
+    ),
+    [],
+  );
+
   return (
-    <React.Fragment>
+    <Fragment>
       <Box padding={8}>
         <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
       </Box>
@@ -32,12 +41,7 @@ export default function AccessibilityExample(): Node {
             accessibilitySheetLabel="Audience list creation for new campaign"
             heading="Create a new audience list"
             onDismiss={() => {}}
-            // eslint-disable-next-line react/no-unstable-nested-components
-            footer={({ onDismissStart }) => (
-              <Flex alignItems="center" justifyContent="end">
-                <Button color="red" text="Create" onClick={onDismissStart} />
-              </Flex>
-            )}
+            footer={footer}
             size="md"
           >
             <Flex
@@ -183,6 +187,6 @@ export default function AccessibilityExample(): Node {
           </Sheet>
         </Layer>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }
