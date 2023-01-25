@@ -1,3 +1,9 @@
+## 91.0.0 (Jan 25, 2023)
+
+### Major
+
+- Sheet: internal refactors ([#2620](https://github.com/pinterest/gestalt/pull/2620)) - [Preview link](https://deploy-preview-2620--gestalt.netlify.app)
+
 ## 90.2.0 (Jan 24, 2023)
 
 ### Minor
