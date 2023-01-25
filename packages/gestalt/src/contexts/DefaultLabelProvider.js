@@ -20,7 +20,7 @@ export type DefaultLabelContextType = {|
   Link: {|
     accessibilityNewTabLabel: string,
   |},
-  ModalAlert: {|
+  Modal: {|
     accessibilityDismissButtonLabel: string,
   |},
   Popover: {|
@@ -47,7 +47,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
   },
-  ModalAlert: {
+  Modal: {
     accessibilityDismissButtonLabel: 'Close modal',
   },
   Popover: {

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
@@ -50,7 +50,7 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
 }
 
 export default function HeadingExample(): Node {
-  const [shouldShow, setShouldShow] = React.useState(true);
+  const [shouldShow, setShouldShow] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 

@@ -11,7 +11,7 @@ const labels = {
   Link: {
     accessibilityNewTabLabel: myI18nTranslator('Opens a new tab'),
   },
-  ModalAlert: {
+  Modal: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close modal'),
   },
   Popover: {

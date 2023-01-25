@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node, useReducer } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Layer, Modal, Heading } from 'gestalt';
 
 export default function SizesExample(): Node {
@@ -19,7 +19,7 @@ export default function SizesExample(): Node {
   }
 
   const initialState = { modal: 'none' };
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 

@@ -22,7 +22,7 @@ describe('useDefaultLabelContext', () => {
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
           },
-          ModalAlert: {
+          Modal: {
             accessibilityDismissButtonLabel: 'Close modal',
           },
           Popover: {
