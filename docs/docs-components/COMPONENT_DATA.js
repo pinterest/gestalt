@@ -21,6 +21,7 @@ import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
+import InfoButton from '../graphics/general/Icon.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
 import List from '../graphics/general/List.svg';
@@ -1239,6 +1240,55 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     aliases: ['<img>', 'Picture', 'Photo'],
     description: 'Image is used to represent images.',
     category: 'Pins and imagery',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'partial',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <InfoButton />,
+    name: 'InfoButton',
+    aliases: ['Button', 'helper', 'help', 'info'],
+    description: 'InfoButton is used to represent helper buttons with description on it.',
+    category: 'Buttons & Popovers',
     status: {
       accessible: {
         summary: 'ready',

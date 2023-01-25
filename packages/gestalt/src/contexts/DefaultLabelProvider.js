@@ -44,6 +44,11 @@ export type DefaultLabelContextType = {|
     accessibilityHidePasswordLabel: string,
     accessibilityShowPasswordLabel: string,
   |},
+  InfoButton: {|
+    accessibilityDefaultTooltipMessage: string,
+    accessibilityDefaultLinkLabel: string,
+    accessibilityIcon: string,
+  |},
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
@@ -76,6 +81,11 @@ export const fallbackLabels: DefaultLabelContextType = {
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',
+  },
+  InfoButton: {
+    accessibilityDefaultTooltipMessage: 'Click to learn more',
+    accessibilityDefaultLinkLabel: 'Learn more',
+    accessibilityIcon: 'Question mark icon',
   },
 };
 

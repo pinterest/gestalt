@@ -29,6 +29,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import IconButtonFloating from './IconButtonFloating.js';
 import Image from './Image.js';
+import InfoButton from './InfoButton.js';
 import Label from './Label.js';
 import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
@@ -106,6 +107,7 @@ export {
   IconButton,
   IconButtonFloating,
   Image,
+  InfoButton,
   Label,
   Layer,
   Letterbox,
