@@ -1,3 +1,9 @@
+## 92.0.1 (Jan 25, 2023)
+
+### Patch
+
+- Docs: delete Modal, ModalAlert, Sheet examples used while developing ([#2624](https://github.com/pinterest/gestalt/pull/2624)) - [Preview link](https://deploy-preview-2624--gestalt.netlify.app)
+
 ## 92.0.0 (Jan 25, 2023)
 
 ### Major
