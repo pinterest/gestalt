@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { useState, type Node } from 'react';
 import {
   Button,
   CompositeZIndex,
@@ -13,8 +13,8 @@ import {
 } from 'gestalt';
 
 export default function AccessibilityExample(): Node {
-  const [showModal, setShowModal] = React.useState(false);
-  const [claim, setClaim] = React.useState('tag');
+  const [showModal, setShowModal] = useState(false);
+  const [claim, setClaim] = useState('tag');
 
   const HEADER_ZINDEX = new FixedZIndex(10);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);

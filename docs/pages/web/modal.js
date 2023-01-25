@@ -249,7 +249,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           name="Mobile"
           description={`Modal requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
-For mobile, all \`size\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
+For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
 `}
         >
           <MainSection.Card

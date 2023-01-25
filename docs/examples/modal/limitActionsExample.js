@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node, useState } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Flex, Layer, Modal, Text } from 'gestalt';
 
 function ModalWithSubHeading({ onDismiss }: {| onDismiss: () => void |}) {
@@ -27,7 +27,7 @@ function ModalWithSubHeading({ onDismiss }: {| onDismiss: () => void |}) {
 }
 
 export default function SubHeadingExample(): Node {
-  const [shouldShow, setShouldShow] = React.useState(true);
+  const [shouldShow, setShouldShow] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 

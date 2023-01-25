@@ -1,11 +1,11 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import { Box, Button, Flex, Layer, Modal, Text } from 'gestalt';
 
 export default function PreventCloseExample(): Node {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
   return (
-    <React.Fragment>
+    <Fragment>
       <Box padding={8}>
         <Button
           text="Open Modal"
@@ -41,6 +41,6 @@ export default function PreventCloseExample(): Node {
           </Modal>
         </Layer>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }

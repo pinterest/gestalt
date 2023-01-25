@@ -1,9 +1,9 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node, useState } from 'react';
 import { CompositeZIndex, FixedZIndex, Layer, ModalAlert, Text } from 'gestalt';
 
 export default function AlertDialogAccessibilityExample(): Node {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const HEADER_ZINDEX = new FixedZIndex(10);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
