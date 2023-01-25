@@ -20,7 +20,7 @@ export default function ToolingPage(): Node {
             text={
               <Text>
                 First, check the{' '}
-                <Link display="inline" underline="always" href="/library">
+                <Link display="inline" underline="always" href="/foundations/iconography/library">
                   Gestalt Icon Library
                 </Link>{' '}
                 to look for any icons that may already fit your design.
