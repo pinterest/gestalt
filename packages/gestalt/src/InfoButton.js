@@ -10,22 +10,27 @@ import Tooltip from './Tooltip.js';
 import Layer from './Layer.js';
 import styles from './InfoButton.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import { type Indexable } from './zIndex.js';
 
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Props = {|
   /**
-   * Informational context that’s displayed when click on `Click to learn more` button
-   */
-  text: string,
-  /**
    * Supply a short, descriptive label for screen-readers to describe the Popover content. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
   accessibilityLabel: string,
   /**
+   * Informational context that’s displayed when click on `Click to learn more` button
+   */
+  text: string,
+  /**
    * Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    */
   accessibilityLinkLabel?: string,
+  /**
+   * Specifies the preferred position of Tooltip relative to its anchor element. See the ideal direction variant to learn more.
+   */
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
    * The URL that the hyperlink points to.
    */
@@ -41,18 +46,24 @@ type Props = {|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
+  /**
+   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  zIndex?: Indexable,
 |};
 
 /**
- * [InfoButton](https://gestalt.pinterest.systems/web/infobutton)
+ * [InfoButton](https://gestalt.pinterest.systems/web/infobutton) is a turnkey solution to provide help/guidance for an element on the screen.
  */
 function InfoButton({
-  text,
   accessibilityLabel,
+  text,
+  accessibilityLinkLabel,
   linkHref,
   linkText,
+  idealDirection,
   onClickLink,
-  accessibilityLinkLabel,
+  zIndex,
 }: Props): Node {
   const ref = useRef<?HTMLElement>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -89,13 +100,13 @@ function InfoButton({
         </Tooltip>
       </TapArea>
       {isOpen && (
-        <Layer>
+        <Layer zIndex={zIndex}>
           <Popover
             id="info-dialog"
             accessibilityLabel={accessibilityLabel ?? accessibilityDefaultLinkLabel}
             anchor={ref.current}
             onDismiss={toggleView}
-            idealDirection="down"
+            idealDirection={idealDirection ?? 'down'}
             positionRelativeToAnchor={false}
           >
             <TrapFocusBehavior>
