@@ -39,6 +39,11 @@ const labels = {
     accessibilityHidePasswordLabel: myI18nTranslator('Hide password'),
     accessibilityShowPasswordLabel: myI18nTranslator('Show password'),
   },
+  InfoButton: {
+    accessibilityDefaultTooltipMessage: myI18nTranslator('Click to learn more'),
+    accessibilityDefaultLinkLabel: myI18nTranslator('Learn more'),
+    accessibilityIcon: myI18nTranslator('Question mark icon'),
+  },
 };
 
 const pronouns = [

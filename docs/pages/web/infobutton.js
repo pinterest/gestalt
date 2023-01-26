@@ -92,7 +92,7 @@ Link is mainly used as navigational element and usually appear within or directl
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: DocsType |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'InfoButton' }) },
   };

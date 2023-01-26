@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoButton renders correctly 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with changing direction to show the popover 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with default link 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with default link and accessibility link label 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with default link and no accessibility label 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with default link changing the link accessibility description 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with link and no default link label 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InfoButton renders with tooltip and no accessibilityLabel 1`] = `
+<div
+  aria-controls="info-dialog"
+  aria-disabled={false}
+  aria-expanded={false}
+  aria-label="Click to learn more"
+  className="hideOutline tapTransition circle accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="Click to learn more"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="infoButton"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Question mark icon"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -86,6 +86,7 @@ function InfoButton({
         fullWidth={false}
         onTap={toggleView}
         ref={ref}
+        role="button"
         rounding="circle"
       >
         <Tooltip text={accessibilityDefaultTooltipMessage}>

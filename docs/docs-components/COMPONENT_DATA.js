@@ -21,7 +21,6 @@ import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
-import InfoButton from '../graphics/general/Icon.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
 import List from '../graphics/general/List.svg';
@@ -1284,11 +1283,11 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <InfoButton />,
+    svg: <IconButton />,
     name: 'InfoButton',
     aliases: ['Button', 'helper', 'help', 'info'],
     description: 'InfoButton is used to represent helper buttons with description on it.',
-    category: 'Buttons & Popovers',
+    category: 'Actions',
     status: {
       accessible: {
         summary: 'ready',
