@@ -103,7 +103,7 @@ export default function PageHeader({
         }}
       >
         <Flex direction="column" gap={3}>
-          <Flex alignItems="baseline" justifyContent="between" wrap>
+          <Flex justifyContent="between" wrap>
             <Heading>
               {name}{' '}
               {badge ? (
@@ -119,14 +119,27 @@ export default function PageHeader({
 
             {/* Enable this when we have a consistent directory structure */}
             {['component' /* 'utility' */].includes(type) && (
-              <Link
-                href={sourceLink}
-                onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
-                target="blank"
-                underline="always"
-              >
-                <Text>View source on GitHub</Text>
-              </Link>
+              <Flex direction="column" gap={1}>
+                <Link
+                  href={sourceLink}
+                  onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
+                  target="blank"
+                  underline="always"
+                >
+                  <Text>View source on GitHub</Text>
+                </Link>
+
+                <Link
+                  href={`https://github.com/pinterest/gestalt/releases?q=${name
+                    // Remove spaces and dashes
+                    .replaceAll(/[\s-]/g, '')}&expanded=true`}
+                  onClick={() => trackButtonClick('View recent changes on GitHub', sourcePathName)}
+                  target="blank"
+                  underline="always"
+                >
+                  <Text>See recent changes on GitHub</Text>
+                </Link>
+              </Flex>
             )}
           </Flex>
 
