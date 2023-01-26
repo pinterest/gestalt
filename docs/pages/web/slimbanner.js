@@ -445,7 +445,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`
-The \`message\` prop accepts either a string or [Text](/Text). Use a string for simple messages without any visual style. SlimBanner will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
+The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. SlimBanner will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
 
 The SlimBanner \`message\` string can be complemented with a \`helperLink\`. When passing a Text component, \`helperLink\` isn't rendered to prevent unnecessary visual load.
 
