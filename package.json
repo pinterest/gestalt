@@ -120,7 +120,7 @@
     "playwright:update-visual-test": "npx playwright test --config=playwright/playwright.config.js",
     "precommit": "lint-staged",
     "prettier": "prettier",
-    "slack": "./scripts/generateSlackBlockKitPost.js",
+    "slack-generate:post": "./scripts/generateSlackBlockKitPost.js",
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh"
