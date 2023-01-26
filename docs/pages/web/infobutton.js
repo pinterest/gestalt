@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -18,6 +19,19 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <Example
+          id="no-final-version"
+          description="Example to component validation"
+          name="IconButton"
+          defaultCode={`
+<Flex height="100%" justifyContent="center" alignItems="center">
+  <InfoButton
+    text="Informational context that's displayed on hover"
+    accessibilityLabel="Popover context description"
+  />
+</Flex>
+`}
+        />
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -44,6 +58,37 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <Example
+            id="no-final-version-do"
+            description="Example to component validation - DO"
+            name="IconButton"
+            defaultCode={`
+<Flex height="100%" justifyContent="center" alignItems="center" gap={{ row: 1, column: 1 }}>
+  <Text>This is a Gestalt</Text>
+  <InfoButton
+    text="Is Pinterest's design system"
+    accessibilityLabel="Gestalt meaning description"
+  />
+</Flex>
+`}
+          />
+          <Example
+            id="no-final-version-dont"
+            description="Example to component validation - DONT"
+            name="IconButton"
+            defaultCode={`
+<Flex height="100%" justifyContent="center" alignItems="center" gap={{ row: 1, column: 1 }}>
+  <Text>This is a Gestalt</Text>
+  <InfoButton
+    text="Is Pinterest's design system"
+    accessibilityLabel="Gestalt meaning description"
+  />
+  <Text>don't do best practices</Text>
+</Flex>
+`}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
