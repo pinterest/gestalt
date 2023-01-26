@@ -1,3 +1,9 @@
+## 92.0.3 (Jan 26, 2023)
+
+### Patch
+
+- Docs: fix old link on SlimBanner page ([#2628](https://github.com/pinterest/gestalt/pull/2628)) - [Preview link](https://deploy-preview-2628--gestalt.netlify.app)
+
 ## 92.0.2 (Jan 26, 2023)
 
 ### Patch
