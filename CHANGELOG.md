@@ -1,3 +1,9 @@
+## 92.0.2 (Jan 26, 2023)
+
+### Patch
+
+- Docs: Create script to produce slack block kit blog post ([#2626](https://github.com/pinterest/gestalt/pull/2626)) - [Preview link](https://deploy-preview-2626--gestalt.netlify.app)
+
 ## 92.0.1 (Jan 25, 2023)
 
 ### Patch
