@@ -11,6 +11,7 @@ import focusStyles from './Focus.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import InternalDismissButton from './InternalDismissButton.js';
+import SheetConfirmationPopover from './SheetConfirmationPopover.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
@@ -28,8 +29,36 @@ type InternalSheetProps = {|
   children: NodeOrRenderProp,
   closeOnOutsideClick: boolean,
   footer: NodeOrRenderProp,
-  heading: NodeOrRenderProp,
+  heading?: string,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
+  dismissConfirmation?:
+    | boolean
+    | {|
+        message?: string,
+        subtext?: string,
+        primaryAction?: {|
+          accessibilityLabel?: string,
+          text?: string,
+          onClick?: ({|
+            event:
+              | SyntheticMouseEvent<HTMLButtonElement>
+              | SyntheticMouseEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLButtonElement>,
+          |}) => void,
+        |},
+        secondaryAction?: {|
+          accessibilityLabel?: string,
+          text?: string,
+          onClick?: ({|
+            event:
+              | SyntheticMouseEvent<HTMLButtonElement>
+              | SyntheticMouseEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLButtonElement>,
+          |}) => void,
+        |},
+      |},
   size: 'sm' | 'md' | 'lg',
   subHeading: NodeOrRenderProp,
 |};
@@ -48,12 +77,15 @@ export default function InternalSheet({
   footer,
   heading,
   onAnimationEnd,
+  dismissConfirmation,
   size,
   subHeading,
 }: InternalSheetProps): Node {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
 
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
+
+  const [showPopover, setShowPopover] = useState<boolean>(false);
 
   const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
 
@@ -66,6 +98,8 @@ export default function InternalSheet({
 
   const dismissButtonRef = useRef();
 
+  const enabledDismiss = !dismissConfirmation;
+
   useEffect(() => {
     if (dismissButtonRef.current) {
       dismissButtonRef.current.focus();
@@ -74,17 +108,21 @@ export default function InternalSheet({
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
-    function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE) {
+    function handleKeyDown(event: {| keyCode: number |}) {
+      if (event.keyCode === ESCAPE && enabledDismiss) {
         onAnimatedDismiss();
       }
-    }
 
-    window.addEventListener('keyup', handleKeyUp);
+      if (event.keyCode === ESCAPE && !enabledDismiss) {
+        setShowPopover((value) => !value);
+      }
+    }
+    // we must use keydown instead of keyup to match Popover events, as Popover gets dismissed in onKeyUp and we need to stopPropagation in the confirmation Popover
+    window.addEventListener('keydown', handleKeyDown);
     return function cleanup() {
-      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onAnimatedDismiss]);
+  }, [onAnimatedDismiss, enabledDismiss]);
 
   const handleOnAnimationEnd = useCallback(() => {
     const animationStatus = animationState === 'opening' ? 'in' : 'out';
@@ -94,17 +132,20 @@ export default function InternalSheet({
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
-    if (closeOnOutsideClick) {
+    if (closeOnOutsideClick && enabledDismiss) {
       onAnimatedDismiss();
     }
-  }, [closeOnOutsideClick, onAnimatedDismiss]);
+
+    if (closeOnOutsideClick && !enabledDismiss) {
+      setShowPopover(true);
+    }
+  }, [closeOnOutsideClick, onAnimatedDismiss, enabledDismiss]);
 
   // Handle the shadows on top and bottom of the content area when scrolling
   const updateShadows = useCallback(() => {
     const target = contentRef.current;
-    if (!target) {
-      return;
-    }
+    if (!target) return;
+
     const hasVerticalScrollbar = target.clientHeight < target.scrollHeight;
     setShowTopShadow(hasVerticalScrollbar && target.scrollTop > 0);
     setShowBottomShadow(
@@ -159,6 +200,7 @@ export default function InternalSheet({
                     borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
                     position="relative"
                     fit
+                    ref={dismissButtonRef}
                   >
                     <Flex alignItems="center" flex="grow" justifyContent="between">
                       <Box
@@ -168,7 +210,7 @@ export default function InternalSheet({
                         flex="grow"
                       >
                         <Heading size="500" accessibilityLevel={1}>
-                          {buildDismissableSubcomponent(heading)}
+                          {heading}
                         </Heading>
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
@@ -178,7 +220,7 @@ export default function InternalSheet({
                             accessibilityDismissButtonLabel ??
                             accessibilityDismissButtonLabelDefault
                           }
-                          onClick={onAnimatedDismiss}
+                          onClick={enabledDismiss ? onAnimatedDismiss : () => setShowPopover(true)}
                           size="md"
                           ref={dismissButtonRef}
                         />
@@ -201,7 +243,7 @@ export default function InternalSheet({
                         accessibilityLabel={
                           accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
                         }
-                        onClick={onAnimatedDismiss}
+                        onClick={enabledDismiss ? onAnimatedDismiss : () => setShowPopover(true)}
                         size="md"
                         ref={dismissButtonRef}
                       />
@@ -225,6 +267,16 @@ export default function InternalSheet({
                   >
                     <Box padding={PADDING_BOINTS}>{buildDismissableSubcomponent(footer)}</Box>
                   </Box>
+                )}
+                {showPopover && (
+                  <SheetConfirmationPopover
+                    anchor={dismissButtonRef.current}
+                    dismissConfirmation={dismissConfirmation}
+                    onDismiss={() => {
+                      setShowPopover(false);
+                      dismissButtonRef?.current?.focus();
+                    }}
+                  />
                 )}
               </Box>
             </div>

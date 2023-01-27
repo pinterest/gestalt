@@ -30,6 +30,12 @@ describe('useDefaultLabelContext', () => {
           },
           Sheet: {
             accessibilityDismissButtonLabel: 'Close sheet',
+            dismissConfirmationMessage: 'Are you sure you want to dismiss?',
+            dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
+            dismissConfirmationPrimaryActionText: 'Yes, dismiss.',
+            dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the sheet.',
+            dismissConfirmationSecondaryActionText: 'No, go back.',
+            dismissConfirmationSecondaryActionTextLabel: 'No, go back to the sheet.',
           },
           Tag: {
             accessibilityErrorIconLabel: 'Error',

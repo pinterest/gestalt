@@ -19,6 +19,14 @@ const labels = {
   },
   Sheet: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close sheet'),
+    dismissConfirmationMessage: myI18nTranslator('Are you sure you want to dismiss?'),
+    dismissConfirmationSubtext: myI18nTranslator(
+      'You will lose all of your changes. This cannot be undone.',
+    ),
+    dismissConfirmationPrimaryActionText: myI18nTranslator('Yes, dismiss.'),
+    dismissConfirmationPrimaryActionTextLabel: myI18nTranslator('Yes, dismiss the sheet.'),
+    dismissConfirmationSecondaryActionText: myI18nTranslator('No, go back.'),
+    dismissConfirmationSecondaryActionTextLabel: myI18nTranslator('No, go back to the sheet.'),
   },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),

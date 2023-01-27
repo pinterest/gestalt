@@ -8,33 +8,64 @@ type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
 type Props = {|
   /**
-    Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button. See the [Accessibility section](#Accessibility) for more info.
+    Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button. See the [Accessibility section](https://gestalt.pinterest.systems/web/sheet#Accessibility) for more info.
    */
   accessibilityDismissButtonLabel?: string,
   /**
-   * Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet. See the [Accessibility section](#Accessibility) for more info.
+   * Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet. See the [Accessibility section](https://gestalt.pinterest.systems/web/sheet#Accessibility) for more info.
    */
   accessibilitySheetLabel: string,
   /**
-   * Supply the container element(s) or render prop that will be used as Sheet's main content. See the [animation variant](#Animation) for info on how to add exit animations to Sheet content..
+   * Supply the container element(s) or render prop that will be used as Sheet's main content. See the [animation variant](https://gestalt.pinterest.systems/web/sheet#Animation) for info on how to add exit animations to Sheet content..
    */
   children: NodeOrRenderProp,
   /**
-   * Indicate whether clicking on the backdrop (gray area) outside of Sheet will automatically close it. See the [outside click variant](#Preventing-close-on-outside-click) for more info.
+   * Indicate whether clicking on the backdrop (gray area) outside of Sheet will automatically close it. See the [outside click variant](https://gestalt.pinterest.systems/web/sheet#Preventing-close-on-outside-click) for more info.
    */
   closeOnOutsideClick?: boolean,
   /**
-   * Supply the container element(s) or render prop that will be used as Sheet's custom footer. See the [footer variant](#Footer) for more info..
+   * Supply the container element(s) or render prop that will be used as Sheet's custom footer. See the [footer variant](https://gestalt.pinterest.systems/web/sheet#Footer) for more info..
    */
   footer?: NodeOrRenderProp,
   /**
-   * The text used for Sheet's heading. Be sure to localize this text. See the [heading variant](#Heading) for more info.
+   * The text used for Sheet's heading. Be sure to localize this text. See the [heading variant](https://gestalt.pinterest.systems/web/sheet#Heading) for more info.
    */
   heading?: string,
   /**
-   * Callback fired when the Sheet in/out animations end. See the [animation](#Animation) variant to learn more.
+   * Callback fired when the Sheet in/out animations end. See the [animation](https://gestalt.pinterest.systems/web/sheet#Animation) variant to learn more.
    */
   onAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  /**
+   * When supplied, it will disable component-controlled dismiss actions (ESC key press, backdrop click, or built-in dismiss IconButtons) and launch a confirmation Popover next to the dismiss IconButton requesting user confirmation before proceding. See the [dismiss confirmation](https://gestalt.pinterest.systems/web/sheet#Dismiss-confirmation) variant to learn more.
+   */
+  dismissConfirmation?:
+    | boolean
+    | {|
+        message?: string,
+        subtext?: string,
+        primaryAction?: {|
+          accessibilityLabel?: string,
+          text?: string,
+          onClick?: ({|
+            event:
+              | SyntheticMouseEvent<HTMLButtonElement>
+              | SyntheticMouseEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLButtonElement>,
+          |}) => void,
+        |},
+        secondaryAction?: {|
+          accessibilityLabel?: string,
+          text?: string,
+          onClick?: ({|
+            event:
+              | SyntheticMouseEvent<HTMLButtonElement>
+              | SyntheticMouseEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLAnchorElement>
+              | SyntheticKeyboardEvent<HTMLButtonElement>,
+          |}) => void,
+        |},
+      |},
   /**
    * Callback fired when the Sheet is dismissed by clicking on the Dismiss button, pressing the ESC key, or clicking on the backdrop outside of the Sheet (if `closeOnOutsideClick` is true).
    */
@@ -63,6 +94,7 @@ function Sheet({
   footer,
   heading,
   onAnimationEnd,
+  dismissConfirmation = false,
   onDismiss,
   size = 'sm',
   subHeading,
@@ -73,6 +105,7 @@ function Sheet({
         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
         accessibilitySheetLabel={accessibilitySheetLabel}
         closeOnOutsideClick={closeOnOutsideClick}
+        dismissConfirmation={dismissConfirmation}
         footer={footer}
         heading={heading}
         onAnimationEnd={onAnimationEnd}

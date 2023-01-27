@@ -40,7 +40,7 @@ export default function AccessibilityExample(): Node {
             accessibilityDismissButtonLabel="Close audience creation sheet"
             accessibilitySheetLabel="Audience list creation for new campaign"
             heading="Create a new audience list"
-            onDismiss={() => {}}
+            onDismiss={() => setShouldShow(false)}
             footer={footer}
             size="md"
           >

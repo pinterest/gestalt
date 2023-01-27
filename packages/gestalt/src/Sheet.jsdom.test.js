@@ -2,6 +2,7 @@
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
 import * as AnimationControllerModule from './AnimationContext.js'; // eslint-disable-line import/no-namespace
+import { ESCAPE } from './keyCodes.js';
 
 describe('Sheet', () => {
   let useAnimationMock;
@@ -99,8 +100,7 @@ describe('Sheet', () => {
       </Sheet>,
     );
 
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(screen.getByRole('button')).toBe(document.activeElement);
+    expect(screen.getByRole('button')).toHaveFocus();
   });
 
   it('should trigger onAnimationEnd', () => {
@@ -157,8 +157,8 @@ describe('Sheet', () => {
         <section />
       </Sheet>,
     );
-    fireEvent.keyUp(window.document, {
-      keyCode: 27,
+    fireEvent.keyDown(window.document, {
+      keyCode: ESCAPE,
     });
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -272,7 +272,7 @@ describe('Sheet', () => {
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
 
-  it('should not dismiss from the ESC key when closeOnOutsideClick is false', () => {
+  it('should not dismiss from the backdrop click when closeOnOutsideClick is false', () => {
     const mockOnDismiss = jest.fn();
 
     render(
@@ -295,5 +295,234 @@ describe('Sheet', () => {
     fireEvent.animationEnd(screen.getByRole('dialog'));
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(0);
+  });
+
+  it('should not dismiss from the backdrop click when closeOnOutsideClick and dismissConfirmation are true', () => {
+    const mockOnDismiss = jest.fn();
+
+    render(
+      <Sheet
+        dismissConfirmation
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>,
+    );
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
+    if (!(backDrop instanceof HTMLElement)) {
+      throw new Error('Backdrop should be an HTMLElement');
+    }
+    fireEvent.click(backDrop);
+
+    fireEvent.animationEnd(screen.getAllByRole('dialog')[0]);
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(0);
+  });
+
+  it('should not dismiss from the dismiss button key when closeOnOutsideClick and dismissConfirmation are true', () => {
+    const mockOnDismiss = jest.fn();
+
+    render(
+      <Sheet
+        dismissConfirmation
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>,
+    );
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(
+      screen.getByText('Yes, dismiss', {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
+  it('should not dismiss from the ESC keys when closeOnOutsideClick and dismissConfirmation are true', () => {
+    const mockOnDismiss = jest.fn();
+
+    render(
+      <Sheet
+        dismissConfirmation
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>,
+    );
+
+    fireEvent.keyDown(window.document, {
+      keyCode: ESCAPE,
+    });
+
+    expect(
+      screen.getByText('Yes, dismiss', {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
+  it('renders Sheet with confirmation modal', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container } = render(
+      <Sheet
+        dismissConfirmation
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>,
+    );
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
+    if (!(backDrop instanceof HTMLElement)) {
+      throw new Error('Backdrop should be an HTMLElement');
+    }
+    fireEvent.click(backDrop);
+
+    fireEvent.animationEnd(screen.getAllByRole('dialog')[0]);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should show confirmation when closeOnOutsideClick and dismissConfirmation are true', () => {
+    const mockOnDismiss = jest.fn();
+
+    render(
+      <Sheet
+        dismissConfirmation
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>,
+    );
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
+    if (!(backDrop instanceof HTMLElement)) {
+      throw new Error('Backdrop should be an HTMLElement');
+    }
+    fireEvent.click(backDrop);
+
+    expect(
+      screen.getByText('No, go back', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByLabelText('No, go back to the sheet.', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText('Yes, dismiss', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByLabelText('Yes, dismiss the sheet.', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText('Are you sure you want to dismiss?', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText('You will lose all of your changes. This cannot be undone.', {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
+  it('should show custom confirmation when closeOnOutsideClick and dismissConfirmation are true', () => {
+    const mockOnDismiss = jest.fn();
+
+    const message = 'message';
+    const subtext = 'subtext';
+    const primaryAction = 'primaryAction';
+    const primaryActionLabel = 'primaryActionLabel';
+    const secondaryAction = 'secondaryAction';
+    const secondaryActionLabel = 'secondaryActionLabel';
+
+    render(
+      <Sheet
+        dismissConfirmation={{
+          message,
+          subtext,
+          primaryAction: { text: primaryAction, accessibilityLabel: primaryActionLabel },
+          secondaryAction: { text: secondaryAction, accessibilityLabel: secondaryActionLabel },
+        }}
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>,
+    );
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+    const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
+    if (!(backDrop instanceof HTMLElement)) {
+      throw new Error('Backdrop should be an HTMLElement');
+    }
+    fireEvent.click(backDrop);
+
+    expect(
+      screen.getByText(secondaryAction, {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByLabelText(secondaryActionLabel, {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText(primaryAction, {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByLabelText(primaryActionLabel, {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText(message, {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText(subtext, {
+        exact: true,
+      }),
+    ).toBeVisible();
   });
 });
