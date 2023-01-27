@@ -1,3 +1,9 @@
+## 92.0.5 (Jan 27, 2023)
+
+### Patch
+
+- Masonry: add route for future integration tests ([#2629](https://github.com/pinterest/gestalt/pull/2629)) - [Preview link](https://deploy-preview-2629--gestalt.netlify.app)
+
 ## 92.0.4 (Jan 27, 2023)
 
 ### Patch
