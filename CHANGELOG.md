@@ -1,3 +1,9 @@
+## 92.0.4 (Jan 27, 2023)
+
+### Patch
+
+- Docs: add recent changes link to component pages ([#2627](https://github.com/pinterest/gestalt/pull/2627)) - [Preview link](https://deploy-preview-2627--gestalt.netlify.app)
+
 ## 92.0.3 (Jan 26, 2023)
 
 ### Patch
