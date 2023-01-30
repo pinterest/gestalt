@@ -370,15 +370,14 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
       <div
         aria-label="Test ModalAlert"
         class="container"
-        id=":r0:"
         role="alertdialog"
       >
         <div
-          class="backdrop"
+          class="backdrop zoomOut"
         />
         <div
-          class="mobileWrapper hideOutline"
-          style="width: 100%;"
+          class="wrapper hideOutline"
+          style="width: 540px;"
           tabindex="-1"
         >
           <div
@@ -386,73 +385,76 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
             style="width: 100%;"
           >
             <div
-              class="box fit paddingX4 paddingY4 relative"
+              class="box fit relative"
+              style="z-index: 1;"
             >
               <div
-                class="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+                class="box paddingX6 paddingY6"
               >
                 <div
-                  class="FlexItem flexNone"
-                >
-                  <button
-                    aria-controls=":r0:"
-                    aria-label="Close modal"
-                    class="parentButton"
-                    type="button"
-                  >
-                    <div
-                      class="button tapTransition enabled"
-                    >
-                      <div
-                        class="pog transparent focused"
-                        style="height: 48px; width: 48px;"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          aria-label=""
-                          class="icon defaultIcon iconBlock"
-                          height="20"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="20"
-                        >
-                          <path
-                            d="test-file-stub"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </button>
-                </div>
-                <div
-                  class="FlexItem flexGrow"
+                  class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
                 >
                   <div
-                    class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
+                    class="FlexItem flexGrow"
+                  >
+                    <h1
+                      class="Heading fontSize400 defaultText alignStart breakWord"
+                    >
+                      Delete Pin?
+                    </h1>
+                  </div>
+                  <div
+                    class="FlexItem"
                   >
                     <div
-                      class="FlexItem flexGrow"
+                      class="box marginStart2"
                     >
-                      <h1
-                        class="Heading fontSize400 defaultText alignStart breakWord"
+                      <button
+                        aria-label="Close modal"
+                        class="parentButton"
+                        tabindex="0"
+                        type="button"
                       >
-                        Delete Pin?
-                      </h1>
+                        <div
+                          class="button tapTransition enabled"
+                        >
+                          <div
+                            class="pog white"
+                            style="height: 32px; width: 32px;"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              aria-label=""
+                              class="icon defaultIcon iconBlock"
+                              height="16"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="16"
+                            >
+                              <path
+                                d="test-file-stub"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX4 paddingY4"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              style="height: 100%;"
             >
               Modal content
             </div>
             <div
               class="box fit relative"
+              style="z-index: 1;"
             >
               <div
-                class="box paddingX4 paddingY4"
+                class="box paddingX6 paddingY6"
               >
                 <div
                   class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"

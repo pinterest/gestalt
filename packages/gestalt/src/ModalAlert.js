@@ -8,7 +8,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Modal from './Modal.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 
 type ActionDataType = {|
   accessibilityLabel: string,
@@ -88,9 +88,6 @@ function Header({
   heading: string,
   onDismiss: () => void,
 |}) {
-  const deviceType = useDeviceType();
-  const isMobile = deviceType === 'mobile';
-
   return (
     <Flex flex="grow" alignItems="center" gap={4}>
       {type !== 'default' && (
@@ -108,7 +105,7 @@ function Header({
           {heading}
         </Heading>
       </Flex.Item>
-      {type === 'default' && !isMobile && (
+      {type === 'default' && (
         <Box marginStart={2}>
           <IconButton
             accessibilityLabel={accessibilityDismissButtonLabel}
@@ -190,31 +187,34 @@ export default function ModalAlert({
   });
 
   return (
-    <Modal
-      accessibilityModalLabel={accessibilityModalLabel}
-      align="start"
-      closeOnOutsideClick={type === 'default'}
-      footer={
-        <Flex justifyContent="end" gap={2}>
-          {secondaryAction && <ModalAlertAction type="secondary" data={secondaryAction} />}
-          {primaryAction && <ModalAlertAction type="primary" data={primaryAction} />}
-        </Flex>
-      }
-      heading={
-        <Header
-          type={type}
-          heading={heading}
-          onDismiss={onDismiss}
-          accessibilityDismissButtonLabel={
-            accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
-          }
-        />
-      }
-      onDismiss={onDismiss}
-      role="alertdialog"
-      size="sm"
-    >
-      {children}
-    </Modal>
+    // ModalAlert is not adaptive to mobile
+    <DeviceTypeProvider deviceType="desktop">
+      <Modal
+        accessibilityModalLabel={accessibilityModalLabel}
+        align="start"
+        closeOnOutsideClick={type === 'default'}
+        footer={
+          <Flex justifyContent="end" gap={2}>
+            {secondaryAction && <ModalAlertAction type="secondary" data={secondaryAction} />}
+            {primaryAction && <ModalAlertAction type="primary" data={primaryAction} />}
+          </Flex>
+        }
+        heading={
+          <Header
+            type={type}
+            heading={heading}
+            onDismiss={onDismiss}
+            accessibilityDismissButtonLabel={
+              accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+            }
+          />
+        }
+        onDismiss={onDismiss}
+        role="alertdialog"
+        size="sm"
+      >
+        {children}
+      </Modal>
+    </DeviceTypeProvider>
   );
 }
