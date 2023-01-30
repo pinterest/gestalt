@@ -35,11 +35,18 @@ exports[`InfoButton renders correctly 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="infoButton"
+        className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "backgroundColor": "var(--color-text-subtle)",
+            "height": 16,
+            "width": 16,
+          }
+        }
       >
         <svg
           aria-hidden={null}
-          aria-label="Question mark icon"
+          aria-label="More information"
           className="icon inverseIcon iconBlock"
           height={8}
           role="img"
@@ -91,11 +98,18 @@ exports[`InfoButton renders with changing direction to show the popover 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="infoButton"
+        className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "backgroundColor": "var(--color-text-subtle)",
+            "height": 16,
+            "width": 16,
+          }
+        }
       >
         <svg
           aria-hidden={null}
-          aria-label="Question mark icon"
+          aria-label="More information"
           className="icon inverseIcon iconBlock"
           height={8}
           role="img"
@@ -147,11 +161,18 @@ exports[`InfoButton renders with default link and accessibility link label 1`] =
       onMouseLeave={[Function]}
     >
       <div
-        className="infoButton"
+        className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "backgroundColor": "var(--color-text-subtle)",
+            "height": 16,
+            "width": 16,
+          }
+        }
       >
         <svg
           aria-hidden={null}
-          aria-label="Question mark icon"
+          aria-label="More information"
           className="icon inverseIcon iconBlock"
           height={8}
           role="img"
@@ -203,11 +224,18 @@ exports[`InfoButton renders with default link and no accessibility label 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="infoButton"
+        className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "backgroundColor": "var(--color-text-subtle)",
+            "height": 16,
+            "width": 16,
+          }
+        }
       >
         <svg
           aria-hidden={null}
-          aria-label="Question mark icon"
+          aria-label="More information"
           className="icon inverseIcon iconBlock"
           height={8}
           role="img"
@@ -259,11 +287,18 @@ exports[`InfoButton renders with link and no default link label 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="infoButton"
+        className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "backgroundColor": "var(--color-text-subtle)",
+            "height": 16,
+            "width": 16,
+          }
+        }
       >
         <svg
           aria-hidden={null}
-          aria-label="Question mark icon"
+          aria-label="More information"
           className="icon inverseIcon iconBlock"
           height={8}
           role="img"

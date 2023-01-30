@@ -1,9 +1,0 @@
-.infoButton {
-  composes: circle from "./Borders.css";
-  composes: flex from "./Layout.css";
-  composes: xsItemsCenter from "./Layout.css";
-  composes: justifyCenter from "./Layout.css";
-  composes: darkGrayBg from "./Colors.css";
-  height: 16px;
-  width: 16px;
-}

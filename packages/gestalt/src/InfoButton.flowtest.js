@@ -1,10 +1,16 @@
 // @flow strict
 import InfoButton from './InfoButton.js';
 
-const ValidDefaultInfoButton = <InfoButton accessibilityLabel="Pinterest" text="Good test" />;
+const ValidDefaultInfoButton = (
+  <InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />
+);
 
 const ValidLinkInfoButton = (
-  <InfoButton accessibilityLabel="Pinterest" text="Good test" linkHref="http://www.pinterest.com" />
+  <InfoButton
+    accessibilityPopoverLabel="Pinterest"
+    text="Good test"
+    link={{ href: 'http://www.pinterest.com' }}
+  />
 );
 
 // $FlowExpectedError[prop-missing]

@@ -4,19 +4,19 @@ import InfoButton from './InfoButton.js';
 
 describe('InfoButton', () => {
   it('renders a icon', () => {
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" />);
+    render(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
 
     expect(screen.getByRole('img')).not.toBeNull();
   });
 
   it('renders a button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" />);
+    render(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
 
     expect(screen.getByRole('button').tabIndex).toEqual(0);
   });
 
   it('renders default accessibility label on button', () => {
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" />);
+    render(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
 
     const element = screen.getByRole('button');
 
@@ -24,7 +24,7 @@ describe('InfoButton', () => {
   });
 
   it('renders content based on text prop', () => {
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" />);
+    render(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
 
     act(() => {
       screen.getByRole('button').click();
@@ -36,7 +36,7 @@ describe('InfoButton', () => {
   });
 
   it('renders popover with provided accessibility label', () => {
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" />);
+    render(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
 
     act(() => {
       screen.getByRole('button').click();
@@ -51,7 +51,9 @@ describe('InfoButton', () => {
     const zIndexStub = {
       index: () => 100,
     };
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" zIndex={zIndexStub} />);
+    render(
+      <InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" zIndex={zIndexStub} />,
+    );
 
     act(() => {
       screen.getByRole('button').click();
@@ -60,11 +62,11 @@ describe('InfoButton', () => {
     // GetByClassName
     const element = screen.getByText((_, el) => el?.className === 'layer');
 
-    expect(element.getAttribute('style')).toEqual('z-index: 100;');
+    expect(element.getAttribute('style')).toEqual('z-index: 101;');
   });
 
   it('popover opens', () => {
-    render(<InfoButton accessibilityLabel="Pinterest" text="Good test" />);
+    render(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
 
     act(() => {
       screen.getByRole('button').click();
@@ -76,9 +78,9 @@ describe('InfoButton', () => {
   it('renders a link', () => {
     render(
       <InfoButton
-        accessibilityLabel="Pinterest"
+        accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        linkHref="https://www.pinterest.com"
+        link={{ href: 'https://www.pinterest.com' }}
       />,
     );
 
@@ -92,9 +94,9 @@ describe('InfoButton', () => {
   it('renders a link with default label', () => {
     render(
       <InfoButton
-        accessibilityLabel="Pinterest"
+        accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        linkHref="https://www.pinterest.com"
+        link={{ href: 'https://www.pinterest.com' }}
       />,
     );
 
@@ -109,10 +111,9 @@ describe('InfoButton', () => {
   it('renders a link without default label', () => {
     render(
       <InfoButton
-        accessibilityLabel="Pinterest"
+        accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        linkHref="https://www.pinterest.com"
-        linkText="New link text"
+        link={{ href: 'https://www.pinterest.com', text: 'New link text' }}
       />,
     );
 
@@ -128,10 +129,9 @@ describe('InfoButton', () => {
     const spy = jest.fn();
     render(
       <InfoButton
-        accessibilityLabel="Pinterest"
+        accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        linkHref="https://www.pinterest.com"
-        onClickLink={spy}
+        link={{ href: 'https://www.pinterest.com', onClick: spy }}
       />,
     );
 

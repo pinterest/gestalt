@@ -1285,8 +1285,8 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <IconButton />,
     name: 'InfoButton',
-    aliases: ['Button', 'helper', 'help', 'info'],
-    description: 'InfoButton is used to represent helper buttons with description on it.',
+    aliases: ['HelpButton', 'InfoButton'],
+    description: 'InfoButton is used to provide help/guidance to the user about a nearby element.',
     category: 'Actions',
     status: {
       accessible: {
@@ -1296,12 +1296,12 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yNavigation: 'ready',
         a11yComprehension: 'ready',
       },
-      badge: null,
+      badge: 'New',
       android: 'notAvailable',
       deprecated: false,
       documentation: 'partial',
       iOS: 'notAvailable',
-      figma: 'notAvailable',
+      figma: 'partial',
       responsive: 'ready',
     },
     android: {

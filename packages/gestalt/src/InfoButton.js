@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, Fragment, useRef, useState } from 'react';
+import { type Node, Fragment, useRef, useState, useEffect } from 'react';
 import Box from './Box.js';
 import TapArea from './TapArea.js';
 import Popover from './Popover.js';
@@ -8,103 +8,132 @@ import Link from './Link.js';
 import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';
 import Layer from './Layer.js';
-import styles from './InfoButton.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { type Indexable } from './zIndex.js';
-
+import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Props = {|
   /**
-   * Supply a short, descriptive label for screen-readers to describe the Popover content. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
+   * Supply a short, descriptive label for screen-readers to describe the popover content. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
-  accessibilityLabel: string,
+  accessibilityPopoverLabel: string,
   /**
-   * Informational context that’s displayed when click on `Click to learn more` button
-   */
-  text: string,
-  /**
-   * Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
-   */
-  accessibilityLinkLabel?: string,
-  /**
-   * Specifies the preferred position of Tooltip relative to its anchor element. See the ideal direction variant to learn more.
+   * Specifies the preferred position of the tooltip and popover relative to InfoButton. See [Popover's ideal direction variant](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
-   * The URL that the hyperlink points to.
+   * Informational content that's displayed when the user clicks on InfoButton.
    */
-  linkHref?: string,
+  text: string,
   /**
-   * Text showed on link trigger
-   */
-  linkText?: string,
-  /**
-   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
-   */
-  onClickLink?: ({|
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  /**
-   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   * Specifies the z-index for InfoButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/infobutton#Z-index) for more details.
    */
   zIndex?: Indexable,
+  /**
+   * If provided, displays a link at the bottom of the popover message.
+   * - `href` is the URL the hyperlink points to.
+   * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/infobutton#Link) for more details.
+   * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
+   * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   */
+  link?: {|
+    accessibilityLabel?: string,
+    href: string,
+    onClick?: ({|
+      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
+    text?: string,
+  |},
 |};
 
+const DEFAULT_ZINDEX = 2;
+
 /**
- * [InfoButton](https://gestalt.pinterest.systems/web/infobutton) is a turnkey solution to provide help/guidance for an element on the screen.
+ * [InfoButton](https://gestalt.pinterest.systems/web/infobutton) provides help/guidance for a nearby element on the screen.
  */
-function InfoButton({
-  accessibilityLabel,
-  text,
-  accessibilityLinkLabel,
-  linkHref,
-  linkText,
+export default function InfoButton({
+  accessibilityPopoverLabel,
   idealDirection,
-  onClickLink,
+  link,
+  text,
   zIndex,
 }: Props): Node {
-  const ref = useRef<?HTMLElement>(null);
+  const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const { accessibilityDefaultTooltipMessage, accessibilityDefaultLinkLabel, accessibilityIcon } =
-    useDefaultLabelContext('InfoButton');
+  const [isHover, setIsHover] = useState(false);
+  const {
+    accessibilityTooltipMessage,
+    accessibilityLinkLabel: accessibilityDefaultLinkLabel,
+    accessibilityIcon,
+  } = useDefaultLabelContext('InfoButton');
+
+  useEffect(() => {
+    if (isOpen && ref.current) {
+      ref.current.focus();
+    }
+  }, [isOpen]);
 
   const toggleView = () => {
-    setIsOpen(!isOpen);
-    if (isOpen) {
-      ref.current?.focus();
-    }
+    setIsOpen((currVal) => !currVal);
   };
+
+  const bgIconColor = isHover ? 'default' : 'subtle';
+
+  const tooltipZIndex = zIndex ?? new FixedZIndex(DEFAULT_ZINDEX - 1);
 
   return (
     <Fragment>
       <TapArea
         accessibilityExpanded={isOpen}
         accessibilityControls="info-dialog"
-        accessibilityLabel={accessibilityDefaultTooltipMessage}
+        accessibilityLabel={accessibilityTooltipMessage}
         fullWidth={false}
         onTap={toggleView}
         ref={ref}
         role="button"
         rounding="circle"
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
       >
-        <Tooltip text={accessibilityDefaultTooltipMessage}>
-          <div className={styles.infoButton}>
+        <Tooltip
+          text={accessibilityTooltipMessage}
+          idealDirection={idealDirection ?? 'down'}
+          zIndex={tooltipZIndex}
+        >
+          <Box
+            width={16}
+            height={16}
+            rounding="circle"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            dangerouslySetInlineStyle={{
+              __style: {
+                backgroundColor: `var(--color-text-${bgIconColor})`,
+              },
+            }}
+          >
             <Icon
               accessibilityLabel={accessibilityIcon}
               color="inverse"
               icon="question-mark"
               size={8}
             />
-          </div>
+          </Box>
         </Tooltip>
       </TapArea>
       {isOpen && (
-        <Layer zIndex={zIndex}>
+        <Layer
+          zIndex={
+            zIndex
+              ? new CompositeZIndex([new FixedZIndex(zIndex.index())])
+              : new FixedZIndex(DEFAULT_ZINDEX)
+          }
+        >
           <Popover
             id="info-dialog"
-            accessibilityLabel={accessibilityLabel ?? accessibilityDefaultLinkLabel}
+            accessibilityLabel={accessibilityPopoverLabel}
             anchor={ref.current}
             onDismiss={toggleView}
             idealDirection={idealDirection ?? 'down'}
@@ -113,7 +142,7 @@ function InfoButton({
             <TrapFocusBehavior>
               <Box padding={4} rounding={4} minWidth={230} tabIndex={0}>
                 <Text align="center">{text}</Text>
-                {linkHref && (
+                {link?.href && (
                   <Box
                     padding={3}
                     with="100%"
@@ -124,13 +153,15 @@ function InfoButton({
                   >
                     <Text weight="bold" size="300">
                       <Link
-                        accessibilityLabel={accessibilityLinkLabel ?? accessibilityDefaultLinkLabel}
+                        accessibilityLabel={
+                          link?.accessibilityLabel ?? accessibilityDefaultLinkLabel
+                        }
                         display="inline"
-                        href={linkHref}
+                        href={link?.href}
                         externalLinkIcon="default"
-                        onClick={onClickLink}
+                        onClick={link?.onClick}
                       >
-                        {linkText ?? accessibilityDefaultLinkLabel}
+                        {link?.text ?? accessibilityDefaultLinkLabel}
                       </Link>
                     </Text>
                   </Box>
@@ -143,5 +174,3 @@ function InfoButton({
     </Fragment>
   );
 }
-
-export default InfoButton;

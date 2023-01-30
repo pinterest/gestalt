@@ -6,8 +6,8 @@ export default function Example(): Node {
   return (
     <Flex height="100%" justifyContent="center" alignItems="center">
       <InfoButton
-        text="Informational context that's displayed on hover"
-        accessibilityLabel="Popover context description"
+        text="Informational context that's displayed on click"
+        accessibilityPopoverLabel="Popover context description"
       />
     </Flex>
   );

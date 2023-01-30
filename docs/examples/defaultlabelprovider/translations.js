@@ -40,9 +40,9 @@ const labels = {
     accessibilityShowPasswordLabel: myI18nTranslator('Show password'),
   },
   InfoButton: {
-    accessibilityDefaultTooltipMessage: myI18nTranslator('Click to learn more'),
-    accessibilityDefaultLinkLabel: myI18nTranslator('Learn more'),
-    accessibilityIcon: myI18nTranslator('Question mark icon'),
+    accessibilityTooltipMessage: myI18nTranslator('Click to learn more'),
+    accessibilityLinkLabel: myI18nTranslator('Learn more'),
+    accessibilityIcon: myI18nTranslator('More information'),
   },
 };
 
