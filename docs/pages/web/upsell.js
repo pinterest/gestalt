@@ -711,6 +711,32 @@ function Example(props) {
 `}
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Message"
+          description={`
+The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. Upsell will handle the text style and adherence to design guidelines.
+
+If the \`message\` text requires more complex style, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` or \`align\` Text.
+`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+            <Flex direction="column" gap={6}>
+  <Text weight="bold">Simple message string</Text>
+  <Upsell
+    message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+    title="Give $30, get $60 in ads credit"
+  />
+  <Text weight="bold">Rich message with Text component</Text>
+  <Upsell
+    message={<Text display="inline">Earn $60 of ads credit, and give $30 of ads credit to a friend. <Link accessibilityLabel="Learn more about credit" display="inline" href="#Message">Learn more</Link></Text>}
+    title="Give $30, get $60 in ads credit"
+  />
+  </Flex>
+`}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.Upsell?.displayName} />
