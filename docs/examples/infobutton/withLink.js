@@ -4,6 +4,7 @@ import { InfoButton, Text, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const onHandleClick = () => {
+    // eslint-disable-next-line no-console
     console.log('Handle click on link');
   };
 
