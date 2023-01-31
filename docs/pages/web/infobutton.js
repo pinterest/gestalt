@@ -10,6 +10,8 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/infobutton/main.js';
 import endGuideElement from '../../examples/infobutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/infobutton/intermixedBlocks.js';
+import withLink from '../../examples/infobutton/withLink.js';
+import withZIndex from '../../examples/infobutton/withZIndex.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
@@ -22,7 +24,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <Example
           id="no-final-version"
           description="Example to component validation"
-          name="IconButton"
+          name="InfoButton"
           defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center">
   <InfoButton
@@ -130,9 +132,54 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Link"
-          description="Useful for when it's necessary to link to additional information from InfoButton's help text."
-        />
+          title="With a link"
+          description="Useful for when it's necessary to link to additional information from InfoButton's help text. InfoButton with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation."
+        >
+          <Example
+            name="InfoButton"
+            defaultCode={`
+<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+  <Text>This is Gestalt</Text>
+  <InfoButton
+    text="Is Pinterest's design system"
+    accessibilityPopoverLabel="Gestalt meaning description"
+    link={{
+      href: 'https://gestalt.pinterest.systems/',
+      text: 'Visit our portal',
+      accessibilityLabel: 'Visit Gestalt portal',
+    }}
+  />
+</Flex>
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={<SandpackExample code={withLink} name="Link component" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="With Z-index"
+          description="Useful for when it's necessary to handle elements above each other. Visit our [Z-Index documentation](https://gestalt.pinterest.systems/web/zindex_classes) for more details on how to use these prop."
+        >
+          <Example
+            name="InfoButton"
+            defaultCode={`
+<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+  <Text>This is Gestalt</Text>
+  <InfoButton
+    text="Is Pinterest's design system"
+    accessibilityPopoverLabel="Gestalt meaning description"
+    zIndex={new FixedZIndex(100)}
+  />
+</Flex>
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={<SandpackExample code={withZIndex} name="z-index component" />}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Related">
