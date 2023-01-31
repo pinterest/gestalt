@@ -1,3 +1,9 @@
+## 92.0.7 (Jan 31, 2023)
+
+### Patch
+
+- ModalAlert: revert adaptive behavior in mobile ([#2632](https://github.com/pinterest/gestalt/pull/2632)) - [Preview link](https://deploy-preview-2632--gestalt.netlify.app)
+
 ## 92.0.6 (Jan 31, 2023)
 
 ### Patch
