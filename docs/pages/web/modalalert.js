@@ -302,10 +302,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
 
       <MainSection
         name="Mobile"
-        description={`ModalAlert requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
-
-For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
-`}
+        description="ModalAlert is responsive but not adaptive to mobile devices; therefore, it does not require [DeviceTypeProvider](/web/utilities/devicetypeprovider)."
       >
         <MainSection.Card
           cardSize="lg"
