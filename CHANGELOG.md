@@ -1,3 +1,9 @@
+## 92.0.6 (Jan 31, 2023)
+
+### Patch
+
+- Upsell: extend message prop API from string to string | Text ([#2631](https://github.com/pinterest/gestalt/pull/2631)) - [Preview link](https://deploy-preview-2631--gestalt.netlify.app)
+
 ## 92.0.5 (Jan 27, 2023)
 
 ### Patch
