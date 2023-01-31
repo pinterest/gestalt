@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -12,6 +12,7 @@ import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { type ActionDataType } from './commonTypes.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type UpsellActionProps = {|
   data: ActionDataType,
@@ -77,9 +78,9 @@ type Props = {|
     width?: number,
   |},
   /**
-   * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization). See [Best Practices](https://gestalt.pinterest.systems/web/upsell#Best-practices) for more info.
+   * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/upsell#Message) to learn more.
    */
-  message: string,
+  message: string | Element<typeof Text>,
   /**
    * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.'
    * If no \`href\` is supplied, the action will be a button.
@@ -147,6 +148,33 @@ export default function Upsell({
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
   const hasActions = Boolean(primaryAction || secondaryAction);
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
+  let messageElement: Element<'span'> | Element<typeof Text>;
+
+  if (typeof message === 'string') {
+    messageElement = (
+      <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+    );
+  }
+  // If `text` is a Text component, we need to override any text colors within to ensure they all match
+  if (typeof message !== 'string' && Children.only(message).type.displayName === 'Text') {
+    const textColorOverrideStyles = isDarkMode
+      ? styles.textColorOverrideDark
+      : styles.textColorOverrideLight;
+
+    const textAligmentOverrideStyles =
+      responsiveMinWidth === 'xs'
+        ? styles.textAligmentOverrideCenter
+        : styles.textAligmentOverrideStart;
+
+    messageElement = (
+      <span className={classnames(textColorOverrideStyles, textAligmentOverrideStyles)}>
+        {message}
+      </span>
+    );
+  }
 
   return (
     <Box
@@ -211,7 +239,7 @@ export default function Upsell({
                   </Text>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+              {messageElement}
             </Box>
             {children && (
               <Box
