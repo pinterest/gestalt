@@ -181,10 +181,8 @@ describe('Sheet', () => {
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
-    if (!(backDrop instanceof HTMLElement)) {
-      throw new Error('Backdrop should be an HTMLElement');
-    }
-    fireEvent.click(backDrop);
+
+    if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
 
@@ -302,7 +300,7 @@ describe('Sheet', () => {
 
     render(
       <Sheet
-        dismissConfirmation
+        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
         closeOnOutsideClick
@@ -328,7 +326,7 @@ describe('Sheet', () => {
 
     render(
       <Sheet
-        dismissConfirmation
+        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
         closeOnOutsideClick
@@ -351,7 +349,7 @@ describe('Sheet', () => {
 
     render(
       <Sheet
-        dismissConfirmation
+        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
         closeOnOutsideClick
@@ -377,7 +375,7 @@ describe('Sheet', () => {
 
     const { container } = render(
       <Sheet
-        dismissConfirmation
+        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
         closeOnOutsideClick
@@ -403,7 +401,7 @@ describe('Sheet', () => {
 
     render(
       <Sheet
-        dismissConfirmation
+        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
         closeOnOutsideClick

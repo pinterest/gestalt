@@ -31,34 +31,32 @@ type InternalSheetProps = {|
   footer: NodeOrRenderProp,
   heading?: string,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
-  dismissConfirmation?:
-    | boolean
-    | {|
-        message?: string,
-        subtext?: string,
-        primaryAction?: {|
-          accessibilityLabel?: string,
-          text?: string,
-          onClick?: ({|
-            event:
-              | SyntheticMouseEvent<HTMLButtonElement>
-              | SyntheticMouseEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLButtonElement>,
-          |}) => void,
-        |},
-        secondaryAction?: {|
-          accessibilityLabel?: string,
-          text?: string,
-          onClick?: ({|
-            event:
-              | SyntheticMouseEvent<HTMLButtonElement>
-              | SyntheticMouseEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLButtonElement>,
-          |}) => void,
-        |},
-      |},
+  dismissConfirmation?: {|
+    message?: string,
+    subtext?: string,
+    primaryAction?: {|
+      accessibilityLabel?: string,
+      text?: string,
+      onClick?: ({|
+        event:
+          | SyntheticMouseEvent<HTMLButtonElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+    |},
+    secondaryAction?: {|
+      accessibilityLabel?: string,
+      text?: string,
+      onClick?: ({|
+        event:
+          | SyntheticMouseEvent<HTMLButtonElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+    |},
+  |},
   size: 'sm' | 'md' | 'lg',
   subHeading: NodeOrRenderProp,
 |};
@@ -271,7 +269,9 @@ export default function InternalSheet({
                 {showPopover && (
                   <SheetConfirmationPopover
                     anchor={dismissButtonRef.current}
-                    dismissConfirmation={dismissConfirmation}
+                    dismissConfirmation={
+                      typeof dismissConfirmation === 'object' ? dismissConfirmation : {}
+                    }
                     onDismiss={() => {
                       setShowPopover(false);
                       dismissButtonRef?.current?.focus();

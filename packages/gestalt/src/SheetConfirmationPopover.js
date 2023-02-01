@@ -14,34 +14,32 @@ import { ESCAPE } from './keyCodes.js';
 type Props = {|
   onDismiss: () => void,
   anchor: ?HTMLElement,
-  dismissConfirmation?:
-    | boolean
-    | {|
-        message?: string,
-        subtext?: string,
-        primaryAction?: {|
-          accessibilityLabel?: string,
-          text?: string,
-          onClick?: ({|
-            event:
-              | SyntheticMouseEvent<HTMLButtonElement>
-              | SyntheticMouseEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLButtonElement>,
-          |}) => void,
-        |},
-        secondaryAction?: {|
-          accessibilityLabel?: string,
-          text?: string,
-          onClick?: ({|
-            event:
-              | SyntheticMouseEvent<HTMLButtonElement>
-              | SyntheticMouseEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLButtonElement>,
-          |}) => void,
-        |},
-      |},
+  dismissConfirmation: {|
+    message?: string,
+    subtext?: string,
+    primaryAction?: {|
+      accessibilityLabel?: string,
+      text?: string,
+      onClick?: ({|
+        event:
+          | SyntheticMouseEvent<HTMLButtonElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+    |},
+    secondaryAction?: {|
+      accessibilityLabel?: string,
+      text?: string,
+      onClick?: ({|
+        event:
+          | SyntheticMouseEvent<HTMLButtonElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+    |},
+  |},
 |};
 
 export default function SheetConfirmationPopover({
@@ -49,6 +47,8 @@ export default function SheetConfirmationPopover({
   dismissConfirmation,
   onDismiss,
 }: Props): Node {
+  const confirmationButtonRef = useRef();
+
   const { onAnimatedDismiss } = useAnimation();
 
   const {
@@ -60,25 +60,21 @@ export default function SheetConfirmationPopover({
     dismissConfirmationSecondaryActionTextLabel: dismissConfirmationSecondaryActionTextLabelDefault,
   } = useDefaultLabelContext('Sheet');
 
-  const confirmationButtonRef = useRef();
-
   useEffect(() => {
-    if (confirmationButtonRef.current) {
-      confirmationButtonRef.current.focus();
-    }
+    confirmationButtonRef?.current?.focus();
   }, [confirmationButtonRef]);
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
-    function handleKeyDown(event: {| keyCode: number, stopPropagation: () => void |}) {
+    function handleKeyDown(event) {
       if (event.keyCode === ESCAPE) {
         event.stopPropagation();
       }
     }
+    window.addEventListener('keydown', handleKeyDown);
 
-    window.addEventListener('key', handleKeyDown);
     return function cleanup() {
-      window.removeEventListener('keyup', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
@@ -97,30 +93,20 @@ export default function SheetConfirmationPopover({
             <Box role="alert">
               <Flex direction="column" gap={2} alignItems="center" width="100%">
                 <Text weight="bold">
-                  {typeof dismissConfirmation === 'boolean'
-                    ? dismissConfirmationMessageDefault
-                    : dismissConfirmation?.message}
+                  {dismissConfirmation?.message ?? dismissConfirmationMessageDefault}
                 </Text>
-                <Text>
-                  {typeof dismissConfirmation === 'boolean'
-                    ? dismissConfirmationSubtextDefault
-                    : dismissConfirmation?.subtext}
-                </Text>
+                <Text>{dismissConfirmation?.subtext ?? dismissConfirmationSubtextDefault}</Text>
               </Flex>
             </Box>
             <Flex justifyContent="center" gap={2}>
               <Button
                 accessibilityLabel={
-                  (typeof dismissConfirmation === 'boolean'
-                    ? dismissConfirmationSecondaryActionTextLabelDefault
-                    : dismissConfirmation?.secondaryAction?.accessibilityLabel) ??
-                  dismissConfirmationSecondaryActionTextDefault
+                  dismissConfirmation?.secondaryAction?.accessibilityLabel ??
+                  dismissConfirmationSecondaryActionTextLabelDefault
                 }
                 color="gray"
                 text={
-                  (typeof dismissConfirmation === 'boolean'
-                    ? dismissConfirmationSecondaryActionTextDefault
-                    : dismissConfirmation?.secondaryAction?.text) ??
+                  dismissConfirmation?.secondaryAction?.text ??
                   dismissConfirmationSecondaryActionTextDefault
                 }
                 onClick={({ event }) => {
@@ -133,16 +119,12 @@ export default function SheetConfirmationPopover({
               <Button
                 color="red"
                 accessibilityLabel={
-                  typeof dismissConfirmation === 'boolean'
-                    ? dismissConfirmationPrimaryActionTextLabelDefault
-                    : dismissConfirmation?.primaryAction?.accessibilityLabel ??
-                      dismissConfirmationPrimaryActionTextDefault
+                  dismissConfirmation?.primaryAction?.accessibilityLabel ??
+                  dismissConfirmationPrimaryActionTextLabelDefault
                 }
                 text={
-                  typeof dismissConfirmation === 'boolean'
-                    ? dismissConfirmationPrimaryActionTextDefault
-                    : dismissConfirmation?.primaryAction?.text ??
-                      dismissConfirmationPrimaryActionTextDefault
+                  dismissConfirmation?.primaryAction?.text ??
+                  dismissConfirmationPrimaryActionTextDefault
                 }
                 onClick={({ event }) => {
                   if (typeof dismissConfirmation !== 'boolean') {

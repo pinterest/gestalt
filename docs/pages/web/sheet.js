@@ -142,7 +142,7 @@ When Sheet opens, focus should be placed on the first interactive element within
       </AccessibilitySection>
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\`, \`accessibilitySheetLabel\` props and well as any custom string in \`dismissConfirmation\`. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\`, \`accessibilitySheetLabel\` props and well as any custom strings in \`dismissConfirmation\`. Note that localization can lengthen text by 20 to 30 percent.`}
       />
       <SlimBanner
         iconAccessibilityLabel="Localize the default label"
@@ -280,15 +280,15 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
 The three internally-controlled or component-controlled dismiss actions are:
 - when the \`ESC\` key is pressed
 - when the backdrop is clicked
-- when the dismiss IconButtons are clicked
+- when the dismiss IconButton is clicked
 
-The externally-controlled dismiss actions require implementing the callback \`onDismissStart\`. See the [animation variant](#Animation) to learn more.
+The externally-controlled dismiss actions (\`subHeading\`, \`children\`, and \`footer\`) require implementing the callback \`onDismissStart\`. See the [animation variant](#Animation) to learn more.
 
 Sheets can contain forms or be part of flows where the user is required to submit infomation. If a Sheet is dismissed involuntarily, the data entered by the user could not be saved and lost. This can create a bad user experience.
 
 To prevent dismissing Sheet involuntary, we can use \`dismissConfirmation\`. When provided, it will open a confirmation modal each time component-controlled dismiss actions are triggered.
 
-The confirmation modal has a flexible API. When the \`dismissConfirmation\` prop is set to "true", Sheet uses defauld texts and labels.
+The confirmation modal has a flexible API. When the \`dismissConfirmation\` prop is set to an empty object "dismissConfirmation={{}}", Sheet uses default texts and labels. See the default content below:
 
 - Message: "Are you sure you want to dismiss?"
 - Subtext: "You will lose all of your changes. This cannot be undone."
@@ -297,7 +297,7 @@ The confirmation modal has a flexible API. When the \`dismissConfirmation\` prop
 - Secondary action text: "No, go back."
 - Secondary action label: "No, go back to the sheet."
 
-All texts and labels can be customized using the \`dismissConfirmation\` prop. We can pass an object with custom strings. For any missing strings, Sheet uses the default ones.
+All texts and labels can be customized using the \`dismissConfirmation\` prop. We can pass an object with custom strings. For any missing strings, Sheet uses the default ones. See the \`dismissConfirmation\` prop Flow type to learn more about the optional texts and labels than can be customized.
 `}
         >
           <SlimBanner

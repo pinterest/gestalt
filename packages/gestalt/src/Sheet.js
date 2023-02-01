@@ -36,36 +36,34 @@ type Props = {|
    */
   onAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
   /**
-   * When supplied, it will disable component-controlled dismiss actions (ESC key press, backdrop click, or built-in dismiss IconButtons) and launch a confirmation Popover next to the dismiss IconButton requesting user confirmation before proceding. See the [dismiss confirmation](https://gestalt.pinterest.systems/web/sheet#Dismiss-confirmation) variant to learn more.
+   * When supplied, it will disable component-controlled dismiss actions (ESC key press, backdrop click, or built-in dismiss IconButtons) and launch a confirmation Popover next to the dismiss IconButton requesting user confirmation before proceding. Pass an empty object to use the default text and labels. See the [dismiss confirmation](https://gestalt.pinterest.systems/web/sheet#Dismiss-confirmation) variant to learn more.
    */
-  dismissConfirmation?:
-    | boolean
-    | {|
-        message?: string,
-        subtext?: string,
-        primaryAction?: {|
-          accessibilityLabel?: string,
-          text?: string,
-          onClick?: ({|
-            event:
-              | SyntheticMouseEvent<HTMLButtonElement>
-              | SyntheticMouseEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLButtonElement>,
-          |}) => void,
-        |},
-        secondaryAction?: {|
-          accessibilityLabel?: string,
-          text?: string,
-          onClick?: ({|
-            event:
-              | SyntheticMouseEvent<HTMLButtonElement>
-              | SyntheticMouseEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLAnchorElement>
-              | SyntheticKeyboardEvent<HTMLButtonElement>,
-          |}) => void,
-        |},
-      |},
+  dismissConfirmation?: {|
+    message?: string,
+    subtext?: string,
+    primaryAction?: {|
+      accessibilityLabel?: string,
+      text?: string,
+      onClick?: ({|
+        event:
+          | SyntheticMouseEvent<HTMLButtonElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+    |},
+    secondaryAction?: {|
+      accessibilityLabel?: string,
+      text?: string,
+      onClick?: ({|
+        event:
+          | SyntheticMouseEvent<HTMLButtonElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+    |},
+  |},
   /**
    * Callback fired when the Sheet is dismissed by clicking on the Dismiss button, pressing the ESC key, or clicking on the backdrop outside of the Sheet (if `closeOnOutsideClick` is true).
    */
@@ -94,7 +92,7 @@ function Sheet({
   footer,
   heading,
   onAnimationEnd,
-  dismissConfirmation = false,
+  dismissConfirmation,
   onDismiss,
   size = 'sm',
   subHeading,
