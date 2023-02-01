@@ -24,7 +24,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <Example
           id="no-final-version"
           description="Example to component validation"
-          name="InfoButton"
+          name="Main InfoButton example"
           defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center">
   <InfoButton
@@ -136,7 +136,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           description="Useful for when it's necessary to link to additional information from InfoButton's help text. InfoButton with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation."
         >
           <Example
-            name="InfoButton"
+            name="Link InfoButton example"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
@@ -163,7 +163,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           description="Useful for when it's necessary to handle elements above each other. Visit our [Z-Index documentation](https://gestalt.pinterest.systems/web/zindex_classes) for more details on how to use these prop."
         >
           <Example
-            name="InfoButton"
+            name="ZIndex InfoButton example"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
