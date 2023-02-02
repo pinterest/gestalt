@@ -4,37 +4,21 @@ import { create } from 'react-test-renderer';
 import Popover from './Popover.js';
 
 describe('Bugs', () => {
-  test('01 - Popover-based components within Modals or small containers', () => {
-    expect('a').toBeString();
-  });
+  test('01 - Popover-based components within Modals or small containers', () => {});
 
-  test('02 - Popover-based components off centered', () => {
-    expect('a').toBeString();
-  });
+  test('02 - Popover-based components off centered', () => {});
 
-  test('03 - Popover-based components in Tables including Fixed Headers', () => {
-    expect('a').toBeString();
-  });
+  test('03 - Popover-based components in Tables including Fixed Headers', () => {});
 
-  test('04 - Tooltips not anchored in headers/fixed-position menus', () => {
-    expect('a').toBeString();
-  });
+  test('04 - Tooltips not anchored in headers/fixed-position menus', () => {});
 
-  test('05 - Tooltip incorrect sizing in top-left corner', () => {
-    expect('a').toBeString();
-  });
+  test('05 - Tooltip incorrect sizing in top-left corner', () => {});
 
-  test('06 - Tooltip incorrectly positioned in bottom/right edge in floating IconButtons', () => {
-    expect('a').toBeString();
-  });
+  test('06 - Tooltip incorrectly positioned in bottom/right edge in floating IconButtons', () => {});
 
-  test('07 - Popover-based components incorrect sizing in top-left corner', () => {
-    expect('a').toBeString();
-  });
+  test('07 - Popover-based components incorrect sizing in top-left corner', () => {});
 
-  test('08 - Popover doesn’t get the anchor reference with responsive Box', () => {
-    expect('a').toBeString();
-  });
+  test('08 - Popover doesn’t get the anchor reference with responsive Box', () => {});
 });
 
 describe('Features', () => {
@@ -93,9 +77,17 @@ describe('Features', () => {
 
   test('Should focus on `Dismiss button` when open and has a `Dismiss button`', () => {});
 
+  test('Should focus to Popover when it open', () => {});
+
+  test('Should call `requestAnimationFrame` passing the `focusPopoverRef` as arg whe Popover open', () => {});
+
   test('Should use the `useDefaultLabelContext(Popover)` to get default strings', () => {});
 
   test('Should resize when screens resizes', () => {});
+
+  test('Should set `border: 1px solid currentColor;` on wrapper container', () => {});
+
+  test('Should set `border-radius: 8px;` or `rounding: 2` on wrapper container', () => {});
 
   // test('', () => {});
 });
@@ -103,7 +95,7 @@ describe('Features', () => {
 describe('Props', () => {
   describe('accessibilityLabel', () => {
     test('Should set `Popover` as a default value', () => {});
-    test('Should set the wrapper container `accessibilityLabel`', () => {});
+    test('Should set the wrapper container (root HTML element) `accessibilityLabel`', () => {});
     // test('Should set the container `accessibilityLabel`', () => {});
   });
 
@@ -114,7 +106,7 @@ describe('Props', () => {
 
   describe('anchor', () => {
     test('Should not render a `react node` if `null`', () => {});
-    test('Should set as the container `anchor`', () => {});
+    // test('Should set as the container `anchor`', () => {});
   });
 
   describe('children', () => {
@@ -124,21 +116,29 @@ describe('Props', () => {
 
   describe('color', () => {
     test('Should set `white` as a default value', () => {});
-    test('Should set the container `backgroundColor`', () => {});
     test('Should set iconColor of Dismiss button as `darkGray` if white', () => {});
     test('Should set iconColor of Dismiss button as `white` if is not white', () => {});
+    test('Should set `{color}BgElevated` as background-color on wrapper container if value is equal `white`', () => {});
+    test('Should set `{color}Bg` as background-color on wrapper container if value different of `white`', () => {});
+    test('Should set `whiteElevated` as color on wrapper container if value is equal `white`', () => {});
+    test('Should set color on wrapper container', () => {});
+
+    // test('Should set the container `backgroundColor`', () => {});
   });
 
   describe('onKeyDown', () => {
-    test('Should set the container `onKeyDown`', () => {});
+    test('Should be defined as a listener on window `keydown` event', () => {});
+    // test('Should set the container `onKeyDown`', () => {});
   });
 
   describe('id', () => {
-    test('Should set the container `id`', () => {});
+    test('Should set the container wrapper `id`', () => {});
+    // test('Should set the container `id`', () => {});
   });
 
   describe('idealDirection', () => {
-    test('Should set the container `idealDirection`', () => {});
+    test('Should set the direction to ideally render the wrapper container', () => {});
+    // test('Should set the container `idealDirection`', () => {});
   });
 
   describe('onDismiss', () => {
@@ -149,17 +149,22 @@ describe('Props', () => {
   });
 
   describe('positionRelativeToAnchor', () => {
-    test('Should set the container `positionRelativeToAnchor`', () => {});
+    test('Should scroll the page and popover together if `true`', () => {});
+    test('Should scroll the page and popover separately if `false`', () => {});
+    // test('Should set the container `positionRelativeToAnchor`', () => {});
   });
 
   describe('role', () => {
     test('Should set `dialog` as a default value', () => {});
-    test('Should set the container `role`', () => {});
+    test('Should set the wrapper container `role`', () => {});
+    // test('Should set the container `role`', () => {});
   });
 
   describe('shouldFocus', () => {
     test('Should set `true` as a default value', () => {});
-    test('Should set the container `shouldFocus`', () => {});
+    test('Should focus on wrapper container if `true`', () => {});
+    test('Should not focus on wrapper container if `false`', () => {});
+    // test('Should set the container `shouldFocus`', () => {});
   });
 
   describe('showCaret', () => {
