@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -141,7 +142,18 @@ When Sheet opens, focus should be placed on the first interactive element within
       </AccessibilitySection>
       <MainSection
         name="Localization"
-        description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\` and \`accessibilitySheetLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+        description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\`, \`accessibilitySheetLabel\` props and well as any custom strings in \`dismissConfirmation\`. Note that localization can lengthen text by 20 to 30 percent.`}
+      />
+      <SlimBanner
+        iconAccessibilityLabel="Localize the default label"
+        message="Sheet's dismiss IconButton and confirmation modal consume default text and labels from DefaultLabelProvider. Make sure to localize the default strings with DefaultLabelProvider."
+        type="recommendationBare"
+        helperLink={{
+          text: 'Learn more',
+          accessibilityLabel: 'Learn more about DefaultLabelProvider',
+          href: '/web/utilities/defaultlabelprovider',
+          onClick: () => {},
+        }}
       />
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -259,6 +271,221 @@ Sheet comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Dismiss confirmation"
+          description={`There are two ways Sheet can be dismissed: internally-controlled and externally-controlled dismiss actions.
+
+The three internally-controlled or component-controlled dismiss actions are:
+- when the \`ESC\` key is pressed
+- when the backdrop is clicked
+- when the dismiss IconButton is clicked
+
+The externally-controlled dismiss actions (\`subHeading\`, \`children\`, and \`footer\`) require implementing the callback \`onDismissStart\`. See the [animation variant](#Animation) to learn more.
+
+Sheets can contain forms or be part of flows where the user is required to submit infomation. If a Sheet is dismissed involuntarily, the data entered by the user could not be saved and lost. This can create a bad user experience.
+
+To prevent dismissing Sheet involuntary, we can use \`dismissConfirmation\`. When provided, it will open a confirmation modal each time component-controlled dismiss actions are triggered.
+
+The confirmation modal has a flexible API. When the \`dismissConfirmation\` prop is set to an empty object "dismissConfirmation={{}}", Sheet uses default texts and labels. See the default content below:
+
+- Message: "Are you sure you want to dismiss?"
+- Subtext: "You will lose all of your changes. This cannot be undone."
+- Primary action text: "Yes, dismiss."
+- Primary action label: "Yes, dismiss the sheet."
+- Secondary action text: "No, go back."
+- Secondary action label: "No, go back to the sheet."
+
+All texts and labels can be customized using the \`dismissConfirmation\` prop. We can pass an object with custom strings. For any missing strings, Sheet uses the default ones. See the \`dismissConfirmation\` prop Flow type to learn more about the optional texts and labels than can be customized.
+`}
+        >
+          <SlimBanner
+            iconAccessibilityLabel="Recommendation"
+            message={`Sheet's confirmation Popover uses default texts and labels provided by DefaultLabelProvider when the "dismissConfirmation={true}". Don't forget to localize them.`}
+            type="recommendationBare"
+            helperLink={{
+              text: 'Learn more',
+              accessibilityLabel: 'Learn more about DefaultLabelProvider',
+              href: '/web/utilities/defaultlabelprovider',
+              onClick: () => {},
+            }}
+          />
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+function AccessibilityExample() {
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+  return (
+    <React.Fragment>
+      <Box padding={8}>
+        <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
+      </Box>
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <Sheet
+            dismissConfirmation={{}}
+            accessibilityDismissButtonLabel="Close audience creation sheet"
+            accessibilitySheetLabel="Audience list creation for new campaign"
+            heading="Create a new audience list"
+            onDismiss={() => setShouldShow(false)}
+            footer={({ onDismissStart }) => (
+              <Flex alignItems="center" justifyContent="end">
+                <Button color="red" text="Create" onClick={onDismissStart} />
+              </Flex>
+            )}
+            size="md"
+          >
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 12,
+              }}
+            >
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
+                <Box>
+                  <Text inline weight="bold">
+                    Step 1:
+                  </Text>
+                  <Text inline> Audience list details</Text>
+                </Box>
+                <TextField
+                  id="audience-name"
+                  label="Audience name"
+                  placeholder="Name your audience"
+                  onChange={() => {}}
+                />
+                <TextField
+                  id="desc"
+                  label="Audience description"
+                  placeholder="Describe your audience"
+                  onChange={() => {}}
+                />
+                <Fieldset legend="When adding this audience list to an ad group:">
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 3,
+                    }}
+                  >
+                    <RadioButton
+                      label="Include list"
+                      name="audience"
+                      value="include"
+                      onChange={() => {}}
+                      id="include"
+                    />
+                    <RadioButton
+                      label="Exclude list"
+                      name="audience"
+                      value="include"
+                      onChange={() => {}}
+                      id="exclude"
+                    />
+                  </Flex>
+                </Fieldset>
+              </Flex>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
+                <Box>
+                  <Text inline weight="bold">
+                    Step 2:
+                  </Text>
+                  <Text inline> Select conversion source</Text>
+                </Box>
+                <Text>
+                  To use a conversion source other than a Pinterest Tag, add a filter and configure
+                  the source of this event.
+                </Text>
+                <Fieldset legend="Select conversion source:" legendDisplay="hidden">
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 3,
+                    }}
+                  >
+                    <RadioButton
+                      label="Pinterest Tag"
+                      name="source"
+                      value="pin"
+                      onChange={() => {}}
+                      id="tag"
+                    />
+                    <RadioButton
+                      label="Mobile Measurement Partners (MMP)"
+                      name="source"
+                      value="mmp"
+                      onChange={() => {}}
+                      id="mmp"
+                    />
+                    <RadioButton
+                      label="Conversion Upload"
+                      name="source"
+                      value="conversion"
+                      onChange={() => {}}
+                      id="upload"
+                    />
+                    <RadioButton
+                      label="API"
+                      name="source"
+                      value="api"
+                      onChange={() => {}}
+                      id="api"
+                    />
+                  </Flex>
+                </Fieldset>
+              </Flex>
+              <Flex
+                direction="column"
+                gap={{
+                  row: 0,
+                  column: 4,
+                }}
+              >
+                <Box>
+                  <Text inline weight="bold">
+                    Step 3:
+                  </Text>
+                  <Text inline>Set a filter</Text>
+                </Box>
+                <TextField
+                  id="users"
+                  label="Users in the past few days"
+                  placeholder="Ex. 4"
+                  onChange={() => {}}
+                />
+                <Checkbox
+                  label="Include past traffic data"
+                  name="traffic"
+                  id="traffic"
+                  onChange={() => {}}
+                />
+              </Flex>
+            </Flex>
+          </Sheet>
+        </Layer>
+      )}
+    </React.Fragment>
+  );
+}
+
+      `}
           />
         </MainSection.Subsection>
       </MainSection>

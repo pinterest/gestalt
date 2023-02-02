@@ -28,6 +28,12 @@ export type DefaultLabelContextType = {|
   |},
   Sheet: {|
     accessibilityDismissButtonLabel: string,
+    dismissConfirmationMessage: string,
+    dismissConfirmationSubtext: string,
+    dismissConfirmationPrimaryActionText: string,
+    dismissConfirmationPrimaryActionTextLabel: string,
+    dismissConfirmationSecondaryActionText: string,
+    dismissConfirmationSecondaryActionTextLabel: string,
   |},
   Tag: {|
     accessibilityErrorIconLabel: string,
@@ -55,6 +61,12 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Sheet: {
     accessibilityDismissButtonLabel: 'Close sheet',
+    dismissConfirmationMessage: 'Are you sure you want to dismiss?',
+    dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
+    dismissConfirmationPrimaryActionText: 'Yes, dismiss',
+    dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the sheet.',
+    dismissConfirmationSecondaryActionText: 'No, go back',
+    dismissConfirmationSecondaryActionTextLabel: 'No, go back to the sheet.',
   },
   Tag: {
     accessibilityErrorIconLabel: 'Error',
