@@ -153,19 +153,98 @@ describe('Props', () => {
     });
   });
 
+  // Finished
   describe('children', () => {
-    test('Should render after the `Dismiss button`', () => {});
-    test('Should render on body of component', () => {});
+    test('Should render after the `Dismiss button`', () => {
+      const ref = document.createElement('div');
+      const testId = 'link-test-id';
+
+      render(
+        <Popover anchor={ref} onDismiss={jest.fn()} showDismissButton>
+          <a id={testId} href="http://pinterest.com">
+            test
+          </a>
+        </Popover>,
+      );
+
+      expect(screen.getByRole('button')).toBeTruthy();
+      expect(screen.getByRole('link')).toBeTruthy();
+    });
+
+    test('Should render on body of component', () => {
+      const ref = document.createElement('div');
+      const testId = 'link-test-id';
+
+      render(
+        <Popover anchor={ref} onDismiss={jest.fn()}>
+          <a id={testId} href="http://pinterest.com">
+            test
+          </a>
+        </Popover>,
+      );
+      const element = screen.getByRole('dialog');
+      const { children } = element;
+
+      expect(children).toHaveLength(1);
+      expect(children[0].id).toEqual(testId);
+    });
   });
 
+  // Finished
   describe('color', () => {
-    test('Should set `white` as a default value', () => {});
-    test('Should set iconColor of Dismiss button as `darkGray` if white', () => {});
-    test('Should set iconColor of Dismiss button as `white` if is not white', () => {});
-    test('Should set `{color}BgElevated` as background-color on wrapper container if value is equal `white`', () => {});
-    test('Should set `{color}Bg` as background-color on wrapper container if value different of `white`', () => {});
-    test('Should set `whiteElevated` as color on wrapper container if value is equal `white`', () => {});
-    test('Should set color on wrapper container', () => {});
+    test('Should set `white` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.classList).toContain('whiteBgElevated');
+    });
+
+    test('Should set iconColor of Dismiss button as `darkGray` if white', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+      const element = screen.getByRole('img');
+
+      expect(element.classList).toContain('defaultIcon');
+    });
+
+    test('Should set iconColor of Dismiss button as `white` if is not white', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} color="blue" showDismissButton />);
+      const element = screen.getByRole('img');
+
+      expect(element.classList).toContain('inverseIcon');
+    });
+
+    test('Should set `{color}BgElevated` as background-color on wrapper container if value is equal `white`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} color="white" showDismissButton />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.classList).toContain('whiteBgElevated');
+    });
+
+    test('Should set `{color}Bg` as background-color on wrapper container if value is not `white`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} color="blue" showDismissButton />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.classList).toContain('blueBg');
+    });
+
+    test('Should set `whiteElevated` as color on wrapper container if value is equal `white`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} color="white" showDismissButton />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.classList).toContain('whiteElevated');
+    });
   });
 
   describe('onKeyDown', () => {

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Features Popover does not render when the anchor is null 1`] = `null`;
+
+exports[`Features Popover renders 1`] = `
+<div>
+  <div
+    className="container rounding4 contents maxDimensions minDimensions"
+    style={
+      Object {
+        "left": -10,
+        "top": 8,
+        "visibility": "visible",
+      }
+    }
+    tabIndex={-1}
+  >
+    <div
+      aria-label="Popover"
+      className="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
+      style={
+        Object {
+          "maxHeight": 691.1999999999999,
+          "maxWidth": 230,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Features Popover renders as blue 1`] = `
+<div>
+  <div
+    className="container rounding4 contents maxDimensions minDimensions"
+    style={
+      Object {
+        "left": -10,
+        "top": 8,
+        "visibility": "visible",
+      }
+    }
+    tabIndex={-1}
+  >
+    <div
+      aria-label="Popover"
+      className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
+      style={
+        Object {
+          "maxHeight": 691.1999999999999,
+          "maxWidth": 230,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Features Popover renders as error 1`] = `
+<div>
+  <div
+    className="container rounding4 contents maxDimensions minDimensions"
+    style={
+      Object {
+        "left": -10,
+        "top": 8,
+        "visibility": "visible",
+      }
+    }
+    tabIndex={-1}
+  >
+    <div
+      aria-label="Popover"
+      className="border redBg red rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
+      style={
+        Object {
+          "maxHeight": 691.1999999999999,
+          "maxWidth": 230,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Props anchor Should not render a \`react node\` if \`null\` 1`] = `null`;

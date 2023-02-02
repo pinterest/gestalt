@@ -113,6 +113,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
             icon="cancel"
             iconColor={iconColor}
             size={size}
+            accessibilityLabel="cross" // This is required to identify the element need improvement (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role)
           />
         </div>
       </button>
