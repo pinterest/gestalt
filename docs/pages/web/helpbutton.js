@@ -7,11 +7,11 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import MainSection from '../../docs-components/MainSection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/infobutton/main.js';
-import endGuideElement from '../../examples/infobutton/endGuideElement.js';
-import intermixedBlocks from '../../examples/infobutton/intermixedBlocks.js';
-import withLink from '../../examples/infobutton/withLink.js';
-import withZIndex from '../../examples/infobutton/withZIndex.js';
+import main from '../../examples/helpbutton/main.js';
+import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
+import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
+import withLink from '../../examples/helpbutton/withLink.js';
+import withZIndex from '../../examples/helpbutton/withZIndex.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
@@ -24,10 +24,10 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <Example
           id="no-final-version"
           description="Example to component validation"
-          name="Main InfoButton example"
+          name="Main HelpButton example"
           defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center">
-  <InfoButton
+  <HelpButton
     text="Informational context that's displayed on click"
     accessibilityLabel="Popover context description"
   />
@@ -72,7 +72,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={{ row: 1, column: 1 }}>
   <Text>the Gestalt</Text>
-  <InfoButton
+  <HelpButton
     text="The Pinterest's design system"
     accessibilityLabel="Gestalt is Pinterest's design system"
   />
@@ -86,7 +86,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={{ row: 1, column: 1 }}>
   <Text>This is a Gestalt</Text>
-  <InfoButton
+  <HelpButton
     text="Is Pinterest's design system"
     accessibilityLabel="Gestalt meaning description"
   />
@@ -100,7 +100,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Place InfoButton to the end of the element you wish to add guidance to."
+            description="Place HelpButton to the end of the element you wish to add guidance to."
             sandpackExample={
               <SandpackExample code={endGuideElement} name="End of guide element" hideEditor />
             }
@@ -109,7 +109,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Intermix InfoButton within blocks of content."
+            description="Intermix HelpButton within blocks of content."
             sandpackExample={
               <SandpackExample
                 code={intermixedBlocks}
@@ -127,20 +127,20 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
       </MainSection>
 
       <MainSection name="Localization">
-        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `linkText` and `accessibilityLinkLabel` within InfoButton. Note that localization can lengthen text by 20 to 30 percent." />
+        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `linkText` and `accessibilityLinkLabel` within HelpButton. Note that localization can lengthen text by 20 to 30 percent." />
       </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
           title="With a link"
-          description="Useful for when it's necessary to link to additional information from InfoButton's help text. InfoButton with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation."
+          description="Useful for when it's necessary to link to additional information from HelpButton's help text. HelpButton with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation."
         >
           <Example
-            name="Link InfoButton example"
+            name="Link HelpButton example"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
-  <InfoButton
+  <HelpButton
     text="Is Pinterest's design system"
     accessibilityPopoverLabel="Gestalt meaning description"
     link={{
@@ -163,11 +163,11 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           description="Useful for when it's necessary to handle elements above each other. Visit our [Z-Index documentation](https://gestalt.pinterest.systems/web/zindex_classes) for more details on how to use these prop."
         >
           <Example
-            name="ZIndex InfoButton example"
+            name="ZIndex HelpButton example"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
-  <InfoButton
+  <HelpButton
     text="Is Pinterest's design system"
     accessibilityPopoverLabel="Gestalt meaning description"
     zIndex={new FixedZIndex(100)}
@@ -200,6 +200,6 @@ Some buttons are specialized for particular tasks, such as navigation or present
 
 export async function getServerSideProps(): Promise<{| props: DocsType |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'InfoButton' }) },
+    props: { generatedDocGen: await docgen({ componentName: 'HelpButton' }) },
   };
 }

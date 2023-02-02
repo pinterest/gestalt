@@ -1,14 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, InfoButton } from 'gestalt';
+import { HelpButton, Flex } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Example(): Node {
   return (
-    <Box padding={1}>
-      <InfoButton
+    <Flex height="100%" justifyContent="center" alignItems="center">
+      <HelpButton
         text="Informational context that's displayed on click"
         accessibilityPopoverLabel="Popover context description"
       />
-    </Box>
+    </Flex>
   );
 }

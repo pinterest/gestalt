@@ -18,21 +18,21 @@ type Props = {|
    */
   accessibilityPopoverLabel: string,
   /**
-   * Specifies the preferred position of the tooltip and popover relative to InfoButton. See [Popover's ideal direction variant](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
+   * Specifies the preferred position of the tooltip and popover relative to HelpButton. See [Popover's ideal direction variant](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
-   * Informational content that's displayed when the user clicks on InfoButton.
+   * Informational content that's displayed when the user clicks on HelpButton.
    */
   text: string,
   /**
-   * Specifies the z-index for InfoButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/infobutton#Z-index) for more details.
+   * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/HelpButton#Z-index) for more details.
    */
   zIndex?: Indexable,
   /**
    * If provided, displays a link at the bottom of the popover message.
    * - `href` is the URL the hyperlink points to.
-   * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/infobutton#Link) for more details.
+   * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/HelpButton#Link) for more details.
    * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    */
@@ -50,9 +50,9 @@ type Props = {|
 const DEFAULT_ZINDEX = 2;
 
 /**
- * [InfoButton](https://gestalt.pinterest.systems/web/infobutton) provides help/guidance for a nearby element on the screen.
+ * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) provides help/guidance for a nearby element on the screen.
  */
-export default function InfoButton({
+export default function HelpButton({
   accessibilityPopoverLabel,
   idealDirection,
   link,
@@ -66,7 +66,7 @@ export default function InfoButton({
     accessibilityTooltipMessage,
     accessibilityLinkLabel: accessibilityDefaultLinkLabel,
     accessibilityIcon,
-  } = useDefaultLabelContext('InfoButton');
+  } = useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
     if (isOpen && ref.current) {

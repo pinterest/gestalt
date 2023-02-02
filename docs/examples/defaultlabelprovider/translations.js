@@ -39,7 +39,7 @@ const labels = {
     accessibilityHidePasswordLabel: myI18nTranslator('Hide password'),
     accessibilityShowPasswordLabel: myI18nTranslator('Show password'),
   },
-  InfoButton: {
+  HelpButton: {
     accessibilityTooltipMessage: myI18nTranslator('Click to learn more'),
     accessibilityLinkLabel: myI18nTranslator('Learn more'),
     accessibilityIcon: myI18nTranslator('More information'),

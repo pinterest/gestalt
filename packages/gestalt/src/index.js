@@ -25,11 +25,11 @@ import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
+import HelpButton from './HelpButton.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import IconButtonFloating from './IconButtonFloating.js';
 import Image from './Image.js';
-import InfoButton from './InfoButton.js';
 import Label from './Label.js';
 import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
@@ -103,11 +103,11 @@ export {
   FixedZIndex,
   Flex,
   Heading,
+  HelpButton,
   Icon,
   IconButton,
   IconButtonFloating,
   Image,
-  InfoButton,
   Label,
   Layer,
   Letterbox,

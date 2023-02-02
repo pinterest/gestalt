@@ -1,16 +1,16 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import InfoButton from './InfoButton.js';
+import HelpButton from './HelpButton.js';
 
-test('InfoButton renders correctly', () => {
-  const component = create(<InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+test('HelpButton renders correctly', () => {
+  const component = create(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('InfoButton renders with default link and no accessibility label', () => {
+test('HelpButton renders with default link and no accessibility label', () => {
   const component = create(
-    <InfoButton
+    <HelpButton
       accessibilityPopoverLabel="Pinterest"
       text="Good test"
       link={{ href: 'https://www.pinterest.com' }}
@@ -20,9 +20,9 @@ test('InfoButton renders with default link and no accessibility label', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('InfoButton renders with default link and accessibility link label', () => {
+test('HelpButton renders with default link and accessibility link label', () => {
   const component = create(
-    <InfoButton
+    <HelpButton
       accessibilityPopoverLabel="Pinterest"
       text="Good test"
       link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Pinterest`s home' }}
@@ -32,18 +32,18 @@ test('InfoButton renders with default link and accessibility link label', () => 
   expect(tree).toMatchSnapshot();
 });
 
-test('InfoButton renders with changing direction to show the popover', () => {
+test('HelpButton renders with changing direction to show the popover', () => {
   const component = create(
-    <InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" idealDirection="up" />,
+    <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" idealDirection="up" />,
   );
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('InfoButton renders with link and no default link label', () => {
+test('HelpButton renders with link and no default link label', () => {
   const component = create(
-    <InfoButton
+    <HelpButton
       accessibilityPopoverLabel="Pinterest"
       text="Good test"
       link={{ href: 'https://www.pinterest.com', text: 'Pinterest home' }}
@@ -55,7 +55,7 @@ test('InfoButton renders with link and no default link label', () => {
 
 test('accessibilityControls', () => {
   const instance = create(
-    <InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
+    <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
   expect(instance.find((element) => element.type === 'div').props['aria-controls']).toContain(
     'info-dialog',
@@ -64,14 +64,14 @@ test('accessibilityControls', () => {
 
 test('accessibilityExpanded', () => {
   const instance = create(
-    <InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
+    <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
   expect(instance.find((element) => element.type === 'div').props['aria-expanded']).toBe(false);
 });
 
 test('accessibilityPopoverLabel', () => {
   const instance = create(
-    <InfoButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
+    <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
   expect(instance.find((element) => element.type === 'div').props['aria-label']).toContain(
     'Click to learn more',
