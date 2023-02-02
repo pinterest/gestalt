@@ -1,14 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
-import { HelpButton, Text, Flex } from 'gestalt';
+import { Checkbox, Flex, HelpButton, Text } from 'gestalt';
 
 export default function Example(): Node {
   return (
     <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-      <Text>This is a Gestalt</Text>
+      <Checkbox id="created-pins" onChange={() => {}} />
+      <Text>Pins created in the last 30 days</Text>
       <HelpButton
-        text="Is Pinterest`s design system"
-        accessibilityPopoverLabel="Gestalt meaning description"
+        text="Date range must include at least 1 day in the last 30 days"
+        accessibilityPopoverLabel="Date range must include at least 1 day in the last 30 days"
       />
     </Flex>
   );

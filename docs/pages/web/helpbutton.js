@@ -47,8 +47,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             type="do"
             title="When to use"
             description={`
-- To offer simple, bit-sized information about an element or section on the screen.
-- To provide a non-critical information or links to information about an element on the screen.
+- To offer simple, bite-sized assistive information about an element or section on the screen.
+- To provide information or links to information that enhances a user's understanding of the feature.
         `}
           />
 
@@ -57,8 +57,9 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             type="don't"
             title="When not to use"
             description={`
-- To provide extensive help/guidance that is longer than a short sentence. Use [SlimBanner](/web/slimbanner) instead.
-- To share important and/or time-sensitive information to a user. Use [Callout](/web/callout) or [SlimBanner](/web/slimbanner) instead.
+- To provide extensive information that is longer than a short sentence. Use [SlimBanner](/web/slimbanner) instead.
+- To display recommendations for how to improve a user's experience. Use [SlimBanner](/web/slimbanner) instead.
+- To display time-sensitive information to a user. Use [Callout](/web/callout) or [SlimBanner](/web/slimbanner) instead.
         `}
           />
         </MainSection.Subsection>
@@ -70,11 +71,12 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             id="no-final-version-do"
             name="How to use"
             defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center" gap={{ row: 1, column: 1 }}>
-  <Text>the Gestalt</Text>
+<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+  <Checkbox id="created-pins" onChange={() => {}} />
+  <Text>Pins created in the last 30 days</Text>
   <HelpButton
-    text="The Pinterest's design system"
-    accessibilityLabel="Gestalt is Pinterest's design system"
+    text="Date range must include at least 1 day in the last 30 days"
+    accessibilityPopoverLabel="Date range must include at least 1 day in the last 30 days"
   />
 </Flex>
 `}
@@ -84,14 +86,25 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             id="no-final-version-dont"
             name="How to not use"
             defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center" gap={{ row: 1, column: 1 }}>
-  <Text>This is a Gestalt</Text>
+<Text inline>
+  See the total impact of your paid and organic content working together to increase page
+  visits
   <HelpButton
-    text="Is Pinterest's design system"
-    accessibilityLabel="Gestalt meaning description"
+    text="Number of times people visited your website after seeing your content on Pinterest"
+    accessibilityPopoverLabel="Number of times people visited your website after seeing your content on Pinterest"
   />
-  <Text>don't do best practices</Text>
-</Flex>
+  add-to-carts
+  <HelpButton
+    text="Number of times people added your products to their carts after interacting with your Pins"
+    accessibilityPopoverLabel="Number of times people added your products to their carts after interacting with your Pins"
+  />
+  and checkouts
+  <HelpButton
+    text="Number of checkouts stemming from your Pins and ads"
+    accessibilityPopoverLabel="Number of checkouts stemming from your Pins and ads"
+  />
+  .
+</Text>
 `}
           />
         </MainSection.Subsection>
@@ -109,7 +122,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Intermix HelpButton within blocks of content."
+            description="Do not include HelpButton within blocks of content."
             sandpackExample={
               <SandpackExample
                 code={intermixedBlocks}
@@ -186,11 +199,10 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <MainSection.Subsection
           description={`
 **[Tooltip](/web/tooltip)**
-Tooltip describes the function of an interactive element, typically IconButton, on hover. However, adding links, buttons or any clickable element within Tooltip is not advisable due to accessibility concerns.
+Tooltip describes the function of an interactive element, typically [IconButton](/web/iconbutton), on hover. However, adding links, buttons or any clickable element within Tooltip is not advisable due to accessibility concerns. Adding Tooltip to HelpButton is not necessary as it's already built in.
 
 **[IconButton](/web/iconbutton)**
-IconButton allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
-Some buttons are specialized for particular tasks, such as navigation or presenting menus.
+HelpButton is a more specific component than IconButton. IconButton is preferable for more general uses of interactive icons whereas HelpButton is the preferred solution for providing short-form guidance for an element.
       `}
         />
       </MainSection>

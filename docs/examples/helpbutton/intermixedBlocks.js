@@ -1,16 +1,26 @@
 // @flow strict
 import { type Node } from 'react';
-import { HelpButton, Text, Flex } from 'gestalt';
+import { HelpButton, Text } from 'gestalt';
 
 export default function Example(): Node {
   return (
-    <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-      <Text>This is a Gestalt</Text>
+    <Text>
+      See the total impact of your paid and organic content working together to increase page visits{' '}
       <HelpButton
-        text="Is Pinterest`s design system"
-        accessibilityPopoverLabel="Gestalt meaning description"
+        text="Number of times people visited your website after seeing your content on Pinterest"
+        accessibilityPopoverLabel="Number of times people visited your website after seeing your content on Pinterest"
       />
-      <Text>don`t do best practices</Text>
-    </Flex>
+      add-to-carts
+      <HelpButton
+        text="Number of times people added your products to their carts after interacting with your Pins"
+        accessibilityPopoverLabel="Number of times people added your products to their carts after interacting with your Pins"
+      />
+      and checkouts
+      <HelpButton
+        text="Number of checkouts stemming from your Pins and ads"
+        accessibilityPopoverLabel="Number of checkouts stemming from your Pins and ads"
+      />
+      .
+    </Text>
   );
 }

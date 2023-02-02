@@ -50,11 +50,11 @@ type Props = {|
 const DEFAULT_ZINDEX = 2;
 
 /**
- * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) provides help/guidance for a nearby element on the screen.
+ * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) is an affordance that accompanies an element on the screen. It helps describe or provide assistance on how to use the accompanying element.
  */
 export default function HelpButton({
   accessibilityPopoverLabel,
-  idealDirection,
+  idealDirection = 'down',
   link,
   text,
   zIndex,
@@ -84,45 +84,47 @@ export default function HelpButton({
 
   return (
     <Fragment>
-      <TapArea
-        accessibilityExpanded={isOpen}
-        accessibilityControls="info-dialog"
-        accessibilityLabel={accessibilityTooltipMessage}
-        fullWidth={false}
-        onTap={toggleView}
-        ref={ref}
-        role="button"
-        rounding="circle"
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-      >
-        <Tooltip
-          text={accessibilityTooltipMessage}
-          idealDirection={idealDirection ?? 'down'}
-          zIndex={tooltipZIndex}
+      <Box dangerouslySetInlineStyle={{ __style: { display: 'inline-block' } }} tabIndex={-1}>
+        <TapArea
+          accessibilityExpanded={isOpen}
+          accessibilityControls="info-dialog"
+          accessibilityLabel={accessibilityTooltipMessage}
+          fullWidth={false}
+          onTap={toggleView}
+          ref={ref}
+          role="button"
+          rounding="circle"
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
         >
-          <Box
-            width={16}
-            height={16}
-            rounding="circle"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            dangerouslySetInlineStyle={{
-              __style: {
-                backgroundColor: `var(--color-text-${bgIconColor})`,
-              },
-            }}
+          <Tooltip
+            text={accessibilityTooltipMessage}
+            idealDirection={idealDirection}
+            zIndex={tooltipZIndex}
           >
-            <Icon
-              accessibilityLabel={accessibilityIcon}
-              color="inverse"
-              icon="question-mark"
-              size={8}
-            />
-          </Box>
-        </Tooltip>
-      </TapArea>
+            <Box
+              width={16}
+              height={16}
+              rounding="circle"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              dangerouslySetInlineStyle={{
+                __style: {
+                  backgroundColor: `var(--color-text-${bgIconColor})`,
+                },
+              }}
+            >
+              <Icon
+                accessibilityLabel={accessibilityIcon}
+                color="inverse"
+                icon="question-mark"
+                size={8}
+              />
+            </Box>
+          </Tooltip>
+        </TapArea>
+      </Box>
       {isOpen && (
         <Layer
           zIndex={
