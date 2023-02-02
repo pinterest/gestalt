@@ -1,6 +1,8 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable jest/expect-expect */
 // @flow strict
 import { create } from 'react-test-renderer';
+import { screen, render, act } from '@testing-library/react';
 import Popover from './Popover.js';
 
 describe('Bugs', () => {
@@ -88,25 +90,67 @@ describe('Features', () => {
   test('Should set `border: 1px solid currentColor;` on wrapper container', () => {});
 
   test('Should set `border-radius: 8px;` or `rounding: 2` on wrapper container', () => {});
-
-  // test('', () => {});
 });
 
 describe('Props', () => {
+  // Finished
   describe('accessibilityLabel', () => {
-    test('Should set `Popover` as a default value', () => {});
-    test('Should set the wrapper container (root HTML element) `accessibilityLabel`', () => {});
-    // test('Should set the container `accessibilityLabel`', () => {});
+    test('Should set `Popover` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.getAttribute('aria-label')).toEqual('Popover');
+    });
+
+    test('Should set the wrapper container (root HTML element) `accessibilityLabel`', () => {
+      const a11yTestLabel = 'good-test';
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} accessibilityLabel={a11yTestLabel} />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.getAttribute('aria-label')).toEqual(a11yTestLabel);
+    });
   });
 
+  // Finished
   describe('accessibilityDismissButtonLabel', () => {
-    test('Should not has a default value', () => {});
-    test('Should set the `Dismiss button` accessibilityLabel', () => {});
+    test('Should has `Closer popover` as default value', () => {
+      const a11yTestLabel = 'Close popover';
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+      const element = screen.getByRole('button');
+
+      expect(element.getAttribute('aria-label')).toEqual(a11yTestLabel);
+    });
+
+    test('Should set the `Dismiss button` accessibilityLabel', () => {
+      const a11yTestLabel = 'Close test label';
+      const ref = document.createElement('div');
+
+      render(
+        <Popover
+          anchor={ref}
+          onDismiss={jest.fn()}
+          showDismissButton
+          accessibilityDismissButtonLabel={a11yTestLabel}
+        />,
+      );
+      const element = screen.getByRole('button');
+
+      expect(element.getAttribute('aria-label')).toEqual(a11yTestLabel);
+    });
   });
 
+  // Finished
   describe('anchor', () => {
-    test('Should not render a `react node` if `null`', () => {});
-    // test('Should set as the container `anchor`', () => {});
+    test('Should not render a `react node` if `null`', () => {
+      const tree = create(<Popover anchor={null} onDismiss={() => {}} />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 
   describe('children', () => {
@@ -122,49 +166,40 @@ describe('Props', () => {
     test('Should set `{color}Bg` as background-color on wrapper container if value different of `white`', () => {});
     test('Should set `whiteElevated` as color on wrapper container if value is equal `white`', () => {});
     test('Should set color on wrapper container', () => {});
-
-    // test('Should set the container `backgroundColor`', () => {});
   });
 
   describe('onKeyDown', () => {
     test('Should be defined as a listener on window `keydown` event', () => {});
-    // test('Should set the container `onKeyDown`', () => {});
   });
 
   describe('id', () => {
     test('Should set the container wrapper `id`', () => {});
-    // test('Should set the container `id`', () => {});
   });
 
   describe('idealDirection', () => {
     test('Should set the direction to ideally render the wrapper container', () => {});
-    // test('Should set the container `idealDirection`', () => {});
   });
 
   describe('onDismiss', () => {
     test('Should be called when `Dismiss button` has clicked', () => {});
     test('Should be called if `ESCAPE` is pressed', () => {});
     test('Should be called if user clicks outside of popover', () => {});
-    // test('Should set the container `onDismiss`', () => {});
   });
 
   describe('positionRelativeToAnchor', () => {
     test('Should scroll the page and popover together if `true`', () => {});
     test('Should scroll the page and popover separately if `false`', () => {});
-    // test('Should set the container `positionRelativeToAnchor`', () => {});
   });
 
   describe('role', () => {
     test('Should set `dialog` as a default value', () => {});
     test('Should set the wrapper container `role`', () => {});
-    // test('Should set the container `role`', () => {});
   });
 
   describe('shouldFocus', () => {
     test('Should set `true` as a default value', () => {});
     test('Should focus on wrapper container if `true`', () => {});
     test('Should not focus on wrapper container if `false`', () => {});
-    // test('Should set the container `shouldFocus`', () => {});
   });
 
   describe('showCaret', () => {
@@ -192,6 +227,5 @@ describe('Props', () => {
     test('Should has `360px` of maxWidth of wrapper container if value is `xl`', () => {});
     test('Should has same maxWidth of wrapper container of content if value is `flexible`', () => {});
     test('Should has same maxWidth of wrapper container of the `number` on value', () => {});
-    // test('Should set the container `size` prop-based', () => {});
   });
 });

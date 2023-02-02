@@ -113,3 +113,5 @@ exports[`Popover renders 1`] = `
   </div>
 </div>
 `;
+
+exports[`Props anchor Should not render a \`react node\` if \`null\` 1`] = `null`;
