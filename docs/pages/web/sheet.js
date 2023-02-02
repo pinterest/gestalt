@@ -326,7 +326,7 @@ function AccessibilityExample() {
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
           <Sheet
-            dismissConfirmation
+            dismissConfirmation={{}}
             accessibilityDismissButtonLabel="Close audience creation sheet"
             accessibilitySheetLabel="Audience list creation for new campaign"
             heading="Create a new audience list"

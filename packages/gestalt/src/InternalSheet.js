@@ -72,10 +72,10 @@ export default function InternalSheet({
   accessibilitySheetLabel,
   children,
   closeOnOutsideClick,
+  dismissConfirmation,
   footer,
   heading,
   onAnimationEnd,
-  dismissConfirmation,
   size,
   subHeading,
 }: InternalSheetProps): Node {
@@ -96,7 +96,9 @@ export default function InternalSheet({
 
   const dismissButtonRef = useRef();
 
-  const enabledDismiss = !dismissConfirmation;
+  const enabledDismiss = typeof dismissConfirmation === 'undefined';
+
+  const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
   useEffect(() => {
     if (dismissButtonRef.current) {
@@ -106,7 +108,7 @@ export default function InternalSheet({
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
-    function handleKeyDown(event: {| keyCode: number |}) {
+    function handleKeyDown(event) {
       if (event.keyCode === ESCAPE && enabledDismiss) {
         onAnimatedDismiss();
       }
@@ -269,9 +271,10 @@ export default function InternalSheet({
                 {showPopover && (
                   <SheetConfirmationPopover
                     anchor={dismissButtonRef.current}
-                    dismissConfirmation={
-                      typeof dismissConfirmation === 'object' ? dismissConfirmation : {}
-                    }
+                    message={message}
+                    subtext={subtext}
+                    primaryAction={primaryAction}
+                    secondaryAction={secondaryAction}
                     onDismiss={() => {
                       setShowPopover(false);
                       dismissButtonRef?.current?.focus();

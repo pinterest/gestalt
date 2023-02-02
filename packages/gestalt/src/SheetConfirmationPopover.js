@@ -12,39 +12,40 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { ESCAPE } from './keyCodes.js';
 
 type Props = {|
-  onDismiss: () => void,
   anchor: ?HTMLElement,
-  dismissConfirmation: {|
-    message?: string,
-    subtext?: string,
-    primaryAction?: {|
-      accessibilityLabel?: string,
-      text?: string,
-      onClick?: ({|
-        event:
-          | SyntheticMouseEvent<HTMLButtonElement>
-          | SyntheticMouseEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
-    |},
-    secondaryAction?: {|
-      accessibilityLabel?: string,
-      text?: string,
-      onClick?: ({|
-        event:
-          | SyntheticMouseEvent<HTMLButtonElement>
-          | SyntheticMouseEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
-    |},
+  message?: string,
+  onDismiss: () => void,
+  primaryAction?: {|
+    accessibilityLabel?: string,
+    text?: string,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+    |}) => void,
   |},
+  secondaryAction?: {|
+    accessibilityLabel?: string,
+    text?: string,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+    |}) => void,
+  |},
+  subtext?: string,
 |};
 
 export default function SheetConfirmationPopover({
   anchor,
-  dismissConfirmation,
+  message,
+  subtext,
+  primaryAction,
+  secondaryAction,
   onDismiss,
 }: Props): Node {
   const confirmationButtonRef = useRef();
@@ -52,12 +53,12 @@ export default function SheetConfirmationPopover({
   const { onAnimatedDismiss } = useAnimation();
 
   const {
-    dismissConfirmationMessage: dismissConfirmationMessageDefault,
-    dismissConfirmationSubtext: dismissConfirmationSubtextDefault,
-    dismissConfirmationPrimaryActionText: dismissConfirmationPrimaryActionTextDefault,
-    dismissConfirmationSecondaryActionText: dismissConfirmationSecondaryActionTextDefault,
-    dismissConfirmationPrimaryActionTextLabel: dismissConfirmationPrimaryActionTextLabelDefault,
-    dismissConfirmationSecondaryActionTextLabel: dismissConfirmationSecondaryActionTextLabelDefault,
+    dismissConfirmationMessage: messageDefault,
+    dismissConfirmationSubtext: subtextDefault,
+    dismissConfirmationPrimaryActionText: primaryActionTextDefault,
+    dismissConfirmationSecondaryActionText: secondaryActionTextDefault,
+    dismissConfirmationPrimaryActionTextLabel: primaryActionTextLabelDefault,
+    dismissConfirmationSecondaryActionTextLabel: secondaryActionTextLabelDefault,
   } = useDefaultLabelContext('Sheet');
 
   useEffect(() => {
@@ -67,9 +68,7 @@ export default function SheetConfirmationPopover({
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
     function handleKeyDown(event) {
-      if (event.keyCode === ESCAPE) {
-        event.stopPropagation();
-      }
+      if (event.keyCode === ESCAPE) event.stopPropagation();
     }
     window.addEventListener('keydown', handleKeyDown);
 
@@ -92,44 +91,30 @@ export default function SheetConfirmationPopover({
           <Flex direction="column" gap={4}>
             <Box role="alert">
               <Flex direction="column" gap={2} alignItems="center" width="100%">
-                <Text weight="bold">
-                  {dismissConfirmation?.message ?? dismissConfirmationMessageDefault}
-                </Text>
-                <Text>{dismissConfirmation?.subtext ?? dismissConfirmationSubtextDefault}</Text>
+                <Text weight="bold">{message ?? messageDefault}</Text>
+                <Text>{subtext ?? subtextDefault}</Text>
               </Flex>
             </Box>
             <Flex justifyContent="center" gap={2}>
               <Button
                 accessibilityLabel={
-                  dismissConfirmation?.secondaryAction?.accessibilityLabel ??
-                  dismissConfirmationSecondaryActionTextLabelDefault
+                  secondaryAction?.accessibilityLabel ?? secondaryActionTextLabelDefault
                 }
                 color="gray"
-                text={
-                  dismissConfirmation?.secondaryAction?.text ??
-                  dismissConfirmationSecondaryActionTextDefault
-                }
+                text={secondaryAction?.text ?? secondaryActionTextDefault}
                 onClick={({ event }) => {
-                  if (typeof dismissConfirmation !== 'boolean') {
-                    dismissConfirmation?.secondaryAction?.onClick?.({ event });
-                  }
+                  secondaryAction?.onClick?.({ event });
                   onDismiss();
                 }}
               />
               <Button
                 color="red"
                 accessibilityLabel={
-                  dismissConfirmation?.primaryAction?.accessibilityLabel ??
-                  dismissConfirmationPrimaryActionTextLabelDefault
+                  primaryAction?.accessibilityLabel ?? primaryActionTextLabelDefault
                 }
-                text={
-                  dismissConfirmation?.primaryAction?.text ??
-                  dismissConfirmationPrimaryActionTextDefault
-                }
+                text={primaryAction?.text ?? primaryActionTextDefault}
                 onClick={({ event }) => {
-                  if (typeof dismissConfirmation !== 'boolean') {
-                    dismissConfirmation?.primaryAction?.onClick?.({ event });
-                  }
+                  primaryAction?.onClick?.({ event });
                   onAnimatedDismiss();
                 }}
                 ref={confirmationButtonRef}

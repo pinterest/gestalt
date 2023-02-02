@@ -285,10 +285,7 @@ describe('Sheet', () => {
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
-    if (!(backDrop instanceof HTMLElement)) {
-      throw new Error('Backdrop should be an HTMLElement');
-    }
-    fireEvent.click(backDrop);
+    if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
 
@@ -311,10 +308,7 @@ describe('Sheet', () => {
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
-    if (!(backDrop instanceof HTMLElement)) {
-      throw new Error('Backdrop should be an HTMLElement');
-    }
-    fireEvent.click(backDrop);
+    if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
     fireEvent.animationEnd(screen.getAllByRole('dialog')[0]);
 
@@ -386,10 +380,7 @@ describe('Sheet', () => {
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
-    if (!(backDrop instanceof HTMLElement)) {
-      throw new Error('Backdrop should be an HTMLElement');
-    }
-    fireEvent.click(backDrop);
+    if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
     fireEvent.animationEnd(screen.getAllByRole('dialog')[0]);
 
@@ -412,10 +403,7 @@ describe('Sheet', () => {
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
-    if (!(backDrop instanceof HTMLElement)) {
-      throw new Error('Backdrop should be an HTMLElement');
-    }
-    fireEvent.click(backDrop);
+    if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
     expect(
       screen.getByText('No, go back', {
@@ -482,10 +470,7 @@ describe('Sheet', () => {
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
-    if (!(backDrop instanceof HTMLElement)) {
-      throw new Error('Backdrop should be an HTMLElement');
-    }
-    fireEvent.click(backDrop);
+    if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
     expect(
       screen.getByText(secondaryAction, {
