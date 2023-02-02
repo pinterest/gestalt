@@ -1,3 +1,9 @@
+## 93.0.0 (Feb 2, 2023)
+
+### Major
+
+- Sheet: implement dismiss confirmation modal and `dismissConfirmation` prop ([#2630](https://github.com/pinterest/gestalt/pull/2630)) - [Preview link](https://deploy-preview-2630--gestalt.netlify.app)
+
 ## 92.0.7 (Jan 31, 2023)
 
 ### Patch
