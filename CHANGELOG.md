@@ -1,3 +1,9 @@
+## 93.0.1 (Feb 3, 2023)
+
+### Patch
+
+- Docs: January newsletter ([#2634](https://github.com/pinterest/gestalt/pull/2634)) - [Preview link](https://deploy-preview-2634--gestalt.netlify.app)
+
 ## 93.0.0 (Feb 2, 2023)
 
 ### Major
