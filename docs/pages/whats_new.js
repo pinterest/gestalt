@@ -78,8 +78,11 @@ const radioButtons = [
 export default function Blog(): Node {
   const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
 
+  // Get all digests across years
+  const allDigests = blogPosts.reduce((acc, { digests }) => [...acc, ...digests], []);
+
   // We don't want to show empty digests, so remove if no posts for the current filter
-  const filteredDigests = blogPosts.digests
+  const filteredDigests = allDigests
     .map((digest) =>
       digest.posts.some(({ audience }) => filter === 'All' || audience.includes(filter))
         ? digest

@@ -13,7 +13,7 @@ type Month = {|
   +posts: $ReadOnlyArray<Post>,
 |};
 
-declare module.exports: {|
+declare module.exports: $ReadOnlyArray<{|
   +year: string,
   +digests: $ReadOnlyArray<Week | Month>,
-|};
+|}>;

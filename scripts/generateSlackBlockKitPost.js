@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /* eslint import/no-dynamic-require: 0, no-console: 0 */
-
-const path = require('path');
-
-require('@babel/register');
-
 const chalk = require('chalk');
+const path = require('path');
+require('@babel/register');
 
 function logSuccess(message) {
   console.log(chalk.green(`✅ ${message}`));
 }
 
+// TODO:
+// - support eng/design specific content (intro, outro)
+// - week vs year specifier
+// - rework the JSON to handle dates better (not repeat year, better support programmatic munging)
+
 (async function generateSlackBlockKitPost() {
   // eslint-disable-next-line global-require
-  const latestBlogData = require(path.join(__dirname, '..', 'docs', 'pages', 'BlogPosts.json'))
+  const latestBlogData = require(path.join(__dirname, '..', 'docs', 'pages', 'BlogPosts.json'))[0]
     .digests[0];
   const startingString = `{
     "blocks": [
