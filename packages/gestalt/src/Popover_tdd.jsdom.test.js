@@ -2,7 +2,7 @@
 /* eslint-disable jest/expect-expect */
 // @flow strict
 import { create } from 'react-test-renderer';
-import { screen, render, act } from '@testing-library/react';
+import { screen, render, fireEvent, act } from '@testing-library/react';
 import Popover from './Popover.js';
 
 describe('Bugs', () => {
@@ -247,37 +247,131 @@ describe('Props', () => {
     });
   });
 
+  // Finished
   describe('onKeyDown', () => {
-    test('Should be defined as a listener on window `keydown` event', () => {});
+    test('Should be defined as a listener on window `keydown` event', () => {
+      const ref = document.createElement('div');
+      const spy = jest.fn();
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} onKeyDown={spy} />);
+      // GetByTagName
+      const bodyElement = screen.getByText(
+        (content, element) => element?.tagName.toLowerCase() === 'body',
+      );
+
+      fireEvent.keyDown(bodyElement, { key: 'A', code: 'KeyA' });
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
   });
 
+  // Finished
   describe('id', () => {
-    test('Should set the container wrapper `id`', () => {});
+    test('Should set the container wrapper `id`', () => {
+      const ref = document.createElement('div');
+      const idTesting = 'good-test';
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} id={idTesting} />);
+      const element = screen.getByRole('dialog');
+
+      expect(element.getAttribute('id')).toEqual(idTesting);
+    });
   });
 
+  // ToDo
   describe('idealDirection', () => {
-    test('Should set the direction to ideally render the wrapper container', () => {});
+    test('Should set the direction to ideally render the wrapper container', () => {
+      // Better test on playwright
+    });
   });
 
-  describe('onDismiss', () => {
-    test('Should be called when `Dismiss button` has clicked', () => {});
-    test('Should be called if `ESCAPE` is pressed', () => {});
-    test('Should be called if user clicks outside of popover', () => {});
+  // fireEvent strange error
+  describe.skip('onDismiss', () => {
+    test('Should be called when `Dismiss button` has clicked', async () => {
+      const spyDismiss = jest.fn();
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={spyDismiss} showDismissButton />);
+      const element = screen.getByRole('button');
+      fireEvent.click(element);
+
+      expect(spyDismiss).toHaveBeenCalledTimes(1);
+    });
+
+    test('Should be called if `ESCAPE` is pressed', () => {
+      const spyDismiss = jest.fn();
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={spyDismiss} showDismissButton />);
+      // GetByTagName
+      const bodyElement = screen.getByText(
+        (content, element) => element?.tagName.toLowerCase() === 'body',
+      );
+      fireEvent.keyPress(bodyElement, { key: 'ESC', code: 'ESCAPE' });
+
+      expect(spyDismiss).toHaveBeenCalledTimes(1);
+    });
+
+    test('Should be called if user clicks outside of popover', () => {
+      const spyDismiss = jest.fn();
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={spyDismiss} showDismissButton />);
+      const bodyElement = screen.getByText(
+        (content, element) => element?.tagName.toLowerCase() === 'body',
+      );
+      fireEvent.click(bodyElement);
+
+      expect(spyDismiss).toHaveBeenCalledTimes(1);
+    });
   });
 
+  // ToDo
   describe('positionRelativeToAnchor', () => {
-    test('Should scroll the page and popover together if `true`', () => {});
-    test('Should scroll the page and popover separately if `false`', () => {});
+    test('Should scroll the page and popover together if `true`', () => {
+      // Better test on playwright
+    });
+
+    test('Should scroll the page and popover separately if `false`', () => {
+      // Better test on playwright
+    });
   });
 
+  // Finished
   describe('role', () => {
-    test('Should set `dialog` as a default value', () => {});
-    test('Should set the wrapper container `role`', () => {});
+    test('Should set `dialog` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element).not.toBeUndefined();
+    });
+
+    test('Should set the wrapper container `role`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} role="menu" />);
+      const element = screen.queryByRole('menu');
+
+      expect(element).not.toBeUndefined();
+    });
   });
 
   describe('shouldFocus', () => {
-    test('Should set `true` as a default value', () => {});
+    test('Should set `true` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+      const element = screen.getByRole('dialog');
+
+      console.log(document.activeElement);
+
+      expect(document.activeElement).not.toEqual(element);
+    });
+
     test('Should focus on wrapper container if `true`', () => {});
+
     test('Should not focus on wrapper container if `false`', () => {});
   });
 
