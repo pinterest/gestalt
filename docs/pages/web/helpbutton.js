@@ -72,7 +72,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             name="How to use"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-  <Checkbox id="created-pins" onChange={() => {}} />
+  <Checkbox labelDisplay="hidden" label="Created pins checkbox" id="created-pins" onChange={() => {}} />
   <Text>Pins created in the last 30 days</Text>
   <HelpButton
     text="Date range must include at least 1 day in the last 30 days"
