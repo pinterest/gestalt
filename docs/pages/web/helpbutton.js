@@ -93,12 +93,12 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
     text="Number of times people visited your website after seeing your content on Pinterest"
     accessibilityPopoverLabel="Number of times people visited your website after seeing your content on Pinterest"
   />
-  add-to-carts
+  {' '}add-to-carts{' '}
   <HelpButton
     text="Number of times people added your products to their carts after interacting with your Pins"
     accessibilityPopoverLabel="Number of times people added your products to their carts after interacting with your Pins"
   />
-  and checkouts
+  {' '}and checkouts
   <HelpButton
     text="Number of checkouts stemming from your Pins and ads"
     accessibilityPopoverLabel="Number of checkouts stemming from your Pins and ads"
@@ -179,7 +179,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             name="ZIndex HelpButton example"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-  <Text>This is Gestalt</Text>
+  <Text>Gestalt is Pinterest's design system.</Text>
   <HelpButton
     text="Is Pinterest's design system"
     accessibilityPopoverLabel="Gestalt meaning description"
