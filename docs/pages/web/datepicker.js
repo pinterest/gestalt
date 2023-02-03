@@ -97,16 +97,25 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         description={generatedDocGen?.description}
         defaultCode={`
 function DatePickerExample() {
-  const handleChange = (value) => value;
+  const [date, setDate] = React.useState(null)
 
   return (
     <DatePicker
       id="example-page-header"
       label="Select a date"
-      onChange={({ value }) => handleChange(value)}
+      onChange={({ value }) => {
+        const newYear = new Date(value)
+        const prevYear = new Date(date)
+        console.log(1, (prevYear.getFullYear() - newYear.getFullYear()) <= 0)
+        console.log(12, prevYear.getFullYear(), newYear.getFullYear())
+        if ((prevYear.getFullYear() - newYear.getFullYear()) <= 0 || date === null) {
+          console.log(123, (prevYear.getFullYear() - newYear.getFullYear()) <= 0 || date === null)
+          setDate(value)
+        }
+        }}
+      value={date}
     />
-  )
-}
+)}
     `}
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

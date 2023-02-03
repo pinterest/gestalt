@@ -257,7 +257,9 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
           <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
         }
         onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
-          setSelected(value);
+          if (!dateValue) {
+            setSelected(value);
+          }
           onChange({ event, value });
           updateNextRef(event.type === 'click');
         }}
