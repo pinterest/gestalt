@@ -1,3 +1,9 @@
+## 93.0.2 (Feb 6, 2023)
+
+### Patch
+
+- Internal: upgrade @playwright/test to 1.30.0 ([#2637](https://github.com/pinterest/gestalt/pull/2637)) - [Preview link](https://deploy-preview-2637--gestalt.netlify.app)
+
 ## 93.0.1 (Feb 3, 2023)
 
 ### Patch
