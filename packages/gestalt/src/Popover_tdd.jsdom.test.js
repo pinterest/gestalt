@@ -329,11 +329,11 @@ describe('Props', () => {
   // ToDo
   describe('positionRelativeToAnchor', () => {
     test('Should scroll the page and popover together if `true`', () => {
-      // Better test on playwright
+      // Better test on e2e
     });
 
     test('Should scroll the page and popover separately if `false`', () => {
-      // Better test on playwright
+      // Better test on e2e
     });
   });
 
