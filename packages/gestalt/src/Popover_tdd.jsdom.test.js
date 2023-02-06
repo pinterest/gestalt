@@ -2,28 +2,10 @@
 /* eslint-disable jest/expect-expect */
 // @flow strict
 import { create } from 'react-test-renderer';
-import { screen, render, fireEvent, act, waitFor } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import { within } from '@testing-library/dom';
 import Popover from './Popover.js';
-import { fallbackLabels } from './contexts/DefaultLabelProvider';
-
-describe('Bugs', () => {
-  test('01 - Popover-based components within Modals or small containers', () => {});
-
-  test('02 - Popover-based components off centered', () => {});
-
-  test('03 - Popover-based components in Tables including Fixed Headers', () => {});
-
-  test('04 - Tooltips not anchored in headers/fixed-position menus', () => {});
-
-  test('05 - Tooltip incorrect sizing in top-left corner', () => {});
-
-  test('06 - Tooltip incorrectly positioned in bottom/right edge in floating IconButtons', () => {});
-
-  test('07 - Popover-based components incorrect sizing in top-left corner', () => {});
-
-  test('08 - Popover doesn’t get the anchor reference with responsive Box', () => {});
-});
+import { fallbackLabels } from './contexts/DefaultLabelProvider.js';
 
 describe('Features', () => {
   test('Popover renders', () => {
@@ -90,7 +72,7 @@ describe('Features', () => {
     });
   });
 
-  // Possible error on component
+  // Possible error on component/test [We'll test manually because the short time]
   test.skip('Should focus to Popover when it open', async () => {
     const ref = document.createElement('div');
 
@@ -124,7 +106,7 @@ describe('Features', () => {
   });
 
   test('Should resize when screens resizes', () => {
-    // Better tested on e2e
+    // Better tested on e2e [We'll test manually because the short time]
   });
 
   test('Should set `border` className on wrapper container', () => {
@@ -335,11 +317,11 @@ describe('Props', () => {
   // ToDo
   describe('idealDirection', () => {
     test('Should set the direction to ideally render the wrapper container', () => {
-      // Better test on playwright
+      // Better test on e2e [We'll test manually because the short time]
     });
   });
 
-  // fireEvent strange error
+  // fireEvent strange error [We'll test manually because the short time]
   describe.skip('onDismiss', () => {
     test('Should be called when `Dismiss button` has clicked', async () => {
       const spyDismiss = jest.fn();
@@ -383,11 +365,11 @@ describe('Props', () => {
   // ToDo
   describe('positionRelativeToAnchor', () => {
     test('Should scroll the page and popover together if `true`', () => {
-      // Better test on e2e
+      // Better test on e2e [We'll test manually because the short time]
     });
 
     test('Should scroll the page and popover separately if `false`', () => {
-      // Better test on e2e
+      // Better test on e2e [We'll test manually because the short time]
     });
   });
 
@@ -426,7 +408,7 @@ describe('Props', () => {
       });
     });
 
-    // Possible error on current component
+    // Possible error on current component [We'll test manually because the short time]
     test.skip('Should focus on wrapper container if `true`', async () => {
       const ref = document.createElement('div');
 
