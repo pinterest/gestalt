@@ -4,6 +4,23 @@ exports[`Badge renders 1`] = `
 <div
   className="Badge middle infoBase"
 >
-  Badge
+  <div
+    className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box xsDisplayInlineBlock"
+        style={
+          Object {
+            "marginTop": "2px",
+          }
+        }
+      >
+        Badge
+      </div>
+    </div>
+  </div>
 </div>
 `;

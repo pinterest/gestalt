@@ -4,19 +4,6 @@
   composes: rounding1 from "./Borders.css";
   composes: fontWeightSemiBold from "./Typography.css";
   color: var(--color-text-inverse);
-  font-size: 10px;
-  height: min-content;
-  margin-top: -4px;
-  padding: 2px 4px;
-  white-space: nowrap;
-}
-
-.NewBadge {
-  composes: antialiased sansSerif from "./Typography.css";
-  composes: inlineBlock from "./Layout.css";
-  composes: rounding1 from "./Borders.css";
-  composes: fontWeightSemiBold from "./Typography.css";
-  color: var(--color-text-inverse);
   font-size: 14px;
   height: 20px;
   padding: 2px 6px;
