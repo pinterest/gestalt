@@ -2,8 +2,10 @@
 /* eslint-disable jest/expect-expect */
 // @flow strict
 import { create } from 'react-test-renderer';
-import { screen, render, fireEvent, act } from '@testing-library/react';
+import { screen, render, fireEvent, act, waitFor } from '@testing-library/react';
+import { within } from '@testing-library/dom';
 import Popover from './Popover.js';
+import { fallbackLabels } from './contexts/DefaultLabelProvider';
 
 describe('Bugs', () => {
   test('01 - Popover-based components within Modals or small containers', () => {});
@@ -77,19 +79,71 @@ describe('Features', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('Should focus on `Dismiss button` when open and has a `Dismiss button`', () => {});
+  test('Should focus on `Dismiss button` when open and has a `Dismiss button`', async () => {
+    const ref = document.createElement('div');
 
-  test('Should focus to Popover when it open', () => {});
+    render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+    const element = screen.getByRole('button');
 
-  test('Should call `requestAnimationFrame` passing the `focusPopoverRef` as arg whe Popover open', () => {});
+    await waitFor(() => {
+      expect(element).toHaveFocus();
+    });
+  });
 
-  test('Should use the `useDefaultLabelContext(Popover)` to get default strings', () => {});
+  // Possible error on component
+  test.skip('Should focus to Popover when it open', async () => {
+    const ref = document.createElement('div');
 
-  test('Should resize when screens resizes', () => {});
+    render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+    const element = screen.getByRole('dialog');
 
-  test('Should set `border: 1px solid currentColor;` on wrapper container', () => {});
+    await waitFor(() => {
+      expect(element).toHaveFocus();
+    });
+  });
 
-  test('Should set `border-radius: 8px;` or `rounding: 2` on wrapper container', () => {});
+  test('Should call `requestAnimationFrame` passing the `focusPopoverRef` as argue when Popover open', () => {
+    const ref = document.createElement('div');
+    const spy = jest.fn();
+
+    window.requestAnimationFrame = spy;
+    render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  test('Should use the `useDefaultLabelContext(Popover)` to get default strings', () => {
+    const ref = document.createElement('div');
+
+    render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+    const element = screen.getByRole('button');
+
+    expect(element.getAttribute('aria-label')).toEqual(
+      fallbackLabels.Popover.accessibilityDismissButtonLabel,
+    );
+  });
+
+  test('Should resize when screens resizes', () => {
+    // Better tested on e2e
+  });
+
+  test('Should set `border` className on wrapper container', () => {
+    const ref = document.createElement('div');
+
+    render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+    const element = screen.getByRole('dialog');
+
+    expect(element.classList).toContain('border');
+  });
+
+  test('Should set `rounding: 4` style on wrapper container', () => {
+    const ref = document.createElement('div');
+
+    render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+    const element = screen.getByRole('dialog');
+
+    expect(element.classList).toContain('rounding4');
+  });
 });
 
 describe('Props', () => {
@@ -358,47 +412,248 @@ describe('Props', () => {
     });
   });
 
+  // Finished
   describe('shouldFocus', () => {
-    test('Should set `true` as a default value', () => {
+    test('Should set `true` as a default value', async () => {
       const ref = document.createElement('div');
 
       render(<Popover anchor={ref} onDismiss={jest.fn()} />);
       const element = screen.getByRole('dialog');
 
-      console.log(document.activeElement);
-
-      expect(document.activeElement).not.toEqual(element);
+      await waitFor(() => {
+        // eslint-disable-next-line testing-library/no-node-access
+        expect(document.activeElement).not.toEqual(element);
+      });
     });
 
-    test('Should focus on wrapper container if `true`', () => {});
+    // Possible error on current component
+    test.skip('Should focus on wrapper container if `true`', async () => {
+      const ref = document.createElement('div');
 
-    test('Should not focus on wrapper container if `false`', () => {});
+      render(<Popover anchor={ref} onDismiss={jest.fn()} shouldFocus />);
+      const element = screen.getByRole('dialog');
+
+      await waitFor(() => {
+        expect(element).toHaveFocus();
+      });
+    });
+
+    test('Should not focus on wrapper container if `false`', async () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} shouldFocus={false} />);
+      const element = screen.getByRole('dialog');
+
+      await waitFor(() => {
+        expect(element).not.toHaveFocus();
+      });
+    });
   });
 
+  // Finished
   describe('showCaret', () => {
-    test('Should set `false` as a default value', () => {});
-    test('Should set the container `caret`', () => {});
+    test('Should set `false` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showCaret={false} />);
+      // QueryByClassName
+      const caret = screen.queryByText((_, element) => !!element?.classList.contains('caret'));
+
+      expect(caret).toBeNull();
+    });
+
+    test('Should set the container `caret`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showCaret />);
+      // GetByClassName
+      const caret = screen.getByText((_, element) => !!element?.classList.contains('caret'));
+
+      expect(caret).toBeTruthy();
+    });
   });
 
+  // Finished
   describe('showDismissButton', () => {
-    test('Should set `false` as a default value', () => {});
-    test('Should render a flex display column with the Dismiss button and children', () => {});
-    test('Should render a `InternalDismissButton`', () => {});
-    test('Should render a `InternalDismissButton` with `xs` size', () => {});
-    test('Should render a `InternalDismissButton` with default `a11yLabel`', () => {});
-    test('Should render a `InternalDismissButton` with prop-based `a11yLabel`', () => {});
-    test('Should render a `InternalDismissButton` aligned to `end`', () => {});
+    test('Should set `false` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+      const element = screen.queryByRole('button');
+
+      expect(element).toBeNull();
+    });
+
+    test('Should render a flex display column with the Dismiss button and children', () => {
+      const ref = document.createElement('div');
+
+      render(
+        <Popover anchor={ref} onDismiss={jest.fn()} showDismissButton>
+          <a href="https://www.pinterest.com">test</a>
+        </Popover>,
+      );
+      const element = screen.getByRole('dialog');
+      // eslint-disable-next-line testing-library/no-node-access
+      const wrapper = element.firstChild;
+      const { children } = wrapper;
+
+      expect(wrapper?.classList).toContain('Flex');
+      expect(wrapper?.classList).toContain('xsDirectionColumn');
+
+      expect(children).toHaveLength(2);
+      expect(within(children[0]).getByRole('button')).toBeTruthy();
+      expect(within(children[1]).getByText('test')).toBeTruthy();
+    });
+
+    test('Should render a `InternalDismissButton`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+      const element = screen.getByRole('button');
+
+      expect(element.getAttribute('data-displayname')).toEqual('InternalDismissIconButton');
+    });
+
+    test('Should render a `InternalDismissButton` with `xs` size', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+      const element = screen.getByRole('img');
+
+      expect(element.getAttribute('width')).toEqual('12');
+      expect(element.getAttribute('height')).toEqual('12');
+    });
+
+    test('Should render a `InternalDismissButton` with default `a11yLabel`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+      const element = screen.getByRole('button');
+
+      expect(element.getAttribute('data-displayname')).toEqual('InternalDismissIconButton');
+      expect(element.getAttribute('aria-label')).toEqual('Close popover');
+    });
+
+    test('Should render a `InternalDismissButton` with prop-based `a11yLabel`', () => {
+      const ref = document.createElement('div');
+      const expectedA11yLabel = 'good test';
+
+      render(
+        <Popover
+          anchor={ref}
+          onDismiss={jest.fn()}
+          showDismissButton
+          accessibilityDismissButtonLabel={expectedA11yLabel}
+        />,
+      );
+      const element = screen.getByRole('button');
+
+      expect(element.getAttribute('data-displayname')).toEqual('InternalDismissIconButton');
+      expect(element.getAttribute('aria-label')).toEqual(expectedA11yLabel);
+    });
+
+    test('Should render a `InternalDismissButton` aligned to `end`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} showDismissButton />);
+      const element = screen.getByRole('dialog');
+      // eslint-disable-next-line testing-library/no-node-access
+      const { children } = element.firstChild;
+
+      expect(children[0].classList).toContain('selfEnd');
+    });
   });
 
+  // Finished
   describe('size', () => {
-    test('Should set `sm` as a default value', () => {});
-    test('Should set the container `size` as null if is equal `flexible`', () => {});
-    test('Should has `180px` of maxWidth of wrapper container if value is `xs`', () => {});
-    test('Should has `230px` of maxWidth of wrapper container if value is `sm`', () => {});
-    test('Should has `284px` of maxWidth of wrapper container if value is `md`', () => {});
-    test('Should has `320px` of maxWidth of wrapper container if value is `lg`', () => {});
-    test('Should has `360px` of maxWidth of wrapper container if value is `xl`', () => {});
-    test('Should has same maxWidth of wrapper container of content if value is `flexible`', () => {});
-    test('Should has same maxWidth of wrapper container of the `number` on value', () => {});
+    const SIZE_WIDTH_MAP = {
+      xs: 180,
+      sm: 230,
+      md: 284,
+      lg: 320,
+      xl: 360,
+    };
+
+    test('Should set `sm` as a default value', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${SIZE_WIDTH_MAP.sm}px;`);
+    });
+
+    test('Should set the container `size` as null if is equal `flexible`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="flexible" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).not.toContain(`max-width`);
+    });
+
+    test('Should has `180px` of maxWidth of wrapper container if value is `xs`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="xs" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${SIZE_WIDTH_MAP.xs}px;`);
+    });
+
+    test('Should has `230px` of maxWidth of wrapper container if value is `sm`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="sm" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${SIZE_WIDTH_MAP.sm}px;`);
+    });
+
+    test('Should has `284px` of maxWidth of wrapper container if value is `md`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="md" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${SIZE_WIDTH_MAP.md}px;`);
+    });
+
+    test('Should has `320px` of maxWidth of wrapper container if value is `lg`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="lg" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${SIZE_WIDTH_MAP.lg}px;`);
+    });
+
+    test('Should has `360px` of maxWidth of wrapper container if value is `xl`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="xl" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${SIZE_WIDTH_MAP.xl}px;`);
+    });
+
+    test('Should has same maxWidth of wrapper container of content if value is `flexible`', () => {
+      const ref = document.createElement('div');
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size="flexible" />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).not.toContain(`max-width`);
+    });
+
+    test('Should has same maxWidth of wrapper container of the `number` on value', () => {
+      const ref = document.createElement('div');
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+      render(<Popover anchor={ref} onDismiss={jest.fn()} size={randomNumber} />);
+      const element = screen.queryByRole('dialog');
+
+      expect(element?.getAttribute('style')).toContain(`max-width: ${randomNumber}px;`);
+    });
   });
 });

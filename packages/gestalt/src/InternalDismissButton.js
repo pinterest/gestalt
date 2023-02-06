@@ -100,6 +100,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
         onTouchStart={handleTouchStart}
         ref={innerRef}
         type="button"
+        data-displayname="InternalDismissIconButton" // Valid testing to identify this component
       >
         <div
           className={classnames(styles.button, touchableStyles.tapTransition, styles.enabled, {
