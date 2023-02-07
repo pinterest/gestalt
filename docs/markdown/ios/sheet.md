@@ -28,7 +28,7 @@ fullwidth: true
 ## Mobile best practices
 
 - Sheets should be triggered by the users action, like tapping on a button.
-- Use a sheet for non-imersive content and simple tasks.
+- Use a sheet for non-immersive content and simple tasks.
 - Sheets always sit in front of other UI elements.
 
 <TwoCol>
@@ -102,7 +102,7 @@ Sheets can utilize several navigation actions.
 4. **Grabber**
    A Grabber is a short gray line at the top of the sheet that tells the user that the sheet can be collapsed or expanded.
 5. **Outside click**
-   For the Partial Sheet and Action Sheet the user may be able to tap outside of the sheet to exit.
+   For the Partial sheet and Action sheet the user may be able to tap outside of the sheet to exit.
 
 ### Animation
 

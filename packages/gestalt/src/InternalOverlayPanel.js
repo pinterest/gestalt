@@ -11,8 +11,8 @@ import focusStyles from './Focus.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import InternalDismissButton from './InternalDismissButton.js';
-import SheetConfirmationPopover from './SheetConfirmationPopover.js';
-import sheetStyles from './Sheet.css';
+import OverlayPanelConfirmationPopover from './OverlayPanelConfirmationPopover.js';
+import overlayPanelStyles from './OverlayPanel.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
@@ -25,7 +25,7 @@ type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
 type InternalSheetProps = {|
   accessibilityDismissButtonLabel?: string,
-  accessibilitySheetLabel: string,
+  accessibilityLabel: string,
   children: NodeOrRenderProp,
   closeOnOutsideClick: boolean,
   footer: NodeOrRenderProp,
@@ -69,7 +69,7 @@ const SIZE_WIDTH_MAP = {
 
 export default function InternalSheet({
   accessibilityDismissButtonLabel,
-  accessibilitySheetLabel,
+  accessibilityLabel,
   children,
   closeOnOutsideClick,
   dismissConfirmation,
@@ -88,7 +88,7 @@ export default function InternalSheet({
   const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
-    useDefaultLabelContext('Sheet');
+    useDefaultLabelContext('OverlayPanel');
 
   const contentRef = useRef<?HTMLElement>(null);
 
@@ -163,7 +163,7 @@ export default function InternalSheet({
 
   if (!!subHeading && !heading) {
     throw new Error(
-      `Gestalt Sheet's \`subHeading\` prop requires to be along with \`heading\` prop. Remove this prop or add \`heading\``,
+      `Gestalt OverlayPanel's \`subHeading\` prop requires to be along with \`heading\` prop. Remove this prop or add \`heading\``,
     );
   }
 
@@ -176,7 +176,7 @@ export default function InternalSheet({
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div className={sheetStyles.container}>
+        <div className={overlayPanelStyles.container}>
           <Backdrop
             animationState={animationState}
             closeOnOutsideClick={closeOnOutsideClick}
@@ -184,10 +184,10 @@ export default function InternalSheet({
           >
             <div
               id={id}
-              aria-label={accessibilitySheetLabel}
-              className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
-                [sheetStyles.wrapperAnimationIn]: animationState === 'opening',
-                [sheetStyles.wrapperAnimationOut]: animationState === 'closing',
+              aria-label={accessibilityLabel}
+              className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
+                [overlayPanelStyles.wrapperAnimationIn]: animationState === 'opening',
+                [overlayPanelStyles.wrapperAnimationOut]: animationState === 'closing',
               })}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
@@ -269,7 +269,7 @@ export default function InternalSheet({
                   </Box>
                 )}
                 {showPopover && (
-                  <SheetConfirmationPopover
+                  <OverlayPanelConfirmationPopover
                     anchor={dismissButtonRef.current}
                     message={message}
                     subtext={subtext}

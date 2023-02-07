@@ -142,7 +142,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/05/32/5e/05325e5f6792659b31028fa875297ee7.png",
             "imageAltText": "Screenshot of Tag warning state",
-            "content": "We finally fixed a long-running issue with [Dropdown](https://gestalt.pinterest.systems/web/dropdown)/[Popover](https://gestalt.pinterest.systems/web/popover), where long lists of items could render partially off-screen. We tweaked the internal padding of [Modal](https://gestalt.pinterest.systems/web/modal) to more closely match Sheet's styling. [Tag](https://gestalt.pinterest.systems/web/tag#Warning) now has a warning state. And finally, we added `forwardRef` to [Text](https://gestalt.pinterest.systems/web/text#Refs) to help with certain specific situations."
+            "content": "We finally fixed a long-running issue with [Dropdown](https://gestalt.pinterest.systems/web/dropdown)/[Popover](https://gestalt.pinterest.systems/web/popover), where long lists of items could render partially off-screen. We tweaked the internal padding of [Modal](https://gestalt.pinterest.systems/web/modal) to more closely match OverlayPanel's styling. [Tag](https://gestalt.pinterest.systems/web/tag#Warning) now has a warning state. And finally, we added `forwardRef` to [Text](https://gestalt.pinterest.systems/web/text#Refs) to help with certain specific situations."
           },
           {
             "title": "Docs updates",
@@ -222,7 +222,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/c6/f5/b4/c6f5b4530ab4382757f609d592fe8ec0.png",
             "imageAltText": "Screenshot of messaging guidelines",
-            "content": "We added guidelines for [animation](https://gestalt.pinterest.systems/foundations/animation/principles) and [messaging](https://gestalt.pinterest.systems/foundations/messaging/overview) to our docs site. More specific components for these purposes will follow next year. Also a huge shout-out to Christian Vuerings for fixing the annoying bug on [Modal](https://gestalt.pinterest.systems/web/modal) and [Sheet](https://gestalt.pinterest.systems/web/sheet) where focus would get stolen as code examples lazy-loaded!"
+            "content": "We added guidelines for [animation](https://gestalt.pinterest.systems/foundations/animation/principles) and [messaging](https://gestalt.pinterest.systems/foundations/messaging/overview) to our docs site. More specific components for these purposes will follow next year. Also a huge shout-out to Christian Vuerings for fixing the annoying bug on [Modal](https://gestalt.pinterest.systems/web/modal) and [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) where focus would get stolen as code examples lazy-loaded!"
           }
         ]
       },
@@ -269,7 +269,7 @@
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/73/e2/f0/73e2f03ab772d964fc08e8384db38ee7.png",
             "imageAltText": "screenshot of gestalt component overview",
-            "content": "* We made the sorting affordance in our [Components Overview](https://gestalt.pinterest.systems/web/overview) pages clearer for those of you who want to group components by category.\n* We fixed a quite-annoying page jump issue on our [Sheet](https://gestalt.pinterest.systems/web/sheet) & [Modal](https://gestalt.pinterest.systems/web/modal) pages\n• We converted code samples for [Tabs](https://gestalt.pinterest.systems/web/tabs) and [Icon](https://gestalt.pinterest.systems/web/icon) over to our new-and-improved structure."
+            "content": "* We made the sorting affordance in our [Components Overview](https://gestalt.pinterest.systems/web/overview) pages clearer for those of you who want to group components by category.\n* We fixed a quite-annoying page jump issue on our [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) & [Modal](https://gestalt.pinterest.systems/web/modal) pages\n• We converted code samples for [Tabs](https://gestalt.pinterest.systems/web/tabs) and [Icon](https://gestalt.pinterest.systems/web/icon) over to our new-and-improved structure."
           },
           {
             "title": "Figma Gestalt library enhancements",
@@ -564,7 +564,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/a9/ff/3f/a9ff3f86646ec91de48344a8971cee10.png",
             "imageAltText": "screenshot of a Gestalt code example",
-            "content": "Last, but definitely not least, we have begun to upgrade the code blocks in our Gestalt docs to a new solution that should fix the long-standing issues with selecting text. So far we've updated [AvatarGroup](/web/avatargroup), [ComboBox](/web/combobox), [Modal](/web/modal), [Sheet](/web/sheet) and [SideNavigation](/web/sidenavigation). We have many more updates planned through September."
+            "content": "Last, but definitely not least, we have begun to upgrade the code blocks in our Gestalt docs to a new solution that should fix the long-standing issues with selecting text. So far we've updated [AvatarGroup](/web/avatargroup), [ComboBox](/web/combobox), [Modal](/web/modal), [OverlayPanel](/web/overlaypanel) and [SideNavigation](/web/sidenavigation). We have many more updates planned through September."
           }
         ]
       },
@@ -609,7 +609,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/19/5a/af/195aaf8a65f0d7ceaa3b685beadd23cd.png",
             "imageAltText": "Screenshot of new docs site",
-            "content": "If you've used [our docs site](https://gestalt.pinterest.systems/) over the past few weeks, you may have noticed that we completely overhauled the structure! These changes accommodate our expansion to include design guidance (and soon eng components!) for iOS and Android. This also allowed us to de-clutter the side nav, helping you find what you're looking for more quickly. Also check out the new code example style we're migrating to on the [Modal](https://gestalt.pinterest.systems/web/modal) or [Sheet](https://gestalt.pinterest.systems/web/sheet) pages. This will finally fix the persistent and annoying problems we've had with our existing code examples."
+            "content": "If you've used [our docs site](https://gestalt.pinterest.systems/) over the past few weeks, you may have noticed that we completely overhauled the structure! These changes accommodate our expansion to include design guidance (and soon eng components!) for iOS and Android. This also allowed us to de-clutter the side nav, helping you find what you're looking for more quickly. Also check out the new code example style we're migrating to on the [Modal](https://gestalt.pinterest.systems/web/modal) or [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) pages. This will finally fix the persistent and annoying problems we've had with our existing code examples."
           },
           {
             "title": "New component: SideNavigation",
@@ -931,11 +931,11 @@
             "content": "We simplified our light mode components with Figma’s new boolean visibility and text property variants. We then made their dark mode equivalents and sticker sheets for the most used components. The remaining components will be updated for dark mode after Android components have similar coverage as compared to iOS."
           },
           {
-            "title": "Figma placeholders for Sheet and Modal components",
+            "title": "Figma placeholders for OverlayPanel and Modal components",
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/5b/44/3f/5b443f09a5ac2bb3feb160d6de033ef0.png",
-            "imageAltText": "Screenshot of Modal and Sheet components",
-            "content": "Who loves a good placeholder component? We do! Placeholder components will enable you to more easily utilize our container-esque components, like Modal and Sheet. And now, besides our [Web Modal component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A29633), the placeholder is also available to test in our [Sheet component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17902), and [Module component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=4068%3A7200). Check it out! We would love to hear your feedback."
+            "imageAltText": "Screenshot of Modal and OverlayPanel components",
+            "content": "Who loves a good placeholder component? We do! Placeholder components will enable you to more easily utilize our container-esque components, like Modal and OverlayPanel. And now, besides our [Web Modal component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A29633), the placeholder is also available to test in our [OverlayPanel component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A17902), and [Module component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=4068%3A7200). Check it out! We would love to hear your feedback."
           },
           {
             "title": "Figma IconButton on iOS and Web",

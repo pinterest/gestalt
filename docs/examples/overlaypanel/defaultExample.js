@@ -9,8 +9,8 @@ import {
   FixedZIndex,
   Flex,
   Layer,
+  OverlayPanel,
   RadioButton,
-  Sheet,
   Text,
   TextField,
 } from 'gestalt';
@@ -32,13 +32,13 @@ export default function AccessibilityExample(): Node {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View example Sheet" onClick={() => setShouldShow(true)} />
+        <Button text="View example OverlayPanel" onClick={() => setShouldShow(true)} />
       </Box>
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close audience creation sheet"
-            accessibilitySheetLabel="Audience list creation for new campaign"
+          <OverlayPanel
+            accessibilityDismissButtonLabel="Close audience creation overlay panel"
+            accessibilityLabel="Audience list creation for new campaign"
             heading="Create a new audience list"
             onDismiss={() => setShouldShow(false)}
             footer={footer}
@@ -184,7 +184,7 @@ export default function AccessibilityExample(): Node {
                 />
               </Flex>
             </Flex>
-          </Sheet>
+          </OverlayPanel>
         </Layer>
       )}
     </Fragment>

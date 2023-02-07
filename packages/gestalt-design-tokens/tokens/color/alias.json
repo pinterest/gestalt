@@ -294,7 +294,7 @@
         "floating": {
           "value": "transparent",
           "darkValue": "{color.gray.roboflow.700.value}",
-          "comment": "Background color used for floating elements in dark mode (like Modal or Sheet) "
+          "comment": "Background color used for floating elements in dark mode (like Modal or OverlayPanel) "
         },
         "raised": {
           "value": "transparent",

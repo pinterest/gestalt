@@ -62,7 +62,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             title="When not to use"
             description={`
-          - Requesting large forms of information. Consider [Sheet](/web/sheet) or new page instead.
+          - Requesting large forms of information. Consider [OverlayPanel](/web/overlaypanel) or new page instead.
           - Any action that should not interrupt users from their current work stream, such as saving a Pin. Use [Toast](/web/toast) instead.
           - When alerting users of issues that can be corrected on the page or surface itself without interrupting their flow. Instead use [Callout](/web/callout) or [SlimBanner](/web/slimbanner).
         `}
@@ -156,7 +156,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use ModalAlert for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or Sheet."
+            description="Use ModalAlert for long and complex content or tasks, or for content that should have a dedicated surface, like login flows. If extra functionality is needed in an overlay, use Modal or OverlayPanel."
             sandpackExample={
               <SandpackExample
                 code={dontLongContent}

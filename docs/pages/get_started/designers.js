@@ -27,7 +27,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
 1. You may be able to download Figma directly from the [Figma Website](https://www.figma.com/downloads/). If you do not have the appropriate access you can request access through the [Pinterest Approved Software Collection](http://w.pinadmin.com/display/SOFTWARE/Figma).
 2. Once you have Figma on your computer, you can open the application and select “Log in with SAML SSO.” From there, enter your Pinterest email address and open Figma.
 3. From the left-hand column, select “Pinterest” and join the Gestalt team to gain access to the Gestalt asset libraries and documentation.
-4. When creating or opening an existing design file, you should see the Gestalt components populate under the “Assets” tab in the left-hand column. Libraries include Web Sticker Sheet, IOS Sticker Sheet, Android Library, Gestalt Icons, and Platform Extras.
+4. When creating or opening an existing design file, you should see the Gestalt components populate under the “Assets” tab in the left-hand column. Libraries include Web Sticker OverlayPanel, IOS Sticker Sheet, Android Library, Gestalt Icons, and Platform Extras.
 5. The [#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) Slack channel is always here to support you.
           `}
         />

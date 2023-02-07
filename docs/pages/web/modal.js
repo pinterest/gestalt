@@ -51,7 +51,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             title="When not to use"
             description={`
           - Any time a separate, designated URL is desired.
-          - Requesting large forms of information. Consider a [Sheet](/web/sheet) or new page instead.
+          - Requesting large forms of information. Consider [OverlayPanel](/web/overlaypanel) or new page instead.
           - Any action that should not interrupt users from their current work stream.
           - On top of another modal, since this can create usability issues and confusion.
         `}
@@ -106,7 +106,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use Modal for content that should have a dedicated surface, like login flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using a [Sheet](/web/sheet)."
+            description="Use Modal for content that should have a dedicated surface, like login flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using [OverlayPanel](/web/overlaypanel)."
           />
           <MainSection.Card
             cardSize="lg"
@@ -116,7 +116,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Add additional task-based Modals to the Pinner product. While these are currently used in some Pinner surfaces for editing, consider using a full page, Sheet, Flyout or inline editing for a better user experience."
+            description="Add additional task-based Modals to the Pinner product. While these are currently used in some Pinner surfaces for editing, consider using a full page, OverlayPanel, Flyout or inline editing for a better user experience."
           />
         </MainSection.Subsection>
       </MainSection>
@@ -269,8 +269,8 @@ For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice 
 **[ModalAlert](/web/modalalert)**
 Used to alert a user of an issue, or to request confirmation after a user-triggered action. Should be used instead of Modal for simple acknowledgments and confirmations.
 
-**[Sheet](/web/sheet)**
-To allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page, use Sheet.
+**[OverlayPanel](/web/overlaypanel)**
+To allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page, use OverlayPanel.
 
 **[Toast](/web/toast)**
 Toast provides temporary feedback on an interaction. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of blocking the entire page.

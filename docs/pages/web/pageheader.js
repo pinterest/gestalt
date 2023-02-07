@@ -58,7 +58,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
             type="don't"
             title="When not to use"
             description={`
-- As a header for an overlay surface like a Modal, Popover or Sheet
+- As a header for an overlay surface like a Modal, Popover or OverlayPanel
 - As page navigation
 - As a title for sections inside of a page—there should only be one page header on a page
 - As a toolbar
@@ -176,7 +176,7 @@ Keep additional help buttons and links to a minimum, choosing one source of help
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open a [Sheet](/web/sheet) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
+            description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open an [OverlayPanel](/web/overlaypanel) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
             sandpackExample={
               <SandpackExample
                 code={dontOverloadExample}

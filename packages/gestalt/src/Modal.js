@@ -213,7 +213,7 @@ export default function Modal({
                     )}
                   </Box>
                 )}
-                {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to Sheet */}
+                {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to OverlayPanel */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
                   <Box
                     flex="grow"

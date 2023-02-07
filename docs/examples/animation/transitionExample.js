@@ -31,7 +31,7 @@ export default function Example(): Node {
         />
       </Box>
       <Text align="center" italic>
-        A Sheet transitions in and out from the side of the screen using animation
+        An OverlayPanel transitions in and out from the side of the screen using animation
       </Text>
     </Flex>
   );

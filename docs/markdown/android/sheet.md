@@ -28,7 +28,7 @@ fullwidth: true
 ## Mobile best practices
 
 - Sheets should be triggered by the users action, like tapping on a button.
-- Use a sheet for non-imersive content and simple tasks.
+- Use a sheet for non-immersive content and simple tasks.
 - Sheets always sit in front of other UI elements.
 
 <TwoCol>
@@ -40,7 +40,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/5d/3a/20/5d3a20657045824cb4b7d89263b6ec30.png" alt="a partial sheet with a button in the top right corner of the header"/>
     <Dont title="Don't" />
-    Include Buttons in the header of the Sheet as this can lead to sizing and internationalization problems.
+    Include Buttons in the header of Sheet as this can lead to sizing and internationalization problems.
   </Group>
 </TwoCol>
 
@@ -81,7 +81,7 @@ Sheets are available in three sizes.
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/df/d3/8f/dfd38f800948c6bc8f3cb5a53d575a87.png" alt="An Action Sheet that allows for sorting and organization" />
+<ImgContainer src="https://i.pinimg.com/originals/df/d3/8f/dfd38f800948c6bc8f3cb5a53d575a87.png" alt="An Action sheet that allows for sorting and organization" />
 **Action sheet**
 </Group>
 </ThreeCol>

@@ -65,7 +65,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                   <List.Item text="Hero banners" />
                   <List.Item text="Cards" />
                   <List.Item text="Carousels" />
-                  <List.Item text="Modals/Sheets" />
+                  <List.Item text="Modals/OverlayPanels" />
                 </List>
               </Flex>
             </Box>

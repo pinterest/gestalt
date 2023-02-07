@@ -263,9 +263,9 @@ function ScrollBoundaryContainerExample() {
         <MainSection.Subsection
           title="Built-in component"
           description={`
-Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
+Modal and OverlayPanel come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and ComboBox.`}
+The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and OverlayPanel is a form which includes Dropdown and ComboBox.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -282,12 +282,12 @@ function ScrollBoundaryContainerExample() {
 
   const MODAL_Z_INDEX = new FixedZIndex(11)
   const ANCHORED_Z_INDEX = new CompositeZIndex([MODAL_Z_INDEX])
-  const ParentComponent = parentComponent === 'modal' ? Modal : Sheet
+  const ParentComponent = parentComponent === 'modal' ? Modal : OverlayPanel
   const props =
     parentComponent === 'modal'
       ? { accessibilityModalLabel: '' }
       : {
-          accessibilityDismissButtonLabel: 'Dismiss Billing Information Sheet',
+          accessibilityDismissButtonLabel: 'Dismiss Billing Information OverlayPanel',
           accessibilitySheetLabel: '',
         };
 
@@ -303,12 +303,12 @@ function ScrollBoundaryContainerExample() {
           value="modal"
         />
         <RadioButton
-          checked={parentComponent === 'sheet'}
-          id="sheet"
-          label="Open Sheet"
+          checked={parentComponent === 'overlaypanel'}
+          id="overlaypanel"
+          label="Open OverlayPanel"
           name="parentComponent"
-          onChange={() => setParentComponent('sheet')}
-          value="sheet"
+          onChange={() => setParentComponent('overlaypanel')}
+          value="overlaypanel"
         />
         <Button
           text="Update Billing Address"
@@ -564,11 +564,11 @@ function ScrollBoundaryContainerExample() {
       **[Box](/web/box)**
       Box's [\`overflow\` prop](/web/box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/web/tooltip), [Popover](/web/popover), [ComboBox](/web/combobox)  or [Dropdown](/web/dropdown), are used within a container that could potentially scroll.
 
-      **[Modal](/web/modal)** / **[Sheet](/web/sheet)**
-      Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
+      **[Modal](/web/modal)** / **[OverlayPanel](/web/overlaypanel)**
+      Modal and OverlayPanel come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
       **[Tooltip](/web/tooltip)** / **[Popover](/web/popover)** / **[Dropdown](/web/dropdown)** / **[ComboBox](/web/combobox)**
-      ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
+      ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or OverlayPanel components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
         />
       </MainSection>

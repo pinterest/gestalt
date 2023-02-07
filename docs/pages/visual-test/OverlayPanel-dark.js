@@ -1,14 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
-import { ColorSchemeProvider, Sheet, Flex, Button, Box, Text } from 'gestalt';
+import { ColorSchemeProvider, OverlayPanel, Flex, Button, Box, Text } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" width={360} height={360} padding={1}>
-        <Sheet
+        <OverlayPanel
           accessibilityDismissButtonLabel="Test"
-          accessibilitySheetLabel="Test"
+          accessibilityLabel="Test"
           footer={
             <Flex justifyContent="end">
               <Button text="Submit" color="red" />
@@ -19,7 +19,7 @@ export default function Snapshot(): Node {
           size="sm"
         >
           <Text>Children</Text>
-        </Sheet>
+        </OverlayPanel>
       </Box>
     </ColorSchemeProvider>
   );

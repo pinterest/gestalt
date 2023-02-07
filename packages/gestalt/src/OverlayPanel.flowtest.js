@@ -1,78 +1,78 @@
 // @flow strict
 import { createRef } from 'react';
-import Sheet from './Sheet.js';
+import OverlayPanel from './OverlayPanel.js';
 
 const ValidWithNodeProps = (
-  <Sheet
+  <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
-    accessibilitySheetLabel="Sheet"
+    accessibilityLabel="OverlayPanel"
     closeOnOutsideClick
     footer={<footer />}
-    heading="Sheet title"
+    heading="OverlayPanel title"
     onDismiss={() => {}}
     ref={createRef()}
     size="sm"
     subHeading={<nav />}
   >
     <section />
-  </Sheet>
+  </OverlayPanel>
 );
 
 const ValidWithRenderProps = (
-  <Sheet
+  <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
-    accessibilitySheetLabel="Sheet"
+    accessibilityLabel="OverlayPanel"
     closeOnOutsideClick
     footer={({ onDismissStart }) => <footer />}
-    heading="Sheet title"
+    heading="OverlayPanel title"
     onDismiss={() => {}}
     ref={createRef()}
     size="sm"
     subHeading={({ onDismissStart }) => <nav />}
   >
     {({ onDismissStart }) => <section />}
-  </Sheet>
+  </OverlayPanel>
 );
 
 const InvalidWithRenderProps = (
-  <Sheet
+  <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
-    accessibilitySheetLabel="Sheet"
+    accessibilityLabel="OverlayPanel"
     // $FlowExpectedError[prop-missing]
     footer={({ onDismiss }) => <footer />}
-    heading="Sheet title"
+    heading="OverlayPanel title"
     onDismiss={() => {}}
     // $FlowExpectedError[prop-missing]
     subHeading={({ onDismiss }) => <nav />}
   >
     {/* $FlowExpectedError[prop-missing] */}
     {({ onDismiss }) => <section />}
-  </Sheet>
+  </OverlayPanel>
 );
 
 // $FlowExpectedError[prop-missing]
-const MissingProp = <Sheet />;
+const MissingProp = <OverlayPanel />;
 
 const NonExistingProp = (
   // $FlowExpectedError[prop-missing]
-  <Sheet
+  <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
-    accessibilitySheetLabel="Sheet"
+    accessibilityLabel="OverlayPanel"
     onDismiss={() => {}}
     nonExisting={33}
   >
     <section />
-  </Sheet>
+  </OverlayPanel>
 );
 
 const InvalidTypeProp = (
-  <Sheet
+  <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
-    accessibilitySheetLabel="Sheet"
+    accessibilityLabel="OverlayPanel"
     onDismiss={() => {}}
     // $FlowExpectedError[incompatible-type]
     size="xxl"
   >
     <section />
-  </Sheet>
+  </OverlayPanel>
 );

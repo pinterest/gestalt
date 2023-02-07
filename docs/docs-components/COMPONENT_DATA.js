@@ -36,7 +36,7 @@ import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
 import SideNavigation from '../graphics/general/SideNavigation.svg';
-import Sheet from '../graphics/general/Sheet.svg';
+import OverlayPanel from '../graphics/general/OverlayPanel.svg';
 import SlimBanner from '../graphics/general/SlimBanner.svg';
 import Spinner from '../graphics/general/Spinner.svg';
 import Status from '../graphics/general/Status.svg';
@@ -2021,11 +2021,11 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <Sheet />,
-    name: 'Sheet',
-    aliases: ['Drawer', 'Panel', 'Tray'],
+    svg: <OverlayPanel />,
+    name: 'OverlayPanel',
+    aliases: ['Drawer', 'Panel', 'Tray', 'Sheet'],
     description:
-      'Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.',
+      'OverlayPanels are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.',
     category: 'Overlays',
     status: {
       accessible: {

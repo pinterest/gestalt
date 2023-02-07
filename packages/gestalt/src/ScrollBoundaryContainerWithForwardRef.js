@@ -21,7 +21,7 @@ type InternalProps = {|
   padding?: Padding,
 |};
 
-// ScrollBoundaryContainerWithForwardRef is the ScrollBoundaryContainer to be used internally, within components (e. Modal, Sheet).
+// ScrollBoundaryContainerWithForwardRef is the ScrollBoundaryContainer to be used internally, within components (e. Modal, OverlayPanel).
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.
 const ScrollBoundaryContainerWithForwardRef: AbstractComponent<InternalProps, HTMLElement> =
   forwardRef<InternalProps, HTMLElement>(function ScrollBoundaryContainer(

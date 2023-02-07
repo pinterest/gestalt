@@ -56,7 +56,7 @@ export default function TypographyPage(): Node {
       >
         <MainSection.Subsection
           title="Animating UI elements"
-          description="UI elements refers to controls on a surface, like a card, button, sheet or Pin."
+          description="UI elements refers to controls on a surface, like a card, button, overlay panel or Pin."
         >
           <Flex gap={8} direction="column">
             <ThemeLayout
@@ -76,7 +76,7 @@ export default function TypographyPage(): Node {
                 <Heading size="300">Transitions</Heading>
                 <Markdown
                   text={`
-              Another common use case for animations is to show a transition between two states in the UI. For example, a search icon button may expand into an input field when interacted with, or a sheet may slide in from the side of the screen to draw attention to it. Transitional animations help draw the user's attention to particular pieces of the UI, ideally helping them complete a task.
+              Another common use case for animations is to show a transition between two states in the UI. For example, a search icon button may expand into an input field when interacted with, or an overlay panel may slide in from the side of the screen to draw attention to it. Transitional animations help draw the user's attention to particular pieces of the UI, ideally helping them complete a task.
 
               Transitional animations should also follow an intuitive flow. For example, a drawer that appears from the bottom on mobile should slide up from the bottom of the screen and slide back down upon dismissal.
               `}
@@ -157,7 +157,7 @@ export default function TypographyPage(): Node {
         />
         <MainSection.Subsection
           title="Axis considerations"
-          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like a sheet that slides in and out from the side of the screen, or a toast that pops up from the bottom of the screen."
+          description="Animations along an axis can be used to show transitions and educate users about navigation patterns. For example, items could animate along the z-axis to help relay stacking or depth, while items animated along an x-axis or y-axis can help relay navigation patterns, like an overlay panel that slides in and out from the side of the screen, or a toast that pops up from the bottom of the screen."
         />
         <MainSection.Subsection
           title="Animation origin"

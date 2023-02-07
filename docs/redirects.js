@@ -36,6 +36,7 @@ const webComponents = [
   'modal',
   'module',
   'numberfield',
+  'overlaypanel',
   'overview',
   'pageheader',
   'pog',
@@ -159,6 +160,11 @@ const misc = [
   {
     source: '/roadmap/overview',
     destination: '/roadmap',
+    permanent: true,
+  },
+  {
+    source: '/web/sheet',
+    destination: '/web/overlaypanel',
     permanent: true,
   },
   {

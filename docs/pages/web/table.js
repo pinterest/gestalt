@@ -958,7 +958,7 @@ function Example() {
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use an expand to display dense, highly-interactive content. Use a new page or a [Sheet](/web/sheet) for that."
+            description="Use an expand to display dense, highly-interactive content. Use a new page or [OverlayPanel](/web/overlaypanel) for that."
             defaultCode={`
 function MainExample() {
   const ExpandedContents = () => {

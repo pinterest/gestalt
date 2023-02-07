@@ -14,7 +14,7 @@
 
 ### Major
 
-- Sheet: implement dismiss confirmation modal and `dismissConfirmation` prop ([#2630](https://github.com/pinterest/gestalt/pull/2630)) - [Preview link](https://deploy-preview-2630--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): implement dismiss confirmation modal and `dismissConfirmation` prop ([#2630](https://github.com/pinterest/gestalt/pull/2630)) - [Preview link](https://deploy-preview-2630--gestalt.netlify.app)
 
 ## 92.0.7 (Jan 31, 2023)
 
@@ -56,7 +56,7 @@
 
 ### Patch
 
-- Docs: delete Modal, ModalAlert, Sheet examples used while developing ([#2624](https://github.com/pinterest/gestalt/pull/2624)) - [Preview link](https://deploy-preview-2624--gestalt.netlify.app)
+- Docs: delete Modal, ModalAlert, OverlayPanel (formerly Sheet) examples used while developing ([#2624](https://github.com/pinterest/gestalt/pull/2624)) - [Preview link](https://deploy-preview-2624--gestalt.netlify.app)
 
 ## 92.0.0 (Jan 25, 2023)
 
@@ -74,7 +74,7 @@
 
 ### Major
 
-- Sheet: internal refactors ([#2620](https://github.com/pinterest/gestalt/pull/2620)) - [Preview link](https://deploy-preview-2620--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): internal refactors ([#2620](https://github.com/pinterest/gestalt/pull/2620)) - [Preview link](https://deploy-preview-2620--gestalt.netlify.app)
 
 ## 90.2.0 (Jan 24, 2023)
 
@@ -308,7 +308,7 @@
 
 ### Patch
 
-- Modal, Sheet, Popover, Pulsar, SegmentedControl, Tabs: updated visual tests snapshots ([#2573](https://github.com/pinterest/gestalt/pull/2573)) - [Preview link](https://deploy-preview-2573--gestalt.netlify.app)
+- Modal, OverlayPanel (formerly Sheet), Popover, Pulsar, SegmentedControl, Tabs: updated visual tests snapshots ([#2573](https://github.com/pinterest/gestalt/pull/2573)) - [Preview link](https://deploy-preview-2573--gestalt.netlify.app)
 
 ## 85.1.4 (Dec 20, 2022)
 
@@ -470,7 +470,7 @@
 
 ### Patch
 
-- Sheet: reduce internal padding to from 8 to 6 boints ([#2535](https://github.com/pinterest/gestalt/pull/2535)) - [Preview link](https://deploy-preview-2535--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): reduce internal padding to from 8 to 6 boints ([#2535](https://github.com/pinterest/gestalt/pull/2535)) - [Preview link](https://deploy-preview-2535--gestalt.netlify.app)
 
 ## 83.6.1 (Dec 6, 2022)
 
@@ -542,7 +542,7 @@
 
 ### Patch
 
-- Modal, Sheet: Update shadows to new tokens ([#2514](https://github.com/pinterest/gestalt/pull/2514)) - [Preview link](https://deploy-preview-2514--gestalt.netlify.app)
+- Modal, OverlayPanel (formerly Sheet): Update shadows to new tokens ([#2514](https://github.com/pinterest/gestalt/pull/2514)) - [Preview link](https://deploy-preview-2514--gestalt.netlify.app)
 
 ## 83.5.2 (Dec 1, 2022)
 
@@ -716,7 +716,7 @@
 
 ### Patch
 
-- Modal, Sheet: refactored internals to use Box borderStyle rather than CSS ([#2495](https://github.com/pinterest/gestalt/pull/2495)) - [Preview link](https://deploy-preview-2495--gestalt.netlify.app)
+- Modal, OverlayPanel (formerly Sheet): refactored internals to use Box borderStyle rather than CSS ([#2495](https://github.com/pinterest/gestalt/pull/2495)) - [Preview link](https://deploy-preview-2495--gestalt.netlify.app)
 
 ## 81.4.1 (Nov 14, 2022)
 
@@ -800,7 +800,7 @@
 
 ### Patch
 
-- Docs: Fix page jumps on Sheet & Modal pages ([#2480](https://github.com/pinterest/gestalt/pull/2480)) - [Preview link](https://deploy-preview-2480--gestalt.netlify.app)
+- Docs: Fix page jumps on OverlayPanel (formerly Sheet) & Modal pages ([#2480](https://github.com/pinterest/gestalt/pull/2480)) - [Preview link](https://deploy-preview-2480--gestalt.netlify.app)
 
 ## 80.0.8 (Nov 5, 2022)
 
@@ -1520,7 +1520,7 @@
 
 ### Patch
 
-- Docs: Update example sizes in Modal and Sheet [#2347](https://github.com/pinterest/gestalt/pull/2347) - [PREVIEW URL](https://deploy-preview-2347--gestalt.netlify.app)
+- Docs: Update example sizes in Modal and OverlayPanel (formerly Sheet) [#2347](https://github.com/pinterest/gestalt/pull/2347) - [PREVIEW URL](https://deploy-preview-2347--gestalt.netlify.app)
 
 ## 70.1.0 (Aug 30, 2022)
 
@@ -1574,7 +1574,7 @@
 
 ### Patch
 
-- Docs: Added button and sheet for iOS Android [#2327](https://github.com/pinterest/gestalt/pull/2327) - [PREVIEW URL](https://deploy-preview-2327--gestalt.netlify.app)
+- Docs: Added button and OverlayPanel (formerly Sheet) for iOS Android [#2327](https://github.com/pinterest/gestalt/pull/2327) - [PREVIEW URL](https://deploy-preview-2327--gestalt.netlify.app)
 
 ## 69.1.3 (Aug 29, 2022)
 
@@ -1898,7 +1898,7 @@
 
 ### Minor
 
-- Sheet: fix flicker when closing Sheet with React 18 [#2275](https://github.com/pinterest/gestalt/pull/2275) - [PREVIEW URL](https://deploy-preview-2275--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): fix flicker when closing OverlayPanel (formerly Sheet) with React 18 [#2275](https://github.com/pinterest/gestalt/pull/2275) - [PREVIEW URL](https://deploy-preview-2275--gestalt.netlify.app)
 
 ## 65.0.2 (Aug 11, 2022)
 
@@ -5206,7 +5206,7 @@
 
 ### Minor
 
-- Sheet: new onAnimationEnd prop + fix for bug [#1625](https://github.com/pinterest/gestalt/pull/1625) - [PREVIEW URL](https://deploy-preview-1625--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): new onAnimationEnd prop + fix for bug [#1625](https://github.com/pinterest/gestalt/pull/1625) - [PREVIEW URL](https://deploy-preview-1625--gestalt.netlify.app)
 
 ## 31.4.0 (Aug 14, 2021)
 
@@ -5374,7 +5374,7 @@
 
 ### Patch
 
-- Sheet: Added new Usage Guidelines [#1592](https://github.com/pinterest/gestalt/pull/1592) - [PREVIEW URL](https://deploy-preview-1592--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): Added new Usage Guidelines [#1592](https://github.com/pinterest/gestalt/pull/1592) - [PREVIEW URL](https://deploy-preview-1592--gestalt.netlify.app)
 
 ## 29.5.1 (Jul 20, 2021)
 
@@ -5464,7 +5464,7 @@
 
 ### Major
 
-- Modal, Sheet: deprecate ref (forwardRef removal) + codemod [#1578](https://github.com/pinterest/gestalt/pull/1578) - [PREVIEW URL](https://deploy-preview-1578--gestalt.netlify.app)
+- Modal, OverlayPanel (formerly Sheet): deprecate ref (forwardRef removal) + codemod [#1578](https://github.com/pinterest/gestalt/pull/1578) - [PREVIEW URL](https://deploy-preview-1578--gestalt.netlify.app)
 
 ## 27.3.5 (Jun 30, 2021)
 
@@ -5746,7 +5746,7 @@
 
 ### Patch
 
-- Sheet: New docs and best practices [#1495](https://github.com/pinterest/gestalt/pull/1495) - [PREVIEW URL](https://deploy-preview-1495--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): New docs and best practices [#1495](https://github.com/pinterest/gestalt/pull/1495) - [PREVIEW URL](https://deploy-preview-1495--gestalt.netlify.app)
 
 ## 21.17.8 (May 19, 2021)
 
@@ -6052,7 +6052,7 @@
 
 ### Patch
 
-- Modal/Sheet: Remove experimental \_dangerousScrollableExperimentEnabled to implement ScrollBoundaryContainer [#1456](https://github.com/pinterest/gestalt/pull/1456) - [PREVIEW URL](https://deploy-preview-1456--gestalt.netlify.app)
+- Modal/OverlayPanel (formerly Sheet): Remove experimental \_dangerousScrollableExperimentEnabled to implement ScrollBoundaryContainer [#1456](https://github.com/pinterest/gestalt/pull/1456) - [PREVIEW URL](https://deploy-preview-1456--gestalt.netlify.app)
 
 ## 21.4.5 (Apr 6, 2021)
 
@@ -6414,7 +6414,7 @@
 
 ### Minor
 
-- Modal, Sheet: Implemented InternalScrollableContainer [#1376](https://github.com/pinterest/gestalt/pull/1376) - [PREVIEW URL](https://deploy-preview-1376--gestalt.netlify.app)
+- Modal, OverlayPanel (formerly Sheet): Implemented InternalScrollableContainer [#1376](https://github.com/pinterest/gestalt/pull/1376) - [PREVIEW URL](https://deploy-preview-1376--gestalt.netlify.app)
 
 ## 17.3.1 (Feb 11, 2021)
 
@@ -7068,7 +7068,7 @@
 
 ### Minor
 
-- Sheet: Add subHeading prop [Depends on #1236][#1242](https://github.com/pinterest/gestalt/pull/1242) - [PREVIEW URL](https://deploy-preview-1242--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): Add subHeading prop [Depends on #1236][#1242](https://github.com/pinterest/gestalt/pull/1242) - [PREVIEW URL](https://deploy-preview-1242--gestalt.netlify.app)
 
 ## 14.7.0 (Oct 5, 2020)
 
@@ -7080,7 +7080,7 @@
 
 ### Minor
 
-- Sheet: Control animation behavior with AnimationContext [#1236](https://github.com/pinterest/gestalt/pull/1236) - [PREVIEW URL](https://deploy-preview-1236--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): Control animation behavior with AnimationContext [#1236](https://github.com/pinterest/gestalt/pull/1236) - [PREVIEW URL](https://deploy-preview-1236--gestalt.netlify.app)
 
 ## 14.5.3 (Oct 1, 2020)
 
@@ -7170,7 +7170,7 @@
 
 ### Minor
 
-- Sheet: Introduce component [#1217](https://github.com/pinterest/gestalt/pull/1217) - [PREVIEW URL](https://deploy-preview-1217--gestalt.netlify.app)
+- OverlayPanel (formerly Sheet): Introduce component [#1217](https://github.com/pinterest/gestalt/pull/1217) - [PREVIEW URL](https://deploy-preview-1217--gestalt.netlify.app)
 
 ## 14.0.0 (Sep 17, 2020)
 

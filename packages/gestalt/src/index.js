@@ -52,7 +52,7 @@ import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
-import Sheet from './Sheet.js';
+import OverlayPanel from './OverlayPanel.js';
 import SideNavigation from './SideNavigation.js';
 import SlimBanner from './SlimBanner.js';
 import Spinner from './Spinner.js';
@@ -118,6 +118,7 @@ export {
   Module,
   NumberField,
   OnLinkNavigationProvider,
+  OverlayPanel,
   PageHeader,
   Pog,
   Popover,
@@ -129,7 +130,6 @@ export {
   SearchField,
   SegmentedControl,
   SelectList,
-  Sheet,
   SideNavigation,
   SlimBanner,
   Spinner,
