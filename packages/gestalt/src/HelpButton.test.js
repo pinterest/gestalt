@@ -57,9 +57,9 @@ test('accessibilityControls', () => {
   const instance = create(
     <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
-  expect(instance.findAll((element) => element.type === 'div')[1].props['aria-controls']).toContain(
-    'info-dialog',
-  );
+  expect(
+    instance.findAll((element) => element.type === 'div')[1].props['aria-controls'],
+  ).toBeTruthy();
 });
 
 test('accessibilityExpanded', () => {

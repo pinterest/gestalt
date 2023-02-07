@@ -7,7 +7,7 @@ export default function Example(): Node {
     <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
       <Text>This is Gestalt</Text>
       <HelpButton
-        text="Is Pinterest's design system"
+        text="Gestalt is Pinterest's design system"
         accessibilityPopoverLabel="Gestalt meaning description"
         zIndex={new FixedZIndex(100)}
       />

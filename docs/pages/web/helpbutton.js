@@ -122,7 +122,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Do not include HelpButton within blocks of content."
+            description="Include HelpButton within blocks of content."
             sandpackExample={
               <SandpackExample
                 code={intermixedBlocks}
@@ -140,13 +140,13 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
       </MainSection>
 
       <MainSection name="Localization">
-        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `linkText` and `accessibilityLinkLabel` within HelpButton. Note that localization can lengthen text by 20 to 30 percent." />
+        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `link.text` and `link.accessibilityLabel` within HelpButton. Note that localization can lengthen text by 20 to 30 percent." />
       </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
           title="With a link"
-          description="Useful for when it's necessary to link to additional information from HelpButton's help text. HelpButton with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation."
+          description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)."
         >
           <Example
             name="Link HelpButton example"
@@ -173,7 +173,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
         <MainSection.Subsection
           title="With Z-index"
-          description="Useful for when it's necessary to handle elements above each other. Visit our [Z-Index documentation](https://gestalt.pinterest.systems/web/zindex_classes) for more details on how to use these prop."
+          description="Use zIndex when needed to properly position HelpButton's tooltip and popover on the z-axis relative to surrounding elements. Visit our [Z-Index documentation](/web/zindex_classes) for more details on how to use these prop."
         >
           <Example
             name="ZIndex HelpButton example"

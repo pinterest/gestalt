@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, Fragment, useRef, useState, useEffect } from 'react';
+import { type Node, Fragment, useRef, useState, useEffect, useId } from 'react';
 import Box from './Box.js';
 import TapArea from './TapArea.js';
 import Popover from './Popover.js';
@@ -22,17 +22,9 @@ type Props = {|
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
-   * Informational content that's displayed when the user clicks on HelpButton.
-   */
-  text: string,
-  /**
-   * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/HelpButton#Z-index) for more details.
-   */
-  zIndex?: Indexable,
-  /**
    * If provided, displays a link at the bottom of the popover message.
    * - `href` is the URL the hyperlink points to.
-   * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/HelpButton#Link) for more details.
+   * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/helpbutton#With-a-link) for more details.
    * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    */
@@ -45,6 +37,14 @@ type Props = {|
     |}) => void,
     text?: string,
   |},
+  /**
+   * Informational content that's displayed when the user clicks on HelpButton.
+   */
+  text: string,
+  /**
+   * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/helpbutton#With-Z-index) for more details.
+   */
+  zIndex?: Indexable,
 |};
 
 const DEFAULT_ZINDEX = 2;
@@ -62,6 +62,7 @@ export default function HelpButton({
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
+  const popoverId = useId();
   const {
     accessibilityTooltipMessage,
     accessibilityLinkLabel: accessibilityDefaultLinkLabel,
@@ -84,10 +85,19 @@ export default function HelpButton({
 
   return (
     <Fragment>
-      <Box dangerouslySetInlineStyle={{ __style: { display: 'inline-block' } }} tabIndex={-1}>
+      <Box
+        dangerouslySetInlineStyle={{
+          __style: {
+            // The component main proposal is support or provide more infos to short texts on app
+            // because that the display is inline-block, to better fit with text blocks.
+            display: 'inline-block',
+          },
+        }}
+        tabIndex={-1}
+      >
         <TapArea
           accessibilityExpanded={isOpen}
-          accessibilityControls="info-dialog"
+          accessibilityControls={popoverId}
           accessibilityLabel={accessibilityTooltipMessage}
           fullWidth={false}
           onTap={toggleView}
@@ -96,6 +106,8 @@ export default function HelpButton({
           rounding="circle"
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
+          onFocus={() => setIsHover(true)}
+          onBlur={() => setIsHover(false)}
         >
           <Tooltip
             text={accessibilityTooltipMessage}
@@ -134,7 +146,7 @@ export default function HelpButton({
           }
         >
           <Popover
-            id="info-dialog"
+            id={popoverId}
             accessibilityLabel={accessibilityPopoverLabel}
             anchor={ref.current}
             onDismiss={toggleView}

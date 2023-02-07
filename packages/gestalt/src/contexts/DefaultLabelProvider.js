@@ -45,9 +45,9 @@ export type DefaultLabelContextType = {|
     accessibilityShowPasswordLabel: string,
   |},
   HelpButton: {|
-    accessibilityTooltipMessage: string,
-    accessibilityLinkLabel: string,
     accessibilityIcon: string,
+    accessibilityLinkLabel: string,
+    accessibilityTooltipMessage: string,
   |},
 |};
 
@@ -83,9 +83,9 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityShowPasswordLabel: 'Show password',
   },
   HelpButton: {
-    accessibilityTooltipMessage: 'Click to learn more',
-    accessibilityLinkLabel: 'Learn more',
     accessibilityIcon: 'More information',
+    accessibilityLinkLabel: 'Learn more',
+    accessibilityTooltipMessage: 'Click to learn more',
   },
 };
 

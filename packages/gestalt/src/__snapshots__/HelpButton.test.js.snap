@@ -11,7 +11,7 @@ exports[`HelpButton renders correctly 1`] = `
   tabIndex={-1}
 >
   <div
-    aria-controls="info-dialog"
+    aria-controls=":r0:"
     aria-disabled={false}
     aria-expanded={false}
     aria-label="Click to learn more"
@@ -84,7 +84,7 @@ exports[`HelpButton renders with changing direction to show the popover 1`] = `
   tabIndex={-1}
 >
   <div
-    aria-controls="info-dialog"
+    aria-controls=":r3:"
     aria-disabled={false}
     aria-expanded={false}
     aria-label="Click to learn more"
@@ -157,7 +157,7 @@ exports[`HelpButton renders with default link and accessibility link label 1`] =
   tabIndex={-1}
 >
   <div
-    aria-controls="info-dialog"
+    aria-controls=":r2:"
     aria-disabled={false}
     aria-expanded={false}
     aria-label="Click to learn more"
@@ -230,7 +230,7 @@ exports[`HelpButton renders with default link and no accessibility label 1`] = `
   tabIndex={-1}
 >
   <div
-    aria-controls="info-dialog"
+    aria-controls=":r1:"
     aria-disabled={false}
     aria-expanded={false}
     aria-label="Click to learn more"
@@ -303,7 +303,7 @@ exports[`HelpButton renders with link and no default link label 1`] = `
   tabIndex={-1}
 >
   <div
-    aria-controls="info-dialog"
+    aria-controls=":r4:"
     aria-disabled={false}
     aria-expanded={false}
     aria-label="Click to learn more"
