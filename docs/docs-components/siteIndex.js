@@ -132,6 +132,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'PageHeader',
       'Pog',
       'Popover',
+      'PopoverTwo',
       'Pulsar',
       'RadioButton',
       'RadioGroup',

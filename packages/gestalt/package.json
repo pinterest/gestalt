@@ -13,8 +13,10 @@
     "src"
   ],
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "classnames": "^2.2.6",
-    "gestalt-design-tokens": ">0.0.0"
+    "gestalt-design-tokens": ">0.0.0",
+    "react-popper": "^2.3.0"
   },
   "peerDependencies": {
     "react": "^16.13.1 || ^17.0 || ^18.0",
