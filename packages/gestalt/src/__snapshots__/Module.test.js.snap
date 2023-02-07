@@ -53,7 +53,24 @@ exports[`Module renders a badge correctly 1`] = `
             <div
               className="Badge middle infoBase"
             >
-              Try it out!
+              <div
+                className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="box xsDisplayInlineBlock"
+                    style={
+                      Object {
+                        "marginTop": "2px",
+                      }
+                    }
+                  >
+                    Try it out!
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
