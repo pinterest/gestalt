@@ -1,3 +1,9 @@
+## 94.0.0 (Feb 7, 2023)
+
+### Major
+
+- Badge: experiment rollout ([#2636](https://github.com/pinterest/gestalt/pull/2636)) - [Preview link](https://deploy-preview-2636--gestalt.netlify.app)
+
 ## 93.0.2 (Feb 6, 2023)
 
 ### Patch
