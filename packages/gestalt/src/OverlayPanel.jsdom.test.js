@@ -1,10 +1,10 @@
 // @flow strict
 import { act, fireEvent, screen, render } from '@testing-library/react';
-import Sheet from './Sheet.js';
+import OverlayPanel from './OverlayPanel.js';
 import * as AnimationControllerModule from './AnimationContext.js'; // eslint-disable-line import/no-namespace
 import { ESCAPE } from './keyCodes.js';
 
-describe('Sheet', () => {
+describe('OverlayPanel', () => {
   let useAnimationMock;
 
   beforeEach(() => {
@@ -17,18 +17,18 @@ describe('Sheet', () => {
 
   it('should render all props with nodes', () => {
     const { container } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Sheet"
+        accessibilityLabel="OverlayPanel"
         closeOnOutsideClick
         footer={<footer />}
-        heading="Sheet title"
+        heading="OverlayPanel title"
         onDismiss={jest.fn()}
         size="sm"
         subHeading={<nav />}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     expect(container).toMatchSnapshot();
@@ -36,18 +36,18 @@ describe('Sheet', () => {
 
   it('should render all props with render props', () => {
     const { container } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Sheet"
+        accessibilityLabel="OverlayPanel"
         closeOnOutsideClick
         footer={({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
-        heading="Sheet title"
+        heading="OverlayPanel title"
         onDismiss={jest.fn()}
         size="sm"
         subHeading={({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
       >
         {({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     expect(container).toMatchSnapshot();
@@ -59,13 +59,13 @@ describe('Sheet', () => {
     });
 
     const { container } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Sheet"
+        accessibilityLabel="OverlayPanel"
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     expect(container).toMatchSnapshot();
@@ -77,13 +77,13 @@ describe('Sheet', () => {
     });
 
     const { container } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Sheet"
+        accessibilityLabel="OverlayPanel"
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     expect(container).toMatchSnapshot();
@@ -91,13 +91,13 @@ describe('Sheet', () => {
 
   it('should focus the dismiss button upon render', () => {
     render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     expect(screen.getByRole('button')).toHaveFocus();
@@ -111,13 +111,13 @@ describe('Sheet', () => {
     });
 
     render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -129,13 +129,13 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     act(() => {
       screen.getByLabelText('Dismiss').click();
@@ -149,13 +149,13 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     fireEvent.keyDown(window.document, {
       keyCode: ESCAPE,
@@ -170,14 +170,14 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
@@ -193,9 +193,9 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     const { getByText } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
@@ -204,7 +204,7 @@ describe('Sheet', () => {
             Submit
           </button>
         )}
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
@@ -219,9 +219,9 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     const { getByText } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         footer={({ onDismissStart }) => (
           <button onClick={onDismissStart} type="submit">
@@ -231,7 +231,7 @@ describe('Sheet', () => {
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
@@ -246,11 +246,11 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     const { getByText } = render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
-        heading="Test Sheet"
+        heading="Test OverlayPanel"
         onDismiss={mockOnDismiss}
         subHeading={({ onDismissStart }) => (
           <button onClick={onDismissStart} type="submit">
@@ -259,7 +259,7 @@ describe('Sheet', () => {
         )}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     const button = getByText('Submit');
@@ -274,14 +274,14 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick={false}
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
@@ -296,15 +296,15 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
@@ -319,15 +319,15 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     fireEvent.click(screen.getByRole('button'));
 
@@ -342,15 +342,15 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
 
     fireEvent.keyDown(window.document, {
@@ -364,19 +364,19 @@ describe('Sheet', () => {
     ).toBeVisible();
   });
 
-  it('renders Sheet with confirmation modal', () => {
+  it('renders OverlayPanel with confirmation modal', () => {
     const mockOnDismiss = jest.fn();
 
     const { container } = render(
-      <Sheet
+      <OverlayPanel
         dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
@@ -391,15 +391,15 @@ describe('Sheet', () => {
     const mockOnDismiss = jest.fn();
 
     render(
-      <Sheet
+      <OverlayPanel
         dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
@@ -412,7 +412,7 @@ describe('Sheet', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('No, go back to the sheet.', {
+      screen.getByLabelText('No, go back to the overlay panel.', {
         exact: true,
       }),
     ).toBeVisible();
@@ -424,7 +424,7 @@ describe('Sheet', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('Yes, dismiss the sheet.', {
+      screen.getByLabelText('Yes, dismiss the overlay panel.', {
         exact: true,
       }),
     ).toBeVisible();
@@ -453,7 +453,7 @@ describe('Sheet', () => {
     const secondaryActionLabel = 'secondaryActionLabel';
 
     render(
-      <Sheet
+      <OverlayPanel
         dismissConfirmation={{
           message,
           subtext,
@@ -461,12 +461,12 @@ describe('Sheet', () => {
           secondaryAction: { text: secondaryAction, accessibilityLabel: secondaryActionLabel },
         }}
         accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
+        accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>,
+      </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;

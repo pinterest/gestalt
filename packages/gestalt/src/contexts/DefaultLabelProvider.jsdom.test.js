@@ -28,14 +28,14 @@ describe('useDefaultLabelContext', () => {
           Popover: {
             accessibilityDismissButtonLabel: 'Close popover',
           },
-          Sheet: {
-            accessibilityDismissButtonLabel: 'Close sheet',
+          OverlayPanel: {
+            accessibilityDismissButtonLabel: 'Close overlay panel',
             dismissConfirmationMessage: 'Are you sure you want to dismiss?',
             dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
             dismissConfirmationPrimaryActionText: 'Yes, dismiss.',
-            dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the sheet.',
+            dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the overlay panel.',
             dismissConfirmationSecondaryActionText: 'No, go back.',
-            dismissConfirmationSecondaryActionTextLabel: 'No, go back to the sheet.',
+            dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
           },
           Tag: {
             accessibilityErrorIconLabel: 'Error',

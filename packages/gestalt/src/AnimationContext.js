@@ -44,7 +44,7 @@ type AnimationProviderProps = {|
 |};
 
 const initialState = {
-  // null equals to 'noMotionMount'. null here is used to mount Sheet with reduced motion, no animation.
+  // null equals to 'noMotionMount'. null here is used to mount OverlayPanel with reduced motion, no animation.
   animationState: null,
   setAnimationState: null,
 };
@@ -61,7 +61,7 @@ export default function AnimationProvider({
   const reducedMotion = useReducedMotion();
 
   const [animationState, setAnimationState] = useState<AnimationStateType>(
-    //  null equals to 'noMotionMount'. null here is used to mount Sheet with reduced motion, no animation.
+    //  null equals to 'noMotionMount'. null here is used to mount OverlayPanel with reduced motion, no animation.
     reducedMotion ? null : 'opening',
   );
 
@@ -95,7 +95,7 @@ export function useAnimation(): UseAnimationType {
 
   const handleAnimation = useCallback(() => {
     if (['opening', 'closing'].includes(animationState) && setAnimationState)
-      //  null equals to 'motionMount'. null here is used to used to mount Sheet with motion.
+      //  null equals to 'motionMount'. null here is used to used to mount OverlayPanel with motion.
       flushSync(() => setAnimationState(animationState === 'opening' ? null : 'unmount'));
   }, [animationState, setAnimationState]);
 

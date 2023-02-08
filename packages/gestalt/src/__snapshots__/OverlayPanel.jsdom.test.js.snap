@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sheet renders Sheet with confirmation modal 1`] = `
+exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
 <div>
   <div
     name="trap-focus"
@@ -12,7 +12,7 @@ exports[`Sheet renders Sheet with confirmation modal 1`] = `
         class="backdrop zoomOut"
       />
       <div
-        aria-label="Test Sheet"
+        aria-label="Test OverlayPanel"
         class="wrapper hideOutline"
         id=":rg:"
         role="dialog"
@@ -131,7 +131,7 @@ exports[`Sheet renders Sheet with confirmation modal 1`] = `
                             class="FlexItem"
                           >
                             <button
-                              aria-label="No, go back to the sheet."
+                              aria-label="No, go back to the overlay panel."
                               class="button hideOutline inline accessibilityOutline parentButton"
                               tabindex="0"
                               type="button"
@@ -151,7 +151,7 @@ exports[`Sheet renders Sheet with confirmation modal 1`] = `
                             class="FlexItem"
                           >
                             <button
-                              aria-label="Yes, dismiss the sheet."
+                              aria-label="Yes, dismiss the overlay panel."
                               class="button hideOutline inline accessibilityOutline parentButton"
                               tabindex="0"
                               type="button"
@@ -182,7 +182,7 @@ exports[`Sheet renders Sheet with confirmation modal 1`] = `
 </div>
 `;
 
-exports[`Sheet should render all props with nodes 1`] = `
+exports[`OverlayPanel should render all props with nodes 1`] = `
 <div>
   <div
     name="trap-focus"
@@ -194,7 +194,7 @@ exports[`Sheet should render all props with nodes 1`] = `
         class="backdrop zoomOut"
       />
       <div
-        aria-label="Sheet"
+        aria-label="OverlayPanel"
         class="wrapper hideOutline wrapperAnimationIn"
         id=":r0:"
         role="dialog"
@@ -217,7 +217,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                 <h1
                   class="Heading fontSize500 defaultText alignStart breakWord"
                 >
-                  Sheet title
+                  OverlayPanel title
                 </h1>
               </div>
               <div
@@ -278,7 +278,7 @@ exports[`Sheet should render all props with nodes 1`] = `
 </div>
 `;
 
-exports[`Sheet should render all props with render props 1`] = `
+exports[`OverlayPanel should render all props with render props 1`] = `
 <div>
   <div
     name="trap-focus"
@@ -290,7 +290,7 @@ exports[`Sheet should render all props with render props 1`] = `
         class="backdrop zoomOut"
       />
       <div
-        aria-label="Sheet"
+        aria-label="OverlayPanel"
         class="wrapper hideOutline wrapperAnimationIn"
         id=":r1:"
         role="dialog"
@@ -313,7 +313,7 @@ exports[`Sheet should render all props with render props 1`] = `
                 <h1
                   class="Heading fontSize500 defaultText alignStart breakWord"
                 >
-                  Sheet title
+                  OverlayPanel title
                 </h1>
               </div>
               <div
@@ -380,7 +380,7 @@ exports[`Sheet should render all props with render props 1`] = `
 </div>
 `;
 
-exports[`Sheet should render animation in 1`] = `
+exports[`OverlayPanel should render animation in 1`] = `
 <div>
   <div
     name="trap-focus"
@@ -392,7 +392,7 @@ exports[`Sheet should render animation in 1`] = `
         class="backdrop zoomOut"
       />
       <div
-        aria-label="Sheet"
+        aria-label="OverlayPanel"
         class="wrapper hideOutline wrapperAnimationIn"
         id=":r2:"
         role="dialog"
@@ -454,7 +454,7 @@ exports[`Sheet should render animation in 1`] = `
 </div>
 `;
 
-exports[`Sheet should render animation out 1`] = `
+exports[`OverlayPanel should render animation out 1`] = `
 <div>
   <div
     name="trap-focus"
@@ -466,7 +466,7 @@ exports[`Sheet should render animation out 1`] = `
         class="backdrop zoomOut"
       />
       <div
-        aria-label="Sheet"
+        aria-label="OverlayPanel"
         class="wrapper hideOutline wrapperAnimationOut"
         id=":r3:"
         role="dialog"

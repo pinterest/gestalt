@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Button, Datapoint, Dropdown, PageHeader, Sheet, Text } from 'gestalt';
+import { Button, Datapoint, Dropdown, PageHeader, OverlayPanel, Text } from 'gestalt';
 
 export default function IncludeImageExample(): Node {
   const [open, setOpen] = React.useState(false);
@@ -54,9 +54,9 @@ export default function IncludeImageExample(): Node {
         dropdownAccessibilityLabel="More options"
       />
       {open ? (
-        <Sheet
+        <OverlayPanel
           accessibilityDismissButtonLabel="Close"
-          accessibilitySheetLabel="Example sheet for demonstration"
+          accessibilityLabel="Example overlay panel for demonstration"
           heading="Guidance"
           onDismiss={() => setOpen(false)}
           size="md"
@@ -64,7 +64,7 @@ export default function IncludeImageExample(): Node {
           <Text>1</Text>
           <Text>2</Text>
           <Text>3</Text>
-        </Sheet>
+        </OverlayPanel>
       ) : null}
     </React.Fragment>
   );

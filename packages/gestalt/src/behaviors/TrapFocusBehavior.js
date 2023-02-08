@@ -36,7 +36,7 @@ const focusElement = (el: HTMLElement) => {
 };
 
 /**
- * TrapFocusBehavior is used by components like Modal and Sheet to ensure that only elements within children components can be focused.
+ * TrapFocusBehavior is used by components like Modal and OverlayPanel to ensure that only elements within children components can be focused.
  */
 export default function TrapFocusBehavior({ children }: Props): ReactNode {
   const elRef = useRef<?HTMLDivElement>(null);

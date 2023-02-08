@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Image, PageHeader, Sheet, Text } from 'gestalt';
+import { Image, PageHeader, OverlayPanel, Text } from 'gestalt';
 
 export default function PageHeaderTitleExample(): Node {
   const [open, setOpen] = React.useState(false);
@@ -26,9 +26,9 @@ export default function PageHeaderTitleExample(): Node {
         }
       />
       {open ? (
-        <Sheet
+        <OverlayPanel
           accessibilityDismissButtonLabel="Close"
-          accessibilitySheetLabel="Example sheet for demonstration"
+          accessibilityLabel="Example overlay panel for demonstration"
           heading="Guidance"
           onDismiss={() => setOpen(false)}
           size="md"
@@ -36,7 +36,7 @@ export default function PageHeaderTitleExample(): Node {
           <Text>1</Text>
           <Text>2</Text>
           <Text>3</Text>
-        </Sheet>
+        </OverlayPanel>
       ) : null}
     </React.Fragment>
   );

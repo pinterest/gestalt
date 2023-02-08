@@ -25,7 +25,7 @@ fullwidth: true
 ## Best practices
 
 - Place Tabs directly above the relevant content. 
-- Avoid using more than 6 Tabs. Consider using a different component like a Sheet.
+- Avoid using more than 6 Tabs. Consider using a different component like Sheet.
 - Order Tabs by relevance - the first tab should be the most logical starting view.
 
 <TwoCol>

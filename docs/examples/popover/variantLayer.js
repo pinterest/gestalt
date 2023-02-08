@@ -10,7 +10,7 @@ import {
   Popover,
   Mask,
   SearchField,
-  Sheet,
+  OverlayPanel,
   TapArea,
   Text,
   TextArea,
@@ -165,7 +165,7 @@ export default function Example(): Node {
       <Button
         accessibilityHaspopup
         accessibilityExpanded={showSheet}
-        accessibilityControls="popover-sheet"
+        accessibilityControls="popover-overlaypanel"
         text="Edit Pin"
         onClick={() => setShowSheet(true)}
         size="lg"
@@ -173,9 +173,9 @@ export default function Example(): Node {
 
       {showSheet && (
         <Layer zIndex={new FixedZIndex(11)}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close edit Pin sheet"
-            accessibilitySheetLabel="Edit your Pin details"
+          <OverlayPanel
+            accessibilityDismissButtonLabel="Close edit Pin overlay panel"
+            accessibilityLabel="Edit your Pin details"
             heading="Edit Pin"
             footer={
               <Flex>
@@ -202,7 +202,7 @@ export default function Example(): Node {
             onDismiss={() => setShowSheet(false)}
             size="lg"
           >
-            <Box id="popover-sheet" display="flex" height={400} paddingX={8}>
+            <Box id="popover-overlaypanel" display="flex" height={400} paddingX={8}>
               <Flex gap={{ row: 8, column: 0 }} width="100%">
                 <Box width={200} paddingX={2} rounding={4}>
                   <Mask rounding={4}>
@@ -229,7 +229,7 @@ export default function Example(): Node {
                 </Flex.Item>
               </Flex>
             </Box>
-          </Sheet>
+          </OverlayPanel>
         </Layer>
       )}
     </Box>

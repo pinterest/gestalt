@@ -10,7 +10,7 @@ import {
   Layer,
   Module,
   RadioButton,
-  Sheet,
+  OverlayPanel,
   Text,
 } from 'gestalt';
 
@@ -18,11 +18,11 @@ export default function SizesExample(): Node {
   function reducer(state, action) {
     switch (action.type) {
       case 'small':
-        return { heading: 'Small sheet', size: 'sm' };
+        return { heading: 'Small overlay panel', size: 'sm' };
       case 'medium':
-        return { heading: 'Medium sheet', size: 'md' };
+        return { heading: 'Medium overlay panel', size: 'md' };
       case 'large':
-        return { heading: 'Large sheet', size: 'lg' };
+        return { heading: 'Large overlay panel', size: 'lg' };
       case 'none':
         return {};
       default:
@@ -39,7 +39,7 @@ export default function SizesExample(): Node {
       <Box padding={8}>
         <Box padding={1}>
           <Button
-            text="Small Sheet"
+            text="Small OverlayPanel"
             onClick={() => {
               dispatch({ type: 'small' });
             }}
@@ -47,7 +47,7 @@ export default function SizesExample(): Node {
         </Box>
         <Box padding={1}>
           <Button
-            text="Medium Sheet"
+            text="Medium OverlayPanel"
             onClick={() => {
               dispatch({ type: 'medium' });
             }}
@@ -55,7 +55,7 @@ export default function SizesExample(): Node {
         </Box>
         <Box padding={1}>
           <Button
-            text="Large Sheet"
+            text="Large OverlayPanel"
             onClick={() => {
               dispatch({ type: 'large' });
             }}
@@ -64,9 +64,9 @@ export default function SizesExample(): Node {
       </Box>
       {state.size && (
         <Layer zIndex={sheetZIndex}>
-          <Sheet
+          <OverlayPanel
             accessibilityDismissButtonLabel="Dismiss"
-            accessibilitySheetLabel="Example sheet to demonstrate different sizes"
+            accessibilityLabel="Example overlay panel to demonstrate different sizes"
             footer={
               <Flex justifyContent="end">
                 <Button text="Apply changes" color="red" />
@@ -166,7 +166,7 @@ export default function SizesExample(): Node {
                 ]}
               />
             </Flex>
-          </Sheet>
+          </OverlayPanel>
         </Layer>
       )}
     </React.Fragment>

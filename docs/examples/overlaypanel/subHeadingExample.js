@@ -8,7 +8,7 @@ import {
   Flex,
   Layer,
   List,
-  Sheet,
+  OverlayPanel,
   Tabs,
   Text,
 } from 'gestalt';
@@ -30,10 +30,10 @@ function SheetWithSubheading({ onDismiss }: {| onDismiss: () => void |}) {
   };
 
   return (
-    <Sheet
+    <OverlayPanel
       accessibilityDismissButtonLabel="Close"
-      accessibilitySheetLabel="Example sheet to demonstrate subHeading"
-      heading="Sheet with subHeading"
+      accessibilityLabel="Example overlay panel to demonstrate subHeading"
+      heading="OverlayPanel with subHeading"
       onDismiss={onDismiss}
       footer={
         <Flex justifyContent="end">
@@ -125,7 +125,7 @@ function SheetWithSubheading({ onDismiss }: {| onDismiss: () => void |}) {
           </List>
         </Box>
       </Flex>
-    </Sheet>
+    </OverlayPanel>
   );
 }
 

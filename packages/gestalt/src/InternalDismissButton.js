@@ -1,6 +1,6 @@
 /*
 
-InternalDismissIconButton aims to replace "dismiss" IconButtons in components that toggle on/off their visibility, p.ex. Modal, Sheet, mobile SideNavigation. When visible, we require autofocus within the component in particular the dismiss IconButton. IconButton displays a Tooltip on focus, but for this particular usage the tooltip is not required as it creates a bad UX. InternalDismissIconButton is an IconButtons replacement without tooltip.
+InternalDismissIconButton aims to replace "dismiss" IconButtons in components that toggle on/off their visibility, p.ex. Modal, OverlayPanel, mobile SideNavigation. When visible, we require autofocus within the component in particular the dismiss IconButton. IconButton displays a Tooltip on focus, but for this particular usage the tooltip is not required as it creates a bad UX. InternalDismissIconButton is an IconButtons replacement without tooltip.
 
 */
 

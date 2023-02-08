@@ -230,7 +230,7 @@ const canvas = (
             cardSize="lg"
             type="do"
             description={`
-Use Layer instead of z-index when a component needs to visually break out of its parent container, for example, in the case of [modals](/web/modal), [sheets](/web/sheet) and [tooltips](/web/tooltip). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
+Use Layer instead of z-index when a component needs to visually break out of its parent container, for example, in the case of [Modals](/web/modal), [OverlayPanels](/web/overlaypanel) and [Tooltips](/web/tooltip). See [Z-Index in foundational components](#zIndex-in-foundational-components) and [Z-Index in Layer](#zIndex-in-Layer) to learn more.
 ~~~jsx
 const modal = (
   <Layer>
@@ -284,7 +284,7 @@ const modalB = (
 
 Layer creates a new stacking context. Unless there's a conflict with another z-index, don't pass unnecessary \`zIndex\` to Layer.
 
-The following example sets a z-index in the Layer wrapping [Sheet](/web/sheet) to position Sheet over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
+The following example sets a z-index in the Layer wrapping [OverlayPanel](/web/overlaypanel) to position OverlayPanel over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
         >
           <MainSection.Card
             cardSize="lg"
@@ -420,8 +420,8 @@ function ScrollBoundaryContainerExample() {
       />
       {showSheet && (
         <Layer zIndex={SHEET_ZINDEX}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close edit Pin sheet"
+          <OverlayPanel
+            accessibilityDismissButtonLabel="Close edit Pin overlay panel"
             accessibilitySheetLabel="Edit your Pin details"
             heading="Edit Pin"
             footer={
@@ -482,7 +482,7 @@ function ScrollBoundaryContainerExample() {
                 </Flex.Item>
               </Flex>
               </Box>
-          </Sheet>
+          </OverlayPanel>
         </Layer>
       )}
     </React.Fragment>
@@ -494,11 +494,11 @@ function ScrollBoundaryContainerExample() {
         <MainSection.Subsection
           title="z-index in Layer"
           description={`
-[Modal](/web/modal) and [Sheet](/web/sheet) always require a parent [Layer](/web/layer) to position themselves outside the DOM hierarchy.
+[Modal](/web/modal) and [OverlayPanel](/web/overlaypanel) always require a parent [Layer](/web/layer) to position themselves outside the DOM hierarchy.
 
 Components built on top of [Popover](/web/popover), such as [Tooltip](/web/tooltip), [Dropdown](/web/dropdown) and [ComboBox](/web/combobox), have a built-in Layer to be positioned outside the DOM hierarchy.  To set the internal z-index value of Layer, these Popover-based components have \`zIndex\` props as well. This is used when placing the Popover-based components within another component wrapped in Layer that has a z-index set.
 
-However, Modal and Sheet have a built-in [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
+However, Modal and OverlayPanel have a built-in [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
 
 The following example sets a z-index in the Layer wrapping [Modal](/web/modal) to position Modal over the page header in the Docs. Thanks to ScrollBoundaryContainer, child Tooltips don't require z-index.`}
         >

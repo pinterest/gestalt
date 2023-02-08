@@ -10,7 +10,7 @@ import {
   Layer,
   Module,
   RadioButton,
-  Sheet,
+  OverlayPanel,
   Text,
 } from 'gestalt';
 
@@ -25,9 +25,9 @@ function SheetWithFooter({ onDismiss }: {| onDismiss: () => void |}) {
     [],
   );
   return (
-    <Sheet
+    <OverlayPanel
       accessibilityDismissButtonLabel="Close"
-      accessibilitySheetLabel="Bulk edit for 5 ad groups of Nordstrom Account"
+      accessibilityLabel="Bulk edit for 5 ad groups of Nordstrom Account"
       heading="Editing 5 ad groups"
       onDismiss={onDismiss}
       footer={footer}
@@ -118,7 +118,7 @@ function SheetWithFooter({ onDismiss }: {| onDismiss: () => void |}) {
           ]}
         />
       </Flex>
-    </Sheet>
+    </OverlayPanel>
   );
 }
 

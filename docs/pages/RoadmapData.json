@@ -90,7 +90,7 @@
       "link": ""
     },
     {
-      "task": "Modal/Sheet component",
+      "task": "Modal/OverlayPanel component",
       "deadline": "Quarter 4",
       "status": "problem",
       "platforms": ["Mobile web"],

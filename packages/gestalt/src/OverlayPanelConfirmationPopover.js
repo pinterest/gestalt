@@ -59,7 +59,7 @@ export default function SheetConfirmationPopover({
     dismissConfirmationSecondaryActionText: secondaryActionTextDefault,
     dismissConfirmationPrimaryActionTextLabel: primaryActionTextLabelDefault,
     dismissConfirmationSecondaryActionTextLabel: secondaryActionTextLabelDefault,
-  } = useDefaultLabelContext('Sheet');
+  } = useDefaultLabelContext('OverlayPanel');
 
   useEffect(() => {
     confirmationButtonRef?.current?.focus();

@@ -10,7 +10,7 @@ import {
   Flex,
   Layer,
   RadioButton,
-  Sheet,
+  OverlayPanel,
   Text,
   TextField,
 } from 'gestalt';
@@ -26,9 +26,9 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
   );
 
   return (
-    <Sheet
+    <OverlayPanel
       accessibilityDismissButtonLabel="Close"
-      accessibilitySheetLabel="Example sheet for demonstration"
+      accessibilityLabel="Example overlay panel for demonstration"
       heading="Create new audience list"
       closeOnOutsideClick={false}
       onDismiss={onDismiss}
@@ -169,7 +169,7 @@ function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
           />
         </Flex>
       </Flex>
-    </Sheet>
+    </OverlayPanel>
   );
 }
 
@@ -181,7 +181,7 @@ export default function PreventClosingExample(): Node {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View Sheet" onClick={() => setShouldShow(true)} />
+        <Button text="View OverlayPanel" onClick={() => setShouldShow(true)} />
       </Box>
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>

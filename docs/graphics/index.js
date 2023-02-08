@@ -5,7 +5,7 @@ import Icon from './general/Icon.svg';
 import Dropdown from './general/Dropdown.svg';
 import Popover from './general/Popover.svg';
 import SegmentedControl from './general/SegmentedControl.svg';
-import Sheet from './general/Sheet.svg';
+import OverlayPanel from './general/OverlayPanel.svg';
 import Tooltip from './general/Tooltip.svg';
 
 const illustrations = Object.freeze({
@@ -15,7 +15,7 @@ const illustrations = Object.freeze({
   'icon': Icon,
   'popover': Popover,
   'segmented-control': SegmentedControl,
-  'sheet': Sheet,
+  'overlaypanel': OverlayPanel,
   'tooltip': Tooltip,
 });
 
