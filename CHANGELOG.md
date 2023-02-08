@@ -1,3 +1,9 @@
+## 95.0.0 (Feb 8, 2023)
+
+### Major
+
+- OverlayPanel: rename Sheet component to OverlayPanel ([#2638](https://github.com/pinterest/gestalt/pull/2638)) - [Preview link](https://deploy-preview-2638--gestalt.netlify.app)
+
 ## 94.0.0 (Feb 7, 2023)
 
 ### Major
