@@ -69,7 +69,8 @@ export default function PageHeader({
     sourceLink = sourceLink.replace(/\.js$/, '');
   }
 
-  const { aliases } = componentData.find((component) => component.name === name) ?? {};
+  const { aliases, previouslyNamed } =
+    componentData.find((component) => component.name === name) ?? {};
 
   const badgeMap = {
     pilot: {
@@ -120,25 +121,33 @@ export default function PageHeader({
             {/* Enable this when we have a consistent directory structure */}
             {['component' /* 'utility' */].includes(type) && (
               <Flex direction="column" gap={1}>
-                <Link
-                  href={sourceLink}
-                  onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
-                  target="blank"
-                  underline="always"
-                >
-                  <Text>View source on GitHub</Text>
-                </Link>
+                <Text>
+                  <Link
+                    href={sourceLink}
+                    onClick={() => trackButtonClick('View source on GitHub', sourcePathName)}
+                    target="blank"
+                    underline="always"
+                  >
+                    View source on GitHub
+                  </Link>
+                </Text>
 
-                <Link
-                  href={`https://github.com/pinterest/gestalt/releases?q=${name
-                    // Remove spaces and dashes
-                    .replaceAll(/[\s-]/g, '')}&expanded=true`}
-                  onClick={() => trackButtonClick('View recent changes on GitHub', sourcePathName)}
-                  target="blank"
-                  underline="always"
-                >
-                  <Text>See recent changes on GitHub</Text>
-                </Link>
+                <Text>
+                  <Link
+                    href={`https://github.com/pinterest/gestalt/releases?q=${name
+                      // Remove spaces and dashes
+                      .replaceAll(/[\s-]/g, '')}${previouslyNamed ? ' OR ' : ''}${
+                      previouslyNamed ? previouslyNamed.join(' OR ') : ''
+                    }&expanded=true`}
+                    onClick={() =>
+                      trackButtonClick('View recent changes on GitHub', sourcePathName)
+                    }
+                    target="blank"
+                    underline="always"
+                  >
+                    See recent changes on GitHub
+                  </Link>
+                </Text>
               </Flex>
             )}
           </Flex>
