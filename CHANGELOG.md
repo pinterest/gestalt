@@ -1,3 +1,9 @@
+## 95.0.1 (Feb 9, 2023)
+
+### Patch
+
+- Internal: improve Masonry a11y test route, refactor docs example ([#2639](https://github.com/pinterest/gestalt/pull/2639)) - [Preview link](https://deploy-preview-2639--gestalt.netlify.app)
+
 ## 95.0.0 (Feb 8, 2023)
 
 ### Major
