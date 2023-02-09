@@ -1,3 +1,9 @@
+## 95.0.3 (Feb 9, 2023)
+
+### Patch
+
+- Docs: improve 'See recent changes on GitHub" by including previous component names ([#2641](https://github.com/pinterest/gestalt/pull/2641)) - [Preview link](https://deploy-preview-2641--gestalt.netlify.app)
+
 ## 95.0.2 (Feb 9, 2023)
 
 ### Patch
