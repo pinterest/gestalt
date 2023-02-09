@@ -136,8 +136,8 @@ export default function PageHeader({
                   <Link
                     href={`https://github.com/pinterest/gestalt/releases?q=${name
                       // Remove spaces and dashes
-                      .replaceAll(/[\s-]/g, '')}${
-                      previouslyNamed ? previouslyNamed.join('+OR+') : ''
+                      .replaceAll(/[\s-]/g, '')}${previouslyNamed ? ' OR ' : ''}${
+                      previouslyNamed ? previouslyNamed.join(' OR ') : ''
                     }&expanded=true`}
                     onClick={() =>
                       trackButtonClick('View recent changes on GitHub', sourcePathName)

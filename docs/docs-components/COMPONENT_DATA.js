@@ -739,6 +739,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <ComboBox />,
     name: 'ComboBox',
     aliases: ['Typeahead', 'Autocomplete', 'Autosuggest'],
+    previouslyNamed: ['Typeahead'],
     description:
       'ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.',
     category: 'Fields and forms',
@@ -3191,6 +3192,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ScrollBoundaryContainer />,
     name: 'ScrollBoundaryContainer',
+    previouslyNamed: ['ScrollableContainer'],
     path: '/web/utilities/scrollboundarycontainer',
     description:
       'ScrollBoundaryContainer is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container.',
