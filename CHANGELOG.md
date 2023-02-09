@@ -1,3 +1,9 @@
+## 95.0.2 (Feb 9, 2023)
+
+### Patch
+
+- Internal: fix "open in CodeSandBox" button passed dependencies ([#2640](https://github.com/pinterest/gestalt/pull/2640)) - [Preview link](https://deploy-preview-2640--gestalt.netlify.app)
+
 ## 95.0.1 (Feb 9, 2023)
 
 ### Patch
