@@ -1,6 +1,6 @@
 // @flow strict
-import { Component, type Node, type ElementProps } from 'react';
-import { Box, Masonry, Image, Label, Text } from 'gestalt';
+import { type Node, type ElementProps, useEffect, useRef, useState } from 'react';
+import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import Card from '../../docs-components/Card.js';
@@ -8,26 +8,6 @@ import Page from '../../docs-components/Page.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-
-type Props = {|
-  id?: string,
-  layout?: $ElementType<ElementProps<typeof Masonry>, 'layout'>,
-|};
-
-type Pin = {|
-  color: string,
-  height: number,
-  name: string,
-  src: string,
-  width: number,
-|};
-
-type State = {|
-  pins: $ReadOnlyArray<Pin>,
-  width: number,
-|};
-
-const inputStyle = { width: '700px', display: 'block', margin: '10px auto' };
 
 const getPins = () => {
   const pins = [
@@ -72,106 +52,102 @@ const getPins = () => {
   return Promise.resolve(pinList);
 };
 
+type Pin = {|
+  color: string,
+  height: number,
+  name: string,
+  src: string,
+  width: number,
+|};
+
 function GridComponent({ data }: { data: Pin, ... }) {
   return (
-    <Box>
+    <Flex direction="column">
       <Image
-        alt="Test"
+        alt={data.name}
         color={data.color}
         naturalHeight={data.height}
         naturalWidth={data.width}
         src={data.src}
       />
       <Text>{data.name}</Text>
-    </Box>
+    </Flex>
   );
 }
 
-class ExampleMasonry extends Component<Props, State> {
-  // Ref on a component gets the mounted instance of the component
-  // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
-  grid: ?Masonry<{|
-    color: string,
-    height: number,
-    name: string,
-    src: string,
-    width: number,
-  |}>;
+type Props = {|
+  id?: string,
+  layout?: $ElementType<ElementProps<typeof Masonry>, 'layout'>,
+|};
 
-  scrollContainer: ?HTMLElement;
+function ExampleMasonry({ id, layout }: Props): Node {
+  const [pins, setPins] = useState<$ReadOnlyArray<Pin>>([]);
+  const [width, setWidth] = useState<number>(700);
+  const scrollContainerRef = useRef();
+  const gridRef = useRef();
 
-  state = {
-    pins: [],
-    width: 700,
-  };
-
-  componentDidMount() {
+  useEffect(() => {
     getPins().then((startPins) => {
-      this.setState({
-        pins: startPins,
-      });
+      setPins(startPins);
     });
-  }
+  }, []);
 
-  updateWidth = ({ target }: {| target: HTMLInputElement |}) => {
-    this.setState({ width: Number(target.value) }, () => {
-      if (this.grid) {
-        this.grid.handleResize();
-      }
-    });
+  useEffect(() => {
+    gridRef.current?.handleResize();
+  }, [width]);
+
+  const updateWidth = ({ target }: {| target: HTMLInputElement |}) => {
+    setWidth(Number(target.value));
   };
 
-  render() {
-    const containerStyle = {
-      height: '300px',
-      margin: '0 auto',
-      outline: '3px solid #ddd',
-      overflowY: 'scroll',
-      width: `${this.state.width}px`,
-    };
-    const { scrollContainer } = this;
-    return (
-      <div>
-        <Label htmlFor={`input-${this.props.id || ''}`}>
-          <Text>Container Width</Text>
-        </Label>
-        <input
-          id={`input-${this.props.id || ''}`}
-          type="range"
-          defaultValue={700}
-          onChange={this.updateWidth}
-          min={200}
-          max={700}
-          step={5}
-          style={inputStyle}
-        />
+  return (
+    <Box>
+      <Label htmlFor={`input-${id || ''}`}>
+        <Text>Container Width</Text>
+      </Label>
+      <input
+        id={`input-${id || ''}`}
+        type="range"
+        defaultValue={700}
+        onChange={updateWidth}
+        min={200}
+        max={700}
+        step={5}
+        style={{ width: '700px', display: 'block', margin: '10px auto' }}
+      />
 
-        <div
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-          tabIndex={0}
-          ref={(el) => {
-            this.scrollContainer = el;
-          }}
-          style={containerStyle}
-        >
-          {scrollContainer && (
-            <Masonry
-              columnWidth={170}
-              gutterWidth={5}
-              items={this.state.pins}
-              layout={this.props.layout}
-              minCols={1}
-              ref={(ref) => {
-                this.grid = ref;
-              }}
-              renderItem={({ data }) => <GridComponent data={data} />}
-              scrollContainer={() => scrollContainer}
-            />
-          )}
-        </div>
+      <div
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={0}
+        ref={(el) => {
+          scrollContainerRef.current = el;
+        }}
+        style={{
+          height: '300px',
+          margin: '0 auto',
+          outline: '3px solid #ddd',
+          overflowY: 'scroll',
+          width: `${width}px`,
+        }}
+      >
+        {scrollContainerRef.current && (
+          <Masonry
+            columnWidth={170}
+            gutterWidth={5}
+            items={pins}
+            layout={layout}
+            minCols={1}
+            ref={(ref) => {
+              gridRef.current = ref;
+            }}
+            renderItem={({ data }) => <GridComponent data={data} />}
+            // $FlowFixMe[incompatible-type]
+            scrollContainer={() => scrollContainerRef.current}
+          />
+        )}
       </div>
-    );
-  }
+    </Box>
+  );
 }
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {

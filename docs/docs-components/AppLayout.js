@@ -15,7 +15,7 @@ import YearInReviewBanner from './YearInReviewBanner.js';
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
-const fullBleedNoNavigationPages = ['/year_in_review_2022'];
+const fullBleedNoNavigationPages = ['/year_in_review_2022', 'integration-test'];
 
 type Props = {|
   children?: Node,
@@ -30,7 +30,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
 
   const isHomePage = router?.route === '/home';
-  const isFullBleedLayout = fullBleedNoNavigationPages.includes(router?.route);
+  const isFullBleedLayout = fullBleedNoNavigationPages.some((page) => router?.route.includes(page));
 
   const footerColor =
     colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
