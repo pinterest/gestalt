@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "lib": ["dom","dom.iterable", "esnext"],
+    "resolveJsonModule": true,
+    "strict": true,
+    "rootDir": "./src",
+    "types": [
+      "jest",
+      "node"
+    ],
+    "outDir": "./dist",
+    "target": "es2019",
+    "module": "commonjs",
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "src/test/test-files/*",
+    "src/test/regression/*",
+    "src/fix/auto-import/__test__/export.ts",
+    "src/fix/auto-import/__test__/needs-imports.ts",
+    "src/fix/fix-type-exports/__test__/test-input.ts",
+    "src/fix/suppressions/__test__/test-input.ts"
+  ],
+}

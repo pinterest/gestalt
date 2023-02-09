@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fixTypeExports fixes mismatched type imports and exports 1`] = `
+"import React, { Component, ElementType, RefObject } from \\"react\\";
+
+// Comment #1
+
+export type { Key, ReactNode as Node } from \\"react\\";
+
+// Comment #2
+
+export { Component };
+
+// Comment #3
+export type { ElementType, RefObject };
+"
+`;

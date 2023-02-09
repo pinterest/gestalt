@@ -1,0 +1,17 @@
+diff --git a/node_modules/recast/lib/printer.js b/node_modules/recast/lib/printer.js
+index 8cbc392..470b3c4 100644
+--- a/node_modules/recast/lib/printer.js
++++ b/node_modules/recast/lib/printer.js
+@@ -1730,8 +1730,12 @@ function genericPrintNoParens(path, options, print) {
+         }
+         case "TSTypeParameterDeclaration":
+         case "TSTypeParameterInstantiation":
++          // If the first parameter has a comment, we want to insert a new line to avoid causing a syntax error:
++          const parameterNode = path.getValue()
++          const [firstParam] = parameterNode.params || [];
+             return lines_1.concat([
+                 "<",
++                firstParam && firstParam.comments  && firstParam.comments.length ? lines_1.fromString("\n") : lines_1.fromString(""),
+                 lines_1.fromString(", ").join(path.map(print, "params")),
+                 ">",
+             ]);

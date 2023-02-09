@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autoSuppressErrors adds suppressions to suppressable errors 1`] = `
+"// Testing removing unused
+
+// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'string'. | TS2451 - Cannot redeclare block-scoped variable 'error1'.
+const error1: string = 0;
+
+// Line above suppression
+// @ts-expect-error not actually error
+export const foo = () => {
+  console.log(
+    // Other comment
+    \\"foo\\",
+    // @ts-expect-error - TS2345 - Argument of type 'unknown' is not assignable to parameter of type '{ customer: string; ephemeralKey: string; } | null'.
+    \\"bar\\",
+    \\"baz\\"
+  );
+
+// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'string'.
+  const error2: string = 0;
+
+  /* @ts-expect-error not actually error */
+  return \\"bar\\";
+};
+
+// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'string'. | TS2451 - Cannot redeclare block-scoped variable 'error1'.
+const error1: string = 0;"
+`;
+
+exports[`autoSuppressErrors does not add if run twice 1`] = `
+"// Testing removing unused
+
+// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'string'. | TS2451 - Cannot redeclare block-scoped variable 'error1'.
+const error1: string = 0;
+
+// Line above suppression
+// @ts-expect-error not actually error
+export const foo = () => {
+  console.log(
+    // Other comment
+    \\"foo\\",
+    // @ts-expect-error - TS2345 - Argument of type 'unknown' is not assignable to parameter of type '{ customer: string; ephemeralKey: string; } | null'.
+    \\"bar\\",
+    \\"baz\\"
+  );
+
+// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'string'.
+  const error2: string = 0;
+
+  /* @ts-expect-error not actually error */
+  return \\"bar\\";
+};
+
+// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'string'. | TS2451 - Cannot redeclare block-scoped variable 'error1'.
+const error1: string = 0;"
+`;
