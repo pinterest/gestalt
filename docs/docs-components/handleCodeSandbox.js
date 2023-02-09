@@ -61,11 +61,8 @@ const handleCodeSandbox = async ({ code, title }: {| code: string, title: string
           dependencies: {
             react: 'latest',
             'react-dom': 'latest',
-            // $FlowIssue[exponential-spread]
-            ...(baseComponents.length > 0 ? { gestalt: 'latest' } : {}),
-            ...(additionalComponents.includes('DatePicker')
-              ? { 'gestalt-datepicker': 'latest' }
-              : {}),
+            gestalt: 'latest',
+            'gestalt-datepicker': 'latest',
           },
           devDependencies: {
             'react-scripts': 'latest',
