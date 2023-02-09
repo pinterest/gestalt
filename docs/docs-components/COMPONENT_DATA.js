@@ -130,6 +130,7 @@ export type ListItemType = {|
   iOS?: PlatformStatus,
   name: string,
   path?: string,
+  previouslyNamed?: $ReadOnlyArray<string>,
   status?: {| ...PlatformStatus, iOS: StatusType, android: StatusType, responsive: StatusType |}, // web status
   svg: Element<typeof Accessibility>,
 |};
@@ -1727,6 +1728,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <Popover />,
     name: 'Popover',
     aliases: ['Flyout'],
+    previouslyNamed: ['Flyout'],
     description:
       'Popover is a floating view that contains a task related to the content on screen.',
     category: 'Overlays',
@@ -2024,6 +2026,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <OverlayPanel />,
     name: 'OverlayPanel',
     aliases: ['Drawer', 'Panel', 'Tray', 'Sheet'],
+    previouslyNamed: ['Sheet'],
     description:
       'OverlayPanels are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.',
     category: 'Overlays',
@@ -3287,6 +3290,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <TapArea />,
     name: 'TapArea',
     aliases: ['Touchable'],
+    previouslyNamed: ['Touchable'],
     description: 'TapArea allows components to be clickable and touchable in an accessible way.',
     category: 'Building blocks',
     status: {
