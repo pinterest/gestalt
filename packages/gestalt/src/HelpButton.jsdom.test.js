@@ -52,12 +52,7 @@ describe('HelpButton', () => {
       index: () => 100,
     };
     render(
-      <HelpButton
-        accessibilityPopoverLabel="Pinterest"
-        text="Good test"
-        zIndex={zIndexStub}
-        positionRelativeToAnchor
-      />,
+      <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" zIndex={zIndexStub} />,
     );
 
     act(() => {

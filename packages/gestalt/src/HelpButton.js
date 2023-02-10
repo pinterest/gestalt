@@ -7,7 +7,6 @@ import Text from './Text.js';
 import Link from './Link.js';
 import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';
-import Layer from './Layer.js';
 import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
@@ -41,10 +40,6 @@ type Props = {|
    */
   onClick?: OnTapType,
   /**
-   * Enables correct behavior when HelpButton is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the HelpButton positionings such as when the anchor element is within a sticky component.
-   */
-  positionRelativeToAnchor?: boolean,
-  /**
    * Informational content that's displayed when the user clicks on HelpButton.
    */
   text: string,
@@ -64,7 +59,6 @@ export default function HelpButton({
   idealDirection = 'down',
   link,
   onClick,
-  positionRelativeToAnchor = false,
   text,
   zIndex,
 }: Props): Node {
@@ -102,43 +96,6 @@ export default function HelpButton({
 
   const tooltipZIndex = zIndex ?? new FixedZIndex(DEFAULT_ZINDEX - 1);
 
-  const dialogComponent = (
-    <Popover
-      id={popoverId}
-      accessibilityLabel={accessibilityPopoverLabel}
-      anchor={ref.current}
-      onDismiss={toggleView}
-      idealDirection={idealDirection ?? 'down'}
-      positionRelativeToAnchor={positionRelativeToAnchor}
-    >
-      <Box padding={4} rounding={4} minWidth={230} tabIndex={0}>
-        <Text align="center">{text}</Text>
-        {link?.href && (
-          <Box
-            padding={3}
-            width="100%"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            marginTop={3}
-          >
-            <Text weight="bold" size="300">
-              <Link
-                accessibilityLabel={link?.accessibilityLabel ?? accessibilityDefaultLinkLabel}
-                display="inline"
-                href={link?.href}
-                externalLinkIcon="default"
-                onClick={link?.onClick}
-              >
-                {link?.text ?? accessibilityDefaultLinkLabel}
-              </Link>
-            </Text>
-          </Box>
-        )}
-      </Box>
-    </Popover>
-  );
-
   const zIndexLayer = zIndex
     ? new CompositeZIndex([new FixedZIndex(zIndex.index())])
     : new FixedZIndex(DEFAULT_ZINDEX);
@@ -166,7 +123,6 @@ export default function HelpButton({
             rounding="circle"
             onBlur={() => {
               setFocused(false);
-              setIsOpen(false);
               setActive(false);
             }}
             onFocus={() => setFocused(true)}
@@ -199,12 +155,54 @@ export default function HelpButton({
           </TapArea>
         </Tooltip>
       </Box>
-      {isOpen &&
-        (positionRelativeToAnchor ? (
-          dialogComponent
-        ) : (
-          <Layer zIndex={zIndexLayer}>{dialogComponent}</Layer>
-        ))}
+      {isOpen && (
+        <Box zIndex={zIndexLayer}>
+          <Popover
+            id={popoverId}
+            accessibilityLabel={accessibilityPopoverLabel}
+            anchor={ref.current}
+            onDismiss={toggleView}
+            idealDirection={idealDirection ?? 'down'}
+            positionRelativeToAnchor
+          >
+            <Box
+              padding={4}
+              rounding={4}
+              minWidth={230}
+              tabIndex={0}
+              onBlur={() => {
+                setFocused(false);
+                setIsOpen(false);
+              }}
+              onFocus={() => setFocused(true)}
+            >
+              <Text align="center">{text}</Text>
+              {link?.href && (
+                <Box
+                  padding={3}
+                  width="100%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  marginTop={3}
+                >
+                  <Text weight="bold" size="300">
+                    <Link
+                      accessibilityLabel={link?.accessibilityLabel ?? accessibilityDefaultLinkLabel}
+                      display="inline"
+                      href={link?.href}
+                      externalLinkIcon="default"
+                      onClick={link?.onClick}
+                    >
+                      {link?.text ?? accessibilityDefaultLinkLabel}
+                    </Link>
+                  </Text>
+                </Box>
+              )}
+            </Box>
+          </Popover>
+        </Box>
+      )}
     </Fragment>
   );
 }

@@ -21,12 +21,13 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center">
-  <HelpButton
-    text="Informational context that's displayed on click"
-    accessibilityLabel="Popover context description"
-  />
-</Flex>
+        <Flex height="100%" justifyContent="center" alignItems="center">
+          <HelpButton
+            text="Informational context that's displayed on click"
+            accessibilityLabel="Popover context description"
+          />
+        </Flex>
+
 `}
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
