@@ -1,11 +1,12 @@
 // @flow strict
-import { type Node, type Element, Fragment, useRef, useState, useEffect, useId } from 'react';
+import { type Node, type Element, useRef, useState, useEffect, useId } from 'react';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
 import Link from './Link.js';
 import Icon from './Icon.js';
+import Flex from './Flex.js';
 import Tooltip from './Tooltip.js';
 import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
@@ -99,67 +100,64 @@ export default function HelpButton({
   const textElement = typeof text === 'string' ? <Text align="center">{text}</Text> : text;
 
   return (
-    <Fragment>
-      <Box
-        // The component main proposal is support or provide more infos to short texts on app
-        // because that the display is inline-block, to better fit with text blocks.
-        display="inlineBlock"
+    <Flex alignItems="center" justifyContent="center" flex="none">
+      <Tooltip
+        text={accessibilityTooltipMessage}
+        idealDirection={idealDirection}
+        zIndex={tooltipZIndex}
       >
-        <Tooltip
-          text={accessibilityTooltipMessage}
-          idealDirection={idealDirection}
-          zIndex={tooltipZIndex}
+        <TapArea
+          accessibilityExpanded={isOpen}
+          accessibilityControls={popoverId}
+          accessibilityLabel={accessibilityTooltipMessage}
+          fullWidth={false}
+          onTap={onHandleTap}
+          ref={ref}
+          role="button"
+          rounding="circle"
+          onBlur={() => {
+            setFocused(false);
+            setActive(false);
+          }}
+          onFocus={() => setFocused(true)}
+          onMouseDown={() => setActive(true)}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onMouseUp={() => setActive(false)}
+          tabIndex={0}
         >
-          <TapArea
-            accessibilityExpanded={isOpen}
-            accessibilityControls={popoverId}
-            accessibilityLabel={accessibilityTooltipMessage}
-            fullWidth={false}
-            onTap={onHandleTap}
-            ref={ref}
-            role="button"
+          <Box
+            width={16}
+            height={16}
             rounding="circle"
-            onBlur={() => {
-              setFocused(false);
-              setActive(false);
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            dangerouslySetInlineStyle={{
+              __style: {
+                backgroundColor: `var(--color-text-${bgIconColor})`,
+              },
             }}
-            onFocus={() => setFocused(true)}
-            onMouseDown={() => setActive(true)}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onMouseUp={() => setActive(false)}
-            tabIndex={0}
           >
-            <Box
-              width={16}
-              height={16}
-              rounding="circle"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              dangerouslySetInlineStyle={{
-                __style: {
-                  backgroundColor: `var(--color-text-${bgIconColor})`,
-                },
-              }}
-            >
-              <Icon
-                accessibilityLabel={accessibilityIcon}
-                color="inverse"
-                icon="question-mark"
-                size={8}
-              />
-            </Box>
-          </TapArea>
-        </Tooltip>
-      </Box>
+            <Icon
+              accessibilityLabel={accessibilityIcon}
+              color="inverse"
+              icon="question-mark"
+              size={8}
+            />
+          </Box>
+        </TapArea>
+      </Tooltip>
       {isOpen && (
         <Box zIndex={zIndexLayer}>
           <Popover
             id={popoverId}
             accessibilityLabel={accessibilityPopoverLabel}
             anchor={ref.current}
-            onDismiss={toggleView}
+            onDismiss={() => {
+              toggleView();
+              setActive(false);
+            }}
             idealDirection={idealDirection ?? 'down'}
             positionRelativeToAnchor
           >
@@ -170,7 +168,9 @@ export default function HelpButton({
               tabIndex={0}
               onBlur={() => {
                 setFocused(false);
-                setIsOpen(false);
+                if (!link?.href) {
+                  setIsOpen(false);
+                }
               }}
               onFocus={() => setFocused(true)}
             >
@@ -191,6 +191,10 @@ export default function HelpButton({
                       href={link?.href}
                       externalLinkIcon="default"
                       onClick={link?.onClick}
+                      onBlur={() => {
+                        setFocused(false);
+                        setIsOpen(false);
+                      }}
                     >
                       {link?.text ?? accessibilityDefaultLinkLabel}
                     </Link>
@@ -201,6 +205,6 @@ export default function HelpButton({
           </Popover>
         </Box>
       )}
-    </Fragment>
+    </Flex>
   );
 }

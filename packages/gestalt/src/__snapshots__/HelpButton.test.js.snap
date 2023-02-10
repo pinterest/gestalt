@@ -2,7 +2,7 @@
 
 exports[`HelpButton renders correctly 1`] = `
 <div
-  className="box xsDisplayInlineBlock"
+  className="Flex rowGap0 columnGap0 flexNone justifyCenter xsDirectionRow xsItemsCenter"
 >
   <div
     className="box xsDisplayBlock"
@@ -69,7 +69,7 @@ exports[`HelpButton renders correctly 1`] = `
 
 exports[`HelpButton renders with changing direction to show the popover 1`] = `
 <div
-  className="box xsDisplayInlineBlock"
+  className="Flex rowGap0 columnGap0 flexNone justifyCenter xsDirectionRow xsItemsCenter"
 >
   <div
     className="box xsDisplayBlock"
@@ -136,7 +136,7 @@ exports[`HelpButton renders with changing direction to show the popover 1`] = `
 
 exports[`HelpButton renders with default link and accessibility link label 1`] = `
 <div
-  className="box xsDisplayInlineBlock"
+  className="Flex rowGap0 columnGap0 flexNone justifyCenter xsDirectionRow xsItemsCenter"
 >
   <div
     className="box xsDisplayBlock"
@@ -203,7 +203,7 @@ exports[`HelpButton renders with default link and accessibility link label 1`] =
 
 exports[`HelpButton renders with default link and no accessibility label 1`] = `
 <div
-  className="box xsDisplayInlineBlock"
+  className="Flex rowGap0 columnGap0 flexNone justifyCenter xsDirectionRow xsItemsCenter"
 >
   <div
     className="box xsDisplayBlock"
@@ -270,7 +270,7 @@ exports[`HelpButton renders with default link and no accessibility label 1`] = `
 
 exports[`HelpButton renders with link and no default link label 1`] = `
 <div
-  className="box xsDisplayInlineBlock"
+  className="Flex rowGap0 columnGap0 flexNone justifyCenter xsDirectionRow xsItemsCenter"
 >
   <div
     className="box xsDisplayBlock"

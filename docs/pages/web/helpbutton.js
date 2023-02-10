@@ -81,23 +81,29 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             id="no-final-version-dont"
             name="How to not use"
             defaultCode={`
-<Text inline>
+<Text>
   See the total impact of your paid and organic content working together to increase page
   visits
-  <HelpButton
-    text="Number of times people visited your website after seeing your content on Pinterest"
-    accessibilityPopoverLabel="Number of times people visited your website after seeing your content on Pinterest"
-  />
+  <Box display="inlineBlock">
+    <HelpButton
+      text="Number of times people visited your website after seeing your content on Pinterest"
+      accessibilityPopoverLabel="Number of times people visited your website after seeing your content on Pinterest"
+    />
+  </Box>
   {' '}add-to-carts{' '}
-  <HelpButton
-    text="Number of times people added your products to their carts after interacting with your Pins"
-    accessibilityPopoverLabel="Number of times people added your products to their carts after interacting with your Pins"
-  />
+  <Box display="inlineBlock">
+    <HelpButton
+      text="Number of times people added your products to their carts after interacting with your Pins"
+      accessibilityPopoverLabel="Number of times people added your products to their carts after interacting with your Pins"
+    />
+  </Box>
   {' '}and checkouts
-  <HelpButton
-    text="Number of checkouts stemming from your Pins and ads"
-    accessibilityPopoverLabel="Number of checkouts stemming from your Pins and ads"
-  />
+  <Box display="inlineBlock">
+    <HelpButton
+      text="Number of checkouts stemming from your Pins and ads"
+      accessibilityPopoverLabel="Number of checkouts stemming from your Pins and ads"
+    />
+  </Box>
   .
 </Text>
 `}
