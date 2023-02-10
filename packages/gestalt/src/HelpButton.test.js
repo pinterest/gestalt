@@ -57,8 +57,9 @@ test('accessibilityControls', () => {
   const instance = create(
     <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
+
   expect(
-    instance.findAll((element) => element.type === 'div')[1].props['aria-controls'],
+    instance.findAll((element) => element.type === 'div')[3].props['aria-controls'],
   ).toBeTruthy();
 });
 
@@ -66,7 +67,7 @@ test('accessibilityExpanded', () => {
   const instance = create(
     <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
-  expect(instance.findAll((element) => element.type === 'div')[1].props['aria-expanded']).toBe(
+  expect(instance.findAll((element) => element.type === 'div')[3].props['aria-expanded']).toBe(
     false,
   );
 });
@@ -75,7 +76,7 @@ test('accessibilityPopoverLabel', () => {
   const instance = create(
     <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />,
   ).root;
-  expect(instance.findAll((element) => element.type === 'div')[1].props['aria-label']).toContain(
+  expect(instance.findAll((element) => element.type === 'div')[3].props['aria-label']).toContain(
     'Click to learn more',
   );
 });

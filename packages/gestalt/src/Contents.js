@@ -279,6 +279,7 @@ class Contents extends Component<Props, State> {
             width !== null && styles.minDimensions,
           )}
           style={{ maxWidth: width, maxHeight: height }}
+          aria-modal
         >
           {children}
         </div>

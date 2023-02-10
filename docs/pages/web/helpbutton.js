@@ -11,7 +11,6 @@ import main from '../../examples/helpbutton/main.js';
 import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
 import withLink from '../../examples/helpbutton/withLink.js';
-import withZIndex from '../../examples/helpbutton/withZIndex.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
@@ -20,12 +19,8 @@ type DocsType = {|
 export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <Example
-          id="no-final-version"
-          description="Example to component validation"
-          name="Main HelpButton example"
-          defaultCode={`
+      <PageHeader
+        defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center">
   <HelpButton
     text="Informational context that's displayed on click"
@@ -33,8 +28,9 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
   />
 </Flex>
 `}
-        />
-
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+      >
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
 
@@ -45,7 +41,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             type="do"
-            title="When to use"
             description={`
 - To offer simple, bite-sized assistive information about an element or section on the screen.
 - To provide information or links to information that enhances a user's understanding of the feature.
@@ -55,7 +50,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            title="When not to use"
             description={`
 - To provide extensive information that is longer than a short sentence. Use [SlimBanner](/web/slimbanner) instead.
 - To display recommendations for how to improve a user's experience. Use [SlimBanner](/web/slimbanner) instead.
@@ -168,29 +162,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             sandpackExample={<SandpackExample code={withLink} name="Link component" />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title="With Z-index"
-          description="Use zIndex when needed to properly position HelpButton's tooltip and popover on the z-axis relative to surrounding elements. Visit our [Z-Index documentation](/web/zindex_classes) for more details on how to use these prop."
-        >
-          <Example
-            name="ZIndex HelpButton example"
-            defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-  <Text>Gestalt is Pinterest's design system.</Text>
-  <HelpButton
-    text="Is Pinterest's design system"
-    accessibilityPopoverLabel="Gestalt meaning description"
-    zIndex={new FixedZIndex(100)}
-  />
-</Flex>
-        `}
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={<SandpackExample code={withZIndex} name="z-index component" />}
           />
         </MainSection.Subsection>
       </MainSection>

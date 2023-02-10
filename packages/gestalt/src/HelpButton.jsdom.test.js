@@ -52,7 +52,12 @@ describe('HelpButton', () => {
       index: () => 100,
     };
     render(
-      <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" zIndex={zIndexStub} />,
+      <HelpButton
+        accessibilityPopoverLabel="Pinterest"
+        text="Good test"
+        zIndex={zIndexStub}
+        positionRelativeToAnchor
+      />,
     );
 
     act(() => {
@@ -62,7 +67,7 @@ describe('HelpButton', () => {
     // GetByClassName
     const element = screen.getByText((_, el) => el?.className === 'layer');
 
-    expect(element.getAttribute('style')).toEqual('z-index: 101;');
+    expect(element.getAttribute('style')).toEqual('z-index: 100;');
   });
 
   it('popover opens', () => {

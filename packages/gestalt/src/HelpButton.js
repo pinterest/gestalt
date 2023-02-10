@@ -1,14 +1,13 @@
 // @flow strict
 import { type Node, Fragment, useRef, useState, useEffect, useId } from 'react';
 import Box from './Box.js';
-import TapArea from './TapArea.js';
+import TapArea, { type OnTapType } from './TapArea.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
 import Link from './Link.js';
 import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';
 import Layer from './Layer.js';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
@@ -38,6 +37,14 @@ type Props = {|
     text?: string,
   |},
   /**
+   * Callback fired when HelpIcon is clicked (pressed and released) with a mouse or keyboard.
+   */
+  onClick?: OnTapType,
+  /**
+   * Enables correct behavior when HelpButton is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the HelpButton positionings such as when the anchor element is within a sticky component.
+   */
+  positionRelativeToAnchor?: boolean,
+  /**
    * Informational content that's displayed when the user clicks on HelpButton.
    */
   text: string,
@@ -56,12 +63,16 @@ export default function HelpButton({
   accessibilityPopoverLabel,
   idealDirection = 'down',
   link,
+  onClick,
+  positionRelativeToAnchor = false,
   text,
   zIndex,
 }: Props): Node {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [isHover, setIsHover] = useState(false);
+  const [isHovered, setHovered] = useState(false);
+  const [isFocused, setFocused] = useState(false);
+  const [isActive, setActive] = useState(false);
   const popoverId = useId();
   const {
     accessibilityTooltipMessage,
@@ -70,49 +81,100 @@ export default function HelpButton({
   } = useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
-    if (isOpen && ref.current) {
-      ref.current.focus();
+    if (isOpen) {
+      ref?.current?.focus();
     }
   }, [isOpen]);
 
   const toggleView = () => {
     setIsOpen((currVal) => !currVal);
+    setActive((currVal) => !currVal);
   };
 
-  const bgIconColor = isHover ? 'default' : 'subtle';
+  const onHandleTap = (props) => {
+    toggleView();
+    if (onClick) {
+      onClick(props);
+    }
+  };
+
+  const bgIconColor = isHovered || isActive || isFocused ? 'default' : 'subtle';
 
   const tooltipZIndex = zIndex ?? new FixedZIndex(DEFAULT_ZINDEX - 1);
+
+  const dialogComponent = (
+    <Popover
+      id={popoverId}
+      accessibilityLabel={accessibilityPopoverLabel}
+      anchor={ref.current}
+      onDismiss={toggleView}
+      idealDirection={idealDirection ?? 'down'}
+      positionRelativeToAnchor={positionRelativeToAnchor}
+    >
+      <Box padding={4} rounding={4} minWidth={230} tabIndex={0}>
+        <Text align="center">{text}</Text>
+        {link?.href && (
+          <Box
+            padding={3}
+            width="100%"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            marginTop={3}
+          >
+            <Text weight="bold" size="300">
+              <Link
+                accessibilityLabel={link?.accessibilityLabel ?? accessibilityDefaultLinkLabel}
+                display="inline"
+                href={link?.href}
+                externalLinkIcon="default"
+                onClick={link?.onClick}
+              >
+                {link?.text ?? accessibilityDefaultLinkLabel}
+              </Link>
+            </Text>
+          </Box>
+        )}
+      </Box>
+    </Popover>
+  );
+
+  const zIndexLayer = zIndex
+    ? new CompositeZIndex([new FixedZIndex(zIndex.index())])
+    : new FixedZIndex(DEFAULT_ZINDEX);
 
   return (
     <Fragment>
       <Box
-        dangerouslySetInlineStyle={{
-          __style: {
-            // The component main proposal is support or provide more infos to short texts on app
-            // because that the display is inline-block, to better fit with text blocks.
-            display: 'inline-block',
-          },
-        }}
-        tabIndex={-1}
+        // The component main proposal is support or provide more infos to short texts on app
+        // because that the display is inline-block, to better fit with text blocks.
+        display="inlineBlock"
       >
-        <TapArea
-          accessibilityExpanded={isOpen}
-          accessibilityControls={popoverId}
-          accessibilityLabel={accessibilityTooltipMessage}
-          fullWidth={false}
-          onTap={toggleView}
-          ref={ref}
-          role="button"
-          rounding="circle"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-          onFocus={() => setIsHover(true)}
-          onBlur={() => setIsHover(false)}
+        <Tooltip
+          text={accessibilityTooltipMessage}
+          idealDirection={idealDirection}
+          zIndex={tooltipZIndex}
         >
-          <Tooltip
-            text={accessibilityTooltipMessage}
-            idealDirection={idealDirection}
-            zIndex={tooltipZIndex}
+          <TapArea
+            accessibilityExpanded={isOpen}
+            accessibilityControls={popoverId}
+            accessibilityLabel={accessibilityTooltipMessage}
+            fullWidth={false}
+            onTap={onHandleTap}
+            ref={ref}
+            role="button"
+            rounding="circle"
+            onBlur={() => {
+              setFocused(false);
+              setIsOpen(false);
+              setActive(false);
+            }}
+            onFocus={() => setFocused(true)}
+            onMouseDown={() => setActive(true)}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onMouseUp={() => setActive(false)}
+            tabIndex={0}
           >
             <Box
               width={16}
@@ -134,57 +196,15 @@ export default function HelpButton({
                 size={8}
               />
             </Box>
-          </Tooltip>
-        </TapArea>
+          </TapArea>
+        </Tooltip>
       </Box>
-      {isOpen && (
-        <Layer
-          zIndex={
-            zIndex
-              ? new CompositeZIndex([new FixedZIndex(zIndex.index())])
-              : new FixedZIndex(DEFAULT_ZINDEX)
-          }
-        >
-          <Popover
-            id={popoverId}
-            accessibilityLabel={accessibilityPopoverLabel}
-            anchor={ref.current}
-            onDismiss={toggleView}
-            idealDirection={idealDirection ?? 'down'}
-            positionRelativeToAnchor={false}
-          >
-            <TrapFocusBehavior>
-              <Box padding={4} rounding={4} minWidth={230} tabIndex={0}>
-                <Text align="center">{text}</Text>
-                {link?.href && (
-                  <Box
-                    padding={3}
-                    with="100%"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    marginTop={3}
-                  >
-                    <Text weight="bold" size="300">
-                      <Link
-                        accessibilityLabel={
-                          link?.accessibilityLabel ?? accessibilityDefaultLinkLabel
-                        }
-                        display="inline"
-                        href={link?.href}
-                        externalLinkIcon="default"
-                        onClick={link?.onClick}
-                      >
-                        {link?.text ?? accessibilityDefaultLinkLabel}
-                      </Link>
-                    </Text>
-                  </Box>
-                )}
-              </Box>
-            </TrapFocusBehavior>
-          </Popover>
-        </Layer>
-      )}
+      {isOpen &&
+        (positionRelativeToAnchor ? (
+          dialogComponent
+        ) : (
+          <Layer zIndex={zIndexLayer}>{dialogComponent}</Layer>
+        ))}
     </Fragment>
   );
 }
