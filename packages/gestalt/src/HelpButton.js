@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, Fragment, useRef, useState, useEffect, useId } from 'react';
+import { type Node, type Element, Fragment, useRef, useState, useEffect, useId } from 'react';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import Popover from './Popover.js';
@@ -42,14 +42,12 @@ type Props = {|
   /**
    * Informational content that's displayed when the user clicks on HelpButton.
    */
-  text: string,
+  text: string | Element<typeof Text>,
   /**
    * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/helpbutton#With-Z-index) for more details.
    */
   zIndex?: Indexable,
 |};
-
-const DEFAULT_ZINDEX = 2;
 
 /**
  * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) is an affordance that accompanies an element on the screen. It helps describe or provide assistance on how to use the accompanying element.
@@ -94,11 +92,11 @@ export default function HelpButton({
 
   const bgIconColor = isHovered || isActive || isFocused ? 'default' : 'subtle';
 
-  const tooltipZIndex = zIndex ?? new FixedZIndex(DEFAULT_ZINDEX - 1);
+  const tooltipZIndex = zIndex ?? new FixedZIndex(1);
 
-  const zIndexLayer = zIndex
-    ? new CompositeZIndex([new FixedZIndex(zIndex.index())])
-    : new FixedZIndex(DEFAULT_ZINDEX);
+  const zIndexLayer = new CompositeZIndex([new FixedZIndex(tooltipZIndex.index())]);
+
+  const textElement = typeof text === 'string' ? <Text align="center">{text}</Text> : text;
 
   return (
     <Fragment>
@@ -176,7 +174,7 @@ export default function HelpButton({
               }}
               onFocus={() => setFocused(true)}
             >
-              <Text align="center">{text}</Text>
+              {textElement}
               {link?.href && (
                 <Box
                   padding={3}
