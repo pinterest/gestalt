@@ -24,7 +24,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <Flex height="100%" justifyContent="center" alignItems="center">
           <HelpButton
             text="Informational context that's displayed on click"
-            accessibilityLabel="Popover context description"
+            accessibilityPopoverLabel="Popover context description"
           />
         </Flex>
 

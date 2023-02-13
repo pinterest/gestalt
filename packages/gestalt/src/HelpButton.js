@@ -165,7 +165,6 @@ export default function HelpButton({
               padding={4}
               rounding={4}
               minWidth={230}
-              tabIndex={0}
               onBlur={() => {
                 setFocused(false);
                 if (!link?.href) {
@@ -174,20 +173,11 @@ export default function HelpButton({
               }}
               onFocus={() => setFocused(true)}
             >
-              {textElement}
+              <Box tabIndex={0}>{textElement}</Box>
               {link?.href && (
-                <Box
-                  padding={3}
-                  width="100%"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  marginTop={3}
-                >
-                  <Text weight="bold" size="300">
+                <Box padding={3} width="100%" display="block" marginTop={3}>
+                  <Text weight="bold" size="300" align="center">
                     <Link
-                      accessibilityLabel={link?.accessibilityLabel ?? accessibilityDefaultLinkLabel}
-                      display="inline"
                       href={link?.href}
                       externalLinkIcon="default"
                       onClick={link?.onClick}
