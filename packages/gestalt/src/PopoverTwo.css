@@ -1,3 +1,37 @@
 .customClass {
   background: rgb(0 0 0 / 0.061);
 }
+
+.arrow,
+.arrow::before {
+  background: inherit;
+  height: 8px;
+  position: absolute;
+  width: 8px;
+}
+
+.arrow {
+  visibility: hidden;
+}
+
+.arrow::before {
+  content: '';
+  transform: rotate(45deg);
+  visibility: visible;
+}
+
+.tooltip[data-popper-placement^='top']>.arrow {
+  bottom: -4px;
+}
+
+.tooltip[data-popper-placement^='bottom']>.arrow {
+  top: -4px;
+}
+
+.tooltip[data-popper-placement^='left']>.arrow {
+  right: -4px;
+}
+
+.tooltip[data-popper-placement^='right']>.arrow {
+  left: -4px;
+}
