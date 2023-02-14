@@ -68,7 +68,7 @@ function InternalList({
   const isListParent = nestedLevel === 0;
 
   const className = classnames(styles.list, {
-    [styles.bareList]: type === 'bare',
+    [styles.bulletList]: type !== 'bare',
     [styles.parentList]: isListParent,
   });
 

@@ -19,7 +19,7 @@ exports[`List renders a bare unordered list 1`] = `
   >
     <ul
       aria-labelledby=":r0:"
-      className="list bareList parentList"
+      className="list parentList"
     >
       <li
         className="noStyle listItem"
@@ -31,7 +31,7 @@ exports[`List renders a bare unordered list 1`] = `
         </div>
         <ul
           aria-labelledby=":r1:"
-          className="list bareList"
+          className="list"
         >
           <li
             className="noStyle listItem"
@@ -43,7 +43,7 @@ exports[`List renders a bare unordered list 1`] = `
             </div>
             <ul
               aria-labelledby=":r2:"
-              className="list bareList"
+              className="list"
             >
               <li
                 className="noStyle listItem"
@@ -55,7 +55,7 @@ exports[`List renders a bare unordered list 1`] = `
                 </div>
                 <ul
                   aria-labelledby=":r3:"
-                  className="list bareList"
+                  className="list"
                 >
                   <li
                     className="noStyle listItem"
@@ -67,7 +67,7 @@ exports[`List renders a bare unordered list 1`] = `
                     </div>
                     <ul
                       aria-labelledby=":r4:"
-                      className="list bareList"
+                      className="list"
                     >
                       <li
                         className="noStyle listItem"
@@ -79,7 +79,7 @@ exports[`List renders a bare unordered list 1`] = `
                         </div>
                         <ul
                           aria-labelledby=":r5:"
-                          className="list bareList"
+                          className="list"
                         >
                           <li
                             className="noStyle listItem"
@@ -124,7 +124,7 @@ exports[`List renders an condensed list 1`] = `
   >
     <ol
       aria-labelledby=":ro:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItemCondensed olItem1"
@@ -159,7 +159,7 @@ exports[`List renders an list item with custom text 1`] = `
   >
     <ol
       aria-labelledby=":rp:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItemCondensed olItem1"
@@ -202,7 +202,7 @@ exports[`List renders an list with a custom label 1`] = `
   >
     <ol
       aria-labelledby=":rm:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItem olItem1"
@@ -237,7 +237,7 @@ exports[`List renders an list with a hidden label 1`] = `
   >
     <ol
       aria-labelledby=":rn:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItem olItem1"
@@ -272,7 +272,7 @@ exports[`List renders an mixed list 1`] = `
   >
     <ol
       aria-labelledby=":ri:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItem olItem1"
@@ -293,7 +293,7 @@ exports[`List renders an mixed list 1`] = `
         </div>
         <ul
           aria-labelledby=":rj:"
-          className="list"
+          className="list bulletList"
         >
           <li
             className="listItem ulItemDot"
@@ -314,7 +314,7 @@ exports[`List renders an mixed list 1`] = `
             </div>
             <ul
               aria-labelledby=":rk:"
-              className="list"
+              className="list bulletList"
             >
               <li
                 className="listItem ulItemCircle"
@@ -335,7 +335,7 @@ exports[`List renders an mixed list 1`] = `
                 </div>
                 <ol
                   aria-labelledby=":rl:"
-                  className="list"
+                  className="list bulletList"
                 >
                   <li
                     className="listItem olItem1"
@@ -403,7 +403,7 @@ exports[`List renders an ordered list 1`] = `
   >
     <ol
       aria-labelledby=":rc:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItem olItem1"
@@ -415,7 +415,7 @@ exports[`List renders an ordered list 1`] = `
         </div>
         <ol
           aria-labelledby=":rd:"
-          className="list"
+          className="list bulletList"
         >
           <li
             className="listItem olItemA"
@@ -427,7 +427,7 @@ exports[`List renders an ordered list 1`] = `
             </div>
             <ol
               aria-labelledby=":re:"
-              className="list"
+              className="list bulletList"
             >
               <li
                 className="listItem olItema"
@@ -439,7 +439,7 @@ exports[`List renders an ordered list 1`] = `
                 </div>
                 <ol
                   aria-labelledby=":rf:"
-                  className="list"
+                  className="list bulletList"
                 >
                   <li
                     className="listItem olItem1"
@@ -451,7 +451,7 @@ exports[`List renders an ordered list 1`] = `
                     </div>
                     <ol
                       aria-labelledby=":rg:"
-                      className="list"
+                      className="list bulletList"
                     >
                       <li
                         className="listItem olItemA"
@@ -463,7 +463,7 @@ exports[`List renders an ordered list 1`] = `
                         </div>
                         <ol
                           aria-labelledby=":rh:"
-                          className="list"
+                          className="list bulletList"
                         >
                           <li
                             className="listItem olItema"
@@ -508,7 +508,7 @@ exports[`List renders an unordered list 1`] = `
   >
     <ul
       aria-labelledby=":r6:"
-      className="list parentList"
+      className="list bulletList parentList"
     >
       <li
         className="listItem ulItemDot"
@@ -520,7 +520,7 @@ exports[`List renders an unordered list 1`] = `
         </div>
         <ul
           aria-labelledby=":r7:"
-          className="list"
+          className="list bulletList"
         >
           <li
             className="listItem ulItemCircle"
@@ -532,7 +532,7 @@ exports[`List renders an unordered list 1`] = `
             </div>
             <ul
               aria-labelledby=":r8:"
-              className="list"
+              className="list bulletList"
             >
               <li
                 className="listItem ulItemDot"
@@ -544,7 +544,7 @@ exports[`List renders an unordered list 1`] = `
                 </div>
                 <ul
                   aria-labelledby=":r9:"
-                  className="list"
+                  className="list bulletList"
                 >
                   <li
                     className="listItem ulItemCircle"
@@ -556,7 +556,7 @@ exports[`List renders an unordered list 1`] = `
                     </div>
                     <ul
                       aria-labelledby=":ra:"
-                      className="list"
+                      className="list bulletList"
                     >
                       <li
                         className="listItem ulItemDot"
@@ -568,7 +568,7 @@ exports[`List renders an unordered list 1`] = `
                         </div>
                         <ul
                           aria-labelledby=":rb:"
-                          className="list"
+                          className="list bulletList"
                         >
                           <li
                             className="listItem ulItemCircle"

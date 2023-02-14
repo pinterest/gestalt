@@ -15,12 +15,12 @@ html[dir="rtl"] .list {
   padding-right: var(--space-300);
 }
 
-html:not([dir="rtl"]) .bareList:first-child {
-  padding-left: var(--space-0);
+html:not([dir="rtl"]) .bulletList:first-child {
+  padding-left: var(--space-500);
 }
 
-html[dir="rtl"] .bareList:first-child {
-  padding-right: var(--space-0);
+html[dir="rtl"] .bulletList:first-child {
+  padding-right: var(--space-500);
 }
 
 .listItem {
