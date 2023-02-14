@@ -80,7 +80,7 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com' }}
+        link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test' }}
       />,
     );
 
@@ -96,7 +96,7 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com' }}
+        link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test' }}
       />,
     );
 
@@ -113,7 +113,11 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com', text: 'New link text' }}
+        link={{
+          href: 'https://www.pinterest.com',
+          accessibilityLabel: 'Good test',
+          text: 'New link text',
+        }}
       />,
     );
 
@@ -131,7 +135,7 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com', onClick: spy }}
+        link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test', onClick: spy }}
       />,
     );
 

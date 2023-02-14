@@ -28,7 +28,7 @@ type Props = {|
    * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    */
   link?: {|
-    accessibilityLabel?: string,
+    accessibilityLabel: string,
     href: string,
     onClick?: ({|
       event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
@@ -61,37 +61,30 @@ export default function HelpButton({
   text,
   zIndex,
 }: Props): Node {
-  const ref = useRef(null);
+  const tapAreaRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setHovered] = useState(false);
   const [isFocused, setFocused] = useState(false);
-  const [isActive, setActive] = useState(false);
   const popoverId = useId();
-  const {
-    accessibilityTooltipMessage,
-    accessibilityLinkLabel: accessibilityDefaultLinkLabel,
-    accessibilityIcon,
-  } = useDefaultLabelContext('HelpButton');
+  const { accessibilityTooltipMessage, accessibilityIconLabel, linkLabel } =
+    useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
     if (isOpen) {
-      ref?.current?.focus();
+      tapAreaRef?.current?.focus();
     }
   }, [isOpen]);
 
   const toggleView = () => {
     setIsOpen((currVal) => !currVal);
-    setActive((currVal) => !currVal);
   };
 
   const onHandleTap = (props) => {
     toggleView();
-    if (onClick) {
-      onClick(props);
-    }
+    onClick?.(props);
   };
 
-  const bgIconColor = isHovered || isActive || isFocused ? 'default' : 'subtle';
+  const bgIconColor = isOpen || isHovered || isFocused ? 'default' : 'subtle';
 
   const tooltipZIndex = zIndex ?? new FixedZIndex(1);
 
@@ -112,19 +105,13 @@ export default function HelpButton({
           accessibilityLabel={accessibilityTooltipMessage}
           fullWidth={false}
           onTap={onHandleTap}
-          ref={ref}
+          ref={tapAreaRef}
           role="button"
           rounding="circle"
-          onBlur={() => {
-            setFocused(false);
-            setActive(false);
-          }}
+          onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
-          onMouseDown={() => setActive(true)}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onMouseUp={() => setActive(false)}
-          tabIndex={0}
         >
           <Box
             width={16}
@@ -140,7 +127,7 @@ export default function HelpButton({
             }}
           >
             <Icon
-              accessibilityLabel={accessibilityIcon}
+              accessibilityLabel={accessibilityIconLabel}
               color="inverse"
               icon="question-mark"
               size={8}
@@ -153,40 +140,38 @@ export default function HelpButton({
           <Popover
             id={popoverId}
             accessibilityLabel={accessibilityPopoverLabel}
-            anchor={ref.current}
-            onDismiss={() => {
-              toggleView();
-              setActive(false);
-            }}
+            anchor={tapAreaRef.current}
+            onDismiss={toggleView}
             idealDirection={idealDirection ?? 'down'}
             positionRelativeToAnchor
           >
-            <Box
-              padding={4}
-              rounding={4}
-              minWidth={230}
-              onBlur={() => {
-                setFocused(false);
-                if (!link?.href) {
-                  setIsOpen(false);
-                }
-              }}
-              onFocus={() => setFocused(true)}
-            >
-              <Box tabIndex={0}>{textElement}</Box>
+            <Box padding={4} rounding={4} minWidth={230}>
+              <Box
+                tabIndex={0}
+                onBlur={() => {
+                  if (!link?.href) {
+                    setFocused(false);
+                    setIsOpen(false);
+                  }
+                }}
+              >
+                {textElement}
+              </Box>
               {link?.href && (
                 <Box padding={3} width="100%" display="block" marginTop={3}>
                   <Text weight="bold" size="300" align="center">
                     <Link
                       href={link?.href}
                       externalLinkIcon="default"
+                      accessibilityLabel={link.accessibilityLabel}
                       onClick={link?.onClick}
+                      onFocus={() => setFocused(true)}
                       onBlur={() => {
                         setFocused(false);
                         setIsOpen(false);
                       }}
                     >
-                      {link?.text ?? accessibilityDefaultLinkLabel}
+                      {link?.text ?? linkLabel}
                     </Link>
                   </Text>
                 </Box>

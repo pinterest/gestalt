@@ -9,7 +9,7 @@ const ValidLinkHelpButton = (
   <HelpButton
     accessibilityPopoverLabel="Pinterest"
     text="Good test"
-    link={{ href: 'http://www.pinterest.com' }}
+    link={{ href: 'http://www.pinterest.com', accessibilityLabel: 'Good test' }}
   />
 );
 
