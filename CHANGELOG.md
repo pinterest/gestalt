@@ -1,3 +1,9 @@
+## 95.0.4 (Feb 14, 2023)
+
+### Patch
+
+- List: fix style issue replacing uncompiling `padding-inline-start` with `padding-right/left` ([#2643](https://github.com/pinterest/gestalt/pull/2643)) - [Preview link](https://deploy-preview-2643--gestalt.netlify.app)
+
 ## 95.0.3 (Feb 9, 2023)
 
 ### Patch
