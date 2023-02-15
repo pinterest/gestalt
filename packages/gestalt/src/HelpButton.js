@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node, type Element, useRef, useState, useEffect, useId } from 'react';
+import { type Node, type Element, type Ref, useRef, useState, useEffect, useId } from 'react';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
-import Link from './Link.js';
+import Link, { type ExternalLinkIcon } from './Link.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Tooltip from './Tooltip.js';
@@ -21,20 +21,24 @@ type Props = {|
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
-   * If provided, displays a link at the bottom of the popover message.
+   * If provided, displays a [link api](https://gestalt.pinterest.systems/web/link#Props) at the bottom of the popover message.
    * - `href` is the URL the hyperlink points to.
    * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/helpbutton#With-a-link) for more details.
+   * - `target` see the [target Link variant](https://gestalt.pinterest.systems/web/link#Target) to learn more. If not defined the link will open in a new window.
    * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    */
   link?: {|
-    accessibilityLabel: string,
+    accessibilityLabel?: string,
+    externalLinkIcon?: ExternalLinkIcon,
     href: string,
     onClick?: ({|
       event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
       dangerouslyDisableOnNavigation: () => void,
     |}) => void,
-    text?: string,
+    ref?: Ref<'a'>,
+    text: string,
+    target?: null | 'self' | 'blank',
   |},
   /**
    * Callback fired when HelpIcon is clicked (pressed and released) with a mouse or keyboard.
@@ -66,7 +70,7 @@ export default function HelpButton({
   const [isHovered, setHovered] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const popoverId = useId();
-  const { accessibilityTooltipMessage, accessibilityIconLabel, linkLabel } =
+  const { accessibilityTooltipMessage, accessibilityIconLabel } =
     useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
@@ -88,9 +92,9 @@ export default function HelpButton({
 
   const tooltipZIndex = zIndex ?? new FixedZIndex(1);
 
-  const zIndexLayer = new CompositeZIndex([new FixedZIndex(tooltipZIndex.index())]);
+  const zIndexWrapper = new CompositeZIndex([new FixedZIndex(tooltipZIndex.index())]);
 
-  const textElement = typeof text === 'string' ? <Text align="center">{text}</Text> : text;
+  const textElement = typeof text === 'string' ? <Text align="start">{text}</Text> : text;
 
   return (
     <Flex alignItems="center" justifyContent="center" flex="none">
@@ -136,7 +140,7 @@ export default function HelpButton({
         </TapArea>
       </Tooltip>
       {isOpen && (
-        <Box zIndex={zIndexLayer}>
+        <Box zIndex={zIndexWrapper}>
           <Popover
             id={popoverId}
             accessibilityLabel={accessibilityPopoverLabel}
@@ -145,33 +149,31 @@ export default function HelpButton({
             idealDirection={idealDirection ?? 'down'}
             positionRelativeToAnchor
           >
-            <Box padding={4} rounding={4} minWidth={230}>
+            <Box padding={5} rounding={4} height="auto">
               <Box
                 tabIndex={0}
                 onBlur={() => {
                   if (!link?.href) {
                     setFocused(false);
-                    setIsOpen(false);
                   }
                 }}
               >
                 {textElement}
               </Box>
               {link?.href && (
-                <Box padding={3} width="100%" display="block" marginTop={3}>
-                  <Text weight="bold" size="300" align="center">
+                <Box width="100%" display="block" marginTop={3}>
+                  <Text>
                     <Link
                       href={link?.href}
-                      externalLinkIcon="default"
-                      accessibilityLabel={link.accessibilityLabel}
+                      externalLinkIcon={link?.externalLinkIcon}
+                      accessibilityLabel={link?.accessibilityLabel}
                       onClick={link?.onClick}
+                      target={link?.target ?? 'blank'}
+                      underline="always"
                       onFocus={() => setFocused(true)}
-                      onBlur={() => {
-                        setFocused(false);
-                        setIsOpen(false);
-                      }}
+                      onBlur={() => setFocused(false)}
                     >
-                      {link?.text ?? linkLabel}
+                      {link?.text}
                     </Link>
                   </Text>
                 </Box>

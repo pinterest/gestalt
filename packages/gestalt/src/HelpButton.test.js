@@ -13,7 +13,7 @@ test('HelpButton renders with default link and no accessibility label', () => {
     <HelpButton
       accessibilityPopoverLabel="Pinterest"
       text="Good test"
-      link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test' }}
+      link={{ href: 'https://www.pinterest.com', text: 'Good test' }}
     />,
   );
   const tree = component.toJSON();
@@ -25,7 +25,7 @@ test('HelpButton renders with default link and accessibility link label', () => 
     <HelpButton
       accessibilityPopoverLabel="Pinterest"
       text="Good test"
-      link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Pinterest`s home' }}
+      link={{ href: 'https://www.pinterest.com', text: 'Pinterest`s home' }}
     />,
   );
   const tree = component.toJSON();

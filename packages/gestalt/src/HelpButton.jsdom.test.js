@@ -80,7 +80,7 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test' }}
+        link={{ href: 'https://www.pinterest.com', text: 'Good test' }}
       />,
     );
 
@@ -89,23 +89,6 @@ describe('HelpButton', () => {
     });
 
     expect(screen.getByRole('link')).not.toBeNull();
-  });
-
-  it('renders a link with default label', () => {
-    render(
-      <HelpButton
-        accessibilityPopoverLabel="Pinterest"
-        text="Good test"
-        link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test' }}
-      />,
-    );
-
-    act(() => {
-      screen.getByRole('button').click();
-    });
-
-    const element = screen.getByRole('link');
-    expect(element.text).toEqual('Learn more');
   });
 
   it('renders a link without default label', () => {
@@ -126,7 +109,7 @@ describe('HelpButton', () => {
     });
 
     const element = screen.getByRole('link');
-    expect(element.text).toEqual('New link text');
+    expect(element.text).toEqual('New link text; Opens a new tab');
   });
 
   it('renders a link spying the link trigger', () => {
@@ -135,7 +118,7 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityPopoverLabel="Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com', accessibilityLabel: 'Good test', onClick: spy }}
+        link={{ href: 'https://www.pinterest.com', text: 'Good test', onClick: spy }}
       />,
     );
 

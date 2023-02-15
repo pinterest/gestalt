@@ -37,7 +37,7 @@ const externalLinkIconMap = {
   'lg': 16,
 };
 
-type ExternalLinkIcon =
+export type ExternalLinkIcon =
   | 'none'
   | 'default'
   | {|
