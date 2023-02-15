@@ -1,3 +1,9 @@
+## 95.0.5 (Feb 15, 2023)
+
+### Patch
+
+- List: amend design to add indentation to left padding side ([#2644](https://github.com/pinterest/gestalt/pull/2644)) - [Preview link](https://deploy-preview-2644--gestalt.netlify.app)
+
 ## 95.0.4 (Feb 14, 2023)
 
 ### Patch
