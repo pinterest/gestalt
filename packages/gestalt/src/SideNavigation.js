@@ -8,6 +8,7 @@ import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
 import SideNavigationMobile from './SideNavigationMobile.js';
 import SideNavigationSection from './SideNavigationSection.js';
+import SideNavigationIconButton from './SideNavigationIconButton.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
