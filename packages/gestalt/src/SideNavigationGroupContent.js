@@ -1,12 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { useEffect, useState, type Node, type Element } from 'react';
 import Badge from './Badge.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
 import Box from './Box.js';
+import Dropdown from './Dropdown.js';
+import SideNavigationIconButton from './SideNavigationIconButton.js';
 import icons from './icons/index.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { type Indexable } from './zIndex.js';
 
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';
@@ -14,7 +17,6 @@ type BadgeType = {|
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
 |};
-
 type Counter = {| number: string, accessibilityLabel: string |};
 
 export default function SideNavigationGroupContent({
@@ -29,7 +31,13 @@ export default function SideNavigationGroupContent({
   notificationAccessibilityLabel,
   counter,
   display,
+  primaryAction,
+  setCompression,
+  hovered,
+  focused,
 }: {|
+  hovered: boolean,
+  focused: boolean,
   itemColor: ?'secondary',
   expanded: boolean,
   selectedItemId: string,
@@ -44,10 +52,48 @@ export default function SideNavigationGroupContent({
   notificationAccessibilityLabel?: string,
   counter?: Counter,
   display?: Display,
+  primaryAction?: {|
+    icon?: 'ellipsis' | 'edit' | 'trash-can',
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLDivElement>
+        | SyntheticKeyboardEvent<HTMLDivElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    |}) => void,
+    tooltip: {|
+      accessibilityLabel?: string,
+      text: string,
+      zIndex?: Indexable,
+    |},
+    dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
+  |},
+  setCompression: ('compress' | 'none') => void,
 |}): Node {
+  // Manages adaptiveness
   const deviceType = useDeviceType();
-
   const isMobile = deviceType === 'mobile';
+
+  // Manages PrimaryAction
+  const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
+  const [showIconButton, setShowIconButton] = useState<'hide' | 'show'>('hide');
+
+  useEffect(() => {
+    if (!isMobile && primaryAction && showIconButton === 'hide' && (hovered || focused)) {
+      setShowIconButton('show');
+    }
+
+    if (
+      !isMobile &&
+      primaryAction &&
+      showIconButton === 'show' &&
+      !hovered &&
+      !focused &&
+      forceIconButton === 'default'
+    ) {
+      setShowIconButton('hide');
+    }
+  }, [hovered, focused, primaryAction, forceIconButton, isMobile, showIconButton]);
 
   return (
     <Box
@@ -82,7 +128,7 @@ export default function SideNavigationGroupContent({
         <Flex.Item alignSelf="center" flex="grow">
           <Text inline color="default">
             {label}
-            {(badge || notificationAccessibilityLabel) && (
+            {badge || notificationAccessibilityLabel ? (
               <Box marginStart={1} display="inlineBlock" height="100%">
                 {/* Adds a pause for screen reader users between the text content */}
                 <Box display="visuallyHidden">{`, `}</Box>
@@ -100,15 +146,14 @@ export default function SideNavigationGroupContent({
                   />
                 ) : null}
               </Box>
-            )}
+            ) : null}
           </Text>
         </Flex.Item>
-        {counter && (
+        {counter && (showIconButton === 'hide' || isMobile) ? (
           <Flex.Item flex="none" alignSelf="center">
             <Box display="visuallyHidden">{`, `}</Box>
             <Box
               aria-label={counter.accessibilityLabel}
-              role="status"
               marginEnd={display === 'static' ? -2 : undefined}
             >
               <Text align="end" color="subtle">
@@ -116,7 +161,40 @@ export default function SideNavigationGroupContent({
               </Text>
             </Box>
           </Flex.Item>
-        )}
+        ) : null}
+
+        {(showIconButton === 'show' || isMobile) && primaryAction ? (
+          <Flex.Item flex="none" alignSelf="center">
+            {/* This is a workaround to announce the counter as it's replaced on focus */}
+            {counter ? (
+              <Box display="visuallyHidden">
+                {`, `}
+                <Box aria-label={counter?.accessibilityLabel} />
+              </Box>
+            ) : null}
+            <Box
+              aria-hidden
+              dangerouslySetInlineStyle={{
+                __style: {
+                  marginInline: '8px -8px',
+                },
+              }}
+              rounding="circle"
+            >
+              <SideNavigationIconButton
+                icon={primaryAction?.icon}
+                onClick={primaryAction?.onClick}
+                tooltip={primaryAction.tooltip}
+                dropdownItems={primaryAction?.dropdownItems}
+                setCompression={setCompression}
+                forceIconButton={forceIconButton}
+                setForceIconButton={setForceIconButton}
+                setShowIconButton={setShowIconButton}
+                isItemActive={false}
+              />
+            </Box>
+          </Flex.Item>
+        ) : null}
         {display === 'expandable' || isMobile ? (
           <Flex.Item flex="none" alignSelf="center">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}

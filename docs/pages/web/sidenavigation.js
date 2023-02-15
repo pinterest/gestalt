@@ -30,6 +30,7 @@ import nestedExample from '../../examples/sidenavigation/nestedExample.js';
 import notificationsExample from '../../examples/sidenavigation/notificationsExample.js';
 import mobileExample from '../../examples/sidenavigation/mobileExample.js';
 import subcomponent from '../../examples/sidenavigation/subcomponent.js';
+import primaryAction from '../../examples/sidenavigation/primaryAction.js';
 
 export default function SideNavigationPage({
   generatedDocGen,
@@ -200,7 +201,7 @@ export default function SideNavigationPage({
       <AccessibilitySection name={generatedDocGen.SideNavigation?.displayName}>
         <MainSection.Subsection
           title="Active item"
-          description={`SideNavigation.TopItem has an "active" state that visually identifies it. To set SideNavigation.TopItem to "active" set 'active="page"' (page redirect) or 'active="section"'. Use routing hooks from React.Router or other frameworks to identify the current route. For example, if the current pathname matches the SideNavigation.TopItem href, set SideNavigation.TopItem to "page". Use the example below as a reference.`}
+          description={`SideNavigation.TopItem and SideNavigation.NestedItem have an "active" state that visually identifies it. To set them to "active" set 'active="page"' (page redirect) or 'active="section"'. Use routing hooks from React.Router or other frameworks to identify the current route. For example, if the current pathname matches the SideNavigation.TopItem href, set SideNavigation.TopItem to "page". Use the example below as a reference.`}
         >
           <MainSection.Card
             sandpackExample={
@@ -414,6 +415,136 @@ To prevent visual overload, do not include counters in the parent if the childre
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          title="Primary action"
+          description={`SideNavigation.TopItem and SideNavigation.Group support an optional \`primaryAction\`.
+
+\`primaryAction\` can be a simple [IconButton](https://gestalt.pinterest.systems/web/iconbutton) or a [Dropdown](https://gestalt.pinterest.systems/web/dropdown). For the latter, set \`dropdownItems\` using an array of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item).
+          `}
+        >
+          <MainSection.Card
+            defaultCode={`
+function Example() {
+  const anchorRef = React.useRef(null);
+  const [mobile, setMobile] = React.useState(false);
+
+  return (
+    <Box color="lightWash" padding={4} height={300} overflow="auto">
+      <Flex gap={12}>
+        <Button text="View mobile" onClick={() => setMobile(true)} color="red" />
+        <DeviceTypeProvider deviceType={mobile ? 'mobile' : 'desktop'}>
+          <Box position={mobile ? 'absolute' : undefined} top bottom left right id="sidenavigation">
+            <SideNavigation
+              accessibilityLabel="Notification example"
+              dismissButton={{ onDismiss: () => setMobile((value) => !value) }}
+            >
+              <SideNavigation.TopItem
+                href="#"
+                onClick={({ event }) => {
+                  event.preventDefault();
+                }}
+                label="Campaign z-168i"
+                primaryAction={{
+                  icon: 'edit',
+                  onClick: ({ event }) => {
+                    event.preventDefault();
+                  },
+                  tooltip: { text: 'Rename campaign' },
+                }}
+              />
+              <SideNavigation.TopItem
+                href="#"
+                onClick={({ event }) => {
+                  event.preventDefault();
+                }}
+                label="Campaign a-j6ki (inactive)"
+                primaryAction={{
+                  icon: 'trash-can',
+                  onClick: ({ event }) => {
+                    event.preventDefault();
+                  },
+                  tooltip: { text: 'Delete campaign' },
+                }}
+              />
+              <SideNavigation.Group
+                label="Campaign drafts"
+                counter={{ number: '12', accessibilityLabel: '12 campaign drafts' }}
+                primaryAction={{
+                  onClick: ({ event }) => {
+                    event.preventDefault();
+                  },
+                  tooltip: { text: 'More options' },
+                  dropdownItems: [
+                    <Dropdown.Item
+                      key="edit"
+                      option={{ value: 'Edit', label: 'Edit' }}
+                      onSelect={() => {}}
+                    />,
+                    <Dropdown.Item
+                      key="trash"
+                      option={{ value: 'Delete', label: 'Delete' }}
+                      onSelect={() => {}}
+                    />,
+                  ],
+                }}
+              >
+                <SideNavigation.NestedItem
+                  counter={{
+                    number: '10',
+                    accessibilityLabel: 'You have 10 messages in your inbox',
+                  }}
+                  href="#"
+                  onClick={({ event }) => event.preventDefault()}
+                  label="West Coast"
+                />
+                <SideNavigation.NestedItem
+                  href="#"
+                  onClick={({ event }) => event.preventDefault()}
+                  label="East Coast"
+                />
+              </SideNavigation.Group>
+              <SideNavigation.TopItem
+                href="#"
+                onClick={({ event }) => event.preventDefault()}
+                label="Archived campaigns"
+                primaryAction={{
+                  onClick: ({ event }) => {
+                    event.preventDefault();
+                  },
+                  tooltip: { text: 'More options' },
+                  dropdownItems: [
+                    <Dropdown.Item
+                      key="edit"
+                      option={{ value: 'Edit', label: 'Edit' }}
+                      onSelect={() => {}}
+                    />,
+                    <Dropdown.Item
+                      key="trash"
+                      option={{ value: 'Delete', label: 'Delete' }}
+                      onSelect={() => {}}
+                    />,
+                  ],
+                }}
+                counter={{ number: '87', accessibilityLabel: '87 archived campaings' }}
+              />
+            </SideNavigation>
+          </Box>
+        </DeviceTypeProvider>
+      </Flex>
+    </Box>
+  )
+}
+`}
+            sandpackExample={
+              <SandpackExample
+                code={primaryAction}
+                name="Primary action example"
+                previewHeight={500}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           title="Nested directory"
           description="SideNavigation supports three navigation levels. The top level is composed of [SideNavigation.TopItem](#SideNavigation.TopItem) and [SideNavigation.Group](#SideNavigation.Group). The second nested level is composed of [SideNavigation.NestedGroup](#SideNavigation.NestedGroup) and [SideNavigation.Item](#SideNavigation.Item). The third nested level is composed of SideNavigation.Item"
         >
@@ -423,7 +554,6 @@ To prevent visual overload, do not include counters in the parent if the childre
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection
           title="Subcomponent composability"
           description={`SideNavigation requires its own subcomponents as children to build the list of navigation items.
