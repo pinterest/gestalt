@@ -1,0 +1,9 @@
+.textColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}

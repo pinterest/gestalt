@@ -8,8 +8,10 @@ import Link, { type ExternalLinkIcon } from './Link.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Tooltip from './Tooltip.js';
+import styles from './HelpButton.css';
 import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type Props = {|
   /**
@@ -69,6 +71,7 @@ export default function HelpButton({
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setHovered] = useState(false);
   const [isFocused, setFocused] = useState(false);
+  const { name: colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { accessibilityTooltipMessage, accessibilityIconLabel } =
     useDefaultLabelContext('HelpButton');
@@ -94,7 +97,18 @@ export default function HelpButton({
 
   const zIndexWrapper = new CompositeZIndex([new FixedZIndex(tooltipZIndex.index())]);
 
-  const textElement = typeof text === 'string' ? <Text align="start">{text}</Text> : text;
+  // Overriding color of `Text` components
+  const isDarkMode = colorSchemeName === 'darkMode';
+  const textColorOverrideStyles = isDarkMode
+    ? styles.textColorOverrideLight
+    : styles.textColorOverrideDark;
+
+  const textElement =
+    typeof text === 'string' ? (
+      <Text align="start">{text}</Text>
+    ) : (
+      <span className={textColorOverrideStyles}>{text}</span>
+    );
 
   return (
     <Flex alignItems="center" justifyContent="center" flex="none">

@@ -17,6 +17,7 @@ import Divider from '../graphics/general/Divider.svg';
 import Dropdown from '../graphics/general/Dropdown.svg';
 import RadioGroup from '../graphics/general/RadioGroup.svg';
 import Heading from '../graphics/general/Heading.svg';
+import HelpButton from '../graphics/general/HelpButton.svg';
 import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
@@ -1083,7 +1084,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <IconButton />,
+    svg: <HelpButton />,
     name: 'HelpButton',
     aliases: ['HelpButton', 'InfoButton'],
     description:

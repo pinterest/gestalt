@@ -136,7 +136,7 @@ export default function PageHeader({
                   <Link
                     href={`https://github.com/pinterest/gestalt/releases?q=${name
                       // Remove spaces and dashes
-                      .replace(/[\s-]/g, '')}${previouslyNamed ? ' OR ' : ''}${
+                      .replaceAll(/[\s-]/g, '')}${previouslyNamed ? ' OR ' : ''}${
                       previouslyNamed ? previouslyNamed.join(' OR ') : ''
                     }&expanded=true`}
                     onClick={() =>
