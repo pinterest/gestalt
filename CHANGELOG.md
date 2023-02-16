@@ -1,3 +1,9 @@
+## 96.0.0 (Feb 16, 2023)
+
+### Major
+
+- Internal: match peer dependencies to actual usage ([#2645](https://github.com/pinterest/gestalt/pull/2645)) - [Preview link](https://deploy-preview-2645--gestalt.netlify.app)
+
 ## 95.0.5 (Feb 15, 2023)
 
 ### Patch
