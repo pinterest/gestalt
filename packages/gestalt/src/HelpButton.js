@@ -68,22 +68,22 @@ export default function HelpButton({
   zIndex,
 }: Props): Node {
   const tapAreaRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setHovered] = useState(false);
-  const [isFocused, setFocused] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
   const { name: colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { accessibilityTooltipMessage, accessibilityIconLabel } =
     useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
-    if (isOpen) {
+    if (open) {
       tapAreaRef?.current?.focus();
     }
-  }, [isOpen]);
+  }, [open]);
 
   const toggleView = () => {
-    setIsOpen((currVal) => !currVal);
+    setOpen((currVal) => !currVal);
   };
 
   const onHandleTap = (props) => {
@@ -91,7 +91,7 @@ export default function HelpButton({
     onClick?.(props);
   };
 
-  const bgIconColor = isOpen || isHovered || isFocused ? 'default' : 'subtle';
+  const bgIconColor = open || hovered || focused ? 'default' : 'subtle';
 
   const tooltipZIndex = zIndex ?? new FixedZIndex(1);
 
@@ -118,7 +118,7 @@ export default function HelpButton({
         zIndex={tooltipZIndex}
       >
         <TapArea
-          accessibilityExpanded={isOpen}
+          accessibilityExpanded={open}
           accessibilityControls={popoverId}
           accessibilityLabel={accessibilityTooltipMessage}
           fullWidth={false}
@@ -153,7 +153,7 @@ export default function HelpButton({
           </Box>
         </TapArea>
       </Tooltip>
-      {isOpen && (
+      {open && (
         <Box zIndex={zIndexWrapper}>
           <Popover
             id={popoverId}
@@ -178,14 +178,15 @@ export default function HelpButton({
                 <Box width="100%" display="block" marginTop={3}>
                   <Text>
                     <Link
-                      href={link?.href}
-                      externalLinkIcon={link?.externalLinkIcon}
                       accessibilityLabel={link?.accessibilityLabel}
+                      externalLinkIcon={link?.externalLinkIcon}
+                      href={link?.href}
                       onClick={link?.onClick}
-                      target={link?.target ?? 'blank'}
-                      underline="always"
                       onFocus={() => setFocused(true)}
                       onBlur={() => setFocused(false)}
+                      ref={link?.ref}
+                      target={link?.target ?? 'blank'}
+                      underline="always"
                     >
                       {link?.text}
                     </Link>
