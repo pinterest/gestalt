@@ -49,7 +49,6 @@ describe('useDefaultLabelContext', () => {
           HelpButton: {
             accessibilityIconLabel: 'Question mark icon',
             accessibilityTooltipMessage: 'Click to learn more',
-            linkLabel: 'Learn more',
           },
         }}
       >

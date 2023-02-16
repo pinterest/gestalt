@@ -47,7 +47,6 @@ export type DefaultLabelContextType = {|
   HelpButton: {|
     accessibilityIconLabel: string,
     accessibilityTooltipMessage: string,
-    linkLabel: string,
   |},
 |};
 
@@ -85,7 +84,6 @@ export const fallbackLabels: DefaultLabelContextType = {
   HelpButton: {
     accessibilityIconLabel: 'More information',
     accessibilityTooltipMessage: 'Click to learn more',
-    linkLabel: 'Learn more',
   },
 };
 

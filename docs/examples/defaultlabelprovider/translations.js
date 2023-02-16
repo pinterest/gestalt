@@ -42,7 +42,6 @@ const labels = {
   HelpButton: {
     accessibilityIconLabel: myI18nTranslator('More information'),
     accessibilityTooltipMessage: myI18nTranslator('Click to learn more'),
-    linkLabel: myI18nTranslator('Learn more'),
   },
 };
 
