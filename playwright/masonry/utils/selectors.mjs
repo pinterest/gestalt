@@ -5,7 +5,8 @@ const selectors = {
   gridItem: '[data-grid-item], .Collection-Item',
   addItems: '#add-items',
   expandGridItems: '#expand-grid-items',
-  incrementItemCounter: (id /*: number */) /*: string */ => `#increment-counter-${id}`,
+  incrementItemCounter: (id /*: number */) /*: string */ =>
+    `#increment-counter-${id}`,
   insertItem: '#insert-item',
   insertNullItems: '#insert-null-items',
   itemCounter: (id /*: number */) /*: string */ => `#item-counter-${id}`,

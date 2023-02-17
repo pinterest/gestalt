@@ -5,7 +5,10 @@
 // widths at certain page sizes.
 
 // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
-export default async function resizeWidth(page /*: Object */, newWidth /*: number */) {
+export default async function resizeWidth(
+  page /*: Object */,
+  newWidth /*: number */
+) {
   await page.evaluate((_newWidth) => {
     // Mock out the window width for the next resize calculation.
     const gridWrapper = document.getElementById('gridWrapper');
