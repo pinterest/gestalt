@@ -4,8 +4,8 @@
 // page because the page may have CSS breakpoints causing the grid to be fixed
 // widths at certain page sizes.
 
-// $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
 export default async function resizeWidth(
+  // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
   page /*: Object */,
   newWidth /*: number */
 ) {
