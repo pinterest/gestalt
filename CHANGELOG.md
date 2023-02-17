@@ -1,3 +1,9 @@
+## 96.0.2 (Feb 17, 2023)
+
+### Patch
+
+- Docs: tiny bug on code editor in Badge example ([#2649](https://github.com/pinterest/gestalt/pull/2649)) - [Preview link](https://deploy-preview-2649--gestalt.netlify.app)
+
 ## 96.0.1 (Feb 16, 2023)
 
 ### Patch
