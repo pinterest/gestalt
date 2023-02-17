@@ -251,7 +251,7 @@ To see how you can grow your business, visit
           <MainSection.Card
             type="do"
             description={`
-Display the external icon ("visit" icon) when the link text needs support to convey an external domain or subsite, and when it helps Pinners scan and pick a navigation option.
+Display the external icon ("visit" icon) when the link text needs support to convey an external domain or subsite, and when it helps Pinners scan and pick a navigation option. If the name of the link clearly lets a user know they are going to an external site, the icon is not needed.
 `}
             defaultCode={`
 <Text inline>
