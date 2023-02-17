@@ -194,7 +194,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
               <Badge
                 text="New"
                 type="info"
-                _tooltip={{
+                tooltip={{
                 text: 'This is a new feature',
                 idealDirection: 'up',
               }}/>
