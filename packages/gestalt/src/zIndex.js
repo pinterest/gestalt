@@ -30,10 +30,9 @@ export class FixedZIndex implements Indexable {
  * ![ZIndex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ZIndex.spec.mjs-snapshots/ZIndex-chromium-darwin.png)
  */
 export class CompositeZIndex implements Indexable {
-  // eslint-disable-next-line no-use-before-define
-  +deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>;
+  +deps: $ReadOnlyArray<Indexable>;
 
-  constructor(deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>) {
+  constructor(deps: $ReadOnlyArray<Indexable>) {
     this.deps = deps;
   }
 
