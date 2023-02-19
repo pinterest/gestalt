@@ -1,3 +1,9 @@
+## 96.0.3 (Feb 19, 2023)
+
+### Patch
+
+- ZIndex: fix Flow types ([#2651](https://github.com/pinterest/gestalt/pull/2651)) - [Preview link](https://deploy-preview-2651--gestalt.netlify.app)
+
 ## 96.0.2 (Feb 17, 2023)
 
 ### Patch
