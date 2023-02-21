@@ -99,9 +99,9 @@ describe('HelpButton', () => {
     });
 
     // GetByClassName
-    const element = screen.getByText((_, el) => el?.className === 'layer');
+    const element = screen.getByTestId('zIndexLayer');
 
-    expect(element.getAttribute('style')).toEqual('z-index: 100;');
+    expect(element.getAttribute('style')).toEqual('z-index: 101;');
   });
 
   it('popover opens', () => {

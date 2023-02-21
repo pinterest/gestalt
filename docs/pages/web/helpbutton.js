@@ -21,6 +21,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
         defaultCode={`
         <Flex height="100%" justifyContent="center" alignItems="center">
           <HelpButton
@@ -31,8 +33,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         </Flex>
 
 `}
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
       >
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
@@ -153,7 +153,7 @@ The \`accessibilityPopoverLabel\` should be the same as but without the "Click t
       </MainSection>
 
       <MainSection name="Localization">
-        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `link.text` and `link.accessibilityLabel` within HelpButton. Note that localization can lengthen text by 20 to 30 percent." />
+        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `accessibilityPopoverLabel`, `link.text` and `link.accessibilityLabel` within HelpButton. Note that localization can lengthen text by 20 to 30 percent." />
       </MainSection>
 
       <MainSection name="Variants">

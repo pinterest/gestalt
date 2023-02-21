@@ -73,6 +73,7 @@ export default function HelpButton({
   zIndex,
 }: Props): Node {
   const tapAreaRef = useRef(null);
+  const firstElementRef = useRef(null);
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -82,7 +83,7 @@ export default function HelpButton({
 
   useEffect(() => {
     if (open) {
-      tapAreaRef?.current?.focus();
+      firstElementRef?.current?.focus();
     }
   }, [open]);
 
@@ -151,10 +152,10 @@ export default function HelpButton({
         </TapArea>
       </Tooltip>
       {open && (
-        // The Purpose here is to make zIndex work (Tooltip over Popover) due not
+        // The purpose here is to make zIndex work (Tooltip over Popover) due not
         // using Layer because by adding Layer you would have to bring focus to the Text element
         // on opening the Popover.
-        <Box zIndex={zIndexWrapper}>
+        <Box data-test-id="zIndexLayer" zIndex={zIndexWrapper}>
           <Popover
             id={popoverId}
             accessibilityLabel={accessibilityPopoverLabel}
@@ -165,6 +166,7 @@ export default function HelpButton({
           >
             <Box padding={5} rounding={4} height="auto">
               <Box
+                ref={firstElementRef}
                 tabIndex={0}
                 onBlur={() => {
                   if (!link?.href) {
@@ -200,3 +202,5 @@ export default function HelpButton({
     </Flex>
   );
 }
+
+HelpButton.displayName = 'HelpButton';
