@@ -8,7 +8,7 @@ exports[`HelpButton renders correctly 1`] = `
     className="box xsDisplayBlock"
   >
     <div
-      aria-label="Click to learn more"
+      aria-label=""
       className="box"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -19,7 +19,7 @@ exports[`HelpButton renders correctly 1`] = `
         aria-controls=":r0:"
         aria-disabled={false}
         aria-expanded={false}
-        aria-label="Click to learn more"
+        aria-label="Click to learn more about Pinterest"
         className="hideOutline tapTransition circle accessibilityOutline pointer"
         onBlur={[Function]}
         onClick={[Function]}
@@ -38,18 +38,17 @@ exports[`HelpButton renders correctly 1`] = `
         tabIndex={0}
       >
         <div
-          className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+          className="box circle justifyCenter tertiary xsDisplayFlex xsItemsCenter"
           style={
             Object {
-              "backgroundColor": "var(--color-text-subtle)",
               "height": 16,
               "width": 16,
             }
           }
         >
           <svg
-            aria-hidden={null}
-            aria-label="More information"
+            aria-hidden={true}
+            aria-label=""
             className="icon inverseIcon iconBlock"
             height={8}
             role="img"
@@ -75,7 +74,7 @@ exports[`HelpButton renders with changing direction to show the popover 1`] = `
     className="box xsDisplayBlock"
   >
     <div
-      aria-label="Click to learn more"
+      aria-label=""
       className="box"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -86,7 +85,7 @@ exports[`HelpButton renders with changing direction to show the popover 1`] = `
         aria-controls=":r3:"
         aria-disabled={false}
         aria-expanded={false}
-        aria-label="Click to learn more"
+        aria-label="Click to learn more about Pinterest"
         className="hideOutline tapTransition circle accessibilityOutline pointer"
         onBlur={[Function]}
         onClick={[Function]}
@@ -105,18 +104,17 @@ exports[`HelpButton renders with changing direction to show the popover 1`] = `
         tabIndex={0}
       >
         <div
-          className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+          className="box circle justifyCenter tertiary xsDisplayFlex xsItemsCenter"
           style={
             Object {
-              "backgroundColor": "var(--color-text-subtle)",
               "height": 16,
               "width": 16,
             }
           }
         >
           <svg
-            aria-hidden={null}
-            aria-label="More information"
+            aria-hidden={true}
+            aria-label=""
             className="icon inverseIcon iconBlock"
             height={8}
             role="img"
@@ -142,7 +140,7 @@ exports[`HelpButton renders with default link and accessibility link label 1`] =
     className="box xsDisplayBlock"
   >
     <div
-      aria-label="Click to learn more"
+      aria-label=""
       className="box"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -153,7 +151,7 @@ exports[`HelpButton renders with default link and accessibility link label 1`] =
         aria-controls=":r2:"
         aria-disabled={false}
         aria-expanded={false}
-        aria-label="Click to learn more"
+        aria-label="Click to learn more about Pinterest"
         className="hideOutline tapTransition circle accessibilityOutline pointer"
         onBlur={[Function]}
         onClick={[Function]}
@@ -172,18 +170,17 @@ exports[`HelpButton renders with default link and accessibility link label 1`] =
         tabIndex={0}
       >
         <div
-          className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+          className="box circle justifyCenter tertiary xsDisplayFlex xsItemsCenter"
           style={
             Object {
-              "backgroundColor": "var(--color-text-subtle)",
               "height": 16,
               "width": 16,
             }
           }
         >
           <svg
-            aria-hidden={null}
-            aria-label="More information"
+            aria-hidden={true}
+            aria-label=""
             className="icon inverseIcon iconBlock"
             height={8}
             role="img"
@@ -209,7 +206,7 @@ exports[`HelpButton renders with default link and no accessibility label 1`] = `
     className="box xsDisplayBlock"
   >
     <div
-      aria-label="Click to learn more"
+      aria-label=""
       className="box"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -220,7 +217,7 @@ exports[`HelpButton renders with default link and no accessibility label 1`] = `
         aria-controls=":r1:"
         aria-disabled={false}
         aria-expanded={false}
-        aria-label="Click to learn more"
+        aria-label="Click to learn more about Pinterest"
         className="hideOutline tapTransition circle accessibilityOutline pointer"
         onBlur={[Function]}
         onClick={[Function]}
@@ -239,18 +236,17 @@ exports[`HelpButton renders with default link and no accessibility label 1`] = `
         tabIndex={0}
       >
         <div
-          className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+          className="box circle justifyCenter tertiary xsDisplayFlex xsItemsCenter"
           style={
             Object {
-              "backgroundColor": "var(--color-text-subtle)",
               "height": 16,
               "width": 16,
             }
           }
         >
           <svg
-            aria-hidden={null}
-            aria-label="More information"
+            aria-hidden={true}
+            aria-label=""
             className="icon inverseIcon iconBlock"
             height={8}
             role="img"
@@ -276,7 +272,7 @@ exports[`HelpButton renders with link and no default link label 1`] = `
     className="box xsDisplayBlock"
   >
     <div
-      aria-label="Click to learn more"
+      aria-label=""
       className="box"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -287,7 +283,7 @@ exports[`HelpButton renders with link and no default link label 1`] = `
         aria-controls=":r4:"
         aria-disabled={false}
         aria-expanded={false}
-        aria-label="Click to learn more"
+        aria-label="Click to learn more about Pinterest"
         className="hideOutline tapTransition circle accessibilityOutline pointer"
         onBlur={[Function]}
         onClick={[Function]}
@@ -306,18 +302,17 @@ exports[`HelpButton renders with link and no default link label 1`] = `
         tabIndex={0}
       >
         <div
-          className="box circle justifyCenter xsDisplayFlex xsItemsCenter"
+          className="box circle justifyCenter tertiary xsDisplayFlex xsItemsCenter"
           style={
             Object {
-              "backgroundColor": "var(--color-text-subtle)",
               "height": 16,
               "width": 16,
             }
           }
         >
           <svg
-            aria-hidden={null}
-            aria-label="More information"
+            aria-hidden={true}
+            aria-label=""
             className="icon inverseIcon iconBlock"
             height={8}
             role="img"

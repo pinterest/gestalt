@@ -15,6 +15,10 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 type Props = {|
   /**
+   * Supply a short, descriptive label to complete icon description `Click to learn more about [accessibilityLabel]`. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
+   */
+  accessibilityLabel: string,
+  /**
    * Supply a short, descriptive label for screen-readers to describe the popover content. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
   accessibilityPopoverLabel: string,
@@ -60,6 +64,7 @@ type Props = {|
  * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) is an affordance that accompanies an element on the screen. It helps describe or provide assistance on how to use the accompanying element.
  */
 export default function HelpButton({
+  accessibilityLabel,
   accessibilityPopoverLabel,
   idealDirection = 'down',
   link,
@@ -73,8 +78,7 @@ export default function HelpButton({
   const [focused, setFocused] = useState(false);
   const { name: colorSchemeName } = useColorScheme();
   const popoverId = useId();
-  const { accessibilityTooltipMessage, accessibilityIconLabel } =
-    useDefaultLabelContext('HelpButton');
+  const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
     if (open) {
@@ -91,11 +95,11 @@ export default function HelpButton({
     onClick?.(props);
   };
 
-  const bgIconColor = open || hovered || focused ? 'default' : 'subtle';
+  const bgIconColor = open || hovered || focused ? 'selected' : 'tertiary';
 
   const tooltipZIndex = zIndex ?? new FixedZIndex(1);
 
-  const zIndexWrapper = new CompositeZIndex([new FixedZIndex(tooltipZIndex.index())]);
+  const zIndexWrapper = new CompositeZIndex([tooltipZIndex]);
 
   // Overriding color of `Text` components
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -111,16 +115,18 @@ export default function HelpButton({
     );
 
   return (
+    // The only purpose of this Flex is to make zIndex work (Tooltip over Popover).
     <Flex alignItems="center" justifyContent="center" flex="none">
       <Tooltip
-        text={accessibilityTooltipMessage}
+        accessibilityLabel=""
+        text={tooltipMessage}
         idealDirection={idealDirection}
         zIndex={tooltipZIndex}
       >
         <TapArea
           accessibilityExpanded={open}
           accessibilityControls={popoverId}
-          accessibilityLabel={accessibilityTooltipMessage}
+          accessibilityLabel={accessibilityLabel}
           fullWidth={false}
           onTap={onHandleTap}
           ref={tapAreaRef}
@@ -138,22 +144,16 @@ export default function HelpButton({
             display="flex"
             alignItems="center"
             justifyContent="center"
-            dangerouslySetInlineStyle={{
-              __style: {
-                backgroundColor: `var(--color-text-${bgIconColor})`,
-              },
-            }}
+            color={bgIconColor}
           >
-            <Icon
-              accessibilityLabel={accessibilityIconLabel}
-              color="inverse"
-              icon="question-mark"
-              size={8}
-            />
+            <Icon accessibilityLabel="" color="inverse" icon="question-mark" size={8} />
           </Box>
         </TapArea>
       </Tooltip>
       {open && (
+        // The Purpose here is to make zIndex work (Tooltip over Popover) due not
+        // using Layer because by adding Layer you would have to bring focus to the Text element
+        // on opening the Popover.
         <Box zIndex={zIndexWrapper}>
           <Popover
             id={popoverId}

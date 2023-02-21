@@ -11,6 +11,7 @@ import main from '../../examples/helpbutton/main.js';
 import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
 import withLink from '../../examples/helpbutton/withLink.js';
+import withText from '../../examples/helpbutton/withText.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
@@ -23,8 +24,9 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         defaultCode={`
         <Flex height="100%" justifyContent="center" alignItems="center">
           <HelpButton
+            accessibilityLabel="Click to learn more about help button"
+            accessibilityPopoverLabel="Expanded information about help button"
             text="Informational context that's displayed on click"
-            accessibilityPopoverLabel="Popover context description"
           />
         </Flex>
 
@@ -64,14 +66,15 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <MainSection.Subsection columns={2}>
           <Example
             id="no-final-version-do"
-            name="How to use"
+            name=""
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Checkbox labelDisplay="hidden" label="Created pins checkbox" id="created-pins" onChange={() => {}} />
   <Text>Pins created in the last 30 days</Text>
   <HelpButton
+    accessibilityLabel="Click to learn more about last 30 days of created pins"
+    accessibilityPopoverLabel="Expanded information about last 30 days of created pins"
     text="Date range must include at least 1 day in the last 30 days"
-    accessibilityPopoverLabel="Date range must include at least 1 day in the last 30 days"
   />
 </Flex>
 `}
@@ -79,29 +82,32 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
           <Example
             id="no-final-version-dont"
-            name="How to not use"
+            name=""
             defaultCode={`
 <Text>
   See the total impact of your paid and organic content working together to increase page
   visits
   <Box display="inlineBlock">
     <HelpButton
+      accessibilityLabel="Click to learn more about number of visits"
+      accessibilityPopoverLabel="Expanded information about number of visits"
       text="Number of times people visited your website after seeing your content on Pinterest"
-      accessibilityPopoverLabel="Number of times people visited your website after seeing your content on Pinterest"
     />
   </Box>
   {' '}add-to-carts{' '}
   <Box display="inlineBlock">
     <HelpButton
+      accessibilityLabel="Click to learn more about number of visits"
+      accessibilityPopoverLabel="Expanded information about number of visits"
       text="Number of times people added your products to their carts after interacting with your Pins"
-      accessibilityPopoverLabel="Number of times people added your products to their carts after interacting with your Pins"
     />
   </Box>
   {' '}and checkouts
   <Box display="inlineBlock">
     <HelpButton
+      accessibilityLabel="Click to learn more about number of visits"
+      accessibilityPopoverLabel="Expanded information about number of visits"
       text="Number of checkouts stemming from your Pins and ads"
-      accessibilityPopoverLabel="Number of checkouts stemming from your Pins and ads"
     />
   </Box>
   .
@@ -137,7 +143,13 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
       </MainSection>
 
       <MainSection name="Accessibility">
-        <MainSection.Subsection description="Coming soon!" />
+        <MainSection.Subsection
+          description={`
+The Tooltip text is \`static\` and equal \`Click to learn more\`, but the \`accessibilityLabel\` must adds detail to the generic text, "Click to learn more about [your content]".
+
+The \`accessibilityPopoverLabel\` should be the same as but without the "Click to learn more ...", so we suggest something like: "Expanded information about [your content]".
+        `}
+        />
       </MainSection>
 
       <MainSection name="Localization">
@@ -146,22 +158,23 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="With a link"
+          title="Link"
           description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)."
         >
           <Example
-            name="Link HelpButton example"
+            name="Link HelpButton"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
   <HelpButton
-    text="Gestalt is Pinterest's design system."
-    accessibilityPopoverLabel="Gestalt meaning description"
+    accessibilityLabel="Click to learn more about gestalt"
+    accessibilityPopoverLabel="Expanded information about Gestalt"
     link={{
       href: 'https://gestalt.pinterest.systems/',
       text: 'Visit our portal',
       accessibilityLabel: 'Visit Gestalt portal',
     }}
+    text="Gestalt is Pinterest's design system."
   />
 </Flex>
         `}
@@ -169,6 +182,33 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="md"
             sandpackExample={<SandpackExample code={withLink} name="Link component" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Text"
+          description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text contained within."
+        >
+          <Example
+            name="Text"
+            defaultCode={`
+<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+  <Text>This is Gestalt</Text>
+  <HelpButton
+    accessibilityLabel="Click to learn more about gestalt"
+    accessibilityPopoverLabel="Expanded information about Gestalt"
+    link={{
+      href: 'https://gestalt.pinterest.systems/',
+      text: 'Visit our portal',
+      accessibilityLabel: 'Visit Gestalt portal',
+    }}
+    text={<Text>Gestalt is Pinterest's design system.</Text>}
+  />
+</Flex>
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={<SandpackExample code={withText} name="Text component" />}
           />
         </MainSection.Subsection>
       </MainSection>

@@ -47,8 +47,7 @@ describe('useDefaultLabelContext', () => {
             accessibilityShowPasswordLabel: 'Show password',
           },
           HelpButton: {
-            accessibilityIconLabel: 'Question mark icon',
-            accessibilityTooltipMessage: 'Click to learn more',
+            tooltipMessage: 'Click to learn more',
           },
         }}
       >

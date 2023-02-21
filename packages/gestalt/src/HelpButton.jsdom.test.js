@@ -4,27 +4,55 @@ import HelpButton from './HelpButton.js';
 
 describe('HelpButton', () => {
   it('renders a icon', () => {
-    render(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+    render(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+      />,
+    );
 
-    expect(screen.getByRole('img')).not.toBeNull();
+    const svgElement = screen.getByText(
+      (content, element) => element?.tagName.toLowerCase() === 'svg',
+    );
+
+    expect(svgElement).not.toBeNull();
   });
 
   it('renders a button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
-    render(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+    render(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+      />,
+    );
 
     expect(screen.getByRole('button').tabIndex).toEqual(0);
   });
 
   it('renders default accessibility label on button', () => {
-    render(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+    render(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+      />,
+    );
 
     const element = screen.getByRole('button');
 
-    expect(element.getAttribute('aria-label')).toEqual('Click to learn more');
+    expect(element.getAttribute('aria-label')).toEqual('Click to learn more about Pinterest');
   });
 
   it('renders content based on text prop', () => {
-    render(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+    render(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+      />,
+    );
 
     act(() => {
       screen.getByRole('button').click();
@@ -36,7 +64,13 @@ describe('HelpButton', () => {
   });
 
   it('renders popover with provided accessibility label', () => {
-    render(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+    render(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+      />,
+    );
 
     act(() => {
       screen.getByRole('button').click();
@@ -44,7 +78,7 @@ describe('HelpButton', () => {
 
     const element = screen.getByRole('dialog');
 
-    expect(element.getAttribute('aria-label')).toEqual('Pinterest');
+    expect(element.getAttribute('aria-label')).toEqual('Expanded information about Pinterest');
   });
 
   it('renders popover with new zIndex', () => {
@@ -52,7 +86,12 @@ describe('HelpButton', () => {
       index: () => 100,
     };
     render(
-      <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" zIndex={zIndexStub} />,
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+        zIndex={zIndexStub}
+      />,
     );
 
     act(() => {
@@ -66,7 +105,13 @@ describe('HelpButton', () => {
   });
 
   it('popover opens', () => {
-    render(<HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />);
+    render(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        text="Good test"
+      />,
+    );
 
     act(() => {
       screen.getByRole('button').click();
@@ -78,7 +123,8 @@ describe('HelpButton', () => {
   it('renders a link', () => {
     render(
       <HelpButton
-        accessibilityPopoverLabel="Pinterest"
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
         text="Good test"
         link={{ href: 'https://www.pinterest.com', text: 'Good test' }}
       />,
@@ -94,7 +140,8 @@ describe('HelpButton', () => {
   it('renders a link without default label', () => {
     render(
       <HelpButton
-        accessibilityPopoverLabel="Pinterest"
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
         text="Good test"
         link={{
           href: 'https://www.pinterest.com',
@@ -116,7 +163,8 @@ describe('HelpButton', () => {
     const spy = jest.fn();
     render(
       <HelpButton
-        accessibilityPopoverLabel="Pinterest"
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
         text="Good test"
         link={{ href: 'https://www.pinterest.com', text: 'Good test', onClick: spy }}
       />,

@@ -1086,7 +1086,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <HelpButton />,
     name: 'HelpButton',
-    aliases: ['HelpButton', 'InfoButton'],
+    aliases: ['InfoButton'],
     description:
       'HelpButton is an affordance that accompanies an element on the screen. It helps describe or provide assistance on how to use the accompanying element.',
     category: 'Actions',

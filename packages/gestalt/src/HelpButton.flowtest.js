@@ -2,12 +2,17 @@
 import HelpButton from './HelpButton.js';
 
 const ValidDefaultHelpButton = (
-  <HelpButton accessibilityPopoverLabel="Pinterest" text="Good test" />
+  <HelpButton
+    accessibilityLabel="Click to learn more about Pinterest"
+    accessibilityPopoverLabel="Expanded information about Pinterest"
+    text="Good test"
+  />
 );
 
 const ValidLinkHelpButton = (
   <HelpButton
-    accessibilityPopoverLabel="Pinterest"
+    accessibilityLabel="Click to learn more about Pinterest"
+    accessibilityPopoverLabel="Expanded information about Pinterest"
     text="Good test"
     link={{ href: 'http://www.pinterest.com', text: 'Good test' }}
   />
