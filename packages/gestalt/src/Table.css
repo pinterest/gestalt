@@ -16,10 +16,17 @@
   composes: paddingX3 from "./boxWhitespace.css";
 }
 
-.sticky tr th {
+.stickyHeader tr th {
   background-color: var(--g-colorGray0);
   position: sticky;
   top: 0;
+  z-index: 2;
+}
+
+.stickyFooter tr td {
+  background-color: var(--g-colorGray0);
+  bottom: 0;
+  position: sticky;
   z-index: 2;
 }
 
@@ -30,7 +37,11 @@
   z-index: 1;
 }
 
-.sticky .columnSticky {
+.stickyHeader .columnSticky {
+  z-index: 3;
+}
+
+.stickyFooter .columnSticky {
   z-index: 3;
 }
 
