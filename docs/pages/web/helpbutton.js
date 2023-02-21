@@ -66,7 +66,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         <MainSection.Subsection columns={2}>
           <Example
             id="no-final-version-do"
-            name=""
+            name="How to use"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Checkbox labelDisplay="hidden" label="Created pins checkbox" id="created-pins" onChange={() => {}} />
@@ -82,7 +82,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
           <Example
             id="no-final-version-dont"
-            name=""
+            name="How to not use"
             defaultCode={`
 <Text>
   See the total impact of your paid and organic content working together to increase page
