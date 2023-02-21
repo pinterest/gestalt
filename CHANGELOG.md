@@ -1,3 +1,9 @@
+## 96.1.1 (Feb 21, 2023)
+
+### Patch
+
+- Internal: add first integration test for Masonry ([#2647](https://github.com/pinterest/gestalt/pull/2647)) - [Preview link](https://deploy-preview-2647--gestalt.netlify.app)
+
 ## 96.1.0 (Feb 21, 2023)
 
 ### Minor
