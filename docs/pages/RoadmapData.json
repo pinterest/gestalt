@@ -126,7 +126,7 @@
       "deadline": "",
       "status": "inProgress",
       "platforms": ["Web"],
-      "description": "",
+      "description": "Increase safety of future Masonry work by establishing a baseline of integration tests.",
       "link": ""
     },
     {
@@ -134,7 +134,7 @@
       "deadline": "",
       "status": "inProgress",
       "platforms": ["Web"],
-      "description": "",
+      "description": "Initial experimental attempt to support items spanning two column widths in Masonry.",
       "link": ""
     },
     {
