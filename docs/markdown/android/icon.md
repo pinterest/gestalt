@@ -123,7 +123,8 @@ directional-arrow-left
 
 ## Naming
 
-* Follow the web icon naming convention when possible
+* All Android icons in the Gestalt system start with the prefix "_ic" and end with the suffix "_pds"
+* Follow the [web icon naming convention](http://pinch.pinadmin.com/new-icon-naming) when possible
 * Names should be all lowercase
 * Separate multiple words with a dash
 * Start with the primary function first&mdash;instead of “circle-arrow”, use “arrow-circle”
