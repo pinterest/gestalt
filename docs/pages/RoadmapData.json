@@ -22,15 +22,15 @@
       "deadline": "",
       "status": "unstarted",
       "platforms": [],
-      "description": "",
-      "link": "Release general guidelines and principles for navigation content and display."
+      "description": "Release general guidelines and principles for navigation content and display.",
+      "link": ""
     },
     {
       "task": "Card component",
       "deadline": "",
       "status": "inProgress",
       "platforms": ["Web"],
-      "description": "",
+      "description": "Creation of a Card component to support emerging Pinner needs.",
       "link": ""
     },
     {
