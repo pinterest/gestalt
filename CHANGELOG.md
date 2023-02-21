@@ -1,3 +1,21 @@
+## 96.0.3 (Feb 19, 2023)
+
+### Patch
+
+- ZIndex: fix Flow types ([#2651](https://github.com/pinterest/gestalt/pull/2651)) - [Preview link](https://deploy-preview-2651--gestalt.netlify.app)
+
+## 96.0.2 (Feb 17, 2023)
+
+### Patch
+
+- Docs: tiny bug on code editor in Badge example ([#2649](https://github.com/pinterest/gestalt/pull/2649)) - [Preview link](https://deploy-preview-2649--gestalt.netlify.app)
+
+## 96.0.1 (Feb 16, 2023)
+
+### Patch
+
+- Bump undici from 5.11.0 to 5.19.1 ([#2648](https://github.com/pinterest/gestalt/pull/2648)) - [Preview link](https://deploy-preview-2648--gestalt.netlify.app)
+
 ## 96.0.0 (Feb 16, 2023)
 
 ### Major
