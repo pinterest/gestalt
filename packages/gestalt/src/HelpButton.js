@@ -224,8 +224,10 @@ export default function HelpButton({
       </Tooltip>
       {open &&
         (isWithinScrollContainer ? (
+          // This Layer is handling the Popover positioning on Scrollable containers
           <Layer zIndex={zIndexWrapper}>{PopoverElement}</Layer>
         ) : (
+          // This Box is  handling the zIndex work (Tooltip over Popover)
           <Box data-test-id="zIndexLayer" zIndex={zIndexWrapper}>
             {PopoverElement}
           </Box>
