@@ -50,7 +50,6 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
     <Box minHeight="100vh" color="default">
       <SkipToContent />
       <Header />
-      {isHomePage}
       {isSidebarOpen && (
         <Fragment>
           {/* The <div> element has a child <button> element that allows keyboard interaction */}
