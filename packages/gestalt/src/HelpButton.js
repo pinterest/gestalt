@@ -12,6 +12,7 @@ import styles from './HelpButton.css';
 import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { ESCAPE, SPACE, ENTER } from './keyCodes.js';
 
 type Props = {|
   /**
@@ -28,7 +29,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
    * If provided, displays a [link api](https://gestalt.pinterest.systems/web/link#Props) at the bottom of the popover message.
-   * - `href` is the URL the hyperlink points to.
+   * - `href` is the URL that the hyperlink points to.
    * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/helpbutton#With-a-link) for more details.
    * - `target` see the [target Link variant](https://gestalt.pinterest.systems/web/link#Target) to learn more. If not defined the link will open in a new window.
    * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
@@ -77,15 +78,33 @@ export default function HelpButton({
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
+  const [keyNavigated, setKeyNavigated] = useState(false);
   const { name: colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
   useEffect(() => {
-    if (open) {
+    // If the navigation is based on keyboard the focus gonna to first element
+    if (open && keyNavigated) {
       firstElementRef?.current?.focus();
     }
-  }, [open]);
+  }, [open, keyNavigated]);
+
+  // If the popover was closed pressing `ESCAPE`, the focus back to TapArea element
+  const handleKeyDownPopover = ({ event }) => {
+    if (event.keyCode === ESCAPE && open) {
+      tapAreaRef?.current?.focus();
+      setKeyNavigated(false);
+    }
+  };
+
+  // Identify if the navigation is handled by keyboard
+  const handleKeyDownTapArea = ({ event }) => {
+    const { keyCode } = event;
+    if (keyCode === ENTER || keyCode === SPACE) {
+      setKeyNavigated(true);
+    }
+  };
 
   const toggleView = () => {
     setOpen((currVal) => !currVal);
@@ -137,6 +156,7 @@ export default function HelpButton({
           onFocus={() => setFocused(true)}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
+          onKeyDown={handleKeyDownTapArea}
         >
           <Box
             width={16}
@@ -161,6 +181,7 @@ export default function HelpButton({
             accessibilityLabel={accessibilityPopoverLabel}
             anchor={tapAreaRef.current}
             onDismiss={toggleView}
+            onKeyDown={handleKeyDownPopover}
             idealDirection={idealDirection ?? 'down'}
             positionRelativeToAnchor
           >

@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -24,15 +23,14 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
-        <Flex height="100%" justifyContent="center" alignItems="center">
-          <HelpButton
-            accessibilityLabel="Click to learn more about help button"
-            accessibilityPopoverLabel="Expanded information about help button"
-            text="Informational context that's displayed on click"
-          />
-        </Flex>
-
-`}
+<Flex height="100%" justifyContent="center" alignItems="center">
+  <HelpButton
+    accessibilityLabel="Click to learn more about help button"
+    accessibilityPopoverLabel="Expanded information about help button"
+    text="Informational context that's displayed on click"
+  />
+</Flex>
+        `}
       >
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
@@ -42,7 +40,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            cardSize="md"
+            cardSize="sm"
             type="do"
             description={`
 - To offer simple, bite-sized assistive information about an element or section on the screen.
@@ -51,7 +49,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           />
 
           <MainSection.Card
-            cardSize="md"
+            cardSize="sm"
             type="don't"
             description={`
 - To provide extensive information that is longer than a short sentence. Use [SlimBanner](/web/slimbanner) instead.
@@ -64,9 +62,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
-          <Example
-            id="no-final-version-do"
-            name="How to use"
+          <MainSection.Card
+            cardSize="md"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Checkbox labelDisplay="hidden" label="Created pins checkbox" id="created-pins" onChange={() => {}} />
@@ -77,12 +74,11 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
     text="Date range must include at least 1 day in the last 30 days"
   />
 </Flex>
-`}
+            `}
           />
 
-          <Example
-            id="no-final-version-dont"
-            name="How to not use"
+          <MainSection.Card
+            cardSize="md"
             defaultCode={`
 <Text>
   See the total impact of your paid and organic content working together to increase page
@@ -118,7 +114,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            cardSize="md"
+            cardSize="sm"
             type="do"
             description="Place HelpButton to the end of the element you wish to add guidance to."
             sandpackExample={
@@ -127,7 +123,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           />
 
           <MainSection.Card
-            cardSize="md"
+            cardSize="sm"
             type="don't"
             description="Include HelpButton within blocks of content."
             sandpackExample={
@@ -147,7 +143,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           description={`
 The Tooltip text is \`static\` and equal \`Click to learn more\`, but the \`accessibilityLabel\` must adds detail to the generic text, "Click to learn more about [your content]".
 
-The \`accessibilityPopoverLabel\` should be the same as but without the "Click to learn more ...", so we suggest something like: "Expanded information about [your content]".
+The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`, but without the "Click to learn more [your content]", so we suggest something like: "Expanded information about [your content]".
         `}
         />
       </MainSection>
@@ -161,8 +157,8 @@ The \`accessibilityPopoverLabel\` should be the same as but without the "Click t
           title="Link"
           description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)."
         >
-          <Example
-            name="Link HelpButton"
+          <MainSection.Card
+            cardSize="md"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
@@ -180,7 +176,7 @@ The \`accessibilityPopoverLabel\` should be the same as but without the "Click t
         `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="sm"
             sandpackExample={<SandpackExample code={withLink} name="Link component" />}
           />
         </MainSection.Subsection>
@@ -188,8 +184,8 @@ The \`accessibilityPopoverLabel\` should be the same as but without the "Click t
           title="Text"
           description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text contained within."
         >
-          <Example
-            name="Text"
+          <MainSection.Card
+            cardSize="md"
             defaultCode={`
 <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
   <Text>This is Gestalt</Text>
@@ -201,13 +197,13 @@ The \`accessibilityPopoverLabel\` should be the same as but without the "Click t
       text: 'Visit our portal',
       accessibilityLabel: 'Visit Gestalt portal',
     }}
-    text={<Text>Gestalt is Pinterest's design system.</Text>}
+    text={<Text><Text weight="bold" inline>Gestalt</Text> is Pinterest's design system.</Text>}
   />
 </Flex>
         `}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="sm"
             sandpackExample={<SandpackExample code={withText} name="Text component" />}
           />
         </MainSection.Subsection>

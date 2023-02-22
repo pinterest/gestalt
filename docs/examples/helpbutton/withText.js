@@ -15,7 +15,14 @@ export default function Example(): Node {
           accessibilityLabel: 'Visit Gestalt portal',
           onClick: () => {},
         }}
-        text={<Text>Is Pinterest`s design system</Text>}
+        text={
+          <Text>
+            <Text weight="bold" inline>
+              Gestalt
+            </Text>{' '}
+            is Pinterest`s design system.
+          </Text>
+        }
       />
     </Flex>
   );
