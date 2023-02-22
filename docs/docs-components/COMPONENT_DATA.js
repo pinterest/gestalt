@@ -7,7 +7,6 @@ import Badge from '../graphics/general/Badge.svg';
 import Button from '../graphics/general/Button.svg';
 import ButtonGroup from '../graphics/general/ButtonGroup.svg';
 import Callout from '../graphics/general/Callout.svg';
-import Card from '../graphics/general/Card.svg';
 import Checkbox from '../graphics/general/Checkbox.svg';
 import Collage from '../graphics/general/Collage.svg';
 import ComboBox from '../graphics/general/ComboBox.svg';
@@ -80,6 +79,7 @@ import Layouts from '../graphics/foundations/layouts.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
 import BrandExpression from '../graphics/foundations/brand_expression.svg';
 import Messaging from '../graphics/foundations/messaging.svg';
+import WashAnimated from '../graphics/general/WashAnimated.svg';
 
 export type Category =
   | 'Actions'
@@ -589,10 +589,11 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <Card />,
-    name: 'Card',
+    svg: <WashAnimated />,
+    name: 'WashAnimated',
     aliases: ['Tile', 'Panel'],
-    description: 'Card is used to highlight content in grids.',
+    previouslyNamed: ['Card'],
+    description: 'WashAnimated is used to highlight content in grids.',
     category: 'Structure',
     status: {
       accessible: {

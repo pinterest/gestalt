@@ -65,6 +65,7 @@ const webComponents = [
   'tooltip',
   'upsell',
   'video',
+  'washanimated',
   'zindex_classes',
 ].map((item) => ({
   source: `/${item}`,
@@ -180,6 +181,11 @@ const misc = [
   {
     source: '/roadmap/whats_new',
     destination: '/whats_new',
+    permanent: true,
+  },
+  {
+    source: '/web/card',
+    destination: '/web/washanimated',
     permanent: true,
   },
 ];

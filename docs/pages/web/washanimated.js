@@ -9,13 +9,13 @@ import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/card/defaultExample.js';
+import defaultExample from '../../examples/washanimated/defaultExample.js';
 
-export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Card">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={defaultExample} name="Card Main Example" hideEditor />
+        <SandpackExample code={defaultExample} name="WashAnimated main example" hideEditor />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
@@ -45,14 +45,14 @@ export default function CardPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Variant">
         <Example
           description={`
-    Using \`Card\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
+    Using \`WashAnimated\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
   `}
           name="Example"
           defaultCode={`
 function CardExample() {
   return (
     <Box maxWidth={236} padding={2} column={12}>
-      <Card image={<Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" />}>
+      <WashAnimated image={<Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" />}>
         <Flex direction="column" justifyContent="center">
           <Text align="center" weight="bold">
             <Link href="https://pinterest.com">
@@ -67,7 +67,7 @@ function CardExample() {
           text="Follow"
         />
         </Flex>
-      </Card>
+      </WashAnimated>
     </Box>
   );
 }
@@ -82,6 +82,6 @@ function CardExample() {
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Card' }) },
+    props: { generatedDocGen: await docgen({ componentName: 'WashAnimated' }) },
   };
 }

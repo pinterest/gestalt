@@ -3,6 +3,6 @@
 declare module.exports: {|
   +'animate-in': string,
   +'animate-in-rtl': string,
-  +'card': string,
   +'hover': string,
+  +'washanimated': string,
 |};
