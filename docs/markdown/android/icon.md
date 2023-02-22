@@ -8,7 +8,7 @@ fullwidth: true
 
 ## Icon assets
 
-Download svg assets from our [Android icon GitHub repo](packages/gestalt/src/icons-android).
+Download svg assets from our [Android icon GitHub repo](https://github.com/pinterest/gestalt/tree/master/packages/gestalt/src/icons-android).
 
 ## Usage guidelines
 
