@@ -1,3 +1,9 @@
+## 96.2.0 (Feb 22, 2023)
+
+### Minor
+
+- SideNavigation: implemented `primaryAction` prop to allow actions on SideNavigation.TopItem and SideNavigation.Group ([#2646](https://github.com/pinterest/gestalt/pull/2646)) - [Preview link](https://deploy-preview-2646--gestalt.netlify.app)
+
 ## 96.1.3 (Feb 22, 2023)
 
 ### Patch
