@@ -1,3 +1,9 @@
+## 96.2.2 (Feb 22, 2023)
+
+### Patch
+
+- Docs: add Feb 22 updates ([#2660](https://github.com/pinterest/gestalt/pull/2660)) - [Preview link](https://deploy-preview-2660--gestalt.netlify.app)
+
 ## 96.2.1 (Feb 22, 2023)
 
 ### Patch
