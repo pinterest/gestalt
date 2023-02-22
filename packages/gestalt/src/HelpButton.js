@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node, type Element, type Ref, useRef, useState, useEffect, useId } from 'react';
 import Box from './Box.js';
+import Layer from './Layer.js';
 import TapArea, { type OnTapType } from './TapArea.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
@@ -27,6 +28,10 @@ type Props = {|
    * Specifies the preferred position of the tooltip and popover relative to HelpButton. See [Popover's ideal direction variant](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
+  /**
+   * Enables correct behavior when HelpButton is used within a [ScrollBoundaryContainer](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer). To achieve this it add the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where ScrollBoundaryContainer breaks the Popover positionings.
+   */
+  isWithinScrollContainer?: boolean,
   /**
    * If provided, displays a [link api](https://gestalt.pinterest.systems/web/link#Props) at the bottom of the popover message.
    * - `href` is the URL that the hyperlink points to.
@@ -68,6 +73,7 @@ export default function HelpButton({
   accessibilityLabel,
   accessibilityPopoverLabel,
   idealDirection = 'down',
+  isWithinScrollContainer = false,
   link,
   onClick,
   text,
@@ -134,6 +140,51 @@ export default function HelpButton({
       <span className={textColorOverrideStyles}>{text}</span>
     );
 
+  const PopoverElement = (
+    <Popover
+      id={popoverId}
+      accessibilityLabel={accessibilityPopoverLabel}
+      anchor={tapAreaRef.current}
+      onDismiss={toggleView}
+      onKeyDown={handleKeyDownPopover}
+      idealDirection={idealDirection ?? 'down'}
+      positionRelativeToAnchor={!isWithinScrollContainer}
+    >
+      <Box padding={5} rounding={4} height="auto">
+        <Box
+          ref={firstElementRef}
+          tabIndex={0}
+          onBlur={() => {
+            if (!link?.href) {
+              setFocused(false);
+            }
+          }}
+        >
+          {textElement}
+        </Box>
+        {link?.href && (
+          <Box width="100%" display="block" marginTop={3}>
+            <Text>
+              <Link
+                accessibilityLabel={link?.accessibilityLabel}
+                externalLinkIcon={link?.externalLinkIcon}
+                href={link?.href}
+                onClick={link?.onClick}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                ref={link?.ref}
+                target={link?.target ?? 'blank'}
+                underline="always"
+              >
+                {link?.text}
+              </Link>
+            </Text>
+          </Box>
+        )}
+      </Box>
+    </Popover>
+  );
+
   return (
     // The only purpose of this Flex is to make zIndex work (Tooltip over Popover).
     <Flex alignItems="center" justifyContent="center" flex="none">
@@ -171,55 +222,14 @@ export default function HelpButton({
           </Box>
         </TapArea>
       </Tooltip>
-      {open && (
-        // The purpose here is to make zIndex work (Tooltip over Popover) due not
-        // using Layer because by adding Layer you would have to bring focus to the Text element
-        // on opening the Popover.
-        <Box data-test-id="zIndexLayer" zIndex={zIndexWrapper}>
-          <Popover
-            id={popoverId}
-            accessibilityLabel={accessibilityPopoverLabel}
-            anchor={tapAreaRef.current}
-            onDismiss={toggleView}
-            onKeyDown={handleKeyDownPopover}
-            idealDirection={idealDirection ?? 'down'}
-            positionRelativeToAnchor
-          >
-            <Box padding={5} rounding={4} height="auto">
-              <Box
-                ref={firstElementRef}
-                tabIndex={0}
-                onBlur={() => {
-                  if (!link?.href) {
-                    setFocused(false);
-                  }
-                }}
-              >
-                {textElement}
-              </Box>
-              {link?.href && (
-                <Box width="100%" display="block" marginTop={3}>
-                  <Text>
-                    <Link
-                      accessibilityLabel={link?.accessibilityLabel}
-                      externalLinkIcon={link?.externalLinkIcon}
-                      href={link?.href}
-                      onClick={link?.onClick}
-                      onFocus={() => setFocused(true)}
-                      onBlur={() => setFocused(false)}
-                      ref={link?.ref}
-                      target={link?.target ?? 'blank'}
-                      underline="always"
-                    >
-                      {link?.text}
-                    </Link>
-                  </Text>
-                </Box>
-              )}
-            </Box>
-          </Popover>
-        </Box>
-      )}
+      {open &&
+        (isWithinScrollContainer ? (
+          <Layer zIndex={zIndexWrapper}>{PopoverElement}</Layer>
+        ) : (
+          <Box data-test-id="zIndexLayer" zIndex={zIndexWrapper}>
+            {PopoverElement}
+          </Box>
+        ))}
     </Flex>
   );
 }

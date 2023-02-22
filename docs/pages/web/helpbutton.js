@@ -11,6 +11,7 @@ import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
 import withLink from '../../examples/helpbutton/withLink.js';
 import withText from '../../examples/helpbutton/withText.js';
+import scrollContainer from '../../examples/helpbutton/withText.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
@@ -180,6 +181,7 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
             sandpackExample={<SandpackExample code={withLink} name="Link component" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Text"
           description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text contained within."
@@ -205,6 +207,38 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
           <MainSection.Card
             cardSize="sm"
             sandpackExample={<SandpackExample code={withText} name="Text component" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Scrollable Containers"
+          description="Some cases you will need use the HelpButton inner a [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) implementation, which can start some not expected behaviors. To avoid this mismatches use `isWithinScrollContainer` as `true`."
+        >
+          <MainSection.Card
+            cardSize="md"
+            defaultCode={`
+<Box height={300} overflow="auto">
+  <ScrollBoundaryContainer overflow="scrollY">
+    <Box height={500} width={500} color="infoWeak" padding={6}>
+      <HelpButton
+        accessibilityLabel="Click to learn more about Gestalt"
+        accessibilityPopoverLabel="Expanded information about Gestalt"
+        isWithinScrollContainer
+        link={{
+          href: 'https://gestalt.pinterest.systems/',
+          text: 'Visit our portal',
+          accessibilityLabel: 'Visit Gestalt portal',
+        }}
+        text="Gestalt is Pinterest's design system."
+      />
+    </Box>
+  </ScrollBoundaryContainer >
+</Box>
+        `}
+          />
+          <MainSection.Card
+            cardSize="sm"
+            sandpackExample={<SandpackExample code={scrollContainer} name="ScrollContainer" />}
           />
         </MainSection.Subsection>
       </MainSection>
