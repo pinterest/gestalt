@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table.Header renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="box overflowAuto"
+      style="max-height: 200px;"
+      tabindex="0"
+    >
+      <table
+        class="table"
+      >
+        <caption
+          class="absolute box overflowHidden"
+          style="width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;"
+        >
+          Sticky header
+        </caption>
+        <thead
+          class="thead"
+        >
+          <tr>
+            <td
+              class="td"
+            >
+              <div
+                class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              >
+                Total
+              </div>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Table.Header sticky header renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="box overflowAuto"
+      style="max-height: 200px;"
+      tabindex="0"
+    >
+      <table
+        class="table"
+      >
+        <caption
+          class="absolute box overflowHidden"
+          style="width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;"
+        >
+          Sticky header
+        </caption>
+        <thead
+          class="thead stickyHeader"
+        >
+          <tr>
+            <td
+              class="td"
+            >
+              <div
+                class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              >
+                Total
+              </div>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</body>
+`;

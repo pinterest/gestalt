@@ -1612,86 +1612,94 @@ function Example() {
       </MainSection>
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="Sticky header">
+        <MainSection.Subsection title="Sticky header & footer">
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
-<Table accessibilityLabel="Sticky header" maxHeight={200}>
+<Table accessibilityLabel="Sticky footer" maxHeight={200}>
   <Table.Header sticky>
     <Table.Row>
       <Table.HeaderCell>
-        <Text weight="bold">Image</Text>
+        <Text weight="bold">Campaign</Text>
       </Table.HeaderCell>
       <Table.HeaderCell>
-        <Text weight="bold">Name</Text>
+        <Text weight="bold">Impression</Text>
       </Table.HeaderCell>
       <Table.HeaderCell>
-        <Text weight="bold">House</Text>
+        <Text weight="bold">Cost</Text>
       </Table.HeaderCell>
     </Table.Row>
   </Table.Header>
   <Table.Body>
     <Table.Row>
       <Table.Cell>
-        <Box width={50}>
-          <Mask rounding="circle">
-            <Image
-              alt="Luna"
-              src="https://i.ibb.co/QY9qR7h/luna.png"
-              naturalHeight={50}
-              naturalWidth={50}
-            />
-          </Mask>
-        </Box>
+        <Text>Spring season</Text>
       </Table.Cell>
-      <Table.Cell><Text>Luna Lovegood</Text></Table.Cell>
-      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+      <Table.Cell>
+        <Text>10,000</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>$500</Text>
+      </Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
-        <Box width={50}>
-          <Mask rounding="circle">
-            <Image
-              alt="Draco"
-              src="https://i.ibb.co/Hzcfxjt/draco.png"
-              naturalHeight={50}
-              naturalWidth={50}
-            />
-          </Mask>
-        </Box>
+        <Text>Autumn season</Text>
       </Table.Cell>
-      <Table.Cell><Text>Draco Malfoy</Text></Table.Cell>
-      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+      <Table.Cell>
+        <Text>10,000</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>$500</Text>
+      </Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
-        <Box width={50}>
-          <Mask rounding="circle">
-            <Image
-              alt="Neville"
-              src="https://i.ibb.co/JvY9DKK/neville.png"
-              naturalHeight={50}
-              naturalWidth={50}
-            />
-          </Mask>
-        </Box>
+        <Text>Summer season</Text>
       </Table.Cell>
-      <Table.Cell><Text>Neville Longbottom</Text></Table.Cell>
-      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+      <Table.Cell>
+        <Text>10,000</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>$500</Text>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Text>Winter season</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>10,000</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>$500</Text>
+      </Table.Cell>
     </Table.Row>
   </Table.Body>
-</Table>
-  `}
+  <Table.Footer sticky>
+    <Table.Row>
+      <Table.Cell>
+        <Text weight="bold">Total</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text weight="bold">40,000</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text weight="bold">$2,000</Text>
+      </Table.Cell>
+    </Table.Row>
+  </Table.Footer>
+</Table>;
+`}
           />
         </MainSection.Subsection>
-      </MainSection>
-      <MainSection.Subsection
-        title="Sticky Column"
-        description="Try scrolling horizontally to see the first column remain in place."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+        <MainSection.Subsection
+          title="Sticky Column"
+          description="Try scrolling horizontally to see the first column remain in place."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box width="50%">
   <Table accessibilityLabel="Sticky Column" maxHeight={200} stickyColumns={1}>
 
@@ -1786,15 +1794,15 @@ function Example() {
 </Box>
 
 `}
-        />
-      </MainSection.Subsection>
-      <MainSection.Subsection
-        title="Multiple sticky columns"
-        description="Try scrolling horizontally to see the first 3 columns remain in place."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Multiple sticky columns"
+          description="Try scrolling horizontally to see the first 3 columns remain in place."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box width="60%">
   <Table accessibilityLabel="Multiple sticky columns" maxHeight={200} stickyColumns={3} borderStyle="none">
 
@@ -1921,15 +1929,15 @@ function Example() {
 </Box>
 
 `}
-        />
-      </MainSection.Subsection>
-      <MainSection.Subsection
-        title="Sticky header and sticky columns"
-        description="Try scrolling horizontally and vertically to see the columns and header remain in place."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Sticky header and sticky columns"
+          description="Try scrolling horizontally and vertically to see the columns and header remain in place."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 <Box width="60%">
   <Table accessibilityLabel="Sticky header and sticky columns" maxHeight={200} stickyColumns={3} borderStyle="none">
 
@@ -2057,15 +2065,15 @@ function Example() {
 </Box>
 
 `}
-        />
-      </MainSection.Subsection>
-      <MainSection.Subsection
-        title="Table Row Expandable"
-        description="Expandable row that is able to hold content that will displayed depending on the clickable expand/collapse button icon."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Table Row Expandable"
+          description="Expandable row that is able to hold content that will displayed depending on the clickable expand/collapse button icon."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
     function Example() {
       const [textShown, setTextShown] = React.useState(false);
       const showTextOnExpand = () => {
@@ -2269,15 +2277,15 @@ function Example() {
         </Table>);
     }
     `}
-        />
-      </MainSection.Subsection>
-      <MainSection.Subsection
-        title="Table Row Expandable with Sticky Columns"
-        description="When specifying `stickyColumns` with expandable rows, include the column of arrows in your count. This example sets `stickyColumns` to 3."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Table Row Expandable with Sticky Columns"
+          description="When specifying `stickyColumns` with expandable rows, include the column of arrows in your count. This example sets `stickyColumns` to 3."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
     function Example() {
       const [textShown, setTextShown] = React.useState(false);
       const showTextOnExpand = () => {
@@ -2494,15 +2502,15 @@ function Example() {
       </Box> );
     }
     `}
-        />
-      </MainSection.Subsection>
-      <MainSection.Subsection
-        title="Table Row Drawer"
-        description="Drawer row that is able to hold additional content."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Table Row Drawer"
+          description="Drawer row that is able to hold additional content."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
 function Example() {
   const [showdrawer, setShowDrawer] = React.useState(true);
 
@@ -2596,16 +2604,16 @@ function Example() {
     </Box>
 )}
         `}
-        />
-      </MainSection.Subsection>
+          />
+        </MainSection.Subsection>
 
-      <MainSection.Subsection
-        title="Sortable header cells"
-        description="Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+        <MainSection.Subsection
+          title="Sortable header cells"
+          description="Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
     function SortableHeaderExample() {
       const [sortOrder, setSortOrder] = React.useState('desc');
       const [sortCol, setSortCol] = React.useState('name');
@@ -2635,12 +2643,12 @@ function Example() {
       );
     }
 `}
-        />
-      </MainSection.Subsection>
-      <MainSection.Subsection title="Sortable header cells with sticky columns">
-        <MainSection.Card
-          cardSize="lg"
-          defaultCode={`
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Sortable header cells with sticky columns">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
     function SortableHeaderExample() {
       const [sortOrder, setSortOrder] = React.useState('desc');
       const [sortCol, setSortCol] = React.useState('name');
@@ -2688,9 +2696,9 @@ function Example() {
       );
     }
 `}
-        />
-      </MainSection.Subsection>
-
+          />
+        </MainSection.Subsection>
+      </MainSection>
       <QualityChecklist component={generatedDocGen.Table?.displayName} />
 
       <MainSection name="Related">
