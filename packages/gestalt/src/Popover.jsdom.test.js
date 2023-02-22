@@ -1,44 +1,56 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Popover from './Popover.js';
+import PopoverEducational from './PopoverEducational.js';
+import Text from './Text.js';
 
-test('Popover renders', () => {
-  const element = document.createElement('div');
-  const component = create(
-    <Popover anchor={element} idealDirection="down" onDismiss={jest.fn()} size="sm" />,
-    {
-      createNodeMock: () => true,
-    },
-  );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+describe('PopoverEducational', () => {
+  it('renders correctly', () => {
+    const element = document.createElement('div');
+    const component = create(
+      <PopoverEducational
+        anchor={element}
+        accessibilityLabel="text"
+        onDismiss={jest.fn()}
+        message="text"
+        primaryAction={{ text: 'next' }}
+      />,
+      {
+        createNodeMock: () => true,
+      },
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-test('Popover renders as error', () => {
-  const element = document.createElement('div');
-  const component = create(
-    <Popover anchor={element} idealDirection="down" onDismiss={jest.fn()} color="red" size="sm" />,
-    {
-      createNodeMock: () => true,
-    },
-  );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it('renders correctly with custom children', () => {
+    const element = document.createElement('div');
+    const component = create(
+      <PopoverEducational
+        accessibilityLabel="text"
+        anchor={element}
+        accessibilityLabel="text"
+        onDismiss={jest.fn()}
+      >
+        <Text>Custom children</Text>
+      </PopoverEducational>,
+      {
+        createNodeMock: () => true,
+      },
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-test('Popover renders as blue', () => {
-  const element = document.createElement('div');
-  const component = create(
-    <Popover anchor={element} idealDirection="down" onDismiss={jest.fn()} color="blue" size="sm" />,
-    {
-      createNodeMock: () => true,
-    },
-  );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('Popover does not render when the anchor is null', () => {
-  const tree = create(<Popover anchor={null} onDismiss={() => {}} />).toJSON();
-  expect(tree).toMatchSnapshot();
+  it('does not render when the anchor is null', () => {
+    const tree = create(
+      <PopoverEducational
+        accessibilityLabel="text"
+        anchor={null}
+        onDismiss={() => {}}
+        message="text"
+        primaryAction={{ text: 'next' }}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

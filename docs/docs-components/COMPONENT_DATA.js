@@ -29,7 +29,7 @@ import ModalAlert from '../graphics/general/ModalAlert.svg';
 import Module from '../graphics/general/Module.svg';
 import NumberField from '../graphics/general/NumberField.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
-import Popover from '../graphics/general/Popover.svg';
+import Popover from '../graphics/building-blocks/Popover.svg';
 import Pulsar from '../graphics/general/Pulsar.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
@@ -1733,7 +1733,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     previouslyNamed: ['Flyout'],
     description:
       'Popover is a floating view that contains a task related to the content on screen.',
-    category: 'Overlays',
+    category: 'Building blocks',
     status: {
       accessible: {
         summary: 'partial',
@@ -1748,6 +1748,55 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       documentation: 'partial',
       iOS: 'notAvailable',
       figma: 'partial',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <Popover />,
+    name: 'PopoverEducational',
+    description:
+      'PopoverEducational is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences. ',
+    category: 'Help and guidance',
+    status: {
+      accessible: {
+        summary: 'partial',
+        a11yVisual: 'partial',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
       responsive: 'ready',
     },
     android: {
