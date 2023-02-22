@@ -3,7 +3,11 @@ import { type Node } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
-const links = [
+const links: $ReadOnlyArray<{|
+  external: boolean,
+  title: string,
+  url: string,
+|}> = [
   {
     title: 'Careers',
     url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
@@ -14,7 +18,11 @@ const links = [
     url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
     external: true,
   },
-  { title: 'GitHub', url: 'https://github.com/pinterest/gestalt', external: true },
+  {
+    title: 'GitHub',
+    url: 'https://github.com/pinterest/gestalt',
+    external: true,
+  },
 ];
 
 export default function Footer(): Node {
@@ -37,6 +45,7 @@ export default function Footer(): Node {
                 accessibilityLabel="Visit Pinterest.com"
                 href="https://www.pinterest.com"
                 onClick={() => trackButtonClick('Pinterest copyright')}
+                target="blank"
               >
                 &copy; {new Date().getFullYear()} Pinterest
               </Link>
@@ -53,15 +62,16 @@ export default function Footer(): Node {
           justifyContent="center"
           wrap
         >
-          {links.map((link) => (
-            <Box marginBottom={2} lgMarginBottom={0} smMarginEnd={4} key={link.title}>
+          {links.map(({ external, title, url }) => (
+            <Box marginBottom={2} lgMarginBottom={0} smMarginEnd={4} key={title}>
               <Text inline>
                 <Link
-                  href={link.url}
-                  onClick={() => trackButtonClick(link.title)}
-                  externalLinkIcon={link.external ? 'default' : 'none'}
+                  href={url}
+                  onClick={() => trackButtonClick(title)}
+                  externalLinkIcon={external ? 'default' : 'none'}
+                  target={external ? 'blank' : undefined}
                 >
-                  {link.title}
+                  {title}
                 </Link>
               </Text>
             </Box>
