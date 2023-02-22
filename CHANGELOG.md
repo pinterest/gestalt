@@ -1,3 +1,9 @@
+## 96.2.1 (Feb 22, 2023)
+
+### Patch
+
+- Docs: Remove Year in Review banner ([#2657](https://github.com/pinterest/gestalt/pull/2657)) - [Preview link](https://deploy-preview-2657--gestalt.netlify.app)
+
 ## 96.2.0 (Feb 22, 2023)
 
 ### Minor
