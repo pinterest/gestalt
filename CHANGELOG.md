@@ -1,3 +1,9 @@
+## 96.1.3 (Feb 22, 2023)
+
+### Patch
+
+- Docs: open external footer links in new tab ([#2658](https://github.com/pinterest/gestalt/pull/2658)) - [Preview link](https://deploy-preview-2658--gestalt.netlify.app)
+
 ## 96.1.2 (Feb 22, 2023)
 
 ### Patch
