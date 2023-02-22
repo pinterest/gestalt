@@ -11,7 +11,7 @@ import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
 import withLink from '../../examples/helpbutton/withLink.js';
 import withText from '../../examples/helpbutton/withText.js';
-import scrollContainer from '../../examples/helpbutton/withText.js';
+import scrollContainer from '../../examples/helpbutton/scrollContainer.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
