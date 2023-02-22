@@ -1,23 +1,27 @@
 // @flow strict
-import { useState, useId, type Node } from 'react';
+import { useState, useId, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
+import Dropdown from './Dropdown.js';
 import SideNavigationGroupContent from './SideNavigationGroupContent.js';
 import SideNavigationGroupMobile from './SideNavigationGroupMobile.js';
 import icons from './icons/index.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { type Indexable } from './zIndex.js';
 
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';
+
 type BadgeType = {|
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
 |};
+
 type Counter = {| number: string, accessibilityLabel: string |};
 
 export type Props = {|
@@ -49,6 +53,25 @@ export type Props = {|
    *  When supplied, will display a notification dot. See the [Notification](https://gestalt.pinterest.systems/web/sidenavigation#Notification) variant to learn more.
    */
   notificationAccessibilityLabel?: string,
+  /**
+   * The primary action for each group. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
+   */
+  primaryAction?: {|
+    icon?: 'ellipsis' | 'edit' | 'trash-can',
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLDivElement>
+        | SyntheticKeyboardEvent<HTMLDivElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    |}) => void,
+    tooltip: {|
+      accessibilityLabel?: string,
+      text: string,
+      zIndex?: Indexable,
+    |},
+    dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
+  |},
 |};
 
 /**
@@ -62,7 +85,18 @@ export default function SideNavigationGroup({
   icon,
   notificationAccessibilityLabel,
   label,
+  primaryAction,
 }: Props): Node {
+  // Manages adaptiveness
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
+  // Manages PrimaryAction
+  const [compression, setCompression] = useState<'compress' | 'none'>('compress');
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+
+  // Manages children
   const itemId = useId();
 
   const { nestedLevel } = useNesting();
@@ -96,13 +130,7 @@ export default function SideNavigationGroup({
   const hasAnyActiveChild =
     !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
 
-  const [hovered, setHovered] = useState(false);
-
   const [expanded, setExpanded] = useState(hasAnyActiveChild);
-
-  const deviceType = useDeviceType();
-
-  const isMobile = deviceType === 'mobile';
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -121,6 +149,7 @@ export default function SideNavigationGroup({
         icon={icon}
         label={label}
         notificationAccessibilityLabel={notificationAccessibilityLabel}
+        primaryAction={primaryAction}
       >
         {navigationChildren}
       </SideNavigationGroupMobile>
@@ -136,10 +165,10 @@ export default function SideNavigationGroup({
             accessibilityExpanded={display === 'expandable' ? expanded : undefined}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onFocus={() => setHovered(true)}
-            onBlur={() => setHovered(false)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
             rounding={2}
-            tapStyle="compress"
+            tapStyle={compression}
             onTap={() =>
               setExpanded((value) => {
                 if (!value) setSelectedItemId(itemId);
@@ -159,10 +188,16 @@ export default function SideNavigationGroup({
               notificationAccessibilityLabel={notificationAccessibilityLabel}
               counter={counter}
               display={display}
+              primaryAction={primaryAction}
+              setCompression={setCompression}
+              hovered={hovered}
+              focused={focused}
             />
           </TapArea>
         ) : (
           <SideNavigationGroupContent
+            hovered={hovered}
+            focused={focused}
             itemColor={itemColor}
             expanded={expanded}
             selectedItemId={selectedItemId}
@@ -174,6 +209,8 @@ export default function SideNavigationGroup({
             notificationAccessibilityLabel={notificationAccessibilityLabel}
             counter={counter}
             display={display}
+            primaryAction={primaryAction}
+            setCompression={setCompression}
           />
         )}
         {expanded || display === 'static' ? (
