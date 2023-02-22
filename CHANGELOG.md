@@ -1,3 +1,9 @@
+## 96.1.2 (Feb 22, 2023)
+
+### Patch
+
+- Updated roadmap to match H1 2023 goals ([#2653](https://github.com/pinterest/gestalt/pull/2653)) - [Preview link](https://deploy-preview-2653--gestalt.netlify.app)
+
 ## 96.1.1 (Feb 21, 2023)
 
 ### Patch
