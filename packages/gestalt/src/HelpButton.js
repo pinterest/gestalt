@@ -17,7 +17,7 @@ import { ESCAPE, SPACE, ENTER } from './keyCodes.js';
 
 type Props = {|
   /**
-   * Supply a short, descriptive label to complete icon description `Click to learn more about [accessibilityLabel]`. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
+   * Supply a short, descriptive label screen readers. Follow the pattern `Click to learn more about [description]`. See [Accessibility](https://gestalt.pinterest.systems/web/helpbutton#Accessibility) section for guidance.`
    */
   accessibilityLabel: string,
   /**
@@ -140,7 +140,7 @@ export default function HelpButton({
       <span className={textColorOverrideStyles}>{text}</span>
     );
 
-  const PopoverElement = (
+  const popoverElement = (
     <Popover
       id={popoverId}
       accessibilityLabel={accessibilityPopoverLabel}
@@ -225,11 +225,11 @@ export default function HelpButton({
       {open &&
         (isWithinScrollContainer ? (
           // This Layer is handling the Popover positioning on Scrollable containers
-          <Layer zIndex={zIndexWrapper}>{PopoverElement}</Layer>
+          <Layer zIndex={zIndexWrapper}>{popoverElement}</Layer>
         ) : (
           // This Box is  handling the zIndex work (Tooltip over Popover)
           <Box data-test-id="zIndexLayer" zIndex={zIndexWrapper}>
-            {PopoverElement}
+            {popoverElement}
           </Box>
         ))}
     </Flex>

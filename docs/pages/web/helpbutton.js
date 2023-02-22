@@ -70,8 +70,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
   <Checkbox labelDisplay="hidden" label="Created pins checkbox" id="created-pins" onChange={() => {}} />
   <Text>Pins created in the last 30 days</Text>
   <HelpButton
-    accessibilityLabel="Click to learn more about last 30 days of created pins"
-    accessibilityPopoverLabel="Expanded information about last 30 days of created pins"
+    accessibilityLabel="Click to learn more about the last 30 days of created pins"
+    accessibilityPopoverLabel="Expanded information about the last 30 days of created pins"
     text="Date range must include at least 1 day in the last 30 days"
   />
 </Flex>
@@ -86,24 +86,24 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
   visits
   <Box display="inlineBlock">
     <HelpButton
-      accessibilityLabel="Click to learn more about number of visits"
-      accessibilityPopoverLabel="Expanded information about number of visits"
+      accessibilityLabel="Click to learn more about the number of visits"
+      accessibilityPopoverLabel="Expanded information about the number of visits"
       text="Number of times people visited your website after seeing your content on Pinterest"
     />
   </Box>
   {' '}add-to-carts{' '}
   <Box display="inlineBlock">
     <HelpButton
-      accessibilityLabel="Click to learn more about number of visits"
-      accessibilityPopoverLabel="Expanded information about number of visits"
+      accessibilityLabel="Click to learn more about the number of visits"
+      accessibilityPopoverLabel="Expanded information about the number of visits"
       text="Number of times people added your products to their carts after interacting with your Pins"
     />
   </Box>
   {' '}and checkouts
   <Box display="inlineBlock">
     <HelpButton
-      accessibilityLabel="Click to learn more about number of visits"
-      accessibilityPopoverLabel="Expanded information about number of visits"
+      accessibilityLabel="Click to learn more about the number of visits"
+      accessibilityPopoverLabel="Expanded information about the number of visits"
       text="Number of checkouts stemming from your Pins and ads"
     />
   </Box>
@@ -212,7 +212,7 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
 
         <MainSection.Subsection
           title="Scrollable Containers"
-          description="Some cases you will need use the HelpButton inner a [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) implementation, which can start some not expected behaviors. To avoid this mismatches use `isWithinScrollContainer` as `true`."
+          description={`In some cases, you will need to use HelpButton within [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer). To avoid unexpected behaviors set \`isWithinScrollContainer\` to "true".`}
         >
           <MainSection.Card
             cardSize="md"
