@@ -1,3 +1,9 @@
+## 96.2.4 (Feb 23, 2023)
+
+### Patch
+
+- Docs: linting + copyediting for Android icon page ([#2665](https://github.com/pinterest/gestalt/pull/2665)) - [Preview link](https://deploy-preview-2665--gestalt.netlify.app)
+
 ## 96.2.3 (Feb 23, 2023)
 
 ### Patch
