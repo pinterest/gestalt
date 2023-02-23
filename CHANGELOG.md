@@ -1,3 +1,9 @@
+## 96.2.3 (Feb 23, 2023)
+
+### Patch
+
+- Docs: Icon specs for Android ([#2650](https://github.com/pinterest/gestalt/pull/2650)) - [Preview link](https://deploy-preview-2650--gestalt.netlify.app)
+
 ## 96.2.2 (Feb 22, 2023)
 
 ### Patch
