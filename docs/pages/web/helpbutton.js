@@ -43,6 +43,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="sm"
             type="do"
+            title="When to use"
             description={`
 - To offer simple, bite-sized assistive information about an element or section on the screen.
 - To provide information or links to information that enhances a user's understanding of the feature.
@@ -52,6 +53,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           <MainSection.Card
             cardSize="sm"
             type="don't"
+            title="When not to use"
             description={`
 - To provide extensive information that is longer than a short sentence. Use [SlimBanner](/web/slimbanner) instead.
 - To display recommendations for how to improve a user's experience. Use [SlimBanner](/web/slimbanner) instead.
@@ -141,11 +143,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
 
       <MainSection name="Accessibility">
         <MainSection.Subsection
-          description={`
-The Tooltip text is \`static\` and equal \`Click to learn more\`, but the \`accessibilityLabel\` must adds detail to the generic text, "Click to learn more about [your content]".
-
-The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`, but without the "Click to learn more [your content]", so we suggest something like: "Expanded information about [your content]".
-        `}
+          description={`HelpButton's tooltip text is \`static\`, defined as \`Click to learn more\`. Use the required \`accessibilityLabel\` prop to give the user more details, using the format "Click to learn more about {the associated element}". \`accessibilityPopoverLabel\` should be similar, but using the format "Expanded information about {the associated element}".`}
         />
       </MainSection>
 
@@ -167,8 +165,8 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
     accessibilityLabel="Click to learn more about gestalt"
     accessibilityPopoverLabel="Expanded information about Gestalt"
     link={{
-      href: 'https://gestalt.pinterest.systems/',
-      text: 'Visit our portal',
+      href: '#',
+      text: 'Read our documentation',
       accessibilityLabel: 'Visit Gestalt portal',
     }}
     text="Gestalt is Pinterest's design system."
@@ -184,7 +182,7 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
 
         <MainSection.Subsection
           title="Text"
-          description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text contained within."
+          description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional [Text](/web/text) or [Link](/web/link) components contained within."
         >
           <MainSection.Card
             cardSize="md"
@@ -195,8 +193,8 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
     accessibilityLabel="Click to learn more about gestalt"
     accessibilityPopoverLabel="Expanded information about Gestalt"
     link={{
-      href: 'https://gestalt.pinterest.systems/',
-      text: 'Visit our portal',
+      href: '#',
+      text: 'Read our documentation',
       accessibilityLabel: 'Visit Gestalt portal',
     }}
     text={<Text><Text weight="bold" inline>Gestalt</Text> is Pinterest's design system.</Text>}
@@ -225,8 +223,8 @@ The \`accessibilityPopoverLabel\` should be the same as  \`accessibilityLabel\`,
         accessibilityPopoverLabel="Expanded information about Gestalt"
         isWithinScrollContainer
         link={{
-          href: 'https://gestalt.pinterest.systems/',
-          text: 'Visit our portal',
+          href: '#',
+          text: 'Read our documentation',
           accessibilityLabel: 'Visit Gestalt portal',
         }}
         text="Gestalt is Pinterest's design system."

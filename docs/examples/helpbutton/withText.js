@@ -11,7 +11,7 @@ export default function Example(): Node {
         accessibilityPopoverLabel="Expanded information about gestalt"
         link={{
           href: '#',
-          text: 'Visit our portal',
+          text: 'Read our documentation',
           accessibilityLabel: 'Visit Gestalt portal',
           onClick: () => {},
         }}

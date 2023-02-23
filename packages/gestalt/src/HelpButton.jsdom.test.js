@@ -98,7 +98,6 @@ describe('HelpButton', () => {
       screen.getByRole('button').click();
     });
 
-    // GetByClassName
     const element = screen.getByTestId('zIndexLayer');
 
     expect(element.getAttribute('style')).toEqual('z-index: 101;');

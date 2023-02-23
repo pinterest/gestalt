@@ -393,7 +393,8 @@ function SectionsIconButtonDropdownExample() {
           description={`
       Pass in \`link\` to display a link at the bottom of Tooltip.
 
-      ⚠️ Note: Please, use [HelpButton](/web/helpbutton) instead.
+      ⚠️ Note: this feature will soon be deprecated, as it is not accessible. Please do not use it in new designs or features.
+      ⚠️ Note: Please use [HelpButton](/web/helpbutton) instead.
       `}
         >
           <MainSection.Card

@@ -12,8 +12,8 @@ export default function Example(): Node {
             accessibilityPopoverLabel="Expanded information about Gestalt"
             isWithinScrollContainer
             link={{
-              href: 'https://gestalt.pinterest.systems/',
-              text: 'Visit our portal',
+              href: '#',
+              text: 'Read our documentation',
               accessibilityLabel: 'Visit Gestalt portal',
             }}
             text="Gestalt is Pinterest's design system."

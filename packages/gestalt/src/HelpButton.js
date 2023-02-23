@@ -1,11 +1,21 @@
 // @flow strict
-import { type Node, type Element, type Ref, useRef, useState, useEffect, useId } from 'react';
+import {
+  type Node,
+  type Element,
+  type ElementConfig,
+  type Ref,
+  useRef,
+  useState,
+  useEffect,
+  useId,
+} from 'react';
 import Box from './Box.js';
 import Layer from './Layer.js';
-import TapArea, { type OnTapType } from './TapArea.js';
+import TapArea from './TapArea.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
-import Link, { type ExternalLinkIcon } from './Link.js';
+import Link from './Link.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Tooltip from './Tooltip.js';
@@ -15,9 +25,38 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { ESCAPE, SPACE, ENTER } from './keyCodes.js';
 
+type LinkType = {|
+  accessibilityLabel?: string,
+  externalLinkIcon?:
+    | 'none'
+    | 'default'
+    | {|
+        color: $ElementType<ElementConfig<typeof Icon>, 'color'>,
+        size: $ElementType<ElementConfig<typeof Text>, 'size'>,
+      |},
+  href: string,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  ref?: Ref<'a'>,
+  text: string,
+  target?: null | 'self' | 'blank',
+|};
+
+type OnTapType = AbstractEventHandler<
+  | SyntheticMouseEvent<HTMLDivElement>
+  | SyntheticKeyboardEvent<HTMLDivElement>
+  | SyntheticMouseEvent<HTMLAnchorElement>
+  | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  {|
+    dangerouslyDisableOnNavigation: () => void,
+  |},
+>;
+
 type Props = {|
   /**
-   * Supply a short, descriptive label screen readers. Follow the pattern `Click to learn more about [description]`. See [Accessibility](https://gestalt.pinterest.systems/web/helpbutton#Accessibility) section for guidance.`
+   * Supply a short, descriptive label screen readers. Follow the pattern `Click to learn more about [description]`. See [Accessibility](https://gestalt.pinterest.systems/web/helpbutton#Accessibility) section for guidance.
    */
   accessibilityLabel: string,
   /**
@@ -40,18 +79,7 @@ type Props = {|
    * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    */
-  link?: {|
-    accessibilityLabel?: string,
-    externalLinkIcon?: ExternalLinkIcon,
-    href: string,
-    onClick?: ({|
-      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-    ref?: Ref<'a'>,
-    text: string,
-    target?: null | 'self' | 'blank',
-  |},
+  link?: LinkType,
   /**
    * Callback fired when HelpIcon is clicked (pressed and released) with a mouse or keyboard.
    */
@@ -116,9 +144,9 @@ export default function HelpButton({
     setOpen((currVal) => !currVal);
   };
 
-  const onHandleTap = (props) => {
+  const onHandleTap = (...args) => {
     toggleView();
-    onClick?.(props);
+    onClick?.(...args);
   };
 
   const bgIconColor = open || hovered || focused ? 'selected' : 'tertiary';
@@ -147,9 +175,10 @@ export default function HelpButton({
       anchor={tapAreaRef.current}
       onDismiss={toggleView}
       onKeyDown={handleKeyDownPopover}
-      idealDirection={idealDirection ?? 'down'}
+      idealDirection={idealDirection}
       positionRelativeToAnchor={!isWithinScrollContainer}
     >
+      {/* It's matching alignment with figma file */}
       <Box padding={5} rounding={4} height="auto">
         <Box
           ref={firstElementRef}
@@ -162,21 +191,21 @@ export default function HelpButton({
         >
           {textElement}
         </Box>
-        {link?.href && (
+        {link && link?.href && (
           <Box width="100%" display="block" marginTop={3}>
             <Text>
               <Link
-                accessibilityLabel={link?.accessibilityLabel}
-                externalLinkIcon={link?.externalLinkIcon}
-                href={link?.href}
-                onClick={link?.onClick}
+                accessibilityLabel={link.accessibilityLabel}
+                externalLinkIcon={link.externalLinkIcon}
+                href={link.href}
+                onClick={link.onClick}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
-                ref={link?.ref}
-                target={link?.target ?? 'blank'}
+                ref={link.ref}
+                target={link.target ?? 'blank'}
                 underline="always"
               >
-                {link?.text}
+                {link.text}
               </Link>
             </Text>
           </Box>
