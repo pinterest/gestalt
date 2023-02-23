@@ -14,7 +14,7 @@ type Props = {|
    */
   display?: 'tableHeaderGroup' | 'visuallyHidden',
   /**
-   * If true, the table header will be sticky and the table body will be scrollable. See the [sticky Header](https://gestalt.pinterest.systems/web/table#Sticky-header) and the [sticky header and columns](https://gestalt.pinterest.systems/web/table#Sticky-header-and-sticky-columns) variants for details.
+   * If true, the table header will be sticky and the table body will be scrollable. See the [sticky Header](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) and the [sticky header and columns](https://gestalt.pinterest.systems/web/table#Sticky-header-and-sticky-columns) variants for details.
    */
   sticky?: boolean,
 |};
@@ -30,7 +30,7 @@ export default function TableHeader({
   const cs = cx(
     display === 'visuallyHidden' && boxStyles.visuallyHidden,
     styles.thead,
-    sticky && styles.sticky,
+    sticky && styles.stickyHeader,
   );
   return <thead className={cs}>{children}</thead>;
 }

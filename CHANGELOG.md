@@ -1,3 +1,21 @@
+## 96.1.2 (Feb 22, 2023)
+
+### Patch
+
+- Updated roadmap to match H1 2023 goals ([#2653](https://github.com/pinterest/gestalt/pull/2653)) - [Preview link](https://deploy-preview-2653--gestalt.netlify.app)
+
+## 96.1.1 (Feb 21, 2023)
+
+### Patch
+
+- Internal: add first integration test for Masonry ([#2647](https://github.com/pinterest/gestalt/pull/2647)) - [Preview link](https://deploy-preview-2647--gestalt.netlify.app)
+
+## 96.1.0 (Feb 21, 2023)
+
+### Minor
+
+- Table: add sticky prop to Table.Footer ([#2652](https://github.com/pinterest/gestalt/pull/2652)) - [Preview link](https://deploy-preview-2652--gestalt.netlify.app)
+
 ## 96.0.3 (Feb 19, 2023)
 
 ### Patch
