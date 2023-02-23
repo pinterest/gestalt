@@ -35,9 +35,13 @@ const components = {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
       <List>
-        {filtered.map((a) => (
-          // $FlowFixMe[incompatible-use]
-          <List.Item key={JSON.stringify(a?.props.child)} text={<Text>{a?.props.children}</Text>} />
+        {filtered.map((a, index) => (
+          <List.Item
+            // $FlowFixMe[incompatible-use]
+            key={JSON.stringify(a?.props.child ?? index)}
+            // $FlowFixMe[incompatible-use]
+            text={<Text>{a?.props.children}</Text>}
+          />
         ))}
       </List>
     );
@@ -46,9 +50,13 @@ const components = {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
       <List type="ordered">
-        {filtered.map((a) => (
-          // $FlowFixMe[incompatible-use]
-          <List.Item key={JSON.stringify(a?.props.child)} text={<Text>{a?.props.children}</Text>} />
+        {filtered.map((a, index) => (
+          <List.Item
+            // $FlowFixMe[incompatible-use]
+            key={JSON.stringify(a?.props.child ?? index)}
+            // $FlowFixMe[incompatible-use]
+            text={<Text>{a?.props.children}</Text>}
+          />
         ))}
       </List>
     );
@@ -186,36 +194,40 @@ const components = {
     width?: number,
     height?: number,
     noPadding?: boolean,
-  |}) => (
-    <Box>
-      <Box padding={noPadding ? 0 : 8} rounding={2} borderStyle="sm" height="250px">
-        <Box
-          position="relative"
-          width="100%"
-          height="100%"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Image
-            src={src}
-            alt={alt}
-            width={width || '100%'}
-            height={height || '100%'}
-            layout={width || height ? 'fixed' : 'fill'}
-            objectFit="contain"
-          />
-        </Box>
-      </Box>
-      {caption && (
-        <Text size="300" align="start">
-          <Box as="figcaption" marginTop={3}>
-            {caption}
+  |}) => {
+    const layout = width || height ? 'fixed' : 'fill';
+
+    return (
+      <Box>
+        <Box padding={noPadding ? 0 : 8} rounding={2} borderStyle="sm" height="250px">
+          <Box
+            position="relative"
+            width="100%"
+            height="100%"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Image
+              src={src}
+              alt={alt}
+              width={layout === 'fill' ? undefined : width || '100%'}
+              height={layout === 'fill' ? undefined : height || '100%'}
+              layout={layout}
+              objectFit="contain"
+            />
           </Box>
-        </Text>
-      )}
-    </Box>
-  ),
+        </Box>
+        {caption && (
+          <Text size="300" align="start">
+            <Box as="figcaption" marginTop={3}>
+              {caption}
+            </Box>
+          </Text>
+        )}
+      </Box>
+    );
+  },
   ThreeCol: ({
     children,
     spacing = 'default',
