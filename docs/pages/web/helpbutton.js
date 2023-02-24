@@ -11,7 +11,6 @@ import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
 import withLink from '../../examples/helpbutton/withLink.js';
 import withText from '../../examples/helpbutton/withText.js';
-import scrollContainer from '../../examples/helpbutton/scrollContainer.js';
 
 type DocsType = {|
   generatedDocGen: DocGen,
@@ -209,36 +208,9 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Scrollable Containers"
-          description={`In some cases, you will need to use HelpButton within [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer). To avoid unexpected behaviors set \`isWithinScrollContainer\` to "true".`}
-        >
-          <MainSection.Card
-            cardSize="md"
-            defaultCode={`
-<Box height={300} overflow="auto">
-  <ScrollBoundaryContainer overflow="scrollY">
-    <Box height={500} width={500} color="infoWeak" padding={6}>
-      <HelpButton
-        accessibilityLabel="Click to learn more about Gestalt"
-        accessibilityPopoverLabel="Expanded information about Gestalt"
-        isWithinScrollContainer
-        link={{
-          href: '#',
-          text: 'Read our documentation',
-          accessibilityLabel: 'Visit Gestalt portal',
-        }}
-        text="Gestalt is Pinterest's design system."
-      />
-    </Box>
-  </ScrollBoundaryContainer >
-</Box>
-        `}
-          />
-          <MainSection.Card
-            cardSize="sm"
-            sandpackExample={<SandpackExample code={scrollContainer} name="ScrollContainer" />}
-          />
-        </MainSection.Subsection>
+          title="Fixed Containers"
+          description={`In some cases, you will need to use HelpButton within Fixed Containers. To avoid unexpected behaviors set \`isWithinFixedContainer\` to "true".`}
+        />
       </MainSection>
 
       <MainSection name="Related">

@@ -6,7 +6,6 @@ import {
   type Ref,
   useRef,
   useState,
-  useEffect,
   useId,
 } from 'react';
 import Box from './Box.js';
@@ -23,7 +22,7 @@ import styles from './HelpButton.css';
 import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { ESCAPE, SPACE, ENTER } from './keyCodes.js';
+import { ESCAPE, TAB } from './keyCodes.js';
 
 type LinkType = {|
   accessibilityLabel?: string,
@@ -68,9 +67,9 @@ type Props = {|
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
-   * Enables correct behavior when HelpButton is used within a [ScrollBoundaryContainer](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer). To achieve this it add the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where ScrollBoundaryContainer breaks the Popover positionings.
+   * Enables correct behavior when HelpButton is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the HelpButton positionings such as when the anchor element is within a sticky component.
    */
-  isWithinScrollContainer?: boolean,
+  isWithinFixedContainer?: boolean,
   /**
    * If provided, displays a [link api](https://gestalt.pinterest.systems/web/link#Props) at the bottom of the popover message.
    * - `href` is the URL that the hyperlink points to.
@@ -101,43 +100,57 @@ export default function HelpButton({
   accessibilityLabel,
   accessibilityPopoverLabel,
   idealDirection = 'down',
-  isWithinScrollContainer = false,
+  isWithinFixedContainer = false,
   link,
   onClick,
   text,
   zIndex,
 }: Props): Node {
   const tapAreaRef = useRef(null);
-  const firstElementRef = useRef(null);
+  const textRef = useRef(null);
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [keyNavigated, setKeyNavigated] = useState(false);
+  // Define where the focused content stays
+  const [innerModalFocus, setInnerModalFocus] = useState(false);
   const { name: colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
-  useEffect(() => {
-    // If the navigation is based on keyboard the focus gonna to first element
-    if (open && keyNavigated) {
-      firstElementRef?.current?.focus();
-    }
-  }, [open, keyNavigated]);
+  const handlePopoverKeyDown = ({ event }) => {
+    // Avoid others KeyDown events to listen this call
+    if (innerModalFocus) event.stopPropagation();
 
-  // If the popover was closed pressing `ESCAPE`, the focus back to TapArea element
-  const handleKeyDownPopover = ({ event }) => {
+    // # Manual trap focus
+    // If `TAB is clicked` when the focus is on `lastElement` of popover
+    // the focus back to `textRef` element.
+    const elementsInnerPopover = document.querySelectorAll(
+      [
+        `div[id="helpButtonText-${popoverId}"]`, // Text query
+        `a[href="${link?.href ?? ''}"]`, // Link query
+      ].join(' ,'),
+    );
+    const lastElement = elementsInnerPopover[elementsInnerPopover.length - 1];
+    if (innerModalFocus && event.keyCode === TAB && lastElement === event.target) {
+      event.preventDefault();
+      textRef.current?.focus();
+    }
+
+    // If the popover was closed pressing `ESCAPE`, the focus back to TapArea element
     if (event.keyCode === ESCAPE && open) {
-      tapAreaRef?.current?.focus();
-      setKeyNavigated(false);
+      setOpen(false);
+      tapAreaRef.current?.focus();
     }
   };
 
-  // Identify if the navigation is handled by keyboard
-  const handleKeyDownTapArea = ({ event }) => {
-    const { keyCode } = event;
-    if (keyCode === ENTER || keyCode === SPACE) {
-      setKeyNavigated(true);
+  const handleTapAreaKeyDown = ({ event }) => {
+    if (event.keyCode === TAB && open) {
+      event.preventDefault();
+      textRef.current?.focus();
+      setInnerModalFocus(true);
     }
+    // Avoid others KeyDown events to listen this call
+    event.stopPropagation();
   };
 
   const toggleView = () => {
@@ -174,15 +187,16 @@ export default function HelpButton({
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}
       onDismiss={toggleView}
-      onKeyDown={handleKeyDownPopover}
+      onKeyDown={handlePopoverKeyDown}
       idealDirection={idealDirection}
-      positionRelativeToAnchor={!isWithinScrollContainer}
+      positionRelativeToAnchor={isWithinFixedContainer}
     >
-      {/* It's matching alignment with figma file */}
       <Box padding={5} rounding={4} height="auto">
+        {/* `id` - used to tracking children by line 130  */}
         <Box
-          ref={firstElementRef}
+          id={`helpButtonText-${popoverId}`}
           tabIndex={0}
+          ref={textRef}
           onBlur={() => {
             if (!link?.href) {
               setFocused(false);
@@ -236,7 +250,7 @@ export default function HelpButton({
           onFocus={() => setFocused(true)}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onKeyDown={handleKeyDownTapArea}
+          onKeyDown={handleTapAreaKeyDown}
         >
           <Box
             width={16}
@@ -252,14 +266,13 @@ export default function HelpButton({
         </TapArea>
       </Tooltip>
       {open &&
-        (isWithinScrollContainer ? (
-          // This Layer is handling the Popover positioning on Scrollable containers
-          <Layer zIndex={zIndexWrapper}>{popoverElement}</Layer>
-        ) : (
+        (isWithinFixedContainer ? (
           // This Box is  handling the zIndex work (Tooltip over Popover)
           <Box data-test-id="zIndexLayer" zIndex={zIndexWrapper}>
             {popoverElement}
           </Box>
+        ) : (
+          <Layer zIndex={zIndexWrapper}>{popoverElement}</Layer>
         ))}
     </Flex>
   );
