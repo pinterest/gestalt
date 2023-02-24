@@ -202,25 +202,6 @@ class Contents extends Component<Props, State> {
     }
   };
 
-  calcTopHeight() {
-    if (!window || !document) {
-      return { top: null, height: null };
-    }
-
-    const { scrollBoundaryContainerRef, positionRelativeToAnchor } = this.props;
-
-    // Define the height based the reference to render: ScrollBoundaryContainer or screen viewport
-    const height = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
-
-    // 5% of height available
-    const top = (height / 10) * 0.5;
-
-    // 90% of height available on container reference
-    const elementHeight = (height / 10) * 9;
-
-    return { top: !positionRelativeToAnchor ? top : null, height: elementHeight };
-  }
-
   render(): Node {
     const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
       this.props;
@@ -231,10 +212,6 @@ class Contents extends Component<Props, State> {
     const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
-
-    const { top, height } = this.calcTopHeight();
-    // Top value is used only when the current top value is negative
-    const topValue = top != null && (popoverOffset?.top ?? 0) < 0 ? { top } : {};
 
     return (
       <div
@@ -249,7 +226,7 @@ class Contents extends Component<Props, State> {
         ref={this.setPopoverRef}
         tabIndex={-1}
         // popoverOffset positions the Popover component
-        style={{ visibility, ...popoverOffset, ...topValue }}
+        style={{ visibility, ...popoverOffset }}
       >
         {caret && popoverDir && (
           <div
@@ -278,7 +255,7 @@ class Contents extends Component<Props, State> {
             styles.maxDimensions,
             width !== null && styles.minDimensions,
           )}
-          style={{ maxWidth: width, maxHeight: height }}
+          style={{ maxWidth: width }}
         >
           {children}
         </div>

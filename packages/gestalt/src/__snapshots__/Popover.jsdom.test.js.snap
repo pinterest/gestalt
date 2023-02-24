@@ -21,7 +21,6 @@ exports[`Popover renders 1`] = `
       role="dialog"
       style={
         Object {
-          "maxHeight": 691.1999999999999,
           "maxWidth": 230,
         }
       }
@@ -49,7 +48,6 @@ exports[`Popover renders as blue 1`] = `
       role="dialog"
       style={
         Object {
-          "maxHeight": 691.1999999999999,
           "maxWidth": 230,
         }
       }
@@ -77,7 +75,6 @@ exports[`Popover renders as error 1`] = `
       role="dialog"
       style={
         Object {
-          "maxHeight": 691.1999999999999,
           "maxWidth": 230,
         }
       }

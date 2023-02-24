@@ -17,7 +17,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
           class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
           id="ex-1"
           role="menu"
-          style="max-width: 360px; max-height: 691.1999999999999px;"
+          style="max-width: 360px;"
         >
           <div
             class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
@@ -551,7 +551,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
           class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
           id="ex-1"
           role="menu"
-          style="max-width: 360px; max-height: 691.1999999999999px;"
+          style="max-width: 360px;"
         >
           <div
             class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
