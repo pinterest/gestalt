@@ -11,7 +11,7 @@ import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerPr
 import Box from './Box.js';
 import { type Dimension, type Padding } from './boxTypes.js';
 
-type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
+type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
 type InternalProps = {|
   children?: Node,
