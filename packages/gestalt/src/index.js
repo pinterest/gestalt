@@ -8,7 +8,6 @@ import Box from './Box.js';
 import Button from './Button.js';
 import ButtonGroup from './ButtonGroup.js';
 import Callout from './Callout.js';
-import Card from './Card.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
 import Collection from './Collection.js';
@@ -70,6 +69,7 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Upsell from './Upsell.js';
 import Video from './Video.js';
+import WashAnimated from './WashAnimated.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
@@ -83,7 +83,6 @@ export {
   Button,
   ButtonGroup,
   Callout,
-  Card,
   Checkbox,
   Collage,
   Collection,
@@ -147,6 +146,7 @@ export {
   Tooltip,
   Upsell,
   Video,
+  WashAnimated,
   useColorScheme,
   useFocusVisible,
   useReducedMotion,

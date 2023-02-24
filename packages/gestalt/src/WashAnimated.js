@@ -2,7 +2,7 @@
 import { type Node, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
-import styles from './Card.css';
+import styles from './WashAnimated.css';
 
 function isNil(val) {
   return val === undefined || val === null;
@@ -22,21 +22,27 @@ type Props = {|
    */
   image?: Node,
   /**
-   * Optional callback fired when the user mouses over Card.
+   * Optional callback fired when the user hovers over from WashAnimated.
    */
   onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
   /**
-   * Optional callback fired when the user away from Card.
+   * Optional callback fired when the user hovers off WashAnimated.
    */
   onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
 |};
 
 /**
- * [Card](https://gestalt.pinterest.systems/web/card) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
- * ![Card light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Card.spec.mjs-snapshots/Card-chromium-darwin.png)
- * ![Card dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Card-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
+ * [WashAnimated](https://gestalt.pinterest.systems/web/washanimated) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
+ * ![WashAnimated light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated.spec.mjs-snapshots/WashAnimated-chromium-darwin.png)
+ * ![WashAnimated dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
  */
-export default function Card({ active, children, image, onMouseEnter, onMouseLeave }: Props): Node {
+export default function WashAnimated({
+  active,
+  children,
+  image,
+  onMouseEnter,
+  onMouseLeave,
+}: Props): Node {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = (event) => {
@@ -49,7 +55,7 @@ export default function Card({ active, children, image, onMouseEnter, onMouseLea
     onMouseLeave?.({ event });
   };
 
-  const classes = classnames(styles.card, {
+  const classes = classnames(styles.washanimated, {
     [styles.hover]: isNil(active) ? hovered : active,
   });
 

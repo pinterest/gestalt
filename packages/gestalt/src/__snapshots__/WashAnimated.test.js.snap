@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a Card with an image 1`] = `
+exports[`renders a WashAnimated with an image 1`] = `
 <div
   className="box relative"
   onMouseEnter={[Function]}
@@ -17,12 +17,12 @@ exports[`renders a Card with an image 1`] = `
     Chris Lloyd
   </div>
   <div
-    className="card"
+    className="washanimated"
   />
 </div>
 `;
 
-exports[`renders a Card with text 1`] = `
+exports[`renders a WashAnimated with text 1`] = `
 <div
   className="box relative"
   onMouseEnter={[Function]}
@@ -34,12 +34,12 @@ exports[`renders a Card with text 1`] = `
     Chris Lloyd
   </div>
   <div
-    className="card"
+    className="washanimated"
   />
 </div>
 `;
 
-exports[`renders a Card with wash hidden 1`] = `
+exports[`renders a WashAnimated with wash hidden 1`] = `
 <div
   className="box relative"
   onMouseEnter={[Function]}
@@ -51,12 +51,12 @@ exports[`renders a Card with wash hidden 1`] = `
     Chris Lloyd
   </div>
   <div
-    className="card"
+    className="washanimated"
   />
 </div>
 `;
 
-exports[`renders a Card with wash shown 1`] = `
+exports[`renders a WashAnimated with wash shown 1`] = `
 <div
   className="box relative"
   onMouseEnter={[Function]}
@@ -68,12 +68,12 @@ exports[`renders a Card with wash shown 1`] = `
     Chris Lloyd
   </div>
   <div
-    className="card hover"
+    className="washanimated hover"
   />
 </div>
 `;
 
-exports[`renders an empty Card 1`] = `
+exports[`renders an empty WashAnimated 1`] = `
 <div
   className="box relative"
   onMouseEnter={[Function]}
@@ -83,7 +83,7 @@ exports[`renders an empty Card 1`] = `
     className="box"
   />
   <div
-    className="card"
+    className="washanimated"
   />
 </div>
 `;
