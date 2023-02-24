@@ -1,3 +1,9 @@
+## 96.2.5 (Feb 24, 2023)
+
+### Patch
+
+- ScrollBoundaryContainer: add 'visible' to overflow prop type, documented case, and move editor to Sandpack ([#2664](https://github.com/pinterest/gestalt/pull/2664)) - [Preview link](https://deploy-preview-2664--gestalt.netlify.app)
+
 ## 96.2.4 (Feb 23, 2023)
 
 ### Patch
