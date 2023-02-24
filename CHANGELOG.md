@@ -1,3 +1,9 @@
+## 97.0.0 (Feb 24, 2023)
+
+### Major
+
+- WashAnimated: rename Card to WashAnimated ([#2659](https://github.com/pinterest/gestalt/pull/2659)) - [Preview link](https://deploy-preview-2659--gestalt.netlify.app)
+
 ## 96.2.5 (Feb 24, 2023)
 
 ### Patch
