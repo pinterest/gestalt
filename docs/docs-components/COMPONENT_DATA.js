@@ -1781,7 +1781,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <Popover />,
     name: 'PopoverEducational',
     description:
-      'PopoverEducational is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences. ',
+      'PopoverEducational is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.',
     category: 'Help and guidance',
     status: {
       accessible: {

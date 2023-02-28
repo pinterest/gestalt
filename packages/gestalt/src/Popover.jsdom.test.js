@@ -25,12 +25,7 @@ describe('PopoverEducational', () => {
   it('renders correctly with custom children', () => {
     const element = document.createElement('div');
     const component = create(
-      <PopoverEducational
-        accessibilityLabel="text"
-        anchor={element}
-        accessibilityLabel="text"
-        onDismiss={jest.fn()}
-      >
+      <PopoverEducational accessibilityLabel="text" anchor={element} onDismiss={jest.fn()}>
         <Text>Custom children</Text>
       </PopoverEducational>,
       {

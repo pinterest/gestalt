@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node } from 'react';
 import Button from './Button.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
@@ -8,6 +8,25 @@ import Popover from './Popover.js';
 import styles from './PopoverEducational.css';
 import { type Indexable } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+
+type Size = 'sm' | 'flexible';
+type IdealDirection = 'up' | 'right' | 'down' | 'left';
+type Role = 'dialog' | 'tooltip';
+type PrimaryActionType = {|
+  accessibilityLabel?: string,
+  href?: string,
+  text: string,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
 
 function PrimaryAction({
   accessibilityLabel,
@@ -40,25 +59,6 @@ function PrimaryAction({
     />
   );
 }
-
-type Size = 'sm' | 'flexible';
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
-type Role = 'dialog' | 'tooltip';
-type PrimaryActionType = {|
-  accessibilityLabel?: string,
-  href?: string,
-  text: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
 
 type Props = {|
   /**
@@ -129,12 +129,12 @@ export default function PopoverEducational({
   size = 'sm',
   zIndex,
 }: Props): Node {
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   if (!anchor) {
     return null;
   }
-
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
 
   let textElement: Element<'span'> | Element<typeof Text>;
 
@@ -148,7 +148,7 @@ export default function PopoverEducational({
     typeof message !== 'string' &&
     Children.only(message).type.displayName === 'Text'
   ) {
-    let textColorOverrideStyles = isDarkMode
+    const textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark
       : styles.textColorOverrideLight;
 
@@ -169,7 +169,7 @@ export default function PopoverEducational({
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
       >
-        {message && !children ? (
+        {children ?? message ? (
           <Box padding={4} tabIndex={0}>
             <Flex direction="column" gap={3}>
               {textElement}

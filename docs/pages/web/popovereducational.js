@@ -24,65 +24,8 @@ function Example() {
   }, []);
 
   return (
-    <Flex height={100} width="100%" alignItems="center" justifyContent="start">
-      <Box height={10} width="20vw" ref={anchorRef} rounding="circle" />
-      {open && (
-        <PopoverEducational
-          idealDirection="right"
-          anchor={anchorRef.current}
-          onDismiss={() => {}}
-          message="Tap to tag a product or press and hold to see product details"
-          primaryAction={{ text: "Next"}}
-        />
-      )}
-    </Flex>
-)}`}
-      />
-
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
-      <MainSection name="Usage guidelines">
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            title="When to use"
-            description={`
-- Bringing attention to specific user interface elements for educational  or onboarding purposes.
-        `}
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            title="When not to use"
-            description={`
-- Displaying critical information that prevents users from accomplishing a task.
-- Displaying information out of context.
-- As a replacement for [Tooltip](/web/tooltip).
-- For presenting a list of actions or options. Use [Dropdown](/web/dropdown) instead.
-        `}
-          />
-        </MainSection.Subsection>
-      </MainSection>
-
-      <MainSection name="Best practices">
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Use the PopoverEducational to educate users on a new or existing feature. Be sure to use a caret pointing to the feature. If there is more than one item, use a CTA button to move the user to the next popover."
-            defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-
-  React.useEffect(() => {
-    setOpen(true)
-  }, []);
-
-  return (
-    <Box height="100%">
-      <TapArea ref={anchorRef} rounding={3}>
+    <Box height="100%" width="60%" display="flex" justifyContent="start">
+      <TapArea ref={anchorRef} rounding={3} fullWidth={false}>
         <Box padding={3} color="secondary" height={75} width={200} rounding={3}>
           <Flex gap={2}>
             <Box aria-hidden height={500} width={50}>
@@ -106,8 +49,8 @@ function Example() {
       </TapArea>
       {open && (
         <PopoverEducational
-          id="popover-do-educate"
-          idealDirection="down"
+          id="popover-primary-action"
+          idealDirection="right"
           anchor={anchorRef.current}
           onDismiss={() => {}}
           message="Tap to tag a product or press and hold to see product details"
@@ -116,6 +59,139 @@ function Example() {
       )}
     </Box>
 )}`}
+      />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to use"
+            description={`
+- Bringing attention to specific user interface elements for educational or onboarding purposes.
+        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When not to use"
+            description={`
+- Displaying critical information that prevents users from accomplishing a task.
+- Displaying information out of context.
+- As a replacement for [Tooltip](/web/tooltip).
+- For presenting a list of actions or options. Use [Dropdown](/web/dropdown) instead.
+        `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use the PopoverEducational to educate users on a new or existing feature. Be sure to use a caret pointing to the feature. If there is more than one item, use a CTA button to move the user to the next popover."
+            defaultCode={`
+            function Example() {
+  const [openA, setOpenA] = React.useState(false);
+  const [openB, setOpenB] = React.useState(false);
+
+  const anchorRefA = React.useRef();
+  const anchorRefB = React.useRef();
+
+  React.useEffect(() => {
+    setOpenA(true)
+    setOpenB(false)
+  }, []);
+
+  return (
+    <Box width="100%" height="100%">
+      <Flex direction="column" alignItems="start" height="100%">
+        <Flex.Item flex="grow">
+          <Box padding={3} color="secondary" height={75} width={175} ref={anchorRefA} rounding={3}>
+            <Flex gap={2}>
+              <Box height={500} width={50}>
+                <Mask rounding={3} wash>
+                  <Image
+                    alt="Image of a Spanish paella from above. Yellow rice with red peppers and shrimp on top."
+                    color="rgb(231, 186, 176)"
+                    loading="lazy"
+                    naturalHeight={1}
+                    naturalWidth={1}
+                    src="https://i.ibb.co/d2tpDss/IMG-0494.jpg"
+                  />
+                </Mask>
+              </Box>
+              <Flex direction="column">
+                <Text size="100">More ideas for</Text>
+                <Text weight="bold">Food & Drinks</Text>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex.Item>
+        <TapArea fullWidth={false} rounding={3}>
+          <Box borderStyle="shadow" padding={3} rounding={3} width={350}>
+            <Flex direction="column" gap={3}>
+              <Flex>
+                <Flex.Item flex="grow">
+                  <Flex direction="column" gap={1}>
+                    <Text size="100">Ideas for you</Text>
+                    <Box display="flex">
+                      <Text ref={anchorRefB} inline weight="bold">
+                        <Box marginEnd={2}>Small tattoos</Box>
+                      </Text>
+                    </Box>
+                  </Flex>
+                </Flex.Item>
+                <Flex.Item flex="none">
+                  <Icon
+                    accessibilityLabel=""
+                    icon="arrow-forward"
+                  />
+                </Flex.Item>
+              </Flex>
+              <Box width="100%" aria-hidden>
+                <Mask rounding={1} wash>
+                  <Image
+                    alt=""
+                    color="rgb(231, 186, 176)"
+                    loading="lazy"
+                    naturalHeight={181}
+                    naturalWidth={698}
+                    src="https://i.ibb.co/DWJFWkV/Screenshot-2023-02-24-at-2-27-59-PM.png"
+                  />
+                </Mask>
+              </Box>
+            </Flex>
+          </Box>
+        </TapArea>
+
+        {openA && (
+            <PopoverEducational
+              idealDirection="right"
+              anchor={anchorRefA.current}
+              onDismiss={() => {}}
+              message="Tap to tag a product to see product details"
+              primaryAction={{ text: "Next", onClick: () => {
+                setOpenA(false)
+                setOpenB(true)
+              }}}
+            />
+        )}
+        {openB && (
+          <PopoverEducational
+            idealDirection="right"
+            anchor={anchorRefB.current}
+            onDismiss={() => {}}
+            message="Explore your recent searches in more details"
+          />
+        )}
+      </Flex>
+    </Box>
+)}
+`}
           />
           <MainSection.Card
             cardSize="md"
@@ -290,7 +366,7 @@ function Example() {
         <MainSection.Subsection
           title="Keyboard navigation"
           description={`
-PopoverEducational doesn't behave like regular popovers where they are open/closed upon user interaction, p.e. Tooltip, Dropdown, or ComboBox. PopoverEducational visibility is not directly controlled by the user; instead, its visibility is defined as part of a broader user experience and the user interaction engagement with this experience.
+PopoverEducational doesn't behave like regular popovers where they are open/closed upon user interaction, i.e. Tooltip, Dropdown, or ComboBox. PopoverEducational visibility is not directly controlled by the user; instead, its visibility is defined as part of a broader user experience and the user interaction engagement with this experience.
 
 In most cases, PopoverEducational might be already visible on page load. See [visible on page load](#Visibility-on-page-load) to learn more. However, popover-based components rely on the opening/closing action to capture focus.
 
@@ -446,9 +522,9 @@ function Example() {
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Custom content"
-          description={`For more flexibility, PopoverEducational allows passing children. If passed, \`message\` and \`primaryAction\` are not rendered. PopoverEducational doesn't overwrite style in children or set any padding or margin, therefore, make sure any Text's \`color\` is "light" and any Button's \`color\` is "white".
-          \`
-PENDING      `}
+          description={`For more flexibility, PopoverEducational allows passing children. If passed, \`message\` and \`primaryAction\` are not rendered.
+
+PopoverEducational doesn't overwrite style in children or set any padding or margin, therefore, make sure any Text's \`color\` is "light" and any Button's \`color\` is "white".`}
         >
           <MainSection.Card
             cardSize="md"
@@ -611,7 +687,7 @@ function Example() {
         <MainSection.Subsection
           description={`
 **[Dropdown](/web/dropdown)**
-Use Dropdown to display a list of actions or options in a PopoverEducational.
+Use Dropdown to display a list of actions or options in a Popover.
 
 **[Tooltip](/web/tooltip)**
 Tooltip describes the function of an interactive element, typically [IconButton](/web/iconbutton), on hover.`}
