@@ -206,11 +206,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
             sandpackExample={<SandpackExample code={withText} name="Text component" />}
           />
         </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title="Fixed Containers"
-          description={`In some cases, you will need to use HelpButton within Fixed Containers. To avoid unexpected behaviors set \`isWithinFixedContainer\` to "true".`}
-        />
       </MainSection>
 
       <MainSection name="Related">

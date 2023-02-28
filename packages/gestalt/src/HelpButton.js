@@ -192,17 +192,11 @@ export default function HelpButton({
       positionRelativeToAnchor={isWithinFixedContainer}
     >
       <Box padding={5} rounding={4} height="auto">
-        {/* `id` - used to tracking children by line 130  */}
-        <Box
-          id={`helpButtonText-${popoverId}`}
-          tabIndex={0}
-          ref={textRef}
-          onBlur={() => {
-            if (!link?.href) {
-              setFocused(false);
-            }
-          }}
-        >
+        {/*
+         * `id` - used to tracking children by line 130
+         * `tabIndex={0}` - It's used to make the text element as a focusable element
+         */}
+        <Box id={`helpButtonText-${popoverId}`} tabIndex={0} ref={textRef}>
           {textElement}
         </Box>
         {link && link?.href && (
