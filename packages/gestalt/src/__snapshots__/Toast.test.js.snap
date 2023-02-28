@@ -2,27 +2,48 @@
 
 exports[`<Toast /> Error Toast 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": "min(500px, 100vw)",
-      "minWidth": 330,
-      "width": 330,
-    }
-  }
 >
   <div
-    className="box errorBase fit paddingX6 paddingY6 pill"
+    className="box errorBase paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
+      <div
+        className="FlexItem flexNone"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="problem"
+          className="icon inverseIcon iconBlock"
+          height={24}
+          role="img"
+          viewBox="0 0 24 24"
+          width={24}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
       <div
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize300 inverseText alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 inverseText alignStart breakWord fontWeightSemiBold lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
+          title="Same great profile, slightly new look. Learn more?"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -34,27 +55,30 @@ exports[`<Toast /> Error Toast 1`] = `
 
 exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": "min(500px, 100vw)",
-      "minWidth": 330,
-      "width": undefined,
-    }
-  }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill"
+    className="box dark paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
         >
           <span
             className="textColorOverrideLight"
@@ -122,21 +146,19 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
 
 exports[`<Toast /> Text + Image + Button 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": "min(500px, 100vw)",
-      "minWidth": 330,
-      "width": undefined,
-    }
-  }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill"
+    className="box dark paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem flexNone"
@@ -145,8 +167,8 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           className="Mask rounding2 willChangeTransform"
           style={
             Object {
-              "height": 48,
-              "width": 48,
+              "height": 32,
+              "width": 32,
             }
           }
         >
@@ -160,7 +182,12 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
         >
           <span
             className="textColorOverrideLight"
@@ -211,7 +238,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
+            className="button hideOutline inline accessibilityOutline tapTransition sm gray enabled childrenDiv"
           >
             <div
               className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
@@ -228,21 +255,19 @@ exports[`<Toast /> Text + Image + Button 1`] = `
 
 exports[`<Toast /> Text + Image 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": "min(500px, 100vw)",
-      "minWidth": 330,
-      "width": 330,
-    }
-  }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill"
+    className="box dark paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem flexNone"
@@ -251,8 +276,8 @@ exports[`<Toast /> Text + Image 1`] = `
           className="Mask rounding2 willChangeTransform"
           style={
             Object {
-              "height": 48,
-              "width": 48,
+              "height": 32,
+              "width": 32,
             }
           }
         >
@@ -266,7 +291,12 @@ exports[`<Toast /> Text + Image 1`] = `
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
         >
           <span
             className="textColorOverrideLight"
@@ -305,27 +335,31 @@ exports[`<Toast /> Text + Image 1`] = `
 
 exports[`<Toast /> Text Only 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": "min(500px, 100vw)",
-      "minWidth": 330,
-      "width": 330,
-    }
-  }
 >
   <div
-    className="box dark fit paddingX6 paddingY6 pill"
+    className="box dark paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem flexGrow"
       >
         <div
-          className="Text fontSize300 lightText alignCenter breakWord fontWeightNormal"
+          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
+          title="Same great profile, slightly new look. Learn more?"
         >
           Same great profile, slightly new look. Learn more?
         </div>

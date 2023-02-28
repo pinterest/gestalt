@@ -7,10 +7,6 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import {
-  BareSlimBannerExperiment,
-  SlimBannerExperiment,
-} from '../../docs-components/SlimBannerExperiment.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -38,14 +34,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     }
   />
 `}
-        slimBanner={
-          <SlimBannerExperiment
-            componentName={generatedDocGen?.displayName}
-            description="update its visual design: spacing, elements sizing, and a new error Icon for variant='error'"
-            pullRequest={2508}
-            section="#"
-          />
-        }
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -151,7 +139,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
 `}
           title="Text"
         >
-          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -171,7 +158,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Error">
-          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -187,7 +173,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Thumbnail">
-          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
@@ -216,7 +201,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Primary action">
-          <BareSlimBannerExperiment componentName={generatedDocGen?.displayName} />
           <MainSection.Card
             cardSize="lg"
             defaultCode={`
