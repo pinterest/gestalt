@@ -119,6 +119,7 @@
     "playwright:test": "npx playwright test playwright/accessibility/ --config=playwright/playwright.config.js",
     "playwright:test-masonry": "npx playwright test --config=playwright/playwright.config.js playwright/masonry/",
     "playwright:test-masonry-one": "npx playwright test --config=playwright/playwright.config.js",
+    "playwright:test-masonry-debug": "PWDEBUG=1 npx playwright test --config=playwright/playwright.config.js",
     "playwright:update-visual-test": "npx playwright test --config=playwright/playwright.config.js",
     "precommit": "lint-staged",
     "prettier": "prettier",
