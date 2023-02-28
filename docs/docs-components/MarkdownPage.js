@@ -171,11 +171,15 @@ const components = {
     );
   },
   Group: ({ children }: {| children: Node |}) => <Box marginBottom={12}>{children}</Box>,
-  Do: (props: {| title: string |}) => (
-    <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none" />
+  Do: (props: {| children?: Node, title: string |}) => (
+    <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none">
+      {props.children}
+    </MainSection.Card>
   ),
-  Dont: (props: {| title: string |}) => (
-    <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none" />
+  Dont: (props: {| children?: Node, title: string |}) => (
+    <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none">
+      {props.children}
+    </MainSection.Card>
   ),
   TwoCol: ({ children }: {| children: Node |}) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
