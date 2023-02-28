@@ -1,3 +1,9 @@
+## 97.1.3 (Feb 28, 2023)
+
+### Patch
+
+- Internal: add `handle-position-update` Masonry integration test ([#2671](https://github.com/pinterest/gestalt/pull/2671)) - [Preview link](https://deploy-preview-2671--gestalt.netlify.app)
+
 ## 97.1.2 (Feb 28, 2023)
 
 ### Patch
