@@ -1,3 +1,9 @@
+## 97.2.0 (Feb 28, 2023)
+
+### Minor
+
+- Toast: ship new experimental Toast redesign ([#2669](https://github.com/pinterest/gestalt/pull/2669)) - [Preview link](https://deploy-preview-2669--gestalt.netlify.app)
+
 ## 97.1.4 (Feb 28, 2023)
 
 ### Patch
