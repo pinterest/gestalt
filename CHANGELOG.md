@@ -1,3 +1,9 @@
+## 97.1.1 (Feb 28, 2023)
+
+### Patch
+
+- Masonry: Add `handle-item-updates` integration test ([#2667](https://github.com/pinterest/gestalt/pull/2667)) - [Preview link](https://deploy-preview-2667--gestalt.netlify.app)
+
 ## 97.1.0 (Feb 28, 2023)
 
 ### Minor
