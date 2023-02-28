@@ -40,9 +40,11 @@ import ModalAlert from './ModalAlert.js';
 import Module from './Module.js';
 import NumberField from './NumberField.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
+import OverlayPanel from './OverlayPanel.js';
 import PageHeader from './PageHeader.js';
 import Pog from './Pog.js';
 import Popover from './Popover.js';
+import PopoverEducational from './PopoverEducational.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
 import RadioGroup from './RadioGroup.js';
@@ -51,7 +53,6 @@ import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
-import OverlayPanel from './OverlayPanel.js';
 import SideNavigation from './SideNavigation.js';
 import SlimBanner from './SlimBanner.js';
 import Spinner from './Spinner.js';
@@ -121,6 +122,7 @@ export {
   PageHeader,
   Pog,
   Popover,
+  PopoverEducational,
   Pulsar,
   RadioButton,
   RadioGroup,

@@ -9,7 +9,7 @@ import InternalDismissButton from './InternalDismissButton.js';
 type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
-type Role = 'dialog' | 'listbox' | 'menu';
+type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {|
   /**

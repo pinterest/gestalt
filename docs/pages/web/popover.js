@@ -141,6 +141,7 @@ For the \`role\` prop, use:
 - 'dialog' if the Popover is a dialog that prompts the user to enter information or requires a response.
 - 'menu' if the Popover presents a list of choices to the user.
 - 'listbox' if the Popover is a widget that allows the user to select one or more items (whose role is option) from a list. May also include a search option.
+- 'tooltip' if the Popover is a simple contextual text bubble that displays a description on a feature.
 `}
         >
           <MainSection.Card
