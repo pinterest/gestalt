@@ -98,9 +98,13 @@ type Props = {|
    */
   message?: string | Element<typeof Text>,
   /**
-   * The underlying ARIA role for PopoverEducational. See the [role sectionin Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
+   * The underlying ARIA role for PopoverEducational. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
    */
   role?: Role,
+  /**
+   * Puts the focus on PopoverEducational when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Keyboard-navigation) to learn more.
+   */
+  shouldFocus?: boolean,
   /**
    * The maximum width of PopoverEducational. See the [size variant](https://gestalt.pinterest.systems/web/popovereducational#Size) to learn more.
    */
@@ -126,6 +130,7 @@ export default function PopoverEducational({
   onDismiss,
   primaryAction,
   role = 'tooltip',
+  shouldFocus = false,
   size = 'sm',
   zIndex,
 }: Props): Node {
@@ -166,10 +171,11 @@ export default function PopoverEducational({
         onDismiss={onDismiss}
         positionRelativeToAnchor
         showCaret
+        shouldFocus={shouldFocus ?? false}
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
       >
-        {children ?? message ? (
+        {!children && message ? (
           <Box padding={4} tabIndex={0}>
             <Flex direction="column" gap={3}>
               {textElement}
