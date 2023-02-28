@@ -1,3 +1,9 @@
+## 97.1.0 (Feb 28, 2023)
+
+### Minor
+
+- PopoverEducational: new component ([#2661](https://github.com/pinterest/gestalt/pull/2661)) - [Preview link](https://deploy-preview-2661--gestalt.netlify.app)
+
 ## 97.0.0 (Feb 24, 2023)
 
 ### Major
