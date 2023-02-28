@@ -1,7 +1,7 @@
 // @flow strict
 const { devices } = require('@playwright/test');
 
-const reporter /*: string */ = process.env.CI ? 'github' : 'list';
+const reporter /*: 'github' | 'list' */ = process.env.CI ? 'github' : 'list';
 
 const config = {
   deviceScaleFactor: 2,
