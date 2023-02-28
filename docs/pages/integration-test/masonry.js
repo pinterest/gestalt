@@ -18,8 +18,8 @@ export default function TestPage(): Node {
         MasonryComponent={Masonry}
         measurementStore={measurementStore}
         offsetTop={offsetTop}
-        scrollContainer={scrollContainer}
-        virtualize={virtualize}
+        scrollContainer={Boolean(scrollContainer)}
+        virtualize={Boolean(virtualize)}
       />
     </ColorSchemeProvider>
   );
