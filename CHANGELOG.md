@@ -1,3 +1,9 @@
+## 97.1.2 (Feb 28, 2023)
+
+### Patch
+
+- Docs: fix MDX Do/Dont rendering ([#2668](https://github.com/pinterest/gestalt/pull/2668)) - [Preview link](https://deploy-preview-2668--gestalt.netlify.app)
+
 ## 97.1.1 (Feb 28, 2023)
 
 ### Patch
