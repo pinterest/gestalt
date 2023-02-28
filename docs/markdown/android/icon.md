@@ -13,18 +13,16 @@ Download svg assets from our [Android icon GitHub repo](https://github.com/pinte
 
 <TwoCol>
   <Group>
-    <Do title="When to use">
-      - Use as symbolic communication for elements that do not have room for text. In this case, ensure the icon choice is easily recognizable and makes sense to international users.
-      - To help with quick scanning by adding rhythm and hierarchy to the design.
-    </Do>
+    <Do title="When to use" />
+    - Use as symbolic communication for elements that do not have room for text. In this case, ensure the icon choice is easily recognizable and makes sense to international users.
+    - To help with quick scanning by adding rhythm and hierarchy to the design.
   </Group>
   <Group>
-    <Dont title="When not to use">
-      - For decorative purposes or visual embellishment, like how you would use an illustration. Contact us if this is needed.
-      - As a visual reinforcement for associated text without adding new meaning.
-      - To communicate status or health. Use Status instead.
-      - As an interactive element (e.g., hover, focus, click/tap). Use [IconButton](/android/iconbutton) instead.
-    </Dont>
+    <Dont title="When not to use" />
+    - For decorative purposes or visual embellishment, like how you would use an illustration. Contact us if this is needed.
+    - As a visual reinforcement for associated text without adding new meaning.
+    - To communicate status or health. Use Status instead.
+    - As an interactive element (e.g., hover, focus, click/tap). Use [IconButton](/android/iconbutton) instead.
   </Group>
 </TwoCol>
 
@@ -137,18 +135,16 @@ radio button (not an icon)
 
 <TwoCol>
   <Group>
-    <Do title="Do">
-      - Use a descriptive label to describe the icon.
-      - Be succinct. Exclude unnecessary words.
-      - Be informative and accurate.
-      - Write in the active voice.
-      - Avoid technical jargon.
-    </Do>
+    <Do title="Do" />
+    - Use a descriptive label to describe the icon.
+    - Be succinct. Exclude unnecessary words.
+    - Be informative and accurate.
+    - Write in the active voice.
+    - Avoid technical jargon.
   </Group>
   <Group>
-    <Dont title="Don't">
-      - Use the words "image" or "icon" in the description label; instead, use words that indicate the icon's purpose.
-    </Dont>
+    <Dont title="Don't" />
+    - Use the words "image" or "icon" in the description label; instead, use words that indicate the icon's purpose.
   </Group>
 </TwoCol>
 
