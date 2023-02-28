@@ -7,6 +7,12 @@ import { generateExampleItems } from '../../integration-test-helpers/masonry/ite
 
 const measurementStore = Masonry.createMeasurementStore();
 
+// This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
+// This will likely need to be updated in the near future
+function booleanize(value: '1' | '0'): boolean {
+  return Boolean(Number(value));
+}
+
 export default function TestPage(): Node {
   const router = useRouter();
   const { offsetTop, scrollContainer, virtualize } = router.query;
@@ -18,8 +24,8 @@ export default function TestPage(): Node {
         MasonryComponent={Masonry}
         measurementStore={measurementStore}
         offsetTop={offsetTop}
-        scrollContainer={scrollContainer}
-        virtualize={virtualize}
+        scrollContainer={booleanize(scrollContainer)}
+        virtualize={booleanize(virtualize)}
       />
     </ColorSchemeProvider>
   );

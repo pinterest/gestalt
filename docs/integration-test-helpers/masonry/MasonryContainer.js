@@ -238,9 +238,9 @@ export default class MasonryContainer extends Component<Props, State> {
   };
 
   // $FlowFixMe[unclear-type]
-  renderItem: ({| data: any |}) => Node = ({ data }) => {
+  renderItem: ({| data: any, itemIdx: number |}) => Node = ({ data, itemIdx }) => {
     const { expanded } = this.state;
-    return <ExampleGridItem expanded={expanded} {...data} />;
+    return <ExampleGridItem expanded={expanded} data={data} itemIdx={itemIdx} />;
   };
 
   render(): Element<'div'> {

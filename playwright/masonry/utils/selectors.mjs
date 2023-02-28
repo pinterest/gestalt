@@ -1,10 +1,10 @@
 // @flow strict
 
 const selectors = {
-  afterGrid: '.afterGrid',
-  gridItem: '[data-grid-item], .Collection-Item',
   addItems: '#add-items',
+  afterGrid: '.afterGrid',
   expandGridItems: '#expand-grid-items',
+  gridItem: '[data-grid-item]',
   incrementItemCounter: (id /*: number */) /*: string */ =>
     `#increment-counter-${id}`,
   insertItem: '#insert-item',
