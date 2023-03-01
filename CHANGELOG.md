@@ -1,3 +1,9 @@
+## 98.0.3 (Mar 1, 2023)
+
+### Patch
+
+- Internal: add Masonry `flexible-resize` integration test ([#2676](https://github.com/pinterest/gestalt/pull/2676)) - [Preview link](https://deploy-preview-2676--gestalt.netlify.app)
+
 ## 98.0.2 (Mar 1, 2023)
 
 ### Patch
