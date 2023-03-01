@@ -1,12 +1,9 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
 import selectors from './utils/selectors.mjs';
+import getGridItems from './utils/getGridItems.mjs';
 import getServerURL from './utils/getServerURL.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
-
-async function getGridItems(page) {
-  return page.locator(selectors.gridItem).all();
-}
 
 test.describe('Masonry: handle item updates', () => {
   test('should correctly update grid item heights', async ({ page }) => {
