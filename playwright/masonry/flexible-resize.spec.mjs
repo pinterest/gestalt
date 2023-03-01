@@ -57,7 +57,6 @@ test.describe('Masonry: flexible resize', () => {
     await page.waitForFunction(
       ({ selector, previousItemWidth }) => {
         const gridItem = document.querySelector(selector);
-        console.log(gridItem, gridItem?.getBoundingClientRect());
 
         const rect = gridItem?.getBoundingClientRect();
         return rect?.width !== previousItemWidth;
