@@ -1,3 +1,9 @@
+## 98.0.1 (Mar 1, 2023)
+
+### Patch
+
+- HelpButton: Remove old editor examples in HelpButton Docs ([#2674](https://github.com/pinterest/gestalt/pull/2674)) - [Preview link](https://deploy-preview-2674--gestalt.netlify.app)
+
 ## 98.0.0 (Mar 1, 2023)
 
 ### Major
