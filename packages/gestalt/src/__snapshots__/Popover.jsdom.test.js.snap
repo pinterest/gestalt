@@ -151,18 +151,6 @@ exports[`PopoverEducational renders correctly with custom children 1`] = `
         }
       >
         <div
-          className="box paddingX4 paddingY4"
-          tabIndex={0}
-        >
-          <div
-            className="Flex rowGap3 columnGap3 xsDirectionColumn"
-          >
-            <div
-              className="FlexItem flexGrow selfEnd"
-            />
-          </div>
-        </div>
-        <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
         >
           Custom children
