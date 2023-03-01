@@ -1,3 +1,9 @@
+## 97.2.1 (Mar 1, 2023)
+
+### Patch
+
+- PopoverEducational: move examples to Sandpack + added `shouldFocus` to props ([#2672](https://github.com/pinterest/gestalt/pull/2672)) - [Preview link](https://deploy-preview-2672--gestalt.netlify.app)
+
 ## 97.2.0 (Feb 28, 2023)
 
 ### Minor
