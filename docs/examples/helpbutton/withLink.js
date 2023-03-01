@@ -10,7 +10,7 @@ export default function Example(): Node {
         accessibilityLabel="Click to learn more about gestalt"
         accessibilityPopoverLabel="Expanded information about Gestalt"
         link={{
-          href: '#',
+          href: 'https://gestalt.pinterest.systems/',
           text: 'Read our documentation',
           accessibilityLabel: 'Visit Gestalt portal',
         }}
