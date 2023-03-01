@@ -316,8 +316,8 @@ export default class MasonryContainer extends Component<Props, State> {
           <MasonryComponent
             ref={this.gridRef}
             renderItem={this.renderItem}
-            flexible={flexible}
             items={items}
+            layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
             virtualize={virtualize}
             columnWidth={columnWidth}
