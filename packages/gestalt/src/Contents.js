@@ -207,10 +207,10 @@ class Contents extends Component<Props, State> {
       return { top: null, height: null };
     }
 
-    const { scrollBoundaryContainerRef, positionRelativeToAnchor } = this.props;
+    const { positionRelativeToAnchor } = this.props;
 
     // Define the height based the reference to render: ScrollBoundaryContainer or screen viewport
-    const height = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
+    const height = window.innerHeight ?? 0;
 
     // 5% of height available
     const top = (height / 10) * 0.5;
