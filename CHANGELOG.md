@@ -1,3 +1,9 @@
+## 98.0.0 (Mar 1, 2023)
+
+### Major
+
+- HelpButton: New component ([#2625](https://github.com/pinterest/gestalt/pull/2625)) - [Preview link](https://deploy-preview-2625--gestalt.netlify.app)
+
 ## 97.2.1 (Mar 1, 2023)
 
 ### Patch
