@@ -4,12 +4,12 @@ import ComponentName from './ComponentName.js';
 
 describe('ComponentName', () => {
   it('renders', () => {
-    const tree = create(<ComponentName name="" />).toJSON();
+    const tree = create(<ComponentName />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders an accessibility label', () => {
-    const tree = create(<ComponentName accessibilityLabel="Test Accessibility Label" />).toJSON();
+    const tree = create(<ComponentName />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

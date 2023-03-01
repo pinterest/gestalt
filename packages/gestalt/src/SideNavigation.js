@@ -2,6 +2,7 @@
 import { useId, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
 import Flex from './Flex.js';
 import Divider from './Divider.js';
 import styles from './SideNavigation.css';
@@ -81,53 +82,57 @@ export default function SideNavigation({
           id,
         }}
       >
-        <SideNavigationMobile
-          accessibilityLabel={accessibilityLabel}
-          footer={footer}
-          header={header}
-          dismissButton={dismissButton}
-          showBorder={showBorder}
-          title={title}
-          id={id}
-        >
-          {navigationChildren}
-        </SideNavigationMobile>
+        <ScrollBoundaryContainer>
+          <SideNavigationMobile
+            accessibilityLabel={accessibilityLabel}
+            footer={footer}
+            header={header}
+            dismissButton={dismissButton}
+            showBorder={showBorder}
+            title={title}
+            id={id}
+          >
+            {navigationChildren}
+          </SideNavigationMobile>
+        </ScrollBoundaryContainer>
       </SideNavigationProvider>
     );
   }
 
   return (
     <SideNavigationProvider>
-      <Box minWidth={280} width={280} height="100%" as="nav" aria-label={accessibilityLabel}>
-        <div
-          className={
-            showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
-          }
-        >
-          <Box
-            padding={2}
-            color="default"
-            dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
-            height="100%"
+      <ScrollBoundaryContainer>
+        <Box minWidth={280} width={280} height="100%" as="nav" aria-label={accessibilityLabel}>
+          <div
+            className={
+              showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
+            }
           >
-            <Flex direction="column" gap={{ column: 4, row: 0 }}>
-              {header ? (
-                <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                  <Box paddingX={4}>{header}</Box>
-                  <Divider />
-                </Flex>
-              ) : null}
-              <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-              {footer ? (
-                <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                  <Divider />
-                  <Box paddingX={4}>{footer}</Box>
-                </Flex>
-              ) : null}
-            </Flex>
-          </Box>
-        </div>
-      </Box>
+            <Box
+              padding={2}
+              color="default"
+              dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+              height="100%"
+            >
+              <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                {header ? (
+                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                    <Box paddingX={4}>{header}</Box>
+                    <Divider />
+                  </Flex>
+                ) : null}
+                <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+                {footer ? (
+                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                    <Divider />
+                    <Box paddingX={4}>{footer}</Box>
+                  </Flex>
+                ) : null}
+              </Flex>
+            </Box>
+          </div>
+        </Box>
+      </ScrollBoundaryContainer>
     </SideNavigationProvider>
   );
 }

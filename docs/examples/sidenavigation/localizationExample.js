@@ -38,7 +38,7 @@ export default function Example(): Node {
         onClick={({ event }) => event.preventDefault()}
         icon="add-layout"
         label="Optimieren Sie Ihren Home-Feed"
-        badge={{ text: 'New', type: 'info' }}
+        badge={{ text: 'Neu', type: 'info' }}
       />
     </SideNavigation>
   );

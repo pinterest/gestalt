@@ -3,6 +3,54 @@
     "year": "2023",
     "digests": [
       {
+        "week": "February 22, 2023",
+        "summary": "Updated roadmap, Table component updates and a slew of Figma improvements.",
+        "posts": [
+          {
+            "title": "2023 H1 roadmap added to docs",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/8a/6a/5d/8a6a5dfada8fd1bd0f7f1a3ba6655707.png",
+            "imageAltText": "screenshot of gestalt roadmap",
+            "content": "We published our [H1 2023 roadmap](https://gestalt.pinterest.systems/roadmap) to the docs site. This roadmap contains all major work that we can publicly disclose. Feel free to reach out directly if you have any questions or are curious what else is on our radar for this half."
+          },
+          {
+            "title": "Sticky footer variant for Table component",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/af/14/92/af14923750e856ccad961faca6d98efd.png",
+            "imageAltText": "screenshot of table component with sticky footer",
+            "content": "Our team continues to make improvements to our Table component; this time with the addition of a [sticky footer option](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer). We also added a sticky footer variant to our Figma Web Table component."
+          },
+          {
+            "title": "New MontageGrid and MontageRow components added to Web Figma library",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/66/48/88/6648889653c08683e3a21a8bb8edf641.png",
+            "imageAltText": "examples of montagegrid and montagerow components",
+            "content": "We use a ton of images in the product and we wanted to begin supporting more of those use cases. We've started with Figma Web components for two core cases. We're calling them Montages and we've published MontageGrid and MontageRow. These are our first explorations in this space, so we're looking forward to getting your feedback on how they work for you."
+          },
+          {
+            "title": "Updated mWeb nav bar",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/ff/5b/0c/ff5b0c8fc597825bf71a1bee65485b16.png",
+            "imageAltText": "screenshot of nav bar component",
+            "content": "We updated the Figma Web primary nav component to reflect the latest iteration of primary navigation in the mobile web product."
+          },
+          {
+            "title": "Fixes to icons in Figma Foundations library",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/98/a9/f0/98a9f094d32f4f85fb8a3985869e15e8.png",
+            "imageAltText": "screenshot of icons",
+            "content": "There were some booboos with some of our icons; specifically, we had nested components and not all were sized to 24x24. The following icons have been unboobooed in our latest release:\n * apple\n * arrow-back\n * board\n * calendar-check\n * desktop\n * hand-pointing\n * mobile\n * save\n * saved\n * video-rewind-10-seconds\n * 3D"
+          },
+          {
+            "title": "Sheet renamed to OverlayPanel in Figma library",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/c0/af/06/c0af0649b24a16115d6cedf324211e5f.png",
+            "imageAltText": "screenshot of overlaypanel figma component",
+            "content": "Lastly, we renamed our Sheet component to OverlayPanel in Figma. We're renaming Sheet to OverlayPanel so we can make room for our new [mWeb Sheet component](https://gestalt.pinterest.systems/roadmap#Mobile-web-Sheet-component-(Web). Which, you'll be happy to hear is [the sheet that everyone thinks of](https://developer.apple.com/design/human-interface-guidelines/components/presentation/sheets/) when they think of sheet."
+          }
+        ]
+      },
+      {
         "month": "January",
         "summary": "",
         "posts": [

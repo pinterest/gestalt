@@ -10,6 +10,7 @@ const accessibilityIntegrationTests = path.join(root, 'playwright/accessibility'
 const visualIntegrationTests = path.join(root, 'playwright/visual-test');
 const docs = path.join(root, 'docs/pages/web');
 const visualtestingPages = path.join(root, 'docs/pages/visual-test');
+const getExamplesPath = (componentName) => path.join(root, `docs/examples/${componentName}/`);
 
 const gestaltPackages = path.join(root, 'packages/gestalt/src');
 const indexFile = path.join(gestaltPackages, 'index.js');
@@ -31,6 +32,12 @@ async function generateFile({ componentName, outputPath, template, log }) {
       .replace(/ComponentName/g, componentName)
       .replace(/componentname/g, componentName.toLowerCase()),
   );
+
+  logSuccess(log);
+}
+
+async function generateDirectory({ componentName, log }) {
+  await fs.promises.mkdir(getExamplesPath(componentName.toLowerCase()));
 
   logSuccess(log);
 }
@@ -65,6 +72,28 @@ ${exportsTransformed}
 
 async function generateComponentFiles(componentName) {
   return await Promise.all([
+    generateDirectory({
+      componentName,
+      log: 'Generated example directory',
+    }),
+    generateFile({
+      componentName,
+      outputPath: path.join(gestaltPackages, `$README_DELETE_{componentName}.md`),
+      template: 'templates/README.md',
+      log: 'Generated ReadMe',
+    }),
+    generateFile({
+      componentName,
+      outputPath: path.join(gestaltPackages, `${componentName}.svg`),
+      template: 'templates/ComponentName.svg',
+      log: 'Generated SVG',
+    }),
+    generateFile({
+      componentName,
+      outputPath: path.join(getExamplesPath(componentName), 'main.js'),
+      template: 'templates/main.js',
+      log: 'Generated main example',
+    }),
     generateFile({
       componentName,
       outputPath: path.join(gestaltPackages, `${componentName}.js`),
@@ -109,7 +138,7 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(visualIntegrationTests, `${componentName}-light.spec.mjs`),
+      outputPath: path.join(visualIntegrationTests, `${componentName}.spec.mjs`),
       template: 'templates/ComponentName-light.spec.mjs',
       log: 'Generated light mode visual testing integration test',
     }),

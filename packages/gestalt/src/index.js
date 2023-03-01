@@ -8,7 +8,6 @@ import Box from './Box.js';
 import Button from './Button.js';
 import ButtonGroup from './ButtonGroup.js';
 import Callout from './Callout.js';
-import Card from './Card.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
 import Collection from './Collection.js';
@@ -25,6 +24,7 @@ import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
+import HelpButton from './HelpButton.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import IconButtonFloating from './IconButtonFloating.js';
@@ -41,9 +41,11 @@ import ModalAlert from './ModalAlert.js';
 import Module from './Module.js';
 import NumberField from './NumberField.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
+import OverlayPanel from './OverlayPanel.js';
 import PageHeader from './PageHeader.js';
 import Pog from './Pog.js';
 import Popover from './Popover.js';
+import PopoverEducational from './PopoverEducational.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
 import RadioGroup from './RadioGroup.js';
@@ -52,7 +54,6 @@ import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
-import OverlayPanel from './OverlayPanel.js';
 import SideNavigation from './SideNavigation.js';
 import SlimBanner from './SlimBanner.js';
 import Spinner from './Spinner.js';
@@ -70,6 +71,7 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Upsell from './Upsell.js';
 import Video from './Video.js';
+import WashAnimated from './WashAnimated.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
@@ -83,7 +85,6 @@ export {
   Button,
   ButtonGroup,
   Callout,
-  Card,
   Checkbox,
   Collage,
   Collection,
@@ -102,6 +103,7 @@ export {
   FixedZIndex,
   Flex,
   Heading,
+  HelpButton,
   Icon,
   IconButton,
   IconButtonFloating,
@@ -122,6 +124,7 @@ export {
   PageHeader,
   Pog,
   Popover,
+  PopoverEducational,
   Pulsar,
   RadioButton,
   RadioGroup,
@@ -147,6 +150,7 @@ export {
   Tooltip,
   Upsell,
   Video,
+  WashAnimated,
   useColorScheme,
   useFocusVisible,
   useReducedMotion,

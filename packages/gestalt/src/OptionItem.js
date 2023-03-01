@@ -152,10 +152,15 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
       data-test-id={dataTestId}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
+      // These event.stopPropagation are important so interactive anchors don't receive the onFocus/onBlur event
+      onFocus={(event) => event.stopPropagation()}
+      onBlur={(event) => event.stopPropagation()}
       onKeyPress={(event) => {
         event.preventDefault();
       }}
+      // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
       onMouseDown={(event) => {
+        event.stopPropagation();
         event.preventDefault();
       }}
       onMouseEnter={() => setHoveredItemIndex(index)}

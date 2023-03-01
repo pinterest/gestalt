@@ -25,7 +25,7 @@ import {
   getPopoverDir,
 } from './utils/positioningUtils.js';
 
-export type Role = 'dialog' | 'listbox' | 'menu';
+export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type OwnProps = {|
   accessibilityLabel?: string,

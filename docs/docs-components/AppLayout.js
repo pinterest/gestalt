@@ -10,7 +10,6 @@ import ResourcesFooter from './ResourcesFooter.js';
 import { useNavigationContext } from './navigationContext.js';
 import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDeviceTypeProvider.js';
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
-import YearInReviewBanner from './YearInReviewBanner.js';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
@@ -51,7 +50,6 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
     <Box minHeight="100vh" color="default">
       <SkipToContent />
       <Header />
-      {isHomePage && <YearInReviewBanner />}
       {isSidebarOpen && (
         <Fragment>
           {/* The <div> element has a child <button> element that allows keyboard interaction */}

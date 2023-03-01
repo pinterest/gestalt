@@ -9,9 +9,7 @@ import { useAppContext } from '../appContext.js';
  * - Unless you want the experimental behavior live on the docs for everyone, REMOVE YOUR EXPERIMENT HERE before merging your PR!
  * */
 
-const enabledExperiments = {
-  Toast: ['web_gestalt_redesigned_toast', 'mweb_gestalt_redesigned_toast'],
-};
+const enabledExperiments = {};
 
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(

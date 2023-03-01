@@ -10,14 +10,10 @@ import Text from './Text.js';
 import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import ToastPrimaryAction from './ToastPrimaryAction.js';
-import useInExperiment from './useInExperiment.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
-const TOAST_MAX_WIDTH_PX = 500;
-const TOAST_WIDTH_PX = 330;
-
-const EXP_SIZE_THUMBNAIL = 32;
-const EXP_SIZE_ICON = 24;
+const SIZE_THUMBNAIL = 32;
+const SIZE_ICON = 24;
 
 type Props = {|
   /**
@@ -70,11 +66,6 @@ export default function Toast({
   variant = 'default',
   _dangerouslySetPrimaryAction,
 }: Props): Node {
-  const inToastExp = useInExperiment({
-    webExperimentName: 'web_gestalt_redesigned_toast',
-    mwebExperimentName: 'mweb_gestalt_redesigned_toast',
-  });
-
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
   const isErrorVariant = variant === 'error';
@@ -98,9 +89,7 @@ export default function Toast({
       : styles.textColorOverrideLight;
 
     if (isErrorVariant) {
-      textColorOverrideStyles = inToastExp
-        ? styles.textErrorColorOverrideLight
-        : styles.textColorOverrideLight;
+      textColorOverrideStyles = styles.textErrorColorOverrideLight;
     }
 
     textElement = <span className={textColorOverrideStyles}>{text}</span>;
@@ -112,18 +101,16 @@ export default function Toast({
     textColor = 'inverse';
   }
 
-  const hasPrimaryAction = primaryAction || _dangerouslySetPrimaryAction;
-
-  if (inToastExp) {
-    const toastContent = (
+  return (
+    <div className={styles.toast} role="status">
       <Box color={containerColor} paddingX={4} paddingY={3} width="100%" rounding={4}>
         <Flex alignItems="center" gap={4}>
           {!!thumbnail && !isErrorVariant ? (
             <Flex.Item flex="none">
               <Mask
-                height={EXP_SIZE_THUMBNAIL}
+                height={SIZE_THUMBNAIL}
                 rounding={thumbnailShape === 'circle' ? 'circle' : 2}
-                width={EXP_SIZE_THUMBNAIL}
+                width={SIZE_THUMBNAIL}
               >
                 {thumbnail}
               </Mask>
@@ -135,7 +122,7 @@ export default function Toast({
                 color="inverse"
                 icon="workflow-status-problem"
                 accessibilityLabel="problem"
-                size={EXP_SIZE_ICON}
+                size={SIZE_ICON}
               />
             </Flex.Item>
           ) : null}
@@ -171,60 +158,6 @@ export default function Toast({
           ) : null}
         </Flex>
       </Box>
-    );
-    return (
-      <div className={styles.toast} role="status">
-        {toastContent}
-      </div>
-    );
-  }
-
-  return (
-    <Box
-      marginBottom={3}
-      // Ensure that maxWidth isn't greater than viewport width (for small screens)
-      maxWidth={`min(${TOAST_MAX_WIDTH_PX}px, 100vw)`}
-      minWidth={TOAST_WIDTH_PX}
-      paddingX={4}
-      role="status"
-      // Button text and text can be long, so allow toast to expand
-      // to max width if button is present
-      width={hasPrimaryAction ? undefined : TOAST_WIDTH_PX}
-    >
-      <Box color={containerColor} fit padding={6} rounding="pill">
-        <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
-          {thumbnail ? (
-            <Flex.Item flex="none">
-              <Mask height={48} rounding={thumbnailShape === 'circle' ? 'circle' : 2} width={48}>
-                {thumbnail}
-              </Mask>
-            </Flex.Item>
-          ) : null}
-          <Flex.Item flex="grow">
-            <Text align={!thumbnail && !primaryAction ? 'center' : 'start'} color={textColor}>
-              {textElement}
-            </Text>
-          </Flex.Item>
-          {primaryAction || _dangerouslySetPrimaryAction ? (
-            // Allow button text to wrap on mobile
-            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
-              {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
-              {!_dangerouslySetPrimaryAction &&
-              primaryAction?.accessibilityLabel &&
-              primaryAction?.label ? (
-                <ToastPrimaryAction
-                  accessibilityLabel={primaryAction.accessibilityLabel}
-                  href={primaryAction.href}
-                  rel={primaryAction?.rel}
-                  target={primaryAction?.target}
-                  label={primaryAction.label}
-                  onClick={primaryAction.onClick}
-                />
-              ) : null}
-            </Flex.Item>
-          ) : null}
-        </Flex>
-      </Box>
-    </Box>
+    </div>
   );
 }

@@ -1,3 +1,111 @@
+## 98.0.2 (Mar 1, 2023)
+
+### Patch
+
+- Internal: update scripts/generateComponent.js ([#2673](https://github.com/pinterest/gestalt/pull/2673)) - [Preview link](https://deploy-preview-2673--gestalt.netlify.app)
+
+## 98.0.1 (Mar 1, 2023)
+
+### Patch
+
+- HelpButton: Remove old editor examples in HelpButton Docs ([#2674](https://github.com/pinterest/gestalt/pull/2674)) - [Preview link](https://deploy-preview-2674--gestalt.netlify.app)
+
+## 98.0.0 (Mar 1, 2023)
+
+### Major
+
+- HelpButton: New component ([#2625](https://github.com/pinterest/gestalt/pull/2625)) - [Preview link](https://deploy-preview-2625--gestalt.netlify.app)
+
+## 97.2.1 (Mar 1, 2023)
+
+### Patch
+
+- PopoverEducational: move examples to Sandpack + added `shouldFocus` to props ([#2672](https://github.com/pinterest/gestalt/pull/2672)) - [Preview link](https://deploy-preview-2672--gestalt.netlify.app)
+
+## 97.2.0 (Feb 28, 2023)
+
+### Minor
+
+- Toast: ship new experimental Toast redesign ([#2669](https://github.com/pinterest/gestalt/pull/2669)) - [Preview link](https://deploy-preview-2669--gestalt.netlify.app)
+
+## 97.1.4 (Feb 28, 2023)
+
+### Patch
+
+- Docs: fix MDX Do/Dont rendering, take two ([#2670](https://github.com/pinterest/gestalt/pull/2670)) - [Preview link](https://deploy-preview-2670--gestalt.netlify.app)
+
+## 97.1.3 (Feb 28, 2023)
+
+### Patch
+
+- Internal: add `handle-position-update` Masonry integration test ([#2671](https://github.com/pinterest/gestalt/pull/2671)) - [Preview link](https://deploy-preview-2671--gestalt.netlify.app)
+
+## 97.1.2 (Feb 28, 2023)
+
+### Patch
+
+- Docs: fix MDX Do/Dont rendering ([#2668](https://github.com/pinterest/gestalt/pull/2668)) - [Preview link](https://deploy-preview-2668--gestalt.netlify.app)
+
+## 97.1.1 (Feb 28, 2023)
+
+### Patch
+
+- Masonry: Add `handle-item-updates` integration test ([#2667](https://github.com/pinterest/gestalt/pull/2667)) - [Preview link](https://deploy-preview-2667--gestalt.netlify.app)
+
+## 97.1.0 (Feb 28, 2023)
+
+### Minor
+
+- PopoverEducational: new component ([#2661](https://github.com/pinterest/gestalt/pull/2661)) - [Preview link](https://deploy-preview-2661--gestalt.netlify.app)
+
+## 97.0.0 (Feb 24, 2023)
+
+### Major
+
+- WashAnimated: rename Card to WashAnimated ([#2659](https://github.com/pinterest/gestalt/pull/2659)) - [Preview link](https://deploy-preview-2659--gestalt.netlify.app)
+
+## 96.2.5 (Feb 24, 2023)
+
+### Patch
+
+- ScrollBoundaryContainer: add 'visible' to overflow prop type, documented case, and move editor to Sandpack ([#2664](https://github.com/pinterest/gestalt/pull/2664)) - [Preview link](https://deploy-preview-2664--gestalt.netlify.app)
+
+## 96.2.4 (Feb 23, 2023)
+
+### Patch
+
+- Docs: linting + copyediting for Android icon page ([#2665](https://github.com/pinterest/gestalt/pull/2665)) - [Preview link](https://deploy-preview-2665--gestalt.netlify.app)
+
+## 96.2.3 (Feb 23, 2023)
+
+### Patch
+
+- Docs: Icon specs for Android ([#2650](https://github.com/pinterest/gestalt/pull/2650)) - [Preview link](https://deploy-preview-2650--gestalt.netlify.app)
+
+## 96.2.2 (Feb 22, 2023)
+
+### Patch
+
+- Docs: add Feb 22 updates ([#2660](https://github.com/pinterest/gestalt/pull/2660)) - [Preview link](https://deploy-preview-2660--gestalt.netlify.app)
+
+## 96.2.1 (Feb 22, 2023)
+
+### Patch
+
+- Docs: Remove Year in Review banner ([#2657](https://github.com/pinterest/gestalt/pull/2657)) - [Preview link](https://deploy-preview-2657--gestalt.netlify.app)
+
+## 96.2.0 (Feb 22, 2023)
+
+### Minor
+
+- SideNavigation: implemented `primaryAction` prop to allow actions on SideNavigation.TopItem and SideNavigation.Group ([#2646](https://github.com/pinterest/gestalt/pull/2646)) - [Preview link](https://deploy-preview-2646--gestalt.netlify.app)
+
+## 96.1.3 (Feb 22, 2023)
+
+### Patch
+
+- Docs: open external footer links in new tab ([#2658](https://github.com/pinterest/gestalt/pull/2658)) - [Preview link](https://deploy-preview-2658--gestalt.netlify.app)
+
 ## 96.1.2 (Feb 22, 2023)
 
 ### Patch
@@ -398,7 +506,7 @@
 
 ### Patch
 
-- Card, Letterbox, Mask, Masonry: updated visual tests snapshots ([#2572](https://github.com/pinterest/gestalt/pull/2572)) - [Preview link](https://deploy-preview-2572--gestalt.netlify.app)
+- WashAnimated, Letterbox, Mask, Masonry: updated visual tests snapshots ([#2572](https://github.com/pinterest/gestalt/pull/2572)) - [Preview link](https://deploy-preview-2572--gestalt.netlify.app)
 
 ## 85.1.3 (Dec 16, 2022)
 
@@ -2600,7 +2708,7 @@
 
 ### Patch
 
-- Card: fix `active` logic to support `false` [#2161](https://github.com/pinterest/gestalt/pull/2161) - [PREVIEW URL](https://deploy-preview-2161--gestalt.netlify.app)
+- WashAnimated: fix `active` logic to support `false` [#2161](https://github.com/pinterest/gestalt/pull/2161) - [PREVIEW URL](https://deploy-preview-2161--gestalt.netlify.app)
 
 ## 58.1.6 (Jun 17, 2022)
 
@@ -4288,7 +4396,7 @@
 
 ### Patch
 
-- Card, Checkbox, Column: refactor to use generated props tables [#1821](https://github.com/pinterest/gestalt/pull/1821) - [PREVIEW URL](https://deploy-preview-1821--gestalt.netlify.app)
+- WashAnimated, Checkbox, Column: refactor to use generated props tables [#1821](https://github.com/pinterest/gestalt/pull/1821) - [PREVIEW URL](https://deploy-preview-1821--gestalt.netlify.app)
 
 ## 41.0.3 (Dec 17, 2021)
 
@@ -6040,7 +6148,7 @@
 
 ### Patch
 
-- Card: fix rtl hover bug [#1474](https://github.com/pinterest/gestalt/pull/1474) - [PREVIEW URL](https://deploy-preview-1474--gestalt.netlify.app)
+- WashAnimated: fix rtl hover bug [#1474](https://github.com/pinterest/gestalt/pull/1474) - [PREVIEW URL](https://deploy-preview-1474--gestalt.netlify.app)
 
 ## 21.7.3 (Apr 20, 2021)
 
@@ -9274,7 +9382,7 @@ Codemods:
 
 ## 1.3.0 (Feb 20, 2020)
 
-- Modal / SegmentedControl / Card: Fix corner radius [#672](https://github.com/pinterest/gestalt/pull/672) - [PREVIEW URL](https://deploy-preview-672--gestalt.netlify.app)
+- Modal / SegmentedControl / WashAnimated: Fix corner radius [#672](https://github.com/pinterest/gestalt/pull/672) - [PREVIEW URL](https://deploy-preview-672--gestalt.netlify.app)
 
 ## 1.2.0 (Feb 20, 2020)
 
@@ -9435,7 +9543,7 @@ Run codemods for breaking changes in order:
 ### Patch
 
 - Avatar: Convert component to use hooks [#598](https://github.com/pinterest/gestalt/pull/598) - [PREVIEW URL](https://deploy-preview-598--gestalt.netlify.app)
-- Card: Convert examples & component to use hooks [#597](https://github.com/pinterest/gestalt/pull/597) - [PREVIEW URL](https://deploy-preview-597--gestalt.netlify.app)
+- WashAnimated: Convert examples & component to use hooks [#597](https://github.com/pinterest/gestalt/pull/597) - [PREVIEW URL](https://deploy-preview-597--gestalt.netlify.app)
 - Checkbox: Convert examples & component to use hooks [#600](https://github.com/pinterest/gestalt/pull/600) - [PREVIEW URL](https://deploy-preview-600--gestalt.netlify.app)
 - Internal: Add `react-testing-library` [#598](https://github.com/pinterest/gestalt/pull/598) - [PREVIEW URL](https://deploy-preview-598--gestalt.netlify.app)
 - Internal: Enable `react-hooks/exhaustive-deps` lint rule [#598](https://github.com/pinterest/gestalt/pull/598) - [PREVIEW URL](https://deploy-preview-598--gestalt.netlify.app)
@@ -9859,7 +9967,7 @@ Run codemods for breaking changes in order:
 - Video: Add jsdom browser specific tests [#205](https://github.com/pinterest/gestalt/pull/205) - [PREVIEW URL](https://deploy-preview-205--gestalt.netlify.app)
 - Flyout: Merge ErrorFlyout abilities into Flyout [#242](https://github.com/pinterest/gestalt/pull/242) - [PREVIEW URL](https://deploy-preview-242--gestalt.netlify.app)
 - Flyout: Support blue Flyouts [#249](https://github.com/pinterest/gestalt/pull/249) - [PREVIEW URL](https://deploy-preview-249--gestalt.netlify.app)
-- Card: Make Card explicitely use box-sizing: content-box [#243](https://github.com/pinterest/gestalt/pull/243) - [PREVIEW URL](https://deploy-preview-243--gestalt.netlify.app)
+- WashAnimated: Make WashAnimated explicitely use box-sizing: content-box [#243](https://github.com/pinterest/gestalt/pull/243) - [PREVIEW URL](https://deploy-preview-243--gestalt.netlify.app)
 - GroupAvatar: Text sizes are consistent with Avatar and `size` prop is now optional. [#244](https://github.com/pinterest/gestalt/pull/244) - [PREVIEW URL](https://deploy-preview-244--gestalt.netlify.app)
 - Video: Move initial video setup calls to componentDidMount [#245](https://github.com/pinterest/gestalt/pull/245) - [PREVIEW URL](https://deploy-preview-245--gestalt.netlify.app)
 
@@ -10107,7 +10215,7 @@ Run codemods for breaking changes in order:
 
 ### Minor
 
-- Card: Adds an extra "image" property to help separate content [#19](https://github.com/pinterest/gestalt/pull/19) - [PREVIEW URL](https://deploy-preview-19--gestalt.netlify.app)
+- WashAnimated: Adds an extra "image" property to help separate content [#19](https://github.com/pinterest/gestalt/pull/19) - [PREVIEW URL](https://deploy-preview-19--gestalt.netlify.app)
 - GroupAvatar: Update sizes to be in line with other components [#30](https://github.com/pinterest/gestalt/pull/30) - [PREVIEW URL](https://deploy-preview-30--gestalt.netlify.app)
 - Touchable: Adds support for `fullHeight` prop [#31](https://github.com/pinterest/gestalt/pull/31) - [PREVIEW URL](https://deploy-preview-31--gestalt.netlify.app)
 - Toast: Fix Safari 9 thumbnail/text overlap [#33](https://github.com/pinterest/gestalt/pull/33) - [PREVIEW URL](https://deploy-preview-33--gestalt.netlify.app)

@@ -46,6 +46,9 @@ describe('useDefaultLabelContext', () => {
             accessibilityHidePasswordLabel: 'Hide password',
             accessibilityShowPasswordLabel: 'Show password',
           },
+          HelpButton: {
+            tooltipMessage: 'Click to learn more',
+          },
         }}
       >
         <TestComponent />

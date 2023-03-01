@@ -82,7 +82,7 @@ export default async function waitForRenderedItems(
         const { documentElement } = document;
         if (
           typeof scrollHeight !== 'undefined' &&
-          documentElement?.scrollHeight !== scrollHeight
+          documentElement?.scrollHeight >= scrollHeight
         ) {
           return false;
         }

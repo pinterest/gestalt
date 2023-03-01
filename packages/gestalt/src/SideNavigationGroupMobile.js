@@ -25,10 +25,15 @@ export default function SideNavigationGroupMobile({
   hasActiveChild = false,
   icon,
   label,
+  primaryAction,
   notificationAccessibilityLabel,
 }: SideNavigationGroupMobileProps): Node {
+  // Manages PrimaryAction
+  const [compression, setCompression] = useState<'compress' | 'none'>('compress');
   const [hovered, setHovered] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [focused, setFocused] = useState(false);
+
+  // Manages children
 
   const itemId = useId();
 
@@ -58,6 +63,8 @@ export default function SideNavigationGroupMobile({
     ),
     [itemId, childrenArray],
   );
+
+  const [expanded, setExpanded] = useState(false);
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -139,10 +146,10 @@ export default function SideNavigationGroupMobile({
           accessibilityExpanded={display === 'expandable' ? expanded : undefined}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onFocus={() => setHovered(true)}
-          onBlur={() => setHovered(false)}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
           rounding={2}
-          tapStyle="compress"
+          tapStyle={compression}
           onTap={() => {
             if (isTopLevel) {
               elevateChildrenToParent();
@@ -166,6 +173,10 @@ export default function SideNavigationGroupMobile({
             notificationAccessibilityLabel={notificationAccessibilityLabel}
             counter={counter}
             display={display}
+            primaryAction={primaryAction}
+            setCompression={setCompression}
+            hovered={hovered}
+            focused={focused}
           />
         </TapArea>
         {expanded ? passedChildren : null}

@@ -16,7 +16,7 @@ import { type Node } from 'react';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainerWithForwardRef.js';
 
-type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
+type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
 type Props = {|
   children: Node,

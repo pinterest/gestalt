@@ -37,18 +37,15 @@ export default function SideNavigationMobile({
   }, [dismissButtonRef]);
 
   return (
-    <Box
-      width="100%"
-      height="100%"
-      as="nav"
-      aria-label={accessibilityLabel}
-      color="default"
-      id={id}
-    >
+    <Box width="100%" height="100%" as="nav" aria-label={accessibilityLabel} id={id}>
       <div
         className={showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined}
       >
-        <Box padding={2} dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}>
+        <Box
+          padding={2}
+          dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+          color="default"
+        >
           {selectedMobileChildren ?? (
             <Fragment>
               <Box height={64} paddingY={2}>

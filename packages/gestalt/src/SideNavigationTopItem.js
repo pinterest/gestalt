@@ -1,17 +1,20 @@
 // @flow strict
-import { useState, useId, type Node } from 'react';
+import { useState, useEffect, useId, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
 import Badge from './Badge.js';
+import SideNavigationIconButton from './SideNavigationIconButton.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
+import Dropdown from './Dropdown.js';
 import Box from './Box.js';
 import icons from './icons/index.js';
 import { useNesting } from './contexts/NestingProvider.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { type Indexable } from './zIndex.js';
 
 export const NESTING_MARGIN_START_MAP = {
   '0': '16px',
@@ -62,6 +65,25 @@ type Props = {|
    * Label for the item.
    */
   label: string,
+  /**
+   * The primary action for each item. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
+   */
+  primaryAction?: {|
+    icon?: 'ellipsis' | 'edit' | 'trash-can',
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLDivElement>
+        | SyntheticKeyboardEvent<HTMLDivElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    |}) => void,
+    tooltip: {|
+      accessibilityLabel?: string,
+      text: string,
+      zIndex?: Indexable,
+    |},
+    dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
+  |},
 |};
 
 /**
@@ -74,10 +96,12 @@ export default function SideNavigationTopItem({
   counter,
   icon,
   label,
+  primaryAction,
   notificationAccessibilityLabel,
   onClick,
 }: Props): Node {
   const { nestedLevel } = useNesting();
+
   const { setSelectedItemId } = useSideNavigation();
 
   const itemId = useId();
@@ -88,10 +112,19 @@ export default function SideNavigationTopItem({
 
   const isTopLevel = nestedLevel === 0;
 
-  const [hovered, setHovered] = useState(false);
+  const [compression, setCompression] = useState<'compress' | 'none'>('compress');
+
+  const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
+
+  const [hovered, setHovered] = useState<boolean>(false);
+
+  const [focused, setFocused] = useState<boolean>(false);
+
+  const [showIconButton, setShowIconButton] = useState<'hide' | 'show'>('hide');
 
   let itemColor = active ? 'selected' : undefined;
   let textColor = active ? 'inverse' : 'default';
+  const counterColor = active ? 'inverse' : 'subtle';
 
   if (hovered && !active) {
     itemColor = 'secondary';
@@ -102,6 +135,22 @@ export default function SideNavigationTopItem({
     ? NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
     : NESTING_MARGIN_START_MAP[nestedLevel];
 
+  useEffect(() => {
+    if (primaryAction && showIconButton === 'hide' && (hovered || focused)) {
+      setShowIconButton('show');
+    }
+
+    if (
+      primaryAction &&
+      showIconButton === 'show' &&
+      !hovered &&
+      !focused &&
+      forceIconButton === 'default'
+    ) {
+      setShowIconButton('hide');
+    }
+  }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
+
   return (
     <li className={classnames(styles.liItem)}>
       <TapArea
@@ -109,11 +158,11 @@ export default function SideNavigationTopItem({
         href={href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onFocus={() => setHovered(true)}
-        onBlur={() => setHovered(false)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         role="link"
         rounding={2}
-        tapStyle="compress"
+        tapStyle={compression}
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
           setSelectedItemId(itemId);
           onClick?.({ event, dangerouslyDisableOnNavigation });
@@ -174,17 +223,49 @@ export default function SideNavigationTopItem({
                 )}
               </Text>
             </Flex.Item>
-            {counter && (
+            {counter && (showIconButton === 'hide' || isMobile) ? (
               <Flex.Item flex="none" alignSelf="center">
                 <Box display="visuallyHidden">{`, `}</Box>
                 {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-                <Box aria-label={counter.accessibilityLabel} role="status" marginEnd={-2}>
-                  <Text align="end" color="subtle">
+                <Box aria-label={counter.accessibilityLabel} marginEnd={-2}>
+                  <Text align="end" color={counterColor}>
                     {counter.number}
                   </Text>
                 </Box>
               </Flex.Item>
-            )}
+            ) : null}
+            {(showIconButton === 'show' || isMobile) && primaryAction ? (
+              <Flex.Item flex="none" alignSelf="center">
+                {/* This is a workaround to announce the counter as it's replaced on focus */}
+                {counter ? (
+                  <Box display="visuallyHidden">
+                    {`, `}
+                    <Box aria-label={counter?.accessibilityLabel} />
+                  </Box>
+                ) : null}
+                <Box
+                  aria-hidden
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      marginInline: '14px -14px',
+                    },
+                  }}
+                  rounding="circle"
+                >
+                  <SideNavigationIconButton
+                    icon={primaryAction?.icon}
+                    onClick={primaryAction?.onClick}
+                    tooltip={primaryAction.tooltip}
+                    dropdownItems={primaryAction?.dropdownItems}
+                    setCompression={setCompression}
+                    forceIconButton={forceIconButton}
+                    setForceIconButton={setForceIconButton}
+                    setShowIconButton={setShowIconButton}
+                    isItemActive={!!active}
+                  />
+                </Box>
+              </Flex.Item>
+            ) : null}
           </Flex>
         </Box>
       </TapArea>
