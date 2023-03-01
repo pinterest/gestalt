@@ -19,19 +19,7 @@ type DocsType = {|
 export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center">
-  <HelpButton
-    accessibilityLabel="Click to learn more about help button"
-    accessibilityPopoverLabel="Expanded information about help button"
-    text="Informational context that's displayed on click"
-  />
-</Flex>
-        `}
-      >
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
 
@@ -63,57 +51,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
       </MainSection>
 
       <MainSection name="Best practices">
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-  <Checkbox labelDisplay="hidden" label="Created pins checkbox" id="created-pins" onChange={() => {}} />
-  <Text>Pins created in the last 30 days</Text>
-  <HelpButton
-    accessibilityLabel="Click to learn more about the last 30 days of created pins"
-    accessibilityPopoverLabel="Expanded information about the last 30 days of created pins"
-    text="Date range must include at least 1 day in the last 30 days"
-  />
-</Flex>
-            `}
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            defaultCode={`
-<Text>
-  See the total impact of your paid and organic content working together to increase page
-  visits
-  <Box display="inlineBlock">
-    <HelpButton
-      accessibilityLabel="Click to learn more about the number of visits"
-      accessibilityPopoverLabel="Expanded information about the number of visits"
-      text="Number of times people visited your website after seeing your content on Pinterest"
-    />
-  </Box>
-  {' '}add-to-carts{' '}
-  <Box display="inlineBlock">
-    <HelpButton
-      accessibilityLabel="Click to learn more about the number of visits"
-      accessibilityPopoverLabel="Expanded information about the number of visits"
-      text="Number of times people added your products to their carts after interacting with your Pins"
-    />
-  </Box>
-  {' '}and checkouts
-  <Box display="inlineBlock">
-    <HelpButton
-      accessibilityLabel="Click to learn more about the number of visits"
-      accessibilityPopoverLabel="Expanded information about the number of visits"
-      text="Number of checkouts stemming from your Pins and ads"
-    />
-  </Box>
-  .
-</Text>
-`}
-          />
-        </MainSection.Subsection>
-
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
@@ -156,24 +93,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)."
         >
           <MainSection.Card
-            cardSize="md"
-            defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-  <Text>This is Gestalt</Text>
-  <HelpButton
-    accessibilityLabel="Click to learn more about gestalt"
-    accessibilityPopoverLabel="Expanded information about Gestalt"
-    link={{
-      href: '#',
-      text: 'Read our documentation',
-      accessibilityLabel: 'Visit Gestalt portal',
-    }}
-    text="Gestalt is Pinterest's design system."
-  />
-</Flex>
-        `}
-          />
-          <MainSection.Card
             cardSize="sm"
             sandpackExample={<SandpackExample code={withLink} name="Link component" />}
           />
@@ -183,24 +102,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
           title="Text"
           description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional [Text](/web/text) or [Link](/web/link) components contained within."
         >
-          <MainSection.Card
-            cardSize="md"
-            defaultCode={`
-<Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
-  <Text>This is Gestalt</Text>
-  <HelpButton
-    accessibilityLabel="Click to learn more about gestalt"
-    accessibilityPopoverLabel="Expanded information about Gestalt"
-    link={{
-      href: '#',
-      text: 'Read our documentation',
-      accessibilityLabel: 'Visit Gestalt portal',
-    }}
-    text={<Text><Text weight="bold" inline>Gestalt</Text> is Pinterest's design system.</Text>}
-  />
-</Flex>
-        `}
-          />
           <MainSection.Card
             cardSize="sm"
             sandpackExample={<SandpackExample code={withText} name="Text component" />}
