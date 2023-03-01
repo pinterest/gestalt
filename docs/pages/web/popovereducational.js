@@ -101,8 +101,6 @@ PopoverEducational doesn't behave like regular popovers where they are open/clos
 In most cases, PopoverEducational might be already visible on page load. See [visible on page load](#Visibility-on-page-load) to learn more. However, popover-based components rely on the component opening/dismissing event to capture focus.
 
 If PopoverEducational is already visible, we need its content to be keyboard accessible in sequential order. Don't use Layer to wrap PopoverEducational as it would move PopoverEducational outside the DOM hierarchy of the parent component and it will lose contextual sequencial order. The content will placed last in the keyboard navigations sequence, becoming unreachable in its content context. Moreover, make sure PopoverEducational is implemented right after the code of the anchor element so that it navigates the popover right after the anchor.
-
-If PopoverEducational
 `}
         />
         <MainSection.Subsection

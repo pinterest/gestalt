@@ -3,11 +3,11 @@ import { type Node, useRef, useEffect, useState } from 'react';
 import { Box, Flex, IconButton, Button, Text, PopoverEducational } from 'gestalt';
 
 export default function Example(): Node {
-  const [openA, setOpenA] = useState(false);
+  const [open, setOpen] = useState(false);
   const anchorRefA = useRef();
 
   useEffect(() => {
-    setOpenA(true);
+    setOpen(true);
   }, []);
 
   return (
@@ -20,7 +20,7 @@ export default function Example(): Node {
         ref={anchorRefA}
         size="lg"
       />
-      {openA && (
+      {open && (
         <PopoverEducational
           accessibilityLabel={`Description of new "More ideas" feature`}
           anchor={anchorRefA.current}

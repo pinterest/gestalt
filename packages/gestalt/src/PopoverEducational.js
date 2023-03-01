@@ -175,17 +175,17 @@ export default function PopoverEducational({
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
       >
-        {!children && message ? (
-          <Box padding={4} tabIndex={0}>
-            <Flex direction="column" gap={3}>
-              {textElement}
-              <Flex.Item flex="grow" alignSelf="end">
-                {primaryAction ? <PrimaryAction {...primaryAction} /> : null}
-              </Flex.Item>
-            </Flex>
-          </Box>
-        ) : null}
-        {children ?? null}
+        {children ??
+          (message ? (
+            <Box padding={4} tabIndex={0}>
+              <Flex direction="column" gap={3}>
+                {textElement}
+                <Flex.Item flex="grow" alignSelf="end">
+                  {primaryAction ? <PrimaryAction {...primaryAction} /> : null}
+                </Flex.Item>
+              </Flex>
+            </Box>
+          ) : null)}
       </Popover>
     </Box>
   );
