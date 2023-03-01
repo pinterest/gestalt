@@ -1,3 +1,9 @@
+## 98.0.2 (Mar 1, 2023)
+
+### Patch
+
+- Internal: update scripts/generateComponent.js ([#2673](https://github.com/pinterest/gestalt/pull/2673)) - [Preview link](https://deploy-preview-2673--gestalt.netlify.app)
+
 ## 98.0.1 (Mar 1, 2023)
 
 ### Patch
