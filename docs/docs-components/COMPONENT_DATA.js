@@ -16,6 +16,7 @@ import Divider from '../graphics/general/Divider.svg';
 import Dropdown from '../graphics/general/Dropdown.svg';
 import RadioGroup from '../graphics/general/RadioGroup.svg';
 import Heading from '../graphics/general/Heading.svg';
+import HelpButton from '../graphics/general/HelpButton.svg';
 import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
@@ -1054,6 +1055,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       documentation: 'planned',
       iOS: 'notAvailable',
       figma: 'ready',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <HelpButton />,
+    name: 'HelpButton',
+    aliases: ['InfoButton'],
+    description:
+      'HelpButton is an affordance that accompanies an element on the screen. It helps describe or provide assistance on how to use the accompanying element.',
+    category: 'Actions',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'New',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'partial',
+      iOS: 'notAvailable',
+      figma: 'partial',
       responsive: 'ready',
     },
     android: {

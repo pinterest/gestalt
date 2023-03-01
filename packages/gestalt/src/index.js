@@ -24,6 +24,7 @@ import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
+import HelpButton from './HelpButton.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import IconButtonFloating from './IconButtonFloating.js';
@@ -102,6 +103,7 @@ export {
   FixedZIndex,
   Flex,
   Heading,
+  HelpButton,
   Icon,
   IconButton,
   IconButtonFloating,

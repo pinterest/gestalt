@@ -112,6 +112,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Fieldset',
       'Flex',
       'Heading',
+      'HelpButton',
       'Icon',
       'IconButton',
       'IconButtonFloating',
