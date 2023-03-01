@@ -8,18 +8,24 @@ import { generateExampleItems } from '../../integration-test-helpers/masonry/ite
 const measurementStore = Masonry.createMeasurementStore();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
-// This will likely need to be updated in the near future
-function booleanize(value: '1' | '0'): boolean {
-  return Boolean(Number(value));
+function booleanize(value: string): boolean {
+  if (['false', '0'].includes(value)) {
+    return false;
+  }
+  if (['true', '1'].includes(value)) {
+    return true;
+  }
+  return Boolean(value);
 }
 
 export default function TestPage(): Node {
   const router = useRouter();
-  const { offsetTop, scrollContainer, virtualize } = router.query;
+  const { flexible, offsetTop, scrollContainer, virtualize } = router.query;
 
   return (
     <ColorSchemeProvider colorScheme="light">
       <MasonryContainer
+        flexible={booleanize(flexible)}
         initialItems={generateExampleItems({ name: 'InitialPin' })}
         MasonryComponent={Masonry}
         measurementStore={measurementStore}
