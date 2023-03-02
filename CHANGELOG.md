@@ -1,3 +1,9 @@
+## 98.0.4 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add Masonry `null-items` integration test ([#2677](https://github.com/pinterest/gestalt/pull/2677)) - [Preview link](https://deploy-preview-2677--gestalt.netlify.app)
+
 ## 98.0.3 (Mar 1, 2023)
 
 ### Patch
