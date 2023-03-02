@@ -1,3 +1,9 @@
+## 98.0.6 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add `render-height` Masonry integration test ([#2679](https://github.com/pinterest/gestalt/pull/2679)) - [Preview link](https://deploy-preview-2679--gestalt.netlify.app)
+
 ## 98.0.5 (Mar 2, 2023)
 
 ### Patch
