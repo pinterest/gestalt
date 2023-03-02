@@ -10,7 +10,6 @@ import ButtonGroup from './ButtonGroup.js';
 import Callout from './Callout.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
-import Collection from './Collection.js';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Column from './Column.js';
 import ComboBox from './ComboBox.js';
@@ -86,7 +85,6 @@ export {
   Callout,
   Checkbox,
   Collage,
-  Collection,
   ColorSchemeProvider,
   Column,
   ComboBox,

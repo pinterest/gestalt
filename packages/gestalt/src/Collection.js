@@ -57,9 +57,6 @@ type Props = {|
   viewportHeight?: number,
 |};
 
-/**
- * https://gestalt.pinterest.systems/collection
- */
 export default function Collection(props: Props): Node {
   const { Item, layout = [], renderItem, viewportTop = 0, viewportLeft = 0 } = props;
 
