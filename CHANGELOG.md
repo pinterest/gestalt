@@ -1,3 +1,9 @@
+## 98.0.8 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add `reflow-item-prop-removal` Masonry integration test ([#2681](https://github.com/pinterest/gestalt/pull/2681)) - [Preview link](https://deploy-preview-2681--gestalt.netlify.app)
+
 ## 98.0.7 (Mar 2, 2023)
 
 ### Patch
