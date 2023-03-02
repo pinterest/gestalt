@@ -41,6 +41,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 ## Variants
 
+
 ### Size
 
 1. **lg** **(48pt)**
