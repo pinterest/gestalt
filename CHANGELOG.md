@@ -1,3 +1,9 @@
+## 98.0.5 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add Masonry `parent-sizing` integration test ([#2678](https://github.com/pinterest/gestalt/pull/2678)) - [Preview link](https://deploy-preview-2678--gestalt.netlify.app)
+
 ## 98.0.4 (Mar 2, 2023)
 
 ### Patch
