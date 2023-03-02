@@ -1,3 +1,9 @@
+## 98.0.7 (Mar 2, 2023)
+
+### Patch
+
+- Docs: Fixed duplicated line in brand expression guidelines ([#2680](https://github.com/pinterest/gestalt/pull/2680)) - [Preview link](https://deploy-preview-2680--gestalt.netlify.app)
+
 ## 98.0.6 (Mar 2, 2023)
 
 ### Patch
