@@ -1,3 +1,9 @@
+## 98.0.13 (Mar 3, 2023)
+
+### Patch
+
+- Docs: Feb eng newsletter ([#2689](https://github.com/pinterest/gestalt/pull/2689)) - [Preview link](https://deploy-preview-2689--gestalt.netlify.app)
+
 ## 98.0.12 (Mar 3, 2023)
 
 ### Patch
