@@ -3,6 +3,38 @@
     "year": "2023",
     "digests": [
       {
+        "month": "February",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng February Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from February."
+          },
+          {
+            "title": "PopoverEducational",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/f1/ce/30/f1ce30125af05068c7e14549f9dabaf0.png",
+            "imageAltText": "Screenshot of PopoverEducational UI",
+            "content": "Introducing our newest component, [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational)! This component is a specialized version of Popover for use in educational or onboarding experiences. Check it out!"
+          },
+          {
+            "title": "Component updates: Badge, OverlayPanel, ScrollBoundaryContainer, SideNavigation, Table, Toast, Upsell, WashAnimated",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/ba/78/84/ba7884a773665bc2e203b55a4701067a.png",
+            "imageAltText": "Screenshot of redesigned Toast",
+            "content": "We shipped new treatments for [Badge](https://gestalt.pinterest.systems/web/badge) and [Toast](https://gestalt.pinterest.systems/web/toast). We also renamed a couple of components to make room for future component development: Sheet is now [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel), and Card is now [WashAnimated](https://gestalt.pinterest.systems/web/washanimated). OverlayPanel now also has the ability to add a [dismiss confirmation modal](https://gestalt.pinterest.systems/web/overlaypanel#Dismiss-confirmation). [ScrollBoundaryContainer's `overflow` prop](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Overflow) now has a `'visible'` option, preventing visual bugs in certain situations. SideNavigation.TopItem and SideNavigation.Group [can accept a `primaryAction`](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action), adding an icon button to the list item. [Table.Footer](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) can be just as `sticky` as the header. And [Upsell's `message` prop](https://gestalt.pinterest.systems/web/upsell#Message) now accepts Text in addition to strings, allowing for more flexibility in the content."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/7a/a2/1d/7aa21da44c67a80cae91e71e43a83336.png",
+            "imageAltText": "Screenshot of Android icons",
+            "content": "We added specs for [Android icons](https://gestalt.pinterest.systems/android/icon), which can be downloaded from [this repo](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-icons-android)."
+          }
+        ]
+      },
+      {
         "week": "March 3, 2023",
         "summary": "Big updates to Toast and Badge, a new educational popover component, design specs in Gestalt's docs and new Figma components.",
         "posts": [
@@ -36,6 +68,7 @@
           }
         ]
       },
+
       {
         "week": "February 22, 2023",
         "summary": "Updated roadmap, Table component updates and a slew of Figma improvements.",
