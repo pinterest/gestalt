@@ -1,3 +1,9 @@
+## 98.0.10 (Mar 3, 2023)
+
+### Patch
+
+- Internal: add `resize-reflow` Masonry integration test ([#2685](https://github.com/pinterest/gestalt/pull/2685)) - [Preview link](https://deploy-preview-2685--gestalt.netlify.app)
+
 ## 98.0.9 (Mar 2, 2023)
 
 ### Patch
