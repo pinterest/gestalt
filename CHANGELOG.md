@@ -1,3 +1,57 @@
+## 98.0.11 (Mar 3, 2023)
+
+### Patch
+
+- Internal: add `shuffle-items` Masonry integration test ([#2686](https://github.com/pinterest/gestalt/pull/2686)) - [Preview link](https://deploy-preview-2686--gestalt.netlify.app)
+
+## 98.0.10 (Mar 3, 2023)
+
+### Patch
+
+- Internal: add `resize-reflow` Masonry integration test ([#2685](https://github.com/pinterest/gestalt/pull/2685)) - [Preview link](https://deploy-preview-2685--gestalt.netlify.app)
+
+## 98.0.9 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add `reflow-item-prop-changes` Masonry integration test ([#2682](https://github.com/pinterest/gestalt/pull/2682)) - [Preview link](https://deploy-preview-2682--gestalt.netlify.app)
+
+## 98.0.8 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add `reflow-item-prop-removal` Masonry integration test ([#2681](https://github.com/pinterest/gestalt/pull/2681)) - [Preview link](https://deploy-preview-2681--gestalt.netlify.app)
+
+## 98.0.7 (Mar 2, 2023)
+
+### Patch
+
+- Docs: Fixed duplicated line in brand expression guidelines ([#2680](https://github.com/pinterest/gestalt/pull/2680)) - [Preview link](https://deploy-preview-2680--gestalt.netlify.app)
+
+## 98.0.6 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add `render-height` Masonry integration test ([#2679](https://github.com/pinterest/gestalt/pull/2679)) - [Preview link](https://deploy-preview-2679--gestalt.netlify.app)
+
+## 98.0.5 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add Masonry `parent-sizing` integration test ([#2678](https://github.com/pinterest/gestalt/pull/2678)) - [Preview link](https://deploy-preview-2678--gestalt.netlify.app)
+
+## 98.0.4 (Mar 2, 2023)
+
+### Patch
+
+- Internal: add Masonry `null-items` integration test ([#2677](https://github.com/pinterest/gestalt/pull/2677)) - [Preview link](https://deploy-preview-2677--gestalt.netlify.app)
+
+## 98.0.3 (Mar 1, 2023)
+
+### Patch
+
+- Internal: add Masonry `flexible-resize` integration test ([#2676](https://github.com/pinterest/gestalt/pull/2676)) - [Preview link](https://deploy-preview-2676--gestalt.netlify.app)
+
 ## 98.0.2 (Mar 1, 2023)
 
 ### Patch

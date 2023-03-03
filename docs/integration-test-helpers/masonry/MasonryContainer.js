@@ -1,5 +1,6 @@
 // @flow strict
 import { Component, createRef, type Element, type Node } from 'react';
+import { Masonry } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem.js';
 import getClassicGridServerStyles from './getClassicGridServerStyles.js';
 import getFlexibleGridServerStyles from './getFlexibleGridServerStyles.js';
@@ -15,10 +16,9 @@ import { getRandomNumberGenerator, generateExampleItems } from './items-utils.js
 // Masonry works, MasonryContainer also supports certain SSR functionality such
 // as generating styles that affect pre-hydration Masonry content.
 
-type Props = {
+type Props = {|
   // The actual Masonry component to be used (if using an experimental version of Masonry).
-  // $FlowFixMe[unclear-type]
-  MasonryComponent: any,
+  MasonryComponent: typeof Masonry,
   // Sets up props to display a collage layout.
   collage?: boolean,
   // Constrains the width of the grid rendering.
@@ -27,13 +27,13 @@ type Props = {
   flexible?: boolean,
   // Whether or not to use an external cache
   externalCache?: boolean,
-  // Whether or not to require tests to trigger fetch completion manually.
-  manualFetch?: boolean,
   // Does not allow infinite scroll.
   finiteLength?: boolean,
   // The initial data from the server side render.
   // $FlowFixMe[unclear-type]
   initialItems?: $ReadOnlyArray<?Object>,
+  // Whether or not to require tests to trigger fetch completion manually.
+  manualFetch?: boolean,
   // External measurement store.
   // $FlowFixMe[unclear-type]
   measurementStore: Object,
@@ -49,18 +49,16 @@ type Props = {
   virtualBoundsTop?: number,
   // The relative amount in pixel to extend the virtualized viewport bottom value.
   virtualBoundsBottom?: number,
-  ...
-};
+|};
 
-type State = {
+type State = {|
   expanded: boolean,
   hasScrollContainer: boolean,
   // $FlowFixMe[unclear-type]
-  items: $ReadOnlyArray<?Object>,
+  items: $ReadOnlyArray<Object>,
   mountGrid: boolean,
   mounted: boolean,
-  ...
-};
+|};
 
 export default class MasonryContainer extends Component<Props, State> {
   state: State = {
@@ -238,7 +236,10 @@ export default class MasonryContainer extends Component<Props, State> {
   };
 
   // $FlowFixMe[unclear-type]
-  renderItem: ({| data: any, itemIdx: number |}) => Node = ({ data, itemIdx }) => {
+  renderItem: ({| +data: any, +itemIdx: number, +isMeasuring: boolean |}) => Node = ({
+    data,
+    itemIdx,
+  }) => {
     const { expanded } = this.state;
     return <ExampleGridItem expanded={expanded} data={data} itemIdx={itemIdx} />;
   };
@@ -311,11 +312,12 @@ export default class MasonryContainer extends Component<Props, State> {
       <div id="gridWrapper" className="gridCentered" style={gridStyle}>
         <div id="top-sibling" />
         {mountGrid && (
+          // $FlowFixMe[incompatible-exact]
           <MasonryComponent
             ref={this.gridRef}
             renderItem={this.renderItem}
-            flexible={flexible}
             items={items}
+            layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
             virtualize={virtualize}
             columnWidth={columnWidth}

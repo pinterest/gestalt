@@ -17,9 +17,10 @@ export default function MessagingComponentsPage(): Node {
 The guidelines below aim to guide you on how to incorporate brand expression into the product, adding unique value to Pinners. They aren't intended to determine what specific surfaces must look like; instead, it is meant to illustrate the principles and general usage of brand expressions respecting usability and accessibility best practices.
 
 These guidelines will broadly align with the brand standards. Still, they will follow [our design principles](/get_started/about_us#Our-design-principles), and there are areas where they may diverge as our focus is brand expression specific to product UI rather than marketing materials and campaigns.
+
 We suggest continuously checking for comprehension and usability when bringing brand moments to the product.
 
-We suggest continuously checking for comprehension and usability when bringing brand moments to the product.`}
+`}
       />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>

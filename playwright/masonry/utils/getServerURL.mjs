@@ -12,6 +12,10 @@ const normalizeValue = (val) => {
 
 /*::
 type Options = ?{|
+  constrained?: boolean,
+  finiteLength?: boolean,
+  flexible?: boolean,
+  manualFetch?: boolean,
   offsetTop?: number,
   scrollContainer?: boolean,
   virtualize?: boolean,
