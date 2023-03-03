@@ -32,7 +32,7 @@
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/6f/78/28/6f7828f0bc19b821f819ea582af10e3e.png",
             "imageAltText": "examples of reaction, reactioncount and mweb unauth primary nav component",
-            "content": "We added some small, but mighty updates to our Figma libraries.\n * Reaction is, well, a reaction icon. We've migrated over to one component with each different sentiment as a variant.\n * ReactionCount is a new Figma component which provides a ready-to-use element for displaying reaction counts.\n * Lastly, we added a variant to our primary navigation component to cover the unath mWeb use case.\n\n Reaction and Reaction count are available for Android, iOS and Web whereas, the unauth primary nav variant (as expected) is only available for Web. "
+            "content": "We added some small, but mighty updates to our Figma libraries.\n * Reaction is, well, a reaction icon. We've migrated over to one component with each different sentiment as a variant.\n * ReactionCount is a new Figma component which provides a ready-to-use element for displaying reaction counts.\n * Lastly, we added a variant to our primary navigation component to cover the unath mWeb use case.\n\n Reaction and ReactionCount are available for Android, iOS and Web whereas, the unauth primary nav variant (as expected) is only available for Web. "
           }
         ]
       },
