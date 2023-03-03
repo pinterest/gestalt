@@ -1,3 +1,9 @@
+## 98.0.12 (Mar 3, 2023)
+
+### Patch
+
+- Docs: Weekly update for March 3, 2023 ([#2688](https://github.com/pinterest/gestalt/pull/2688)) - [Preview link](https://deploy-preview-2688--gestalt.netlify.app)
+
 ## 98.0.11 (Mar 3, 2023)
 
 ### Patch
