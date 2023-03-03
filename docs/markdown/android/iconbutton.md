@@ -41,8 +41,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 ## Design tokens
 
-Use these tokens for applying size and color styles to icon. 
-
+Use these tokens for applying size and color styles to IconButton.
 <br/>
 
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A18843%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
@@ -51,7 +50,7 @@ Use these tokens for applying size and color styles to icon.
 
 ## Anatomy
 
-IconButtons use icons instead of text to convey available actions on a screen. Some buttons are specialized for particular tasks, such as navigation or presenting menus. Icons(.svg viewbox) dimensions are the same for all icons regardless of the size of the vector asset inside of the container. See [Icon](/Android/icon) for more information.
+IconButtons use icons instead of text to convey available actions on a screen. Some buttons are specialized for particular tasks, such as navigation or presenting menus. Icons(.svg viewbox) dimensions are the same for all icons regardless of the size of the vector asset inside of the container. See [Icon](/android/icon) for more information.
 
 <br/>
 
@@ -77,11 +76,11 @@ IconButtons use icons instead of text to convey available actions on a screen. S
 
 **Size use cases** 
 
-1. **lg** **(44pt)**
+1. **lg** **(44dp)**
 Large is the only size that should be used on Pinner surfaces.
-2. **md** **(32pt)**
+2. **md** **(32dp)**
 Medium is the size used on more dense UI such as business surfaces or internal tools.
-3. **sm** **(24pt)**
+3. **sm** **(24dp)**
 Small IconButton should be used sparingly and only in places where the UI is very dense.
 
 ## Color
