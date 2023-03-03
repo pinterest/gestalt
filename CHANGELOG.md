@@ -1,3 +1,9 @@
+## 98.0.11 (Mar 3, 2023)
+
+### Patch
+
+- Internal: add `shuffle-items` Masonry integration test ([#2686](https://github.com/pinterest/gestalt/pull/2686)) - [Preview link](https://deploy-preview-2686--gestalt.netlify.app)
+
 ## 98.0.10 (Mar 3, 2023)
 
 ### Patch
