@@ -1,3 +1,9 @@
+## 98.0.14 (Mar 3, 2023)
+
+### Patch
+
+- Internal: add `update-scroll-container` Masonry integration test ([#2690](https://github.com/pinterest/gestalt/pull/2690)) - [Preview link](https://deploy-preview-2690--gestalt.netlify.app)
+
 ## 98.0.13 (Mar 3, 2023)
 
 ### Patch
