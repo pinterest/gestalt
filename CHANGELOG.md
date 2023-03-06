@@ -1,3 +1,9 @@
+## 98.0.20 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `optimized-remount` Masonry integration test ([#2697](https://github.com/pinterest/gestalt/pull/2697)) - [Preview link](https://deploy-preview-2697--gestalt.netlify.app)
+
 ## 98.0.19 (Mar 6, 2023)
 
 ### Patch
