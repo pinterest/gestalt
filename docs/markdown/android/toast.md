@@ -4,7 +4,7 @@ description: Toasts are brief and small messages that overlay content, but do no
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/e5/8e/8c/e58e8c184b155e9d9bc1d40657f1bc27.jpg" noPadding alt="an example of toast"/>
+<ImgContainer src="https://i.pinimg.com/originals/db/49/55/db4955bf701fc8d8b02df5db1b629553.jpg" noPadding alt="an example of toast"/>
 
 ## Usage guidelines
 
@@ -29,32 +29,32 @@ fullwidth: true
 ## Best practices
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/69/d5/3f/69d53f0b5e459aeca189acba1949111a.jpg" alt="example with toast with unblocking placement"/>
+    <ImgContainer src="https://i.pinimg.com/originals/ee/8b/93/ee8b939bf9ca14c16dc949732a8b5bc5.jpg" alt="example with toast with unblocking placement"/>
     <Do title="Do" />
-    Place Toasts out of the way so that a user can still navigate and complete tasks. Keep a bottom margin that is the same size as the left and right margins.
+    Place Toasts out of the way so that a user can still navigate and complete tasks. Keep a top or bottom margin that is the same size as the left and right margins.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/ae/9a/8bae9aff403a1a62baf18ea684eb8578.jpg" alt="example of with blocking placement"/>
+    <ImgContainer src="https://i.pinimg.com/originals/6f/68/22/6f68224ffbbee9c9a2e9b020a94b97f0.jpg" alt="example of with blocking placement"/>
     <Dont title="Don't" />
     Block navigation controls with Toasts or align too close to the edge of a navigation bar.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b4/eb/3d/b4eb3d14e0997ca8cfc6495f951880e0.jpg" alt="example of showing one toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/81/c4/2b/81c42b2997a7b892e689c929623744bb.jpg" alt="example of showing one toast"/>
     <Do title="Do" />
-    Show one Toast at a time, with errors and Acknowledgements taking priority.
+    Show one Toast at a time, with errors and acknowledgements taking priority.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/65/eb/4e/65eb4e3f85d7774955cfcd8f4d875d46.jpg" alt="example of showing multiple toasts"/>
+    <ImgContainer src="https://i.pinimg.com/originals/4c/0d/2c/4c0d2ce89a670ebb71d80885179898c8.jpg" alt="example of showing multiple toasts"/>
     <Dont title="Don't" />
     Stack multiple toasts as that will block the user.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/5d/78/fc/5d78fc69a86c9c70311719f6842feaf4.jpg" alt="example of a dismissible toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/ee/2d/1a/ee2d1acda7fb690b4a6de04ae2fc3d23.jpg" alt="example of a dismissible toast"/>
     <Do title="Do" />
-    Include a way to dismiss the toast when it is actionable or contains multiple lines of text. Mobile toasts can be dismissed via swiping on the toast in any direction.
+    Include a way to dismiss the toast when it is actionable or contains multiple lines of text. Mobile toasts can be dismissed via swiping up if placed on the top or down if placed on the bottom.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/32/66/29/326629104e4376649ed9c910516423c2.jpg" alt="example of leaving a toast on screen"/>
+    <ImgContainer src="https://i.pinimg.com/originals/46/66/2c/46662cf86e721af0d755f27100b05771.jpg" alt="example of leaving a toast on screen"/>
     <Dont title="Don't" />
     Leave toasts on screen for a long time without a way to dismiss. Exceptions are blocking error toasts where a user can’t take any action until the error is resolved.
   </Group>
@@ -79,13 +79,13 @@ Some people may take longer to read toasts than others due to aging, low vision,
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d9/eb/56/d9eb56243a337584cebbb57e293b3d7f.jpg" noPadding alt="default toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/ed/6c/59/ed6c59cc39e64ae6244cf1a3a4158d44.jpg" noPadding alt="default toast"/>
     
     **Default**
     A generic acknowledgment after an action is taken.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/7f/c3/0d/7fc30d26a72b1c23f71f685f5bfbfc51.jpg" noPadding alt="error toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/04/6f/e8/046fe8c42fbf51d4065515f793865205.jpg" noPadding alt="error toast"/>
    
     **Error**
     Used rarely for connection issues or unknown errors where we don’t want to completely block the users flow, but want the message to persist if the user goes to another surface. Providing a way to solve the error or get help is recommended.
@@ -97,13 +97,13 @@ Some people may take longer to read toasts than others due to aging, low vision,
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d9/eb/56/d9eb56243a337584cebbb57e293b3d7f.jpg" noPadding alt="text only toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/ed/6c/59/ed6c59cc39e64ae6244cf1a3a4158d44.jpg" noPadding alt="text only toast"/>
     
     **Text only**
-    A simple, generic acknowledgment after an action is taken These should not be actionable.
+    A simple, generic acknowledgment after an action is taken. These should not be actionable.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/17/59/a5/1759a50f10fc4a9540a689e7fd2a8f08.jpg" noPadding alt="toast with image"/>
+    <ImgContainer src="https://i.pinimg.com/originals/31/44/83/31448327246692115b4eb3546a2a26f4.jpg" noPadding alt="toast with image"/>
     
     **Image**
     With an image for Pin or Board actions.
@@ -111,7 +111,7 @@ Some people may take longer to read toasts than others due to aging, low vision,
 </TwoCol>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/f1/f8/25/f1f82544879acb868b88b5c6d1c5ee0d.jpg" noPadding alt="toast with avatar"/>
+    <ImgContainer src="https://i.pinimg.com/originals/7b/03/89/7b038920b2ff477c2b60935dccb87fbc.jpg" noPadding alt="toast with avatar"/>
     
     **Avatar**
     With an Avatar for Profile or Pinner-related messaging. An optional link can be included. When there’s a link on mWeb, the entire toast is tappable, using TapArea.
@@ -125,13 +125,13 @@ Some people may take longer to read toasts than others due to aging, low vision,
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/58/ab/9e/58ab9efbed6f56e9a0bfe85bd80edf5b.jpg" noPadding alt="toast with button"/>
+    <ImgContainer src="https://i.pinimg.com/originals/79/dd/04/79dd04506e8e3f17b4ecae1398ab2720.jpg" noPadding alt="toast with button"/>
     
     **Button**
     As a secondary element, to drive users to another surface, or change a recently completed action.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/17/59/a5/1759a50f10fc4a9540a689e7fd2a8f08.jpg" noPadding alt="toast with link"/>
+    <ImgContainer src="https://i.pinimg.com/originals/31/44/83/31448327246692115b4eb3546a2a26f4.jpg" noPadding alt="toast with link"/>
     
     **Link**
     As a secondary element, to drive users to another surface.
@@ -140,7 +140,7 @@ Some people may take longer to read toasts than others due to aging, low vision,
 
 ### Placement
 
-Placement is always centered at the top of the screen and not blocking any navigation or important buttons.
+Placement is always centered at the top or bottom of the screen and not blocking any navigation or important buttons.
 
 ## Writing
 
