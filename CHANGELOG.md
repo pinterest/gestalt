@@ -1,3 +1,9 @@
+## 98.0.18 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `no-scroll` Masonry integration test ([#2696](https://github.com/pinterest/gestalt/pull/2696)) - [Preview link](https://deploy-preview-2696--gestalt.netlify.app)
+
 ## 98.0.17 (Mar 6, 2023)
 
 ### Patch
