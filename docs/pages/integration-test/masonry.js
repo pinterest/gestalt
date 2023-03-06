@@ -29,6 +29,8 @@ export default function TestPage(): Node {
     offsetTop,
     scrollContainer,
     virtualize,
+    virtualBoundsTop,
+    virtualBoundsBottom,
   } = router.query;
 
   return (
@@ -45,6 +47,8 @@ export default function TestPage(): Node {
         offsetTop={offsetTop}
         scrollContainer={booleanize(scrollContainer)}
         virtualize={booleanize(virtualize)}
+        virtualBoundsTop={virtualBoundsTop}
+        virtualBoundsBottom={virtualBoundsBottom}
       />
     </ColorSchemeProvider>
   );

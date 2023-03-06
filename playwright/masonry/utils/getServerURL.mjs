@@ -20,6 +20,8 @@ type Options = ?{|
   offsetTop?: number,
   scrollContainer?: boolean,
   virtualize?: boolean,
+  virtualBoundsTop?: number,
+  virtualBoundsBottom?: number,
 |};
 */
 
