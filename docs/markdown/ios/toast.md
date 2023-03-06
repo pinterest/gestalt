@@ -100,7 +100,7 @@ Some people may take longer to read toasts than others due to aging, low vision,
     <ImgContainer src="https://i.pinimg.com/originals/fd/30/62/fd30629c36b5a2a799689e1fa33d9add.jpg" noPadding alt="text only toast"/>
     
     **Text only**
-    A simple, generic acknowledgment after an action is taken These should not be actionable.
+    A simple, generic acknowledgment after an action is taken. These should not be actionable.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/77/b6/1b/77b61ba14fa3aa95d8124994a387fc51.jpg" noPadding alt="toast with image"/>
