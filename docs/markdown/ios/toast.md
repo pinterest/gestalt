@@ -44,7 +44,7 @@ fullwidth: true
     Show one Toast at a time, with errors and acknowledgements taking priority.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b7/b5/e4/b7b5e40bdedd672f127c0ee625d5ff1c.jpg" alt="example of showing multiple toasts"/>
+    <ImgContainer src="https://i.pinimg.com/originals/00/c4/96/00c49608baafa2cd3eb0cd3f4bd5086a.jpg" alt="example of showing multiple toasts"/>
     <Dont title="Don't" />
     Stack multiple toasts as that will block the user.
   </Group>
