@@ -1,3 +1,9 @@
+## 98.0.16 (Mar 6, 2023)
+
+### Patch
+
+- Toast: Updates to iOS images in Docs ([#2692](https://github.com/pinterest/gestalt/pull/2692)) - [Preview link](https://deploy-preview-2692--gestalt.netlify.app)
+
 ## 98.0.15 (Mar 6, 2023)
 
 ### Patch
