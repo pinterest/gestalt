@@ -16,6 +16,7 @@ type Options = ?{|
   finiteLength?: boolean,
   flexible?: boolean,
   manualFetch?: boolean,
+  noScroll?: boolean,
   offsetTop?: number,
   scrollContainer?: boolean,
   virtualize?: boolean,
