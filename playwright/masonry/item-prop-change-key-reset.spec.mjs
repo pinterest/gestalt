@@ -38,7 +38,6 @@ test.describe('Masonry: Item prop change', () => {
     // Wait for the replaced item to be rendered as part of the layout.
     await page.waitForFunction(
       ({ selector }) => {
-        // $FlowFixMe[method-unbinding] flow 0.158.0 upgrade
         const items = [...document.querySelectorAll(selector)];
         return (
           // eslint-disable-next-line playwright/no-conditional-in-test
