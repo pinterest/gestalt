@@ -1,3 +1,9 @@
+## 98.0.19 (Mar 6, 2023)
+
+### Patch
+
+- IconButton: Update Android doc content and specs ([#2683](https://github.com/pinterest/gestalt/pull/2683)) - [Preview link](https://deploy-preview-2683--gestalt.netlify.app)
+
 ## 98.0.18 (Mar 6, 2023)
 
 ### Patch
