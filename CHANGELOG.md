@@ -1,3 +1,9 @@
+## 98.0.17 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `item-prop-change-key-reset` Masonry integration test ([#2695](https://github.com/pinterest/gestalt/pull/2695)) - [Preview link](https://deploy-preview-2695--gestalt.netlify.app)
+
 ## 98.0.16 (Mar 6, 2023)
 
 ### Patch
