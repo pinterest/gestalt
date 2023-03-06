@@ -22,6 +22,7 @@ export default function TestPage(): Node {
   const router = useRouter();
   const {
     constrained,
+    externalCache,
     finiteLength,
     flexible,
     manualFetch,
@@ -35,6 +36,7 @@ export default function TestPage(): Node {
     <ColorSchemeProvider colorScheme="light">
       <MasonryContainer
         constrained={booleanize(constrained)}
+        externalCache={booleanize(externalCache)}
         finiteLength={booleanize(finiteLength)}
         flexible={booleanize(flexible)}
         initialItems={generateExampleItems({ name: 'InitialPin' })}
