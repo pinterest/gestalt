@@ -25,6 +25,7 @@ export default function TestPage(): Node {
     finiteLength,
     flexible,
     manualFetch,
+    noScroll,
     offsetTop,
     scrollContainer,
     virtualize,
@@ -40,6 +41,7 @@ export default function TestPage(): Node {
         manualFetch={booleanize(manualFetch)}
         MasonryComponent={Masonry}
         measurementStore={measurementStore}
+        noScroll={booleanize(noScroll)}
         offsetTop={offsetTop}
         scrollContainer={booleanize(scrollContainer)}
         virtualize={booleanize(virtualize)}
