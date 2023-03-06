@@ -1,3 +1,9 @@
+## 98.0.15 (Mar 6, 2023)
+
+### Patch
+
+- Updates to Android toast images ([#2693](https://github.com/pinterest/gestalt/pull/2693)) - [Preview link](https://deploy-preview-2693--gestalt.netlify.app)
+
 ## 98.0.14 (Mar 3, 2023)
 
 ### Patch
