@@ -44,13 +44,17 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 ## Design tokens
 
-Use these tokens for applying size and color styles to icon.
+Use these tokens for applying size and color styles to Icon.
+
+<br/>
 
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D5057%253A18721%26t%3D5FK5Q8asTy0922qM-1" allowFullScreen></iframe>
 
 ## Anatomy
 
 Icon's container (.svg viewbox) dimensions are the same for all icons regardless of the size of the vector asset inside of the container.
+
+<br/>
 
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D5049%253A18918%26t%3D5FK5Q8asTy0922qM-1" allowFullScreen></iframe>
 
@@ -132,6 +136,8 @@ radio button (not an icon)
 - Start with the primary function first&mdash;instead of `circle-arrow`, use `arrow-circle`
 
 ## Writing
+
+For writing best practices, refer to the [content standards](/foundations/content_standards/ui_elements). 
 
 <TwoCol>
   <Group>

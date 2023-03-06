@@ -39,76 +39,79 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 [Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
+## Design tokens
+
+Use these tokens for applying size and color styles to IconButton.
+<br/>
+
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A18843%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+
+**Please note**: Icons on IconButton have a limited range of colors and sizes compared to regular icons, as they are different components and have particular usage cases. See Icon for additional information. 
+
+## Anatomy
+
+IconButtons use icons instead of text to convey available actions on a screen. Some buttons are specialized for particular tasks, such as navigation or presenting menus. Icons(.svg viewbox) dimensions are the same for all icons regardless of the size of the vector asset inside of the container. See [Icon](/android/icon) for more information.
+
+<br/>
+
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A18622%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+
+
 ## Variants
 
-### Size
+### Size 
 
-1. **lg** **(48pt)**
+**Size specs—Container** 
+
+<br/>
+
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19569%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+
+**Size specs—Icon** 
+
+<br/>
+
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19660%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+
+
+**Size use cases** 
+
+1. **lg** **(44dp)**
 Large is the only size that should be used on Pinner surfaces.
-2. **md** **(32pt)**
+2. **md** **(32dp)**
 Medium is the size used on more dense UI such as business surfaces or internal tools.
-3. **sm** **(24pt)**
+3. **sm** **(24dp)**
 Small IconButton should be used sparingly and only in places where the UI is very dense.
 
-<ThreeCol>
-<Group center>
-<ImgContainer src="https://i.pinimg.com/originals/30/fa/30/30fa30fd2e78a285efd2b81ef7cba745.png" alt="small IconButton" width={24} height={24} />
-**size = "sm"**
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/cd/6b/4f/cd6b4ffcd8254493c5a8da94b1d68e19.png" alt="medium IconButton" width={32} height={32} />
-**size = "md"**
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/04/af/d1/04afd13f2e6d2e3a659f133cf1c8b360.png" alt="large IconButton" width={48} height={48} />
-**size = "lg"**
-</Group>
-</ThreeCol>
+## Color
 
-### Elevation
+Icon colors are semantic—they have a specific meaning and aren't arbitrary. There is no disabled color for icons, as that is handled by the button state that an icon is in.
 
-1. **Flat**
-Flat components sit right on top of the background, with no elevation. Therefore they do not have a drop shadow. 
-2. **Floating**
-Floating components are lifted off of the background, with high-emphasis elevation. They present with a drop shadow which can serve as an affordance for scrolling behavior. 
+**Light mode** 
+<br/>
 
-<TwoCol>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/0f/f4/64/0ff464e1786066e63edc0501c9ad3e1b.png" width={64} height={64} alt="flat IconButton"/>
-**flat**
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/74/40/cc/7440cc4536f724c5e6c27fe6eadcb9c8.png" width={64} height={64} alt="floating IconButton"/>
-**floating**
-</Group>
-</TwoCol>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19752%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
-### Styling
-For information on color, icons, roles and states, refer to the [web IconButton documentation](/web/iconbutton). 
+**Dark mode** 
+<br/>
+
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19857%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+
+## Elevation
+
+For elevated IconButton, we suggest using the IconButtonFloating component (Android documentation in progress). See the [IconButtonFloating web](/web/IconButtonFloating) for reference.
 
 ## Writing
 
-For writing best practices, refer to the [web IconButton documentation](/web/iconbutton). 
+For writing best practices, refer to the [content standards](/foundations/content_standards/ui_elements). 
 
-## Related
-
-<ThreeCol>
-  <IllustrationCard
-  title="Button"
-  description="Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it."
-  color="teal-spabattical-450"
-  image="button"
-  />
-  <IllustrationCard
-  title="Icon"
-  description="IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt Icon library."
-  color="teal-spabattical-450"
-  image="icon"
-  />
-  <IllustrationCard
-  title="Dropdown"
-  description="It's most common to anchor Dropdown to Button or IconButton."
-  color="teal-spabattical-450"
-  image="dropdown"
-  />
-</ThreeCol>
+<TwoCol>
+  <Group>
+    <Do title="Do" />
+    - Use a descriptive label to describe the IconButton action by beginning with a verb
+  </Group>
+  <Group>
+    <Dont title="Don't" />
+    - Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit"
+  </Group>
+</TwoCol>
