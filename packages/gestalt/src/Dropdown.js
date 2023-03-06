@@ -123,6 +123,7 @@ type Props = {|
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
 |};
 
 /**
@@ -141,6 +142,7 @@ export default function Dropdown({
   idealDirection = 'down',
   onDismiss,
   zIndex,
+  __dangerouslyIgnoreScrollBoundaryContainerSize = false,
 }: Props): Node {
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
@@ -220,8 +222,18 @@ export default function Dropdown({
       role="menu"
       shouldFocus
       size="xl"
+      __dangerouslyIgnoreScrollBoundaryContainerSize={
+        __dangerouslyIgnoreScrollBoundaryContainerSize
+      }
     >
-      <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
+      <Box
+        alignItems="center"
+        direction="column"
+        display="flex"
+        flex="grow"
+        margin={2}
+        maxHeight={__dangerouslyIgnoreScrollBoundaryContainerSize ? '30vh' : 'auto'}
+      >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
         <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>

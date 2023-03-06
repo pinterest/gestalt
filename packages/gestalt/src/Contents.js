@@ -45,6 +45,7 @@ type OwnProps = {|
   shouldFocus?: boolean,
   triggerRect: ?ClientRect,
   width: ?number,
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
 |};
 
 type HookProps = {|
@@ -207,10 +208,16 @@ class Contents extends Component<Props, State> {
       return { top: null, height: null };
     }
 
-    const { positionRelativeToAnchor } = this.props;
+    const {
+      __dangerouslyIgnoreScrollBoundaryContainerSize,
+      scrollBoundaryContainerRef,
+      positionRelativeToAnchor,
+    } = this.props;
 
     // Define the height based the reference to render: ScrollBoundaryContainer or screen viewport
-    const height = window.innerHeight ?? 0;
+    let height = window.innerHeight ?? 0;
+    if (__dangerouslyIgnoreScrollBoundaryContainerSize) height = window.innerHeight ?? 0;
+    else height = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
 
     // 5% of height available
     const top = (height / 10) * 0.5;

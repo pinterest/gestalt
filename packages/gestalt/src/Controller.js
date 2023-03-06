@@ -30,6 +30,7 @@ type OwnProps = {|
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
 |};
 
 type HookProps = {|
@@ -150,6 +151,10 @@ class Controller extends Component<Props, State> {
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
           width={width}
+          __dangerouslyIgnoreScrollBoundaryContainerSize={
+            // eslint-disable-next-line no-underscore-dangle
+            this.props.__dangerouslyIgnoreScrollBoundaryContainerSize
+          }
         >
           {children}
         </Contents>
