@@ -13,6 +13,7 @@ const normalizeValue = (val) => {
 /*::
 type Options = ?{|
   constrained?: boolean,
+  externalCache?: boolean,
   finiteLength?: boolean,
   flexible?: boolean,
   manualFetch?: boolean,
