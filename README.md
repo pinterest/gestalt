@@ -94,5 +94,5 @@ yarn add @types/gestalt
 
 ### Troubleshooting
 
-Take a look at our [FAQ](https://gestalt.pinterest.systems/get_started/faq)
+Take a look at our [FAQ](https://gestalt.pinterest.systems/get_started/faq) section if you run into any development problems
 
