@@ -116,6 +116,10 @@ type Props = {|
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
+   *  Define a controlled size to dropdown's Popover.
+   */
+  maxHeight?: '30vh',
+  /**
    * Callback fired when the menu is closed.
    */
   onDismiss: () => void,
@@ -141,6 +145,7 @@ export default function Dropdown({
   idealDirection = 'down',
   onDismiss,
   zIndex,
+  maxHeight,
 }: Props): Node {
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
@@ -220,8 +225,16 @@ export default function Dropdown({
       role="menu"
       shouldFocus
       size="xl"
+      __dangerouslySetMaxHeight={maxHeight}
     >
-      <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
+      <Box
+        alignItems="center"
+        direction="column"
+        display="flex"
+        flex="grow"
+        margin={2}
+        maxHeight={maxHeight}
+      >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
         <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
