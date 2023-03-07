@@ -28,10 +28,14 @@ const componentIndexMap = componentIndex.forEach((cmp, idx) => componentMap.set(
 // Get all files before filtering them out by exported component
 const files = glob.sync('./packages/gestalt/src/**/*.js', {
   root: './',
-  ignore: ['./packages/gestalt/src/**/*.*test*.js', './packages/gestalt/src/**/index.js'],
+  ignore: ['./packages/gestalt/src/**/*.*test*.js'],
 });
 
-const TYPESCRIPT_DIRECTORY = './packages/gestalt/typescript';
+const GESTALT_DIRECTORY = './packages/gestalt/';
+
+const TYPESCRIPT_DIRECTORY = `${GESTALT_DIRECTORY}typescript`;
+
+const DECLARATION_DIRECTORY = `${GESTALT_DIRECTORY}declarations`;
 
 // Create typescript directory iF doesn't exist
 if (!fs.existsSync(TYPESCRIPT_DIRECTORY)) {
@@ -41,9 +45,7 @@ if (!fs.existsSync(TYPESCRIPT_DIRECTORY)) {
 files.forEach((file) => {
   const NAME = file.split('/')[file.split('/').length - 1].replace('.js', '');
 
-  if (componentMap.has(NAME)) {
-    console.log('kssjdsdjjh');
-
+  if (componentMap.has(NAME) || NAME === 'index') {
     const FILE_NAME = NAME.concat('.ts');
 
     const flowCode = fs.readFileSync(file, 'utf-8');
@@ -90,7 +92,7 @@ const tsFiles = glob.sync(`${TYPESCRIPT_DIRECTORY}/*.ts`);
 const tsOptions = {
   declaration: true,
   emitDeclarationOnly: true,
-  declarationDir: 'declarations',
+  declarationDir: DECLARATION_DIRECTORY,
 };
 
 const program = ts.createProgram(tsFiles, tsOptions);
