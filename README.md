@@ -91,3 +91,8 @@ Or via yarn:
 ```bash
 yarn add @types/gestalt
 ```
+
+### Troubleshooting
+
+Take a look at our [FAQ](https://gestalt.pinterest.systems/get_started/faq)
+
