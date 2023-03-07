@@ -216,8 +216,8 @@ class Contents extends Component<Props, State> {
 
     // Define the height based the reference to render: ScrollBoundaryContainer or screen viewport
     let height = window.innerHeight ?? 0;
-    if (!__dangerouslyIgnoreScrollBoundaryContainerSize) {
-      height = scrollBoundaryContainerRef?.offsetHeight ?? window.innerHeight ?? 0;
+    if (!__dangerouslyIgnoreScrollBoundaryContainerSize && scrollBoundaryContainerRef) {
+      height = scrollBoundaryContainerRef.offsetHeight;
     }
 
     // 5% of height available

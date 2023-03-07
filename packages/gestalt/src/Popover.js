@@ -72,7 +72,8 @@ type Props = {|
    * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/web/popover#Size) variant to learn more.
    */
   size?: Size,
-  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
+  // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
+  __dangerouslySetMaxHeight?: '30vh',
 |};
 
 /**
@@ -100,7 +101,7 @@ export default function Popover({
   shouldFocus = true,
   showCaret = false,
   size = 'sm',
-  __dangerouslyIgnoreScrollBoundaryContainerSize,
+  __dangerouslySetMaxHeight,
 }: Props): null | Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -131,9 +132,7 @@ export default function Popover({
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
-      __dangerouslyIgnoreScrollBoundaryContainerSize={
-        __dangerouslyIgnoreScrollBoundaryContainerSize
-      }
+      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
     >
       {showDismissButton ? (
         <Flex direction="column">

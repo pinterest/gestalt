@@ -116,6 +116,10 @@ type Props = {|
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   /**
+   *  Define a controlled size to dropdown's Popover.
+   */
+  maxHeight?: '30vh',
+  /**
    * Callback fired when the menu is closed.
    */
   onDismiss: () => void,
@@ -123,7 +127,6 @@ type Props = {|
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
 |};
 
 /**
@@ -142,7 +145,7 @@ export default function Dropdown({
   idealDirection = 'down',
   onDismiss,
   zIndex,
-  __dangerouslyIgnoreScrollBoundaryContainerSize = false,
+  maxHeight,
 }: Props): Node {
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
@@ -222,9 +225,7 @@ export default function Dropdown({
       role="menu"
       shouldFocus
       size="xl"
-      __dangerouslyIgnoreScrollBoundaryContainerSize={
-        __dangerouslyIgnoreScrollBoundaryContainerSize
-      }
+      __dangerouslySetMaxHeight={maxHeight}
     >
       <Box
         alignItems="center"
@@ -232,7 +233,7 @@ export default function Dropdown({
         display="flex"
         flex="grow"
         margin={2}
-        maxHeight={__dangerouslyIgnoreScrollBoundaryContainerSize ? '30vh' : 'auto'}
+        maxHeight={maxHeight}
       >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 

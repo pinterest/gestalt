@@ -127,6 +127,7 @@ class Controller extends Component<Props, State> {
       rounding,
       shouldFocus,
       size,
+      __dangerouslyIgnoreScrollBoundaryContainerSize,
     } = this.props;
     const { relativeOffset, triggerBoundingRect } = this.state;
 
@@ -152,8 +153,7 @@ class Controller extends Component<Props, State> {
           triggerRect={triggerBoundingRect}
           width={width}
           __dangerouslyIgnoreScrollBoundaryContainerSize={
-            // eslint-disable-next-line no-underscore-dangle
-            this.props.__dangerouslyIgnoreScrollBoundaryContainerSize
+            __dangerouslyIgnoreScrollBoundaryContainerSize
           }
         >
           {children}
