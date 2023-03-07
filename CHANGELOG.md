@@ -1,3 +1,9 @@
+## 98.0.23 (Mar 7, 2023)
+
+### Patch
+
+- Dropdown, Popover: Add `maxHeight` prop ([#2675](https://github.com/pinterest/gestalt/pull/2675)) - [Preview link](https://deploy-preview-2675--gestalt.netlify.app)
+
 ## 98.0.22 (Mar 7, 2023)
 
 ### Patch
