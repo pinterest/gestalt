@@ -11,6 +11,7 @@ include_warnings=true
 inference_mode=constrain_writes
 react.runtime=automatic
 sharedmemory.hash_table_pow=21
+module.name_mapper.extension='ts' -> 'empty/object'
 
 [libs]
 flow-typed
