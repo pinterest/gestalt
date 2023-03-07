@@ -1,3 +1,9 @@
+## 98.0.22 (Mar 7, 2023)
+
+### Patch
+
+- Internal: add `virtual-bounds-visibility` Masonry integration test ([#2699](https://github.com/pinterest/gestalt/pull/2699)) - [Preview link](https://deploy-preview-2699--gestalt.netlify.app)
+
 ## 98.0.21 (Mar 7, 2023)
 
 ### Patch
