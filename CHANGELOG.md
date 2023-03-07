@@ -1,3 +1,9 @@
+## 98.0.24 (Mar 7, 2023)
+
+### Patch
+
+- Divider: fix docs format ([#2701](https://github.com/pinterest/gestalt/pull/2701)) - [Preview link](https://deploy-preview-2701--gestalt.netlify.app)
+
 ## 98.0.23 (Mar 7, 2023)
 
 ### Patch
