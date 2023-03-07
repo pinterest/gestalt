@@ -1,3 +1,9 @@
+## 98.0.21 (Mar 7, 2023)
+
+### Patch
+
+- Internal: add `virtualization-with-scroll-container` Masonry integration test ([#2698](https://github.com/pinterest/gestalt/pull/2698)) - [Preview link](https://deploy-preview-2698--gestalt.netlify.app)
+
 ## 98.0.20 (Mar 6, 2023)
 
 ### Patch
