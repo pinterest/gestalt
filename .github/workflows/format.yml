@@ -17,10 +17,13 @@ jobs:
         with:
           node-version: '18.x'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn add prettier
       - name: Run Formatter
         run: yarn format
-
+      - name: Set Author Details
+        run: |
+            git config --global user.email "rlingineni@pinterest.com"
+            git config --global user.name "Gestalt Formatter"
       - name: Commit changes
         run: |
           git add -A
