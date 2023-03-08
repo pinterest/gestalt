@@ -1,3 +1,9 @@
+## 98.0.25 (Mar 8, 2023)
+
+### Patch
+
+- Internal: turn off `import/no-relative-parent-imports` lint rule ([#2706](https://github.com/pinterest/gestalt/pull/2706)) - [Preview link](https://deploy-preview-2706--gestalt.netlify.app)
+
 ## 98.0.24 (Mar 7, 2023)
 
 ### Patch
