@@ -22,6 +22,7 @@ export default function TestPage(): Node {
   const router = useRouter();
   const {
     constrained,
+    externalCache,
     finiteLength,
     flexible,
     manualFetch,
@@ -29,12 +30,15 @@ export default function TestPage(): Node {
     offsetTop,
     scrollContainer,
     virtualize,
+    virtualBoundsTop,
+    virtualBoundsBottom,
   } = router.query;
 
   return (
     <ColorSchemeProvider colorScheme="light">
       <MasonryContainer
         constrained={booleanize(constrained)}
+        externalCache={booleanize(externalCache)}
         finiteLength={booleanize(finiteLength)}
         flexible={booleanize(flexible)}
         initialItems={generateExampleItems({ name: 'InitialPin' })}
@@ -45,6 +49,8 @@ export default function TestPage(): Node {
         offsetTop={offsetTop}
         scrollContainer={booleanize(scrollContainer)}
         virtualize={booleanize(virtualize)}
+        virtualBoundsTop={virtualBoundsTop}
+        virtualBoundsBottom={virtualBoundsBottom}
       />
     </ColorSchemeProvider>
   );

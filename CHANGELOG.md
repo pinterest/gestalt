@@ -1,3 +1,33 @@
+## 98.0.24 (Mar 7, 2023)
+
+### Patch
+
+- Divider: fix docs format ([#2701](https://github.com/pinterest/gestalt/pull/2701)) - [Preview link](https://deploy-preview-2701--gestalt.netlify.app)
+
+## 98.0.23 (Mar 7, 2023)
+
+### Patch
+
+- Dropdown, Popover: Add `maxHeight` prop ([#2675](https://github.com/pinterest/gestalt/pull/2675)) - [Preview link](https://deploy-preview-2675--gestalt.netlify.app)
+
+## 98.0.22 (Mar 7, 2023)
+
+### Patch
+
+- Internal: add `virtual-bounds-visibility` Masonry integration test ([#2699](https://github.com/pinterest/gestalt/pull/2699)) - [Preview link](https://deploy-preview-2699--gestalt.netlify.app)
+
+## 98.0.21 (Mar 7, 2023)
+
+### Patch
+
+- Internal: add `virtualization-with-scroll-container` Masonry integration test ([#2698](https://github.com/pinterest/gestalt/pull/2698)) - [Preview link](https://deploy-preview-2698--gestalt.netlify.app)
+
+## 98.0.20 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `optimized-remount` Masonry integration test ([#2697](https://github.com/pinterest/gestalt/pull/2697)) - [Preview link](https://deploy-preview-2697--gestalt.netlify.app)
+
 ## 98.0.19 (Mar 6, 2023)
 
 ### Patch
