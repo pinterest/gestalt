@@ -16,7 +16,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '18.x'
-      - run: yarn format
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run Formatter
+        run: yarn format
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
