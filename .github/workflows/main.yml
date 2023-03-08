@@ -1,7 +1,11 @@
 name: Format Files
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
+permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
 jobs:
   format:
     runs-on: ubuntu-latest
@@ -11,7 +15,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '18.x'
       - run: yarn format
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
