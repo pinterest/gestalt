@@ -16,8 +16,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '18.x'
-      - name: Install dependencies
-        run: yarn workspace gestalt-docs add prettier
+      - name: Install Prettier
+        run: npm install -g prettier@2.8.0
       - name: Run Formatter
         run: yarn format
       - name: Set Author Details
