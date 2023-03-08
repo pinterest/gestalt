@@ -5,9 +5,9 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
 
-export default function MessagingPrinciples(): Node {
+export default function MessagingOverview(): Node {
   return (
-    <Page title="Messaging principles">
+    <Page title="Messaging overview">
       <PageHeader
         badge="pilot"
         name="Messaging overview"
