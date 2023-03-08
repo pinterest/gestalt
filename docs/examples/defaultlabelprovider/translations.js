@@ -44,6 +44,9 @@ const labels = {
   },
   Toast: {
     accessibilityDismissButtonLabel: myI18nTranslator('Close toast'),
+    accessibilityIconSuccessLabel: myI18nTranslator('Success message'),
+    accessibilityIconErrorLabel: myI18nTranslator('Error message'),
+    accessibilityProcessingLabel: myI18nTranslator('Processing message'),
   },
 };
 

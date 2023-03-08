@@ -24,14 +24,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </Link>
       </Text>
     }
-    thumbnail={
+    thumbnail={{ image:
       <Image
         alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
       />
-    }
+    }}
   />
 `}
       />
@@ -113,14 +113,14 @@ function ToastExample() {
                   </Link>
                 </Text>
               }
-              thumbnail={
+              thumbnail={{ image:
                 <Image
                   alt="Modern ceramic vase pin."
                   naturalHeight={564}
                   naturalWidth={564}
                   src="https://i.ibb.co/Lx54BCT/stock1.jpg"
                 />
-              }
+              }}
             />
           </Box>
         </Layer>
@@ -165,14 +165,14 @@ If  confirmation toast's text with more complex style is required, such as bold 
   <Toast
     text="Your account admin rights were successfully saved"
     primaryAction={{ accessibilityLabel: 'Undo', label: 'Undo' }}
-    thumbnail={
+    thumbnail={{ image:
       <Image
         alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
       />
-    }
+    }}
   />
   <Toast
     text="Your account admin rights were successfully saved."
@@ -186,7 +186,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
 </Flex>
 `}
           />
-          helperLink
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Primary action">
@@ -262,11 +261,11 @@ If  confirmation toast's text with more complex style is required, such as bold 
   <Toast
     button={<Button key="button-key" text="Undo" size="lg" />}
     text="Save the link from your clipboard?"
-    thumbnail={{
-      icon: ( <Icon
+    thumbnail={{ icon:
+      <Icon
         accessibilityLabel="Go to next steps"
         icon="link"
-      /> )
+      />
     }}
   />
   <Toast
@@ -278,23 +277,23 @@ If  confirmation toast's text with more complex style is required, such as bold 
     }}
     button={<Button key="button-key" text="Undo" size="lg" />}
     text="Saved to"
-    thumbnail={{
-      image: ( <Image
+    thumbnail={{ image:
+      <Image
         alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-      /> )
+      />
     }}
   />
   <Toast
     button={<Button key="button-key" text="Undo" size="lg" />}
     text="Switched to Silverio Ibrahim"
-    thumbnail={{
-      avatar: ( <Avatar
+    thumbnail={{ avatar:
+      <Avatar
         src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
         name="Keerthi"
-      /> )
+      />
     }}
   />
 </Flex>

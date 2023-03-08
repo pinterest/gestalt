@@ -41,7 +41,7 @@ type Props = {|
  */
 export default function Spinner({
   accessibilityLabel,
-  color = 'default',
+  color = 'subtle',
   delay = true,
   show,
   size = 'md',

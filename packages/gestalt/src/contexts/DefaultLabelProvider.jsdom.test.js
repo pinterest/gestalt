@@ -51,6 +51,9 @@ describe('useDefaultLabelContext', () => {
           },
           Toast: {
             accessibilityDismissButtonLabel: 'Close toast',
+            accessibilityIconSuccessLabel: 'Success message',
+            accessibilityIconErrorLabel: 'Error message',
+            accessibilityProcessingLabel: 'Processing message',
           },
         }}
       >

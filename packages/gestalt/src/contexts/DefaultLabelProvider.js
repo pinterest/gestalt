@@ -49,6 +49,9 @@ export type DefaultLabelContextType = {|
   |},
   Toast: {|
     accessibilityDismissButtonLabel: string,
+    accessibilityIconSuccessLabel: string,
+    accessibilityIconErrorLabel: string,
+    accessibilityProcessingLabel: string,
   |},
 |};
 
@@ -88,6 +91,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Toast: {
     accessibilityDismissButtonLabel: 'Close toast',
+    accessibilityIconSuccessLabel: 'Success message',
+    accessibilityIconErrorLabel: 'Error message',
+    accessibilityProcessingLabel: 'Processing message',
   },
 };
 

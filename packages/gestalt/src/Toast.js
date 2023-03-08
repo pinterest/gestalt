@@ -83,7 +83,7 @@ type Props = {|
    */
   text: string | Element<typeof Text>,
   /**
-   * An optional thumbnail image to displayed next to the text.
+   * An optional thumbnail to display next to the text.
    */
   thumbnail?:
     | {| image: Element<typeof Image> |}
@@ -92,7 +92,7 @@ type Props = {|
   /**
    * See the [type variant](https://gestalt.pinterest.systems/web/toast#Type) to learn more.
    */
-  type?: 'success' | 'error' | 'progress',
+  type?: 'default' | 'success' | 'error' | 'progress',
 |};
 
 /**
@@ -109,7 +109,7 @@ export default function Toast({
   primaryAction,
   text,
   thumbnail,
-  type,
+  type = 'default',
 }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -132,6 +132,7 @@ export default function Toast({
       : styles.textColorOverrideLight;
 
     if (type === 'error') {
+      // Error type enforces bold weight
       textColorOverrideStyles = styles.textErrorColorOverrideLight;
     }
 
@@ -141,15 +142,16 @@ export default function Toast({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Toast');
 
-  const { containerColor, textColor, iconColor } = COLORS_BY_TYPE[type ?? 'default'];
+  const { containerColor, textColor, iconColor } = COLORS_BY_TYPE[type];
 
-  const isNeutralToast = type === undefined;
+  const isDefaultToast = type === 'default';
+  const isNotDefaultToast = ['success', 'error', 'progress'].includes(type);
 
   return (
     <div className={styles.toast} role="status">
       <Box color={containerColor} paddingX={4} paddingY={3} width="100%" rounding={4}>
         <Flex alignItems="center" gap={4}>
-          {isNeutralToast &&
+          {isDefaultToast &&
           !!thumbnail?.image &&
           Children.only(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
@@ -157,7 +159,7 @@ export default function Toast({
             </Flex.Item>
           ) : null}
 
-          {isNeutralToast &&
+          {isDefaultToast &&
           !!thumbnail?.icon &&
           Children.only(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
@@ -165,7 +167,7 @@ export default function Toast({
             </Flex.Item>
           ) : null}
 
-          {isNeutralToast &&
+          {isDefaultToast &&
           !!thumbnail?.avatar &&
           Children.only(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
@@ -173,7 +175,7 @@ export default function Toast({
             </Flex.Item>
           ) : null}
 
-          {type ? (
+          {isNotDefaultToast ? (
             <Flex.Item flex="none">
               <ToastTypeThumbnail type={type} />
             </Flex.Item>
@@ -214,7 +216,7 @@ export default function Toast({
               <InternalDismissButton
                 iconColor={iconColor}
                 accessibilityLabel={
-                  dismissButton?.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
+                  dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
                 }
                 onClick={dismissButton.onDismiss}
                 size="xs"

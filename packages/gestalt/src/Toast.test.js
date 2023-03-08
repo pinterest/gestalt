@@ -76,7 +76,7 @@ describe('<Toast />', () => {
             </Link>
           </Text>
         }
-        primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+        primaryAction={{ accessibilityLabel: 'Undo undo action', label: 'Undo', size: 'lg' }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

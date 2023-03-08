@@ -13,10 +13,12 @@ import Text from './Text.js';
 import Link from './Link.js';
 import Icon from './Icon.js';
 import Avatar from './Avatar.js';
+import Box from './Box.js';
 import Mask from './Mask.js';
 import Image from './Image.js';
 import Spinner from './Spinner.js';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
@@ -40,7 +42,7 @@ export function ToastMessage({
       dangerouslyDisableOnNavigation: () => void,
     |}) => void,
   |},
-  type?: 'success' | 'error' | 'progress',
+  type: 'default' | 'success' | 'error' | 'progress',
 |}): Node {
   const isError = type === 'error';
   const textRef = useRef(null);
@@ -122,28 +124,35 @@ export function ToastMessage({
   );
 }
 
-export function ToastImageThumbnail({ thumbnail }: {| thumbnail: ?Element<typeof Image> |}): Node {
+export function ToastImageThumbnail({ thumbnail }: {| thumbnail: Element<typeof Image> |}): Node {
   return (
-    <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
-      {thumbnail}
-    </Mask>
+    <Box aria-hidden>
+      <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
+        {thumbnail}
+      </Mask>
+    </Box>
   );
 }
 
-export function ToastIconThumbnail({ thumbnail }: {| thumbnail: ?Element<typeof Icon> |}): Node {
-  return thumbnail && cloneElement(thumbnail, { size: SIZE_ICON, color: 'inverse' });
+export function ToastIconThumbnail({ thumbnail }: {| thumbnail: Element<typeof Icon> |}): Node {
+  return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON, color: 'inverse' })}</Box>;
 }
 
-export function ToastAvatarThumbnail({
-  thumbnail,
+export function ToastAvatarThumbnail({ thumbnail }: {| thumbnail: Element<typeof Avatar> |}): Node {
+  return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
+}
+
+export function ToastTypeThumbnail({
+  type,
 }: {|
-  thumbnail: ?Element<typeof Avatar>,
+  type: 'default' | 'success' | 'error' | 'progress',
 |}): Node {
-  return thumbnail && cloneElement(thumbnail, { size: 'sm' });
-}
-
-export function ToastTypeThumbnail({ type }: {| type?: 'success' | 'error' | 'progress' |}): Node {
   const { name: colorSchemeName } = useColorScheme();
+  const {
+    accessibilityIconSuccessLabel,
+    accessibilityIconErrorLabel,
+    accessibilityProcessingLabel,
+  } = useDefaultLabelContext('Toast');
 
   return (
     <Fragment>
@@ -151,7 +160,7 @@ export function ToastTypeThumbnail({ type }: {| type?: 'success' | 'error' | 'pr
         <Icon
           color="inverse"
           icon="workflow-status-problem"
-          accessibilityLabel="problem"
+          accessibilityLabel={accessibilityIconErrorLabel}
           size={SIZE_ICON}
         />
       ) : null}
@@ -163,13 +172,13 @@ export function ToastTypeThumbnail({ type }: {| type?: 'success' | 'error' | 'pr
           <Icon
             color="success"
             icon="workflow-status-ok"
-            accessibilityLabel="success"
+            accessibilityLabel={accessibilityIconSuccessLabel}
             size={SIZE_ICON}
           />
         </ColorSchemeProvider>
       ) : null}
       {type === 'progress' ? (
-        <Spinner accessibilityLabel="progress" color="default" show size="sm" />
+        <Spinner accessibilityLabel={accessibilityProcessingLabel} color="default" show size="sm" />
       ) : null}
     </Fragment>
   );
