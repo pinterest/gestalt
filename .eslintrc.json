@@ -57,7 +57,7 @@
     "import/no-anonymous-default-export": "error",
     "import/no-extraneous-dependencies": "off",
     "import/no-namespace": "error",
-    "import/no-relative-parent-imports": "error",
+    "import/no-relative-parent-imports": "off",
     "import/no-unresolved": "off",
     "jsx-a11y/label-has-associated-control": [
       "error",
