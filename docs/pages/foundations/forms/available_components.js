@@ -7,8 +7,10 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import main from '../../../examples/combobox/main.js';
+import ref from '../../../examples/numberfield/main.js';
 
 const PREVIEW_HEIGHT = 320;
+const previewHeightPx = 235;
 
 export default function FormComponentsPage(): Node {
   return (
@@ -88,6 +90,24 @@ export default function FormComponentsPage(): Node {
           </Text>
         </Flex>
       </MainSection>
+
+      <MainSection name="NumberField">
+        <SandpackExample
+          code={ref}
+          hideEditor
+          name="Main NumberField Example"
+          previewHeight={previewHeightPx}
+        />
+        <Flex direction="column" gap={4}>
+          <Text>NumberField allows for numerical input only.</Text>
+
+          <Text>
+            <Link href="/web/numberfield" underline="always">
+              Go to the NumberField component
+            </Link>
+          </Text>
+        </Flex>
+      </MainSection>
       <MainSection name="Fieldset">
         <Example
           id="fieldsetExample"
@@ -160,8 +180,8 @@ export default function FormComponentsPage(): Node {
         />
         <Flex direction="column" gap={4}>
           <Text>
-            ComboBoxComboBox is the combination of a Textfield and an associated Dropdown that
-            allows the user to filter a list when selecting an option.
+            ComboBox is the combination of a Textfield and an associated Dropdown that allows the
+            user to filter a list when selecting an option.
           </Text>
           <Text>
             <Link href="/web/combobox" underline="always">

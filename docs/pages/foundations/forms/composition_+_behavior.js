@@ -182,16 +182,15 @@ export default function CompositionBehaviorPage(): Node {
           Vertical spacing helps define sections within forms and improves scannability. We recommend:
             - 40 px between form sections
             - 32 px between elements in a section
-            - 48 px between the last element and submission buttons
             `}
           />
           <Box maxWidth={672} maxHeight={1347} borderStyle="sm" rounding={4}>
             <Mask rounding={4}>
               <Image
-                alt="A form in a modal with the buttons end-aligned consistent with other overlays."
+                alt="Vertical spacing in forms."
                 naturalHeight={4041}
                 naturalWidth={2016}
-                src="https://i.pinimg.com/originals/3c/98/4d/3c984dee5678445faddda09b01777c6b.png"
+                src="https://i.pinimg.com/originals/4f/38/0d/4f380dab1e0ce72f9de248a9d7e3de48.png"
               />
             </Mask>
           </Box>
