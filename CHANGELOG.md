@@ -1,3 +1,9 @@
+## 100.0.1 (Mar 9, 2023)
+
+### Patch
+
+- Internal: moved OverlayPanel files into nested folders ([#2708](https://github.com/pinterest/gestalt/pull/2708)) - [Preview link](https://deploy-preview-2708--gestalt.netlify.app)
+
 ## 100.0.0 (Mar 9, 2023)
 
 ### Major
