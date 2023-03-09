@@ -1,3 +1,9 @@
+## 101.0.0 (Mar 9, 2023)
+
+### Major
+
+- Toast, Spinner, DefaultLabelProvider: new component features from new redesign, new `color` prop for Spinner, new labels to DefaultLabelProvider ([#2525](https://github.com/pinterest/gestalt/pull/2525)) - [Preview link](https://deploy-preview-2525--gestalt.netlify.app)
+
 ## 100.0.2 (Mar 9, 2023)
 
 ### Patch
