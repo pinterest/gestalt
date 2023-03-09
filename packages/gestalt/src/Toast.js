@@ -10,7 +10,7 @@ import Image from './Image.js';
 import Avatar from './Avatar.js';
 import styles from './Toast.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import ToastPrimaryAction from './ToastPrimaryAction.js';
+import PrimaryAction from './Toast/PrimaryAction.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import {
   ToastImageThumbnail,
@@ -18,7 +18,7 @@ import {
   ToastAvatarThumbnail,
   ToastTypeThumbnail,
   ToastMessage,
-} from './ToastComponents.js';
+} from './Toast/subcomponents.js';
 import InternalDismissButton from './InternalDismissButton.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
@@ -198,7 +198,7 @@ export default function Toast({
               {!_dangerouslySetPrimaryAction &&
               primaryAction?.accessibilityLabel &&
               primaryAction?.label ? (
-                <ToastPrimaryAction
+                <PrimaryAction
                   accessibilityLabel={primaryAction.accessibilityLabel}
                   href={primaryAction.href}
                   rel={primaryAction?.rel}
