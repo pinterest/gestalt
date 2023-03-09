@@ -2,22 +2,22 @@
 
 import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
-import { ESCAPE } from './keyCodes.js';
+import { ESCAPE } from '../keyCodes.js';
 import { useAnimation } from './AnimationContext.js';
-import Box from './Box.js';
-import Backdrop from './Backdrop.js';
-import Flex from './Flex.js';
-import focusStyles from './Focus.css';
-import Heading from './Heading.js';
-import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
-import InternalDismissButton from './InternalDismissButton.js';
-import OverlayPanelConfirmationPopover from './OverlayPanelConfirmationPopover.js';
-import overlayPanelStyles from './OverlayPanel.css';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
-import { FixedZIndex } from './zIndex.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import Box from '../Box.js';
+import Backdrop from '../Backdrop.js';
+import Flex from '../Flex.js';
+import focusStyles from '../Focus.css';
+import Heading from '../Heading.js';
+import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
+import InternalDismissButton from '../InternalDismissButton.js';
+import ConfirmationPopover from './ConfirmationPopover.js';
+import overlayPanelStyles from '../OverlayPanel.css';
+import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
+import InternalScrollBoundaryContainer from '../ScrollBoundaryContainerWithForwardRef.js';
+import { ScrollBoundaryContainerProvider } from '../contexts/ScrollBoundaryContainerProvider.js';
+import { FixedZIndex } from '../zIndex.js';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 
 export const PADDING_BOINTS = 6;
 
@@ -269,7 +269,7 @@ export default function InternalSheet({
                   </Box>
                 )}
                 {showPopover && (
-                  <OverlayPanelConfirmationPopover
+                  <ConfirmationPopover
                     anchor={dismissButtonRef.current}
                     message={message}
                     subtext={subtext}
