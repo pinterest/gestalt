@@ -4,6 +4,7 @@ import Button from './Button.js';
 import Link from './Link.js';
 import Toast from './Toast.js';
 import Text from './Text.js';
+import Image from './Image.js';
 
 describe('<Toast />', () => {
   test('Text Only', () => {
@@ -15,7 +16,7 @@ describe('<Toast />', () => {
 
   test('Error Toast', () => {
     const tree = create(
-      <Toast text="Same great profile, slightly new look. Learn more?" variant="error" />,
+      <Toast text="Same great profile, slightly new look. Learn more?" type="error" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -23,12 +24,16 @@ describe('<Toast />', () => {
   test('Text + Image', () => {
     const tree = create(
       <Toast
-        thumbnail={
-          <img
-            alt=""
-            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-          />
-        }
+        thumbnail={{
+          image: (
+            <Image
+              alt=""
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          ),
+        }}
         text={
           <Text inline weight="bold">
             Saved to{' '}
@@ -49,12 +54,16 @@ describe('<Toast />', () => {
   test('Text + Image + Button', () => {
     const tree = create(
       <Toast
-        thumbnail={
-          <img
-            alt=""
-            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-          />
-        }
+        thumbnail={{
+          image: (
+            <Image
+              alt=""
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          ),
+        }}
         text={
           <Text inline weight="bold">
             Saved to{' '}
@@ -67,7 +76,7 @@ describe('<Toast />', () => {
             </Link>
           </Text>
         }
-        primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+        primaryAction={{ accessibilityLabel: 'Undo undo action', label: 'Undo', size: 'lg' }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

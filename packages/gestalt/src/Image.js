@@ -100,6 +100,8 @@ export default class Image extends PureComponent<Props> {
     loading: 'auto',
   };
 
+  static displayName: ?string = 'Image';
+
   componentDidMount() {
     if (shouldScaleImage(this.props.fit)) {
       this.loadImage();

@@ -24,14 +24,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </Link>
       </Text>
     }
-    thumbnail={
+    thumbnail={{ image:
       <Image
         alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
       />
-    }
+    }}
   />
 `}
       />
@@ -113,14 +113,14 @@ function ToastExample() {
                   </Link>
                 </Text>
               }
-              thumbnail={
+              thumbnail={{ image:
                 <Image
                   alt="Modern ceramic vase pin."
                   naturalHeight={564}
                   naturalWidth={564}
                   src="https://i.ibb.co/Lx54BCT/stock1.jpg"
                 />
-              }
+              }}
             />
           </Box>
         </Layer>
@@ -133,16 +133,18 @@ function ToastExample() {
 
         <MainSection.Subsection
           description={`
-The \`text\` prop accepts either a string or [Text](/web/text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.
+The \`text\` prop accepts either a string or [Text](/web/text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines. Regular strings are subject to two-line truncation.
 
-If  confirmation toast's text with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`variant\`.
+If  confirmation toast's text with more complex style is required, such as bold text, inline links, or no truncation, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`type\`.
 `}
           title="Text"
+          columns={2}
         >
           <MainSection.Card
-            cardSize="lg"
+            cardSize="md"
             defaultCode={`
-<Flex justifyContent="center" width="100%">
+<Flex direction="column" gap={4} justifyContent="center">
+  <Toast text="Signed as Three Crafty Ladies" />
   <Toast
     text={
       <Text inline>
@@ -156,44 +158,30 @@ If  confirmation toast's text with more complex style is required, such as bold 
 </Flex>
 `}
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection title="Error">
           <MainSection.Card
-            cardSize="lg"
+            cardSize="md"
             defaultCode={`
-<Flex justifyContent="center" width="100%">
+<Flex direction="column" justifyContent="center" width="100%" gap={4}>
   <Toast
-    text="You're offline."
-    variant="error"
-    primaryAction={{ accessibilityLabel: 'Reconnect', label: 'Reconnect' }}
-  />
-</Flex>
-`}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="Thumbnail">
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-<Flex justifyContent="center" width="100%">
-  <Toast
-    text={
-      <Text inline>
-        Saved to{' '}
-        <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
-          Home decor
-        </Link>
-      </Text>
-    }
-    thumbnail={
+    text="Your account admin rights were successfully saved"
+    primaryAction={{ accessibilityLabel: 'Undo', label: 'Undo' }}
+    thumbnail={{ image:
       <Image
         alt="Modern ceramic vase pin."
         naturalHeight={564}
         naturalWidth={564}
         src="https://i.ibb.co/Lx54BCT/stock1.jpg"
       />
-    }
+    }}
+  />
+  <Toast
+    text="Your account admin rights were successfully saved."
+    dismissButton={{ onDismiss: () => {} }}
+    helperLink={{
+      text: "Go to settings",
+      accessibilityLabel: "Go to settings",
+      href: "#",
+    }}
   />
 </Flex>
 `}
@@ -218,6 +206,98 @@ If  confirmation toast's text with more complex style is required, such as bold 
 
   />
 </Flex>`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Dismissable">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex justifyContent="center" width="100%">
+  <Toast
+    primaryAction={{ accessibilityLabel: 'Test', label: 'Undo' }}
+    text="Your Pin was saved"
+    dismissButton={{ onClick: () => {} }}
+  />
+</Flex>`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Type">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex direction="column" gap={8} alignItems="start">
+  <Flex gap={2} >
+    <Text>Success message:</Text>
+    <Toast
+      type="success"
+      text="Your Pin was published"
+    />
+  </Flex>
+  <Flex gap={2}>
+    <Text>Error message:</Text>
+    <Toast
+      type="error"
+      text="We couldn't save your Pin"
+    />
+  </Flex>
+  <Flex gap={2}>
+    <Text>Loading message:</Text>
+    <Toast
+      type="progress"
+      text="We are publishing your Pin"
+    />
+  </Flex>
+</Flex>`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Thumbnail">
+          <MainSection.Card
+            cardSize="lg"
+            defaultCode={`
+<Flex direction="column" gap={2} alignItems="start">
+  <Toast
+    button={<Button key="button-key" text="Undo" size="lg" />}
+    text="Save the link from your clipboard?"
+    thumbnail={{ icon:
+      <Icon
+        accessibilityLabel="Go to next steps"
+        icon="link"
+      />
+    }}
+  />
+  <Toast
+    helperLink={{
+      accessibilityLabel: '',
+      text: 'Home decor',
+      href: 'http://www.pinterest.com',
+      onClick: () => {},
+    }}
+    button={<Button key="button-key" text="Undo" size="lg" />}
+    text="Saved to"
+    thumbnail={{ image:
+      <Image
+        alt="Modern ceramic vase pin."
+        naturalHeight={564}
+        naturalWidth={564}
+        src="https://i.ibb.co/Lx54BCT/stock1.jpg"
+      />
+    }}
+  />
+  <Toast
+    button={<Button key="button-key" text="Undo" size="lg" />}
+    text="Switched to Silverio Ibrahim"
+    thumbnail={{ avatar:
+      <Avatar
+        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+        name="Keerthi"
+      />
+    }}
+  />
+</Flex>
+`}
           />
         </MainSection.Subsection>
       </MainSection>

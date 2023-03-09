@@ -49,6 +49,12 @@ describe('useDefaultLabelContext', () => {
           HelpButton: {
             tooltipMessage: 'Click to learn more',
           },
+          Toast: {
+            accessibilityDismissButtonLabel: 'Close toast',
+            accessibilityIconSuccessLabel: 'Success message',
+            accessibilityIconErrorLabel: 'Error message',
+            accessibilityProcessingLabel: 'Processing message',
+          },
         }}
       >
         <TestComponent />
