@@ -1,3 +1,9 @@
+## 99.0.0 (Mar 9, 2023)
+
+### Major
+
+- Masonry: remove `Item` prop ([#2707](https://github.com/pinterest/gestalt/pull/2707)) - [Preview link](https://deploy-preview-2707--gestalt.netlify.app)
+
 ## 98.0.25 (Mar 8, 2023)
 
 ### Patch
