@@ -1,3 +1,9 @@
+## 100.0.2 (Mar 9, 2023)
+
+### Patch
+
+- Internal: relocate AvatarGroup subfiles ([#2710](https://github.com/pinterest/gestalt/pull/2710)) - [Preview link](https://deploy-preview-2710--gestalt.netlify.app)
+
 ## 100.0.1 (Mar 9, 2023)
 
 ### Patch
