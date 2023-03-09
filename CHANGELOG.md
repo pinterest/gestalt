@@ -1,3 +1,9 @@
+## 100.0.0 (Mar 9, 2023)
+
+### Major
+
+- Internal: tiny Flow type change to give release script a kick ([#2709](https://github.com/pinterest/gestalt/pull/2709)) - [Preview link](https://deploy-preview-2709--gestalt.netlify.app)
+
 ## 99.0.0 (Mar 9, 2023)
 
 ### Major
