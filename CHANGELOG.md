@@ -1,3 +1,9 @@
+## 101.0.1 (Mar 9, 2023)
+
+### Patch
+
+- Switch: convert docs examples to use Sandpack ([#2712](https://github.com/pinterest/gestalt/pull/2712)) - [Preview link](https://deploy-preview-2712--gestalt.netlify.app)
+
 ## 101.0.0 (Mar 9, 2023)
 
 ### Major
