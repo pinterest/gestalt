@@ -8,7 +8,7 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import { useAppContext } from './appContext.js';
 
-const unifyQuotes = (input) => input?.replace(/'/g, '"');
+const unifyQuotes = (input: string): string => input.replace(/'/g, '"');
 
 async function copyFlowType(code: string) {
   try {
