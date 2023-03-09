@@ -22,8 +22,8 @@ jobs:
         run: yarn format
       - name: Set Author Details
         run: |
-            git config --global user.email "rlingineni@pinterest.com"
-            git config --global user.name "Gestalt Formatter"
+            git config --global user.email "pinterest-gestalt@gmail.com"
+            git config --global user.name "Pinterest-Gestalt"
       - name: Commit changes
         run: |
           git add -A
