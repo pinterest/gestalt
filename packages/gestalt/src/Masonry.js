@@ -377,17 +377,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  // renderItem(item: {| +data: T, +itemIdx: number, +isMeasuring: boolean |}): Node {
-  //   const { Item, renderItem } = this.props;
-  //   if (renderItem) {
-  //     return renderItem(item);
-  //   }
-  //   if (Item) {
-  //     return <Item data={item.data} itemIdx={item.itemIdx} isMeasuring={item.isMeasuring} />;
-  //   }
-  //   throw new Error('Please add the required renderItem prop.');
-  // }
-
   renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
     itemData,
     idx,
