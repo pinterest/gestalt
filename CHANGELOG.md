@@ -1,3 +1,9 @@
+## 101.0.7 (Mar 10, 2023)
+
+### Patch
+
+- removed extra TextField ([#2718](https://github.com/pinterest/gestalt/pull/2718)) - [Preview link](https://deploy-preview-2718--gestalt.netlify.app)
+
 ## 101.0.6 (Mar 10, 2023)
 
 ### Patch
