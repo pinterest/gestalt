@@ -32,7 +32,7 @@
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/80/b8/63/80b863ce656265c12b3845a13872bec4.png",
             "imageAltText": "examples of toast, montage and imagery fill style",
-            "content": "We continue to plow through Figma updates like it's going out of style. Here's the big highlights from this week:\n* The Web library Toast component has been updated to reflect it's slick new style. We also added our new Success and Loading types, plus an optional dismiss button for better accessibility. \n* MontageGrid and MontageRow components are now available in our Android and iOS libraries\n * We fixed an issue with our Foundations imagery styles so that they now always fill the bounds of the shape they're in"
+            "content": "We continue to plow through Figma updates like it's going out of style. Here's the big highlights from this week:\n* The Web library Toast component has been updated to reflect its slick new style. We also added our new Success and Loading types, plus an optional dismiss button for better accessibility. \n* MontageGrid and MontageRow components are now available in our Android and iOS libraries\n * We fixed an issue with our Foundations imagery styles so that they now always fill the bounds of the shape they're in"
           }
         ]
       },
