@@ -1,3 +1,9 @@
+## 101.0.4 (Mar 10, 2023)
+
+### Patch
+
+- Docs: Guidelines updates to forms and messaging ([#2704](https://github.com/pinterest/gestalt/pull/2704)) - [Preview link](https://deploy-preview-2704--gestalt.netlify.app)
+
 ## 101.0.3 (Mar 10, 2023)
 
 ### Patch
