@@ -5,7 +5,7 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
 
-export default function MessagingOverview(): Node {
+export default function GuidelinesPage(): Node {
   return (
     <Page title="Messaging overview">
       <PageHeader
