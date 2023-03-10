@@ -9,7 +9,6 @@ export default function FormsLayoutOverview(): Node {
   return (
     <Page title="Forms layout overview">
       <PageHeader
-        badge="pilot"
         name="Forms layout overview"
         type="guidelines"
         description={`Forms are a common UI pattern found across Pinterest products. We use them to gather information from users and should be clear and easy to navigate.

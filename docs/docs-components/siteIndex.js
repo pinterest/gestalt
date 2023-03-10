@@ -197,7 +197,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Elevation',
       {
         sectionName: 'Forms',
-        pages: ['Overview', 'Composition + behavior', 'Available components'],
+        pages: ['Overview', 'Structure and behavior', 'Available components'],
       },
       {
         sectionName: 'Iconography',

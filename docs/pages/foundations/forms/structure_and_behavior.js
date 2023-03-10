@@ -5,10 +5,10 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import MainSection from '../../../docs-components/MainSection.js';
 
-export default function CompositionBehaviorPage(): Node {
+export default function StructureBehaviorPage(): Node {
   return (
-    <Page title="Composition + behavior">
-      <PageHeader badge="pilot" name="Composition + behavior" type="guidelines" />
+    <Page title="Structure and behavior">
+      <PageHeader name="Structure and behavior" type="guidelines" />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -58,7 +58,7 @@ export default function CompositionBehaviorPage(): Node {
         />
         <MainSection.Subsection
           title="3. Form fields and controls"
-          description="These components allow us to gather information from users when they fill out forms. Gestalt has a wide variety of form fields and other user inputs that can be used in forms. Some examples include check boxes, radio buttons, combo boxes. For a full list, see [Available components](available_components)"
+          description="These components allow us to gather information from users when they fill out forms. Gestalt has a wide variety of form fields and other user inputs that can be used in forms. Some examples include check boxes, radio buttons, combo boxes. For a full list, see [Available components](/foundations/forms/available_components)"
         />
         <MainSection.Subsection
           title="4. Buttons"
@@ -81,7 +81,7 @@ export default function CompositionBehaviorPage(): Node {
           Section titles describe a group of form fields and controls within the form and should fit within the form hierarchy by being one header size smaller than the heading while remaining larger than form field text sizes. We recommend Heading/md (font size 500) for section headers. Subtext can be added to sections if needed, we recommend Body/lg (font size 300) for subtext."
         />
         <MainSection.Subsection title="Recommended text sizes" />
-        <Table accessibilityLabel="Font sizes">
+        <Table accessibilityLabel="Recommended text sizes">
           <Table.Header>
             <Table.Row>
               {['Item', 'Figma style', 'Design token', 'Color', 'Platform'].map((item) => (
