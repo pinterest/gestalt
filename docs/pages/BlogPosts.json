@@ -11,7 +11,7 @@
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/e5/b3/4d/e5b34dcaf30919c20f314a023fab2019.png",
             "imageAltText": "screenshot of form guidelines",
-            "content": "We're very excited to announce that [Form guidelines] have been published in Gestalt's documentation. Creating a usable form is no easy feat and we're hopeful these guidelines will help make the process just _that much easier_."
+            "content": "We're very excited to announce that [Form guidelines](https://gestalt.pinterest.systems/foundations/forms/overview) have been published in Gestalt's documentation. Creating a usable form is no easy feat and we're hopeful these guidelines will help make the process just _that much easier_."
           },
           {
             "title": "HelpButton",
@@ -32,7 +32,7 @@
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/80/b8/63/80b863ce656265c12b3845a13872bec4.png",
             "imageAltText": "examples of toast, montage and imagery fill style",
-            "content": "We continue to plow through Figma updates like it's going out of style. Here's the big highlights from this week:\n* The Web library's Toast component has been updated to reflect it's slick new style. \n* MontageGrid and MontageRow components are now available in our Android and iOS libraries\n * We fixed an issue with our Foundations imagery styles so that they now always fill the bounds of the shape they're in"
+            "content": "We continue to plow through Figma updates like it's going out of style. Here's the big highlights from this week:\n* The Web library Toast component has been updated to reflect it's slick new style. We also added our new Success and Loading types, plus an optional dismiss button for better accessibility. \n* MontageGrid and MontageRow components are now available in our Android and iOS libraries\n * We fixed an issue with our Foundations imagery styles so that they now always fill the bounds of the shape they're in"
           }
         ]
       },
