@@ -9,7 +9,6 @@ export default function MessagingComponentsPage(): Node {
   return (
     <Page title="Brand expression">
       <PageHeader
-        badge="pilot"
         name="Brand expression"
         type="guidelines"
         description={`We consider brand expression in the product the combination of visual elements (colors, typography, photography, motion, and other assets) to provide a delightful experience for Pinners by bringing Pinterest brand touch-points through the user experience, such as promoting a new feature, launching new tools, and reinforcing marketing messages within the product UI.

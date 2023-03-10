@@ -239,11 +239,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection
-          description={`The \`badge\` prop is available to add a [Badge](/web/badge) to the title. This feature is in beta, so please use cautiously.`}
-          title="With a badge"
-          badge="beta"
-        >
+        <MainSection.Subsection title="With a badge">
           <MainSection.Card
             cardSize="lg"
             defaultCode={`

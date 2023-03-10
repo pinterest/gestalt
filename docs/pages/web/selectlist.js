@@ -7,6 +7,8 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/selectlist/main.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -18,29 +20,16 @@ export default function DocsPage({
       <PageHeader
         name={generatedDocGen?.SelectList?.displayName}
         description={generatedDocGen?.SelectList?.description}
-        defaultCode={`
-<SelectList
-  id="selectlistexample1"
-  label="Country"
-  onChange={() => {}}
-  size="lg"
->
-  {[
-    { label: 'Algeria', value: 'algeria' },
-    { label: 'Belgium', value: 'belgium' },
-    { label: 'Canada', value: 'canada' },
-    { label: 'Denmark', value: 'denmark' },
-    { label: 'Egypt', value: 'egypt' },
-    { label: 'France', value: 'france' },
-  ].map(({ label, value }) =>
-    <SelectList.Option key={label} label={label} value={value} />
-  )}
-</SelectList>
-    `}
-      />
+      >
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.SelectList?.displayName} example`}
+          previewHeight={150}
+          hideEditor
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen?.SelectList} />
-
       <MainSection name="Subcomponents">
         <MainSection.Subsection
           title={generatedDocGen?.SelectListOption?.displayName}
@@ -64,7 +53,6 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -89,7 +77,6 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -317,7 +304,6 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </MainSection>
-
       <AccessibilitySection name={generatedDocGen?.SelectList?.displayName}>
         <MainSection.Subsection
           title="Labels"
@@ -384,7 +370,6 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-
       <MainSection name="Variants">
         <MainSection.Subsection title="Size" columns={2}>
           <MainSection.Card
@@ -612,9 +597,7 @@ function Example(props) {
           />
         </MainSection.Subsection>
       </MainSection>
-
       <QualityChecklist component={generatedDocGen?.SelectList?.displayName} />
-
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

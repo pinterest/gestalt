@@ -6,6 +6,8 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/radiogroup/main.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -13,53 +15,18 @@ export default function DocsPage({
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title={generatedDocGen.RadioGroup.displayName}>
+    <Page title={generatedDocGen?.RadioGroup?.displayName}>
       <PageHeader
-        name={generatedDocGen.RadioGroup.displayName}
-        description={generatedDocGen.RadioGroup?.description}
-        defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-    <RadioGroup legend="Gender" id="header-example">
-      <RadioGroup.RadioButton
-        checked={favorite === 'Female'}
-        id="genderFemale"
-        label="Female"
-        name="gender-pref"
-        onChange={() => setFavorite('Female')}
-        value="Female"
-      />
-      <RadioGroup.RadioButton
-        checked={favorite === 'Male'}
-        id="genderMale"
-        label="Male"
-        name="gender-pref"
-        onChange={() => setFavorite('Male')}
-        value="Male"
-      />
-      <RadioGroup.RadioButton
-        checked={favorite === 'Non-binary'}
-        id="genderNon-binary"
-        label="Non-binary"
-        name="gender-pref"
-        onChange={() => setFavorite('Non-binary')}
-        value="Non-binary"
-      />
-      <RadioGroup.RadioButton
-        checked={favorite === 'Prefer not to state'}
-        id="genderPrefer not to state"
-        label="Prefer not to state"
-        name="gender-pref"
-        onChange={() => setFavorite('Prefer not to state')}
-        value="Prefer not to state"
-      />
-    </RadioGroup>
-  );
-}
-      `}
-      />
+        name={generatedDocGen?.RadioGroup?.displayName}
+        description={generatedDocGen?.RadioGroup.description}
+      >
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.RadioGroup?.displayName} example`}
+          hideEditor
+          previewHeight={200}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.RadioGroup} />
 

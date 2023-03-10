@@ -10,7 +10,6 @@ export default function AnimationPrinciples(): Node {
   return (
     <Page title="Animation principles">
       <PageHeader
-        badge="pilot"
         name="Animation principles"
         type="guidelines"
         description="Animations can be utilized to provide feedback, add delight, and educate users. When considering adding animations to a product, consider these guiding principles."
