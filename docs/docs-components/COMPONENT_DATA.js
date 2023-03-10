@@ -81,6 +81,7 @@ import ScreenSizes from '../graphics/foundations/screen-size.svg';
 import BrandExpression from '../graphics/foundations/brand_expression.svg';
 import Messaging from '../graphics/foundations/messaging.svg';
 import WashAnimated from '../graphics/general/WashAnimated.svg';
+import Forms from '../graphics/foundations/forms.svg';
 
 export type Category =
   | 'Actions'
@@ -196,6 +197,13 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
       'How and when to lift UI elements from the base surface via color, borders, shadows and other methods',
     category: 'Foundations',
     path: '/foundations/elevation',
+  },
+  {
+    svg: <Forms />,
+    name: 'Forms',
+    description: 'Guidelines for form layout, behavior and usage',
+    category: 'Foundations',
+    path: '/foundations/forms/overview',
   },
   {
     svg: <Messaging />,
