@@ -108,9 +108,10 @@
       }
     },
     {
-      "files": ["docs/**/*.js"],
+      "files": ["docs/examples/**/*.js"],
       "rules": {
-        "import/no-relative-parent-imports": "off"
+        // Allows us to avoid directing the user off our docs site in examples
+        "jsx-a11y/anchor-is-valid": "off"
       }
     },
     {
