@@ -1,3 +1,9 @@
+## 101.0.5 (Mar 10, 2023)
+
+### Patch
+
+- Toast: new Docs for redesign Toast ([#2551](https://github.com/pinterest/gestalt/pull/2551)) - [Preview link](https://deploy-preview-2551--gestalt.netlify.app)
+
 ## 101.0.4 (Mar 10, 2023)
 
 ### Patch
