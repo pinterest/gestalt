@@ -19,7 +19,7 @@ export default function FormComponentsPage(): Node {
       <PageHeader name="Available form components" type="guidelines" />
       <MainSection name="TextField">
         <Example
-          id="textfieldExample"
+          id="textfield-example-1"
           name="TextField example"
           showCode={false}
           showHeading={false}
@@ -30,7 +30,7 @@ export default function FormComponentsPage(): Node {
               <Box width={500}>
                 <TextField
                   autoComplete="username"
-                  id="header-example"
+                  id="textfield-example"
                   label="Username"
                   onChange={({ value }) => {
                     setValue(value);
@@ -131,7 +131,7 @@ export default function FormComponentsPage(): Node {
       </MainSection>
       <MainSection name="TextField">
         <Example
-          id="textfieldExample"
+          id="textfield-example-2"
           name="TextField example"
           showCode={false}
           showHeading={false}
