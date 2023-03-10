@@ -1,3 +1,9 @@
+## 101.0.6 (Mar 10, 2023)
+
+### Patch
+
+- Docs: Weekly digest for 2023/03/10 ([#2716](https://github.com/pinterest/gestalt/pull/2716)) - [Preview link](https://deploy-preview-2716--gestalt.netlify.app)
+
 ## 101.0.5 (Mar 10, 2023)
 
 ### Patch
