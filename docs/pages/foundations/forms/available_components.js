@@ -129,7 +129,7 @@ export default function FormComponentsPage(): Node {
           </Text>
         </Flex>
       </MainSection>
-      <MainSection name="TextField">
+      <MainSection name="TextField2">
         <Example
           id="textfield-example-2"
           name="TextField example"
