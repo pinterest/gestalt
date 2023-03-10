@@ -3,6 +3,40 @@
     "year": "2023",
     "digests": [
       {
+        "week": "March 10, 2023",
+        "summary": "Form guidelines, a new HelpButton component, IconButton docs updates and bunches of Figma library improvements",
+        "posts": [
+          {
+            "title": "Form guidelines",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e5/b3/4d/e5b34dcaf30919c20f314a023fab2019.png",
+            "imageAltText": "screenshot of form guidelines",
+            "content": "We're very excited to announce that [Form guidelines](https://gestalt.pinterest.systems/foundations/forms/overview) have been published in Gestalt's documentation. Creating a usable form is no easy feat and we're hopeful these guidelines will help make the process just _that much easier_."
+          },
+          {
+            "title": "HelpButton",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/62/de/88/62de88ca96faaf8c37a41cd753c7cb12.png",
+            "imageAltText": "example of helpbutton component",
+            "content": "Need to provide a little context to something on the screen? Well, we've got you covered with our new [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) component. This component represents a change in approach for providing in-page context as it utilizes a popover as opposed to a tooltip to display help text so that the message can [contain a link](https://gestalt.pinterest.systems/web/helpbutton#Link) while remaining accessible."
+          },
+          {
+            "title": "IconButton Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/46/df/e6/46dfe6d4cf4c9f4dd9bf13234c76f52e.png",
+            "imageAltText": "design specs for iconbutton component",
+            "content": "We made some nice enhancements to our [Android IconButton component docs](https://gestalt.pinterest.systems/android/iconbutton) to include design specs ahead of its implementation. Go check it out!"
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/80/b8/63/80b863ce656265c12b3845a13872bec4.png",
+            "imageAltText": "examples of toast, montage and imagery fill style",
+            "content": "We continue to plow through Figma updates like it's going out of style. Here's the big highlights from this week:\n* The Web library Toast component has been updated to reflect its slick new style. We also added our new Success and Loading types, plus an optional dismiss button for better accessibility. \n* MontageGrid and MontageRow components are now available in our Android and iOS libraries\n * We fixed an issue with our Foundations imagery styles so that they now always fill the bounds of the shape they're in"
+          }
+        ]
+      },
+      {
         "month": "February",
         "summary": "",
         "posts": [
@@ -68,7 +102,6 @@
           }
         ]
       },
-
       {
         "week": "February 22, 2023",
         "summary": "Updated roadmap, Table component updates and a slew of Figma improvements.",
