@@ -76,6 +76,7 @@ type Props = {|
       wash?: boolean,
     |},
     width?: number,
+    height?: number,
   |},
   /**
    * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/upsell#Message) to learn more.
@@ -208,6 +209,7 @@ export default function Upsell({
               marginBottom={4}
               smMarginBottom={0}
               width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+              height={isImage ? Math.min(imageData.height || 128, 128) : undefined}
             >
               <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
                 {imageData.component}
@@ -227,7 +229,7 @@ export default function Upsell({
             smMarginEnd={6}
             smMarginStart={imageData ? 6 : 0}
           >
-            <Box maxWidth={648}>
+            <Box>
               {title && (
                 <Box marginBottom={2}>
                   <Text

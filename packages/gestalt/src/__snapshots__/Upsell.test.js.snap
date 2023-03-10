@@ -20,11 +20,6 @@ exports[`<Upsell /> Basic Upsell 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -57,6 +52,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
         className="box flexNone marginBottom4 smMarginBottom0"
         style={
           Object {
+            "height": undefined,
             "width": undefined,
           }
         }
@@ -90,11 +86,6 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
@@ -268,6 +259,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         className="box flexNone marginBottom4 smMarginBottom0"
         style={
           Object {
+            "height": undefined,
             "width": undefined,
           }
         }
@@ -301,11 +293,6 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
@@ -440,11 +427,6 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
@@ -579,11 +561,6 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
@@ -708,11 +685,6 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
@@ -798,11 +770,6 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
@@ -878,11 +845,6 @@ exports[`<Upsell /> message + title 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
         >
           <div
             className="box marginBottom2"
