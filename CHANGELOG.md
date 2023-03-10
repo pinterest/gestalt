@@ -1,3 +1,9 @@
+## 101.0.2 (Mar 10, 2023)
+
+### Patch
+
+- Internal: turn off `jsx-a11y/anchor-is-valid` for docs examples ([#2713](https://github.com/pinterest/gestalt/pull/2713)) - [Preview link](https://deploy-preview-2713--gestalt.netlify.app)
+
 ## 101.0.1 (Mar 9, 2023)
 
 ### Patch
