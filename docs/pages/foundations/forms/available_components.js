@@ -19,7 +19,7 @@ export default function FormComponentsPage(): Node {
       <PageHeader name="Available form components" type="guidelines" />
       <MainSection name="TextField">
         <Example
-          id="textfield-example-1"
+          id="textfield-example"
           name="TextField example"
           showCode={false}
           showHeading={false}
@@ -125,46 +125,6 @@ export default function FormComponentsPage(): Node {
           <Text>
             <Link href="/web/combobox" underline="always">
               Go to the ComboBox component
-            </Link>
-          </Text>
-        </Flex>
-      </MainSection>
-      <MainSection name="TextField2">
-        <Example
-          id="textfield-example-2"
-          name="TextField example"
-          showCode={false}
-          showHeading={false}
-          defaultCode={` function Example(props) {
-            const [value, setValue] = React.useState('');
-
-            return (
-              <Box width={500}>
-                <TextField
-                  autoComplete="username"
-                  id="header-example"
-                  label="Username"
-                  onChange={({ value }) => {
-                    setValue(value);
-                  }}
-                  placeholder="Please enter your username"
-                  type="text"
-                  value={value}
-                />
-              </Box>
-            );
-          }
-        `}
-        />
-        <Flex direction="column" gap={4}>
-          <Text>
-            TextField is used for single lines of text. It also allows for other types of inputs
-            like passwords and Tags.
-          </Text>
-
-          <Text>
-            <Link href="/web/textfield" underline="always">
-              Go to the TextField component
             </Link>
           </Text>
         </Flex>
