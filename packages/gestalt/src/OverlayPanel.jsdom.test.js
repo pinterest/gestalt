@@ -1,7 +1,7 @@
 // @flow strict
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import OverlayPanel from './OverlayPanel.js';
-import * as AnimationControllerModule from './AnimationContext.js'; // eslint-disable-line import/no-namespace
+import * as AnimationControllerModule from './OverlayPanel/AnimationContext.js'; // eslint-disable-line import/no-namespace
 import { ESCAPE } from './keyCodes.js';
 
 describe('OverlayPanel', () => {

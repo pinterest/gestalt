@@ -16,6 +16,10 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
+   * Color of the Spinner.
+   */
+  color?: 'default' | 'subtle',
+  /**
    * Whether or not to render with a 300ms delay. The delay is for perceived performance, so you should rarely need to remove it. See the [delay variant](https://gestalt.pinterest.systems/web/spinner#Delay) for more details.
    */
   delay?: boolean,
@@ -37,6 +41,7 @@ type Props = {|
  */
 export default function Spinner({
   accessibilityLabel,
+  color = 'subtle',
   delay = true,
   show,
   size = 'md',
@@ -45,6 +50,7 @@ export default function Spinner({
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
+          color={color}
           icon="knoop"
           accessibilityLabel={accessibilityLabel}
           size={SIZE_NAME_TO_PIXEL[size]}

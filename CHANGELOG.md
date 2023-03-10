@@ -1,3 +1,141 @@
+## 101.0.4 (Mar 10, 2023)
+
+### Patch
+
+- Docs: Guidelines updates to forms and messaging ([#2704](https://github.com/pinterest/gestalt/pull/2704)) - [Preview link](https://deploy-preview-2704--gestalt.netlify.app)
+
+## 101.0.3 (Mar 10, 2023)
+
+### Patch
+
+- Internal: update css.flow files ([#2714](https://github.com/pinterest/gestalt/pull/2714)) - [Preview link](https://deploy-preview-2714--gestalt.netlify.app)
+
+## 101.0.2 (Mar 10, 2023)
+
+### Patch
+
+- Internal: turn off `jsx-a11y/anchor-is-valid` for docs examples ([#2713](https://github.com/pinterest/gestalt/pull/2713)) - [Preview link](https://deploy-preview-2713--gestalt.netlify.app)
+
+## 101.0.1 (Mar 9, 2023)
+
+### Patch
+
+- Switch: convert docs examples to use Sandpack ([#2712](https://github.com/pinterest/gestalt/pull/2712)) - [Preview link](https://deploy-preview-2712--gestalt.netlify.app)
+
+## 101.0.0 (Mar 9, 2023)
+
+### Major
+
+- Toast, Spinner, DefaultLabelProvider: new component features from new redesign, new `color` prop for Spinner, new labels to DefaultLabelProvider ([#2525](https://github.com/pinterest/gestalt/pull/2525)) - [Preview link](https://deploy-preview-2525--gestalt.netlify.app)
+
+## 100.0.2 (Mar 9, 2023)
+
+### Patch
+
+- Internal: relocate AvatarGroup subfiles ([#2710](https://github.com/pinterest/gestalt/pull/2710)) - [Preview link](https://deploy-preview-2710--gestalt.netlify.app)
+
+## 100.0.1 (Mar 9, 2023)
+
+### Patch
+
+- Internal: moved OverlayPanel files into nested folders ([#2708](https://github.com/pinterest/gestalt/pull/2708)) - [Preview link](https://deploy-preview-2708--gestalt.netlify.app)
+
+## 100.0.0 (Mar 9, 2023)
+
+### Major
+
+- Internal: tiny Flow type change to give release script a kick ([#2709](https://github.com/pinterest/gestalt/pull/2709)) - [Preview link](https://deploy-preview-2709--gestalt.netlify.app)
+
+## 99.0.0 (Mar 9, 2023)
+
+### Major
+
+- Masonry: remove `Item` prop ([#2707](https://github.com/pinterest/gestalt/pull/2707)) - [Preview link](https://deploy-preview-2707--gestalt.netlify.app)
+
+## 98.0.25 (Mar 8, 2023)
+
+### Patch
+
+- Internal: turn off `import/no-relative-parent-imports` lint rule ([#2706](https://github.com/pinterest/gestalt/pull/2706)) - [Preview link](https://deploy-preview-2706--gestalt.netlify.app)
+
+## 98.0.24 (Mar 7, 2023)
+
+### Patch
+
+- Divider: fix docs format ([#2701](https://github.com/pinterest/gestalt/pull/2701)) - [Preview link](https://deploy-preview-2701--gestalt.netlify.app)
+
+## 98.0.23 (Mar 7, 2023)
+
+### Patch
+
+- Dropdown, Popover: Add `maxHeight` prop ([#2675](https://github.com/pinterest/gestalt/pull/2675)) - [Preview link](https://deploy-preview-2675--gestalt.netlify.app)
+
+## 98.0.22 (Mar 7, 2023)
+
+### Patch
+
+- Internal: add `virtual-bounds-visibility` Masonry integration test ([#2699](https://github.com/pinterest/gestalt/pull/2699)) - [Preview link](https://deploy-preview-2699--gestalt.netlify.app)
+
+## 98.0.21 (Mar 7, 2023)
+
+### Patch
+
+- Internal: add `virtualization-with-scroll-container` Masonry integration test ([#2698](https://github.com/pinterest/gestalt/pull/2698)) - [Preview link](https://deploy-preview-2698--gestalt.netlify.app)
+
+## 98.0.20 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `optimized-remount` Masonry integration test ([#2697](https://github.com/pinterest/gestalt/pull/2697)) - [Preview link](https://deploy-preview-2697--gestalt.netlify.app)
+
+## 98.0.19 (Mar 6, 2023)
+
+### Patch
+
+- IconButton: Update Android doc content and specs ([#2683](https://github.com/pinterest/gestalt/pull/2683)) - [Preview link](https://deploy-preview-2683--gestalt.netlify.app)
+
+## 98.0.18 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `no-scroll` Masonry integration test ([#2696](https://github.com/pinterest/gestalt/pull/2696)) - [Preview link](https://deploy-preview-2696--gestalt.netlify.app)
+
+## 98.0.17 (Mar 6, 2023)
+
+### Patch
+
+- Internal: add `item-prop-change-key-reset` Masonry integration test ([#2695](https://github.com/pinterest/gestalt/pull/2695)) - [Preview link](https://deploy-preview-2695--gestalt.netlify.app)
+
+## 98.0.16 (Mar 6, 2023)
+
+### Patch
+
+- Toast: Updates to iOS images in Docs ([#2692](https://github.com/pinterest/gestalt/pull/2692)) - [Preview link](https://deploy-preview-2692--gestalt.netlify.app)
+
+## 98.0.15 (Mar 6, 2023)
+
+### Patch
+
+- Updates to Android toast images ([#2693](https://github.com/pinterest/gestalt/pull/2693)) - [Preview link](https://deploy-preview-2693--gestalt.netlify.app)
+
+## 98.0.14 (Mar 3, 2023)
+
+### Patch
+
+- Internal: add `update-scroll-container` Masonry integration test ([#2690](https://github.com/pinterest/gestalt/pull/2690)) - [Preview link](https://deploy-preview-2690--gestalt.netlify.app)
+
+## 98.0.13 (Mar 3, 2023)
+
+### Patch
+
+- Docs: Feb eng newsletter ([#2689](https://github.com/pinterest/gestalt/pull/2689)) - [Preview link](https://deploy-preview-2689--gestalt.netlify.app)
+
+## 98.0.12 (Mar 3, 2023)
+
+### Patch
+
+- Docs: Weekly update for March 3, 2023 ([#2688](https://github.com/pinterest/gestalt/pull/2688)) - [Preview link](https://deploy-preview-2688--gestalt.netlify.app)
+
 ## 98.0.11 (Mar 3, 2023)
 
 ### Patch

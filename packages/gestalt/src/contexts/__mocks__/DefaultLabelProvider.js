@@ -1,10 +1,6 @@
 // @flow strict
 import { createContext, type Context, type Node, useContext } from 'react';
-import {
-  fallbackLabels,
-  type DefaultLabelContextType,
-  // eslint-disable-next-line import/no-relative-parent-imports
-} from '../DefaultLabelProvider.js';
+import { fallbackLabels, type DefaultLabelContextType } from '../DefaultLabelProvider.js';
 
 const MockContext: Context<?DefaultLabelContextType> =
   createContext<?DefaultLabelContextType>(fallbackLabels);

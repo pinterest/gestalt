@@ -2,14 +2,14 @@
 
 import { type Node, useEffect, useRef } from 'react';
 import { useAnimation } from './AnimationContext.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Popover from './Popover.js';
-import Button from './Button.js';
-import Text from './Text.js';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { ESCAPE } from './keyCodes.js';
+import Box from '../Box.js';
+import Flex from '../Flex.js';
+import Popover from '../Popover.js';
+import Button from '../Button.js';
+import Text from '../Text.js';
+import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import { ESCAPE } from '../keyCodes.js';
 
 type Props = {|
   anchor: ?HTMLElement,
@@ -40,7 +40,7 @@ type Props = {|
   subtext?: string,
 |};
 
-export default function SheetConfirmationPopover({
+export default function ConfirmationPopover({
   anchor,
   message,
   subtext,

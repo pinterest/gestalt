@@ -47,6 +47,12 @@ export type DefaultLabelContextType = {|
   HelpButton: {|
     tooltipMessage: string,
   |},
+  Toast: {|
+    accessibilityDismissButtonLabel: string,
+    accessibilityIconSuccessLabel: string,
+    accessibilityIconErrorLabel: string,
+    accessibilityProcessingLabel: string,
+  |},
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
@@ -82,6 +88,12 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   HelpButton: {
     tooltipMessage: 'Click to learn more',
+  },
+  Toast: {
+    accessibilityDismissButtonLabel: 'Close toast',
+    accessibilityIconSuccessLabel: 'Success message',
+    accessibilityIconErrorLabel: 'Error message',
+    accessibilityProcessingLabel: 'Processing message',
   },
 };
 

@@ -9,9 +9,9 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 
 export default function DividerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Divider">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="Divider"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         defaultCode={`
 function Example() {
@@ -36,18 +36,22 @@ function Example() {
 }
 `}
       />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
+            title="When to use"
             description="Dividers should be used to bring clarity and structure to a layout. Primarily, Dividers help to separate groups of related elements or break up dense content."
           />
           <MainSection.Card
             type="don't"
+            title="When not to use"
             description="Dividers shouldn't be used if elements can be separated using white space."
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
