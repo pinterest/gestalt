@@ -1,3 +1,9 @@
+## 101.0.8 (Mar 13, 2023)
+
+### Patch
+
+- Internal: added @khanacademy/flow-to-ts to devDependencies to test TS ([#2721](https://github.com/pinterest/gestalt/pull/2721)) - [Preview link](https://deploy-preview-2721--gestalt.netlify.app)
+
 ## 101.0.7 (Mar 10, 2023)
 
 ### Patch
