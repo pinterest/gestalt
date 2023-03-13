@@ -1,3 +1,9 @@
+## 101.0.11 (Mar 13, 2023)
+
+### Patch
+
+- Docs: cleanups & refactors & fixes ([#2719](https://github.com/pinterest/gestalt/pull/2719)) - [Preview link](https://deploy-preview-2719--gestalt.netlify.app)
+
 ## 101.0.10 (Mar 13, 2023)
 
 ### Patch
