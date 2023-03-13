@@ -205,6 +205,6 @@ export async function getServerSideProps(): Promise<{| props: {| generatedDocGen
   };
 
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'IconButtonFloating' }) },
+    props: { generatedDocGen },
   };
 }
