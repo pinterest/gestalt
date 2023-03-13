@@ -49,6 +49,8 @@ import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/datepicker/main.js';
 
 const localeMap = {
   'af': { localeData: af, lang: 'Afrikaans' },
@@ -92,23 +94,15 @@ const localeMap = {
 export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DatePicker">
-      <PageHeader
-        name="DatePicker"
-        description={generatedDocGen?.description}
-        defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
+      <PageHeader name="DatePicker" description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+          previewHeight={450}
+        />
+      </PageHeader>
 
-  return (
-    <DatePicker
-      id="example-page-header"
-      label="Select a date"
-      onChange={({ value }) => handleChange(value)}
-    />
-  )
-}
-    `}
-      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">

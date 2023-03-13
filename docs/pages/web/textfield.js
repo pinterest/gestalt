@@ -7,35 +7,20 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/textfield/main.js';
 
-export default function TextFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width={500}>
-      <TextField
-        autoComplete="username"
-        id="header-example"
-        label="Username"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Please enter your username"
-        type="text"
-        value={value}
-      />
-    </Box>
-  );
-}
-`}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+          previewHeight={150}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

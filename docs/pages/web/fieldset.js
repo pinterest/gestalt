@@ -6,62 +6,21 @@ import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/fieldset/main.js';
 
-export default function FieldsetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Fieldset">
-      <PageHeader
-        name="Fieldset"
-        badge="pilot"
-        description={generatedDocGen?.description}
-        defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState(undefined);
-
-  return (
-    <Fieldset legend="What is your favorite pet?">
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <RadioButton
-          checked={favorite === 'dogs'}
-          id="favoriteDog"
-          label="Dogs"
-          name="favorite"
-          onChange={() => setFavorite( 'dogs' )}
-          value="dogs"
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+          previewHeight={200}
         />
-        <RadioButton
-          checked={favorite === 'cats'}
-          id="favoriteCat"
-          label="Cats"
-          name="favorite"
-          onChange={() => setFavorite( 'cats' )}
-          value="cats"
-        />
-        <RadioButton
-          checked={favorite === 'plants'}
-          id="favoritePlants"
-          label="Plants"
-          name="favorite"
-          onChange={() => setFavorite( 'plants' )}
-          value="plants"
-        />
-        <RadioButton
-          checked={favorite === 'peeves'}
-          id="favoritePeeves"
-          label="Peeves"
-          name="favorite"
-          onChange={() => setFavorite( 'peeves' )}
-          value="peeves"
-        />
-      </Flex>
-    </Fieldset>
-
-  );
-}
-`}
-      />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
