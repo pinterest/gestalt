@@ -62,7 +62,7 @@ export default function Sticky({
     left: left != null ? left : undefined,
     right: right != null ? right : undefined,
     bottom: bottom != null ? bottom : undefined,
-    zIndex: (zIndex || DEFAULT_ZINDEX).index(),
+    zIndex: (zIndex ?? DEFAULT_ZINDEX).index(),
   };
   return (
     <div className={layout.sticky} style={style}>
