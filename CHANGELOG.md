@@ -1,3 +1,9 @@
+## 101.0.9 (Mar 13, 2023)
+
+### Patch
+
+- Sticky: convert to autogen props and Sandpack examples ([#2724](https://github.com/pinterest/gestalt/pull/2724)) - [Preview link](https://deploy-preview-2724--gestalt.netlify.app)
+
 ## 101.0.8 (Mar 13, 2023)
 
 ### Patch
