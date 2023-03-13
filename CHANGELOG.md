@@ -1,3 +1,9 @@
+## 101.0.10 (Mar 13, 2023)
+
+### Patch
+
+- Internal: fix autogen type for IconButtonFloating ([#2725](https://github.com/pinterest/gestalt/pull/2725)) - [Preview link](https://deploy-preview-2725--gestalt.netlify.app)
+
 ## 101.0.9 (Mar 13, 2023)
 
 ### Patch
