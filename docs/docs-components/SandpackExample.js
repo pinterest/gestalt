@@ -127,6 +127,7 @@ export default function SandpackExample({
       files={{
         '/styles.css': {
           code: `@import "gestalt/dist/gestalt.css";
+          @import "gestalt-datepicker/dist/gestalt-datepicker.css";
           * { margin: 0; padding: 0;}
           body, html, #root { height: 100%; }`,
           hidden: true,
@@ -143,11 +144,27 @@ export default function SandpackExample({
                 }),
                 hidden: true,
               },
+              '/node_modules/gestalt-datepicker/package.json': {
+                code: JSON.stringify({
+                  name: 'gestalt-datepicker',
+                  main: './dist/gestalt-datepicker.js',
+                  style: 'dist/gestalt-datepicker.css',
+                }),
+                hidden: true,
+              },
               '/node_modules/gestalt/dist/gestalt.js': {
                 code: files.js,
                 hidden: true,
               },
+              '/node_modules/gestalt-datepicker/dist/gestalt-datepicker.js': {
+                code: files.js,
+                hidden: true,
+              },
               '/node_modules/gestalt/dist/gestalt.css': {
+                code: files.css,
+                hidden: true,
+              },
+              '/node_modules/gestalt-datepicker/dist/gestalt-datepicker.css': {
                 code: files.css,
                 hidden: true,
               },
@@ -160,7 +177,9 @@ export default function SandpackExample({
       theme="dark"
       customSetup={{
         dependencies: {
-          ...(files ? { classnames: 'latest' } : { gestalt: 'latest' }),
+          ...(files
+            ? { classnames: 'latest' }
+            : { gestalt: 'latest', 'gestalt-datepicker': 'latest' }),
           react: '18.2.0',
           'react-dom': '18.2.0',
         },

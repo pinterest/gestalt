@@ -1,172 +1,82 @@
 // @flow strict
-import { Text, Flex, Box, Link, List } from 'gestalt';
+import { Text, Flex, Box, Link } from 'gestalt';
 import { type Node } from 'react';
-import Example from '../../../docs-components/Example.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
-import defaultExample from '../../../examples/modalalert/defaultExample.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
+import toast from '../../../examples/toast/main.js';
+import slimbanner from '../../../examples/slimbanner/main.js';
+import callout from '../../../examples/callout/main.js';
+import modalalert from '../../../examples/modalalert/main.js';
 
-export default function MessagingComponentsPage(): Node {
+export default function DocsPage(): Node {
   return (
     <Page title="Available messaging components">
-      <PageHeader badge="pilot" name="Available messaging components" type="guidelines" />
-      <MainSection name="Callout">
-        <Example
-          id="calloutExample"
-          name="Callout example"
-          showCode={false}
-          showHeading={false}
-          defaultCode={`<Callout
-  title='Your tag is not working'
-  message='Data may be outdated because your tag is not sending information. Fix your tag for the most accurate metrics.'
-  type='error'
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  iconAccessibilityLabel="Error"
-  primaryAction={{
-    accessibilityLabel: 'Fix tag',
-    label: 'Fix tag',
-    onClick: () => {},
-  }}
-/>`}
-        />
-        <Flex direction="column" gap={4}>
-          <Text>
-            Callouts sit on a page or surface and provide status alerts, information or
-            recommendations to a user. They are used for highest priority messages, usually at the
-            top of a page.
-          </Text>
+      <PageHeader name="Available messaging components" type="guidelines" />
 
-          <Text>
-            <Link href="/web/callout" underline="always">
-              Go to the Callout component
-            </Link>
-          </Text>
-        </Flex>
-      </MainSection>
-      <MainSection name="SlimBanner">
-        <Example
-          id="slimbannerExample"
-          name="SlimBanner example"
-          showCode={false}
-          showHeading={false}
-          defaultCode={`<SlimBanner
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  iconAccessibilityLabel="Information"
-  message="Idea Pins are now available across platforms."
-  primaryAction={{
-    accessibilityLabel: 'Apply for access',
-    label: 'Apply for access',
-    onClick: () => {},
-  }}
-  type="info"
-/>`}
-        />
-        <Flex direction="column" gap={4}>
-          <Text>
-            SlimBanner conveys brief information related to a specific section of a page. The
-            message can relay success, warning, error or general information. SlimBanners are used
-            to reference a specific section of a page, or in any dense interface where space is a
-            concern.
-          </Text>
+      <MainSection name="Components">
+        <MainSection.Subsection
+          title="Callout"
+          description={`Callouts sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.
 
-          <Text>
-            <Link href="/web/slimbanner" underline="always">
-              Go to the SlimBanner component
-            </Link>
-          </Text>
-        </Flex>
-      </MainSection>
-      <MainSection name="ModalAlert">
-        <SandpackExample code={defaultExample} name="Modal Main Example" hideEditor />
-        <Flex direction="column" gap={4}>
-          <Text>
-            A modal dialog can be used to alert a user of an issue, or to request confirmation after
-            a user-generated action. ModalAlert overlays and blocks page content until it is
-            dismissed by the user.
-          </Text>
+[Go to the Callout component](/web/callout)`}
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={callout} name="Callout example" hideEditor />}
+          />
+        </MainSection.Subsection>
 
-          <Text>
-            <Link href="/web/modalalert" underline="always">
-              Go to the ModalAlert component
-            </Link>
-          </Text>
-        </Flex>
+        <MainSection.Subsection
+          title="SlimBanner"
+          description={`SlimBanner conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. SlimBanners are used to reference a specific section of a page, or in any dense interface where space is a concern.
+
+[Go to the SlimBanner component](/web/slimbanner)`}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={slimbanner} name="SlimBanner example" hideEditor />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="ModalAlert"
+          description={`A modal dialog can be used to alert a user of an issue, or to request confirmation after a user-generated action. ModalAlert overlays and blocks page content until it is dismissed by the user.
+
+[Go to the ModalAlert component](/web/modalalert)`}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={modalalert}
+                name="ModalAlert example"
+                hideEditor
+                previewHeight={450}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Toast"
+          description={`Toasts are the least disruptive of messages in that they are ephemeral and don’t require a user to act or dismiss them. They appear opposite a surface’s main navigation and overlay content without fully blocking it.
+
+Toasts can be used to:
+- Acknowledge a user action immediately after it happens"
+- Acknowledge a user action while nudging them to improve their experience"
+- Alert users of connectivity issues or unknown errors without disrupting their flow"
+
+[Go to the Toast component](/web/toast)`}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={toast} name="Toast example" hideEditor previewHeight={150} />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Toast">
-        <Example
-          id="toastExamples"
-          name="Toast examples"
-          showCode={false}
-          showHeading={false}
-          defaultCode={`
-<Flex justifyContent="center" alignItems="center" direction="column" gap={4}>
-  <Toast
-    primaryAction={{ accessibilityLabel: 'Undo action', label: 'Undo', size: 'lg' }}
-    text={
-      <Text>
-        Saved to{' '}
-        <Text inline weight="bold">
-          <Link display="inline" target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor" underline="hover">
-            Home decor
-          </Link>
-        </Text>
-      </Text>
-    }
-    thumbnail={
-      <Image
-        alt="Modern ceramic vase pin."
-        naturalHeight={564}
-        naturalWidth={564}
-        src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-      />
-    }
-  />
-  <Toast
-    primaryAction={{ accessibilityLabel: 'Undo save to board', label: 'Save to a board', size: 'lg' }}
-    text="Saved"
-    thumbnail={
-      <Image
-        alt="Modern ceramic vase pin."
-        naturalHeight={564}
-        naturalWidth={564}
-        src="https://i.ibb.co/Lx54BCT/stock1.jpg"
-      />
-    }
-    thumbnailShape="circle"
-  />
-  <Toast
-    text="You’re not connected to the internet"
-    variant="error"
-  />
-</Flex>
-`}
-        />
-        <Flex direction="column" gap={4}>
-          <Text>
-            Toasts are the least disruptive of messages in that they are ephemeral and don’t require
-            a user to act or dismiss them. They appear opposite a surface’s main navigation and
-            overlay content without fully blocking it.
-          </Text>
-          <List label="Toasts can be used to:">
-            <List.Item text="Acknowledge a user action immediately after it happens" />
-            <List.Item text="Acknowledge a user action while nudging them to improve their experience" />
-            <List.Item text="Alert users of connectivity issues or unknown errors without disrupting their flow" />
-          </List>
-          <Text>
-            <Link href="/web/toast" underline="always">
-              Go to the Toast component
-            </Link>
-          </Text>
-        </Flex>
-      </MainSection>
+
       <MainSection name="What component should I use?">
         <Flex direction="column" gap={4}>
           <Text>
@@ -208,9 +118,9 @@ Upsells are on-page banners that encourage more ad spend and upgrades. They can 
 **Error message variants**
 Variants for other non-messaging components that provide a way to show an error message (simple error status indicators are not included)..
 
-- **[Text field error message](/web/textfield#Error-message)**
-- **[RadioGroup error message](/web/radiogroup#With-an-error)**
-- **[Checkbox error message](/web/checkbox#Error-message)**
+- [Text field error message](/web/textfield#Error-message)
+- [RadioGroup error message](/web/radiogroup#With-an-error)
+- [Checkbox error message](/web/checkbox#Error-message)
       `}
         />
       </MainSection>

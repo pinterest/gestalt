@@ -6,31 +6,21 @@ import MainSection from '../../docs-components/MainSection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/checkbox/main.js';
 
-export default function CheckboxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function Example() {
-  const [checked1, setChecked1] = React.useState(false);
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+        />
+      </PageHeader>
 
-  return (
-      <Checkbox
-        checked={checked1}
-        id="checkbox"
-        label="I agree that this is a checkbox"
-        onChange={({ checked }) => setChecked1(checked)}
-        helperText="Nothing will happen if you disagree"
-      />
-  );
-}
-`}
-      />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">

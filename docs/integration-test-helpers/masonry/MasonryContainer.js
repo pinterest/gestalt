@@ -23,17 +23,17 @@ type Props = {|
   collage?: boolean,
   // Constrains the width of the grid rendering.
   constrained?: boolean,
-  // Grid items should have flexible width.
-  flexible?: boolean,
   // Whether or not to use an external cache
   externalCache?: boolean,
-  // Whether or not to require tests to trigger fetch completion manually.
-  manualFetch?: boolean,
   // Does not allow infinite scroll.
   finiteLength?: boolean,
+  // Grid items should have flexible width.
+  flexible?: boolean,
   // The initial data from the server side render.
   // $FlowFixMe[unclear-type]
   initialItems?: $ReadOnlyArray<?Object>,
+  // Whether or not to require tests to trigger fetch completion manually.
+  manualFetch?: boolean,
   // External measurement store.
   // $FlowFixMe[unclear-type]
   measurementStore: Object,

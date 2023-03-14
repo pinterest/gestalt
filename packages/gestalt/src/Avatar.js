@@ -49,7 +49,8 @@ type Props = {|
  * ![Avatar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Avatar-dark.spec.mjs-snapshots/Avatar-dark-chromium-darwin.png)
  *
  */
-export default function Avatar(props: Props): Node {
+
+function Avatar(props: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
   const { accessibilityLabel, name, outline, size = 'fit', src, verified } = props;
@@ -112,3 +113,7 @@ export default function Avatar(props: Props): Node {
     </Box>
   );
 }
+
+Avatar.displayName = 'Avatar';
+
+export default Avatar;

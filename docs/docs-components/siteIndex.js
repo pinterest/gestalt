@@ -196,13 +196,17 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Design tokens',
       'Elevation',
       {
+        sectionName: 'Forms',
+        pages: ['Overview', 'Structure and behavior', 'Available components'],
+      },
+      {
         sectionName: 'Iconography',
         pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
       },
       'Layouts',
       {
         sectionName: 'Messaging',
-        pages: ['Overview', 'Available components', 'Priority and placement'],
+        pages: ['Overview', 'Priority and placement', 'Available components'],
       },
       'Screen sizes',
 

@@ -1,15 +1,16 @@
 // @flow strict
 import { type Node } from 'react';
 import { Button, SlimBanner } from 'gestalt';
-import PropTable from '../../docs-components/PropTable.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
+import docgen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import PropTable from '../../docs-components/PropTable.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+
 import main from '../../examples/button/main.js';
 import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo.js';
 import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont.js';
@@ -33,11 +34,7 @@ import buttonPopoverExample from '../../examples/button/buttonPopoverExample.js'
 
 const PREVIEW_HEIGHT = 300;
 
-type DocType = {|
-  generatedDocGen: DocGen,
-|};
-
-export default function ButtonPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -85,6 +82,14 @@ export default function ButtonPage({ generatedDocGen }: DocType): Node {
             required: false,
             defaultValue: 'gray',
             description: ['The background color of Button.'],
+          },
+          {
+            name: 'dataTestId',
+            type: 'string',
+            required: false,
+            description: [
+              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
+            ],
           },
           {
             name: 'disabled',

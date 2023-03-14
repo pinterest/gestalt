@@ -42,7 +42,6 @@ export default function SideNavigationPage({
       <PageHeader
         name={generatedDocGen.SideNavigation?.displayName}
         description={generatedDocGen.SideNavigation?.description}
-        badge="pilot"
       >
         <SandpackExample
           code={mainExample}

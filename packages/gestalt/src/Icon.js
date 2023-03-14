@@ -92,7 +92,8 @@ const flipOnRtlIconNames = [
  * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.mjs-snapshots/Icon-list-dark-chromium-darwin.png)
  *
  */
-export default function Icon({
+
+function Icon({
   accessibilityLabel,
   color = 'subtle',
   dangerouslySetSvgPath,
@@ -133,3 +134,7 @@ export default function Icon({
 }
 
 Icon.icons = IconNames;
+
+Icon.displayName = 'Icon';
+
+export default Icon;

@@ -5,6 +5,10 @@ import selectors from './selectors.mjs';
 // them offscreen in batches. Sometimes this takes many renders and happens
 // asyncronously. waitForRenderedItems waits for a specified number of items to
 // be added to the DOM with no others waiting for measurement.
+// GT = greater than
+// GTE = greater than or equal to
+// LT = less than
+// LTE = less than or equal to
 /*::
 type waitForRenderedItemsArgs = {|
   scrollHeight?: number,
@@ -82,7 +86,7 @@ export default async function waitForRenderedItems(
         const { documentElement } = document;
         if (
           typeof scrollHeight !== 'undefined' &&
-          documentElement?.scrollHeight >= scrollHeight
+          documentElement?.scrollHeight > scrollHeight
         ) {
           return false;
         }
