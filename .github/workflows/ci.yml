@@ -7,7 +7,10 @@ on:
   push:
     branches:
       - master
-
+permissions:
+  # Give the default GITHUB_TOKEN write permission to commit and push the
+  # added or changed files to the repository for the formatting changes
+  contents: write
 jobs:
   test:
     name: Tests
@@ -31,6 +34,16 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Run Formatter
+        run: yarn format
+      - name: Set Author Details
+        run: |
+          git config --global user.email "pinterest-gestalt@gmail.com"
+          git config --global user.name "Pinterest-Gestalt"
+      - name: Commit Formatting Changes (if any)
+        run: |
+          git add -A && git commit -m "Applying Formatting Changes" || echo "No changes to commit"
+          git push
       - name: Build
         run: yarn build
       - name: Run tests
