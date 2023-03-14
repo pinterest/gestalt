@@ -6,40 +6,20 @@ import MainSection from '../../docs-components/MainSection.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/callout/main.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Callout">
-      <PageHeader
-        name="Callout"
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Callout
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: () => {},
-  }}
-  iconAccessibilityLabel="Info"
-  message="Apply to the Verified Merchant Program"
-  primaryAction={{
-    accessibilityLabel: "Get started: Verified Merchant Program",
-    href: "https://pinterest.com",
-    label: "Get started",
-    target: "blank",
-  }}
-  secondaryAction={{
-    accessibilityLabel: "Learn more: Verified Merchant Program",
-    href: "https://pinterest.com",
-    label: "Learn more",
-    target: "blank",
-  }}
-  title="Your business account was created!"
-  type="info"
-/>
-    `}
-      />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

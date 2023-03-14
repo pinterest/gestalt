@@ -8,20 +8,20 @@ import {
   type AbstractComponent,
 } from 'react';
 import classnames from 'classnames';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
+import Icon, { type IconColor } from './Icon.js';
 import icons from './icons/index.js';
+import InternalLink from './InternalLink.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import styles from './Button.css';
 import Text from './Text.js';
 import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
-import InternalLink from './InternalLink.js';
-import Icon, { type IconColor } from './Icon.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -39,6 +39,8 @@ const SIZE_NAME_TO_PIXEL = {
   lg: 12,
 };
 
+type Target = null | 'self' | 'blank';
+
 type BaseButton = {|
   accessibilityLabel?: string,
   color?:
@@ -49,6 +51,7 @@ type BaseButton = {|
     | 'semiTransparentWhite'
     | 'transparentWhiteText'
     | 'white',
+  dataTestId?: string,
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   fullWidth?: boolean,
@@ -86,7 +89,7 @@ type LinkButtonType = {|
   href: string,
   rel?: 'none' | 'nofollow',
   role: 'link',
-  target?: null | 'self' | 'blank',
+  target?: Target,
 |};
 
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
@@ -100,7 +103,7 @@ function InternalButtonContent({
   icon,
   size,
 }: {|
-  target?: null | 'self' | 'blank',
+  target?: Target,
   text: Node,
   textColor: IconColor,
   icon?: $Keys<typeof icons>,
@@ -138,6 +141,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
   const {
     accessibilityLabel,
     color = 'gray',
+    dataTestId,
     disabled = false,
     fullWidth = false,
     iconEnd,
@@ -237,6 +241,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
       <InternalLink
         accessibilityLabel={ariaLabel}
         colorClass={colorClass}
+        dataTestId={dataTestId}
         disabled={disabled}
         fullWidth={fullWidth}
         href={href}
@@ -267,6 +272,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
       <button
         aria-label={accessibilityLabel}
         className={baseTypeClasses}
+        data-test-id={dataTestId}
         disabled={disabled}
         name={name}
         onBlur={handleBlur}
@@ -296,6 +302,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
       className={parentButtonClasses}
+      data-test-id={dataTestId}
       disabled={disabled}
       name={name}
       onBlur={handleBlur}

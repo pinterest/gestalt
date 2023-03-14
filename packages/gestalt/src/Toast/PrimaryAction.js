@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, type ElementConfig } from 'react';
-import Button from './Button.js';
-import Link from './Link.js';
+import Button from '../Button.js';
+import Link from '../Link.js';
 
 type Props = {|
   accessibilityLabel: string,
@@ -33,6 +33,7 @@ export default function ToastPrimaryAction({
         text={label}
         size={size}
         onClick={onClick}
+        color="white"
       />
     );
 

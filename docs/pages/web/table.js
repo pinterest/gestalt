@@ -872,7 +872,7 @@ function Example() {
                   padding={2}
                   column={12}
                 >
-                  <Card
+                  <WashAnimated
                     active={active}
                     image={
                       <Box
@@ -897,7 +897,7 @@ function Example() {
                         </Box>
                       </Link>
                     </Text>
-                  </Card>
+                  </WashAn>
                 </Box>
               }
             >
@@ -2111,7 +2111,7 @@ function Example() {
               onExpand={() => setTextShown(!textShown)}
               expandedContents={
                 <Box maxWidth={236} padding={2} column={12}>
-                  <Card
+                  <WashAnimated
                     image={
                       <Avatar
                         name="luna avatar"
@@ -2127,7 +2127,7 @@ function Example() {
                       </Link>
                     </Text>
                     {textShown && showTextOnExpand()}
-                  </Card>
+                  </WashAnimated>
                 </Box>
               }
             >
@@ -2243,7 +2243,7 @@ function Example() {
               id="row3"
               expandedContents={
                 <Box maxWidth={236} padding={2} column={12}>
-                  <Card
+                  <WashAnimated
                     image={
                       <Avatar
                         name="luna avatar"
@@ -2258,7 +2258,7 @@ function Example() {
                         </Box>
                       </Link>
                     </Text>
-                  </Card>
+                  </WashAnimated>
                 </Box>
               }
             >
@@ -2338,7 +2338,7 @@ function Example() {
               onExpand={() => setTextShown(!textShown)}
               expandedContents={
                 <Box maxWidth={236} padding={2} column={12}>
-                  <Card
+                  <WashAnimated
                     image={
                       <Avatar
                         name="tony avatar"
@@ -2354,7 +2354,7 @@ function Example() {
                       </Link>
                     </Text>
                     {textShown && showTextOnExpand()}
-                  </Card>
+                  </WashAnimated>
                 </Box>
               }
             >
@@ -2455,7 +2455,7 @@ function Example() {
               id="row3"
               expandedContents={
                 <Box maxWidth={236} padding={2} column={12}>
-                  <Card
+                  <WashAnimated
                     image={
                       <Avatar
                         name="Black panther avatar"
@@ -2470,7 +2470,7 @@ function Example() {
                         </Box>
                       </Link>
                     </Text>
-                  </Card>
+                  </WashAnimated>
                 </Box>
               }
             >

@@ -20,21 +20,37 @@ function booleanize(value: string): boolean {
 
 export default function TestPage(): Node {
   const router = useRouter();
-  const { constrained, finiteLength, flexible, offsetTop, scrollContainer, virtualize } =
-    router.query;
+  const {
+    constrained,
+    externalCache,
+    finiteLength,
+    flexible,
+    manualFetch,
+    noScroll,
+    offsetTop,
+    scrollContainer,
+    virtualize,
+    virtualBoundsTop,
+    virtualBoundsBottom,
+  } = router.query;
 
   return (
     <ColorSchemeProvider colorScheme="light">
       <MasonryContainer
         constrained={booleanize(constrained)}
+        externalCache={booleanize(externalCache)}
         finiteLength={booleanize(finiteLength)}
         flexible={booleanize(flexible)}
         initialItems={generateExampleItems({ name: 'InitialPin' })}
+        manualFetch={booleanize(manualFetch)}
         MasonryComponent={Masonry}
         measurementStore={measurementStore}
+        noScroll={booleanize(noScroll)}
         offsetTop={offsetTop}
         scrollContainer={booleanize(scrollContainer)}
         virtualize={booleanize(virtualize)}
+        virtualBoundsTop={virtualBoundsTop}
+        virtualBoundsBottom={virtualBoundsBottom}
       />
     </ColorSchemeProvider>
   );

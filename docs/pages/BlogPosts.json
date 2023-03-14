@@ -3,6 +3,106 @@
     "year": "2023",
     "digests": [
       {
+        "week": "March 10, 2023",
+        "summary": "Form guidelines, a new HelpButton component, IconButton docs updates and bunches of Figma library improvements",
+        "posts": [
+          {
+            "title": "Form guidelines",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e5/b3/4d/e5b34dcaf30919c20f314a023fab2019.png",
+            "imageAltText": "screenshot of form guidelines",
+            "content": "We're very excited to announce that [Form guidelines](https://gestalt.pinterest.systems/foundations/forms/overview) have been published in Gestalt's documentation. Creating a usable form is no easy feat and we're hopeful these guidelines will help make the process just _that much easier_."
+          },
+          {
+            "title": "HelpButton",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/62/de/88/62de88ca96faaf8c37a41cd753c7cb12.png",
+            "imageAltText": "example of helpbutton component",
+            "content": "Need to provide a little context to something on the screen? Well, we've got you covered with our new [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) component. This component represents a change in approach for providing in-page context as it utilizes a popover as opposed to a tooltip to display help text so that the message can [contain a link](https://gestalt.pinterest.systems/web/helpbutton#Link) while remaining accessible."
+          },
+          {
+            "title": "IconButton Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/46/df/e6/46dfe6d4cf4c9f4dd9bf13234c76f52e.png",
+            "imageAltText": "design specs for iconbutton component",
+            "content": "We made some nice enhancements to our [Android IconButton component docs](https://gestalt.pinterest.systems/android/iconbutton) to include design specs ahead of its implementation. Go check it out!"
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/80/b8/63/80b863ce656265c12b3845a13872bec4.png",
+            "imageAltText": "examples of toast, montage and imagery fill style",
+            "content": "We continue to plow through Figma updates like it's going out of style. Here's the big highlights from this week:\n* The Web library Toast component has been updated to reflect its slick new style. We also added our new Success and Loading types, plus an optional dismiss button for better accessibility. \n* MontageGrid and MontageRow components are now available in our Android and iOS libraries\n * We fixed an issue with our Foundations imagery styles so that they now always fill the bounds of the shape they're in"
+          }
+        ]
+      },
+      {
+        "month": "February",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng February Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from February."
+          },
+          {
+            "title": "PopoverEducational",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/f1/ce/30/f1ce30125af05068c7e14549f9dabaf0.png",
+            "imageAltText": "Screenshot of PopoverEducational UI",
+            "content": "Introducing our newest component, [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational)! This component is a specialized version of Popover for use in educational or onboarding experiences. Check it out!"
+          },
+          {
+            "title": "Component updates: Badge, OverlayPanel, ScrollBoundaryContainer, SideNavigation, Table, Toast, Upsell, WashAnimated",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/ba/78/84/ba7884a773665bc2e203b55a4701067a.png",
+            "imageAltText": "Screenshot of redesigned Toast",
+            "content": "We shipped new treatments for [Badge](https://gestalt.pinterest.systems/web/badge) and [Toast](https://gestalt.pinterest.systems/web/toast). We also renamed a couple of components to make room for future component development: Sheet is now [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel), and Card is now [WashAnimated](https://gestalt.pinterest.systems/web/washanimated). OverlayPanel now also has the ability to add a [dismiss confirmation modal](https://gestalt.pinterest.systems/web/overlaypanel#Dismiss-confirmation). [ScrollBoundaryContainer's `overflow` prop](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Overflow) now has a `'visible'` option, preventing visual bugs in certain situations. SideNavigation.TopItem and SideNavigation.Group [can accept a `primaryAction`](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action), adding an icon button to the list item. [Table.Footer](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) can be just as `sticky` as the header. And [Upsell's `message` prop](https://gestalt.pinterest.systems/web/upsell#Message) now accepts Text in addition to strings, allowing for more flexibility in the content."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/7a/a2/1d/7aa21da44c67a80cae91e71e43a83336.png",
+            "imageAltText": "Screenshot of Android icons",
+            "content": "We added specs for [Android icons](https://gestalt.pinterest.systems/android/icon), which can be downloaded from [this repo](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-icons-android)."
+          }
+        ]
+      },
+      {
+        "week": "March 3, 2023",
+        "summary": "Big updates to Toast and Badge, a new educational popover component, design specs in Gestalt's docs and new Figma components.",
+        "posts": [
+          {
+            "title": "Update to Web Toast and Badge components",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/3d/2f/66/3d2f66d071b06b5d276c9ac823318010.png",
+            "imageAltText": "examples of the toast and badge components",
+            "content": "We're excited to announce that we've officially shipped our updates for [Toast](https://gestalt.pinterest.systems/web/toast) and [Badge](https://gestalt.pinterest.systems/web/badge) on Web.\n\n We've dramatically slimmed down Toast to create a smaller footprint on the screen for less occlusion. We're hoping this enables Toasts to give Pinners helpful updates while staying out of the way.\n\n On the other side, we've increased the size of Badge to assist with legibility. We've also included the ability to add a tooltip to allow you to add context. \n\n The updated Badge is already available to use in our Figma components and Toast is not far behind."
+          },
+          {
+            "title": "New PopoverEducational components",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/a6/78/34/a6783472bef0fcc58a9eab62a6c70f64.png",
+            "imageAltText": "example of the popovereducational component",
+            "content": "We are making some big updates to some of our most highly-used components in H1 and in order to do so, we're doing some necessary restructuring. As a part of this work, we've created a new [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational) component which is essentially an opinionated version of [Popover](https://gestalt.pinterest.systems/web/popovereducational), designed specifically for in-product education. This component still has some moving parts, so expect some iterations in the future."
+          },
+          {
+            "title": "Android Icon component docs",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/18/31/df/1831df17b4d17c08f2d8a9c0ba9d8321.png",
+            "imageAltText": "screenshot of android icon component specs",
+            "content": "As Android component development picks up, we're trying out the practice of publishing our design specs in our docs. You can see this in the latest version of our [Android Icon component docs](https://gestalt.pinterest.systems/android/icon). Expect more updates like these in the weeks to come and let us know if you think this is helpful."
+          },
+          {
+            "title": "New Figma Reaction, ReactionCount and mWeb unauth primary nav components",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/6f/78/28/6f7828f0bc19b821f819ea582af10e3e.png",
+            "imageAltText": "examples of reaction, reactioncount and mweb unauth primary nav component",
+            "content": "We added some small, but mighty updates to our Figma libraries.\n * Reaction is, well, a reaction icon. We've migrated over to one component with each different sentiment as a variant.\n * ReactionCount is a new Figma component which provides a ready-to-use element for displaying reaction counts.\n * Lastly, we added a variant to our primary navigation component to cover the unath mWeb use case.\n\n Reaction and ReactionCount are available for Android, iOS and Web whereas, the unauth primary nav variant (as expected) is only available for Web. "
+          }
+        ]
+      },
+      {
         "week": "February 22, 2023",
         "summary": "Updated roadmap, Table component updates and a slew of Figma improvements.",
         "posts": [

@@ -57,7 +57,7 @@
     "import/no-anonymous-default-export": "error",
     "import/no-extraneous-dependencies": "off",
     "import/no-namespace": "error",
-    "import/no-relative-parent-imports": "error",
+    "import/no-relative-parent-imports": "off",
     "import/no-unresolved": "off",
     "jsx-a11y/label-has-associated-control": [
       "error",
@@ -108,9 +108,10 @@
       }
     },
     {
-      "files": ["docs/**/*.js"],
+      "files": ["docs/examples/**/*.js"],
       "rules": {
-        "import/no-relative-parent-imports": "off"
+        // Allows us to avoid directing the user off our docs site in examples
+        "jsx-a11y/anchor-is-valid": "off"
       }
     },
     {

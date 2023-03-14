@@ -21,7 +21,7 @@ exports[`<Toast /> Error Toast 1`] = `
       >
         <svg
           aria-hidden={null}
-          aria-label="problem"
+          aria-label="Error message"
           className="icon inverseIcon iconBlock"
           height={24}
           role="img"
@@ -36,17 +36,16 @@ exports[`<Toast /> Error Toast 1`] = `
       <div
         className="FlexItem flexGrow"
       >
-        <div
+        <span
           className="Text fontSize300 inverseText alignStart breakWord fontWeightSemiBold lineClamp"
           style={
             Object {
               "WebkitLineClamp": 2,
             }
           }
-          title="Same great profile, slightly new look. Learn more?"
         >
           Same great profile, slightly new look. Learn more?
-        </div>
+        </span>
       </div>
     </div>
   </div>
@@ -59,7 +58,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
   role="status"
 >
   <div
-    className="box dark paddingX4 paddingY3 rounding4"
+    className="box inverse paddingX4 paddingY3 rounding4"
     style={
       Object {
         "width": "100%",
@@ -72,43 +71,34 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
-          style={
-            Object {
-              "WebkitLineClamp": 2,
-            }
-          }
+        <span
+          className="textColorOverrideLight"
         >
           <span
-            className="textColorOverrideLight"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
-            <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
             >
-              Saved to
-               
-              <a
-                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target={null}
-              >
-                Home decor
-              </a>
-            </span>
+              Home decor
+            </a>
           </span>
-        </div>
+        </span>
       </div>
       <div
         className="FlexItem flexNone"
@@ -150,7 +140,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   role="status"
 >
   <div
-    className="box dark paddingX4 paddingY3 rounding4"
+    className="box inverse paddingX4 paddingY3 rounding4"
     style={
       Object {
         "width": "100%",
@@ -164,66 +154,77 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="FlexItem flexNone"
       >
         <div
-          className="Mask rounding2 willChangeTransform"
-          style={
-            Object {
-              "height": 32,
-              "width": 32,
-            }
-          }
+          aria-hidden={true}
+          className="box"
         >
-          <img
-            alt=""
-            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-          />
+          <div
+            className="Mask rounding2 willChangeTransform"
+            style={
+              Object {
+                "height": 32,
+                "width": 32,
+              }
+            }
+          >
+            <div
+              className="box relative"
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "paddingBottom": "100%",
+                }
+              }
+            >
+              <img
+                alt=""
+                className="img"
+                fetchpriority="auto"
+                loading="auto"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
-          style={
-            Object {
-              "WebkitLineClamp": 2,
-            }
-          }
+        <span
+          className="textColorOverrideLight"
         >
           <span
-            className="textColorOverrideLight"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
-            <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
             >
-              Saved to
-               
-              <a
-                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target={null}
-              >
-                Home decor
-              </a>
-            </span>
+              Home decor
+            </a>
           </span>
-        </div>
+        </span>
       </div>
       <div
         className="FlexItem flexNone"
       >
         <button
-          aria-label="Test"
+          aria-label="Undo undo action"
           className="button hideOutline inline accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
@@ -259,7 +260,7 @@ exports[`<Toast /> Text + Image 1`] = `
   role="status"
 >
   <div
-    className="box dark paddingX4 paddingY3 rounding4"
+    className="box inverse paddingX4 paddingY3 rounding4"
     style={
       Object {
         "width": "100%",
@@ -273,60 +274,71 @@ exports[`<Toast /> Text + Image 1`] = `
         className="FlexItem flexNone"
       >
         <div
-          className="Mask rounding2 willChangeTransform"
-          style={
-            Object {
-              "height": 32,
-              "width": 32,
-            }
-          }
+          aria-hidden={true}
+          className="box"
         >
-          <img
-            alt=""
-            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-          />
+          <div
+            className="Mask rounding2 willChangeTransform"
+            style={
+              Object {
+                "height": 32,
+                "width": 32,
+              }
+            }
+          >
+            <div
+              className="box relative"
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "paddingBottom": "100%",
+                }
+              }
+            >
+              <img
+                alt=""
+                className="img"
+                fetchpriority="auto"
+                loading="auto"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
-          style={
-            Object {
-              "WebkitLineClamp": 2,
-            }
-          }
+        <span
+          className="textColorOverrideLight"
         >
           <span
-            className="textColorOverrideLight"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
-            <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
             >
-              Saved to
-               
-              <a
-                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target={null}
-              >
-                Home decor
-              </a>
-            </span>
+              Home decor
+            </a>
           </span>
-        </div>
+        </span>
       </div>
     </div>
   </div>
@@ -339,7 +351,7 @@ exports[`<Toast /> Text Only 1`] = `
   role="status"
 >
   <div
-    className="box dark paddingX4 paddingY3 rounding4"
+    className="box inverse paddingX4 paddingY3 rounding4"
     style={
       Object {
         "width": "100%",
@@ -352,17 +364,16 @@ exports[`<Toast /> Text Only 1`] = `
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize300 lightText alignStart breakWord fontWeightNormal lineClamp"
+        <span
+          className="Text fontSize300 inverseText alignStart breakWord fontWeightNormal lineClamp"
           style={
             Object {
               "WebkitLineClamp": 2,
             }
           }
-          title="Same great profile, slightly new look. Learn more?"
         >
           Same great profile, slightly new look. Learn more?
-        </div>
+        </span>
       </div>
     </div>
   </div>

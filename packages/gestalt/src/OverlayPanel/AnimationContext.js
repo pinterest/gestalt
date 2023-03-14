@@ -12,7 +12,7 @@ import {
   useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-import useReducedMotion from './useReducedMotion.js';
+import useReducedMotion from '../useReducedMotion.js';
 
 /* A backward-compatible shim for React < 18
  * flushSync is needed in React 18+ to ensure that the animation is finished before the onDismiss callback is called.

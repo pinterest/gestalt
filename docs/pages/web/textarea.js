@@ -6,32 +6,21 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/textarea/main.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <Box width="100%">
-      <TextArea
-        id="headerExample"
-        onChange={({value}) => setValue(value)}
-        placeholder="Write something about yourself..."
-        label="About me"
-        value={value}
-      />
-    </Box>
-  );
-}
-        `}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+          previewHeight={150}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

@@ -2,7 +2,7 @@
 import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './Backdrop.css';
-import { type AnimationStateType } from './AnimationContext.js';
+import { type AnimationStateType } from './OverlayPanel/AnimationContext.js';
 
 type Props = {|
   animationState?: AnimationStateType,
