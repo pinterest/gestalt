@@ -1,3 +1,9 @@
+## 101.1.0 (Mar 14, 2023)
+
+### Minor
+
+- ModalAlert, Button: add dataTestId ([#2726](https://github.com/pinterest/gestalt/pull/2726)) - [Preview link](https://deploy-preview-2726--gestalt.netlify.app)
+
 ## 101.0.12 (Mar 14, 2023)
 
 ### Patch
