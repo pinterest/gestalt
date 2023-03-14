@@ -1,17 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
-import Box from './Box.js';
-import Button from './Button.js';
 import Flex from './Flex.js';
-import Heading from './Heading.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
 import Modal from './Modal.js';
+import ModalAlertAction from './ModalAlert/ModalAlertAction.js';
+import ModalAlertHeader from './ModalAlert/ModalAlertHeader.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 
-type ActionDataType = {|
+export type ActionDataType = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
   href?: string,
   label: string,
@@ -66,93 +64,6 @@ type Props = {|
   secondaryAction?: ActionDataType,
 |};
 
-const ICON_COLOR_MAP = {
-  error: {
-    icon: 'workflow-status-problem',
-    color: 'error',
-  },
-  warning: {
-    icon: 'workflow-status-warning',
-    color: 'warning',
-  },
-};
-
-function Header({
-  accessibilityDismissButtonLabel,
-  type,
-  heading,
-  onDismiss,
-}: {|
-  accessibilityDismissButtonLabel: string,
-  type: 'default' | 'warning' | 'error',
-  heading: string,
-  onDismiss: () => void,
-|}) {
-  return (
-    <Flex flex="grow" alignItems="center" gap={4}>
-      {type !== 'default' && (
-        <Box>
-          <Icon
-            size="20"
-            accessibilityLabel={type}
-            icon={ICON_COLOR_MAP[type].icon}
-            color={ICON_COLOR_MAP[type].color}
-          />
-        </Box>
-      )}
-      <Flex.Item flex="grow">
-        <Heading size="400" accessibilityLevel={1}>
-          {heading}
-        </Heading>
-      </Flex.Item>
-      {type === 'default' && (
-        <Box marginStart={2}>
-          <IconButton
-            accessibilityLabel={accessibilityDismissButtonLabel}
-            bgColor="white"
-            icon="cancel"
-            iconColor="darkGray"
-            onClick={onDismiss}
-            size="sm"
-          />
-        </Box>
-      )}
-    </Flex>
-  );
-}
-
-function ModalAlertAction({ data, type }: {| data: ActionDataType, type: string |}): Node {
-  const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, disabled, label, onClick, href, rel, target } = data;
-  return href ? (
-    <Button
-      accessibilityLabel={accessibilityLabel}
-      color={color}
-      disabled={disabled}
-      href={href}
-      fullWidth
-      onClick={onClick}
-      iconEnd="visit"
-      rel={rel}
-      role="link"
-      size="lg"
-      target={target}
-      text={label}
-    />
-  ) : (
-    <Button
-      accessibilityLabel={accessibilityLabel}
-      disabled={disabled}
-      color={color}
-      onClick={onClick}
-      fullWidth
-      role="button"
-      size="lg"
-      text={label}
-    />
-  );
-}
-
 /**
  * A [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
  *
@@ -195,12 +106,12 @@ export default function ModalAlert({
         closeOnOutsideClick={type === 'default'}
         footer={
           <Flex justifyContent="end" gap={2}>
-            {secondaryAction && <ModalAlertAction type="secondary" data={secondaryAction} />}
-            {primaryAction && <ModalAlertAction type="primary" data={primaryAction} />}
+            {secondaryAction && <ModalAlertAction type="secondary" {...secondaryAction} />}
+            {primaryAction && <ModalAlertAction type="primary" {...primaryAction} />}
           </Flex>
         }
         heading={
-          <Header
+          <ModalAlertHeader
             type={type}
             heading={heading}
             onDismiss={onDismiss}
