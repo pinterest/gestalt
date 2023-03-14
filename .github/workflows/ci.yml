@@ -32,7 +32,7 @@ jobs:
           git config --global user.name "Pinterest-Gestalt"
       - name: Commit Formatting Changes (if any)
         run: |
-          git add -A && git commit -m "Applying Formatting Changes" || echo "No changes to commit"
+          git add -A && git commit -m "Applying Formatting Changes [skip ci]" || echo "No changes to commit"
           git push
   test:
     name: Tests
