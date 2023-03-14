@@ -1,3 +1,9 @@
+## 101.0.12 (Mar 14, 2023)
+
+### Patch
+
+- Toast: fix typos in docs ([#2727](https://github.com/pinterest/gestalt/pull/2727)) - [Preview link](https://deploy-preview-2727--gestalt.netlify.app)
+
 ## 101.0.11 (Mar 13, 2023)
 
 ### Patch
