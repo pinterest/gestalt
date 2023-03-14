@@ -1,13 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../docs-components/PageHeader.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+
 import main from '../../examples/toast/main.js';
 import doOne from '../../examples/toast/doOne.js';
 import dontMultiple from '../../examples/toast/dontMultiple.js';
@@ -195,7 +196,7 @@ Some people may take longer to read toasts than others due to cognitive impairme
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={textOnly} name="Text-only" />}
-            description="A simple, generic acknowledgment after an action is taken These should not be actionable."
+            description="A simple, generic acknowledgment after an action is taken. These should not be actionable."
           />
         </MainSection.Subsection>
 
@@ -293,7 +294,7 @@ If  confirmation toast's text with more complex style is required, such as bold 
       <MainSection
         name="Duration and timing"
         description={`
-Toasts should be on screen for a minimum of 5s; this gives most people enough time to read and act. Please note that a separate Toast manager must be implemented in order to handle duration and animation.
+Toasts should be on screen for a minimum of 5 seconds; this gives most people enough time to read and act. Please note that a separate Toast manager must be implemented in order to handle duration and animation.
 
 Once a toast is triggered, allow for a cooldown period of about 7 seconds before the toast can be triggered again. This will prevent multiple toasts from appearing.
 `}
