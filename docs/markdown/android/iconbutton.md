@@ -28,7 +28,7 @@ fullwidth: true
 ## Mobile best practices
 
 - Avoid using a floating icon button if it obscures important information on the screen. 
-- IconButton on mobile should primarily utilize the lg (48dp) size as the increased size will better accommodate tapping with a finger.   
+- IconButton on mobile should primarily utilize the lg (44dp) size as the increased size will better accommodate tapping with a finger.   
 
 For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
