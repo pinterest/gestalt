@@ -27,6 +27,7 @@ type Props = {|
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
+  dataTestId?: string,
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
@@ -63,6 +64,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     accessibilityLabel,
     children,
     colorClass,
+    dataTestId,
     disabled,
     fullHeight,
     fullWidth,
@@ -181,6 +183,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       className={className}
+      data-test-id={dataTestId}
       href={disabled ? undefined : href}
       id={id}
       onBlur={(event) => {

@@ -1,3 +1,27 @@
+## 101.1.3 (Mar 15, 2023)
+
+### Patch
+
+- Pog, IconButton: bugfix for rotated icons on iPhone ([#2730](https://github.com/pinterest/gestalt/pull/2730)) - [Preview link](https://deploy-preview-2730--gestalt.netlify.app)
+
+## 101.1.2 (Mar 15, 2023)
+
+### Patch
+
+- Fieldset, WashAnimated: convert examples to Sandpack ([#2729](https://github.com/pinterest/gestalt/pull/2729)) - [Preview link](https://deploy-preview-2729--gestalt.netlify.app)
+
+## 101.1.1 (Mar 14, 2023)
+
+### Patch
+
+- IconButton: Update Android docs Figma iframe link ([#2728](https://github.com/pinterest/gestalt/pull/2728)) - [Preview link](https://deploy-preview-2728--gestalt.netlify.app)
+
+## 101.1.0 (Mar 14, 2023)
+
+### Minor
+
+- ModalAlert, Button: add dataTestId ([#2726](https://github.com/pinterest/gestalt/pull/2726)) - [Preview link](https://deploy-preview-2726--gestalt.netlify.app)
+
 ## 101.0.12 (Mar 14, 2023)
 
 ### Patch
