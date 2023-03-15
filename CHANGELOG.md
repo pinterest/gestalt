@@ -1,3 +1,9 @@
+## 101.1.2 (Mar 15, 2023)
+
+### Patch
+
+- Fieldset, WashAnimated: convert examples to Sandpack ([#2729](https://github.com/pinterest/gestalt/pull/2729)) - [Preview link](https://deploy-preview-2729--gestalt.netlify.app)
+
 ## 101.1.1 (Mar 14, 2023)
 
 ### Patch
