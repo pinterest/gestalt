@@ -13,7 +13,7 @@ permissions:
   contents: write
 jobs:
   format:
-    name: 'Format and Commit'
+    name: 'Format and Commit Changes'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
