@@ -1,3 +1,9 @@
+## 101.1.3 (Mar 15, 2023)
+
+### Patch
+
+- Pog, IconButton: bugfix for rotated icons on iPhone ([#2730](https://github.com/pinterest/gestalt/pull/2730)) - [Preview link](https://deploy-preview-2730--gestalt.netlify.app)
+
 ## 101.1.2 (Mar 15, 2023)
 
 ### Patch
