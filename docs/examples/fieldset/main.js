@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Fieldset, Flex, Box, Checkbox } from 'gestalt';
+import { Checkbox, Fieldset, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const [checked1, setChecked1] = useState(false);
@@ -9,9 +9,9 @@ export default function Example(): Node {
   const [checked4, setChecked4] = useState(false);
 
   return (
-    <Box width="100%" height="100%" padding={4} display="flex" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Fieldset legend="Pick one topic from the list">
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Flex direction="column" gap={2}>
           <Checkbox
             checked={checked1}
             id="Fashion2"
@@ -38,6 +38,6 @@ export default function Example(): Node {
           />
         </Flex>
       </Fieldset>
-    </Box>
+    </Flex>
   );
 }

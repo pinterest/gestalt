@@ -1,14 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/fieldset/main.js';
+import accessibility from '../../examples/fieldset/accessibility.js';
+import variantsLegend from '../../examples/fieldset/variantsLegend.js';
+import variantsError from '../../examples/fieldset/variantsError.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -44,6 +47,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection
         name={generatedDocGen?.displayName}
         description={`
@@ -53,67 +57,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       >
         <MainSection.Card
           cardSize="lg"
-          defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState(undefined);
-  const [name, setName] = React.useState('')
-  const [email, setEmail] = React.useState('')
-
-  return (
-    <form>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <TextField
-          id="name"
-          onChange={({ value }) => setName(value)}
-          placeholder="First and last name"
-          label="Name"
-          value={name}
-          type="email"
-        />
-        <TextField
-          id="email"
-          onChange={({ value }) => setEmail(value)}
-          placeholder="example@test.com"
-          label="Email"
-          value={email}
-          type="email"
-        />
-        <Fieldset legend="Favorite pet">
-          <Flex direction="column" gap={{ column: 2, row: 0 }}>
-            <RadioButton
-              checked={favorite === 'dogs'}
-              id="favoriteDogA11y"
-              label="Dogs"
-              name="favorite"
-              onChange={() => setFavorite( 'dogs' )}
-              value="dogs"
-            />
-            <RadioButton
-              checked={favorite === 'cats'}
-              id="favoriteCatA11y"
-              label="Cats"
-              name="favorite"
-              onChange={() => setFavorite( 'cats' )}
-              value="cats"
-            />
-            <RadioButton
-              checked={favorite === 'plants'}
-              id="favoritePlantsA11y"
-              label="Plants"
-              name="favorite"
-              onChange={() => setFavorite( 'plants' )}
-              value="plants"
-            />
-          </Flex>
-        </Fieldset>
-      </Flex>
-    </form>
-  );
-}
-`}
+          sandpackExample={<SandpackExample code={accessibility} name="Accessibility - Fieldset" />}
         />
       </AccessibilitySection>
+
       <MainSection name="Localization" description={`Be sure to localize the \`legend\` text.`} />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`
@@ -125,129 +74,25 @@ function RadioButtonExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function CheckboxExample() {
-  const [checkedSell, setCheckedSell] = React.useState(false);
-  const [checkedLeads, setCheckedLeads] = React.useState(false);
-  const [checkedAudience, setCheckedAudience] = React.useState(false);
-  const [checkedBrand, setCheckedBrand] = React.useState(false);
-  const [checkedNotSure, setCheckedNotSure] = React.useState(false);
-
-  return (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Heading size="400">Company Account Goals</Heading>
-        <Text size="200">
-          Choose up to 3.
-          <Text inline size="200" weight="bold">
-            <Link display="inline" target="blank" href="https://www.pinterest.com/">
-              Additional information
-            </Link>
-          </Text>
-        </Text>
-      </Flex>
-      <Fieldset legend="Choose up to 3 company account goals" legendDisplay="hidden">
-        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-          <Checkbox
-            checked={checkedSell}
-            id="sell"
-            label="Sell more products"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedSell(checked);
-            }}
-          />
-          <Checkbox
-            checked={checkedLeads}
-            id="leads"
-            label="Generate more leads for the company"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedLeads(checked);
-            }}
-          />
-          <Checkbox
-            checked={checkedAudience}
-            id="audience"
-            label="Create content on Pinterest to attract an audience"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedAudience(checked);
-            }}
-          />
-          <Checkbox
-            checked={checkedBrand}
-            id="brand"
-            label="Increase brand awareness"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedBrand(checked);
-            }}
-          />
-          <Checkbox
-            checked={checkedNotSure}
-            id="notSure"
-            label="Not sure yet"
-            name="account goals"
-            onChange={({ checked }) => {
-              setCheckedNotSure(checked);
-            }}
-          />
-        </Flex>
-      </Fieldset>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={variantsLegend}
+                name="Variants - Legend visibility"
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Error message">
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function CheckboxExample() {
-    const [checkedEn, setCheckedEn] = React.useState(false);
-    const [checkedSp, setCheckedSp] = React.useState(false);
-    const [checkedCh, setCheckedCh] = React.useState(false);
-
-  return (
-    <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message" errorMessage="At least 1 item must be selected">
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Checkbox
-          checked={checkedEn}
-          id="english-info"
-          label="English"
-          subtext="USA, India, and Pakistan have the top number of English speakers "
-          name="languages"
-          onChange={({ checked }) => {
-            setCheckedEn(checked);
-          }}
-        />
-        <Checkbox
-          checked={checkedSp}
-          id="spanish-info"
-          label="Spanish"
-          subtext="Mexico, Columbia, and Spain are the top three Spanish speaking countries"
-          name="languages"
-          onChange={({ checked }) => {
-            setCheckedSp(checked);
-          }}
-        />
-        <Checkbox
-          checked={checkedCh}
-          id="chinese-info"
-          label="Chinese"
-          subtext="Chinese has two varieties: Cantonese and Mandarin"
-          name="languages"
-          onChange={({ checked }) => {
-            setCheckedCh(checked);
-          }}
-        />
-      </Flex>
-    </Fieldset>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                code={variantsError}
+                name="Variants - Error message"
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
