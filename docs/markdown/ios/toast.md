@@ -68,7 +68,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ### Duration
-Some people may take longer to read toasts than others due to aging, low vision, or cognitive impairments. Use the guide below to set duration for Toasts:
+Some people may take longer to read toasts than others due to low vision or cognitive impairments. Use the guide below to set duration for Toasts:
 
 - Brief text of approximately 10–15 words (including button text): 5 seconds
 - Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s. [Source](https://capitalizemytitle.com/reading-time/3000-words/)

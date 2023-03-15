@@ -1,3 +1,69 @@
+## 101.1.2 (Mar 15, 2023)
+
+### Patch
+
+- Fieldset, WashAnimated: convert examples to Sandpack ([#2729](https://github.com/pinterest/gestalt/pull/2729)) - [Preview link](https://deploy-preview-2729--gestalt.netlify.app)
+
+## 101.1.1 (Mar 14, 2023)
+
+### Patch
+
+- IconButton: Update Android docs Figma iframe link ([#2728](https://github.com/pinterest/gestalt/pull/2728)) - [Preview link](https://deploy-preview-2728--gestalt.netlify.app)
+
+## 101.1.0 (Mar 14, 2023)
+
+### Minor
+
+- ModalAlert, Button: add dataTestId ([#2726](https://github.com/pinterest/gestalt/pull/2726)) - [Preview link](https://deploy-preview-2726--gestalt.netlify.app)
+
+## 101.0.12 (Mar 14, 2023)
+
+### Patch
+
+- Toast: fix typos in docs ([#2727](https://github.com/pinterest/gestalt/pull/2727)) - [Preview link](https://deploy-preview-2727--gestalt.netlify.app)
+
+## 101.0.11 (Mar 13, 2023)
+
+### Patch
+
+- Docs: cleanups & refactors & fixes ([#2719](https://github.com/pinterest/gestalt/pull/2719)) - [Preview link](https://deploy-preview-2719--gestalt.netlify.app)
+
+## 101.0.10 (Mar 13, 2023)
+
+### Patch
+
+- Internal: fix autogen type for IconButtonFloating ([#2725](https://github.com/pinterest/gestalt/pull/2725)) - [Preview link](https://deploy-preview-2725--gestalt.netlify.app)
+
+## 101.0.9 (Mar 13, 2023)
+
+### Patch
+
+- Sticky: convert to autogen props and Sandpack examples ([#2724](https://github.com/pinterest/gestalt/pull/2724)) - [Preview link](https://deploy-preview-2724--gestalt.netlify.app)
+
+## 101.0.8 (Mar 13, 2023)
+
+### Patch
+
+- Internal: added @khanacademy/flow-to-ts to devDependencies to test TS ([#2721](https://github.com/pinterest/gestalt/pull/2721)) - [Preview link](https://deploy-preview-2721--gestalt.netlify.app)
+
+## 101.0.7 (Mar 10, 2023)
+
+### Patch
+
+- removed extra TextField ([#2718](https://github.com/pinterest/gestalt/pull/2718)) - [Preview link](https://deploy-preview-2718--gestalt.netlify.app)
+
+## 101.0.6 (Mar 10, 2023)
+
+### Patch
+
+- Docs: Weekly digest for 2023/03/10 ([#2716](https://github.com/pinterest/gestalt/pull/2716)) - [Preview link](https://deploy-preview-2716--gestalt.netlify.app)
+
+## 101.0.5 (Mar 10, 2023)
+
+### Patch
+
+- Toast: new Docs for redesign Toast ([#2551](https://github.com/pinterest/gestalt/pull/2551)) - [Preview link](https://deploy-preview-2551--gestalt.netlify.app)
+
 ## 101.0.4 (Mar 10, 2023)
 
 ### Patch

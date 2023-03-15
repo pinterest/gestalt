@@ -18,11 +18,7 @@ import a11y from '../../examples/iconbuttonfloating/a11y.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        badge="pilot"
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-      >
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -205,6 +201,6 @@ export async function getServerSideProps(): Promise<{| props: {| generatedDocGen
   };
 
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'IconButtonFloating' }) },
+    props: { generatedDocGen },
   };
 }

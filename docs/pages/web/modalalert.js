@@ -7,7 +7,7 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/modalalert/defaultExample.js';
+import main from '../../examples/modalalert/main.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import doClearCommunicate from '../../examples/modalalert/doClearCommunicate.js';
 import dontHardLanguage from '../../examples/modalalert/dontHardLanguage.js';
@@ -31,13 +31,9 @@ const PREVIEW_HEIGHT = 450;
 export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        badge="pilot"
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-      >
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample
-          code={defaultExample}
+          code={main}
           name="ModalAlert Main Example"
           hideEditor
           previewHeight={PREVIEW_HEIGHT}

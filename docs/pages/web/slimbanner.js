@@ -9,30 +9,19 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import responsiveExample from '../../examples/slimbanner/responsiveExample.js';
+import main from '../../examples/slimbanner/main.js';
 
 export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-<SlimBanner
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  iconAccessibilityLabel="Information"
-  message="Idea Pins are now available across platforms."
-  primaryAction={{
-    accessibilityLabel: 'Apply for access',
-    label: 'Apply for access',
-    onClick: () => {},
-  }}
-  type="info"
-/>
-`}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          code={main}
+          name={`Main ${generatedDocGen?.displayName} example`}
+          hideEditor
+          previewHeight={200}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

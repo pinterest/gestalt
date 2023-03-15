@@ -9,7 +9,6 @@ export default function MessagingComponentsPage(): Node {
   return (
     <Page title="Color fills">
       <PageHeader
-        badge="pilot"
         name="Color fills"
         type="guidelines"
         description={`Pinterest product UI should be comprised of our hero and neutrals colors. We should continue to use our baseline color palette to allow photography, actions, and content to stand out. However, there are situations where color fills can help to express brand moments on product surfaces.

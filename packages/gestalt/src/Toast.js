@@ -45,6 +45,10 @@ type Props = {|
    */
   _dangerouslySetPrimaryAction?: Node,
   /**
+   * Allows to insert a custom thumbnail. Do not use except for allowed cases where thumbnail doesn't support functionality required in it or legacy code.
+   */
+  _dangerouslySetThumbnail?: Node,
+  /**
    * Adds a dismiss button to Toast. See the [Dismissible variant](https://gestalt.pinterest.systems/web/toast#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/toast#Accessibility).
    *
@@ -96,14 +100,15 @@ type Props = {|
 |};
 
 /**
- * [Toasts](https://gestalt.pinterest.systems/web/toast) can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
+ * [Toasts](https://gestalt.pinterest.systems/web/toast) are brief and small messages that overlay content, but do not block the user’s flow, as they are out of the way and ephemeral.
  *
- * Toast is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.
+ * Toasts do not require user action and primarily acknowledge that a user has performed an action or completed a task.
  *
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
   _dangerouslySetPrimaryAction,
+  _dangerouslySetThumbnail,
   dismissButton,
   helperLink,
   primaryAction,
@@ -151,7 +156,12 @@ export default function Toast({
     <div className={styles.toast} role="status">
       <Box color={containerColor} paddingX={4} paddingY={3} width="100%" rounding={4}>
         <Flex alignItems="center" gap={4}>
+          {isDefaultToast && _dangerouslySetThumbnail ? (
+            <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>
+          ) : null}
+
           {isDefaultToast &&
+          !_dangerouslySetThumbnail &&
           !!thumbnail?.image &&
           Children.only(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
@@ -160,6 +170,7 @@ export default function Toast({
           ) : null}
 
           {isDefaultToast &&
+          !_dangerouslySetThumbnail &&
           !!thumbnail?.icon &&
           Children.only(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
@@ -168,6 +179,7 @@ export default function Toast({
           ) : null}
 
           {isDefaultToast &&
+          !_dangerouslySetThumbnail &&
           !!thumbnail?.avatar &&
           Children.only(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">

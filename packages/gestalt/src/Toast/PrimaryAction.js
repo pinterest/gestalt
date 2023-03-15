@@ -33,6 +33,7 @@ export default function ToastPrimaryAction({
         text={label}
         size={size}
         onClick={onClick}
+        color="white"
       />
     );
 

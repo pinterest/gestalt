@@ -15,7 +15,6 @@ export default function ListPage({
   return (
     <Page title={generatedDocGen?.List.displayName}>
       <PageHeader
-        badge="pilot"
         name={generatedDocGen?.List.displayName}
         description={generatedDocGen?.List.description}
         defaultCode={`

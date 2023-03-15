@@ -11,7 +11,6 @@ export default function AnimationImplementation(): Node {
   return (
     <Page title="Implementing animations">
       <PageHeader
-        badge="pilot"
         name="Implementing animations"
         type="guidelines"
         description="There are multiple ways to implement animations in product."

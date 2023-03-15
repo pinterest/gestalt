@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Avatar, Button, Box, WashAnimated, Flex, Link, Text } from 'gestalt';
+import { Avatar, Box, Button, Flex, Link, Text, WashAnimated } from 'gestalt';
 
 export default function Example(): Node {
   return (
@@ -11,7 +11,7 @@ export default function Example(): Node {
         >
           <Flex direction="column" justifyContent="center">
             <Text align="center" weight="bold">
-              <Link href="https://pinterest.com">
+              <Link href="#">
                 <Box paddingX={3} paddingY={2}>
                   James Jones
                 </Box>
