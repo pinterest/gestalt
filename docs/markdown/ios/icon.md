@@ -136,6 +136,10 @@ arrow-back
 </Group>
 </ThreeCol>
 
+## Naming
+- Follow the [web icon naming convention](http://pinch.pinadmin.com/new-icon-naming) when possible
+- Names should be kebab-case: all lowercase, with multiple words separated by a dash
+- Start with the primary function first&mdash;instead of `circle-arrow`, use `arrow-circle`
 
 ## Writing
 
