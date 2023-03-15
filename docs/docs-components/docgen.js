@@ -23,6 +23,10 @@ export type DocGen = {|
   |},
 |};
 
+export type DocType = {|
+  generatedDocGen: DocGen,
+|};
+
 export default function docgen({ componentName }: {| componentName: string |}): DocGen {
   return metadata[componentName];
 }

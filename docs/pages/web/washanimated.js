@@ -1,23 +1,29 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import Example from '../../docs-components/Example.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/washanimated/defaultExample.js';
+import main from '../../examples/washanimated/main.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={defaultExample} name="WashAnimated main example" hideEditor />
+        <SandpackExample
+          code={main}
+          name="WashAnimated main example"
+          hideEditor
+          previewHeight={325}
+        />
       </PageHeader>
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -42,37 +48,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection name="Variant">
-        <Example
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Example"
           description={`
-    Using \`WashAnimated\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-  `}
-          name="Example"
-          defaultCode={`
-function CardExample() {
-  return (
-    <Box maxWidth={236} padding={2} column={12}>
-      <WashAnimated image={<Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" />}>
-        <Flex direction="column" justifyContent="center">
-          <Text align="center" weight="bold">
-            <Link href="https://pinterest.com">
-              <Box paddingX={3} paddingY={2}>
-                James Jones
-              </Box>
-            </Link>
-        </Text>
-        <Button
-          accessibilityLabel="Follow James Jones"
-          color="red"
-          text="Follow"
-        />
-        </Flex>
-      </WashAnimated>
-    </Box>
-  );
-}
-`}
-        />
+      Using \`WashAnimated\` is as easy as it can be: simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
+    `}
+        >
+          <SandpackExample code={main} name="Variants - Example" previewHeight={325} />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
