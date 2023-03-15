@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node } from "react";
 import COMPONENT_DATA from '../../docs-components/COMPONENT_DATA.js';
 import Overview from '../../docs-components/Overview.js';
 

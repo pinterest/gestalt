@@ -7,11 +7,37 @@ on:
   push:
     branches:
       - master
-
+permissions:
+  # Give the default GITHUB_TOKEN write permission to commit and push the
+  # added or changed files to the repository for the formatting changes
+  contents: write
 jobs:
+  format:
+    name: 'Format and Commit'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+      - name: Install Prettier
+        run: npm install -g prettier@2.8.0
+      - name: Run Formatter
+        run: yarn format
+      - name: Set Author Details
+        run: |
+          git config --global user.email "pinterest-gestalt@gmail.com"
+          git config --global user.name "Pinterest-Gestalt"
+      - name: Commit Formatting Changes (if any)
+        run: |
+          git add -A && git commit -m "Applying Auto Formatting Changes" || echo "No changes to commit"
+          git push
   test:
     name: Tests
     runs-on: ubuntu-latest
+    needs: format
     strategy:
       matrix:
         node_version: [16, 18]
