@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, getNodeText, render } from '@testing-library/react';
-import AnimationProvider, { useAnimation } from './AnimationContext.js';
+import AnimationProvider, { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
 import * as useReducedMotionHook from '../useReducedMotion.js'; // eslint-disable-line import/no-namespace
 
 jest.mock('../useReducedMotion.js');
@@ -35,7 +35,7 @@ describe('AnimationProvider', () => {
     );
 
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual('opening');
+    expect(getNodeText(getByLabelText('animated'))).toEqual(ANIMATION_STATE.animatedOpening);
   });
 
   it('should initial render with animationState null when useReduceMotion() is true', () => {
@@ -74,36 +74,6 @@ describe('AnimationProvider', () => {
     fireEvent.click(getByLabelText('animated'));
 
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual('closing');
-  });
-
-  it('should not render children when animationState is postOut', () => {
-    const { getByLabelText, queryByLabelText } = render(
-      <AnimationProvider>
-        <AnimatedComponent />
-      </AnimationProvider>,
-    );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.click(getByLabelText('animated'));
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(getByLabelText('animated'));
-
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(queryByLabelText('animated')).toEqual(null);
-  });
-
-  it('should not render children when onDismissStart() is called and useReducedMotion() is true', () => {
-    useReducedMotionMock.mockReturnValue(true);
-
-    const { getByLabelText, queryByLabelText } = render(
-      <AnimationProvider>
-        <AnimatedComponent />
-      </AnimationProvider>,
-    );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.click(getByLabelText('animated'));
-
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(queryByLabelText('animated')).toEqual(null);
+    expect(getNodeText(getByLabelText('animated'))).toEqual(ANIMATION_STATE.animatedClosing);
   });
 });

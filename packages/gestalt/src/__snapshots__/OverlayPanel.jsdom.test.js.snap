@@ -389,11 +389,11 @@ exports[`OverlayPanel should render animation in 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline wrapperAnimationIn"
+        class="wrapper hideOutline"
         id=":r2:"
         role="dialog"
         style="width: 540px;"
@@ -463,11 +463,11 @@ exports[`OverlayPanel should render animation out 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationOut zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline wrapperAnimationOut"
+        class="wrapper hideOutline"
         id=":r3:"
         role="dialog"
         style="width: 540px;"

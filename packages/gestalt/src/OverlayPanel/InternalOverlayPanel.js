@@ -1,9 +1,9 @@
 // @flow strict
 
-import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
+import { type Node, useCallback, useState, useLayoutEffect, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from '../keyCodes.js';
-import { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
+import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
 import Box from '../Box.js';
 import Backdrop from '../Backdrop.js';
 import Flex from '../Flex.js';
@@ -82,63 +82,37 @@ export default function InternalSheet({
   subHeading,
 }: InternalSheetProps): Node {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
-
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-
-  const [closed, setClosed] = useState<boolean>(false);
-
   const [showPopover, setShowPopover] = useState<boolean>(false);
+
+  const contentRef = useRef<?HTMLElement>(null);
+  const dismissButtonRef = useRef();
+
+  const id = useId();
 
   const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('OverlayPanel');
 
-  const contentRef = useRef<?HTMLElement>(null);
-
-  const id = useId();
-
-  const dismissButtonRef = useRef();
-
   const enabledDismiss = typeof dismissConfirmation === 'undefined';
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
-  useEffect(() => {
-    if (dismissButtonRef.current) {
-      dismissButtonRef.current.focus();
-    }
-  }, [dismissButtonRef]);
-
-  // Handle onDismiss triggering from ESC keyup event
-  useEffect(() => {
-    function handleKeyDown(event) {
-      if (event.keyCode === ESCAPE && enabledDismiss) {
-        onExternalDismiss();
-      }
-
-      if (event.keyCode === ESCAPE && !enabledDismiss) {
-        setShowPopover((value) => !value);
-      }
-    }
-    // we must use keydown instead of keyup to match Popover events, as Popover gets dismissed in onKeyUp and we need to stopPropagation in the confirmation Popover
-    window.addEventListener('keydown', handleKeyDown);
-    return function cleanup() {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onExternalDismiss, enabledDismiss]);
+  function buildDismissableSubcomponent(component) {
+    return typeof component === 'function'
+      ? component({ onDismissStart: onExternalDismiss })
+      : component;
+  }
 
   const handleOnAnimationEnd = useCallback(() => {
-    const animationStatus = animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out';
-    if (animationState === ANIMATION_STATE.animatedClosing) {
-      setClosed(true);
-    }
     handleAnimation();
-    onAnimationEnd?.({ animationState: animationStatus });
+    onAnimationEnd?.({
+      animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
+    });
   }, [animationState, onAnimationEnd, handleAnimation]);
 
-  // Handle onDismiss triggering from outside click
-  const handleOutsideClick = useCallback(() => {
+  const handleBackdropClick = useCallback(() => {
     if (closeOnOutsideClick && enabledDismiss) {
       onExternalDismiss();
     }
@@ -161,6 +135,29 @@ export default function InternalSheet({
   }, []);
 
   useEffect(() => {
+    dismissButtonRef.current?.focus();
+  }, [dismissButtonRef]);
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      // Handle onDismiss triggering from ESC keyup event
+      if (event.keyCode === ESCAPE && enabledDismiss) {
+        onExternalDismiss();
+      }
+
+      if (event.keyCode === ESCAPE && !enabledDismiss) {
+        setShowPopover((value) => !value);
+      }
+    }
+
+    // we must use keydown instead of keyup to match Popover events, as Popover gets dismissed in onKeyUp and we need to stopPropagation in the confirmation Popover
+    window.addEventListener('keydown', handleKeyDown);
+    return function cleanup() {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onExternalDismiss, enabledDismiss]);
+
+  useEffect(() => {
     updateShadows();
     window.addEventListener('resize', updateShadows);
     return () => {
@@ -174,25 +171,18 @@ export default function InternalSheet({
     );
   }
 
-  function buildDismissableSubcomponent(component) {
-    return typeof component === 'function'
-      ? component({ onDismissStart: onExternalDismiss })
-      : component;
-  }
-
-  if (animationState === ANIMATION_STATE.unmount) {
-    onDismiss();
-  }
-
-  if (closed) {
-    return null;
-  }
+  // Use useLayoutEffect instead of useEffect as we need to close the component synchronously after all DOM mutations, useEffect was needed to prevent changing state while still rendering but useEffect will create a ms blink of the full OverlayPanel after closing which gets prevented with useLayoutEffect
+  useLayoutEffect(() => {
+    if (animationState === ANIMATION_STATE.unmount) {
+      onDismiss();
+    }
+  }, [animationState, onDismiss]);
 
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
         <div className={overlayPanelStyles.container}>
-          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleOutsideClick}>
+          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
               id={id}
               aria-label={accessibilityLabel}

@@ -1,7 +1,8 @@
 // @flow strict
 
 import { type Node } from 'react';
-import AnimationProvider from './OverlayPanel/AnimationContext.js';
+import DismissingElement from './animation/DismissingElement.js';
+import AnimationProvider from './animation/AnimationContext.js';
 import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel.js';
 
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
@@ -116,6 +117,8 @@ function OverlayPanel({
     </AnimationProvider>
   );
 }
+
+OverlayPanel.DismissingElement = DismissingElement;
 
 OverlayPanel.displayName = 'OverlayPanel';
 
