@@ -216,6 +216,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       },
     ],
   },
+  {
+    sectionName: 'Blog',
+    pages: ['2023 Q1 Newsletter'],
+  },
 ];
 
 export default siteIndex;
