@@ -1,3 +1,9 @@
+## 101.1.4 (Mar 16, 2023)
+
+### Patch
+
+- Internal: fix in HeroGraphic ([#2733](https://github.com/pinterest/gestalt/pull/2733)) - [Preview link](https://deploy-preview-2733--gestalt.netlify.app)
+
 ## 101.1.3 (Mar 15, 2023)
 
 ### Patch
