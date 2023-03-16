@@ -3,7 +3,7 @@
 import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from '../keyCodes.js';
-import { useAnimation } from './AnimationContext.js';
+import { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
 import Box from '../Box.js';
 import Backdrop from '../Backdrop.js';
 import Flex from '../Flex.js';
@@ -31,6 +31,7 @@ type InternalSheetProps = {|
   footer: NodeOrRenderProp,
   heading?: string,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
+  onDismiss: () => void,
   dismissConfirmation?: {|
     message?: string,
     subtext?: string,
@@ -76,6 +77,7 @@ export default function InternalSheet({
   footer,
   heading,
   onAnimationEnd,
+  onDismiss,
   size,
   subHeading,
 }: InternalSheetProps): Node {
@@ -87,7 +89,7 @@ export default function InternalSheet({
 
   const [showPopover, setShowPopover] = useState<boolean>(false);
 
-  const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
+  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('OverlayPanel');
@@ -112,7 +114,7 @@ export default function InternalSheet({
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.keyCode === ESCAPE && enabledDismiss) {
-        onAnimatedDismiss();
+        onExternalDismiss();
       }
 
       if (event.keyCode === ESCAPE && !enabledDismiss) {
@@ -124,27 +126,27 @@ export default function InternalSheet({
     return function cleanup() {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onAnimatedDismiss, enabledDismiss]);
+  }, [onExternalDismiss, enabledDismiss]);
 
   const handleOnAnimationEnd = useCallback(() => {
-    const animationStatus = animationState === 'opening' ? 'in' : 'out';
-    if (animationState === 'closing') {
+    const animationStatus = animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out';
+    if (animationState === ANIMATION_STATE.animatedClosing) {
       setClosed(true);
     }
-    handleAnimation?.();
+    handleAnimation();
     onAnimationEnd?.({ animationState: animationStatus });
   }, [animationState, onAnimationEnd, handleAnimation]);
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
     if (closeOnOutsideClick && enabledDismiss) {
-      onAnimatedDismiss();
+      onExternalDismiss();
     }
 
     if (closeOnOutsideClick && !enabledDismiss) {
       setShowPopover(true);
     }
-  }, [closeOnOutsideClick, onAnimatedDismiss, enabledDismiss]);
+  }, [closeOnOutsideClick, onExternalDismiss, enabledDismiss]);
 
   // Handle the shadows on top and bottom of the content area when scrolling
   const updateShadows = useCallback(() => {
@@ -174,11 +176,17 @@ export default function InternalSheet({
 
   function buildDismissableSubcomponent(component) {
     return typeof component === 'function'
-      ? component({ onDismissStart: onAnimatedDismiss })
+      ? component({ onDismissStart: onExternalDismiss })
       : component;
   }
 
-  if (closed) return null;
+  if (animationState === ANIMATION_STATE.unmount) {
+    onDismiss();
+  }
+
+  if (closed) {
+    return null;
+  }
 
   return (
     <StopScrollBehavior>
@@ -189,8 +197,10 @@ export default function InternalSheet({
               id={id}
               aria-label={accessibilityLabel}
               className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
-                [overlayPanelStyles.wrapperAnimationIn]: animationState === 'opening',
-                [overlayPanelStyles.wrapperAnimationOut]: animationState === 'closing',
+                [overlayPanelStyles.wrapperAnimationIn]:
+                  animationState === ANIMATION_STATE.animatedOpening,
+                [overlayPanelStyles.wrapperAnimationOut]:
+                  animationState === ANIMATION_STATE.animatedClosing,
               })}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
@@ -223,7 +233,7 @@ export default function InternalSheet({
                             accessibilityDismissButtonLabel ??
                             accessibilityDismissButtonLabelDefault
                           }
-                          onClick={enabledDismiss ? onAnimatedDismiss : () => setShowPopover(true)}
+                          onClick={enabledDismiss ? onExternalDismiss : () => setShowPopover(true)}
                           size="md"
                           ref={dismissButtonRef}
                         />
@@ -246,7 +256,7 @@ export default function InternalSheet({
                         accessibilityLabel={
                           accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
                         }
-                        onClick={enabledDismiss ? onAnimatedDismiss : () => setShowPopover(true)}
+                        onClick={enabledDismiss ? onExternalDismiss : () => setShowPopover(true)}
                         size="md"
                         ref={dismissButtonRef}
                       />

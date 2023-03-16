@@ -98,7 +98,7 @@ function OverlayPanel({
   subHeading,
 }: Props): Node {
   return (
-    <AnimationProvider onDismiss={onDismiss}>
+    <AnimationProvider>
       <InternalOverlayPanel
         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
         accessibilityLabel={accessibilityLabel}
@@ -107,6 +107,7 @@ function OverlayPanel({
         footer={footer}
         heading={heading}
         onAnimationEnd={onAnimationEnd}
+        onDismiss={onDismiss}
         size={size}
         subHeading={subHeading}
       >

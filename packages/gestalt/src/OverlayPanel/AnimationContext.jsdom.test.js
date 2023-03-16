@@ -6,13 +6,13 @@ import * as useReducedMotionHook from '../useReducedMotion.js'; // eslint-disabl
 jest.mock('../useReducedMotion.js');
 
 function AnimatedComponent() {
-  const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
+  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
 
   return (
     <button
       aria-label="animated"
       onAnimationEnd={handleAnimation}
-      onClick={onAnimatedDismiss}
+      onClick={onExternalDismiss}
       type="submit"
     >
       {animationState}
@@ -29,7 +29,7 @@ describe('AnimationProvider', () => {
 
   it('should initial render with animationState opening', () => {
     const { getByLabelText } = render(
-      <AnimationProvider onDismiss={jest.fn()}>
+      <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
@@ -42,7 +42,7 @@ describe('AnimationProvider', () => {
     useReducedMotionMock.mockReturnValue(true);
 
     const { getByLabelText } = render(
-      <AnimationProvider onDismiss={jest.fn()}>
+      <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
@@ -53,7 +53,7 @@ describe('AnimationProvider', () => {
 
   it('should transition animationState from opening to null', () => {
     const { getByLabelText } = render(
-      <AnimationProvider onDismiss={jest.fn()}>
+      <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
@@ -66,7 +66,7 @@ describe('AnimationProvider', () => {
 
   it('should transition animationState to closing when onDismissStart() is called', () => {
     const { getByLabelText } = render(
-      <AnimationProvider onDismiss={jest.fn()}>
+      <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
@@ -79,7 +79,7 @@ describe('AnimationProvider', () => {
 
   it('should not render children when animationState is postOut', () => {
     const { getByLabelText, queryByLabelText } = render(
-      <AnimationProvider onDismiss={jest.fn()}>
+      <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
@@ -96,7 +96,7 @@ describe('AnimationProvider', () => {
     useReducedMotionMock.mockReturnValue(true);
 
     const { getByLabelText, queryByLabelText } = render(
-      <AnimationProvider onDismiss={jest.fn()}>
+      <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
