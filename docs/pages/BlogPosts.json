@@ -11,7 +11,7 @@
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/a0/39/98/a03998607c6c6fba5ad93e46c53b600c.png",
             "imageAltText": "screenshot of tiledata component",
-            "content": "As development of our new TileData component is getting ready to kick off, we shipped the Figma component to the Figma data viz library. We're excited to continue to expand Gestalt into data visualization and TileData is just the beginning of our work in this space."
+            "content": "As development of our new TileData component is getting ready to kick off, we shipped the Figma component to the Figma Data viz library. We're excited to continue to expand Gestalt into data visualization and TileData is just the beginning of our work in this space."
           },
           {
             "title": "Component annotations now available in our Handoff kit",
