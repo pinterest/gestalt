@@ -7,7 +7,6 @@ import {
   type Node,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -65,17 +64,11 @@ export default function AnimationProvider({
     reducedMotion ? null : 'opening',
   );
 
-  // we manage 'unmount'
-  useEffect(() => {
-    if (animationState === 'unmount') {
-      onDismiss();
-    }
-  }, [animationState, onDismiss]);
-
   const contextValue = useMemo(() => ({ animationState, setAnimationState }), [animationState]);
 
   // gated null return, must be located after all hooks. we unmount the component here
   if (animationState === 'unmount') {
+    onDismiss();
     return null;
   }
 

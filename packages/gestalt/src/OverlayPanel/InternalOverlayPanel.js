@@ -83,6 +83,8 @@ export default function InternalSheet({
 
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
 
+  const [closed, setClosed] = useState<boolean>(false);
+
   const [showPopover, setShowPopover] = useState<boolean>(false);
 
   const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
@@ -126,6 +128,9 @@ export default function InternalSheet({
 
   const handleOnAnimationEnd = useCallback(() => {
     const animationStatus = animationState === 'opening' ? 'in' : 'out';
+    if (animationState === 'closing') {
+      setClosed(true);
+    }
     handleAnimation?.();
     onAnimationEnd?.({ animationState: animationStatus });
   }, [animationState, onAnimationEnd, handleAnimation]);
@@ -173,15 +178,13 @@ export default function InternalSheet({
       : component;
   }
 
+  if (closed) return null;
+
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
         <div className={overlayPanelStyles.container}>
-          <Backdrop
-            animationState={animationState}
-            closeOnOutsideClick={closeOnOutsideClick}
-            onClick={handleOutsideClick}
-          >
+          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleOutsideClick}>
             <div
               id={id}
               aria-label={accessibilityLabel}
