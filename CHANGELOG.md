@@ -1,3 +1,9 @@
+## 101.1.9 (Mar 17, 2023)
+
+### Patch
+
+- useReducedMotion: fix "undefined" error ([#2739](https://github.com/pinterest/gestalt/pull/2739)) - [Preview link](https://deploy-preview-2739--gestalt.netlify.app)
+
 ## 101.1.8 (Mar 17, 2023)
 
 ### Patch
