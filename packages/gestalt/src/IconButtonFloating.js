@@ -22,6 +22,10 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
+   * When disabled, IconButtonFloating looks inactive and cannot be interacted with
+   */
+  disabled?: boolean,
+  /**
    * Icon displayed in IconButtonFloating to convey the behavior of the component. Refer to the [iconography](/foundations/iconography/library) guidelines regarding the available icon options.
    */
   icon: $Keys<typeof icons>,
@@ -64,6 +68,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
     accessibilityExpanded,
     accessibilityPopupRole,
     accessibilityLabel,
+    disabled,
     icon,
     onClick,
     selected,
@@ -78,6 +83,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
         accessibilityPopupRole={accessibilityPopupRole}
         accessibilityLabel={accessibilityLabel}
         bgColor="transparent"
+        disabled={disabled}
         icon={icon}
         onClick={onClick}
         ref={ref}
