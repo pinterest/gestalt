@@ -1,3 +1,15 @@
+## 101.1.6 (Mar 17, 2023)
+
+### Patch
+
+- IconButtonFloating: Add `disabled` prop ([#2738](https://github.com/pinterest/gestalt/pull/2738)) - [Preview link](https://deploy-preview-2738--gestalt.netlify.app)
+
+## 101.1.5 (Mar 17, 2023)
+
+### Patch
+
+- Weekly digest for 2023-03-17 ([#2736](https://github.com/pinterest/gestalt/pull/2736)) - [Preview link](https://deploy-preview-2736--gestalt.netlify.app)
+
 ## 101.1.4 (Mar 16, 2023)
 
 ### Patch
