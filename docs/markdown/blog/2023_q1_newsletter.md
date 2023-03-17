@@ -1,6 +1,6 @@
 ---
 title: Gestalt 2023 Q1 newsletter
-description: The Gestalt team has been hard at work in the first quarter of 2023. While a lot of the magic we have cooked up this year is still simmering, we’ve shipped some big updates to the system. Below are our biggest accomplishments:
+description: The Gestalt team has been hard at work in the first quarter of 2023. While a lot of the magic we have cooked up this year is still simmering, we’ve shipped some big updates to the system. Below are our biggest accomplishments
 fullwidth: true
 ---
 
