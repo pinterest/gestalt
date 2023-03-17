@@ -1,3 +1,9 @@
+## 101.1.7 (Mar 17, 2023)
+
+### Patch
+
+- OverlayPanel: internal fixes, cleanup ([#2734](https://github.com/pinterest/gestalt/pull/2734)) - [Preview link](https://deploy-preview-2734--gestalt.netlify.app)
+
 ## 101.1.6 (Mar 17, 2023)
 
 ### Patch
