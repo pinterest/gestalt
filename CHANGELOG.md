@@ -1,3 +1,9 @@
+## 101.1.8 (Mar 17, 2023)
+
+### Patch
+
+- Masonry: add lazy hydration for test route and remaining three integration tests ([#2737](https://github.com/pinterest/gestalt/pull/2737)) - [Preview link](https://deploy-preview-2737--gestalt.netlify.app)
+
 ## 101.1.7 (Mar 17, 2023)
 
 ### Patch
