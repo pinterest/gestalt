@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import LazyHydrate from 'react-lazy-hydration';
 import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
 import { generateExampleItems } from '../../integration-test-helpers/masonry/items-utils.js';
-import getFlexibleGridServerStyles from '../../integration-test-helpers/masonry/getFlexibleGridServerStyles.js';
-import getClassicGridServerStyles from '../../integration-test-helpers/masonry/getClassicGridServerStyles.js';
 
 const measurementStore = Masonry.createMeasurementStore();
 
@@ -60,19 +58,6 @@ export default function TestPage(): Node {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <style>
-        {flexible
-          ? getFlexibleGridServerStyles({
-              maxItemWidth: 300,
-              maxColumns: 10,
-              minColumns: 3,
-            })
-          : getClassicGridServerStyles({
-              itemWidth: 240,
-              maxColumns: 10,
-              minColumns: 3,
-            })}
-      </style>
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
         <MasonryContainer
           constrained={booleanize(constrained)}
