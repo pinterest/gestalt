@@ -49,8 +49,6 @@ export default function getFlexibleGridServerStyles({
 `;
 
   for (let i = minColumns; i < maxColumns + 1; i += 1) {
-    // NOTE: THIS HAS CHANGED FROM PINBOARD PROD
-    // The boundaries are shifted 1px, adding slightly to the minWidth and subtracting slightly from the maxWidth
     const minWidth = i === minColumns ? 0 : (i - 1) * maxItemWidth + 1;
     styles += `
 @media (min-width: ${minWidth}px) and (max-width: ${i * maxItemWidth}px) {
