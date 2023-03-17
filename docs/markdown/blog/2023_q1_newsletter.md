@@ -1,6 +1,6 @@
 ---
 title: Gestalt 2023 Q1 newsletter
-description: Description
+description: The Gestalt team has been hard at work in the first quarter of 2023. While a lot of the magic we have cooked up this year is still simmering, we’ve shipped some big updates to the system. Below are our biggest accomplishments:
 fullwidth: true
 ---
 
@@ -14,7 +14,7 @@ fullwidth: true
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 We plan to vastly improve Gestalt’s support for the mobile web experience in 2023. Our first step towards that goal was the creation of a mWeb adaptive version of Modal. This new feature within Modal makes it easier to build features that gracefully adapt from desktop to mobile devices. This work should lead to more consistent experiences in our mobile web product built with less code in less time. 
 
-Go check out the mobile-adaptive Modal
+Go check out Gestalt's [mobile-adaptive Modal](https://gestalt.pinterest.systems/web/modal#Mobile)
 
 <TwoCol>
 <Group>
@@ -24,7 +24,7 @@ We’ve been working behind the scenes to ship refinements to Toast and Badge on
 
 Subtle as these changes may seem, we expect to see some serious usability gains from these updates.
 
-View Toast and Badge in our docs
+View [Toast](https://gestalt.pinterest.systems/web/toast) and [Badge](https://gestalt.pinterest.systems/web/badge) in our docs
 </Group>
 
 <Group>
@@ -34,7 +34,7 @@ The new PopverEducational component represents our continued focus on making Ges
 
 PopoverEducation removes the overhead by being purpose-built to support in-product education with less configuration and headaches. 
 
-Check out PopoverEducational
+Check out [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational)
 </Group>
 </TwoCol>
 
@@ -46,7 +46,7 @@ Speaking of opinionated components, we added a small-but-mighty component called
 
 We shipped this component on the early side, meaning we think there’s room for improvement, but we’ve confident that it’ll be a major help and worth going out the door. We look forward to sharing more HelpButton-related updates in the future. 
 
-View HelpButton
+View [HelpButton](https://gestalt.pinterest.systems/web/helpbutton)
 </Group>
 
 <Group>
@@ -55,6 +55,8 @@ View HelpButton
 Who doesn’t like more icons? The answer (backed by science) is no one. We continue to work on improving parity between our design icon library and what’s in code. There’s still room for improvement, but we’ve filled in 20+ gaps this quarter. 
 
 Check out our Icon library if you’re interested in seeing the full list of icons we currently support in code.
+
+Visit [Gestalt’s Icon library](https://gestalt.pinterest.systems/foundations/iconography/library)
 </Group>
 </TwoCol>
 
@@ -66,7 +68,7 @@ Check out our Icon library if you’re interested in seeing the full list of ico
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 Our biggest documentation update for the quarter was the addition of Form guidelines to our documentation. Forms can be super tricky. Our goal with these guidelines is to take the mystery out of creating effective forms with Gestalt while also beginning to suss out our official point of view on the subject. 
 
-Read Gestalt’s Form guidelines
+Read [Gestalt’s Form guidelines](https://gestalt.pinterest.systems/foundations/forms/overview)
 </Group>
 
 <Group>
@@ -76,7 +78,7 @@ OK, we’ll fess up. Finding the icon you’re looking for in Gestalt is not gre
 
 This is the first step in what we hope will be a slew of improvements to Gestalt’s iconography and the know-how on how to use it.
 
-Check out our Icon library
+Check out our [Icon library](https://gestalt.pinterest.systems/foundations/iconography/library)
 </Group>
 </TwoCol>
 <TwoCol>
@@ -87,10 +89,73 @@ As we ramp up development of mobile component development (yes, it’s happening
 
 The goal of this work is to speed up component development by making our docs even more of a source of truth.
 
-Check out Icon and IconButton Android docs
+Check out [Icon](https://gestalt.pinterest.systems/android/icon) and [IconButton](https://gestalt.pinterest.systems/android/iconbutton) Android docs
 </Group>
 </TwoCol>
 
 ## Figma updates
+<TwoCol>
+<Group>
+### Updated mobile web primary navigation
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+We made two big improvements to our Figma primary navigation component for mobile web. First, we updated the component to reflect our up-to-date treatment in product and we also added a variant for our unauthenticated experience.
+</Group>
+
+<Group>
+### New Figma Reaction and Montage components
+<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
+We’ve included new Reaction and Montage components to cover some common product use cases. 
+
+Our Reaction component handles the affordances for reacting to content as well as seeing how many people have reacted to content.
+
+Montage represents common image collection layouts within the product. We’ve included a MontageGrid (what’s commonly seen in Boards) and MontageRow (typically used for Sections or general editorial content).
+</Group>
+</TwoCol>
+<TwoCol>
+<Group>
+### Handoff kit improvements
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+We made some fixes to nested components in our flow connectors to link to the main source file and included support for dark mode.
+</Group>
+
+<Group>
+### More/better Figma imagery styles for inclusive pins
+<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
+We updated our imagery styles in the Gestalt foundations Figma library to bring more realistic and diverse pins. It also includes two new categories, Beauty and DYI. All the images are drawn from our brand assets, so they are rights-ready for mock-ups that need to be shown in external docs or marketing campaigns.
+</Group>
+</TwoCol>
 
 ## What’s coming in Q2? 
+### Mobile components babyyyyyyy!
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+We have been working with Android and iOS teams to begin the buildout of mobile components for a while now, but Q2 is when you’re really going to see the fruits of our labor. It’s been a long time coming, but in Q2 2023, we will be shipping a number of mobile Gestalt components.
+
+For Android, we plan to work on , ButtonGroup, Icon, IconButton, IconButtonFloating, SearchField,Text, TextArea and Toast. For iOS, we’ll be working on Text and Icon. 
+
+<TwoCol>
+<Group>
+### New: mWeb Sheet
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+Our initial work on mWeb Modal gave us the learnings we needed to begin work on a mobile sheet. No, not this Sheet, but a brand new mobile web specific Sheet. We’re planning to land this new component in early Q2, so be on the look out!
+</Group>
+
+<Group>
+### New: TileData component
+<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
+
+</Group>
+</TwoCol>
+
+<TwoCol>
+<Group>
+### New: Illustration guidelines
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+The Gestalt team landed its first set of official Gestalt illustrations in late 2022 and we’re not done on this subject. We’ll be publishing illustration guidelines to help provide best practices for how/when/where/why to use illustrations in our product. 
+</Group>
+
+<Group>
+### TBD
+<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
+
+</Group>
+</TwoCol>
