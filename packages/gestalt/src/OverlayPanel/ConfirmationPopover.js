@@ -1,7 +1,7 @@
 // @flow strict
 
 import { type Node, useEffect, useRef } from 'react';
-import { useAnimation } from './AnimationContext.js';
+import { useAnimation } from '../animation/AnimationContext.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Popover from '../Popover.js';
@@ -50,7 +50,7 @@ export default function ConfirmationPopover({
 }: Props): Node {
   const confirmationButtonRef = useRef();
 
-  const { onAnimatedDismiss } = useAnimation();
+  const { onExternalDismiss } = useAnimation();
 
   const {
     dismissConfirmationMessage: messageDefault,
@@ -115,7 +115,7 @@ export default function ConfirmationPopover({
                 text={primaryAction?.text ?? primaryActionTextDefault}
                 onClick={({ event }) => {
                   primaryAction?.onClick?.({ event });
-                  onAnimatedDismiss();
+                  onExternalDismiss();
                 }}
                 ref={confirmationButtonRef}
               />

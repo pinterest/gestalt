@@ -23,14 +23,24 @@ const ValidWithRenderProps = (
     accessibilityDismissButtonLabel="Dismiss"
     accessibilityLabel="OverlayPanel"
     closeOnOutsideClick
-    footer={({ onDismissStart }) => <footer />}
+    footer={
+      <OverlayPanel.DismissingElement>
+        {({ onDismissStart }) => <footer />}
+      </OverlayPanel.DismissingElement>
+    }
     heading="OverlayPanel title"
     onDismiss={() => {}}
     ref={createRef()}
     size="sm"
-    subHeading={({ onDismissStart }) => <nav />}
+    subHeading={
+      <OverlayPanel.DismissingElement>
+        {({ onDismissStart }) => <nav />}
+      </OverlayPanel.DismissingElement>
+    }
   >
-    {({ onDismissStart }) => <section />}
+    <OverlayPanel.DismissingElement>
+      {({ onDismissStart }) => <section />}
+    </OverlayPanel.DismissingElement>
   </OverlayPanel>
 );
 
@@ -38,15 +48,23 @@ const InvalidWithRenderProps = (
   <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
     accessibilityLabel="OverlayPanel"
-    // $FlowExpectedError[prop-missing]
-    footer={({ onDismiss }) => <footer />}
+    footer={
+      <OverlayPanel.DismissingElement>
+        {/* $FlowExpectedError[prop-missing] */}
+        {({ onDismiss }) => <footer />}
+      </OverlayPanel.DismissingElement>
+    }
     heading="OverlayPanel title"
     onDismiss={() => {}}
-    // $FlowExpectedError[prop-missing]
-    subHeading={({ onDismiss }) => <nav />}
+    subHeading={
+      // $FlowExpectedError[prop-missing]
+      <OverlayPanel.DismissingElement>{({ onDismiss }) => <nav />}</OverlayPanel.DismissingElement>
+    }
   >
-    {/* $FlowExpectedError[prop-missing] */}
-    {({ onDismiss }) => <section />}
+    <OverlayPanel.DismissingElement>
+      {/* $FlowExpectedError[prop-missing] */}
+      {({ onDismiss }) => <section />}
+    </OverlayPanel.DismissingElement>
   </OverlayPanel>
 );
 
