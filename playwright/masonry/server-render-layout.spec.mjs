@@ -48,7 +48,7 @@ test.describe('Masonry: Server Render Layout', () => {
     expect(gridItem2Rect.x).toBeGreaterThan(0);
   });
 
-  test.only('[flexible] items rendered on the server start with columnWidth', async ({
+  test('[flexible] items rendered on the server start with columnWidth', async ({
     page,
   }) => {
     // First load the page with javascript disabled to get the item position
@@ -70,7 +70,7 @@ test.describe('Masonry: Server Render Layout', () => {
 
     await waitForRenderedItems(page, { targetItems: 20 });
     const gridItems = await getGridItems(page);
-    console.log(gridItems[0]);
+
     const gridItem1Rect = await gridItems[0].boundingBox();
     const gridItem2Rect = await gridItems[1].boundingBox();
     expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
