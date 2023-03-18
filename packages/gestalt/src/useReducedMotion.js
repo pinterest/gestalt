@@ -18,13 +18,18 @@ export default function useReducedMotion(): boolean {
     }
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+    if (!mediaQuery) {
+      return () => {};
+    }
+
     const handleChange = () => {
-      setMatch(!!mediaQuery?.matches);
+      setMatch(mediaQuery.matches);
     };
 
     handleChange();
 
     addListener(mediaQuery, handleChange);
+
     return () => {
       removeListener(mediaQuery, handleChange);
     };
