@@ -6,7 +6,10 @@ fullwidth: true
 
 ## Q1 highlight: Pinterest content standards
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+<br />
+For years, Content Design standards lived separately from Product Design standards. This meant that if you wanted to know the rules for the visuals of a button, and you wanted to know the rules for the copy of a button, you had to look in two different places. During H2 2022 a small team of ICs across Content Design and Gestalt got together to move the Content Design Standards into the Gestalt framework—for good. This has had big impact in aligning our teams and making the Content Design Standards more easily accessible.
 
+In 2023, Content Design are leading a refresh of the Content Design Standards themselves—keep an eye out for more updates on this later this half!
 
 ## Components and tokens
 
