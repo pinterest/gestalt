@@ -1,3 +1,9 @@
+## 101.3.0 (Mar 20, 2023)
+
+### Minor
+
+- Icon: new icons added ([#2744](https://github.com/pinterest/gestalt/pull/2744)) - [Preview link](https://deploy-preview-2744--gestalt.netlify.app)
+
 ## 101.2.2 (Mar 20, 2023)
 
 ### Patch
