@@ -6,9 +6,6 @@ fullwidth: true
 
 <ImgContainer src="https://i.pinimg.com/originals/1d/52/31/1d5231c99699e72628135de682fede30.jpg" alt="Five example icons in a row. Icons include share, check, back, filter, and menu." />
 
-## Icon assets
-
-Download svg assets from our [iOS icon GitHub repo](#).
 
 ## Usage guidelines
 
@@ -56,7 +53,7 @@ Use these tokens for applying size and color styles to Icon.
 ## Anatomy
 ### Dimensions
 
-Icon's container (.svg viewbox) dimensions are the same for all icons regardless of the size of the vector asset inside of the container.
+Icon's container dimensions are the same for all icons regardless of the size of the vector asset inside of the container.
 
 <br/>
 
