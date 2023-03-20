@@ -1,3 +1,9 @@
+## 101.2.1 (Mar 20, 2023)
+
+### Patch
+
+- ActivationCard, Button, Callout, HelpButton, IconButton, RadioButton, SearchField, TapArea, Upsell: deprecate AbstractEventHandler inlining equivalent ([#2742](https://github.com/pinterest/gestalt/pull/2742)) - [Preview link](https://deploy-preview-2742--gestalt.netlify.app)
+
 ## 101.2.0 (Mar 20, 2023)
 
 ### Minor
