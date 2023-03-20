@@ -16,7 +16,6 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import Pog from './Pog.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
 import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
@@ -26,9 +25,10 @@ type Props = {|
   accessibilityLabel: string,
   accessibilityControls?: string,
   iconColor?: $ElementType<ElementConfig<typeof Pog>, 'iconColor'>,
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-  >,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+  |}) => void,
+
   size?: $ElementType<ElementConfig<typeof Pog>, 'size'>,
 |};
 

@@ -1,9 +1,25 @@
 // @flow strict
 import { type Node } from 'react';
 import Button from '../Button.js';
-import { type ActionDataType } from '../ModalAlert.js';
 
-type Props = {| ...ActionDataType, type: string |};
+export type ActionDataType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
+
+type Props = {| ...ActionDataType, dataTestId?: string, type: string |};
 
 export default function ModalAlertAction({
   accessibilityLabel,
