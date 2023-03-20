@@ -48,6 +48,12 @@
       "keywords": ["plus circle", "create", "new"]
     },
     {
+      "name": "add-section",
+      "categories": ["Add"],
+      "description": "Indicates the ability to add or create a section of a board",
+      "keywords": ["plus", "create", "new", "section", "board"]
+    },
+    {
       "name": "add-layout",
       "categories": ["Add"],
       "description": "Indicates the ability to choose a new file and create a layout",
@@ -166,6 +172,11 @@
       "categories": ["Arrows", "Platform specific"],
       "description": "On iOS, indicates backward movement",
       "keywords": ["previous", "left", "chevron"]
+    },
+    {
+      "name": "arrow-circle-back",
+      "categories": ["Arrows"],
+      "keywords": []
     },
     {
       "name": "arrow-circle-down",
@@ -891,6 +902,12 @@
       "keywords": ["arrange", "shift", "drag"]
     },
     {
+      "name": "move-pin",
+      "categories": ["Arrows", "Utility and tools"],
+      "description": "Indicates an ability to move a pin to a different section",
+      "keywords": ["arrange", "organize", "publish"]
+    },
+    {
       "name": "music-off",
       "categories": ["Media controls", "Toggle"],
       "description": "Indicates the ability to turn the music off",
@@ -1393,6 +1410,12 @@
       "categories": ["Status"],
       "description": "Indicates an element's state as a problem or to convey an error",
       "keywords": ["error", "alert"]
+    },
+    {
+      "name": "workflow-status-queued",
+      "categories": ["Status", "Time"],
+      "description": "Indicates an element's state as something waiting in the queue",
+      "keywords": ["queue", "waiting", "hourglass", "time"]
     },
     {
       "name": "workflow-status-unstarted",
