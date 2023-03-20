@@ -6,6 +6,7 @@ import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addLayout from './add-layout.svg';
 import addPin from './add-pin.svg';
+import addSection from './add-section.svg';
 import adGroup from './ad-group.svg';
 import adsStats from './ads-stats.svg';
 import adsOverview from './ads-overview.svg';
@@ -24,6 +25,7 @@ import angledPin from './angled-pin.svg';
 import apple from './apple.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
+import arrowCircleBack from './arrow-circle-back.svg';
 import arrowCircleDown from './arrow-circle-down.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowCircleUp from './arrow-circle-up.svg';
@@ -128,6 +130,7 @@ import menu from './menu.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
 import move from './move.svg';
+import movePin from './move-pin.svg';
 import mute from './mute.svg';
 import musicOff from './music-off.svg';
 import musicOn from './music-on.svg';
@@ -205,6 +208,7 @@ import workflowStatusHalted from './workflow-status-halted.svg';
 import workflowStatusInProgress from './workflow-status-in-progress.svg';
 import workflowStatusOk from './workflow-status-ok.svg';
 import workflowStatusProblem from './workflow-status-problem.svg';
+import workflowStatusQueued from './workflow-status-queued.svg';
 import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 import workflowStatusWarning from './workflow-status-warning.svg';
 
@@ -217,6 +221,7 @@ const icons = Object.freeze({
   'add-circle': addCircle,
   'add-layout': addLayout,
   'add-pin': addPin,
+  'add-section': addSection,
   'ads-stats': adsStats,
   'ads-overview': adsOverview,
   alert,
@@ -234,6 +239,7 @@ const icons = Object.freeze({
   apple,
   apps,
   'arrow-back': arrowBack,
+  'arrow-circle-back': arrowCircleBack,
   'arrow-circle-down': arrowCircleDown,
   'arrow-circle-forward': arrowCircleForward,
   'arrow-circle-up': arrowCircleUp,
@@ -340,6 +346,7 @@ const icons = Object.freeze({
   mobile,
   move,
   mute,
+  'move-pin': movePin,
   'music-off': musicOff,
   'music-on': musicOn,
   'overlay-text': overlayText,
@@ -415,6 +422,7 @@ const icons = Object.freeze({
   'workflow-status-in-progress': workflowStatusInProgress,
   'workflow-status-ok': workflowStatusOk,
   'workflow-status-problem': workflowStatusProblem,
+  'workflow-status-queued': workflowStatusQueued,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
 });
