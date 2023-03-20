@@ -1,3 +1,9 @@
+## 101.2.2 (Mar 20, 2023)
+
+### Patch
+
+- Icon: Update iOS and Android specs ([#2732](https://github.com/pinterest/gestalt/pull/2732)) - [Preview link](https://deploy-preview-2732--gestalt.netlify.app)
+
 ## 101.2.1 (Mar 20, 2023)
 
 ### Patch
