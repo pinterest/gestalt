@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, useState, useRef, type Node } from 'react';
 import {
   Box,
   Button,
@@ -14,11 +14,11 @@ import {
 } from 'gestalt';
 
 function SheetWithSubheading({ onDismiss }: {| onDismiss: () => void |}) {
-  const [activeTabIndex, setActiveTabIndex] = React.useState(0);
-  const enRef = React.useRef();
-  const esRef = React.useRef();
-  const ptRef = React.useRef();
-  const chRef = React.useRef();
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const enRef = useRef();
+  const esRef = useRef();
+  const ptRef = useRef();
+  const chRef = useRef();
   const refs = [enRef, esRef, ptRef, chRef];
 
   const handleChangeTab = ({ activeTabIndex: activeTabIndexLocal, event }) => {
@@ -130,12 +130,12 @@ function SheetWithSubheading({ onDismiss }: {| onDismiss: () => void |}) {
 }
 
 export default function SubheadingExample(): Node {
-  const [shouldShow, setShouldShow] = React.useState(true);
+  const [shouldShow, setShouldShow] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Box padding={8}>
         <Button text="View subheading example" onClick={() => setShouldShow(true)} />
       </Box>
@@ -144,6 +144,6 @@ export default function SubheadingExample(): Node {
           <SheetWithSubheading onDismiss={() => setShouldShow(false)} />
         </Layer>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }

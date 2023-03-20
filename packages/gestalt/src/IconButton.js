@@ -12,7 +12,6 @@ import icons from './icons/index.js';
 import InternalLink from './InternalLink.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type Indexable } from './zIndex.js';
 import styles from './IconButton.css';
 import touchableStyles from './TapArea.css';
@@ -42,13 +41,14 @@ type BaseIconButton = {|
   dangerouslySetSvgPath?: {| __path: string |},
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
   padding?: 1 | 2 | 3 | 4 | 5,
   tabIndex?: -1 | 0,

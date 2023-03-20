@@ -16,7 +16,6 @@ import iconButtonStyles from './IconButton.css';
 import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
@@ -34,17 +33,31 @@ type Props = {|
   href: string,
   id?: string,
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
-  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onKeyDown?: AbstractEventHandler<SyntheticKeyboardEvent<HTMLAnchorElement>>,
-  onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  onBlur?: ({|
+    event: SyntheticFocusEvent<HTMLAnchorElement>,
+  |}) => void,
+  onFocus?: ({|
+    event: SyntheticFocusEvent<HTMLAnchorElement>,
+  |}) => void,
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => void,
+  onMouseDown?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
+  onMouseUp?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
+  onMouseEnter?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
+  onMouseLeave?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,

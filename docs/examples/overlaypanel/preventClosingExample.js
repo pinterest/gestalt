@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState, useCallback } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,13 +16,14 @@ import {
 } from 'gestalt';
 
 function SheetWithoutOutsideClick({ onDismiss }: {| onDismiss: () => void |}) {
-  const footer = useCallback(
-    ({ onDismissStart }) => (
-      <Flex alignItems="center" justifyContent="end">
-        <Button color="red" text="Create" onClick={onDismissStart} />
-      </Flex>
-    ),
-    [],
+  const footer = (
+    <OverlayPanel.DismissingElement>
+      {({ onDismissStart }) => (
+        <Flex alignItems="center" justifyContent="end">
+          <Button color="red" text="Create" onClick={onDismissStart} />
+        </Flex>
+      )}
+    </OverlayPanel.DismissingElement>
   );
 
   return (

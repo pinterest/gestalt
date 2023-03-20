@@ -1,7 +1,8 @@
 // @flow strict
 
 import { type Node } from 'react';
-import AnimationProvider from './OverlayPanel/AnimationContext.js';
+import DismissingElement from './animation/DismissingElement.js';
+import AnimationProvider from './animation/AnimationContext.js';
 import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel.js';
 
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
@@ -98,7 +99,7 @@ function OverlayPanel({
   subHeading,
 }: Props): Node {
   return (
-    <AnimationProvider onDismiss={onDismiss}>
+    <AnimationProvider>
       <InternalOverlayPanel
         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
         accessibilityLabel={accessibilityLabel}
@@ -107,6 +108,7 @@ function OverlayPanel({
         footer={footer}
         heading={heading}
         onAnimationEnd={onAnimationEnd}
+        onDismiss={onDismiss}
         size={size}
         subHeading={subHeading}
       >
@@ -115,6 +117,8 @@ function OverlayPanel({
     </AnimationProvider>
   );
 }
+
+OverlayPanel.DismissingElement = DismissingElement;
 
 OverlayPanel.displayName = 'OverlayPanel';
 

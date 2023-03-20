@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { SlimBanner } from 'gestalt';
+import { SlimBanner, Text, Link } from 'gestalt';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -246,10 +246,11 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
         <MainSection.Subsection
           title="Animation"
           description={`
-      By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements within the \`children\` or \`footer\`, the following render prop can be used:
-
+      By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements inother areas such as the \`children\` or \`footer\`, the following render prop can be used:
       ~~~jsx
-      ({ onDismissStart }) => ( ... )
+      <OverlayPanel.DismissingElement>
+        ({ onDismissStart }) => ( ... )
+      </OverlayPanel.DismissingElement>
       ~~~
 
       When using this render prop, just pass the argument \`onDismissStart\` to your exit-point action elements. In the example below, we've added the exit animation to the:
@@ -259,9 +260,25 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
       - Left arrow red icon button (children)
       - Close button (footer)
 
-      OverlayPanel also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where the two events trigger different responses..
+      OverlayPanel also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where the two events trigger different responses.
       `}
         >
+          <SlimBanner
+            iconAccessibilityLabel="Warning"
+            message={
+              <Text inline>
+                Don&apos;t use OverlayPanel&apos;s <code>onDismissStart</code> render prop available
+                in <code>subheading</code>, <code>footer</code> and <code>children</code>; they will
+                be deprecated and removed soon. Instead, wrap the component dismissing your
+                OverlayPanel with{' '}
+                <Link display="inlineBlock" href="#OverlayPanel.DismissingElement">
+                  OverlayPanel.DismissingElement
+                </Link>{' '}
+                and access the <code>onDismissStart</code> render prop available there.
+              </Text>
+            }
+            type="warningBare"
+          />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
