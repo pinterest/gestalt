@@ -41,7 +41,6 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
-## Variants
 ## Design tokens
 
 Use these tokens for applying size and color styles to Icon.
@@ -63,6 +62,7 @@ Icon's container dimensions are the same for all icons regardless of the size of
 If an icon is interactive, use the built-in 44 x 44px touch target.
 <br />
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19297%253A72581%26t%3DD3hNy73JBEb5S9mN-1" allowfullscreen></iframe>
+
 ## Variants
 
 ### Size
