@@ -49,9 +49,9 @@ export default function getFlexibleGridServerStyles({
 `;
 
   for (let i = minColumns; i < maxColumns + 1; i += 1) {
-    const minWidth = i === minColumns ? 0 : (i - 1) * maxItemWidth;
+    const minWidth = i === minColumns ? 0 : (i - 1) * maxItemWidth + 1;
     styles += `
-@media (min-width: ${minWidth}px) and (max-width: ${i * maxItemWidth - 1}px) {
+@media (min-width: ${minWidth}px) and (max-width: ${i * maxItemWidth}px) {
   .gridCentered .static:nth-child(-n+${i}) {
     position: static !important;
     visibility: visible !important;

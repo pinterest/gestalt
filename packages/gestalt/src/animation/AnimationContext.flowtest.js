@@ -2,7 +2,7 @@
 import AnimationProvider from './AnimationContext.js';
 
 const Valid = (
-  <AnimationProvider onDismiss={() => {}}>
+  <AnimationProvider>
     <section />
   </AnimationProvider>
 );
@@ -11,7 +11,7 @@ const Valid = (
 const MissingProp = <AnimationProvider />;
 
 // $FlowExpectedError[prop-missing]
-const NonExistingProp = <AnimationProvider onDismissStart={() => {}} />;
+const NonExistingProp = <AnimationProvider />;
 
 // $FlowExpectedError[prop-missing]
 const InvalidTypeProp = <AnimationProvider onDismissEnd={null} />;

@@ -14,7 +14,6 @@ import TapArea from './TapArea.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
 import Link from './Link.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Tooltip from './Tooltip.js';
@@ -43,15 +42,14 @@ type LinkType = {|
   target?: null | 'self' | 'blank',
 |};
 
-type OnTapType = AbstractEventHandler<
-  | SyntheticMouseEvent<HTMLDivElement>
-  | SyntheticKeyboardEvent<HTMLDivElement>
-  | SyntheticMouseEvent<HTMLAnchorElement>
-  | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  {|
-    dangerouslyDisableOnNavigation: () => void,
-  |},
->;
+type OnTapType = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  dangerouslyDisableOnNavigation: () => void,
+|}) => void;
 
 type Props = {|
   /**

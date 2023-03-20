@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useState } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
@@ -21,13 +21,14 @@ const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 export default function Example(): Node {
   const [shouldShow, setShouldShow] = useState(false);
 
-  const renderFooter = useCallback(
-    ({ onDismissStart }) => (
-      <Flex alignItems="center" justifyContent="end">
-        <Button color="red" text="Create" onClick={onDismissStart} />
-      </Flex>
-    ),
-    [],
+  const renderFooter = (
+    <OverlayPanel.DismissingElement>
+      {({ onDismissStart }) => (
+        <Flex alignItems="center" justifyContent="end">
+          <Button color="red" text="Create" onClick={onDismissStart} />
+        </Flex>
+      )}
+    </OverlayPanel.DismissingElement>
   );
 
   return (

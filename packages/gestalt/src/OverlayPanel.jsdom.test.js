@@ -1,7 +1,7 @@
 // @flow strict
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import OverlayPanel from './OverlayPanel.js';
-import * as AnimationControllerModule from './OverlayPanel/AnimationContext.js'; // eslint-disable-line import/no-namespace
+import * as AnimationControllerModule from './animation/AnimationContext.js'; // eslint-disable-line import/no-namespace
 import { ESCAPE } from './keyCodes.js';
 
 describe('OverlayPanel', () => {
@@ -137,6 +137,7 @@ describe('OverlayPanel', () => {
         <section />
       </OverlayPanel>,
     );
+
     act(() => {
       screen.getByLabelText('Dismiss').click();
     });
@@ -199,11 +200,13 @@ describe('OverlayPanel', () => {
         closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
-        {({ onDismissStart }) => (
-          <button onClick={onDismissStart} type="submit">
-            Submit
-          </button>
-        )}
+        <OverlayPanel.DismissingElement>
+          {({ onDismissStart }) => (
+            <button onClick={onDismissStart} type="submit">
+              Submit
+            </button>
+          )}
+        </OverlayPanel.DismissingElement>
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
@@ -223,11 +226,15 @@ describe('OverlayPanel', () => {
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
-        footer={({ onDismissStart }) => (
-          <button onClick={onDismissStart} type="submit">
-            Submit
-          </button>
-        )}
+        footer={
+          <OverlayPanel.DismissingElement>
+            {({ onDismissStart }) => (
+              <button onClick={onDismissStart} type="submit">
+                Submit
+              </button>
+            )}
+          </OverlayPanel.DismissingElement>
+        }
         onDismiss={mockOnDismiss}
       >
         <section />
@@ -252,11 +259,15 @@ describe('OverlayPanel', () => {
         closeOnOutsideClick
         heading="Test OverlayPanel"
         onDismiss={mockOnDismiss}
-        subHeading={({ onDismissStart }) => (
-          <button onClick={onDismissStart} type="submit">
-            Submit
-          </button>
-        )}
+        subHeading={
+          <OverlayPanel.DismissingElement>
+            {({ onDismissStart }) => (
+              <button onClick={onDismissStart} type="submit">
+                Submit
+              </button>
+            )}
+          </OverlayPanel.DismissingElement>
+        }
       >
         <section />
       </OverlayPanel>,
