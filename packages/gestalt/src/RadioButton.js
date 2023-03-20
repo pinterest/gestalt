@@ -6,7 +6,6 @@ import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
@@ -38,7 +37,10 @@ type Props = {|
   /**
    * Callback triggered when the user interacts with the input.
    */
-  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
+  onChange: ({|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    checked: boolean,
+  |}) => void,
   /**
    * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/web/radiobutton#ref) for more details.
    */

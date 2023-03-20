@@ -6,7 +6,6 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
 
 const STATUS_ICONS = {
@@ -20,13 +19,14 @@ type LinkData = {|
   accessibilityLabel: string,
   href: string,
   label: string,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
