@@ -1,3 +1,9 @@
+## 101.2.0 (Mar 20, 2023)
+
+### Minor
+
+- expose dangerouslySetSvgPath ([#2743](https://github.com/pinterest/gestalt/pull/2743)) - [Preview link](https://deploy-preview-2743--gestalt.netlify.app)
+
 ## 101.1.10 (Mar 18, 2023)
 
 ### Patch
