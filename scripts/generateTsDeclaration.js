@@ -1,12 +1,43 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
+const convert = require('@khanacademy/flow-to-ts/dist/convert.bundle.js');
 const glob = require('glob');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
-const fs = require('fs');
-const convert = require('@khanacademy/flow-to-ts/dist/convert.bundle.js');
-const ts = require('typescript');
 const shell = require('shelljs');
+const ts = require('typescript');
+
+const subcomponentList = [
+  'DropdownItem',
+  'DropdownLink',
+  'DropdownSection',
+  'SideNavigationSection',
+  'SideNavigationTopItem',
+  'SideNavigationNestedItem',
+  'SideNavigationGroup',
+  'SideNavigationNestedGroup',
+  'UpsellForm',
+  'ModuleExpandable',
+  'FlexItem',
+  'ListItem',
+  'RadioGroupButton',
+  'SelectListOption',
+  'SelectListGroup',
+  'DismissingElement',
+  'TableBody',
+  'TableCell',
+  'TableFooter',
+  'TableHeader',
+  'TableHeaderCell',
+  'TableRow',
+  'TableSortableHeaderCell',
+  'TableRowExpandable',
+  'TableRowDrawer',
+];
+
+const otherFiles = ['zIndex'];
+const masonryFiles = ['debounce', 'ScrollContainer', 'throttle', 'Cache', 'MeasurementStore'];
 
 // Get a map of the components we need to create TypeScript declaration files
 const indexFile = glob.sync('./packages/gestalt/src/index.js', {
@@ -25,7 +56,9 @@ const componentIndex = indexExports[0].specifiers.map((node) => node.exported.na
 
 const componentMap = new Map();
 
-componentIndex.forEach((cmp, idx) => componentMap.set(cmp, idx));
+[...componentIndex, ...subcomponentList, ...otherFiles, ...masonryFiles].forEach((cmp, idx) =>
+  componentMap.set(cmp, idx),
+);
 
 // Get all files before filtering them out by exported component
 const files = glob.sync('./packages/gestalt/src/**/*.js', {
@@ -36,18 +69,29 @@ const files = glob.sync('./packages/gestalt/src/**/*.js', {
 const GESTALT_DIRECTORY = './packages/gestalt/';
 
 const TYPESCRIPT_DIRECTORY = `${GESTALT_DIRECTORY}typescript`;
+const TYPESCRIPT_ICON_DIRECTORY = `${TYPESCRIPT_DIRECTORY}/icons`;
+const TYPESCRIPT_MASONRY_DIRECTORY = `${TYPESCRIPT_DIRECTORY}/Masonry`;
 
-const DECLARATION_DIRECTORY = `${GESTALT_DIRECTORY}declarations`;
+const DECLARATION_DIRECTORY = `${GESTALT_DIRECTORY}/src/declarations`;
 
 // Create typescript directory iF doesn't exist
 if (!fs.existsSync(TYPESCRIPT_DIRECTORY)) {
   fs.mkdirSync(TYPESCRIPT_DIRECTORY, { recursive: true });
 }
 
+if (!fs.existsSync(TYPESCRIPT_ICON_DIRECTORY)) {
+  fs.mkdirSync(TYPESCRIPT_ICON_DIRECTORY, { recursive: true });
+}
+
+if (!fs.existsSync(TYPESCRIPT_MASONRY_DIRECTORY)) {
+  fs.mkdirSync(TYPESCRIPT_MASONRY_DIRECTORY, { recursive: true });
+}
+
 files.forEach((file) => {
   const NAME = file.split('/')[file.split('/').length - 1].replace('.js', '');
 
   const isIconIndex = file.endsWith('packages/gestalt/src/icons/index.js');
+  const isMasonryFile = masonryFiles.includes(NAME);
 
   if (componentMap.has(NAME) || isIconIndex) {
     const FILE_NAME = NAME.concat('.ts');
@@ -85,7 +129,15 @@ files.forEach((file) => {
       prettier: true,
     });
 
-    fs.writeFileSync(`${TYPESCRIPT_DIRECTORY}/${FILE_NAME}`, typescriptCode, (err) => {
+    let directory = TYPESCRIPT_DIRECTORY;
+    if (isMasonryFile) {
+      directory = TYPESCRIPT_MASONRY_DIRECTORY;
+    }
+    if (isIconIndex) {
+      directory = TYPESCRIPT_ICON_DIRECTORY;
+    }
+
+    fs.writeFileSync(`${directory}/${FILE_NAME}`, typescriptCode, (err) => {
       // eslint-disable-next-line no-console
       console.log('Error:', err);
     });

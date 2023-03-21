@@ -19,9 +19,13 @@ import Popover from './Popover.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
-import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
+import { CompositeZIndex, FixedZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type LinkType = {|
   accessibilityLabel?: string,

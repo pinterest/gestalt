@@ -8,9 +8,11 @@ import Flex from '../Flex.js';
 import Icon from '../Icon.js';
 import icons from '../icons/index.js';
 import Text from '../Text.js';
-import { type Indexable } from '../zIndex.js';
 import PrimaryActionIconButton from './PrimaryActionIconButton.js';
 
+interface Indexable {
+  index(): number;
+}
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';
 type BadgeType = {|

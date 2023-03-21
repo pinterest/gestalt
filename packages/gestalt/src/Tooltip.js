@@ -5,7 +5,6 @@ import Controller from './Controller.js';
 import Layer from './Layer.js';
 import Text from './Text.js';
 import useDebouncedCallback from './useDebouncedCallback.js';
-import { type Indexable } from './zIndex.js';
 
 const noop = () => {};
 const TIMEOUT = 100;
@@ -42,6 +41,10 @@ const reducer = (state, action) => {
       throw new Error();
   }
 };
+
+interface Indexable {
+  index(): number;
+}
 
 type Props = {|
   /**

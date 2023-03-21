@@ -4,7 +4,11 @@ import Dropdown from '../Dropdown.js';
 import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
-import { FixedZIndex, CompositeZIndex, type Indexable } from '../zIndex.js';
+import { FixedZIndex, CompositeZIndex } from '../zIndex.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type Props = {|
   icon?: 'ellipsis' | 'edit' | 'trash-can',

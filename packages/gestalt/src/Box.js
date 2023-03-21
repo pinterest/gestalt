@@ -18,8 +18,6 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 import { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
-import { type As } from './boxTypes.js';
-import { type Indexable } from './zIndex.js';
 
 /*
 
@@ -36,6 +34,20 @@ extra runtime typechecks in the transformers for performance.
 // to work, we had to copy those types here. Ideally we can undo that copying in the
 // future if we figure out how to get docgen to resolve types defined elsewhere. =(
 
+type As =
+  | 'article'
+  | 'aside'
+  | 'caption'
+  | 'details'
+  | 'div'
+  | 'figcaption'
+  | 'figure'
+  | 'footer'
+  | 'header'
+  | 'main'
+  | 'nav'
+  | 'section'
+  | 'summary';
 type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type Dimension = number | string;
 type Direction = 'row' | 'column';
@@ -68,6 +80,10 @@ type Margin =
   | 12
   | 'auto';
 type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+interface Indexable {
+  index(): number;
+}
 
 // Please update `eslint-plugin-gestalt/no-box-disallowed-props` if you make changes to these props
 type Props = {

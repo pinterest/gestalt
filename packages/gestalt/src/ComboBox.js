@@ -20,7 +20,6 @@ import Layer from './Layer.js';
 import Popover from './Popover.js';
 import Tag from './Tag.js';
 import Text from './Text.js';
-import { type Indexable } from './zIndex.js';
 import ComboBoxItem from './ComboBox/Item.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalTextField from './TextField/InternalTextField.js';
@@ -29,6 +28,10 @@ import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type Size = 'md' | 'lg';
 

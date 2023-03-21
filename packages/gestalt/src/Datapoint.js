@@ -6,8 +6,11 @@ import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
-import { type Indexable } from './zIndex.js';
 import DatapointTrend from './Datapoint/Trend.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type TrendObject = {|
   accessibilityLabel: string,

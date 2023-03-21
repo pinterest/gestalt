@@ -7,7 +7,10 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';
-import { type Indexable } from './zIndex.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type Position = 'middle' | 'top';
 

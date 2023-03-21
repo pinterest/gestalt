@@ -15,10 +15,13 @@ import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
-import { type Indexable } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import icons from './icons/index.js';
 import InternalLink from './Link/InternalLink.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type TooltipProps = {|
   accessibilityLabel?: string,

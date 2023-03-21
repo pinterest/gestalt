@@ -7,7 +7,6 @@ import DropdownSection from './DropdownSection.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import { type Indexable } from './zIndex.js';
 import { DropdownContextProvider } from './Dropdown/Context.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 
@@ -89,6 +88,10 @@ const renderChildrenWithIndex = (childrenArray) => {
     return acc;
   }, []);
 };
+
+interface Indexable {
+  index(): number;
+}
 
 type Props = {|
   /**
