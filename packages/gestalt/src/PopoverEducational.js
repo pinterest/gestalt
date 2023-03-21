@@ -6,9 +6,11 @@ import Button from './Button.js';
 import Flex from './Flex.js';
 import Popover from './Popover.js';
 import Text from './Text.js';
-import { type Indexable } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
+interface Indexable {
+  index(): number;
+}
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'tooltip';

@@ -8,7 +8,6 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import { type AriaCurrent } from '../ariaTypes.js';
 import buttonStyles from '../Button.css';
 import { useOnLinkNavigation } from '../contexts/OnLinkNavigationProvider.js';
 import focusStyles from '../Focus.css';
@@ -20,6 +19,8 @@ import touchableStyles from '../TapArea.css';
 import textStyles from '../Typography.css';
 import useFocusVisible from '../useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback.js';
+
+type AriaCurrent = 'page' | 'step' | 'location' | 'date' | 'time' | 'true' | 'false' | 'section';
 
 type Props = {|
   accessibilityCurrent?: AriaCurrent,

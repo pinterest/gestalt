@@ -35,8 +35,11 @@ import {
   type ToPropsOutput,
 } from './style.js';
 import { union, bind, range, toggle, mapping, rangeWithZero, type Functor } from './transforms.js';
-import { type Indexable } from './zIndex.js';
 import omit from './utils/omit.js';
+
+interface Indexable {
+  index(): number;
+}
 
 /*
 

@@ -1,7 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
 import layout from './Layout.css';
-import { FixedZIndex, type Indexable } from './zIndex.js';
+import { FixedZIndex } from './zIndex.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type PositionType = number | string;
 

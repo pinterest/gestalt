@@ -2,9 +2,12 @@
 import { type Portal, type Node, useRef, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Layer.css';
-import { type Indexable } from './zIndex.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import { getContainerNode } from './utils/positioningUtils.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type Props = {|
   /**

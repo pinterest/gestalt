@@ -9,7 +9,6 @@ import Flex from './Flex.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type Indexable } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { useNesting } from './contexts/NestingProvider.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
@@ -21,6 +20,10 @@ export const NESTING_MARGIN_START_MAP = {
   '1': '48px',
   '2': '68px',
 };
+
+interface Indexable {
+  index(): number;
+}
 
 type Props = {|
   /**

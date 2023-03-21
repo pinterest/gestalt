@@ -3,14 +3,15 @@ import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, use
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './TapArea.css';
-import { type AriaCurrent } from './ariaTypes.js';
-import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
+import getRoundingClassName from './getRoundingClassName.js';
 import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalLink from './Link/InternalLink.js';
 
+type AriaCurrent = 'page' | 'step' | 'location' | 'date' | 'time' | 'true' | 'false' | 'section';
+type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 type FocusEventHandler = ({|
   event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
 |}) => void;

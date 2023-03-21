@@ -2,7 +2,6 @@
 import { type Node, type Element } from 'react';
 import styles from './PageHeader.css';
 import Box from './Box.js';
-import { type Dimension } from './boxTypes.js';
 import Button from './Button.js';
 import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';
@@ -20,6 +19,8 @@ import {
   PageHeaderActionBlock,
   PageHeaderItemsBlock,
 } from './PageHeader/components.js';
+
+type Dimension = number | string;
 
 export type ActionType = Element<
   typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip,
