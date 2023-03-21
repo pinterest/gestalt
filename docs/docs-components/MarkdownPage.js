@@ -12,6 +12,7 @@ import PageHeader from './PageHeader.js';
 import MainSection from './MainSection.js';
 
 import InternalOnlyIconButton from './InternalOnlyIconButton.js';
+import { useNavigationContext } from './navigationContext.js';
 import { MAX_WIDTH } from './MainSectionSubsection.js';
 
 import 'highlight.js/styles/a11y-light.css';
@@ -26,6 +27,7 @@ type Props = {|
     fullwidth?: boolean,
     description: string,
     component: boolean,
+    sidebar:boolean,
   |},
   pageSourceUrl?: string,
 |};
@@ -253,6 +255,13 @@ const components = {
 
 export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
   const maxWidth = meta.fullwidth ? 'none' : `${MAX_WIDTH}px`;
+
+  const { setIsSidebarOpen } = useNavigationContext();
+  const hideSidebar = meta.sidebar && sidebar === false ? : true : false;
+
+  if(hideSidebar){
+    setIsSidebarOpen(false);
+  }
 
   return (
     <MDXProvider components={components}>
