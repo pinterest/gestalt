@@ -1,0 +1,4 @@
+# Block all crawlers for integration and visual test routes
+User-agent: *
+Disallow: /integration-test/
+Disallow: /visual-test/

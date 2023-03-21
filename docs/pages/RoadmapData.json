@@ -1,0 +1,181 @@
+{
+  "year": "2023 H1",
+  "tasks": [
+    {
+      "task": "Pinterest content standards",
+      "deadline": "",
+      "status": "ok",
+      "platforms": [],
+      "description": "Publish Pinterest's existing content standards within Gestalt's documentation.",
+      "link": ""
+    },
+    {
+      "task": "Gestalt collaboration model",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Add Gestalt's working collaboration model to its documentation as a reference point for cross-functional collaboration.",
+      "link": ""
+    },
+    {
+      "task": "Global navigation guidelines",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Release general guidelines and principles for navigation content and display.",
+      "link": ""
+    },
+    {
+      "task": "Card component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Creation of a Card component to support emerging Pinner needs.",
+      "link": ""
+    },
+    {
+      "task": "SideNavigation component enhancements",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Provide functional and experiential enhancements to the SideNavigation component to be more compatible with product needs.",
+      "link": ""
+    },
+    {
+      "task": "Tile component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Creation of a Tile component to support emerging M10n needs.",
+      "link": ""
+    },
+    {
+      "task": "DateRange component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Development of a DateRange component to cover input of start/end dates.",
+      "link": ""
+    },
+    {
+      "task": "Figma tooling to support design workflow",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Ship Figma plugin functionality to enhance designers' day-to-day workflow.",
+      "link": ""
+    },
+    {
+      "task": "Form pattern guidelines",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Development of usage guidelines and best practices for form creation within Gestalt.",
+      "link": ""
+    },
+    {
+      "task": "Gestalt docs feedback affordance",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Creation of a feedback tool within the docs site to enable more fluid user feedback.",
+      "link": ""
+    },
+    {
+      "task": "Illustration pattern guidelines",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Development of usage guidelines and best practices for utilizing illustrations with Gestalt.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Icon component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Android", "iOS"],
+      "description": "Development of the Icon component for Android and iOS along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Toast component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Android"],
+      "description": "Development of the Toast component for Android along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile IconButton component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Android", "iOS"],
+      "description": "Development of a mobile-specific treatment of the IconButton component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Cross platform Gestalt engineering adoption metric",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Define and implement a cross platform measurement for Gestalt engineering adoption on the Web platform.",
+      "link": ""
+    },
+    {
+      "task": "Masonry component integration tests",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Increase safety of future Masonry work by establishing a baseline of integration tests.",
+      "link": ""
+    },
+    {
+      "task": "Masonry 2-column pin support (experimentation only)",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Initial experimental attempt to support items spanning two column widths in Masonry.",
+      "link": ""
+    },
+    {
+      "task": "Mobile web adaptive Popover component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Development of a mobile web treatment for the Popover component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile web adaptive Dropdown component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Development of a mobile web treatment for the Dropdown component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile web adaptive Modal component",
+      "deadline": "",
+      "status": "ok",
+      "platforms": ["Web"],
+      "description": "Development of a mobile web treatment for the Modal component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile web Sheet component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Development of a mobile web Sheet component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Default labels in Gestalt components",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["Web"],
+      "description": "Implement all default labels supported in components for faster development and message consistency.",
+      "link": ""
+    }
+  ]
+}

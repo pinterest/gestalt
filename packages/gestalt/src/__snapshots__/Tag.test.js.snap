@@ -3,7 +3,7 @@
 exports[`Tag clips long strings 1`] = `
 <div
   aria-disabled={false}
-  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -12,7 +12,7 @@ exports[`Tag clips long strings 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -23,11 +23,16 @@ exports[`Tag clips long strings 1`] = `
       className="box marginEnd2 marginStart0"
     />
     <div
-      className="truncate"
       title="The quick brown fox jumps over the lazy dog"
     >
       <span
-        className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="The quick brown fox jumps over the lazy dog"
       >
         The quick brown fox jumps over the lazy dog
       </span>
@@ -36,14 +41,14 @@ exports[`Tag clips long strings 1`] = `
       className="box marginStart1"
     >
       <button
-        className="button lightGray hideOutline tapTransition accessibilityOutline"
+        className="button secondary hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
         <svg
           aria-hidden={null}
           aria-label="Remove long example tag"
-          className="icon darkGray iconBlock"
+          className="icon defaultIcon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"
@@ -62,7 +67,7 @@ exports[`Tag clips long strings 1`] = `
 exports[`Tag renders 1`] = `
 <div
   aria-disabled={false}
-  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -71,7 +76,7 @@ exports[`Tag renders 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -82,11 +87,16 @@ exports[`Tag renders 1`] = `
       className="box marginEnd2 marginStart0"
     />
     <div
-      className="truncate"
       title="New"
     >
       <span
-        className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
       >
         New
       </span>
@@ -95,14 +105,14 @@ exports[`Tag renders 1`] = `
       className="box marginStart1"
     >
       <button
-        className="button lightGray hideOutline tapTransition accessibilityOutline"
+        className="button secondary hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
         <svg
           aria-hidden={null}
           aria-label="Remove New tag"
-          className="icon darkGray iconBlock"
+          className="icon defaultIcon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"
@@ -121,7 +131,7 @@ exports[`Tag renders 1`] = `
 exports[`Tag renders a disabled tag 1`] = `
 <div
   aria-disabled={true}
-  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "border": "solid 1px #767676",
@@ -131,7 +141,7 @@ exports[`Tag renders a disabled tag 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -142,11 +152,16 @@ exports[`Tag renders a disabled tag 1`] = `
       className="box marginEnd2 marginStart0"
     />
     <div
-      className="truncate"
       title="New"
     >
       <span
-        className="Text fontSize2 gray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
       >
         New
       </span>
@@ -158,10 +173,10 @@ exports[`Tag renders a disabled tag 1`] = `
 </div>
 `;
 
-exports[`Tag renders a tag with an error state 1`] = `
+exports[`Tag renders a tag with a warning state 1`] = `
 <div
   aria-disabled={false}
-  className="box redBg rounding2 xsDisplayInlineBlock"
+  className="box rounding2 warningBase xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -170,7 +185,7 @@ exports[`Tag renders a tag with an error state 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -182,8 +197,8 @@ exports[`Tag renders a tag with an error state 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Something went wrong"
-        className="icon white iconBlock"
+        aria-label="Warning"
+        className="icon inverseIcon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -195,11 +210,16 @@ exports[`Tag renders a tag with an error state 1`] = `
       </svg>
     </div>
     <div
-      className="truncate"
       title="New"
     >
       <span
-        className="Text fontSize2 white alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
       >
         New
       </span>
@@ -208,14 +228,92 @@ exports[`Tag renders a tag with an error state 1`] = `
       className="box marginStart1"
     >
       <button
-        className="button red hideOutline tapTransition accessibilityOutline"
+        className="button warningBase hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
         <svg
           aria-hidden={null}
-          aria-label="Remove New tag"
-          className="icon white iconBlock"
+          aria-label="Remove tag"
+          className="icon inverseIcon iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tag renders a tag with an error state 1`] = `
+<div
+  aria-disabled={false}
+  className="box errorBase rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginEnd2 marginStart2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Error"
+        className="icon inverseIcon iconBlock"
+        height={12}
+        role="img"
+        viewBox="0 0 24 24"
+        width={12}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      title="New"
+    >
+      <span
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+        style={
+          Object {
+            "WebkitLineClamp": 1,
+          }
+        }
+        title="New"
+      >
+        New
+      </span>
+    </div>
+    <div
+      className="box marginStart1"
+    >
+      <button
+        className="button errorBase hideOutline tapTransition accessibilityOutline"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Remove tag"
+          className="icon inverseIcon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"

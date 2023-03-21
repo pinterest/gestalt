@@ -1,34 +1,36 @@
 // @flow strict
-import { forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import styles from './Touchable.css';
+import styles from './TapArea.css';
 import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
-type FocusEventHandler = AbstractEventHandler<
-  SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
->;
+type FocusEventHandler = ({|
+  event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
+|}) => void;
 
-type MouseEventHandler = AbstractEventHandler<
-  SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
->;
+type MouseEventHandler = ({|
+  event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+|}) => void;
 
-type KeyboardEventHandler = AbstractEventHandler<
-  SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
->;
+type KeyboardEventHandler = ({|
+  event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+|}) => void;
 
-export type OnTapType = AbstractEventHandler<
-  | SyntheticMouseEvent<HTMLDivElement>
-  | SyntheticKeyboardEvent<HTMLDivElement>
-  | SyntheticMouseEvent<HTMLAnchorElement>
-  | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  {| dangerouslyDisableOnNavigation: () => void |},
->;
+export type OnTapType = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  dangerouslyDisableOnNavigation: () => void,
+|}) => void;
 
 type BaseTapArea = {|
   accessibilityLabel?: string,
@@ -45,16 +47,19 @@ type BaseTapArea = {|
   onMouseEnter?: MouseEventHandler,
   onMouseLeave?: MouseEventHandler,
   onTap?: OnTapType,
-  tabIndex?: -1 | 0,
+  role?: 'button' | 'link' | 'switch',
   rounding?: Rounding,
+  tabIndex?: -1 | 0,
   tapStyle?: 'none' | 'compress',
 |};
+
 type TapAreaType = {|
   ...BaseTapArea,
+  accessibilityChecked?: boolean,
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
-  role?: 'button',
+  role?: 'button' | 'switch',
 |};
 
 type LinkTapAreaType = {|
@@ -71,8 +76,11 @@ type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 /**
  * [TapArea](https://gestalt.pinterest.systems/tapArea) allows components to be clickable and touchable in an accessible way
+ *
+ * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
+ *
  */
-const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
+const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
   unionRefs,
 >(function TapArea(props: unionProps, ref): Node {
@@ -114,6 +122,8 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -193,10 +203,12 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   if (props.role === 'link') {
     const { accessibilityCurrent, href, rel = 'none', target = null } = props;
 
+    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+
     return (
       <InternalLink
         accessibilityCurrent={accessibilityCurrent}
-        accessibilityLabel={accessibilityLabel}
+        accessibilityLabel={ariaLabel}
         disabled={disabled}
         href={href}
         fullHeight={fullHeight}
@@ -206,9 +218,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
         onKeyDown={handleLinkOnKeyDown}
-        // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
         onMouseDown={onMouseDown}
-        // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
         onMouseUp={onMouseUp}
         onMouseEnter={handleLinkOnMouseEnter}
         onMouseLeave={handleLinkOnMouseLeave}
@@ -221,13 +231,21 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         wrappedComponent="tapArea"
       >
         {children}
+        <NewTabAccessibilityLabel target={target} />
       </InternalLink>
     );
   }
 
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup } = props;
+  const {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityChecked,
+    role,
+  } = props;
   return (
     <div
+      aria-checked={role === 'switch' ? accessibilityChecked : undefined}
       aria-controls={accessibilityControls}
       aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
@@ -257,7 +275,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
       ref={innerRef}
-      role="button"
+      role={role ?? 'button'}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       tabIndex={disabled ? null : tabIndex}
     >

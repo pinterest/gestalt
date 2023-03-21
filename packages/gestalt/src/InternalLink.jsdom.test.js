@@ -14,6 +14,7 @@ test('InternalLink handles onClick callback', () => {
       InternalLink
     </InternalLink>,
   );
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   getByText('InternalLink').click();
   expect(mockOnClick).toHaveBeenCalled();
 });

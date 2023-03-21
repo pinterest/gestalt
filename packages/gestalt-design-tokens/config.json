@@ -7,7 +7,15 @@
       "files": [
         {
           "destination": "variables.css",
-          "format": "css/variables"
+          "format": "css/variables",
+          "options": {
+            "outputReferences": true
+          }
+        },
+        {
+          "destination": "variables-dark.css",
+          "format": "cssDark",
+          "filter": "customDarkColorFilter"
         }
       ]
     },
@@ -18,11 +26,41 @@
         {
           "destination": "variables.json",
           "format": "json/flat"
+        },
+        {
+          "destination": "variables-dark.json",
+          "format": "cssDarkJson",
+          "filter": "customDarkColorFilter"
+        },
+        {
+          "destination": "variables-light.json",
+          "format": "json/flat",
+          "filter": "customDarkColorFilter"
+        }
+      ]
+    },
+    "jsonflow": {
+      "transformGroup": "css",
+      "buildPath": "dist/json/",
+      "files": [
+        {
+          "destination": "variables.json.flow",
+          "format": "jsonFlatFlow"
+        },
+        {
+          "destination": "variables-dark.json.flow",
+          "format": "cssDarkJsonFlatFlow",
+          "filter": "customDarkColorFilter"
+        },
+        {
+          "destination": "variables-light.json.flow",
+          "format": "jsonFlatFlow",
+          "filter": "customDarkColorFilter"
         }
       ]
     },
     "js": {
-      "transformGroup": "css",
+      "transformGroup": "js",
       "showFileHeader": true,
       "buildPath": "dist/js/",
       "files": [
@@ -32,11 +70,35 @@
           "options": {
             "fileHeader": "flowCustomHeader"
           }
+        },
+        {
+          "destination": "tokens_individual.js",
+          "format": "customJSIndividualFormat",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "data-viz-tokens.js",
+          "format": "customJSArrayFormat",
+          "filter": "customDataVizFilter",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
+        },
+        {
+          "destination": "data-viz-tokens_individual.js",
+          "format": "customJSIndividualFormat",
+          "filter": "customDataVizFilter",
+          "options": {
+            "fileHeader": "flowCustomHeader"
+          }
         }
       ]
     },
     "android": {
       "transformGroup": "android-custom",
+      "options": { "fileHeader": "androidCustomHeader" },
       "buildPath": "dist/android/",
       "files": [
         {
@@ -47,6 +109,10 @@
               "category": "color"
             }
           }
+        },
+        {
+          "destination": "colors-dark.xml",
+          "format": "androidColorDark"
         },
         {
           "destination": "space.xml",
@@ -66,6 +132,16 @@
             "attributes": {
               "category": "font",
               "type": "size"
+            }
+          }
+        },
+        {
+          "destination": "opacity.xml",
+          "format": "android/resources",
+          "resourceType": "dimen",
+          "filter": {
+            "attributes": {
+              "category": "opacity"
             }
           }
         }

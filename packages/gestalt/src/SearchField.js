@@ -1,5 +1,12 @@
 // @flow strict
-import { forwardRef, type Node, useState, useRef, useImperativeHandle } from 'react';
+import {
+  forwardRef,
+  type Node,
+  type AbstractComponent,
+  useState,
+  useRef,
+  useImperativeHandle,
+} from 'react';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
@@ -8,17 +15,16 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormLabel from './FormLabel.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
 type Props = {|
   /**
-   * String that clients such as VoiceOver will read to describe the element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/searchfield#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe the element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
    */
   accessibilityLabel: string,
   /**
-   * String that clients such as VoiceOver will read to describe the clear button element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/searchfield#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe the clear button element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
    */
   accessibilityClearButtonLabel?: string,
   /**
@@ -34,13 +40,16 @@ type Props = {|
    */
   id: string,
   /**
-   * Text used to label the input. Be sure to localize the text. See the [Visible label variant](https://gestalt.pinterest.systems/searchfield#Visible-label) for more info.
+   * Text used to label the input. Be sure to localize the text. See the [Visible label variant](https://gestalt.pinterest.systems/web/searchfield#Visible-label) for more info.
    */
   label?: string,
   /**
    *
    */
-  onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
+  onBlur?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   /**
    * Primary callback to handle keyboard input.
    */
@@ -81,9 +90,13 @@ type Props = {|
 |};
 
 /**
- * [SearchField](https://gestalt.pinterest.systems/searchfield) allows users to search for free-form content.
+ * [SearchField](https://gestalt.pinterest.systems/web/searchfield) allows users to search for free-form content.
+ *
+ * ![SearchField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField.spec.mjs-snapshots/SearchField-chromium-darwin.png)
+ * ![SearchField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField-dark.spec.mjs-snapshots/SearchField-dark-chromium-darwin.png)
+ *
  */
-const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function SearchField(
@@ -140,7 +153,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const handleBlur = (event) => {
     setFocused(false);
     if (onBlur) {
-      onBlur({ event });
+      onBlur({ value: event.currentTarget.value, event });
     }
   };
 
@@ -198,7 +211,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           </Box>
         )}
         <input
-          aria-describedby={errorMessage && focused ? `${id}-error` : null}
+          aria-describedby={errorMessage ? `${id}-error` : null}
           aria-invalid={errorMessage ? 'true' : 'false'}
           ref={inputRef}
           aria-label={accessibilityLabel}
@@ -217,7 +230,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           <button className={styles.clear} onClick={handleClear} type="button">
             <Box
               alignItems="center"
-              color={focused ? 'darkGray' : 'transparent'}
+              color={focused ? 'selected' : 'transparent'}
               display="flex"
               height={clearButtonSize}
               justifyContent="center"
@@ -226,7 +239,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
             >
               <Icon
                 accessibilityLabel={accessibilityClearButtonLabel || ''}
-                color={focused ? 'white' : 'darkGray'}
+                color={focused ? 'inverse' : 'default'}
                 icon="cancel"
                 size={clearIconSize}
               />
@@ -234,7 +247,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           </button>
         )}
       </Box>
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
     </span>
   );
 });

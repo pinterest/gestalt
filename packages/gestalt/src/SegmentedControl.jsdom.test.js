@@ -9,29 +9,12 @@ describe('<SegmentedControl />', () => {
       <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={mockOnChange} />,
     );
 
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('Item1').click();
     expect(mockOnChange).toHaveBeenCalled();
 
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('Item2').click();
     expect(mockOnChange).toHaveBeenCalled();
-  });
-
-  it('adds a "medium" classname by default', () => {
-    const { container } = render(
-      <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={() => {}} />,
-    );
-    expect(container.querySelector('.medium')).toBeVisible();
-  });
-
-  it('adds a "large" classname when size is set to "lg"', () => {
-    const { container } = render(
-      <SegmentedControl
-        items={['Item1', 'Item2']}
-        selectedItemIndex={0}
-        size="lg"
-        onChange={() => {}}
-      />,
-    );
-    expect(container.querySelector('.large')).toBeVisible();
   });
 });

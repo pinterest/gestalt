@@ -1,11 +1,11 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { AvatarGroup, Box, ColorSchemeProvider } from 'gestalt';
 
-export default function AvatarGroupSpec(): Node {
+export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="white" display="inlineBlock" padding={1}>
+      <Box color="default" display="inlineBlock" padding={1}>
         <AvatarGroup
           size="md"
           accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."

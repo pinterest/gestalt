@@ -1,92 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popover does not render when the anchor is null 1`] = `null`;
+exports[`PopoverEducational does not render when the anchor is null 1`] = `null`;
 
-exports[`Popover renders 1`] = `
-<div>
-  <div
-    className="container"
-    style={
-      Object {
-        "left": -10,
-        "stroke": "#efefef",
-        "top": 8,
-        "visibility": "visible",
-      }
-    }
-  >
+exports[`PopoverEducational renders correctly 1`] = `
+<div
+  className="box"
+>
+  <div>
     <div
-      className="rounding4 contents maxDimensions minDimensions"
+      className="container rounding4 contents maxDimensions minDimensions"
+      style={
+        Object {
+          "left": -10,
+          "top": 4,
+          "visibility": "visible",
+        }
+      }
       tabIndex={-1}
     >
       <div
-        className="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+        className="blue caret"
         style={
           Object {
-            "maxWidth": 230,
+            "bottom": null,
+            "left": 10,
+            "right": null,
+            "top": -4,
           }
         }
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Popover renders as blue 1`] = `
-<div>
-  <div
-    className="container"
-    style={
-      Object {
-        "left": -10,
-        "stroke": null,
-        "top": 8,
-        "visibility": "visible",
-      }
-    }
-  >
-    <div
-      className="rounding4 contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
+      >
+        <svg
+          height={4}
+          width={12}
+        >
+          <path
+            d="M0 4c.694 0 1.36-.278 1.846-.773L4.376.66c.806-.819 2.187-.885 3.083-.148.057.047.111.096.163.148l2.526 2.565A2.6 2.6 0 0012 4"
+            stroke="rgba(0, 0, 0, 0.02)"
+          />
+        </svg>
+      </div>
       <div
+        aria-label="text"
         className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+        role="dialog"
         style={
           Object {
+            "maxHeight": 691.1999999999999,
             "maxWidth": 230,
           }
         }
-      />
+      >
+        <div
+          className="box paddingX4 paddingY4"
+          tabIndex={0}
+        >
+          <div
+            className="Flex rowGap3 columnGap3 xsDirectionColumn"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
+              >
+                text
+              </div>
+            </div>
+            <div
+              className="FlexItem flexGrow selfEnd"
+            >
+              <button
+                className="button hideOutline inline accessibilityOutline parentButton"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  className="button hideOutline inline accessibilityOutline tapTransition md white enabled childrenDiv"
+                >
+                  <div
+                    className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                  >
+                    next
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Popover renders as error 1`] = `
-<div>
-  <div
-    className="container"
-    style={
-      Object {
-        "left": -10,
-        "stroke": null,
-        "top": 8,
-        "visibility": "visible",
-      }
-    }
-  >
+exports[`PopoverEducational renders correctly with custom children 1`] = `
+<div
+  className="box"
+>
+  <div>
     <div
-      className="rounding4 contents maxDimensions minDimensions"
+      className="container rounding4 contents maxDimensions minDimensions"
+      style={
+        Object {
+          "left": -10,
+          "top": 4,
+          "visibility": "visible",
+        }
+      }
       tabIndex={-1}
     >
       <div
-        className="border redBg red rounding4 innerContents maxDimensions minDimensions"
+        className="blue caret"
         style={
           Object {
+            "bottom": null,
+            "left": 10,
+            "right": null,
+            "top": -4,
+          }
+        }
+      >
+        <svg
+          height={4}
+          width={12}
+        >
+          <path
+            d="M0 4c.694 0 1.36-.278 1.846-.773L4.376.66c.806-.819 2.187-.885 3.083-.148.057.047.111.096.163.148l2.526 2.565A2.6 2.6 0 0012 4"
+            stroke="rgba(0, 0, 0, 0.02)"
+          />
+        </svg>
+      </div>
+      <div
+        aria-label="text"
+        className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+        role="tooltip"
+        style={
+          Object {
+            "maxHeight": 691.1999999999999,
             "maxWidth": 230,
           }
         }
-      />
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          Custom children
+        </div>
+      </div>
     </div>
   </div>
 </div>

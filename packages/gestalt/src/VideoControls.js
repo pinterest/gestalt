@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node, useEffect, useState } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
@@ -15,6 +15,7 @@ type Props = {|
   accessibilityMuteLabel: string,
   accessibilityPauseLabel: string,
   accessibilityPlayLabel: string,
+  accessibilityProgressBarLabel: string,
   accessibilityUnmuteLabel: string,
   captionsButton: 'enabled' | 'disabled' | null,
   currentTime: number,
@@ -36,15 +37,6 @@ type Props = {|
   volume: number,
 |};
 
-const fullscreenEnabled = () =>
-  document.fullscreenEnabled ||
-  // $FlowFixMe[prop-missing]
-  document.webkitFullscreenEnabled ||
-  // $FlowFixMe[prop-missing]
-  document.mozFullScreenEnabled ||
-  // $FlowFixMe[prop-missing]
-  document.msFullscreenEnabled;
-
 const timeToString = (time?: number) => {
   const rounded = Math.floor(time || 0);
   const minutes = Math.floor(rounded / 60);
@@ -62,6 +54,7 @@ function VideoControls({
   accessibilityMuteLabel,
   accessibilityPauseLabel,
   accessibilityPlayLabel,
+  accessibilityProgressBarLabel,
   accessibilityUnmuteLabel,
   captionsButton,
   currentTime,
@@ -101,7 +94,21 @@ function VideoControls({
   };
 
   const muted = volume === 0;
-  const showFullscreenButton = typeof document !== 'undefined' && !!fullscreenEnabled();
+
+  const [showFullscreenButton, setShowFullscreenButton] = useState(false);
+
+  useEffect(() => {
+    setShowFullscreenButton(
+      typeof document !== 'undefined' &&
+        (document.fullscreenEnabled ||
+          // $FlowExpectedError[prop-missing]
+          document.webkitFullscreenEnabled ||
+          // $FlowExpectedError[prop-missing]
+          document.mozFullScreenEnabled ||
+          // $FlowExpectedError[prop-missing]
+          document.msFullscreenEnabled),
+    );
+  }, []);
 
   return (
     <div className={styles.controls}>
@@ -109,7 +116,7 @@ function VideoControls({
         <TapArea onTap={handlePlayingChange} fullWidth={false}>
           <Icon
             accessibilityLabel={playing ? accessibilityPauseLabel : accessibilityPlayLabel}
-            color="white"
+            color="light"
             icon={playing ? 'pause' : 'play'}
             size={20}
           />
@@ -124,20 +131,31 @@ function VideoControls({
                   ? accessibilityHideCaptionsLabel
                   : accessibilityShowCaptionsLabel
               }
-              color="white"
-              icon={captionsButton === 'enabled' ? 'speech-ellipsis' : 'speech'}
+              color="light"
+              icon="captions"
               size={20}
             />
+            {captionsButton === 'enabled' && (
+              <Box
+                position="absolute"
+                marginTop={1}
+                color="light"
+                width={20}
+                height={2}
+                rounding={4}
+              />
+            )}
           </TapArea>
         </Box>
       )}
       <Box width={50} padding={2}>
-        <Text align="end" color="white" overflow="normal" size="sm">
+        <Text align="end" color="light" overflow="normal" size="100">
           {timeToString(currentTime)}
         </Text>
       </Box>
       <Box padding={2} flex="grow">
         <VideoPlayhead
+          accessibilityProgressBarLabel={accessibilityProgressBarLabel}
           currentTime={currentTime}
           duration={duration}
           onPlayheadDown={onPlayheadDown}
@@ -146,7 +164,7 @@ function VideoControls({
         />
       </Box>
       <Box width={50} padding={2}>
-        <Text align="end" color="white" overflow="normal" size="sm">
+        <Text align="end" color="light" overflow="normal" size="100">
           {timeToString(duration)}
         </Text>
       </Box>
@@ -154,7 +172,7 @@ function VideoControls({
         <TapArea onTap={handleVolumeChange} fullWidth={false}>
           <Icon
             accessibilityLabel={muted ? accessibilityUnmuteLabel : accessibilityMuteLabel}
-            color="white"
+            color="light"
             icon={muted ? 'mute' : 'sound'}
             size={20}
           />
@@ -167,7 +185,7 @@ function VideoControls({
               accessibilityLabel={
                 fullscreen ? accessibilityMinimizeLabel : accessibilityMaximizeLabel
               }
-              color="white"
+              color="light"
               icon={fullscreen ? 'minimize' : 'maximize'}
               size={20}
             />

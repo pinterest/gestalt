@@ -2,10 +2,10 @@
 
 exports[`Status renders with accessibilityLabel 1`] = `
 <div
-  className="Flex columnGap0 xsDirectionColumn"
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -13,7 +13,7 @@ exports[`Status renders with accessibilityLabel 1`] = `
       <svg
         aria-hidden={null}
         aria-label="some accessibilityLabel"
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -30,10 +30,10 @@ exports[`Status renders with accessibilityLabel 1`] = `
 
 exports[`Status renders with title 1`] = `
 <div
-  className="Flex columnGap0 xsDirectionColumn"
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -41,7 +41,7 @@ exports[`Status renders with title 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -56,7 +56,7 @@ exports[`Status renders with title 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         Unstarted
       </div>
@@ -67,10 +67,10 @@ exports[`Status renders with title 1`] = `
 
 exports[`Status renders with title and subtext 1`] = `
 <div
-  className="Flex columnGap0 xsDirectionColumn"
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 itemsCenter xsDirectionRow"
+    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -78,7 +78,7 @@ exports[`Status renders with title and subtext 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="icon defaultIcon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ exports[`Status renders with title and subtext 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
       >
         Unstarted
       </div>
@@ -103,7 +103,7 @@ exports[`Status renders with title and subtext 1`] = `
     className="box marginStart6"
   >
     <div
-      className="Text fontSize2 gray alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
     >
       some subtext
     </div>

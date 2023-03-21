@@ -11,13 +11,13 @@ pre {
   word-break: break-word !important; /* stylelint-disable-line declaration-no-important */
 }
 
-ul {
+.reset {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
   margin: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  margin-top: 10px;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 /**
@@ -32,6 +32,19 @@ li {
   background-color: rgb(42 39 52);
 }
 
+/**
+ * Sandpack overrides
+ */
+
+.sp-layout {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+}
+
+.sp-preview-container {
+  overflow: hidden;
+}
 
 /**
  * Markdown overrides
@@ -43,25 +56,26 @@ li {
 
 .Markdown pre {
   background-color: rgb(236 236 236 / 0.5);
+  margin: 40px;
   overflow: auto;
   padding: 5px;
+}
+
+.Markdown .md-hint {
+  margin: 40px;
 }
 
 .Markdown code {
   background-color: var(--g-colorGray100);
   color: var(--g-colorGray300);
   display: inline-block;
-  font-family: SFMono-Medium, "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace;
-  font-size: var(--g-text-font-size-2);
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-200);
   padding: 2px 4px;
 }
 
 .Markdown pre code {
   display: block;
-}
-
-.Markdown .language-jsx, .Markdown .language-bash {
-  background-color: var(--g-colorGray0);
 }
 
 .Markdown p {
@@ -73,21 +87,15 @@ li {
   margin-top: 24px;
 }
 
-.Markdown ul {
-  padding-inline-start: 20px;
+.Markdown div > ol,
+.Markdown div > ul {
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
-.Markdown ul + pre {
-  margin-left: 40px;
-}
-
-html[dir="rtl"] .Markdown ul + pre {
-  margin-right: 40px;
-}
-
-.Markdown li {
-  margin-bottom: 10px;
-  margin-top: 10px;
+.Markdown details {
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .Markdown a {
@@ -102,10 +110,6 @@ html[dir="rtl"] .Markdown ul + pre {
   align-items: baseline;
   display: flex;
   scroll-margin-top: 75px;
-}
-
-.Markdown h3 {
-  color: var(--g-colorGray200);
 }
 
 .Markdown .anchor {
@@ -123,7 +127,6 @@ html[dir="rtl"] .Markdown ul + pre {
   width: 12px;
 }
 
-
 /**
  * Algolia overrides
  * Styles forked from https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.css
@@ -132,13 +135,8 @@ html[dir="rtl"] .Markdown ul + pre {
 .searchbox {
   box-sizing: border-box;
   display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-  height: 32px;
-  max-width: 200px;
+  font-family: var(--font-family-default-latin);
+  height: 40px;
   min-width: 100px;
   position: relative;
   visibility: visible;
@@ -161,20 +159,16 @@ html[dir="rtl"] .Markdown ul + pre {
 .searchbox__input {
   appearance: none;
   background: var(--g-colorGray0);
-  border: var(--g-border-width) solid var(--g-colorGray150);
+  border: var(--g-border-width) solid var(--color-border-container);
   border-radius: 999px;
   box-sizing: border-box;
   caret-color: var(--g-colorGray300);
   color: var(--g-colorGray300);
   display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-latin);
   font-size: 16px;
   height: 100%;
-  padding: 0 32px 0 26px;
+  padding: 0 32px 0 40px;
   vertical-align: middle;
   white-space: normal;
   width: 100%;
@@ -275,7 +269,8 @@ html[dir="rtl"] .Markdown ul + pre {
   display: block;
 }
 
-@-webkit-keyframes sbx-reset-in { /* stylelint-disable-line at-rule-no-vendor-prefix */
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
+@-webkit-keyframes sbx-reset-in {
   0% {
     opacity: 0;
     transform: translate3d(-20%, 0, 0);
@@ -300,10 +295,10 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
-  background: transparent;
+  background: var(--color-background-elevation-floating);
   border: none;
   border-radius: 16px;
-  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
+  box-shadow: var(--elevation-floating);
   height: auto;
   margin: 6px 0 0;
   max-width: 600px;
@@ -319,6 +314,10 @@ html[dir="rtl"] .Markdown ul + pre {
 @media all and (min-width: 768px) {
   .algolia-autocomplete .ds-dropdown-menu {
     min-width: 500px;
+  }
+
+  .searchbox {
+    max-width: 250px;
   }
 }
 
@@ -401,19 +400,30 @@ html[dir="rtl"] .Markdown ul + pre {
   padding: 0 0.05em;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--text
+  .algolia-docsearch-suggestion--highlight {
   background: inherit;
   box-shadow: inset 0 -2px 0 0 rgb(69 142 225 / 0.8);
   color: inherit;
   padding: 0 0 1px;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion code .algolia-docsearch-suggestion--highlight {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion
+  code
+  .algolia-docsearch-suggestion--highlight {
   background: none;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--category-header-lvl0 .algolia-docsearch-suggestion--highlight,
-.algolia-autocomplete .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--category-header-lvl1 .algolia-docsearch-suggestion--highlight {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--category-header
+  .algolia-docsearch-suggestion--category-header-lvl0
+  .algolia-docsearch-suggestion--highlight,
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--category-header
+  .algolia-docsearch-suggestion--category-header-lvl1
+  .algolia-docsearch-suggestion--highlight {
   background: inherit;
   box-shadow: inset 0 -2px 0 0 rgb(69 142 225 / 0.8);
   color: inherit;
@@ -440,7 +450,11 @@ html[dir="rtl"] .Markdown ul + pre {
   width: 1px;
 }
 
-.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content {
+.algolia-autocomplete
+  .ds-dropdown-menu
+  .ds-suggestion.ds-cursor
+  .algolia-docsearch-suggestion
+  .algolia-docsearch-suggestion--content {
   background-color: var(--g-colorTransparentGray60);
   color: #111;
 }
@@ -474,7 +488,8 @@ html[dir="rtl"] .Markdown ul + pre {
   word-wrap: break-word;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column::before {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--subcategory-column::before {
   background: #ddd;
   content: "";
   display: block;
@@ -489,11 +504,20 @@ html[dir="rtl"] .Markdown ul + pre {
   display: none;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--no-results .algolia-docsearch-suggestion--title {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--no-results
+  .algolia-docsearch-suggestion--title {
   font-weight: normal;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--title:not(.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content) {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--title:not(
+    .algolia-autocomplete
+      .ds-dropdown-menu
+      .ds-suggestion.ds-cursor
+      .algolia-docsearch-suggestion
+      .algolia-docsearch-suggestion--content
+  ) {
   color: var(--g-colorGray300);
   /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.9em;
@@ -517,8 +541,6 @@ html[dir="rtl"] .Markdown ul + pre {
   width: 100%;
 }
 
-
-
 .algolia-autocomplete .algolia-docsearch-suggestion--no-results::before {
   display: none;
 }
@@ -533,22 +555,29 @@ html[dir="rtl"] .Markdown ul + pre {
   padding: 1px 5px;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main .algolia-docsearch-suggestion--category-header {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main
+  .algolia-docsearch-suggestion--category-header {
   display: block;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__secondary {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion.algolia-docsearch-suggestion__secondary {
   display: block;
 }
 
 @media all and (min-width: 768px) {
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--subcategory-column {
     display: block;
   }
 }
 
 @media all and (max-width: 768px) {
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--subcategory-column {
     color: var(--g-colorGray300);
     display: inline-block;
     float: left;
@@ -561,15 +590,21 @@ html[dir="rtl"] .Markdown ul + pre {
     width: auto;
   }
 
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column::before {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--subcategory-column::before {
     display: none;
   }
 
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column::after {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--subcategory-column::after {
     content: "|";
   }
 
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--content {
     display: inline-block;
     float: left;
     padding: 0;
@@ -577,11 +612,15 @@ html[dir="rtl"] .Markdown ul + pre {
     width: auto;
   }
 
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content.algolia-docsearch-suggestion--no-results {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--content.algolia-docsearch-suggestion--no-results {
     padding: 16px 0;
   }
 
-  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content::before {
+  .algolia-autocomplete
+    .algolia-docsearch-suggestion
+    .algolia-docsearch-suggestion--content::before {
     display: none;
   }
 
@@ -611,4 +650,402 @@ html[dir="rtl"] .Markdown ul + pre {
   padding: 0;
   text-indent: -9000px;
   width: 100%;
+}
+
+/* Animation for home page */
+
+.animation-1 {
+  animation: appear 0.5s ease-out 0.25s forwards;
+  opacity: 0;
+}
+
+.animation-2 {
+  animation: appear 0.5s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.animation-3 {
+  animation: appear 0.5s ease-out 0.75s forwards;
+  opacity: 0;
+}
+
+.animation-4 {
+  animation: appear 0.5s ease-out 1s forwards;
+  opacity: 0;
+}
+
+.animation-5 {
+  animation: appear 0.5s ease-out 1.25s forwards;
+  opacity: 0;
+}
+
+.animation-draw {
+  animation: draw 3s linear 1.5s alternate forwards;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.animation-6 {
+  animation: appear 0.5s ease-out 2.25s forwards;
+  opacity: 0;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .animation-1,
+  .animation-2,
+  .animation-3,
+  .animation-4,
+  .animation-5,
+  .animation-6,
+  .animation-draw {
+    animation: none;
+    opacity: 1;
+    stroke-dasharray: 8, 8;
+  }
+}
+
+.Markdown code.language-jsx,
+.Markdown code.language-bash,
+.Markdown pre.language-bash code {
+  background-color: var(--g-colorGray0);
+}
+
+/**
+Default table styling for MDX Pages
+**/
+
+.mdx-page table {
+  border: 1px solid var(--g-colorGray150);
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.mdx-page table tr {
+  border-top: 1px solid var(--g-colorGray150);
+  vertical-align: top;
+}
+
+.mdx-page table th {
+  padding: 0.5rem 1.25rem;
+}
+
+.mdx-page table td {
+  padding: 1rem 1.25rem;
+  vertical-align: top;
+}
+
+.mdx-page table tr br {
+  content: "";
+  display: block;
+  margin-top: 1rem;
+}
+
+/* Year In Review CSS */
+
+.year-in-review {
+  background-color: var(--color-background-light);
+  overflow: hidden;
+}
+
+.year-in-review .bwj {
+  line-height: 1.5;
+}
+
+.year-in-review .h1Font {
+  color: var(--color-text-light);
+  font-family: PinterestSans, system-ui;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+.year-in-review .halfAndHalf {
+  background: linear-gradient(
+    to top,
+    var(--color-purple-mysticool-200) 0%,
+    var(--color-purple-mysticool-200) 50%,
+    var(--color-blue-skycicle-450) 50%,
+    var(--color-blue-skycicle-450) 100%
+  );
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.year-in-review h2 {
+  font-family: PinterestSans, system-ui;
+  font-size: var(--font-size-600);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+}
+
+.year-in-review .gestalt2022 {
+  color: var(--color-text-light);
+  font-family: PinterestSans, system-ui;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+}
+
+.year-in-review .statsGrid {
+  align-items: center;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+}
+
+.year-in-review .statsNumber {
+  font-family: PinterestSans, system-ui;
+  font-size: var(--font-size-600);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.year-in-review .statsGrid .statsNumber {
+  justify-self: end;
+}
+
+.year-in-review .statsDescription {
+  font-family: var(--font-family-default-latin);
+  font-size: var(--font-size-100);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.year-in-review .backButton {
+  align-items: center;
+  background-color: var(--color-background-light);
+  border: 3px solid var(--color-background-dark);
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 4px 12px;
+}
+
+.year-in-review .backButton:hover {
+  background-color: var(--color-background-secondary-base);
+}
+
+@font-face {
+  font-family: PinterestSans, system-ui;
+  src: local("PinterestSans"),
+    url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
+}
+
+/* Year in review animations */
+
+.introAsterisk {
+  animation: fly-in-right 1s ease-out 0s forwards,
+    spin-counter-clockwise 2s ease-in-out 1s forwards 2;
+  opacity: 0;
+}
+
+.introHalfDonut {
+  animation: fly-in-right 1s ease-out 0s forwards,
+    rock 2s ease-in-out 1s forwards 2;
+  opacity: 0;
+}
+
+.fadeInRight,
+.fadeInLeft {
+  display: none;
+  opacity: 0;
+}
+
+.fadeInRight.animate {
+  animation: fly-in-right 1s ease-out 0s forwards;
+}
+
+.fadeInLeft.animate {
+  animation: fly-in-left 1s ease-out 0s forwards;
+}
+
+.token1 {
+  animation: rock 4s linear infinite;
+  transform-origin: 85px 266px;
+}
+
+.token2 {
+  animation: spin 4s linear infinite;
+  transform-origin: 807px 91px;
+}
+
+.token3 {
+  animation: rock 4s linear 1s infinite;
+  transform-origin: 1176px 85px;
+}
+
+.logo1 {
+  animation: background-flash 3s linear infinite;
+  fill: #fff;
+}
+
+.logo2 {
+  animation: background-flash 3s linear 1s infinite;
+  fill: #fff;
+}
+
+.logo3 {
+  animation: background-flash 3s linear 2s infinite;
+  fill: #fff;
+}
+
+@keyframes fly-in-right {
+  from {
+    transform: translate(20%, 500px) rotate(180deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes fly-in-left {
+  from {
+    transform: translate(-20%, 500px) rotate(-100deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes rock {
+  0%,
+  40%,
+  100% {
+    transform: rotate(0);
+  }
+
+  10%,
+  30% {
+    transform: rotate(20deg);
+  }
+
+  20% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media all and (min-width: 768px) {
+  .year-in-review .h1Font {
+    font-size: 96px;
+  }
+
+  .year-in-review h2 {
+    font-size: 64px;
+  }
+
+  .year-in-review .statsNumber {
+    font-size: 64px;
+  }
+
+  .year-in-review .statsDescription {
+    font-size: var(--font-size-400);
+  }
+
+  .year-in-review .backButton {
+    padding: 8px 24px;
+  }
+
+  .year-in-review .gestalt2022 {
+    font-size: 48px;
+  }
+
+  .fadeInRight,
+  .fadeInLeft {
+    display: block;
+  }
+}
+
+@media all and (min-width: 1312px) {
+  .year-in-review .h1Font {
+    font-size: 128px;
+  }
+
+  .year-in-review h2 {
+    font-size: 96px;
+  }
+
+  .year-in-review .gestalt2022 {
+    font-size: 64px;
+  }
+}
+
+@keyframes background-flash {
+  0% {
+    fill: #111;
+  }
+
+  33% {
+    fill: #111;
+  }
+
+  33.33% {
+    fill: #fff;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .fadeInLeft.animate,
+  .fadeInRight.animate,
+  [class^="token"],
+  [class^="logo"],
+  .introHalfDonut,
+  .introAsterisk {
+    animation: none;
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
 }

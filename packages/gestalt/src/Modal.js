@@ -1,18 +1,20 @@
 // @flow strict
-import type { Node } from 'react';
-import { useCallback, useState, useEffect, useRef } from 'react';
+import { type Node, useCallback, useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
+import MobileModal from './MobileModal.js';
 import focusStyles from './Focus.css';
+import modalStyles from './Modal.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
-import modalStyles from './Modal.css';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
+import { FixedZIndex } from './zIndex.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 
 type Props = {|
   /**
@@ -20,27 +22,27 @@ type Props = {|
    */
   _dangerouslyDisableScrollBoundaryContainer?: boolean,
   /**
-   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/modal#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modal#Accessibility) for more info.
    */
   accessibilityModalLabel: string,
   /**
-   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
+   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
   align?: 'start' | 'center',
   /**
-   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
+   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
   children?: Node,
   /**
-   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/modal#Preventing-close-on-outside-click) for more info.
+   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/web/modal#Preventing-close-on-outside-click) for more info.
    */
   closeOnOutsideClick?: boolean,
   /**
-   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/modal#Best-practices) for more info.
+   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
   footer?: Node,
   /**
-   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/modal#Heading) for more info.
+   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
   heading?: Node,
   /**
@@ -48,21 +50,21 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/modal#Role) for more info.
-   *
-   * Default: 'dialog'
+   * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
+   */
+  padding?: 'default' | 'none',
+  /**
+   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
    */
   role?: 'alertdialog' | 'dialog',
   /**
-   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/modal#Sizes) for more info.
+   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/web/modal#Sizes) for more info.
    *
-   * sm: `540px` | md: `720px` | lg: `900px` | number
-   *
-   * Default: 'sm'
+   * sm: `540px` | md: `720px` | lg: `900px`
    */
   size?: 'sm' | 'md' | 'lg' | number,
   /**
-   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/modal#Sub-heading) for more info.
+   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
    */
   subHeading?: string,
 |};
@@ -83,8 +85,8 @@ function Header({
   subHeading?: string,
 |}) {
   return (
-    <Box justifyContent={align} padding={8}>
-      <Heading size="md" accessibilityLevel={1} align={align}>
+    <Box justifyContent={align} padding={6}>
+      <Heading size="500" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
       {subHeading && (
@@ -97,7 +99,12 @@ function Header({
 }
 
 /**
- * A [Modal](https://gestalt.pinterest.systems/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. The most common example of Modal is confirming an action the user has taken.
+ * A [Modal](https://gestalt.pinterest.systems/web/modal) displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal. Modal should be used to gather short bits of information from the user. For confirmation of an action or acknowledgment, use [ModalAlert](https://gestalt.pinterest.systems/web/modalalert).
+ *
+ * ![Modal light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal.spec.mjs-snapshots/Modal-chromium-darwin.png)
+ * ![Modal mobile](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal-mobile.spec.mjs-snapshots/Modal-mobile-chromium-darwin.png)
+ * ![Modal dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal-dark.spec.mjs-snapshots/Modal-dark-chromium-darwin.png)
+ *
  */
 export default function Modal({
   _dangerouslyDisableScrollBoundaryContainer = false,
@@ -107,11 +114,15 @@ export default function Modal({
   closeOnOutsideClick = true,
   onDismiss,
   footer,
+  padding = 'default',
   heading,
   role = 'dialog',
   size = 'sm',
   subHeading,
 }: Props): Node {
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
   const contentRef = useRef<?HTMLElement>(null);
@@ -160,6 +171,23 @@ export default function Modal({
 
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
+  if (isMobile) {
+    return (
+      <MobileModal
+        accessibilityModalLabel={accessibilityModalLabel}
+        align={align}
+        onDismiss={onDismiss}
+        footer={footer}
+        padding={padding}
+        heading={heading}
+        role={role}
+        subHeading={subHeading}
+      >
+        {children}
+      </MobileModal>
+    );
+  }
+
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
@@ -172,38 +200,50 @@ export default function Modal({
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {Boolean(heading) && (
-                  <div
-                    className={classnames(modalStyles.shadowContainer, {
-                      [modalStyles.shadow]: showTopShadow,
-                    })}
+                  <Box
+                    borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
+                    position="relative"
+                    fit
+                    zIndex={new FixedZIndex(1)}
                   >
                     {typeof heading === 'string' ? (
                       <Header align={align} heading={heading} subHeading={subHeading} />
                     ) : (
-                      heading
+                      <Box padding={6}>{heading}</Box>
                     )}
-                  </div>
+                  </Box>
                 )}
-                {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to Sheet */}
+                {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to OverlayPanel */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
-                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
+                  <Box
+                    flex="grow"
+                    overflow="auto"
+                    onScroll={updateShadows}
+                    ref={contentRef}
+                    padding={padding === 'none' ? 0 : 6}
+                  >
                     {children}
                   </Box>
                 ) : (
                   <ScrollBoundaryContainerProvider>
-                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
+                    <InternalScrollBoundaryContainer
+                      onScroll={updateShadows}
+                      ref={contentRef}
+                      padding={padding === 'none' ? 0 : 6}
+                    >
                       {children}
                     </InternalScrollBoundaryContainer>
                   </ScrollBoundaryContainerProvider>
                 )}
                 {Boolean(footer) && (
-                  <div
-                    className={classnames(modalStyles.shadowContainer, {
-                      [modalStyles.shadow]: showBottomShadow,
-                    })}
+                  <Box
+                    borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
+                    position="relative"
+                    fit
+                    zIndex={new FixedZIndex(1)}
                   >
-                    <Box padding={8}>{footer}</Box>
-                  </div>
+                    <Box padding={6}>{footer}</Box>
+                  </Box>
                 )}
               </Box>
             </div>

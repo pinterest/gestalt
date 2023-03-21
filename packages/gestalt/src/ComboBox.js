@@ -1,86 +1,178 @@
 // @flow strict
 import {
-  useMemo,
-  useCallback,
   cloneElement,
   forwardRef,
   Fragment,
+  useCallback,
   useEffect,
-  useRef,
   useImperativeHandle,
+  useMemo,
+  useRef,
   useState,
+  type Ref,
   type Element,
   type Node,
+  type AbstractComponent,
 } from 'react';
 import Box from './Box.js';
+import ComboBoxItem from './ComboBoxItem.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import Text from './Text.js';
 import InternalTextField from './InternalTextField.js';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
-import ComboBoxItem, { type ComboBoxItemType } from './ComboBoxItem.js';
+import Text from './Text.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
-import { type LabelDisplay } from './Label.js';
+import { type Indexable } from './zIndex.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Size = 'md' | 'lg';
 
-type Props = {|
-  // REQUIRED
-  accessibilityClearButtonLabel: string,
-  id: string,
+type OptionType = {|
   label: string,
-  options: $ReadOnlyArray<ComboBoxItemType>,
-  noResultText: string,
-  // OPTIONAL
+  subtext?: string,
+  value: string,
+|};
+
+type Props = {|
+  /**
+   * Label to describe the clear button's purpose.
+   */
+  accessibilityClearButtonLabel?: string,
+  /**
+   * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
+   */
   disabled?: boolean,
+  /**
+   * Provide feedback when an error on selection occurs. See [error message variant](https://gestalt.pinterest.systems/web/combobox#Error-message).
+   */
   errorMessage?: Node,
+  /**
+   * Provides additional information about how to select a ComboBox option. See [helper text variant](https://gestalt.pinterest.systems/web/combobox#Helper-text).
+   */
   helperText?: string,
+  /**
+   * The user input in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/web/combobox#Controlled-vs-Uncontrolled) variant to learn more.
+   */
   inputValue?: string | null,
-  labelDisplay?: LabelDisplay,
+  /**
+   * Unique id to identify each ComboBox. Used for [accessibility](https://gestalt.pinterest.systems/web/combobox#Accessibility) purposes.
+   */
+  id: string,
+  /**
+   * Provide a label to identify the ComboBox field.
+   */
+  label: string,
+  /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/web/combobox#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden',
+  /**
+   * The text shown when the input value returns no matches.
+   */
+  noResultText: string,
+  /**
+   * Callback when you focus outside the component.
+   */
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback when user types into the control input field.
+   */
   onChange?: ({|
-    value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
   |}) => void,
+  /**
+   * Callback when user clicks on clear button.
+   */
   onClear?: () => void,
+  /**
+   * Callback when you focus on the component.
+   */
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback for key stroke events. See [tags](#Tags) variant to learn more.
+   */
   onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  /**
+   * Callback when an item is selected.
+   */
   onSelect?: ({|
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: ComboBoxItemType,
+    item: {|
+      label: string,
+      subtext?: string,
+      value: string,
+    |},
   |}) => void,
+  /**
+   * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/web/combobox#Subtext) variant to learn more.
+   */
+  options: $ReadOnlyArray<{|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>,
+  /**
+   * Specify a short description that suggests the expected input for the field.
+   */
   placeholder?: string,
-  selectedOption?: ComboBoxItemType,
+  // The ref prop is unused and listed here just for documentation purposes.
+  /**
+   * Forward the ref to the underlying component container element. See the [Ref](https://gestalt.pinterest.systems/web/combobox#Ref) variant to learn more about focus management.
+   */
+  ref?: Ref<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/web/combobox#Controlled-vs-Uncontrolled) variant to learn more.
+   */
+  selectedOption?: OptionType,
+  /**
+   * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
+   */
   size?: Size,
+  /**
+   * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
+   */
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
+  /**
+   * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  zIndex?: Indexable,
 |};
 
 /**
- * [ComboBox](https://gestalt.pinterest.systems/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
+ * [ComboBox](https://gestalt.pinterest.systems/web/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/web/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/web/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
+ *
+ * ![Combobox closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-closed.spec.mjs-snapshots/ComboBox-closed-chromium-darwin.png)
+ * ![Combobox open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open.spec.mjs-snapshots/ComboBox-open-chromium-darwin.png)
+ * ![Combobox closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-closed-dark.spec.mjs-snapshots/ComboBox-closed-dark-chromium-darwin.png)
+ * ![Combobox open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open-dark.spec.mjs-snapshots/ComboBox-open-dark-chromium-darwin.png)
+ *
  */
-const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function ComboBox(
   {
     accessibilityClearButtonLabel,
-    disabled,
+    disabled = false,
     errorMessage,
     helperText,
     id,
+    inputValue: controlledInputValue = null,
     label,
     labelDisplay = 'visible',
     noResultText,
@@ -92,13 +184,16 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
     onSelect,
     options,
     placeholder,
-    size,
-    tags,
+    size = 'md',
     selectedOption,
-    inputValue: controlledInputValue = null,
+    tags,
+    zIndex,
   }: Props,
   ref,
 ): Node {
+  const { accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault } =
+    useDefaultLabelContext('ComboBox');
+
   // ==== REFS ====
 
   const innerRef = useRef(null);
@@ -111,17 +206,12 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<?ComboBoxItemType>(null);
-  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<ComboBoxItemType>>(
-    options,
-  );
+  const [selectedItem, setSelectedItem] = useState<?OptionType>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionType>>(options);
   const [textfieldInput, setTextfieldInput] = useState<string>('');
 
   const isControlledInput = !(controlledInputValue === null || controlledInputValue === undefined);
   const isNotControlled = !isControlledInput && !tags;
-
-  const textfieldIconButton =
-    controlledInputValue || textfieldInput || (tags && tags.length > 0) ? 'clear' : 'expand';
 
   // ==== TAGS: Force disable state in Tags if ComboBox is disabled as well ====
 
@@ -226,7 +316,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   // ==== EVENT HANDLING: Popover ====
 
   const handleKeyDown = useCallback(
-    (event) => {
+    ({ event }) => {
       const { keyCode } = event;
 
       if (keyCode === UP_ARROW) {
@@ -299,6 +389,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             isHovered={index === hoveredItemIndex}
             id={id}
             index={index}
+            // eslint-disable-next-line react/no-array-index-key
             key={`${id}${index}`}
             label={comboBoxItemlabel}
             subtext={subtext}
@@ -331,10 +422,9 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         role="combobox"
       >
         <InternalTextField
-          accessibilityClearButtonLabel={accessibilityClearButtonLabel}
           // add accessibilityControls once the option list element exists
           accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
-          // add accessibilityActivedescendant once the option list element exists
+          // add accessibilityActiveDescendant once the option list element exists
           accessibilityActiveDescendant={
             showOptionsList && innerRef.current && hoveredItemIndex !== null
               ? `${id}-item-${hoveredItemIndex}`
@@ -345,16 +435,34 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           errorMessage={errorMessage}
           hasError={!!errorMessage}
           helperText={helperText}
+          iconButton={
+            controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
+              <InternalTextFieldIconButton
+                accessibilityLabel={
+                  accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
+                }
+                hoverStyle="default"
+                icon="cancel"
+                onClick={handleOnClickIconButtonClear}
+                pogPadding={size === 'lg' ? 2 : 1}
+                tapStyle="compress"
+              />
+            ) : (
+              <InternalTextFieldIconButton
+                accessibilityHidden
+                hoverStyle="none"
+                icon="arrow-down"
+                onClick={handleSetShowOptionsList}
+                pogPadding={size === 'lg' ? 2 : 1}
+                tapStyle="none"
+              />
+            )
+          }
           id={`combobox-${id}`}
           label={label}
           labelDisplay={labelDisplay}
           onBlur={handleOnBlur}
           onChange={handleOnChange}
-          onClickIconButton={
-            textfieldIconButton === 'clear'
-              ? handleOnClickIconButtonClear
-              : handleSetShowOptionsList
-          }
           onClick={handleSetShowOptionsList}
           onFocus={handleOnFocus}
           onKeyDown={handleOnKeyDown}
@@ -362,16 +470,15 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
           ref={innerRef}
           size={size}
           tags={selectedTags}
-          textfieldIconButton={textfieldIconButton}
           type="text"
           value={controlledInputValue ?? textfieldInput}
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        <Layer>
+        <Layer zIndex={zIndex}>
           <Popover
             anchor={innerRef.current}
-            handleKeyDown={handleKeyDown}
+            onKeyDown={handleKeyDown}
             idealDirection="down"
             onDismiss={handleOnDismiss}
             positionRelativeToAnchor={false}
@@ -396,7 +503,7 @@ const ComboBoxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
                 comboBoxItemList
               ) : (
                 <Box width="100%" paddingX={2} paddingY={4}>
-                  <Text lineClamp={1} color="gray">
+                  <Text lineClamp={1} color="subtle">
                     {noResultText}
                   </Text>
                 </Box>

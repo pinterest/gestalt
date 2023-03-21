@@ -10,7 +10,7 @@ exports[`UpsellForm renders 1`] = `
   }
 >
   <div
-    className="Flex rowGap2 flexWrap justifyEnd xsDirectionRow"
+    className="Flex rowGap2 columnGap0 flexWrap justifyEnd xsDirectionRow"
   >
     <div
       className="FlexItem flexGrow"
@@ -23,7 +23,6 @@ exports[`UpsellForm renders 1`] = `
             className="box relative"
           >
             <input
-              aria-describedby={null}
               aria-invalid="false"
               className="textField base enabled normal medium truncate"
               disabled={false}
@@ -34,6 +33,7 @@ exports[`UpsellForm renders 1`] = `
               onFocus={[Function]}
               onKeyDown={[Function]}
               placeholder="Name"
+              readOnly={false}
               type="text"
             />
           </div>
@@ -45,7 +45,7 @@ exports[`UpsellForm renders 1`] = `
     >
       <button
         aria-label="Submit button"
-        className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+        className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -59,9 +59,17 @@ exports[`UpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Text fontSize3 white alignCenter fontWeightBold"
+          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
         >
-          Submit
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+            >
+              Submit
+            </div>
+          </div>
         </div>
       </button>
     </div>

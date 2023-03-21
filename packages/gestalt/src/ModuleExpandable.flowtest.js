@@ -38,7 +38,7 @@ const ValidWithBadgeTextProps = (
     onExpandedChange={() => {}}
     items={[
       {
-        badgeText: 'badge-text',
+        badge: { text: 'badge-text' },
         children: 'test children',
         summary: ['summary1', 'summary2', 'summary3'],
         title: 'Title',
@@ -78,38 +78,6 @@ const ValidWithIconButtonProps = (
     items={[
       {
         children: 'test children',
-        iconButton: (
-          <IconButton
-            bgColor="lightGray"
-            icon="question-mark"
-            iconColor="darkGray"
-            accessibilityLabel="Get help"
-            size="xs"
-            onClick={() => {}}
-          />
-        ),
-        summary: ['summary1', 'summary2', 'summary3'],
-        title: 'Title',
-        type: 'info',
-      },
-    ]}
-  />
-);
-
-const InvalidWithMutuallyExclusiveProps = (
-  <ModuleExpandable
-    id="module-expandable-id"
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
-    expandedIndex={0}
-    onExpandedChange={() => {}}
-    items={[
-      // $FlowExpectedError[incompatible-type]
-      {
-        badgeText: 'badge-text',
-        children: 'test children',
-        icon: 'lock',
-        iconAccessibilityLabel: 'Module is Locked',
         iconButton: (
           <IconButton
             bgColor="lightGray"

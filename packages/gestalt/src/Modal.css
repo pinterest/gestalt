@@ -1,26 +1,23 @@
 .container {
-  composes: fixed borderBox flex justifyCenter left0 top0 itemsCenter from "./Layout.css";
+  composes: fixed borderBox flex justifyCenter left0 top0 xsItemsCenter from "./Layout.css";
   composes: xsCol12 from "./Column.css";
+  height: 100%;
+}
+
+.mobileWrapper {
+  composes: relative overflowAuto flex from "./Layout.css";
+  composes: whiteBgElevated from "./Colors.css";
   height: 100%;
 }
 
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
   composes: whiteBgElevated from "./Colors.css";
-  composes: rounding8 from "./Borders.css";
+  composes: rounding4 from "./Borders.css";
   composes: marginStart4 marginEnd4 from "./boxWhitespace.css";
   max-height: calc(100vh - 32px);
 }
 
 .wrapper:focus {
   outline: none;
-}
-
-.shadowContainer {
-  composes: borderBox relative fit from "./Layout.css";
-  z-index: 1;
-}
-
-.shadow {
-  composes: shadow from "./Borders.css";
 }

@@ -3,7 +3,7 @@
   <ShortName>Gestalt</ShortName>
   <Description>Gestalt Search</Description>
   <Url type="text/html" method="get" template="https://gestalt.pinterest.systems//{searchTerms}"/>
-  <Image width="32" height="32">https://gestalt.pinterest.systems//pinterest_favicon.png</Image>
+  <Image width="32" height="32">https://gestalt.pinterest.systems//gestalt_favicon.png</Image>
   <InputEncoding>UTF-8</InputEncoding>
   <moz:SearchForm>https://gestalt.pinterest.systems/</moz:SearchForm>
 </OpenSearchDescription>

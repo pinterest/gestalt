@@ -1,11 +1,11 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node, PureComponent } from 'react';
 
-import { PureComponent } from 'react';
 import Box from './Box.js';
 import styles from './Video.css';
 
 type Props = {|
+  accessibilityProgressBarLabel: string,
   currentTime: number,
   duration: number,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
@@ -74,11 +74,12 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   };
 
   render(): Node {
-    const { currentTime, duration } = this.props;
+    const { accessibilityProgressBarLabel, currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
     return (
       <Box position="relative" display="flex" flex="grow" alignItems="center" height={16}>
         <div
+          aria-label={accessibilityProgressBarLabel}
           aria-valuemax={duration}
           aria-valuemin="0"
           aria-valuenow={currentTime}
@@ -93,8 +94,8 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           role="progressbar"
           tabIndex="-1"
         >
-          <Box left right position="absolute" color="lightGray" rounding={2} height={4}>
-            <Box color="white" rounding={2} height="100%" width={width} />
+          <Box left right position="absolute" color="secondary" rounding={2} height={4}>
+            <Box color="light" rounding={2} height="100%" width={width} />
           </Box>
           <Box
             position="absolute"
@@ -106,7 +107,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
               rounding="circle"
               width={16}
               height={16}
-              color="white"
+              color="light"
               marginStart={-2}
               dangerouslySetInlineStyle={{ __style: { marginTop: -6 } }}
             />

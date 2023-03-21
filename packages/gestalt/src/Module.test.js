@@ -40,7 +40,7 @@ describe('Module', () => {
   test('renders a badge correctly', () => {
     const tree = renderer
       .create(
-        <Module badgeText="Try it out!" id="module-test" title="Testing">
+        <Module badge={{ text: 'Try it out!' }} id="module-test" title="Testing">
           <Text>Testing</Text>
         </Module>,
       )

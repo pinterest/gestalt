@@ -1,17 +1,16 @@
 // @flow strict
-import { forwardRef, Fragment, type Node } from 'react';
+import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
 import Text from './Text.js';
-import styles from './Touchable.css';
+import styles from './TapArea.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type FontWeight } from './textTypes.js';
 
 export type OptionItemType = {|
@@ -20,8 +19,13 @@ export type OptionItemType = {|
   value: string,
 |};
 
+type BadgeType = {|
+  text: string,
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
 type Props = {|
-  badgeText?: string,
+  badge?: BadgeType,
   children?: Node,
   dataTestId?: string,
   hoveredItemIndex: ?number,
@@ -29,27 +33,26 @@ type Props = {|
   id: string,
   index: number,
   isExternal?: boolean,
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   onSelect?: ({|
     item: OptionItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
   option: OptionItemType,
-  role?: 'option' | 'menuitem',
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
   setHoveredItemIndex: (number) => void,
   textWeight?: FontWeight,
 |};
 
-const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(
   {
-    badgeText,
+    badge,
     children,
     dataTestId,
     onSelect,
@@ -60,7 +63,6 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
     isExternal,
     onClick,
     option,
-    role,
     selected,
     setHoveredItemIndex,
     textWeight = 'normal',
@@ -91,25 +93,25 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
 
   const optionItemContent = (
     <Flex>
-      <Flex direction="column" flex="grow" gap={1}>
+      <Flex direction="column" flex="grow" gap={{ column: 1, row: 0 }}>
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color="darkGray" inline lineClamp={1} weight={textWeight}>
+              <Text color="default" inline lineClamp={1} weight={textWeight}>
                 {option?.label}
               </Text>
-              {badgeText && (
+              {badge && (
                 <Box marginStart={2} marginTop={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
-                  <Badge text={badgeText} />
+                  <Badge text={badge.text} type={badge.type || 'info'} />
                 </Box>
               )}
             </Fragment>
           )}
         </Flex>
         {option.subtext && (
-          <Text size="md" color="gray">
+          <Text size="200" color="subtle">
             {option.subtext}
           </Text>
         )}
@@ -121,13 +123,15 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
         justifyContent="center"
       >
         {isSelectedItem && !isExternal ? (
-          <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
+          <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
         ) : (
           <Box width={12} />
         )}
       </Box>
       {isExternal && (
         <Box
+          // aria-hidden is required to prevent assistive technologies from accessing the icon as the actual link already announces that the link opens a new tab
+          aria-hidden
           alignItems="center"
           color="transparent"
           display="flex"
@@ -135,8 +139,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
           // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
           marginStart={2}
         >
-          {/* TODO: this label needs to be translated */}
-          <Icon accessibilityLabel=", External" color="darkGray" icon="arrow-up-right" size={12} />
+          <Icon accessibilityLabel="" color="default" icon="arrow-up-right" size={12} />
         </Box>
       )}
     </Flex>
@@ -144,25 +147,29 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
 
   return (
     <div
-      aria-selected={isSelectedItem}
       className={className}
       data-test-id={dataTestId}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
+      // These event.stopPropagation are important so interactive anchors don't receive the onFocus/onBlur event
+      onFocus={(event) => event.stopPropagation()}
+      onBlur={(event) => event.stopPropagation()}
       onKeyPress={(event) => {
         event.preventDefault();
       }}
+      // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
       onMouseDown={(event) => {
+        event.stopPropagation();
         event.preventDefault();
       }}
       onMouseEnter={() => setHoveredItemIndex(index)}
       ref={index === hoveredItemIndex ? ref : null}
-      role={role}
+      role="menuitem"
       rounding={2}
       tabIndex={-1}
     >
       <Box
-        color={index === hoveredItemIndex ? 'lightGray' : 'transparent'}
+        color={index === hoveredItemIndex ? 'secondary' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}
@@ -170,7 +177,7 @@ const OptionItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = f
       >
         {href ? (
           <Link
-            hoverStyle="none"
+            underline="none"
             href={href}
             onClick={onClick}
             target={isExternal ? 'blank' : 'self'}

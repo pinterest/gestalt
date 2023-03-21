@@ -1,7 +1,15 @@
 // @flow strict
-import type { Context, Element, Node } from 'react';
-
-import { useContext, useEffect, useState, createContext } from 'react';
+import {
+  createContext,
+  type Context,
+  type Element,
+  type Node,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -32,12 +40,6 @@ type Theme = {|
   colorTransparentWhite: string,
   blueHovered: string,
   blueActive: string,
-|};
-
-type Props = {|
-  children: Node,
-  colorScheme?: ColorScheme,
-  id?: ?string,
 |};
 
 const lightModeTheme = {
@@ -107,6 +109,17 @@ const themeToStyles = (theme) => {
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
+  if (theme.name === 'darkMode') {
+    Object.keys(darkColorDesignTokens).forEach((key) => {
+      styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
+    });
+  }
+  if (theme.name === 'lightMode') {
+    Object.keys(lightColorDesignTokens).forEach((key) => {
+      styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
+    });
+  }
+
   return styles;
 };
 
@@ -119,20 +132,37 @@ const getTheme = (colorScheme: ?ColorScheme) =>
     ? darkModeTheme
     : lightModeTheme;
 
+type Props = {|
+  /**
+   *
+   */
+  children: Node,
+  /**
+   * The color scheme for components inside the ColorSchemeProvider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query. See [color scheme](https://gestalt.pinterest.systems/web/utilities/colorschemeprovider#Color-scheme) variant for examples.
+   */
+  colorScheme?: ColorScheme,
+  /**
+   * An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).
+   */
+  id?: ?string,
+|};
+
 /**
- * [ColorSchemeProvider](https://gestalt.pinterest.systems/colorschemeprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode
+ * [ColorSchemeProvider](https://gestalt.pinterest.systems/web/utilities/colorschemeprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode.
  */
 export default function ColorSchemeProvider({
   children,
-  colorScheme,
+  colorScheme = 'light',
   id,
 }: Props): Element<typeof ThemeContext.Provider> {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
+
   const handlePrefChange = (e) => {
     setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
+
   useEffect(() => {
     setTheme(getTheme(colorScheme));
     if (colorScheme === 'userPreference' && window.matchMedia) {
@@ -142,6 +172,7 @@ export default function ColorSchemeProvider({
     }
     return undefined; // Flow doesn't like that only userPreference returns a clean up func
   }, [colorScheme]);
+
   return (
     <ThemeContext.Provider value={theme}>
       <style

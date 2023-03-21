@@ -1,23 +1,28 @@
 // @flow strict
-import type { Portal, Node } from 'react';
-
-import { useRef, useState, useEffect } from 'react';
+import { type Portal, type Node, useRef, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { type Indexable } from './zIndex.js';
 import styles from './Layer.css';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import { getContainerNode } from './utils/positioningUtils.js';
 
-/**
- * [Layers](https://gestalt.pinterest.systems/layer) allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before.
- */
-export default function Layer({
-  children,
-  zIndex: zIndexIndexable,
-}: {|
+type Props = {|
+  /**
+   *
+   */
   children: Node,
+  /**
+   * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
+   */
   zIndex?: Indexable,
-|}): Portal | Node {
+|};
+
+/**
+ * [Layers](https://gestalt.pinterest.systems/web/layer) allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before.
+ *
+ * ![Layer](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Layer.svg)
+ */
+export default function Layer({ children, zIndex: zIndexIndexable }: Props): Portal | Node {
   const [mounted, setMounted] = useState(false);
   const portalContainer = useRef<?HTMLDivElement>(null);
   const zIndex = zIndexIndexable?.index();
@@ -48,13 +53,16 @@ export default function Layer({
 
     if (portalContainer.current) {
       portalContainer.current.style.zIndex = zIndex === undefined ? '' : zIndex.toString();
+      // $FlowFixMe[incompatible-use]
       portalContainer.current.className = zIndex === undefined ? '' : styles.layer;
 
       if (containerNode) {
         // If containerNode is found, append the portal to it
+        // $FlowFixMe[incompatible-call]
         containerNode.appendChild(portalContainer.current);
       } else if (typeof document !== 'undefined' && document.body) {
         // If not, append the portal to document.body
+        // $FlowFixMe[incompatible-call]
         document.body.appendChild(portalContainer.current);
       }
     }

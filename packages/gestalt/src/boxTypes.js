@@ -28,7 +28,13 @@ export type As =
   | 'section'
   | 'summary';
 export type Bottom = boolean;
-export type BorderStyle = 'sm' | 'lg' | 'shadow' | 'none';
+export type BorderStyle =
+  | 'sm'
+  | 'lg'
+  | 'shadow'
+  | 'raisedTopShadow'
+  | 'raisedBottomShadow'
+  | 'none';
 export type Color =
   | 'blue'
   | 'darkGray'

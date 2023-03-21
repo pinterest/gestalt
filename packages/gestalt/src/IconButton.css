@@ -5,6 +5,15 @@
   background: transparent;
 }
 
+.parentButton {
+  composes: noBorder from "./Borders.css";
+  composes: p0 from "./Whitespace.css";
+  composes: paddingX0 from "./boxWhitespace.css";
+  composes: paddingY0 from "./boxWhitespace.css";
+  composes: transparentBg from "./Colors.css";
+}
+
+.parentButton:focus,
 .button:focus {
   outline: 0;
 }

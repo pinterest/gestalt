@@ -2,83 +2,85 @@
 
 exports[`<Toast /> Error Toast 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": 360,
-      "width": "100vw",
-    }
-  }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill redBg shadow"
+    className="box errorBase paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
+      <div
+        className="FlexItem flexNone"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Error message"
+          className="icon inverseIcon iconBlock"
+          height={24}
+          role="img"
+          viewBox="0 0 24 24"
+          width={24}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+        <span
+          className="Text fontSize300 inverseText alignStart breakWord fontWeightSemiBold lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
         >
           Same great profile, slightly new look. Learn more?
-        </div>
+        </span>
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`<Toast /> Text + Image + Button 1`] = `
+exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": 360,
-      "width": "100vw",
-    }
-  }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box inverse paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
-      <div
-        className="FlexItem flexNone"
-      >
-        <div
-          className="Mask rounding2 willChangeTransform"
-          style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
-          }
-        >
-          <img
-            alt=""
-            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-          />
-        </div>
-      </div>
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize3 white alignStart breakWord fontWeightNormal"
+        <span
+          className="textColorOverrideLight"
         >
           <span
-            className="textColorOverrideWhite"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
             Saved to
              
             <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -96,13 +98,14 @@ exports[`<Toast /> Text + Image + Button 1`] = `
               Home decor
             </a>
           </span>
-        </div>
+        </span>
       </div>
       <div
         className="FlexItem flexNone"
       >
         <button
-          className="button hideOutline tapTransition lg gray enabled inline accessibilityOutline"
+          aria-label="test"
+          className="button hideOutline inline accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -116,9 +119,13 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
-            Undo
+            <div
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            >
+              Undo
+            </div>
           </div>
         </button>
       </div>
@@ -127,54 +134,73 @@ exports[`<Toast /> Text + Image + Button 1`] = `
 </div>
 `;
 
-exports[`<Toast /> Text + Image 1`] = `
+exports[`<Toast /> Text + Image + Button 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": 360,
-      "width": "100vw",
-    }
-  }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box inverse paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem flexNone"
       >
         <div
-          className="Mask rounding2 willChangeTransform"
-          style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
-          }
+          aria-hidden={true}
+          className="box"
         >
-          <img
-            alt=""
-            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-          />
+          <div
+            className="Mask rounding2 willChangeTransform"
+            style={
+              Object {
+                "height": 32,
+                "width": 32,
+              }
+            }
+          >
+            <div
+              className="box relative"
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "paddingBottom": "100%",
+                }
+              }
+            >
+              <img
+                alt=""
+                className="img"
+                fetchpriority="auto"
+                loading="auto"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize3 white alignStart breakWord fontWeightNormal"
+        <span
+          className="textColorOverrideLight"
         >
           <span
-            className="textColorOverrideWhite"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
             Saved to
              
             <a
-              className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -192,7 +218,127 @@ exports[`<Toast /> Text + Image 1`] = `
               Home decor
             </a>
           </span>
+        </span>
+      </div>
+      <div
+        className="FlexItem flexNone"
+      >
+        <button
+          aria-label="Undo undo action"
+          className="button hideOutline inline accessibilityOutline parentButton"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <div
+            className="button hideOutline inline accessibilityOutline tapTransition sm gray enabled childrenDiv"
+          >
+            <div
+              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+            >
+              Undo
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Toast /> Text + Image 1`] = `
+<div
+  className="toast"
+  role="status"
+>
+  <div
+    className="box inverse paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
+    >
+      <div
+        className="FlexItem flexNone"
+      >
+        <div
+          aria-hidden={true}
+          className="box"
+        >
+          <div
+            className="Mask rounding2 willChangeTransform"
+            style={
+              Object {
+                "height": 32,
+                "width": 32,
+              }
+            }
+          >
+            <div
+              className="box relative"
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "paddingBottom": "100%",
+                }
+              }
+            >
+              <img
+                alt=""
+                className="img"
+                fetchpriority="auto"
+                loading="auto"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+              />
+            </div>
+          </div>
         </div>
+      </div>
+      <div
+        className="FlexItem flexGrow"
+      >
+        <span
+          className="textColorOverrideLight"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+          >
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -201,29 +347,33 @@ exports[`<Toast /> Text + Image 1`] = `
 
 exports[`<Toast /> Text Only 1`] = `
 <div
-  className="box marginBottom3 paddingX4"
+  className="toast"
   role="status"
-  style={
-    Object {
-      "maxWidth": 360,
-      "width": "100vw",
-    }
-  }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill shadow"
+    className="box inverse paddingX4 paddingY3 rounding4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="Flex rowGap4 itemsCenter xsDirectionRow"
+      className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem flexGrow"
       >
-        <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+        <span
+          className="Text fontSize300 inverseText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
         >
           Same great profile, slightly new look. Learn more?
-        </div>
+        </span>
       </div>
     </div>
   </div>

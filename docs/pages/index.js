@@ -6,7 +6,7 @@ export default function Index(): Node {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/whats_new');
+    router.push('/home');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

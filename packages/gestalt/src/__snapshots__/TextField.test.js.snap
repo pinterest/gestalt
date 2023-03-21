@@ -6,7 +6,6 @@ exports[`TextField TextField normal 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -16,6 +15,7 @@ exports[`TextField TextField normal 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -28,7 +28,6 @@ exports[`TextField TextField with autocomplete 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       autoComplete="email"
       className="textField base enabled normal medium truncate"
@@ -40,6 +39,52 @@ exports[`TextField TextField with autocomplete 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with disabled 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-invalid="false"
+      className="textField base disabled normal medium truncate"
+      disabled={true}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with enterKeyHint 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      enterKeyHint="go"
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -52,7 +97,6 @@ exports[`TextField TextField with error 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="true"
       className="textField base enabled errored medium truncate"
       disabled={false}
@@ -62,6 +106,7 @@ exports[`TextField TextField with error 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
   </div>
@@ -69,13 +114,55 @@ exports[`TextField TextField with error 1`] = `
     className="box marginTop2"
   >
     <div
-      className="Text fontSize1 red alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"
         id="test-error"
       >
-        error message
+        <div
+          className="box"
+          role="alert"
+        >
+          <div
+            className="Flex rowGap2 columnGap2 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <div
+                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon errorIcon iconBlock"
+                      height={16}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={16}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem"
+            >
+              error message
+            </div>
+          </div>
+        </div>
       </span>
     </div>
   </div>
@@ -88,7 +175,6 @@ exports[`TextField TextField with hasError 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="true"
       className="textField base enabled errored medium truncate"
       disabled={false}
@@ -98,8 +184,102 @@ exports[`TextField TextField with hasError 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
       type="text"
     />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with maxLength character counter 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      maxLength={20}
+      name="maxLength"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+  <div
+    className="box marginTop2"
+    id="test-helperText"
+  >
+    <div
+      className="Flex rowGap4 columnGap4 xsDirectionRow"
+    >
+      <div
+        className="FlexItem flexGrow"
+      />
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="absolute box"
+          style={
+            Object {
+              "visibility": "hidden",
+            }
+          }
+        >
+          <div
+            className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
+          >
+            20/20
+          </div>
+        </div>
+        <div
+          className="Flex rowGap1 columnGap1 xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="box"
+              style={
+                Object {
+                  "width": 16,
+                }
+              }
+            />
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Flex rowGap0 columnGap0 justifyEnd xsDirectionRow"
+              style={
+                Object {
+                  "width": undefined,
+                }
+              }
+            >
+              <div
+                className="Text fontSize100 subtleText alignEnd breakWord fontWeightNormal"
+              >
+                <div
+                  className="box xsDisplayVisuallyHidden"
+                >
+                  ,
+                </div>
+                0/20
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </span>
 `;
@@ -110,7 +290,6 @@ exports[`TextField TextField with name 1`] = `
     className="box relative"
   >
     <input
-      aria-describedby={null}
       aria-invalid="false"
       className="textField base enabled normal medium truncate"
       disabled={false}
@@ -121,6 +300,29 @@ exports[`TextField TextField with name 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+</span>
+`;
+
+exports[`TextField TextField with readOnly 1`] = `
+<span>
+  <div
+    className="box relative"
+  >
+    <input
+      aria-invalid="false"
+      className="textField base enabled normal medium truncate"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      readOnly={true}
       type="text"
     />
   </div>
@@ -140,7 +342,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+          className="box rounding2 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -149,7 +351,7 @@ exports[`TextField TextField with tags 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -160,11 +362,16 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginEnd2 marginStart0"
             />
             <div
-              className="truncate"
               title="a@pinterest.com"
             >
               <span
-                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                style={
+                  Object {
+                    "WebkitLineClamp": 1,
+                  }
+                }
+                title="a@pinterest.com"
               >
                 a@pinterest.com
               </span>
@@ -173,14 +380,14 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginStart1"
             >
               <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                className="button secondary hideOutline tapTransition accessibilityOutline"
                 onClick={[Function]}
                 type="button"
               >
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -200,7 +407,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+          className="box rounding2 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -209,7 +416,7 @@ exports[`TextField TextField with tags 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -220,11 +427,16 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginEnd2 marginStart0"
             />
             <div
-              className="truncate"
               title="b@pinterest.com"
             >
               <span
-                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                style={
+                  Object {
+                    "WebkitLineClamp": 1,
+                  }
+                }
+                title="b@pinterest.com"
               >
                 b@pinterest.com
               </span>
@@ -233,14 +445,14 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginStart1"
             >
               <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                className="button secondary hideOutline tapTransition accessibilityOutline"
                 onClick={[Function]}
                 type="button"
               >
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -260,7 +472,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+          className="box rounding2 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 32,
@@ -269,7 +481,7 @@ exports[`TextField TextField with tags 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -280,11 +492,16 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginEnd2 marginStart0"
             />
             <div
-              className="truncate"
               title="c@pinterest.com"
             >
               <span
-                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                style={
+                  Object {
+                    "WebkitLineClamp": 1,
+                  }
+                }
+                title="c@pinterest.com"
               >
                 c@pinterest.com
               </span>
@@ -293,14 +510,14 @@ exports[`TextField TextField with tags 1`] = `
               className="box marginStart1"
             >
               <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
+                className="button secondary hideOutline tapTransition accessibilityOutline"
                 onClick={[Function]}
                 type="button"
               >
                 <svg
                   aria-hidden={null}
                   aria-label="Remove email tag"
-                  className="icon darkGray iconBlock"
+                  className="icon defaultIcon iconBlock"
                   height={8}
                   role="img"
                   viewBox="0 0 24 24"
@@ -328,7 +545,6 @@ exports[`TextField TextField with tags 1`] = `
           className="textFieldSpacer"
         />
         <input
-          aria-describedby={null}
           aria-invalid="false"
           className="unstyledTextField"
           disabled={false}
@@ -339,6 +555,7 @@ exports[`TextField TextField with tags 1`] = `
           onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
+          readOnly={false}
           type="text"
         />
       </div>

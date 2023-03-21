@@ -18,7 +18,7 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
 
   return (
     <Box
-      color="lightGray"
+      color="secondary"
       dangerouslySetInlineStyle={{
         __style: {
           // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.s
@@ -87,7 +87,7 @@ export default function AvatarFoundation({
             className={[
               typography.antialiased,
               typography.sansSerif,
-              typography.fontWeightBold,
+              typography.fontWeightSemiBold,
               translate && avatarStyles[translate], // if addCollaborator button is present, translateX moves numbers closer to the edge
             ].join(' ')}
           >

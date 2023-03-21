@@ -42,10 +42,7 @@ const invalidLeftStartCode = readFileSync(
 
 ruleTester.run('no-box-marginleft-marginright', rule, {
   valid: [{ code: validCode }],
-  invalid: [
-    invalidLeftCode,
-    invalidRightCode,
-    invalidRightStartCode,
-    invalidLeftStartCode,
-  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
+  invalid: [invalidLeftCode, invalidRightCode, invalidRightStartCode, invalidLeftStartCode].map(
+    (code) => ({ code, errors: [{ message: errorMessage }] }),
+  ),
 });

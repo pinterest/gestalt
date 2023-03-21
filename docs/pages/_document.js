@@ -1,18 +1,30 @@
 // @flow strict
 import { type Node } from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Cookies from 'universal-cookie';
+import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 class GestaltDocument extends Document {
-  // $FlowFixMe[signature-verification-failure]
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext): Promise<{||}> {
     const initialProps = await Document.getInitialProps(ctx);
+
+    const cookieHeader = ctx?.req?.headers?.cookie;
+    if (cookieHeader) {
+      return { ...initialProps, cookieHeader };
+    }
+
     return { ...initialProps };
   }
 
   render(): Node {
+    const { props } = this;
+    const cookies = new Cookies(props.cookieHeader);
+    const dir = cookies.cookies['gestalt-text-direction'];
+
     return (
-      <Html lang="en">
+      <Html lang="en" dir={dir}>
         <Head>
+          <meta name="p:domain_verify" content="752e3976762ef39258186e60a40bbe5a" />
           {/* eslint-disable-next-line @next/next/no-sync-scripts */}
           <script
             type="text/javascript"
@@ -33,7 +45,16 @@ gtag('config', 'UA-12967896-44');
 `,
             }}
           />
-          <link rel="shortcut icon" href="/pinterest_favicon.png" />
+          <link
+            rel="icon"
+            href={
+              process.env.NODE_ENV === 'development'
+                ? '/gestaltDev_favicon.png'
+                : '/gestalt_favicon.png'
+            }
+          />
+          {/* eslint-disable-next-line react/no-danger */}
+          <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
         </Head>
         <body>
           <Main />

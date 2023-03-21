@@ -8,31 +8,31 @@ import Text from './Text.js';
 const ICON_COLOR_MAP = {
   canceled: {
     icon: 'workflow-status-canceled',
-    color: 'gray',
+    color: 'subtle',
   },
   halted: {
     icon: 'workflow-status-halted',
-    color: 'darkGray',
+    color: 'default',
   },
   inProgress: {
     icon: 'workflow-status-in-progress',
-    color: 'green',
+    color: 'success',
   },
   ok: {
     icon: 'workflow-status-ok',
-    color: 'green',
+    color: 'success',
   },
   problem: {
     icon: 'workflow-status-problem',
-    color: 'red',
+    color: 'error',
   },
   unstarted: {
     icon: 'workflow-status-unstarted',
-    color: 'darkGray',
+    color: 'default',
   },
   warning: {
     icon: 'workflow-status-warning',
-    color: 'orange',
+    color: 'warning',
   },
 };
 
@@ -40,15 +40,15 @@ type StatusType = 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'ca
 
 type Props = {|
   /**
-   * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/status#Localization) the label.
+   * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/web/status#Localization) the label.
    */
   accessibilityLabel?: string,
   /**
-   * Additional contextual information around the status. Only for use with `title`. See [localization](https://gestalt.pinterest.systems/status#Localization) to learn more.
+   * Additional contextual information around the status. Only for use with `title`. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
    */
   subtext?: string,
   /**
-   * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/status#Localization) to learn more.
+   * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
    */
   title?: string,
   /**
@@ -58,21 +58,25 @@ type Props = {|
 |};
 
 /**
- * [Status](https://gestalt.pinterest.systems/status) is an indicator with an icon that provides information to a user.
+ * [Status](https://gestalt.pinterest.systems/web/status) is a graphic indicator of an element’s state.
+ *
+ * ![Status light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status.spec.mjs-snapshots/Status-chromium-darwin.png)
+ * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
+ *
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (
     <Flex direction="column">
-      <Flex alignItems="center" gap={2}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
-        {title && <Text size="md">{title}</Text>}
+        {title && <Text size="200">{title}</Text>}
       </Flex>
 
       {subtext && title && (
         <Box marginStart={6}>
-          <Text color="gray" size="md">
+          <Text color="subtle" size="200">
             {subtext}
           </Text>
         </Box>

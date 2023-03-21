@@ -4,14 +4,15 @@ export default function TestElement() {
   return (
     <Box>
       <Box ref="test" />
-      <div ref="test" className="test" />
-      <div ref="test" onClick={() => {}} />
-      <div ref="test" tabIndex={-1} />
-      <div ref="test" role="button" />
-      <div ref="test" onMouseOver={() => {}} />
-      <div ref="test" accessKey="test" />
-      <div ref="test" autoFocus />
-      <div ref="test" {...props} />
+      <div className="test" />
+      <div onClick={() => {}} />
+      <div tabIndex={-1} />
+      <div role="button" />
+      <div onMouseOver={() => {}} />
+      <div accessKey="test" />
+      <div autoFocus />
+      <div dangerouslySetInnerHTML={{__html: 'hi'}}/>
+      <div {...props} />
     </Box>
   );
 }

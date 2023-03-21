@@ -5,7 +5,7 @@ exports[`ModuleExpandableItem renders correctly 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -33,16 +33,16 @@ exports[`ModuleExpandableItem renders correctly 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -53,7 +53,7 @@ exports[`ModuleExpandableItem renders correctly 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -79,7 +79,7 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -107,16 +107,16 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -127,7 +127,7 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -154,11 +154,28 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
                       }
                     }
                   >
-                    <span
-                      className="Badge middle blueBg"
+                    <div
+                      className="Badge middle infoBase"
                     >
-                      Try it out!
-                    </span>
+                      <div
+                        className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                      >
+                        <div
+                          className="FlexItem"
+                        >
+                          <div
+                            className="box xsDisplayInlineBlock"
+                            style={
+                              Object {
+                                "marginTop": "2px",
+                              }
+                            }
+                          >
+                            Try it out!
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -176,7 +193,7 @@ exports[`ModuleExpandableItem renders correctly with children 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -204,16 +221,16 @@ exports[`ModuleExpandableItem renders correctly with children 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -224,7 +241,7 @@ exports[`ModuleExpandableItem renders correctly with children 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -250,7 +267,7 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -278,16 +295,16 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -300,7 +317,7 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
                   <svg
                     aria-hidden={null}
                     aria-label="there is an error"
-                    className="icon red iconBlock"
+                    className="icon errorIcon iconBlock"
                     height={16}
                     role="img"
                     viewBox="0 0 24 24"
@@ -320,7 +337,7 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 red alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -346,7 +363,7 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -374,16 +391,16 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -396,7 +413,7 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
                   <svg
                     aria-hidden={null}
                     aria-label="lock icon label"
-                    className="icon darkGray iconBlock"
+                    className="icon defaultIcon iconBlock"
                     height={16}
                     role="img"
                     viewBox="0 0 24 24"
@@ -416,7 +433,7 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -442,7 +459,7 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -470,16 +487,16 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -490,7 +507,7 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -511,7 +528,7 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
                 >
                   <button
                     aria-label="Get help"
-                    className="button tapTransition enabled"
+                    className="parentButton"
                     onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -527,27 +544,31 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
                     type="button"
                   >
                     <div
-                      className="pog lightGray"
-                      style={
-                        Object {
-                          "height": 24,
-                          "width": 24,
-                        }
-                      }
+                      className="button tapTransition enabled"
                     >
-                      <svg
-                        aria-hidden={true}
-                        aria-label=""
-                        className="icon darkGray iconBlock"
-                        height={12}
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width={12}
+                      <div
+                        className="pog lightGray"
+                        style={
+                          Object {
+                            "height": 24,
+                            "width": 24,
+                          }
+                        }
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-hidden={true}
+                          aria-label=""
+                          className="icon defaultIcon iconBlock"
+                          height={12}
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width={12}
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </button>
                 </div>
@@ -566,7 +587,7 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -594,16 +615,16 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol6"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -614,7 +635,7 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -631,13 +652,13 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
               className="box marginStart6 xsCol6"
             >
               <div
-                className="Flex columnGap2 xsDirectionColumn"
+                className="Flex rowGap0 columnGap2 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -652,7 +673,7 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -667,7 +688,7 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal lineClamp"
+                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -693,7 +714,7 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
   className="box paddingX6 paddingY6"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -721,16 +742,16 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
         tabIndex={0}
       >
         <div
-          className="Flex rowGap0 xsDirectionRow"
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
           >
             <div
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 itemsCenter xsDirectionRow"
+                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -741,7 +762,7 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -762,7 +783,7 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
             <svg
               aria-hidden={null}
               aria-label="click to collapse"
-              className="icon darkGray iconBlock"
+              className="icon defaultIcon iconBlock"
               height="12"
               role="img"
               viewBox="0 0 24 24"

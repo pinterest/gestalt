@@ -1,12 +1,13 @@
 // @flow strict
 import { createRef } from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { screen, fireEvent, render } from '@testing-library/react';
 import TapArea from './TapArea.js';
 
 describe('TapArea', () => {
   it('TapArea handles onTap callback', () => {
     const mockOnTap = jest.fn();
     const { getByText } = render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('TapArea').click();
     expect(mockOnTap).toHaveBeenCalled();
   });
@@ -14,7 +15,9 @@ describe('TapArea', () => {
   it('TapArea handles onBlur callback', () => {
     const mockOnBlur = jest.fn();
     const { getByText } = render(<TapArea onBlur={mockOnBlur}>TapArea</TapArea>);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByText('TapArea'));
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.blur(getByText('TapArea'));
     expect(mockOnBlur).toHaveBeenCalled();
   });
@@ -22,6 +25,7 @@ describe('TapArea', () => {
   it('TapArea handles onFocus callback', () => {
     const mockOnFocus = jest.fn();
     const { getByText } = render(<TapArea onFocus={mockOnFocus}>TapArea</TapArea>);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.focus(getByText('TapArea'));
     expect(mockOnFocus).toHaveBeenCalled();
   });
@@ -29,6 +33,7 @@ describe('TapArea', () => {
   it('TapArea handles onMouseEnter callback', () => {
     const mockOnMouseEnter = jest.fn();
     const { getByText } = render(<TapArea onMouseEnter={mockOnMouseEnter}>TapArea</TapArea>);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.mouseEnter(getByText('TapArea'));
     expect(mockOnMouseEnter).toHaveBeenCalled();
   });
@@ -36,6 +41,7 @@ describe('TapArea', () => {
   it('TapArea handles onMouseLeave callback', () => {
     const mockOnMouseLeave = jest.fn();
     const { getByText } = render(<TapArea onMouseLeave={mockOnMouseLeave}>TapArea</TapArea>);
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.mouseLeave(getByText('TapArea'));
     expect(mockOnMouseLeave).toHaveBeenCalled();
   });
@@ -44,6 +50,7 @@ describe('TapArea', () => {
     const mockOnTap = jest.fn();
     const { getByText } = render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
     const mockEvent = { charCode: 32, preventDefault: jest.fn() };
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     fireEvent.keyPress(getByText('TapArea'), mockEvent);
     expect(mockOnTap).toHaveBeenCalled();
   });
@@ -101,5 +108,38 @@ describe('TapArea', () => {
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
+  });
+
+  it('renders a link TapArea with correct new tab announcement with and without accessibilityLabel', () => {
+    render(
+      <TapArea role="link" target="blank" href="https://www.pinterest.com">
+        Visit Pinterest
+      </TapArea>,
+    );
+
+    expect(
+      screen.getByText('Visit Pinterest', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    expect(
+      screen.getByText('; Opens a new tab', {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    render(
+      <TapArea
+        accessibilityLabel="Visit Pinterest"
+        role="link"
+        target="blank"
+        href="https://www.pinterest.com"
+      >
+        Visit Pinterest
+      </TapArea>,
+    );
+
+    expect(screen.getByLabelText('Visit Pinterest; Opens a new tab')).toBeVisible();
   });
 });

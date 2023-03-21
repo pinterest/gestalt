@@ -1,12 +1,10 @@
 // @flow strict
-import type { Node as ReactNode } from 'react';
-
-import { Component } from 'react';
+import { type Node as ReactNode, Component } from 'react';
 import { ESCAPE } from './keyCodes.js';
 import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
-import type { ClientRect, Coordinates } from './utils/positioningTypes.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
+import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
 import { getTriggerRect } from './utils/positioningUtils.js';
 
 const SIZE_WIDTH_MAP = {
@@ -17,12 +15,13 @@ const SIZE_WIDTH_MAP = {
   xl: 360,
 };
 type OwnProps = {|
+  accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   id?: ?string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -31,6 +30,7 @@ type OwnProps = {|
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
 |};
 
 type HookProps = {|
@@ -40,8 +40,8 @@ type HookProps = {|
 type Props = {| ...OwnProps, ...HookProps |};
 
 type State = {|
-  relativeOffset: Coordinates,
-  triggerBoundingRect: ClientRect,
+  relativeOffset: ?Coordinates,
+  triggerBoundingRect: ?ClientRect,
 |};
 
 class Controller extends Component<Props, State> {
@@ -81,11 +81,11 @@ class Controller extends Component<Props, State> {
   }
 
   handleKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void = (event) => {
-    const { handleKeyDown, onDismiss } = this.props;
+    const { onKeyDown, onDismiss } = this.props;
     if (event.keyCode === ESCAPE) {
       onDismiss();
     }
-    if (handleKeyDown) handleKeyDown(event);
+    if (onKeyDown) onKeyDown?.({ event });
   };
 
   handlePageClick: (event: Event) => void = (event) => {
@@ -114,6 +114,7 @@ class Controller extends Component<Props, State> {
 
   render(): ReactNode {
     const {
+      accessibilityLabel,
       anchor,
       bgColor,
       border,
@@ -126,6 +127,7 @@ class Controller extends Component<Props, State> {
       rounding,
       shouldFocus,
       size,
+      __dangerouslyIgnoreScrollBoundaryContainerSize,
     } = this.props;
     const { relativeOffset, triggerBoundingRect } = this.state;
 
@@ -134,6 +136,7 @@ class Controller extends Component<Props, State> {
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
+          accessibilityLabel={accessibilityLabel}
           anchor={anchor}
           bgColor={bgColor}
           border={border}
@@ -149,6 +152,9 @@ class Controller extends Component<Props, State> {
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
           width={width}
+          __dangerouslyIgnoreScrollBoundaryContainerSize={
+            __dangerouslyIgnoreScrollBoundaryContainerSize
+          }
         >
           {children}
         </Contents>
@@ -157,9 +163,9 @@ class Controller extends Component<Props, State> {
   }
 }
 
-const WrappedController = (props: OwnProps): ReactNode => {
+function WrappedController(props: OwnProps): ReactNode {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
   return <Controller {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
-};
+}
 
 export default WrappedController;

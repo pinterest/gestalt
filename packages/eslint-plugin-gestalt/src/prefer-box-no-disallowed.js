@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick
+ * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick, or disallowed props on `Box` (no-box-disallowed-props ESLint rule)
  */
 
 // @flow strict
@@ -12,6 +12,7 @@ import {
   hasImport,
   hasLonelyAttribute,
   hasSpreadAttributes,
+  hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers.js';
 import {
@@ -20,6 +21,7 @@ import {
   updateGestaltImportFixer,
 } from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+import { allowedBaseProps } from './no-box-disallowed-props.js';
 
 const rule: ESLintRule = {
   meta: {
@@ -32,22 +34,7 @@ const rule: ESLintRule = {
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-box-no-disallowed',
     },
     fixable: 'code',
-    schema: [
-      {
-        type: 'object',
-        properties: {
-          excludeTests: {
-            type: 'boolean',
-          },
-          excludePaths: {
-            type: 'array',
-            items: { type: 'string' },
-            uniqueItems: true,
-          },
-        },
-        additionalProperties: false,
-      },
-    ],
+    schema: [],
     messages: {
       disallowedLonelyRef: `Use <Box ref={ref}></Box> or other Gestalt components that support ref.`,
       disallowed: `Use <Box></Box>.`,
@@ -86,27 +73,20 @@ const rule: ESLintRule = {
         ...ignoreEslintPluginJsxA11yConflictingAttributes,
       ];
 
-      const { excludeTests, excludePaths } = context?.options?.[0] ?? {}; // Access options from Eslint configuration
-
-      const isTest = excludeTests && context.getFilename().endsWith('.test.js');
-
-      const isExcludedPath =
-        excludePaths?.length !== 0 &&
-        excludePaths?.some((path) => {
-          const pathRegex = new RegExp(`${path}`, 'g');
-          return pathRegex.test(context.getFilename());
-        });
-
       // First, exit if div should stay unmodified
       if (
-        isTest ||
-        isExcludedPath ||
         !isTag({ elementNode: node.openingElement, tagName: 'div' }) ||
         hasSpreadAttributes({ elementNode: node.openingElement }) ||
         hasAttributes({
           elementNode: node.openingElement,
           tagName: 'div',
           attributes: ignoreAttributes,
+        }) ||
+        hasUnsupportedAttributes({
+          elementNode: node.openingElement,
+          tagName: 'div',
+          // "style" is included as supportedAttributes because it'll be replaced with dangerouslySetInlineStyle
+          supportedAttributes: [...allowedBaseProps, 'style'],
         }) ||
         hasAriaAttributes({
           elementNode: node.openingElement,
@@ -151,6 +131,7 @@ const rule: ESLintRule = {
       const styleNode = getNodeFromPropName({ elementNode: node, propName: 'style' });
       const propsToAdd = styleNode
         ? getTextNodeFromSourceCode({ context, elementNode: styleNode }).replace(
+            // eslint-disable-next-line prefer-regex-literals
             new RegExp(/style={([\w \W \d \s]+)}/, 'i'), // regex expression to match style={{ [key]: values }}
             (match, p1) => `dangerouslySetInlineStyle={{ __style: ${p1} }}`, // replacer function p1 returns the match between '()' in the RegExp
           )

@@ -1,8 +1,12 @@
 .pog {
   composes: circle from "./Borders.css";
   composes: flex from "./Layout.css";
-  composes: itemsCenter from "./Layout.css";
+  composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
+
+  /* This fixes a mobile Safari bug (device only) that makes the icon disappear when rotated for RTL support
+  https://stackoverflow.com/a/28617071/5253702 */
+  perspective: 1px;
 }
 
 .focused {

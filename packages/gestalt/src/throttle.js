@@ -1,27 +1,31 @@
+// @flow strict
+
 /**
  * throttle limits the number of times a function can be called to a
  * given threshhold (100ms by default). The function is always called
  * on the leading and trailing edge.
  */
 
-// @flow strict
+type Arguments = $ReadOnlyArray<Event | string | number | boolean | null>;
+export type ThrottleReturn = {|
+  (...args: Arguments): void,
+  clearTimeout: () => void,
+|};
+
 export default function throttle(
-  // $FlowFixMe[unclear-type]
-  fn: (...args: *) => void,
+  fn: (...args: Arguments) => void,
   threshhold: number = 100,
-  // $FlowFixMe[signature-verification-failure]
-) {
+): ThrottleReturn {
   let last: number | void;
   let deferTimer: TimeoutID | void;
-  // $FlowFixMe[unclear-type]
-  const throttled = (...args: *) => {
+  const throttled = (...args: Arguments) => {
     const now = Date.now();
     if (last !== undefined && now - last < threshhold) {
       clearTimeout(deferTimer);
       deferTimer = setTimeout(() => {
         last = now;
         fn(...args);
-      }, threshhold - (now - last));
+      }, threshhold - (now - (last ?? 0)));
     } else {
       last = now;
       fn(...args);

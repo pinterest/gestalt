@@ -13,36 +13,51 @@ import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
 import layoutStyles from './Layout.css';
 import iconButtonStyles from './IconButton.css';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
+import textStyles from './Typography.css';
 
 type Props = {|
   accessibilityCurrent?: AriaCurrent,
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
+  dataTestId?: string,
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
   href: string,
   id?: string,
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
-  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onKeyDown?: AbstractEventHandler<SyntheticKeyboardEvent<HTMLAnchorElement>>,
-  onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  onBlur?: ({|
+    event: SyntheticFocusEvent<HTMLAnchorElement>,
+  |}) => void,
+  onFocus?: ({|
+    event: SyntheticFocusEvent<HTMLAnchorElement>,
+  |}) => void,
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => void,
+  onMouseDown?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
+  onMouseUp?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
+  onMouseEnter?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
+  onMouseLeave?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,
@@ -62,6 +77,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     accessibilityLabel,
     children,
     colorClass,
+    dataTestId,
     disabled,
     fullHeight,
     fullWidth,
@@ -113,6 +129,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   const className = classnames(
     linkStyles.link,
+    textStyles.noUnderline,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
@@ -125,7 +142,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
           [layoutStyles.justifyCenter]: true,
-          [layoutStyles.itemsCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
           [buttonStyles.button]: true,
           [buttonStyles.disabled]: disabled,
           [buttonStyles.selected]: !disabled && selected,
@@ -175,9 +192,11 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   return (
     <a
-      aria-current={accessibilityCurrent}
+      aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
+      aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       className={className}
+      data-test-id={dataTestId}
       href={disabled ? undefined : href}
       id={id}
       onBlur={(event) => {

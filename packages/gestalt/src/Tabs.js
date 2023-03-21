@@ -4,20 +4,21 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type OnChangeHandler = AbstractEventHandler<
-  | SyntheticMouseEvent<HTMLAnchorElement>
-  | SyntheticKeyboardEvent<HTMLAnchorElement>
-  | SyntheticMouseEvent<HTMLDivElement>
-  | SyntheticKeyboardEvent<HTMLDivElement>,
-  {| +activeTabIndex: number, dangerouslyDisableOnNavigation: () => void |},
->;
+type OnChangeHandler = ({|
+  event:
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>,
+  +activeTabIndex: number,
+  dangerouslyDisableOnNavigation: () => void,
+|}) => void;
 
 function Dot() {
   return (
     <Box
-      color="red"
+      color="brand"
       dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
       height={6}
       rounding="circle"
@@ -31,7 +32,7 @@ const UNDERLINE_HEIGHT = 3;
 function Underline() {
   return (
     <Box
-      color="darkGray"
+      color="selected"
       dangerouslySetInlineStyle={{
         __style: {
           borderRadius: 1.5,
@@ -50,7 +51,7 @@ function Count({ count }: {| count: number |}) {
 
   return (
     <Box
-      color="red"
+      color="brand"
       dangerouslySetInlineStyle={{
         __style: {
           padding: `0 ${displayCount.length > 1 ? 3 : 0}px`,
@@ -65,7 +66,7 @@ function Count({ count }: {| count: number |}) {
           __style: { padding: '0 0 1px 1px' },
         }}
       >
-        <Text align="center" color="white" size="sm" weight="bold">
+        <Text align="center" color="light" size="100" weight="bold">
           {displayCount}
         </Text>
       </Box>
@@ -93,9 +94,9 @@ const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 2;
 const colors = {
   default: {
-    base: 'white',
+    base: 'default',
     pressed: 'lightWash',
-    hover: 'lightGray',
+    hover: 'secondary',
   },
   transparent: {
     base: 'transparent',
@@ -105,7 +106,7 @@ const colors = {
   },
 };
 
-export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
+const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   TabProps,
   HTMLElement,
 >(function Tab({ bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps, ref) {
@@ -158,8 +159,8 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
             rounding={TAB_ROUNDING}
             userSelect="none"
           >
-            <Flex alignItems="center" gap={2} justifyContent="center">
-              <Text color="darkGray" overflow="noWrap" weight="bold">
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+              <Text color="default" overflow="noWrap" weight="bold">
                 {text}
               </Text>
 
@@ -190,15 +191,40 @@ export const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwa
 TabWithForwardRef.displayName = 'Tab';
 
 type Props = {|
+  /**
+   * The index of the active tab.
+   */
   activeTabIndex: number,
+  /**
+   * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/web/tabs#Background-color) to learn more.
+   */
   bgColor?: BgColor,
+  /**
+   * If your app requires client navigation, be sure to use [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
+   */
   onChange: OnChangeHandler,
-  tabs: $ReadOnlyArray<{| ...TabType, ref?: {| current: ?HTMLElement |} |}>,
+  /**
+   * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
+   */
+  tabs: $ReadOnlyArray<{|
+    href: string,
+    id?: string,
+    indicator?: 'dot' | number,
+    ref?: {| current: ?HTMLElement |},
+    text: Node,
+  |}>,
+  /**
+   * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
+   */
   wrap?: boolean,
 |};
 
 /**
- * https://gestalt.pinterest.systems/tabs
+ * [Tabs](https://gestalt.pinterest.systems/web/tabs) may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol).
+ *
+ * ![Tabs light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tabs.spec.mjs-snapshots/Tabs-chromium-darwin.png)
+ * ![Tabs dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tabs-dark.spec.mjs-snapshots/Tabs-dark-chromium-darwin.png)
+ *
  */
 export default function Tabs({
   activeTabIndex,
@@ -208,7 +234,7 @@ export default function Tabs({
   wrap,
 }: Props): Node {
   return (
-    <Flex alignItems="center" gap={4} justifyContent="start" wrap={wrap}>
+    <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
           bgColor={bgColor}

@@ -1,10 +1,10 @@
 // @flow strict
-import { forwardRef, type Node } from 'react';
+import { forwardRef, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import Text from './Text.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
-import touchableStyles from './Touchable.css';
+import touchableStyles from './TapArea.css';
 import layoutStyles from './Layout.css';
 import flexStyles from './Flex.css';
 import bordersStyles from './Borders.css';
@@ -32,7 +32,7 @@ type Props = {|
   value: string,
 |};
 
-const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
   ?HTMLElement,
 >(function OptionItem(
@@ -74,11 +74,11 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
         <div
           className={classnames(layoutStyles.flexGrow, flexStyles.Flex, layoutStyles.flexColumn)}
         >
-          <Text color="darkGray" inline lineClamp={1}>
+          <Text color="default" inline lineClamp={1}>
             {label}
           </Text>
           {subtext && (
-            <Text size="md" inline color="gray" lineClamp={2}>
+            <Text size="200" inline color="subtle" lineClamp={2}>
               {subtext}
             </Text>
           )}
@@ -86,12 +86,12 @@ const ComboBoxItemWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> =
         <div
           className={classnames(
             flexStyles.Flex,
-            layoutStyles.itemsCenter,
+            layoutStyles.xsItemsCenter,
             layoutStyles.justifyCenter,
           )}
         >
           {isSelected ? (
-            <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
+            <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
           ) : (
             <div style={{ width: '12px' }} />
           )}

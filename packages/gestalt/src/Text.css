@@ -1,21 +1,3 @@
-:root {
-  --g-text-font-size-1: 12px;
-  --g-text-font-size-2: 14px;
-  --g-text-font-size-3: 16px;
-}
-
 .Text {
   composes: antialiased sansSerif from "./Typography.css";
-}
-
-.fontSize1 {
-  font-size: var(--g-text-font-size-1);
-}
-
-.fontSize2 {
-  font-size: var(--g-text-font-size-2);
-}
-
-.fontSize3 {
-  font-size: var(--g-text-font-size-3);
 }

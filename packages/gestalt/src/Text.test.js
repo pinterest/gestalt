@@ -7,13 +7,18 @@ test('Text renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Text orange adds the orange color class', () => {
-  const tree = create(<Text color="orange" />).toJSON();
+test('Text warning adds the warning color class', () => {
+  const tree = create(<Text color="warning" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Text size sm adds the small size class', () => {
-  const tree = create(<Text size="sm" />).toJSON();
+test('Text error adds the error color class', () => {
+  const tree = create(<Text color="error" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Text size 100 adds the smallest size class', () => {
+  const tree = create(<Text size="100" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

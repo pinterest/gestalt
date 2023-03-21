@@ -15,7 +15,7 @@ exports[`Switch 1`] = `
     type="checkbox"
   />
   <div
-    className="slider sliderLeft sliderLight"
+    className="slider sliderLeft sliderDark"
   />
 </div>
 `;
@@ -75,7 +75,7 @@ exports[`Switch switched 1`] = `
     type="checkbox"
   />
   <div
-    className="slider sliderLeft sliderLight"
+    className="slider sliderLeft sliderDark"
   />
 </div>
 `;

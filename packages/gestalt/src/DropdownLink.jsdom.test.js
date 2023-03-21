@@ -8,7 +8,7 @@ describe('Dropdown.Link', () => {
   test('calls onClick when Item clicked', () => {
     render(
       <Dropdown.Link
-        badgeText="New"
+        badge={{ text: 'New' }}
         href="/somePath"
         onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
@@ -22,11 +22,12 @@ describe('Dropdown.Link', () => {
     render(
       <Dropdown.Link
         onClick={onClickMock}
-        badgeText="New"
+        badge={{ text: 'New' }}
         href="https://www.pinterest.com"
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(screen.getByText('Item 4').closest('a')).toHaveAttribute(
       'href',
       'https://www.pinterest.com',
@@ -36,14 +37,20 @@ describe('Dropdown.Link', () => {
   test('adds badge and external icon', () => {
     render(
       <Dropdown.Link
-        badgeText="Beta Badge"
+        badge={{ text: 'Beta Badge' }}
         href="http://www.pinterest.com"
         isExternal
         onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
-    expect(screen.getByRole('img', { name: /, External/i })).toBeInTheDocument();
+    expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument();
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
+    expect(
+      screen.queryByText('; Opens a new tab', {
+        exact: true,
+      }),
+    ).toBeVisible();
   });
 });

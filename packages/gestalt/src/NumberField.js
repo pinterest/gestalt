@@ -1,14 +1,19 @@
 // @flow strict
-import { forwardRef, type Node } from 'react';
+import { forwardRef, type Node, type AbstractComponent } from 'react';
 import InternalTextField from './InternalTextField.js';
 
 // <input> deals with strings, but we only want numbers for this component.
 // So we parse what we get from InternalTextField and we stringify what we give it.
+
 // $FlowExpectedError[unclear-type] We don't need a more specific type, and `event` polymorphism is problematic
-const parseHandlerValue = (handler?: Function) => ({ event, value }) => {
-  const parsedValue = parseFloat(value);
-  handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
-};
+type Handler = Function;
+
+const parseHandlerValue =
+  (handler?: Handler) =>
+  ({ event, value }) => {
+    const parsedValue = parseFloat(value);
+    handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
+  };
 
 type Props = {|
   /**
@@ -20,7 +25,11 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/link) or [TapArea](https://gestalt.pinterest.systems/taparea).
+   *  Optionally specify the action label to present for the enter key on virtual keyboards. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/numberfield#EnterKeyHint) for more info.
+   *
+   */ enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
+  /**
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
   errorMessage?: Node,
   /**
@@ -80,6 +89,10 @@ type Props = {|
    */
   placeholder?: string,
   /**
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  /**
    * md: 40px, lg: 48px
    */
   size?: 'md' | 'lg',
@@ -94,15 +107,20 @@ type Props = {|
 |};
 
 /**
- * [NumberField](https://gestalt.pinterest.systems/numberfield) allows for numerical input.
+ * [NumberField](https://gestalt.pinterest.systems/web/numberfield) allows for numerical input.
+ *
+ * ![NumberField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField.spec.mjs-snapshots/NumberField-chromium-darwin.png)
+ * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.mjs-snapshots/NumberField-dark-chromium-darwin.png)
+ *
  */
-const NumberFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
+const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
 >(function NumberField(
   {
     autoComplete,
     disabled = false,
+    enterKeyHint,
     errorMessage,
     helperText,
     id,
@@ -125,6 +143,7 @@ const NumberFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     <InternalTextField
       autoComplete={autoComplete}
       disabled={disabled}
+      enterKeyHint={enterKeyHint}
       errorMessage={errorMessage}
       helperText={helperText}
       id={id}

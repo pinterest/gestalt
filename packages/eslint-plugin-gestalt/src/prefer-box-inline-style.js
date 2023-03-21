@@ -55,18 +55,21 @@ const rule: ESLintRule = {
       let alternateProp = '';
       switch (key.name) {
         case 'backgroundColor':
+          // $FlowFixMe[incompatible-type]
           alternateProp = validateBackgroundColor(key.value);
           if (alternateProp) {
             matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         case 'borderRadius':
+          // $FlowFixMe[incompatible-type]
           alternateProp = validateBorderRadius(key.value);
           if (alternateProp) {
             matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         case 'border':
+          // $FlowFixMe[incompatible-type]
           alternateProp = validateBorder(key.value);
           if (alternateProp) {
             matchedErrors.push(generateDefaultMessage(alternateProp));

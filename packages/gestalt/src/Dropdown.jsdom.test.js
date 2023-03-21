@@ -1,4 +1,5 @@
 // @flow strict
+import { Fragment } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
 import Dropdown from './Dropdown.js';
@@ -32,12 +33,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -50,6 +51,38 @@ describe('Dropdown', () => {
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
         />
+      </Dropdown>,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('renders a menu of 3 items conditionally', () => {
+    const mockOnDismiss = jest.fn();
+    const onSelectMock = jest.fn();
+    const element = document.createElement('button');
+    const renderOptions = true;
+
+    const { baseElement } = render(
+      <Dropdown anchor={element} id="ex-1" onDismiss={mockOnDismiss}>
+        {renderOptions && (
+          <Fragment>
+            {[1, 2, 3, 4, 5, 6].map((x) => (
+              <Dropdown.Item
+                key={x}
+                onSelect={onSelectMock}
+                option={{ value: x.toString(), label: x.toString() }}
+              />
+            ))}
+            {[7, 8, 9, 10, 11, 12].map((x) => (
+              <Dropdown.Item
+                key={x}
+                onSelect={onSelectMock}
+                option={{ value: x.toString(), label: x.toString() }}
+              />
+            ))}
+          </Fragment>
+        )}
       </Dropdown>,
     );
 
@@ -83,12 +116,12 @@ describe('Dropdown', () => {
             }}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelectMock}
             option={{ value: 'item 4', label: 'Item 4' }}
           />
           <Dropdown.Link
-            badgeText="New"
+            badge={{ text: 'New' }}
             href="https://pinterest.com"
             isExternal
             option={{
@@ -141,12 +174,12 @@ describe('Dropdown', () => {
             }}
           />
           <Dropdown.Item
-            badgeText="New"
+            badge={{ text: 'New' }}
             onSelect={onSelectMock}
             option={{ value: 'item 4', label: 'Item 4' }}
           />
           <Dropdown.Link
-            badgeText="New"
+            badge={{ text: 'New' }}
             href="https://pinterest.com"
             isExternal
             option={{
@@ -190,12 +223,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -241,12 +274,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -292,12 +325,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -313,21 +346,25 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com');
 
     fireEvent.keyDown(window.document, {
       keyCode: UP_ARROW,
     });
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
   });
 
@@ -355,12 +392,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -376,11 +413,13 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-1');
 
     fireEvent.keyDown(window.document, {
@@ -415,12 +454,12 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Item
-          badgeText="New"
+          badge={{ text: 'New' }}
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
         <Dropdown.Link
-          badgeText="New"
+          badge={{ text: 'New' }}
           href="https://pinterest.com"
           isExternal
           option={{
@@ -436,11 +475,13 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('id', 'ex-8-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
+    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com/today');
 
     // NOTE(rjames): I suspect this may be an RTL bug. This behavior works fine

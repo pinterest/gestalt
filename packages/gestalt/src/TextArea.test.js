@@ -43,6 +43,37 @@ describe('TextArea', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('TextField with maxLength character counter', () => {
+    const tree = create(
+      <TextArea
+        name="maxLength"
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+        maxLength={{
+          characterCount: 20,
+          errorAccessibilityLabel: 'Exceeded',
+        }}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('TextArea with readOnly', () => {
+    const tree = create(
+      <TextArea readOnly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('TextArea with disabled', () => {
+    const tree = create(
+      <TextArea disabled id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('TextArea with rows', () => {
     const tree = create(<TextArea id="test" onChange={jest.fn()} rows={5} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -58,19 +89,19 @@ describe('TextArea', () => {
             key="a"
             text="a@pinterest.com"
             onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove email tag"
+            accessibilityRemoveIconLabel="Remove email tag"
           />,
           <Tag
             key="b"
             text="b@pinterest.com"
             onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove email tag"
+            accessibilityRemoveIconLabel="Remove email tag"
           />,
           <Tag
             key="c"
             text="c@pinterest.com"
             onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove email tag"
+            accessibilityRemoveIconLabel="Remove email tag"
           />,
         ]}
       />,

@@ -1,13 +1,13 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import Text from './Text.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 
 const TREND_COLOR_MAP = {
-  good: 'pine',
-  bad: 'red',
-  neutral: 'darkGray',
+  good: 'success',
+  bad: 'error',
+  neutral: 'default',
 };
 
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
@@ -15,9 +15,9 @@ type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 function getValueColor({ sentiment, value }) {
   if (sentiment === 'auto') {
     if (value === 0) {
-      return 'darkGray';
+      return 'default';
     }
-    return value > 0 ? 'pine' : 'red';
+    return value > 0 ? 'success' : 'error';
   }
   return TREND_COLOR_MAP[sentiment];
 }
@@ -36,7 +36,7 @@ export default function DatapointTrend({
   const color = getValueColor({ sentiment, value });
 
   return (
-    <Flex gap={1}>
+    <Flex gap={{ column: 0, row: 1 }}>
       {value !== 0 && (
         <Icon
           accessibilityLabel={iconAccessibilityLabel}
@@ -46,7 +46,7 @@ export default function DatapointTrend({
         />
       )}
 
-      <Text size="md" color={color} weight="bold">
+      <Text size="200" color={color} weight="bold">
         {`${Math.abs(value)}%`}
       </Text>
     </Flex>

@@ -81,7 +81,7 @@ describe('<Upsell />', () => {
         }}
         title="A Title"
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32} />,
+          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32} />,
         }}
       />,
     ).toJSON();
@@ -98,7 +98,7 @@ describe('<Upsell />', () => {
         }}
         title="A Title"
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32} />,
+          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32} />,
         }}
       >
         <Upsell.Form

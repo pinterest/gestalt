@@ -59,7 +59,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 16
       - name: Setup npm
@@ -70,11 +70,11 @@ jobs:
         run: yarn install
       - name: Setup GitHub access tokens
         env:
-          GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+          RYAN_GITHUB_PERSONAL_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> ~/.netrc
-          echo "login christianvuerings" >> ~/.netrc
-          echo "password $GITHUB_PERSONAL_TOKEN" >> ~/.netrc
+          echo "login dangerismycat" >> ~/.netrc
+          echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
         id: release
         run: ./scripts/releaseSteps.js
@@ -91,3 +91,14 @@ jobs:
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
           cd ../eslint-plugin-gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+      - name: Trigger VSCode Gestalt release
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'pinterest',
+              repo: 'vscode-gestalt',
+              workflow_id: 'publish.yml',
+              ref: 'main'
+            });

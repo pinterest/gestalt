@@ -13,28 +13,41 @@ html:not([dir="rtl"]) .button {
   border-radius: 0 8px 8px 0;
 }
 
-.lightGray {
-  composes: lightGrayBg from "./Colors.css";
+.secondary {
+  composes: secondary from "./Colors.css";
 }
 
-.button.lightGray:hover,
-.button.lightGray:focus {
+.button.secondary:hover,
+.button.secondary:focus {
   background-color: var(--g-colorGray100Hovered);
 }
 
-.button.lightGray:active {
+.button.secondary:active {
   background-color: var(--g-colorGray100Active);
 }
 
-.red {
-  composes: redBg from "./Colors.css";
+.errorBase {
+  composes: errorBase from "./Colors.css";
 }
 
-.red:hover,
-.red:focus {
+.errorBase:hover,
+.errorBase:focus {
   background-color: var(--g-colorRed100Hovered);
 }
 
-.red:active {
+.errorBase:active {
   background-color: var(--g-colorRed100Active);
+}
+
+.warningBase {
+  composes: warningBase from "./Colors.css";
+}
+
+.warningBase:hover,
+.warningBase:focus {
+  background-color: var(--g-colorYellow100Hovered);
+}
+
+.warningBase:active {
+  background-color: var(--g-colorYellow100Active);
 }

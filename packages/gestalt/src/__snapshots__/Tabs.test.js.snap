@@ -2,7 +2,7 @@
 
 exports[`<Tabs /> matches snapshot with default props 1`] = `
 <div
-  className="Flex rowGap4 itemsCenter xsDirectionRow"
+  className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
 >
   <div
     className="FlexItem"
@@ -12,7 +12,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     >
       <a
         aria-current="page"
-        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -32,19 +32,19 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -60,7 +60,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
               }
             >
               <div
-                className="box darkGrayBg"
+                className="box selected"
                 style={
                   Object {
                     "borderRadius": 1.5,
@@ -82,7 +82,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
       className="box paddingY3"
     >
       <a
-        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -102,19 +102,19 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -130,7 +130,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
 
 exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 <div
-  className="Flex rowGap4 itemsCenter xsDirectionRow"
+  className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
 >
   <div
     className="FlexItem"
@@ -140,7 +140,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     >
       <a
         aria-current="page"
-        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -160,19 +160,19 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -181,7 +181,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle redBg"
+                  className="box brand circle"
                   style={
                     Object {
                       "height": 6,
@@ -202,7 +202,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               }
             >
               <div
-                className="box darkGrayBg"
+                className="box selected"
                 style={
                   Object {
                     "borderRadius": 1.5,
@@ -224,7 +224,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
       className="box paddingY3"
     >
       <a
-        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -244,19 +244,19 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -265,7 +265,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle redBg"
+                  className="box brand circle"
                   style={
                     Object {
                       "height": 6,
@@ -286,7 +286,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 
 exports[`<Tabs /> matches snapshot with wrap 1`] = `
 <div
-  className="Flex rowGap4 flexWrap itemsCenter xsDirectionRow"
+  className="Flex rowGap4 columnGap0 flexWrap xsDirectionRow xsItemsCenter"
 >
   <div
     className="FlexItem"
@@ -296,7 +296,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     >
       <a
         aria-current="page"
-        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -316,19 +316,19 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -344,7 +344,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
               }
             >
               <div
-                className="box darkGrayBg"
+                className="box selected"
                 style={
                   Object {
                     "borderRadius": 1.5,
@@ -366,7 +366,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
       className="box paddingY3"
     >
       <a
-        className="link hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -386,19 +386,19 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         target={null}
       >
         <div
-          className="Flex columnGap0 itemsCenter xsDirectionColumn"
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone whiteBg"
+            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
           >
             <div
-              className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
+              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
+                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>

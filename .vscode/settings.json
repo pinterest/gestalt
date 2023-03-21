@@ -1,6 +1,9 @@
 {
   "css.lint.validProperties": ["composes"],
-  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.shellcheck": true
+  },
   "editor.formatOnSave": true,
   "eslint.packageManager": "yarn",
   "grunt.autoDetect": "off",

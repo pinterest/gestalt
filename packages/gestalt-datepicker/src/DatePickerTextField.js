@@ -1,7 +1,5 @@
 // @flow strict
-import type { ElementRef } from 'react';
-
-import { forwardRef } from 'react';
+import { forwardRef, type ElementRef, type AbstractComponent } from 'react';
 import { Box, Icon, Label, TextField } from 'gestalt';
 import classnames from 'classnames';
 import styles from './DatePicker.css';
@@ -12,6 +10,7 @@ import styles from './DatePicker.css';
 type InjectedProps = {|
   disabled?: boolean,
   id: string,
+  name?: string,
   onBlur?: (event: SyntheticFocusEvent<HTMLInputElement>) => void,
   onChange?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   onClick?: () => void,
@@ -19,6 +18,8 @@ type InjectedProps = {|
   onKeyDown?: (event: SyntheticKeyboardEvent<HTMLInputElement>) => void,
   placeholder?: string,
   value?: string,
+  errorMessage?: string,
+  helperText?: string,
 |};
 
 type Props = {|
@@ -33,6 +34,7 @@ function DatePickerTextField(props: Props) {
     disabled,
     forwardedRef,
     id,
+    name,
     onChange,
     onClick,
     onBlur,
@@ -40,27 +42,34 @@ function DatePickerTextField(props: Props) {
     onKeyDown,
     placeholder,
     value,
+    errorMessage,
+    helperText,
   } = props;
 
   return (
     <Label htmlFor={id}>
-      <Box alignItems="center" column={12} display="flex" flex="grow" position="relative">
+      <Box
+        alignItems={!helperText && !errorMessage ? 'center' : undefined}
+        column={12}
+        display="flex"
+        flex="grow"
+        position="relative"
+      >
         <Box column={12} flex="grow">
           <TextField
             autoComplete="off"
             disabled={disabled}
             id={id}
-            onBlur={(data) => onBlur && onBlur(data.event)}
+            onBlur={(data) => onBlur?.(data.event)}
             onFocus={(data) => {
-              if (onFocus) {
-                onFocus(data.event);
-              }
-              if (onClick) {
-                onClick();
-              }
+              onFocus?.(data.event);
+              onClick?.();
             }}
-            onChange={(data) => onChange && onChange(data.event)}
-            onKeyDown={(data) => onKeyDown && onKeyDown(data.event)}
+            errorMessage={errorMessage}
+            helperText={helperText}
+            name={name}
+            onChange={(data) => onChange?.(data.event)}
+            onKeyDown={(data) => onKeyDown?.(data.event)}
             placeholder={placeholder}
             ref={(input) => forwardedRef && forwardedRef(input || null)}
             size="lg"
@@ -68,8 +77,8 @@ function DatePickerTextField(props: Props) {
           />
         </Box>
         <div className={classnames(styles.calendarIcon)}>
-          <Box position="relative" marginEnd={4}>
-            <Icon accessibilityLabel="" color="darkGray" icon="calendar" />
+          <Box position="relative" marginEnd={4} display="flex" alignItems="center" minHeight={48}>
+            <Icon accessibilityLabel="" color="default" icon="calendar" />
           </Box>
         </div>
       </Box>
@@ -83,7 +92,7 @@ function textFieldForwardRef(props, ref) {
 
 textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 
-export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): React$AbstractComponent<
+export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): AbstractComponent<
   Props,
   HTMLInputElement,
 >);

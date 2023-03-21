@@ -1,6 +1,6 @@
-# [Gestalt](https://gestalt.pinterest.systems/) &middot; [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt) [![Cypress status](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/x99ctf/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/x99ctf/runs) [![License](https://img.shields.io/npm/l/gestalt?style=flat)](https://github.com/pinterest/gestalt/blob/master/LICENSE)
+# [Gestalt](https://gestalt.pinterest.systems/) &middot; [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt) [![License](https://img.shields.io/npm/l/gestalt?style=flat)](https://github.com/pinterest/gestalt/blob/master/LICENSE)
 
-Gestalt is a set of React UI components that enforces Pinterest’s design language. We use it to streamline communication between designers and developers by enforcing a bunch of fundamental UI components. This common set of components helps raise the bar for UX & accessibility across Pinterest.
+Gestalt is Pinterest’s design system. Our system includes a React component library with comprehensive guidelines, best practices, tools, and resources to support designers and engineers delivering a high-quality product.
 
 [Visit the official Gestalt Documentation](https://gestalt.pinterest.systems/)
 
@@ -54,7 +54,7 @@ Visit [http://localhost:8888/](http://localhost:8888) and click on a component t
 
 When a release will cause breaking changes — in usage or in typing — we provide a codemod to ease the upgrade process. Codemods are organized by release in `/packages/gestalt-codemods`.
 
-### Usage
+### Codemod Usage
 
 Clone the Gestalt repo locally if you haven't already. Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used. Example usage for a codebase using Flow:
 
@@ -78,7 +78,7 @@ Example PR title: `Avatar: Add outline prop`
 
 Install the [DefinitelyTyped](https://www.npmjs.com/package/@types/gestalt) definitions.
 
-### Installation
+### DefinitelyTyped Installation
 
 Install via npm:
 

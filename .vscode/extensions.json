@@ -4,6 +4,7 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "flowtype.flow-for-vscode",
-    "orta.vscode-jest"
+    "orta.vscode-jest",
+    "timonwong.shellcheck"
   ]
 }

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a WashAnimated with an image 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box marginBottom1"
+  >
+    Avatar
+  </div>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="washanimated"
+  />
+</div>
+`;
+
+exports[`renders a WashAnimated with text 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="washanimated"
+  />
+</div>
+`;
+
+exports[`renders a WashAnimated with wash hidden 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="washanimated"
+  />
+</div>
+`;
+
+exports[`renders a WashAnimated with wash shown 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="washanimated hover"
+  />
+</div>
+`;
+
+exports[`renders an empty WashAnimated 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  />
+  <div
+    className="washanimated"
+  />
+</div>
+`;

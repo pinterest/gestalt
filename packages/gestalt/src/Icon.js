@@ -6,47 +6,42 @@ import icons from './icons/index.js';
 import colors from './Colors.css';
 
 export type IconColor =
-  | 'blue'
-  | 'darkGray'
-  | 'eggplant'
-  | 'gray'
-  | 'green'
-  | 'lightGray'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
-  | 'red'
-  | 'watermelon'
-  | 'white';
+  | 'default'
+  | 'subtle'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'recommendation'
+  | 'inverse'
+  | 'shopping'
+  | 'brandPrimary'
+  | 'light'
+  | 'dark';
 
 type Props = {|
   /**
    * Label for screen readers to announce Icon.
    *
-   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/icon#Accessibility) for details on proper usage.
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/icon#Accessibility) for details on proper usage.
    */
   accessibilityLabel: string,
   /**
-   * These are all the colors available to apply to the Icon; however, we advise only using primary colors within the product to ensure consistency and accessible color contrast.
+   * These are all the colors available to apply to the Icon. However, the literal options ("blue" , "darkGray" , "eggplant" , "gray" , "green" , "lightGray" , "maroon" , "midnight" , "navy" , "olive" , "orange" , "orchid" , "pine" , "purple" , "red" , "watermelon" and "white") will be deprecated soon. Avoid using them in any new implementations.
    *
-   * See the [primary-color combinations](https://gestalt.pinterest.systems/icon#Primary-color-combinations) variant to learn more.
+   * See the [color variant](https://gestalt.pinterest.systems/web/icon#Colors) to learn more.
    */
   color?: IconColor,
   /**
    * SVG icon from the Gestalt icon library to use within Icon..
    *
-   * See the [iconography and SVG](https://gestalt.pinterest.systems/iconography_and_svgs) guidelines to explore the Gestalt icon library.
+   * See the [iconography and SVG](https://gestalt.pinterest.systems/foundations/iconography/library) guidelines to explore the Gestalt icon library.
    */
   icon?: $Keys<typeof icons>,
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    *
-   * See the [custom icon](https://gestalt.pinterest.systems/icon#Custom-icon) variant to learn more.
+   * See the [custom icon](https://gestalt.pinterest.systems/web/icon#Custom-icon) variant to learn more.
    */
   dangerouslySetSvgPath?: {| __path: string |},
   /**
@@ -56,13 +51,12 @@ type Props = {|
   /**
    * Use a number for pixel sizes or a string for percentage based sizes.
    *
-   * See the [size](https://gestalt.pinterest.systems/icon#Size) variant to learn more.
+   * See the [size](https://gestalt.pinterest.systems/web/icon#Size) variant to learn more.
    */
   size?: number | string,
 |};
 
-// $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-const IconNames = Object.keys(icons);
+const IconNames: $ReadOnlyArray<$Keys<typeof icons>> = Object.keys(icons);
 
 const flipOnRtlIconNames = [
   'ads-stats',
@@ -86,25 +80,33 @@ const flipOnRtlIconNames = [
   'speech-ellipsis',
   'switch-account',
   'text-size',
+  'visit',
 ];
 
 /**
- * [Icons](https://gestalt.pinterest.systems/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
+ * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
  *
- * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/iconography_and_svgs) to explore the full icon library.
+ * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/foundations/iconography/library) to explore the full icon library.
+ *
+ * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list.spec.mjs-snapshots/Icon-list-chromium-darwin.png)
+ * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.mjs-snapshots/Icon-list-dark-chromium-darwin.png)
+ *
  */
-export default function Icon({
+
+function Icon({
   accessibilityLabel,
-  color = 'gray',
+  color = 'subtle',
   dangerouslySetSvgPath,
   icon,
   inline = false,
   size = 16,
 }: Props): Node {
+  const colorClass = colors[`${color}Icon`] && colors[`${color}Icon`];
+
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
-    colors[color],
+    colorClass,
     { [styles.iconBlock]: !inline },
   );
 
@@ -132,3 +134,7 @@ export default function Icon({
 }
 
 Icon.icons = IconNames;
+
+Icon.displayName = 'Icon';
+
+export default Icon;

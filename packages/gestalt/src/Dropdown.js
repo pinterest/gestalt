@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, cloneElement, type Node, useState } from 'react';
+import { Fragment, Children, cloneElement, type Node, useState } from 'react';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
@@ -17,19 +17,22 @@ const KEYS = {
   ENTER: 0,
 };
 
-const dropdownItemDisplayNames = ['DropdownItem', 'DropdownLink'];
+const dropdownItemDisplayNames = ['Dropdown.Item', 'Dropdown.Link'];
 
 function getChildrenOptions(childrenArray) {
   return childrenArray.reduce((accumulatedChildren, currentChild) => {
     const {
       props: { children: currentItemChildren },
+      type,
       type: { displayName },
     } = currentChild;
 
-    if (currentItemChildren && displayName === 'DropdownSection') {
+    if ((currentItemChildren && displayName === 'Dropdown.Section') || type === Fragment) {
       return [
         ...accumulatedChildren,
-        ...(Array.isArray(currentItemChildren) ? currentItemChildren : [currentItemChildren]),
+        ...(Array.isArray(currentItemChildren)
+          ? currentItemChildren.flat()
+          : [currentItemChildren]),
       ];
     }
 
@@ -39,7 +42,7 @@ function getChildrenOptions(childrenArray) {
 
     // eslint-disable-next-line no-console
     console.error(
-      'Only children of type DropdownItem, DropdownLink, or DropdownSection are allowed.',
+      'Only children of type Dropdown.Item, Dropdown.Link, or Dropdown.Section are allowed.',
     );
 
     return [...accumulatedChildren];
@@ -54,7 +57,7 @@ const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
   dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
-      return cloneElement(child, { index });
+      return cloneElement(child, { _index: index });
     }
     return child;
   });
@@ -66,8 +69,12 @@ const renderChildrenWithIndex = (childrenArray) => {
     const subSectionChildren = child.props.children;
     const childDisplayName = child.type.displayName;
 
-    if (subSectionChildren && childDisplayName === 'DropdownSection') {
-      const sectionChildrenArray = Children.toArray(subSectionChildren);
+    if (
+      (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
+      child.type === Fragment
+    ) {
+      const sectionChildrenArray = Children.toArray(subSectionChildren).flat();
+
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
       });
@@ -75,7 +82,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       return [...acc, childWithIndex];
     }
     if (dropdownItemDisplayNames.includes(childDisplayName)) {
-      const childWithIndex = cloneElement(child, { index: numItemsRendered });
+      const childWithIndex = cloneElement(child, { _index: numItemsRendered });
       numItemsRendered += 1;
       return [...acc, childWithIndex];
     }
@@ -83,31 +90,62 @@ const renderChildrenWithIndex = (childrenArray) => {
   }, []);
 };
 
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
-
 type Props = {|
+  /**
+   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](https://gestalt.pinterest.systems/web/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
+   */
   anchor?: ?HTMLElement,
+  /**
+   * Must be instances of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Sections) components. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
+   */
   children: Node,
-  dangerouslyRemoveLayer?: boolean,
+  /**
+   * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
+   */
+  isWithinFixedContainer?: boolean,
+  /**
+   * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.pinterest.systems/web/dropdown#Custom-header) variant to learn more.
+   */
   headerContent?: Node,
+  /**
+   * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) purposes.
+   */
   id: string,
-  idealDirection?: IdealDirection,
+  /**
+   * Preferred direction for the Dropdown to open.
+   */
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  /**
+   *  Define a controlled size to dropdown's Popover.
+   */
+  maxHeight?: '30vh',
+  /**
+   * Callback fired when the menu is closed.
+   */
   onDismiss: () => void,
+  /**
+   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
   zIndex?: Indexable,
 |};
 
 /**
- * [Dropdown](https://gestalt.pinterest.systems/dropdown) displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
+ * [Dropdown](https://gestalt.pinterest.systems/web/dropdown) displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
+ *
+ * ![Dropdown open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open.spec.mjs-snapshots/Dropdown-open-chromium-darwin.png)
+ * ![Dropdown open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open-dark.spec.mjs-snapshots/Dropdown-open-dark-chromium-darwin.png)
+ *
  */
 export default function Dropdown({
   anchor,
   children,
-  dangerouslyRemoveLayer = false,
+  isWithinFixedContainer = false,
   headerContent,
   id,
   idealDirection = 'down',
   onDismiss,
   zIndex,
+  maxHeight,
 }: Props): Node {
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
@@ -156,7 +194,7 @@ export default function Dropdown({
     }
   };
 
-  const handleKeyDown = (event) => {
+  const onKeyDown = ({ event }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
@@ -179,16 +217,24 @@ export default function Dropdown({
     <Popover
       anchor={anchor}
       color="white"
-      handleKeyDown={handleKeyDown}
+      onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      positionRelativeToAnchor={false}
+      positionRelativeToAnchor={isWithinFixedContainer}
       role="menu"
       shouldFocus
       size="xl"
+      __dangerouslySetMaxHeight={maxHeight}
     >
-      <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
+      <Box
+        alignItems="center"
+        direction="column"
+        display="flex"
+        flex="grow"
+        margin={2}
+        maxHeight={maxHeight}
+      >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
         <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
@@ -198,7 +244,7 @@ export default function Dropdown({
     </Popover>
   );
 
-  return dangerouslyRemoveLayer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
+  return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
 
 Dropdown.Item = DropdownItem;

@@ -1,21 +1,18 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Component } from 'react';
+import { Component, type Node } from 'react';
 import classnames from 'classnames';
 import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
-import type {
-  CaretOffset,
-  ClientRect,
-  DerivedState,
-  PopoverDir,
-  MainDirections,
-  Coordinates,
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
+import {
+  type CaretOffset,
+  type ClientRect,
+  type DerivedState,
+  type PopoverDir,
+  type MainDirections,
+  type Coordinates,
 } from './utils/positioningTypes.js';
 import {
   adjustOffsets,
@@ -28,9 +25,10 @@ import {
   getPopoverDir,
 } from './utils/positioningUtils.js';
 
-export type Role = 'dialog' | 'listbox' | 'menu';
+export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type OwnProps = {|
+  accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
@@ -41,23 +39,20 @@ type OwnProps = {|
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
-  relativeOffset: Coordinates,
+  relativeOffset: ?Coordinates,
   role: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
-  triggerRect: ClientRect,
+  triggerRect: ?ClientRect,
   width: ?number,
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
 |};
 
 type HookProps = {|
   scrollBoundaryContainerRef: ?HTMLElement,
 |};
-type ColorSchemeProps = {|
-  colorGray100: string,
-  isDarkMode: boolean,
-|};
 
-type Props = {| ...OwnProps, ...ColorSchemeProps, ...HookProps |};
+type Props = {| ...OwnProps, ...HookProps |};
 
 type State = {|
   popoverOffset: {|
@@ -208,75 +203,92 @@ class Contents extends Component<Props, State> {
     }
   };
 
-  render(): Node {
+  calcTopHeight() {
+    if (!window || !document) {
+      return { top: null, height: null };
+    }
+
     const {
-      bgColor,
-      border,
-      caret,
-      children,
-      colorGray100,
-      id,
-      isDarkMode,
-      role,
-      rounding,
-      width,
+      __dangerouslyIgnoreScrollBoundaryContainerSize,
+      scrollBoundaryContainerRef,
+      positionRelativeToAnchor,
     } = this.props;
+
+    // Define the height based the reference to render: ScrollBoundaryContainer or screen viewport
+    let height = window.innerHeight ?? 0;
+    if (!__dangerouslyIgnoreScrollBoundaryContainerSize && scrollBoundaryContainerRef) {
+      height = scrollBoundaryContainerRef.offsetHeight;
+    }
+
+    // 5% of height available
+    const top = (height / 10) * 0.5;
+
+    // 90% of height available on container reference
+    const elementHeight = (height / 10) * 9;
+
+    return { top: !positionRelativeToAnchor ? top : null, height: elementHeight };
+  }
+
+  render(): Node {
+    const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
+      this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
     const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
-    const stroke = bgColor === 'white' && !isDarkMode ? colorGray100 : null;
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
+    const { top, height } = this.calcTopHeight();
+    // Top value is used only when the current top value is negative
+    const topValue = top != null && (popoverOffset?.top ?? 0) < 0 ? { top } : {};
+
     return (
       <div
-        className={styles.container}
+        className={classnames(
+          styles.container,
+          rounding === 2 && borders.rounding2,
+          rounding === 4 && borders.rounding4,
+          styles.contents,
+          styles.maxDimensions,
+          width !== null && styles.minDimensions,
+        )}
+        ref={this.setPopoverRef}
+        tabIndex={-1}
         // popoverOffset positions the Popover component
-        style={{ stroke, visibility, ...popoverOffset }}
+        style={{ visibility, ...popoverOffset, ...topValue }}
       >
+        {caret && popoverDir && (
+          <div
+            className={classnames(colors[bgColorElevated], styles.caret)}
+            // caretOffset positions the Caret on the Popover
+            style={{ ...caretOffset }}
+          >
+            <Caret
+              direction={popoverDir}
+              height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
+              width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
+            />
+          </div>
+        )}
         <div
+          aria-label={accessibilityLabel}
+          id={id}
+          role={role}
           className={classnames(
+            border && styles.border,
+            colors[background],
+            colors[bgColorElevated],
             rounding === 2 && borders.rounding2,
             rounding === 4 && borders.rounding4,
-            styles.contents,
+            styles.innerContents,
             styles.maxDimensions,
             width !== null && styles.minDimensions,
           )}
-          ref={this.setPopoverRef}
-          tabIndex={-1}
+          style={{ maxWidth: width, maxHeight: height }}
         >
-          {caret && popoverDir && (
-            <div
-              className={classnames(colors[bgColorElevated], styles.caret)}
-              // caretOffset positions the Caret on the Popover
-              style={{ ...caretOffset }}
-            >
-              <Caret
-                direction={popoverDir}
-                height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
-                width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
-              />
-            </div>
-          )}
-          <div
-            id={id}
-            role={role}
-            className={classnames(
-              border && styles.border,
-              colors[background],
-              colors[bgColorElevated],
-              rounding === 2 && borders.rounding2,
-              rounding === 4 && borders.rounding4,
-              styles.innerContents,
-              styles.maxDimensions,
-              width !== null && styles.minDimensions,
-            )}
-            style={{ maxWidth: width }}
-          >
-            {children}
-          </div>
+          {children}
         </div>
       </div>
     );
@@ -284,15 +296,7 @@ class Contents extends Component<Props, State> {
 }
 
 export default function WrappedContents(props: OwnProps): Node {
-  const { colorGray100, name: colorSchemeName } = useColorScheme();
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
 
-  return (
-    <Contents
-      {...props}
-      colorGray100={colorGray100}
-      isDarkMode={colorSchemeName === 'darkMode'}
-      scrollBoundaryContainerRef={scrollBoundaryContainerRef}
-    />
-  );
+  return <Contents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
 }

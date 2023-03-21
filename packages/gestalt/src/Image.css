@@ -13,27 +13,15 @@
   color: transparent;
 }
 
-.scaled-img {
+.scaledImg {
   composes: relative from "./Layout.css";
-  background-position: center center;
-  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 }
 
-.contain {
-  composes: scaled-img;
-  background-size: contain;
-}
-
-.cover {
-  composes: scaled-img;
-  background-size: cover;
-}
-
 @media (inverted-colors) {
   .img,
-  .scaled-img {
+  .scaledImg {
     filter: invert(100%);
   }
 }

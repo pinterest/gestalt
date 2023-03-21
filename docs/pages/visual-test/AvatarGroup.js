@@ -1,8 +1,8 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import { AvatarGroup, Box } from 'gestalt';
 
-export default function AvatarGroupSpec(): Node {
+export default function Snapshot(): Node {
   return (
     <Box padding={1}>
       <AvatarGroup

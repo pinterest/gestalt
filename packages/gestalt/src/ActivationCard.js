@@ -2,32 +2,31 @@
 import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
 
 const STATUS_ICONS = {
   notStarted: undefined,
-  pending: { symbol: 'clock', color: 'gray' },
-  needsAttention: { symbol: 'workflow-status-problem', color: 'red' },
-  complete: { symbol: 'check-circle', color: 'green' },
+  pending: { symbol: 'clock', color: 'subtle' },
+  needsAttention: { symbol: 'workflow-status-problem', color: 'error' },
+  complete: { symbol: 'check-circle', color: 'success' },
 };
 
 type LinkData = {|
   accessibilityLabel: string,
   href: string,
   label: string,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
@@ -43,17 +42,18 @@ type Props = {|
     onDismiss: () => void,
   |},
   /**
+   * Link-role button to render inside the activation card as a call-to-action to the user.
+   * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
+   * - `accessibilityLabel`: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
+   * - `onClick`: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
+   *
+   * ActivationCard can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   */
+  link?: LinkData,
+  /**
    * Text to render inside the activation card to convey detailed information to the user. The message text has a fixed size.
    */
   message: string,
-  /**
-   * Link-role button to render inside the activation card as a call-to-action to the user.',
-   * - label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
-   * - accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
-   * - onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
-   * ActivationCard can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/OnLinkNavigationProvider) to learn more about link navigation.
-   */
-  link?: LinkData,
   /**
    * Select the activation card status:
    * - `notStarted`: A task that has not be started
@@ -72,7 +72,7 @@ type Props = {|
   title: string,
 |};
 
-const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
+function ActivationCardLink({ data }: {| data: LinkData |}): Node {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -98,9 +98,9 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
       />
     </Box>
   );
-};
+}
 
-const CompletedCard = ({ dismissButton, message, status, statusMessage, title }: Props): Node => {
+function CompletedCard({ dismissButton, message, status, statusMessage, title }: Props): Node {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -120,11 +120,13 @@ const CompletedCard = ({ dismissButton, message, status, statusMessage, title }:
         )}
         <Box>
           <Box>
-            <Heading size="sm">{title}</Heading>
+            <Text size="400" weight="bold">
+              {title}
+            </Text>
           </Box>
           {message && (
             <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-              <Text color="gray" size="md">
+              <Text color="subtle" size="200">
                 {message}
               </Text>
             </Box>
@@ -145,16 +147,16 @@ const CompletedCard = ({ dismissButton, message, status, statusMessage, title }:
       )}
     </Fragment>
   );
-};
+}
 
-const UncompletedCard = ({
+function UncompletedCard({
   dismissButton,
   message,
   link,
   status,
   statusMessage,
   title,
-}: Props): Node => {
+}: Props): Node {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
@@ -172,17 +174,19 @@ const UncompletedCard = ({
           </Box>
         )}
         <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
-          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="md">
+          <Text color={isStarted ? 'default' : 'subtle'} weight="bold" size="200">
             {statusMessage}
           </Text>
         </Box>
       </Box>
       <Box marginTop={6}>
-        <Heading size="sm">{title}</Heading>
+        <Text size="400" weight="bold">
+          {title}
+        </Text>
       </Box>
       {message && (
         <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
-          <Text color="gray" size="md">
+          <Text color="subtle" size="200">
             {message}
           </Text>
         </Box>
@@ -206,10 +210,14 @@ const UncompletedCard = ({
       )}
     </Fragment>
   );
-};
+}
 
 /**
- * [ActivationCards](https://gestalt.pinterest.systems/activationcard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.
+ * [ActivationCards](https://gestalt.pinterest.systems/web/activationcard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.
+ *
+ * ![ActivationCard light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard.spec.mjs-snapshots/ActivationCard-chromium-darwin.png)
+ * ![ActivationCard dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard-dark.spec.mjs-snapshots/ActivationCard-dark-chromium-darwin.png)
+ *
  */
 export default function ActivationCard({
   dismissButton,
@@ -226,6 +234,7 @@ export default function ActivationCard({
       display="flex"
       flex="grow"
       borderStyle="shadow"
+      color="elevationFloating"
       rounding={4}
       padding={6}
       maxWidth={400}

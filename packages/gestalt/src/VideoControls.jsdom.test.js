@@ -13,6 +13,7 @@ test('VideoControls handles play events', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
@@ -30,6 +31,7 @@ test('VideoControls handles play events', () => {
       volume={0}
     />,
   );
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.click(getByLabelText('Play'));
   expect(mockOnPlay).toHaveBeenCalled();
 });
@@ -45,6 +47,7 @@ test('VideoControls handles pause events', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
@@ -62,6 +65,7 @@ test('VideoControls handles pause events', () => {
       volume={0}
     />,
   );
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.click(getByLabelText('Pause'));
   expect(mockOnPause).toHaveBeenCalled();
 });
@@ -77,6 +81,7 @@ test('VideoControls handles volume events', () => {
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
+      accessibilityProgressBarLabel="Progress bar"
       accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
@@ -94,6 +99,7 @@ test('VideoControls handles volume events', () => {
       volume={0}
     />,
   );
+  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.click(getByLabelText('Unmute'));
   expect(mockOnVolumeChange).toHaveBeenCalled();
 });

@@ -1,31 +1,25 @@
 // @flow strict
-import type { Node } from 'react';
-import classnames from 'classnames';
-import styles from './Label.css';
-import boxStyles from './Box.css';
-
-export type LabelDisplay = 'visible' | 'hidden';
+import { type Node } from 'react';
+import InternalLabel from './InternalLabel.js';
 
 type Props = {|
+  /**
+   * The content of the label, typically [Text](https://gestalt.pinterest.systems/web/text) or similar.
+   */
   children?: Node,
+  /**
+   * Unique id of the element this label is describing.
+   */
   htmlFor: string,
-  labelDisplay?: LabelDisplay,
 |};
 
 /**
- * Use the [Label](https://gestalt.pinterest.systems/labels) component to connect a label with a form component in an accessible way.
+ * Use the [Label](https://gestalt.pinterest.systems/web/label) component to connect a label with a form component in an accessible way.
+ *
+ * ![Label light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label.spec.mjs-snapshots/Label-chromium-darwin.png)
+ * ![Label dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label-dark.spec.mjs-snapshots/Label-dark-chromium-darwin.png)
+ *
  */
-export default function Label(props: Props): Node {
-  const { children, htmlFor, labelDisplay } = props;
-
-  return (
-    <label
-      className={classnames(styles.label, {
-        [boxStyles.visuallyHidden]: labelDisplay === 'hidden',
-      })}
-      htmlFor={htmlFor}
-    >
-      {children}
-    </label>
-  );
+export default function Label({ children, htmlFor }: Props): Node {
+  return <InternalLabel htmlFor={htmlFor}>{children}</InternalLabel>;
 }

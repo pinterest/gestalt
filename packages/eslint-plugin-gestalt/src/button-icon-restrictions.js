@@ -4,12 +4,14 @@
  * Gestalt is more permissive than PDS recommends in adding icons to Buttons.
  * Buttons using iconEnd must use:
  * - icon "arrow-down"
- * - color "white"
- * - size "lg"
  */
 
 // @flow strict
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+
+export const errorMessage = 'Buttons with="link" using iconEnd must use the "visit" icon';
+
+export const errorMessage2 = 'Buttons using iconEnd must use "arrow-down" icon';
 
 const rule: ESLintRule = {
   meta: {
@@ -66,25 +68,20 @@ const rule: ESLintRule = {
         }
 
         const iconAttribute = getAttribute(node, 'iconEnd');
-        const isCorrectIcon = getValue(iconAttribute) === 'arrow-down';
+        const iconEndValue = getValue(iconAttribute);
+
+        const roleAttribute = getAttribute(node, 'role');
+        const roleValue = getValue(roleAttribute);
 
         // Not using iconEnd, early return
         if (!iconAttribute) {
           return;
         }
-
-        const colorAttribute = getAttribute(node, 'color');
-        const isCorrectColor = getValue(colorAttribute) === 'white';
-
-        const sizeAttribute = getAttribute(node, 'size');
-        const isCorrectSize = getValue(sizeAttribute) === 'lg';
-
         // Not using correct props
-        if (!isCorrectColor || !isCorrectIcon || !isCorrectSize) {
-          context.report(
-            node,
-            'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
-          );
+        if (roleValue === 'link' && iconEndValue !== 'visit') {
+          context.report(node, errorMessage);
+        } else if (roleValue !== 'link' && iconEndValue !== 'arrow-down') {
+          context.report(node, errorMessage2);
         }
       },
     };

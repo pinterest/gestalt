@@ -1,25 +1,44 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
-import Text from './Text.js';
-import labelStyles from './Label.css';
-import formStyles from './FormElement.css';
-import formLabelStyles from './FormLabel.css';
-import boxWhitespaceStyles from './boxWhitespace.css';
-import whitespaceStyles from './Whitespace.css';
 import boxStyles from './Box.css';
+import boxWhitespaceStyles from './boxWhitespace.css';
 import FormErrorMessage from './FormErrorMessage.js';
+import formLabelStyles from './FormLabel.css';
+import formStyles from './FormElement.css';
+import labelStyles from './InternalLabel.css';
+import Text from './Text.js';
+import whitespaceStyles from './Whitespace.css';
 
 type Props = {|
+  /**
+   * The content of Fieldset, typically [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton), [Checkboxes](https://gestalt.pinterest.systems/web/checkbox) or [TextFields](https://gestalt.pinterest.systems/web/textfield).
+   */
   children: Node,
+  /**
+   * A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added.
+   */
   id?: string,
+  /**
+   * When needed, pass a string with a helpful error message (be sure to localize!).
+   */
   errorMessage?: string,
+  /**
+   * Caption that clearly and concisely describes the form elements grouped in the fieldset.
+   */
   legend: string,
+  /**
+   * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](https://gestalt.pinterest.systems#Legend-visibility) for more info.
+   */
   legendDisplay?: 'visible' | 'hidden',
 |};
 
 /**
- * [Fieldset](https://gestalt.pinterest.systems/fieldset) creates a fieldset and legend for a group of related form items, like [RadioButtons](https://gestalt.pinterest.systems/radiobutton) or [CheckBoxes](https://gestalt.pinterest.systems/checkbox), in order to clearly indicate related form items."
+ * [Fieldset](https://gestalt.pinterest.systems/web/fieldset) creates a fieldset and legend for a group of related form items, like [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton) or [CheckBoxes](https://gestalt.pinterest.systems/web/checkbox), in order to clearly indicate related form items."
+ *
+ * ![Fieldset light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Fieldset.spec.mjs-snapshots/Fieldset-chromium-darwin.png)
+ * ![Fieldset dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Fieldset-dark.spec.mjs-snapshots/Fieldset-dark-chromium-darwin.png)
+ *
  */
 export default function Fieldset({
   id = '',
@@ -34,7 +53,10 @@ export default function Fieldset({
   }
 
   return (
-    <fieldset className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>
+    <fieldset
+      className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
+      aria-describedby={errorMessage ? `${id}-error` : undefined}
+    >
       <legend
         className={classnames(
           labelStyles.label,
@@ -45,10 +67,10 @@ export default function Fieldset({
           },
         )}
       >
-        <Text size="sm">{legend}</Text>
+        <Text size="100">{legend}</Text>
       </legend>
       {children}
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
     </fieldset>
   );
 }

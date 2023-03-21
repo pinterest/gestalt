@@ -4,7 +4,8 @@
   composes: borderBox from "./Layout.css";
   composes: darkGray from "./Colors.css";
   composes: whiteBg from "./Colors.css";
-  composes: Text fontSize3 from "./Text.css";
+  composes: Text from "./Text.css";
+  composes: fontSize300 from "./Typography.css";
   composes: xsCol12 from "./Column.css";
   appearance: none;
   min-width: 180px;
@@ -69,4 +70,3 @@ html:not([dir="rtl"]) .clear {
 html[dir="rtl"] .clear {
   left: var(--space-0);
 }
-

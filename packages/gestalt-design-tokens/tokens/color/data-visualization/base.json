@@ -1,0 +1,65 @@
+{
+  "color": {
+    "data-visualization": {
+      "01": {
+        "value": "{color.blue.skycicle.800.value}",
+        "darkValue": "{color.blue.skycicle.600.value}",
+        "comment": "First option for data visualization colors"
+      },
+      "02": {
+        "value": "#11A69C",
+        "darkValue": "{color.teal.spabattical.200.value}",
+        "comment": "Second option for data visualization colors"
+      },
+      "03": {
+        "value": "#924AF7",
+        "comment": "Third option for data visualization colors"
+      },
+      "04": {
+        "value": "#D17711",
+        "darkValue": "#FDA600",
+        "comment": "Fourth option for data visualization colors"
+      },
+      "05": {
+        "value": "#0081FE",
+        "darkValue": "{color.blue.skycicle.300.value}",
+        "comment": "Fifth option for data visualization colors"
+      },
+      "06": {
+        "value": "#FF5383",
+        "darkValue": "{color.pink.flaminglow.500.value}",
+        "comment": "Sixth option for data visualization colors"
+      },
+      "07": {
+        "value": "#00AB55",
+        "darkValue": "{color.green.matchacado.200.value}",
+        "comment": "Seventh option for data visualization colors"
+      },
+      "08": {
+        "value": "{color.purple.mysticool.800.value}",
+        "darkValue": "{color.purple.mysticool.500.value}",
+        "comment": "Eighth option for data visualization colors"
+      },
+      "09": {
+        "value": "#F2681F",
+        "darkValue": "{color.orange.firetini.450.value}",
+        "comment": "Ninth option for data visualization colors"
+      },
+      "10": {
+        "value": "{color.teal.spabattical.800.value}",
+        "darkValue": "#007A72",
+        "comment": "Tenth option for data visualization colors"
+      },
+      "11": {
+        "value": "{color.pink.flaminglow.500.value}",
+        "darkValue": "{color.pink.flaminglow.400.value}",
+        "comment": "Eleventh option for data visualization colors"
+      },
+      "12": {
+        "value": "{color.orange.firetini.900.value}",
+        "darkValue": "{color.orange.firetini.200.value}",
+        "comment": "Twelfth option for data visualization colors"
+      }
+    }
+  }
+}

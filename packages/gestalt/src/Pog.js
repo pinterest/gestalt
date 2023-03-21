@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
@@ -21,12 +21,37 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
   xl: 24,
 };
 
+const OLD_TO_NEW_COLOR_MAP = {
+  'white': 'inverse',
+  'gray': 'subtle',
+  'darkGray': 'default',
+  'red': 'error',
+  'brandPrimary': 'brandPrimary',
+};
+
+const defaultIconButtonIconColors = {
+  darkGray: 'white',
+  gray: 'white',
+  lightGray: 'darkGray',
+  transparent: 'darkGray',
+  red: 'white',
+  transparentDarkGray: 'white',
+  white: 'darkGray',
+};
+
 type Props = {|
-  // Omit accessibilityLabel if and only if an ancestor element already has the aria-label set.
-  // This is similar to having empty `alt` attributes:
-  // https://davidwalsh.name/accessibility-tip-empty-alt-attributes
+  /**
+   * Omit if and only if an ancestor element already has the aria-label set.
+   * This is similar to having [empty alt attributes](https://davidwalsh.name/accessibility-tip-empty-alt-attributes).
+   */
   accessibilityLabel?: string,
+  /**
+   * Indicate if Pog is in an active state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
+   */
   active?: boolean,
+  /**
+   * The background color. See [color combinations](https://gestalt.pinterest.systems/web/pog#backgroundColorCombinations) for more details.
+   */
   bgColor?:
     | 'transparent'
     | 'darkGray'
@@ -35,46 +60,62 @@ type Props = {|
     | 'lightGray'
     | 'white'
     | 'red',
+  /**
+   * Used for custom icons within Pog. Make sure that the viewbox around the SVG path is 24x24.
+   */
   dangerouslySetSvgPath?: {| __path: string |},
+  /**
+   * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
+   */
   focused?: boolean,
+  /**
+   * Indicate if Pog is in a hovered state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
+   */
   hovered?: boolean,
+  /**
+   * Icon displayed in Pog to convey the behavior of the component. Refer to the [iconography](https://gestalt.pinterest.systems/foundations/iconography/library) guidelines regarding the available icon options.
+   */
   icon?: $Keys<typeof icons>,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
+  /**
+   * Color applied to the [Icon](https://gestalt.pinterest.systems/web/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
+   */
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
+  /**
+   * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
+   */
   padding?: 1 | 2 | 3 | 4 | 5,
+  /**
+   * Indicate if Pog is in a selected state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
+   */
   selected?: boolean,
+  /**
+   * This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px). See [size combinations](https://gestalt.pinterest.systems/web/pog#sizeCombinations) for more details.
+   */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
-const defaultIconButtonIconColors = {
-  darkGray: 'white',
-  gray: 'white',
-  lightGray: 'gray',
-  transparent: 'gray',
-  red: 'white',
-  transparentDarkGray: 'white',
-  white: 'gray',
-};
-
 /**
- * [Pog](https://gestalt.pinterest.systems/pog) is a lower-level functional component to show the active, hovered, & focused states of an [IconButton](/iconbutton).
+ * [Pog](https://gestalt.pinterest.systems/web/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/web/iconbutton).
  *
- *This abstraction to allow for links that look like an IconButton.
+ * This is an abstraction to allow for links that look like IconButton.
+ *
+ * ![Pog light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog.spec.mjs-snapshots/Pog-chromium-darwin.png)
+ * ![Pog dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog-dark.spec.mjs-snapshots/Pog-dark-chromium-darwin.png)
+ *
  */
-export default function Pog(props: Props): Node {
-  const {
-    accessibilityLabel = '',
-    active = false,
-    bgColor = 'transparent',
-    dangerouslySetSvgPath,
-    focused = false,
-    hovered = false,
-    icon,
-    iconColor,
-    padding,
-    selected = false,
-    size = 'md',
-  } = props;
-
+export default function Pog({
+  accessibilityLabel = '',
+  active = false,
+  bgColor = 'transparent',
+  dangerouslySetSvgPath,
+  focused = false,
+  hovered = false,
+  icon,
+  iconColor,
+  padding,
+  selected = false,
+  size = 'md',
+}: Props): Node {
   const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
   const paddingInPx = padding ? padding * 4 : SIZE_NAME_TO_PADDING_PIXEL[size];
 
@@ -99,7 +140,7 @@ export default function Pog(props: Props): Node {
     <div className={classes} style={inlineStyle}>
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
-        color={color}
+        color={OLD_TO_NEW_COLOR_MAP[color]}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
         size={iconSizeInPx}

@@ -15,13 +15,7 @@ export const keyPressShouldTriggerTap = (
   event: SyntheticKeyboardEvent<TapTargetHTMLElement>,
 ): boolean => [ENTER, SPACE].includes(event.charCode);
 
-export default function useTapFeedback({
-  height,
-  width,
-}: {|
-  height: ?number,
-  width: ?number,
-|}): {|
+export default function useTapFeedback({ height, width }: {| height: ?number, width: ?number |}): {|
   compressStyle: ?{| transform: string |},
   handleBlur: () => void,
   handleMouseDown: () => void,

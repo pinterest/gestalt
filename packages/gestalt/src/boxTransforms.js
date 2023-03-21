@@ -48,6 +48,13 @@ There's a little preamble here, but it culminates in a big object mapping the ac
 
 */
 
+const alignItems: Functor<AlignItems> = mapping({
+  start: layout.xsItemsStart,
+  end: layout.xsItemsEnd,
+  center: layout.xsItemsCenter,
+  baseline: layout.xsItemsBaseline,
+  // default: stretch
+});
 const display: Functor<Display> = mapping({
   none: styles.xsDisplayNone,
   flex: styles.xsDisplayFlex,
@@ -61,6 +68,13 @@ const direction: Functor<Direction> = mapping({
   column: styles.xsDirectionColumn,
 });
 
+const smAlignItems: Functor<AlignItems> = mapping({
+  start: layout.smItemsStart,
+  end: layout.smItemsEnd,
+  center: layout.smItemsCenter,
+  baseline: layout.smItemsBaseline,
+  // default: stretch
+});
 const smDisplay: Functor<Display> = mapping({
   none: styles.smDisplayNone,
   flex: styles.smDisplayFlex,
@@ -74,6 +88,13 @@ const smDirection: Functor<Direction> = mapping({
   column: styles.smDirectionColumn,
 });
 
+const mdAlignItems: Functor<AlignItems> = mapping({
+  start: layout.mdItemsStart,
+  end: layout.mdItemsEnd,
+  center: layout.mdItemsCenter,
+  baseline: layout.mdItemsBaseline,
+  // default: stretch
+});
 const mdDisplay: Functor<Display> = mapping({
   none: styles.mdDisplayNone,
   flex: styles.mdDisplayFlex,
@@ -87,6 +108,13 @@ const mdDirection: Functor<Direction> = mapping({
   column: styles.mdDirectionColumn,
 });
 
+const lgAlignItems: Functor<AlignItems> = mapping({
+  start: layout.lgItemsStart,
+  end: layout.lgItemsEnd,
+  center: layout.lgItemsCenter,
+  baseline: layout.lgItemsBaseline,
+  // default: stretch
+});
 const lgDisplay: Functor<Display> = mapping({
   none: styles.lgDisplayNone,
   flex: styles.lgDisplayFlex,
@@ -111,13 +139,6 @@ const alignContent: Functor<AlignContent> = mapping({
   evenly: layout.contentEvenly,
   // default: stretch
 });
-const alignItems: Functor<AlignItems> = mapping({
-  start: layout.itemsStart,
-  end: layout.itemsEnd,
-  center: layout.itemsCenter,
-  baseline: layout.itemsBaseline,
-  // default: stretch
-});
 const alignSelf: Functor<AlignSelf> = mapping({
   start: layout.selfStart,
   end: layout.selfEnd,
@@ -137,32 +158,40 @@ const borderStyle: Functor<BorderStyle> = (value) => {
       sm: borders.sizeSm,
       lg: borders.sizeLg,
       shadow: borders.shadow,
-      // default: none
+      raisedTopShadow: borders.raisedTop,
+      raisedBottomShadow: borders.raisedBottom,
     })(value),
     ...borderProps,
   ]);
 };
 const color: Functor<Color> = mapping({
-  blue: colors.blueBg,
-  darkGray: colors.darkGrayBg,
-  pine: colors.pineBg,
-  gray: colors.grayBg,
-  red: colors.redBg,
-  olive: colors.oliveBg,
-  lightGray: colors.lightGrayBg,
-  white: colors.whiteBg,
-  orange: colors.orangeBg,
-  green: colors.greenBg,
-  navy: colors.navyBg,
-  midnight: colors.midnightBg,
-  purple: colors.purpleBg,
-  orchid: colors.orchidBg,
-  eggplant: colors.eggplantBg,
-  maroon: colors.maroonBg,
-  watermelon: colors.watermelonBg,
   lightWash: colors.lightWashBg,
   darkWash: colors.darkWashBg,
   transparentDarkGray: colors.transparentDarkGrayBg,
+  default: colors.default,
+  infoBase: colors.infoBase,
+  infoWeak: colors.infoWeak,
+  errorBase: colors.errorBase,
+  errorWeak: colors.errorWeak,
+  warningBase: colors.warningBase,
+  warningWeak: colors.warningWeak,
+  successBase: colors.successBase,
+  successWeak: colors.successWeak,
+  recommendationBase: colors.recommendationBase,
+  recommendationWeak: colors.recommendationWeak,
+  shopping: colors.shopping,
+  primary: colors.primary,
+  secondary: colors.secondary,
+  tertiary: colors.tertiary,
+  selected: colors.selected,
+  inverse: colors.inverse,
+  brand: colors.brand,
+  education: colors.education,
+  elevationAccent: colors.elevationAccent,
+  elevationFloating: colors.elevationFloating,
+  elevationRaised: colors.elevationRaised,
+  dark: colors.dark,
+  light: colors.light,
   // default: transparent
 });
 const fit: Functor<boolean> = toggle(layout.fit);
@@ -187,17 +216,19 @@ const left: Functor<boolean> = toggle(layout.left0);
 
 type MarginFunctorType = Functor<Margin>;
 
-const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (m) => {
-  if (typeof m === 'number') {
-    return bind(rangeWithZero(selector), whitespace)(m);
-  }
+const transformNumberOrPassthrough =
+  (selector: string): MarginFunctorType =>
+  (m) => {
+    if (typeof m === 'number') {
+      return bind(rangeWithZero(selector), whitespace)(m);
+    }
 
-  if (m === 'auto') {
-    return fromClassName(whitespace[`${selector}Auto`]);
-  }
+    if (m === 'auto') {
+      return fromClassName(whitespace[`${selector}Auto`]);
+    }
 
-  return identity();
-};
+    return identity();
+  };
 
 const marginStart: MarginFunctorType = transformNumberOrPassthrough('marginStart');
 const marginEnd: MarginFunctorType = transformNumberOrPassthrough('marginEnd');
@@ -300,24 +331,27 @@ Unfortunately Flow doesn't like that for the vast majority of the fields. :(
 */
 
 export const propToFn = {
+  alignItems,
   display,
   column,
   direction,
 
+  smAlignItems,
   smDisplay,
   smColumn,
   smDirection,
 
+  mdAlignItems,
   mdDisplay,
   mdColumn,
   mdDirection,
 
+  lgAlignItems,
   lgDisplay,
   lgColumn,
   lgDirection,
 
   alignContent,
-  alignItems,
   alignSelf,
   bottom,
   borderStyle,
@@ -436,7 +470,7 @@ export function buildStyles<T: Object>({
   // eslint-disable-next-line no-restricted-syntax
   for (const prop in props) {
     if (
-      // $FlowFixMe[method-unbinding]
+      // $FlowExpectedError[method-unbinding]
       Object.prototype.hasOwnProperty.call(propToFn, prop) &&
       !omitProps.includes(prop) &&
       (!allowlistProps || allowlistProps.includes(prop))

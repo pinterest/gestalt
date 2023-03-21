@@ -25,7 +25,6 @@
     ],
     "declaration-no-important": true,
     "function-url-quotes": "always",
-    "indentation": 2,
     "max-nesting-depth": 0,
     "media-feature-name-no-unknown": [
       true,

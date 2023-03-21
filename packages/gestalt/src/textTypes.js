@@ -5,43 +5,17 @@
 
 export type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
 
-export const allowedColors = [
-  'blue',
-  'darkGray',
-  'eggplant',
-  'gray',
-  'green',
-  'lightGray',
-  'maroon',
-  'midnight',
-  'navy',
-  'olive',
-  'orange',
-  'orchid',
-  'pine',
-  'purple',
-  'red',
-  'watermelon',
-  'white',
+export const semanticColors = [
+  'default',
+  'subtle',
+  'success',
+  'error',
+  'warning',
+  'inverse',
+  'shopping',
+  'link',
+  'light',
+  'dark',
 ];
-
-export type Color =
-  | 'blue'
-  | 'darkGray'
-  | 'eggplant'
-  | 'gray'
-  | 'green'
-  | 'lightGray'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
-  | 'red'
-  | 'watermelon'
-  | 'white';
 
 export type FontWeight = 'bold' | 'normal';

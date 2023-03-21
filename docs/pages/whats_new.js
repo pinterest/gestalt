@@ -1,71 +1,143 @@
 // @flow strict
-import type { Node } from 'react';
-import { useState, useEffect } from 'react';
-import { Box, Flex, Link, Text } from 'gestalt';
-import Markdown from '../components/Markdown.js';
-import PageHeader from '../components/PageHeader.js';
-import Page from '../components/Page.js';
+import { type Node, useState } from 'react';
+import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
+import blogPosts from './BlogPosts.json';
+import MainSection from '../docs-components/MainSection.js';
+import Markdown from '../docs-components/Markdown.js';
+import Page from '../docs-components/Page.js';
+import PageHeader from '../docs-components/PageHeader.js';
 
-function Changelog() {
-  const [changelogData, setChangelogData] = useState('Loading changelog from GitHub...');
+const POST_WIDTH_PX = 600;
+const POST_IMAGE_HEIGHT_PX = 340;
 
-  useEffect(() => {
-    const fetchChangelog = async () => {
-      const result = await fetch(
-        'https://raw.githubusercontent.com/pinterest/gestalt/master/CHANGELOG.md',
-      );
-      setChangelogData(
-        result.ok
-          ? await result.text()
-          : 'There was error loading the changelog, please try again later.',
-      );
-    };
+const badges = {
+  Design: <Badge key="design" type="info" text="Design" />,
+  Engineering: <Badge key="engineering" type="success" text="Engineering" />,
+};
 
-    fetchChangelog();
-  }, []);
+export type Post = {|
+  +title: string,
+  +audience: $ReadOnlyArray<'Design' | 'Engineering'>,
+  +imageSrc: string,
+  +imageAltText: string,
+  +content: string,
+|};
 
+function PostLayout({ audience, content, imageAltText, imageSrc, title }: Post): Node {
   return (
-    <Box>
-      <PageHeader name="What's New 🎉" showSourceLink={false} />
-      <Flex alignItems="start" direction="column" gap={4}>
-        <Flex gap={4}>
-          <Link inline target="blank" href="https://npmjs.org/package/gestalt">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://img.shields.io/npm/v/gestalt.svg?label=gestalt"
-              alt="Gestalt NPM package version badge"
-            />
-          </Link>
-
-          <Link inline target="blank" href="https://npmjs.org/package/gestalt-datepicker">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://img.shields.io/npm/v/gestalt-datepicker.svg?label=gestalt-datepicker"
-              alt="Gestalt DatePicker NPM package version badge"
-            />
-          </Link>
-        </Flex>
-        <Text>
-          Gestalt is a set of React UI components that enforces Pinterest’s design language. We use
-          it to streamline communication between designers and developers by enforcing a bunch of
-          fundamental UI components. This common set of components helps raise the bar for UX &amp;
-          accessibility across Pinterest.
-        </Text>
-        <Text>
-          Find information below on all new and updated components by version number, as well as
-          available codemods to help upgrade between versions.
-        </Text>
+    <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={1}>
+        <Heading size="400">{title}</Heading>
+        <Flex gap={2}>{audience.map((item) => badges[item])}</Flex>
       </Flex>
 
-      <Markdown text={changelogData} type="changelog" />
-    </Box>
+      {imageSrc && (
+        <Box
+          height={POST_IMAGE_HEIGHT_PX}
+          maxWidth={POST_WIDTH_PX}
+          display="none"
+          mdDisplay="block"
+          marginBottom={4}
+          lgMarginBottom={0}
+          borderStyle="sm"
+          rounding={2}
+        >
+          <Mask rounding={2} height={POST_IMAGE_HEIGHT_PX - 2}>
+            <Image
+              src={imageSrc}
+              alt={imageAltText ?? ''}
+              naturalHeight={900}
+              naturalWidth={1600}
+              fit="contain"
+            />
+          </Mask>
+        </Box>
+      )}
+      <Flex maxWidth={POST_WIDTH_PX}>
+        <Markdown text={content} />
+      </Flex>
+    </Flex>
   );
 }
 
-export default function DocsPage(): Node {
+const radioButtons = [
+  {
+    label: 'All',
+    value: 'All',
+  },
+  {
+    label: 'Design updates',
+    value: 'Design',
+  },
+  {
+    label: 'Engineering updates',
+    value: 'Engineering',
+  },
+];
+
+export default function Blog(): Node {
+  const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
+
+  // Get all digests across years
+  const allDigests = blogPosts.reduce((acc, { digests }) => [...acc, ...digests], []);
+
+  // We don't want to show empty digests, so remove if no posts for the current filter
+  const filteredDigests = allDigests
+    .map((digest) =>
+      digest.posts.some(({ audience }) => filter === 'All' || audience.includes(filter))
+        ? digest
+        : null,
+    )
+    .filter(Boolean);
+
   return (
-    <Page title="Changelog">
-      <Changelog />
+    <Page title="What's New Blog">
+      <PageHeader
+        name="What's New"
+        description={`
+    Follow along to learn about documentation updates, new components, events, and more!
+    To get the full details for each version, view the [changelog in GitHub](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md).
+    `}
+        type="guidelines"
+      />
+
+      <RadioGroup id="filter" legend="Filter posts by" direction="row">
+        {radioButtons.map(({ label, value }) => (
+          <RadioGroup.RadioButton
+            checked={filter === value}
+            id={label}
+            key={value}
+            label={label}
+            onChange={() => {
+              setFilter(value);
+            }}
+            size="sm"
+            value={value}
+          />
+        ))}
+      </RadioGroup>
+
+      <Flex direction="column" gap={12}>
+        {filteredDigests.map(({ month, week, posts, summary }, i) => (
+          <Flex key={`digest-${week ?? month ?? ''}`} direction="column" gap={12}>
+            {i > 0 && <Divider />}
+
+            <MainSection
+              name={week ? `Week of ${week}` : `Month of ${month ?? ''}`}
+              description={summary}
+            >
+              <Flex direction="column" gap={8}>
+                {posts.map(
+                  (post) =>
+                    (filter === 'All' || post.audience.includes(filter)) && (
+                      <PostLayout key={`post-${post.title}`} {...post} />
+                    ),
+                )}
+              </Flex>
+            </MainSection>
+          </Flex>
+        ))}
+      </Flex>
     </Page>
   );
 }

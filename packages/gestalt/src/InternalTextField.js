@@ -1,20 +1,26 @@
 // @flow strict
-import { useImperativeHandle, useRef, forwardRef, type Element, type Node, useState } from 'react';
+import {
+  useImperativeHandle,
+  useRef,
+  forwardRef,
+  type Element,
+  type Node,
+  type AbstractComponent,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
-import TapArea from './TapArea.js';
-import Icon from './Icon.js';
-import focusStyles from './Focus.css';
-import formElement from './FormElement.css';
+import { type MaxLength } from './TextField.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
+import focusStyles from './Focus.css';
+import formElement from './FormElement.css';
 import layout from './Layout.css';
 import styles from './InternalTextField.css';
-import { TAB, SPACE, ENTER } from './keyCodes.js';
 import typography from './Typography.css';
-import { type LabelDisplay } from './Label.js';
 
 type Props = {|
   // REQUIRED
@@ -24,24 +30,25 @@ type Props = {|
     value: string,
   |}) => void,
   // OPTIONAL
-  accessibilityClearButtonLabel?: string,
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
+  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
+  enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   errorMessage?: Node,
   hasError?: boolean,
   helperText?: string,
+  iconButton?: Element<typeof InternalTextFieldIconButton>,
   label?: string,
-  labelDisplay?: LabelDisplay,
+  labelDisplay?: 'visible' | 'hidden',
   max?: number,
+  maxLength?: ?MaxLength,
   min?: number,
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onClickIconButton?: () => void,
   onClick?: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
@@ -55,63 +62,61 @@ type Props = {|
     value: string,
   |}) => void,
   placeholder?: string,
+  readOnly?: boolean,
   size?: 'md' | 'lg',
   step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
-  textfieldIconButton?: 'clear' | 'expand',
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   value?: string,
 |};
 
-const InternalTextFieldWithForwardRef: React$AbstractComponent<
+const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
-> = forwardRef<Props, HTMLInputElement>(function TextField(
+>(function TextField(
   {
     accessibilityControls,
     accessibilityActiveDescendant,
-    accessibilityClearButtonLabel,
     autoComplete,
     disabled = false,
     errorMessage,
+    enterKeyHint,
     hasError = false,
     helperText,
     id,
+    iconButton,
     label,
     labelDisplay,
     max,
+    maxLength,
     min,
     name,
     onBlur,
     onChange,
-    onClickIconButton,
     onClick,
     onFocus,
     onKeyDown,
     placeholder,
+    readOnly,
     size = 'md',
     step,
     tags,
-    textfieldIconButton,
     type = 'text',
     value,
   }: Props,
   ref,
 ): Node {
   // ==== REFS ====
-
   const innerRef = useRef(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   // $FlowFixMe[incompatible-call]
   useImperativeHandle(ref, () => innerRef.current);
 
   // ==== STATE ====
-
   const [focused, setFocused] = useState(false);
-  const [focusedButton, setFocusedButton] = useState(false);
+  const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
   // ==== HANDLERS ====
-
   const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     setFocused(false);
     onBlur?.({ event, value: event.currentTarget.value });
@@ -120,8 +125,10 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
   const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) =>
     onClick?.({ event, value: event.currentTarget.value });
 
-  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) =>
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    setCurrentLength(event.currentTarget.value?.length ?? 0);
     onChange({ event, value: event.currentTarget.value });
+  };
 
   const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     setFocused(true);
@@ -131,10 +138,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
   const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) =>
     onKeyDown?.({ event, value: event.currentTarget.value });
 
-  const handleOnClickIconButton = () => onClickIconButton?.();
-
   // ==== STYLING ====
-
   const hasErrorMessage = Boolean(errorMessage);
 
   const styledClasses = classnames(
@@ -145,7 +149,7 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
     {
       [layout.medium]: !tags && size === 'md',
       [layout.large]: tags || size === 'lg',
-      [styles.actionButton]: textfieldIconButton,
+      [styles.actionButton]: iconButton,
     },
     tags
       ? {
@@ -157,16 +161,33 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
 
   const unstyledClasses = classnames(styles.unstyledTextField);
 
+  if (maxLength && maxLength.characterCount < 0) {
+    throw new Error('`maxLength` must be an integer value 0 or higher.');
+  }
+
+  let ariaDescribedby;
+
+  if (hasErrorMessage) {
+    ariaDescribedby = `${id}-error`;
+  }
+
+  if (helperText || maxLength) {
+    ariaDescribedby = `${id}-helperText`;
+  }
+
   const inputElement = (
     <input
       aria-activedescendant={accessibilityActiveDescendant}
       aria-controls={accessibilityControls}
-      aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
+      // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+      aria-describedby={focused ? ariaDescribedby : undefined}
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       autoComplete={autoComplete}
       className={tags ? unstyledClasses : styledClasses}
       disabled={disabled}
+      enterKeyHint={enterKeyHint}
       id={id}
+      maxLength={maxLength?.characterCount}
       max={type === 'number' ? max : undefined}
       min={type === 'number' ? min : undefined}
       name={name}
@@ -179,6 +200,9 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
       pattern={type === 'number' ? '\\d*' : undefined}
       placeholder={placeholder}
+      readOnly={readOnly}
+      // This config is required to prevent exposing passwords and usernames to spell-checking servers during login processes. More info here: https://www.androidpolice.com/google-chrome-servers-get-passwords-enhanced-spell-check/
+      spellCheck={['email', 'password'].includes(type) ? false : undefined}
       step={type === 'number' ? step : undefined}
       {...(tags ? {} : { ref: innerRef })}
       type={type}
@@ -189,10 +213,12 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
   return (
     <span>
       {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
+
       <Box position="relative">
         {tags ? (
           <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
             {tags.map((tag, tagIndex) => (
+              // eslint-disable-next-line react/no-array-index-key
               <Box key={tagIndex} marginEnd={1} marginBottom={1}>
                 {tag}
               </Box>
@@ -211,55 +237,20 @@ const InternalTextFieldWithForwardRef: React$AbstractComponent<
         ) : (
           inputElement
         )}
-        {textfieldIconButton && !disabled ? (
-          // styles.actionButtonContainernis required for RTL positioning
-          <div className={classnames(styles.actionButtonContainer)}>
-            <Box
-              aria-hidden={textfieldIconButton === 'expand'}
-              alignItems="center"
-              display="flex"
-              height="100%"
-              marginEnd={2}
-              rounding="circle"
-            >
-              <TapArea
-                accessibilityLabel={
-                  textfieldIconButton === 'clear' ? accessibilityClearButtonLabel : undefined
-                }
-                onBlur={() => setFocusedButton(false)}
-                onFocus={() => setFocusedButton(true)}
-                onKeyDown={({ event }) => {
-                  if ([ENTER, SPACE].includes(event.keyCode)) handleOnClickIconButton();
-                  if (event.keyCode !== TAB) event.preventDefault();
-                }}
-                onMouseEnter={() => setFocusedButton(true)}
-                onMouseLeave={() => setFocusedButton(false)}
-                onTap={handleOnClickIconButton}
-                rounding="circle"
-                tabIndex={textfieldIconButton === 'clear' ? 0 : -1}
-                tapStyle={textfieldIconButton === 'clear' ? 'compress' : 'none'}
-              >
-                <Box
-                  color={
-                    focusedButton && textfieldIconButton === 'clear' ? 'lightGray' : 'transparent'
-                  }
-                  padding={size === 'lg' ? 2 : 1}
-                  rounding="circle"
-                >
-                  <Icon
-                    accessibilityLabel=""
-                    size={12}
-                    icon={textfieldIconButton === 'clear' ? 'cancel' : 'arrow-down'}
-                    color="darkGray"
-                  />
-                </Box>
-              </TapArea>
-            </Box>
-          </div>
-        ) : null}
+
+        {!disabled && iconButton}
       </Box>
-      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-      {hasErrorMessage ? <FormErrorMessage id={id} text={errorMessage} /> : null}
+
+      {(helperText || maxLength) && !errorMessage ? (
+        <FormHelperText
+          id={`${id}-helperText`}
+          text={helperText}
+          maxLength={maxLength}
+          currentLength={currentLength}
+        />
+      ) : null}
+
+      {hasErrorMessage ? <FormErrorMessage id={`${id}-error`} text={errorMessage} /> : null}
     </span>
   );
 });

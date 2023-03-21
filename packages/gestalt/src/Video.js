@@ -1,13 +1,10 @@
 // @flow strict
-import type { Node } from 'react';
+import { PureComponent, type Node } from 'react';
 import classnames from 'classnames';
-import { PureComponent } from 'react';
 import VideoControls from './VideoControls.js';
-import ColorSchemeProvider from './contexts/ColorSchemeProvider.js';
 import styles from './Video.css';
 import colors from './Colors.css';
 import Box from './Box.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Source =
   | string
@@ -21,55 +18,209 @@ type CrossOrigin = 'anonymous' | 'use-credentials';
 type BackgroundColor = 'black' | 'transparent';
 
 type Props = {|
+  /**
+   * Accessibility label for the button to hide captions if controls are shown.
+   */
   accessibilityHideCaptionsLabel?: string,
-  accessibilityShowCaptionsLabel?: string,
+  /**
+   * Accessibility label for the fullscreen maximize button if controls are shown.
+   */
   accessibilityMaximizeLabel: string,
+  /**
+   * Accessibility label for the fullscreen minimize button if controls are shown.
+   */
   accessibilityMinimizeLabel: string,
+  /**
+   * Accessibility label for the mute button if controls are shown.
+   */
   accessibilityMuteLabel: string,
+  /**
+   * Accessibility label for the pause button if controls are shown.
+   */
   accessibilityPauseLabel: string,
+  /**
+   * Accessibility label for the play button if controls are shown.
+   */
   accessibilityPlayLabel: string,
+  /**
+   * Accessibility label for the video progress bar.
+   */
+  accessibilityProgressBarLabel: string,
+  /**
+   * Accessibility label for the button to show captions if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
+   */
+  accessibilityShowCaptionsLabel?: string,
+  /**
+   * Accessibility label for the unmute button if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
+   */
   accessibilityUnmuteLabel: string,
+  /**
+   * When set to autoplay, the video will automatically start playing. See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
+   */
+  autoplay?: boolean,
+  /**
+   * Proportional relationship between width and height of the video, calculated as width / height.
+   */
   aspectRatio: number,
+  /**
+   * Background color used to fill the video's placeholder.
+   */
   backgroundColor: BackgroundColor,
-  captions: string,
-  crossOrigin?: CrossOrigin,
+  /**
+   * The URL of the captions track for the video (.vtt file). See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
+   */
+  captions?: string,
+  /**
+   * This `children` prop is not same as children inside the native html `video` element. Instead, it serves to add overlays on top of the html video element, while still being under the video controls. See [children example](https://gestalt.pinterest.systems/web/video#video-with-children) for more details.
+   */
   children?: Node,
+  /**
+   * Designate CORS behavior for the video element. When not passed in, CORS checks are disabled.
+   */
+  crossOrigin?: CrossOrigin,
+  /**
+   * Show the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
+   */
   controls?: boolean,
+  /**
+   * Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.
+   */
   disableRemotePlayback?: boolean,
+  /**
+   * Indicates if the video will start playing over again when finished.
+   */
   loop?: boolean,
+  /**
+   * Sets how the content of the replaced video element should be resized to fit its container.
+   */
   objectFit?: ObjectFit,
+  /**
+   * Callback triggered when playback is played via the video control interface.
+   */
+  onControlsPlay?: ({|
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+  |}) => void,
+  /**
+   * Callback triggered when playback is paused via the video control interface.
+   */
+  onControlsPause?: ({|
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+  |}) => void,
+  /**
+   * Callback triggered when the metadata has loaded or changed, indicating a change in duration. See the [MDN Web Docs: durationchange event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event).
+   */
   onDurationChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   |}) => void,
-  onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onError?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
-  onLoadedChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| loaded: number |}>,
-  onLoadStart?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
-  onPlaying?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onPause?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  >,
-  onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onSeeking?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onStalled?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onTimeChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| time: number |}>,
-  onVolumeChange?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-    {| volume: number |},
-  >,
-  onWaiting?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  /**
+   * Callback triggered when playback of the video completes. See the [MDN Web Docs: ended event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event).
+   */
+  onEnded?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when an error occurs. See the [MDN Web Docs: onerror](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/onerror).
+   */
+  onError?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+
+  /**
+   * Callback triggered when playback is paused. See the [MDN Web Docs: pause event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause_event).
+   */
+  onPause?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+
+  /**
+   * Callback triggered when `pause` is changed from "true" to "false" or `autoplay`. See the [MDN Web Docs: play event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event) and the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
+   */
+  onPlay: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when a [play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)'s Promise is [rejected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play#exceptions). See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
+   */
+  onPlayError: ({| error: Error |}) => void,
+  /**
+   * Callback triggered when the video full-screen status changes. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
+   */
+  onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
+  /**
+   * Callback triggered when progress happens on downloading the media. See the [MDN Web Docs: progress event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/progress_event).
+   */
+  onLoadedChange?: ({| event: SyntheticEvent<HTMLVideoElement>, loaded: number |}) => void,
+  /**
+   * Callback triggered when the media has started to load.
+   */
+  onLoadStart?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered after playback is first started, and whenever it is restarted. See the [MDN Web Docs: playing event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playing_event).
+   */
+  onPlaying?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when mousedown event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
+   */
+  onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  /**
+   * Callback triggered when mouseup event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
+   */
+  onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  /**
+   * Callback triggered when enough data is available that the media can be played. See the [MDN Web Docs: canplay event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplay_event).
+   */
+  onReady?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when a seek operation completes from the playhead. See the [MDN Web Docs: seeked event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeked_event).
+   */
+  onSeek?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when a seek operation begins. See the [MDN Web Docs: seeking event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeking_event).
+   */
+  onSeeking?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when trying to fetch data but the data is unexpectedly not forthcoming. See the [MDN Web Docs: stalled event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event).
+   */
+  onStalled?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Callback triggered when the time indicated by the element's currentTime attribute has changed. See the [MDN Web Docs: timeupdate event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/timeupdate_event).
+   */
+  onTimeChange?: ({| event: SyntheticEvent<HTMLVideoElement>, time: number |}) => void,
+  /**
+   * Callback triggered when the audio volume changes via the video control interface. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
+   */
+  onVolumeChange?: ({|
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+    volume: number,
+  |}) => void,
+  /**
+   * Callback triggered when playback has stopped because of a temporary lack of data. See the [MDN Web Docs: waiting event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event).
+   */
+  onWaiting?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  /**
+   * Specifies the speed at which the video plays: 1 for normal. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
+   */
   playbackRate: number,
+  /**
+   * Specifies whether the video should play or not. See [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
+   */
   playing: boolean,
+  /**
+   * Serves as a hint to the user agent that the video should to be displayed "inline" in the document by default, constrained to the element's playback area, instead of being displayed fullscreen or in an independent resizable window. This attribute is mainly relevant to iOS Safari browsers. See the [MDN Web Docs: playsinline](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-playsinline)
+   */
   playsInline?: boolean,
+  /**
+   * The image to show while the video is loading. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
+   */
   poster?: string,
+  /**
+   * Specifies how, if at all, the video should be pre-loaded when the page loads. See the [MDN Web Docs: preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-preload)
+   */
   preload: 'auto' | 'metadata' | 'none',
+  /**
+   * The URL of the video file to play. This can also be supplied as a list of video types to respective video source urls in fallback order for support on various browsers. See [multiple sources example](https://gestalt.pinterest.systems/web/video#Video-multiple-sources) for more details.
+   */
   src: Source,
+  /**
+   * Set the current play time in seconds the video will start from. See [MDN Web Docs: HTMLMediaElement.currentTime](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime)
+   */
+  startTime?: number,
+  /**
+   * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
+   */
   volume: number,
 |};
 
@@ -173,7 +324,9 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 };
 
 /**
- * Like an Image, [Video](https://gestalt.pinterest.systems/video) is used for media layout. This component is supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
+ * [Video](https://gestalt.pinterest.systems/web/video) is used for media layout.
+ *
+ * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Video.spec.mjs-snapshots/Video-chromium-darwin.png)
  */
 export default class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;
@@ -181,6 +334,7 @@ export default class Video extends PureComponent<Props, State> {
   player: ?HTMLDivElement;
 
   static defaultProps: {|
+    startTime: number,
     disableRemotePlayback: boolean,
     backgroundColor: BackgroundColor,
     playbackRate: number,
@@ -188,16 +342,17 @@ export default class Video extends PureComponent<Props, State> {
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
+    startTime: 0,
     disableRemotePlayback: false,
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     backgroundColor: 'black',
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     playbackRate: 1,
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     playing: false,
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     preload: 'auto',
-
+    // eslint-disable-next-line react/default-props-match-prop-types
     volume: 0,
   };
 
@@ -213,7 +368,7 @@ export default class Video extends PureComponent<Props, State> {
    */
 
   componentDidMount() {
-    const { captions, playbackRate, playing, volume } = this.props;
+    const { captions, playbackRate, volume, playing, autoplay, startTime } = this.props;
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
@@ -225,8 +380,12 @@ export default class Video extends PureComponent<Props, State> {
     this.setVolume(volume);
     // Set the initial playback rate
     this.setPlaybackRate(playbackRate);
-    // Simulate an autoplay effect if the component
-    if (playing) {
+
+    if (startTime) {
+      this.seek(startTime);
+    }
+
+    if (!autoplay && playing) {
       this.play();
     }
 
@@ -240,6 +399,12 @@ export default class Video extends PureComponent<Props, State> {
     if (isNewSource(prevProps.src, this.props.src)) {
       this.load();
     }
+
+    // If the startTime has changed, update
+    if (prevProps.startTime !== this.props.startTime) {
+      this.seek(this.props.startTime || 0);
+    }
+
     // If the volume changed, set the new volume
     if (prevProps.volume !== this.props.volume) {
       this.setVolume(this.props.volume);
@@ -248,6 +413,7 @@ export default class Video extends PureComponent<Props, State> {
     if (prevProps.playbackRate !== this.props.playbackRate) {
       this.setPlaybackRate(this.props.playbackRate);
     }
+
     // If the playback changed, play or pause the video
     if (prevProps.playing !== this.props.playing) {
       if (this.props.playing) {
@@ -311,14 +477,19 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Play the video
-  play: () => void = () => {
+  play: () => Promise<void> = async () => {
     if (this.video) {
       const isPlaying =
         this.video.currentTime > 0 &&
         !this.video.paused &&
         !this.video.ended &&
         this.video.readyState > 2;
-      if (!isPlaying) this.video.play();
+      if (!isPlaying) {
+        const startPlayPromise = this.video.play();
+        if (startPlayPromise !== undefined) {
+          startPlayPromise.then().catch((error) => this.props.onPlayError?.({ error }));
+        }
+      }
     }
   };
 
@@ -356,9 +527,25 @@ export default class Video extends PureComponent<Props, State> {
   handleCanPlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onReady } = this.props;
 
-    if (onReady) {
-      onReady({ event });
-    }
+    onReady?.({ event });
+  };
+
+  // Sent when playback of the media starts after having been paused.
+  handleControlsPlay: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+  ) => void = (event) => {
+    const { onControlsPlay } = this.props;
+
+    onControlsPlay?.({ event });
+  };
+
+  // Sent when playback is paused.
+  handleControlsPause: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+  ) => void = (event) => {
+    const { onControlsPause } = this.props;
+
+    onControlsPause?.({ event });
   };
 
   // The metadata has loaded or changed, indicating a change in
@@ -368,18 +555,14 @@ export default class Video extends PureComponent<Props, State> {
     const duration = (this.video && this.video.duration) || 0;
     this.setState({ duration });
 
-    if (onDurationChange) {
-      onDurationChange({ event, duration });
-    }
+    onDurationChange?.({ event, duration });
   };
 
   // Sent when playback completes.
   handleEnded: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onEnded } = this.props;
 
-    if (onEnded) {
-      onEnded({ event });
-    }
+    onEnded?.({ event });
   };
 
   // Sent when an error occurs.
@@ -395,9 +578,7 @@ export default class Video extends PureComponent<Props, State> {
     const fullscreen = !!isFullscreen();
     this.setState({ fullscreen });
 
-    if (onFullscreenChange) {
-      onFullscreenChange({ event, fullscreen });
-    }
+    onFullscreenChange?.({ event, fullscreen });
   };
 
   // Sent when the video has started to load
@@ -407,15 +588,18 @@ export default class Video extends PureComponent<Props, State> {
     onLoadStart?.({ event });
   };
 
-  // Sent when playback of the media starts after having been paused.
-  handlePlay: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
+  // Sent when playback of the media is paused.
+  handlePause: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onPause } = this.props;
+
+    onPause?.({ event });
+  };
+
+  // Sent when playback of the media is ready to start after having been paused.
+  handlePlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onPlay } = this.props;
 
-    if (onPlay) {
-      onPlay({ event });
-    }
+    onPlay?.({ event });
   };
 
   // Sent when playback of the media is ready to start after having been paused.
@@ -429,29 +613,14 @@ export default class Video extends PureComponent<Props, State> {
   handlePlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     const { onPlayheadDown } = this.props;
 
-    if (onPlayheadDown) {
-      onPlayheadDown({ event });
-    }
+    onPlayheadDown?.({ event });
   };
 
   // Sent when mouse up event happens on playhead
   handlePlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     const { onPlayheadUp } = this.props;
 
-    if (onPlayheadUp) {
-      onPlayheadUp({ event });
-    }
-  };
-
-  // Sent when playback is paused.
-  handlePause: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
-    const { onPause } = this.props;
-
-    if (onPause) {
-      onPause({ event });
-    }
+    onPlayheadUp?.({ event });
   };
 
   // Sent periodically to inform interested parties of progress downloading the media
@@ -460,18 +629,14 @@ export default class Video extends PureComponent<Props, State> {
     const { buffered } = this.video || {};
     const loaded = buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
 
-    if (onLoadedChange) {
-      onLoadedChange({ event, loaded });
-    }
+    onLoadedChange?.({ event, loaded });
   };
 
   // Sent when a seek operation completes.
   handleSeek: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onSeek } = this.props;
 
-    if (onSeek) {
-      onSeek({ event });
-    }
+    onSeek?.({ event });
   };
 
   // Sent when a seek operation beings.
@@ -494,9 +659,7 @@ export default class Video extends PureComponent<Props, State> {
     const currentTime = (this.video && this.video.currentTime) || 0;
     this.setState({ currentTime });
 
-    if (onTimeChange) {
-      onTimeChange({ event, time: currentTime });
-    }
+    onTimeChange?.({ event, time: currentTime });
   };
 
   // Sent when the audio volume changes
@@ -506,9 +669,7 @@ export default class Video extends PureComponent<Props, State> {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
 
-    if (onVolumeChange) {
-      onVolumeChange({ event, volume: muted ? 1 : 0 });
-    }
+    onVolumeChange?.({ event, volume: muted ? 1 : 0 });
   };
 
   // Sent when playback has stopped because of a temporary lack of data.
@@ -521,6 +682,7 @@ export default class Video extends PureComponent<Props, State> {
   render(): Node {
     const {
       aspectRatio,
+      autoplay,
       backgroundColor,
       captions,
       children,
@@ -537,7 +699,16 @@ export default class Video extends PureComponent<Props, State> {
     } = this.props;
     const { currentTime, duration, fullscreen, captionsButton } = this.state;
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
-
+    let crossOriginPolicy = crossOrigin || undefined;
+    if (captions && crossOriginPolicy !== 'anonymous') {
+      if (crossOriginPolicy === undefined) {
+        crossOriginPolicy = 'anonymous';
+      } else {
+        throw new Error(
+          `"The crossOrigin policy must be set to 'anonymous' for captions to work."`,
+        );
+      }
+    }
     const playerClasses = classnames(styles.player, {
       [colors.blackBg]: backgroundColor === 'black',
       [colors.transparentBg]: backgroundColor === 'transparent',
@@ -548,72 +719,73 @@ export default class Video extends PureComponent<Props, State> {
         className={playerClasses}
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
-        <ColorSchemeProvider id="Video" colorScheme="light">
-          <video
-            autoPlay={playing}
-            loop={loop}
-            muted={volume === 0}
-            playsInline={playsInline}
-            poster={poster}
-            preload={preload}
-            src={typeof src === 'string' ? src : undefined}
-            ref={this.setVideoRef}
-            className={styles.video}
-            disableRemotePlayback={disableRemotePlayback}
-            onCanPlay={this.handleCanPlay}
-            onDurationChange={this.handleDurationChange}
-            onEnded={this.handleEnded}
-            onError={this.handleError}
-            onLoadStart={this.handleLoadStart}
-            onPlaying={this.handlePlaying}
-            onSeeked={this.handleSeek}
-            onSeeking={this.handleSeeking}
-            onStalled={this.handleStalled}
-            onTimeUpdate={this.handleTimeUpdate}
-            onProgress={this.handleProgress}
-            onWaiting={this.handleWaiting}
-            {...(objectFit ? { style: { objectFit } } : null)}
-            {...((crossOrigin ? { crossOrigin } : { ...null }): {|
-              crossOrigin?: CrossOrigin,
-            |})}
-          >
-            {Array.isArray(src) &&
-              src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
-            <track kind="captions" src={captions} />
-          </video>
-          {Boolean(children) && (
-            <Box position="absolute" top left bottom right overflow="hidden">
-              {children}
-            </Box>
-          )}
-          {/* Need to use full path for these props so Flow can infer correct subtype */}
-          {this.props.controls && (
-            <VideoControls
-              accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
-              accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
-              accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
-              accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
-              accessibilityMuteLabel={this.props.accessibilityMuteLabel}
-              accessibilityPauseLabel={this.props.accessibilityPauseLabel}
-              accessibilityPlayLabel={this.props.accessibilityPlayLabel}
-              accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
-              captionsButton={captionsButton}
-              currentTime={currentTime}
-              duration={duration}
-              fullscreen={fullscreen}
-              onCaptionsChange={this.toggleCaptions}
-              onPlay={this.handlePlay}
-              onPlayheadDown={this.handlePlayheadDown}
-              onPlayheadUp={this.handlePlayheadUp}
-              onPause={this.handlePause}
-              onFullscreenChange={this.toggleFullscreen}
-              onVolumeChange={this.handleVolumeChange}
-              playing={playing}
-              seek={this.seek}
-              volume={volume}
-            />
-          )}
-        </ColorSchemeProvider>
+        <video
+          autoPlay={autoplay}
+          className={styles.video}
+          {...({ crossOrigin: crossOriginPolicy }: {|
+            crossOrigin?: CrossOrigin,
+          |})}
+          disableRemotePlayback={disableRemotePlayback}
+          loop={loop}
+          muted={volume === 0}
+          {...(objectFit ? { style: { objectFit } } : null)}
+          onCanPlay={this.handleCanPlay}
+          onDurationChange={this.handleDurationChange}
+          onEnded={this.handleEnded}
+          onError={this.handleError}
+          onLoadStart={this.handleLoadStart}
+          onPlay={this.handlePlay}
+          onPause={this.handlePause}
+          onPlaying={this.handlePlaying}
+          onProgress={this.handleProgress}
+          onSeeked={this.handleSeek}
+          onSeeking={this.handleSeeking}
+          onStalled={this.handleStalled}
+          onTimeUpdate={this.handleTimeUpdate}
+          onWaiting={this.handleWaiting}
+          playsInline={playsInline}
+          poster={poster}
+          preload={preload}
+          src={typeof src === 'string' ? src : undefined}
+          ref={this.setVideoRef}
+        >
+          {Array.isArray(src) &&
+            src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
+          <track kind="captions" src={captions} />
+        </video>
+        {Boolean(children) && (
+          <Box position="absolute" top left bottom right overflow="hidden">
+            {children}
+          </Box>
+        )}
+        {/* Need to use full path for these props so Flow can infer correct subtype */}
+        {this.props.controls && (
+          <VideoControls
+            accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
+            accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
+            accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
+            accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
+            accessibilityMuteLabel={this.props.accessibilityMuteLabel}
+            accessibilityPauseLabel={this.props.accessibilityPauseLabel}
+            accessibilityPlayLabel={this.props.accessibilityPlayLabel}
+            accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
+            accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
+            captionsButton={captionsButton}
+            currentTime={currentTime}
+            duration={duration}
+            fullscreen={fullscreen}
+            onCaptionsChange={this.toggleCaptions}
+            onPlay={this.handleControlsPlay}
+            onPlayheadDown={this.handlePlayheadDown}
+            onPlayheadUp={this.handlePlayheadUp}
+            onPause={this.handleControlsPause}
+            onFullscreenChange={this.toggleFullscreen}
+            onVolumeChange={this.handleVolumeChange}
+            playing={playing}
+            seek={this.seek}
+            volume={volume}
+          />
+        )}
       </div>
     );
   }

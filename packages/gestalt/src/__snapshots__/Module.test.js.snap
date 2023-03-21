@@ -2,17 +2,17 @@
 
 exports[`Module renders a badge correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -23,7 +23,7 @@ exports[`Module renders a badge correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -50,11 +50,28 @@ exports[`Module renders a badge correctly 1`] = `
               }
             }
           >
-            <span
-              className="Badge middle blueBg"
+            <div
+              className="Badge middle infoBase"
             >
-              Try it out!
-            </span>
+              <div
+                className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="box xsDisplayInlineBlock"
+                    style={
+                      Object {
+                        "marginTop": "2px",
+                      }
+                    }
+                  >
+                    Try it out!
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -63,7 +80,7 @@ exports[`Module renders a badge correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -74,17 +91,17 @@ exports[`Module renders a badge correctly 1`] = `
 
 exports[`Module renders a title correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -95,7 +112,7 @@ exports[`Module renders a title correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -117,17 +134,17 @@ exports[`Module renders a title correctly 1`] = `
 
 exports[`Module renders an error correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -140,7 +157,7 @@ exports[`Module renders an error correctly 1`] = `
           <svg
             aria-hidden={null}
             aria-label="there is an error"
-            className="icon red iconBlock"
+            className="icon errorIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -160,7 +177,7 @@ exports[`Module renders an error correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 red alignStart breakWord fontWeightBold lineClamp"
+            className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -177,7 +194,7 @@ exports[`Module renders an error correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -188,17 +205,17 @@ exports[`Module renders an error correctly 1`] = `
 
 exports[`Module renders an icon button correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -209,7 +226,7 @@ exports[`Module renders an icon button correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -230,7 +247,7 @@ exports[`Module renders an icon button correctly 1`] = `
         >
           <button
             aria-label="Get help"
-            className="button tapTransition enabled"
+            className="parentButton"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -246,27 +263,31 @@ exports[`Module renders an icon button correctly 1`] = `
             type="button"
           >
             <div
-              className="pog lightGray"
-              style={
-                Object {
-                  "height": 24,
-                  "width": 24,
-                }
-              }
+              className="button tapTransition enabled"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="icon darkGray iconBlock"
-                height={12}
-                role="img"
-                viewBox="0 0 24 24"
-                width={12}
+              <div
+                className="pog lightGray"
+                style={
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  }
+                }
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="icon defaultIcon iconBlock"
+                  height={12}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={12}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
           </button>
         </div>
@@ -276,7 +297,7 @@ exports[`Module renders an icon button correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -287,17 +308,17 @@ exports[`Module renders an icon button correctly 1`] = `
 
 exports[`Module renders an icon correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap2 itemsCenter xsDirectionRow"
+        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -310,7 +331,7 @@ exports[`Module renders an icon correctly 1`] = `
           <svg
             aria-hidden={null}
             aria-label="locked"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -330,7 +351,7 @@ exports[`Module renders an icon correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -347,7 +368,7 @@ exports[`Module renders an icon correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -358,17 +379,17 @@ exports[`Module renders an icon correctly 1`] = `
 
 exports[`Module renders content correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -379,11 +400,11 @@ exports[`Module renders content correctly 1`] = `
 
 exports[`Module renders the base correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6 rounding4 shadow"
+  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
-    className="Flex columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap6 xsDirectionColumn"
   >
     <div
       className="FlexItem"

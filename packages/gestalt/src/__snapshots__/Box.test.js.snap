@@ -77,6 +77,12 @@ exports[`Box has correct classes when borderStyle is lg 1`] = `
 />
 `;
 
+exports[`Box has correct classes when borderStyle is raisedTopShadow 1`] = `
+<div
+  className="box raisedTop"
+/>
+`;
+
 exports[`Box has correct classes when borderStyle is shadow 1`] = `
 <div
   className="box shadow"

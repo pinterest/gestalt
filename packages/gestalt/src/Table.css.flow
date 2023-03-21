@@ -3,10 +3,12 @@
 declare module.exports: {|
   +'columnSticky': string,
   +'columnStickyShadow': string,
+  +'drawer': string,
   +'horizontalScrollLeft': string,
   +'horizontalScrollRight': string,
   +'hoverShadeGray': string,
-  +'sticky': string,
+  +'stickyFooter': string,
+  +'stickyHeader': string,
   +'table': string,
   +'tbody': string,
   +'td': string,

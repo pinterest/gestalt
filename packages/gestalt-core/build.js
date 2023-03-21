@@ -22,17 +22,17 @@ const svgPath = () => ({
 
     const data = readFileSync(id, 'utf-8');
 
-    return new Promise((resolve, reject) =>
+    return new Promise((resolve, reject) => {
       parseString(data, (err, result) => {
         if (err) {
-          return reject(err);
+          reject(err);
+        } else {
+          const path = result.svg.path[0].$.d;
+          const code = `export default '${path}';`;
+          resolve({ code });
         }
-
-        const path = result.svg.path[0].$.d;
-        const code = `export default '${path}';`;
-        return resolve({ code });
-      }),
-    );
+      });
+    });
   },
 });
 

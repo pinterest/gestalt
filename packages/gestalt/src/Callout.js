@@ -6,99 +6,96 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import headingStyles from './Heading.css';
-import typography from './Typography.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import styles from './Callout.css';
+import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType } from './commonTypes.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+
+export type ActionDataType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
 
 type Props = {|
   /**
-   * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/callout#Dismissible) for more info.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/callout#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   dismissButton?: {| accessibilityLabel: string, onDismiss: () => void |},
   /**
-   * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility) for details on proper usage.
+   * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */
   iconAccessibilityLabel: string,
   /**
-   * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/callout#Localization).
+   * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *
-   * See [Best Practices](https://gestalt.pinterest.systems/callout#Best-practices) for more info.
+   * See [Best Practices](https://gestalt.pinterest.systems/web/callout#Best-practices) for more info.
    */
   message: string,
   /**
-   * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
+   * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   primaryAction?: {|
     accessibilityLabel: string,
     disabled?: boolean,
     href?: string,
     label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| dangerouslyDisableOnNavigation: () => void |},
-    >,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/callout/OnLinkNavigationProvider) to learn more about link navigation.
+   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
-   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/callout#Accessibility).
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   secondaryAction?: {|
     accessibilityLabel: string,
     disabled?: boolean,
     href?: string,
     label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-      {| dangerouslyDisableOnNavigation: () => void |},
-    >,
+    onClick?: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    |}) => void,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
   |},
   /**
-   * The category of Callout. See [Variants](https://gestalt.pinterest.systems/callout#Variants) to learn more.
+   * The category of Callout. See [Variants](https://gestalt.pinterest.systems/web/callout#Variants) to learn more.
    */
-  type: 'error' | 'info' | 'warning',
+  type: 'error' | 'info' | 'recommendation' | 'success' | 'warning',
   /**
-   * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/callout#Localization).
+   * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    */
   title?: string,
 |};
 
-const CALLOUT_TYPE_ATTRIBUTES = {
-  info: {
-    icon: 'info-circle',
-    color: 'blue',
-    backgroundColor: '#EBF4FE',
-  },
-  warning: {
-    icon: 'workflow-status-warning',
-    color: 'orange',
-    backgroundColor: '#FDF5EC',
-  },
-  error: {
-    icon: 'workflow-status-problem',
-    color: 'red',
-    backgroundColor: '#FDEBEE',
-  },
-};
-
-const CalloutAction = ({
+function CalloutAction({
   data,
   stacked,
   type,
@@ -106,13 +103,8 @@ const CalloutAction = ({
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node => {
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-  let color = type === 'primary' ? 'white' : 'transparent';
-  if (isDarkMode && type === 'secondary') {
-    color = 'transparentWhiteText';
-  }
+|}): Node {
+  const color = type === 'primary' ? 'white' : 'transparent';
   const { accessibilityLabel, disabled, label, onClick, href, rel, target } = data;
 
   return (
@@ -154,12 +146,14 @@ const CalloutAction = ({
       )}
     </Box>
   );
-};
+}
 
 /**
- * [Callout](https://gestalt.pinterest.systems/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
+ * [Callout](https://gestalt.pinterest.systems/web/callout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
- * ⚠️ Please note: Callout is not currently supported in dark mode.
+ * ![Callout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Callout.spec.mjs-snapshots/Callout-chromium-darwin.png)
+ * ![Callout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Callout-dark.spec.mjs-snapshots/Callout-dark-chromium-darwin.png)
+ *
  */
 export default function Callout({
   dismissButton,
@@ -170,23 +164,11 @@ export default function Callout({
   type,
   title,
 }: Props): Node {
-  // Currently there is not a dark mode spec for this component. This is to ensure
-  // that all text is readable.
-  const { name } = useColorScheme();
-  const isDarkMode = name === 'darkMode';
   const responsiveMinWidth = useResponsiveMinWidth();
-  const titleClasses = classnames(
-    headingStyles.TextLikeHeadingSm,
-    responsiveMinWidth === 'xs' && typography.alignCenter,
-  );
 
   return (
     <Box
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[type].backgroundColor,
-        },
-      }}
+      color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
       display="flex"
       direction="column"
       smDirection="row"
@@ -209,8 +191,8 @@ export default function Callout({
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel}
-              color={CALLOUT_TYPE_ATTRIBUTES[type].color}
-              icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
+              color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
+              icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
               size={32}
             />
           </Box>
@@ -225,7 +207,13 @@ export default function Callout({
             >
               {title && (
                 <Box marginBottom={2}>
-                  <p className={titleClasses}>{title}</p>
+                  <Text
+                    size="400"
+                    weight="bold"
+                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
+                  >
+                    {title}
+                  </Text>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
@@ -250,7 +238,7 @@ export default function Callout({
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel}
             icon="cancel"
-            iconColor={isDarkMode ? 'white' : 'darkGray'}
+            iconColor="darkGray"
             onClick={dismissButton.onDismiss}
             padding={4}
             size="sm"

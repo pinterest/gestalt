@@ -35,6 +35,19 @@ describe('NumberField', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('NumberField with enterKeyHint', () => {
+    const tree = create(
+      <NumberField
+        enterKeyHint="go"
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('NumberField with name', () => {
     const tree = create(
       <NumberField

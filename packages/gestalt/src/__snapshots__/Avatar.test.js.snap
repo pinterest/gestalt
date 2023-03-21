@@ -3,6 +3,7 @@
 exports[`Avatar renders an outline 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "boxShadow": "0 0 0 1px #fff",
@@ -12,7 +13,7 @@ exports[`Avatar renders an outline 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -34,7 +35,7 @@ exports[`Avatar renders an outline 1`] = `
           Jenny
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -51,6 +52,7 @@ exports[`Avatar renders an outline 1`] = `
 exports[`Avatar renders multi-byte character initial 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": "",
@@ -59,7 +61,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -81,7 +83,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -98,6 +100,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
 exports[`Avatar renders the checkmark on verified default 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": 48,
@@ -126,7 +129,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -151,7 +154,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
     }
   >
     <div
-      className="box circle whiteBg"
+      className="box circle default"
       style={
         Object {
           "height": "100%",
@@ -162,7 +165,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon red iconBlock"
+        className="icon brandPrimaryIcon iconBlock"
         height="100%"
         role="img"
         viewBox="0 0 24 24"
@@ -180,6 +183,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
 exports[`Avatar renders the correct size - lg 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": 64,
@@ -208,7 +212,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -225,6 +229,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
 exports[`Avatar renders the correct size - md 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": 48,
@@ -253,7 +258,7 @@ exports[`Avatar renders the correct size - md 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -270,6 +275,7 @@ exports[`Avatar renders the correct size - md 1`] = `
 exports[`Avatar renders the correct size - sm 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": 32,
@@ -298,7 +304,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -315,6 +321,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
 exports[`Avatar renders the correct size - xl 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": 24,
@@ -343,7 +350,7 @@ exports[`Avatar renders the correct size - xl 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -360,6 +367,7 @@ exports[`Avatar renders the correct size - xl 1`] = `
 exports[`Avatar renders the correct size - xs 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": 24,
@@ -388,7 +396,7 @@ exports[`Avatar renders the correct size - xs 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -405,6 +413,7 @@ exports[`Avatar renders the correct size - xs 1`] = `
 exports[`Avatar renders the correct src 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": "",
@@ -433,7 +442,7 @@ exports[`Avatar renders the correct src 1`] = `
       <img
         alt="Strava"
         className="img"
-        importance="auto"
+        fetchpriority="auto"
         loading="auto"
         onError={[Function]}
         onLoad={[Function]}
@@ -450,6 +459,7 @@ exports[`Avatar renders the correct src 1`] = `
 exports[`Avatar renders the verified icon 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": "",
@@ -458,7 +468,7 @@ exports[`Avatar renders the verified icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -480,7 +490,7 @@ exports[`Avatar renders the verified icon 1`] = `
           Jammy
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -505,7 +515,7 @@ exports[`Avatar renders the verified icon 1`] = `
     }
   >
     <div
-      className="box circle whiteBg"
+      className="box circle default"
       style={
         Object {
           "height": "100%",
@@ -516,7 +526,7 @@ exports[`Avatar renders the verified icon 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon red iconBlock"
+        className="icon brandPrimaryIcon iconBlock"
         height="100%"
         role="img"
         viewBox="0 0 24 24"
@@ -534,6 +544,7 @@ exports[`Avatar renders the verified icon 1`] = `
 exports[`Avatar renders with an empty name shows default icon 1`] = `
 <div
   className="box circle relative"
+  data-test-id="gestalt-avatar-svg"
   style={
     Object {
       "height": "",
@@ -542,7 +553,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle relative secondary"
     style={
       Object {
         "boxShadow": undefined,
@@ -561,14 +572,12 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <text
-          className="antialiased sansSerif fontWeightBold "
+          className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
           textAnchor="middle"
-        >
-          
-        </text>
+        />
       </svg>
     </div>
   </div>

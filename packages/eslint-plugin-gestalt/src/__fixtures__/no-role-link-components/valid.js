@@ -5,7 +5,7 @@ export default function TestElement() {
   return (
     <Fragment>
       <TapArea role="button" />
-      <IconButton role="button" />
+      <IconButton role="button" size="md" />
       <Button />
     </Fragment>
   );

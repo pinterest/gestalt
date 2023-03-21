@@ -1,5 +1,539 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
+<body>
+  <div />
+  <div
+    class=""
+  >
+    <div>
+      <div
+        class="container rounding4 contents maxDimensions minDimensions"
+        style="visibility: visible; top: 8px; left: -10px;"
+        tabindex="-1"
+      >
+        <div
+          aria-label="Popover"
+          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          id="ex-1"
+          role="menu"
+          style="max-width: 360px; max-height: 691.1999999999999px;"
+        >
+          <div
+            class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+          >
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-0"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="1"
+                        >
+                          1
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-1"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="2"
+                        >
+                          2
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-2"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="3"
+                        >
+                          3
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-3"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="4"
+                        >
+                          4
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-4"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="5"
+                        >
+                          5
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-5"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="6"
+                        >
+                          6
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-6"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="7"
+                        >
+                          7
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-7"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="8"
+                        >
+                          8
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-8"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="9"
+                        >
+                          9
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-9"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="10"
+                        >
+                          10
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-10"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="11"
+                        >
+                          11
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-11"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="12"
+                        >
+                          12
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`Dropdown renders a menu of 6 items 1`] = `
 <body>
   <div />
@@ -8,202 +542,278 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
   >
     <div>
       <div
-        class="container"
-        style="stroke: #efefef; visibility: visible; top: 8px; left: -10px;"
+        class="container rounding4 contents maxDimensions minDimensions"
+        style="visibility: visible; top: 8px; left: -10px;"
+        tabindex="-1"
       >
         <div
-          class="rounding4 contents maxDimensions minDimensions"
-          tabindex="-1"
+          aria-label="Popover"
+          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          id="ex-1"
+          role="menu"
+          style="max-width: 360px; max-height: 691.1999999999999px;"
         >
           <div
-            class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
-            id="ex-1"
-            role="menu"
-            style="max-width: 360px;"
+            class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
           >
             <div
-              class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-0"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
             >
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
-                id="ex-1-item-0"
-                role="menuitem"
-                rounding="2"
-                tabindex="-1"
+                class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
               >
                 <div
-                  class="box lightGrayBg paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 xsDirectionRow"
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
-                      class="Flex columnGap1 flexGrow xsDirectionColumn"
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="Item 1"
+                        >
+                          Item 1
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-1"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <div
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                  >
+                    <div
+                      class="FlexItem"
+                    >
+                      <div
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                      >
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="Item 2 with a really long, detailed, complex name"
+                        >
+                          Item 2 with a really long, detailed, complex name
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                  >
+                    <div
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-2"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <a
+                  class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
+                  href="https://pinterest.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap0 xsDirectionRow"
+                  >
+                    <div
+                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                         >
                           <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
-                            title="Item 1"
+                            class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                            title="External Item 3 with a really long, detailed, complex name"
                           >
-                            Item 1
+                            External Item 3 with a really long, detailed, complex name
                           </span>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter xsDisplayFlex"
+                      class="box justifyCenter xsDisplayNone xsItemsCenter"
                     >
                       <div
                         class="box"
                         style="width: 12px;"
                       />
                     </div>
+                    <div
+                      aria-hidden="true"
+                      class="box justifyCenter marginStart2 xsDisplayFlex xsItemsCenter"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="rtlSupport icon defaultIcon iconBlock"
+                        height="12"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="12"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                  <div
+                    class="box xsDisplayVisuallyHidden"
+                  >
+                    ; Opens a new tab
+                  </div>
+                </a>
               </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-3"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
-                id="ex-1-item-1"
-                role="menuitem"
-                rounding="2"
-                tabindex="-1"
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
               >
                 <div
-                  class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 xsDirectionRow"
+                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                   >
                     <div
-                      class="Flex columnGap1 flexGrow xsDirectionColumn"
+                      class="FlexItem"
                     >
                       <div
-                        class="FlexItem"
+                        class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
-                        <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        <span
+                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          title="Item 4"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
-                            title="Item 2 with a really long, detailed, complex name"
-                          >
-                            Item 2 with a really long, detailed, complex name
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="box itemsCenter justifyCenter xsDisplayFlex"
-                    >
-                      <div
-                        class="box"
-                        style="width: 12px;"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
-                id="ex-1-item-2"
-                role="menuitem"
-                rounding="2"
-                tabindex="-1"
-              >
-                <div
-                  class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
-                >
-                  <a
-                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
-                    href="https://pinterest.com"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <div
-                      class="Flex rowGap0 xsDirectionRow"
-                    >
-                      <div
-                        class="Flex columnGap1 flexGrow xsDirectionColumn"
-                      >
+                          Item 4
+                        </span>
                         <div
-                          class="FlexItem"
+                          class="box marginStart2 marginTop1"
                         >
                           <div
-                            class="Flex rowGap0 itemsCenter xsDirectionRow"
+                            class="box xsDisplayVisuallyHidden"
                           >
-                            <span
-                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
-                              title="External Item 3 with a really long, detailed, complex name"
+                            , 
+                          </div>
+                          <div
+                            class="Badge middle infoBase"
+                          >
+                            <div
+                              class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
                             >
-                              External Item 3 with a really long, detailed, complex name
-                            </span>
+                              <div
+                                class="FlexItem"
+                              >
+                                <div
+                                  class="box xsDisplayInlineBlock"
+                                  style="margin-top: 2px;"
+                                >
+                                  New
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="box itemsCenter justifyCenter xsDisplayNone"
-                      >
-                        <div
-                          class="box"
-                          style="width: 12px;"
-                        />
-                      </div>
-                      <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
-                      >
-                        <svg
-                          aria-label=", External"
-                          class="rtlSupport icon darkGray iconBlock"
-                          height="12"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="12"
-                        >
-                          <path
-                            d="test-file-stub"
-                          />
-                        </svg>
-                      </div>
                     </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
-                id="ex-1-item-3"
-                role="menuitem"
-                rounding="2"
-                tabindex="-1"
-              >
-                <div
-                  class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
-                >
+                  </div>
                   <div
-                    class="Flex rowGap0 xsDirectionRow"
+                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
                   >
                     <div
-                      class="Flex columnGap1 flexGrow xsDirectionColumn"
+                      class="box"
+                      style="width: 12px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-4"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
+              <div
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+              >
+                <a
+                  class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
+                  href="https://pinterest.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <div
+                    class="Flex rowGap0 columnGap0 xsDirectionRow"
+                  >
+                    <div
+                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                         >
                           <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
-                            title="Item 4"
+                            class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                            title="Item 5 with a really long, detailed name"
                           >
-                            Item 4
+                            Item 5 with a really long, detailed name
                           </span>
                           <div
                             class="box marginStart2 marginTop1"
@@ -213,171 +823,133 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             >
                               , 
                             </div>
-                            <span
-                              class="Badge middle blueBg"
+                            <div
+                              class="Badge middle infoBase"
                             >
-                              New
-                            </span>
+                              <div
+                                class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                              >
+                                <div
+                                  class="FlexItem"
+                                >
+                                  <div
+                                    class="box xsDisplayInlineBlock"
+                                    style="margin-top: 2px;"
+                                  >
+                                    New
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter xsDisplayFlex"
+                      class="box justifyCenter xsDisplayNone xsItemsCenter"
                     >
                       <div
                         class="box"
                         style="width: 12px;"
                       />
                     </div>
+                    <div
+                      aria-hidden="true"
+                      class="box justifyCenter marginStart2 xsDisplayFlex xsItemsCenter"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="rtlSupport icon defaultIcon iconBlock"
+                        height="12"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="12"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                  <div
+                    class="box xsDisplayVisuallyHidden"
+                  >
+                    ; Opens a new tab
+                  </div>
+                </a>
               </div>
+            </div>
+            <div
+              class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
+              id="ex-1-item-5"
+              role="menuitem"
+              rounding="2"
+              tabindex="-1"
+            >
               <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
-                id="ex-1-item-4"
-                role="menuitem"
-                rounding="2"
-                tabindex="-1"
+                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
               >
-                <div
-                  class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                <a
+                  class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
+                  href="https://pinterest.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
-                  <a
-                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
-                    href="https://pinterest.com"
-                    rel="noopener noreferrer"
-                    target="_blank"
+                  <div
+                    class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap0 xsDirectionRow"
+                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex columnGap1 flexGrow xsDirectionColumn"
+                        class="FlexItem"
                       >
                         <div
-                          class="FlexItem"
+                          class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                         >
-                          <div
-                            class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          <span
+                            class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                            title="Item 6"
                           >
-                            <span
-                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
-                              title="Item 5 with a really long, detailed name"
-                            >
-                              Item 5 with a really long, detailed name
-                            </span>
-                            <div
-                              class="box marginStart2 marginTop1"
-                            >
-                              <div
-                                class="box xsDisplayVisuallyHidden"
-                              >
-                                , 
-                              </div>
-                              <span
-                                class="Badge middle blueBg"
-                              >
-                                New
-                              </span>
-                            </div>
-                          </div>
+                            Item 6
+                          </span>
                         </div>
                       </div>
-                      <div
-                        class="box itemsCenter justifyCenter xsDisplayNone"
-                      >
-                        <div
-                          class="box"
-                          style="width: 12px;"
-                        />
-                      </div>
-                      <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
-                      >
-                        <svg
-                          aria-label=", External"
-                          class="rtlSupport icon darkGray iconBlock"
-                          height="12"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="12"
-                        >
-                          <path
-                            d="test-file-stub"
-                          />
-                        </svg>
-                      </div>
                     </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                aria-selected="false"
-                class="rounding2 hideOutline accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
-                id="ex-1-item-5"
-                role="menuitem"
-                rounding="2"
-                tabindex="-1"
-              >
-                <div
-                  class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
-                >
-                  <a
-                    class="link hideOutline tapTransition rounding0 block accessibilityOutline"
-                    href="https://pinterest.com"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
                     <div
-                      class="Flex rowGap0 xsDirectionRow"
+                      class="box justifyCenter xsDisplayNone xsItemsCenter"
                     >
                       <div
-                        class="Flex columnGap1 flexGrow xsDirectionColumn"
-                      >
-                        <div
-                          class="FlexItem"
-                        >
-                          <div
-                            class="Flex rowGap0 itemsCenter xsDirectionRow"
-                          >
-                            <span
-                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold lineClamp"
-                              title="Item 6"
-                            >
-                              Item 6
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="box itemsCenter justifyCenter xsDisplayNone"
-                      >
-                        <div
-                          class="box"
-                          style="width: 12px;"
-                        />
-                      </div>
-                      <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
-                      >
-                        <svg
-                          aria-label=", External"
-                          class="rtlSupport icon darkGray iconBlock"
-                          height="12"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="12"
-                        >
-                          <path
-                            d="test-file-stub"
-                          />
-                        </svg>
-                      </div>
+                        class="box"
+                        style="width: 12px;"
+                      />
                     </div>
-                  </a>
-                </div>
+                    <div
+                      aria-hidden="true"
+                      class="box justifyCenter marginStart2 xsDisplayFlex xsItemsCenter"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="rtlSupport icon defaultIcon iconBlock"
+                        height="12"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="12"
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="box xsDisplayVisuallyHidden"
+                  >
+                    ; Opens a new tab
+                  </div>
+                </a>
               </div>
             </div>
           </div>

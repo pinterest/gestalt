@@ -1,79 +1,52 @@
 // @flow strict
-import type { ComponentType, Node } from 'react';
-import { Component as ReactComponent } from 'react';
-import debounce from './debounce.js';
+import { type Node, Component as ReactComponent } from 'react';
+import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
-import ScrollContainer from './ScrollContainer.js';
-import throttle from './throttle.js';
-import type { Cache } from './Cache.js';
-import MeasurementStore from './MeasurementStore.js';
-import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
-import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
-import defaultLayout from './defaultLayout.js';
-import uniformRowLayout from './uniformRowLayout.js';
-import fullWidthLayout from './fullWidthLayout.js';
-import LegacyMasonryLayout from './layouts/MasonryLayout.js';
-import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
+import ScrollContainer from './Masonry/ScrollContainer.js';
+import throttle, { type ThrottleReturn } from './throttle.js';
+import { type Cache } from './Masonry/Cache.js';
+import MeasurementStore from './Masonry/MeasurementStore.js';
+import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
+import defaultLayout from './Masonry/defaultLayout.js';
+import uniformRowLayout from './Masonry/uniformRowLayout.js';
+import fullWidthLayout from './Masonry/fullWidthLayout.js';
 
-type Layout =
-  | typeof DefaultLayoutSymbol
-  | typeof UniformRowLayoutSymbol
-  | LegacyMasonryLayout
-  | LegacyUniformRowLayout
-  | 'basic'
-  | 'basicCentered'
-  | 'flexible'
-  | 'uniformRow';
+const RESIZE_DEBOUNCE = 300;
+
+const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
+
+type Position = {| top: number, left: number, width: number, height: number |};
+
+type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
 type Props<T> = {|
   /**
-   * The preferred/target item width. If `flexible` is set, the item width will
+   * The preferred/target item width. If 'flexible' is set, the item width will
    * grow to fill column space, and shrink to fit if below min columns.
    */
   columnWidth?: number,
   /**
-   * The component to render.
-   */
-  comp: ComponentType<{|
-    data: T,
-    itemIdx: number,
-    isMeasuring: boolean,
-  |}>,
-  /**
-   * The preferred/target item width. Item width will grow to fill
-   * column space, and shrink to fit if below min columns.
-   */
-  flexible?: boolean,
-  /**
-   * The amount of space between each item.
+   * The amount of vertical and horizontal space between each item, specified in pixels.
    */
   gutterWidth?: number,
-
   /**
-   * An array of all objects to display in the grid.
+   * An array of items to display that contains the data to be rendered by `renderItem()` (fallback to the deprecated `<Item />` if `renderItem` is not passed).
    */
   items: $ReadOnlyArray<T>,
   /**
-   * Measurement Store
-   */
-  // $FlowFixMe[unclear-type]
-  measurementStore?: Cache<T, *>,
-  /**
-   * Minimum number of columns to display.
-   */
-  minCols: number,
-  /**
-   * Layout system to use for items
+   * `basic`: Left aligned masonry layout.
+   * `basicCentered`: Center aligned masonry layout.
+   * `flexible`: Item width grows to fill column space and shrinks to fit if below min columns.
+   * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below min columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
+   * `uniformRow`: Items are laid out in a single row, with all items having the same height.
    */
   layout?: Layout,
-  // Support legacy loadItems usage.
-  // TODO: Simplify non falsey flowtype.
-
   /**
    * A callback which the grid calls when we need to load more items as the user scrolls.
    * The callback should update the state of the items, and pass those in as props
    * to this component.
+   * Note that `scrollContainer` must be specified.
    */
   loadItems?:
     | false
@@ -83,46 +56,59 @@ type Props<T> = {|
         |},
       ) => void | boolean | { ... }),
   /**
-   * Function that the grid calls to get the scroll container.
+   * Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
+   */
+  // $FlowFixMe[unclear-type]
+  measurementStore?: Cache<T, *>,
+  /**
+   * Minimum number of columns to display.
+   */
+  minCols: number,
+  /**
+   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   */
+  renderItem: ({|
+    +data: T,
+    +itemIdx: number,
+    +isMeasuring: boolean,
+  |}) => Node,
+  /**
+   * A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    * This is required if the grid is expected to be scrollable.
    */
   scrollContainer?: () => HTMLElement,
-  // Prop to help us conditionally/experimentally test a new React.setState(scrollPos) strategy.
-  // See this.handleScroll fn for more details
-  _deferScrollPositionUpdate?: boolean,
-  virtualBoundsTop?: number,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
+   */
   virtualBoundsBottom?: number,
   /**
-   * Whether or not to use actual virtualization
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
+   */
+  virtualBoundsTop?: number,
+  /**
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBufferFactor` allows customization of the buffer size, specified as a multiplier of the container height. It specifies the amount of extra buffer space for populating visible items. For example, if `virtualBufferFactor` is 2, then Masonry will render items that fit in the viewport, plus 2x the viewport height.
+   */
+  virtualBufferFactor?: number,
+  /**
+   * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
    */
   virtualize?: boolean,
 |};
 
 type State<T> = {|
-  // $FlowFixMe[unclear-type]
-  measurementStore: Cache<T, *>,
   hasPendingMeasurements: boolean,
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
+  measurementStore: Cache<T, number>,
   scrollTop: number,
   width: ?number,
 |};
 
-const RESIZE_DEBOUNCE = 300;
-// Multiplied against container height.
-// The amount of extra buffer space for populating visible items.
-const VIRTUAL_BUFFER_FACTOR = 0.7;
-
-// Duration for the function that we'll use to see if scroll is still happening.
-// One mouse scroll creates many addEventListener('scroll', ()=>{}) type events,
-// so if this timeout is reached (not reset by another scroll event), we know scroll
-// is over and perform post scroll tasks.
-const SCROLL_TIMEOUT_WAIT = 100;
-
-const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
-
 /**
- * [Masonry](https://gestalt.pinterest.systems/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
+ * [Masonry](https://gestalt.pinterest.systems/web/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
+ *
+ * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.mjs-snapshots/Masonry-chromium-darwin.png)
+ *
  */
 export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
@@ -132,15 +118,15 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
-  // $FlowFixMe[signature-verification-failure]
-  handleResize = debounce(() => {
+  handleResize: DebounceReturn = debounce(() => {
     if (this.gridWrapper) {
       this.setState({ width: this.gridWrapper.clientWidth });
     }
   }, RESIZE_DEBOUNCE);
 
-  // $FlowFixMe[signature-verification-failure]
-  updateScrollPosition = () => {
+  // Using throttle here to schedule the handler async, outside of the event
+  // loop that produced the event.
+  updateScrollPosition: ThrottleReturn = throttle(() => {
     if (!this.scrollContainer) {
       return;
     }
@@ -153,28 +139,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.setState({
       scrollTop: getScrollPos(scrollContainer),
     });
-  };
+  });
 
-  // $FlowFixMe[signature-verification-failure]
-  throttledUpdateScrollPosition = throttle(this.updateScrollPosition);
-
-  scrollTimeoutId: ?TimeoutID = null;
-
-  // The browser scroll event API will fire LOTS of scroll events. This waits until the events
-  // stop coming in to set the final scroll position
-  handleScroll: () => void = () => {
-    if (this.scrollTimeoutId) {
-      clearTimeout(this.scrollTimeoutId);
-    }
-    this.scrollTimeoutId = setTimeout(this.updateScrollPosition, SCROLL_TIMEOUT_WAIT);
-  };
-
-  clearScrollTimeout: () => void = () => {
-    clearTimeout(this.scrollTimeoutId);
-  };
-
-  // $FlowFixMe[signature-verification-failure]
-  measureContainerAsync = debounce(() => {
+  measureContainerAsync: DebounceReturn = debounce(() => {
     this.measureContainer();
   }, 0);
 
@@ -201,12 +168,14 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           |},
         ) => void | boolean | { ... }),
     minCols: number,
+    virtualBufferFactor: number,
     virtualize?: boolean,
   |} = {
     columnWidth: 236,
     minCols: 3,
     layout: 'basic',
     loadItems: () => {},
+    virtualBufferFactor: 0.7,
     virtualize: false,
   };
 
@@ -268,6 +237,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       hasPendingMeasurements !== this.state.hasPendingMeasurements ||
       prevState.width == null
     ) {
+      // This helps prevent jank
+      // Revisit this with React 18!
       this.insertAnimationFrame = requestAnimationFrame(() => {
         this.setState({
           hasPendingMeasurements,
@@ -287,22 +258,18 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     // Make sure async methods are cancelled.
     this.measureContainerAsync.clearTimeout();
     this.handleResize.clearTimeout();
-    // eslint-disable-next-line no-underscore-dangle
-    if (this.props._deferScrollPositionUpdate) {
-      this.clearScrollTimeout();
-    } else {
-      this.throttledUpdateScrollPosition.clearTimeout();
-    }
+    this.updateScrollPosition.clearTimeout();
+
     window.removeEventListener('resize', this.handleResize);
   }
 
-  static getDerivedStateFromProps(
-    props: Props<T>,
-    state: State<T>,
+  static getDerivedStateFromProps<K>(
+    props: Props<K>,
+    state: State<K>,
   ): null | {|
     hasPendingMeasurements: boolean,
     isFetching?: boolean,
-    items: $ReadOnlyArray<T>,
+    items: $ReadOnlyArray<K>,
   |} {
     const { items } = props;
     const { measurementStore } = state;
@@ -410,24 +377,24 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  // $FlowFixMe[unclear-type]
-  renderMasonryComponent: (itemData: T, idx: number, position: *) => Node = (
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
     itemData,
     idx,
     position,
   ) => {
     const {
-      comp: Component,
+      renderItem,
       scrollContainer,
       virtualize,
       virtualBoundsTop,
       virtualBoundsBottom,
+      virtualBufferFactor,
     } = this.props;
     const { top, left, width, height } = position;
 
     let isVisible;
-    if (scrollContainer) {
-      const virtualBuffer = this.containerHeight * VIRTUAL_BUFFER_FACTOR;
+    if (scrollContainer && virtualBufferFactor) {
+      const virtualBuffer = this.containerHeight * virtualBufferFactor;
       const offsetScrollPos = this.state.scrollTop - this.containerOffset;
       const viewportTop = virtualBoundsTop
         ? offsetScrollPos - virtualBoundsTop
@@ -442,21 +409,26 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       isVisible = true;
     }
 
+    // This assumes `document.dir` exists, since this method is only invoked
+    // on the client. If that assumption changes, this will need to be revisited
+    const isRtl = document?.dir === 'rtl';
+
     const itemComponent = (
       <div
-        key={`item-${idx}`}
         className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
         data-grid-item
+        key={`item-${idx}`}
+        role="listitem"
         style={{
           top: 0,
-          left: 0,
-          transform: `translateX(${left}px) translateY(${top}px)`,
-          WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
+          ...(isRtl ? { right: 0 } : { left: 0 }),
+          transform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
+          WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
         }}
       >
-        <Component data={itemData} itemIdx={idx} isMeasuring={false} />
+        {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
       </div>
     );
 
@@ -466,20 +438,18 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   render(): Node {
     const {
       columnWidth,
-      comp: Component,
-      flexible,
       gutterWidth: gutter,
       items,
       layout,
       minCols,
-      _deferScrollPositionUpdate,
+      renderItem,
       scrollContainer,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
 
     let getPositions;
 
-    if ((flexible || layout === 'flexible') && width !== null) {
+    if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
         gutter,
         cache: measurementStore,
@@ -487,11 +457,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         idealColumnWidth: columnWidth,
         width,
       });
-    } else if (
-      layout === UniformRowLayoutSymbol ||
-      layout instanceof LegacyUniformRowLayout ||
-      layout === 'uniformRow'
-    ) {
+    } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
         cache: measurementStore,
         columnWidth,
@@ -518,36 +484,40 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div
           className={styles.Masonry}
-          style={{ height: 0, width: '100%' }}
           ref={this.setGridWrapperRef}
+          role="list"
+          style={{ height: 0, width: '100%' }}
         >
-          {items
-            .filter((item) => item)
-            .map((item, i) => (
-              <div // keep this in sync with renderMasonryComponent
-                className="static"
-                data-grid-item
-                key={i}
-                style={{
-                  top: 0,
-                  left: 0,
-                  transform: 'translateX(0px) translateY(0px)',
-                  WebkitTransform: 'translateX(0px) translateY(0px)',
-                  width:
-                    flexible || layout === 'flexible'
-                      ? undefined
-                      : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
-                }}
-                ref={(el) => {
-                  if (el && !(flexible || layout === 'flexible')) {
-                    // only measure flexible items on client
-                    measurementStore.set(item, el.clientHeight);
-                  }
-                }}
-              >
-                <Component data={item} itemIdx={i} isMeasuring={false} />
-              </div>
-            ))}
+          {items.filter(Boolean).map((item, i) => (
+            <div // keep this in sync with renderMasonryComponent
+              className="static"
+              data-grid-item
+              // eslint-disable-next-line react/no-array-index-key
+              key={i}
+              ref={(el) => {
+                // purposely not checking for layout === 'serverRenderedFlexible' here
+                if (el && layout !== 'flexible') {
+                  // if we're hydrating from the server, we should only measure items on the initial render pass
+                  // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
+                  // that the caller has added the proper CSS to ensure the layout is correct during server render
+                  measurementStore.set(item, el.clientHeight);
+                }
+              }}
+              role="listitem"
+              style={{
+                top: 0,
+                left: 0,
+                transform: 'translateX(0px) translateY(0px)',
+                WebkitTransform: 'translateX(0px) translateY(0px)',
+                width:
+                  layout === 'flexible' || layout === 'serverRenderedFlexible'
+                    ? undefined
+                    : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
+              }}
+            >
+              {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
+            </div>
+          ))}
         </div>
       );
     } else if (width == null) {
@@ -561,9 +531,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, minCols);
 
-      // $FlowFixMe[incompatible-call]
       const positions = getPositions(itemsToRender);
-      // $FlowFixMe[incompatible-call]
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -571,7 +539,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         : 0;
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
-          <div className={styles.Masonry} style={{ height, width }}>
+          <div className={styles.Masonry} role="list" style={{ height, width }}>
             {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
           </div>
           <div className={styles.Masonry} style={{ width }}>
@@ -598,7 +566,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                     }
                   }}
                 >
-                  <Component data={data} itemIdx={measurementIndex} isMeasuring />
+                  {renderItem({ data, itemIdx: measurementIndex, isMeasuring: true })}
                 </div>
               );
             })}
@@ -620,9 +588,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return scrollContainer ? (
       <ScrollContainer
         ref={this.setScrollContainerRef}
-        onScroll={
-          _deferScrollPositionUpdate ? this.handleScroll : this.throttledUpdateScrollPosition
-        }
+        onScroll={this.updateScrollPosition}
         scrollContainer={scrollContainer}
       >
         {gridBody}

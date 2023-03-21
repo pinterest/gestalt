@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import IconButton from './IconButton.js';
 
 describe('IconButton', () => {
@@ -9,6 +9,7 @@ describe('IconButton', () => {
     const { getByRole } = render(
       <IconButton accessibilityLabel="test" icon="add" onClick={mockOnClick} />,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByRole('button').click();
     expect(mockOnClick).toHaveBeenCalled();
   });
@@ -85,5 +86,20 @@ describe('IconButton', () => {
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
+  });
+
+  it('renders a link button with correct new tab announcement with and without accessibilityLabel', () => {
+    render(
+      <IconButton
+        accessibilityLabel="Visit Pinterest"
+        icon="visit"
+        role="link"
+        target="blank"
+        href="https://www.pinterest.com"
+        tooltip={{ text: 'Link example' }}
+      />,
+    );
+
+    expect(screen.getByLabelText('Visit Pinterest; Opens a new tab')).toBeVisible();
   });
 });

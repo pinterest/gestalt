@@ -1,0 +1,595 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders a bare unordered list 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":r0:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ul
+      aria-labelledby=":r0:"
+      className="list parentList"
+    >
+      <li
+        className="noStyle listItem"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+        <ul
+          aria-labelledby=":r1:"
+          className="list"
+        >
+          <li
+            className="noStyle listItem"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+            <ul
+              aria-labelledby=":r2:"
+              className="list"
+            >
+              <li
+                className="noStyle listItem"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  List item text
+                </div>
+                <ul
+                  aria-labelledby=":r3:"
+                  className="list"
+                >
+                  <li
+                    className="noStyle listItem"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                    <ul
+                      aria-labelledby=":r4:"
+                      className="list"
+                    >
+                      <li
+                        className="noStyle listItem"
+                      >
+                        <div
+                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        >
+                          List item text
+                        </div>
+                        <ul
+                          aria-labelledby=":r5:"
+                          className="list"
+                        >
+                          <li
+                            className="noStyle listItem"
+                          >
+                            <div
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              List item text
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`List renders an condensed list 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":ro:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ol
+      aria-labelledby=":ro:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItemCondensed olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`List renders an list item with custom text 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":rp:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ol
+      aria-labelledby=":rp:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItemCondensed olItem1"
+      >
+        <span
+          className="textColorOverrideDark"
+        >
+          <div
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+          >
+            List item text
+          </div>
+        </span>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`List renders an list with a custom label 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":rm:"
+  >
+    <span
+      className="textColorOverrideDark"
+    >
+      <div
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        label test
+      </div>
+    </span>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ol
+      aria-labelledby=":rm:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`List renders an list with a hidden label 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom0 xsDisplayVisuallyHidden"
+    id=":rn:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ol
+      aria-labelledby=":rn:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`List renders an mixed list 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":ri:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ol
+      aria-labelledby=":ri:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+      </li>
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+        <ul
+          aria-labelledby=":rj:"
+          className="list bulletList"
+        >
+          <li
+            className="listItem ulItemDot"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+          </li>
+          <li
+            className="listItem ulItemDot"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+            <ul
+              aria-labelledby=":rk:"
+              className="list bulletList"
+            >
+              <li
+                className="listItem ulItemCircle"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  List item text
+                </div>
+              </li>
+              <li
+                className="listItem ulItemCircle"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  List item text
+                </div>
+                <ol
+                  aria-labelledby=":rl:"
+                  className="list bulletList"
+                >
+                  <li
+                    className="listItem olItem1"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                  </li>
+                  <li
+                    className="listItem olItem1"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+          <li
+            className="listItem ulItemDot"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`List renders an ordered list 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":rc:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ol
+      aria-labelledby=":rc:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItem olItem1"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+        <ol
+          aria-labelledby=":rd:"
+          className="list bulletList"
+        >
+          <li
+            className="listItem olItemA"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+            <ol
+              aria-labelledby=":re:"
+              className="list bulletList"
+            >
+              <li
+                className="listItem olItema"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  List item text
+                </div>
+                <ol
+                  aria-labelledby=":rf:"
+                  className="list bulletList"
+                >
+                  <li
+                    className="listItem olItem1"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                    <ol
+                      aria-labelledby=":rg:"
+                      className="list bulletList"
+                    >
+                      <li
+                        className="listItem olItemA"
+                      >
+                        <div
+                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        >
+                          List item text
+                        </div>
+                        <ol
+                          aria-labelledby=":rh:"
+                          className="list bulletList"
+                        >
+                          <li
+                            className="listItem olItema"
+                          >
+                            <div
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              List item text
+                            </div>
+                          </li>
+                        </ol>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`List renders an unordered list 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="box marginBottom4 xsDisplayBlock"
+    id=":r6:"
+  >
+    <div
+      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+    >
+      label test
+    </div>
+  </div>
+  <div
+    className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+  >
+    <ul
+      aria-labelledby=":r6:"
+      className="list bulletList parentList"
+    >
+      <li
+        className="listItem ulItemDot"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        >
+          List item text
+        </div>
+        <ul
+          aria-labelledby=":r7:"
+          className="list bulletList"
+        >
+          <li
+            className="listItem ulItemCircle"
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              List item text
+            </div>
+            <ul
+              aria-labelledby=":r8:"
+              className="list bulletList"
+            >
+              <li
+                className="listItem ulItemDot"
+              >
+                <div
+                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  List item text
+                </div>
+                <ul
+                  aria-labelledby=":r9:"
+                  className="list bulletList"
+                >
+                  <li
+                    className="listItem ulItemCircle"
+                  >
+                    <div
+                      className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                    >
+                      List item text
+                    </div>
+                    <ul
+                      aria-labelledby=":ra:"
+                      className="list bulletList"
+                    >
+                      <li
+                        className="listItem ulItemDot"
+                      >
+                        <div
+                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        >
+                          List item text
+                        </div>
+                        <ul
+                          aria-labelledby=":rb:"
+                          className="list bulletList"
+                        >
+                          <li
+                            className="listItem ulItemCircle"
+                          >
+                            <div
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              List item text
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

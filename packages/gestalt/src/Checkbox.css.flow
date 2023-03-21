@@ -8,6 +8,7 @@ declare module.exports: {|
   +'borderHovered': string,
   +'borderRadiusMd': string,
   +'borderRadiusSm': string,
+  +'borderSelected': string,
   +'check': string,
   +'inputEnabled': string,
 |};

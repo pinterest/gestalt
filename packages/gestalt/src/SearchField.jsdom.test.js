@@ -14,6 +14,7 @@ describe('<SearchField />', () => {
         value="Search"
       />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.medium')).toBeVisible();
   });
 
@@ -28,6 +29,7 @@ describe('<SearchField />', () => {
         value="Search"
       />,
     );
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();
   });
 
@@ -77,6 +79,7 @@ describe('<SearchField />', () => {
           value="Search"
         />,
       );
+      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
       fireEvent.keyDown(getByRole('searchbox'), { key: 'a' });
     }));
 });

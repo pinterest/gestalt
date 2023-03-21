@@ -29,7 +29,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -59,7 +59,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     className="box flexGrow paddingX2 paddingY2"
   >
     <div
-      className="box flexGrow itemsCenter relative xsDisplayFlex"
+      className="box flexGrow relative xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "height": 16,
@@ -67,6 +67,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={905}
         aria-valuemin="0"
         aria-valuenow={905}
@@ -81,7 +82,7 @@ exports[`VideoControls for double digit minutes 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2 secondary"
           style={
             Object {
               "height": 4,
@@ -89,7 +90,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -108,7 +109,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -130,7 +131,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -160,7 +161,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -204,7 +205,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -225,7 +226,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -234,7 +235,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     className="box flexGrow paddingX2 paddingY2"
   >
     <div
-      className="box flexGrow itemsCenter relative xsDisplayFlex"
+      className="box flexGrow relative xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "height": 16,
@@ -242,6 +243,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={15}
         aria-valuemin="0"
         aria-valuenow={15}
@@ -256,7 +258,7 @@ exports[`VideoControls for double digit seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2 secondary"
           style={
             Object {
               "height": 4,
@@ -264,7 +266,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -283,7 +285,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -305,7 +307,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -335,7 +337,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -379,7 +381,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -400,7 +402,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -409,7 +411,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     className="box flexGrow paddingX2 paddingY2"
   >
     <div
-      className="box flexGrow itemsCenter relative xsDisplayFlex"
+      className="box flexGrow relative xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "height": 16,
@@ -417,6 +419,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={65}
         aria-valuemin="0"
         aria-valuenow={65}
@@ -431,7 +434,7 @@ exports[`VideoControls for single digit minutes 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2 secondary"
           style={
             Object {
               "height": 4,
@@ -439,7 +442,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -458,7 +461,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -480,7 +483,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -510,7 +513,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -554,7 +557,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -575,7 +578,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -584,7 +587,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     className="box flexGrow paddingX2 paddingY2"
   >
     <div
-      className="box flexGrow itemsCenter relative xsDisplayFlex"
+      className="box flexGrow relative xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "height": 16,
@@ -592,6 +595,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={5}
         aria-valuemin="0"
         aria-valuenow={5}
@@ -606,7 +610,7 @@ exports[`VideoControls for single digit seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2 secondary"
           style={
             Object {
               "height": 4,
@@ -614,7 +618,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -633,7 +637,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -655,7 +659,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -685,7 +689,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -729,7 +733,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -750,7 +754,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -759,7 +763,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     className="box flexGrow paddingX2 paddingY2"
   >
     <div
-      className="box flexGrow itemsCenter relative xsDisplayFlex"
+      className="box flexGrow relative xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "height": 16,
@@ -767,6 +771,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       }
     >
       <div
+        aria-label="Progress bar"
         aria-valuemax={67.3}
         aria-valuemin="0"
         aria-valuenow={67.3}
@@ -781,7 +786,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounding2"
+          className="absolute box left0 right0 rounding2 secondary"
           style={
             Object {
               "height": 4,
@@ -789,7 +794,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box rounding2 whiteBg"
+            className="box light rounding2"
             style={
               Object {
                 "height": "100%",
@@ -808,7 +813,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box circle marginStartN2 whiteBg"
+            className="box circle light marginStartN2"
             style={
               Object {
                 "height": 16,
@@ -830,7 +835,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white alignEnd fontWeightNormal"
+      className="Text fontSize100 lightText alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -860,7 +865,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="icon white iconBlock"
+        className="icon lightIcon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"

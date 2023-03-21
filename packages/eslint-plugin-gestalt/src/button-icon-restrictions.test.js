@@ -2,22 +2,13 @@
 import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
-import rule from './button-icon-restrictions.js';
+import rule, { errorMessage, errorMessage2 } from './button-icon-restrictions.js';
 import { parserOptions } from './helpers/testHelpers.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 
 const validWithSize = readFileSync(
   path.resolve(__dirname, './__fixtures__/button-icon-restrictions/valid/valid-size.js'),
-  'utf-8',
-);
-
-const invalidMissingColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-no-color.js'),
-  'utf-8',
-);
-const invalidWrongColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-color.js'),
   'utf-8',
 );
 const invalidRenamed = readFileSync(
@@ -28,25 +19,27 @@ const invalidWrongIcon = readFileSync(
   path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-icon.js'),
   'utf-8',
 );
-const invalidWrongSize = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-size.js'),
-  'utf-8',
-);
-const invalidWithoutSize = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-no-size.js'),
-  'utf-8',
-);
 
-const errorMessage = 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"';
+const invalidWrongIconLinkRole = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-link-role-icon.js',
+  ),
+  'utf-8',
+);
 
 ruleTester.run('button-icon-restrictions', rule, {
   valid: [validWithSize].map((code) => ({ code })),
-  invalid: [
-    invalidMissingColor,
-    invalidWrongColor,
-    invalidRenamed,
-    invalidWrongIcon,
-    invalidWrongSize,
-    invalidWithoutSize,
-  ].map((code) => ({ code, errors: [{ message: errorMessage }] })),
+  invalid: [invalidRenamed, invalidWrongIcon].map((code) => ({
+    code,
+    errors: [{ message: errorMessage2 }],
+  })),
+});
+
+ruleTester.run('button-icon-restrictions', rule, {
+  valid: [validWithSize].map((code) => ({ code })),
+  invalid: [invalidWrongIconLinkRole].map((code) => ({
+    code,
+    errors: [{ message: errorMessage }],
+  })),
 });

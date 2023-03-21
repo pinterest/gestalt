@@ -5,33 +5,51 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* font size */
+
+.fontSize100 {
+  font-size: var(--font-size-100);
+}
+
+.fontSize200 {
+  font-size: var(--font-size-200);
+}
+
+.fontSize300 {
+  font-size: var(--font-size-300);
+}
+
+.fontSize400 {
+  font-size: var(--font-size-400);
+}
+
+.fontSize500 {
+  font-size: var(--font-size-500);
+}
+
+.fontSize600 {
+  font-size: var(--font-size-600);
+}
+
 /* fonts */
 
 .sansSerif {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-latin);
 }
 
 :lang(ja) .sansSerif {
-  font-family: "SF Pro JP", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-    "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3",
-    "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-family-default-japanese);
   quotes: "「" "」";
 }
 
 /* font weight */
 
 .fontWeightNormal {
-  font-weight: normal;
+  font-weight: var(--font-weight-normal);
 }
 
-.fontWeightBold {
-  font-weight: 700;
+.fontWeightSemiBold {
+  font-weight: var(--font-weight-semibold);
 }
 
 /* emphasis */

@@ -1,15 +1,14 @@
 [version]
-0.167.1
+0.187.0
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
-<PROJECT_ROOT>/cypress
-<PROJECT_ROOT>/node_modules/cypress/
 <PROJECT_ROOT>/scripts/templates/
 
 [options]
 exact_by_default=true
 include_warnings=true
+inference_mode=constrain_writes
 react.runtime=automatic
 sharedmemory.hash_table_pow=21
 

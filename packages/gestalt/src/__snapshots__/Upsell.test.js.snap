@@ -2,7 +2,7 @@
 
 exports[`<Upsell /> Basic Upsell 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -13,10 +13,10 @@ exports[`<Upsell /> Basic Upsell 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -27,7 +27,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -40,7 +40,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
 
 exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -51,7 +51,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
     }
   >
     <div
-      className="box flexGrow itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box flexGrow justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box flexNone marginBottom4 smMarginBottom0"
@@ -73,7 +73,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
         </div>
       </div>
       <div
-        className="box flexGrow itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+        className="box flexGrow marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -99,14 +99,14 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -128,7 +128,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 flexWrap justifyEnd xsDirectionRow"
+              className="Flex rowGap2 columnGap0 flexWrap justifyEnd xsDirectionRow"
             >
               <div
                 className="FlexItem flexGrow"
@@ -141,7 +141,6 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                       className="box relative"
                     >
                       <input
-                        aria-describedby={null}
                         aria-invalid="false"
                         className="textField base enabled normal medium truncate"
                         disabled={false}
@@ -152,6 +151,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                         onFocus={[Function]}
                         onKeyDown={[Function]}
                         placeholder="Name"
+                        readOnly={false}
                         type="text"
                       />
                     </div>
@@ -163,7 +163,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
               >
                 <button
                   aria-label="Submit button"
-                  className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+                  className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
                   disabled={false}
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -177,9 +177,17 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   type="submit"
                 >
                   <div
-                    className="Text fontSize3 white alignCenter fontWeightBold"
+                    className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
                   >
-                    Submit
+                    <div
+                      className="FlexItem"
+                    >
+                      <div
+                        className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                      >
+                        Submit
+                      </div>
+                    </div>
                   </div>
                 </button>
               </div>
@@ -194,7 +202,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -210,27 +218,31 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon defaultIcon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -239,7 +251,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -250,7 +262,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
         className="box flexNone marginBottom4 smMarginBottom0"
@@ -272,7 +284,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon darkGray iconBlock"
+            className="icon defaultIcon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -285,7 +297,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         </div>
       </div>
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -298,14 +310,14 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -316,11 +328,11 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -340,9 +352,17 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -353,7 +373,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -369,27 +389,31 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon defaultIcon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -398,7 +422,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
 
 exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -409,10 +433,10 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -425,14 +449,14 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -443,11 +467,11 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -467,9 +491,17 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -480,7 +512,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
   >
     <button
       aria-label="Dismiss banner"
-      className="button tapTransition enabled"
+      className="parentButton"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -496,27 +528,31 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       type="button"
     >
       <div
-        className="pog transparent"
-        style={
-          Object {
-            "height": 48,
-            "width": 48,
-          }
-        }
+        className="button tapTransition enabled"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon defaultIcon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </button>
   </div>
@@ -525,7 +561,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -536,10 +572,10 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -552,14 +588,14 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -570,11 +606,11 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label="Learn more: upsell messages"
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -594,18 +630,26 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
-            Learn more
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Learn more
+              </div>
+            </div>
           </div>
         </a>
       </div>
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -625,9 +669,17 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -638,7 +690,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -649,10 +701,10 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -665,14 +717,14 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -683,11 +735,11 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
-          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
+          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -707,9 +759,17 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
-            Visit Pinterest
+            <div
+              className="FlexItem"
+            >
+              <div
+                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+              >
+                Visit Pinterest
+              </div>
+            </div>
           </div>
         </a>
       </div>
@@ -720,7 +780,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
 
 exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -731,10 +791,10 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -747,14 +807,14 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -765,11 +825,11 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <button
           aria-label=""
-          className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+          className="button hideOutline block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -783,9 +843,13 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="Text fontSize3 white alignCenter fontWeightBold"
+            className="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
-            Visit Pinterest
+            <div
+              className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+            >
+              Visit Pinterest
+            </div>
           </div>
         </button>
       </div>
@@ -796,7 +860,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
 
 exports[`<Upsell /> message + title 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box elevationFloating paddingX12 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
@@ -807,10 +871,10 @@ exports[`<Upsell /> message + title 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+        className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
           className="box"
@@ -823,14 +887,14 @@ exports[`<Upsell /> message + title 1`] = `
           <div
             className="box marginBottom2"
           >
-            <p
-              className="TextLikeHeadingSm"
+            <div
+              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
             >
               A Title
-            </p>
+            </div>
           </div>
           <div
-            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>

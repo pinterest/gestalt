@@ -20,7 +20,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
             class="formLabel"
           >
             <div
-              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
             >
               label
             </div>
@@ -43,7 +43,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
           >
             <div
               aria-hidden="true"
-              class="box circle itemsCenter marginEnd2 xsDisplayFlex"
+              class="box circle marginEnd2 xsDisplayFlex xsItemsCenter"
               style="height: 100%;"
             >
               <div
@@ -53,12 +53,13 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
                 tabindex="-1"
               >
                 <div
-                  class="box circle paddingX1 paddingY1"
+                  class="pog transparent"
+                  style="height: 20px; width: 20px;"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon darkGray iconBlock"
+                    class="icon defaultIcon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -99,7 +100,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
             >
               label
             </div>
@@ -116,22 +117,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="ey / em"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="ey / em"
                     >
                       ey / em
                     </span>
@@ -140,12 +141,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -165,22 +166,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="he / him"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="he / him"
                     >
                       he / him
                     </span>
@@ -189,12 +190,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -214,22 +215,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="ne / nem"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="ne / nem"
                     >
                       ne / nem
                     </span>
@@ -238,12 +239,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -263,22 +264,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="she / her"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="she / her"
                     >
                       she / her
                     </span>
@@ -287,12 +288,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -312,22 +313,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="they / them"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="they / them"
                     >
                       they / them
                     </span>
@@ -336,12 +337,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -361,22 +362,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="ve / ver"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="ve / ver"
                     >
                       ve / ver
                     </span>
@@ -385,12 +386,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -410,22 +411,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="xe / xem"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="xe / xem"
                     >
                       xe / xem
                     </span>
@@ -434,12 +435,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -459,22 +460,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="xie / xem"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="xie / xem"
                     >
                       xie / xem
                     </span>
@@ -483,12 +484,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -508,22 +509,22 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box lightGrayBg rounding2 xsDisplayInlineBlock"
+                class="box rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 itemsCenter xsDirectionRow"
+                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                   style="height: 100%;"
                 >
                   <div
                     class="box marginEnd2 marginStart0"
                   />
                   <div
-                    class="truncate"
                     title="zie / zem"
                   >
                     <span
-                      class="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      title="zie / zem"
                     >
                       zie / zem
                     </span>
@@ -532,12 +533,12 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box marginStart1"
                   >
                     <button
-                      class="button lightGray hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline"
                       type="button"
                     >
                       <svg
                         aria-label="Remove tag"
-                        class="icon darkGray iconBlock"
+                        class="icon defaultIcon iconBlock"
                         height="8"
                         role="img"
                         viewBox="0 0 24 24"
@@ -575,8 +576,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="actionButtonContainer"
           >
             <div
-              aria-hidden="false"
-              class="box circle itemsCenter marginEnd2 xsDisplayFlex"
+              class="box circle marginEnd2 xsDisplayFlex xsItemsCenter"
               style="height: 100%;"
             >
               <div
@@ -587,12 +587,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                 tabindex="0"
               >
                 <div
-                  class="box circle paddingX1 paddingY1"
+                  class="pog transparent"
+                  style="height: 20px; width: 20px;"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon darkGray iconBlock"
+                    class="icon defaultIcon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -633,7 +634,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
             >
               label
             </div>
@@ -656,7 +657,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
           >
             <div
               aria-hidden="true"
-              class="box circle itemsCenter marginEnd2 xsDisplayFlex"
+              class="box circle marginEnd2 xsDisplayFlex xsItemsCenter"
               style="height: 100%;"
             >
               <div
@@ -666,12 +667,13 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="box circle paddingX1 paddingY1"
+                  class="pog transparent"
+                  style="height: 20px; width: 20px;"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon darkGray iconBlock"
+                    class="icon defaultIcon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -712,7 +714,7 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
             >
               label
             </div>

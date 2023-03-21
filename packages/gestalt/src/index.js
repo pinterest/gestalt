@@ -3,52 +3,58 @@ import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
-import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
 import ButtonGroup from './ButtonGroup.js';
 import Callout from './Callout.js';
-import Card from './Card.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
-import Collection from './Collection.js';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Column from './Column.js';
 import ComboBox from './ComboBox.js';
 import Container from './Container.js';
 import Datapoint from './Datapoint.js';
+import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
+import ExperimentProvider from './contexts/ExperimentProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
+import HelpButton from './HelpButton.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
+import IconButtonFloating from './IconButtonFloating.js';
 import Image from './Image.js';
 import Label from './Label.js';
 import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
 import Link from './Link.js';
+import List from './List.js';
 import Mask from './Mask.js';
 import Masonry from './Masonry.js';
-import MasonryDefaultLayout from './layouts/MasonryLayout.js';
-import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
 import Modal from './Modal.js';
+import ModalAlert from './ModalAlert.js';
 import Module from './Module.js';
 import NumberField from './NumberField.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
+import OverlayPanel from './OverlayPanel.js';
 import PageHeader from './PageHeader.js';
 import Pog from './Pog.js';
 import Popover from './Popover.js';
+import PopoverEducational from './PopoverEducational.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
+import RadioGroup from './RadioGroup.js';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
 import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
-import Sheet from './Sheet.js';
+import SideNavigation from './SideNavigation.js';
+import SlimBanner from './SlimBanner.js';
 import Spinner from './Spinner.js';
 import Status from './Status.js';
 import Sticky from './Sticky.js';
@@ -64,6 +70,7 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Upsell from './Upsell.js';
 import Video from './Video.js';
+import WashAnimated from './WashAnimated.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
@@ -72,54 +79,60 @@ export {
   ActivationCard,
   Avatar,
   AvatarGroup,
-  AvatarPair,
   Badge,
   Box,
   Button,
   ButtonGroup,
   Callout,
-  Card,
   Checkbox,
   Collage,
-  Collection,
   ColorSchemeProvider,
   Column,
   ComboBox,
   CompositeZIndex,
   Container,
   Datapoint,
+  DefaultLabelProvider,
+  DeviceTypeProvider,
   Divider,
   Dropdown,
+  ExperimentProvider,
   Fieldset,
   FixedZIndex,
   Flex,
   Heading,
+  HelpButton,
   Icon,
   IconButton,
+  IconButtonFloating,
   Image,
   Label,
   Layer,
   Letterbox,
   Link,
+  List,
   Mask,
   Masonry,
-  MasonryDefaultLayout,
-  MasonryUniformRowLayout,
   Modal,
+  ModalAlert,
   Module,
   NumberField,
   OnLinkNavigationProvider,
+  OverlayPanel,
   PageHeader,
   Pog,
   Popover,
+  PopoverEducational,
   Pulsar,
   RadioButton,
+  RadioGroup,
   ScrollBoundaryContainer,
   ScrollFetch,
   SearchField,
   SegmentedControl,
   SelectList,
-  Sheet,
+  SideNavigation,
+  SlimBanner,
   Spinner,
   Status,
   Sticky,
@@ -135,6 +148,7 @@ export {
   Tooltip,
   Upsell,
   Video,
+  WashAnimated,
   useColorScheme,
   useFocusVisible,
   useReducedMotion,

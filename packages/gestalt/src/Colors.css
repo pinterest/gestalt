@@ -48,6 +48,208 @@
   --g-colorTransparentGray800: rgb(0 0 0 / 0.8);
 }
 
+/** Design Token Colors **/
+
+.default {
+  background-color: var(--color-background-default);
+}
+
+.infoBase {
+  background-color: var(--color-background-info-base);
+}
+
+.infoStrong {
+  background-color: var(--color-background-info-strong);
+}
+
+.infoWeak {
+  background-color: var(--color-background-info-weak);
+}
+
+.errorBase {
+  background-color: var(--color-background-error-base);
+}
+
+.errorWeak {
+  background-color: var(--color-background-error-weak);
+}
+
+.warningBase {
+  background-color: var(--color-background-warning-base);
+}
+
+.warningWeak {
+  background-color: var(--color-background-warning-weak);
+}
+
+.successBase {
+  background-color: var(--color-background-success-base);
+}
+
+.successWeak {
+  background-color: var(--color-background-success-weak);
+}
+
+.recommendationBase {
+  background-color: var(--color-background-recommendation-base);
+}
+
+.recommendationWeak {
+  background-color: var(--color-background-recommendation-weak);
+}
+
+.shopping {
+  background-color: var(--color-background-shopping);
+}
+
+.primary {
+  background-color: var(--color-background-primary-base);
+}
+
+.secondary {
+  background-color: var(--color-background-secondary-base);
+}
+
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
+}
+
+.selected {
+  background-color: var(--color-background-selected-base);
+}
+
+.inverse {
+  background-color: var(--color-background-inverse-base);
+}
+
+.brand {
+  background-color: var(--color-background-brand);
+}
+
+.education {
+  background-color: var(--color-background-education);
+}
+
+.washDark {
+  background-color: var(--color-background-wash-dark);
+}
+
+.washLight {
+  background-color: var(--color-background-wash-light);
+}
+
+.dark {
+  background-color: var(--color-background-dark);
+}
+
+.light {
+  background-color: var(--color-background-light);
+}
+
+.elevationAccent {
+  background-color: var(--color-background-elevation-accent);
+}
+
+.elevationFloating {
+  background-color: var(--color-background-elevation-floating);
+}
+
+.elevationRaised {
+  background-color: var(--color-background-elevation-raised);
+}
+
+/* semantic text colors */
+
+.inverseText {
+  color: var(--color-text-inverse);
+}
+
+.errorText {
+  color: var(--color-text-error);
+}
+
+.defaultText {
+  color: var(--color-text-default);
+}
+
+.subtleText {
+  color: var(--color-text-subtle);
+}
+
+.warningText {
+  color: var(--color-text-warning);
+}
+
+.successText {
+  color: var(--color-text-success);
+}
+
+.shoppingText {
+  color: var(--color-text-shopping);
+}
+
+.linkText {
+  color: var(--color-text-link);
+}
+
+.lightText {
+  color: var(--color-text-light);
+}
+
+.darkText {
+  color: var(--color-text-dark);
+}
+
+/* semantic icon colors */
+
+.inverseIcon {
+  color: var(--color-text-icon-inverse);
+}
+
+.errorIcon {
+  color: var(--color-text-icon-error);
+}
+
+.defaultIcon {
+  color: var(--color-text-icon-default);
+}
+
+.subtleIcon {
+  color: var(--color-text-icon-subtle);
+}
+
+.warningIcon {
+  color: var(--color-text-icon-warning);
+}
+
+.successIcon {
+  color: var(--color-text-icon-success);
+}
+
+.recommendationIcon {
+  color: var(--color-text-icon-recommendation);
+}
+
+.shoppingIcon {
+  color: var(--color-text-icon-shopping);
+}
+
+.infoIcon {
+  color: var(--color-text-icon-info);
+}
+
+.brandPrimaryIcon {
+  color: var(--color-text-icon-brand-primary);
+}
+
+.lightIcon {
+  color: var(--color-text-icon-light);
+}
+
+.darkIcon {
+  color: var(--color-text-icon-dark);
+}
+
 /** PRIMARY COLORS **/
 
 /* red */

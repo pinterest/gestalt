@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InternalLabel renders 1`] = `
+<label
+  className="label"
+  htmlFor="email"
+>
+  Email
+</label>
+`;
+
+exports[`InternalLabel renders with label hidden 1`] = `
+<label
+  className="label visuallyHidden"
+  htmlFor="email"
+>
+  Email
+</label>
+`;

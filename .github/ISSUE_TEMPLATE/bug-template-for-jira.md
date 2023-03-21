@@ -6,6 +6,11 @@ labels: bug, to be migrated
 assignees: ''
 ---
 
+**PINTEREST EMPLOYEES, [PLEASE FILE BUGS IN JIRA INSTEAD](https://jira.pinadmin.com/secure/CreateIssue!default.jspa)!**
+**Project: BUG**
+**Type: Bug**
+**Component: Gestalt**
+
 Platform: (desktop web | mobile web)
 
 Steps to reproduce:

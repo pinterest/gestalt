@@ -8,7 +8,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -24,6 +24,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -36,7 +37,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
                     <img
                       alt="Keerthi"
                       class="img"
-                      importance="auto"
+                      fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                     />
@@ -62,7 +63,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
               class=""
             >
               <div
-                class="box circle lightGrayBg relative"
+                class="box circle relative secondary"
                 style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
               >
                 <div
@@ -100,7 +101,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
   <div>
     <a
       aria-label="test"
-      class="link hideOutline tapTransition pill accessibilityOutline block pointer"
+      class="link noUnderline hideOutline tapTransition pill accessibilityOutline block pointer"
       href="www.pinterest.com"
       rel=""
       tabindex="0"
@@ -110,7 +111,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
         style="isolation: isolate;"
       >
         <div
-          class="Flex rowGap0 xsDirectionRow"
+          class="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
             aria-hidden="true"
@@ -126,6 +127,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
               >
                 <div
                   class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
                   style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
                 >
                   <div
@@ -138,7 +140,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                       <img
                         alt="Keerthi"
                         class="img"
-                        importance="auto"
+                        fetchpriority="auto"
                         loading="auto"
                         src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                       />
@@ -164,7 +166,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                 class=""
               >
                 <div
-                  class="box circle lightGrayBg relative"
+                  class="box circle relative secondary"
                   style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
                 >
                   <div
@@ -207,7 +209,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -223,6 +225,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -235,7 +238,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                     <img
                       alt="Keerthi"
                       class="img"
-                      importance="auto"
+                      fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                     />
@@ -262,6 +265,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -274,7 +278,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                     <img
                       alt="Keerthi"
                       class="img"
-                      importance="auto"
+                      fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                     />
@@ -300,7 +304,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               class=""
             >
               <div
-                class="box circle lightGrayBg relative"
+                class="box circle relative secondary"
                 style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
               >
                 <div
@@ -314,7 +318,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <text
-                      class="antialiased sansSerif fontWeightBold "
+                      class="antialiased sansSerif fontWeightSemiBold "
                       dy="0.35em"
                       fill="#111"
                       font-size="40px"
@@ -343,7 +347,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -359,10 +363,11 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
-                  class="box circle lightGrayBg relative"
+                  class="box circle relative secondary"
                   style="padding-bottom: 100%;"
                 >
                   <div
@@ -379,7 +384,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
                         Keerthi
                       </title>
                       <text
-                        class="antialiased sansSerif fontWeightBold "
+                        class="antialiased sansSerif fontWeightSemiBold "
                         dy="0.35em"
                         fill="#111"
                         font-size="40px"
@@ -432,6 +437,7 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
               >
                 <div
                   class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
                   style="box-shadow: 0 0 0 1px #fff; width: 100%;"
                 >
                   <div
@@ -444,7 +450,7 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
                       <img
                         alt="Keerthi"
                         class="img"
-                        importance="auto"
+                        fetchpriority="auto"
                         loading="auto"
                         src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                       />
@@ -473,7 +479,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -489,6 +495,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
               >
                 <div
@@ -501,7 +508,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
                     <img
                       alt="Keerthi"
                       class="img"
-                      importance="auto"
+                      fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                     />
@@ -529,7 +536,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -545,6 +552,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 32px; height: 32px;"
               >
                 <div
@@ -557,7 +565,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
                     <img
                       alt="Keerthi"
                       class="img"
-                      importance="auto"
+                      fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                     />
@@ -585,7 +593,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
       style="isolation: isolate;"
     >
       <div
-        class="Flex rowGap0 xsDirectionRow"
+        class="Flex rowGap0 columnGap0 xsDirectionRow"
       >
         <div
           aria-hidden="true"
@@ -601,6 +609,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
             >
               <div
                 class="box circle relative"
+                data-test-id="gestalt-avatar-svg"
                 style="box-shadow: 0 0 0 1px #fff; width: 24px; height: 24px;"
               >
                 <div
@@ -613,7 +622,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
                     <img
                       alt="Keerthi"
                       class="img"
-                      importance="auto"
+                      fetchpriority="auto"
                       loading="auto"
                       src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
                     />

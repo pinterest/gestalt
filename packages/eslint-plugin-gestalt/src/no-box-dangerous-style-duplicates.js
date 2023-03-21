@@ -31,8 +31,7 @@ const rule: ESLintRule = {
         'Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented',
       category: 'Gestalt restrictions',
       recommended: false,
-      url:
-        'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-dangerous-style-duplicates',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-box-dangerous-style-duplicates',
     },
     fixable: 'code',
     schema: [
@@ -90,11 +89,13 @@ const rule: ESLintRule = {
       // exit if not dangerouslySetInlineStyle prop
       if (!attributeNode) return null;
 
+      // eslint-disable-next-line prefer-regex-literals
       const styleValuesRegex = new RegExp(
         /dangerouslySetInlineStyle={{[\s\S]*__style:[\s\S]*{([\s\S]+)}[\s\S]*}[\s\S]*}/,
         'i',
       );
 
+      // eslint-disable-next-line prefer-regex-literals
       const ignoreCharsRegex = new RegExp(/\?|\+|\*|&|\$|\/|\|/g);
 
       const completeDangerouslySetInlineStyle = getTextNodeFromSourceCode({
