@@ -1,5 +1,5 @@
 .base {
-  composes: accessibilityOutline from "./Focus.css";
+  composes: accessibilityOutline from "../Focus.css";
   appearance: none;
   border-radius: 16px;
   border-style: solid;
@@ -7,7 +7,7 @@
 }
 
 .normal {
-  composes: borderColorLightGray from "./Borders.css";
+  composes: borderColorLightGray from "../Borders.css";
 }
 
 .normal:hover:not(:focus):not(.disabled) {
@@ -15,7 +15,7 @@
 }
 
 .errored {
-  composes: borderColorRed from "./Borders.css";
+  composes: borderColorRed from "../Borders.css";
   outline: none;
 }
 
@@ -28,14 +28,14 @@
 }
 
 .enabled {
-  composes: darkGray from "./Colors.css";
-  composes: whiteBg from "./Colors.css";
+  composes: darkGray from "../Colors.css";
+  composes: whiteBg from "../Colors.css";
 }
 
 .disabled {
-  composes: gray from "./Colors.css";
-  composes: lightGrayBg from "./Colors.css";
-  composes: borderColorLightGrayDisabled from "./Borders.css";
+  composes: gray from "../Colors.css";
+  composes: lightGrayBg from "../Colors.css";
+  composes: borderColorLightGrayDisabled from "../Borders.css";
 }
 
 .unstyled {

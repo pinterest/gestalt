@@ -1,17 +1,17 @@
 // @flow strict
 import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
-import Badge from './Badge.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Link from './Link.js';
-import Text from './Text.js';
-import styles from './TapArea.css';
-import getRoundingClassName from './getRoundingClassName.js';
-import Icon from './Icon.js';
-import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
-import { type FontWeight } from './textTypes.js';
+import Badge from '../Badge.js';
+import Box from '../Box.js';
+import Flex from '../Flex.js';
+import Link from '../Link.js';
+import Text from '../Text.js';
+import styles from '../TapArea.css';
+import getRoundingClassName from '../getRoundingClassName.js';
+import Icon from '../Icon.js';
+import focusStyles from '../Focus.css';
+import useFocusVisible from '../useFocusVisible.js';
+import { type FontWeight } from '../textTypes.js';
 
 export type OptionItemType = {|
   label: string,

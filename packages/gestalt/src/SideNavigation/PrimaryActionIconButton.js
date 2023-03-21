@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node, type Element, useRef, useState, useEffect, useId, cloneElement } from 'react';
-import TapArea from './TapArea.js';
-import Pog from './Pog.js';
-import Tooltip from './Tooltip.js';
-import Dropdown from './Dropdown.js';
-import { FixedZIndex, CompositeZIndex, type Indexable } from './zIndex.js';
+import TapArea from '../TapArea.js';
+import Pog from '../Pog.js';
+import Tooltip from '../Tooltip.js';
+import Dropdown from '../Dropdown.js';
+import { FixedZIndex, CompositeZIndex, type Indexable } from '../zIndex.js';
 
 type Props = {|
   icon?: 'ellipsis' | 'edit' | 'trash-can',
@@ -28,7 +28,7 @@ type Props = {|
   dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
 |};
 
-function SideNavigationIconButton({
+function ItemIconButton({
   icon = 'ellipsis',
   onClick,
   tooltip,
@@ -159,6 +159,4 @@ function SideNavigationIconButton({
   );
 }
 
-export default SideNavigationIconButton;
-
-SideNavigationIconButton.displayName = 'SideNavigation.IconButton';
+export default ItemIconButton;

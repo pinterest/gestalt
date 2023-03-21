@@ -1,15 +1,15 @@
 // @flow strict
 import { useEffect, useState, type Node, type Element } from 'react';
-import Badge from './Badge.js';
-import Icon from './Icon.js';
-import Flex from './Flex.js';
-import Text from './Text.js';
-import Box from './Box.js';
-import Dropdown from './Dropdown.js';
-import SideNavigationIconButton from './SideNavigationIconButton.js';
-import icons from './icons/index.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { type Indexable } from './zIndex.js';
+import Badge from '../Badge.js';
+import Icon from '../Icon.js';
+import Flex from '../Flex.js';
+import Text from '../Text.js';
+import Box from '../Box.js';
+import Dropdown from '../Dropdown.js';
+import PrimaryActionIconButton from './PrimaryActionIconButton.js';
+import icons from '../icons/index.js';
+import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
+import { type Indexable } from '../zIndex.js';
 
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';
@@ -181,7 +181,7 @@ export default function SideNavigationGroupContent({
               }}
               rounding="circle"
             >
-              <SideNavigationIconButton
+              <PrimaryActionIconButton
                 icon={primaryAction?.icon}
                 onClick={primaryAction?.onClick}
                 tooltip={primaryAction.tooltip}

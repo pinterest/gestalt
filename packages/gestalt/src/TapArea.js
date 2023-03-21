@@ -2,7 +2,7 @@
 import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './TapArea.css';
-import InternalLink from './InternalLink.js';
+import InternalLink from './Link/InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import { type AriaCurrent } from './ariaTypes.js';

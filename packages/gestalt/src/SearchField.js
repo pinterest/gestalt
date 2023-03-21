@@ -10,11 +10,11 @@ import {
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
-import formElement from './FormElement.css';
+import formElement from './shared/FormElement.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
-import FormErrorMessage from './FormErrorMessage.js';
-import FormLabel from './FormLabel.js';
+import FormErrorMessage from './shared/FormErrorMessage.js';
+import FormLabel from './shared/FormLabel.js';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 

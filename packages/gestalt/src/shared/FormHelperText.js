@@ -1,11 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Text from './Text.js';
+import Box from '../Box.js';
+import Flex from '../Flex.js';
+import Text from '../Text.js';
 import FormHelperTextCounter from './FormHelperTextCounter.js';
-
-import { type MaxLength } from './TextField.js';
+import { type MaxLength } from '../TextField.js';
 
 type Props = {|
   id?: string,

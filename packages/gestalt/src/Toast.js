@@ -19,7 +19,7 @@ import {
   ToastTypeThumbnail,
   ToastMessage,
 } from './Toast/subcomponents.js';
-import InternalDismissButton from './InternalDismissButton.js';
+import InternalDismissButton from './shared/InternalDismissButton.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 const DEFAULT_COLORS = {

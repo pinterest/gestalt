@@ -28,11 +28,7 @@ type Props = {|
   value: number,
 |};
 
-export default function DatapointTrend({
-  iconAccessibilityLabel,
-  sentiment = 'auto',
-  value,
-}: Props): Node {
+export default function Trend({ iconAccessibilityLabel, sentiment = 'auto', value }: Props): Node {
   const color = getValueColor({ sentiment, value });
 
   return (

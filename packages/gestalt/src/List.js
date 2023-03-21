@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, type Element } from 'react';
 import ListItem from './ListItem.js'; // eslint-disable import/no-cycle
-import InternalList from './InternalList.js';
+import InternalList from './List/InternalList.js';
 import Text from './Text.js';
 
 type ListType = 'bare' | 'ordered' | 'unordered';

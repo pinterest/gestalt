@@ -8,18 +8,18 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import buttonStyles from './Button.css';
-import focusStyles from './Focus.css';
-import linkStyles from './Link.css';
-import layoutStyles from './Layout.css';
-import iconButtonStyles from './IconButton.css';
-import touchableStyles from './TapArea.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import { type AriaCurrent } from './ariaTypes.js';
-import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
-import textStyles from './Typography.css';
+import buttonStyles from '../Button.css';
+import focusStyles from '../Focus.css';
+import linkStyles from '../Link.css';
+import layoutStyles from '../Layout.css';
+import iconButtonStyles from '../IconButton.css';
+import touchableStyles from '../TapArea.css';
+import useFocusVisible from '../useFocusVisible.js';
+import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback.js';
+import { type AriaCurrent } from '../ariaTypes.js';
+import getRoundingClassName, { type Rounding } from '../getRoundingClassName.js';
+import { useOnLinkNavigation } from '../contexts/OnLinkNavigationProvider.js';
+import textStyles from '../Typography.css';
 
 type Props = {|
   accessibilityCurrent?: AriaCurrent,

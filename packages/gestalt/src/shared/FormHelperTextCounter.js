@@ -1,10 +1,10 @@
 // @flow strict
 import { Fragment, useRef, useEffect, useState, type Node } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Status from './Status.js';
-import Text from './Text.js';
-import { type MaxLength } from './TextField.js';
+import Box from '../Box.js';
+import Flex from '../Flex.js';
+import Status from '../Status.js';
+import Text from '../Text.js';
+import { type MaxLength } from '../TextField.js';
 
 type Props = {|
   maxLength: MaxLength,

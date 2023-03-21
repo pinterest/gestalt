@@ -40,7 +40,7 @@
 
 */
 import { type Node } from 'react';
-import layoutStyles from './Layout.css';
+import layoutStyles from '../Layout.css';
 
 type Props = {|
   Item?: ({| idx: number |}) => Node,

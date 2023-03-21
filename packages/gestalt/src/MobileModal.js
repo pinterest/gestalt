@@ -11,7 +11,7 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import InternalDismissButton from './InternalDismissButton.js';
+import InternalDismissButton from './shared/InternalDismissButton.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Props = {|

@@ -7,7 +7,7 @@ import Flex from './Flex.js';
 import Divider from './Divider.js';
 import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
-import SideNavigationMobile from './SideNavigationMobile.js';
+import SideNavigationMobile from './SideNavigation/Mobile.js';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
 import SideNavigationGroup from './SideNavigationGroup.js';

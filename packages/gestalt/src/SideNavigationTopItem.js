@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './SideNavigation.css';
 import TapArea from './TapArea.js';
 import Badge from './Badge.js';
-import SideNavigationIconButton from './SideNavigationIconButton.js';
+import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton.js';
 import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
@@ -252,7 +252,7 @@ export default function SideNavigationTopItem({
                   }}
                   rounding="circle"
                 >
-                  <SideNavigationIconButton
+                  <PrimaryActionIconButton
                     icon={primaryAction?.icon}
                     onClick={primaryAction?.onClick}
                     tooltip={primaryAction.tooltip}
