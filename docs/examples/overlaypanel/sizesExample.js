@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, useReducer, type Node } from 'react';
 import {
   Box,
   Button,
@@ -29,13 +29,13 @@ export default function SizesExample(): Node {
         throw new Error();
     }
   }
-  const initialState = {};
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const initialState = Object.freeze({});
+  const [state, dispatch] = useReducer(reducer, initialState);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Box padding={8}>
         <Box padding={1}>
           <Button
@@ -169,6 +169,6 @@ export default function SizesExample(): Node {
           </OverlayPanel>
         </Layer>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }

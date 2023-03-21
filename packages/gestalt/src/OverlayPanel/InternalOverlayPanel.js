@@ -1,9 +1,9 @@
 // @flow strict
 
-import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
+import { type Node, useCallback, useState, useLayoutEffect, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
 import { ESCAPE } from '../keyCodes.js';
-import { useAnimation } from './AnimationContext.js';
+import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
 import Box from '../Box.js';
 import Backdrop from '../Backdrop.js';
 import Flex from '../Flex.js';
@@ -31,6 +31,7 @@ type InternalSheetProps = {|
   footer: NodeOrRenderProp,
   heading?: string,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
+  onDismiss: () => void,
   dismissConfirmation?: {|
     message?: string,
     subtext?: string,
@@ -76,70 +77,50 @@ export default function InternalSheet({
   footer,
   heading,
   onAnimationEnd,
+  onDismiss,
   size,
   subHeading,
 }: InternalSheetProps): Node {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
-
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-
   const [showPopover, setShowPopover] = useState<boolean>(false);
 
-  const { animationState, handleAnimation, onAnimatedDismiss } = useAnimation();
-
-  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
-    useDefaultLabelContext('OverlayPanel');
-
   const contentRef = useRef<?HTMLElement>(null);
+  const dismissButtonRef = useRef();
 
   const id = useId();
 
-  const dismissButtonRef = useRef();
+  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('OverlayPanel');
 
   const enabledDismiss = typeof dismissConfirmation === 'undefined';
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
-  useEffect(() => {
-    if (dismissButtonRef.current) {
-      dismissButtonRef.current.focus();
-    }
-  }, [dismissButtonRef]);
-
-  // Handle onDismiss triggering from ESC keyup event
-  useEffect(() => {
-    function handleKeyDown(event) {
-      if (event.keyCode === ESCAPE && enabledDismiss) {
-        onAnimatedDismiss();
-      }
-
-      if (event.keyCode === ESCAPE && !enabledDismiss) {
-        setShowPopover((value) => !value);
-      }
-    }
-    // we must use keydown instead of keyup to match Popover events, as Popover gets dismissed in onKeyUp and we need to stopPropagation in the confirmation Popover
-    window.addEventListener('keydown', handleKeyDown);
-    return function cleanup() {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onAnimatedDismiss, enabledDismiss]);
+  function buildDismissableSubcomponent(component) {
+    return typeof component === 'function'
+      ? component({ onDismissStart: onExternalDismiss })
+      : component;
+  }
 
   const handleOnAnimationEnd = useCallback(() => {
-    const animationStatus = animationState === 'opening' ? 'in' : 'out';
-    handleAnimation?.();
-    onAnimationEnd?.({ animationState: animationStatus });
+    handleAnimation();
+    onAnimationEnd?.({
+      animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
+    });
   }, [animationState, onAnimationEnd, handleAnimation]);
 
-  // Handle onDismiss triggering from outside click
-  const handleOutsideClick = useCallback(() => {
+  const handleBackdropClick = useCallback(() => {
     if (closeOnOutsideClick && enabledDismiss) {
-      onAnimatedDismiss();
+      onExternalDismiss();
     }
 
     if (closeOnOutsideClick && !enabledDismiss) {
       setShowPopover(true);
     }
-  }, [closeOnOutsideClick, onAnimatedDismiss, enabledDismiss]);
+  }, [closeOnOutsideClick, onExternalDismiss, enabledDismiss]);
 
   // Handle the shadows on top and bottom of the content area when scrolling
   const updateShadows = useCallback(() => {
@@ -152,6 +133,29 @@ export default function InternalSheet({
       hasVerticalScrollbar && target.offsetHeight + target.scrollTop < target.scrollHeight,
     );
   }, []);
+
+  useEffect(() => {
+    dismissButtonRef.current?.focus();
+  }, [dismissButtonRef]);
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      // Handle onDismiss triggering from ESC keyup event
+      if (event.keyCode === ESCAPE && enabledDismiss) {
+        onExternalDismiss();
+      }
+
+      if (event.keyCode === ESCAPE && !enabledDismiss) {
+        setShowPopover((value) => !value);
+      }
+    }
+
+    // we must use keydown instead of keyup to match Popover events, as Popover gets dismissed in onKeyUp and we need to stopPropagation in the confirmation Popover
+    window.addEventListener('keydown', handleKeyDown);
+    return function cleanup() {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onExternalDismiss, enabledDismiss]);
 
   useEffect(() => {
     updateShadows();
@@ -167,27 +171,26 @@ export default function InternalSheet({
     );
   }
 
-  function buildDismissableSubcomponent(component) {
-    return typeof component === 'function'
-      ? component({ onDismissStart: onAnimatedDismiss })
-      : component;
-  }
+  // Use useLayoutEffect instead of useEffect as we need to close the component synchronously after all DOM mutations, useEffect was needed to prevent changing state while still rendering but useEffect will create a ms blink of the full OverlayPanel after closing which gets prevented with useLayoutEffect
+  useLayoutEffect(() => {
+    if (animationState === ANIMATION_STATE.unmount) {
+      onDismiss();
+    }
+  }, [animationState, onDismiss]);
 
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
         <div className={overlayPanelStyles.container}>
-          <Backdrop
-            animationState={animationState}
-            closeOnOutsideClick={closeOnOutsideClick}
-            onClick={handleOutsideClick}
-          >
+          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
               id={id}
               aria-label={accessibilityLabel}
               className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
-                [overlayPanelStyles.wrapperAnimationIn]: animationState === 'opening',
-                [overlayPanelStyles.wrapperAnimationOut]: animationState === 'closing',
+                [overlayPanelStyles.wrapperAnimationIn]:
+                  animationState === ANIMATION_STATE.animatedOpening,
+                [overlayPanelStyles.wrapperAnimationOut]:
+                  animationState === ANIMATION_STATE.animatedClosing,
               })}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
@@ -220,7 +223,7 @@ export default function InternalSheet({
                             accessibilityDismissButtonLabel ??
                             accessibilityDismissButtonLabelDefault
                           }
-                          onClick={enabledDismiss ? onAnimatedDismiss : () => setShowPopover(true)}
+                          onClick={enabledDismiss ? onExternalDismiss : () => setShowPopover(true)}
                           size="md"
                           ref={dismissButtonRef}
                         />
@@ -243,7 +246,7 @@ export default function InternalSheet({
                         accessibilityLabel={
                           accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
                         }
-                        onClick={enabledDismiss ? onAnimatedDismiss : () => setShowPopover(true)}
+                        onClick={enabledDismiss ? onExternalDismiss : () => setShowPopover(true)}
                         size="md"
                         ref={dismissButtonRef}
                       />

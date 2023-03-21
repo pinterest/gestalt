@@ -1,3 +1,51 @@
+## 101.3.0 (Mar 20, 2023)
+
+### Minor
+
+- Icon: new icons added ([#2744](https://github.com/pinterest/gestalt/pull/2744)) - [Preview link](https://deploy-preview-2744--gestalt.netlify.app)
+
+## 101.2.2 (Mar 20, 2023)
+
+### Patch
+
+- Icon: Update iOS and Android specs ([#2732](https://github.com/pinterest/gestalt/pull/2732)) - [Preview link](https://deploy-preview-2732--gestalt.netlify.app)
+
+## 101.2.1 (Mar 20, 2023)
+
+### Patch
+
+- ActivationCard, Button, Callout, HelpButton, IconButton, RadioButton, SearchField, TapArea, Upsell: deprecate AbstractEventHandler inlining equivalent ([#2742](https://github.com/pinterest/gestalt/pull/2742)) - [Preview link](https://deploy-preview-2742--gestalt.netlify.app)
+
+## 101.2.0 (Mar 20, 2023)
+
+### Minor
+
+- expose dangerouslySetSvgPath ([#2743](https://github.com/pinterest/gestalt/pull/2743)) - [Preview link](https://deploy-preview-2743--gestalt.netlify.app)
+
+## 101.1.10 (Mar 18, 2023)
+
+### Patch
+
+- useReducedMotion: fix "undefined" error ([#2740](https://github.com/pinterest/gestalt/pull/2740)) - [Preview link](https://deploy-preview-2740--gestalt.netlify.app)
+
+## 101.1.9 (Mar 17, 2023)
+
+### Patch
+
+- useReducedMotion: fix "undefined" error ([#2739](https://github.com/pinterest/gestalt/pull/2739)) - [Preview link](https://deploy-preview-2739--gestalt.netlify.app)
+
+## 101.1.8 (Mar 17, 2023)
+
+### Patch
+
+- Masonry: add lazy hydration for test route and remaining three integration tests ([#2737](https://github.com/pinterest/gestalt/pull/2737)) - [Preview link](https://deploy-preview-2737--gestalt.netlify.app)
+
+## 101.1.7 (Mar 17, 2023)
+
+### Patch
+
+- OverlayPanel: internal fixes, cleanup ([#2734](https://github.com/pinterest/gestalt/pull/2734)) - [Preview link](https://deploy-preview-2734--gestalt.netlify.app)
+
 ## 101.1.6 (Mar 17, 2023)
 
 ### Patch

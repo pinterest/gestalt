@@ -2,25 +2,16 @@
 import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './Backdrop.css';
-import { type AnimationStateType } from './OverlayPanel/AnimationContext.js';
+import { useAnimation, ANIMATION_STATE } from './animation/AnimationContext.js';
 
 type Props = {|
-  animationState?: AnimationStateType,
   children?: Node,
   closeOnOutsideClick: boolean,
   onClick?: (event: MouseEvent) => void,
 |};
 
-function Backdrop({ animationState, children, closeOnOutsideClick, onClick }: Props): Node {
-  const handleClick = (event) => {
-    if (event.target !== event.currentTarget) {
-      return;
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  };
+function Backdrop({ children, closeOnOutsideClick, onClick }: Props): Node {
+  const { animationState } = useAnimation();
 
   return (
     <Fragment>
@@ -28,11 +19,14 @@ function Backdrop({ animationState, children, closeOnOutsideClick, onClick }: Pr
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         className={classnames(styles.backdrop, {
-          [styles.backdropAnimationIn]: animationState === 'in',
-          [styles.backdropAnimationOut]: animationState === 'out',
+          [styles.backdropAnimationIn]: animationState === ANIMATION_STATE.animatedOpening,
+          [styles.backdropAnimationOut]: animationState === ANIMATION_STATE.animatedClosing,
           [styles.zoomOut]: closeOnOutsideClick,
         })}
-        onClick={handleClick}
+        onClick={(event) => {
+          if (event.target !== event.currentTarget) return;
+          onClick?.(event);
+        }}
       />
       {children}
     </Fragment>

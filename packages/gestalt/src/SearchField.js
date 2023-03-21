@@ -15,7 +15,6 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormLabel from './FormLabel.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
@@ -47,7 +46,10 @@ type Props = {|
   /**
    *
    */
-  onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
+  onBlur?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   /**
    * Primary callback to handle keyboard input.
    */
@@ -151,7 +153,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
   const handleBlur = (event) => {
     setFocused(false);
     if (onBlur) {
-      onBlur({ event });
+      onBlur({ value: event.currentTarget.value, event });
     }
   };
 

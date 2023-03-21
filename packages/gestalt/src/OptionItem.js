@@ -11,7 +11,6 @@ import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type FontWeight } from './textTypes.js';
 
 export type OptionItemType = {|
@@ -34,10 +33,10 @@ type Props = {|
   id: string,
   index: number,
   isExternal?: boolean,
-  onClick?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   onSelect?: ({|
     item: OptionItemType,
     event: SyntheticInputEvent<HTMLInputElement>,

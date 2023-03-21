@@ -22,6 +22,10 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
+   * Defines a new icon different from the built-in Gestalt icons. See [custom icon](#Custom-icon) variant to learn more.
+   */
+  dangerouslySetSvgPath?: {| __path: string |},
+  /**
    * When disabled, IconButtonFloating looks inactive and cannot be interacted with
    */
   disabled?: boolean,
@@ -68,6 +72,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
     accessibilityExpanded,
     accessibilityPopupRole,
     accessibilityLabel,
+    dangerouslySetSvgPath,
     disabled,
     icon,
     onClick,
@@ -83,6 +88,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
         accessibilityPopupRole={accessibilityPopupRole}
         accessibilityLabel={accessibilityLabel}
         bgColor="transparent"
+        dangerouslySetSvgPath={dangerouslySetSvgPath}
         disabled={disabled}
         icon={icon}
         onClick={onClick}
