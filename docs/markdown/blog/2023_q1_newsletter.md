@@ -11,6 +11,8 @@ For years, Content Design standards lived separately from Product Design standar
 
 In 2023, Content Design are leading a refresh of the Content Design Standards themselves—keep an eye out for more updates on this later this half!
 
+**[Check out Pinterest’s content standards](https://gestalt.pinterest.systems/foundations/content_standards/voice)**
+
 ## Components and tokens
 
 ### Featured component: Mobile modal
