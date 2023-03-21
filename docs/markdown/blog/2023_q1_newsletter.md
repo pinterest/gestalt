@@ -81,9 +81,19 @@ Our biggest documentation update for the quarter was the addition of Form guidel
 
 **Read [Gestalt’s Form guidelines](https://gestalt.pinterest.systems/foundations/forms/overview)**
 </Group>
-
 <Group>
-### Added keywords to our icon library
+### Illustration guidelines
+<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
+<br />
+We took our first step towards providing official Gestalt illustrations in late 2022. We continue to make strong progress towards supporting illustration use cases by publishing Gestalt’s illustration guidelines. These best practices should set a strong foundation as we continue to grow our support in this space.
+
+**Check out [Gestalt’s Illustration guidelines](https://gestalt.pinterest.systems/foundations/illustrations/overview)**
+</Group>
+
+</TwoCol>
+<TwoCol>
+<Group>
+### Icon library keywords
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
 <br />
 OK, we’ll fess up. Finding the icon you’re looking for in Gestalt is not great. We know it’s a pain and we plan to fix it. Our first step towards that goal is the addition of search keywords for each icon in our Icon library. For example, searching for “notifications” will return the Bell icon.
@@ -92,10 +102,8 @@ This is the first step in what we hope will be a slew of improvements to Gestalt
 
 **Check out our [Icon library](https://gestalt.pinterest.systems/foundations/iconography/library)**
 </Group>
-</TwoCol>
-<TwoCol>
 <Group>
-### Updates to Android Icon and IconButton component docs
+### Android component doc updates
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 <br />
 As we ramp up development of mobile component development (yes, it’s happening), we’re trying something new by adding design specifications straight into our documentation. You can see this in action with our Android Icon and IconButton component docs. 
@@ -116,7 +124,7 @@ We made two big improvements to our Figma primary navigation component for mobil
 </Group>
 
 <Group>
-### New Figma Reaction and Montage components
+### Reaction and Montage components
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
 <br />
 We’ve included new Reaction and Montage components to cover some common product use cases. 
@@ -135,7 +143,7 @@ We made some fixes to nested components in our flow connectors to link to the ma
 </Group>
 
 <Group>
-### More/better Figma imagery styles for inclusive pins
+### Inclusive imagery fill styles
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
 <br />
 We updated our imagery styles in the Gestalt foundations Figma library to bring more realistic and diverse pins. It also includes two new categories, Beauty and DYI. All the images are drawn from our brand assets, so they are rights-ready for mock-ups that need to be shown in external docs or marketing campaigns.
@@ -143,7 +151,7 @@ We updated our imagery styles in the Gestalt foundations Figma library to bring 
 </TwoCol>
 
 ## What’s coming in Q2? 
-### Mobile components babyyyyyyy!
+### Production-ready mobile components
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 <br />
 We have been working with Android and iOS teams to begin the buildout of mobile components for a while now, but Q2 is when you’re really going to see the fruits of our labor. It’s been a long time coming, but in Q2 2023, we will be shipping a number of mobile Gestalt components.
@@ -152,14 +160,14 @@ For Android, we plan to work on , ButtonGroup, Icon, IconButton, IconButtonFloat
 
 <TwoCol>
 <Group>
-### New: mWeb Sheet
+### mWeb Sheet component
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 <br />
 Our initial work on mWeb Modal gave us the learnings we needed to begin work on a mobile sheet. No, not this Sheet, but a brand new mobile web specific Sheet. We’re planning to land this new component in early Q2, so be on the look out!
 </Group>
 
 <Group>
-### New: TileData component
+### TileData component
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
 
 </Group>
@@ -167,7 +175,7 @@ Our initial work on mWeb Modal gave us the learnings we needed to begin work on 
 
 <TwoCol>
 <Group>
-### New: Illustration guidelines
+### Illustration guidelines
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 <br />
 The Gestalt team landed its first set of official Gestalt illustrations in late 2022 and we’re not done on this subject. We’ll be publishing illustration guidelines to help provide best practices for how/when/where/why to use illustrations in our product. 
