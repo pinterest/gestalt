@@ -11,7 +11,6 @@ import {
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
-import controlStyles from './RadioButtonCheckbox.css';
 import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
@@ -158,7 +157,7 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 
   const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
 
-  const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
+  const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -181,7 +180,7 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             aria-describedby={focused ? ariaDescribedby : undefined}
             aria-invalid={errorMessage ? 'true' : 'false'}
             checked={checked}
-            className={classnames(controlStyles.input, styleSize, {
+            className={classnames(styles.input, styleSize, {
               [styles.inputEnabled]: !disabled,
             })}
             disabled={disabled}

@@ -1,6 +1,6 @@
 // @flow strict
-import ModuleTitle from './ModuleTitle.js';
-import IconButton from './IconButton.js';
+import ModuleTitle from './Title.js';
+import IconButton from '../IconButton.js';
 
 const Valid = (
   <ModuleTitle

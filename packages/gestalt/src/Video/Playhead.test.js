@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import VideoPlayhead from './VideoPlayhead.js';
+import VideoPlayhead from './Playhead.js';
 
 test('VideoPlayhead', () => {
   const tree = create(

@@ -6,7 +6,7 @@ import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownLink from './DropdownLink.js';
 import DropdownSection from './DropdownSection.js';
-import { DropdownContextProvider } from './DropdownContext.js';
+import { DropdownContextProvider } from './Dropdown/Context.js';
 import { type Indexable } from './zIndex.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';

@@ -1,21 +1,18 @@
 // @flow strict
 import { type Node, type Element } from 'react';
-import Badge from './Badge.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import icons from './icons/index.js';
-import Text from './Text.js';
+import Badge from '../Badge.js';
+import Box from '../Box.js';
+import Flex from '../Flex.js';
+import Icon from '../Icon.js';
+import IconButton from '../IconButton.js';
+import icons from '../icons/index.js';
+import Text from '../Text.js';
 
 type BadgeType = {|
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};
 
-/**
- * https://gestalt.pinterest.systems/web/module
- */
 export default function ModuleTitle(props: {|
   badge?: BadgeType,
   icon?: $Keys<typeof icons>,

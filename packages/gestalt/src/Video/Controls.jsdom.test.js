@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, render } from '@testing-library/react';
-import VideoControls from './VideoControls.js';
+import VideoControls from './Controls.js';
 
 test('VideoControls handles play events', () => {
   const mockOnPlay = jest.fn();

@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import typography from './Typography.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import icons from './icons/index.js';
-import styles from './Icon.css';
-import colors from './Colors.css';
-import avatarStyles from './AvatarGroup.css';
+import Box from '../Box.js';
+import typography from '../Typography.css';
+import { useColorScheme } from '../contexts/ColorSchemeProvider.js';
+import icons from '../icons/index.js';
+import styles from '../Icon.css';
+import colors from '../Colors.css';
+import avatarStyles from '../AvatarGroup.css';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 

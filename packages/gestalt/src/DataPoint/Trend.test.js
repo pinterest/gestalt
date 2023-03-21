@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import DatapointTrend from './DatapointTrend.js';
+import DatapointTrend from './Trend.js';
 
 describe('DatapointTrend', () => {
   it('renders', () => {

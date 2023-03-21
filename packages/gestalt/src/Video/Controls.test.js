@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import VideoControls from './VideoControls.js';
+import VideoControls from './Controls.js';
 
 test('VideoControls for single digit seconds', () => {
   const tree = create(

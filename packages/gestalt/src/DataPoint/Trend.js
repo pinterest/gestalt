@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import Text from './Text.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
+import Text from '../Text.js';
+import Flex from '../Flex.js';
+import Icon from '../Icon.js';
 
 const TREND_COLOR_MAP = {
   good: 'success',

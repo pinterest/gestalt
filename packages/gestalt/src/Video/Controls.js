@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
-import Box from './Box.js';
-import Icon from './Icon.js';
-import Text from './Text.js';
-import TapArea from './TapArea.js';
+import Box from '../Box.js';
+import Icon from '../Icon.js';
+import Text from '../Text.js';
+import TapArea from '../TapArea.js';
 import VideoPlayhead from './VideoPlayhead.js';
-import styles from './Video.css';
+import styles from '../Video.css';
 
 type Props = {|
   accessibilityHideCaptionsLabel: string,

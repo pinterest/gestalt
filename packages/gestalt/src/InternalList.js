@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Box from './Box.js';
 import Text from './Text.js';
 import Flex from './Flex.js';
-import ListText from './ListText.js';
+import ListText from './List/Message.js';
 import styles from './List.css';
 import getChildrenToArray from './List/getChildrenToArray.js';
 import { ListProvider, useList } from './contexts/ListProvider.js';

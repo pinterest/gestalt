@@ -1,15 +1,15 @@
 // @flow strict
 import { forwardRef, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
-import Text from './Text.js';
-import Icon from './Icon.js';
-import focusStyles from './Focus.css';
-import touchableStyles from './TapArea.css';
-import layoutStyles from './Layout.css';
-import flexStyles from './Flex.css';
-import bordersStyles from './Borders.css';
-import boxWhitespaceStyles from './boxWhitespace.css';
-import colorStyles from './Colors.css';
+import Text from '../Text.js';
+import Icon from '../Icon.js';
+import focusStyles from '../Focus.css';
+import touchableStyles from '../TapArea.css';
+import layoutStyles from '../Layout.css';
+import flexStyles from '../Flex.css';
+import bordersStyles from '../Borders.css';
+import boxWhitespaceStyles from '../boxWhitespace.css';
+import colorStyles from '../Colors.css';
 
 export type ComboBoxItemType = {|
   label: string,

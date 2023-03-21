@@ -1,16 +1,16 @@
 // @flow strict
 import { cloneElement, useState, useRef, Fragment, type Element, type Node } from 'react';
-import Box from './Box.js';
-import Heading from './Heading.js';
-import Badge from './Badge.js';
-import IconButton from './IconButton.js';
-import Text from './Text.js';
-import Link from './Link.js';
-import Flex from './Flex.js';
-import Mask from './Mask.js';
-import Image from './Image.js';
-import Dropdown from './Dropdown.js';
-import { type ActionType } from './PageHeader.js';
+import Box from '../Box.js';
+import Heading from '../Heading.js';
+import Badge from '../Badge.js';
+import IconButton from '../IconButton.js';
+import Text from '../Text.js';
+import Link from '../Link.js';
+import Flex from '../Flex.js';
+import Mask from '../Mask.js';
+import Image from '../Image.js';
+import Dropdown from '../Dropdown.js';
+import { type ActionType } from '../PageHeader.js';
 
 export function PageHeaderTitle({
   marginTop,

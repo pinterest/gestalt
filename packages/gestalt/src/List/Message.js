@@ -1,8 +1,8 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
-import Text from './Text.js';
-import styles from './List.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import Text from '../Text.js';
+import styles from '../List.css';
+import { useColorScheme } from '../contexts/ColorSchemeProvider.js';
 
 type Props = {|
   text: string | Element<typeof Text>,

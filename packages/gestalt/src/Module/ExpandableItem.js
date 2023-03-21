@@ -1,22 +1,19 @@
 // @flow strict
 import { type Element as ReactElement, type Node } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import icons from './icons/index.js';
-import ModuleTitle from './ModuleTitle.js';
-import TapArea from './TapArea.js';
-import Text from './Text.js';
+import Box from '../Box.js';
+import Flex from '../Flex.js';
+import Icon from '../Icon.js';
+import IconButton from '../IconButton.js';
+import icons from '../icons/index.js';
+import ModuleTitle from './Title.js';
+import TapArea from '../TapArea.js';
+import Text from '../Text.js';
 
 type BadgeType = {|
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};
 
-/**
- * https://gestalt.pinterest.systems/web/module
- */
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,

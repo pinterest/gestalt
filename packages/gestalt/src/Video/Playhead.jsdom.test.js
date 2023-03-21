@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, render } from '@testing-library/react';
-import VideoPlayhead from './VideoPlayhead.js';
+import VideoPlayhead from './Playhead.js';
 
 test('VideoPlayhead handles on mouse down and up events', () => {
   const mockOnPlayheadDown = jest.fn();
