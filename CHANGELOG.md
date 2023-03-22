@@ -1,3 +1,9 @@
+## 101.3.1 (Mar 22, 2023)
+
+### Patch
+
+- OverlayPanel: remove from iOS/Android overview pages ([#2747](https://github.com/pinterest/gestalt/pull/2747)) - [Preview link](https://deploy-preview-2747--gestalt.netlify.app)
+
 ## 101.3.0 (Mar 20, 2023)
 
 ### Minor
