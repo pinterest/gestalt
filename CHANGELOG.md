@@ -1,3 +1,9 @@
+## 101.3.3 (Mar 22, 2023)
+
+### Patch
+
+- Textfield: fix in CSS reference ([#2749](https://github.com/pinterest/gestalt/pull/2749)) - [Preview link](https://deploy-preview-2749--gestalt.netlify.app)
+
 ## 101.3.2 (Mar 22, 2023)
 
 ### Patch
