@@ -1,3 +1,9 @@
+## 101.3.2 (Mar 22, 2023)
+
+### Patch
+
+- Internal: reorganized files to folders with renaming ([#2746](https://github.com/pinterest/gestalt/pull/2746)) - [Preview link](https://deploy-preview-2746--gestalt.netlify.app)
+
 ## 101.3.1 (Mar 22, 2023)
 
 ### Patch
