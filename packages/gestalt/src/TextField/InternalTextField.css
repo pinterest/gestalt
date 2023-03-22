@@ -12,7 +12,7 @@
 
 .unstyledTextField,
 .textFieldSpacer {
-  composes: unstyled from "./shared/FormElement.css";
+  composes: unstyled from "../shared/FormElement.css";
   composes: Text from "../Text.css";
   composes: fontSize300 from "../Typography.css";
   margin-bottom: var(--space-100);
