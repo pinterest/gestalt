@@ -7,8 +7,8 @@ import {
   useEffect,
   useState,
 } from 'react';
-import InternalTextField from './InternalTextField.js';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
+import InternalTextField from './TextField/InternalTextField.js';
+import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 

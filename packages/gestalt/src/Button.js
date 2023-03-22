@@ -14,7 +14,7 @@ import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import Icon, { type IconColor } from './Icon.js';
 import icons from './icons/index.js';
-import InternalLink from './InternalLink.js';
+import InternalLink from './Link/InternalLink.js';
 import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import styles from './Button.css';
 import Text from './Text.js';

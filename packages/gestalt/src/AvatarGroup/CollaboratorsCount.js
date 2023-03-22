@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import AvatarFoundation from '../AvatarFoundation.js';
+import AvatarFoundation from '../Avatar/Foundation.js';
 import { type BaseStackType } from './constants.js';
 import PositioningWrapper from './PositioningWrapper.js';
 import HoverOverlay from './HoverOverlay.js';

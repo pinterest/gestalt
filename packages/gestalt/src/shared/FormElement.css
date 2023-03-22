@@ -1,0 +1,47 @@
+.base {
+  composes: accessibilityOutline from "../Focus.css";
+  appearance: none;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.normal {
+  composes: borderColorLightGray from "../Borders.css";
+}
+
+.normal:hover:not(:focus):not(.disabled) {
+  border-color: var(--color-gray-roboflow-400);
+}
+
+.errored {
+  composes: borderColorRed from "../Borders.css";
+  outline: none;
+}
+
+.errored:focus {
+  border-color: var(--color-border-container);
+}
+
+.errored:hover:not(:focus) {
+  border-color: var(--g-colorRed100Hovered);
+}
+
+.enabled {
+  composes: darkGray from "../Colors.css";
+  composes: whiteBg from "../Colors.css";
+}
+
+.disabled {
+  composes: gray from "../Colors.css";
+  composes: lightGrayBg from "../Colors.css";
+  composes: borderColorLightGrayDisabled from "../Borders.css";
+}
+
+.unstyled {
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: inherit;
+}

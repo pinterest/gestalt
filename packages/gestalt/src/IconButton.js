@@ -9,7 +9,7 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import icons from './icons/index.js';
-import InternalLink from './InternalLink.js';
+import InternalLink from './Link/InternalLink.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
 import { type Indexable } from './zIndex.js';

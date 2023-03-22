@@ -18,7 +18,7 @@ import {
   PageHeaderThumbnail,
   PageHeaderActionBlock,
   PageHeaderItemsBlock,
-} from './PageHeaderComponents.js';
+} from './PageHeader/components.js';
 import styles from './PageHeader.css';
 
 export type ActionType = Element<

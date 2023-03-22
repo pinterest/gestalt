@@ -2,7 +2,7 @@
 import { Fragment, type Node, useCallback, useState, useEffect, type Element } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
-import ModuleExpandableItem from './ModuleExpandableItem.js';
+import ModuleExpandableItem from './Module/ExpandableItem.js';
 import icons from './icons/index.js';
 import IconButton from './IconButton.js';
 
