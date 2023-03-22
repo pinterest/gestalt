@@ -20,6 +20,7 @@ import HelpButton from '../graphics/general/HelpButton.svg';
 import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
 import Icon from '../graphics/general/Icon.svg';
+import Illustration from '../graphics/foundations/illustration.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
@@ -206,26 +207,18 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/forms/overview',
   },
   {
-    svg: <Messaging />,
-    name: 'Messaging',
-    description:
-      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
-    category: 'Foundations',
-    path: '/foundations/messaging/overview',
-  },
-  {
-    svg: <Typography />,
-    name: 'Typography',
-    description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    category: 'Foundations',
-    path: '/foundations/typography/guidelines',
-  },
-  {
     svg: <Iconography />,
     name: 'Iconography',
     description: 'Our current icon library, complete with guidelines on using and creating icons',
     category: 'Foundations',
     path: '/foundations/iconography/library',
+  },
+  {
+    svg: <Illustration />,
+    name: 'Illustration',
+    description: 'Guidelines and assets for using illustrations on product surfaces',
+    category: 'Foundations',
+    path: '/foundations/illustration',
   },
   {
     svg: <Layouts />,
@@ -236,11 +229,26 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/layouts',
   },
   {
+    svg: <Messaging />,
+    name: 'Messaging',
+    description:
+      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
+    category: 'Foundations',
+    path: '/foundations/messaging/overview',
+  },
+  {
     svg: <ScreenSizes />,
     name: 'Screen sizes',
     description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
     category: 'Foundations',
     path: '/foundations/screen_sizes',
+  },
+  {
+    svg: <Typography />,
+    name: 'Typography',
+    description: 'A typographic system for a content hierarchy that is scannable and efficient',
+    category: 'Foundations',
+    path: '/foundations/typography/guidelines',
   },
 ];
 
