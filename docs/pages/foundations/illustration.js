@@ -273,7 +273,7 @@ export default function IllustrationPage(): Node {
               <IllEmptyLarge />
             </Box>
             <Heading size="300">Large</Heading>
-            <Text size="200">Large empty</Text>
+            <Text size="200">Empty</Text>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -392,7 +392,7 @@ export default function IllustrationPage(): Node {
               <IllErrorMedium1 />
             </Box>
             <Heading size="300">Medium option 1</Heading>
-            <Text size="200">Sad coffee</Text>
+            <Text size="200">Sad plant</Text>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -407,7 +407,7 @@ export default function IllustrationPage(): Node {
               <IllErrorMedium2 />
             </Box>
             <Heading size="300">Medium option 2</Heading>
-            <Text size="200">Sad plant</Text>
+            <Text size="200">Sad coffee</Text>
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
