@@ -256,8 +256,7 @@ export default function IllustrationPage(): Node {
       <MainSection name="Status">
         <MainSection.Subsection
           title="Empty"
-          description={`Display when content is not currently available or is unable to load. For example, when a
-          user is interacting with a card in a dashboard for the first time. `}
+          description={`Display when content is not currently available or is unable to load. For example, when a user is interacting with a card in a dashboard for the first time. `}
         />
 
         <Flex gap={6} alignContent="between" wrap direction="row">
