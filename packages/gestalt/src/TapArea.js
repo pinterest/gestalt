@@ -2,35 +2,35 @@
 import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './TapArea.css';
-import InternalLink from './InternalLink.js';
+import InternalLink from './Link/InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { type AriaCurrent } from './ariaTypes.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
-type FocusEventHandler = AbstractEventHandler<
-  SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
->;
+type FocusEventHandler = ({|
+  event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
+|}) => void;
 
-type MouseEventHandler = AbstractEventHandler<
-  SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
->;
+type MouseEventHandler = ({|
+  event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+|}) => void;
 
-type KeyboardEventHandler = AbstractEventHandler<
-  SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
->;
+type KeyboardEventHandler = ({|
+  event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+|}) => void;
 
-export type OnTapType = AbstractEventHandler<
-  | SyntheticMouseEvent<HTMLDivElement>
-  | SyntheticKeyboardEvent<HTMLDivElement>
-  | SyntheticMouseEvent<HTMLAnchorElement>
-  | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  {| dangerouslyDisableOnNavigation: () => void |},
->;
+export type OnTapType = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  dangerouslyDisableOnNavigation: () => void,
+|}) => void;
 
 type BaseTapArea = {|
   accessibilityLabel?: string,
@@ -218,9 +218,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
         onKeyDown={handleLinkOnKeyDown}
-        // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
         onMouseDown={onMouseDown}
-        // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
         onMouseUp={onMouseUp}
         onMouseEnter={handleLinkOnMouseEnter}
         onMouseLeave={handleLinkOnMouseLeave}

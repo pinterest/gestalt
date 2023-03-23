@@ -11,8 +11,24 @@ import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { type ActionDataType } from './commonTypes.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+
+export type ActionDataType = {|
+  accessibilityLabel: string,
+  disabled?: boolean,
+  href?: string,
+  label: string,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+|};
 
 type UpsellActionProps = {|
   data: ActionDataType,

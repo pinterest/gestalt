@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Badge from './Badge.js';
-import DatapointTrend from './DatapointTrend.js';
+import DatapointTrend from './Datapoint/Trend.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';

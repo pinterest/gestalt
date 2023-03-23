@@ -8,14 +8,13 @@ import {
   type AbstractComponent,
 } from 'react';
 import classnames from 'classnames';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import Icon, { type IconColor } from './Icon.js';
 import icons from './icons/index.js';
-import InternalLink from './InternalLink.js';
+import InternalLink from './Link/InternalLink.js';
 import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import styles from './Button.css';
 import Text from './Text.js';
@@ -56,13 +55,14 @@ type BaseButton = {|
   iconEnd?: $Keys<typeof icons>,
   fullWidth?: boolean,
   name?: string,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| dangerouslyDisableOnNavigation: () => void |},
-  >,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
   text: string,

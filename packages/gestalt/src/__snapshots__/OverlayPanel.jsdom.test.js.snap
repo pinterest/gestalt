@@ -191,7 +191,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
       class="container"
     >
       <div
-        class="backdrop zoomOut"
+        class="backdrop backdropAnimationIn zoomOut"
       />
       <div
         aria-label="OverlayPanel"
@@ -287,7 +287,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
       class="container"
     >
       <div
-        class="backdrop zoomOut"
+        class="backdrop backdropAnimationIn zoomOut"
       />
       <div
         aria-label="OverlayPanel"
@@ -393,7 +393,7 @@ exports[`OverlayPanel should render animation in 1`] = `
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline wrapperAnimationIn"
+        class="wrapper hideOutline"
         id=":r2:"
         role="dialog"
         style="width: 540px;"
@@ -467,7 +467,7 @@ exports[`OverlayPanel should render animation out 1`] = `
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline wrapperAnimationOut"
+        class="wrapper hideOutline"
         id=":r3:"
         role="dialog"
         style="width: 540px;"

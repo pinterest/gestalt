@@ -10,12 +10,11 @@ import {
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
-import formElement from './FormElement.css';
+import formElement from './shared/FormElement.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
-import FormErrorMessage from './FormErrorMessage.js';
-import FormLabel from './FormLabel.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import FormErrorMessage from './shared/FormErrorMessage.js';
+import FormLabel from './shared/FormLabel.js';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
@@ -47,7 +46,10 @@ type Props = {|
   /**
    *
    */
-  onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
+  onBlur?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   /**
    * Primary callback to handle keyboard input.
    */
@@ -151,7 +153,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
   const handleBlur = (event) => {
     setFocused(false);
     if (onBlur) {
-      onBlur({ event });
+      onBlur({ value: event.currentTarget.value, event });
     }
   };
 

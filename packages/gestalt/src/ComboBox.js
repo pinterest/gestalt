@@ -15,11 +15,11 @@ import {
   type AbstractComponent,
 } from 'react';
 import Box from './Box.js';
-import ComboBoxItem from './ComboBoxItem.js';
+import ComboBoxItem from './ComboBox/Item.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import InternalTextField from './InternalTextField.js';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
+import InternalTextField from './TextField/InternalTextField.js';
+import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import Text from './Text.js';
 import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';

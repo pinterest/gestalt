@@ -11,7 +11,7 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import InternalScrollBoundaryContainer from './ScrollBoundaryContainerWithForwardRef.js';
+import InternalScrollBoundaryContainer from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import { FixedZIndex } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';

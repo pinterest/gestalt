@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useState } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
@@ -20,13 +20,14 @@ export default function AccessibilityExample(): Node {
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-  const footer = useCallback(
-    ({ onDismissStart }) => (
-      <Flex alignItems="center" justifyContent="end">
-        <Button color="red" text="Create" onClick={onDismissStart} />
-      </Flex>
-    ),
-    [],
+  const footer = (
+    <OverlayPanel.DismissingElement>
+      {({ onDismissStart }) => (
+        <Flex alignItems="center" justifyContent="end">
+          <Button color="red" text="Create" onClick={onDismissStart} />
+        </Flex>
+      )}
+    </OverlayPanel.DismissingElement>
   );
 
   return (

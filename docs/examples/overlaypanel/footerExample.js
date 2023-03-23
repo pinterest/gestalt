@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useState } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
@@ -15,15 +15,17 @@ import {
 } from 'gestalt';
 
 function SheetWithFooter({ onDismiss }: {| onDismiss: () => void |}) {
-  const footer = useCallback(
-    ({ onDismissStart }) => (
-      <Flex alignItems="center" justifyContent="between">
-        <Button color="transparent" text="Delete" />
-        <Button color="red" text="Apply changes" onClick={onDismissStart} />
-      </Flex>
-    ),
-    [],
+  const footer = (
+    <OverlayPanel.DismissingElement>
+      {({ onDismissStart }) => (
+        <Flex alignItems="center" justifyContent="between">
+          <Button color="transparent" text="Delete" />
+          <Button color="red" text="Apply changes" onClick={onDismissStart} />
+        </Flex>
+      )}
+    </OverlayPanel.DismissingElement>
   );
+
   return (
     <OverlayPanel
       accessibilityDismissButtonLabel="Close"

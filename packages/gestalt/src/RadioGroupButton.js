@@ -7,10 +7,10 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import FormHelperText from './FormHelperText.js';
+import FormHelperText from './shared/FormHelperText.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
-import { useRadioGroupContext } from './RadioGroupContext.js';
+import { useRadioGroupContext } from './RadioGroup/Context.js';
 
 type Props = {|
   /**

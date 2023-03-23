@@ -3,10 +3,10 @@ import { forwardRef, type Element, type Node, type AbstractComponent, useState }
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
-import formElement from './FormElement.css';
-import FormErrorMessage from './FormErrorMessage.js';
-import FormHelperText from './FormHelperText.js';
-import FormLabel from './FormLabel.js';
+import formElement from './shared/FormElement.css';
+import FormErrorMessage from './shared/FormErrorMessage.js';
+import FormHelperText from './shared/FormHelperText.js';
+import FormLabel from './shared/FormLabel.js';
 import Tag from './Tag.js';
 import styles from './TextArea.css';
 
