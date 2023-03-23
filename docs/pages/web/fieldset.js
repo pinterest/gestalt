@@ -8,10 +8,10 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/fieldset/main.js';
 import accessibility from '../../examples/fieldset/accessibility.js';
-import variantsLegend from '../../examples/fieldset/variantsLegend.js';
+import main from '../../examples/fieldset/main.js';
 import variantsError from '../../examples/fieldset/variantsError.js';
+import variantsLegend from '../../examples/fieldset/variantsLegend.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

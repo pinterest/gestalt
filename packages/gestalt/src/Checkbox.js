@@ -9,15 +9,15 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import colors from './Colors.css';
 import styles from './Checkbox.css';
+import colors from './Colors.css';
+import focusStyles from './Focus.css';
 import Box from './Box.js';
-import FormErrorMessage from './shared/FormErrorMessage.js';
 import Icon from './Icon.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
-import focusStyles from './Focus.css';
+import FormErrorMessage from './shared/FormErrorMessage.js';
 import FormHelperText from './shared/FormHelperText.js';
 
 type Props = {|

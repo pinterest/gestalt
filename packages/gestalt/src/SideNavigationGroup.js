@@ -2,17 +2,17 @@
 import { useState, useId, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './SideNavigation.css';
-import TapArea from './TapArea.js';
 import Dropdown from './Dropdown.js';
-import SideNavigationGroupContent from './SideNavigation/GroupContent.js';
-import SideNavigationGroupMobile from './SideNavigation/GroupMobile.js';
+import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
+import TapArea from './TapArea.js';
+import { type Indexable } from './zIndex.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
+import { useSideNavigation } from './contexts/SideNavigationProvider.js';
 import icons from './icons/index.js';
 import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import { useSideNavigation } from './contexts/SideNavigationProvider.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { type Indexable } from './zIndex.js';
+import SideNavigationGroupContent from './SideNavigation/GroupContent.js';
+import SideNavigationGroupMobile from './SideNavigation/GroupMobile.js';
 
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';

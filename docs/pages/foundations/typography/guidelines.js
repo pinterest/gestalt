@@ -2,21 +2,21 @@
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import Page from '../../../docs-components/Page.js';
 import Markdown from '../../../docs-components/Markdown.js';
-import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
+import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 import AlignmentCenter from '../../../graphics/typography/alignmentCenter.svg';
 import AlignmentEnd from '../../../graphics/typography/alignmentEnd.svg';
-import LineLength from '../../../graphics/typography/lineLength.svg';
-import LineHeightLatin from '../../../graphics/typography/lineHeightLatin.svg';
-import LineHeightCJK from '../../../graphics/typography/lineHeightCJK.svg';
-import ParagraphSpacing from '../../../graphics/typography/paragraphSpacing.svg';
+import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
+import ContrastHigh from '../../../graphics/typography/contrastHigh.svg';
+import ContrastLow from '../../../graphics/typography/contrastLow.svg';
 import HierarchyDo from '../../../graphics/typography/hierarchyDo.svg';
 import HierarchyDont from '../../../graphics/typography/hierarchyDont.svg';
-import ContrastLow from '../../../graphics/typography/contrastLow.svg';
-import ContrastHigh from '../../../graphics/typography/contrastHigh.svg';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
+import LineHeightCJK from '../../../graphics/typography/lineHeightCJK.svg';
+import LineHeightLatin from '../../../graphics/typography/lineHeightLatin.svg';
+import LineLength from '../../../graphics/typography/lineLength.svg';
+import ParagraphSpacing from '../../../graphics/typography/paragraphSpacing.svg';
 
 export default function TypographyPage(): Node {
   return (

@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node, PureComponent } from 'react';
-
 import Box from '../Box.js';
 import styles from '../Video.css';
 

@@ -5,9 +5,9 @@ import Flex from '../Flex.js';
 import Icon from '../Icon.js';
 import IconButton from '../IconButton.js';
 import icons from '../icons/index.js';
-import ModuleTitle from './Title.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
+import ModuleTitle from './Title.js';
 
 type BadgeType = {|
   text: string,

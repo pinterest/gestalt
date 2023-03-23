@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import defaultExample from '../../examples/segmentedcontrol/defaultExample.js';
 

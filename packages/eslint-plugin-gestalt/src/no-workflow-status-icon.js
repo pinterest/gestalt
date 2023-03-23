@@ -4,8 +4,8 @@
  */
 
 // @flow strict
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 import { hasImport, isGestaltComponent, hasAttributes } from './helpers/eslintASTHelpers.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const disallowedMatch = [
   { icon: 'workflow-status-in-progress', color: 'success' },

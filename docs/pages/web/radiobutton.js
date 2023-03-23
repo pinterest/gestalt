@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

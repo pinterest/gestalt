@@ -12,7 +12,6 @@
 
 // @flow strict
 import { type Node } from 'react';
-
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
 

@@ -1,16 +1,16 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
+import { readFileSync, writeFileSync } from 'fs';
+import { extname, relative } from 'path';
 import babel from '@rollup/plugin-babel';
-import cssnano from 'cssnano';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import postcss from 'postcss';
-import postcssPresetEnv from 'postcss-preset-env';
-import postcssModules from 'postcss-modules';
 import replace from '@rollup/plugin-replace';
+import cssnano from 'cssnano';
+import postcss from 'postcss';
+import postcssModules from 'postcss-modules';
+import postcssPresetEnv from 'postcss-preset-env';
 import { parseString } from 'xml2js';
-import { readFileSync, writeFileSync } from 'fs';
-import { extname, relative } from 'path';
 import classnameBuilder from './lib/classnameBuilder.js';
 
 const svgPath = () => ({

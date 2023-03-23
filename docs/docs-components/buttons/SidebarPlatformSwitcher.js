@@ -1,9 +1,9 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { useRouter } from 'next/router';
 import { SegmentedControl } from 'gestalt';
-import AppleLogo from '../../graphics/home-page/apple-logo.svg';
+import { useRouter } from 'next/router';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
+import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import { type ComponentPlatformFilteredBy } from '../navigationContext.js';
 import trackButtonClick from './trackButtonClick.js';
 

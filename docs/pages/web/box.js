@@ -1,31 +1,31 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import Page from '../../docs-components/Page.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import absolute from '../../examples/box/absolute.js';
+import asProp from '../../examples/box/as.js';
+import autoMargins from '../../examples/box/autoMargins.js';
+import buildingBlock from '../../examples/box/buildingBlock.js';
+import divs from '../../examples/box/divs.js';
 import main from '../../examples/box/main.js';
 import notAllowed from '../../examples/box/notAllowed.js';
+import overflow from '../../examples/box/overflow.js';
 import padding from '../../examples/box/padding.js';
-import divs from '../../examples/box/divs.js';
-import asProp from '../../examples/box/as.js';
+import ref from '../../examples/box/ref.js';
+import responsive from '../../examples/box/responsive.js';
 import role from '../../examples/box/role.js';
 import rtl from '../../examples/box/rtl.js';
-import buildingBlock from '../../examples/box/buildingBlock.js';
 import sizing from '../../examples/box/sizing.js';
-import overflow from '../../examples/box/overflow.js';
-import responsive from '../../examples/box/responsive.js';
-import autoMargins from '../../examples/box/autoMargins.js';
-import absolute from '../../examples/box/absolute.js';
-import ref from '../../examples/box/ref.js';
-import zIndex from '../../examples/box/zIndex.js';
 import visuallyHidden from '../../examples/box/visuallyHidden.js';
+import zIndex from '../../examples/box/zIndex.js';
 
 const ignoredProps = [
   'smAlignItems',

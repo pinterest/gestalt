@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
 import MainSection from '../../docs-components/MainSection.js';
-import PageHeader from '../../docs-components/PageHeader.js';
 import Page from '../../docs-components/Page.js';
-import screenSizesWeb from '../../examples/screenSizes/screenSizesWeb.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import screenSizesIos from '../../examples/screenSizes/screenSizesIos.js';
+import screenSizesWeb from '../../examples/screenSizes/screenSizesWeb.js';
 
 export default function DocsPage(): Node {
   return (

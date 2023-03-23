@@ -3,8 +3,8 @@
  */
 
 // @flow strict
-import { getHtmlTag, hasImport, buildProps } from './helpers/eslintASTHelpers.js';
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
+import { getHtmlTag, hasImport, buildProps } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 export const SUPPORTED_HTML_TAGS = [

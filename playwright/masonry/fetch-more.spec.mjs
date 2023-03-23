@@ -1,8 +1,8 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
 import getServerURL from './utils/getServerURL.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 import selectors from './utils/selectors.mjs';
+import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
 test.describe('Masonry: fetch more', () => {
   test('trigger a call to "fetchMore" when container resizes', async ({

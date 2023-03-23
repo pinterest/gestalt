@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import SideNavigation from './SideNavigation.js';
 import Box from './Box.js';
+import SideNavigation from './SideNavigation.js';
 
 describe('SideNavigation', () => {
   it('renders basic Item', () => {

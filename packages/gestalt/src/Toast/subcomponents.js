@@ -9,16 +9,16 @@ import {
   type Element,
   type Node,
 } from 'react';
-import Text from '../Text.js';
-import Link from '../Link.js';
-import Icon from '../Icon.js';
 import Avatar from '../Avatar.js';
 import Box from '../Box.js';
-import Mask from '../Mask.js';
-import Image from '../Image.js';
-import Spinner from '../Spinner.js';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import Icon from '../Icon.js';
+import Image from '../Image.js';
+import Link from '../Link.js';
+import Mask from '../Mask.js';
+import Spinner from '../Spinner.js';
+import Text from '../Text.js';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;

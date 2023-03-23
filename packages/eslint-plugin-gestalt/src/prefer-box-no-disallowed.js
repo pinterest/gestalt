@@ -3,6 +3,12 @@
  */
 
 // @flow strict
+import { allowedBaseProps } from './no-box-disallowed-props.js';
+import {
+  renameTagFixer,
+  renameTagWithPropsFixer,
+  updateGestaltImportFixer,
+} from './helpers/eslintASTFixers.js';
 import {
   buildProps,
   getNodeFromPropName,
@@ -15,13 +21,7 @@ import {
   hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers.js';
-import {
-  renameTagFixer,
-  renameTagWithPropsFixer,
-  updateGestaltImportFixer,
-} from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import { allowedBaseProps } from './no-box-disallowed-props.js';
 
 const rule: ESLintRule = {
   meta: {
