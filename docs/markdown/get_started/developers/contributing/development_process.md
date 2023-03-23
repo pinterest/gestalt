@@ -105,7 +105,8 @@ yarn generate ComponentName
   - Run [Playwright visual diff snapshot tests](https://playwright.dev/docs/test-snapshots). If any component changes are expected to visually modify your component, you must update the snapshot tests. Make sure your macOS version matches the one set in [Playwright's config file](https://github.com/pinterest/gestalt/blob/master/.github/workflows/playwright.yml#L13)
 
   ```bash
-  # Update all Gestalt packages builds running rollup
+  # Stop Docs build 
+  # Update all Gestalt packages builds running rollup. Make sure to run after every change in component/snapshot test
   yarn build
 
   # Update a specific visual test snapshots with the latest builds
