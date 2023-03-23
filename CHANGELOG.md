@@ -1,3 +1,9 @@
+## 101.3.5 (Mar 23, 2023)
+
+### Patch
+
+- Internal: move .eslintrc from json to js to add constants + set import/order rule = ERROR & autofix([#2751](https://github.com/pinterest/gestalt/pull/2751)) - [Preview link](https://deploy-preview-2751--gestalt.netlify.app)
+
 ## 101.3.4 (Mar 23, 2023)
 
 ### Patch
