@@ -6,7 +6,7 @@ import { useNavigationContext } from './navigationContext.js';
 import newSidebarIndex from './siteIndex.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
-import { useDocsDeviceType } from './contexts/DocsDeviceTypeProvider.js';
+import { useDocsConfig } from './contexts/DocsConfigProvider.js';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
@@ -21,7 +21,7 @@ export function isComponentsActiveSection(pathname: string): boolean {
 export default function DocsSideNavigation({ showBorder }: {| showBorder?: boolean |}): Node {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
-  const { isMobile } = useDocsDeviceType();
+  const { isMobile } = useDocsConfig();
   const { pathname, query } = useRouter();
   const {
     componentPlatformFilteredBy,

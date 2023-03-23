@@ -7,11 +7,13 @@ const colorSchemeKey = 'gestalt-color-scheme';
 const propTableVariantKey = 'gestalt-propTable-variant';
 const textDirectionKey = 'gestalt-text-direction';
 const experimentsKey = 'gestalt-experiments';
+const sandpacksKey = 'gestalt-sandpack';
 
 type PropTableVariant = 'collapsed' | 'expanded';
 type ColorScheme = 'light' | 'dark';
 type DirectionScheme = 'ltr' | 'rtl';
 type Experiments = string;
+type Sandpack = 'enabled' | 'disabled';
 
 export type AppContextType = {|
   propTableVariant: PropTableVariant,
@@ -22,6 +24,8 @@ export type AppContextType = {|
   setTextDirection: (val: DirectionScheme) => void,
   experiments: Experiments,
   setExperiments: (val: Experiments) => void,
+  sandpack: Sandpack,
+  setSandpack: (val: Sandpack) => void,
 |};
 
 const {
@@ -36,6 +40,7 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
     propTableVariantKey,
     textDirectionKey,
     experimentsKey,
+    sandpacksKey,
   ]);
 
   const colorScheme: ColorScheme = cookies[colorSchemeKey] === 'dark' ? 'dark' : 'light';
@@ -44,6 +49,7 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
   const textDirection: DirectionScheme = cookies[textDirectionKey] === 'rtl' ? 'rtl' : 'ltr';
 
   const experiments: Experiments = cookies[experimentsKey] ?? [];
+  const sandpack: Sandpack = cookies[sandpacksKey] === 'enabled' ? 'enabled' : 'disabled';
 
   const setColorScheme = (newColorScheme) => setCookies(colorSchemeKey, newColorScheme);
   const setPropTableVariant = (variant) => setCookies(propTableVariantKey, variant);
@@ -51,6 +57,7 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
   const setExperiments = (component) => {
     setCookies(experimentsKey, component);
   };
+  const setSandpack = (state) => setCookies(sandpacksKey, state);
 
   useEffect(() => {
     if (document && document.documentElement) {
@@ -69,6 +76,8 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
         setTextDirection,
         experiments,
         setExperiments,
+        sandpack,
+        setSandpack,
       }}
     >
       {children}
