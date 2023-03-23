@@ -1,36 +1,36 @@
 // @flow strict
-import { Image, Box, Flex, Text, Heading } from 'gestalt';
 import { type Node } from 'react';
+import { Image, Box, Flex, Text, Heading } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import IllHeader from '../../graphics/illustration/ill-header.svg';
-import IllSuccess from '../../graphics/illustration/ill-success.svg';
-import IllResize from '../../graphics/illustration/ill-resize.svg';
-import IllWhitespace from '../../graphics/illustration/ill-whitespace.svg';
-import IllContext from '../../graphics/illustration/ill-context.svg';
+import IllAlt1 from '../../graphics/illustration/ill-alt-1.svg';
+import IllAlt2 from '../../graphics/illustration/ill-alt-2.svg';
 import IllColor from '../../graphics/illustration/ill-color.svg';
-import IllFullpage from '../../graphics/illustration/ill-fullpage.svg';
-import IllMessaging from '../../graphics/illustration/ill-messaging.svg';
-import IllLarge from '../../graphics/illustration/ill-large.svg';
-import IllMedium from '../../graphics/illustration/ill-medium.svg';
-import IllSmall from '../../graphics/illustration/ill-small.svg';
+import IllContext from '../../graphics/illustration/ill-context.svg';
 import IllEmptyLarge from '../../graphics/illustration/ill-empty-lg.svg';
 import IllEmptyMedium1 from '../../graphics/illustration/ill-empty-md-1.svg';
 import IllEmptyMedium2 from '../../graphics/illustration/ill-empty-md-2.svg';
-import IllSuccessLarge from '../../graphics/illustration/ill-success-lg.svg';
-import IllSuccessMedium1 from '../../graphics/illustration/ill-success-md-1.svg';
-import IllSuccessMedium2 from '../../graphics/illustration/ill-success-md-2.svg';
 import IllErrorLarge from '../../graphics/illustration/ill-error-lg.svg';
 import IllErrorMedium1 from '../../graphics/illustration/ill-error-md-1.svg';
 import IllErrorMedium2 from '../../graphics/illustration/ill-error-md-2.svg';
+import IllFullpage from '../../graphics/illustration/ill-fullpage.svg';
+import IllHeader from '../../graphics/illustration/ill-header.svg';
+import IllLarge from '../../graphics/illustration/ill-large.svg';
 import IllLoadingLarge from '../../graphics/illustration/ill-loading-lg.svg';
 import IllLoadingMedium1 from '../../graphics/illustration/ill-loading-md-1.svg';
 import IllLoadingMedium2 from '../../graphics/illustration/ill-loading-md-2.svg';
+import IllMedium from '../../graphics/illustration/ill-medium.svg';
+import IllMessaging from '../../graphics/illustration/ill-messaging.svg';
 import IllMobileExample from '../../graphics/illustration/ill-mobile-example.svg';
+import IllResize from '../../graphics/illustration/ill-resize.svg';
+import IllSmall from '../../graphics/illustration/ill-small.svg';
+import IllSuccessLarge from '../../graphics/illustration/ill-success-lg.svg';
+import IllSuccessMedium1 from '../../graphics/illustration/ill-success-md-1.svg';
+import IllSuccessMedium2 from '../../graphics/illustration/ill-success-md-2.svg';
+import IllSuccess from '../../graphics/illustration/ill-success.svg';
 import IllWebExample from '../../graphics/illustration/ill-web-example.svg';
-import IllAlt1 from '../../graphics/illustration/ill-alt-1.svg';
-import IllAlt2 from '../../graphics/illustration/ill-alt-2.svg';
+import IllWhitespace from '../../graphics/illustration/ill-whitespace.svg';
 
 export default function IllustrationPage(): Node {
   return (
