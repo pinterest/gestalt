@@ -139,6 +139,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'SearchField',
       'SegmentedControl',
       'SelectList',
+      'SheetMobile',
       'SideNavigation',
       'SlimBanner',
       'Spinner',
