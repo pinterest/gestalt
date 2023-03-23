@@ -63,6 +63,7 @@ import RadioGroup from '../graphics/general/RadioGroup.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
+import SheetMobile from '../graphics/building-blocks/SheetMobile.svg';
 import SideNavigation from '../graphics/general/SideNavigation.svg';
 import SlimBanner from '../graphics/general/SlimBanner.svg';
 import Spinner from '../graphics/general/Spinner.svg';
@@ -3406,6 +3407,58 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
       figma: null,
     },
   },
+  {
+    svg: <SheetMobile />,
+    name: 'SheetMobile',
+    aliases: [],
+    previouslyNamed: [],
+    hasDarkBackground: false,
+    description: 'SheetMobile is description',
+    category: 'Building blocks',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'notAvailable',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+
   {
     svg: <Sticky />,
     name: 'Sticky',

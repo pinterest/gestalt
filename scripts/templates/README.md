@@ -37,7 +37,7 @@ deprecated: false,
 documentation: 'notAvailable',
 iOS: 'notAvailable',
 figma: 'notAvailable',
-responsive: 'reanotAvailabledy',
+responsive: 'notAvailable',
 },
 android: {
 accessible: {

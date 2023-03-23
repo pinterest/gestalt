@@ -5,8 +5,6 @@ https://gestalt.pinterest.systems/get_started/developers/contributing/developmen
 
 These are the remaining steps to configure your components:
 
-- Add SheetMobile into docs/docs-components/siteIndex.js
-
 - Replace SheetMobile.svg file SVG content in docs/graphics/general/SheetMobile.svg
 
 - Import SheetMobile.svg in docs/docs-components/COMPONENT_DATA.js and paste data for component alphabetically
