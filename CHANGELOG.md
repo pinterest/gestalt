@@ -1,3 +1,9 @@
+## 101.3.4 (Mar 23, 2023)
+
+### Patch
+
+- Docs: add more context to Playwright visual diff snapshot tests section ([#2753](https://github.com/pinterest/gestalt/pull/2753)) - [Preview link](https://deploy-preview-2753--gestalt.netlify.app)
+
 ## 101.3.3 (Mar 22, 2023)
 
 ### Patch
