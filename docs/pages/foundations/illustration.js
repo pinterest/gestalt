@@ -42,7 +42,10 @@ export default function IllustrationPage(): Node {
 `}
       />
       <Flex width="100%" justifyContent="center" alignItems="center" overflow="hidden">
-        <IllHeader />
+        <IllHeader
+          role="img"
+          alt="Sample illustrations of a disco ball, a plant, a coffee cup and a paint palette."
+        />
       </Flex>
 
       <MainSection name="Usage guidelines">
@@ -72,7 +75,10 @@ export default function IllustrationPage(): Node {
         <MainSection.Subsection columns={2}>
           <MainSection.Card type="do" description="Use illustrations at the recommended size.">
             <Flex overflow="hidden">
-              <IllSuccess />
+              <IllSuccess
+                role="img"
+                alt="Line illustration of a disco ball with a success message at the correct size."
+              />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
@@ -80,7 +86,10 @@ export default function IllustrationPage(): Node {
             description="Increase or shrink the size of illustrations past their prescribed size. If you need something smaller, consider using an icon."
           >
             <Flex overflow="hidden">
-              <IllResize />
+              <IllResize
+                role="img"
+                alt="A very small line illustration that is hard to interpret."
+              />
             </Flex>
           </MainSection.Card>
         </MainSection.Subsection>
@@ -90,7 +99,10 @@ export default function IllustrationPage(): Node {
             description="Allow the illustrations to have plenty of surrounding white space."
           >
             <Flex overflow="hidden">
-              <IllWhitespace />
+              <IllWhitespace
+                role="img"
+                alt="Line illustration inside of a phone screen with plenty of white space around it."
+              />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
@@ -103,7 +115,7 @@ export default function IllustrationPage(): Node {
                 naturalWidth={834}
                 naturalHeight={614}
                 fit="contain"
-                alt="An illustration placed on top of an image."
+                alt="A line illustration placed on top of an image."
               />
             </Box>
           </MainSection.Card>
@@ -114,7 +126,10 @@ export default function IllustrationPage(): Node {
             description="Use the correct illustration type in the correct context. For example, use a loading illustration for content about processing."
           >
             <Flex overflow="hidden">
-              <IllContext />
+              <IllContext
+                role="img"
+                alt="Line illustration of an hourglass used to show that something is still processing."
+              />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
@@ -122,7 +137,10 @@ export default function IllustrationPage(): Node {
             description="Change the color, line thickness or subject of the illustration."
           >
             <Flex overflow="hidden">
-              <IllColor />
+              <IllColor
+                role="img"
+                alt="Black and white line illustration of a wilted plant inside of a yellow pot."
+              />
             </Flex>
           </MainSection.Card>
         </MainSection.Subsection>
@@ -132,7 +150,10 @@ export default function IllustrationPage(): Node {
             description="Use illustrations in experiences that are full-page or in alignment with blocks of informative content."
           >
             <Flex overflow="hidden">
-              <IllFullpage />
+              <IllFullpage
+                role="img"
+                alt="Line illustration with an error message that takes up a phone's full screen."
+              />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
@@ -140,7 +161,10 @@ export default function IllustrationPage(): Node {
             description="Use illustrations to replace crucial or in-the-moment messaging patterns like Callout, SlimBanner or Toast. Learn more about [available messaging components](messaging/available_components)"
           >
             <Flex overflow="hidden">
-              <IllMessaging />
+              <IllMessaging
+                role="img"
+                alt="A bad example of an illustration being used below a form input, when an alert banner should be used instead. The SlimBanner treatment is shown as the correct example."
+              />
             </Flex>
           </MainSection.Card>
         </MainSection.Subsection>
@@ -169,7 +193,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllAlt1 />
+              <IllAlt1 role="img" alt="Line illustration example." />
             </Box>
             <Text>alt=&ldquo;Line illustration of a wilted plant in a pot.&ldquo;</Text>
           </Flex.Item>
@@ -183,7 +207,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllAlt2 />
+              <IllAlt2 role="img" alt="Line illustration example." />
             </Box>
             <Text>
               alt=&ldquo;Line illustration of a coffee cup with a sad face in the coffee
@@ -205,7 +229,10 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllLarge />
+              <IllLarge
+                role="img"
+                alt="Large line illustration of a sad coffee cup and wilted plant."
+              />
             </Box>
             <Heading size="300">Large</Heading>
             <Text size="200">
@@ -224,7 +251,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllMedium />
+              <IllMedium role="img" alt="Medium line illustration of a wilted plant." />
             </Box>
             <Heading size="300">Medium</Heading>
             <Text size="200">
@@ -242,7 +269,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllSmall />
+              <IllSmall role="img" alt="Small line illustration of a wilted plant." />
             </Box>
             <Heading size="300">Small</Heading>
             <Text size="200">
@@ -270,7 +297,10 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllEmptyLarge />
+              <IllEmptyLarge
+                role="img"
+                alt="Large line illustration of a sad puzzle piece and an empty spool."
+              />
             </Box>
             <Heading size="300">Large</Heading>
             <Text size="200">Empty</Text>
@@ -285,7 +315,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllEmptyMedium1 />
+              <IllEmptyMedium1 role="img" alt="Medium line illustration of a sad puzzle piece." />
             </Box>
             <Heading size="300">Medium option 1</Heading>
             <Text size="200">Sad puzzle</Text>
@@ -300,7 +330,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllEmptyMedium2 />
+              <IllEmptyMedium2 role="img" alt="Large line illustration of an empty spool." />
             </Box>
             <Heading size="300">Medium option 2</Heading>
             <Text size="200">Spool</Text>
@@ -322,7 +352,10 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllSuccessLarge />
+              <IllSuccessLarge
+                role="img"
+                alt="Large line illustration of a disco ball and plant."
+              />
             </Box>
             <Heading size="300">Large</Heading>
             <Text size="200">Success</Text>
@@ -337,7 +370,10 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllSuccessMedium1 />
+              <IllSuccessMedium1
+                role="img"
+                alt="Medium line illustration of a disco ball and happy plant."
+              />
             </Box>
             <Heading size="300">Success option 1</Heading>
             <Text size="200">Disco ball</Text>
@@ -352,7 +388,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllSuccessMedium2 />
+              <IllSuccessMedium2 role="img" alt="Large line illustration of a happy plant." />
             </Box>
             <Heading size="300">Success option 2</Heading>
             <Text size="200">Happy plant</Text>
@@ -374,7 +410,10 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllErrorLarge />
+              <IllErrorLarge
+                role="img"
+                alt="Large line illustration of a sad coffee cup and wilted plant."
+              />
             </Box>
             <Heading size="300">Large</Heading>
             <Text size="200">Error</Text>
@@ -389,7 +428,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllErrorMedium1 />
+              <IllErrorMedium1 role="img" alt="Medium line illustration of a wilted plant." />
             </Box>
             <Heading size="300">Medium option 1</Heading>
             <Text size="200">Sad plant</Text>
@@ -404,7 +443,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllErrorMedium2 />
+              <IllErrorMedium2 role="img" alt="Medium line illustration of a sad coffee cup." />
             </Box>
             <Heading size="300">Medium option 2</Heading>
             <Text size="200">Sad coffee</Text>
@@ -426,7 +465,10 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllLoadingLarge />
+              <IllLoadingLarge
+                role="img"
+                alt="Large line illustration of an hourglass and paint palette."
+              />
             </Box>
             <Heading size="300">Large</Heading>
             <Text size="200">Loading</Text>
@@ -441,7 +483,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllLoadingMedium1 />
+              <IllLoadingMedium1 role="img" alt="Medium line illustration of an hourglass." />
             </Box>
             <Heading size="300">Medium option 1</Heading>
             <Text size="200">Hourglass</Text>
@@ -456,7 +498,7 @@ export default function IllustrationPage(): Node {
               display="inlineBlock"
               justifyContent="center"
             >
-              <IllLoadingMedium2 />
+              <IllLoadingMedium2 role="img" alt="Medium line illustration of a paint palette." />
             </Box>
             <Heading size="300">Medium option 2</Heading>
             <Text size="200">Palette</Text>
@@ -466,7 +508,10 @@ export default function IllustrationPage(): Node {
       <MainSection name="Illustration in use">
         <MainSection.Subsection title="Mobile" />
         <Flex width="100%" justifyContent="center" alignItems="center">
-          <IllMobileExample />
+          <IllMobileExample
+            role="img"
+            alt="Empty, success, error and loading examples of illustrations on mobile screens."
+          />
         </Flex>
         <MainSection.Subsection title="Web" />
         <Flex
@@ -476,7 +521,7 @@ export default function IllustrationPage(): Node {
           alignItems="center"
           overflow="hidden"
         >
-          <IllWebExample />
+          <IllWebExample role="img" alt="Empy state message on a web desktop screen." />
         </Flex>
       </MainSection>
 
