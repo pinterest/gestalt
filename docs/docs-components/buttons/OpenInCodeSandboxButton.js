@@ -1,6 +1,6 @@
 // @flow strict
-import { useSandpack } from '@codesandbox/sandpack-react';
 import { type Node } from 'react';
+import { useSandpack } from '@codesandbox/sandpack-react';
 import LZString from 'lz-string';
 import OpenSandboxButton from './OpenSandboxButton.js';
 

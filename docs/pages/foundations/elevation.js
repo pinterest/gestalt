@@ -2,8 +2,8 @@
 import { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
-import PageHeader from '../../docs-components/PageHeader.js';
 import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 
 type ColorCardProps = {|
   description: string,

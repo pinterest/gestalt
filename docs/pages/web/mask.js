@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node } from 'react';
 import { Mask } from 'gestalt';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import MainSection from '../../docs-components/MainSection.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

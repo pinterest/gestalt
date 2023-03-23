@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('@babel/register');
-const globby = require('globby');
 const fs = require('fs');
+const globby = require('globby');
 
 const iconSvgValidation = async () => {
   const files = await globby(['packages/gestalt/src/icons/*.svg']);

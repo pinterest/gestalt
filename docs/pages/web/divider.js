@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../docs-components/PageHeader.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 
 export default function DividerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

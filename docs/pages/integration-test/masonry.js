@@ -3,8 +3,8 @@ import { type Node, useEffect, useState } from 'react';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
 import { useRouter } from 'next/router';
 import LazyHydrate from 'react-lazy-hydration';
-import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
 import { generateExampleItems } from '../../integration-test-helpers/masonry/items-utils.js';
+import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
 
 const measurementStore = Masonry.createMeasurementStore();
 

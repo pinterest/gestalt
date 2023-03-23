@@ -2,11 +2,11 @@
 import { type Node } from 'react';
 import { Flex } from 'gestalt';
 import COMPONENT_DATA from '../../docs-components/COMPONENT_DATA.js';
+import IllustrationCard from '../../docs-components/IllustrationCard.js';
+import IllustrationContainer from '../../docs-components/IllustrationContainer.js';
+import IllustrationSection from '../../docs-components/IllustrationSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import IllustrationCard from '../../docs-components/IllustrationCard.js';
-import IllustrationSection from '../../docs-components/IllustrationSection.js';
-import IllustrationContainer from '../../docs-components/IllustrationContainer.js';
 
 export default function FoundationsOverview(): Node {
   return (

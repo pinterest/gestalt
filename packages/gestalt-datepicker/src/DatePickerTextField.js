@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, type ElementRef, type AbstractComponent } from 'react';
-import { Box, Icon, Label, TextField } from 'gestalt';
 import classnames from 'classnames';
+import { Box, Icon, Label, TextField } from 'gestalt';
 import styles from './DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.

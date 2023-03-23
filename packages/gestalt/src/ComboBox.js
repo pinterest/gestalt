@@ -15,20 +15,20 @@ import {
   type AbstractComponent,
 } from 'react';
 import Box from './Box.js';
-import ComboBoxItem from './ComboBox/Item.js';
+import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import InternalTextField from './TextField/InternalTextField.js';
-import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 import Tag from './Tag.js';
 import Text from './Text.js';
-import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import { type Indexable } from './zIndex.js';
+import ComboBoxItem from './ComboBox/Item.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import InternalTextField from './TextField/InternalTextField.js';
+import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 import handleContainerScrolling, {
   KEYS,
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
-import { type Indexable } from './zIndex.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type Size = 'md' | 'lg';
 

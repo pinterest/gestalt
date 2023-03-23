@@ -12,11 +12,11 @@ import { Box, Dropdown, Flex, IconButton, Label, Link, Sticky, Switch, Tabs, Tex
 import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
-import GestaltLogo from './GestaltLogo.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
-import { useNavigationContext } from './navigationContext.js';
 import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
+import GestaltLogo from './GestaltLogo.js';
+import { useNavigationContext } from './navigationContext.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 
 function SettingsDropdown({
   anchorRef,

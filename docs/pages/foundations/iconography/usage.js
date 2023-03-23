@@ -2,14 +2,14 @@
 import { type Node } from 'react';
 import { Box, Flex, Text, Icon } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import PrincipleItem from '../../../docs-components/PrincipleItem.js';
+import CreditCards from '../../../graphics/iconography/creditCards.svg';
 import Layout from '../../../graphics/iconography/layout.svg';
 import OutlinedPincode from '../../../graphics/iconography/outlinedPincode.svg';
 import ReactionLove from '../../../graphics/iconography/reactionLove.svg';
-import CreditCards from '../../../graphics/iconography/creditCards.svg';
-import Markdown from '../../../docs-components/Markdown.js';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 
 export default function IconographyPage(): Node {
   return (

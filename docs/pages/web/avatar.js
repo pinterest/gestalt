@@ -1,23 +1,23 @@
 // @flow strict
 import { type Node } from 'react';
-import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import noImageSourceExample from '../../examples/avatar/noImageSourceExample.js';
-import noEmojiExample from '../../examples/avatar/noEmojiExample.js';
-import mainExample from '../../examples/avatar/mainExample.js';
-import sizingExample from '../../examples/avatar/sizingExample.js';
-import shapeExample from '../../examples/avatar/shapeExample.js';
-import personExample from '../../examples/avatar/personExample.js';
-import ideasExample from '../../examples/avatar/ideasExample.js';
-import nameExample from '../../examples/avatar/nameExample.js';
-import overExample from '../../examples/avatar/overExample.js';
 import containerExample from '../../examples/avatar/containerExample.js';
+import ideasExample from '../../examples/avatar/ideasExample.js';
+import mainExample from '../../examples/avatar/mainExample.js';
+import nameExample from '../../examples/avatar/nameExample.js';
+import noEmojiExample from '../../examples/avatar/noEmojiExample.js';
+import noImageSourceExample from '../../examples/avatar/noImageSourceExample.js';
+import overExample from '../../examples/avatar/overExample.js';
+import personExample from '../../examples/avatar/personExample.js';
+import shapeExample from '../../examples/avatar/shapeExample.js';
+import sizingExample from '../../examples/avatar/sizingExample.js';
 import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {

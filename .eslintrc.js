@@ -61,8 +61,42 @@ module.exports = {
     'import/no-extraneous-dependencies': OFF,
     'import/no-namespace': ERROR,
     'import/no-relative-parent-imports': OFF,
-    'import/no-unresolved': ERROR, // CHANGED
-    'import/order': ERROR,
+    'import/no-unresolved': OFF,
+    'import/order': [
+      ERROR,
+      {
+        'groups': [
+          'index',
+          'builtin',
+          'external',
+          'parent',
+          'sibling',
+          'internal',
+          'object',
+          'type',
+        ],
+        'alphabetize': { 'order': 'asc', 'caseInsensitive': true },
+        'newlines-between': 'never',
+        'pathGroups': [
+          {
+            'pattern': 'react',
+            'group': 'builtin',
+            'position': 'before',
+          },
+          {
+            'pattern': './*.css',
+            'group': 'sibling',
+            'position': 'before',
+          },
+          {
+            'pattern': './*/*.js',
+            'group': 'sibling',
+            'position': 'after',
+          },
+        ],
+        'pathGroupsExcludedImportTypes': ['react'],
+      },
+    ],
     'jsx-a11y/label-has-associated-control': [
       ERROR,
       {

@@ -2,16 +2,16 @@
 import { type Node } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import Page from '../../../docs-components/Page.js';
 import Markdown from '../../../docs-components/Markdown.js';
+import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
-import educationExample from '../../../examples/animation/educationExample.js';
 import celebrationExample from '../../../examples/animation/celebrationExample.js';
-import feedbackExample from '../../../examples/animation/feedbackExample.js';
-import useExample from '../../../examples/animation/useExample.js';
 import easeExample from '../../../examples/animation/easeExample.js';
+import educationExample from '../../../examples/animation/educationExample.js';
+import feedbackExample from '../../../examples/animation/feedbackExample.js';
 import transitionExample from '../../../examples/animation/transitionExample.js';
+import useExample from '../../../examples/animation/useExample.js';
 
 type Props = {|
   children: Node,

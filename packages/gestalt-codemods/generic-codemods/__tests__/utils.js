@@ -2,9 +2,9 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-import { applyTransform } from 'jscodeshift/dist/testUtils.js';
 import fs from 'fs';
 import path from 'path';
+import { applyTransform } from 'jscodeshift/dist/testUtils.js';
 
 export function buildInputPath({ test }: { test: string }): string {
   const dirName = __dirname;

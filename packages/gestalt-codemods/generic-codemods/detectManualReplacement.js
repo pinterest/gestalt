@@ -22,6 +22,7 @@ yarn codemod detectManualReplacement ~/path/to/your/code \
  *
  */
 
+import { type FileType, type ApiType } from './flowtypes.js';
 import {
   getGestaltImport,
   getComponentIdentifierByName,
@@ -34,7 +35,6 @@ import {
   throwErrorMessageWithNodesData,
   throwErrorIfSpreadProps,
 } from './utils.js';
-import { type FileType, type ApiType } from './flowtypes.js';
 
 type OptionsType = {|
   component: string,

@@ -1,4 +1,5 @@
 // @flow strict
+import React, { type Node } from 'react';
 import {
   SandpackProvider,
   SandpackLayout,
@@ -6,12 +7,11 @@ import {
   SandpackCodeEditor,
   useSandpack,
 } from '@codesandbox/sandpack-react';
-import React, { type Node } from 'react';
 import { Box, Flex } from 'gestalt';
-import CopyCodeButton from './buttons/CopyCodeButton.js';
 import clipboardCopy from './clipboardCopy.js';
-import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
+import CopyCodeButton from './buttons/CopyCodeButton.js';
 import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
+import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
 import { useLocalFiles } from './contexts/LocalFilesProvider.js';
 
 const MIN_EDITOR_HEIGHT = 350;

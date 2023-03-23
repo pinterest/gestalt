@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const postcss = require('postcss');
 const globby = require('globby');
+const postcss = require('postcss');
 
 const duplicateVariablesDifferentValues = async () => {
   const files = await globby([

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 require('@babel/register');
-const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 
 const currentDirectory = __dirname;
 const root = path.join(__dirname, '../');

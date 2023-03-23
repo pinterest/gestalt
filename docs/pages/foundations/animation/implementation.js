@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
 import { Flex } from 'gestalt';
+import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import useExample from '../../../examples/animation/useExample.js';
 

@@ -1,22 +1,22 @@
 // @flow strict
 import { type Node } from 'react';
 import { Icon } from 'gestalt';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import Page from '../../docs-components/Page.js';
 import docgen, { overrideTypes, type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import main from '../../examples/icon/main.js';
-import doIntentional from '../../examples/icon/doIntentional.js';
-import dontRepurpose from '../../examples/icon/dontRepurpose.js';
-import doClarity from '../../examples/icon/doClarity.js';
-import dontInteractive from '../../examples/icon/dontInteractive.js';
 import builtInIcon from '../../examples/icon/builtInIcon.js';
 import customIcon from '../../examples/icon/customIcon.js';
+import doClarity from '../../examples/icon/doClarity.js';
+import doIntentional from '../../examples/icon/doIntentional.js';
+import dontInteractive from '../../examples/icon/dontInteractive.js';
+import dontRepurpose from '../../examples/icon/dontRepurpose.js';
+import main from '../../examples/icon/main.js';
 
 const HEIGHT = 150;
 

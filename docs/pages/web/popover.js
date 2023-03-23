@@ -1,19 +1,19 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
-import a11y from '../../examples/popover/a11y.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import doEducate from '../../examples/popover/doEducate.js';
-import dontCaret from '../../examples/popover/dontCaret.js';
-import dontCritical from '../../examples/popover/dontCritical.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import main from '../../examples/popover/main.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import a11y from '../../examples/popover/a11y.js';
+import doEducate from '../../examples/popover/doEducate.js';
+import dontCaret from '../../examples/popover/dontCaret.js';
+import dontCritical from '../../examples/popover/dontCritical.js';
+import main from '../../examples/popover/main.js';
 import variantAnchor from '../../examples/popover/variantAnchor.js';
 import variantColorCaret from '../../examples/popover/variantColorCaret.js';
 import variantIdealDirection from '../../examples/popover/variantIdealDirection.js';

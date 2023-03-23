@@ -10,17 +10,17 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import Box from '../Box.js';
-import { type MaxLength } from '../TextField.js';
+import focusStyles from '../Focus.css';
+import layout from '../Layout.css';
+import formElement from '../shared/FormElement.css';
 import FormErrorMessage from '../shared/FormErrorMessage.js';
 import FormHelperText from '../shared/FormHelperText.js';
 import FormLabel from '../shared/FormLabel.js';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Tag from '../Tag.js';
-import focusStyles from '../Focus.css';
-import formElement from '../shared/FormElement.css';
-import layout from '../Layout.css';
-import styles from './InternalTextField.css';
+import { type MaxLength } from '../TextField.js';
 import typography from '../Typography.css';
+import styles from './InternalTextField.css';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 
 type Props = {|
   // REQUIRED

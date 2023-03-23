@@ -11,10 +11,10 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibilityExample from '../../examples/modal/accessibilityExample.js';
 import createBoardExample from '../../examples/modal/createBoardExample.js';
 import limitActionsExample from '../../examples/modal/limitActionsExample.js';
+import mobileExample from '../../examples/modal/mobileExample.js';
+import preventCloseExample from '../../examples/modal/preventCloseExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
 import sizesExample from '../../examples/modal/sizesExample.js';
-import preventCloseExample from '../../examples/modal/preventCloseExample.js';
-import mobileExample from '../../examples/modal/mobileExample.js';
 
 export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   const PREVIEW_HEIGHT = 450;

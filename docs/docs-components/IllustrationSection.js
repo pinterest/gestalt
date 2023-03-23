@@ -1,6 +1,6 @@
 // @flow strict
-import { Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
+import { Box, Flex, Heading } from 'gestalt';
 import IllustrationContainer from './IllustrationContainer.js';
 
 // Matches minWidth in IllustrationCard

@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-const chalk = require('chalk');
-
-const reactDocs = require('react-docgen');
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
+const reactDocs = require('react-docgen');
 
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');

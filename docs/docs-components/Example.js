@@ -3,10 +3,8 @@ import { type Node } from 'react';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
-
-import Card from './Card.js';
 import theme from './atomDark.js';
-
+import Card from './Card.js';
 import ExampleCode from './ExampleCode.js';
 
 type Props = {|

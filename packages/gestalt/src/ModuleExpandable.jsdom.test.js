@@ -1,7 +1,7 @@
 // @flow strict
 import { render, fireEvent, screen } from '@testing-library/react';
-import ModuleExpandable from './ModuleExpandable.js';
 import IconButton from './IconButton.js';
+import ModuleExpandable from './ModuleExpandable.js';
 
 describe('ModuleExpandable', () => {
   const props = {

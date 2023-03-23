@@ -1,6 +1,6 @@
 // @flow strict
-import { expect } from '@playwright/test';
 import axe from '@axe-core/playwright';
+import { expect } from '@playwright/test';
 
 const AxeBuilder = axe.default;
 

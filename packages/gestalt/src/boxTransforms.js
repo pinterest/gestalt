@@ -1,22 +1,9 @@
 // @flow strict
-import styles from './Box.css';
 import borders from './Borders.css';
+import styles from './Box.css';
+import whitespace from './boxWhitespace.css';
 import colors from './Colors.css';
 import layout from './Layout.css';
-import whitespace from './boxWhitespace.css';
-import {
-  concat,
-  fromClassName,
-  fromInlineStyle,
-  identity,
-  mapClassName,
-  toProps,
-  type ToPropsOutput,
-} from './style.js';
-import omit from './utils/omit.js';
-import { union, bind, range, toggle, mapping, rangeWithZero, type Functor } from './transforms.js';
-import { getRoundingStyle } from './getRoundingClassName.js';
-import { type Indexable } from './zIndex.js';
 import {
   type AlignContent,
   type AlignItems,
@@ -37,6 +24,19 @@ import {
   type Position,
   type UserSelect,
 } from './boxTypes.js';
+import { getRoundingStyle } from './getRoundingClassName.js';
+import {
+  concat,
+  fromClassName,
+  fromInlineStyle,
+  identity,
+  mapClassName,
+  toProps,
+  type ToPropsOutput,
+} from './style.js';
+import { union, bind, range, toggle, mapping, rangeWithZero, type Functor } from './transforms.js';
+import { type Indexable } from './zIndex.js';
+import omit from './utils/omit.js';
 
 /*
 

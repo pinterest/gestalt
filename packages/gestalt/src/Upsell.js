@@ -1,6 +1,7 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
+import styles from './Upsell.css';
 import Box from './Box.js';
 import Button from './Button.js';
 import Icon from './Icon.js';
@@ -9,7 +10,6 @@ import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
-import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 

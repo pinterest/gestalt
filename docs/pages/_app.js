@@ -1,19 +1,19 @@
 // @flow strict
 import { useState, type Node } from 'react';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { Box, DeviceTypeProvider } from 'gestalt';
+import NextApp, { type AppInitialProps } from 'next/app';
+import { useRouter } from 'next/router';
+import { CookiesProvider } from 'react-cookie';
 import parser from 'ua-parser-js';
 import '../docs.css';
 import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 import Cookies from 'universal-cookie';
-import NextApp, { type AppInitialProps } from 'next/app';
-import { CookiesProvider } from 'react-cookie';
-import { useRouter } from 'next/router';
-import { Box, DeviceTypeProvider } from 'gestalt';
-import path from 'path';
-import { promises as fs } from 'fs';
-import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 import App from '../docs-components/App.js';
 import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider.js';
+import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 
 function Providers({ children, isMobile }: {| children: Node, isMobile: boolean |}): Node {
   const [isMobileDevice] = useState(isMobile);

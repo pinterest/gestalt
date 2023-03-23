@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
 import Badge from './Badge.js';
-import DatapointTrend from './Datapoint/Trend.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 import { type Indexable } from './zIndex.js';
+import DatapointTrend from './Datapoint/Trend.js';
 
 type TrendObject = {|
   accessibilityLabel: string,

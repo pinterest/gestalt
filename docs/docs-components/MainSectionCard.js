@@ -4,12 +4,12 @@ import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
-import ExampleCode from './ExampleCode.js';
-import theme from './atomDark.js';
-import Markdown from './Markdown.js';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
-import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import theme from './atomDark.js';
+import ExampleCode from './ExampleCode.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
+import Markdown from './Markdown.js';
+import OpenSandboxButton from './buttons/OpenSandboxButton.js';
 
 type Props = {|
   cardSize?: 'sm' | 'md' | 'lg',

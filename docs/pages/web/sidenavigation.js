@@ -1,36 +1,36 @@
 // @flow strict
 import { type Node } from 'react';
-import MainSection from '../../docs-components/MainSection.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import mainExample from '../../examples/sidenavigation/mainExample.js';
-import correctLengthExample from '../../examples/sidenavigation/correctLengthExample.js';
-import incorrectLengthExample from '../../examples/sidenavigation/incorrectLengthExample.js';
-import correctGroupingExample from '../../examples/sidenavigation/correctGroupingExample.js';
-import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample.js';
-import correctIconExample from '../../examples/sidenavigation/correctIconExample.js';
-import incorrectIconExample from '../../examples/sidenavigation/incorrectIconExample.js';
-import correctHeadingExample from '../../examples/sidenavigation/correctHeadingExample.js';
-import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample.js';
 import activeItemExample from '../../examples/sidenavigation/activeItemExample.js';
-import localizationExample from '../../examples/sidenavigation/localizationExample.js';
-import sectionsExample from '../../examples/sidenavigation/sectionsExample.js';
 import badgeExample from '../../examples/sidenavigation/badgeExample.js';
 import borderExample from '../../examples/sidenavigation/borderExample.js';
+import correctGroupingExample from '../../examples/sidenavigation/correctGroupingExample.js';
+import correctHeadingExample from '../../examples/sidenavigation/correctHeadingExample.js';
+import correctIconExample from '../../examples/sidenavigation/correctIconExample.js';
+import correctLengthExample from '../../examples/sidenavigation/correctLengthExample.js';
 import counterExample from '../../examples/sidenavigation/counterExample.js';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample.js';
-import iconsExample from '../../examples/sidenavigation/iconsExample.js';
 import headerExample from '../../examples/sidenavigation/headerExample.js';
+import iconsExample from '../../examples/sidenavigation/iconsExample.js';
+import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample.js';
+import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample.js';
+import incorrectIconExample from '../../examples/sidenavigation/incorrectIconExample.js';
+import incorrectLengthExample from '../../examples/sidenavigation/incorrectLengthExample.js';
+import localizationExample from '../../examples/sidenavigation/localizationExample.js';
+import mainExample from '../../examples/sidenavigation/mainExample.js';
+import mobileExample from '../../examples/sidenavigation/mobileExample.js';
 import nestedExample from '../../examples/sidenavigation/nestedExample.js';
 import notificationsExample from '../../examples/sidenavigation/notificationsExample.js';
-import mobileExample from '../../examples/sidenavigation/mobileExample.js';
-import subcomponent from '../../examples/sidenavigation/subcomponent.js';
 import primaryAction from '../../examples/sidenavigation/primaryAction.js';
+import sectionsExample from '../../examples/sidenavigation/sectionsExample.js';
+import subcomponent from '../../examples/sidenavigation/subcomponent.js';
 
 export default function SideNavigationPage({
   generatedDocGen,

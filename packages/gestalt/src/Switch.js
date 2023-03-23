@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import classnames from 'classnames';
-import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
+import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
   /**

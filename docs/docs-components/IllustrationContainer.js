@@ -1,6 +1,6 @@
 // @flow strict
-import { Box } from 'gestalt';
 import { type Node } from 'react';
+import { Box } from 'gestalt';
 
 type Props = {|
   children?: Node,

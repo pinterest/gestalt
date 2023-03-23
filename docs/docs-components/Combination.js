@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Label, Text } from 'gestalt';
-import Checkerboard from './Checkerboard.js';
 import Card from './Card.js';
+import Checkerboard from './Checkerboard.js';
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = (variationsByField) => {
