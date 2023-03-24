@@ -1999,7 +1999,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'notAvailable',
+      android: 'partial',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
@@ -2016,7 +2016,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
