@@ -1,3 +1,9 @@
+## 101.3.8 (Mar 24, 2023)
+
+### Patch
+
+- Guidelines: Illustration guidelines ([#2755](https://github.com/pinterest/gestalt/pull/2755)) - [Preview link](https://deploy-preview-2755--gestalt.netlify.app)
+
 ## 101.3.7 (Mar 24, 2023)
 
 ### Patch
