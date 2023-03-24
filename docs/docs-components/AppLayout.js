@@ -9,7 +9,7 @@ import { useNavigationContext } from './navigationContext.js';
 import ResourcesFooter from './ResourcesFooter.js';
 import SkipToContent from './SkipToContent.js';
 import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
-import { useDocsDeviceType, DocsDeviceTypeProvider } from './contexts/DocsDeviceTypeProvider.js';
+import { useDocsConfig, DocsConfigProvider } from './contexts/DocsConfigProvider.js';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
@@ -22,7 +22,7 @@ type Props = {|
 |};
 
 export default function AppLayout({ children, colorScheme }: Props): Node {
-  const { isMobile } = useDocsDeviceType();
+  const { isMobile } = useDocsConfig();
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();
 
@@ -76,11 +76,11 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
             height="100vh"
             zIndex={ABOVE_PAGE_HEADER_ZINDEX}
           >
-            <DocsDeviceTypeProvider isMobile>
+            <DocsConfigProvider isMobile>
               <DeviceTypeProvider deviceType="mobile">
                 <DocsSideNavigation showBorder />
               </DeviceTypeProvider>
-            </DocsDeviceTypeProvider>
+            </DocsConfigProvider>
           </Box>
         </Fragment>
       )}

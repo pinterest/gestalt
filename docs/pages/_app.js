@@ -12,19 +12,19 @@ import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 import Cookies from 'universal-cookie';
 import App from '../docs-components/App.js';
+import { DocsConfigProvider } from '../docs-components/contexts/DocsConfigProvider.js';
 import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider.js';
-import { DocsDeviceTypeProvider } from '../docs-components/contexts/DocsDeviceTypeProvider.js';
 
 function Providers({ children, isMobile }: {| children: Node, isMobile: boolean |}): Node {
   const [isMobileDevice] = useState(isMobile);
 
   return (
     // Providers needed for visual diff tests are located here rather within components/App.js
-    <DocsDeviceTypeProvider isMobile={isMobileDevice}>
+    <DocsConfigProvider isMobile={isMobileDevice}>
       <DeviceTypeProvider deviceType={isMobileDevice ? 'mobile' : 'desktop'}>
         <DocsDefaultLabelProvider>{children}</DocsDefaultLabelProvider>
       </DeviceTypeProvider>
-    </DocsDeviceTypeProvider>
+    </DocsConfigProvider>
   );
 }
 
@@ -71,13 +71,17 @@ async function localFiles() {
 GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<AppInitialProps> => {
   const initialProps = await NextApp.getInitialProps(appInitialProps);
   const cookieHeader = appInitialProps?.ctx?.req?.headers?.cookie;
-
   const files = appInitialProps?.router?.query?.localFiles === 'true' ? await localFiles() : null;
 
   const ua = parser(appInitialProps?.ctx?.req?.headers['user-agent']);
   const isMobile = ua?.device?.type === 'mobile';
 
-  return { ...initialProps, ...(cookieHeader ? { cookieHeader } : {}), isMobile, files };
+  return {
+    ...initialProps,
+    ...(cookieHeader ? { cookieHeader } : {}),
+    isMobile,
+    files,
+  };
 };
 
 export default GestaltApp;

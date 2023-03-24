@@ -17,6 +17,7 @@ import GestaltLogo from './GestaltLogo.js';
 import { useNavigationContext } from './navigationContext.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
+import { useDocsConfig } from './contexts/DocsConfigProvider.js';
 
 function SettingsDropdown({
   anchorRef,
@@ -25,7 +26,10 @@ function SettingsDropdown({
   anchorRef: {| current: ?ElementRef<typeof IconButton> |},
   closeDropdown: () => void,
 |}) {
-  const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
+  const { showDevelopmentEditor } = useDocsConfig();
+
+  const { colorScheme, setColorScheme, textDirection, setTextDirection, sandpack, setSandpack } =
+    useAppContext();
 
   const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
 
@@ -41,6 +45,13 @@ function SettingsDropdown({
     closeDropdown();
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
+
+  const onChangeSandpackVisibility = () => {
+    trackButtonClick('Toggle Sandpack visibility', sandpack);
+    closeDropdown();
+    return setSandpack(sandpack === 'enabled' ? 'disabled' : 'enabled');
+  };
+
   return (
     <Dropdown
       anchor={anchorRef.current}
@@ -95,6 +106,31 @@ function SettingsDropdown({
           />
         </Flex>
       </Dropdown.Item>
+      {showDevelopmentEditor ? (
+        <Dropdown.Item
+          onSelect={onChangeSandpackVisibility}
+          option={{ value: 'sandpack', label: 'sandpack' }}
+        >
+          <Flex
+            alignItems="center"
+            justifyContent="between"
+            flex="grow"
+            gap={{
+              row: 8,
+              column: 0,
+            }}
+          >
+            <Label htmlFor="sandpack">
+              <Text weight="bold">Enable Sandpack</Text>
+            </Label>
+            <Switch
+              switched={sandpack === 'enabled'}
+              onChange={onChangeSandpackVisibility}
+              id="sandpack"
+            />
+          </Flex>
+        </Dropdown.Item>
+      ) : null}
     </Dropdown>
   );
 }
