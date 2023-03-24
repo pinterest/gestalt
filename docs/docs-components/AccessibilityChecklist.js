@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Text, Module, Table } from 'gestalt';
-import StatusData from './StatusData.js';
+import COMPONENT_DATA, { type AccessibleStatus } from './COMPONENT_DATA.js';
 import {
   STATUS_DESCRIPTION,
   COMPONENT_A11Y_STATUS_MESSAGING,
 } from './COMPONENT_STATUS_MESSAGING.js';
-import COMPONENT_DATA, { type AccessibleStatus } from './COMPONENT_DATA.js';
+import StatusData from './StatusData.js';
 
 export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({
   'ready': 'workflow-status-ok',

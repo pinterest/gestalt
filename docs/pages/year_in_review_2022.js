@@ -13,8 +13,8 @@ import {
   useReducedMotion,
   Link as GestaltLink,
 } from 'gestalt';
-import Link from 'next/link';
 import Lottie from 'lottie-react';
+import Link from 'next/link';
 import GestaltLogo from '../docs-components/GestaltLogo.js';
 // SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
@@ -27,14 +27,14 @@ import DonutShadow from '../graphics/year-in-review/donutShadow.svg';
 import DSD from '../graphics/year-in-review/dsd.svg';
 import FigmaSVG from '../graphics/year-in-review/figma.svg';
 import KnobShadow from '../graphics/year-in-review/knobShadow.svg';
+import Figma from '../graphics/year-in-review/lottie/figma.json';
+import Pencil from '../graphics/year-in-review/lottie/pencil.json';
+import Steps from '../graphics/year-in-review/lottie/steps.json';
+import Vibes from '../graphics/year-in-review/lottie/vibes.json';
 import Sparkle from '../graphics/year-in-review/sparkle.svg';
 import SparkleShadow from '../graphics/year-in-review/sparkleShadow.svg';
 import Tokens from '../graphics/year-in-review/tokens.svg';
 // Lottie animations
-import Pencil from '../graphics/year-in-review/lottie/pencil.json';
-import Steps from '../graphics/year-in-review/lottie/steps.json';
-import Vibes from '../graphics/year-in-review/lottie/vibes.json';
-import Figma from '../graphics/year-in-review/lottie/figma.json';
 
 const INTRO_ZINDEX = new FixedZIndex(10);
 const BUTTON_ZINDEX = new CompositeZIndex([INTRO_ZINDEX]);

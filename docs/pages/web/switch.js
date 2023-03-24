@@ -8,13 +8,13 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/switch/main.js';
-import doLabel from '../../examples/switch/doLabel.js';
-import dontTruncate from '../../examples/switch/dontTruncate.js';
 import doDisabled from '../../examples/switch/doDisabled.js';
+import doLabel from '../../examples/switch/doLabel.js';
 import dontAlternative from '../../examples/switch/dontAlternative.js';
-import variantLabel from '../../examples/switch/variantLabel.js';
+import dontTruncate from '../../examples/switch/dontTruncate.js';
+import main from '../../examples/switch/main.js';
 import variantCombinations from '../../examples/switch/variantCombinations.js';
+import variantLabel from '../../examples/switch/variantLabel.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

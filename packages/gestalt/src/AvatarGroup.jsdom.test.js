@@ -1,6 +1,6 @@
 // @flow strict
-import { fireEvent, render, screen } from '@testing-library/react';
 import { createRef } from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import AvatarGroup from './AvatarGroup.js';
 import Box from './Box.js';
 

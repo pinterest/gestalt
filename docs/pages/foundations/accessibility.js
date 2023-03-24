@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../docs-components/PageHeader.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import useFocusVisibleExample from '../../examples/accessibility/useFocusVisibleExample.js';
 import useReducedMotionExample from '../../examples/accessibility/useReducedMotionExample.js';

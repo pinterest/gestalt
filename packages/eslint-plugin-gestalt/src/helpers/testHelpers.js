@@ -1,7 +1,7 @@
 // @flow strict
-import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
+import { RuleTester } from 'eslint';
 
 export const parserOptions = {
   sourceType: 'module',

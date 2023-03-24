@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
+import { type Category, type ListItemType } from './COMPONENT_DATA.js';
 import IllustrationCard from './IllustrationCard.js';
 import IllustrationSection from './IllustrationSection.js';
-import { type Category, type ListItemType } from './COMPONENT_DATA.js';
 
 const getIllustrationCardColor = (category: Category, hasDarkBackground?: boolean) => {
   const tealBackgrounds = ['Foundations'];

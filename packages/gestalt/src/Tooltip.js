@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node, useReducer, useRef } from 'react';
-import useDebouncedCallback from './useDebouncedCallback.js';
-import Controller from './Controller.js';
-import Text from './Text.js';
 import Box from './Box.js';
+import Controller from './Controller.js';
 import Layer from './Layer.js';
+import Text from './Text.js';
+import useDebouncedCallback from './useDebouncedCallback.js';
 import { type Indexable } from './zIndex.js';
 
 const noop = () => {};

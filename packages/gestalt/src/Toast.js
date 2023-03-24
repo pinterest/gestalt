@@ -1,17 +1,19 @@
 // @flow strict
 import { Children, isValidElement, type Element, type Node, type ElementConfig } from 'react';
-import Box from './Box.js';
-import Icon from './Icon.js';
-import Flex from './Flex.js';
-import Link from './Link.js';
-import Button from './Button.js';
-import Text from './Text.js';
-import Image from './Image.js';
-import Avatar from './Avatar.js';
 import styles from './Toast.css';
+import Avatar from './Avatar.js';
+import Box from './Box.js';
+import Button from './Button.js';
+import Flex from './Flex.js';
+import Icon from './Icon.js';
+import Image from './Image.js';
+import Link from './Link.js';
+import Text from './Text.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import PrimaryAction from './Toast/PrimaryAction.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import InternalDismissButton from './shared/InternalDismissButton.js';
+import PrimaryAction from './Toast/PrimaryAction.js';
 import {
   ToastImageThumbnail,
   ToastIconThumbnail,
@@ -19,8 +21,6 @@ import {
   ToastTypeThumbnail,
   ToastMessage,
 } from './Toast/subcomponents.js';
-import InternalDismissButton from './InternalDismissButton.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 const DEFAULT_COLORS = {
   containerColor: 'inverse',

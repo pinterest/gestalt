@@ -2,10 +2,10 @@
 import { type Node } from 'react';
 import Flex from './Flex.js';
 import Modal from './Modal.js';
-import ModalAlertAction from './ModalAlert/ModalAlertAction.js';
-import ModalAlertHeader from './ModalAlert/ModalAlertHeader.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
+import ModalAlertAction from './ModalAlert/Action.js';
+import ModalAlertHeader from './ModalAlert/Header.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,

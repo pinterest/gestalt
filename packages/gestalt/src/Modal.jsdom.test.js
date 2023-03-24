@@ -1,8 +1,8 @@
 // @flow strict
 import { screen, render } from '@testing-library/react';
-import Modal from './Modal.js';
-import Flex from './Flex.js';
 import Button from './Button.js';
+import Flex from './Flex.js';
+import Modal from './Modal.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 
 describe('Modal', () => {

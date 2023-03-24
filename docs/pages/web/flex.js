@@ -1,20 +1,20 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box } from 'gestalt';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
+import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/flex/main.js';
-import gap from '../../examples/flex/gap.js';
-import menu from '../../examples/flex/menu.js';
-import flexItem from '../../examples/flex/flexItem.js';
 import flexBasis from '../../examples/flex/flexBasis.js';
+import flexItem from '../../examples/flex/flexItem.js';
+import gap from '../../examples/flex/gap.js';
+import main from '../../examples/flex/main.js';
+import menu from '../../examples/flex/menu.js';
 import overflowing from '../../examples/flex/overflowing.js';
 
 const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];

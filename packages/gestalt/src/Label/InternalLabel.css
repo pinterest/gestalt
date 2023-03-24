@@ -1,0 +1,4 @@
+.label {
+  composes: block from "../Layout.css";
+  composes: pointer from "../Cursor.css";
+}

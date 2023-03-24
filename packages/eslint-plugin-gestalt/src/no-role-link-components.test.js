@@ -1,7 +1,7 @@
 // @flow strict
-import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
+import { RuleTester } from 'eslint';
 import rule from './no-role-link-components.js';
 import { parserOptions } from './helpers/testHelpers.js';
 

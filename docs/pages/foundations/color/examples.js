@@ -2,8 +2,10 @@
 import { type Node } from 'react';
 import { Flex, Link, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
 import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import PrincipleItem from '../../../docs-components/PrincipleItem.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
 import alternativeColors from '../../../examples/colors/alternativeColorsExample.js';
 import alternativeColorTextExample from '../../../examples/colors/alternativeColorTextExample.js';
 import alternativeColorTokensExample from '../../../examples/colors/alternativeColorTokensExample.js';
@@ -14,10 +16,8 @@ import establishedExample from '../../../examples/colors/establishedExample.js';
 import extendedColors from '../../../examples/colors/extendedColorsExample.js';
 import invalidElevationExample from '../../../examples/colors/invalidElevationExample.js';
 import repurposeExample from '../../../examples/colors/repurposeExample.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
 import soleIndicatorExample from '../../../examples/colors/soleIndicatorExample.js';
 import validElevationExample from '../../../examples/colors/validElevationExample.js';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
 
 export default function ColorExamplesPage(): Node {
   return (

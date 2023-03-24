@@ -4,6 +4,11 @@
 
 // @flow strict
 import {
+  renameTagFixer,
+  renameTagWithPropsFixer,
+  updateGestaltImportFixer,
+} from './helpers/eslintASTFixers.js';
+import {
   hasAttributes,
   hasImport,
   hasUnsupportedAttributes,
@@ -11,11 +16,6 @@ import {
   isTag,
   getHtmlTag,
 } from './helpers/eslintASTHelpers.js';
-import {
-  renameTagFixer,
-  renameTagWithPropsFixer,
-  updateGestaltImportFixer,
-} from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 export const MESSAGES = {

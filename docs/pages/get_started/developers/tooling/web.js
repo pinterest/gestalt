@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Button, Flex, Icon, Link, Image, List, Text, Table } from 'gestalt';
+import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
+import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../../../../docs-components/MainSection.js';
 import { MAX_WIDTH } from '../../../../docs-components/MainSectionSubsection.js';
-import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import Page from '../../../../docs-components/Page.js';
 import PageHeader from '../../../../docs-components/PageHeader.js';
-import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
 
 function TableEntry({
   metric,

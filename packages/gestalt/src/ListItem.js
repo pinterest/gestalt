@@ -1,12 +1,12 @@
 // @flow strict
 import { type Element, type Node } from 'react';
 import classnames from 'classnames';
-import Text from './Text.js';
-import ListText from './ListText.js';
-import List from './InternalList.js'; // eslint-disable import/no-cycle
 import styles from './List.css';
-import getChildrenToArray from './List/getChildrenToArray.js';
+import Text from './Text.js';
 import { useList } from './contexts/ListProvider.js';
+import getChildrenToArray from './List/getChildrenToArray.js';
+import List from './List/InternalList.js'; // eslint-disable import/no-cycle
+import ListText from './List/Message.js';
 
 type Props = {|
   /**

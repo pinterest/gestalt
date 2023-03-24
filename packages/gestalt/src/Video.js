@@ -1,10 +1,10 @@
 // @flow strict
 import { PureComponent, type Node } from 'react';
 import classnames from 'classnames';
-import VideoControls from './VideoControls.js';
-import styles from './Video.css';
 import colors from './Colors.css';
+import styles from './Video.css';
 import Box from './Box.js';
+import VideoControls from './Video/Controls.js';
 
 type Source =
   | string

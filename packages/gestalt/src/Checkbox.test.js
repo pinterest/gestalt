@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Checkbox from './Checkbox.js';
 import Box from './Box.js';
+import Checkbox from './Checkbox.js';
 import Image from './Image.js';
 
 test('Checkbox', () => {

@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
 import { Text } from 'gestalt';
-import { marked, Renderer } from 'marked';
 import highlightjs from 'highlight.js';
+import { marked, Renderer } from 'marked';
 import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|

@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
+import colors from './Colors.css';
 import styles from './Icon.css';
 import icons from './icons/index.js';
-import colors from './Colors.css';
 
 export type IconColor =
   | 'default'

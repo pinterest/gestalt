@@ -1,6 +1,6 @@
 // @flow strict
-import { Text, Box, Flex, Heading } from 'gestalt';
 import { type Node } from 'react';
+import { Text, Box, Flex, Heading } from 'gestalt';
 
 type Props = {|
   heading: string,

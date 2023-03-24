@@ -1,6 +1,6 @@
 // @flow strict
-import { type BuildReducerType, type ReducerType } from './reducerTypes.js';
 import { getTextNodeFromSourceCode } from './eslintASTHelpers.js';
+import { type BuildReducerType, type ReducerType } from './reducerTypes.js';
 
 const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
   // This function is returned at the end with context in scope

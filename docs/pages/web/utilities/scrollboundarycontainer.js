@@ -1,17 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
 import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
-import popoverExample from '../../../examples/scrollboundarycontainer/popoverExample.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
 import autoOverflowExample from '../../../examples/scrollboundarycontainer/autoOverflowExample.js';
-import visibleOverflowExample from '../../../examples/scrollboundarycontainer/visibleOverflowExample.js';
 import modalExample from '../../../examples/scrollboundarycontainer/modalExample.js';
+import popoverExample from '../../../examples/scrollboundarycontainer/popoverExample.js';
+import visibleOverflowExample from '../../../examples/scrollboundarycontainer/visibleOverflowExample.js';
 
 export default function ScrollBoundaryContainerPage({
   generatedDocGen,

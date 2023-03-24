@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node, type ElementProps, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import Card from '../../docs-components/Card.js';
-import Page from '../../docs-components/Page.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import Card from '../../docs-components/Card.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
 const getPins = () => {
   const pins = [

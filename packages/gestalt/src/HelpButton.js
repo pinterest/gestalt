@@ -8,20 +8,20 @@ import {
   useState,
   useId,
 } from 'react';
-import Box from './Box.js';
-import Layer from './Layer.js';
-import TapArea from './TapArea.js';
-import Popover from './Popover.js';
-import Text from './Text.js';
-import Link from './Link.js';
-import Icon from './Icon.js';
-import Flex from './Flex.js';
-import Tooltip from './Tooltip.js';
 import styles from './HelpButton.css';
-import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import Box from './Box.js';
+import Flex from './Flex.js';
+import Icon from './Icon.js';
 import { ESCAPE, TAB } from './keyCodes.js';
+import Layer from './Layer.js';
+import Link from './Link.js';
+import Popover from './Popover.js';
+import TapArea from './TapArea.js';
+import Text from './Text.js';
+import Tooltip from './Tooltip.js';
+import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type LinkType = {|
   accessibilityLabel?: string,

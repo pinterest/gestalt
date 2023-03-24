@@ -1,9 +1,9 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import selectors from './utils/selectors.mjs';
 import getGridItems from './utils/getGridItems.mjs';
 import getServerURL from './utils/getServerURL.mjs';
 import resizeWidth from './utils/resizeWidth.mjs';
+import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
 async function getItemColumnMap(gridItems) {

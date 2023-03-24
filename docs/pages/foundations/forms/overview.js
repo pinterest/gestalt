@@ -1,9 +1,9 @@
 // @flow strict
-import { Box, Image } from 'gestalt';
 import React, { type Node } from 'react';
+import { Box, Image } from 'gestalt';
+import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
 
 export default function FormsLayoutOverview(): Node {
   return (

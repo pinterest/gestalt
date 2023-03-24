@@ -1,20 +1,20 @@
 // @flow strict
-import { Text, Table, Icon, Flex, Heading, Box, Link, Divider, Status } from 'gestalt';
 import { type Node } from 'react';
+import { Text, Table, Icon, Flex, Heading, Box, Link, Divider, Status } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import Blocking from '../../../graphics/messaging/blocking.svg';
 import Emphemeral from '../../../graphics/messaging/ephemeral.svg';
+import CampaignIssue from '../../../graphics/messaging/modals/campaignIssue.svg';
+import DeleteBoard from '../../../graphics/messaging/modals/deleteBoard.svg';
+import ExperienceTrends from '../../../graphics/messaging/modals/experienceTrends.svg';
+import NewRecommendations from '../../../graphics/messaging/modals/newRecommendations.svg';
+import PinSaved from '../../../graphics/messaging/modals/pinSaved.svg';
+import SiteSpam from '../../../graphics/messaging/modals/siteSpam.svg';
+import WebsiteBlocked from '../../../graphics/messaging/modals/websiteBlocked.svg';
 import Section from '../../../graphics/messaging/section.svg';
 import TopPage from '../../../graphics/messaging/topPage.svg';
-import DeleteBoard from '../../../graphics/messaging/modals/deleteBoard.svg';
-import WebsiteBlocked from '../../../graphics/messaging/modals/websiteBlocked.svg';
-import SiteSpam from '../../../graphics/messaging/modals/siteSpam.svg';
-import ExperienceTrends from '../../../graphics/messaging/modals/experienceTrends.svg';
-import PinSaved from '../../../graphics/messaging/modals/pinSaved.svg';
-import NewRecommendations from '../../../graphics/messaging/modals/newRecommendations.svg';
-import CampaignIssue from '../../../graphics/messaging/modals/campaignIssue.svg';
 
 export default function MessagingPriorityAndPlacementPage(): Node {
   return (

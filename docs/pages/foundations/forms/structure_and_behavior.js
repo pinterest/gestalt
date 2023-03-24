@@ -1,9 +1,9 @@
 // @flow strict
-import { Table, Box, Image, SlimBanner, Text, Mask } from 'gestalt';
 import React, { type Node } from 'react';
+import { Table, Box, Image, SlimBanner, Text, Mask } from 'gestalt';
+import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
 
 export default function StructureBehaviorPage(): Node {
   return (

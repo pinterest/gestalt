@@ -1,10 +1,10 @@
 // @flow strict
-import { List, Link, Text } from 'gestalt';
 import { type Node } from 'react';
+import { List, Link, Text } from 'gestalt';
+import InternalOnlyIconButton from '../../../docs-components/InternalOnlyIconButton.js';
+import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import InternalOnlyIconButton from '../../../docs-components/InternalOnlyIconButton.js';
 
 export default function ToolingPage(): Node {
   return (

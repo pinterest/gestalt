@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import Example from '../../docs-components/Example.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import MainSection from '../../docs-components/MainSection.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import Example from '../../docs-components/Example.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 
 export default function CollagePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

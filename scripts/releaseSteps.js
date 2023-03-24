@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 /* eslint import/no-dynamic-require: 0, no-console: 0 */
-const path = require('path');
-const prettier = require('prettier');
-const shell = require('shelljs');
-const semver = require('semver');
 const fsPromises = require('fs').promises;
-
+const path = require('path');
 const core = require('@actions/core');
 const { getOctokit, context } = require('@actions/github');
+const prettier = require('prettier');
+const semver = require('semver');
+const shell = require('shelljs');
 
 function packageDirectory(item) {
   return path.join(__dirname, '..', 'packages', item);

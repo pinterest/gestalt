@@ -1,6 +1,6 @@
 // @flow strict
-import { Heading, Image, Box, List, Flex } from 'gestalt';
 import { type Node } from 'react';
+import { Heading, Image, Box, List, Flex } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -108,7 +108,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={762}
                 naturalHeight={610}
                 fit="contain"
-                alt="example of appropriate use of brand baseline colors to emphasize a brand moment"
+                alt="Example of appropriate use of brand baseline colors to emphasize a brand moment."
               />
             </Box>
           </MainSection.Card>
@@ -122,7 +122,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={752}
                 naturalHeight={612}
                 fit="contain"
-                alt="example of inappropriate use of alternative colors to emphasize a brand moment"
+                alt="Example of inappropriate use of alternative colors to emphasize a brand moment."
               />
             </Box>
           </MainSection.Card>
@@ -138,7 +138,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={767}
                 naturalHeight={590}
                 fit="contain"
-                alt="example of using color fills in a celebratory moment"
+                alt="Example of using color fills in a celebratory moment."
               />
             </Box>
           </MainSection.Card>
@@ -152,7 +152,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={834}
                 naturalHeight={614}
                 fit="contain"
-                alt="example of inappropriately adding text over photography"
+                alt="Example of inappropriately adding text over photography."
               />
             </Box>
           </MainSection.Card>
@@ -168,7 +168,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={686}
                 naturalHeight={358}
                 fit="contain"
-                alt="example of using appropriate colors with typography"
+                alt="Example of using appropriate colors with typography."
               />
             </Box>
           </MainSection.Card>
@@ -182,7 +182,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={734}
                 naturalHeight={614}
                 fit="contain"
-                alt="example of using inappropriate colors with typography"
+                alt="Example of using inappropriate colors with typography."
               />
             </Box>
           </MainSection.Card>
@@ -198,7 +198,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={750}
                 naturalHeight={580}
                 fit="contain"
-                alt="example of using color fills to announce a new feature"
+                alt="Example of using color fills to announce a new feature."
               />
             </Box>
           </MainSection.Card>
@@ -212,7 +212,7 @@ Below we list the UI elements you can use and the ones you should avoid when bri
                 naturalWidth={887}
                 naturalHeight={614}
                 fit="contain"
-                alt="example of using color fills in core UI patterns"
+                alt="Example of using color fills in core UI patterns."
               />
             </Box>
           </MainSection.Card>

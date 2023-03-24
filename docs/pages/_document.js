@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import Cookies from 'universal-cookie';
-import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
+import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';
+import Cookies from 'universal-cookie';
 
 class GestaltDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<{||}> {
