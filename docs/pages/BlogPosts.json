@@ -3,47 +3,6 @@
     "year": "2023",
     "digests": [
       {
-        "week": "March 24, 2023",
-        "summary": "Illustration best practices, Figma extended color palette styles, Card components, icons and more!",
-        "posts": [
-          {
-            "title": "Illustration guidelines",
-            "audience": ["Design", "Engineering"],
-            "imageSrc": "https://i.pinimg.com/originals/e3/19/4f/e3194f7a84cddaac993cc37c780441e0.png",
-            "imageAltText": "examples of gestalt illustrations",
-            "content": "We're super excited to announce our newly-published [Illustration guidelines](https://gestalt.pinterest.systems/foundations/illustration). We shipped our first set of official Gestalt illustrations in late 2022 and this update is another step towards a richer Pinterest product experience. "
-          },
-          {
-            "title": "Extended color palette for Figma library",
-            "audience": ["Design"],
-            "imageSrc": "https://i.pinimg.com/originals/71/1c/a0/711ca068fe1ad7d3cb44ccc82c902e92.png",
-            "imageAltText": "different shades of red from gestalt's color palette",
-            "content": "We _just_ added Gestalt's entire [extended color palette](https://gestalt.pinterest.systems/foundations/color/palette#Extended-palette) as color styles in our Figma Foundations library. This means you now have the full suite of colors available for use in your design. You can find them grouped under 'Extended color palette'\n\nPlease note: you might encounter a style issue with text and icons. We are fixing all related issues early next week."
-          },
-          {
-            "title": "Figma Card library",
-            "audience": ["Design"],
-            "imageSrc": "https://i.pinimg.com/originals/47/ff/9b/47ff9b76dbedefd8e4783e45356d7966.png",
-            "imageAltText": "example of a card component with carousel",
-            "content": "We've partnered with the ever-talented Helen Bentley and Diana Wong to develop a pilot [Gestalt Card Figma library](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=19782%3A72549&t=aVaU60I26PbvcONq-1). This work is in support of our company's Unified Module effort and will go a long way towards a more consistent and predictable Pinterest experience.\n\n This is a soft launch and there's a long way to go, but it's a huge step forward for the team."
-          },
-          {
-            "title": "Icon additions to Figma/codebase",
-            "audience": ["Design", "Engineering"],
-            "imageSrc": "https://i.pinimg.com/originals/ef/03/5e/ef035ea2e6cc3d88a3bc77a55653dc65.png",
-            "imageAltText": "four icons of an hourglass, folder with plus sign, circle with an arrow pointing left and a rectangle with a right-facing arrow inside of it",
-            "content": "We know you like icons, so we added more to our library! We added `workflow-status-queued` and `add-section` icons to our Figma library as well as `arrow-circle-back` and `move-pin` to our codebase."
-          },
-          {
-            "title": "Even more Figma library updates",
-            "audience": ["Design"],
-            "imageSrc": "https://i.pinimg.com/originals/29/32/93/29329323ea1048b38064fdd6c1ac019f.png",
-            "imageAltText": "mobile sheet component and android keyboard",
-            "content": "And yes, there are _even more_ Figma updates to share. We added a mWeb specific Sheet Figma component to our Web library. This work is leading up to shipping our new mWeb Sheet component in the React codebase.\n\nWe also published handy Android keyboard components in our Foundations library to remove _just one more step_ from your design process."
-          }
-        ]
-      },
-      {
         "week": "March 17, 2023",
         "summary": "New TileData Figma component, components to annotate components and a new Figma plugin coming...",
         "posts": [
