@@ -207,34 +207,19 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/forms/overview',
   },
   {
+    svg: <Iconography />,
+    name: 'Iconography',
+    description: 'Our current icon library, complete with guidelines on using and creating icons',
+    category: 'Foundations',
+    path: '/foundations/iconography/library',
+  },
+  {
     svg: <Illustration />,
     name: 'Illustration',
     description:
       'How to use illustration for communicating empty, success, error and loading statuses in the product',
     category: 'Foundations',
     path: '/foundations/illustration',
-  },
-  {
-    svg: <Messaging />,
-    name: 'Messaging',
-    description:
-      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
-    category: 'Foundations',
-    path: '/foundations/messaging/overview',
-  },
-  {
-    svg: <Typography />,
-    name: 'Typography',
-    description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    category: 'Foundations',
-    path: '/foundations/typography/guidelines',
-  },
-  {
-    svg: <Iconography />,
-    name: 'Iconography',
-    description: 'Our current icon library, complete with guidelines on using and creating icons',
-    category: 'Foundations',
-    path: '/foundations/iconography/library',
   },
   {
     svg: <Layouts />,
@@ -245,11 +230,26 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/layouts',
   },
   {
+    svg: <Messaging />,
+    name: 'Messaging',
+    description:
+      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
+    category: 'Foundations',
+    path: '/foundations/messaging/overview',
+  },
+  {
     svg: <ScreenSizes />,
     name: 'Screen sizes',
     description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
     category: 'Foundations',
     path: '/foundations/screen_sizes',
+  },
+  {
+    svg: <Typography />,
+    name: 'Typography',
+    description: 'A typographic system for a content hierarchy that is scannable and efficient',
+    category: 'Foundations',
+    path: '/foundations/typography/guidelines',
   },
 ];
 
