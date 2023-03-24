@@ -1,14 +1,25 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Flex, Layer, Modal, Box, Text, DeviceTypeProvider, Button } from 'gestalt';
+import {
+  Flex,
+  Layer,
+  Modal,
+  Box,
+  Text,
+  DeviceTypeProvider,
+  Button,
+  FixedZIndex,
+  CompositeZIndex,
+} from 'gestalt';
 
 export default function Example(): Node {
   const [showModal, setShowModal] = useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
 
   return (
     <DeviceTypeProvider deviceType="mobile">
       {showModal ? (
-        <Layer>
+        <Layer zIndex={new CompositeZIndex([HEADER_ZINDEX])}>
           <Modal
             align="center"
             accessibilityModalLabel="Mobile Modal example"

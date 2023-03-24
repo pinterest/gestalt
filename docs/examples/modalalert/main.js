@@ -6,14 +6,14 @@ const HEADER_ZINDEX = new FixedZIndex(10);
 const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
 export default function DefaultExample(): Node {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <Box padding={3}>
       <Button
         text="Show modal"
         onClick={() => {
-          setShowModal((currVal) => !currVal);
+          setShowModal(true);
         }}
       />
       {showModal && (
@@ -24,15 +24,15 @@ export default function DefaultExample(): Node {
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
-              onClick: () => {},
+              onClick: () => setShowModal(false),
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'No, keep',
-              onClick: () => {},
+              onClick: () => setShowModal(false),
             }}
             onDismiss={() => {
-              setShowModal((currVal) => !currVal);
+              setShowModal(false);
             }}
           >
             <Text>

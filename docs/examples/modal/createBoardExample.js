@@ -12,45 +12,8 @@ import {
   TextField,
 } from 'gestalt';
 
-function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}) {
-  return (
-    <Modal
-      accessibilityModalLabel="Create new board"
-      align="start"
-      heading="Create board"
-      onDismiss={onDismiss}
-      footer={
-        <Flex alignItems="center" justifyContent="end">
-          <Button color="red" text="Create" />
-        </Flex>
-      }
-      size="sm"
-    >
-      <Fragment>
-        <Box marginBottom={6}>
-          <TextField
-            id="name"
-            onChange={() => {}}
-            placeholder='Like "Places to go" or "Recipes to Make"'
-            label="Name"
-            type="text"
-          />
-        </Box>
-        <Checkbox
-          checked={false}
-          id="secret"
-          label="Keep this board secret"
-          helperText="So only you and collaborators can see it."
-          name="languages"
-          onChange={() => {}}
-        />
-      </Fragment>
-    </Modal>
-  );
-}
-
 export default function HeadingExample(): Node {
-  const [shouldShow, setShouldShow] = useState(true);
+  const [shouldShow, setShouldShow] = useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
@@ -59,7 +22,38 @@ export default function HeadingExample(): Node {
       <Button text="View Modal" onClick={() => setShouldShow(true)} />
       {shouldShow && (
         <Layer zIndex={modalZIndex}>
-          <ModalWithHeading onDismiss={() => setShouldShow(false)} />
+          <Modal
+            accessibilityModalLabel="Create new board"
+            align="start"
+            heading="Create board"
+            onDismiss={() => setShouldShow(false)}
+            footer={
+              <Flex alignItems="center" justifyContent="end">
+                <Button color="red" text="Create" />
+              </Flex>
+            }
+            size="sm"
+          >
+            <Fragment>
+              <Box marginBottom={6}>
+                <TextField
+                  id="name"
+                  onChange={() => {}}
+                  placeholder='Like "Places to go" or "Recipes to Make"'
+                  label="Name"
+                  type="text"
+                />
+              </Box>
+              <Checkbox
+                checked={false}
+                id="secret"
+                label="Keep this board secret"
+                helperText="So only you and collaborators can see it."
+                name="languages"
+                onChange={() => {}}
+              />
+            </Fragment>
+          </Modal>
         </Layer>
       )}
     </Box>
