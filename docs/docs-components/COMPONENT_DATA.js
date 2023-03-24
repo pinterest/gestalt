@@ -23,6 +23,7 @@ import DesignTokens from '../graphics/foundations/design-tokens.svg';
 import Elevation from '../graphics/foundations/elevation.svg';
 import Forms from '../graphics/foundations/forms.svg';
 import Iconography from '../graphics/foundations/iconography.svg';
+import Illustration from '../graphics/foundations/illustration.svg';
 import Layouts from '../graphics/foundations/layouts.svg';
 import Messaging from '../graphics/foundations/messaging.svg';
 import ScreenSizes from '../graphics/foundations/screen-size.svg';
@@ -204,6 +205,14 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     description: 'Guidelines for form layout, behavior and usage',
     category: 'Foundations',
     path: '/foundations/forms/overview',
+  },
+  {
+    svg: <Illustration />,
+    name: 'Illustration',
+    description:
+      'How to use illustration for communicating empty, success, error and loading statuses in the product',
+    category: 'Foundations',
+    path: '/foundations/illustration',
   },
   {
     svg: <Messaging />,
