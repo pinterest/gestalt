@@ -78,6 +78,11 @@ import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
 import Video from '../graphics/general/Video.svg';
 import WashAnimated from '../graphics/general/WashAnimated.svg';
+import AdvocateTile from '../graphics/team_support/advocate.svg';
+import ComponentRequest from '../graphics/team_support/component-request.svg';
+import ContributionsTile from '../graphics/team_support/contributions.svg';
+import GetHelpTile from '../graphics/team_support/get-help.svg';
+import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
@@ -136,6 +141,49 @@ export type ListItemType = {|
   status?: {| ...PlatformStatus, iOS: StatusType, android: StatusType, responsive: StatusType |}, // web status
   svg: Element<typeof Accessibility>,
 |};
+
+const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
+  {
+    svg: <AdvocateTile />,
+    name: 'Accessibility',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
+    category: 'Foundations',
+    path: '/foundations/accessibility',
+  },
+  {
+    svg: <ComponentRequest />,
+    name: 'Accessibility',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
+    category: 'Foundations',
+    path: '/foundations/accessibility',
+  },
+  {
+    svg: <ContributionsTile />,
+    name: 'Accessibility',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
+    category: 'Foundations',
+    path: '/foundations/accessibility',
+  },
+  {
+    svg: <GetHelpTile />,
+    name: 'Accessibility',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
+    category: 'Foundations',
+    path: '/foundations/accessibility',
+  },
+  {
+    svg: <TrainingTile />,
+    name: 'Accessibility',
+    description:
+      'How to create accessible designs and components that contribute to an accessible product',
+    category: 'Foundations',
+    path: '/foundations/accessibility',
+  },
+];
 
 const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   {
@@ -3831,12 +3879,14 @@ const COMPONENT_DATA_MAP: {|
   utilityComponents: $ReadOnlyArray<ListItemType>,
   figmaOnlyComponents: $ReadOnlyArray<ListItemType>,
   foundations: $ReadOnlyArray<ListItemType>,
+  teamSupport: $ReadOnlyArray<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,
   utilityComponents: UTILITIES_LIST,
   figmaOnlyComponents: FIGMA_ONLY_LIST,
   foundations: FOUNDATION_GUIDELINES_LIST,
+  teamSupport: TEAM_SUPPORT_LIST,
 };
 
 export default COMPONENT_DATA_MAP;
