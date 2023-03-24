@@ -128,7 +128,7 @@ export default function SandpackExample({
       <DevelopmentEditor code={code} />
       {/* Based on //
       https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67 */}
-      {sandpack === 'enabled' ? (
+      {process.env.NODE_ENV === 'production' || sandpack === 'enabled' ? (
         <SandpackProvider
           template="react"
           files={{
