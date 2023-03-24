@@ -1,8 +1,8 @@
 // @flow strict
-import { Box, Flex } from 'gestalt';
 import { type Node } from 'react';
-import MainSectionCard from './MainSectionCard.js';
+import { Box, Flex } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
+import MainSectionCard from './MainSectionCard.js';
 
 type Props = {
   // $FlowFixMe[unclear-type]

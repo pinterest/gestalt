@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import RadioGroupButton from './RadioGroupButton.js';
-import { RadioGroupContextProvider } from './RadioGroupContext.js';
+import { RadioGroupContextProvider } from './RadioGroup/Context.js';
 
 type Props = {|
   /**

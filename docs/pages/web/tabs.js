@@ -1,23 +1,23 @@
 // @flow strict
 import { type Node } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import mainExample from '../../examples/tabs/mainExample.js';
-import doAboveTarget from '../../examples/tabs/doAboveTarget.js';
-import dontFilterContent from '../../examples/tabs/dontFilterContent.js';
-import dontTruncateLabels from '../../examples/tabs/dontTruncateLabels.js';
-import dontHide from '../../examples/tabs/dontHide.js';
-import doBeConcise from '../../examples/tabs/doBeConcise.js';
-import doOrderByRelevance from '../../examples/tabs/doOrderByRelevance.js';
-import wrapping from '../../examples/tabs/wrapping.js';
-import indicator from '../../examples/tabs/indicator.js';
 import backgroundColor from '../../examples/tabs/backgroundColor.js';
+import doAboveTarget from '../../examples/tabs/doAboveTarget.js';
+import doBeConcise from '../../examples/tabs/doBeConcise.js';
+import dontFilterContent from '../../examples/tabs/dontFilterContent.js';
+import dontHide from '../../examples/tabs/dontHide.js';
+import dontTruncateLabels from '../../examples/tabs/dontTruncateLabels.js';
+import doOrderByRelevance from '../../examples/tabs/doOrderByRelevance.js';
+import indicator from '../../examples/tabs/indicator.js';
+import mainExample from '../../examples/tabs/mainExample.js';
+import wrapping from '../../examples/tabs/wrapping.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

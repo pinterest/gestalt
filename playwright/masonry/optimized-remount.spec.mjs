@@ -1,8 +1,8 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import selectors from './utils/selectors.mjs';
 import clickButton from './utils/clickButton.mjs';
 import getServerURL from './utils/getServerURL.mjs';
+import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
 test.describe('Masonry: external cache', () => {

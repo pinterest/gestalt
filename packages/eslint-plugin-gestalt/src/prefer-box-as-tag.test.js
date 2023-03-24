@@ -1,7 +1,7 @@
 // @flow strict
-import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
+import { RuleTester } from 'eslint';
 import rule, { SUPPORTED_HTML_TAGS } from './prefer-box-as-tag.js';
 import { parserOptions } from './helpers/testHelpers.js';
 

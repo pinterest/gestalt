@@ -8,17 +8,17 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import icons from './icons/index.js';
-import InternalLink from './InternalLink.js';
-import Pog from './Pog.js';
-import Tooltip from './Tooltip.js';
-import { type Indexable } from './zIndex.js';
 import styles from './IconButton.css';
 import touchableStyles from './TapArea.css';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import Pog from './Pog.js';
+import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import { type Indexable } from './zIndex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,

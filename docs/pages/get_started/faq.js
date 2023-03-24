@@ -1,10 +1,10 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import { List, Box, Flex, Heading, Link, Text } from 'gestalt';
-import Markdown from '../../docs-components/Markdown.js';
 import Card from '../../docs-components/Card.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import Markdown from '../../docs-components/Markdown.js';
 import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 
 function InlineLink({ children, href }: {| children: string, href: string |}) {
   return (

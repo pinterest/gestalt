@@ -1,21 +1,21 @@
 // @flow strict
 import { useId, type Node } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
-import Flex from './Flex.js';
-import Divider from './Divider.js';
-import styles from './SideNavigation.css';
 import borderStyles from './Borders.css';
-import SideNavigationMobile from './SideNavigationMobile.js';
+import styles from './SideNavigation.css';
+import Box from './Box.js';
+import Divider from './Divider.js';
+import Flex from './Flex.js';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
+import SideNavigationGroup from './SideNavigationGroup.js';
+import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
+import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
-import SideNavigationGroup from './SideNavigationGroup.js';
-import SideNavigationNestedItem from './SideNavigationNestedItem.js';
-import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
+import SideNavigationMobile from './SideNavigation/Mobile.js';
 
 export type Props = {|
   /**

@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box } from 'gestalt';
-import Card from './Card.js';
 import AccessibilityChecklist from './AccessibilityChecklist.js';
+import Card from './Card.js';
 import Markdown from './Markdown.js';
 
 type Props = {|

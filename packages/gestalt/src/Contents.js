@@ -1,10 +1,10 @@
 // @flow strict
 import { Component, type Node } from 'react';
 import classnames from 'classnames';
-import Caret from './Caret.js';
-import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
+import styles from './Contents.css';
+import Caret from './Caret.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import {
   type CaretOffset,

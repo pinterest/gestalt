@@ -1,24 +1,24 @@
 // @flow strict
 import { type Node } from 'react';
 import { AvatarGroup } from 'gestalt';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import Page from '../../docs-components/Page.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import noImageSource from '../../examples/avatarGroup/noImageSource.js';
-import noEmoji from '../../examples/avatarGroup/noEmoji.js';
-import main from '../../examples/avatarGroup/main.js';
-import sizing from '../../examples/avatarGroup/sizing.js';
 import accessibility from '../../examples/avatarGroup/accessibility.js';
-import person from '../../examples/avatarGroup/person.js';
 import ideas from '../../examples/avatarGroup/ideas.js';
+import main from '../../examples/avatarGroup/main.js';
+import noEmoji from '../../examples/avatarGroup/noEmoji.js';
+import noImageSource from '../../examples/avatarGroup/noImageSource.js';
+import person from '../../examples/avatarGroup/person.js';
 import roleButton from '../../examples/avatarGroup/roleButton.js';
 import roleLink from '../../examples/avatarGroup/roleLink.js';
+import sizing from '../../examples/avatarGroup/sizing.js';
 
 export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

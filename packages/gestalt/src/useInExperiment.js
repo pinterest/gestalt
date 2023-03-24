@@ -1,6 +1,6 @@
 // @flow strict
-import { useExperimentContext } from './contexts/ExperimentProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { useExperimentContext } from './contexts/ExperimentProvider.js';
 
 export default function useInExperiment({
   webExperimentName,

@@ -1,9 +1,9 @@
 // @flow strict
-import path from 'path';
 import { promises as fs } from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
-import logGAEvent from './gAnalytics.js';
 import siteIndex, { type siteIndexType } from '../docs-components/siteIndex.js';
+import logGAEvent from './gAnalytics.js';
 
 export async function getDocByRoute(route: string): Promise<{|
   content?: string,

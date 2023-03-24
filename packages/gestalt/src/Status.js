@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
 import Box from './Box.js';
-import Icon from './Icon.js';
 import Flex from './Flex.js';
+import Icon from './Icon.js';
 import Text from './Text.js';
 
 const ICON_COLOR_MAP = {

@@ -1,9 +1,9 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import PageHeader from './PageHeader.js';
 import Button from './Button.js';
-import Link from './Link.js';
 import Dropdown from './Dropdown.js';
+import Link from './Link.js';
+import PageHeader from './PageHeader.js';
 
 describe('PageHeader', () => {
   it('renders', () => {

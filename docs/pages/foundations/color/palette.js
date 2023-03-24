@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
 import ColorPalette from '../../../docs-components/ColorPalette.js';
 import ColorTile from '../../../docs-components/ColorTile.js';
+import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
 
 const colors = [
   { name: 'Pushpin', id: 'red', textColor: 'light' },

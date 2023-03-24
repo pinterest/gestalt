@@ -203,6 +203,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         sectionName: 'Iconography',
         pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
       },
+      'Illustration',
       'Layouts',
       {
         sectionName: 'Messaging',

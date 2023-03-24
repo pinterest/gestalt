@@ -8,13 +8,13 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/popovereducational/main.js';
+import customContent from '../../examples/popovereducational/customContent.js';
 import doEducate from '../../examples/popovereducational/doEducate.js';
 import dontDouble from '../../examples/popovereducational/dontDouble.js';
 import doReference from '../../examples/popovereducational/doReference.js';
+import main from '../../examples/popovereducational/main.js';
 import message from '../../examples/popovereducational/message.js';
 import primaryAction from '../../examples/popovereducational/primaryAction.js';
-import customContent from '../../examples/popovereducational/customContent.js';
 import size from '../../examples/popovereducational/size.js';
 import visibility from '../../examples/popovereducational/visibility.js';
 

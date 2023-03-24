@@ -3,10 +3,8 @@ import { type Node } from 'react';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
-
-import Card from './Card.js';
 import theme from './atomDark.js';
-
+import Card from './Card.js';
 import ExampleCode from './ExampleCode.js';
 
 type Props = {|
@@ -46,7 +44,7 @@ function Example({
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box display="flex" direction="column" marginStart={-2} marginEnd={-2} marginBottom={6}>
-          <Box padding={2} height="100%">
+          <Box padding={2} height="100%" width="100%">
             <Box position="relative" padding={4} borderStyle="sm" rounding={2} color="default">
               <LivePreview className={skipContrastCheck ? 'skip-accessibility-check' : undefined} />
             </Box>

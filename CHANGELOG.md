@@ -1,3 +1,51 @@
+## 101.3.8 (Mar 24, 2023)
+
+### Patch
+
+- Guidelines: Illustration guidelines ([#2755](https://github.com/pinterest/gestalt/pull/2755)) - [Preview link](https://deploy-preview-2755--gestalt.netlify.app)
+
+## 101.3.7 (Mar 24, 2023)
+
+### Patch
+
+- Internal: fix Sandpack not enabled in prod ([#2756](https://github.com/pinterest/gestalt/pull/2756)) - [Preview link](https://deploy-preview-2756--gestalt.netlify.app)
+
+## 101.3.6 (Mar 24, 2023)
+
+### Patch
+
+- Internal: implement Development Preview ([#2754](https://github.com/pinterest/gestalt/pull/2754)) - [Preview link](https://deploy-preview-2754--gestalt.netlify.app)
+
+## 101.3.5 (Mar 23, 2023)
+
+### Patch
+
+- Internal: move .eslintrc from json to js to add constants + set import/order rule = ERROR & autofix([#2751](https://github.com/pinterest/gestalt/pull/2751)) - [Preview link](https://deploy-preview-2751--gestalt.netlify.app)
+
+## 101.3.4 (Mar 23, 2023)
+
+### Patch
+
+- Docs: add more context to Playwright visual diff snapshot tests section ([#2753](https://github.com/pinterest/gestalt/pull/2753)) - [Preview link](https://deploy-preview-2753--gestalt.netlify.app)
+
+## 101.3.3 (Mar 22, 2023)
+
+### Patch
+
+- Textfield: fix in CSS reference ([#2749](https://github.com/pinterest/gestalt/pull/2749)) - [Preview link](https://deploy-preview-2749--gestalt.netlify.app)
+
+## 101.3.2 (Mar 22, 2023)
+
+### Patch
+
+- Internal: reorganized files to folders with renaming ([#2746](https://github.com/pinterest/gestalt/pull/2746)) - [Preview link](https://deploy-preview-2746--gestalt.netlify.app)
+
+## 101.3.1 (Mar 22, 2023)
+
+### Patch
+
+- OverlayPanel: remove from iOS/Android overview pages ([#2747](https://github.com/pinterest/gestalt/pull/2747)) - [Preview link](https://deploy-preview-2747--gestalt.netlify.app)
+
 ## 101.3.0 (Mar 20, 2023)
 
 ### Minor

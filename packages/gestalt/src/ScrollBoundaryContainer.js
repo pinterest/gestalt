@@ -12,9 +12,8 @@
 
 // @flow strict
 import { type Node } from 'react';
-
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
-import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainerWithForwardRef.js';
+import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 

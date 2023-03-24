@@ -7,6 +7,7 @@ import handleCodeSandbox from './handleCodeSandbox.js';
 import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton.js';
 import CopyCodeButton from './buttons/CopyCodeButton.js';
 import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import { useDocsConfig } from './contexts/DocsConfigProvider.js';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 
@@ -32,7 +33,9 @@ export default function ExampleCode({
   readOnly,
   name,
 }: Props): Node {
-  const [expanded, setExpanded] = useState(false);
+  const { showDevelopmentEditor } = useDocsConfig();
+
+  const [expanded, setExpanded] = useState(showDevelopmentEditor || false);
   const [showExpandButton, setShowExpandButton] = useState(hideCodePreview);
   const [maxHeight, setMaxHeight] = useState('500px');
   const codeExampleRef = useRef(null);
@@ -56,11 +59,11 @@ export default function ExampleCode({
     // Save the height so we know how far to animate to
     setMaxHeight(`${height}px`);
 
-    if (height > CODE_EXAMPLE_HEIGHT) {
+    if (height > CODE_EXAMPLE_HEIGHT && !showDevelopmentEditor) {
       setExpanded(false);
       setShowExpandButton(true);
     }
-  }, [code, hideCodePreview]);
+  }, [code, hideCodePreview, showDevelopmentEditor]);
 
   return (
     <Box marginTop={2}>
@@ -79,27 +82,29 @@ export default function ExampleCode({
             column: 0,
           }}
         >
-          <Flex justifyContent="start">
-            <OpenSandboxButton
-              onClick={() => {
-                handleCodeSandbox({ code, title: name });
-              }}
-            />
-
-            <CopyCodeButton
-              onClick={() => {
-                copyCode({ code });
-              }}
-            />
-
-            {showExpandButton && (
-              <CollapseExpandCodeButton
-                expanded={expanded}
-                name={name}
-                onClick={() => setExpanded(!expanded)}
+          {!showDevelopmentEditor ? (
+            <Flex justifyContent="start">
+              <OpenSandboxButton
+                onClick={() => {
+                  handleCodeSandbox({ code, title: name });
+                }}
               />
-            )}
-          </Flex>
+
+              <CopyCodeButton
+                onClick={() => {
+                  copyCode({ code });
+                }}
+              />
+
+              {showExpandButton && (
+                <CollapseExpandCodeButton
+                  expanded={expanded}
+                  name={name}
+                  onClick={() => setExpanded(!expanded)}
+                />
+              )}
+            </Flex>
+          ) : null}
           {readOnly && (
             <Box>
               <Text size="100" italic>

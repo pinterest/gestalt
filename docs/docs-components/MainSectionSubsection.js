@@ -2,9 +2,9 @@
 import { type Node, Children } from 'react';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import slugify from 'slugify';
-import CopyLinkButton from './buttons/CopyLinkButton.js';
-import Markdown from './Markdown.js';
 import { copyToClipboard } from './Card.js';
+import Markdown from './Markdown.js';
+import CopyLinkButton from './buttons/CopyLinkButton.js';
 
 export const MAX_WIDTH = 572;
 

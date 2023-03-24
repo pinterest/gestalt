@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node, useCallback, useState, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
-import { ESCAPE } from './keyCodes.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Backdrop from './Backdrop.js';
 import focusStyles from './Focus.css';
 import modalStyles from './Modal.css';
+import Backdrop from './Backdrop.js';
+import Box from './Box.js';
+import Flex from './Flex.js';
 import Heading from './Heading.js';
-import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
+import { ESCAPE } from './keyCodes.js';
 import Text from './Text.js';
+import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import InternalDismissButton from './InternalDismissButton.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import InternalDismissButton from './shared/InternalDismissButton.js';
 
 type Props = {|
   /**

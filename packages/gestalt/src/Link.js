@@ -10,20 +10,20 @@ import {
   type ElementConfig,
 } from 'react';
 import classnames from 'classnames';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import touchableStyles from './TapArea.css';
-import styles from './Link.css';
-import textStyles from './Typography.css';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName from './getRoundingClassName.js';
 import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
 import layoutStyles from './Layout.css';
-import Icon from './Icon.js';
+import styles from './Link.css';
+import touchableStyles from './TapArea.css';
+import textStyles from './Typography.css';
 import Box from './Box.js';
-import Text from './Text.js';
+import getRoundingClassName from './getRoundingClassName.js';
+import Icon from './Icon.js';
 import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import Text from './Text.js';
+import useFocusVisible from './useFocusVisible.js';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 
 const externalLinkIconMap = {
   '100': 12,

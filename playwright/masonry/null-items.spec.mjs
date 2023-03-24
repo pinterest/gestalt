@@ -1,7 +1,7 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import selectors from './utils/selectors.mjs';
 import getServerURL from './utils/getServerURL.mjs';
+import selectors from './utils/selectors.mjs';
 
 test.describe('Masonry: Null items', () => {
   test('should not throw an error when null/undefined items are inserted', async ({

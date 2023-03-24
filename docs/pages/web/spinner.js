@@ -1,21 +1,21 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import delay from '../../examples/spinner/delay.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import delay from '../../examples/spinner/delay.js';
 import doLocation from '../../examples/spinner/doLocation.js';
 import dontLabel from '../../examples/spinner/dontLabel.js';
 import dontMultiple from '../../examples/spinner/dontMultiple.js';
 import dontWait from '../../examples/spinner/dontWait.js';
 import doOverlay from '../../examples/spinner/doOverlay.js';
 import doWait from '../../examples/spinner/doWait.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import main from '../../examples/spinner/main.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

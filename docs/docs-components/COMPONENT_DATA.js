@@ -1,5 +1,32 @@
 // @flow strict
 import { type Element } from 'react';
+import Box from '../graphics/building-blocks/Box.svg';
+import Column from '../graphics/building-blocks/Column.svg';
+import Container from '../graphics/building-blocks/Container.svg';
+import Flex from '../graphics/building-blocks/Flex.svg';
+import Layer from '../graphics/building-blocks/Layer.svg';
+import Letterbox from '../graphics/building-blocks/Letterbox.svg';
+import Mask from '../graphics/building-blocks/Mask.svg';
+import Pog from '../graphics/building-blocks/Pog.svg';
+import Popover from '../graphics/building-blocks/Popover.svg';
+import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
+import Sticky from '../graphics/building-blocks/Sticky.svg';
+import TapArea from '../graphics/building-blocks/TapArea.svg';
+import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
+import Accessibility from '../graphics/foundations/accessibility.svg';
+import Animation from '../graphics/foundations/animation.svg';
+import BrandExpression from '../graphics/foundations/brand_expression.svg';
+import Color from '../graphics/foundations/color.svg';
+import Content from '../graphics/foundations/content.svg';
+import DataVisualization from '../graphics/foundations/data_visualization.svg';
+import DesignTokens from '../graphics/foundations/design-tokens.svg';
+import Elevation from '../graphics/foundations/elevation.svg';
+import Forms from '../graphics/foundations/forms.svg';
+import Iconography from '../graphics/foundations/iconography.svg';
+import Layouts from '../graphics/foundations/layouts.svg';
+import Messaging from '../graphics/foundations/messaging.svg';
+import ScreenSizes from '../graphics/foundations/screen-size.svg';
+import Typography from '../graphics/foundations/typography.svg';
 import ActivationCard from '../graphics/general/ActivationCard.svg';
 import Avatar from '../graphics/general/Avatar.svg';
 import AvatarGroup from '../graphics/general/AvatarGroup.svg';
@@ -14,12 +41,11 @@ import Datapoint from '../graphics/general/Datapoint.svg';
 import DatePicker from '../graphics/general/DatePicker.svg';
 import Divider from '../graphics/general/Divider.svg';
 import Dropdown from '../graphics/general/Dropdown.svg';
-import RadioGroup from '../graphics/general/RadioGroup.svg';
 import Heading from '../graphics/general/Heading.svg';
 import HelpButton from '../graphics/general/HelpButton.svg';
+import Icon from '../graphics/general/Icon.svg';
 import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
-import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
@@ -29,14 +55,14 @@ import Modal from '../graphics/general/Modal.svg';
 import ModalAlert from '../graphics/general/ModalAlert.svg';
 import Module from '../graphics/general/Module.svg';
 import NumberField from '../graphics/general/NumberField.svg';
+import OverlayPanel from '../graphics/general/OverlayPanel.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
-import Popover from '../graphics/building-blocks/Popover.svg';
 import Pulsar from '../graphics/general/Pulsar.svg';
+import RadioGroup from '../graphics/general/RadioGroup.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
 import SideNavigation from '../graphics/general/SideNavigation.svg';
-import OverlayPanel from '../graphics/general/OverlayPanel.svg';
 import SlimBanner from '../graphics/general/SlimBanner.svg';
 import Spinner from '../graphics/general/Spinner.svg';
 import Status from '../graphics/general/Status.svg';
@@ -51,37 +77,11 @@ import Toast from '../graphics/general/Toast.svg';
 import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
 import Video from '../graphics/general/Video.svg';
-import Box from '../graphics/building-blocks/Box.svg';
-import Column from '../graphics/building-blocks/Column.svg';
-import Container from '../graphics/building-blocks/Container.svg';
-import Flex from '../graphics/building-blocks/Flex.svg';
-import Layer from '../graphics/building-blocks/Layer.svg';
-import Letterbox from '../graphics/building-blocks/Letterbox.svg';
-import Mask from '../graphics/building-blocks/Mask.svg';
-import Pog from '../graphics/building-blocks/Pog.svg';
-import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
-import Sticky from '../graphics/building-blocks/Sticky.svg';
-import TapArea from '../graphics/building-blocks/TapArea.svg';
-import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
+import WashAnimated from '../graphics/general/WashAnimated.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
-import Accessibility from '../graphics/foundations/accessibility.svg';
-import DataVisualization from '../graphics/foundations/data_visualization.svg';
-import Animation from '../graphics/foundations/animation.svg';
-import Elevation from '../graphics/foundations/elevation.svg';
-import Typography from '../graphics/foundations/typography.svg';
-import Color from '../graphics/foundations/color.svg';
-import Content from '../graphics/foundations/content.svg';
-import DesignTokens from '../graphics/foundations/design-tokens.svg';
-import Iconography from '../graphics/foundations/iconography.svg';
-import Layouts from '../graphics/foundations/layouts.svg';
-import ScreenSizes from '../graphics/foundations/screen-size.svg';
-import BrandExpression from '../graphics/foundations/brand_expression.svg';
-import Messaging from '../graphics/foundations/messaging.svg';
-import WashAnimated from '../graphics/general/WashAnimated.svg';
-import Forms from '../graphics/foundations/forms.svg';
 
 export type Category =
   | 'Actions'
@@ -2166,7 +2166,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'ready',
+      documentation: 'notAvailable',
       figma: null,
     },
     iOS: {
@@ -2179,7 +2179,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'ready',
+      documentation: 'notAvailable',
       figma: null,
     },
   },

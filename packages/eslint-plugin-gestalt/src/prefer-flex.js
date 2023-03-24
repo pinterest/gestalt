@@ -7,8 +7,8 @@
  */
 
 // @flow strict
-import { buildProps } from './helpers/eslintASTHelpers.js';
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
+import { buildProps } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const sharedProps = [

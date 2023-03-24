@@ -1,24 +1,24 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import main from '../../examples/combobox/main.js';
-import labels from '../../examples/combobox/labels.js';
-import localization from '../../examples/combobox/localization.js';
-import programmatic from '../../examples/combobox/programmatic.js';
-import uncontrolled from '../../examples/combobox/uncontrolled.js';
 import controlled from '../../examples/combobox/controlled.js';
-import tags from '../../examples/combobox/tags.js';
-import ref from '../../examples/combobox/ref.js';
-import subtext from '../../examples/combobox/subtext.js';
 import error from '../../examples/combobox/error.js';
 import helperText from '../../examples/combobox/helperText.js';
+import labels from '../../examples/combobox/labels.js';
+import localization from '../../examples/combobox/localization.js';
+import main from '../../examples/combobox/main.js';
+import programmatic from '../../examples/combobox/programmatic.js';
+import ref from '../../examples/combobox/ref.js';
+import subtext from '../../examples/combobox/subtext.js';
+import tags from '../../examples/combobox/tags.js';
+import uncontrolled from '../../examples/combobox/uncontrolled.js';
 
 const PREVIEW_HEIGHT = 320;
 

@@ -1,22 +1,22 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner, Text, Link } from 'gestalt';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import animationExample from '../../examples/overlaypanel/animationExample.js';
+import confirmationExample from '../../examples/overlaypanel/confirmationExample.js';
 import defaultExample from '../../examples/overlaypanel/defaultExample.js';
 import footerExample from '../../examples/overlaypanel/footerExample.js';
 import preventClosingExample from '../../examples/overlaypanel/preventClosingExample.js';
 import quickEditsExample from '../../examples/overlaypanel/quickEditsExample.js';
 import sizesExample from '../../examples/overlaypanel/sizesExample.js';
 import subheadingExample from '../../examples/overlaypanel/subHeadingExample.js';
-import confirmationExample from '../../examples/overlaypanel/confirmationExample.js';
 
 export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   const PREVIEW_HEIGHT = 800;

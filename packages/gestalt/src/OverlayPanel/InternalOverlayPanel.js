@@ -2,22 +2,22 @@
 
 import { type Node, useCallback, useState, useLayoutEffect, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
-import { ESCAPE } from '../keyCodes.js';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
-import Box from '../Box.js';
 import Backdrop from '../Backdrop.js';
+import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
+import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
+import Box from '../Box.js';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import { ScrollBoundaryContainerProvider } from '../contexts/ScrollBoundaryContainerProvider.js';
 import Flex from '../Flex.js';
 import focusStyles from '../Focus.css';
 import Heading from '../Heading.js';
-import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
-import InternalDismissButton from '../InternalDismissButton.js';
-import ConfirmationPopover from './ConfirmationPopover.js';
+import { ESCAPE } from '../keyCodes.js';
 import overlayPanelStyles from '../OverlayPanel.css';
-import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
-import InternalScrollBoundaryContainer from '../ScrollBoundaryContainerWithForwardRef.js';
-import { ScrollBoundaryContainerProvider } from '../contexts/ScrollBoundaryContainerProvider.js';
+import InternalScrollBoundaryContainer from '../ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
+import InternalDismissButton from '../shared/InternalDismissButton.js';
 import { FixedZIndex } from '../zIndex.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import ConfirmationPopover from './ConfirmationPopover.js';
 
 export const PADDING_BOINTS = 6;
 

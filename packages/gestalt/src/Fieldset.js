@@ -3,12 +3,12 @@ import { type Node } from 'react';
 import classnames from 'classnames';
 import boxStyles from './Box.css';
 import boxWhitespaceStyles from './boxWhitespace.css';
-import FormErrorMessage from './FormErrorMessage.js';
-import formLabelStyles from './FormLabel.css';
-import formStyles from './FormElement.css';
-import labelStyles from './InternalLabel.css';
-import Text from './Text.js';
 import whitespaceStyles from './Whitespace.css';
+import labelStyles from './Label/InternalLabel.css';
+import formStyles from './shared/FormElement.css';
+import formLabelStyles from './shared/FormLabel.css';
+import Text from './Text.js';
+import FormErrorMessage from './shared/FormErrorMessage.js';
 
 type Props = {|
   /**
