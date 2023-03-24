@@ -1,3 +1,9 @@
+## 101.3.7 (Mar 24, 2023)
+
+### Patch
+
+- Internal: fix Sandpack not enabled in prod ([#2756](https://github.com/pinterest/gestalt/pull/2756)) - [Preview link](https://deploy-preview-2756--gestalt.netlify.app)
+
 ## 101.3.6 (Mar 24, 2023)
 
 ### Patch
