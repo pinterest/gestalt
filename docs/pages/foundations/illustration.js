@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Image, Box, Flex, Text, Heading } from 'gestalt';
+import { Image, Box, Flex, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -84,6 +84,7 @@ export default function IllustrationPage(): Node {
             </Flex>
           </MainSection.Card>
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
@@ -108,6 +109,7 @@ export default function IllustrationPage(): Node {
             </Box>
           </MainSection.Card>
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
@@ -126,6 +128,7 @@ export default function IllustrationPage(): Node {
             </Flex>
           </MainSection.Card>
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
@@ -145,52 +148,53 @@ export default function IllustrationPage(): Node {
           </MainSection.Card>
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Accessibility">
         <MainSection.Subsection
           title="Pair with text"
           description={`Illustrations should always accompany content. Different cultures don’t always interpret illustrations in the same way. Accompanying content can help to add the appropriate context.
         `}
         />
-        <MainSection.Subsection
-          title="Include Alternative (alt) text"
-          description={`Illustrations should include alt text that describes the image. Alt text adds valuable information for low-vision or screen reader users.
-        `}
-        />
-        <MainSection.Subsection title="Alt text examples" />
 
-        <Flex gap={6} alignContent="between" wrap direction="row">
-          <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
-            <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
-              borderStyle="sm"
-              marginBottom={3}
-              display="inlineBlock"
-              justifyContent="center"
-            >
-              <IllAlt1 />
-            </Box>
-            <Text>alt=&ldquo;Line illustration of a wilted plant in a pot.&ldquo;</Text>
-          </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
-            <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
-              borderStyle="sm"
-              marginBottom={3}
-              display="inlineBlock"
-              justifyContent="center"
-            >
-              <IllAlt2 />
-            </Box>
-            <Text>
-              alt=&ldquo;Line illustration of a coffee cup with a sad face in the coffee
-              foam.&ldquo;
-            </Text>
-          </Flex.Item>
-        </Flex>
+        <MainSection.Subsection
+          title="Include a title"
+          description={`Illustrations should include a title that describes the image. A title adds valuable information for low-vision or screen reader users.
+        `}
+        >
+          <Flex gap={6} alignContent="between" wrap direction="row">
+            <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
+              <Box
+                overflow="hidden"
+                color="light"
+                rounding={2}
+                borderStyle="sm"
+                marginBottom={3}
+                display="inlineBlock"
+                justifyContent="center"
+              >
+                <IllAlt1 />
+              </Box>
+              <Text>title=&ldquo;Line illustration of a wilted plant in a pot.&ldquo;</Text>
+            </Flex.Item>
+            <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
+              <Box
+                overflow="hidden"
+                color="light"
+                rounding={2}
+                borderStyle="sm"
+                marginBottom={3}
+                display="inlineBlock"
+                justifyContent="center"
+              >
+                <IllAlt2 />
+              </Box>
+              <Text>
+                title=&ldquo;Line illustration of a coffee cup with a sad face in the coffee
+                foam.&ldquo;
+              </Text>
+            </Flex.Item>
+          </Flex>
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Size">
@@ -207,12 +211,14 @@ export default function IllustrationPage(): Node {
             >
               <IllLarge />
             </Box>
-            <Heading size="300">Large</Heading>
-            <Text size="200">
-              These are more complex illustrations. They include multiple illustration subjects in a
-              scene-like lockup. Large illustrations should be used in experiences where there is
-              ample white space.
-            </Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Large</Text>
+              <Text>
+                These are more complex illustrations. They include multiple illustration subjects in
+                a scene-like lockup. Large illustrations should be used in experiences where there
+                is ample white space.
+              </Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -226,11 +232,13 @@ export default function IllustrationPage(): Node {
             >
               <IllMedium />
             </Box>
-            <Heading size="300">Medium</Heading>
-            <Text size="200">
-              These illustrations are individual pieces of the Large variant. They are smaller and
-              more contained. Instead of depicting a scene, they stand on their own.
-            </Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Medium</Text>
+              <Text>
+                These illustrations are individual pieces of the Large variant. They are smaller and
+                more contained. Instead of depicting a scene, they stand on their own.
+              </Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -244,11 +252,13 @@ export default function IllustrationPage(): Node {
             >
               <IllSmall />
             </Box>
-            <Heading size="300">Small</Heading>
-            <Text size="200">
-              The small illustration is the simplest of the three. They are used in areas where
-              space is limited, like tables or small mobile experiences.
-            </Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Small</Text>
+              <Text>
+                The small illustration is the simplest of the three. They are used in areas where
+                space is limited, like tables or small mobile experiences.
+              </Text>
+            </Flex>
           </Flex.Item>
         </Flex>
       </MainSection>
@@ -256,8 +266,7 @@ export default function IllustrationPage(): Node {
       <MainSection name="Status">
         <MainSection.Subsection
           title="Empty"
-          description={`Display when content is not currently available or is unable to load. For example, when a
-          user is interacting with a card in a dashboard for the first time. `}
+          description={`Display when content is not currently available or is unable to load. For example, when a user is interacting with a card in a dashboard for the first time. `}
         />
 
         <Flex gap={6} alignContent="between" wrap direction="row">
@@ -273,8 +282,10 @@ export default function IllustrationPage(): Node {
             >
               <IllEmptyLarge />
             </Box>
-            <Heading size="300">Large</Heading>
-            <Text size="200">Large empty</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Large</Text>
+              <Text>Large empty</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -288,8 +299,12 @@ export default function IllustrationPage(): Node {
             >
               <IllEmptyMedium1 />
             </Box>
-            <Heading size="300">Medium option 1</Heading>
-            <Text size="200">Sad puzzle</Text>
+            <Flex direction="column" gap={2}>
+              <Flex direction="column" gap={2}>
+                <Text weight="bold">Medium option 1</Text>
+                <Text>Sad puzzle</Text>
+              </Flex>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -303,8 +318,10 @@ export default function IllustrationPage(): Node {
             >
               <IllEmptyMedium2 />
             </Box>
-            <Heading size="300">Medium option 2</Heading>
-            <Text size="200">Spool</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Medium option 2</Text>
+              <Text>Spool</Text>
+            </Flex>
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
@@ -325,8 +342,10 @@ export default function IllustrationPage(): Node {
             >
               <IllSuccessLarge />
             </Box>
-            <Heading size="300">Large</Heading>
-            <Text size="200">Success</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Large</Text>
+              <Text>Success</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -340,8 +359,10 @@ export default function IllustrationPage(): Node {
             >
               <IllSuccessMedium1 />
             </Box>
-            <Heading size="300">Success option 1</Heading>
-            <Text size="200">Disco ball</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Success option 1</Text>
+              <Text>Disco ball</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -355,8 +376,10 @@ export default function IllustrationPage(): Node {
             >
               <IllSuccessMedium2 />
             </Box>
-            <Heading size="300">Success option 2</Heading>
-            <Text size="200">Happy plant</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Success option 2</Text>
+              <Text>Happy plant</Text>
+            </Flex>
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
@@ -377,8 +400,10 @@ export default function IllustrationPage(): Node {
             >
               <IllErrorLarge />
             </Box>
-            <Heading size="300">Large</Heading>
-            <Text size="200">Error</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Large</Text>
+              <Text>Error</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -392,8 +417,10 @@ export default function IllustrationPage(): Node {
             >
               <IllErrorMedium1 />
             </Box>
-            <Heading size="300">Medium option 1</Heading>
-            <Text size="200">Sad coffee</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Medium option 1</Text>
+              <Text>Sad plant</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -407,8 +434,10 @@ export default function IllustrationPage(): Node {
             >
               <IllErrorMedium2 />
             </Box>
-            <Heading size="300">Medium option 2</Heading>
-            <Text size="200">Sad plant</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Medium option 2</Text>
+              <Text>Sad coffee</Text>
+            </Flex>
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
@@ -429,8 +458,10 @@ export default function IllustrationPage(): Node {
             >
               <IllLoadingLarge />
             </Box>
-            <Heading size="300">Large</Heading>
-            <Text size="200">Loading</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Large</Text>
+              <Text>Loading</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -444,8 +475,10 @@ export default function IllustrationPage(): Node {
             >
               <IllLoadingMedium1 />
             </Box>
-            <Heading size="300">Medium option 1</Heading>
-            <Text size="200">Hourglass</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Medium option 1</Text>
+              <Text>Hourglass</Text>
+            </Flex>
           </Flex.Item>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
             <Box
@@ -459,26 +492,31 @@ export default function IllustrationPage(): Node {
             >
               <IllLoadingMedium2 />
             </Box>
-            <Heading size="300">Medium option 2</Heading>
-            <Text size="200">Palette</Text>
+            <Flex direction="column" gap={2}>
+              <Text weight="bold">Medium option 2</Text>
+              <Text>Palette</Text>
+            </Flex>
           </Flex.Item>
         </Flex>
       </MainSection>
+
       <MainSection name="Illustration in use">
-        <MainSection.Subsection title="Mobile" />
-        <Flex width="100%" justifyContent="center" alignItems="center">
-          <IllMobileExample />
-        </Flex>
-        <MainSection.Subsection title="Web" />
-        <Flex
-          maxWidth="100%"
-          maxHeight="561"
-          justifyContent="center"
-          alignItems="center"
-          overflow="hidden"
-        >
-          <IllWebExample />
-        </Flex>
+        <MainSection.Subsection title="Mobile">
+          <Flex width="100%" justifyContent="center" alignItems="center">
+            <IllMobileExample />
+          </Flex>
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Web">
+          <Flex
+            maxWidth="100%"
+            maxHeight="561"
+            justifyContent="center"
+            alignItems="center"
+            overflow="hidden"
+          >
+            <IllWebExample />
+          </Flex>
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Future updates">
@@ -513,7 +551,6 @@ Messaging patterns detail how we communicate errors, warnings, successes, recomm
 
 **[Brand expression](/foundations/brand_expression/guidelines)**
 Brand expression in the product the combination of visual elements (colors, typography, photography, motion, and other assets) to provide a delightful experience for Pinners.
-
       `}
         />
       </MainSection>
