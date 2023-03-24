@@ -1,3 +1,9 @@
+## 101.3.9 (Mar 24, 2023)
+
+### Patch
+
+- Searchfield: Added searchfield docs page for Android ([#2748](https://github.com/pinterest/gestalt/pull/2748)) - [Preview link](https://deploy-preview-2748--gestalt.netlify.app)
+
 ## 101.3.8 (Mar 24, 2023)
 
 ### Patch
