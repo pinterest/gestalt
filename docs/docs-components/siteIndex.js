@@ -217,6 +217,16 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       },
     ],
   },
+  {
+    sectionName: 'Team support',
+    pages: [
+      'Be a Gestalt advocate',
+      'Component request',
+      'Contributions',
+      'Get help',
+      'Training'
+    ],
+  },
 ];
 
 export default siteIndex;
