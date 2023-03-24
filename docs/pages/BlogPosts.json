@@ -25,7 +25,7 @@
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/47/ff/9b/47ff9b76dbedefd8e4783e45356d7966.png",
             "imageAltText": "example of a card component with carousel",
-            "content": "We've partnered with the ever-talented Helen Bentley and Diana Wong to develop a pilot [Gestalt Card Figma library](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=19782%3A72549&t=aVaU60I26PbvcONq-1). This work is in support of our company's Unified Module effort and will go a long way towards a more consistent and predictable Pinterest experience.\n\n This is a soft launch and there's a long way to go, but it's a huge step forward for the team."
+            "content": "We've partnered with the the Browse team to develop a pilot Gestalt Card Figma library. This work will go a long way towards a more consistent and predictable Pinterest experience.\n\n This is a soft launch and there's a long way to go, but it's a huge step forward for the team."
           },
           {
             "title": "Icon additions to Figma/codebase",
