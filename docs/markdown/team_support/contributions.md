@@ -4,7 +4,7 @@ description: Guidelines on how to engage with the Gestalt team, and contribute.
 fullwidth: true
 ---
 
-You can find all the components available on Gestalt in our components documentation. If you want to request a net-new component not available in our libraries, go to [Component request](https://pinch.pinadmin.com/gestaltSlackDesign).
+You can find all the components available on Gestalt in our components documentation. If you want to request a net-new component not available in our libraries, go to [Component request](http://pinch.pinadmin.com/component-request).
 
 ## Making a design contribuition
 

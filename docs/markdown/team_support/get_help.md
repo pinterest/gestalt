@@ -39,7 +39,7 @@ Our meetings, events, and timelines can be found on the [Gestalt Event Calendar]
       Pinterest designers and Gestalt engineers. The agenda for the open forum can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
       
     _Cadence_
-      Every two months or as part of the Design Ops brunch & learn event. Check out through the link in the calendar invite.
+      Every two months or as part of the Design Ops brunch & learn event. Check out through the link in the calendar invite, or through the Pinterest design calendar.
 
 3.  **Design systems day**
 

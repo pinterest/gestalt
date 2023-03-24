@@ -107,6 +107,7 @@ export type Category =
   | 'Structure'
   | 'Text'
   | 'Utilities'
+  | 'Team_Support'
   | null;
 
 type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
@@ -145,43 +146,43 @@ export type ListItemType = {|
 const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <AdvocateTile />,
-    name: 'Accessibility',
+    name: 'Be a Gestalt advocate',
     description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/accessibility',
+      'A dedicated cohort of system advocates to rely on for design partnership, input and knowledge share and support within your team and product area.',
+    category: 'Team_Support',
+    path: '/team_support/be_a_gestalt_advocate',
   },
   {
     svg: <ComponentRequest />,
-    name: 'Accessibility',
+    name: 'Component request',
     description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/accessibility',
+      'Instructions on how to request new components or updates to an existent component.',
+    category: 'Team_Support',
+    path: '/team_support/component_request',
   },
   {
     svg: <ContributionsTile />,
-    name: 'Accessibility',
+    name: 'Contributions',
     description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/accessibility',
+      'Resources, Slack channels, meetings and events.',
+    category: 'Team_Support',
+    path: '/team_support/contributions',
   },
   {
     svg: <GetHelpTile />,
-    name: 'Accessibility',
+    name: 'Get help',
     description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/accessibility',
+      'Resources on how to engage with the Gestalt team, join office hours, meetings and events.',
+    category: 'Team_Support',
+    path: '/team_support/get_help',
   },
   {
     svg: <TrainingTile />,
-    name: 'Accessibility',
+    name: 'Training',
     description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/accessibility',
+      'Gestalt design systems specific training to support design workflow and systems mindset.',
+    category: 'Team_Support',
+    path: '/team_support/training',
   },
 ];
 
