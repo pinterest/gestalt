@@ -62,6 +62,6 @@ Please [reach out on Slack](https://pinch.pinadmin.com/gestaltSlackDesign) if yo
 
 ## New icon request
 
-For new icon submissions, check [creating icons](https://gestalt.pinterest.systems/foundations/iconography/creating_icons).
+For new icon submissions, check [Creating icons](https://gestalt.pinterest.systems/foundations/iconography/creating_icons).
 
 

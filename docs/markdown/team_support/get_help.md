@@ -8,16 +8,16 @@ We are always happy to help answer questions regarding Gestalt component design 
 ## Resources, Slack, and meetings — oh my!
 ### Dashboards, Jira, and OKRs
 
-If you’re curious what we’re working on, you can check out our [Gestalt sprint dashboard](https://pinch.pinadmin.com/gestaltSprint), our [full backlog](https://pinch.pinadmin.com/gestaltBacklog), and our Bugs Dashboard. To see the bigger picture, you can view our [OKRs](https://pinch.pinadmin.com/gestaltOKR) to understand our roadmap and priorities for each quarter. These priorities are determined through [partnership meetings](https://gestalt.pinterest.systems), which we use to learn about component needs and coordinate with designers to determine timelines.
+If you’re curious what we’re working on, you can check out our [Gestalt sprint dashboard](https://pinch.pinadmin.com/gestaltSprint), our [full backlog](https://pinch.pinadmin.com/gestaltBacklog), and our Bugs Dashboard. To see the bigger picture, you can view our [OKRs](https://pinch.pinadmin.com/gestaltOKR) to understand our roadmap and priorities for each quarter. 
 
 ### Slack channels
 
-Before reaching out, take a look at our [documentation](https://gestalt.pinterest.systems/) to see if it answers your question, because it will likely get you the fastest answer. Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. You can also reference our [Communication Guidelines](https://pinch.pinadmin.com/gestaltCommsGuidelines) for more info.
+Before reaching out, take a look at our [documentation](https://gestalt.pinterest.systems/) to see if it answers your question, because it will likely get you the fastest answer. Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. You can also reference our [Communication guidelines](https://pinch.pinadmin.com/gestaltCommsGuidelines) for more info.
 [#gestalt-design](https://pinch.pinadmin.com/gestaltSlackDesign) is for design-focused questions.
 [#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack) is for engineering-focused questions.
 
 ### Meetings and events
-Our meetings, events, and timelines can be found on the [Gestalt Event Calendar](https://pinch.pinadmin.com/gestaltCalendar). We offer two different meetings for the community to bring questions, comments, ideas, and feedback:
+Our meetings, events, and timelines can be found on the [Gestalt event calendar](https://pinch.pinadmin.com/gestaltCalendar). We offer two different meetings for the community to bring questions, comments, ideas, and feedback:
 
 1. **Gestalt Office Hours**
 
@@ -39,7 +39,7 @@ Our meetings, events, and timelines can be found on the [Gestalt Event Calendar]
       Pinterest designers and Gestalt engineers. The agenda for the open forum can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
       
     _Cadence_
-      Every two months or as part of the Design Ops brunch & learn event. Check out through the link in the calendar invite, or through the Pinterest design calendar.
+      Every two months or as part of the Design Ops brunch & learn event. Check out through the link in the [Gestalt event calendar](https://pinch.pinadmin.com/gestaltCalendar).
 
 3.  **Design systems day**
 

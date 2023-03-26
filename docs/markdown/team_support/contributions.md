@@ -34,9 +34,9 @@ We love to contribute with product initiatives by placing a dedicated Gestalt de
 
 ## Making an engineering contribuition
 
-We always appreciate the help and contributions of other engineers across Pinterest, whether it's new variants, simple bug fixes or building out entire components. Before any code changes happen though, be sure to follow our [request process](#What-is-the-process-to-request-new-additions-or-changes).
+We always appreciate the help and contributions of other engineers across Pinterest, whether it's new variants, simple bug fixes or building out entire components. Before any code changes happen though, be sure to follow the steps below:
 1. **Talk to your designer**
-   Check in with your designer and make sure the changes have been approved by the Gestalt team, via the [request process](#What-is-the-process-to-request-new-additions-or-changes). We don’t recommend starting a PR on new functionality — no matter how small — without confirming this, as you may spend time on changes that won’t be approved to merge into Gestalt.
+   Check in with your designer and make sure the changes have been approved by the Gestalt team, via the [request process](/team_support/component_request). We don’t recommend starting a PR on new functionality — no matter how small — without confirming this, as you may spend time on changes that won’t be approved to merge into Gestalt.
 2. **Technical Design Doc**
    Create a technical design doc (TDD), using [this template](https://pinch.pinadmin.com/gestaltTDD), for any net-new components or component additions/updates within Gestalt. This allows everyone to discuss the component API and functionality before starting to build.
 3. **Implement and Test**
@@ -49,6 +49,6 @@ We always appreciate the help and contributions of other engineers across Pinter
 ## Other ways to contribuite
 
 **Bugs**
-If you think you’ve found a bug with Gestalt components or documentation, first check our [Gestalt Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639) to see if it’s already been reported. If it hasn’t, please file a bug within the [Bugs](https://pinch.pinadmin.com/gestaltJiraBugs) Jira project and set the Component to ”gestalt”. We do not actively monitor GitHub issues, so the best way to file is through Jira.
+If you think you’ve found a bug with Gestalt components or documentation, first check our [Gestalt bugs dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639) to see if it’s already been reported. If it hasn’t, please file a bug within the [Bugs](https://pinch.pinadmin.cm/gestaltJiraBugs) Jira project and set the Component to ”gestalt”. We do not actively monitor GitHub issues, so the best way to file is through Jira.
 **Surveys**
 The Gestalt team sends out twice-yearly surveys to the design and engineering orgs. Filling out this survey is one way to help inform our team on what is working and what is not working about out design system.
