@@ -11,7 +11,7 @@ You can find all the components available on Gestalt in our components documenta
 Design system is about collaboration and building blocks! Gestalt offers the elements you need to create a consistent product. If you have an idea to improve Pinterest surfaces by partnering with the Gestalt team, please follow the steps below. We would love to collaborate with you!Follow the steps below to make a design contribution: 
 
 1. **Present your idea or suggestion during our Office Hour meetings**
-    [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an Office Hours slot with your discussion topic! 
+    [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an office hours slot with your discussion topic! 
     EBring your work early-on— What we build into Gestalt comes from the teams across Pinterest, so we’d love to provide guidance and support early and often! The earlier we see the work, the better we're able to plan and the higher the likelihood we'll be able to help. It does not need to be a polished presentation but should have enough detail to help us understand the help you need and provide support.
 2. **Iterate on solutions**
     We love to see more iteration in your design. We ask you to consider all edge cases before presenting your work to us and coming up with explorations and possible solutions.
