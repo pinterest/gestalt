@@ -2,7 +2,7 @@
 title: Be a Gestalt advocate
 fullwidth: true
 ---
-We always appreciate the help and contributions of other designers across Pinterest, and we value the other way, contributing to other teams' projects by bringing a systems perspective.
+We always appreciate the help of other designers and partners across Pinterest, and we value the other way, supporting other teams' projects by bringing a systems perspective.
 You can help us to drive systems decisions by joining our team as a Gestalt advocate, or consider embedding a Gestalt designer in your design project to support your team's systems needs.
 
 ## How it works
