@@ -157,7 +157,6 @@ We updated our imagery styles in the Gestalt foundations Figma library to bring 
 We have been working with Android and iOS teams to begin the buildout of mobile components for a while now, but Q2 is when you’re really going to see the fruits of our labor. It’s been a long time coming, but in Q2 2023, we will be shipping a number of mobile Gestalt components.
 
 For Android, we plan to work on , ButtonGroup, Icon, IconButton, IconButtonFloating, SearchField,Text, TextArea and Toast. For iOS, we’ll be working on Text and Icon. 
-
 <TwoCol>
 <Group>
 ### mWeb Sheet component
@@ -175,7 +174,7 @@ Our initial work on mWeb Modal gave us the learnings we needed to begin work on 
 
 <TwoCol>
 <Group>
-### Illustration guidelines
+### TBD
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 <br />
 The Gestalt team landed its first set of official Gestalt illustrations in late 2022 and we’re not done on this subject. We’ll be publishing illustration guidelines to help provide best practices for how/when/where/why to use illustrations in our product. 
