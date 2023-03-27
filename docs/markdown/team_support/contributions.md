@@ -4,6 +4,8 @@ description: Guidelines on how to engage with the Gestalt team, and contribute.
 fullwidth: true
 ---
 
+**Please note:** The contributions processes below apply to Pinterest employees.
+
 You can find all the components available on Gestalt in our [Components page](https://gestalt.pinterest.systems/web/overview). If you want to request a net-new component not available in our libraries, or request changes to an existent componet go to [Component request](/team_support/component_request).
 
 ## Making a design contribuition
