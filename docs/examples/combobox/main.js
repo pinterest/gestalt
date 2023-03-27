@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Box, ComboBox } from 'gestalt';
+import { ComboBox, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const PRONOUNS = [
@@ -26,7 +26,7 @@ export default function Example(): Node {
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
-    <Box width="100%" height="100%" padding={4}>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <ComboBox
         accessibilityClearButtonLabel="Clear the current value"
         errorMessage={errorMessage}
@@ -40,6 +40,6 @@ export default function Example(): Node {
         options={options}
         placeholder="Add your pronouns"
       />
-    </Box>
+    </Flex>
   );
 }

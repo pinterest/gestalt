@@ -1,10 +1,10 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Callout } from 'gestalt';
+import { Callout, Flex } from 'gestalt';
 
 export default function ResponsiveExample(): Node {
   return (
-    <Box padding={4} height="100%" width="100%">
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Callout
         dismissButton={{
           accessibilityLabel: 'Dismiss this banner',
@@ -27,6 +27,6 @@ export default function ResponsiveExample(): Node {
         title="Your business account was created!"
         type="info"
       />
-    </Box>
+    </Flex>
   );
 }
