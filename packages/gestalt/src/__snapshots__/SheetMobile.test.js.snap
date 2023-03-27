@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SheetMobile renders 1`] = `null`;
+
+exports[`SheetMobile renders an accessibility label 1`] = `null`;

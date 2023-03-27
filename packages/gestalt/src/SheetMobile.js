@@ -1,70 +1,125 @@
 // @flow strict
-import { type Node } from 'react';
-import classnames from 'classnames';
-import focusStyles from './Focus.css';
-import modalStyles from './Modal.css';
-import Backdrop from './Backdrop.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Heading from './Heading.js';
-import Text from './Text.js';
-import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import { type ElementConfig, type Node } from 'react';
+import Button from './Button.js';
+import Link from './Link.js';
+import AnimationProvider from './animation/AnimationContext.js';
+import DismissingElement from './animation/DismissingElement.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import InternalDismissButton from './shared/InternalDismissButton.js';
 import FullPage from './SheetMobile/FullPage.js';
+import PartialPage from './SheetMobile/PartialPage.js';
+
+type OnClickType = ({|
+  event:
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  onDismissStart: () => void,
+|}) => void;
 
 type Props = {|
   /**
-   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modal#Accessibility) for more info.
+   * String that clients such as VoiceOver will read to describe SheetMobile when opened. See [Accessibility section](https://gestalt.pinterest.systems/web/sheetmobile#Accessibility) for more info.
    */
-  accessibilityModalLabel: string,
+  accessibilityLabel?: string,
   /**
-   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
+   * Specify the alignment of `heading` & `subHeading` strings. See the [Header variant](https://gestalt.pinterest.systems/web/sheetmobile#Heading) for more info.
    */
   align?: 'start' | 'center',
   /**
-   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
+   * Adds a "back-arrow" IconButton for user interaction at the start of the header section. See the [header variant, back and forward navigation case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
+   */
+  backIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
+  /**
+   * Supply the element(s) that will be used as SheetMobile's main content.
    */
   children?: Node,
   /**
-   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
+   * Indicate whether clicking on the backdrop (gray area) outside of SheetMobile will dismiss it or not. See the [Preventing close on outside click variant](https://gestalt.pinterest.systems/web/sheetmobile#Preventing-close-on-outside-click) for more info.
+   */
+  closeOnOutsideClick?: boolean,
+  /**
+   * Supply the element(s) that will be used as SheetMobile's custom footer. See the [footer variant](https://gestalt.pinterest.systems/web/sheetmobile#Footer) for more info.
    */
   footer?: Node,
   /**
-   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
+   * Adds a "forward-arrow" IconButton for user interaction at the end of the header section.. See the [header variant, back and forward navigation case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
-  heading?: Node,
+  forwardIconButton?: {|
+    accessibilityLabel: string,
+    onClick: OnClickType,
+  |},
   /**
-   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
+   * The text used for SheetMobile's heading. See the [header variant](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
+   */
+  heading?: string,
+  /**
+   * Callback fired when SheetMobile's in & out animations end. See the [animation variant](https://gestalt.pinterest.systems/web/sheetmobile#Animation) to learn more.
+   */
+  onAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  /**
+   * Callback fired when SheetMobile is dismissed. Must be used for controlling SheetMobile's visibility state.
    */
   onDismiss: () => void,
   /**
-   * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
+   * The main SheetMobile content section has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
    */
   padding?: 'default' | 'none',
   /**
-   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
+   * Adds an primary action Button for user interaction at the end of the header section. See the [header variant, with primary action case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
+   */
+  primaryAction?: {|
+    accessibilityLabel: string,
+    href?: string,
+    label: string,
+    onClick: OnClickType,
+    rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
+    size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
+    target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
+  |},
+  /**
+   * The underlying ARIA role for the SheetMobile. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/sheetmobile#Role) for more info.
    */
   role?: 'alertdialog' | 'dialog',
   /**
-   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
+   * Shows a dismiss button on Popover. See the [header variant, dismiss button case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
+   */
+  showDismissButton?: boolean,
+  /**
+   * Subheading for SheetMobile. See the [header variant](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
   subHeading?: string,
   /**
-   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
+   * Sets the SheetMobile's height. See the [size variant](https://gestalt.pinterest.systems/web/sheetmobile#Size) for more info.
    */
   size?: 'default' | 'full' | 'auto',
 |};
 
-export default function SheetMobile({
-  accessibilityModalLabel,
+/**
+ * [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) is a mobile only component. It is not used in desktop experiences.
+ *
+ * SheetMobile is a supplementary container that sits on top of the screen’s primary content and can be dismissed in order to interact with the underlying content. Sheets can contain a wide variety of information and layouts, including menu items, actions, and supplemental content.
+ *
+ *
+ * ![SheetMobile light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SheetMobile.spec.mjs-snapshots/SheetMobile-chromium-darwin.png)
+ * ![SheetMobile dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SheetMobile-dark.spec.mjs-snapshots/SheetMobile-dark-chromium-darwin.png)
+ *
+ */
+function SheetMobile({
+  accessibilityLabel,
+  align = 'start',
+  backIconButton,
   children,
+  closeOnOutsideClick = true,
+  forwardIconButton,
+  onAnimationEnd,
   onDismiss,
   footer,
   padding,
+  primaryAction,
   heading,
   role,
+  showDismissButton = true,
   subHeading,
   size = 'default',
 }: Props): Node {
@@ -76,95 +131,53 @@ export default function SheetMobile({
   if (size === 'full')
     return (
       <FullPage
-        accessibilityModalLabel={accessibilityModalLabel}
-        onDismiss={onDismiss}
+        accessibilityLabel={accessibilityLabel}
+        align={align}
+        backIconButton={backIconButton}
+        forwardIconButton={forwardIconButton}
         footer={footer}
-        padding={padding}
         heading={heading}
+        onDismiss={onDismiss}
+        padding={padding}
+        primaryAction={primaryAction}
         role={role}
+        showDismissButton
         subHeading={subHeading}
-      />
+      >
+        {children}
+      </FullPage>
+    );
+
+  if (['default', 'auto'].includes(size))
+    return (
+      <AnimationProvider>
+        <PartialPage
+          accessibilityLabel={accessibilityLabel}
+          align={align}
+          backIconButton={backIconButton}
+          closeOnOutsideClick={closeOnOutsideClick}
+          forwardIconButton={forwardIconButton}
+          onAnimationEnd={onAnimationEnd}
+          onDismiss={onDismiss}
+          footer={footer}
+          heading={heading}
+          padding={padding}
+          primaryAction={primaryAction}
+          role={role}
+          showDismissButton={showDismissButton}
+          subHeading={subHeading}
+          size={size}
+        >
+          {children}
+        </PartialPage>
+      </AnimationProvider>
     );
 
   return null;
-  // return (
-  // <StopScrollBehavior>
-  //   <TrapFocusBehavior>
-  //     <div
-  //       id={id}
-  //       aria-label={accessibilityModalLabel}
-  //       className={modalStyles.container}
-  //       role={role}
-  //     >
-  //       <Backdrop closeOnOutsideClick={false}>
-  //         <div
-  //           className={classnames(modalStyles.mobileWrapper, focusStyles.hideOutline)}
-  //           tabIndex={-1}
-  //           style={{ width: '100%' }}
-  //         >
-  //           <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
-  //             <Box
-  //               padding={4}
-  //               borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
-  //               position="relative"
-  //               fit
-  //             >
-  //               <Flex justifyContent="center" alignItems="center" gap={4}>
-  //                 <Flex.Item flex="none">
-  //                   <InternalDismissButton
-  //                     accessibilityLabel={accessibilityDismissButtonLabel}
-  //                     accessibilityControls={id}
-  //                     onClick={() => onDismiss()}
-  //                     ref={dismissButtonRef}
-  //                     size="lg"
-  //                   />
-  //                 </Flex.Item>
-
-  //                 {Boolean(heading) && (
-  //                   <Flex.Item flex="grow">
-  //                     {typeof heading === 'string' ? (
-  //                       <Heading size="400" accessibilityLevel={1} align={align} lineClamp={2}>
-  //                         {heading}
-  //                       </Heading>
-  //                     ) : (
-  //                       heading
-  //                     )}
-  //                   </Flex.Item>
-  //                 )}
-  //               </Flex>
-  //             </Box>
-
-  //             <Box
-  //               padding={padding === 'none' ? 0 : 4}
-  //               flex="grow"
-  //               overflow="auto"
-  //               onScroll={updateShadows}
-  //               ref={contentRef}
-  //             >
-  //               {subHeading && (
-  //                 <Box marginBottom={4} padding={padding === 'none' ? 4 : 0}>
-  //                   <Text weight="bold" size="300">
-  //                     {subHeading}
-  //                   </Text>
-  //                 </Box>
-  //               )}
-  //               {children}
-  //             </Box>
-
-  //             {Boolean(footer) && (
-  //               <Box
-  //                 borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
-  //                 position="relative"
-  //                 fit
-  //               >
-  //                 <Box padding={4}>{footer}</Box>
-  //               </Box>
-  //             )}
-  //           </Box>
-  //         </div>
-  //       </Backdrop>
-  //     </div>
-  //   </TrapFocusBehavior>
-  // </StopScrollBehavior>
-  // );
 }
+
+SheetMobile.DismissingElement = DismissingElement;
+
+SheetMobile.displayName = 'SheetMobile';
+
+export default SheetMobile;

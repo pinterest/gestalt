@@ -1,11 +1,10 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import {
-  Flex,
   Layer,
   SheetMobile,
   Box,
-  Text,
+  TextField,
   DeviceTypeProvider,
   Button,
   FixedZIndex,
@@ -22,25 +21,25 @@ export default function Example(): Node {
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
-            heading="Heading"
-            subHeading="SubHeading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+            align="center"
+            heading="Create a new personal account"
             onDismiss={() => setShowComponent(false)}
-            footer={
-              <Flex justifyContent="center" gap={2}>
-                <Button color="gray" text="Secondary" />
-                <Button color="red" text="Primary" />
-              </Flex>
-            }
-            size="auto"
+            showDismissButton={false}
+            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
           >
-            <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+            <TextField
+              autoComplete="username"
+              id="header-example"
+              label="Username"
+              onChange={() => {}}
+              placeholder="Please enter your username"
+              type="text"
+            />
           </SheetMobile>
         </Layer>
       ) : null}
       <Box padding={2}>
         <Button
-          accessibilityLabel="Show SheetMobile"
           color="red"
           text="Show SheetMobile"
           size="lg"

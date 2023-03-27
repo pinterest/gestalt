@@ -5,7 +5,7 @@ import { SheetMobile, ColorSchemeProvider } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <SheetMobile />
+      <SheetMobile accessibilityLabel="" onDismiss={() => {}} />
     </ColorSchemeProvider>
   );
 }

@@ -3,13 +3,15 @@ import {
   type Node,
   type ElementConfig,
   useCallback,
+  useLayoutEffect,
   useState,
   useEffect,
   useRef,
   useId,
 } from 'react';
 import classnames from 'classnames';
-import { useAnimation } from '../animation/AnimationContext.js';
+import animation from '../animation/animation.css';
+import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
@@ -24,6 +26,7 @@ import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 import sheetMobileStyles from '../SheetMobile.css';
+import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 import PrimaryAction from './PrimaryAction.js';
 
@@ -41,9 +44,14 @@ type Props = {|
   align?: 'start' | 'center',
   backIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
   children?: Node,
+  closeOnOutsideClick?: boolean,
   footer?: Node,
-  forwardIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
+  forwardIconButton?: {|
+    accessibilityLabel: string,
+    onClick: OnClickType,
+  |},
   heading?: Node,
+  onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
   onDismiss: () => void,
   padding?: 'default' | 'none',
   primaryAction?: {|
@@ -57,14 +65,17 @@ type Props = {|
   |},
   role?: 'alertdialog' | 'dialog',
   showDismissButton?: boolean,
+  size: 'default' | 'full' | 'auto',
   subHeading?: string,
 |};
 
-export default function InternalFullPageSheetMobile({
+export default function InternalPartialPageSheetMobile({
   accessibilityLabel,
   align,
   backIconButton,
   children,
+  closeOnOutsideClick = true,
+  onAnimationEnd,
   onDismiss,
   footer,
   forwardIconButton,
@@ -73,12 +84,14 @@ export default function InternalFullPageSheetMobile({
   heading,
   role,
   showDismissButton,
+  size,
   subHeading,
 }: Props): Node {
-  const { accessibilityLabel: defaultAccessibilityLabel, accessibilityDismissButtonLabel } =
-    useDefaultLabelContext('SheetMobile');
-
-  const { onExternalDismiss } = useAnimation();
+  const {
+    accessibilityLabel: defaultAccessibilityLabel,
+    accessibilityDismissButtonLabel,
+    accessibilityGrabberLabel,
+  } = useDefaultLabelContext('SheetMobile');
 
   const [showTopShadow, setShowTopShadow] = useState(false);
 
@@ -86,24 +99,26 @@ export default function InternalFullPageSheetMobile({
 
   const contentRef = useRef<?HTMLElement>(null);
 
-  useEffect(() => {
-    function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE) {
-        onDismiss();
-      }
-    }
+  const id = useId();
 
-    window.addEventListener('keyup', handleKeyUp);
-    return function cleanup() {
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, [onDismiss]);
+  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+
+  const handleOnAnimationEnd = useCallback(() => {
+    handleAnimation();
+    onAnimationEnd?.({
+      animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
+    });
+  }, [animationState, onAnimationEnd, handleAnimation]);
+
+  const handleBackdropClick = useCallback(() => {
+    if (closeOnOutsideClick) {
+      onExternalDismiss();
+    }
+  }, [closeOnOutsideClick, onExternalDismiss]);
 
   const updateShadows = useCallback(() => {
     const target = contentRef.current;
-    if (!target) {
-      return;
-    }
+    if (!target) return;
 
     const hasVerticalScrollbar = target.clientHeight < target.scrollHeight;
     setShowTopShadow(hasVerticalScrollbar && target.scrollTop > 0);
@@ -113,25 +128,30 @@ export default function InternalFullPageSheetMobile({
   }, []);
 
   useEffect(() => {
-    window.addEventListener('resize', updateShadows);
-    return () => {
-      window.removeEventListener('resize', updateShadows);
-    };
-  }, [updateShadows]);
-
-  useEffect(() => {
     updateShadows();
   }, [updateShadows]);
 
-  const dismissButtonRef = useRef();
+  const grabberRef = useRef();
 
   useEffect(() => {
-    if (dismissButtonRef.current) {
-      dismissButtonRef.current.focus();
+    if (grabberRef.current) {
+      grabberRef.current.focus();
     }
-  }, [dismissButtonRef]);
+  }, [grabberRef]);
 
-  const id = useId();
+  useEffect(() => {
+    function handleKeyDown(event) {
+      // Handle onDismiss triggering from ESC keyup event
+      if (event.keyCode === ESCAPE) {
+        onExternalDismiss();
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return function cleanup() {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onExternalDismiss]);
 
   useEffect(() => {
     // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
@@ -145,28 +165,63 @@ export default function InternalFullPageSheetMobile({
     };
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('resize', updateShadows);
+    return () => {
+      window.removeEventListener('resize', updateShadows);
+    };
+  }, [updateShadows]);
+
+  // Use useLayoutEffect instead of useEffect as we need to close the component synchronously after all DOM mutations, useEffect was needed to prevent changing state while still rendering but useEffect will create a ms blink of the full OverlayPanel after closing which gets prevented with useLayoutEffect
+  useLayoutEffect(() => {
+    if (animationState === ANIMATION_STATE.unmount) {
+      onDismiss();
+    }
+  }, [animationState, onDismiss]);
+
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
         <div
           id={id}
           aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
-          className={classnames(sheetMobileStyles.container, sheetMobileStyles.fullPageContainer)}
+          className={classnames(
+            sheetMobileStyles.container,
+            sheetMobileStyles.partialPageContainer,
+          )}
           role={role}
         >
-          <Backdrop closeOnOutsideClick={false}>
+          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
-              className={classnames(sheetMobileStyles.fullPageWrapper, focusStyles.hideOutline)}
+              className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
+                [sheetMobileStyles.defaultWrapper]: size === 'default',
+                [sheetMobileStyles.autoWrapper]: size === 'auto',
+                [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
+                [animation.animationOutBottom]: animationState === ANIMATION_STATE.animatedClosing,
+              })}
+              onAnimationEnd={handleOnAnimationEnd}
               tabIndex={-1}
               style={{ width: '100%' }}
             >
-              <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
+              <Box position="relative" display="flex" direction="column" width="100%">
                 <Box
                   padding={4}
                   borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
                   position="relative"
                   fit
                 >
+                  <Flex justifyContent="center">
+                    <Box marginBottom={2}>
+                      <TapArea
+                        fullWidth={false}
+                        ref={grabberRef}
+                        rounding={7}
+                        accessibilityLabel={accessibilityGrabberLabel}
+                      >
+                        <Box height={5} width={37} color="secondary" rounding={7} />
+                      </TapArea>
+                    </Box>
+                  </Flex>
                   <Flex justifyContent="center" alignItems="center" gap={4}>
                     {backIconButton ? (
                       <Flex.Item flex="none">
@@ -186,8 +241,7 @@ export default function InternalFullPageSheetMobile({
                         <InternalDismissButton
                           accessibilityLabel={accessibilityDismissButtonLabel}
                           accessibilityControls={id}
-                          onClick={() => onDismiss()}
-                          ref={dismissButtonRef}
+                          onClick={onExternalDismiss}
                           size="lg"
                         />
                       </Flex.Item>
@@ -218,7 +272,7 @@ export default function InternalFullPageSheetMobile({
                           iconColor="darkGray"
                           size="lg"
                           onClick={({ event }) =>
-                            forwardIconButton?.onClick({ event, onDismissStart: onExternalDismiss })
+                            forwardIconButton.onClick({ event, onDismissStart: onExternalDismiss })
                           }
                         />
                       </Flex.Item>
@@ -242,7 +296,8 @@ export default function InternalFullPageSheetMobile({
                 </Box>
 
                 <Box
-                  padding={padding === 'none' ? 0 : 4}
+                  paddingX={padding === 'none' ? 0 : 4}
+                  paddingY={2}
                   flex="grow"
                   overflow="auto"
                   onScroll={updateShadows}

@@ -32,7 +32,7 @@ export default function Example(): Node {
                 <Button color="red" text="Primary" />
               </Flex>
             }
-            size="auto"
+            size="full"
           >
             <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
           </SheetMobile>

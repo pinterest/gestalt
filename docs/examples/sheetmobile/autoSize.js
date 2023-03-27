@@ -23,7 +23,6 @@ export default function Example(): Node {
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
             heading="Heading"
-            subHeading="SubHeading"
             primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
             onDismiss={() => setShowComponent(false)}
             footer={

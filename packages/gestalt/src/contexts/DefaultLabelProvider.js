@@ -35,6 +35,11 @@ export type DefaultLabelContextType = {|
     dismissConfirmationSecondaryActionText: string,
     dismissConfirmationSecondaryActionTextLabel: string,
   |},
+  SheetMobile: {|
+    accessibilityDismissButtonLabel: string,
+    accessibilityGrabberLabel: string,
+    accessibilityLabel: string,
+  |},
   Tag: {|
     accessibilityErrorIconLabel: string,
     accessibilityRemoveIconLabel: string,
@@ -76,6 +81,11 @@ export const fallbackLabels: DefaultLabelContextType = {
     dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the overlay panel.',
     dismissConfirmationSecondaryActionText: 'No, go back',
     dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
+  },
+  SheetMobile: {
+    accessibilityDismissButtonLabel: 'Close overlay panel',
+    accessibilityGrabberLabel: 'Grabber',
+    accessibilityLabel: 'Bottom sheet',
   },
   Tag: {
     accessibilityErrorIconLabel: 'Error',

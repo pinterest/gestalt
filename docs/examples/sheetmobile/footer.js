@@ -10,6 +10,7 @@ import {
   Button,
   FixedZIndex,
   CompositeZIndex,
+  IconButton,
 } from 'gestalt';
 
 export default function Example(): Node {
@@ -23,18 +24,36 @@ export default function Example(): Node {
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
             heading="Heading"
-            subHeading="SubHeading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
             onDismiss={() => setShowComponent(false)}
             footer={
-              <Flex justifyContent="center" gap={2}>
-                <Button color="gray" text="Secondary" />
-                <Button color="red" text="Primary" />
+              <Flex justifyContent="between" gap={2}>
+                <IconButton
+                  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  icon="share"
+                  role="link"
+                  target="blank"
+                  href="https://www.pinterest.com"
+                  tooltip={{ text: 'Link example' }}
+                />
+
+                <Flex gap={2}>
+                  <Button color="gray" text="Secondary" />
+                  <Button color="red" text="Primary" />
+                </Flex>
+
+                <IconButton
+                  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  icon="ellipsis"
+                  role="link"
+                  target="blank"
+                  href="https://www.pinterest.com"
+                  tooltip={{ text: 'Link example' }}
+                />
               </Flex>
             }
-            size="auto"
+            showDismissButton={false}
           >
-            <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+            <Text>Content</Text>
           </SheetMobile>
         </Layer>
       ) : null}

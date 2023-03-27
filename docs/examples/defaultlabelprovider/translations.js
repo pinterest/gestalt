@@ -30,6 +30,11 @@ const labels = {
       'No, go back to the overlay panel.',
     ),
   },
+  SheetMobile: {
+    accessibilityGrabberLabel: myI18nTranslator('Grabber'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Close overlay panel'),
+    accessibilityLabel: myI18nTranslator('Bottom sheet'),
+  },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),
     accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),

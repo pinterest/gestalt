@@ -5,7 +5,6 @@ import {
   Layer,
   SheetMobile,
   Box,
-  Text,
   DeviceTypeProvider,
   Button,
   FixedZIndex,
@@ -23,18 +22,29 @@ export default function Example(): Node {
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
             heading="Heading"
-            subHeading="SubHeading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+            forwardIconButton={{
+              accessibilityLabel: 'Next page',
+              onClick: ({ onDismissStart }) => onDismissStart(),
+            }}
             onDismiss={() => setShowComponent(false)}
             footer={
-              <Flex justifyContent="center" gap={2}>
-                <Button color="gray" text="Secondary" />
-                <Button color="red" text="Primary" />
-              </Flex>
+              <SheetMobile.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Flex justifyContent="center" gap={2}>
+                    <Button color="red" text="Close" onClick={onDismissStart} />
+                  </Flex>
+                )}
+              </SheetMobile.DismissingElement>
             }
             size="auto"
           >
-            <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+            <SheetMobile.DismissingElement>
+              {({ onDismissStart }) => (
+                <Flex justifyContent="center" alignItems="center" height="100%">
+                  <Button color="gray" text="Close" onClick={onDismissStart} />
+                </Flex>
+              )}
+            </SheetMobile.DismissingElement>
           </SheetMobile>
         </Layer>
       ) : null}

@@ -1,7 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import {
-  Flex,
   Layer,
   SheetMobile,
   Box,
@@ -21,20 +20,8 @@ export default function Example(): Node {
     <DeviceTypeProvider deviceType="mobile">
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
-          <SheetMobile
-            heading="Heading"
-            subHeading="SubHeading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
-            onDismiss={() => setShowComponent(false)}
-            footer={
-              <Flex justifyContent="center" gap={2}>
-                <Button color="gray" text="Secondary" />
-                <Button color="red" text="Primary" />
-              </Flex>
-            }
-            size="auto"
-          >
-            <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+          <SheetMobile heading="Heading" onDismiss={() => setShowComponent(false)}>
+            <Text>Content</Text>
           </SheetMobile>
         </Layer>
       ) : null}

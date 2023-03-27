@@ -10,6 +10,7 @@ import Mask from '../graphics/building-blocks/Mask.svg';
 import Pog from '../graphics/building-blocks/Pog.svg';
 import Popover from '../graphics/building-blocks/Popover.svg';
 import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
+import SheetMobile from '../graphics/building-blocks/SheetMobile.svg';
 import Sticky from '../graphics/building-blocks/Sticky.svg';
 import TapArea from '../graphics/building-blocks/TapArea.svg';
 import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
@@ -63,7 +64,6 @@ import RadioGroup from '../graphics/general/RadioGroup.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
-import SheetMobile from '../graphics/building-blocks/SheetMobile.svg';
 import SideNavigation from '../graphics/general/SideNavigation.svg';
 import SlimBanner from '../graphics/general/SlimBanner.svg';
 import Spinner from '../graphics/general/Spinner.svg';
@@ -3415,23 +3415,23 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <SheetMobile />,
     name: 'SheetMobile',
-    aliases: [],
-    previouslyNamed: [],
+    aliases: ['Panel', 'Dialog', 'Drawer', 'Tray'],
     hasDarkBackground: false,
-    description: 'SheetMobile is description',
+    description:
+      'SheetMobile is a mobile only component. SheetMobile is a supplementary container that sits on top of the screen’s primary content and can be dismissed in order to interact with the underlying content. Sheets can contain a wide variety of information and layouts, including menu items, actions, and supplemental content.',
     category: 'Building blocks',
     status: {
       accessible: {
-        summary: null,
-        a11yVisual: null,
-        a11yScreenreader: null,
-        a11yNavigation: null,
-        a11yComprehension: null,
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
       },
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'notAvailable',
       responsive: 'notAvailable',
@@ -3446,7 +3446,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
@@ -3459,7 +3459,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
   },

@@ -2,6 +2,7 @@
 
 import { type Node, useCallback, useState, useLayoutEffect, useEffect, useRef, useId } from 'react';
 import classnames from 'classnames';
+import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
@@ -187,10 +188,8 @@ export default function InternalSheet({
               id={id}
               aria-label={accessibilityLabel}
               className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
-                [overlayPanelStyles.wrapperAnimationIn]:
-                  animationState === ANIMATION_STATE.animatedOpening,
-                [overlayPanelStyles.wrapperAnimationOut]:
-                  animationState === ANIMATION_STATE.animatedClosing,
+                [animation.animationInSide]: animationState === ANIMATION_STATE.animatedOpening,
+                [animation.animationOutSide]: animationState === ANIMATION_STATE.animatedClosing,
               })}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
