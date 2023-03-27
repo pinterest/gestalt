@@ -1,3 +1,9 @@
+## 101.3.14 (Mar 27, 2023)
+
+### Patch
+
+- Internal: remove package-lock.json ([#2767](https://github.com/pinterest/gestalt/pull/2767)) - [Preview link](https://deploy-preview-2767--gestalt.netlify.app)
+
 ## 101.3.13 (Mar 27, 2023)
 
 ### Patch
