@@ -50,7 +50,7 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
 
   const experiments: Experiments = cookies[experimentsKey] ?? [];
   const devExampleMode: DevExampleMode =
-    cookies[devExampleModeKey] === 'sandpack' ? 'sandpack' : 'classic';
+    cookies[devExampleModeKey] === 'classic' ? 'classic' : 'sandpack';
 
   const setColorScheme = (newColorScheme) => setCookies(colorSchemeKey, newColorScheme);
   const setPropTableVariant = (variant) => setCookies(propTableVariantKey, variant);
