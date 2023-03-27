@@ -1,3 +1,9 @@
+## 101.3.11 (Mar 27, 2023)
+
+### Patch
+
+- Docs: Add Overview illustration to Foundations page ([#2757](https://github.com/pinterest/gestalt/pull/2757)) - [Preview link](https://deploy-preview-2757--gestalt.netlify.app)
+
 ## 101.3.10 (Mar 27, 2023)
 
 ### Patch
