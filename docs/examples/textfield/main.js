@@ -1,23 +1,25 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Box, TextField } from 'gestalt';
+import { Box, Flex, TextField } from 'gestalt';
 
 export default function Example(): Node {
   const [input, setInput] = useState('');
 
   return (
-    <Box width="100%" height="100%" padding={4}>
-      <TextField
-        autoComplete="username"
-        id="header-example"
-        label="Username"
-        onChange={({ value }) => {
-          setInput(value);
-        }}
-        placeholder="Please enter your username"
-        type="text"
-        value={input}
-      />
-    </Box>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
+      <Box width={400}>
+        <TextField
+          autoComplete="username"
+          id="header-example"
+          label="Username"
+          onChange={({ value }) => {
+            setInput(value);
+          }}
+          placeholder="Please enter your username"
+          type="text"
+          value={input}
+        />
+      </Box>
+    </Flex>
   );
 }
