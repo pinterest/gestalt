@@ -1,3 +1,9 @@
+## 101.3.10 (Mar 27, 2023)
+
+### Patch
+
+- Bump json5 from 2.2.1 to 2.2.3 ([#2760](https://github.com/pinterest/gestalt/pull/2760)) - [Preview link](https://deploy-preview-2760--gestalt.netlify.app)
+
 ## 101.3.9 (Mar 24, 2023)
 
 ### Patch
