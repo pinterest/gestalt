@@ -1,3 +1,9 @@
+## 101.3.12 (Mar 27, 2023)
+
+### Patch
+
+- Docs: center main examples ([#2764](https://github.com/pinterest/gestalt/pull/2764)) - [Preview link](https://deploy-preview-2764--gestalt.netlify.app)
+
 ## 101.3.11 (Mar 27, 2023)
 
 ### Patch
