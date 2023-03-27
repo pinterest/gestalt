@@ -8,6 +8,8 @@ docs/docs-components/metadata.js
 stats.html
 screenshots
 .DS_Store
+# We use yarn, not npm
+package-lock.json
 
 packages/gestalt/dist/*
 packages/gestalt-datepicker/dist/*
