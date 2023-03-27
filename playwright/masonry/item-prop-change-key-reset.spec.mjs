@@ -40,7 +40,6 @@ test.describe('Masonry: Item prop change', () => {
       ({ selector }) => {
         const items = [...document.querySelectorAll(selector)];
         return (
-          // eslint-disable-next-line playwright/no-conditional-in-test
           items.length > 0 && items[0].innerText?.startsWith('replaced item')
         );
       },

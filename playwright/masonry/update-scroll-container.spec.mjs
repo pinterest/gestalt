@@ -26,7 +26,6 @@ test.describe('Masonry: Update scroll container', () => {
     await page.evaluate((scrollContainer) => {
       const container = document.querySelector(scrollContainer);
 
-      // eslint-disable-next-line playwright/no-conditional-in-test
       if (container) {
         container.scrollTop = 1500;
       }

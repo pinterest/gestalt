@@ -17,7 +17,6 @@ test.describe('Masonry: external cache', () => {
 
     // Scroll a couple of times.
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
       const documentElement = document.documentElement ?? {};
       const scrollTo =
         documentElement.scrollHeight - documentElement.clientHeight - 50;
@@ -26,7 +25,6 @@ test.describe('Masonry: external cache', () => {
     await waitForRenderedItems(page, { targetItems: 30, scrollHeight: 5064 });
 
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
       const documentElement = document.documentElement ?? {};
       const scrollTo =
         documentElement.scrollHeight - documentElement.clientHeight;

@@ -40,7 +40,6 @@ test.describe('Masonry: Item prop removal', () => {
         const items = [...document.querySelectorAll(selector)];
         return Boolean(
           // This isn't a conditional?
-          // eslint-disable-next-line playwright/no-conditional-in-test
           items.length === 3 && items[0].innerText?.startsWith('fake1')
         );
       },
@@ -69,7 +68,6 @@ test.describe('Masonry: Item prop removal', () => {
         const items = [...document.querySelectorAll(selector)];
         return Boolean(
           // This isn't a conditional?
-          // eslint-disable-next-line playwright/no-conditional-in-test
           items.length === 2 && items[0].innerText?.startsWith('fake1')
         );
       },

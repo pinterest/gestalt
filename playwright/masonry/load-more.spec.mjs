@@ -64,7 +64,6 @@ test.describe('Masonry: scrolls', () => {
 
     // Scroll a few times to triggle multiple scrolls.
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
       const documentElement = document.documentElement || {};
       window.scrollTo(
         0,
@@ -79,7 +78,6 @@ test.describe('Masonry: scrolls', () => {
     await waitForRenderedItems(page, { targetItems: 35 });
 
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
       const documentElement = document.documentElement || {};
       window.scrollTo(
         0,

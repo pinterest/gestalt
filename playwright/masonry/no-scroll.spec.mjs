@@ -19,9 +19,7 @@ test.describe('Masonry: No scroll', () => {
       const { documentElement } = document;
       return window.scrollTo(
         0,
-        // eslint-disable-next-line playwright/no-conditional-in-test
         (documentElement ? documentElement.scrollHeight : 0) -
-          // eslint-disable-next-line playwright/no-conditional-in-test
           (documentElement ? documentElement.clientHeight : 0)
       );
     });
@@ -30,9 +28,7 @@ test.describe('Masonry: No scroll', () => {
       const { documentElement } = document;
       return window.scrollTo(
         0,
-        // eslint-disable-next-line playwright/no-conditional-in-test
         (documentElement ? documentElement.scrollHeight : 0) -
-          // eslint-disable-next-line playwright/no-conditional-in-test
           (documentElement ? documentElement.clientHeight : 0) -
           50
       );
@@ -42,9 +38,7 @@ test.describe('Masonry: No scroll', () => {
       const { documentElement } = document;
       return window.scrollTo(
         0,
-        // eslint-disable-next-line playwright/no-conditional-in-test
         (documentElement ? documentElement.scrollHeight : 0) -
-          // eslint-disable-next-line playwright/no-conditional-in-test
           (documentElement ? documentElement.clientHeight : 0)
       );
     });

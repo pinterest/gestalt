@@ -51,7 +51,6 @@ test.describe('Masonry: virtual bounds visibility', () => {
     await page.evaluate(
       ({ scrollToY, selector }) => {
         const container = document.querySelector(selector);
-        // eslint-disable-next-line playwright/no-conditional-in-test
         if (container) {
           container.scrollTop = scrollToY;
         }

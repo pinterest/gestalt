@@ -34,7 +34,6 @@ test.describe('Masonry: Item prop changes', () => {
         const items = [...document.querySelectorAll(selector)];
         return Boolean(
           // This isn't a conditional?
-          // eslint-disable-next-line playwright/no-conditional-in-test
           items.length === 3 && items[0].innerText?.startsWith('fake1')
         );
       },
@@ -71,7 +70,6 @@ test.describe('Masonry: Item prop changes', () => {
 
     const newItems = await getGridItems(page);
     // This isn't a conditional?
-    // eslint-disable-next-line playwright/no-conditional-in-test
     expect(!newItems || newItems.length === 0).toBeTruthy();
   });
 });
