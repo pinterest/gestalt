@@ -125,8 +125,7 @@ export default function SandpackExample({
 
   return process.env.NODE_ENV === 'production' || devExampleMode === 'sandpack' ? (
     <SandpackProvider
-      /* Based on //
-      https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67 */
+      // Based on https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67
       template="react"
       files={{
         '/styles.css': {
