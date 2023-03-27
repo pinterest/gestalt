@@ -12,7 +12,7 @@ Design system is about collaboration and building blocks! Gestalt offers the ele
 
 1. **Present your idea or suggestion during our Office Hour meetings**
     [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an office hours slot with your discussion topic! 
-    EBring your work early-on— What we build into Gestalt comes from the teams across Pinterest, so we’d love to provide guidance and support early and often! The earlier we see the work, the better we're able to plan and the higher the likelihood we'll be able to help. It does not need to be a polished presentation but should have enough detail to help us understand the help you need and provide support.
+    Bring your work early-on— What we build into Gestalt comes from the teams across Pinterest, so we’d love to provide guidance and support early and often! The earlier we see the work, the better we're able to plan and the higher the likelihood we'll be able to help. It does not need to be a polished presentation but should have enough detail to help us understand the help you need and provide support.
 2. **Iterate on solutions**
     We love to see more iteration in your design. We ask you to consider all edge cases before presenting your work to us and coming up with explorations and possible solutions.
 3. **Build or follow along**

@@ -22,7 +22,7 @@ If your component request needs meets our standards, go ahead and fill a request
 
 <iframe style={{border:0}} width="100%" height="1000" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FKKKHtAgSzA1ZyBX7zGTtny%2FTeam-support%3Fnode-id%3D1233%253A1931%26t%3DYRe7GMYv5iuD4Em6-1" allowFullScreen></iframe>
 
-For Imagery, logos, collage, illustrations and brand graphics, visit [Brand resources](https://brand.pinterest.com/resources). Gestalt doesn't provide brand assets. 
+For imagery, logos, collage, illustrations and brand graphics, visit [Brand resources](https://brand.pinterest.com/resources). Gestalt doesn't provide brand assets. 
 
 ## Prioritization by the Gestalt team
 
