@@ -1,3 +1,9 @@
+## 101.3.13 (Mar 27, 2023)
+
+### Patch
+
+- Internal: Add resolution for `nth-check` to address vulnerability ([#2766](https://github.com/pinterest/gestalt/pull/2766)) - [Preview link](https://deploy-preview-2766--gestalt.netlify.app)
+
 ## 101.3.12 (Mar 27, 2023)
 
 ### Patch
