@@ -162,6 +162,19 @@ When OverlayPanel opens, focus should be placed on the first interactive element
         }}
       />
 
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen.DismissingElement?.displayName}
+          description={generatedDocGen.DismissingElement?.description}
+        >
+          <GeneratedPropTable
+            name={generatedDocGen.DismissingElement?.displayName}
+            id={generatedDocGen.DismissingElement?.displayName}
+            generatedDocGen={generatedDocGen.DismissingElement}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Heading"
@@ -368,9 +381,8 @@ export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
   const generatedDocGen = await multipledocgen({
-    componentName: ['OverlayPanel'],
+    componentName: ['OverlayPanel', 'DismissingElement'],
   });
-  console.log(generatedDocGen);
   return {
     props: { generatedDocGen },
   };
