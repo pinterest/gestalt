@@ -1,7 +1,6 @@
 ---
 title: Component request 
 description: Instructions on how to request a new component or changes to an existent component.
-
 fullwidth: true
 ---
 ## Filling a request form 
