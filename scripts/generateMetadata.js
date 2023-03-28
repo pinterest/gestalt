@@ -28,6 +28,7 @@ async function docgen(filePath) {
   // Not all files have data to parse
   try {
     const parsed = reactDocs.parse(contents);
+
     if (parsed.description) {
       parsed.description = parsed.description
         // Remove the first markdown link from the description so we don't link to the page itself
@@ -36,8 +37,11 @@ async function docgen(filePath) {
         .replace(/!\[(.*?)\][[(].*?[\])]/g, '')
         .replace(/(\*\*NOTE\*\*)[\S\s]+(\*\*NOTE\*\*)/, ''); // Remove NOTES for the Docs but keep them for VSCode description
     }
+
     return parsed;
-  } catch {
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
     return null;
   }
 }
