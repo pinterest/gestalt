@@ -11,7 +11,7 @@
   "devDependencies": {
     "@actions/core": "^1.9.1",
     "@actions/github": "^4.0.0",
-    "@axe-core/playwright": "^4.6.0",
+    "@axe-core/playwright": "^4.4.3",
     "@babel/core": "^7.12.9",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.10.4",

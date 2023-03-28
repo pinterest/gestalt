@@ -56,7 +56,7 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@axe-core/playwright@^4.6.0":
+"@axe-core/playwright@^4.4.3":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@axe-core/playwright/-/playwright-4.6.0.tgz#9a91118e6876ece891eac17fa49174d77caf9356"
   integrity sha512-q9K4GVJ1fH8FQqErgs01dwzhOJ03vZDfMg+vO9Er05BxQOCp9Rm8oyB3byVzC7oNlxFaPU1qQ8zLwZYypHmchw==
