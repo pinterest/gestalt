@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { SlimBanner, Text, Link } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -18,12 +18,19 @@ import quickEditsExample from '../../examples/overlaypanel/quickEditsExample.js'
 import sizesExample from '../../examples/overlaypanel/sizesExample.js';
 import subheadingExample from '../../examples/overlaypanel/subHeadingExample.js';
 
-export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function SheetPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   const PREVIEW_HEIGHT = 800;
 
   return (
-    <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+    <Page title={generatedDocGen?.OverlayPanel.displayName}>
+      <PageHeader
+        name={generatedDocGen?.OverlayPanel.displayName}
+        description={generatedDocGen?.OverlayPanel.description}
+      >
         <SandpackExample
           code={defaultExample}
           name="OverlayPanel Main Example"
@@ -31,9 +38,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
-
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
+      <GeneratedPropTable generatedDocGen={generatedDocGen.OverlayPanel} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -114,7 +119,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
-      <AccessibilitySection name={generatedDocGen?.displayName}>
+      <AccessibilitySection name={generatedDocGen?.OverlayPanel.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -156,6 +161,7 @@ When OverlayPanel opens, focus should be placed on the first interactive element
           onClick: () => {},
         }}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Heading"
@@ -342,8 +348,7 @@ All texts and labels can be customized using the \`dismissConfirmation\` prop. W
           />
         </MainSection.Subsection>
       </MainSection>
-      <QualityChecklist component={generatedDocGen?.displayName} />
-
+      <QualityChecklist component={generatedDocGen?.OverlayPanel.displayName} />
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -359,8 +364,14 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const generatedDocGen = await multipledocgen({
+    componentName: ['OverlayPanel'],
+  });
+  console.log(generatedDocGen);
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'OverlayPanel' }) },
+    props: { generatedDocGen },
   };
 }
