@@ -1,3 +1,51 @@
+## 101.3.16 (Mar 28, 2023)
+
+### Patch
+
+- Internal: dev examples v2 ([#2765](https://github.com/pinterest/gestalt/pull/2765)) - [Preview link](https://deploy-preview-2765--gestalt.netlify.app)
+
+## 101.3.15 (Mar 27, 2023)
+
+### Patch
+
+- Docs: 2023-03-24 weekly update ([#2759](https://github.com/pinterest/gestalt/pull/2759)) - [Preview link](https://deploy-preview-2759--gestalt.netlify.app)
+
+## 101.3.14 (Mar 27, 2023)
+
+### Patch
+
+- Internal: remove package-lock.json ([#2767](https://github.com/pinterest/gestalt/pull/2767)) - [Preview link](https://deploy-preview-2767--gestalt.netlify.app)
+
+## 101.3.13 (Mar 27, 2023)
+
+### Patch
+
+- Internal: Add resolution for `nth-check` to address vulnerability ([#2766](https://github.com/pinterest/gestalt/pull/2766)) - [Preview link](https://deploy-preview-2766--gestalt.netlify.app)
+
+## 101.3.12 (Mar 27, 2023)
+
+### Patch
+
+- Docs: center main examples ([#2764](https://github.com/pinterest/gestalt/pull/2764)) - [Preview link](https://deploy-preview-2764--gestalt.netlify.app)
+
+## 101.3.11 (Mar 27, 2023)
+
+### Patch
+
+- Docs: Add Overview illustration to Foundations page ([#2757](https://github.com/pinterest/gestalt/pull/2757)) - [Preview link](https://deploy-preview-2757--gestalt.netlify.app)
+
+## 101.3.10 (Mar 27, 2023)
+
+### Patch
+
+- Bump json5 from 2.2.1 to 2.2.3 ([#2760](https://github.com/pinterest/gestalt/pull/2760)) - [Preview link](https://deploy-preview-2760--gestalt.netlify.app)
+
+## 101.3.9 (Mar 24, 2023)
+
+### Patch
+
+- Searchfield: Added searchfield docs page for Android ([#2748](https://github.com/pinterest/gestalt/pull/2748)) - [Preview link](https://deploy-preview-2748--gestalt.netlify.app)
+
 ## 101.3.8 (Mar 24, 2023)
 
 ### Patch

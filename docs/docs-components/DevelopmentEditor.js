@@ -8,23 +8,62 @@ import theme from './atomDark.js';
 import ExampleCode from './ExampleCode.js';
 import { useDocsConfig } from './contexts/DocsConfigProvider.js';
 
+const reactImports = [
+  'Component',
+  'Children',
+  'Fragment',
+  'PureComponent',
+  'Profiler',
+  'StrictMode',
+  'Suspense',
+  'cloneElement',
+  'createContext',
+  'createElement',
+  'createFactory',
+  'createRef',
+  'forwardRef',
+  'isValidElement',
+  'lazy',
+  'memo',
+  'startTransition',
+  'useCallback',
+  'useContext',
+  'useDebugValue',
+  'useEffect',
+  'useImperativeHandle',
+  'useLayoutEffect',
+  'useMemo',
+  'useReducer',
+  'useRef',
+  'useState',
+  'version',
+];
+
+const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');
+
+const importsToRemove = ['gestalt', 'gestalt-datepicker', 'react'];
+
+const importsToRemoveRegex = new RegExp(
+  `import (.|\n)*(${importsToRemove.map((item) => `'${item}'`).join('|')});`,
+  'g',
+);
+
 export default function DevelopmentEditor({ code }: {| code: ?string | (() => Node) |}): Node {
   const { showDevelopmentEditor } = useDocsConfig();
+  if (!showDevelopmentEditor) {
+    return null;
+  }
 
   const scope = { ...gestalt, DatePicker };
 
-  const regex = /import (.|\n)*('gestalt'|'react');/gi;
-
-  // Add more React API methods if needed
-  const regexReact = /(Fragment|useState|useRef|useEffect)/gi;
-
   const codeFileCleaned = code
     ?.toString()
-    .replace(regex, '')
+    // Remove imports
+    .replace(importsToRemoveRegex, '')
+    // Remove export statement
     .replace('export default', '')
-    .replace(regexReact, 'React.$&');
-
-  if (!showDevelopmentEditor) return null;
+    // Add React. to React imports
+    .replace(reactRegex, 'React.$&');
 
   return (
     <Box
@@ -55,7 +94,8 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
                 <br />
                 <br />
                 To show the Sandpack preview during development, you can enable it on the site
-                settings dropdown in the page header. To render you local changes in Sandpack append
+                settings dropdown in the page header. To render your local changes in Sandpack
+                append
                 <br />
                 <code>?localFiles=true</code>
                 <br /> after the component name in the URL.{' '}

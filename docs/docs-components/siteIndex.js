@@ -55,6 +55,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Switch',
       'Tabs',
       'TextField',
+      'SearchField',
       'Toast',
     ],
   },

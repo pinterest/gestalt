@@ -28,8 +28,14 @@ function SettingsDropdown({
 |}) {
   const { showDevelopmentEditor } = useDocsConfig();
 
-  const { colorScheme, setColorScheme, textDirection, setTextDirection, sandpack, setSandpack } =
-    useAppContext();
+  const {
+    colorScheme,
+    setColorScheme,
+    textDirection,
+    setTextDirection,
+    devExampleMode,
+    setDevExampleMode,
+  } = useAppContext();
 
   const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
 
@@ -46,10 +52,10 @@ function SettingsDropdown({
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
 
-  const onChangeSandpackVisibility = () => {
-    trackButtonClick('Toggle Sandpack visibility', sandpack);
+  const onChangeDevExampleMode = () => {
+    trackButtonClick('Toggle Sandpack visibility', devExampleMode);
     closeDropdown();
-    return setSandpack(sandpack === 'enabled' ? 'disabled' : 'enabled');
+    return setDevExampleMode(devExampleMode === 'sandpack' ? 'classic' : 'sandpack');
   };
 
   return (
@@ -62,17 +68,9 @@ function SettingsDropdown({
     >
       <Dropdown.Item
         onSelect={onChangeColorScheme}
-        option={{ value: 'isDarkMode', label: 'Custom link 1' }}
+        option={{ value: 'isDarkMode', label: 'Toggle dark mode' }}
       >
-        <Flex
-          alignItems="center"
-          justifyContent="between"
-          flex="grow"
-          gap={{
-            row: 8,
-            column: 0,
-          }}
-        >
+        <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
           <Label htmlFor="darkMode-switch">
             <Text weight="bold">Dark mode</Text>
           </Label>
@@ -83,19 +81,12 @@ function SettingsDropdown({
           />
         </Flex>
       </Dropdown.Item>
+
       <Dropdown.Item
         onSelect={onChangeTextDirection}
-        option={{ value: 'isRTL', label: 'Custom link 1' }}
+        option={{ value: 'isRTL', label: 'Toggle text direction' }}
       >
-        <Flex
-          alignItems="center"
-          justifyContent="between"
-          flex="grow"
-          gap={{
-            row: 8,
-            column: 0,
-          }}
-        >
+        <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
           <Label htmlFor="rtl-switch">
             <Text weight="bold">Right-to-left</Text>
           </Label>
@@ -106,27 +97,20 @@ function SettingsDropdown({
           />
         </Flex>
       </Dropdown.Item>
+
       {showDevelopmentEditor ? (
         <Dropdown.Item
-          onSelect={onChangeSandpackVisibility}
-          option={{ value: 'sandpack', label: 'sandpack' }}
+          onSelect={onChangeDevExampleMode}
+          option={{ value: 'sandpack', label: 'Toggle dev example mode' }}
         >
-          <Flex
-            alignItems="center"
-            justifyContent="between"
-            flex="grow"
-            gap={{
-              row: 8,
-              column: 0,
-            }}
-          >
-            <Label htmlFor="sandpack">
-              <Text weight="bold">Enable Sandpack</Text>
+          <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+            <Label htmlFor="devExampleMode-switch">
+              <Text weight="bold">Disable Sandpack</Text>
             </Label>
             <Switch
-              switched={sandpack === 'enabled'}
-              onChange={onChangeSandpackVisibility}
-              id="sandpack"
+              switched={devExampleMode === 'classic'}
+              onChange={onChangeDevExampleMode}
+              id="devExampleMode-switch"
             />
           </Flex>
         </Dropdown.Item>
