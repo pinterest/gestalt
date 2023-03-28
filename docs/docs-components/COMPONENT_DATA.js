@@ -163,8 +163,7 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ContributionsTile />,
     name: 'Contributions',
-    description:
-      'Resources, Slack channels, meetings and events.',
+    description: 'Resources, Slack channels, meetings and events.',
     category: 'Team_Support',
     path: '/team_support/contributions',
   },
