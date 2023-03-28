@@ -45,7 +45,7 @@ Yes. The Gestalt learning Path offers videos that will be available to watch as 
 3. **Can I add tutorials or contribute to the Gestalt learning path?**
 Yes! We welcome contributions. [Reach out to us](https://pinch.pinadmin.com/gestaltSlackDesign), and we can coordinate. 
 
-## A11y training for designers
+## Accessibility training
 
 As designers, we must ensure that everyone can access what we create, despite their background, knowledge base, or ability. Accessible design improves the digital experience for all users.
 Gestalt offers an accessibility training formatted for designers to support inclusive efforts and to reinforce creating belonging at Pinterest. This training happens twice a year (H1 and H2).
