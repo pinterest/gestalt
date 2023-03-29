@@ -118,8 +118,8 @@ function OverlayPanel({
   );
 }
 
-OverlayPanel.DismissingElement = DismissingElement;
-
 OverlayPanel.displayName = 'OverlayPanel';
+
+OverlayPanel.DismissingElement = DismissingElement;
 
 export default OverlayPanel;

@@ -1,21 +1,23 @@
 // @flow strict
 import { useState } from 'react';
-import { Box, NumberField } from 'gestalt';
+import { Box, Flex, NumberField } from 'gestalt';
 
 export default function Example(): React$Node {
   const [currentValue, setCurrentValue] = useState();
 
   return (
-    <Box width="100%" height="100%" padding={4}>
-      <NumberField
-        id="header-example"
-        label="Number of widgets"
-        onChange={({ value }) => {
-          setCurrentValue(value);
-        }}
-        placeholder="Please enter the number of widgets"
-        value={currentValue}
-      />
-    </Box>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
+      <Box width={400}>
+        <NumberField
+          id="header-example"
+          label="Number of widgets"
+          onChange={({ value }) => {
+            setCurrentValue(value);
+          }}
+          placeholder="Please enter the number of widgets"
+          value={currentValue}
+        />
+      </Box>
+    </Flex>
   );
 }
