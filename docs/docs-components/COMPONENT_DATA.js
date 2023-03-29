@@ -79,6 +79,11 @@ import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
 import Video from '../graphics/general/Video.svg';
 import WashAnimated from '../graphics/general/WashAnimated.svg';
+import AdvocateTile from '../graphics/team_support/advocate.svg';
+import ComponentRequest from '../graphics/team_support/component-request.svg';
+import ContributionsTile from '../graphics/team_support/contributions.svg';
+import GetHelpTile from '../graphics/team_support/get-help.svg';
+import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
@@ -103,6 +108,7 @@ export type Category =
   | 'Structure'
   | 'Text'
   | 'Utilities'
+  | 'Team_Support'
   | null;
 
 type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
@@ -137,6 +143,48 @@ export type ListItemType = {|
   status?: {| ...PlatformStatus, iOS: StatusType, android: StatusType, responsive: StatusType |}, // web status
   svg: Element<typeof Accessibility>,
 |};
+
+const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
+  {
+    svg: <AdvocateTile />,
+    name: 'Be a Gestalt advocate',
+    description:
+      'A dedicated cohort of system advocates to rely on for design partnership, input and knowledge share and support within your team and product area.',
+    category: 'Team_Support',
+    path: '/team_support/be_a_gestalt_advocate',
+  },
+  {
+    svg: <ComponentRequest />,
+    name: 'Component request',
+    description:
+      'Instructions on how to request new components or updates to an existent component.',
+    category: 'Team_Support',
+    path: '/team_support/component_request',
+  },
+  {
+    svg: <ContributionsTile />,
+    name: 'Contributions',
+    description: 'Resources, Slack channels, meetings and events.',
+    category: 'Team_Support',
+    path: '/team_support/contributions',
+  },
+  {
+    svg: <GetHelpTile />,
+    name: 'Get help',
+    description:
+      'Resources on how to engage with the Gestalt team, join office hours, meetings and events.',
+    category: 'Team_Support',
+    path: '/team_support/get_help',
+  },
+  {
+    svg: <TrainingTile />,
+    name: 'Training',
+    description:
+      'Gestalt design systems specific training to support design workflow and systems mindset.',
+    category: 'Team_Support',
+    path: '/team_support/training',
+  },
+];
 
 const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   {
@@ -3840,12 +3888,14 @@ const COMPONENT_DATA_MAP: {|
   utilityComponents: $ReadOnlyArray<ListItemType>,
   figmaOnlyComponents: $ReadOnlyArray<ListItemType>,
   foundations: $ReadOnlyArray<ListItemType>,
+  teamSupport: $ReadOnlyArray<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,
   utilityComponents: UTILITIES_LIST,
   figmaOnlyComponents: FIGMA_ONLY_LIST,
   foundations: FOUNDATION_GUIDELINES_LIST,
+  teamSupport: TEAM_SUPPORT_LIST,
 };
 
 export default COMPONENT_DATA_MAP;

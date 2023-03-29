@@ -136,6 +136,7 @@ function getTabs(componentPlatform) {
       text: 'Components',
     },
     { href: '/foundations/overview', text: 'Foundations' },
+    { href: '/team_support/overview', text: 'Team Support' },
     { href: '/roadmap', text: 'Roadmap' },
     { href: '/whats_new', text: "What's new" },
   ];
