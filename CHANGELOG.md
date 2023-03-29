@@ -1,3 +1,9 @@
+## 101.3.21 (Mar 29, 2023)
+
+### Patch
+
+- Docs: Add Team support tab + subpages ([#2762](https://github.com/pinterest/gestalt/pull/2762)) - [Preview link](https://deploy-preview-2762--gestalt.netlify.app)
+
 ## 101.3.20 (Mar 29, 2023)
 
 ### Patch
