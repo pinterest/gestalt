@@ -13,7 +13,7 @@ type PropTableVariant = 'collapsed' | 'expanded';
 type ColorScheme = 'light' | 'dark';
 type DirectionScheme = 'ltr' | 'rtl';
 type Experiments = string;
-type DevExampleMode = 'classic' | 'sandpack';
+type DevExampleMode = 'development' | 'default';
 
 export type AppContextType = {|
   propTableVariant: PropTableVariant,
@@ -50,7 +50,7 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
 
   const experiments: Experiments = cookies[experimentsKey] ?? [];
   const devExampleMode: DevExampleMode =
-    cookies[devExampleModeKey] === 'classic' ? 'classic' : 'sandpack';
+    cookies[devExampleModeKey] === 'development' ? 'development' : 'default';
 
   const setColorScheme = (newColorScheme) => setCookies(colorSchemeKey, newColorScheme);
   const setPropTableVariant = (variant) => setCookies(propTableVariantKey, variant);

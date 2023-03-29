@@ -17,7 +17,6 @@ import GestaltLogo from './GestaltLogo.js';
 import { useNavigationContext } from './navigationContext.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
-import { useDocsConfig } from './contexts/DocsConfigProvider.js';
 
 function SettingsDropdown({
   anchorRef,
@@ -26,7 +25,17 @@ function SettingsDropdown({
   anchorRef: {| current: ?ElementRef<typeof IconButton> |},
   closeDropdown: () => void,
 |}) {
-  const { showDevelopmentEditor } = useDocsConfig();
+  const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
+    process.env.NODE_ENV === 'development',
+  );
+
+  useEffect(() => {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      window?.location?.href?.startsWith('https://deploy-preview-')
+    )
+      setShowDevelopmentEditorSwitch(true);
+  }, [setShowDevelopmentEditorSwitch]);
 
   const {
     colorScheme,
@@ -55,7 +64,7 @@ function SettingsDropdown({
   const onChangeDevExampleMode = () => {
     trackButtonClick('Toggle Sandpack visibility', devExampleMode);
     closeDropdown();
-    return setDevExampleMode(devExampleMode === 'sandpack' ? 'classic' : 'sandpack');
+    return setDevExampleMode(devExampleMode === 'default' ? 'development' : 'default');
   };
 
   return (
@@ -98,17 +107,17 @@ function SettingsDropdown({
         </Flex>
       </Dropdown.Item>
 
-      {showDevelopmentEditor ? (
+      {showDevelopmentEditorSwitch ? (
         <Dropdown.Item
           onSelect={onChangeDevExampleMode}
-          option={{ value: 'sandpack', label: 'Toggle dev example mode' }}
+          option={{ value: 'default', label: 'Toggle development example mode' }}
         >
           <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
             <Label htmlFor="devExampleMode-switch">
-              <Text weight="bold">Disable Sandpack</Text>
+              <Text weight="bold">Enable development view</Text>
             </Label>
             <Switch
-              switched={devExampleMode === 'classic'}
+              switched={devExampleMode === 'development'}
               onChange={onChangeDevExampleMode}
               id="devExampleMode-switch"
             />

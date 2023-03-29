@@ -4,9 +4,9 @@ import { Link, Box, Flex, Text, HelpButton } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
+import { useAppContext } from './appContext.js';
 import theme from './atomDark.js';
 import ExampleCode from './ExampleCode.js';
-import { useDocsConfig } from './contexts/DocsConfigProvider.js';
 
 const reactImports = [
   'Component',
@@ -49,8 +49,9 @@ const importsToRemoveRegex = new RegExp(
 );
 
 export default function DevelopmentEditor({ code }: {| code: ?string | (() => Node) |}): Node {
-  const { showDevelopmentEditor } = useDocsConfig();
-  if (!showDevelopmentEditor) {
+  const { devExampleMode } = useAppContext();
+
+  if (devExampleMode === 'default') {
     return null;
   }
 
@@ -90,12 +91,13 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
                 <code>docs/examples/*/*.js</code>.
                 <br />
                 <br />
-                In production, only the Sandpack preview and code editor are shown.
+                In production, the default view is enabled. If available, only the Sandpack preview
+                and code editor are shown.
                 <br />
                 <br />
-                To show the Sandpack preview during development, you can enable it on the site
-                settings dropdown in the page header. To render your local changes in Sandpack
-                append
+                To enable/disable the development preview, you can enable it on the site settings
+                dropdown in the page header. If the default preview is enabled and you want to
+                render your local changes in Sandpack append
                 <br />
                 <code>?localFiles=true</code>
                 <br /> after the component name in the URL.{' '}
@@ -125,7 +127,7 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
         >
           <LivePreview style={{ display: 'contents' }} />
         </Box>
-        <ExampleCode code={codeFileCleaned ?? ''} name="DEVELOPMENT MODE" />
+        <ExampleCode code={codeFileCleaned ?? ''} name="DEVELOPMENT MODE" developmentEditor />
 
         <Box paddingX={2}>
           <Text color="error">
