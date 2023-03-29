@@ -6,6 +6,7 @@ Gestalt is Pinterest’s design system. Our system includes a React component li
 
 ## Installation
 
+Hi
 The package can be installed via npm:
 
 ```bash
