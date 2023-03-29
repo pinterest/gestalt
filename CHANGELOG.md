@@ -1,3 +1,9 @@
+## 101.3.18 (Mar 29, 2023)
+
+### Patch
+
+- Docs: Cleaned up our Figma plugins section #2774 ([#2774](https://github.com/pinterest/gestalt/pull/2774)) - [Preview link](https://deploy-preview-2774--gestalt.netlify.app)
+
 ## 101.3.17 (Mar 28, 2023)
 
 ### Patch
