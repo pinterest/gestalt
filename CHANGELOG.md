@@ -1,3 +1,9 @@
+## 101.3.20 (Mar 29, 2023)
+
+### Patch
+
+- Updating image for the Pinterest Design plugin ([#2775](https://github.com/pinterest/gestalt/pull/2775)) - [Preview link](https://deploy-preview-2775--gestalt.netlify.app)
+
 ## 101.3.19 (Mar 29, 2023)
 
 ### Patch
