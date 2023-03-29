@@ -1,3 +1,9 @@
+## 101.3.19 (Mar 29, 2023)
+
+### Patch
+
+- Docs: final improvements to development view: cleanup/refactor ([#2773](https://github.com/pinterest/gestalt/pull/2773)) - [Preview link](https://deploy-preview-2773--gestalt.netlify.app)
+
 ## 101.3.18 (Mar 29, 2023)
 
 ### Patch
