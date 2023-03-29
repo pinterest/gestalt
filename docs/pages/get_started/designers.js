@@ -44,7 +44,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
           description={`
 **Please note: The following plugins are only available for Pinterest employees.**
 
-[![promo image for the pinterest design figma plugin](https://i.pinimg.com/originals/2b/4b/b4/2b4bb4f0c0e82ddc8f37917c82738b7d.png)](https://www.figma.com/community/plugin/1215463263194174399)
+[![promo image for the pinterest design figma plugin](https://i.pinimg.com/originals/2f/d6/4a/2fd64af09238a059a1fb0fa6a18fc05b.png)](https://www.figma.com/community/plugin/1215463263194174399)
 [**The Pinterest Design plugin**](https://www.figma.com/community/plugin/1215463263194174399)
 The Pinterest Design Figma plugin is _the_   design tool to work faster and smarter. You can add Pinterest images directly to designs, export icons in production-ready formats, automatically convert UI to dark mode, reference design system documentation and more!
 
