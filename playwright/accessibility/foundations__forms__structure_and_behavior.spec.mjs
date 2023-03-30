@@ -2,7 +2,7 @@
 import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
-test('Content standards Syntax Structure check', async ({ page }) => {
-  await page.goto('/foundations/content_standards/syntax_structure');
+test('Structure and behavior Accessibility check', async ({ page }) => {
+  await page.goto('/foundations/forms/structure_and_behavior');
   await expectAccessiblePage({ page });
 });
