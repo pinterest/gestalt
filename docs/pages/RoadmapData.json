@@ -12,7 +12,7 @@
     {
       "task": "Gestalt collaboration model",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": [],
       "description": "Add Gestalt's working collaboration model to its documentation as a reference point for cross-functional collaboration.",
       "link": ""
@@ -68,7 +68,7 @@
     {
       "task": "Form pattern guidelines",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": [],
       "description": "Development of usage guidelines and best practices for form creation within Gestalt.",
       "link": ""
@@ -84,7 +84,7 @@
     {
       "task": "Illustration pattern guidelines",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": [],
       "description": "Development of usage guidelines and best practices for utilizing illustrations with Gestalt.",
       "link": ""
@@ -100,7 +100,7 @@
     {
       "task": "Mobile Toast component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Android"],
       "description": "Development of the Toast component for Android along with respective documentation.",
       "link": ""
@@ -109,7 +109,7 @@
       "task": "Mobile IconButton component",
       "deadline": "",
       "status": "inProgress",
-      "platforms": ["Android", "iOS"],
+      "platforms": ["Android"],
       "description": "Development of a mobile-specific treatment of the IconButton component along with respective documentation.",
       "link": ""
     },
