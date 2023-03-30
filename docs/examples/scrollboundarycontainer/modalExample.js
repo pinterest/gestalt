@@ -17,7 +17,7 @@ import {
 } from 'gestalt';
 
 export default function ScrollBoundaryContainerExample(): Node {
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
   const [parentComponent, setParentComponent] = useState('modal');
@@ -41,7 +41,7 @@ export default function ScrollBoundaryContainerExample(): Node {
         wrap
       >
         <Box paddingX={1} paddingY={1}>
-          <Button text="Cancel" size="lg" onClick={() => setShowModal(false)} />
+          <Button text="Cancel" size="lg" onClick={() => setShowComponent(false)} />
         </Box>
         <Box paddingX={1} paddingY={1}>
           <Button
@@ -49,7 +49,7 @@ export default function ScrollBoundaryContainerExample(): Node {
             color="red"
             size="lg"
             type="submit"
-            onClick={() => setShowModal(false)}
+            onClick={() => setShowComponent(false)}
           />
         </Box>
       </Box>
@@ -199,16 +199,16 @@ export default function ScrollBoundaryContainerExample(): Node {
           onChange={() => setParentComponent('overlaypanel')}
           value="overlaypanel"
         />
-        <Button text="Update Billing Address" onClick={() => setShowModal(true)} />
+        <Button text="Update Billing Address" onClick={() => setShowComponent(true)} />
       </RadioGroup>
-      {showModal && (
+      {showComponent && (
         <Layer zIndex={MODAL_Z_INDEX}>
           {parentComponent === 'modal' ? (
             <Modal
               accessibilityModalLabel=""
               heading="Billing Information"
               footer={footer}
-              onDismiss={() => setShowModal(false)}
+              onDismiss={() => setShowComponent(false)}
               size="lg"
             >
               {children}
@@ -219,7 +219,7 @@ export default function ScrollBoundaryContainerExample(): Node {
               accessibilityLabel=""
               heading="Billing Information"
               footer={footer}
-              onDismiss={() => setShowModal(false)}
+              onDismiss={() => setShowComponent(false)}
               size="lg"
             >
               {children}

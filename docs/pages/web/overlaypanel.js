@@ -38,7 +38,9 @@ export default function SheetPage({
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
-      <GeneratedPropTable generatedDocGen={generatedDocGen.OverlayPanel} />
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen?.OverlayPanel} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -265,7 +267,7 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
         <MainSection.Subsection
           title="Animation"
           description={`
-      By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements inother areas such as the \`children\` or \`footer\`, the following render prop can be used:
+      By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements in other areas such as the \`children\` or \`footer\`, the following render prop can be used:
       ~~~jsx
       <OverlayPanel.DismissingElement>
         ({ onDismissStart }) => ( ... )
@@ -362,6 +364,7 @@ All texts and labels can be customized using the \`dismissConfirmation\` prop. W
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.OverlayPanel.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

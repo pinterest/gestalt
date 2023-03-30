@@ -78,7 +78,7 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(gestaltPackages, `$README_DELETE_{componentName}.md`),
+      outputPath: path.join(gestaltPackages, `README_DELETE_${componentName}.md`),
       template: 'templates/README.md',
       log: 'Generated ReadMe',
     }),
