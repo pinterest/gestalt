@@ -12,7 +12,6 @@ const config = {
       maxDiffPixelRatio: 0.01,
     },
   },
-  filter: process.argv[2],
   forbidOnly: !!process.env.CI,
   outputDir: './test-results',
   projects: [
