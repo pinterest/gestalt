@@ -1,3 +1,9 @@
+## 101.3.22 (Mar 30, 2023)
+
+### Patch
+
+- Docs: add redirect for "How to work with us" page ([#2777](https://github.com/pinterest/gestalt/pull/2777)) - [Preview link](https://deploy-preview-2777--gestalt.netlify.app)
+
 ## 101.3.21 (Mar 29, 2023)
 
 ### Patch
