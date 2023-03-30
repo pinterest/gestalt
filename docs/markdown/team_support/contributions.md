@@ -10,7 +10,7 @@ You can find all the components available on Gestalt in our [Components page](ht
 
 ## Making a design contribuition
 
-Design system is about collaboration and building blocks! Gestalt offers the elements you need to create a consistent product. If you have an idea to improve Pinterest surfaces by partnering with the Gestalt team, please follow the steps below. We would love to collaborate with you!Follow the steps below to make a design contribution: 
+Design system is about collaboration and building blocks! Gestalt offers the elements you need to create a consistent product. If you have an idea to improve Pinterest surfaces by partnering with the Gestalt team. We would love to collaborate with you! Follow the steps below to make a design contribution: 
 
 1. **Present your idea or suggestion during our Office Hour meetings**
     [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an office hours slot with your discussion topic! 

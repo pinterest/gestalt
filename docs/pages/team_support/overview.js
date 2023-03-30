@@ -10,11 +10,11 @@ import PageHeader from '../../docs-components/PageHeader.js';
 
 export default function TeamSupportOverview(): Node {
   return (
-    <Page title="Foundations overview" hideSideNav hideEditLink>
+    <Page title="Team support overview" hideSideNav hideEditLink>
       <Flex direction="column" width="100%">
         <IllustrationContainer justifyContent="start">
           <PageHeader
-            name="Team Support"
+            name="Team support"
             description="A set of resources and guidelines to provide you with the help you need to build consistent product surfaces and to collaborate with the Gestalt design system team."
             type="guidelines"
           />
