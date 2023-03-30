@@ -1,3 +1,9 @@
+## 101.3.25 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Fixing capitalization ([#2781](https://github.com/pinterest/gestalt/pull/2781)) - [Preview link](https://deploy-preview-2781--gestalt.netlify.app)
+
 ## 101.3.24 (Mar 30, 2023)
 
 ### Patch
