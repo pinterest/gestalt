@@ -1,3 +1,9 @@
+## 101.3.30 (Mar 30, 2023)
+
+### Patch
+
+- Docs: refactored examples for Modal, ModalAlert, OverlayPanel examples for better display ([#2787](https://github.com/pinterest/gestalt/pull/2787)) - [Preview link](https://deploy-preview-2787--gestalt.netlify.app)
+
 ## 101.3.29 (Mar 30, 2023)
 
 ### Patch
