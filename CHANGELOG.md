@@ -1,3 +1,9 @@
+## 101.3.27 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Add Team support to mobile siden nav ([#2784](https://github.com/pinterest/gestalt/pull/2784)) - [Preview link](https://deploy-preview-2784--gestalt.netlify.app)
+
 ## 101.3.26 (Mar 30, 2023)
 
 ### Patch
