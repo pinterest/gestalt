@@ -2,23 +2,23 @@
 import { type Node, useState } from 'react';
 import { ModalAlert, Box, Button, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
-const HEADER_ZINDEX = new FixedZIndex(10);
-const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
 export default function DoOverlayPage(): Node {
-  const [showModalA, setShowModalA] = useState(false);
-  const [showModalB, setShowModalB] = useState(false);
+  const [showCmpA, setShowComponentA] = useState(false);
+  const [showCmpB, setShowComponentB] = useState(false);
+
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <Box padding={3}>
       <Button
         text="Show modal"
         onClick={() => {
-          setShowModalA(true);
-          setShowModalB(true);
+          setShowComponentA(true);
+          setShowComponentB(true);
         }}
       />
-      {showModalA && (
+      {showCmpA && (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Promote to admin"
@@ -26,14 +26,14 @@ export default function DoOverlayPage(): Node {
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Submit',
-              onClick: () => setShowModalA(false),
+              onClick: () => setShowComponentA(false),
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'Cancel',
-              onClick: () => setShowModalA(false),
+              onClick: () => setShowComponentA(false),
             }}
-            onDismiss={() => setShowModalA(false)}
+            onDismiss={() => setShowComponentA(false)}
           >
             <Box height={300}>
               <Text>
@@ -44,7 +44,7 @@ export default function DoOverlayPage(): Node {
           </ModalAlert>
         </Layer>
       )}
-      {showModalB && (
+      {showCmpB && (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Delete board 70s Furniture"
@@ -52,15 +52,15 @@ export default function DoOverlayPage(): Node {
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
-              onClick: () => setShowModalB(false),
+              onClick: () => setShowComponentB(false),
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'No, keep',
-              onClick: () => setShowModalB(false),
+              onClick: () => setShowComponentB(false),
             }}
             onDismiss={() => {
-              setShowModalB(false);
+              setShowComponentB(false);
             }}
           >
             <Text>

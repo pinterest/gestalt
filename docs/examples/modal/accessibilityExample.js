@@ -14,7 +14,7 @@ import {
 } from 'gestalt';
 
 export default function AccessibilityExample(): Node {
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
   const [claim, setClaim] = useState('tag');
 
   const HEADER_ZINDEX = new FixedZIndex(10);
@@ -28,10 +28,10 @@ export default function AccessibilityExample(): Node {
           color="red"
           text="Show Modal"
           size="lg"
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowComponent(true)}
         />
       </Box>
-      {showModal ? (
+      {showComponent ? (
         <Layer zIndex={zIndex}>
           <Modal
             accessibilityModalLabel="Choose how to claim site"
@@ -46,13 +46,13 @@ export default function AccessibilityExample(): Node {
                   bgColor="white"
                   icon="cancel"
                   iconColor="darkGray"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => setShowComponent(false)}
                   size="sm"
                 />
               </Flex>
             }
             onDismiss={() => {
-              setShowModal(false);
+              setShowComponent(false);
             }}
             footer={
               <Flex justifyContent="end" gap={2}>

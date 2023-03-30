@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, type Element } from 'react';
-import { Badge, Box, Flex, Heading, Text, Tooltip, Link, SlimBanner } from 'gestalt';
+import { Badge, Box, Flex, Heading, Text, Link, SlimBanner } from 'gestalt';
 import COMPONENT_DATA from './COMPONENT_DATA.js';
 import MainSection from './MainSection.js';
 import Markdown from './Markdown.js';
@@ -108,13 +108,12 @@ export default function PageHeader({
             <Heading>
               {name}{' '}
               {badge ? (
-                <Tooltip inline text={badgeMap[badge].tooltipText}>
-                  <Badge
-                    text={badgeMap[badge].text}
-                    position="middle"
-                    type={badgeMap[badge].type || 'info'}
-                  />
-                </Tooltip>
+                <Badge
+                  tooltip={{ text: badgeMap[badge].tooltipText }}
+                  text={badgeMap[badge].text}
+                  position="top"
+                  type={badgeMap[badge].type || 'info'}
+                />
               ) : null}
             </Heading>
 

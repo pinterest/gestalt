@@ -2,11 +2,11 @@
 import { Fragment, useState, type Node } from 'react';
 import { Box, Button, Flex, ModalAlert, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
-const HEADER_ZINDEX = new FixedZIndex(10);
-const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
 export default function DoLimitContent(): Node {
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
+
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <Fragment>
@@ -16,10 +16,10 @@ export default function DoLimitContent(): Node {
           color="red"
           text="Show Modal"
           size="lg"
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowComponent(true)}
         />
       </Box>
-      {showModal ? (
+      {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Idea Pin Creator Code"

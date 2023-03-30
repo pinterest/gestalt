@@ -13,19 +13,19 @@ import {
 } from 'gestalt';
 
 export default function Example(): Node {
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
 
   return (
     <DeviceTypeProvider deviceType="mobile">
-      {showModal ? (
+      {showComponent ? (
         <Layer zIndex={new CompositeZIndex([HEADER_ZINDEX])}>
           <Modal
             align="center"
             accessibilityModalLabel="Mobile Modal example"
             heading="Heading"
             subHeading="SubHeading"
-            onDismiss={() => setShowModal(false)}
+            onDismiss={() => setShowComponent(false)}
             footer={
               <Flex justifyContent="center" gap={2}>
                 <Button color="gray" text="Secondary" />
@@ -44,7 +44,7 @@ export default function Example(): Node {
           color="red"
           text="Show Modal"
           size="lg"
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowComponent(true)}
         />
       </Box>
     </DeviceTypeProvider>

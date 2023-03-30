@@ -12,12 +12,12 @@ import {
   Text,
 } from 'gestalt';
 
-const HEADER_ZINDEX = new FixedZIndex(10);
-const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
 export default function WithCheckbox(): Node {
   const [checked1, setChecked1] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
+
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <Fragment>
@@ -27,10 +27,10 @@ export default function WithCheckbox(): Node {
           color="red"
           text="Show Modal"
           size="lg"
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowComponent(true)}
         />
       </Box>
-      {showModal ? (
+      {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Delete current Pin draft confirmation"

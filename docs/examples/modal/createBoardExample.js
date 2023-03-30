@@ -13,20 +13,20 @@ import {
 } from 'gestalt';
 
 export default function HeadingExample(): Node {
-  const [shouldShow, setShouldShow] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <Box padding={8}>
-      <Button text="View Modal" onClick={() => setShouldShow(true)} />
-      {shouldShow && (
+      <Button text="View Modal" onClick={() => setShowComponent(true)} />
+      {showComponent && (
         <Layer zIndex={modalZIndex}>
           <Modal
             accessibilityModalLabel="Create new board"
             align="start"
             heading="Create board"
-            onDismiss={() => setShouldShow(false)}
+            onDismiss={() => setShowComponent(false)}
             footer={
               <Flex alignItems="center" justifyContent="end">
                 <Button color="red" text="Create" />
