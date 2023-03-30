@@ -1,3 +1,9 @@
+## 101.3.28 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Updated get_started/developers/contributing/development_process ([#2783](https://github.com/pinterest/gestalt/pull/2783)) - [Preview link](https://deploy-preview-2783--gestalt.netlify.app)
+
 ## 101.3.27 (Mar 30, 2023)
 
 ### Patch
