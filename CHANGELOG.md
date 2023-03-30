@@ -1,3 +1,9 @@
+## 101.3.29 (Mar 30, 2023)
+
+### Patch
+
+- Internal: formatting tweaks in COMPONENT_DATA ([#2785](https://github.com/pinterest/gestalt/pull/2785)) - [Preview link](https://deploy-preview-2785--gestalt.netlify.app)
+
 ## 101.3.28 (Mar 30, 2023)
 
 ### Patch
