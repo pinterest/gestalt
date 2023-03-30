@@ -68,7 +68,7 @@ export default function HomePage(): Node {
             />
             <IllustrationCard
               headingLevel={3}
-              href="/get_started//how_to_work_with_us"
+              href="/team_support/contributions"
               title="How to work with us"
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
               color="blue-skycicle-450"

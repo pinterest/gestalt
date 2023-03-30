@@ -39,7 +39,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           },
         ],
       },
-      'How to work with us',
       'FAQ',
     ],
   },
@@ -216,6 +215,17 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         sectionName: 'Typography',
         pages: ['Guidelines'],
       },
+    ],
+  },
+  {
+    sectionName: 'Team support',
+    pages: [
+      'Overview',
+      'Be a Gestalt advocate',
+      'Component request',
+      'Contributions',
+      'Get help',
+      'Training',
     ],
   },
 ];

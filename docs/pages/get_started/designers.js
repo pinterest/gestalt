@@ -44,17 +44,13 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
           description={`
 **Please note: The following plugins are only available for Pinterest employees.**
 
-[**Gestalt docs for Figma**](https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta))
-View the Gestalt documentation without leaving Figma!
-
-[**Pinsert**](https://www.figma.com/community/plugin/763812093925718603/Pinsert)
-Insert Pins, Boards, and Profiles from Pinterest.
+[![promo image for the pinterest design figma plugin](https://i.pinimg.com/originals/2f/d6/4a/2fd64af09238a059a1fb0fa6a18fc05b.png)](https://www.figma.com/community/plugin/1215463263194174399)
+[**The Pinterest Design plugin**](https://www.figma.com/community/plugin/1215463263194174399)
+The Pinterest Design Figma plugin is _the_   design tool to work faster and smarter. You can add Pinterest images directly to designs, export icons in production-ready formats, automatically convert UI to dark mode, reference design system documentation and more!
 
 [**Pinterest Assets**](https://www.figma.com/community/plugin/1001559251745003811/Pinterest-Assets)
 Insert Pinterest Brand-approved, royalty-free stock photography from curated collections on our DAM.
 
-[**Pinterest Icon Exporter**](https://www.figma.com/community/plugin/809542389605054255/Pinterest-Icon-Exporter-(beta))
-Export your self-created icons in all the sizes/formats for each platform
           `}
         />
         <MainSection.Subsection
@@ -100,7 +96,7 @@ View the Gestalt documentation without leaving Figma!
           description={`
 We are always happy to help answer Gestalt questions regarding component design and usage, design system best practices, accessibility, icons, and colors. If it’s part of Gestalt, we’re here to help! If it’s outside of the realm of our design system, we’ll try our best to point you to the person who has the answer.
 
-For information on our slack channels, weekly meetings, and events, visit the [How to Work with Us](/get_started/how_to_work_with_us) page.`}
+For information on our slack channels, weekly meetings, and events, visit the [How to Work with Us](/team_support/contributions) page.`}
         />
       </MainSection>
     </Page>

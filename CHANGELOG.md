@@ -1,3 +1,33 @@
+## 101.3.22 (Mar 30, 2023)
+
+### Patch
+
+- Docs: add redirect for "How to work with us" page ([#2777](https://github.com/pinterest/gestalt/pull/2777)) - [Preview link](https://deploy-preview-2777--gestalt.netlify.app)
+
+## 101.3.21 (Mar 29, 2023)
+
+### Patch
+
+- Docs: Add Team support tab + subpages ([#2762](https://github.com/pinterest/gestalt/pull/2762)) - [Preview link](https://deploy-preview-2762--gestalt.netlify.app)
+
+## 101.3.20 (Mar 29, 2023)
+
+### Patch
+
+- Updating image for the Pinterest Design plugin ([#2775](https://github.com/pinterest/gestalt/pull/2775)) - [Preview link](https://deploy-preview-2775--gestalt.netlify.app)
+
+## 101.3.19 (Mar 29, 2023)
+
+### Patch
+
+- Docs: final improvements to development view: cleanup/refactor ([#2773](https://github.com/pinterest/gestalt/pull/2773)) - [Preview link](https://deploy-preview-2773--gestalt.netlify.app)
+
+## 101.3.18 (Mar 29, 2023)
+
+### Patch
+
+- Docs: Cleaned up our Figma plugins section #2774 ([#2774](https://github.com/pinterest/gestalt/pull/2774)) - [Preview link](https://deploy-preview-2774--gestalt.netlify.app)
+
 ## 101.3.17 (Mar 28, 2023)
 
 ### Patch

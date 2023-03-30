@@ -54,6 +54,10 @@ pre {
   line-height: 1.5;
 }
 
+.Markdown strong {
+  font-weight: 600;
+}
+
 .Markdown pre {
   background-color: rgb(236 236 236 / 0.5);
   margin: 40px;
@@ -125,6 +129,10 @@ pre {
   height: 12px;
   margin-left: 4px;
   width: 12px;
+}
+
+.Markdown img {
+  max-width: 100%;
 }
 
 /**

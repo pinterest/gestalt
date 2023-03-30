@@ -144,6 +144,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/get_started/how_to_work_with_us',
+    destination: '/team_support/contributions',
+    permanent: true,
+  },
+  {
     source: '/how_to_hack_around_gestalt',
     destination: '/get_started/developers/hacking_gestalt',
     permanent: true,
