@@ -112,6 +112,15 @@ yarn generate ComponentName
 <Hint>Run <code>yarn build</code> and access the visual test examples via http://localhost:8888/visual-test/NewComponent or https://deploy-preview-XXXX--gestalt.netlify.app/visual-test/NewComponent</Hint>
 
 
+- While developing your new component or updating existing ones, your playground to test your work and changes is your component documentation page. Consider the following while developing:
+  - Use your docs/examples<strong>/newcomponent/main.js</strong> example to iterate on your implementation
+  - Our documentation currently uses two live coding environments: [Sandpack](https://sandpack.codesandbox.io/) and [React Live](https://github.com/FormidableLabs/react-live). While Sandpack provides a better final experience, it has not been configured yet to support local development efficiently. On the other hand, React Live works well with local development; however, it has the following limitations to consider when building examples:
+    - [JS optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) is not supported
+    - External imports are not supported
+    - All constants must be within the exported function, not outside
+    - Sandpack examples are contained within its own contained viewport, while React Live isn't contained and uses the Gestalt documentation page as viewport. For components that are shown by default in Sandpack, for example Modal or OverlayPanel, we shouldn't display them by default within React Live as they would automatically be visible in your page. Use the following useState <code>const [showCmp, setShowCmp] = useState(true);</code> to control the visibility of your component. Under the hood, we replace the boolean so the components are shown by default in Sandpack but stayed closed by default on React Live.
+  - To enable React Live during development and within build testing URLs (https://deploy-preview-XXXX--gestalt.netlify.app), you can toggle between development mode view in the Settings menu in the site header. 
+
 - Any subsequent component changes might require the following actions.
 
   - Run unit tests
@@ -170,6 +179,8 @@ git push -f origin HEAD
 - Ensure checks pass on your Pull Request - having the "Require Semver / Test (pull_request)" check fail is expected, because a Gestalt maintainer needs to add a correct semver label. Read our [release and versioning guidelines](/get_started/developers/releases#Automated-releases).
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
+
+- Check the status of your PR https://github.com/pinterest/gestalt/pull/XXXX and access the deploy preview using the built site URL https://deploy-preview-XXXX--gestalt.netlify.app from Netlify.
 
 <details>
   <summary><b>My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?</b></summary>
