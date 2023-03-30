@@ -1,3 +1,9 @@
+## 101.3.26 (Mar 30, 2023)
+
+### Patch
+
+- Internal: standardize format for a11y integration test naming ([#2778](https://github.com/pinterest/gestalt/pull/2778)) - [Preview link](https://deploy-preview-2778--gestalt.netlify.app)
+
 ## 101.3.25 (Mar 30, 2023)
 
 ### Patch
