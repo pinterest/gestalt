@@ -14,7 +14,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function SizesExample(): Node {
+export default function Example(): Node {
   function reducer(state, action) {
     switch (action.type) {
       case 'small':

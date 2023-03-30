@@ -9,7 +9,6 @@ import theme from './atomDark.js';
 import ExampleCode from './ExampleCode.js';
 
 const reactImports = [
-  'Component',
   'Children',
   'Fragment',
   'PureComponent',
@@ -64,7 +63,11 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
     // Remove export statement
     .replace('export default', '')
     // Add React. to React imports
-    .replace(reactRegex, 'React.$&');
+    .replace(reactRegex, 'React.$&')
+    .replace(
+      'const [showComponent, setShowComponent] = React.useState(true);',
+      'const [showComponent, setShowComponent] = React.useState(false);',
+    );
 
   return (
     <Box

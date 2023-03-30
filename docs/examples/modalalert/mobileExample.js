@@ -3,7 +3,7 @@ import { useState, type Node } from 'react';
 import { Layer, ModalAlert, Box, Text, DeviceTypeProvider, Button } from 'gestalt';
 
 export default function Example(): Node {
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
 
   return (
     <DeviceTypeProvider deviceType="mobile">
@@ -13,15 +13,15 @@ export default function Example(): Node {
           color="red"
           text="Show Modal"
           size="lg"
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowComponent(true)}
         />
       </Box>
-      {showModal ? (
+      {showComponent ? (
         <Layer>
           <ModalAlert
             accessibilityModalLabel="Mobile ModalAlert example"
             heading="Heading"
-            onDismiss={() => setShowModal(false)}
+            onDismiss={() => setShowComponent(false)}
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
