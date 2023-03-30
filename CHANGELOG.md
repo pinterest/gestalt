@@ -1,3 +1,9 @@
+## 101.3.23 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Roadmap updates ([#2779](https://github.com/pinterest/gestalt/pull/2779)) - [Preview link](https://deploy-preview-2779--gestalt.netlify.app)
+
 ## 101.3.22 (Mar 30, 2023)
 
 ### Patch
