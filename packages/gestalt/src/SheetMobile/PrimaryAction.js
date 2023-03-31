@@ -13,7 +13,7 @@ type Props = {|
   target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
 |};
 
-export default function ToastPrimaryAction({
+export default function PrimaryAction({
   accessibilityLabel,
   href,
   label,
@@ -22,7 +22,7 @@ export default function ToastPrimaryAction({
   size = 'lg',
   target,
 }: Props): Node {
-  if (href && label)
+  if (href)
     return (
       <Button
         accessibilityLabel={accessibilityLabel}
@@ -37,14 +37,13 @@ export default function ToastPrimaryAction({
       />
     );
 
-  if (label)
-    return (
-      <Button
-        accessibilityLabel={accessibilityLabel}
-        text={label}
-        size={size}
-        onClick={onClick}
-        color="red"
-      />
-    );
+  return (
+    <Button
+      accessibilityLabel={accessibilityLabel}
+      text={label}
+      size={size}
+      onClick={onClick}
+      color="red"
+    />
+  );
 }

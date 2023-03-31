@@ -52,8 +52,8 @@ export default function SheetMobilePage({
             type="do"
             title="When to use"
             description={`
-- Use a Partial Sheet when the content of the Sheet compliments the content of the primary screen behind.
-- Use a Full Sheet when the content of the Sheet does not need to reference the primary screen behind. Usually serving as a lightweight way to complete actions or move through a flow.
+- Use a partial sheet when the content of sheet compliments the content of the primary screen behind.
+- Use a full sheet when the content of the sheet does not need to reference the primary screen behind. Usually serving as a lightweight way to complete actions or move through a flow.
 - Use in conjunction with other Gestalt components as a means to make them mobile-friendly e.g. Dropdown or Popover.`}
           />
           <MainSection.Card
@@ -62,7 +62,7 @@ export default function SheetMobilePage({
             title="When not to use"
             description={`
 - If possible, similar content should remain on a primary screen. Only use SheetMobile if the content is a unique experience to the primary screen and/or to reference its content.
-- To present binary or blocking decisions. Use an ModalAlert of Modal instead.
+- To present binary or blocking decisions. Use an ModalAlert or Modal instead.
 - For a temporary message. Use Toast instead.`}
           />
         </MainSection.Subsection>
@@ -75,7 +75,7 @@ export default function SheetMobilePage({
             type="do"
             title="Do"
             description={`
-- Always include a collapse affordance. The Sheet should close when users press the X icon button, a cancel/close button, the Esc key, when swiped away or when users click or tap the area outside the partial sheet.
+- Always include a collapse affordance. The Sheet should close when users press the X icon button, a cancel/close button, the Esc key, when swiped away or when users tap the area outside the partial sheet.
 - Include a grabber for partial sheets. This provides a visual indicator of resizability and allows screen reader users to resize the sheet.
 - Include a header title, either in the default or editorial format as it add context to the task.`}
           />
@@ -93,7 +93,24 @@ export default function SheetMobilePage({
 
       <AccessibilitySection name={generatedDocGen?.SheetMobile.displayName} />
 
-      <MainSection name="Localization" />
+      <MainSection
+        name="Localization"
+        description={`Be sure to localize \`heading\` and \`subHeading\`. Also, localize all instances \`accessibilityLabel\`, \`primaryAction\`'s \`label\` any \`children\`'s and \`footer\`'s content.
+
+Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+      >
+        <SlimBanner
+          iconAccessibilityLabel="Recommendation"
+          message={`SheetMobile's main \`accessibilityLabel\` is used to announce SheetMobile to assistive technologies as "Bottom sheet". Localize the default label with DefaultLabelProvider if you want to provide a custom label to SheetMobile.`}
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
+      </MainSection>
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -116,11 +133,11 @@ export default function SheetMobilePage({
 
 Use a partial SheetMobile when the content of the sheet compliments the content of the primary screen behind. Partial SheetMobiles have a 40% wash behind the sheet. This allows users to view content but not interact. Tapping the scrim behind the sheet will dismiss the sheet and the wash by default.
 
-There are two size variants for partial SheetMobiles: "default" and "auto". See examples belor for more details.
+There are two size variants for partial SheetMobiles: "default" and "auto". See examples below for more details.
 
 Use a full SheetMobile when the content of the sheet does not need to reference the primary screen behind. Usually serving as a lightweight way to complete actions or move through a flow.
 
-There is one size variant for full Sheets: "full". See examples belor for more details.
+There is one size variant for full Sheets: "full". See examples below for more details.
 `}
         >
           <MainSection.Card
@@ -158,7 +175,7 @@ There is one size variant for full Sheets: "full". See examples belor for more d
 
 - It requires a \`heading\` prop and an optional \`subHeading\`.
 - It can display navigation buttons (back and forward navigation) using the \`backIconButton\` and \`forwardIconButton\`.
-- It can display a dismiss buttons (\`showDismissButton\` prop) as well as a primary action button (\`primaryAction\` prop).
+- It can display a dismiss button (\`showDismissButton\` prop) as well as a primary action button (\`primaryAction\` prop).
 
 See the following cases for reference.
         `}
@@ -180,7 +197,7 @@ See the following cases for reference.
             sandpackExample={
               <SandpackExample
                 code={withPrimaryActionHeader}
-                name="Headingwith primary action example"
+                name="Heading with primary action example"
                 layout="column"
               />
             }
@@ -272,6 +289,11 @@ When using these render props, just pass the argument \`onDismissStart\` to your
         </MainSection.Subsection>
       </MainSection>
 
+      <MainSection
+        name="Implementation guidelines"
+        description={`SheetMobile is a mobile only component; therefore, there shouldn't be instances of SheetMobile in desktop experiences. To enforce proper usage, SheetMobile only renders when [DeviceTypeProvider](/web/utilities/devicetypeprovider) wraps your app and \`deviceType\` prop is set to "mobile". Otherwise, it only renders "null".`}
+      />
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -279,7 +301,7 @@ When using these render props, just pass the argument \`onDismissStart\` to your
             type="do"
             description={`
 - Keep headings short and clear
-- Use Sentence case for headings per our Pinterest writing standards
+- Use Sentence case for headings per our [Pinterest writing standards](https://deploy-preview-2794--gestalt.netlify.app/foundations/content_standards/formatting)
 `}
           />
           <MainSection.Card
@@ -299,10 +321,10 @@ When using these render props, just pass the argument \`onDismissStart\` to your
         <MainSection.Subsection
           description={`
 **[Modal](/Modal)**
-A Modal displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal.
+Modal displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal.
 
 **[ModalAlert](/ModalAlert)**
-A ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action.
+ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action.
 
 **[OverlayPanel](/OverlayPanel)**
 OverlayPanels are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.

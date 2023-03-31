@@ -24,13 +24,21 @@ export default function Example(): Node {
           <SheetMobile
             heading="Heading"
             subHeading="SubHeading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+            primaryAction={{
+              accessibilityLabel: 'Next page',
+              label: 'Next',
+              onClick: ({ onDismissStart }) => onDismissStart(),
+            }}
             onDismiss={() => setShowComponent(false)}
             footer={
-              <Flex justifyContent="center" gap={2}>
-                <Button color="gray" text="Secondary" />
-                <Button color="red" text="Primary" />
-              </Flex>
+              <SheetMobile.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Flex justifyContent="center" gap={2}>
+                    <Button color="gray" text="Secondary" onClick={() => onDismissStart()} />
+                    <Button color="red" text="Primary" onClick={() => onDismissStart()} />
+                  </Flex>
+                )}
+              </SheetMobile.DismissingElement>
             }
             size="auto"
           >

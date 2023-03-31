@@ -24,12 +24,16 @@ export default function Example(): Node {
           <SheetMobile
             heading="Heading"
             subHeading="SubHeading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+            primaryAction={{
+              accessibilityLabel: 'Next page',
+              label: 'Next',
+              onClick: () => setShowComponent(false),
+            }}
             onDismiss={() => setShowComponent(false)}
             footer={
               <Flex justifyContent="center" gap={2}>
-                <Button color="gray" text="Secondary" />
-                <Button color="red" text="Primary" />
+                <Button color="gray" text="Secondary" onClick={() => setShowComponent(false)} />
+                <Button color="red" text="Primary" onClick={() => setShowComponent(false)} />
               </Flex>
             }
             size="full"

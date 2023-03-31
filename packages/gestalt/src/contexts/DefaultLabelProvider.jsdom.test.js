@@ -38,7 +38,7 @@ describe('useDefaultLabelContext', () => {
             dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
           },
           SheetMobile: {
-            accessibilityDismissButtonLabel: 'Close overlay panel',
+            accessibilityDismissButtonLabel: 'Close bottom sheet',
             accessibilityGrabberLabel: 'Grabber',
             accessibilityLabel: 'Bottom sheet',
           },

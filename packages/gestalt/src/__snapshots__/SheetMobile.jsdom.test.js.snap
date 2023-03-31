@@ -1,0 +1,445 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SheetMobile renders correctly auto size 1`] = `
+<div
+  name="trap-focus"
+>
+  <div
+    className="container partialPageContainer"
+  >
+    <div
+      className="backdrop backdropAnimationIn zoomOut"
+      onClick={[Function]}
+    />
+    <div
+      aria-label="Bottom sheet"
+      className="wrapper hideOutline autoWrapper animationInBottom"
+      id=":r1:"
+      onAnimationEnd={[Function]}
+      role="dialog"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="box relative xsDirectionColumn xsDisplayFlex"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="box fit paddingX4 paddingY4 relative"
+        >
+          <div
+            className="Flex rowGap0 columnGap0 justifyCenter xsDirectionRow"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <div
+                aria-disabled={false}
+                aria-label="Grabber"
+                className="hideOutline tapTransition rounding7 accessibilityOutline pointer"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <div
+                  className="box rounding7 secondary"
+                  style={
+                    Object {
+                      "height": 5,
+                      "width": 37,
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+          >
+            <div
+              className="FlexItem flexNone"
+            >
+              <button
+                aria-controls=":r1:"
+                aria-label="Close bottom sheet"
+                className="parentButton"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                type="button"
+              >
+                <div
+                  className="button tapTransition enabled"
+                >
+                  <div
+                    className="pog transparent"
+                    style={
+                      Object {
+                        "height": 48,
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon defaultIcon iconBlock"
+                      height={20}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={20}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <h1
+                  className="Heading fontSize300 defaultText alignStart breakWord lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 2,
+                    }
+                  }
+                  title="test"
+                >
+                  test
+                </h1>
+                <div
+                  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  test
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="box flexGrow overflowAuto paddingX4 paddingY2"
+          onScroll={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SheetMobile renders correctly default size 1`] = `
+<div
+  name="trap-focus"
+>
+  <div
+    className="container partialPageContainer"
+  >
+    <div
+      className="backdrop backdropAnimationIn zoomOut"
+      onClick={[Function]}
+    />
+    <div
+      aria-label="Bottom sheet"
+      className="wrapper hideOutline defaultWrapper animationInBottom"
+      id=":r0:"
+      onAnimationEnd={[Function]}
+      role="dialog"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="box relative xsDirectionColumn xsDisplayFlex"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="box fit paddingX4 paddingY4 relative"
+        >
+          <div
+            className="Flex rowGap0 columnGap0 justifyCenter xsDirectionRow"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <div
+                aria-disabled={false}
+                aria-label="Grabber"
+                className="hideOutline tapTransition rounding7 accessibilityOutline pointer"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <div
+                  className="box rounding7 secondary"
+                  style={
+                    Object {
+                      "height": 5,
+                      "width": 37,
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+          >
+            <div
+              className="FlexItem flexNone"
+            >
+              <button
+                aria-controls=":r0:"
+                aria-label="Close bottom sheet"
+                className="parentButton"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                type="button"
+              >
+                <div
+                  className="button tapTransition enabled"
+                >
+                  <div
+                    className="pog transparent"
+                    style={
+                      Object {
+                        "height": 48,
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon defaultIcon iconBlock"
+                      height={20}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={20}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <h1
+                  className="Heading fontSize300 defaultText alignStart breakWord lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 2,
+                    }
+                  }
+                  title="test"
+                >
+                  test
+                </h1>
+                <div
+                  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  test
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="box flexGrow overflowAuto paddingX4 paddingY2"
+          onScroll={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SheetMobile renders correctly full size 1`] = `
+<div
+  name="trap-focus"
+>
+  <div
+    className="container fullPageContainer"
+  >
+    <div
+      className="backdrop"
+      onClick={[Function]}
+    />
+    <div
+      aria-label="Bottom sheet"
+      className="fullPageWrapper hideOutline"
+      id=":r2:"
+      role="dialog"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="box relative xsDirectionColumn xsDisplayFlex"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="box fit paddingX4 paddingY4 relative"
+        >
+          <div
+            className="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+          >
+            <div
+              className="FlexItem flexNone"
+            >
+              <button
+                aria-controls=":r2:"
+                aria-label="Close bottom sheet"
+                className="parentButton"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                type="button"
+              >
+                <div
+                  className="button tapTransition enabled"
+                >
+                  <div
+                    className="pog transparent"
+                    style={
+                      Object {
+                        "height": 48,
+                        "width": 48,
+                      }
+                    }
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon defaultIcon iconBlock"
+                      height={20}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={20}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              >
+                <h1
+                  className="Heading fontSize300 defaultText alignStart breakWord lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 2,
+                    }
+                  }
+                  title="test"
+                >
+                  test
+                </h1>
+                <div
+                  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  test
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="box flexGrow overflowAuto paddingX4 paddingY2"
+          onScroll={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

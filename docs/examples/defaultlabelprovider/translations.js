@@ -32,7 +32,7 @@ const labels = {
   },
   SheetMobile: {
     accessibilityGrabberLabel: myI18nTranslator('Grabber'),
-    accessibilityDismissButtonLabel: myI18nTranslator('Close overlay panel'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Close bottom sheet'),
     accessibilityLabel: myI18nTranslator('Bottom sheet'),
   },
   Tag: {

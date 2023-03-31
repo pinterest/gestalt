@@ -8,15 +8,6 @@ import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import FullPage from './SheetMobile/FullPage.js';
 import PartialPage from './SheetMobile/PartialPage.js';
 
-type OnClickType = ({|
-  event:
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  onDismissStart: () => void,
-|}) => void;
-
 type Props = {|
   /**
    * String that clients such as VoiceOver will read to describe SheetMobile when opened. See [Accessibility section](https://gestalt.pinterest.systems/web/sheetmobile#Accessibility) for more info.
@@ -29,7 +20,17 @@ type Props = {|
   /**
    * Adds a "back-arrow" IconButton for user interaction at the start of the header section. See the [header variant, back and forward navigation case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
-  backIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
+  backIconButton?: {|
+    accessibilityLabel: string,
+    onClick: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      onDismissStart: () => void,
+    |}) => void,
+  |},
   /**
    * Supply the element(s) that will be used as SheetMobile's main content.
    */
@@ -47,12 +48,19 @@ type Props = {|
    */
   forwardIconButton?: {|
     accessibilityLabel: string,
-    onClick: OnClickType,
+    onClick: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      onDismissStart: () => void,
+    |}) => void,
   |},
   /**
    * The text used for SheetMobile's heading. See the [header variant](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
-  heading?: string,
+  heading: string,
   /**
    * Callback fired when SheetMobile's in & out animations end. See the [animation variant](https://gestalt.pinterest.systems/web/sheetmobile#Animation) to learn more.
    */
@@ -72,7 +80,14 @@ type Props = {|
     accessibilityLabel: string,
     href?: string,
     label: string,
-    onClick: OnClickType,
+    onClick: ({|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      onDismissStart: () => void,
+    |}) => void,
     rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
     size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
@@ -82,7 +97,7 @@ type Props = {|
    */
   role?: 'alertdialog' | 'dialog',
   /**
-   * Shows a dismiss button on Popover. See the [header variant, dismiss button case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
+   * Shows a dismiss button on SheetMobile. See the [header variant, dismiss button case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
   showDismissButton?: boolean,
   /**
@@ -118,15 +133,19 @@ function SheetMobile({
   padding,
   primaryAction,
   heading,
-  role,
+  role = 'dialog',
   showDismissButton = true,
   subHeading,
   size = 'default',
 }: Props): Node {
   const deviceType = useDeviceType();
+
   const isMobile = deviceType === 'mobile';
 
-  if (!isMobile) return null;
+  if (!isMobile)
+    throw new Error(
+      `Gestalt SheetMobile is a mobile-device only component. It should not be used in desktop experiences. Please, make sure to keep in sync [Gestalt DeviceTypeProvider](https://gestalt.pinterest.systems/web/utilities/devicetypeprovider) and the conditional rendering of this component.`,
+    );
 
   if (size === 'full')
     return (
@@ -173,7 +192,9 @@ function SheetMobile({
       </AnimationProvider>
     );
 
-  return null;
+  throw new Error(
+    `Gestalt SheetMobile only accepts three valid size values: 'default', 'auto', and 'full'. Please, provide a valid size value.`,
+  );
 }
 
 SheetMobile.DismissingElement = DismissingElement;

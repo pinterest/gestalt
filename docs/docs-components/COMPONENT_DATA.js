@@ -3418,7 +3418,7 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
     aliases: ['Panel', 'Dialog', 'Drawer', 'Tray'],
     hasDarkBackground: false,
     description:
-      'SheetMobile is a mobile only component. SheetMobile is a supplementary container that sits on top of the screen’s primary content and can be dismissed in order to interact with the underlying content. Sheets can contain a wide variety of information and layouts, including menu items, actions, and supplemental content.',
+      'SheetMobile is a mobile only component. SheetMobile is a supplementary container that sits on top of the screen’s primary.',
     category: 'Building blocks',
     status: {
       accessible: {

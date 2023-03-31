@@ -9,6 +9,8 @@ import {
   Button,
   FixedZIndex,
   CompositeZIndex,
+  Flex,
+  IconButton,
 } from 'gestalt';
 
 export default function Example(): Node {
@@ -26,6 +28,29 @@ export default function Example(): Node {
             onDismiss={() => setShowComponent(false)}
             showDismissButton={false}
             primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+            footer={
+              <Flex justifyContent="between" gap={2}>
+                <IconButton
+                  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  icon="share"
+                  role="link"
+                  target="blank"
+                  href="https://www.pinterest.com"
+                  tooltip={{ text: 'Link example' }}
+                />
+                <Flex gap={2}>
+                  <Button color="gray" text="Secondary" />
+                </Flex>
+                <IconButton
+                  accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  icon="ellipsis"
+                  role="link"
+                  target="blank"
+                  href="https://www.pinterest.com"
+                  tooltip={{ text: 'Link example' }}
+                />
+              </Flex>
+            }
           >
             <TextField
               autoComplete="username"
