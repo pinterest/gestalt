@@ -3,6 +3,33 @@
     "year": "2023",
     "digests": [
       {
+        "week": "March 31, 2023",
+        "summary": "New team support section in our docs, new/improved Android documentation and Popover updates in our Figma Web library.",
+        "posts": [
+          {
+            "title": "Team support resources + Component request/updates process",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e1/08/c6/e108c63132adda654d78f72f7fad90be.png",
+            "imageAltText": "illustration of glasses clinking",
+            "content": "We know the design system is all about collaboration and service. And, to improve our collaboration process, we just published a set of resources and guidelines to help you build consistent product surfaces and collaborate with us!\n\nWe defined a straightforward process to receive, centralize and manage your component’s requests and updates, making it easier for you to follow your request’s progress and understand how it fits in our roadmap. Yay! :tada:\n\n[**Check it out!**](https://gestalt.pinterest.systems/team_support/overview)"
+          },
+          {
+            "title": "Android SearchField and Toast docs",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/cc/07/73/cc077337fe5642016435264d767b65d9.png",
+            "imageAltText": "example of searchfield component",
+            "content": "We added new [Android SearchField component documentation](https://gestalt.pinterest.systems/android/searchfield) and made updates to our [Android Toast component documentation](https://gestalt.pinterest.systems/android/toast). They both include design guidelines as well as specifications for development. We have plans to ship much more documentation in the following quarter, so stay tuned for more updates."
+          },
+          {
+            "title": "Figma Popover caret positioning and new PopoverEducational",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/cf/ea/a5/cfeaa5cc8a88fc2af25921c25ede15b6.png",
+            "imageAltText": "example of popovereducational component",
+            "content": "We finally added [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational) to our Figma Web library which should speed up designing education or onboarding experiences moving forward. We _also_ added the ability to position the caret on all sides in our Popover and PopoverEducational Figma components. Note, these updates are only for our Web library at the moment, but we plan to make the same changes to Android and iOS shortly. Rejoice!"
+          }
+        ]
+      },
+      {
         "week": "March 24, 2023",
         "summary": "Illustration best practices, Figma extended color palette styles, Card components, icons and more!",
         "posts": [
