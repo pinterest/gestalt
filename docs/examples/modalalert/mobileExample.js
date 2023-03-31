@@ -3,7 +3,7 @@ import { useState, type Node } from 'react';
 import { Layer, ModalAlert, Box, Text, DeviceTypeProvider, Button } from 'gestalt';
 
 export default function Example(): Node {
-  const [showComponent, setShowComponent] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
 
   return (
     <DeviceTypeProvider deviceType="mobile">

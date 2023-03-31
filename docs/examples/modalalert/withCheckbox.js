@@ -12,12 +12,12 @@ import {
   Text,
 } from 'gestalt';
 
-export default function WithCheckbox(): Node {
-  const [checked1, setChecked1] = useState(false);
-  const [showComponent, setShowComponent] = useState(false);
+const HEADER_ZINDEX = new FixedZIndex(10);
+const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+export default function Example(): Node {
+  const [showComponent, setShowComponent] = useState(true);
+  const [checked1, setChecked1] = useState(false);
 
   return (
     <Fragment>

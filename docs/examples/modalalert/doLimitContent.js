@@ -2,11 +2,11 @@
 import { Fragment, type Node, useState } from 'react';
 import { Box, Button, ModalAlert, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
-export default function DoLimitContent(): Node {
-  const [showComponent, setShowComponent] = useState(false);
+const HEADER_ZINDEX = new FixedZIndex(10);
+const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+export default function Example(): Node {
+  const [showComponent, setShowComponent] = useState(true);
 
   return (
     <Fragment>
