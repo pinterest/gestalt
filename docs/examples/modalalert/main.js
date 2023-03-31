@@ -2,11 +2,11 @@
 import { type Node, useState } from 'react';
 import { ModalAlert, Box, Button, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
-export default function DefaultExample(): Node {
-  const [showComponent, setShowComponent] = useState(false);
+const HEADER_ZINDEX = new FixedZIndex(10);
+const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+export default function DefaultExample(): Node {
+  const [showComponent, setShowComponent] = useState(true);
 
   return (
     <Box padding={3}>

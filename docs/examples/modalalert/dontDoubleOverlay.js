@@ -2,12 +2,12 @@
 import { type Node, useState } from 'react';
 import { ModalAlert, Box, Button, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
-export default function DoOverlayPage(): Node {
-  const [showCmpA, setShowComponentA] = useState(false);
-  const [showCmpB, setShowComponentB] = useState(false);
+const HEADER_ZINDEX = new FixedZIndex(10);
+const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+export default function Example(): Node {
+  const [showCmpA, setShowComponentA] = useState(true);
+  const [showCmpB, setShowComponentB] = useState(true);
 
   return (
     <Box padding={3}>
