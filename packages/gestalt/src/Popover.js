@@ -6,7 +6,7 @@ import Flex from './Flex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalDismissButton from './shared/InternalDismissButton.js';
 
-type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
+type Color = 'blue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
