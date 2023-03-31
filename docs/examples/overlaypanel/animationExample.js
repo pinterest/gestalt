@@ -11,11 +11,11 @@ import {
   OverlayPanel,
 } from 'gestalt';
 
-const HEADER_ZINDEX = new FixedZIndex(10);
-const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+export default function Example(): Node {
+  const [showComponent, setShowComponent] = useState(true);
 
-export default function AnimationExample(): Node {
-  const [shouldShow, setShouldShow] = useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   const renderSubheading = (
     <OverlayPanel.DismissingElement>
@@ -64,16 +64,16 @@ export default function AnimationExample(): Node {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="Open example overlay panel" onClick={() => setShouldShow(true)} />
+        <Button text="Open example overlay panel" onClick={() => setShowComponent(true)} />
       </Box>
-      {shouldShow && (
+      {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
             accessibilityDismissButtonLabel="Close"
             accessibilityLabel="Animated overlay panel"
             footer={renderFooter}
             heading="Animated OverlayPanel"
-            onDismiss={() => setShouldShow(false)}
+            onDismiss={() => setShowComponent(false)}
             size="md"
             subHeading={renderSubheading}
           >

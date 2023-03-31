@@ -1,3 +1,51 @@
+## 101.3.30 (Mar 30, 2023)
+
+### Patch
+
+- Docs: refactored examples for Modal, ModalAlert, OverlayPanel examples for better display ([#2787](https://github.com/pinterest/gestalt/pull/2787)) - [Preview link](https://deploy-preview-2787--gestalt.netlify.app)
+
+## 101.3.29 (Mar 30, 2023)
+
+### Patch
+
+- Internal: formatting tweaks in COMPONENT_DATA ([#2785](https://github.com/pinterest/gestalt/pull/2785)) - [Preview link](https://deploy-preview-2785--gestalt.netlify.app)
+
+## 101.3.28 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Updated get_started/developers/contributing/development_process ([#2783](https://github.com/pinterest/gestalt/pull/2783)) - [Preview link](https://deploy-preview-2783--gestalt.netlify.app)
+
+## 101.3.27 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Add Team support to mobile siden nav ([#2784](https://github.com/pinterest/gestalt/pull/2784)) - [Preview link](https://deploy-preview-2784--gestalt.netlify.app)
+
+## 101.3.26 (Mar 30, 2023)
+
+### Patch
+
+- Internal: standardize format for a11y integration test naming ([#2778](https://github.com/pinterest/gestalt/pull/2778)) - [Preview link](https://deploy-preview-2778--gestalt.netlify.app)
+
+## 101.3.25 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Fixing capitalization ([#2781](https://github.com/pinterest/gestalt/pull/2781)) - [Preview link](https://deploy-preview-2781--gestalt.netlify.app)
+
+## 101.3.24 (Mar 30, 2023)
+
+### Patch
+
+- ButtonGroup, Container: convert examples to Sandpack ([#2776](https://github.com/pinterest/gestalt/pull/2776)) - [Preview link](https://deploy-preview-2776--gestalt.netlify.app)
+
+## 101.3.23 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Roadmap updates ([#2779](https://github.com/pinterest/gestalt/pull/2779)) - [Preview link](https://deploy-preview-2779--gestalt.netlify.app)
+
 ## 101.3.22 (Mar 30, 2023)
 
 ### Patch

@@ -106,19 +106,19 @@ export type Category =
   | 'Pilot'
   | 'Pins and imagery'
   | 'Structure'
+  | 'Team support'
   | 'Text'
   | 'Utilities'
-  | 'Team_Support'
   | null;
 
 type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
 
 export type AccessibleStatus = {|
-  summary: ?StatusType,
-  a11yVisual: ?StatusType,
-  a11yScreenreader: ?StatusType,
-  a11yNavigation: ?StatusType,
   a11yComprehension: ?StatusType,
+  a11yNavigation: ?StatusType,
+  a11yScreenreader: ?StatusType,
+  a11yVisual: ?StatusType,
+  summary: ?StatusType,
 |};
 
 type PlatformStatus = {|
@@ -140,7 +140,12 @@ export type ListItemType = {|
   name: string,
   path?: string,
   previouslyNamed?: $ReadOnlyArray<string>,
-  status?: {| ...PlatformStatus, iOS: StatusType, android: StatusType, responsive: StatusType |}, // web status
+  status?: {|
+    ...PlatformStatus,
+    android: StatusType,
+    iOS: StatusType,
+    responsive: StatusType,
+  |}, // web status
   svg: Element<typeof Accessibility>,
 |};
 
@@ -150,7 +155,7 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Be a Gestalt advocate',
     description:
       'A dedicated cohort of system advocates to rely on for design partnership, input and knowledge share and support within your team and product area.',
-    category: 'Team_Support',
+    category: 'Team support',
     path: '/team_support/be_a_gestalt_advocate',
   },
   {
@@ -158,14 +163,14 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Component request',
     description:
       'Instructions on how to request new components or updates to an existent component.',
-    category: 'Team_Support',
+    category: 'Team support',
     path: '/team_support/component_request',
   },
   {
     svg: <ContributionsTile />,
     name: 'Contributions',
     description: 'Resources, Slack channels, meetings and events.',
-    category: 'Team_Support',
+    category: 'Team support',
     path: '/team_support/contributions',
   },
   {
@@ -173,7 +178,7 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Get help',
     description:
       'Resources on how to engage with the Gestalt team, join office hours, meetings and events.',
-    category: 'Team_Support',
+    category: 'Team support',
     path: '/team_support/get_help',
   },
   {
@@ -181,7 +186,7 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Training',
     description:
       'Gestalt design systems specific training to support design workflow and systems mindset.',
-    category: 'Team_Support',
+    category: 'Team support',
     path: '/team_support/training',
   },
 ];

@@ -2,45 +2,49 @@
 import { type Node, useState } from 'react';
 import { ModalAlert, Box, Button, CompositeZIndex, FixedZIndex, Layer, Text } from 'gestalt';
 
-const HEADER_ZINDEX = new FixedZIndex(10);
-const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
 export default function DoOverlayPage(): Node {
-  const [showModal, setShowModal] = useState(true);
+  const [showCmpA, setShowComponentA] = useState(false);
+  const [showCmpB, setShowComponentB] = useState(false);
+
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <Box padding={3}>
       <Button
         text="Show modal"
         onClick={() => {
-          setShowModal((currVal) => !currVal);
+          setShowComponentA(true);
+          setShowComponentB(true);
         }}
       />
-      <Layer zIndex={zIndex}>
-        <ModalAlert
-          accessibilityModalLabel="Promote to admin"
-          heading="Promote to admin"
-          primaryAction={{
-            accessibilityLabel: 'Confirm delete board',
-            label: 'Submit',
-            onClick: () => {},
-          }}
-          secondaryAction={{
-            accessibilityLabel: 'Cancel board deletion',
-            label: 'Cancel',
-            onClick: () => {},
-          }}
-          onDismiss={() => {}}
-        >
-          <Box height={300}>
-            <Text>
-              Your board and all of its Pins will be deleted forever. Other Pinners who have access
-              to this board will also lose access. This cannot be undone.
-            </Text>
-          </Box>
-        </ModalAlert>
-      </Layer>
-      {showModal && (
+      {showCmpA && (
+        <Layer zIndex={zIndex}>
+          <ModalAlert
+            accessibilityModalLabel="Promote to admin"
+            heading="Promote to admin"
+            primaryAction={{
+              accessibilityLabel: 'Confirm delete board',
+              label: 'Submit',
+              onClick: () => setShowComponentA(false),
+            }}
+            secondaryAction={{
+              accessibilityLabel: 'Cancel board deletion',
+              label: 'Cancel',
+              onClick: () => setShowComponentA(false),
+            }}
+            onDismiss={() => setShowComponentA(false)}
+          >
+            <Box height={300}>
+              <Text>
+                Your board and all of its Pins will be deleted forever. Other Pinners who have
+                access to this board will also lose access. This cannot be undone.
+              </Text>
+            </Box>
+          </ModalAlert>
+        </Layer>
+      )}
+      {showCmpB && (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Delete board 70s Furniture"
@@ -48,15 +52,15 @@ export default function DoOverlayPage(): Node {
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
-              onClick: () => {},
+              onClick: () => setShowComponentB(false),
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'No, keep',
-              onClick: () => {},
+              onClick: () => setShowComponentB(false),
             }}
             onDismiss={() => {
-              setShowModal((currVal) => !currVal);
+              setShowComponentB(false);
             }}
           >
             <Text>

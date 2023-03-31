@@ -2,20 +2,20 @@
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/buttongroup/defaultExample.js';
+import main from '../../examples/buttongroup/main.js';
+import variantsWrap from '../../examples/buttongroup/variantsWrap.js';
 
-export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={defaultExample} name="ButtonGroup Main Example" hideEditor />
+        <SandpackExample code={main} name="ButtonGroup Main Example" hideEditor />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -45,31 +45,20 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
       </MainSection>
 
-      <Example
-        name="Example"
-        id="example"
-        defaultCode={`
-<ButtonGroup>
-  <Button text="Button 1" />
-  <Button text="Button 2" />
-</ButtonGroup>
-`}
-      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Wrap"
+          description="When buttons don't fit within the container, they will automatically wrap to the next line."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={variantsWrap} name="Variants - Wrap" layout="column" />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-      <Example
-        name="Wrap"
-        id="wrap"
-        description={`When buttons don't fit within the container, they will automatically wrap to the next line.`}
-        defaultCode={`
-<Box width={150} borderStyle="sm">
-  <ButtonGroup>
-    <Button text="Button 1" />
-    <Button text="Button 2" />
-    <Button text="Button 3" />
-  </ButtonGroup>
-</Box>
-`}
-      />
       <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
