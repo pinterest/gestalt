@@ -1,3 +1,9 @@
+## 102.0.0 (Mar 31, 2023)
+
+### Major
+
+- Popover: Deprecating 'orange' color ([#2790](https://github.com/pinterest/gestalt/pull/2790)) - [Preview link](https://deploy-preview-2790--gestalt.netlify.app)
+
 ## 101.3.32 (Mar 31, 2023)
 
 ### Patch
