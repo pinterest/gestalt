@@ -97,6 +97,7 @@ export default function Example(): Node {
           icon="add"
           onClick={() => setOpen((prevVal) => !prevVal)}
           selected={open}
+          tooltip={{ text: 'Create Pin Menu' }}
         />
       </Box>
       {open && (

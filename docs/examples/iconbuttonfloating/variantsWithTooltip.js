@@ -32,6 +32,7 @@ export default function Example(): Node {
           }}
         />
       </Box>
+
       {open && (
         <Dropdown
           anchor={anchorRef.current}

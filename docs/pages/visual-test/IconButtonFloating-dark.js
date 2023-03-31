@@ -11,6 +11,9 @@ export default function Snapshot(): Node {
           accessibilityLabel="test"
           icon="add"
           onClick={() => {}}
+          tooltip={{
+            text: 'test',
+          }}
         />
       </Box>
     </ColorSchemeProvider>
