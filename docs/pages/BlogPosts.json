@@ -11,7 +11,7 @@
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/e1/08/c6/e108c63132adda654d78f72f7fad90be.png",
             "imageAltText": "illustration of glasses clinking",
-            "content": "We know the design system is all about collaboration and service. And, to improve our collaboration process, we just published a set of resources and guidelines to help you build consistent product surfaces and collaborate with us!\n\nWe defined a straightforward process to receive, centralize and manage your component’s requests and updates, making it easier for you to follow your request’s progress and understand how it fits in our roadmap. Yay! :tada:\n\n[**Check it out!**](https://gestalt.pinterest.systems/team_support/overview)"
+            "content": "We know the design system is all about collaboration and service. And, to improve our collaboration process, we just published a set of resources and guidelines to help you build consistent product surfaces and collaborate with us!\n\nWe defined a straightforward process to receive, centralize and manage your component’s requests and updates, making it easier for you to follow your request’s progress and understand how it fits in our roadmap. Yay! \n\n[**Check it out!**](https://gestalt.pinterest.systems/team_support/overview)"
           },
           {
             "title": "Android SearchField and Toast docs",
