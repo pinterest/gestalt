@@ -1,3 +1,9 @@
+## 101.3.31 (Mar 31, 2023)
+
+### Patch
+
+- ModalAlert: make sure docs examples are open without user interaction ([#2788](https://github.com/pinterest/gestalt/pull/2788)) - [Preview link](https://deploy-preview-2788--gestalt.netlify.app)
+
 ## 101.3.30 (Mar 30, 2023)
 
 ### Patch
