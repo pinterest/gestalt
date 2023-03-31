@@ -39,6 +39,7 @@ type Props = {|
   hasError?: boolean,
   helperText?: string,
   iconButton?: Element<typeof InternalTextFieldIconButton>,
+  inputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
   max?: number,
@@ -85,6 +86,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     helperText,
     id,
     iconButton,
+    inputMode,
     label,
     labelDisplay,
     max,
@@ -187,6 +189,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
       disabled={disabled}
       enterKeyHint={enterKeyHint}
       id={id}
+      inputMode={inputMode}
       maxLength={maxLength?.characterCount}
       max={type === 'number' ? max : undefined}
       min={type === 'number' ? min : undefined}

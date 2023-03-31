@@ -679,8 +679,12 @@ function Example(props) {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="EnterKeyHint"
-          description={`The \`enterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
+          title="Mobile"
+          columns={2}
+          description={`TextField supports some props to improve the mobile experience. Browsers display virtual keyboard when the user interacts with TextField.  \`enterKeyHint\` and \`inputMode\` allow customizing the virtual keyboard for a better data input.
+
+
+The \`enterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
 
 - "enter": inserting a new line
 - "done": there is nothing more to input and the input editor will be closed
@@ -689,22 +693,93 @@ function Example(props) {
 - "previous": taking the user to the previous field that will accept text
 - "search": taking the user to the results of searching for the text they have typed
 - "send": delivering the text to its target
+
+The \`inputMode\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
+
+- "none": No virtual keyboard. For when the page implements its own keyboard input control, for example DatePicker displays the calendar picker.
+- "text": Standard input keyboard for the user's current locale.
+- "decimal": Fractional numeric input keyboard containing the digits and decimal separator for the user's locale (typically "." or ",").
+- "numeric": Numeric input keyboard, but only requires the digits 0–9.
+
+Use \`type\` when TextField needs to capture phone numbers, emails or URLs.
           `}
         >
           <MainSection.Card
+            title="Text virtual keyboard with 'next'"
             defaultCode={`
-function TextFieldExample() {
-  return (
-    <TextField
-      id="enterKeyHint"
-      enterKeyHint="next"
-      label="Address"
-      onChange={() => {}}
-      onBlur={() => {}}
-      onFocus={() => {}}
+<Flex gap={2}>
+  <TextField
+    id="enterKeyHint"
+    enterKeyHint="next"
+    label="Text virtual keyboard with 'next'"
+    onChange={() => {}}
+    onBlur={() => {}}
+    onFocus={() => {}}
+  />
+  <Box height={100} width={200}>
+    <Image
+      alt="Image of a screenshot of a virtual keyboard on a mobile screen showing a text virtual keyboard with 'next'"
+      naturalHeight={1}
+      naturalWidth={1}
+      src="https://i.ibb.co/qdMLb8t/IMG-2518.jpg"
     />
-  );
-}
+  </Box>
+</Flex>
+
+`}
+          />
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={2}>
+  <TextField
+    id="decimal"
+    inputMode="decimal"
+    label="Decimal virtual keyboard"
+    onChange={() => {}}
+    onBlur={() => {}}
+    onFocus={() => {}}
+  />
+  <Box height={100} width={200}>
+    <Image
+      alt="Image of a screenshot of a virtual keyboard on a mobile screen showing a decimal virtual keyboard"
+      naturalHeight={1}
+      naturalWidth={1}
+      src="https://i.ibb.co/WxYtCdx/IMG-2520.jpg"
+    />
+  </Box>
+</Flex>
+`}
+          />
+          <MainSection.Card
+            defaultCode={`
+<Flex gap={2}>
+  <TextField
+    id="none"
+    inputMode="numeric"
+    label="Numeric virtual keyboard"
+    type="date"
+    onChange={() => {}}
+    onBlur={() => {}}
+    onFocus={() => {}}
+  />
+  <Box height={100} width={200}>
+    <Image
+      alt="Image of a screenshot of a virtual keyboard on a mobile screen showing a numeric virtual keyboard"
+      naturalHeight={1}
+      naturalWidth={1}
+      src="https://i.ibb.co/tpZ9pV8/IMG-2519.jpg"
+    />
+  </Box>
+</Flex>
+`}
+          />
+          <MainSection.Card
+            defaultCode={`
+<DatePicker
+  id="datepicker"
+  label="No virtual keyboard"
+  onChange={() => {}}
+/>
 `}
           />
         </MainSection.Subsection>
