@@ -1,3 +1,9 @@
+## 103.0.0 (Mar 31, 2023)
+
+### Major
+
+- IconButtonFloating: add required `tooltip` prop ([#2791](https://github.com/pinterest/gestalt/pull/2791)) - [Preview link](https://deploy-preview-2791--gestalt.netlify.app)
+
 ## 102.0.1 (Mar 31, 2023)
 
 ### Patch
