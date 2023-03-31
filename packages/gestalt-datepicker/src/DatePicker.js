@@ -132,6 +132,10 @@ type Props = {|
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
+   * Show a select list for quick selection of year and monnth. See the [showMonthYearDropdown example](https://gestalt.pinterest.systems/web/datepicker#showMonthYearDropdown) to learn more.
+   */
+  showMonthYearDropdown?: boolean,
+  /**
    * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/web/datepicker#preselectedValue) to learn more.
    */
   value?: Date,
@@ -170,6 +174,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
     rangeEndDate,
     rangeSelector,
     rangeStartDate,
+    showMonthYearDropdown,
     value: dateValue,
   }: Props,
   ref,
@@ -250,6 +255,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
+        dropdownMode={showMonthYearDropdown ? 'select' : undefined}
         endDate={rangeEndDate}
         excludeDates={excludeDates && [...excludeDates]}
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
@@ -291,6 +297,8 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         selectsEnd={rangeSelector === 'end'}
         selectsStart={rangeSelector === 'start'}
         showPopperArrow={false}
+        showMonthDropdown={showMonthYearDropdown}
+        showYearDropdown={showMonthYearDropdown}
         startDate={rangeStartDate}
       />
     </div>

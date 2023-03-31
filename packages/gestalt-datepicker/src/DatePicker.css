@@ -377,6 +377,43 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   margin-right: 8px;
 }
 
+/* Year / Month dropdown  */
+
+:global ._gestalt .react-datepicker__month-select,
+:global ._gestalt .react-datepicker__year-select {
+  background-color: var(--g-colorGray0);
+  border-color: var(--color-border-container);
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  font-family: var(--font-family-default-latin);
+  font-size: var(--font-size-200);
+  height: 40px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 5px 16px; /* right padding prevents it from running into arrow */
+  position: relative;
+  width: 100%;
+}
+
+:global ._gestalt .react-datepicker__month-select:focus,
+:global ._gestalt .react-datepicker__year-select:focus {
+  box-shadow: 0 0 0 4px rgb(0 132 255 / 0.5);
+  outline: 0;
+}
+
+:global ._gestalt .react-datepicker__year-dropdown-container--select,
+:global ._gestalt .react-datepicker__month-dropdown-container--select,
+:global ._gestalt .react-datepicker__month-year-dropdown-container--select,
+:global ._gestalt .react-datepicker__year-dropdown-container--scroll,
+:global ._gestalt .react-datepicker__month-dropdown-container--scroll,
+:global ._gestalt .react-datepicker__month-year-dropdown-container--scroll {
+  display: inline-block;
+  margin: 0 10px;
+}
+
 /* Override the textfield container since gestalt has block not inline block */
 
 :global ._gestalt .reactDatepickerWrapper {

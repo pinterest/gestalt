@@ -338,6 +338,27 @@ function DatePickerExample() {
 }
 `}
         />
+        <Example
+          description="Provide select lists for quickly changing year and month."
+          id="showMonthYearDropdown_example"
+          name="showMonthYearDropdown"
+          defaultCode={`
+function DatePickerExample() {
+  const handleChange = (value) => value;
+
+  return (
+    <DatePicker
+      id="showMonthYearDropdown"
+      idealDirection="down"
+      label="Alberto's birth date"
+      onChange={({value}) => handleChange(value)}
+      value={new Date(1985,6,4)}
+      showMonthYearDropdown
+    />
+  )
+}
+`}
+        />
         <Combination
           id="idealDirection"
           name="Ideal Direction"
@@ -382,6 +403,7 @@ import { it } from 'date-fns/locale';
                   onChange={({ value }) => setDate(value)}
                   value={date}
                   localeData={localeMap[localeDataCode].localeData}
+                  showMonthYearDropdown
                 />
               </Box>
             );

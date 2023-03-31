@@ -60,6 +60,7 @@ function DatePickerTextField(props: Props) {
             autoComplete="off"
             disabled={disabled}
             id={id}
+            inputMode="none"
             onBlur={(data) => onBlur?.(data.event)}
             onFocus={(data) => {
               onFocus?.(data.event);
