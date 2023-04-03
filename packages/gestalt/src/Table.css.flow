@@ -12,6 +12,7 @@ declare module.exports: {|
   +'table': string,
   +'tbody': string,
   +'td': string,
+  +'tfooter': string,
   +'th': string,
   +'thead': string,
 |};
