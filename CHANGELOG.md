@@ -1,3 +1,9 @@
+## 103.1.0 (Apr 3, 2023)
+
+### Minor
+
+- Table: implemented header/footer borders ([#2796](https://github.com/pinterest/gestalt/pull/2796)) - [Preview link](https://deploy-preview-2796--gestalt.netlify.app)
+
 ## 103.0.1 (Apr 3, 2023)
 
 ### Patch
