@@ -18,9 +18,11 @@ type Props = {|
  * Use [Table.Footer](https://gestalt.pinterest.systems/web/table#Table.Footer) to group the footer content in Table.
  */
 export default function TableFooter({ children, sticky }: Props): Node {
-  const cs = cx(sticky && styles.stickyFooter);
-
-  return <tfoot className={cs}>{children}</tfoot>;
+  return (
+    <tfoot className={cx(!sticky && styles.tfooter, sticky && styles.stickyFooter)}>
+      {children}
+    </tfoot>
+  );
 }
 
 TableFooter.displayName = 'Table.Footer';

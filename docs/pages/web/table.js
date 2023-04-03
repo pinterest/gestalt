@@ -896,7 +896,7 @@ function Example() {
                         </Box>
                       </Link>
                     </Text>
-                  </WashAn>
+                  </WashAnimated>
                 </Box>
               }
             >
