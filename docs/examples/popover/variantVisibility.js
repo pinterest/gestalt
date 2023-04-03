@@ -25,17 +25,19 @@ export default function Example(): Node {
         <Layer>
           <Popover
             anchor={anchorRef.current}
-            color="blue"
             idealDirection="down"
-            showCaret
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="xs"
           >
-            <Box padding={3}>
-              <Text color="inverse" align="center">
-                This Popover is visible on initial page load
-              </Text>
+            <Box
+              height={100}
+              width={300}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Text align="center">Content</Text>
             </Box>
           </Popover>
         </Layer>

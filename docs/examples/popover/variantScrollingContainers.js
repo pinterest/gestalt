@@ -51,17 +51,19 @@ export default function Example(): Node {
               <Layer>
                 <Popover
                   anchor={anchorRef.current}
-                  color="blue"
                   idealDirection="right"
                   onDismiss={() => {}}
                   positionRelativeToAnchor={false}
-                  showCaret
                   size="xs"
                 >
-                  <Box padding={3} display="flex" alignItems="center" direction="column">
-                    <Text color="inverse" align="center">
-                      Need help with something? Check out our Help Center.
-                    </Text>
+                  <Box
+                    height={100}
+                    width={300}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Text align="center">Content</Text>
                   </Box>
                 </Popover>
               </Layer>
