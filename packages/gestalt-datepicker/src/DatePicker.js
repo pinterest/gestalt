@@ -12,7 +12,6 @@ import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import styles from './DatePicker.css';
-import dateFormat from './dateFormat.js';
 import DatePickerTextField from './DatePickerTextField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
@@ -201,7 +200,13 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
     if (localeData && localeData.code) {
       registerLocale(localeData.code, localeData);
       setUpdatedLocale(localeData.code);
-      setFormat(dateFormat[localeData.code || 'en-US']);
+      setFormat(
+        localeData?.formatLong
+          ?.date({ width: 'short' })
+          .replace(/(y{1,4})/, 'yyyy')
+          .replace(/(d{1,2})/, 'dd')
+          .replace(/(M{1,2})/, 'MM') ?? 'MM/dd/yyyy',
+      );
     }
   }, [localeData]);
 
@@ -263,7 +268,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         }}
         onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
-        placeholderText={placeholder || format?.toUpperCase() || 'MM/DD/YYYY'}
+        placeholderText={placeholder ?? format?.toUpperCase()}
         popperClassName={classnames(
           styles['react-datepicker-popper'],
           styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`],
