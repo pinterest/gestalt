@@ -21,7 +21,11 @@ type Props = {|
    */
   children: Node,
   /**
-   * The contents to show and/or hide on an expandable row.
+   * When passed Row.TableRowExpandable becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
+   */
+  expanded?: boolean,
+  /**
+   * The contents to show and/or hide on an expandable row. Required when using Table.RowExpandable as a controlled component. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
    */
   expandedContents: Node,
   /**
@@ -52,23 +56,16 @@ export default function TableRowExpandable({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
   children,
+  expanded: expandedControlled,
   expandedContents,
   onExpand,
   id,
   hoverStyle = 'gray',
 }: Props): Node {
-  const [expanded, setExpanded] = useState(false);
-
   const { stickyColumns } = useTableContext();
   const rowRef = useRef();
   const [columnWidths, setColumnWidths] = useState([]);
-
-  const handleButtonClick = ({ event }) => {
-    setExpanded(!expanded);
-    if (onExpand) {
-      onExpand({ event, expanded });
-    }
-  };
+  const [isExpanded, setIsExpanded] = useState(expandedControlled ?? false);
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
@@ -76,6 +73,12 @@ export default function TableRowExpandable({
       setColumnWidths(colWidths);
     }
   }, [stickyColumns]);
+
+  useEffect(() => {
+    if (expandedControlled !== undefined && isExpanded !== expandedControlled) {
+      setIsExpanded(expandedControlled);
+    }
+  }, [isExpanded, setIsExpanded, expandedControlled]);
 
   const renderCellWithAdjustedIndex = (child, index) => {
     // Account for initial expandable column
@@ -98,26 +101,31 @@ export default function TableRowExpandable({
           previousTotalWidth={0}
         >
           <IconButton
-            accessibilityExpanded={expanded}
+            accessibilityExpanded={isExpanded}
             accessibilityControls={id}
-            accessibilityLabel={expanded ? accessibilityCollapseLabel : accessibilityExpandLabel}
-            icon={expanded ? 'arrow-up' : 'arrow-down'}
+            accessibilityLabel={isExpanded ? accessibilityCollapseLabel : accessibilityExpandLabel}
+            icon={isExpanded ? 'arrow-up' : 'arrow-down'}
             iconColor="darkGray"
-            onClick={handleButtonClick}
+            onClick={({ event }) => {
+              if (expandedControlled === undefined) {
+                setIsExpanded((value) => !value);
+              }
+              onExpand?.({ event, expanded: isExpanded });
+            }}
             size="xs"
           />
         </TableCell>
         {/* This needs to be fixed for children wrapped in React.Fragment when sticky columns are present */}
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>
-      {expanded && (
+      {isExpanded ? (
         <tr id={id}>
           {/* + 1 is added to colSpan to account for the icon button cell */}
           <td className={styles.drawer} colSpan={getChildrenCount(children) + 1}>
             <Box padding={6}>{expandedContents}</Box>
           </td>
         </tr>
-      )}
+      ) : null}
     </Fragment>
   );
 }
