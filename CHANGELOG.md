@@ -1,3 +1,9 @@
+## 103.0.1 (Apr 3, 2023)
+
+### Patch
+
+- Popover: deprecate info in Docs re color and caret ([#2795](https://github.com/pinterest/gestalt/pull/2795)) - [Preview link](https://deploy-preview-2795--gestalt.netlify.app)
+
 ## 103.0.0 (Mar 31, 2023)
 
 ### Major
