@@ -145,7 +145,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
     hasError = false,
     helperText,
     id,
-    inputMode = 'text',
+    inputMode,
     label,
     labelDisplay = 'visible',
     maxLength,
