@@ -1,23 +1,29 @@
 // @flow strict
 import { type Node } from 'react';
-import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import doAlign from '../../examples/badge/doAlign.js';
+import doColor from '../../examples/badge/doColor.js';
+import dontColor from '../../examples/badge/dontColor.js';
+import dontComplex from '../../examples/badge/dontComplex.js';
+import main from '../../examples/badge/main.js';
+import variantsOtherComponents from '../../examples/badge/variantsOtherComponents.js';
+import variantsOverMedia from '../../examples/badge/variantsOverMedia.js';
+import variantsPositioning from '../../examples/badge/variantsPositioning.js';
+import variantsType from '../../examples/badge/variantsType.js';
 
-export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Text>Update your pronouns in your profile settings <Badge text="New" /></Text>
-    `}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main Badge example" hideEditor previewHeight={150} />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -42,92 +48,45 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Align the badge to the top of large accompanying text (anything larger than 16px). Center align for standard size text."
-            defaultCode={`
-              <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
-                <Text size="300">Ads & Campaigns <Badge text="Beta"/></Text>
-              </Flex>
-              `}
+            description="Use established color patterns so users can quickly scan and identify sentiment. However, the badge text should always clearly indicate the sentiment, so color is not the sole indicator of information."
+            sandpackExample={<SandpackExample code={doColor} hideEditor name="Do - Color" />}
           />
+
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use colored badges over media. Instead use the dark or light wash."
-            defaultCode={`
-            <Mask height={150} width={280} rounding={2}>
-              <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}/>
-              <Box position="absolute" top>
-                <Box padding={4}>
-                  <Badge text="Active" type="success"/>
-                </Box>
-              </Box>
-            </Mask>
-`}
+            sandpackExample={
+              <SandpackExample code={dontColor} hideEditor hideControls name="Don't - Color" />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use established color patterns so users can quickly scan and identify sentiment. However, the badge text should always clearly indicate the sentiment, so color is not the sole indicator of information."
-            defaultCode={`
-            <Table accessibilityLabel="Badge color patterns">
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>
-                    <Text weight="bold">Post title</Text>
-                  </Table.HeaderCell>
-                  <Table.HeaderCell>
-                    <Text weight="bold">Status</Text>
-                  </Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text>Handmade ceramics</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Badge text="Posted" type="success"/>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text>Lunch ideas</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Badge text="Cancelled" type="error"/>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text>Tattoo inspo</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Badge text="Archived" type="neutral"/>
-                  </Table.Cell>
-                </Table.Row>
-              </Table.Body>
-            </Table>
-            `}
+            description="Align the badge to the top of large accompanying text (anything larger than 16px). Center align for standard size text."
+            sandpackExample={<SandpackExample code={doAlign} hideEditor name="Do - Align" />}
           />
+
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use complex or verbose language. Instead use a single, scannable word. For example: 'New'."
-            defaultCode={`
-            <Text size="300">7 wardrobe trends <Badge text="Fresh off the press"/></Text>
-
-`}
+            sandpackExample={
+              <SandpackExample code={dontComplex} hideEditor hideControls name="Don't - Complex" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection
         name={generatedDocGen?.displayName}
         description={`
@@ -139,6 +98,7 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
         name="Localization"
         description={`Be sure to localize the \`text\` prop. Note that localization can lengthen text by 20 to 30 percent. `}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Type"
@@ -165,88 +125,17 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
  `}
         >
           <MainSection.Card
-            defaultCode={`
-  <Table accessibilityLabel="Type examples">
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell>
-          <Text weight="bold">Type</Text>
-        </Table.HeaderCell>
-        <Table.HeaderCell>
-          <Text weight="bold">Example</Text>
-        </Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell>
-          <Text>Info</Text>
-        </Table.Cell>
-        <Table.Cell>
-          <Flex direction="column" gap={2}>
-            <Text size="300">Ads & Campaigns
-              <Badge
-                text="New"
-                type="info"
+            sandpackExample={
+              <SandpackExample
+                code={variantsType}
+                name="Variants - Type"
+                layout="column"
+                previewHeight={400}
               />
-            </Text>
-            <Text size="300">Ads & Campaigns
-              <Badge
-                text="New"
-                type="info"
-                tooltip={{
-                text: 'This is a new feature',
-                idealDirection: 'up',
-              }}/>
-            </Text>
-          </Flex>
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Text>Success</Text>
-        </Table.Cell>
-        <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Completed" type="success"/></Text>
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Text>Warning</Text>
-        </Table.Cell>
-        <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Needs attention" type="warning"/></Text>
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Text>Error</Text>
-        </Table.Cell>
-        <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Failed" type="error"/></Text>
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Text>Neutral</Text>
-        </Table.Cell>
-        <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Not started" type="neutral"/></Text>
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Text>Recommendation</Text>
-        </Table.Cell>
-        <Table.Cell>
-          <Text size="300">Ads & Campaigns <Badge text="Recommended for you" type="recommendation"/></Text>
-        </Table.Cell>
-      </Table.Row>
-    </Table.Body>
-  </Table>
-`}
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Over media"
           description={`
@@ -260,63 +149,43 @@ export default function BadgePage({ generatedDocGen }: {| generatedDocGen: DocGe
 `}
         >
           <MainSection.Card
-            defaultCode={`
-<Flex gap={{ column: 8, row: 4 }} wrap>
-  <Mask height={150} width={280} rounding={2}>
-    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/cbjgZft/img-door.jpg" naturalWidth={1} naturalHeight={1}>
-      <Box padding={4}>
-        <Badge text="Light wash" type="lightWash"/>
-      </Box>
-    </Image>
-
-  </Mask>
-  <Mask height={150} width={280} rounding={2}>
-    <Image alt="Botanical art in coral and green" fit="cover" src="https://i.ibb.co/7bQQYkX/stock2.jpg" naturalWidth={1} naturalHeight={1}>
-      <Box padding={4}>
-        <Badge text="Dark wash" type="darkWash"/>
-      </Box>
-    </Image>
-  </Mask>
-</Flex>
-          `}
+            sandpackExample={
+              <SandpackExample
+                code={variantsOverMedia}
+                layout="column"
+                name="Variants - Over media"
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Positioning"
           description="By default, Badge is rendered inline within the parent element. However, the `position` prop can be used to adjust the alignment. Badges should align to the top of large accompanying text."
         >
           <MainSection.Card
-            defaultCode={`
-<Flex gap={{ column: 4, row: 0 }} direction="column">
-  <Text size="300">Ads & Campaigns <Badge text="New" /></Text>
-  <Text size="600">Ads & Campaigns <Badge text="Beta" position="top"/></Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={variantsPositioning} name="Variants - Position" />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Within other components"
           description="Components like [Module](/web/module) and [Dropdown](/web/dropdown) have Badges built into the component through props, so it will not be necessary to add the component yourself."
         >
           <MainSection.Card
-            defaultCode={`
-function ModuleExample() {
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module
-        badge={{ text: 'Beta' }}
-        id="ModuleExample - badge"
-        title="Title"
-        >
-        <Text size="200">This is example content.</Text>
-      </Module>
-    </Box>
-  );
-}
-          `}
+            sandpackExample={
+              <SandpackExample
+                code={variantsOtherComponents}
+                layout="column"
+                name="Variants - Within other components"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

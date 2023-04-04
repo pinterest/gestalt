@@ -27,6 +27,9 @@ export default function Example(): Node {
           onClick={() => setOpen((prevVal) => !prevVal)}
           ref={anchorRef}
           selected={open}
+          tooltip={{
+            text: 'Create Pin Menu',
+          }}
         />
       </Box>
       {open && (

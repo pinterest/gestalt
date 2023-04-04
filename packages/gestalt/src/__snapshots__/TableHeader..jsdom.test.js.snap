@@ -56,7 +56,7 @@ exports[`Table.Header sticky header renders correctly 1`] = `
           Sticky header
         </caption>
         <thead
-          class="thead stickyHeader"
+          class="stickyHeader"
         >
           <tr>
             <td

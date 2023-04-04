@@ -1,6 +1,6 @@
 // @flow strict
-import ModuleExpandable from './ModuleExpandable.js';
 import IconButton from './IconButton.js';
+import ModuleExpandable from './ModuleExpandable.js';
 
 const ValidWithMinimumProps = (
   <ModuleExpandable

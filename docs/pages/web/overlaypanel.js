@@ -1,29 +1,36 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner, Text, Link } from 'gestalt';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import animationExample from '../../examples/overlaypanel/animationExample.js';
+import confirmationExample from '../../examples/overlaypanel/confirmationExample.js';
 import defaultExample from '../../examples/overlaypanel/defaultExample.js';
 import footerExample from '../../examples/overlaypanel/footerExample.js';
 import preventClosingExample from '../../examples/overlaypanel/preventClosingExample.js';
 import quickEditsExample from '../../examples/overlaypanel/quickEditsExample.js';
 import sizesExample from '../../examples/overlaypanel/sizesExample.js';
 import subheadingExample from '../../examples/overlaypanel/subHeadingExample.js';
-import confirmationExample from '../../examples/overlaypanel/confirmationExample.js';
 
-export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function SheetPage({
+  generatedDocGen,
+}: {|
+  generatedDocGen: {| [string]: DocGen |},
+|}): Node {
   const PREVIEW_HEIGHT = 800;
 
   return (
-    <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+    <Page title={generatedDocGen?.OverlayPanel.displayName}>
+      <PageHeader
+        name={generatedDocGen?.OverlayPanel.displayName}
+        description={generatedDocGen?.OverlayPanel.description}
+      >
         <SandpackExample
           code={defaultExample}
           name="OverlayPanel Main Example"
@@ -32,7 +39,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
         />
       </PageHeader>
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen?.OverlayPanel} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -114,7 +121,7 @@ export default function SheetPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
-      <AccessibilitySection name={generatedDocGen?.displayName}>
+      <AccessibilitySection name={generatedDocGen?.OverlayPanel.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
@@ -156,6 +163,20 @@ When OverlayPanel opens, focus should be placed on the first interactive element
           onClick: () => {},
         }}
       />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen.DismissingElement?.displayName}
+          description={generatedDocGen.DismissingElement?.description}
+        >
+          <GeneratedPropTable
+            name={generatedDocGen.DismissingElement?.displayName}
+            id={generatedDocGen.DismissingElement?.displayName}
+            generatedDocGen={generatedDocGen.DismissingElement}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Heading"
@@ -246,7 +267,7 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
         <MainSection.Subsection
           title="Animation"
           description={`
-      By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements inother areas such as the \`children\` or \`footer\`, the following render prop can be used:
+      By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements in other areas such as the \`children\` or \`footer\`, the following render prop can be used:
       ~~~jsx
       <OverlayPanel.DismissingElement>
         ({ onDismissStart }) => ( ... )
@@ -342,7 +363,7 @@ All texts and labels can be customized using the \`dismissConfirmation\` prop. W
           />
         </MainSection.Subsection>
       </MainSection>
-      <QualityChecklist component={generatedDocGen?.displayName} />
+      <QualityChecklist component={generatedDocGen?.OverlayPanel.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection
@@ -359,8 +380,13 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const generatedDocGen = await multipledocgen({
+    componentName: ['OverlayPanel', 'DismissingElement'],
+  });
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'OverlayPanel' }) },
+    props: { generatedDocGen },
   };
 }

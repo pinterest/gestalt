@@ -33,7 +33,7 @@ export default function Example(): Node {
             </Box>
             <Button
               ref={anchorRef}
-              href="https://help.pinterest.com/en/business/article/data-source-ingestion"
+              href="#"
               iconEnd="visit"
               onClick={() => setOpen(false)}
               role="link"
@@ -47,17 +47,19 @@ export default function Example(): Node {
           <Layer>
             <Popover
               anchor={anchorRef.current}
-              color="blue"
-              idealDirection="right"
+              idealDirection="down"
               onDismiss={() => {}}
-              positionRelativeToAnchor={false}
-              showCaret
-              size="xs"
+              positionRelativeToAnchor
+              size={240}
             >
-              <Box padding={3} display="flex" alignItems="center" direction="column">
-                <Text color="inverse" align="center">
-                  Need help with something? Check out our Help Center.
-                </Text>
+              <Box
+                height={100}
+                width={300}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Text align="center">Content</Text>
               </Box>
             </Popover>
           </Layer>

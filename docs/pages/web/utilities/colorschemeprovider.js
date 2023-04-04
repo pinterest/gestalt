@@ -1,18 +1,20 @@
 // @flow strict
 import { type Node } from 'react';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import variantsColorScheme from '../../../examples/colorschemeprovider/variantsColorScheme.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="ColorSchemeProvider">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="ColorSchemeProvider"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         type="utility"
       />
@@ -28,37 +30,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example(props) {
-  const [scheme, setScheme] = React.useState('light')
-  return (
-    <ColorSchemeProvider colorScheme={scheme} id="docsExample">
-      <Box color="white" padding={2}>
-        <SelectList
-          id="scheme"
-          name="scheme"
-          onChange={({ value }) => setScheme(value)}
-          placeholder="Select color scheme"
-          label="Color scheme"
-          value={scheme}
-        >
-          {[
-            { value: 'light', label: 'Light' },
-            { value: 'dark', label: 'Dark' },
-            { value: 'userPreference', label: 'User Preference' }
-          ].map(({ label, value }) =>
-            <SelectList.Option key={label} label={label} value={value} />
-          )}
-        </SelectList>
-        <Box padding={2}>
-          <Text>Some content</Text>
-        </Box>
-        <Button text="Example button"/>
-        <Button color="red" text="Red Button" />
-      </Box>
-    </ColorSchemeProvider>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={variantsColorScheme} name="Variants - Color scheme" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

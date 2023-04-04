@@ -1,8 +1,8 @@
 // @flow strict
 import { PureComponent, type Node } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
 import styles from './Image.css';
+import Box from './Box.js';
 
 const shouldScaleImage = (fit) => fit === 'cover' || fit === 'contain';
 

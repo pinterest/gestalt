@@ -1,12 +1,12 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Box, Checkbox } from 'gestalt';
+import { Checkbox, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const [checked1, setChecked1] = useState(false);
 
   return (
-    <Box width="100%" height="100%" padding={4}>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Checkbox
         checked={checked1}
         id="checkbox"
@@ -14,6 +14,6 @@ export default function Example(): Node {
         onChange={({ checked }) => setChecked1(checked)}
         helperText="Nothing will happen if you disagree"
       />
-    </Box>
+    </Flex>
   );
 }

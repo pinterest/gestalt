@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
+import { useCookies } from 'react-cookie';
 import createHydra, { type Hydra } from './createHydra.js';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';

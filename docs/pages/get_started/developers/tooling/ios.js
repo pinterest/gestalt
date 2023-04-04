@@ -1,6 +1,6 @@
 // @flow strict
-import { Text } from 'gestalt';
 import { type Node } from 'react';
+import { Text } from 'gestalt';
 import Page from '../../../../docs-components/Page.js';
 import PageHeader from '../../../../docs-components/PageHeader.js';
 

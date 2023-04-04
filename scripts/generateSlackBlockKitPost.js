@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint import/no-dynamic-require: 0, no-console: 0 */
-const chalk = require('chalk');
 const path = require('path');
+const chalk = require('chalk');
 require('@babel/register');
 
 function logSuccess(message) {

@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import DocsPageHeader from '../../docs-components/PageHeader.js'; // renaming to avoid confusion
-import MainSection from '../../docs-components/MainSection.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import DocsPageHeader from '../../docs-components/PageHeader.js'; // renaming to avoid confusion
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import centerAlignedExample from '../../examples/pageheader/centerAlignedExample.js';
 import complimentaryItemsExample from '../../examples/pageheader/complimentaryItemsExample.js';
@@ -20,8 +20,8 @@ import minimumButtonsExample from '../../examples/pageheader/minimumButtonsExamp
 import multiplePrimaryActionsExample from '../../examples/pageheader/multiplePrimaryActionsExample.js';
 import onePrimaryActionExample from '../../examples/pageheader/onePrimaryActionExample.js';
 import primaryActionExample from '../../examples/pageheader/primaryActionExample.js';
-import secondaryActionsExample from '../../examples/pageheader/secondaryActionExample.js';
 import responsiveExample from '../../examples/pageheader/responsiveExample.js';
+import secondaryActionsExample from '../../examples/pageheader/secondaryActionExample.js';
 import subtextExample from '../../examples/pageheader/subtextExample.js';
 import titleExample from '../../examples/pageheader/titleExample.js';
 

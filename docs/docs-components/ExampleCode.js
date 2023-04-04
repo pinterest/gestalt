@@ -2,6 +2,7 @@
 import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 import { LiveEditor } from 'react-live';
+import { useAppContext } from './appContext.js';
 import clipboardCopy from './clipboardCopy.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
 import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton.js';
@@ -24,6 +25,7 @@ type Props = {|
   name: string,
   readOnly?: boolean,
   hideCodePreview?: boolean,
+  developmentEditor?: boolean,
 |};
 
 export default function ExampleCode({
@@ -31,8 +33,11 @@ export default function ExampleCode({
   hideCodePreview = false,
   readOnly,
   name,
+  developmentEditor,
 }: Props): Node {
-  const [expanded, setExpanded] = useState(false);
+  const { devExampleMode } = useAppContext();
+
+  const [expanded, setExpanded] = useState(developmentEditor);
   const [showExpandButton, setShowExpandButton] = useState(hideCodePreview);
   const [maxHeight, setMaxHeight] = useState('500px');
   const codeExampleRef = useRef(null);
@@ -56,11 +61,11 @@ export default function ExampleCode({
     // Save the height so we know how far to animate to
     setMaxHeight(`${height}px`);
 
-    if (height > CODE_EXAMPLE_HEIGHT) {
+    if (height > CODE_EXAMPLE_HEIGHT && devExampleMode === 'default') {
       setExpanded(false);
       setShowExpandButton(true);
     }
-  }, [code, hideCodePreview]);
+  }, [code, hideCodePreview, devExampleMode]);
 
   return (
     <Box marginTop={2}>
@@ -94,7 +99,7 @@ export default function ExampleCode({
 
             {showExpandButton && (
               <CollapseExpandCodeButton
-                expanded={expanded}
+                expanded={!!expanded}
                 name={name}
                 onClick={() => setExpanded(!expanded)}
               />

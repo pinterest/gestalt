@@ -4,8 +4,8 @@ import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
 import Box from './Box.js';
-import Icon from './Icon.js';
 import Flex from './Flex.js';
+import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';
 import { type Indexable } from './zIndex.js';
 

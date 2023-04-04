@@ -139,8 +139,18 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/content_standards/syntax_structure',
+    destination: '/foundations/content_standards/syntax_and_structure',
+    permanent: true,
+  },
+  {
     source: '/get_started/developers/development_process',
     destination: '/get_started/developers/contributing/development_process',
+    permanent: true,
+  },
+  {
+    source: '/get_started/how_to_work_with_us',
+    destination: '/team_support/contributions',
     permanent: true,
   },
   {
@@ -164,8 +174,8 @@ const misc = [
     permanent: true,
   },
   {
-    source: '/web/sheet',
-    destination: '/web/overlaypanel',
+    source: '/roadmap/whats_new',
+    destination: '/whats_new',
     permanent: true,
   },
   {
@@ -179,13 +189,13 @@ const misc = [
     permanent: true,
   },
   {
-    source: '/roadmap/whats_new',
-    destination: '/whats_new',
+    source: '/web/card',
+    destination: '/web/washanimated',
     permanent: true,
   },
   {
-    source: '/web/card',
-    destination: '/web/washanimated',
+    source: '/web/sheet',
+    destination: '/web/overlaypanel',
     permanent: true,
   },
 ];

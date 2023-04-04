@@ -1,5 +1,10 @@
 // @flow strict
 import {
+  type ReducerType,
+  type GenerateDefaultMessageType,
+  type BuildReducerType,
+} from './reducerTypes.js';
+import {
   dimensionFormatting,
   marginLookup,
   marginBottomLookup,
@@ -16,11 +21,6 @@ import {
   validateBoxShadow,
   validateFlex,
 } from './styleValidators.js';
-import {
-  type ReducerType,
-  type GenerateDefaultMessageType,
-  type BuildReducerType,
-} from './reducerTypes.js';
 
 /** This function returns the default messages for all change suggestions
  */

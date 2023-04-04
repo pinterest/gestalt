@@ -1,27 +1,29 @@
 // @flow strict
 import { type Node } from 'react';
-
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/iconbuttonfloating/main.js';
 import doForScroll from '../../examples/iconbuttonfloating/doForScroll.js';
-import dontNotification from '../../examples/iconbuttonfloating/dontNotification.js';
 import dontNegative from '../../examples/iconbuttonfloating/dontNegative.js';
-import a11y from '../../examples/iconbuttonfloating/a11y.js';
+import dontNotification from '../../examples/iconbuttonfloating/dontNotification.js';
+import main from '../../examples/iconbuttonfloating/main.js';
+import variantsA11y from '../../examples/iconbuttonfloating/variantsA11y.js';
+import variantsWithTooltip from '../../examples/iconbuttonfloating/variantsWithTooltip.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main example" hideEditor />
+        <SandpackExample code={main} name="Main IconButtonFloating example" hideEditor />
       </PageHeader>
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -45,6 +47,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -69,12 +72,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
             description="Use IconButtonFloating for positive and supportive actions like Create, Help or Maximize."
-            sandpackExample={<SandpackExample code={a11y} name="Center example" hideEditor />}
+            sandpackExample={
+              <SandpackExample code={variantsA11y} name="Center example" hideEditor />
+            }
           />
           <MainSection.Card
             cardSize="md"
@@ -91,6 +97,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
@@ -111,11 +118,13 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           />
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={a11y} name="A11Y example" />}
+            sandpackExample={<SandpackExample code={variantsA11y} name="A11Y example" />}
           />
         </MainSection.Subsection>
       </AccessibilitySection>
+
       <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
@@ -124,9 +133,10 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={doForScroll} name="Scroll Placement example" />}
+            sandpackExample={<SandpackExample code={doForScroll} name="Variants - Size" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           columns={2}
           title="Placement"
@@ -143,15 +153,32 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           <MainSection.Card
             title="Bottom edge placement"
             cardSize="md"
-            sandpackExample={<SandpackExample code={doForScroll} name="Scroll Placement example" />}
+            sandpackExample={
+              <SandpackExample code={doForScroll} name="Variants - Scroll Placement - Bottom" />
+            }
           />
           <MainSection.Card
             title="Centered placement"
             cardSize="md"
-            sandpackExample={<SandpackExample code={a11y} name="A11Y Placement example" />}
+            sandpackExample={
+              <SandpackExample code={variantsA11y} name="Variants - Scroll Placement - Centered" />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="With tooltip"
+          description="IconButtonFloating requires a [tooltip](/web/tooltip) to provide additional context to the user about the action."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={variantsWithTooltip} name="Variants - With tooltip" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -167,7 +194,9 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
           />
         </MainSection.Subsection>
       </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -178,13 +207,13 @@ Use IconButton when only an icon is needed instead of text, and the action does 
 Button allows users to take actions and make choices using text labels to express what action will occur when the user interacts with it.
 
 **[Icon](/web/icon)**
-IconButtonFloating uses icons instead of text to convey available actions on a screen. Use an existing Icon from the [Gestalt Icon library](/foundations/iconography/library).
+IconButtonFloating uses icons instead of text to convey available actions on a screen. Use an existing icon from the [Gestalt icon library](/foundations/iconography/library).
 
 **[Dropdown](/web/dropdown)**
 IconButtonFloating is commonly paired with Dropdown to display a menu of options or actions.
       `}
         />
-      </MainSection>{' '}
+      </MainSection>
     </Page>
   );
 }

@@ -1,10 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import Page from '../../../docs-components/Page.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import exampleButtons from '../../../examples/usefocusvisible/exampleButtons.js';
 
 export default function DocsPage(): Node {
   return (
@@ -28,43 +30,9 @@ export default function DocsPage(): Node {
         <MainSection.Subsection title="Buttons">
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const { isFocusVisible } = useFocusVisible();
-  const [ focusedButton1, setFocusedButton1 ] = React.useState(false);
-  const [ focusedButton2, setFocusedButton2 ] = React.useState(false);
-
-  return (
-    <Flex alignItems="center" direction="column" gap={{ column: 12, row: 0 }}>
-      <Flex direction="column" alignItems="center" gap={{ column: 4, row: 0 }}>
-        <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
-        <button
-          onBlur={() => setFocusedButton1(false)}
-          onFocus={() => setFocusedButton1(true)}
-          style={{
-            outline: 'none',
-            boxShadow: isFocusVisible && focusedButton1 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
-          }}
-        >
-          <Text>Button 1</Text>
-        </button>
-      </Flex>
-      <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
-        <Text>Not using useFocusVisible(): Focus ring is always visible</Text>
-        <button
-          onBlur={() => setFocusedButton2(false)}
-          onFocus={() => setFocusedButton2(true)}
-          style={{
-            outline: 'none',
-            boxShadow: focusedButton2 ? "0 0 0 4px rgba(0, 132, 255, 0.5)" : null
-          }}
-        >
-          <Text>Button 2</Text>
-        </button>
-      </Flex>
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={exampleButtons} name="Example - Buttons" layout="column" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

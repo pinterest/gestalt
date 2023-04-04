@@ -12,11 +12,11 @@ import { Box, Dropdown, Flex, IconButton, Label, Link, Sticky, Switch, Tabs, Tex
 import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
-import GestaltLogo from './GestaltLogo.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
-import { useNavigationContext } from './navigationContext.js';
 import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
+import GestaltLogo from './GestaltLogo.js';
+import { useNavigationContext } from './navigationContext.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 
 function SettingsDropdown({
   anchorRef,
@@ -25,7 +25,26 @@ function SettingsDropdown({
   anchorRef: {| current: ?ElementRef<typeof IconButton> |},
   closeDropdown: () => void,
 |}) {
-  const { colorScheme, setColorScheme, textDirection, setTextDirection } = useAppContext();
+  const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
+    process.env.NODE_ENV === 'development',
+  );
+
+  useEffect(() => {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      window?.location?.href?.startsWith('https://deploy-preview-')
+    )
+      setShowDevelopmentEditorSwitch(true);
+  }, [setShowDevelopmentEditorSwitch]);
+
+  const {
+    colorScheme,
+    setColorScheme,
+    textDirection,
+    setTextDirection,
+    devExampleMode,
+    setDevExampleMode,
+  } = useAppContext();
 
   const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
 
@@ -41,6 +60,13 @@ function SettingsDropdown({
     closeDropdown();
     return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
   };
+
+  const onChangeDevExampleMode = () => {
+    trackButtonClick('Toggle Sandpack visibility', devExampleMode);
+    closeDropdown();
+    return setDevExampleMode(devExampleMode === 'default' ? 'development' : 'default');
+  };
+
   return (
     <Dropdown
       anchor={anchorRef.current}
@@ -51,17 +77,9 @@ function SettingsDropdown({
     >
       <Dropdown.Item
         onSelect={onChangeColorScheme}
-        option={{ value: 'isDarkMode', label: 'Custom link 1' }}
+        option={{ value: 'isDarkMode', label: 'Toggle dark mode' }}
       >
-        <Flex
-          alignItems="center"
-          justifyContent="between"
-          flex="grow"
-          gap={{
-            row: 8,
-            column: 0,
-          }}
-        >
+        <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
           <Label htmlFor="darkMode-switch">
             <Text weight="bold">Dark mode</Text>
           </Label>
@@ -72,19 +90,12 @@ function SettingsDropdown({
           />
         </Flex>
       </Dropdown.Item>
+
       <Dropdown.Item
         onSelect={onChangeTextDirection}
-        option={{ value: 'isRTL', label: 'Custom link 1' }}
+        option={{ value: 'isRTL', label: 'Toggle text direction' }}
       >
-        <Flex
-          alignItems="center"
-          justifyContent="between"
-          flex="grow"
-          gap={{
-            row: 8,
-            column: 0,
-          }}
-        >
+        <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
           <Label htmlFor="rtl-switch">
             <Text weight="bold">Right-to-left</Text>
           </Label>
@@ -95,6 +106,24 @@ function SettingsDropdown({
           />
         </Flex>
       </Dropdown.Item>
+
+      {showDevelopmentEditorSwitch ? (
+        <Dropdown.Item
+          onSelect={onChangeDevExampleMode}
+          option={{ value: 'default', label: 'Toggle development example mode' }}
+        >
+          <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
+            <Label htmlFor="devExampleMode-switch">
+              <Text weight="bold">Enable development view</Text>
+            </Label>
+            <Switch
+              switched={devExampleMode === 'development'}
+              onChange={onChangeDevExampleMode}
+              id="devExampleMode-switch"
+            />
+          </Flex>
+        </Dropdown.Item>
+      ) : null}
     </Dropdown>
   );
 }
@@ -107,6 +136,7 @@ function getTabs(componentPlatform) {
       text: 'Components',
     },
     { href: '/foundations/overview', text: 'Foundations' },
+    { href: '/team_support/overview', text: 'Team support' },
     { href: '/roadmap', text: 'Roadmap' },
     { href: '/whats_new', text: "What's new" },
   ];

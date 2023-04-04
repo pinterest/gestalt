@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 require('@babel/register');
-const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 
 const currentDirectory = __dirname;
 const root = path.join(__dirname, '../');
@@ -78,7 +78,7 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(gestaltPackages, `$README_DELETE_{componentName}.md`),
+      outputPath: path.join(gestaltPackages, `README_DELETE_${componentName}.md`),
       template: 'templates/README.md',
       log: 'Generated ReadMe',
     }),

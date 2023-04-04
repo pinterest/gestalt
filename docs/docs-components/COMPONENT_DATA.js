@@ -1,5 +1,33 @@
 // @flow strict
 import { type Element } from 'react';
+import Box from '../graphics/building-blocks/Box.svg';
+import Column from '../graphics/building-blocks/Column.svg';
+import Container from '../graphics/building-blocks/Container.svg';
+import Flex from '../graphics/building-blocks/Flex.svg';
+import Layer from '../graphics/building-blocks/Layer.svg';
+import Letterbox from '../graphics/building-blocks/Letterbox.svg';
+import Mask from '../graphics/building-blocks/Mask.svg';
+import Pog from '../graphics/building-blocks/Pog.svg';
+import Popover from '../graphics/building-blocks/Popover.svg';
+import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
+import Sticky from '../graphics/building-blocks/Sticky.svg';
+import TapArea from '../graphics/building-blocks/TapArea.svg';
+import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
+import Accessibility from '../graphics/foundations/accessibility.svg';
+import Animation from '../graphics/foundations/animation.svg';
+import BrandExpression from '../graphics/foundations/brand_expression.svg';
+import Color from '../graphics/foundations/color.svg';
+import Content from '../graphics/foundations/content.svg';
+import DataVisualization from '../graphics/foundations/data_visualization.svg';
+import DesignTokens from '../graphics/foundations/design-tokens.svg';
+import Elevation from '../graphics/foundations/elevation.svg';
+import Forms from '../graphics/foundations/forms.svg';
+import Iconography from '../graphics/foundations/iconography.svg';
+import Illustration from '../graphics/foundations/illustration.svg';
+import Layouts from '../graphics/foundations/layouts.svg';
+import Messaging from '../graphics/foundations/messaging.svg';
+import ScreenSizes from '../graphics/foundations/screen-size.svg';
+import Typography from '../graphics/foundations/typography.svg';
 import ActivationCard from '../graphics/general/ActivationCard.svg';
 import Avatar from '../graphics/general/Avatar.svg';
 import AvatarGroup from '../graphics/general/AvatarGroup.svg';
@@ -14,12 +42,11 @@ import Datapoint from '../graphics/general/Datapoint.svg';
 import DatePicker from '../graphics/general/DatePicker.svg';
 import Divider from '../graphics/general/Divider.svg';
 import Dropdown from '../graphics/general/Dropdown.svg';
-import RadioGroup from '../graphics/general/RadioGroup.svg';
 import Heading from '../graphics/general/Heading.svg';
 import HelpButton from '../graphics/general/HelpButton.svg';
+import Icon from '../graphics/general/Icon.svg';
 import IconButton from '../graphics/general/IconButton.svg';
 import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
-import Icon from '../graphics/general/Icon.svg';
 import Image from '../graphics/general/Image.svg';
 import GestaltLabel from '../graphics/general/Label.svg';
 import GestaltLink from '../graphics/general/Link.svg';
@@ -29,14 +56,14 @@ import Modal from '../graphics/general/Modal.svg';
 import ModalAlert from '../graphics/general/ModalAlert.svg';
 import Module from '../graphics/general/Module.svg';
 import NumberField from '../graphics/general/NumberField.svg';
+import OverlayPanel from '../graphics/general/OverlayPanel.svg';
 import PageHeader from '../graphics/general/PageHeader.svg';
-import Popover from '../graphics/building-blocks/Popover.svg';
 import Pulsar from '../graphics/general/Pulsar.svg';
+import RadioGroup from '../graphics/general/RadioGroup.svg';
 import SearchField from '../graphics/general/SearchField.svg';
 import SegmentedControl from '../graphics/general/SegmentedControl.svg';
 import SelectList from '../graphics/general/SelectList.svg';
 import SideNavigation from '../graphics/general/SideNavigation.svg';
-import OverlayPanel from '../graphics/general/OverlayPanel.svg';
 import SlimBanner from '../graphics/general/SlimBanner.svg';
 import Spinner from '../graphics/general/Spinner.svg';
 import Status from '../graphics/general/Status.svg';
@@ -51,37 +78,16 @@ import Toast from '../graphics/general/Toast.svg';
 import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
 import Video from '../graphics/general/Video.svg';
-import Box from '../graphics/building-blocks/Box.svg';
-import Column from '../graphics/building-blocks/Column.svg';
-import Container from '../graphics/building-blocks/Container.svg';
-import Flex from '../graphics/building-blocks/Flex.svg';
-import Layer from '../graphics/building-blocks/Layer.svg';
-import Letterbox from '../graphics/building-blocks/Letterbox.svg';
-import Mask from '../graphics/building-blocks/Mask.svg';
-import Pog from '../graphics/building-blocks/Pog.svg';
-import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
-import Sticky from '../graphics/building-blocks/Sticky.svg';
-import TapArea from '../graphics/building-blocks/TapArea.svg';
-import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
+import WashAnimated from '../graphics/general/WashAnimated.svg';
+import AdvocateTile from '../graphics/team_support/advocate.svg';
+import ComponentRequest from '../graphics/team_support/component-request.svg';
+import ContributionsTile from '../graphics/team_support/contributions.svg';
+import GetHelpTile from '../graphics/team_support/get-help.svg';
+import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
-import Accessibility from '../graphics/foundations/accessibility.svg';
-import DataVisualization from '../graphics/foundations/data_visualization.svg';
-import Animation from '../graphics/foundations/animation.svg';
-import Elevation from '../graphics/foundations/elevation.svg';
-import Typography from '../graphics/foundations/typography.svg';
-import Color from '../graphics/foundations/color.svg';
-import Content from '../graphics/foundations/content.svg';
-import DesignTokens from '../graphics/foundations/design-tokens.svg';
-import Iconography from '../graphics/foundations/iconography.svg';
-import Layouts from '../graphics/foundations/layouts.svg';
-import ScreenSizes from '../graphics/foundations/screen-size.svg';
-import BrandExpression from '../graphics/foundations/brand_expression.svg';
-import Messaging from '../graphics/foundations/messaging.svg';
-import WashAnimated from '../graphics/general/WashAnimated.svg';
-import Forms from '../graphics/foundations/forms.svg';
 
 export type Category =
   | 'Actions'
@@ -100,6 +106,7 @@ export type Category =
   | 'Pilot'
   | 'Pins and imagery'
   | 'Structure'
+  | 'Team support'
   | 'Text'
   | 'Utilities'
   | null;
@@ -107,11 +114,11 @@ export type Category =
 type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
 
 export type AccessibleStatus = {|
-  summary: ?StatusType,
-  a11yVisual: ?StatusType,
-  a11yScreenreader: ?StatusType,
-  a11yNavigation: ?StatusType,
   a11yComprehension: ?StatusType,
+  a11yNavigation: ?StatusType,
+  a11yScreenreader: ?StatusType,
+  a11yVisual: ?StatusType,
+  summary: ?StatusType,
 |};
 
 type PlatformStatus = {|
@@ -133,9 +140,56 @@ export type ListItemType = {|
   name: string,
   path?: string,
   previouslyNamed?: $ReadOnlyArray<string>,
-  status?: {| ...PlatformStatus, iOS: StatusType, android: StatusType, responsive: StatusType |}, // web status
+  status?: {|
+    ...PlatformStatus,
+    android: StatusType,
+    iOS: StatusType,
+    responsive: StatusType,
+  |}, // web status
   svg: Element<typeof Accessibility>,
 |};
+
+const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
+  {
+    svg: <AdvocateTile />,
+    name: 'Be a Gestalt advocate',
+    description:
+      'A dedicated cohort of system advocates to rely on for design partnership, input and knowledge share and support within your team and product area.',
+    category: 'Team support',
+    path: '/team_support/be_a_gestalt_advocate',
+  },
+  {
+    svg: <ComponentRequest />,
+    name: 'Component request',
+    description:
+      'Instructions on how to request new components or updates to an existent component.',
+    category: 'Team support',
+    path: '/team_support/component_request',
+  },
+  {
+    svg: <ContributionsTile />,
+    name: 'Contributions',
+    description: 'Resources, Slack channels, meetings and events.',
+    category: 'Team support',
+    path: '/team_support/contributions',
+  },
+  {
+    svg: <GetHelpTile />,
+    name: 'Get help',
+    description:
+      'Resources on how to engage with the Gestalt team, join office hours, meetings and events.',
+    category: 'Team support',
+    path: '/team_support/get_help',
+  },
+  {
+    svg: <TrainingTile />,
+    name: 'Training',
+    description:
+      'Gestalt design systems specific training to support design workflow and systems mindset.',
+    category: 'Team support',
+    path: '/team_support/training',
+  },
+];
 
 const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
   {
@@ -206,26 +260,19 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/forms/overview',
   },
   {
-    svg: <Messaging />,
-    name: 'Messaging',
-    description:
-      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
-    category: 'Foundations',
-    path: '/foundations/messaging/overview',
-  },
-  {
-    svg: <Typography />,
-    name: 'Typography',
-    description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    category: 'Foundations',
-    path: '/foundations/typography/guidelines',
-  },
-  {
     svg: <Iconography />,
     name: 'Iconography',
     description: 'Our current icon library, complete with guidelines on using and creating icons',
     category: 'Foundations',
     path: '/foundations/iconography/library',
+  },
+  {
+    svg: <Illustration />,
+    name: 'Illustration',
+    description:
+      'How to use illustration for communicating empty, success, error and loading statuses in the product',
+    category: 'Foundations',
+    path: '/foundations/illustration',
   },
   {
     svg: <Layouts />,
@@ -236,11 +283,26 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/foundations/layouts',
   },
   {
+    svg: <Messaging />,
+    name: 'Messaging',
+    description:
+      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
+    category: 'Foundations',
+    path: '/foundations/messaging/overview',
+  },
+  {
     svg: <ScreenSizes />,
     name: 'Screen sizes',
     description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
     category: 'Foundations',
     path: '/foundations/screen_sizes',
+  },
+  {
+    svg: <Typography />,
+    name: 'Typography',
+    description: 'A typographic system for a content hierarchy that is scannable and efficient',
+    category: 'Foundations',
+    path: '/foundations/typography/guidelines',
   },
 ];
 
@@ -1787,57 +1849,6 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   },
   {
     svg: <Popover />,
-    name: 'Popover',
-    aliases: ['Flyout'],
-    previouslyNamed: ['Flyout'],
-    description:
-      'Popover is a floating view that contains a task related to the content on screen.',
-    category: 'Building blocks',
-    status: {
-      accessible: {
-        summary: 'partial',
-        a11yVisual: 'ready',
-        a11yScreenreader: 'partial',
-        a11yNavigation: 'partial',
-        a11yComprehension: 'ready',
-      },
-      badge: null,
-      android: 'notAvailable',
-      deprecated: false,
-      documentation: 'partial',
-      iOS: 'notAvailable',
-      figma: 'partial',
-      responsive: 'ready',
-    },
-    android: {
-      accessible: {
-        summary: null,
-        a11yVisual: null,
-        a11yScreenreader: null,
-        a11yNavigation: null,
-        a11yComprehension: null,
-      },
-      badge: null,
-      deprecated: false,
-      documentation: 'notAvailable',
-      figma: null,
-    },
-    iOS: {
-      accessible: {
-        summary: null,
-        a11yVisual: null,
-        a11yScreenreader: null,
-        a11yNavigation: null,
-        a11yComprehension: null,
-      },
-      badge: null,
-      deprecated: false,
-      documentation: 'notAvailable',
-      figma: null,
-    },
-  },
-  {
-    svg: <Popover />,
     name: 'PopoverEducational',
     description:
       'PopoverEducational is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.',
@@ -1999,7 +2010,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'notAvailable',
+      android: 'partial',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
@@ -2016,7 +2027,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
@@ -3299,6 +3310,57 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
+    svg: <Popover />,
+    name: 'Popover',
+    aliases: ['Flyout'],
+    previouslyNamed: ['Flyout'],
+    description:
+      'Popover is a floating view that contains a task related to the content on screen.',
+    category: 'Building blocks',
+    status: {
+      accessible: {
+        summary: 'partial',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'partial',
+        a11yNavigation: 'partial',
+        a11yComprehension: 'ready',
+      },
+      badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'partial',
+      iOS: 'notAvailable',
+      figma: 'partial',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
     svg: <ScrollBoundaryContainer />,
     name: 'ScrollBoundaryContainer',
     previouslyNamed: ['ScrollableContainer'],
@@ -3831,12 +3893,14 @@ const COMPONENT_DATA_MAP: {|
   utilityComponents: $ReadOnlyArray<ListItemType>,
   figmaOnlyComponents: $ReadOnlyArray<ListItemType>,
   foundations: $ReadOnlyArray<ListItemType>,
+  teamSupport: $ReadOnlyArray<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,
   utilityComponents: UTILITIES_LIST,
   figmaOnlyComponents: FIGMA_ONLY_LIST,
   foundations: FOUNDATION_GUIDELINES_LIST,
+  teamSupport: TEAM_SUPPORT_LIST,
 };
 
 export default COMPONENT_DATA_MAP;

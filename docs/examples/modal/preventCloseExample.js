@@ -3,19 +3,19 @@ import { Fragment, type Node, useState } from 'react';
 import { Box, Button, Flex, Layer, Modal, Text } from 'gestalt';
 
 export default function PreventCloseExample(): Node {
-  const [showModal, setShowModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
   return (
     <Fragment>
       <Box padding={8}>
         <Button
           text="Open Modal"
           onClick={() => {
-            setShowModal(!showModal);
+            setShowComponent(!showComponent);
           }}
         />
       </Box>
 
-      {showModal && (
+      {showComponent && (
         <Layer>
           <Modal
             accessibilityModalLabel="Non closable modal"
@@ -23,7 +23,7 @@ export default function PreventCloseExample(): Node {
             closeOnOutsideClick={false}
             heading="Heading"
             onDismiss={() => {
-              setShowModal(!showModal);
+              setShowComponent(!showComponent);
             }}
             footer={
               <Flex justifyContent="end">
@@ -31,7 +31,7 @@ export default function PreventCloseExample(): Node {
                   color="red"
                   text="Close"
                   onClick={() => {
-                    setShowModal(!showModal);
+                    setShowComponent(!showComponent);
                   }}
                 />
               </Flex>

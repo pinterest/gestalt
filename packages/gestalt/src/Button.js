@@ -8,19 +8,19 @@ import {
   type AbstractComponent,
 } from 'react';
 import classnames from 'classnames';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
-import focusStyles from './Focus.css';
-import Icon, { type IconColor } from './Icon.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import styles from './Button.css';
-import Text from './Text.js';
+import focusStyles from './Focus.css';
 import touchableStyles from './TapArea.css';
+import Flex from './Flex.js';
+import Icon, { type IconColor } from './Icon.js';
+import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',

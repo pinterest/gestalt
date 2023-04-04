@@ -15,6 +15,8 @@ module.exports = function removeFlowTypesLoader(source /*: string */) {
     .toString()
     // Also remove what's left of the initial declaration comment
     .replace('//       strict', '')
+    // Remove FlowFixMe comments
+    .replace(/\/\/\s*\$FlowFixMe.*\n/gm, '')
     // Remove eslint disable comments
     .replace(/\/\/\s*eslint-disable-line.*\n/gm, '')
     .replace(/\/\/\s*eslint-disable-next-line.*\n/gm, '');

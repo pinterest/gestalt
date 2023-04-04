@@ -1,6 +1,6 @@
 // @flow strict
-import { Badge, Box, WashAnimated, Flex, Heading, TapArea, Text } from 'gestalt';
 import { type Node } from 'react';
+import { Badge, Box, WashAnimated, Flex, Heading, TapArea, Text } from 'gestalt';
 import illustrations, { type IllustrationTypes } from '../graphics/index.js';
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
 

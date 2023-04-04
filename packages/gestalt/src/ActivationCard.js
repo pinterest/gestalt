@@ -1,12 +1,12 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
+import styles from './ActivationCard.css';
 import Box from './Box.js';
+import Button from './Button.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
-import Button from './Button.js';
 import Text from './Text.js';
-import styles from './ActivationCard.css';
 
 const STATUS_ICONS = {
   notStarted: undefined,

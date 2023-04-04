@@ -15,11 +15,11 @@ import {
   RadioButton,
 } from 'gestalt';
 
-const HEADER_ZINDEX = new FixedZIndex(10);
-const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
 export default function Example(): Node {
-  const [shouldShow, setShouldShow] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
+
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   const renderFooter = (
     <OverlayPanel.DismissingElement>
@@ -34,16 +34,16 @@ export default function Example(): Node {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View example OverlayPanel" onClick={() => setShouldShow(true)} />
+        <Button text="View example OverlayPanel" onClick={() => setShowComponent(true)} />
       </Box>
-      {shouldShow && (
+      {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
             dismissConfirmation={{}}
             accessibilityDismissButtonLabel="Close audience creation overlaypanel"
             accessibilityLabel="Audience list creation for new campaign"
             heading="Create a new audience list"
-            onDismiss={() => setShouldShow(false)}
+            onDismiss={() => setShowComponent(false)}
             footer={renderFooter}
             size="md"
           >

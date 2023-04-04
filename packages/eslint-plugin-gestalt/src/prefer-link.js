@@ -3,6 +3,7 @@
  */
 
 // @flow strict
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
 import {
   buildKeyValueTypeArray,
   buildProps,
@@ -15,9 +16,7 @@ import {
   hasSpreadAttributes,
   isTag,
 } from './helpers/eslintASTHelpers.js';
-import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-
 import preferLinkReducer from './helpers/preferLinkReducer.js';
 
 export const MESSAGES = {

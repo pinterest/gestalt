@@ -27,12 +27,17 @@ export default function TableHeader({
   display = 'tableHeaderGroup',
   sticky = false,
 }: Props): Node {
-  const cs = cx(
-    display === 'visuallyHidden' && boxStyles.visuallyHidden,
-    styles.thead,
-    sticky && styles.stickyHeader,
+  return (
+    <thead
+      className={cx(
+        display === 'visuallyHidden' && boxStyles.visuallyHidden,
+        !sticky && styles.thead,
+        sticky && styles.stickyHeader,
+      )}
+    >
+      {children}
+    </thead>
   );
-  return <thead className={cs}>{children}</thead>;
 }
 
 TableHeader.displayName = 'Table.Header';

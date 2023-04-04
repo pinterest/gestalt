@@ -1,6 +1,5 @@
 // @flow strict-local
 import { type Node, useState } from 'react';
-import DatePicker from 'gestalt-datepicker';
 import {
   af,
   arSA,
@@ -40,15 +39,16 @@ import {
   zhTW,
 } from 'date-fns/locale';
 import { Box } from 'gestalt';
-import Example from '../../docs-components/Example.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import Combination from '../../docs-components/Combination.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import DatePicker from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import Combination from '../../docs-components/Combination.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import Example from '../../docs-components/Example.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/datepicker/main.js';
 

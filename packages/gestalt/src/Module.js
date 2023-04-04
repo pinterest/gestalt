@@ -3,8 +3,8 @@ import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
-import icons from './icons/index.js';
 import ModuleExpandable from './ModuleExpandable.js';
+import icons from './icons/index.js';
 import ModuleTitle from './Module/Title.js';
 
 type BadgeType = {|

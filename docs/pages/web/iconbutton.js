@@ -1,30 +1,30 @@
 // @flow strict
 import { type Node } from 'react';
 import { IconButton, SlimBanner } from 'gestalt';
-import PropTable from '../../docs-components/PropTable.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import MainSection from '../../docs-components/MainSection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Page from '../../docs-components/Page.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import PropTable from '../../docs-components/PropTable.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/iconbutton/main.js';
-import lowActions from '../../examples/iconbutton/lowActions.js';
-import highActions from '../../examples/iconbutton/highActions.js';
-import grouping from '../../examples/iconbutton/grouping.js';
-import noGrouping from '../../examples/iconbutton/noGrouping.js';
-import tooltip from '../../examples/iconbutton/tooltip.js';
-import image from '../../examples/iconbutton/image.js';
 import aria from '../../examples/iconbutton/aria.js';
-import keyboard from '../../examples/iconbutton/keyboard.js';
-import roleLink from '../../examples/iconbutton/roleLink.js';
-import roleButton from '../../examples/iconbutton/roleButton.js';
-import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
-import gestaltIcon from '../../examples/iconbutton/gestaltIcon.js';
 import customIcon from '../../examples/iconbutton/customIcon.js';
+import gestaltIcon from '../../examples/iconbutton/gestaltIcon.js';
+import grouping from '../../examples/iconbutton/grouping.js';
+import highActions from '../../examples/iconbutton/highActions.js';
+import image from '../../examples/iconbutton/image.js';
+import keyboard from '../../examples/iconbutton/keyboard.js';
+import lowActions from '../../examples/iconbutton/lowActions.js';
+import main from '../../examples/iconbutton/main.js';
+import noGrouping from '../../examples/iconbutton/noGrouping.js';
+import roleButton from '../../examples/iconbutton/roleButton.js';
+import roleLink from '../../examples/iconbutton/roleLink.js';
 import selectedState from '../../examples/iconbutton/selectedState.js';
+import tooltip from '../../examples/iconbutton/tooltip.js';
+import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (

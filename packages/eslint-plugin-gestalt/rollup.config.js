@@ -1,7 +1,7 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
+import babel from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import babel from '@rollup/plugin-babel';
 
 const rollupConfig = {
   input: 'src/index.js',

@@ -64,6 +64,9 @@ export default function Example(): Node {
           icon="question-mark"
           onClick={() => setOpen((prevVal) => !prevVal)}
           selected={open}
+          tooltip={{
+            text: 'Help & Resources Menu',
+          }}
         />
       </Box>
       {open && (

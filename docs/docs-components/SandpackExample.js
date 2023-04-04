@@ -1,4 +1,5 @@
 // @flow strict
+import { useState, Fragment, type Node } from 'react';
 import {
   SandpackProvider,
   SandpackLayout,
@@ -6,12 +7,13 @@ import {
   SandpackCodeEditor,
   useSandpack,
 } from '@codesandbox/sandpack-react';
-import React, { type Node } from 'react';
 import { Box, Flex } from 'gestalt';
-import CopyCodeButton from './buttons/CopyCodeButton.js';
+import { useAppContext } from './appContext.js';
 import clipboardCopy from './clipboardCopy.js';
-import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
+import DevelopmentEditor from './DevelopmentEditor.js';
+import CopyCodeButton from './buttons/CopyCodeButton.js';
 import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
+import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
 import { useLocalFiles } from './contexts/LocalFilesProvider.js';
 
 const MIN_EDITOR_HEIGHT = 350;
@@ -39,11 +41,11 @@ function SandpackContainer({
   hideControls?: boolean,
   hideEditor?: boolean,
 |}) {
-  const [editorShown, setEditorShown] = React.useState(!hideEditor);
+  const [editorShown, setEditorShown] = useState(!hideEditor);
   const { sandpack } = useSandpack();
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Box borderStyle="sm" rounding={2}>
         <SandpackLayout>
           <SandpackPreview
@@ -98,7 +100,7 @@ function SandpackContainer({
           </Flex>
         </Box>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }
 
@@ -119,10 +121,11 @@ export default function SandpackExample({
 |}): Node {
   const { files } = useLocalFiles();
 
-  // Based on
-  // https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67
-  return (
+  const { devExampleMode } = useAppContext();
+
+  return devExampleMode === 'default' ? (
     <SandpackProvider
+      // Based on https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67
       template="react"
       files={{
         '/styles.css': {
@@ -171,7 +174,7 @@ export default function SandpackExample({
             }
           : {}),
         '/App.js': {
-          code,
+          code: devExampleMode === 'default' ? code : '',
         },
       }}
       theme="dark"
@@ -193,5 +196,7 @@ export default function SandpackExample({
         hideEditor={hideEditor}
       />
     </SandpackProvider>
+  ) : (
+    <DevelopmentEditor code={code} />
   );
 }

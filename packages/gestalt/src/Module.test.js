@@ -1,8 +1,8 @@
 // @flow strict
 import renderer from 'react-test-renderer';
+import IconButton from './IconButton.js';
 import Module from './Module.js';
 import Text from './Text.js';
-import IconButton from './IconButton.js';
 
 describe('Module', () => {
   test('renders the base correctly', () => {

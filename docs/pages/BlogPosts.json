@@ -3,6 +3,74 @@
     "year": "2023",
     "digests": [
       {
+        "week": "March 31, 2023",
+        "summary": "New team support section in our docs, new/improved Android documentation and Popover updates in our Figma Web library.",
+        "posts": [
+          {
+            "title": "Team support resources + Component request/updates process",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e1/08/c6/e108c63132adda654d78f72f7fad90be.png",
+            "imageAltText": "illustration of glasses clinking",
+            "content": "We know the design system is all about collaboration and service. And, to improve our collaboration process, we just published a set of resources and guidelines to help you build consistent product surfaces and collaborate with us!\n\nWe defined a straightforward process to receive, centralize and manage your component’s requests and updates, making it easier for you to follow your request’s progress and understand how it fits in our roadmap. Yay! \n\n[**Check it out!**](https://gestalt.pinterest.systems/team_support/overview)"
+          },
+          {
+            "title": "Android SearchField and Toast docs",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/cc/07/73/cc077337fe5642016435264d767b65d9.png",
+            "imageAltText": "example of searchfield component",
+            "content": "We added new [Android SearchField component documentation](https://gestalt.pinterest.systems/android/searchfield) and made updates to our [Android Toast component documentation](https://gestalt.pinterest.systems/android/toast). They both include design guidelines as well as specifications for development. We have plans to ship much more documentation in the following quarter, so stay tuned for more updates."
+          },
+          {
+            "title": "Figma Popover caret positioning and new PopoverEducational",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/cf/ea/a5/cfeaa5cc8a88fc2af25921c25ede15b6.png",
+            "imageAltText": "example of popovereducational component",
+            "content": "We finally added [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational) to our Figma Web library which should speed up designing education or onboarding experiences moving forward. We _also_ added the ability to position the caret on all sides in our Popover and PopoverEducational Figma components. Note, these updates are only for our Web library at the moment, but we plan to make the same changes to Android and iOS shortly. Rejoice!"
+          }
+        ]
+      },
+      {
+        "week": "March 24, 2023",
+        "summary": "Illustration best practices, Figma extended color palette styles, Card components, icons and more!",
+        "posts": [
+          {
+            "title": "Illustration guidelines",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e3/19/4f/e3194f7a84cddaac993cc37c780441e0.png",
+            "imageAltText": "examples of gestalt illustrations",
+            "content": "We're super excited to announce our newly-published [Illustration guidelines](https://gestalt.pinterest.systems/foundations/illustration). We shipped our first set of official Gestalt illustrations in late 2022 and this update is another step towards a richer Pinterest product experience. "
+          },
+          {
+            "title": "Extended color palette for Figma library",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/71/1c/a0/711ca068fe1ad7d3cb44ccc82c902e92.png",
+            "imageAltText": "different shades of red from gestalt's color palette",
+            "content": "We _just_ added Gestalt's entire [extended color palette](https://gestalt.pinterest.systems/foundations/color/palette#Extended-palette) as color styles in our Figma Foundations library. This means you now have the full suite of colors available for use in your design. You can find them grouped under 'Extended color palette'\n\nPlease note: you might encounter a style issue with text and icons. We are fixing all related issues early next week."
+          },
+          {
+            "title": "Figma Card library",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/47/ff/9b/47ff9b76dbedefd8e4783e45356d7966.png",
+            "imageAltText": "example of a card component with carousel",
+            "content": "We've partnered with the the Browse team to develop a pilot Gestalt Card Figma library. This work will go a long way towards a more consistent and predictable Pinterest experience.\n\n This is a soft launch and there's a long way to go, but it's a huge step forward for the team."
+          },
+          {
+            "title": "Icon additions to Figma/codebase",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/ef/03/5e/ef035ea2e6cc3d88a3bc77a55653dc65.png",
+            "imageAltText": "four icons of an hourglass, folder with plus sign, circle with an arrow pointing left and a rectangle with a right-facing arrow inside of it",
+            "content": "We know you like icons, so we added more to our library! We added `workflow-status-queued` and `add-section` icons to our Figma library as well as `arrow-circle-back` and `move-pin` to our codebase."
+          },
+          {
+            "title": "Even more Figma library updates",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/29/32/93/29329323ea1048b38064fdd6c1ac019f.png",
+            "imageAltText": "mobile sheet component and android keyboard",
+            "content": "And yes, there are _even more_ Figma updates to share. We added a mWeb specific Sheet Figma component to our Web library. This work is leading up to shipping our new mWeb Sheet component in the React codebase.\n\nWe also published handy Android keyboard components in our Foundations library to remove _just one more step_ from your design process."
+          }
+        ]
+      },
+      {
         "week": "March 17, 2023",
         "summary": "New TileData Figma component, components to annotate components and a new Figma plugin coming...",
         "posts": [

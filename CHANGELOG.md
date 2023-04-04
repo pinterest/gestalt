@@ -1,3 +1,207 @@
+## 103.1.0 (Apr 3, 2023)
+
+### Minor
+
+- Table: implemented header/footer borders ([#2796](https://github.com/pinterest/gestalt/pull/2796)) - [Preview link](https://deploy-preview-2796--gestalt.netlify.app)
+
+## 103.0.1 (Apr 3, 2023)
+
+### Patch
+
+- Popover: deprecate info in Docs re color and caret ([#2795](https://github.com/pinterest/gestalt/pull/2795)) - [Preview link](https://deploy-preview-2795--gestalt.netlify.app)
+
+## 103.0.0 (Mar 31, 2023)
+
+### Major
+
+- IconButtonFloating: add required `tooltip` prop ([#2791](https://github.com/pinterest/gestalt/pull/2791)) - [Preview link](https://deploy-preview-2791--gestalt.netlify.app)
+
+## 102.0.1 (Mar 31, 2023)
+
+### Patch
+
+- Docs: 2023-03-31 weekly update ([#2793](https://github.com/pinterest/gestalt/pull/2793)) - [Preview link](https://deploy-preview-2793--gestalt.netlify.app)
+
+## 102.0.0 (Mar 31, 2023)
+
+### Major
+
+- Popover: Deprecating 'orange' color ([#2790](https://github.com/pinterest/gestalt/pull/2790)) - [Preview link](https://deploy-preview-2790--gestalt.netlify.app)
+
+## 101.3.32 (Mar 31, 2023)
+
+### Patch
+
+- Toast: Add specs to Android docs page ([#2789](https://github.com/pinterest/gestalt/pull/2789)) - [Preview link](https://deploy-preview-2789--gestalt.netlify.app)
+
+## 101.3.31 (Mar 31, 2023)
+
+### Patch
+
+- ModalAlert: make sure docs examples are open without user interaction ([#2788](https://github.com/pinterest/gestalt/pull/2788)) - [Preview link](https://deploy-preview-2788--gestalt.netlify.app)
+
+## 101.3.30 (Mar 30, 2023)
+
+### Patch
+
+- Docs: refactored examples for Modal, ModalAlert, OverlayPanel examples for better display ([#2787](https://github.com/pinterest/gestalt/pull/2787)) - [Preview link](https://deploy-preview-2787--gestalt.netlify.app)
+
+## 101.3.29 (Mar 30, 2023)
+
+### Patch
+
+- Internal: formatting tweaks in COMPONENT_DATA ([#2785](https://github.com/pinterest/gestalt/pull/2785)) - [Preview link](https://deploy-preview-2785--gestalt.netlify.app)
+
+## 101.3.28 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Updated get_started/developers/contributing/development_process ([#2783](https://github.com/pinterest/gestalt/pull/2783)) - [Preview link](https://deploy-preview-2783--gestalt.netlify.app)
+
+## 101.3.27 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Add Team support to mobile siden nav ([#2784](https://github.com/pinterest/gestalt/pull/2784)) - [Preview link](https://deploy-preview-2784--gestalt.netlify.app)
+
+## 101.3.26 (Mar 30, 2023)
+
+### Patch
+
+- Internal: standardize format for a11y integration test naming ([#2778](https://github.com/pinterest/gestalt/pull/2778)) - [Preview link](https://deploy-preview-2778--gestalt.netlify.app)
+
+## 101.3.25 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Fixing capitalization ([#2781](https://github.com/pinterest/gestalt/pull/2781)) - [Preview link](https://deploy-preview-2781--gestalt.netlify.app)
+
+## 101.3.24 (Mar 30, 2023)
+
+### Patch
+
+- ButtonGroup, Container: convert examples to Sandpack ([#2776](https://github.com/pinterest/gestalt/pull/2776)) - [Preview link](https://deploy-preview-2776--gestalt.netlify.app)
+
+## 101.3.23 (Mar 30, 2023)
+
+### Patch
+
+- Docs: Roadmap updates ([#2779](https://github.com/pinterest/gestalt/pull/2779)) - [Preview link](https://deploy-preview-2779--gestalt.netlify.app)
+
+## 101.3.22 (Mar 30, 2023)
+
+### Patch
+
+- Docs: add redirect for "How to work with us" page ([#2777](https://github.com/pinterest/gestalt/pull/2777)) - [Preview link](https://deploy-preview-2777--gestalt.netlify.app)
+
+## 101.3.21 (Mar 29, 2023)
+
+### Patch
+
+- Docs: Add Team support tab + subpages ([#2762](https://github.com/pinterest/gestalt/pull/2762)) - [Preview link](https://deploy-preview-2762--gestalt.netlify.app)
+
+## 101.3.20 (Mar 29, 2023)
+
+### Patch
+
+- Updating image for the Pinterest Design plugin ([#2775](https://github.com/pinterest/gestalt/pull/2775)) - [Preview link](https://deploy-preview-2775--gestalt.netlify.app)
+
+## 101.3.19 (Mar 29, 2023)
+
+### Patch
+
+- Docs: final improvements to development view: cleanup/refactor ([#2773](https://github.com/pinterest/gestalt/pull/2773)) - [Preview link](https://deploy-preview-2773--gestalt.netlify.app)
+
+## 101.3.18 (Mar 29, 2023)
+
+### Patch
+
+- Docs: Cleaned up our Figma plugins section #2774 ([#2774](https://github.com/pinterest/gestalt/pull/2774)) - [Preview link](https://deploy-preview-2774--gestalt.netlify.app)
+
+## 101.3.17 (Mar 28, 2023)
+
+### Patch
+
+- Badge: convert examples to use Sandpack ([#2771](https://github.com/pinterest/gestalt/pull/2771)) - [Preview link](https://deploy-preview-2771--gestalt.netlify.app)
+
+## 101.3.16 (Mar 28, 2023)
+
+### Patch
+
+- Internal: dev examples v2 ([#2765](https://github.com/pinterest/gestalt/pull/2765)) - [Preview link](https://deploy-preview-2765--gestalt.netlify.app)
+
+## 101.3.15 (Mar 27, 2023)
+
+### Patch
+
+- Docs: 2023-03-24 weekly update ([#2759](https://github.com/pinterest/gestalt/pull/2759)) - [Preview link](https://deploy-preview-2759--gestalt.netlify.app)
+
+## 101.3.14 (Mar 27, 2023)
+
+### Patch
+
+- Internal: remove package-lock.json ([#2767](https://github.com/pinterest/gestalt/pull/2767)) - [Preview link](https://deploy-preview-2767--gestalt.netlify.app)
+
+## 101.3.13 (Mar 27, 2023)
+
+### Patch
+
+- Internal: Add resolution for `nth-check` to address vulnerability ([#2766](https://github.com/pinterest/gestalt/pull/2766)) - [Preview link](https://deploy-preview-2766--gestalt.netlify.app)
+
+## 101.3.12 (Mar 27, 2023)
+
+### Patch
+
+- Docs: center main examples ([#2764](https://github.com/pinterest/gestalt/pull/2764)) - [Preview link](https://deploy-preview-2764--gestalt.netlify.app)
+
+## 101.3.11 (Mar 27, 2023)
+
+### Patch
+
+- Docs: Add Overview illustration to Foundations page ([#2757](https://github.com/pinterest/gestalt/pull/2757)) - [Preview link](https://deploy-preview-2757--gestalt.netlify.app)
+
+## 101.3.10 (Mar 27, 2023)
+
+### Patch
+
+- Bump json5 from 2.2.1 to 2.2.3 ([#2760](https://github.com/pinterest/gestalt/pull/2760)) - [Preview link](https://deploy-preview-2760--gestalt.netlify.app)
+
+## 101.3.9 (Mar 24, 2023)
+
+### Patch
+
+- Searchfield: Added searchfield docs page for Android ([#2748](https://github.com/pinterest/gestalt/pull/2748)) - [Preview link](https://deploy-preview-2748--gestalt.netlify.app)
+
+## 101.3.8 (Mar 24, 2023)
+
+### Patch
+
+- Guidelines: Illustration guidelines ([#2755](https://github.com/pinterest/gestalt/pull/2755)) - [Preview link](https://deploy-preview-2755--gestalt.netlify.app)
+
+## 101.3.7 (Mar 24, 2023)
+
+### Patch
+
+- Internal: fix Sandpack not enabled in prod ([#2756](https://github.com/pinterest/gestalt/pull/2756)) - [Preview link](https://deploy-preview-2756--gestalt.netlify.app)
+
+## 101.3.6 (Mar 24, 2023)
+
+### Patch
+
+- Internal: implement Development Preview ([#2754](https://github.com/pinterest/gestalt/pull/2754)) - [Preview link](https://deploy-preview-2754--gestalt.netlify.app)
+
+## 101.3.5 (Mar 23, 2023)
+
+### Patch
+
+- Internal: move .eslintrc from json to js to add constants + set import/order rule = ERROR & autofix([#2751](https://github.com/pinterest/gestalt/pull/2751)) - [Preview link](https://deploy-preview-2751--gestalt.netlify.app)
+
+## 101.3.4 (Mar 23, 2023)
+
+### Patch
+
+- Docs: add more context to Playwright visual diff snapshot tests section ([#2753](https://github.com/pinterest/gestalt/pull/2753)) - [Preview link](https://deploy-preview-2753--gestalt.netlify.app)
+
 ## 101.3.3 (Mar 22, 2023)
 
 ### Patch

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import MainSectionCard from './MainSectionCard.js';
 import Card from './Card.js';
+import MainSectionCard from './MainSectionCard.js';
 import MainSectionSubsection from './MainSectionSubsection.js';
 
 type Props = {|

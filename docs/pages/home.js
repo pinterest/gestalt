@@ -1,15 +1,15 @@
 // @flow strict
-import { Box, Button, Flex, Heading, Text } from 'gestalt';
 import { type Node } from 'react';
+import { Box, Button, Flex, Heading, Text } from 'gestalt';
 import IllustrationCard from '../docs-components/IllustrationCard.js';
 import IllustrationSection from '../docs-components/IllustrationSection.js';
 import Page from '../docs-components/Page.js';
-import HeroGraphic from '../graphics/home-page/HeroGraphic.js';
+import Color from '../graphics/home-page/color.svg';
+import Components from '../graphics/home-page/components.svg';
 import Design from '../graphics/home-page/design.svg';
 import Development from '../graphics/home-page/development.svg';
+import HeroGraphic from '../graphics/home-page/HeroGraphic.js';
 import HowToWork from '../graphics/home-page/how-to-work-with-us.svg';
-import Components from '../graphics/home-page/components.svg';
-import Color from '../graphics/home-page/color.svg';
 import Roadmap from '../graphics/home-page/roadmap.svg';
 
 export default function HomePage(): Node {
@@ -68,7 +68,7 @@ export default function HomePage(): Node {
             />
             <IllustrationCard
               headingLevel={3}
-              href="/get_started//how_to_work_with_us"
+              href="/team_support/contributions"
               title="How to work with us"
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
               color="blue-skycicle-450"

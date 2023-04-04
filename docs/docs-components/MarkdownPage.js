@@ -2,21 +2,19 @@
 
 // ignoring: since we do in fact want to render each component md block again
 
-import { Text, Box, Link, Flex, Icon, List } from 'gestalt';
-import Image from 'next/image';
-import { MDXProvider } from '@mdx-js/react';
 import { type Node } from 'react';
-
-import Page from './Page.js';
-import PageHeader from './PageHeader.js';
-import MainSection from './MainSection.js';
-
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
-import { MAX_WIDTH } from './MainSectionSubsection.js';
-
-import 'highlight.js/styles/a11y-light.css';
+import { MDXProvider } from '@mdx-js/react';
+import { Text, Box, Link, Flex, Icon, List, Button } from 'gestalt';
+import Image from 'next/image';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
+import InternalOnlyIconButton from './InternalOnlyIconButton.js';
+import MainSection from './MainSection.js';
+import { MAX_WIDTH } from './MainSectionSubsection.js';
+import Page from './Page.js';
+import PageHeader from './PageHeader.js';
+
+import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
   children: Node,
@@ -97,6 +95,16 @@ const components = {
     <Box marginTop={8} marginBottom={8}>
       <hr />
     </Box>
+  ),
+  ActionButton: ({ children, href }: {| href: string, children: string | null |}) => (
+    <Button
+      role="link"
+      href={href}
+      target="blank"
+      text={children || ''}
+      color="gray"
+      accessibilityLabel=""
+    />
   ),
   PrivateLink: ({
     children,

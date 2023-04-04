@@ -2,14 +2,14 @@
 
 import { type Node, useEffect, useRef } from 'react';
 import { useAnimation } from '../animation/AnimationContext.js';
-import Box from '../Box.js';
-import Flex from '../Flex.js';
-import Popover from '../Popover.js';
-import Button from '../Button.js';
-import Text from '../Text.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
+import Box from '../Box.js';
+import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import Flex from '../Flex.js';
 import { ESCAPE } from '../keyCodes.js';
+import Popover from '../Popover.js';
+import Text from '../Text.js';
 
 type Props = {|
   anchor: ?HTMLElement,

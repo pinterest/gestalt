@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, SelectList } from 'gestalt';
+import { Flex, SelectList } from 'gestalt';
 
 export default function Example(): Node {
   return (
-    <Box width="100%" height="100%" padding={4}>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <SelectList id="selectlistexample1" label="Country" onChange={() => {}} size="lg">
         {[
           { label: 'Algeria', value: 'algeria' },
@@ -17,6 +17,6 @@ export default function Example(): Node {
           <SelectList.Option key={label} label={label} value={value} />
         ))}
       </SelectList>
-    </Box>
+    </Flex>
   );
 }

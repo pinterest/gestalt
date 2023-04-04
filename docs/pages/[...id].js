@@ -7,15 +7,14 @@ We do this so we don't have to define each page, and can just define the pages i
 */
 
 // @flow strict
+import { type Node } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
-import { type Node } from 'react';
-
-import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
 import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 import MarkdownPage from '../docs-components/MarkdownPage.js';
+import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
 
 type MDXRemoteSerializeResult = {|
   compiledSource: string,

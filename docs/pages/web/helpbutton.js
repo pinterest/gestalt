@@ -1,14 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import MainSection from '../../docs-components/MainSection.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/helpbutton/main.js';
 import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
+import main from '../../examples/helpbutton/main.js';
 import withLink from '../../examples/helpbutton/withLink.js';
 import withText from '../../examples/helpbutton/withText.js';
 

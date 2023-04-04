@@ -2,6 +2,12 @@
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
+import Page from '../../docs-components/Page.js';
+import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
 import doHighlight from '../../examples/pulsar/doHighlight.js';
 import dontMultiple from '../../examples/pulsar/dontMultiple.js';
 import dontPopover from '../../examples/pulsar/dontPopover.js';
@@ -10,14 +16,8 @@ import dontStatus from '../../examples/pulsar/dontStatus.js';
 import doPopover from '../../examples/pulsar/doPopover.js';
 import doPosition from '../../examples/pulsar/doPosition.js';
 import doPrioritize from '../../examples/pulsar/doPrioritize.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import main from '../../examples/pulsar/main.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
 import paused from '../../examples/pulsar/paused.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
 import size from '../../examples/pulsar/size.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {

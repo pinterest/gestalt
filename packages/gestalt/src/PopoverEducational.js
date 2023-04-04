@@ -1,11 +1,11 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
-import Button from './Button.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Text from './Text.js';
-import Popover from './Popover.js';
 import styles from './PopoverEducational.css';
+import Box from './Box.js';
+import Button from './Button.js';
+import Flex from './Flex.js';
+import Popover from './Popover.js';
+import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 

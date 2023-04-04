@@ -1,21 +1,18 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
-import a11y from '../../examples/popover/a11y.js';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import doEducate from '../../examples/popover/doEducate.js';
-import dontCaret from '../../examples/popover/dontCaret.js';
-import dontCritical from '../../examples/popover/dontCritical.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import main from '../../examples/popover/main.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import a11y from '../../examples/popover/a11y.js';
+import dontCritical from '../../examples/popover/dontCritical.js';
+import main from '../../examples/popover/main.js';
 import variantAnchor from '../../examples/popover/variantAnchor.js';
-import variantColorCaret from '../../examples/popover/variantColorCaret.js';
 import variantIdealDirection from '../../examples/popover/variantIdealDirection.js';
 import variantLayer from '../../examples/popover/variantLayer.js';
 import variantScrollingContainers from '../../examples/popover/variantScrollingContainers.js';
@@ -38,7 +35,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             title="When to use"
             description={`
           - Providing additional information for related context without cluttering the surface of a workflow.
-          - Bringing attention to specific user interface elements for educational purposes. In this case, likely used with a [Pulsar](/web/pulsar).
           - Accommodating a variety of features, such as Buttons, Images or SearchFields, that are not available in [Dropdown](/web/dropdown).
         `}
           />
@@ -76,36 +72,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 hideControls
                 hideEditor
                 name="Don't - Critical"
-                previewHeight={400}
-              />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            description="Use Popover to educate users on a new or existing feature. When Popover is triggered automatically, like in the case of user education, be sure to use a blue background and include a caret pointing to the feature. See the [color and caret](#Color-and-caret) variant to learn more."
-            sandpackExample={
-              <SandpackExample
-                code={doEducate}
-                hideEditor
-                name="Do - Educate"
-                previewHeight={400}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Include a caret if Popover was triggered by user interaction, such as clicking or focusing on [Button](/web/button) or [IconButton](/web/iconbutton)."
-            sandpackExample={
-              <SandpackExample
-                code={dontCaret}
-                hideControls
-                hideEditor
-                name="Don't - Caret"
                 previewHeight={400}
               />
             }
@@ -186,26 +152,6 @@ The maximum width of Popover. Popover has different size configurations:
 We recommend using \`"xs\`" for education Popovers and \`"xl\`" for more complex Popovers. Avoid using other configurations whenever possible as they are legacy sizes.
       `}
         />
-        <MainSection.Subsection
-          title="Color and caret"
-          description={`
-When building in-product education, be sure to pass in \`color="blue"\` and \`showCaret="true"\`, as seen in the first example, and use [Experience HQ](https://ehq.pinadmin.com/) for the configuration. For Popovers that aren’t education, use the default \`color="white"\` and \`showCaret="false"\`, as seen in the second example. Avoid using any other configurations as they are legacy colors.
-`}
-        >
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample code={variantColorCaret} name="Variant - Color/Caret" />
-            }
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample code={main} name="Variant - Color/Caret 2" previewHeight={400} />
-            }
-          />
-        </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Anchor"
@@ -347,6 +293,9 @@ Popover's positioning algorithm requires that the anchor element renders before 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
+**[PopoverEducational](/web/popovereducational)**
+Popover used for education or onboarding experiences.
+
 **[Dropdown](/web/dropdown)**
 Dropdown is an element constructed using Popover as its container. Use Dropdown to display a list of actions or options in a Popover.
 

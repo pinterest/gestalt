@@ -39,7 +39,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           },
         ],
       },
-      'How to work with us',
       'FAQ',
     ],
   },
@@ -56,6 +55,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Switch',
       'Tabs',
       'TextField',
+      'SearchField',
       'Toast',
     ],
   },
@@ -185,7 +185,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           'Grammar',
           'Inclusive language',
           'UI elements',
-          'Syntax structure',
+          'Syntax and structure',
           'Resources',
         ],
       },
@@ -203,6 +203,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         sectionName: 'Iconography',
         pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
       },
+      'Illustration',
       'Layouts',
       {
         sectionName: 'Messaging',
@@ -219,6 +220,17 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
   {
     sectionName: 'Blog',
     pages: ['2023 Q1 Newsletter'],
+  },
+  {
+    sectionName: 'Team support',
+    pages: [
+      'Overview',
+      'Be a Gestalt advocate',
+      'Component request',
+      'Contributions',
+      'Get help',
+      'Training',
+    ],
   },
 ];
 

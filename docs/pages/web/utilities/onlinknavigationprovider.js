@@ -1,25 +1,29 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
+import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import examplesCalloutUpsell from '../../../examples/onlinknavigationprovider/examplesCalloutUpsell.js';
+import examplesDropdown from '../../../examples/onlinknavigationprovider/examplesDropdown.js';
+import examplesLinkButton from '../../../examples/onlinknavigationprovider/examplesLinkButton.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="OnLinkNavigationProvider">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name="OnLinkNavigationProvider"
+        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         type="utility"
       />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Variants">
+      <MainSection name="Usage">
         <MainSection.Subsection
           title="Custom link navigation context"
           description={`
@@ -50,285 +54,50 @@ The returned \`onNavigationClick\` function inside the hook function uses the ev
               onClick: () => {},
             }}
           />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Examples">
+        <MainSection.Subsection title="Link, Button, IconButton, TapArea">
           <MainSection.Card
             title="Examples from start to end: Link, Button, IconButton, TapArea"
             cardSize="lg"
-            defaultCode={`
-function OnNavigation() {
-  const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
-
-  const useOnNavigation = ({ href, target }) => {
-
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-
-    return onNavigationClick;
-  }
-
-  const linkProps = {
-    href: 'https://pinterest.com',
-    target: 'blank',
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}>
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Text>Navigation type:</Text>
-          <RadioButton
-            checked={onNavigationMode === 'default'}
-            id="default1"
-            label="Default Link Navigation"
-            name="default"
-            onChange={() => setOnNavigationMode('default')}
-            value="default"
+            sandpackExample={
+              <SandpackExample
+                code={examplesLinkButton}
+                name="Example - Link, Button, IconButton, TapArea"
+                layout="column"
+              />
+            }
           />
-          <RadioButton
-            checked={onNavigationMode === 'custom'}
-            id="custom1"
-            label="Custom OnLinkNavigationProvider Navigation"
-            name="custom"
-            onChange={() => setOnNavigationMode('custom')}
-            value="custom"
-          />
-          <Divider/>
-        </Flex>
-        <Flex gap={{ row: 4, column: 0 }} alignItems="center">
-          <Text>
-            <Link {...linkProps}>Visit pinterest.com</Link>
-          </Text>
-          <Box>
-            <Button
-              {...linkProps}
-              role="link"
-              text="Visit pinterest.com"
-            />
-          </Box>
-          <IconButton
-            {...linkProps}
-            accessibilityLabel="Link IconButton"
-            icon="visit"
-            iconColor="darkGray"
-            role="link"
-            size="lg"
-          />
-          <Box width={100}>
-            <TapArea
-              {...linkProps}
-              role="link"
-              rounding={2}
-            >
-              <Box color="darkGray" rounding={4} borderStyle="sm">
-                <Mask rounding={2}>
-                  <Image
-                    alt="Antelope Canyon"
-                    naturalHeight={1}
-                    naturalWidth={1}
-                    src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-                  />
-                </Mask>
-              </Box>
-            </TapArea>
-          </Box>
-        </Flex>
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
-          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Callout, Upsell, ActivationCard">
           <MainSection.Card
             title="Examples from top to bottom: Callout, Upsell, ActivationCard"
             cardSize="lg"
-            defaultCode={`
-function OnNavigation() {
-  const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
+            sandpackExample={
+              <SandpackExample
+                code={examplesCalloutUpsell}
+                name="Example - Callout, Upsell, ActivationCard"
+                layout="column"
+                previewHeight={650}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  const useOnNavigation = ({ href, target }) => {
-
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-
-    return onNavigationClick;
-  }
-
-  const linkProps = {
-    href: 'https://pinterest.com',
-    target: 'blank',
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}>
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Text>Navigation type:</Text>
-          <RadioButton
-            checked={onNavigationMode === 'default'}
-            id="default2"
-            label="Default Link Navigation"
-            name="default"
-            onChange={() => setOnNavigationMode('default')}
-            value="default"
-          />
-          <RadioButton
-            checked={onNavigationMode === 'custom'}
-            id="custom"
-            label="Custom OnLinkNavigationProvider Navigation"
-            name="custom2"
-            onChange={() => setOnNavigationMode('custom')}
-            value="custom"
-          />
-          <Divider/>
-        </Flex>
-        <Flex direction="column" gap={{ column: 4, row: 0 }} alignItems="center">
-          <Callout
-            type="info"
-            iconAccessibilityLabel="Info icon"
-            title="Your business account was created!"
-            message="Apply to the Verified Merchant Program!"
-            primaryAction={
-              { ...linkProps,
-                label:'Get started',
-                accessibilityLabel: 'Get started: verified merchant program'
-              }}
-            secondaryAction={
-              { ...linkProps,
-                label: 'Learn more',
-                accessibilityLabel: 'Learn more: verified merchant program'
-              }}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
-              onDismiss: () => {},
-            }}
-          />
-          <Upsell
-            title="Give $30, get $60 in ads credit"
-            message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-            primaryAction={
-              { ...linkProps,
-                label: 'Send invite',
-                accessibilityLabel: 'Send invite for ads credit'
-              }}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
-              onDismiss: () => {},
-            }}
-            imageData={{
-              component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32}/>
-            }}
-          />
-          <ActivationCard
-            status="notStarted"
-            statusMessage="Not started"
-            title="Claim your website"
-            message="Grow distribution and track Pins linked to your website"
-            link={{
-              ...linkProps,
-              label: 'Claim your website now',
-              accessibilityLabel: '',
-            }}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss card',
-              onDismiss: ()=>{},
-            }}
-          />
-        </Flex>
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
-          />
+        <MainSection.Subsection title="Dropdown">
           <MainSection.Card
             title="With a Dropdown"
             cardSize="lg"
-            defaultCode={`
-function OnNavigation() {
-  const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    setSelected(item);
-  };
-
-  const useOnNavigation = ({ href, target }) => {
-
-    const onNavigationClick = ({ event }) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
-
-    return onNavigationClick;
-  }
-
-  const linkProps = {
-    href: 'https://pinterest.com',
-    target: 'blank',
-  }
-
-  return (
-    <OnLinkNavigationProvider onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}>
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Text>Navigation type:</Text>
-          <RadioButton
-            checked={onNavigationMode === 'default'}
-            id="default3"
-            label="Default Link Navigation"
-            name="default"
-            onChange={() => setOnNavigationMode('default')}
-            value="default"
-          />
-          <RadioButton
-            checked={onNavigationMode === 'custom'}
-            id="custom3"
-            label="Custom OnLinkNavigationProvider Navigation"
-            name="custom"
-            onChange={() => setOnNavigationMode('custom')}
-            value="custom"
-          />
-          <Divider/>
-        </Flex>
-        <Box display="flex" justifyContent="center">
-          <Button
-            accessibilityControls="basic-dropdown-example"
-            accessibilityHaspopup
-            accessibilityExpanded={open}
-            iconEnd="arrow-down"
-            text="Menu"
-            ref={anchorRef}
-            selected={open}
-            onClick={ () => setOpen((prevVal) => !prevVal) }
-          />
-          {open && (
-            <Dropdown id="basic-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
-              <Dropdown.Item
-                { ...linkProps }
-                isExternal
-                option={{ value: 'item 3', label: 'Item 3 with a really long, detailed, complex name' }}
-              />
-            </Dropdown>
-          )}
-        </Box>
-      </Flex>
-    </OnLinkNavigationProvider>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample code={examplesDropdown} name="Example - Dropdown" layout="column" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

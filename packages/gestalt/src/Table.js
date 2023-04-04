@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node, useState, useCallback, useEffect, useRef } from 'react';
 import cx from 'classnames';
-import Box from './Box.js';
 import styles from './Table.css';
-import TableCell from './TableCell.js';
+import Box from './Box.js';
 import TableBody from './TableBody.js';
+import TableCell from './TableCell.js';
 import TableFooter from './TableFooter.js';
 import TableHeader from './TableHeader.js';
 import TableHeaderCell from './TableHeaderCell.js';
-import TableRowExpandable from './TableRowExpandable.js';
-import TableRowDrawer from './TableRowDrawer.js';
 import TableRow from './TableRow.js';
+import TableRowDrawer from './TableRowDrawer.js';
+import TableRowExpandable from './TableRowExpandable.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 import { TableContextProvider } from './contexts/TableContext.js';
 
@@ -81,6 +81,7 @@ export default function Table({
     showShadowScroll === 'right' && styles.horizontalScrollRight,
     showShadowScroll === 'left' && styles.horizontalScrollLeft,
   );
+
   return (
     <Box
       overflow="auto"

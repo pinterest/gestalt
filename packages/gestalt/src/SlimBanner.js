@@ -6,8 +6,8 @@ import Flex from './Flex.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Link from './Link.js';
-import Text from './Text.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
+import Text from './Text.js';
 
 type DismissButtonType = {|
   accessibilityLabel: string,

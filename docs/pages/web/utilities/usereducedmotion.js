@@ -1,10 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import Page from '../../../docs-components/Page.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
+import MainSection from '../../../docs-components/MainSection.js';
+import Page from '../../../docs-components/Page.js';
+import PageHeader from '../../../docs-components/PageHeader.js';
+import QualityChecklist from '../../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import example from '../../../examples/usereducedmotion/example.js';
 
 export default function DocsPage(): Node {
   return (
@@ -37,42 +39,7 @@ export default function DocsPage(): Node {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const shouldReduceMotion = useReducedMotion();
-
-  return (
-    <React.Fragment>
-      <style dangerouslySetInnerHTML={{__html: \`
-        @keyframes vibrate {
-          0% {
-            transform: translate(0);
-          }
-          33% {
-            transform: translate(-2px, -2px);
-          }
-          66% {
-            transform: translate(2px, -2px);
-          }
-          100% {
-            transform: translate(0);
-          }
-        }
-      \`}} />
-      <div
-        style={
-          shouldReduceMotion
-            ? {}
-            : { animation: 'vibrate 0.3s linear infinite both' }
-        }
-      >
-        <Box color="infoBase" display="inlineBlock" padding={4}>
-          <Text color="inverse">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion disabled'}</Text>
-        </Box>
-      </div>
-    </React.Fragment>
-  );
-}`}
+            sandpackExample={<SandpackExample code={example} name="Example" layout="column" />}
           />
         </MainSection.Subsection>
       </MainSection>
