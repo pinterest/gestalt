@@ -1,3 +1,9 @@
+## 103.3.0 (Apr 4, 2023)
+
+### Minor
+
+- Table: implement controlled Table.RowExpanded with expanded prop ([#2797](https://github.com/pinterest/gestalt/pull/2797)) - [Preview link](https://deploy-preview-2797--gestalt.netlify.app)
+
 ## 103.2.0 (Apr 4, 2023)
 
 ### Minor
