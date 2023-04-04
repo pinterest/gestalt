@@ -1,3 +1,9 @@
+## 104.0.0 (Apr 4, 2023)
+
+### Major
+
+- DatePicker: remove hard coded date formats and replaced to dynamically feed from date-fns ([#2798](https://github.com/pinterest/gestalt/pull/2798)) - [Preview link](https://deploy-preview-2798--gestalt.netlify.app)
+
 ## 103.3.0 (Apr 4, 2023)
 
 ### Minor
