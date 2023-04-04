@@ -11,7 +11,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * The contents within the drawer.
+   * The contents within the drawer. See the [Table.RowDrawer implementation](https://gestalt.pinterest.systems/web/table#Table.RowDrawer-implementation) to learn more.
    */
   drawerContents: Node,
   /**
