@@ -12,12 +12,12 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalTextField from './TextField/InternalTextField.js';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 
-type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
-
 export type MaxLength = {|
   characterCount: number,
   errorAccessibilityLabel: string,
 |};
+
+type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {|
   /**
@@ -48,6 +48,10 @@ type Props = {|
    * A unique identifier for the input.
    */
   id: string,
+  /**
+   * Optionally specify the type of data that might be entered by the user while editing the element or its contents. This allows mobile browsers to display an appropriate virtual keyboard. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
+   */
+  inputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   /**
    * The label for the input. Be sure to localize the text.
    */
@@ -141,6 +145,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
     hasError = false,
     helperText,
     id,
+    inputMode,
     label,
     labelDisplay = 'visible',
     maxLength,
@@ -204,6 +209,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
       helperText={helperText}
       iconButton={iconButton}
       id={id}
+      inputMode={inputMode}
       label={label}
       labelDisplay={labelDisplay}
       maxLength={maxLength}

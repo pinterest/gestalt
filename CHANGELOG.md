@@ -1,3 +1,63 @@
+## 104.0.2 (Apr 4, 2023)
+
+### Patch
+
+- Docs: add March newsletter ([#2800](https://github.com/pinterest/gestalt/pull/2800)) - [Preview link](https://deploy-preview-2800--gestalt.netlify.app)
+
+## 104.0.1 (Apr 4, 2023)
+
+### Patch
+
+- TextField: remove inputMode default to text as it can interfere with type. Undo change introduced in #2792 ([#2801](https://github.com/pinterest/gestalt/pull/2801)) - [Preview link](https://deploy-preview-2801--gestalt.netlify.app)
+
+## 104.0.0 (Apr 4, 2023)
+
+### Major
+
+- DatePicker: remove hard coded date formats and replaced to dynamically feed from date-fns ([#2798](https://github.com/pinterest/gestalt/pull/2798)) - [Preview link](https://deploy-preview-2798--gestalt.netlify.app)
+
+## 103.3.0 (Apr 4, 2023)
+
+### Minor
+
+- Table: implement controlled Table.RowExpanded with expanded prop ([#2797](https://github.com/pinterest/gestalt/pull/2797)) - [Preview link](https://deploy-preview-2797--gestalt.netlify.app)
+
+## 103.2.0 (Apr 4, 2023)
+
+### Minor
+
+- TextField: add 'inputMode' prop ([#2792](https://github.com/pinterest/gestalt/pull/2792)) - [Preview link](https://deploy-preview-2792--gestalt.netlify.app)
+
+## 103.1.0 (Apr 3, 2023)
+
+### Minor
+
+- Table: implemented header/footer borders ([#2796](https://github.com/pinterest/gestalt/pull/2796)) - [Preview link](https://deploy-preview-2796--gestalt.netlify.app)
+
+## 103.0.1 (Apr 3, 2023)
+
+### Patch
+
+- Popover: deprecate info in Docs re color and caret ([#2795](https://github.com/pinterest/gestalt/pull/2795)) - [Preview link](https://deploy-preview-2795--gestalt.netlify.app)
+
+## 103.0.0 (Mar 31, 2023)
+
+### Major
+
+- IconButtonFloating: add required `tooltip` prop ([#2791](https://github.com/pinterest/gestalt/pull/2791)) - [Preview link](https://deploy-preview-2791--gestalt.netlify.app)
+
+## 102.0.1 (Mar 31, 2023)
+
+### Patch
+
+- Docs: 2023-03-31 weekly update ([#2793](https://github.com/pinterest/gestalt/pull/2793)) - [Preview link](https://deploy-preview-2793--gestalt.netlify.app)
+
+## 102.0.0 (Mar 31, 2023)
+
+### Major
+
+- Popover: Deprecating 'orange' color ([#2790](https://github.com/pinterest/gestalt/pull/2790)) - [Preview link](https://deploy-preview-2790--gestalt.netlify.app)
+
 ## 101.3.32 (Mar 31, 2023)
 
 ### Patch

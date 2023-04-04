@@ -26,6 +26,9 @@ export default function Example(): Node {
           icon="add"
           onClick={() => {}}
           ref={anchorRef}
+          tooltip={{
+            text: 'Create Pin Menu',
+          }}
         />
       </Box>
     </Flex>

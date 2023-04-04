@@ -81,6 +81,7 @@ export default function Table({
     showShadowScroll === 'right' && styles.horizontalScrollRight,
     showShadowScroll === 'left' && styles.horizontalScrollLeft,
   );
+
   return (
     <Box
       overflow="auto"

@@ -6,7 +6,7 @@ import Flex from './Flex.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalDismissButton from './shared/InternalDismissButton.js';
 
-type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
+type Color = 'blue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
@@ -29,7 +29,7 @@ type Props = {|
    */
   children?: Node,
   /**
-   * The background color of Popover. See the [color and caret](https://gestalt.pinterest.systems/web/popover#Color-and-caret) variant to learn more.
+   * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
    */
   color?: Color,
   /**
@@ -61,7 +61,7 @@ type Props = {|
    */
   shouldFocus?: boolean,
   /**
-   * Shows a caret on Popover. See the [color and caret](https://gestalt.pinterest.systems/web/popover#Color-and-caret) variant to learn more.
+   * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
    */
   showCaret?: boolean,
   /**

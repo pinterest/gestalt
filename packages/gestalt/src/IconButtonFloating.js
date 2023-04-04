@@ -2,19 +2,20 @@
 import { forwardRef, type Node, type AbstractComponent } from 'react';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
+import { type Indexable } from './zIndex.js';
 import icons from './icons/index.js';
 
 type Props = {|
   /**
-   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButtonFloating so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButtonFloating so that screen reader users can identify the relationship between elements. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/iconbuttonfloating#ARIA-attributes) for details on proper usage.
    */
   accessibilityControls?: string,
   /**
-   * Used to indicates that IconButtonFloating hides or exposes a Dropdown and details whether it is currently open or closed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Used to indicates that IconButtonFloating hides or exposes a Dropdown and details whether it is currently open or closed. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/iconbuttonfloating#ARIA-attributes) for details on proper usage.
    */
   accessibilityExpanded?: boolean,
   /**
-   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/iconbuttonfloating#ARIA-attributes) for details on proper usage.
    */
   accessibilityPopupRole: 'menu' | 'dialog',
   /**
@@ -22,15 +23,15 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
-   * Defines a new icon different from the built-in Gestalt icons. See [custom icon](#Custom-icon) variant to learn more.
+   * Defines a new icon different from the built-in Gestalt icons. See [custom icon](https://gestalt.pinterest.systems/web/iconbuttonfloating#Custom-icon) variant to learn more.
    */
   dangerouslySetSvgPath?: {| __path: string |},
   /**
-   * When disabled, IconButtonFloating looks inactive and cannot be interacted with
+   * When disabled, IconButtonFloating looks inactive and cannot be interacted with.
    */
   disabled?: boolean,
   /**
-   * Icon displayed in IconButtonFloating to convey the behavior of the component. Refer to the [iconography](/foundations/iconography/library) guidelines regarding the available icon options.
+   * Icon displayed in IconButtonFloating to convey the behavior of the component. Refer to our [iconography library](https://gestalt.pinterest.systems/foundations/iconography/library) to see available icons.
    */
   icon: $Keys<typeof icons>,
   /**
@@ -45,9 +46,19 @@ type Props = {|
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
-   * Indicates whether the associated Dropdown is open or closed. Not used when IconButtonFloating opens a dialog.
+   * Indicates whether the associated dropdown is open or closed. Not used when IconButtonFloating opens a dialog.
    */
   selected?: boolean,
+  /**
+   * Adds a [Tooltip](https://gestalt.pinterest.systems/web/tooltip) on hover/focus of the IconButtonFloating. See the [With Tooltip](https://gestalt.pinterest.systems/web/iconbuttonfloating#With-Tooltip) variant to learn more.
+   */
+  tooltip: {|
+    accessibilityLabel?: string,
+    inline?: boolean,
+    idealDirection?: 'up' | 'right' | 'down' | 'left',
+    text: string,
+    zIndex?: Indexable,
+  |},
 |};
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
@@ -77,6 +88,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
     icon,
     onClick,
     selected,
+    tooltip,
   }: Props,
   ref,
 ): Node {
@@ -96,6 +108,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
         role="button"
         selected={selected}
         size="xl"
+        tooltip={tooltip}
       />
     </Box>
   );

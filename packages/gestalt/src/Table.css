@@ -7,40 +7,54 @@
 
 .th {
   composes: alignStart from "./Typography.css";
-  composes: paddingY3 from "./boxWhitespace.css";
-  composes: paddingX3 from "./boxWhitespace.css";
 }
 
+.th,
 .td {
   composes: paddingY3 from "./boxWhitespace.css";
   composes: paddingX3 from "./boxWhitespace.css";
 }
 
-.stickyHeader tr th {
-  background-color: var(--g-colorGray0);
-  position: sticky;
-  top: 0;
-  z-index: 2;
+.stickyHeader {
+  composes: raisedTop from "./Borders.css";
 }
 
+.stickyFooter {
+  composes: raisedBottom from "./Borders.css";
+}
+
+.stickyHeader,
+.stickyHeader tr th {
+  top: 0;
+}
+
+.stickyFooter,
 .stickyFooter tr td {
-  background-color: var(--g-colorGray0);
   bottom: 0;
-  position: sticky;
-  z-index: 2;
 }
 
 .columnSticky {
-  background-color: var(--g-colorGray0);
   left: 0;
-  position: sticky;
   z-index: 1;
 }
 
-.stickyHeader .columnSticky {
-  z-index: 3;
+.stickyHeader,
+.stickyFooter,
+.stickyHeader tr th,
+.stickyFooter tr td {
+  z-index: 2;
 }
 
+.columnSticky,
+.stickyHeader,
+.stickyFooter,
+.stickyHeader tr th,
+.stickyFooter tr td {
+  background-color: var(--g-colorGray0);
+  position: sticky;
+}
+
+.stickyHeader .columnSticky,
 .stickyFooter .columnSticky {
   z-index: 3;
 }
@@ -53,10 +67,15 @@
   box-shadow: -8px 0 8px -8px var(--color-border-container);
 }
 
-.thead tr:not(:first-child) th {
-  border-top: 1px solid var(--color-border-container);
+.tfooter tr td {
+  border-top: 2px solid var(--color-border-container);
 }
 
+.thead tr:first-child th {
+  border-bottom: 1px solid var(--color-border-container);
+}
+
+.thead tr:not(:first-child) th,
 .tbody tr td {
   border-top: 1px solid var(--color-border-container);
 }
@@ -65,10 +84,7 @@
   border-top: none;
 }
 
-.hoverShadeGray:hover {
-  background-color: var(--g-colorGray100);
-}
-
+.hoverShadeGray:hover,
 .hoverShadeGray:hover .columnSticky {
   background-color: var(--g-colorGray100);
 }
