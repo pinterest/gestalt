@@ -1,3 +1,9 @@
+## 103.2.0 (Apr 4, 2023)
+
+### Minor
+
+- TextField: add 'inputMode' prop ([#2792](https://github.com/pinterest/gestalt/pull/2792)) - [Preview link](https://deploy-preview-2792--gestalt.netlify.app)
+
 ## 103.1.0 (Apr 3, 2023)
 
 ### Minor
