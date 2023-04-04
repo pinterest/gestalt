@@ -27,6 +27,7 @@ exports[`UpsellForm renders 1`] = `
               className="textField base enabled normal medium truncate"
               disabled={false}
               id="name"
+              inputMode="text"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
