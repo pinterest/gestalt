@@ -3,6 +3,45 @@
     "year": "2023",
     "digests": [
       {
+        "month": "March",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng March Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from March."
+          },
+          {
+            "title": "HelpButton",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/d7/6b/6b/d76b6b29dd880fd67e17001a578dbc04.png",
+            "imageAltText": "Screenshot of HelpButton UI",
+            "content": "Introducing our newest component, [HelpButton](https://gestalt.pinterest.systems/web/helpbutton)! This component used alongside another UI element to help explain the element to the user."
+          },
+          {
+            "title": "OverlayPanel.DismissingElement",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/c5/7b/98/c57b98313424734fd2e02129c3585327.png",
+            "imageAltText": "Screenshot of OverlayPanel.DismissingElement UI",
+            "content": "We re-architected how animation works in OverlayPanel (formerly known as \"Sheet\"), abstracting it to a new subcomponent: [OverlayPanel.DismissingElement](https://gestalt.pinterest.systems/web/overlaypanel#DismissingElement). This simplifies implementation of closing animations and will be useful in other components in the future."
+          },
+          {
+            "title": "Component updates: Button, Dropdown, Icon, IconButton, IconButtonFloating, Masonry, ModalAlert, Pog, Popover",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/36/b8/18/36b81819ad311a3dd31af76436d44784.png",
+            "imageAltText": "Screenshot of new icons added",
+            "content": "We removed [Masonry's](https://gestalt.pinterest.systems/web/masonry) deprecated `Item` prop — you should now be using `renderItem` instead. [Button](https://gestalt.pinterest.systems/web/button) and [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) now have `dataTestId`s. [Dropdown](https://gestalt.pinterest.systems/web/dropdown) has a new `maxHeight` prop that can help address visual bugs with long lists of items. We fixed a right-to-left (RTL) bug with [Pog](https://gestalt.pinterest.systems/web/pog) and [IconButton](https://gestalt.pinterest.systems/web/iconbutton) that caused some icons to disappear on iPhone (it was [a fun one-liner](https://github.com/pinterest/gestalt/pull/2730) 😅). [IconButtonFloating](https://gestalt.pinterest.systems/web/iconbuttonfloating) got a few new props, which you'll recognize from IconButton: `disabled`, `dangerouslySetSvgPath`, and (required!) `tooltip`. We removed [Popover's](https://gestalt.pinterest.systems/web/popover) `'orange'` `color` option. And finally we added [four new icons](https://gestalt.pinterest.systems/foundations/iconography/library): `add-section`, `arrow-circle-back`, `move-pin`, and `workflow-status-queued`."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e6/a4/ca/e6a4ca98628aac06b75386b0871369f1.png",
+            "imageAltText": "Screenshot of Team Support page",
+            "content": "We added a number of new pages this month! [Team Support](https://gestalt.pinterest.systems/team_support/overview) includes resources and guidelines for collaborating with us. We added guidelines for both [Forms](https://gestalt.pinterest.systems/foundations/forms/overview) and [Illustration](https://gestalt.pinterest.systems/foundations/illustration) use in product. We also updated our [Development Process](https://gestalt.pinterest.systems/get_started/developers/contributing/development_process) page. We added docs for [Android's SearchField](https://gestalt.pinterest.systems/android/searchfield) component and updated [Icon](https://gestalt.pinterest.systems/android/icon) and [IconButton](https://gestalt.pinterest.systems/android/iconbutton) pages for both mobile platforms. Finally, we converted 12 existing web component pages to use our new Sandpack inline code editor."
+          }
+        ]
+      },
+      {
         "week": "March 31, 2023",
         "summary": "New team support section in our docs, new/improved Android documentation and Popover updates in our Figma Web library.",
         "posts": [
