@@ -67,6 +67,7 @@ function DatePickerTextField(props: Props) {
             }}
             errorMessage={errorMessage}
             helperText={helperText}
+            inputMode="none"
             name={name}
             onChange={(data) => onChange?.(data.event)}
             onKeyDown={(data) => onKeyDown?.(data.event)}
