@@ -277,9 +277,18 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         placeholderText={placeholder ?? format?.toUpperCase()}
         popperClassName={classnames(
           styles['react-datepicker-popper'],
-          styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`],
+          // styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`],
         )}
-        popperPlacement={popperPlacement[idealDirection]}
+        popperModifiers={[
+          {
+            name: 'flip',
+            options: {
+              fallbackPlacements: [],
+            },
+          },
+        ]}
+        popperPlacement="bottom"
+        // popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
           <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
         }
