@@ -1,3 +1,9 @@
+## 104.0.2 (Apr 4, 2023)
+
+### Patch
+
+- Docs: add March newsletter ([#2800](https://github.com/pinterest/gestalt/pull/2800)) - [Preview link](https://deploy-preview-2800--gestalt.netlify.app)
+
 ## 104.0.1 (Apr 4, 2023)
 
 ### Patch
