@@ -359,24 +359,6 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   z-index: 1;
 }
 
-.react-datepicker-popper[data-placement^="bottom"] {
-  margin-top: 6px;
-}
-
-.react-datepicker-popper[data-placement^="top"] {
-  /* !important is required to keep same distance from Textfield
-     when popper flips from top to bottom */
-  top: -2px !important; /* stylelint-disable-line declaration-no-important */
-}
-
-.react-datepicker-popper[data-placement^="right"] {
-  margin-left: 8px;
-}
-
-.react-datepicker-popper[data-placement^="left"] {
-  margin-right: 8px;
-}
-
 /* Year / Month dropdown  */
 
 :global ._gestalt .react-datepicker__month-select,

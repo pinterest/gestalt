@@ -132,7 +132,7 @@ type Props = {|
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * Show a select list for quick selection of year and monnth. See the [showMonthYearDropdown example](https://gestalt.pinterest.systems/web/datepicker#showMonthYearDropdown) to learn more.
+   * Show a select list for quick selection of year and month. See the [showMonthYearDropdown example](https://gestalt.pinterest.systems/web/datepicker#showMonthYearDropdown) to learn more.
    */
   showMonthYearDropdown?: boolean,
   /**
@@ -275,20 +275,16 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
         placeholderText={placeholder ?? format?.toUpperCase()}
-        popperClassName={classnames(
-          styles['react-datepicker-popper'],
-          // styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`],
-        )}
+        popperClassName={classnames(styles['react-datepicker-popper'])}
         popperModifiers={[
           {
-            name: 'flip',
+            name: 'offset',
             options: {
-              fallbackPlacements: [],
+              offset: [0, 20],
             },
           },
         ]}
-        popperPlacement="bottom"
-        // popperPlacement={popperPlacement[idealDirection]}
+        popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
           <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
         }

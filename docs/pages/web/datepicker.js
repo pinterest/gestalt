@@ -349,7 +349,6 @@ function DatePickerExample() {
   return (
     <DatePicker
       id="showMonthYearDropdown"
-      idealDirection="down"
       label="Alberto's birth date"
       onChange={({value}) => handleChange(value)}
       value={new Date(1985,6,4)}
