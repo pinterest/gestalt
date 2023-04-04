@@ -1,3 +1,9 @@
+## 104.0.1 (Apr 4, 2023)
+
+### Patch
+
+- TextField: remove inputMode default to text as it can interfere with type. Undo change introduced in #2792 ([#2801](https://github.com/pinterest/gestalt/pull/2801)) - [Preview link](https://deploy-preview-2801--gestalt.netlify.app)
+
 ## 104.0.0 (Apr 4, 2023)
 
 ### Major
