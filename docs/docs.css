@@ -83,7 +83,7 @@ pre {
 }
 
 .Markdown p {
-  background-color: var(--g-colorGray0);
+  background-color: transparent;
   margin: 0;
 }
 
