@@ -23,7 +23,7 @@ export default function Example(): Node {
     if (value !== '' && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
   };
 
-  const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
+  const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => { };
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
