@@ -87,7 +87,7 @@ Our biggest documentation update for the quarter was the addition of Form guidel
 <br />
 We took our first step towards providing official Gestalt illustrations in late 2022. We continue to make strong progress towards supporting illustration use cases by publishing Gestalt’s illustration guidelines. These best practices should set a strong foundation as we continue to grow our support in this space.
 
-**Check out [Gestalt’s Illustration guidelines](https://gestalt.pinterest.systems/foundations/illustrations/overview)**
+**Check out [Gestalt’s Illustration guidelines](https://gestalt.pinterest.systems/foundations/illustration)**
 </Group>
 
 </TwoCol>
