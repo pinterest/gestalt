@@ -1,3 +1,9 @@
+## 105.0.0 (Apr 5, 2023)
+
+### Major
+
+- DatePicker: added Year/Month dropdown options, removed virtual keyboard, upgraded react-datepicker to 4.0.0 ([#2794](https://github.com/pinterest/gestalt/pull/2794)) - [Preview link](https://deploy-preview-2794--gestalt.netlify.app)
+
 ## 104.0.3 (Apr 5, 2023)
 
 ### Patch
