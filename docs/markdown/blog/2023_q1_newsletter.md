@@ -175,11 +175,13 @@ We plan to revamp two critical components in Q2, namely ActionBar and Video cont
 <Group>
 ### Data visualization guidelines
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
+<br />
 We plan to ship data visualization Gestalt components in the second half of 2023 (yay). As a tasty hors d’oeuvre, we’ll be publishing new and improved data visualization guidelines to our docs. These guidelines will give everyone a clear idea of where we’re headed and what you can expect to see in component form later this year.
 </Group>
 <Group>
 ### TileData component
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
+<br />
 Speaking of data viz... TileData is the beginning of our expansion into the data visualization universe! It’s a visually rich way of selecting and/or comparing data categories and displays at-a-glance data for a user to quickly view key metrics. This component will be a perfect pair with our upcoming charts and graphs.
 </Group>
 </TwoCol>
