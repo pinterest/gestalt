@@ -1,3 +1,9 @@
+## 104.0.3 (Apr 5, 2023)
+
+### Patch
+
+- Docs: Removing Paragraph BG Color for MD documents
+
 ## 104.0.2 (Apr 4, 2023)
 
 ### Patch
