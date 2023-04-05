@@ -207,12 +207,17 @@ const components = {
     height?: number,
     addPadding?: boolean,
   |}) => {
-    const layout = (width || height) ? 'fixed' : 'fill';
+    const layout = width || height ? 'fixed' : 'fill';
 
-   
     return (
       <Box>
-        <Box padding={addPadding ? 8 : 0} rounding={2} borderStyle="sm" height="250px" color="light">
+        <Box
+          padding={addPadding ? 8 : 0}
+          rounding={2}
+          borderStyle="sm"
+          height="250px"
+          color="light"
+        >
           <Box
             position="relative"
             width="100%"
