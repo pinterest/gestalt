@@ -93,14 +93,14 @@ We took our first step towards providing official Gestalt illustrations in late 
 </TwoCol>
 <TwoCol>
 <Group>
-### Icon library keywords
+### Team support section
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
 <br />
 OK, we’ll fess up. Finding the icon you’re looking for in Gestalt is not great. We know it’s a pain and we plan to fix it. Our first step towards that goal is the addition of search keywords for each icon in our Icon library. For example, searching for “notifications” will return the Bell icon.
 
 This is the first step in what we hope will be a slew of improvements to Gestalt’s iconography and the know-how on how to use it.
 
-**Check out our [Icon library](https://gestalt.pinterest.systems/foundations/iconography/library)**
+**Go have a look at Gestalt’s [Team support pages](https://gestalt.pinterest.systems/team_support/overview)**
 </Group>
 <Group>
 ### Android component doc updates
@@ -174,15 +174,15 @@ Our initial work on mWeb Modal gave us the learnings we needed to begin work on 
 
 <TwoCol>
 <Group>
-### TBD
+### ActionBar and Video control revamps
 <ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
 <br />
-The Gestalt team landed its first set of official Gestalt illustrations in late 2022 and we’re not done on this subject. We’ll be publishing illustration guidelines to help provide best practices for how/when/where/why to use illustrations in our product. 
+We plan to revamp two critical components in Q2, namely ActionBar and Video controls. These two UI elements have had some great work done to them in product and we plan to reflect those changes within Gestalt. Given how much these elements are used in the Pinterest product, we’re super excited to deliver these!
 </Group>
 
 <Group>
-### TBD2
+### Data visualization guidelines
 <ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
-
+We plan to ship data visualization Gestalt components in the second half of 2023 (yay). As a tasty hors d’oeuvre, we’ll be publishing new and improved data visualization guidelines to our docs. These guidelines will give everyone a clear idea of where we’re headed and what you can expect to see in component form later this year.
 </Group>
 </TwoCol>
