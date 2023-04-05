@@ -6,12 +6,7 @@ import DatePicker from 'gestalt-datepicker';
 export default function Example(): Node {
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <DatePicker
-        id="example-page-header"
-        label="Select a date"
-        onChange={() => {}}
-        idealDirection="down"
-      />
+      <DatePicker id="example-page-header" label="Select a date" onChange={() => {}} />
     </Flex>
   );
 }

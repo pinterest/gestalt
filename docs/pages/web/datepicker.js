@@ -51,6 +51,7 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/datepicker/main.js';
+import selectLists from '../../examples/datepicker/selectLists.js';
 
 const localeMap = {
   'af': { localeData: af, lang: 'Afrikaans' },
@@ -338,6 +339,17 @@ function DatePickerExample() {
 }
 `}
         />
+        <MainSection.Subsection
+          columns={2}
+          title="selectLists"
+          description="Provide select lists for quickly changing year and month"
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={<SandpackExample code={selectLists} name="selectLists example." />}
+          />
+        </MainSection.Subsection>
+
         <Combination
           id="idealDirection"
           name="Ideal Direction"
@@ -382,6 +394,7 @@ import { it } from 'date-fns/locale';
                   onChange={({ value }) => setDate(value)}
                   value={date}
                   localeData={localeMap[localeDataCode].localeData}
+                  selectLists={['month']}
                 />
               </Box>
             );
