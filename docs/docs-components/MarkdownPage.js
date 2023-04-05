@@ -198,20 +198,21 @@ const components = {
     alt,
     width,
     height,
-    noPadding,
+    addPadding,
   }: {|
     src: string,
     caption?: string,
     alt?: string,
     width?: number,
     height?: number,
-    noPadding?: boolean,
+    addPadding?: boolean,
   |}) => {
-    const layout = width || height ? 'fixed' : 'fill';
+    const layout = (width || height) ? 'fixed' : 'fill';
 
+   
     return (
       <Box>
-        <Box padding={noPadding ? 0 : 8} rounding={2} borderStyle="sm" height="250px">
+        <Box padding={addPadding ? 8 : 0} rounding={2} borderStyle="sm" height="250px" color="light">
           <Box
             position="relative"
             width="100%"
