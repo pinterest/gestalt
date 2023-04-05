@@ -29,10 +29,6 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   *  Optionally specify the action label to present for the enter key on virtual keyboards. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
-   */
-  enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
-  /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
   errorMessage?: Node,
@@ -49,10 +45,6 @@ type Props = {|
    */
   id: string,
   /**
-   * Optionally specify the type of data that might be entered by the user while editing the element or its contents. This allows mobile browsers to display an appropriate virtual keyboard. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
-   */
-  inputMode?: 'none' | 'text' | 'decimal' | 'numeric',
-  /**
    * The label for the input. Be sure to localize the text.
    */
   label?: string,
@@ -64,6 +56,14 @@ type Props = {|
    * The maximum number of characters allowed in Textfield. `maxLength` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
    */
   maxLength?: MaxLength,
+  /**
+   * Mobile only prop. Optionally specify the action label to present for the enter key on virtual keyboards. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
+   */
+  mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
+  /**
+   * Mobile only prop. Optionally specify the type of data that might be entered by the user while editing the element or its contents. This allows mobile browsers to display an appropriate virtual keyboard. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
+   */
+  mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   /**
    * A unique name for the input.
    */
@@ -140,15 +140,15 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
   {
     autoComplete,
     disabled = false,
-    enterKeyHint,
     errorMessage,
     hasError = false,
     helperText,
     id,
-    inputMode,
     label,
     labelDisplay = 'visible',
     maxLength,
+    mobileEnterKeyHint,
+    mobileInputMode,
     name,
     onBlur,
     onChange,
@@ -203,16 +203,16 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
     <InternalTextField
       autoComplete={autoComplete}
       disabled={disabled}
-      enterKeyHint={enterKeyHint}
       errorMessage={errorMessage}
       hasError={hasError}
       helperText={helperText}
       iconButton={iconButton}
       id={id}
-      inputMode={inputMode}
       label={label}
       labelDisplay={labelDisplay}
       maxLength={maxLength}
+      mobileEnterKeyHint={mobileEnterKeyHint}
+      mobileInputMode={mobileInputMode}
       name={name}
       onBlur={onBlur}
       onChange={onChange}

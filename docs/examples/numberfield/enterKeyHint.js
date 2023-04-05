@@ -9,7 +9,7 @@ export default function Example(): React$Node {
     <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
       <Box width={300}>
         <NumberField
-          enterKeyHint="next"
+          mobileEnterKeyHint="next"
           id="enterKeyHint"
           label="Age"
           onChange={({ value }) => {
