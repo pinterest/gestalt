@@ -33,11 +33,17 @@ export default function PrimaryAction({
         text={label}
         size={size}
         onClick={onClick}
-        color="white"
+        color="red"
       />
     );
 
   return (
-    <Button accessibilityLabel={accessibilityLabel} text={label} size={size} onClick={onClick} />
+    <Button
+      accessibilityLabel={accessibilityLabel}
+      text={label}
+      size={size}
+      onClick={onClick}
+      color="red"
+    />
   );
 }

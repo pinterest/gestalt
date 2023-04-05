@@ -10,6 +10,7 @@ import Mask from '../graphics/building-blocks/Mask.svg';
 import Pog from '../graphics/building-blocks/Pog.svg';
 import Popover from '../graphics/building-blocks/Popover.svg';
 import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
+import SheetMobile from '../graphics/building-blocks/SheetMobile.svg';
 import Sticky from '../graphics/building-blocks/Sticky.svg';
 import TapArea from '../graphics/building-blocks/TapArea.svg';
 import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
@@ -3411,6 +3412,58 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
       figma: null,
     },
   },
+  {
+    svg: <SheetMobile />,
+    name: 'SheetMobile',
+    aliases: ['Panel', 'Dialog', 'Drawer', 'Tray'],
+    hasDarkBackground: false,
+    description:
+      'SheetMobile is a mobile only component. SheetMobile is a supplementary container that sits on top of the screen’s primary content.',
+    category: 'Building blocks',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'ready',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'ready',
+      figma: null,
+    },
+  },
+
   {
     svg: <Sticky />,
     name: 'Sticky',

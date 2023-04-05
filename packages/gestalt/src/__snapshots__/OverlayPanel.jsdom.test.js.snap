@@ -195,7 +195,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline wrapperAnimationIn"
+        class="wrapper hideOutline animationInSide"
         id=":r0:"
         role="dialog"
         style="width: 540px;"
@@ -291,7 +291,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline wrapperAnimationIn"
+        class="wrapper hideOutline animationInSide"
         id=":r1:"
         role="dialog"
         style="width: 540px;"
