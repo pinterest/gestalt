@@ -1,3 +1,9 @@
+## 107.0.0 (Apr 5, 2023)
+
+### Major
+
+- SheetMobile: new component (PILOT) ([#2769](https://github.com/pinterest/gestalt/pull/2769)) - [Preview link](https://deploy-preview-2769--gestalt.netlify.app)
+
 ## 106.0.0 (Apr 5, 2023)
 
 ### Major
