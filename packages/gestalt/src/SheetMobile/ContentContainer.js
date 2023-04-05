@@ -32,18 +32,6 @@ export default function ContentContainer({ children, header, footer, padding }: 
   }, [updateShadows]);
 
   useEffect(() => {
-    // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
-    if (!!window && window.body?.style?.overflow) {
-      window.body.style.overflow = 'hidden';
-    }
-    return () => {
-      if (!!window && window.body?.style?.overflow) {
-        window.body.style.overflow = 'auto';
-      }
-    };
-  }, []);
-
-  useEffect(() => {
     window?.addEventListener('resize', updateShadows);
     return () => {
       window?.removeEventListener('resize', updateShadows);

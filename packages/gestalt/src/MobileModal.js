@@ -117,13 +117,16 @@ export default function Modal({
   const id = useId();
 
   useEffect(() => {
-    // When mobile Modal is displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
+    let prevOverflowStyle = 'auto';
+
+    // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
     if (window && window.body?.style?.overflow) {
+      prevOverflowStyle = window.body.style.overflow;
       window.body.style.overflow = 'hidden';
     }
     return () => {
       if (window && window.body?.style?.overflow) {
-        window.body.style.overflow = 'auto';
+        window.body.style.overflow = prevOverflowStyle;
       }
     };
   }, []);
