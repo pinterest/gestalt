@@ -137,7 +137,7 @@ Montage represents common image collection layouts within the product. We’ve i
 <TwoCol>
 <Group>
 ### Handoff kit improvements
-<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/7c/a0/ca/7ca0ca04f961afd463fdb917b3b71fb8.jpg" alt="illustration of the gestalt logo in a file" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/23/af/95/23af95c6031d91914b2a69d75321ec4d.jpg" alt="illustration of the gestalt logo in a file" />
 <br />
 We made some fixes to nested components in our flow connectors to link to the main source file and included support for dark mode.
 </Group>
