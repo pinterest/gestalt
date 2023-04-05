@@ -4,7 +4,7 @@
 
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Text, Box, Letterbox, Link, Flex, Icon, List, Button } from 'gestalt';
+import { Text, Box, Link, Flex, Icon, List, Button } from 'gestalt';
 import Image from 'next/image';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
@@ -194,18 +194,14 @@ const components = {
   ),
   ImgHero: ({
     src,
-    caption,
     alt,
     width,
     height,
-    noPadding,
   }: {|
     src: string,
-    caption?: string,
     alt?: string,
     width?: number,
     height?: number,
-    noPadding?: boolean,
   |}) => (
     <div width="100%" style={{ 'aspectRatio': `${width}/${height}` }}>
       <Image src={src} alt={alt} width={width} height={height} fill />
