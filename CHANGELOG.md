@@ -1,3 +1,9 @@
+## 105.0.1 (Apr 5, 2023)
+
+### Patch
+
+- Collage: migrate docs examples to Sandpack ([#2805](https://github.com/pinterest/gestalt/pull/2805)) - [Preview link](https://deploy-preview-2805--gestalt.netlify.app)
+
 ## 105.0.0 (Apr 5, 2023)
 
 ### Major
