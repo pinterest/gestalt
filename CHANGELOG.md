@@ -1,3 +1,9 @@
+## 106.0.0 (Apr 5, 2023)
+
+### Major
+
+- TextField, NumberField: prefix 'mobile' to mobile only props: inputMode & enterKeyHint ([#2806](https://github.com/pinterest/gestalt/pull/2806)) - [Preview link](https://deploy-preview-2806--gestalt.netlify.app)
+
 ## 105.0.1 (Apr 5, 2023)
 
 ### Patch
