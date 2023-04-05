@@ -5,7 +5,7 @@ import DatePicker from './DatePicker.js';
 
 const initialDate = new Date(2018, 11, 14);
 
-function DatePickerWrap(showMonthYearDropdown) {
+function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: boolean |}) {
   const [date, setDate] = useState(initialDate);
 
   return (
@@ -13,7 +13,7 @@ function DatePickerWrap(showMonthYearDropdown) {
       id="fake_id"
       onChange={(e) => setDate(e.value)}
       value={date}
-      showMonthYearDropdown={!!showMonthYearDropdown}
+      selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
     />
   );
 }
@@ -128,7 +128,6 @@ describe('DatePicker', () => {
     await act(async () => {
       fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
     });
-
     expect(screen.queryAllByRole('option', { name: 'January' })).toHaveLength(1);
     expect(screen.queryAllByRole('option', { name: '2017' })).toHaveLength(1);
   });

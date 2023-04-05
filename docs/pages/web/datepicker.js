@@ -51,6 +51,7 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/datepicker/main.js';
+import selectLists from '../../examples/datepicker/selectLists.js';
 
 const localeMap = {
   'af': { localeData: af, lang: 'Afrikaans' },
@@ -338,26 +339,17 @@ function DatePickerExample() {
 }
 `}
         />
-        <Example
-          description="Provide select lists for quickly changing year and month."
-          id="showMonthYearDropdown_example"
-          name="showMonthYearDropdown"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
+        <MainSection.Subsection
+          columns={2}
+          title="selectLists"
+          description="Provide select lists for quickly changing year and month"
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={<SandpackExample code={selectLists} name="selectLists example." />}
+          />
+        </MainSection.Subsection>
 
-  return (
-    <DatePicker
-      id="showMonthYearDropdown"
-      label="Alberto's birth date"
-      onChange={({value}) => handleChange(value)}
-      value={new Date(1985,6,4)}
-      showMonthYearDropdown
-    />
-  )
-}
-`}
-        />
         <Combination
           id="idealDirection"
           name="Ideal Direction"
@@ -402,7 +394,7 @@ import { it } from 'date-fns/locale';
                   onChange={({ value }) => setDate(value)}
                   value={date}
                   localeData={localeMap[localeDataCode].localeData}
-                  showMonthYearDropdown
+                  selectLists={['month']}
                 />
               </Box>
             );
