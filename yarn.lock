@@ -6502,15 +6502,15 @@ data-urls@^3.0.1:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^11.0.0"
 
-date-fns@^2.0.1:
-  version "2.14.0"
-  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.14.0.tgz"
-  integrity sha512-1zD+68jhFgDIM0rF05rcwYO8cExdNqxjq4xP1QKM60Q45mnO6zaMWB4tOzrIr4M4GSLntsKeE4c9Bdl2jhL/yw==
-
 date-fns@^2.16.1:
   version "2.16.1"
   resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.16.1.tgz"
   integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
+
+date-fns@^2.24.0:
+  version "2.29.3"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
+  integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
 
 date-time@^2.1.0:
   version "2.1.0"
@@ -14750,17 +14750,17 @@ react-cookie@^4.1.1:
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^4.0.0"
 
-react-datepicker@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.0.0.tgz#e2cbd8e7068b9a62bda9085410c85926a65e25f6"
-  integrity sha512-dk3+qQFBKdS/cZLr8rbm1Lya97xcBiLxyrmm8EVCxTSHCYFjcuMMMSNbk7J9SxS1nxyy8ptbnuaKlub9xtjy0g==
+react-datepicker@4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.11.0.tgz#40e73b4729a284ed206fdb322b8e84eb566e11a3"
+  integrity sha512-50n93o7mQwBEhg05tbopjFKgs8qgi8VBCAOMC4VqrKut72eAjESc/wXS/k5hRtnP0oe2FCGw7MJuIwh37wuXOw==
   dependencies:
     "@popperjs/core" "^2.9.2"
     classnames "^2.2.6"
-    date-fns "^2.0.1"
+    date-fns "^2.24.0"
     prop-types "^15.7.2"
-    react-onclickoutside "^6.10.0"
-    react-popper "^2.2.5"
+    react-onclickoutside "^6.12.2"
+    react-popper "^2.3.0"
 
 react-devtools-inline@4.4.0:
   version "4.4.0"
@@ -14841,12 +14841,12 @@ react-live@^2.3.0:
     react-simple-code-editor "^0.11.0"
     unescape "^1.0.1"
 
-react-onclickoutside@^6.10.0:
+react-onclickoutside@^6.12.2:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.13.0.tgz#e165ea4e5157f3da94f4376a3ab3e22a565f4ffc"
   integrity sha512-ty8So6tcUpIb+ZE+1HAhbLROvAIJYyJe/1vRrrcmW+jLsaM+/powDRqxzo6hSh9CuRZGSL1Q8mvcF5WRD93a0A==
 
-react-popper@^2.2.5:
+react-popper@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.3.0.tgz#17891c620e1320dce318bad9fede46a5f71c70ba"
   integrity sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==
