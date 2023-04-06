@@ -2598,7 +2598,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Text />,
     name: 'Text',
-    aliases: ['Copy'],
+    aliases: ['Copy, Subtext, Caption, Footer, Helper text'],
     description: 'Text is used for all text on the page.',
     category: 'Text',
     status: {
@@ -2610,10 +2610,10 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'notAvailable',
+      android: 'planned',
       deprecated: false,
       documentation: 'planned',
-      iOS: 'notAvailable',
+      iOS: 'planned',
       figma: 'ready',
       responsive: 'ready',
     },
