@@ -1,3 +1,9 @@
+## 107.0.1 (Apr 6, 2023)
+
+### Patch
+
+- Docs: 2023 Q1 Newsletter ([#2745](https://github.com/pinterest/gestalt/pull/2745)) - [Preview link](https://deploy-preview-2745--gestalt.netlify.app)
+
 ## 107.0.0 (Apr 5, 2023)
 
 ### Major
