@@ -96,9 +96,9 @@ We took our first step towards providing official Gestalt illustrations in late 
 ### Team support section
 <ImgHero width={525} height={350} src="https://i.pinimg.com/originals/b7/04/12/b704122562845dcef374be348e9519c5.jpg" alt="Illustration of two speech bubbles." />
 <br />
-OK, we’ll fess up. Finding the icon you’re looking for in Gestalt is not great. We know it’s a pain and we plan to fix it. Our first step towards that goal is the addition of search keywords for each icon in our Icon library. For example, searching for “notifications” will return the Bell icon.
+We know the design system is all about collaboration and service. And, to improve our collaboration process, we just published a set of resources and guidelines to help you build consistent product surfaces and collaborate with us!
 
-This is the first step in what we hope will be a slew of improvements to Gestalt’s iconography and the know-how on how to use it.
+We defined a straightforward process to receive, centralize and manage your component’s requests and updates, making it easier for you to follow your request’s progress and understand how it fits in our roadmap.
 
 **Go have a look at Gestalt’s [Team support pages](https://gestalt.pinterest.systems/team_support/overview)**
 </Group>
