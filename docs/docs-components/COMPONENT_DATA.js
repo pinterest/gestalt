@@ -2613,7 +2613,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       android: 'planned',
       deprecated: false,
       documentation: 'planned',
-      iOS: 'planned',
+      iOS: 'ready',
       figma: 'ready',
       responsive: 'ready',
     },
@@ -2627,7 +2627,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'planned',
       figma: null,
     },
     iOS: {
@@ -2640,8 +2640,8 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
-      figma: null,
+      documentation: 'ready',
+      figma: 'ready',
     },
   },
   {

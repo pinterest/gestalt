@@ -220,11 +220,11 @@ When translated to languages that read from right to left, ensure that paragraph
 However, for lists or items in a menu, maintain the alignment of the UI.
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/9a/9a/33/9a9a33a96905fa400433cc73800e784c.png" alt="A menu in Arabic and English with all of the items end-aligned." />
+    <ImgContainer src="https://i.pinimg.com/originals/9a/9a/33/9a9a33a96905fa400433cc73800e784c.png" alt="A menu in Arabic and English with all of the items end-aligned." noPadding color="background-secondary-weak" />
     <Do title="Do" /> 
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/ba/10/de/ba10dea69bce31c7565bae00d029c44b.png" alt="A menu with two Arabic items rignt-aligned and one English item left-aligned." />
+    <ImgContainer src="https://i.pinimg.com/originals/ba/10/de/ba10dea69bce31c7565bae00d029c44b.png" alt="A menu with two Arabic items rignt-aligned and one English item left-aligned." noPadding />
     <Dont title="Don't" />
   </Group>
   </TwoCol>
