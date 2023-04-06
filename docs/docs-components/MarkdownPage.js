@@ -192,6 +192,21 @@ const components = {
   TwoCol: ({ children }: {| children: Node |}) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
   ),
+  ImgHero: ({
+    src,
+    alt,
+    width,
+    height,
+  }: {|
+    src: string,
+    width: number,
+    height: number,
+    alt: string,
+  |}) => (
+    <div width="100%" style={{ 'aspectRatio': `${width}/${height}` }}>
+      <Image src={src} alt={alt} width={width} height={height} fill />
+    </div>
+  ),
   ImgContainer: ({
     src,
     caption,
