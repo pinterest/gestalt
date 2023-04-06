@@ -25,14 +25,12 @@ export type Post = {|
 |};
 
 function PostLayout({ audience, content, imageAltText, imageSrc, title, imageColor }: Post): Node {
-
-
   const colorStyle = {
     __style: {
       backgroundColor: imageColor ? `var(--color-${imageColor})` : 'white',
     },
   };
-  
+
   return (
     <Flex direction="column" gap={2}>
       <Flex direction="column" gap={1}>
