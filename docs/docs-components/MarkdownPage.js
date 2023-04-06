@@ -201,7 +201,7 @@ const components = {
     src: string,
     width: number,
     height: number,
-    alt?: string,
+    alt: string,
   |}) => (
     <div width="100%" style={{ 'aspectRatio': `${width}/${height}` }}>
       <Image src={src} alt={alt} width={width} height={height} fill />
