@@ -4,7 +4,7 @@ description: Text component is used for all representations of text on a surface
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/64/e7/5c/64e75cd6a6ab8c69df8d32c0d3a3cadb.png" alt="Text as it appears in our Pinner profile header." noPadding/>
+<ImgContainer src="https://i.pinimg.com/originals/04/45/c7/0445c70373e0ffa037410a54063dbf55.png" alt="Text as it appears in our Pinner profile header." noPadding/>
 
 ## Usage guidelines
 
@@ -21,36 +21,36 @@ fullwidth: true
 </Group>
 </TwoCol>
 
-## Best Practices
+## Best practices
 ### Headings and titles
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/eb/f5/1c/ebf51c1b9e41682288b905abd589e4b1.png" alt="Two block of text with headings used to separate and group them." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/7f/9f/df/7f9fdf43e349ae86aa52482a82f67f21.png" alt="Two blocks of text with headings used to separate and group them." noPadding/>
     <Do title="Do" />
     Use to help group text and items in a logical order. 
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/ea/50/5a/ea505abf15e9e17adc1ea3bc32320cd9.png" alt="Block of text that uses a large heading to emphasize part of the text." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/64/6d/f4/646df434b50cb45370c07e3391c01d26.png" alt="Block of text that uses a large heading to emphasize part of the text." noPadding/>
     <Dont title="Don't" />
     Use to emphasize text that you want users to read. Instead, use bold body text or another UI element like a banner or popover.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cb/40/52/cb4052693b89065f74f348c722628449.png" alt="A block of text with a short, one-line heading." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/b7/3e/7a/b73e7a96eb34eeab277028a0b353aaa3.png" alt="A block of text with a short, one-line heading." noPadding/>
     <Do title="Do" />
     Keep headings and titles short and glanceable.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/7c/2c/2c/7c2c2cabe17329be6540afba17f45bf0.png" alt="A very long heading announcing the start time of an event, but it's truncated, so you can't see the start time." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/a5/1e/93/a51e93b64fc6f6c20a7e787946607252.png" alt="A very long heading announcing the start time of an event, but it's truncated, so you can't see the start time." noPadding/>
     <Dont title="Don't" />
     Use overly long headings. If headings are dynamically generated (like a 3rd party app name), truncation will work after 2 lines, but be mindful of unintended changes in meaning.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cc/18/4e/cc184eb8d5458d80257864797dc0fcf2.png" alt="A heading that says 'Get a cover image that delivers'." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/ec/ab/d5/ecabd5ef54854db041f07bc35e78f284.png" alt="A heading that says 'Get a cover image that delivers'." noPadding/>
     <Do title="Do" />
     Clearly describe the section a heading refers to.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/f5/2e/c7/f52ec7223eabd317b0c64a1c581b4892.png" alt="A heading that says 'Get it!' and is not clear about what that means." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/80/50/51/805051be1136c104f09b045872280179.png" alt="A heading that says 'Get it!' and is not clear about what that means." noPadding/>
     <Dont title="Don't" />
     Use vague language that doesn’t describe the section that a heading refers to.
   </Group>
@@ -59,32 +59,33 @@ fullwidth: true
 ### Body and labels
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/3d/62/65/3d62655538c63e97c412725a51bb59d9.png" alt="A block of text with a line emphasized in a bold weight." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/f6/59/8e/f6598e26662dd07a5ae68033c4babf6b.png" alt="A block of text with a line emphasized in a bold weight." noPadding/>
     <Do title="Do" />
     Emphasize text inside of paragraphs by using a **bold weight**.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c9/b3/a8/c9b3a8ffa200fe0ff9aa62c449d9dcbb.png" alt="A block of text using an underlined style to emphasize a line of text." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/88/59/2a/88592a3856bc2425ab3c903c3c5c555d.png
+" alt="A block of text using an underlined style to emphasize a line of text." noPadding/>
     <Dont title="Don't" noPadding/>
     Emphasize text inside of paragraphs by underlining it; this can be confused with an interactive link or a button.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/08/ba/b1/08bab19bd44b7385c1421eb7b88b69f4.png" alt="A block of text with nimimal styling." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/cd/ad/00/cdad00fb138059e23df4f85761e560ce.png" alt="A block of text with nimimal styling." noPadding/>
     <Do title="Do" />
     Use a minimal amount of sizes and styles to keep the UI clean and readable.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/4f/ba/b7/4fbab78ca45be6ee7edb3983357ee666.png" alt="A block of text with some bold text, some text in color, some left-aligned and some center-aligned." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/fc/2a/ae/fc2aaed5b0d2980187e6dbc5bd5a8738.png" alt="A block of text with some bold text, some text in color, some left-aligned and some center-aligned." noPadding/>
     <Dont title="Don't" />
     Mix styles and alignment, as this can be hard to read and follow.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/93/1a/0d/931a0d4e521b85b50039dde45b66b088.png" alt="A long paragraph that is left-aligned." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/f9/d2/80/f9d2804946b68610d27b3e9118b616f2.png" alt="A long paragraph that is left-aligned." noPadding/>
     <Do title="Do" />
-    Start align paragraph text.
+    Start-align paragraph text.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fc/99/b6/fc99b6f305e6740e86398819a272ad3e.png" alt="A long paragraph that is center-aligned." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/90/ae/89/90ae892a4a4a1ac45cefdcb86fe7b2e2.png" alt="A long paragraph that is center-aligned." noPadding/>
     <Dont title="Don't" />
     Center-align or end-align paragraph text. This is hard to read, especially for users with dyslexia.
   </Group>
@@ -207,11 +208,11 @@ When translated to languages that read from right to left, ensure that paragraph
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/55/77/e2/5577e2dc9a0223464b1a510065961bca.png" alt="A paragraph in Hebrew that is right-aligned, followed by a paragraph in English that is left-aligned." />
+    <ImgContainer src="https://i.pinimg.com/originals/6e/b3/25/6eb325c04f70fab9b2dff8ab53c33d07.png" alt="A paragraph in Hebrew that is right-aligned, followed by a paragraph in English that is left-aligned." />
     <Do title="Do" /> 
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/6a/67/5b/6a675b5d2a1b43a55957526688c2be6c.png" alt="Paragraphs in Hebrew and English with the same alignment." noPadding/>
+    <ImgContainer src="https://i.pinimg.com/originals/86/f6/7e/86f67e0d4afb634afb77fcefe6cc04eb.png" alt="Paragraphs in Hebrew and English with the same alignment." noPadding/>
     <Dont title="Don't" />
   </Group>
 </TwoCol>
@@ -220,11 +221,11 @@ When translated to languages that read from right to left, ensure that paragraph
 However, for lists or items in a menu, maintain the alignment of the UI.
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/9a/9a/33/9a9a33a96905fa400433cc73800e784c.png" alt="A menu in Arabic and English with all of the items end-aligned." noPadding color="background-secondary-weak" />
+    <ImgContainer src="https://i.pinimg.com/originals/f1/07/0a/f1070a50c9095884f4b4b1d58202ed0d.png" alt="A menu in Arabic and English with all of the items end-aligned." noPadding color="background-secondary-base" />
     <Do title="Do" /> 
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/ba/10/de/ba10dea69bce31c7565bae00d029c44b.png" alt="A menu with two Arabic items rignt-aligned and one English item left-aligned." noPadding />
+    <ImgContainer src="https://i.pinimg.com/originals/8e/23/d6/8e23d689d87fabf3b550d0a35920677c.png" alt="A menu with two Arabic items rignt-aligned and one English item left-aligned." noPadding color="background-secondary-base"/>
     <Dont title="Don't" />
   </Group>
   </TwoCol>
