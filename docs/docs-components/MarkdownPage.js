@@ -236,14 +236,14 @@ const components = {
             alignItems="center"
             justifyContent="center"
           >
-              <Image
-                src={src}
-                alt={alt}
-                width={layout === 'fill' ? undefined : width || '100%'}
-                height={layout === 'fill' ? undefined : height || '100%'}
-                layout={layout}
-                objectFit="contain"
-              />
+            <Image
+              src={src}
+              alt={alt}
+              width={layout === 'fill' ? undefined : width || '100%'}
+              height={layout === 'fill' ? undefined : height || '100%'}
+              layout={layout}
+              objectFit="contain"
+            />
           </Box>
         </Box>
         {caption && (
