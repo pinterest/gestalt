@@ -21,21 +21,21 @@ export type IconColor =
 
 type Props = {|
   /**
-   * Label for screen readers to announce Icon.
+   * Label for screen readers to announce Icon. This populates the `aria-label` attribute. If the label is hidden, use an empty string for the label (`accessibilityLabel=""`) to set `aria-hidden`.
    *
    * See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/icon#Accessibility) for details on proper usage.
    */
   accessibilityLabel: string,
   /**
-   * These are all the colors available to apply to the Icon. However, the literal options ("blue" , "darkGray" , "eggplant" , "gray" , "green" , "lightGray" , "maroon" , "midnight" , "navy" , "olive" , "orange" , "orchid" , "pine" , "purple" , "red" , "watermelon" and "white") will be deprecated soon. Avoid using them in any new implementations.
+   * The colors available to apply to Icon.
    *
    * See the [color variant](https://gestalt.pinterest.systems/web/icon#Colors) to learn more.
    */
   color?: IconColor,
   /**
-   * SVG icon from the Gestalt icon library to use within Icon..
+   * SVG icon from the Gestalt icon library to use within Icon.
    *
-   * See the [iconography and SVG](https://gestalt.pinterest.systems/foundations/iconography/library) guidelines to explore the Gestalt icon library.
+   * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
    */
   icon?: $Keys<typeof icons>,
   /**
