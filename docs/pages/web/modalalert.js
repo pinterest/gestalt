@@ -303,7 +303,7 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Card
           cardSize="lg"
           sandpackExample={
-            <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
+            <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
           }
         />
       </MainSection>
