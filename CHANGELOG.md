@@ -1,3 +1,9 @@
+## 107.0.4 (Apr 6, 2023)
+
+### Patch
+
+- Docs: Add white bg to darkmode images, remove padding ([#2807](https://github.com/pinterest/gestalt/pull/2807)) - [Preview link](https://deploy-preview-2807--gestalt.netlify.app)
+
 ## 107.0.3 (Apr 6, 2023)
 
 ### Patch
