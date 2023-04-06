@@ -4,7 +4,7 @@ description: Use Switch for single-cell options that can be turned on and off on
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/90/ad/d390ad2e3fa4c1c8319d7baa7508cb0a.jpg" noPadding alt="Primary example of Switch component" />
+<ImgContainer src="https://i.pinimg.com/originals/d3/90/ad/d390ad2e3fa4c1c8319d7baa7508cb0a.jpg"  alt="Primary example of Switch component" />
 
 ## Usage guidelines
 
@@ -24,13 +24,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/2c/19/f6/2c19f61a4901d6f77069c3ed9f266de4.jpg" noPadding alt="Example of Switch with label and subtext" />
+    <ImgContainer src="https://i.pinimg.com/originals/2c/19/f6/2c19f61a4901d6f77069c3ed9f266de4.jpg"  alt="Example of Switch with label and subtext" />
     <Do title="Do" />
     Use a label and subtext to give Switch context when possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d4/ea/4d/d4ea4d12eb9ec8235bd773b363cddc97.jpg" noPadding alt="Example of Switch with truncated text" />
+    <ImgContainer src="https://i.pinimg.com/originals/d4/ea/4d/d4ea4d12eb9ec8235bd773b363cddc97.jpg"  alt="Example of Switch with truncated text" />
     <Dont title="Don't" />
     Truncate label text. Instead, allow it to wrap to form another line.
   </Group>
@@ -38,13 +38,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/da/30/95/da309504c6a99dc3b989099a2bfde060.jpg" noPadding alt="Example of disabled Switch" />
+    <ImgContainer src="https://i.pinimg.com/originals/da/30/95/da309504c6a99dc3b989099a2bfde060.jpg"  alt="Example of disabled Switch" />
     <Do title="Do" />
     Communicate why a switch is disabled and how to enable it if possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/66/ef/07/66ef0701a9d3d0927c1198d0d8bc9651.jpg" noPadding alt="Example of incorrect switch usage" />
+    <ImgContainer src="https://i.pinimg.com/originals/66/ef/07/66ef0701a9d3d0927c1198d0d8bc9651.jpg"  alt="Example of incorrect switch usage" />
     <Dont title="Don't" />
     Use checkboxes or radio buttons to replace the functionality of a switch. If the functionality is a binary on or off, use Switch instead.
   </Group>
@@ -99,22 +99,22 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/7f/6b/5a/7f6b5a6438b9331f9172d346715cdd0c.jpg" noPadding alt="Example of default inactive state of Switch" />
+    <ImgContainer src="https://i.pinimg.com/originals/7f/6b/5a/7f6b5a6438b9331f9172d346715cdd0c.jpg"  alt="Example of default inactive state of Switch" />
     **Default | Inactive state**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/80/29/45/802945dd6c7a4dcf2eb43bc4d1cc9f3f.jpg" noPadding alt="Example of default active state of Switch" />
+    <ImgContainer src="https://i.pinimg.com/originals/80/29/45/802945dd6c7a4dcf2eb43bc4d1cc9f3f.jpg"  alt="Example of default active state of Switch" />
     **Default | Active state**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/c0/4c/97/c04c970f0d926842cf4ef89ad42b9347.jpg" noPadding alt="Example of disabled inactive state of Switch" />
+    <ImgContainer src="https://i.pinimg.com/originals/c0/4c/97/c04c970f0d926842cf4ef89ad42b9347.jpg"  alt="Example of disabled inactive state of Switch" />
     **Disabled | Inactive state**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e2/12/af/e212aff2d4ff881e3246bdbe2396a058.jpg" noPadding alt="Example of disabled active state of Switch" />
+    <ImgContainer src="https://i.pinimg.com/originals/e2/12/af/e212aff2d4ff881e3246bdbe2396a058.jpg"  alt="Example of disabled active state of Switch" />
     **Disabled | Active state**
   </Group>
 </TwoCol>
