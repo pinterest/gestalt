@@ -1,3 +1,9 @@
+## 107.0.2 (Apr 6, 2023)
+
+### Patch
+
+- Icon: update docs for color and other props ([#2808](https://github.com/pinterest/gestalt/pull/2808)) - [Preview link](https://deploy-preview-2808--gestalt.netlify.app)
+
 ## 107.0.1 (Apr 6, 2023)
 
 ### Patch
