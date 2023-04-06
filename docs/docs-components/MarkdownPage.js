@@ -4,7 +4,7 @@
 
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Text, Box, Link, Flex, Icon, List, Button, Mask } from 'gestalt';
+import { Text, Box, Link, Flex, Icon, List, Button } from 'gestalt';
 import Image from 'next/image';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
