@@ -4,7 +4,7 @@ description: Avatar is used to represent a user. Every Avatar image has a subtle
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="all variations of the avatar component"/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="all variations of the avatar component"/>
 
 ## Usage guidelines
 
