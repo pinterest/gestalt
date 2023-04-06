@@ -4,7 +4,7 @@
 
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Text, Box, Link, Flex, Icon, List, Button } from 'gestalt';
+import { Text, Box, Link, Flex, Icon, List, Button, Mask } from 'gestalt';
 import Image from 'next/image';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
@@ -198,25 +198,35 @@ const components = {
     alt,
     width,
     height,
-    addPadding,
+    padding,
+    color,
   }: {|
     src: string,
     caption?: string,
     alt?: string,
     width?: number,
     height?: number,
-    addPadding?: boolean,
+    padding?: 'standard' | 'none',
+    color?: string,
   |}) => {
     const layout = width || height ? 'fixed' : 'fill';
+
+    const colorStyle = {
+      __style: {
+        backgroundColor: color ? `var(--color-${color})` : 'white',
+      },
+    };
+
+    const defaultPadding = padding || 'none';
 
     return (
       <Box>
         <Box
-          padding={addPadding ? 8 : 0}
+          padding={defaultPadding === 'standard' ? 8 : 0}
           rounding={2}
           borderStyle="sm"
           height="250px"
-          color="light"
+          dangerouslySetInlineStyle={colorStyle}
         >
           <Box
             position="relative"
@@ -226,6 +236,7 @@ const components = {
             alignItems="center"
             justifyContent="center"
           >
+          <Mask rounding={2} height={"250px"}>
             <Image
               src={src}
               alt={alt}
@@ -234,6 +245,7 @@ const components = {
               layout={layout}
               objectFit="contain"
             />
+            </Mask>
           </Box>
         </Box>
         {caption && (

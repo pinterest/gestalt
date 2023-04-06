@@ -21,9 +21,18 @@ export type Post = {|
   +imageSrc: string,
   +imageAltText: string,
   +content: string,
+  imageColor?: string,
 |};
 
-function PostLayout({ audience, content, imageAltText, imageSrc, title }: Post): Node {
+function PostLayout({ audience, content, imageAltText, imageSrc, title, imageColor }: Post): Node {
+
+
+  const colorStyle = {
+    __style: {
+      backgroundColor: imageColor ? `var(--color-${imageColor})` : 'white',
+    },
+  };
+  
   return (
     <Flex direction="column" gap={2}>
       <Flex direction="column" gap={1}>
@@ -41,6 +50,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title }: Post):
           lgMarginBottom={0}
           borderStyle="sm"
           rounding={2}
+          dangerouslySetInlineStyle={colorStyle}
         >
           <Mask rounding={2} height={POST_IMAGE_HEIGHT_PX - 2}>
             <Image
