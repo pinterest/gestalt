@@ -2010,7 +2010,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'partial',
+      android: 'planned',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
