@@ -17,7 +17,8 @@ import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
 import { useLocalFiles } from './contexts/LocalFilesProvider.js';
 
 const MIN_EDITOR_HEIGHT = 350;
-const MAX_EDITOR_MOBILE_WIDTH = 390;
+const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
+const MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT = 667;
 
 async function copyCode({ code }: {| code: ?string |}) {
   try {
@@ -35,7 +36,7 @@ function SandpackContainer({
   hideControls = false,
   hideEditor = false,
 }: {|
-  layout: 'row' | 'column' | 'mobileRow',
+  layout: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
   name: string,
   previewHeight?: number,
   hideControls?: boolean,
@@ -43,15 +44,35 @@ function SandpackContainer({
 |}) {
   const [editorShown, setEditorShown] = useState(!hideEditor);
   const { sandpack } = useSandpack();
+  const isMobileRowLayout = layout === 'mobileRow';
+  const isMobileColumnLayout = layout === 'mobileColumn';
+  let codeEditorHeight = MIN_EDITOR_HEIGHT;
+
+  if (!!previewHeight && previewHeight > MIN_EDITOR_HEIGHT) {
+    codeEditorHeight = previewHeight;
+  }
+
+  if (isMobileRowLayout) {
+    codeEditorHeight = MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT;
+  }
 
   return (
     <Fragment>
-      <Box borderStyle="sm" rounding={2}>
+      <Box
+        borderStyle="sm"
+        rounding={2}
+        color="darkWash"
+        display={isMobileRowLayout ? 'flex' : undefined}
+        justifyContent="center"
+      >
         <SandpackLayout>
           <SandpackPreview
             style={{
-              maxWidth: layout === 'mobileRow' ? MAX_EDITOR_MOBILE_WIDTH : undefined,
-              height: previewHeight,
+              width: isMobileRowLayout ? MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH : undefined,
+              height:
+                isMobileRowLayout || isMobileColumnLayout
+                  ? MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT
+                  : previewHeight,
             }}
             showRefreshButton={false}
             showOpenInCodeSandbox={false}
@@ -60,9 +81,9 @@ function SandpackContainer({
             <SandpackCodeEditor
               wrapContent
               style={{
-                height:
-                  (previewHeight ?? 0) > MIN_EDITOR_HEIGHT ? previewHeight : MIN_EDITOR_HEIGHT,
-                flex: layout === 'column' ? 'none' : null,
+                height: codeEditorHeight,
+                width: '100%',
+                flex: ['mobileColumn', 'column'].includes(layout) ? 'none' : null,
               }}
             />
           )}
@@ -113,7 +134,7 @@ export default function SandpackExample({
   hideEditor,
 }: {|
   code: ?string | (() => Node),
-  layout?: 'row' | 'column' | 'mobileRow',
+  layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
   name: string,
   previewHeight?: number,
   hideControls?: boolean,

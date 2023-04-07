@@ -4,7 +4,7 @@ description: Checkbox is used for multiple choice selection.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/66/fb/d366fb0a6b4bc150779c149aea472a24.jpg" noPadding alt="Primary example of Checkbox component" />
+<ImgContainer src="https://i.pinimg.com/originals/d3/66/fb/d366fb0a6b4bc150779c149aea472a24.jpg" alt="Primary example of Checkbox component" />
 
 ## Usage guidelines
 

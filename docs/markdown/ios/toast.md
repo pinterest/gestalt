@@ -4,7 +4,7 @@ description: Toasts are brief and small messages that overlay content, but do no
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/8e/6e/e2/8e6ee211ccfa215645f98e7538f3c76b.jpg" noPadding alt="an example of toast"/>
+<ImgContainer src="https://i.pinimg.com/originals/8e/6e/e2/8e6ee211ccfa215645f98e7538f3c76b.jpg"  alt="an example of toast"/>
 
 ## Usage guidelines
 
@@ -79,13 +79,13 @@ Some people may take longer to read toasts than others due to low vision or cogn
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/77/b6/1b/77b61ba14fa3aa95d8124994a387fc51.jpg" noPadding alt="default toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/77/b6/1b/77b61ba14fa3aa95d8124994a387fc51.jpg"  alt="default toast"/>
     
     **Default**
     A generic acknowledgment after an action is taken.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/1d/e0/04/1de004b81b15d909062a2f6d055137d5.jpg" noPadding alt="error toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/1d/e0/04/1de004b81b15d909062a2f6d055137d5.jpg"  alt="error toast"/>
    
     **Error**
     Used rarely for connection issues or unknown errors where we don’t want to completely block the users flow, but want the message to persist if the user goes to another surface. Providing a way to solve the error or get help is recommended.
@@ -97,13 +97,13 @@ Some people may take longer to read toasts than others due to low vision or cogn
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fd/30/62/fd30629c36b5a2a799689e1fa33d9add.jpg" noPadding alt="text only toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/fd/30/62/fd30629c36b5a2a799689e1fa33d9add.jpg"  alt="text only toast"/>
     
     **Text only**
     A simple, generic acknowledgment after an action is taken. These should not be actionable.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/77/b6/1b/77b61ba14fa3aa95d8124994a387fc51.jpg" noPadding alt="toast with image"/>
+    <ImgContainer src="https://i.pinimg.com/originals/77/b6/1b/77b61ba14fa3aa95d8124994a387fc51.jpg"  alt="toast with image"/>
     
     **Image**
     With an image for Pin or Board actions.
@@ -111,7 +111,7 @@ Some people may take longer to read toasts than others due to low vision or cogn
 </TwoCol>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/17/68/e3/1768e3b164a4a67f163b6ec216b0a680.jpg" noPadding alt="toast with avatar"/>
+    <ImgContainer src="https://i.pinimg.com/originals/17/68/e3/1768e3b164a4a67f163b6ec216b0a680.jpg"  alt="toast with avatar"/>
     
     **Avatar**
     With an Avatar for Profile or Pinner-related messaging. An optional link can be included. When there’s a link on mWeb, the entire toast is tappable, using TapArea.
@@ -125,13 +125,13 @@ Some people may take longer to read toasts than others due to low vision or cogn
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d1/6d/53/d16d5368753bb66ed4b43768cec1673f.jpg" noPadding alt="toast with button"/>
+    <ImgContainer src="https://i.pinimg.com/originals/d1/6d/53/d16d5368753bb66ed4b43768cec1673f.jpg"  alt="toast with button"/>
     
     **Button**
     As a secondary element, to drive users to another surface, or change a recently completed action.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/be/96/f2/be96f2a755e144ef7554135f6c166b56.jpg" noPadding alt="toast with link"/>
+    <ImgContainer src="https://i.pinimg.com/originals/be/96/f2/be96f2a755e144ef7554135f6c166b56.jpg"  alt="toast with link"/>
     
     **Link**
     As a secondary element, to drive users to another surface.

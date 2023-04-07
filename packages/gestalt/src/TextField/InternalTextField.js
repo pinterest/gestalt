@@ -34,17 +34,17 @@ type Props = {|
   accessibilityActiveDescendant?: string,
   autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
-  enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   errorMessage?: Node,
   hasError?: boolean,
   helperText?: string,
   iconButton?: Element<typeof InternalTextFieldIconButton>,
-  inputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
   max?: number,
   maxLength?: ?MaxLength,
   min?: number,
+  mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
+  mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -81,16 +81,16 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     autoComplete,
     disabled = false,
     errorMessage,
-    enterKeyHint,
     hasError = false,
     helperText,
     id,
     iconButton,
-    inputMode,
     label,
     labelDisplay,
     max,
     maxLength,
+    mobileEnterKeyHint,
+    mobileInputMode,
     min,
     name,
     onBlur,
@@ -187,9 +187,9 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
       autoComplete={autoComplete}
       className={tags ? unstyledClasses : styledClasses}
       disabled={disabled}
-      enterKeyHint={enterKeyHint}
+      enterKeyHint={mobileEnterKeyHint}
       id={id}
-      inputMode={inputMode}
+      inputMode={mobileInputMode}
       maxLength={maxLength?.characterCount}
       max={type === 'number' ? max : undefined}
       min={type === 'number' ? min : undefined}

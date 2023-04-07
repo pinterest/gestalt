@@ -192,26 +192,57 @@ const components = {
   TwoCol: ({ children }: {| children: Node |}) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
   ),
+  ImgHero: ({
+    src,
+    alt,
+    width,
+    height,
+  }: {|
+    src: string,
+    width: number,
+    height: number,
+    alt: string,
+  |}) => (
+    <div width="100%" style={{ 'aspectRatio': `${width}/${height}` }}>
+      <Image src={src} alt={alt} width={width} height={height} fill />
+    </div>
+  ),
   ImgContainer: ({
     src,
     caption,
     alt,
     width,
     height,
-    noPadding,
+    padding,
+    color,
   }: {|
     src: string,
     caption?: string,
     alt?: string,
     width?: number,
     height?: number,
-    noPadding?: boolean,
+    padding?: 'standard' | 'none',
+    color?: string,
   |}) => {
     const layout = width || height ? 'fixed' : 'fill';
 
+    const colorStyle = {
+      __style: {
+        backgroundColor: color ? `var(--color-${color})` : 'white',
+      },
+    };
+
+    const defaultPadding = padding || 'none';
+
     return (
       <Box>
-        <Box padding={noPadding ? 0 : 8} rounding={2} borderStyle="sm" height="250px">
+        <Box
+          padding={defaultPadding === 'standard' ? 8 : 0}
+          rounding={2}
+          borderStyle="sm"
+          height="250px"
+          dangerouslySetInlineStyle={colorStyle}
+        >
           <Box
             position="relative"
             width="100%"

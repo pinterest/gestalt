@@ -132,6 +132,10 @@ type Props = {|
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
+   * Show a select list for quick selection of year and/or month. See the [selectLists variant](https://gestalt.pinterest.systems/web/datepicker#selectLists) to learn more.
+   */
+  selectLists?: $ReadOnlyArray<'month' | 'year'>,
+  /**
    * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/web/datepicker#preselectedValue) to learn more.
    */
   value?: Date,
@@ -170,6 +174,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
     rangeEndDate,
     rangeSelector,
     rangeStartDate,
+    selectLists,
     value: dateValue,
   }: Props,
   ref,
@@ -250,6 +255,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
+        dropdownMode="select"
         endDate={rangeEndDate}
         excludeDates={excludeDates && [...excludeDates]}
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
@@ -269,10 +275,15 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
         placeholderText={placeholder ?? format?.toUpperCase()}
-        popperClassName={classnames(
-          styles['react-datepicker-popper'],
-          styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`],
-        )}
+        popperClassName={classnames(styles['react-datepicker-popper'])}
+        popperModifiers={[
+          {
+            name: 'offset',
+            options: {
+              offset: [0, 20],
+            },
+          },
+        ]}
         popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
           <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
@@ -291,6 +302,8 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
         selectsEnd={rangeSelector === 'end'}
         selectsStart={rangeSelector === 'start'}
         showPopperArrow={false}
+        showMonthDropdown={selectLists?.includes('month')}
+        showYearDropdown={selectLists?.includes('year')}
         startDate={rangeStartDate}
       />
     </div>

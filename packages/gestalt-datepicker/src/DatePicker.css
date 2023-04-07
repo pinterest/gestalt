@@ -359,22 +359,41 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   z-index: 1;
 }
 
-.react-datepicker-popper[data-placement^="bottom"] {
-  margin-top: 6px;
+/* Year / Month dropdown  */
+
+:global ._gestalt .react-datepicker__month-select,
+:global ._gestalt .react-datepicker__year-select {
+  background-color: var(--g-colorGray0);
+  border-color: var(--color-border-container);
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  font-family: var(--font-family-default-latin);
+  font-size: var(--font-size-200);
+  height: 40px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 5px 16px; /* horizontal padding prevents it from running into arrow */
+  position: relative;
+  width: 100%;
 }
 
-.react-datepicker-popper[data-placement^="top"] {
-  /* !important is required to keep same distance from Textfield
-     when popper flips from top to bottom */
-  top: -2px !important; /* stylelint-disable-line declaration-no-important */
+:global ._gestalt .react-datepicker__month-select:focus,
+:global ._gestalt .react-datepicker__year-select:focus {
+  box-shadow: 0 0 0 4px rgb(0 132 255 / 0.5);
+  outline: 0;
 }
 
-.react-datepicker-popper[data-placement^="right"] {
-  margin-left: 8px;
-}
-
-.react-datepicker-popper[data-placement^="left"] {
-  margin-right: 8px;
+:global ._gestalt .react-datepicker__year-dropdown-container--select,
+:global ._gestalt .react-datepicker__month-dropdown-container--select,
+:global ._gestalt .react-datepicker__month-year-dropdown-container--select,
+:global ._gestalt .react-datepicker__year-dropdown-container--scroll,
+:global ._gestalt .react-datepicker__month-dropdown-container--scroll,
+:global ._gestalt .react-datepicker__month-year-dropdown-container--scroll {
+  display: inline-block;
+  margin: 0 10px;
 }
 
 /* Override the textfield container since gestalt has block not inline block */

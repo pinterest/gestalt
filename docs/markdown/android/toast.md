@@ -4,7 +4,7 @@ description: Toasts are brief and small messages that overlay content, but do no
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/db/49/55/db4955bf701fc8d8b02df5db1b629553.jpg" noPadding alt="an example of toast"/>
+<ImgContainer src="https://i.pinimg.com/originals/db/49/55/db4955bf701fc8d8b02df5db1b629553.jpg"  alt="an example of toast"/>
 
 ## Usage guidelines
 
@@ -49,7 +49,7 @@ fullwidth: true
     Stack multiple toasts as that will block the user.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/ee/2d/1a/ee2d1acda7fb690b4a6de04ae2fc3d23.jpg" alt="example of a dismissible toast"/>
+    <ImgContainer src="https://i.pinimg.com/originals/ee/2d/1a/ee2d1acda7fb690b4a6de04ae2fc3d23.jpg"  alt="example of a dismissible toast"/>
     <Do title="Do" />
     Include a way to dismiss the toast when it is actionable or contains multiple lines of text. Mobile toasts can be dismissed via swiping up if placed on the top or down if placed on the bottom.
   </Group>
@@ -93,7 +93,7 @@ Use these tokens for applying size and color styles to Toast.
 A generic acknowledgment after an action is taken.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/ed/6c/59/ed6c59cc39e64ae6244cf1a3a4158d44.jpg" noPadding alt="default toast"/>
+<ImgContainer src="https://i.pinimg.com/originals/ed/6c/59/ed6c59cc39e64ae6244cf1a3a4158d44.jpg"  alt="default toast"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9903%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>
@@ -104,7 +104,7 @@ A generic acknowledgment after an action is taken.
 Used rarely for connection issues or unknown errors where we don’t want to completely block the users flow, but want the message to persist if the user goes to another surface. Providing a way to solve the error or get help is recommended.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/04/6f/e8/046fe8c42fbf51d4065515f793865205.jpg" noPadding alt="error toast"/>
+<ImgContainer src="https://i.pinimg.com/originals/04/6f/e8/046fe8c42fbf51d4065515f793865205.jpg"  alt="error toast"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9978%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>
@@ -116,7 +116,7 @@ Used rarely for connection issues or unknown errors where we don’t want to com
 A simple, generic acknowledgment after an action is taken. These should not be actionable.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/ed/6c/59/ed6c59cc39e64ae6244cf1a3a4158d44.jpg" noPadding alt="text only toast"/>
+<ImgContainer src="https://i.pinimg.com/originals/ed/6c/59/ed6c59cc39e64ae6244cf1a3a4158d44.jpg"  alt="text only toast"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9903%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>
@@ -127,7 +127,7 @@ A simple, generic acknowledgment after an action is taken. These should not be a
 With an image for Pin or Board actions.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/31/44/83/31448327246692115b4eb3546a2a26f4.jpg" noPadding alt="toast with image"/>
+<ImgContainer src="https://i.pinimg.com/originals/31/44/83/31448327246692115b4eb3546a2a26f4.jpg"  alt="toast with image"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9600%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>
@@ -138,7 +138,7 @@ With an image for Pin or Board actions.
 With an Avatar for Profile or Pinner-related messaging. An optional link can be included. When there’s a link on mWeb, the entire toast is tappable, using TapArea.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/7b/03/89/7b038920b2ff477c2b60935dccb87fbc.jpg" noPadding alt="toast with avatar"/>
+<ImgContainer src="https://i.pinimg.com/originals/7b/03/89/7b038920b2ff477c2b60935dccb87fbc.jpg"  alt="toast with avatar"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9677%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>
@@ -149,7 +149,7 @@ With an Avatar for Profile or Pinner-related messaging. An optional link can be 
 As a secondary element, to drive users to another surface, or change a recently completed action.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/79/dd/04/79dd04506e8e3f17b4ecae1398ab2720.jpg" noPadding alt="toast with button"/>
+<ImgContainer src="https://i.pinimg.com/originals/79/dd/04/79dd04506e8e3f17b4ecae1398ab2720.jpg"  alt="toast with button"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9522%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>
@@ -160,7 +160,7 @@ As a secondary element, to drive users to another surface, or change a recently 
 As a secondary element, to drive users to another surface.
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/31/44/83/31448327246692115b4eb3546a2a26f4.jpg" noPadding alt="toast with link"/>
+<ImgContainer src="https://i.pinimg.com/originals/31/44/83/31448327246692115b4eb3546a2a26f4.jpg"  alt="toast with link"/>
 </Group>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVespNbaZGqiY7M0PMSIipE%2FMobile-Specs%3Fnode-id%3D1400%253A9751%26t%3Dwu4xHZXGRwObOjKp-1" allowFullScreen></iframe>

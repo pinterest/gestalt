@@ -38,7 +38,7 @@ describe('NumberField', () => {
   it('NumberField with enterKeyHint', () => {
     const tree = create(
       <NumberField
-        enterKeyHint="go"
+        mobileEnterKeyHint="go"
         id="test"
         onChange={jest.fn()}
         onFocus={jest.fn()}

@@ -40,7 +40,7 @@ describe('TextField', () => {
     const tree = create(
       <TextField
         id="test"
-        enterKeyHint="go"
+        mobileEnterKeyHint="go"
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}

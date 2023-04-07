@@ -139,6 +139,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'SearchField',
       'SegmentedControl',
       'SelectList',
+      'SheetMobile',
       'SideNavigation',
       'SlimBanner',
       'Spinner',
@@ -216,6 +217,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Guidelines'],
       },
     ],
+  },
+  {
+    sectionName: 'Blog',
+    pages: ['2023 Q1 Newsletter'],
   },
   {
     sectionName: 'Team support',

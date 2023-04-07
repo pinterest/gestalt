@@ -88,7 +88,7 @@ Used sparingly to draw attention to an icon that might otherwise be missed
 
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/81/ca/d0/81cad0e1aa26025955806c587f135f47.jpg" alt="The Pinterest homepage with a 16 pixel TV icon." />
+<ImgContainer src="https://i.pinimg.com/originals/81/ca/d0/81cad0e1aa26025955806c587f135f47.jpg"  alt="The Pinterest homepage with a 16 pixel TV icon." />
 16px Icon example
 </Group>
 <Group>

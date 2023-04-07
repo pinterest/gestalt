@@ -5,10 +5,17 @@ import DatePicker from './DatePicker.js';
 
 const initialDate = new Date(2018, 11, 14);
 
-function DatePickerWrap() {
+function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: boolean |}) {
   const [date, setDate] = useState(initialDate);
 
-  return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
+  return (
+    <DatePicker
+      id="fake_id"
+      onChange={(e) => setDate(e.value)}
+      value={date}
+      selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
+    />
+  );
 }
 
 describe('DatePicker', () => {
@@ -112,5 +119,16 @@ describe('DatePicker', () => {
     expect(screen.getByText('13')).toHaveClass(
       'react-datepicker__day react-datepicker__day--013 react-datepicker__day--selected',
     );
+  });
+
+  test('has year and month select list options', async () => {
+    render(<DatePickerWrap showMonthYearDropdown />);
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
+    await act(async () => {
+      fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+    });
+    expect(screen.queryAllByRole('option', { name: 'January' })).toHaveLength(1);
+    expect(screen.queryAllByRole('option', { name: '2017' })).toHaveLength(1);
   });
 });

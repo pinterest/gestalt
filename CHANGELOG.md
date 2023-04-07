@@ -1,3 +1,63 @@
+## 107.0.5 (Apr 7, 2023)
+
+### Patch
+
+- Docs: fix mobile examples display ([#2811](https://github.com/pinterest/gestalt/pull/2811)) - [Preview link](https://deploy-preview-2811--gestalt.netlify.app)
+
+## 107.0.4 (Apr 6, 2023)
+
+### Patch
+
+- Docs: Add white bg to darkmode images, remove padding ([#2807](https://github.com/pinterest/gestalt/pull/2807)) - [Preview link](https://deploy-preview-2807--gestalt.netlify.app)
+
+## 107.0.3 (Apr 6, 2023)
+
+### Patch
+
+- Update 2023_q1_newsletter.md ([#2810](https://github.com/pinterest/gestalt/pull/2810)) - [Preview link](https://deploy-preview-2810--gestalt.netlify.app)
+
+## 107.0.2 (Apr 6, 2023)
+
+### Patch
+
+- Icon: update docs for color and other props ([#2808](https://github.com/pinterest/gestalt/pull/2808)) - [Preview link](https://deploy-preview-2808--gestalt.netlify.app)
+
+## 107.0.1 (Apr 6, 2023)
+
+### Patch
+
+- Docs: 2023 Q1 Newsletter ([#2745](https://github.com/pinterest/gestalt/pull/2745)) - [Preview link](https://deploy-preview-2745--gestalt.netlify.app)
+
+## 107.0.0 (Apr 5, 2023)
+
+### Major
+
+- SheetMobile: new component (PILOT) ([#2769](https://github.com/pinterest/gestalt/pull/2769)) - [Preview link](https://deploy-preview-2769--gestalt.netlify.app)
+
+## 106.0.0 (Apr 5, 2023)
+
+### Major
+
+- TextField, NumberField: prefix 'mobile' to mobile only props: inputMode & enterKeyHint ([#2806](https://github.com/pinterest/gestalt/pull/2806)) - [Preview link](https://deploy-preview-2806--gestalt.netlify.app)
+
+## 105.0.1 (Apr 5, 2023)
+
+### Patch
+
+- Collage: migrate docs examples to Sandpack ([#2805](https://github.com/pinterest/gestalt/pull/2805)) - [Preview link](https://deploy-preview-2805--gestalt.netlify.app)
+
+## 105.0.0 (Apr 5, 2023)
+
+### Major
+
+- DatePicker: added Year/Month dropdown options, removed virtual keyboard, upgraded react-datepicker to 4.0.0 ([#2794](https://github.com/pinterest/gestalt/pull/2794)) - [Preview link](https://deploy-preview-2794--gestalt.netlify.app)
+
+## 104.0.3 (Apr 5, 2023)
+
+### Patch
+
+- Docs: Removing Paragraph BG Color for MD documents
+
 ## 104.0.2 (Apr 4, 2023)
 
 ### Patch
