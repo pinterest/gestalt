@@ -3,6 +3,48 @@
     "year": "2023",
     "digests": [
       {
+        "week": "April 7, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "mobileInputMode and mobileEnterKeyHint options for TextField and NumberField",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/80/3a/91/803a91f42334a44f8fbefb1ba73d455e.png",
+            "imageAltText": "Example of decimal keypad for TextField.",
+            "content": "[TextField](https://gestalt.pinterest.systems/web/textfield) and [NumberField](https://gestalt.pinterest.systems/web/numberfield) got two helpful mobile enhancements. `mobileInputMode` allows you to specify the type of data that might be entered by the user while editing the element or its contents. This allows mobile browsers to display an appropriate virtual keyboard.\n\n`mobileEnterKeyHint` allows to you specify the action label to present for the enter key on virtual keyboards.\n\nYou can see examples of these props in our [Mobile Textfield examples](https://gestalt.pinterest.systems/web/textfield#Mobile)."
+          },
+          {
+            "title": "Year/Month dropdown options to DatePicker",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/be/b2/35/beb23552cd18e2a471fb5a0c99d00476.png",
+            "imageAltText": "Screenshot of DatePicker component.",
+            "content": "We shipped a less-than-perfect, yet better-than-nothing update to DatePicker for [simpler date selection on mobile devices](https://gestalt.pinterest.systems/web/datepicker#selectLists). This variant will allow for a much simpler date selection experience on mobile devices. We hope to refine this variant further in future sprints."
+          },
+          {
+            "title": "New Figma OverlayUpsell component and Feedcard variant",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/eb/2c/bf/eb2cbf10710bc999fba3a335e260434f.png",
+            "imageAltText": "Screenshots of OverlayUpsell and FeedCard Figma components.",
+            "content": "We're super excited to share that we just shipped two nice updates to our Web Figma library made specifically for unauth experiences. We've created a new OverlayUpsell component to display short messages when users have performed actions that indicate some intent, such as a related pin tap or idea pin swipe.\n\nWe also shipped a new variant of FeedCard that displays a simple background color for simple in-feed messages."
+          },
+          {
+            "title": "Table enhancements",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/6c/c9/dd/6cc9ddbdb6418e60f9a3536a80308ad2.png",
+            "imageAltText": "Example of Table with sticky header and footer.",
+            "content": "Table saw two nice updates this week. First we implement a [controlled Table.RowExpanded with expanded prop](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable). This allows rows to be expanded without user direct input.\n\nWe also shipped a visual refinement to [Table's sticky footer](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) to include a drop shadow for greater visual clarity."
+          },
+          {
+            "title": "Text subtle update",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/d4/aa/21/d4aa2188413bc8295988663179773927.png",
+            "imageAltText": "Examples of new subtle gray color options.",
+            "content": " We updated our subtle color value to be lighter, and added a disabled color for inactive text/icons needs! Also, we added a subtle-accent value to support text over lightGray contrast needs.\n\nPlease note: This update is only available on Figma at the moment. We will update our tokens/docs soon. Stay tuned!"
+          }
+        ]
+      },
+      {
         "month": "March",
         "summary": "",
         "posts": [
