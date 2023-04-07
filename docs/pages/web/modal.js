@@ -255,7 +255,7 @@ For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={mobileExample} name="Mobile example" previewHeight={500} />
+              <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
             }
           />
         </MainSection>
