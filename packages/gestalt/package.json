@@ -5,6 +5,7 @@
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A set of React UI components which enforce Pinterest’s design language",
   "main": "dist/gestalt.js",
+  "types": "/dist/index.d.ts",
   "jsnext:main": "dist/gestalt.es.js",
   "module": "dist/gestalt.es.js",
   "style": "dist/gestalt.css",
