@@ -4,7 +4,7 @@
     "digests": [
       {
         "week": "April 7, 2023",
-        "summary": "",
+        "summary": "Updates related to date/number entry, new unauth Figma components, Table enhancements and additional color tokens.",
         "posts": [
           {
             "title": "mobileInputMode and mobileEnterKeyHint options for TextField and NumberField",
