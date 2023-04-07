@@ -1,45 +1,51 @@
 import React = require('react');
 
 /**
- * Helpers
+ * =========================================================
+ * ====================== SHARED TYPED =====================
+ * =========================================================
  */
 
-export type AbstractEventHandler<T extends React.SyntheticEvent<HTMLElement> | Event, U = {}> = (
+type AbstractEventHandler<T extends React.SyntheticEvent<HTMLElement> | Event, U = {}> = (
   arg: U & {
     readonly event: T;
   },
 ) => void;
-export type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
+
+type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 >;
 
-export type FourDirections = 'up' | 'right' | 'down' | 'left';
+type FourDirections = 'up' | 'right' | 'down' | 'left';
 
-export type EventHandlerType = (args: { readonly event: React.SyntheticEvent }) => void;
+type TapAreaEventHandlerType = AbstractEventHandler<
+  | React.MouseEvent<HTMLDivElement>
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLAnchorElement>
+  | React.KeyboardEvent<HTMLAnchorElement>,
+  { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+>;
 
-export interface OnNavigationArgs {
+type ButtonEventHandlerType = AbstractEventHandler<
+  | React.MouseEvent<HTMLButtonElement>
+  | React.MouseEvent<HTMLAnchorElement>
+  | React.KeyboardEvent<HTMLAnchorElement>
+  | React.KeyboardEvent<HTMLButtonElement>,
+  { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+>;
+
+type EventHandlerType = (args: { readonly event: React.SyntheticEvent }) => void;
+
+type OnNavigationType = (args: {
   href: string;
   target?: null | 'self' | 'blank' | undefined;
-}
+}) => EventHandlerType | null | undefined;
 
-export type OnNavigationType = (args: OnNavigationArgs) => EventHandlerType | null | undefined;
-export type UnsignedUpTo12 = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type SignedUpTo12 =
-  | -12
-  | -11
-  | -10
-  | -9
-  | -8
-  | -7
-  | -6
-  | -5
-  | -4
-  | -3
-  | -2
-  | -1
-  | UnsignedUpTo12;
+type UnsignedUpTo12 = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface BadgeObject {
+type SignedUpTo12 = -12 | -11 | -10 | -9 | -8 | -7 | -6 | -5 | -4 | -3 | -2 | -1 | UnsignedUpTo12;
+
+interface BadgeObject {
   text: string;
   type?:
     | 'info'
@@ -52,6 +58,22 @@ export interface BadgeObject {
     | undefined;
 }
 
+interface OnDismissButtonObject {
+  accessibilityLabel: string;
+  onDismiss: () => void;
+}
+
+interface MaxLength {
+  characterCount: number;
+  errorAccessibilityLabel: string;
+}
+
+/**
+ * =========================================================
+ * ==================== API INTERFACES  ====================
+ * =========================================================
+ */
+
 /**
  * https://gestalt.pinterest.systems/web/activationcard
  */
@@ -60,26 +82,13 @@ export interface ActivationCardProps {
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete';
   statusMessage: string;
   title: string;
-  dismissButton?:
-    | {
-        accessibilityLabel: string;
-        onDismiss: () => void;
-      }
-    | undefined;
+  dismissButton?: OnDismissButtonObject | undefined;
   link?:
     | {
         accessibilityLabel: string;
         href: string;
         label: string;
-        onClick?:
-          | AbstractEventHandler<
-              | React.MouseEvent<HTMLButtonElement>
-              | React.MouseEvent<HTMLAnchorElement>
-              | React.KeyboardEvent<HTMLAnchorElement>
-              | React.KeyboardEvent<HTMLButtonElement>,
-              { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-            >
-          | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
         rel?: 'none' | 'nofollow' | undefined;
         target?: null | 'self' | 'blank' | undefined;
       }
@@ -104,13 +113,12 @@ export interface AvatarProps {
 export interface AvatarGroupProps {
   accessibilityLabel: string;
   collaborators: ReadonlyArray<{ name: string; src?: string | undefined }>;
-
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
   addCollaborators?: boolean | undefined;
   href?: string | undefined;
-  onClick?: OnTapType | undefined;
+  onClick?: TapAreaEventHandlerType | undefined;
   role?: 'button' | 'link' | undefined;
   size?: 'xs' | 'sm' | 'md' | 'fit' | undefined;
 }
@@ -153,10 +161,10 @@ export interface BoxProps extends BoxPassthroughProps {
     | 'stretch'
     | undefined;
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
-  alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
   smAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
   mdAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
   lgAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
+  alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
   as?:
     | 'article'
     | 'aside'
@@ -307,15 +315,7 @@ export interface ButtonProps {
   iconEnd?: Icons | undefined;
   fullWidth?: boolean | undefined;
   name?: string | undefined;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLButtonElement>
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLButtonElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
   rel?: 'none' | 'nofollow' | undefined;
   role?: 'button' | 'link' | undefined;
   selected?: boolean | undefined;
@@ -337,15 +337,7 @@ export interface ActionData {
   disabled?: boolean;
   href?: string | undefined;
   label: string;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>
-        | React.MouseEvent<HTMLButtonElement>
-        | React.KeyboardEvent<HTMLButtonElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
   rel?: 'none' | 'nofollow' | undefined;
   target?: null | 'self' | 'blank' | undefined;
 }
@@ -357,12 +349,7 @@ export interface CalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
-  dismissButton?:
-    | {
-        accessibilityLabel: string;
-        onDismiss: () => void;
-      }
-    | undefined;
+  dismissButton?: OnDismissButtonObject | undefined;
   primaryAction?: ActionData | undefined;
   secondaryAction?: ActionData | undefined;
   title?: string | undefined;
@@ -530,11 +517,6 @@ export interface DefaultLabelProviderProps {
     | undefined;
 }
 
-export interface DropdownOption {
-  label: string;
-  value: string;
-  subtext?: string | undefined;
-}
 /**
  * https://gestalt.pinterest.systems/web/dropdown
  */
@@ -552,6 +534,15 @@ export interface DropdownProps {
   zIndex?: Indexable | undefined;
 }
 
+export interface DropdownOption {
+  label: string;
+  value: string;
+  subtext?: string | undefined;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item
+ */
 export interface DropdownItemProps {
   children?: React.ReactNode;
   onSelect: AbstractEventHandler<
@@ -566,6 +557,9 @@ export interface DropdownItemProps {
   selected?: DropdownOption | ReadonlyArray<DropdownOption> | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link
+ */
 export interface DropdownLinkProps {
   href: string;
   option: DropdownOption;
@@ -573,17 +567,12 @@ export interface DropdownLinkProps {
   children?: React.ReactNode;
   dataTestId?: string | undefined;
   isExternal?: boolean | undefined;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLButtonElement>
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLButtonElement>
-        | React.KeyboardEvent<HTMLAnchorElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section
+ */
 export interface DropdownSectionProps {
   children:
     | React.ReactElement<DropdownItemProps>
@@ -703,17 +692,7 @@ export interface HelpButtonProps {
         target?: null | 'self' | 'blank';
       }
     | undefined;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLDivElement>
-        | React.KeyboardEvent<HTMLDivElement>
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>,
-        {
-          dangerouslyDisableOnNavigation: () => void;
-        }
-      >
-    | undefined;
+  onClick?: TapAreaEventHandlerType | undefined;
   text: string | React.ReactElement<typeof Text>;
   zIndex?: Indexable | undefined;
 }
@@ -953,15 +932,7 @@ export interface IconButtonProps {
   href?: string | undefined;
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>
-        | React.MouseEvent<HTMLButtonElement>
-        | React.KeyboardEvent<HTMLButtonElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
   rel?: 'none' | 'nofollow' | undefined;
   role?: 'button' | 'link' | undefined;
@@ -984,15 +955,7 @@ export interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
   icon: Icons;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>
-        | React.MouseEvent<HTMLButtonElement>
-        | React.KeyboardEvent<HTMLButtonElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
   selected?: boolean | undefined;
 }
 
@@ -1048,10 +1011,6 @@ export interface LetterboxProps {
 /**
  * https://gestalt.pinterest.systems/web/link
  */
-export type ExternalLinkIcon =
-  | 'none'
-  | 'default'
-  | { color: IconProps['color']; size: TextProps['size'] };
 export interface LinkProps {
   href: string;
   accessibilityLabel?: string | undefined;
@@ -1059,7 +1018,11 @@ export interface LinkProps {
   hoverStyle?: 'none' | 'underline' | undefined;
   id?: string | undefined;
   display?: 'inline' | 'inlineBlock' | 'block' | undefined;
-  externalLinkIcon?: ExternalLinkIcon | undefined;
+  externalLinkIcon?:
+    | 'none'
+    | 'default'
+    | { color: IconProps['color']; size: TextProps['size'] }
+    | undefined;
   onBlur?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
   onClick?:
     | AbstractEventHandler<
@@ -1075,15 +1038,21 @@ export interface LinkProps {
   underline?: 'auto' | 'none' | 'always' | 'hover' | undefined;
 }
 
-export interface ListItemProps {
-  text: string | React.ReactElement<typeof Text>;
-}
-
+/**
+ * https://gestalt.pinterest.systems/web/list
+ */
 export interface ListProps {
   label: string | React.ReactElement<typeof Text>;
   labelDisplay?: 'visible' | 'hidden' | undefined;
   spacing?: 'regular' | 'condensed' | undefined;
   type?: 'bare' | 'ordered' | 'unordered' | undefined;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/list#List.Itemt
+ */
+export interface ListItemProps {
+  text: string | React.ReactElement<typeof Text>;
 }
 
 /**
@@ -1150,10 +1119,6 @@ export interface ModalProps {
   subHeading?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/modalalert
- */
-
 export interface ModalAlertActionDataType {
   accessibilityLabel: string;
   disabled?: boolean | undefined;
@@ -1170,6 +1135,9 @@ export interface ModalAlertActionDataType {
   target?: null | 'self' | 'blank' | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/modalalert
+ */
 export interface ModalAlertProps {
   accessibilityDismissButtonLabel?: string | undefined;
   accessibilityModalLabel: string;
@@ -1254,24 +1222,6 @@ export interface OnLinkNavigationProviderProps {
   onNavigation?: OnNavigationType | undefined;
 }
 
-export interface PageHeaderBadge {
-  text: string;
-  tooltipText?: string | undefined;
-}
-
-export interface PageHeaderHelperIconButton {
-  accessibilityLabel?: string | undefined;
-  accessibilityControls?: string | undefined;
-  accessibilityExpanded?: boolean | undefined;
-  onClick: (args: {
-    event:
-      | React.MouseEvent<HTMLAnchorElement>
-      | React.KeyboardEvent<HTMLAnchorElement>
-      | React.KeyboardEvent<HTMLButtonElement>
-      | React.MouseEvent<HTMLButtonElement>;
-    dangerouslyDisableOnNavigation: () => void;
-  }) => void;
-}
 export interface PageHeaderAction {
   component?:
     | React.ReactElement<
@@ -1288,9 +1238,28 @@ export interface PageHeaderAction {
  */
 export interface PageHeaderProps {
   title: string;
-  badge?: PageHeaderBadge | undefined;
+  badge?:
+    | {
+        text: string;
+        tooltipText?: string | undefined;
+      }
+    | undefined;
   borderStyle?: 'sm' | 'none' | undefined;
-  helperIconButton?: PageHeaderHelperIconButton | undefined;
+  helperIconButton?:
+    | {
+        accessibilityLabel?: string | undefined;
+        accessibilityControls?: string | undefined;
+        accessibilityExpanded?: boolean | undefined;
+        onClick: (args: {
+          event:
+            | React.MouseEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLButtonElement>
+            | React.MouseEvent<HTMLButtonElement>;
+          dangerouslyDisableOnNavigation: () => void;
+        }) => void;
+      }
+    | undefined;
   helperLink?: {
     accessibilityLabel: string;
     text: string;
@@ -1341,7 +1310,7 @@ export interface PopoverProps {
   anchor: HTMLElement | null | undefined;
   onDismiss: () => void;
   children?: React.ReactNode | undefined;
-  color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray' | undefined;
+  color?: 'blue' | 'red' | 'white' | 'darkGray' | undefined;
   id?: string | undefined;
   idealDirection?: FourDirections | undefined;
   positionRelativeToAnchor?: boolean | undefined;
@@ -1370,17 +1339,7 @@ export interface PopoverEducationalProps {
         accessibilityLabel?: string | undefined;
         href?: string | undefined;
         text: string | undefined;
-        onClick?:
-          | AbstractEventHandler<
-              | React.MouseEvent<HTMLButtonElement>
-              | React.MouseEvent<HTMLAnchorElement>
-              | React.KeyboardEvent<HTMLAnchorElement>
-              | React.KeyboardEvent<HTMLButtonElement>,
-              {
-                dangerouslyDisableOnNavigation: () => void;
-              }
-            >
-          | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
         rel?: 'none' | 'nofollow' | undefined;
         target?: null | 'self' | 'blank' | undefined;
       }
@@ -1521,11 +1480,17 @@ export interface SideNaviationProps {
   dismissButton?: { accessibilityLabel?: string; onDismiss: () => void } | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section
+ */
 export interface SideNavigationSectionProps {
   children: React.ReactNode;
   label: string;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem
+ */
 export interface SideNavigationTopItemProps {
   active?: 'page' | 'section' | undefined;
   badge?:
@@ -1538,27 +1503,12 @@ export interface SideNavigationTopItemProps {
   href: string;
   icon?: Icons | { __path: string };
   notificationAccessibilityLabel?: string;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLButtonElement>
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLButtonElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
   label: string;
   primaryAction?:
     | {
         icon?: 'ellipsis' | 'edit' | 'trash-can';
-        onClick?:
-          | AbstractEventHandler<
-              | React.MouseEvent<HTMLButtonElement>
-              | React.MouseEvent<HTMLAnchorElement>
-              | React.KeyboardEvent<HTMLAnchorElement>
-              | React.KeyboardEvent<HTMLButtonElement>
-            >
-          | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
         tooltip: {
           accessibilityLabel?: string | undefined;
           text: string;
@@ -1569,22 +1519,20 @@ export interface SideNavigationTopItemProps {
     | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem
+ */
 export interface SideNavigationNestedItemProps {
   active?: 'page' | 'section' | undefined;
   href: string;
   label: string;
-  onClick?:
-    | AbstractEventHandler<
-        | React.MouseEvent<HTMLButtonElement>
-        | React.MouseEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLAnchorElement>
-        | React.KeyboardEvent<HTMLButtonElement>,
-        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onClick?: ButtonEventHandlerType | undefined;
 }
 
-export interface SideNavigationNestedGroupProps {
+/**
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Group
+ */
+export interface SideNavigationGroupProps {
   badge?: BadgeProps | undefined;
   children: React.ReactNode;
   counter?: { number: string; accessibilityLabel: string } | undefined;
@@ -1613,18 +1561,22 @@ export interface SideNavigationNestedGroupProps {
     | undefined;
 }
 
-export interface SideNavigationNestedGroup {
+/**
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedGroup
+ */
+export interface SideNavigationNestedGroupProps {
   children: React.ReactNode;
   display?: 'expandable' | 'static' | undefined;
   label: string;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/overlaypanel
- */
 export type OverlayPanelNodeOrRenderProp =
   | ((prop: { onDismissStart: () => void }) => React.ReactNode)
   | React.ReactNode;
+
+/**
+ * https://gestalt.pinterest.systems/web/overlaypanel
+ */
 export type OnAnimationEndStateType = 'in' | 'out';
 export interface OverlayPanel {
   accessibilityDismissButtonLabel?: string | undefined;
@@ -1671,12 +1623,7 @@ export interface OverlayPanel {
  * https://gestalt.pinterest.systems/web/slimbanner
  */
 export interface SlimBannerProps {
-  dismissButton?:
-    | {
-        accessibilityLabel: string;
-        onDismiss: () => void;
-      }
-    | undefined;
+  dismissButton?: OnDismissButtonObject | undefined;
   primaryAction?:
     | {
         accessibilityLabel: string;
@@ -1736,35 +1683,6 @@ export interface SpinnerProps {
 }
 
 /**
- * https://gestalt.pinterest.systems/web/flex
- */
-export interface FlexProps {
-  alignContent?:
-    | 'start'
-    | 'end'
-    | 'center'
-    | 'between'
-    | 'around'
-    | 'evenly'
-    | 'stretch'
-    | undefined;
-  alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
-  alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch' | undefined;
-  children?: React.ReactNode | undefined;
-  fit?: boolean | undefined;
-  flex?: 'grow' | 'shrink' | 'none' | undefined;
-  gap?: UnsignedUpTo12 | undefined;
-  height?: number | string | undefined;
-  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | undefined;
-  maxHeight?: number | string | undefined;
-  maxWidth?: number | string | undefined;
-  minHeight?: number | string | undefined;
-  minWidth?: number | string | undefined;
-  width?: number | string | undefined;
-  wrap?: boolean | undefined;
-}
-
-/**
  * https://gestalt.pinterest.systems/web/status
  */
 export interface StatusProps {
@@ -1811,37 +1729,58 @@ export interface TableProps {
   stickyColumns?: number | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.Body
+ */
 export interface TableBodyProps {
   children?: React.ReactNode | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.Cell
+ */
 export interface TableCellProps {
   children?: React.ReactNode | undefined;
   colSpan?: number | undefined;
   rowSpan?: number | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.Footer
+ */
 export interface TableFooterProps {
   children?: React.ReactNode | undefined;
   sticky?: boolean | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.Header
+ */
 export interface TableHeaderProps {
   children?: React.ReactNode | undefined;
   display?: 'tableHeaderGroup' | 'visuallyHidden';
   sticky?: boolean | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.HeaderCell
+ */
 export interface TableHeaderCellProps extends TableCellProps {
   scope?: 'col' | 'row' | 'colgroup' | 'rowgroup';
   colSpan?: number;
   rowSpan?: number;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.Row
+ */
 export interface TableRowProps {
   children?: React.ReactNode | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.RowDrawer
+ */
 export interface TableRowDrawerProps {
   children:
     | React.ReactElement<TableCellProps>
@@ -1851,6 +1790,9 @@ export interface TableRowDrawerProps {
   id: string;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.RowExpandable
+ */
 export interface TableRowExpandableProps {
   accessibilityCollapseLabel: string;
   accessibilityExpandLabel: string;
@@ -1868,6 +1810,9 @@ export interface TableRowExpandableProps {
     | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/table#Table.SortableHeaderCell
+ */
 export interface TableSortableHeaderCellProps extends TableHeaderCellProps {
   onSortChange: AbstractEventHandler<
     React.MouseEvent<HTMLTableCellElement> | React.KeyboardEvent<HTMLTableCellElement>
@@ -1909,14 +1854,6 @@ export interface TagProps {
   type?: 'default' | 'error' | 'warning';
 }
 
-export type OnTapType = AbstractEventHandler<
-  | React.MouseEvent<HTMLDivElement>
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>,
-  { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
->;
-
 /**
  * https://gestalt.pinterest.systems/web/taparea
  */
@@ -1951,7 +1888,7 @@ export interface TapAreaProps {
   onMouseLeave?:
     | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
     | undefined;
-  onTap?: OnTapType | undefined;
+  onTap?: TapAreaEventHandlerType | undefined;
   rel?: 'none' | 'nofollow' | undefined;
   role?: 'button' | 'link' | undefined;
   rounding?: 'pill' | 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | undefined;
@@ -1986,11 +1923,6 @@ export interface TextProps {
   underline?: boolean | undefined;
   weight?: 'bold' | 'normal' | undefined;
   title?: string | undefined;
-}
-
-export interface MaxLength {
-  characterCount: number;
-  errorAccessibilityLabel: string;
 }
 
 /**
@@ -2038,7 +1970,6 @@ export interface TextFieldProps {
     | 'username'
     | undefined;
   disabled?: boolean | undefined;
-
   enterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' | undefined;
   errorMessage?: React.ReactNode | undefined;
   helperText?: string | undefined;
@@ -2089,7 +2020,7 @@ export interface ToastProps {
     accessibilityLabel: string;
     href?: string;
     label: string;
-    onClick?: ButtonProps['onClick'] | undefined;
+    onClick?: ButtonEventHandlerType | undefined;
     rel?: LinkProps['rel'] | undefined;
     size?: ButtonProps['size'] | undefined;
     target?: LinkProps['target'] | undefined;
@@ -2121,11 +2052,7 @@ export interface TooltipProps {
 export interface UpsellProps {
   children?: React.ReactElement;
   message: string | React.ReactElement<typeof Text>;
-  dismissButton?:
-    | {
-        accessibilityLabel: string;
-        onDismiss: () => void;
-      }
+  dismissButton?: OnDismissButtonObject
     | undefined;
   imageData?:
     | {
@@ -2144,6 +2071,9 @@ export interface UpsellProps {
   title?: string | undefined;
 }
 
+/**
+ * https://gestalt.pinterest.systems/web/upsell#Upsell.Form
+ */
 export interface UpsellFormProps {
   onSubmit: AbstractEventHandler<
     | React.MouseEvent<HTMLButtonElement>
@@ -2228,15 +2158,12 @@ export interface WashAnimatedProps {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/cIndexClasses#zindex
- */
 export interface Indexable {
   index(): number;
 }
 
 /**
- * https://gestalt.pinterest.systems/web/cIndexClasses#FixedZIndex
+ * https://gestalt.pinterest.systems/web/zindex_classes#FixedZIndex
  */
 export class FixedZIndex implements Indexable {
   z: number;
@@ -2245,7 +2172,7 @@ export class FixedZIndex implements Indexable {
 }
 
 /**
- * https://gestalt.pinterest.systems/web/cIndexClasses#CompositeZIndex
+ * https://gestalt.pinterest.systems/web/zindex_classes#CompositeZIndex
  */
 export class CompositeZIndex implements Indexable {
   deps: Array<FixedZIndex | CompositeZIndex>;
@@ -2254,7 +2181,9 @@ export class CompositeZIndex implements Indexable {
 }
 
 /**
+ * =========================================================
  * ========================= INDEX =========================
+ * =========================================================
  */
 
 export const ActivationCard: React.FunctionComponent<ActivationCardProps>;
@@ -2395,7 +2324,7 @@ export interface SideNavigationSubcomponents {
   Section: React.FunctionComponent<SideNavigationSectionProps>;
   TopItem: React.FunctionComponent<SideNavigationTopItemProps>;
   NestedItem: React.FunctionComponent<SideNavigationNestedItemProps>;
-  Group: React.FunctionComponent<SideNavigationNestedGroupProps>;
+  Group: React.FunctionComponent<SideNavigationGroupProps>;
   NestedGroup: React.FunctionComponent<SideNavigationNestedGroupProps>;
 }
 
