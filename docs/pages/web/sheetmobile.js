@@ -40,7 +40,12 @@ export default function SheetMobilePage({
           />
         }
       >
-        <SandpackExample code={main} hideEditor name="Main SheetMobile example" />
+        <SandpackExample
+          code={main}
+          hideEditor
+          name="Main SheetMobile example"
+          layout="mobileRow"
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen?.SheetMobile} />
@@ -147,7 +152,7 @@ There is one size variant for full Sheets: "full". See examples below for more d
 
 `}
             sandpackExample={
-              <SandpackExample code={defaultSize} name="Heading example" layout="column" />
+              <SandpackExample code={defaultSize} name="Heading example" layout="mobileColumn" />
             }
           />
           <MainSection.Card
@@ -155,7 +160,7 @@ There is one size variant for full Sheets: "full". See examples below for more d
             title="Auto"
             description={`A partial SheetMobile with a max of 90% and a min of 30% screen height. When \`size\` is set to "auto", SheetMobile doesn't require a visible dismiss IconButton.`}
             sandpackExample={
-              <SandpackExample code={autoSize} name="Heading example" layout="column" />
+              <SandpackExample code={autoSize} name="Heading example" layout="mobileColumn" />
             }
           />
           <MainSection.Card
@@ -163,7 +168,7 @@ There is one size variant for full Sheets: "full". See examples below for more d
             title="Full"
             description={`A full SheetMobile fully fills the page. It completely covers the primary screen. When \`size\` is set to "full", SheetMobile requires a visible dismiss IconButton.`}
             sandpackExample={
-              <SandpackExample code={fullSize} name="Heading example" layout="column" />
+              <SandpackExample code={fullSize} name="Heading example" layout="mobileColumn" />
             }
           />
         </MainSection.Subsection>
@@ -187,7 +192,7 @@ See the following cases for reference.
               <SandpackExample
                 code={textOnlyHeader}
                 name="Heading with only text example"
-                layout="column"
+                layout="mobileColumn"
               />
             }
           />
@@ -198,7 +203,7 @@ See the following cases for reference.
               <SandpackExample
                 code={withPrimaryActionHeader}
                 name="Heading with primary action example"
-                layout="column"
+                layout="mobileColumn"
               />
             }
           />
@@ -210,7 +215,7 @@ See the following cases for reference.
               <SandpackExample
                 code={dismissButtonHeader}
                 name="Dismiss button example"
-                layout="column"
+                layout="mobileColumn"
               />
             }
           />
@@ -222,7 +227,7 @@ See the following cases for reference.
               <SandpackExample
                 code={navigationHeader}
                 name="Back and forward navigation example"
-                layout="column"
+                layout="mobileColumn"
               />
             }
           />
@@ -233,9 +238,8 @@ See the following cases for reference.
           description={`SheetMobile's footer has a flexible configuration. \`footer\` prop accepts any kind of node. The footer can have up to two Buttons and another two IconButtons as shown in the example.`}
         >
           <MainSection.Card
-            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={footer} name="Footer example" layout="column" />
+              <SandpackExample code={footer} name="Footer example" layout="mobileRow" />
             }
           />
         </MainSection.Subsection>
@@ -266,7 +270,11 @@ When using these render props, just pass the argument \`onDismissStart\` to your
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={animation} name="Dismiss animation example" layout="column" />
+              <SandpackExample
+                code={animation}
+                name="Dismiss animation example"
+                layout="mobileRow"
+              />
             }
           />
         </MainSection.Subsection>
@@ -282,7 +290,7 @@ When using these render props, just pass the argument \`onDismissStart\` to your
               <SandpackExample
                 code={outsideClick}
                 name="Preventing outside click dismissal example"
-                layout="column"
+                layout="mobileRow"
               />
             }
           />

@@ -1,3 +1,35 @@
+Skip to content
+Search or jump to…
+Pulls
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@hectoid 
+pinterest
+/
+gestalt
+Public
+Fork your own copy of pinterest/gestalt
+Code
+Issues
+4
+Pull requests
+6
+Actions
+Security
+Insights
+gestalt/docs/docs-components/COMPONENT_DATA.js /
+@ponori
+ponori Updated mobile and documentation statuses for all components (#2804)
+Latest commit be960ec 10 hours ago
+ History
+ 10 contributors
+@AlbertCarreras@ayeshakmaz@dangerismycat@ponori@rlingineni@hectoid@khalvy@EduhCosta@cintiapub@BTaylorPins
+ 3959 lines (3943 sloc)  99.3 KB
+ 
+
 // @flow strict
 import { type Element } from 'react';
 import Box from '../graphics/building-blocks/Box.svg';
@@ -372,7 +404,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
@@ -431,7 +463,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -447,7 +479,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'notAvailable',
-      figma: null,
+      figma: 'ready',
     },
     iOS: {
       accessible: {
@@ -460,7 +492,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'notAvailable',
-      figma: null,
+      figma: 'ready',
     },
   },
   {
@@ -482,7 +514,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -496,7 +528,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'notAvailable',
-      figma: null,
+      figma: 'ready',
     },
     iOS: {
       accessible: {
@@ -509,7 +541,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'notAvailable',
-      figma: null,
+      figma: 'ready',
     },
   },
   {
@@ -527,10 +559,10 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
-      documentation: 'partial',
-      iOS: 'planned',
+      documentation: 'ready',
+      iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
     },
@@ -576,7 +608,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: null,
       },
       badge: null,
-      android: 'notAvailable',
+      android: 'planned',
       deprecated: false,
       documentation: 'partial',
       iOS: 'notAvailable',
@@ -630,7 +662,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'planned',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -724,11 +756,11 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -827,9 +859,9 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -877,7 +909,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -926,7 +958,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'partial',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1023,9 +1055,9 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'notAvailable',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1123,7 +1155,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'partial',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -1173,9 +1205,9 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: 'New',
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1272,10 +1304,10 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
       documentation: 'ready',
-      iOS: 'planned',
+      iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
     },
@@ -1325,7 +1357,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       android: 'planned',
       deprecated: false,
       documentation: 'ready',
-      iOS: 'planned',
+      iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
     },
@@ -1471,7 +1503,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'notAvailable',
       responsive: 'ready',
@@ -1520,7 +1552,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: 'Pilot',
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'notAvailable',
       responsive: 'ready',
@@ -1570,7 +1602,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'partial',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -1621,7 +1653,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1671,7 +1703,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1767,7 +1799,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -1818,7 +1850,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1867,7 +1899,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'notAvailable',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -1915,7 +1947,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'partial',
       responsive: 'ready',
@@ -1966,7 +1998,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2011,7 +2043,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'partial',
+      android: 'planned',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
@@ -2165,7 +2197,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'planned',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2219,7 +2251,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -2270,7 +2302,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2320,7 +2352,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'notAvailable',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2369,7 +2401,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2414,11 +2446,11 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'notAvailable',
+      android: 'ready',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2512,9 +2544,9 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -2563,7 +2595,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'partial',
       responsive: 'ready',
@@ -2598,7 +2630,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <Text />,
     name: 'Text',
-    aliases: ['Copy, Subtext, Caption, Footer, Helper text'],
+    aliases: ['Copy'],
     description: 'Text is used for all text on the page.',
     category: 'Text',
     status: {
@@ -2612,8 +2644,8 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'planned',
       deprecated: false,
-      documentation: 'planned',
-      iOS: 'ready',
+      documentation: 'partial',
+      iOS: 'planned',
       figma: 'ready',
       responsive: 'ready',
     },
@@ -2627,7 +2659,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'notAvailable',
       figma: null,
     },
     iOS: {
@@ -2640,8 +2672,8 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'ready',
-      figma: 'ready',
+      documentation: 'notAvailable',
+      figma: null,
     },
   },
   {
@@ -2708,7 +2740,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
@@ -2758,9 +2790,9 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'partial',
       },
       badge: null,
-      android: 'notAvailable',
+      android: 'planned',
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
@@ -2812,7 +2844,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2862,7 +2894,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -2908,9 +2940,9 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'partial',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
   },
@@ -3329,9 +3361,9 @@ const BUILDING_BLOCKS_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       android: 'notAvailable',
       deprecated: false,
-      documentation: 'partial',
+      documentation: 'ready',
       iOS: 'notAvailable',
-      figma: 'partial',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {
@@ -3957,3 +3989,18 @@ const COMPONENT_DATA_MAP: {|
 };
 
 export default COMPONENT_DATA_MAP;
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+gestalt/COMPONENT_DATA.js at master · pinterest/gestalt
