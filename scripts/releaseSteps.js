@@ -194,7 +194,13 @@ function buildPackages() {
 
   console.log('\nCommit Changes');
   commitChanges({ message: `Version bump: v${newVersion}` });
-  pushChanges();
+
+  /**
+   * On a pre-release branch, we won't be able to commit new changes
+   */
+  if (releaseType !== 'prerelease') {
+    pushChanges();
+  }
 
   console.log(`\nBuild packages`);
   buildPackages();

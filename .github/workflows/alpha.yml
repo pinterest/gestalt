@@ -47,10 +47,15 @@ jobs:
           echo "login dangerismycat" >> ~/.netrc
           echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
-        id: pre_release_step
+        id: pre_release
         run: ./scripts/releaseSteps.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABELS: ${{ steps.extract_labels.outputs.labels }}
       - name: Get Github Workflow Version
-        run: echo ${{ steps.release.outputs.VERSION }}
+        run: echo ${{ steps.pre_release.outputs.VERSION }}
+      - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Published alpha-version ${{ steps.pre_release.outputs.VERSION }}! :wave:
