@@ -54,7 +54,19 @@ jobs:
           LABELS: ${{ steps.extract_labels.outputs.labels }}
       - name: Get Github Workflow Version
         run: echo ${{ steps.pre_release.outputs.VERSION }}
+      - name: Publish to npm
+        run: |
+          cd packages/gestalt-design-tokens
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          cd ../gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          cd ../gestalt-datepicker
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          cd ../eslint-plugin-gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
       - name: Comment on PR
+        permissions:
+          pull-requests: write
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
