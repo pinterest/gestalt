@@ -1,3 +1,9 @@
+## 107.1.1 (Apr 10, 2023)
+
+### Patch
+
+- Internal: upgrade xml2js to 0.5.0 ([#2817](https://github.com/pinterest/gestalt/pull/2817)) - [Preview link](https://deploy-preview-2817--gestalt.netlify.app)
+
 ## 107.1.0 (Apr 10, 2023)
 
 ### Minor
