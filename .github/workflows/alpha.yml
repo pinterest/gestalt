@@ -15,10 +15,14 @@ jobs:
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.label.name == 'prerelease' || 
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.issue.pull_request && contains(github.event.comment.body, '/alpha')
     steps:
+      - name: Print Values
+        id: extract_values
+        run: |
+          echo "commit=" ${{github.event.head_commit.message}}
       - name: Extract labels
         id: extract_labels
         run: |
-          echo "::set-output name=labels::["prerelease"]"
+          echo "::set-output name=labels::["prerelease release"]"
       - name: Checkout the repo
         uses: actions/checkout@v2
         with:
