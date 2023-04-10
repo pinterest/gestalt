@@ -38,6 +38,7 @@ import arrowUpRight from './arrow-up-right.svg';
 import arrowUp from './arrow-up.svg';
 import bell from './bell.svg';
 import board from './board.svg';
+import briefcase from './briefcase.svg';
 import calendarCheck from './calendar-check.svg';
 import calendar from './calendar.svg';
 import cameraRoll from './camera-roll.svg';
@@ -250,8 +251,9 @@ const icons = Object.freeze({
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-right': arrowUpRight,
-  board,
   bell,
+  board,
+  briefcase,
   calendar,
   'calendar-check': calendarCheck,
   camera,
