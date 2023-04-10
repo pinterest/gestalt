@@ -10,8 +10,9 @@ on:
 jobs:
   release-alpha:
     name: Alpha Release Gestalt
-
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     if: |
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.label.name == 'prerelease' || 
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.issue.pull_request && contains(github.event.comment.body, '/alpha')
@@ -65,8 +66,6 @@ jobs:
           cd ../eslint-plugin-gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
       - name: Comment on PR
-        permissions:
-          pull-requests: write
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
