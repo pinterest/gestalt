@@ -1,0 +1,17 @@
+{
+  "LABEL": {
+    "name": "",
+    "color": ""
+  },
+  "CHECKS": {
+    "prefixes": ["Docs: ", "Internal: ", "Version bump: "],
+    "regexp": "^(?=.*(?:ActivationCard|Avatar|AvatarGroup|Badge|Box|Button|ButtonGroup|Callout|Checkbox|Collage|Column|ComboBox|Container|Datapoint|DatePicker|Divider|Dropdown|Fieldset|Flex|Heading|HelpButton|Icon|IconButton|IconButtonFloating|Image|Label|Layer|Letterbox|Link|List|Mask|Masonry|Modal|ModalAlert|Module|NumberField|OverlayPanel|PageHeader|Pog|Popover|PopoverEducational|Pulsar|RadioButton|RadioGroup|SearchField|SegmentedControl|SelectList|SheetMobile|SideNavigation|SlimBanner|Spinner|Status|Sticky|Switch|Table|Tabs|Tag|TapArea|Text|TextArea|TextField|Toast|Tooltip|Upsell|Video|WashAnimated|ZIndex-Classes|ColorSchemeProvider|DefaultLabelProvider|DeviceTypeProvider|OnLinkNavigationProvider|ScrollBoundaryContainer|useFocusVisible|useReducedMotion|Sheet):s.*)+",
+    "regexpFlags": "i",
+    "ignoreLabels": ["dont-check-PRs-with-this-label", "meta"]
+  },
+  "MESSAGES": {
+    "success": "All OK",
+    "failure": "PR title does not match the required format — please check the PR template for more information",
+    "notice": ""
+  }
+}
