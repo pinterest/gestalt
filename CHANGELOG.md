@@ -1,3 +1,27 @@
+## 107.1.1 (Apr 10, 2023)
+
+### Patch
+
+- Internal: upgrade xml2js to 0.5.0 ([#2817](https://github.com/pinterest/gestalt/pull/2817)) - [Preview link](https://deploy-preview-2817--gestalt.netlify.app)
+
+## 107.1.0 (Apr 10, 2023)
+
+### Minor
+
+- Icon: add "briefcase" icon ([#2816](https://github.com/pinterest/gestalt/pull/2816)) - [Preview link](https://deploy-preview-2816--gestalt.netlify.app)
+
+## 107.0.7 (Apr 8, 2023)
+
+### Patch
+
+- Docs: 4/7 weekly digest ([#2814](https://github.com/pinterest/gestalt/pull/2814)) - [Preview link](https://deploy-preview-2814--gestalt.netlify.app)
+
+## 107.0.6 (Apr 7, 2023)
+
+### Patch
+
+- Updated mobile and documentation statuses for all components ([#2804](https://github.com/pinterest/gestalt/pull/2804)) - [Preview link](https://deploy-preview-2804--gestalt.netlify.app)
+
 ## 107.0.5 (Apr 7, 2023)
 
 ### Patch

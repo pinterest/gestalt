@@ -83,8 +83,8 @@
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
-    "xml2js": "^0.4.23",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "xml2js": "^0.5.0"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",
@@ -103,7 +103,8 @@
     "nth-check": "2.1.1",
     "serialize-javascript": "3.1.0",
     "trim-newlines": "3.0.1",
-    "ws": "7.4.6"
+    "ws": "7.4.6",
+    "xml2js": "^0.5.0"
   },
   "scripts": {
     "a11y:generate": "./scripts/generateAccessibilitySpec.js",
