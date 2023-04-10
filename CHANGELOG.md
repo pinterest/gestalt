@@ -1,3 +1,9 @@
+## 108.0.0 (Apr 10, 2023)
+
+### Major
+
+- SheetMobile: fixes and docs additions ([#2818](https://github.com/pinterest/gestalt/pull/2818)) - [Preview link](https://deploy-preview-2818--gestalt.netlify.app)
+
 ## 107.1.1 (Apr 10, 2023)
 
 ### Patch
