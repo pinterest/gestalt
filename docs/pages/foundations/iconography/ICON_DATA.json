@@ -267,6 +267,12 @@
       "keywords": ["notifications"]
     },
     {
+      "name": "briefcase",
+      "categories": ["Utility and tools"],
+      "description": "Indicates business manager and business-related tasks",
+      "keywords": ["business manager", "business", "company"]
+    },
+    {
       "name": "calendar",
       "categories": ["Time", "Toggle"],
       "description": "Indicates date selection",
