@@ -10,6 +10,7 @@ on:
 jobs:
   release-alpha:
     name: Alpha Release Gestalt
+
     runs-on: ubuntu-latest
     if: |
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.label.name == 'prerelease' || 
@@ -51,5 +52,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABELS: ${{ steps.extract_labels.outputs.labels }}
-      - name: Get Github Workflow Verson
+      - name: Get Github Workflow Version
         run: echo ${{ steps.release.outputs.VERSION }}

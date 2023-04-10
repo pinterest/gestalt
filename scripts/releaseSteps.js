@@ -204,9 +204,9 @@ function buildPackages() {
   commitChanges({ message: `v${newVersion}: Clean source` });
 
   /**
-   * Temporary comment out in GH Release
+   * If it's a pre-release, don't make a GH release for it
    */
-  if (releaseType === 'prerelease') {
+  if (releaseType !== 'prerelease') {
     console.log('\nCreate GitHub Release');
     const { releaseId, htmlUrl, uploadUrl } = await createGitHubRelease({
       newVersion,
