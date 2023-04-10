@@ -12,6 +12,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import animation from '../../examples/sheetmobile/animation.js';
 import autoSize from '../../examples/sheetmobile/autoSize.js';
 import defaultSize from '../../examples/sheetmobile/defaultSize.js';
+import differentSize from '../../examples/sheetmobile/differentSize.js';
 import dismissButtonHeader from '../../examples/sheetmobile/dismissButtonHeader.js';
 import footer from '../../examples/sheetmobile/footer.js';
 import fullSize from '../../examples/sheetmobile/fullSize.js';
@@ -58,8 +59,7 @@ export default function SheetMobilePage({
             title="When to use"
             description={`
 - Use a partial sheet when the content of sheet compliments the content of the primary screen behind.
-- Use a full sheet when the content of the sheet does not need to reference the primary screen behind. Usually serving as a lightweight way to complete actions or move through a flow.
-- Use in conjunction with other Gestalt components as a means to make them mobile-friendly e.g. Dropdown or Popover.`}
+- Use a full sheet when the content of the sheet does not need to reference the primary screen behind. Usually serving as a lightweight way to complete actions or move through a flow.`}
           />
           <MainSection.Card
             cardSize="md"
@@ -80,7 +80,7 @@ export default function SheetMobilePage({
             type="do"
             title="Do"
             description={`
-- Always include a collapse affordance. The Sheet should close when users press the X icon button, a cancel/close button, the Esc key, when swiped away or when users tap the area outside the partial sheet.
+- Always include a collapse affordance. SheetMobile should close when users press the dismiss icon button, a cancel/close button, when swiped away or when users tap the area outside the partial sheet.
 - Include a grabber for partial sheets. This provides a visual indicator of resizability and allows screen reader users to resize the sheet.
 - Include a header title, either in the default or editorial format as it add context to the task.`}
           />
@@ -291,6 +291,35 @@ When using these render props, just pass the argument \`onDismissStart\` to your
                 code={outsideClick}
                 name="Preventing outside click dismissal example"
                 layout="mobileRow"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Transitions"
+          description="SheetMobile slides up from the bottom as the initial transition. However, transitions between sheets should follow the following patterns."
+          columns={2}
+        >
+          <MainSection.Card
+            title="Same size"
+            description={`If there's a transition between SheetMobile of the same size, the content transitions in place.`}
+            sandpackExample={
+              <SandpackExample
+                code={navigationHeader}
+                name="Same size transition with back and forward navigation"
+                layout="mobileColumn"
+              />
+            }
+          />
+          <MainSection.Card
+            title="Different size"
+            description={`If there's a transition between SheetMobile  of different sizes or with a size set to "auto", where height adjusts to content, the initial sheet will slide down to close and the new sheet will slide up to open.`}
+            sandpackExample={
+              <SandpackExample
+                name="Different size transition with back and forward navigation"
+                code={differentSize}
+                layout="mobileColumn"
               />
             }
           />
