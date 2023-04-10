@@ -4,7 +4,9 @@ import { Masonry } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem.js';
 import getClassicGridServerStyles from './getClassicGridServerStyles.js';
 import getFlexibleGridServerStyles from './getFlexibleGridServerStyles.js';
-import { getRandomNumberGenerator, generateExampleItems } from './items-utils.js';
+import generateExampleItems, {
+  getRandomNumberGenerator,
+} from './items-utils/generateExampleItems.js';
 
 // MasonryContainer is a simulation of a web page that contains a Masonry grid
 // on it. It allows for a ton of configuration and also has a number of buttons
