@@ -1,3 +1,9 @@
+## 107.1.0 (Apr 10, 2023)
+
+### Minor
+
+- Icon: add "briefcase" icon ([#2816](https://github.com/pinterest/gestalt/pull/2816)) - [Preview link](https://deploy-preview-2816--gestalt.netlify.app)
+
 ## 107.0.7 (Apr 8, 2023)
 
 ### Patch
