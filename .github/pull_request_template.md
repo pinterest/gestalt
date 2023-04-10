@@ -1,6 +1,6 @@
 Thanks for creating a PR! Please follow this template and delete items/sections that are not relevant to your changes, including these instructions.
 
-Please also make sure your [PR title](https://github.com/pinterest/gestalt/#releasing) matches our format: `{ComponentName}: Description (mentioning platform if relevant)`
+Please also make sure your [PR title](https://github.com/pinterest/gestalt/#releasing) matches our format: `{ComponentName}: Description (mentioning platform if relevant)`, or `{ComponentName}, {OtherComponentName}: Description (mentioning platform if relevant)` if multiple components are affected.
 
 ### Summary
 
