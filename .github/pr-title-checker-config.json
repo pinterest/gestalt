@@ -11,7 +11,7 @@
   },
   "MESSAGES": {
     "success": "PR title matches format",
-    "failure": "PR title does not match the required format — please check the PR template for more information",
+    "failure": "PR title does not match the required format — please check the PR template for more information, or see the docs: https://gestalt.pinterest.systems/get_started/developers/contributing/development_process#Create-a-pull-request",
     "notice": ""
   }
 }
