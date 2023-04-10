@@ -77,7 +77,7 @@ jobs:
           echo "login dangerismycat" >> ~/.netrc
           echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
-        id: Release Script
+        id: pre_release_step
         run: ./scripts/releaseSteps.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
