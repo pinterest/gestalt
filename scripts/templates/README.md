@@ -84,4 +84,4 @@ yarn playwright:update-visual-test playwright/visual-test/ComponentName --update
 ## Add new component name to PR Title Checker
 
 `.github/pr-title-checker-config.json`
-Add your new component name to the regex (alphabetize please!). If you're renaming, replacing, or removing a component, — *and the component also doesn't exist on any other platforms* — remove that component name from the regex.
+Add your new component name to the regex (alphabetize please!). If you're renaming, replacing, or removing a component, — _and the component also doesn't exist on any other platforms_ — remove that component name from the regex.
