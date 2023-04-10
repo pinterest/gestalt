@@ -1,23 +1,6 @@
 // @flow strict
-
-const getRandomColor = (getRandomNumber?: () => number = Math.random): string => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i += 1) {
-    color += letters[Math.floor(getRandomNumber() * 16)];
-  }
-  return color;
-};
-
-export const getRandomNumberGenerator = (seed: number): (() => number) => {
-  let localSeed = seed;
-
-  return () => {
-    localSeed += 1;
-    const rnd = Math.sin(localSeed);
-    return rnd - Math.floor(rnd);
-  };
-};
+import getRandomColor from './getRandomColor.js';
+import getRandomNumberGenerator from './getRandomNumberGenerator.js';
 
 type Args = {|
   baseHeight?: number,

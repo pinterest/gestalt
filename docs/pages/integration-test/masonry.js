@@ -4,6 +4,7 @@ import { ColorSchemeProvider, Masonry } from 'gestalt';
 import { useRouter } from 'next/router';
 import LazyHydrate from 'react-lazy-hydration';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems.js';
+import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems.js';
 import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
 
 const measurementStore = Masonry.createMeasurementStore();
@@ -38,6 +39,7 @@ export default function TestPage(): Node {
     manualFetch,
     noScroll,
     offsetTop,
+    realisticPinHeights,
     scrollContainer,
     virtualize,
     virtualBoundsTop,
@@ -64,12 +66,17 @@ export default function TestPage(): Node {
           externalCache={booleanize(externalCache)}
           finiteLength={booleanize(finiteLength)}
           flexible={booleanize(flexible)}
-          initialItems={generateExampleItems({ name: 'InitialPin' })}
+          initialItems={
+            realisticPinHeights
+              ? generateRealisticExampleItems({ name: 'InitialPin' })
+              : generateExampleItems({ name: 'InitialPin' })
+          }
           manualFetch={booleanize(manualFetch)}
           MasonryComponent={Masonry}
           measurementStore={measurementStore}
           noScroll={booleanize(noScroll)}
           offsetTop={offsetTop}
+          realisticPinHeights={booleanize(realisticPinHeights)}
           scrollContainer={booleanize(scrollContainer)}
           virtualize={booleanize(virtualize)}
           virtualBoundsTop={virtualBoundsTop}

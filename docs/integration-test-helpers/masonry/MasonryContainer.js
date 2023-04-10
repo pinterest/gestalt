@@ -4,9 +4,9 @@ import { Masonry } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem.js';
 import getClassicGridServerStyles from './getClassicGridServerStyles.js';
 import getFlexibleGridServerStyles from './getFlexibleGridServerStyles.js';
-import generateExampleItems, {
-  getRandomNumberGenerator,
-} from './items-utils/generateExampleItems.js';
+import generateExampleItems from './items-utils/generateExampleItems.js';
+import generateRealisticExampleItems from './items-utils/generateRealisticExampleItems.js';
+import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js';
 
 // MasonryContainer is a simulation of a web page that contains a Masonry grid
 // on it. It allows for a ton of configuration and also has a number of buttons
@@ -43,6 +43,8 @@ type Props = {|
   noScroll?: boolean,
   // Positions the element inside of a relative container, offset from the top.
   offsetTop?: number,
+  // Whether or not to use realistic pin heights as sampled from actual Pin data.
+  realisticPinHeights?: boolean,
   // If we should position the grid within a scrollContainer besides the window.
   scrollContainer?: boolean,
   // If we should virtualize the grid
@@ -197,17 +199,12 @@ export default class MasonryContainer extends Component<Props, State> {
     this.forceUpdate();
   };
 
-  loadItems: ({ force: boolean, from?: number, name?: string, ... }) => void = ({
+  loadItems: ({| force: boolean, from?: number, name?: string |}) => void = ({
     name,
     from = 0,
     force = false,
-  }: {
-    name?: string,
-    from?: number,
-    force: boolean,
-    ...
   }) => {
-    const { collage, manualFetch } = this.props;
+    const { collage, manualFetch, realisticPinHeights } = this.props;
 
     if (manualFetch && !force) {
       return;
@@ -224,13 +221,20 @@ export default class MasonryContainer extends Component<Props, State> {
     }
 
     this.randomNumberSeed += 1;
-    const newItems = generateExampleItems({
-      name,
-      total: until - from,
-      from,
-      baseHeight,
-      randomNumberSeed: this.randomNumberSeed,
-    });
+    const newItems = realisticPinHeights
+      ? generateRealisticExampleItems({
+          name,
+          total: until - from,
+          from,
+          randomNumberSeed: this.randomNumberSeed,
+        })
+      : generateExampleItems({
+          name,
+          total: until - from,
+          from,
+          baseHeight,
+          randomNumberSeed: this.randomNumberSeed,
+        });
 
     this.setState(({ items }) => ({
       items: [...items, ...newItems],
