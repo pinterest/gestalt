@@ -1,3 +1,9 @@
+## 108.0.2 (Apr 11, 2023)
+
+### Patch
+
+- lint development_process.md ([#2822](https://github.com/pinterest/gestalt/pull/2822)) - [Preview link](https://deploy-preview-2822--gestalt.netlify.app)
+
 ## 108.0.1 (Apr 11, 2023)
 
 ### Patch
