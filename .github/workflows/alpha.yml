@@ -11,49 +11,16 @@ jobs:
   release-alpha:
     name: Alpha Release Gestalt
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     if: |
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.label.name == 'prerelease' || 
       contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt' && github.event.issue.pull_request && contains(github.event.comment.body, '/alpha')
     steps:
-      - uses: octokit/graphql-action@v2.0.0
-        id: query_labels
-        with:
-          query: |
-            query labels($owner:String!, $name:String!, $oid:GitObjectID!) {
-              repository(owner: $owner, name: $name) {
-                object(oid: $oid) {
-                  ... on Commit {
-                    message
-                    associatedPullRequests(first: 1) {
-                      edges {
-                        node {
-                          title
-                          labels(first: 5) {
-                            edges {
-                              node {
-                                name
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          owner: ${{ github.event.repository.owner.name }}
-          name: ${{ github.event.repository.name }}
-          oid: ${{ github.event.head_commit.id }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract labels
+      - name: Set Pre-Release label
         id: extract_labels
-        env:
-          JSON_DATA: ${{ steps.query_labels.outputs.data }}
         run: |
-          LABELS=$(echo "${JSON_DATA}" | jq '.repository.object.associatedPullRequests.edges[0].node.labels.edges[].node.name' | tr '\n' ', ')
-          echo "::set-output name=labels::${LABELS}"
+          echo "::set-output name=labels::["prerelease release"]"
       - name: Checkout the repo
         uses: actions/checkout@v2
         with:
@@ -66,6 +33,7 @@ jobs:
       - name: Setup npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
       - name: Install dependencies
         run: yarn install
@@ -77,10 +45,25 @@ jobs:
           echo "login dangerismycat" >> ~/.netrc
           echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
-        id: Release Script
+        id: pre_release
         run: ./scripts/releaseSteps.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABELS: ${{ steps.extract_labels.outputs.labels }}
-      - name: Get Github Workflow Verson
-        run: echo ${{ steps.release.outputs.VERSION }}
+      - name: Get Github Workflow Version
+        run: echo ${{ steps.pre_release.outputs.VERSION }}
+      - name: Publish to npm
+        run: |
+          cd packages/gestalt-design-tokens
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          cd ../gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          cd ../gestalt-datepicker
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          cd ../eslint-plugin-gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+      - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Published alpha-version ${{ steps.pre_release.outputs.VERSION }}! :wave:
