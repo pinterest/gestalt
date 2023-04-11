@@ -37,14 +37,12 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
       - name: Publish to npm
         run: |
-          cd packages/gestalt-design-tokens
-          npm dist-tag add gestalt-design-tokens@108.0.0 latest
           cd ../gestalt
-          npm dist-tag add gestalt@108.0.0 latest
+          yarn tag add gestalt@108.0.0 latest
           cd ../gestalt-datepicker
-          npm dist-tag add gestalt-datepicker@108.0.0 latest
+          yarn tag add gestalt-datepicker@108.0.0 latest
           cd ../eslint-plugin-gestalt
-          yarn dist-tag add eslint-plugin-gestalt@108.0.0 latest
+          yarn tag add eslint-plugin-gestalt@108.0.0 latest
       - name: Install dependencies
         run: yarn install
       - name: Setup GitHub access tokens
