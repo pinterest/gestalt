@@ -35,6 +35,16 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
+       - name: Publish to npm
+        run: |
+          cd packages/gestalt-design-tokens
+          yarn tag add gestalt-design-tokens@108.0.0 latest
+          cd ../gestalt
+          yarn tag add gestalt@108.0.0 latest
+          cd ../gestalt-datepicker
+          yarn tag add gestalt-datepicker@108.0.0 latest
+          cd ../eslint-plugin-gestalt
+          yarn tag add eslint-plugin-gestalt@108.0.0 latest
       - name: Install dependencies
         run: yarn install
       - name: Setup GitHub access tokens
@@ -52,16 +62,6 @@ jobs:
           LABELS: ${{ steps.extract_labels.outputs.labels }}
       - name: Get Github Workflow Version
         run: echo ${{ steps.pre_release.outputs.VERSION }}
-      - name: Publish to npm
-        run: |
-          cd packages/gestalt-design-tokens
-          yarn tag add gestalt-design-tokens@108.0.0 latest
-          cd ../gestalt
-          yarn tag add gestalt@108.0.0 latest
-          cd ../gestalt-datepicker
-          yarn tag add gestalt-datepicker@108.0.0 latest
-          cd ../eslint-plugin-gestalt
-          yarn tag add eslint-plugin-gestalt@108.0.0 latest
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@v2
         with:
