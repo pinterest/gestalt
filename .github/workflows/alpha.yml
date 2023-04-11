@@ -35,7 +35,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
-       - name: Publish to npm
+      - name: Publish to npm
         run: |
           cd packages/gestalt-design-tokens
           yarn tag add gestalt-design-tokens@108.0.0 latest
