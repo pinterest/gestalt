@@ -63,6 +63,8 @@ jobs:
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
           cd ../eslint-plugin-gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@v2
         with:
