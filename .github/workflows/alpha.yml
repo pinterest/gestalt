@@ -55,13 +55,13 @@ jobs:
       - name: Publish to npm
         run: |
           cd packages/gestalt-design-tokens
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          yarn tag add gestalt-design-tokens@108.0.0 latest
           cd ../gestalt
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          yarn tag add gestalt@108.0.0 latest
           cd ../gestalt-datepicker
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          yarn tag add gestalt-datepicker@108.0.0 latest
           cd ../eslint-plugin-gestalt
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
+          yarn tag add eslint-plugin-gestalt@108.0.0 latest
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@v2
         with:
