@@ -84,7 +84,6 @@ git checkout -b <feature-branch> upstream/master
 
 - Time to make changes to Gestalt! If you are introducing a new component, run the scaffolding command to generate the necessary files. Replace ‘ComponentName‘ with the name of your component.
 
-
 ```bash
 yarn generate ComponentName
 ```
@@ -110,7 +109,6 @@ yarn generate ComponentName
   - The script will also update <strong>packages/gestalt/src/index.js</strong> adding the new component to the index list.
 
 <Hint>Run <code>yarn build</code> and access the visual test examples via http://localhost:8888/visual-test/NewComponent or https://deploy-preview-XXXX--gestalt.netlify.app/visual-test/NewComponent</Hint>
-
 
 - While developing your new component or updating existing ones, your playground to test your work and changes is your component documentation page. Consider the following while developing:
   - Use your docs/examples<strong>/newcomponent/main.js</strong> example to iterate on your implementation
