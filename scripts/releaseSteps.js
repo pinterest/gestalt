@@ -195,12 +195,7 @@ function buildPackages() {
   console.log('\nCommit Changes');
   commitChanges({ message: `Version bump: v${newVersion}` });
 
-  /**
-   * On a pre-release branch, we won't be able to commit new changes
-   */
-  if (releaseType !== 'prerelease') {
-    pushChanges();
-  }
+  pushChanges();
 
   console.log(`\nBuild packages`);
   buildPackages();
@@ -209,19 +204,14 @@ function buildPackages() {
   cleanSource();
   commitChanges({ message: `v${newVersion}: Clean source` });
 
-  /**
-   * If it's a pre-release, don't make a GH release for it
-   */
-  if (releaseType !== 'prerelease') {
-    console.log('\nCreate GitHub Release');
-    const { releaseId, htmlUrl, uploadUrl } = await createGitHubRelease({
-      newVersion,
-      releaseNotes,
-    });
-    console.log('id', releaseId);
-    console.log('html_url', htmlUrl);
-    console.log('upload_url', uploadUrl);
-  }
+  console.log('\nCreate GitHub Release');
+  const { releaseId, htmlUrl, uploadUrl } = await createGitHubRelease({
+    newVersion,
+    releaseNotes,
+  });
+  console.log('id', releaseId);
+  console.log('html_url', htmlUrl);
+  console.log('upload_url', uploadUrl);
 
   // Export new version so it can be used by other steps
   console.log('\nOutput new version');
