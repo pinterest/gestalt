@@ -38,8 +38,6 @@ jobs:
       - name: Publish to npm
         run: |
           cd packages/gestalt-design-tokens
-          cd ../gestalt-datepicker
-          yarn tag add gestalt-datepicker@108.0.0 latest
           cd ../eslint-plugin-gestalt
           yarn tag add eslint-plugin-gestalt@108.0.0 latest
       - name: Install dependencies
