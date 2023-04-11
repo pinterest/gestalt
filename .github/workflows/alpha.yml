@@ -31,6 +31,7 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
+          always-auth: true
       - name: Setup npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -62,8 +63,6 @@ jobs:
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
           cd ../eslint-plugin-gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@v2
         with:
