@@ -4,10 +4,10 @@ import getRandomNumberGenerator from './getRandomNumberGenerator.js';
 
 type Args = {|
   baseHeight?: number,
-  from?: number,
+  previousItemCount?: number,
   name?: string,
   randomNumberSeed?: number,
-  total?: number,
+  numberOfItems?: number,
 |};
 
 type ExampleItem = {|
@@ -18,16 +18,16 @@ type ExampleItem = {|
 
 export default function generateExampleItems({
   baseHeight = 200,
-  from = 0,
+  previousItemCount = 0,
   name = 'Pin',
   randomNumberSeed = 0,
-  total = 20,
+  numberOfItems = 20,
 }: Args): $ReadOnlyArray<ExampleItem> {
   const getRandomNumber = getRandomNumberGenerator(randomNumberSeed);
 
-  return Array.from({ length: total }).map((_, i) => ({
-    name: `${name} ${i + from}`,
-    height: baseHeight + from + i,
+  return Array.from({ length: numberOfItems }).map((_, i) => ({
+    name: `${name} ${i + previousItemCount}`,
+    height: baseHeight + previousItemCount + i,
     color: getRandomColor(getRandomNumber),
   }));
 }

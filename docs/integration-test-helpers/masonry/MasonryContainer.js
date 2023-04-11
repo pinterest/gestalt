@@ -224,14 +224,14 @@ export default class MasonryContainer extends Component<Props, State> {
     const newItems = realisticPinHeights
       ? generateRealisticExampleItems({
           name,
-          total: until - from,
-          from,
+          numberOfItems: until - from,
+          previousItemCount: from,
           randomNumberSeed: this.randomNumberSeed,
         })
       : generateExampleItems({
           name,
-          total: until - from,
-          from,
+          numberOfItems: until - from,
+          previousItemCount: from,
           baseHeight,
           randomNumberSeed: this.randomNumberSeed,
         });
