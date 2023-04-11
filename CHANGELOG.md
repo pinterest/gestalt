@@ -1,3 +1,9 @@
+## 108.0.1 (Apr 11, 2023)
+
+### Patch
+
+- Internal: add PR title checker action ([#2819](https://github.com/pinterest/gestalt/pull/2819)) - [Preview link](https://deploy-preview-2819--gestalt.netlify.app)
+
 ## 108.0.0 (Apr 10, 2023)
 
 ### Major
