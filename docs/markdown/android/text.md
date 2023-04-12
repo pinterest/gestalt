@@ -121,14 +121,13 @@ Use these tokens for applying size, weight and color styles to Text.
 
 ## Variants
 
-### Headings and titles sizes 
-
+### Headings
 Used for surface titles and section headings
 <br/>
 
 <iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20235%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
 
-### Body and labels
+### Body
 
 Used for text that is part of paragraphs or UI controls
 <br/>
