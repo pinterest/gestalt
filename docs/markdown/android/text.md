@@ -121,7 +121,7 @@ Use these tokens for applying size, weight and color styles to Text.
 
 ## Variants
 
-### Headings and titles
+### Headings and titles sizes 
 
 Used for surface titles and section headings
 <br/>
