@@ -33,7 +33,9 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
           background: data.color,
         }}
       >
-        <div>{data.name}</div>
+        <div>
+          {data.name} • {data.height}px
+        </div>
         <div>Slot Index: {itemIdx}</div>
         <div>
           <button id={`increment-counter-${itemIdx}`} onClick={incrementStateCounter} type="button">
