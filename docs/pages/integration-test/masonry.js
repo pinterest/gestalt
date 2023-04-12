@@ -10,6 +10,9 @@ import pinHeights, {
 } from '../../integration-test-helpers/masonry/items-utils/pinHeights.js';
 import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
 
+// This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
+const REALISTIC_PINS_DATASET_SIZE = 1000;
+
 const measurementStore = Masonry.createMeasurementStore();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
@@ -31,11 +34,16 @@ function MaybeLazyHydrate({ children, ssrOnly }: {| children: Node, ssrOnly: boo
   return children;
 }
 
-function randomSample(
+// Inspired by https://stackoverflow.com/a/44915990/5253702
+function randomSample({
+  samples,
+  field,
+  randomNumberSeed,
+}: {|
   samples: $ReadOnlyArray<PinHeight>,
   field: 'impressionsCount' | 'pinsCount',
   randomNumberSeed: number,
-): number {
+|}): number {
   // [0..1) * sum of weight
   let sample = randomNumberSeed * samples.reduce((sum, pin) => sum + pin[field], 0);
 
@@ -68,8 +76,9 @@ export default function TestPage({
     virtualBoundsBottom,
   } = router.query;
 
+  // Generate a sample of realistic pin heights
   const pinHeightsSample = randomNumberSeeds.map((randomNumberSeed) =>
-    randomSample(pinHeights, 'pinsCount', randomNumberSeed),
+    randomSample({ samples: pinHeights, field: 'pinsCount', randomNumberSeed }),
   );
 
   // For some tests, we want to defer hydration and trigger it manually
@@ -102,7 +111,7 @@ export default function TestPage({
           measurementStore={measurementStore}
           noScroll={booleanize(noScroll)}
           offsetTop={offsetTop}
-          pinHeightsSample={pinHeightsSample}
+          pinHeightsSample={realisticPinHeights ? pinHeightsSample : undefined}
           scrollContainer={booleanize(scrollContainer)}
           virtualize={booleanize(virtualize)}
           virtualBoundsTop={virtualBoundsTop}
@@ -116,7 +125,10 @@ export default function TestPage({
 export async function getServerSideProps(): Promise<{|
   props: {| randomNumberSeeds: $ReadOnlyArray<number> |},
 |}> {
-  const randomNumberSeeds = Array.from({ length: 1000 }).map(() => Math.random());
+  // This is used to ensure we're using the same dataset of realistic pins on the server and client
+  const randomNumberSeeds = Array.from({ length: REALISTIC_PINS_DATASET_SIZE }).map(() =>
+    Math.random(),
+  );
   return {
     props: {
       randomNumberSeeds,
