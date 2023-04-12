@@ -63,7 +63,7 @@ import 'gestalt/dist/gestalt.css';
           <Markdown
             text="
 ~~~jsx
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 ~~~
 "
