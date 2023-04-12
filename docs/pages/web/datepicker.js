@@ -39,7 +39,7 @@ import {
   zhTW,
 } from 'date-fns/locale';
 import { Box } from 'gestalt';
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -374,7 +374,7 @@ Adjust the date format to each date-fns locale (https://date-fns.org/v2.14.0/doc
 The following locale examples show the different locale format variants.
 IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
 ~~~jsx
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 import { it } from 'date-fns/locale';
 <DatePicker localeData={it}/>
 ~~~

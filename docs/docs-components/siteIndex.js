@@ -107,6 +107,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'ComboBox',
       'Container',
       'Datapoint',
+      'DateField',
       'DatePicker',
       'Divider',
       'Dropdown',
