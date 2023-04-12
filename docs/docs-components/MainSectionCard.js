@@ -2,7 +2,7 @@
 import { type Node, useCallback } from 'react';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import theme from './atomDark.js';
