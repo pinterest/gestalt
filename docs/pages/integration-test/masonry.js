@@ -5,6 +5,9 @@ import { useRouter } from 'next/router';
 import LazyHydrate from 'react-lazy-hydration';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems.js';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems.js';
+import pinHeights, {
+  type PinHeight,
+} from '../../integration-test-helpers/masonry/items-utils/pinHeights.js';
 import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
 
 const measurementStore = Masonry.createMeasurementStore();
@@ -28,7 +31,26 @@ function MaybeLazyHydrate({ children, ssrOnly }: {| children: Node, ssrOnly: boo
   return children;
 }
 
-export default function TestPage(): Node {
+function randomSample(
+  samples: $ReadOnlyArray<PinHeight>,
+  field: 'impressionsCount' | 'pinsCount',
+  randomNumberSeed: number,
+): number {
+  // [0..1) * sum of weight
+  let sample = randomNumberSeed * samples.reduce((sum, pin) => sum + pin[field], 0);
+
+  // first sample n where sum of weight for [0..n] > sample
+  // eslint-disable-next-line no-return-assign
+  const { height } = samples.find((pin) => (sample -= pin[field]) < 0) ?? {};
+
+  return height;
+}
+
+export default function TestPage({
+  randomNumberSeeds,
+}: {|
+  randomNumberSeeds: $ReadOnlyArray<number>,
+|}): Node {
   const router = useRouter();
   const {
     constrained,
@@ -45,6 +67,10 @@ export default function TestPage(): Node {
     virtualBoundsTop,
     virtualBoundsBottom,
   } = router.query;
+
+  const pinHeightsSample = randomNumberSeeds.map((randomNumberSeed) =>
+    randomSample(pinHeights, 'pinsCount', randomNumberSeed),
+  );
 
   // For some tests, we want to defer hydration and trigger it manually
   const [ssrOnly, setSSROnly] = useState(booleanize(deferMount));
@@ -68,7 +94,7 @@ export default function TestPage(): Node {
           flexible={booleanize(flexible)}
           initialItems={
             realisticPinHeights
-              ? generateRealisticExampleItems({ name: 'InitialPin' })
+              ? generateRealisticExampleItems({ name: 'InitialPin', pinHeightsSample })
               : generateExampleItems({ name: 'InitialPin' })
           }
           manualFetch={booleanize(manualFetch)}
@@ -76,7 +102,7 @@ export default function TestPage(): Node {
           measurementStore={measurementStore}
           noScroll={booleanize(noScroll)}
           offsetTop={offsetTop}
-          realisticPinHeights={booleanize(realisticPinHeights)}
+          pinHeightsSample={pinHeightsSample}
           scrollContainer={booleanize(scrollContainer)}
           virtualize={booleanize(virtualize)}
           virtualBoundsTop={virtualBoundsTop}
@@ -85,4 +111,15 @@ export default function TestPage(): Node {
       </MaybeLazyHydrate>
     </ColorSchemeProvider>
   );
+}
+
+export async function getServerSideProps(): Promise<{|
+  props: {| randomNumberSeeds: $ReadOnlyArray<number> |},
+|}> {
+  const randomNumberSeeds = Array.from({ length: 1000 }).map(() => Math.random());
+  return {
+    props: {
+      randomNumberSeeds,
+    },
+  };
 }

@@ -43,8 +43,8 @@ type Props = {|
   noScroll?: boolean,
   // Positions the element inside of a relative container, offset from the top.
   offsetTop?: number,
-  // Whether or not to use realistic pin heights as sampled from actual Pin data.
-  realisticPinHeights?: boolean,
+  // An array of realistic pin heights as sampled from actual Pin data.
+  pinHeightsSample?: $ReadOnlyArray<number>,
   // If we should position the grid within a scrollContainer besides the window.
   scrollContainer?: boolean,
   // If we should virtualize the grid
@@ -204,7 +204,7 @@ export default class MasonryContainer extends Component<Props, State> {
     from = 0,
     force = false,
   }) => {
-    const { collage, manualFetch, realisticPinHeights } = this.props;
+    const { collage, manualFetch, pinHeightsSample } = this.props;
 
     if (manualFetch && !force) {
       return;
@@ -221,20 +221,22 @@ export default class MasonryContainer extends Component<Props, State> {
     }
 
     this.randomNumberSeed += 1;
-    const newItems = realisticPinHeights
-      ? generateRealisticExampleItems({
-          name,
-          numberOfItems: until - from,
-          previousItemCount: from,
-          randomNumberSeed: this.randomNumberSeed,
-        })
-      : generateExampleItems({
-          name,
-          numberOfItems: until - from,
-          previousItemCount: from,
-          baseHeight,
-          randomNumberSeed: this.randomNumberSeed,
-        });
+    const newItems =
+      pinHeightsSample && pinHeightsSample.length > 1
+        ? generateRealisticExampleItems({
+            name,
+            numberOfItems: until - from,
+            previousItemCount: from,
+            randomNumberSeed: this.randomNumberSeed,
+            pinHeightsSample,
+          })
+        : generateExampleItems({
+            name,
+            numberOfItems: until - from,
+            previousItemCount: from,
+            baseHeight,
+            randomNumberSeed: this.randomNumberSeed,
+          });
 
     this.setState(({ items }) => ({
       items: [...items, ...newItems],
