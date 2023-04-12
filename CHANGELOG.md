@@ -1,3 +1,9 @@
+## 108.0.3 (Apr 12, 2023)
+
+### Patch
+
+- Text: Android component specs and guidelines ([#2824](https://github.com/pinterest/gestalt/pull/2824)) - [Preview link](https://deploy-preview-2824--gestalt.netlify.app)
+
 ## 108.0.2 (Apr 11, 2023)
 
 ### Patch
