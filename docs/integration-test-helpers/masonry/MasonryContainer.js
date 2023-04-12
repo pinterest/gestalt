@@ -227,7 +227,7 @@ export default class MasonryContainer extends Component<Props, State> {
             name,
             numberOfItems: until - from,
             previousItemCount: from,
-            randomNumberSeed: this.randomNumberSeed,
+            randomNumberSeed: Math.random(),
             pinHeightsSample,
           })
         : generateExampleItems({
