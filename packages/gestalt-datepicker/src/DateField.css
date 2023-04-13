@@ -1,0 +1,23 @@
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.label {
+  composes: block from "../Layout.css";
+  composes: pointer from "../Cursor.css";
+}
+
+.formLabel {
+  padding-bottom: var(--space-200);
+}
+
+.formErrorMessage * {
+  font-size: var(--font-size-100) !important;
+}
