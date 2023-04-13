@@ -2,7 +2,7 @@
 import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
-test('TextArea Accessibility check', async ({ page }) => {
+test('Android TextArea Accessibility check', async ({ page }) => {
   await page.goto('/android/textarea');
   await expectAccessiblePage({ page });
 });
