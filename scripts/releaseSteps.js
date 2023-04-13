@@ -64,7 +64,7 @@ async function bumpPackageVersion() {
   // - 'patch release'
   // - 'minor release'
   // - 'major release'
-  const types = ['patch', 'minor', 'major'];
+  const types = ['patch', 'minor', 'major', 'prerelease'];
   const releaseType = types.find((type) =>
     (process.env.LABELS || '').toLowerCase().includes(`${type} release`),
   );
@@ -72,8 +72,11 @@ async function bumpPackageVersion() {
   // Previous version
   const { version: previousVersion } = packageJSONParsed;
 
+  // if it's a pre-release, add an alpha modifier
+  const isAlpha = releaseType === 'prerelease' ? 'alpha' : undefined;
+
   // Bump gestalt version number
-  const newVersion = semver.inc(previousVersion, releaseType);
+  const newVersion = semver.inc(previousVersion, releaseType, isAlpha);
 
   await Promise.all(
     packages.map(async (item) => {
@@ -191,7 +194,13 @@ function buildPackages() {
 
   console.log('\nCommit Changes');
   commitChanges({ message: `Version bump: v${newVersion}` });
-  pushChanges();
+
+  /**
+   * On a pre-release branch, we won't be able to commit new changes
+   */
+  if (releaseType !== 'prerelease') {
+    pushChanges();
+  }
 
   console.log(`\nBuild packages`);
   buildPackages();
@@ -200,14 +209,19 @@ function buildPackages() {
   cleanSource();
   commitChanges({ message: `v${newVersion}: Clean source` });
 
-  console.log('\nCreate GitHub Release');
-  const { releaseId, htmlUrl, uploadUrl } = await createGitHubRelease({
-    newVersion,
-    releaseNotes,
-  });
-  console.log('id', releaseId);
-  console.log('html_url', htmlUrl);
-  console.log('upload_url', uploadUrl);
+  /**
+   * If it's a pre-release, don't make a GH release for it
+   */
+  if (releaseType !== 'prerelease') {
+    console.log('\nCreate GitHub Release');
+    const { releaseId, htmlUrl, uploadUrl } = await createGitHubRelease({
+      newVersion,
+      releaseNotes,
+    });
+    console.log('id', releaseId);
+    console.log('html_url', htmlUrl);
+    console.log('upload_url', uploadUrl);
+  }
 
   // Export new version so it can be used by other steps
   console.log('\nOutput new version');
