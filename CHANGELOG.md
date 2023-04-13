@@ -1,3 +1,39 @@
+## 108.0.6 (Apr 13, 2023)
+
+### Patch
+
+- Internal: upgrade @codesandbox/sandpack-react to 1.20.9 ([#2829](https://github.com/pinterest/gestalt/pull/2829)) - [Preview link](https://deploy-preview-2829--gestalt.netlify.app)
+
+## 108.0.5 (Apr 13, 2023)
+
+### Patch
+
+- Internal: add `realisticPinHeights` option for Masonry integration test route ([#2823](https://github.com/pinterest/gestalt/pull/2823)) - [Preview link](https://deploy-preview-2823--gestalt.netlify.app)
+
+## 108.0.4 (Apr 13, 2023)
+
+### Patch
+
+- Docs: lint `android/avatar.md` ([#2827](https://github.com/pinterest/gestalt/pull/2827)) - [Preview link](https://deploy-preview-2827--gestalt.netlify.app)
+
+## 108.0.3 (Apr 12, 2023)
+
+### Patch
+
+- Text: Android component specs and guidelines ([#2824](https://github.com/pinterest/gestalt/pull/2824)) - [Preview link](https://deploy-preview-2824--gestalt.netlify.app)
+
+## 108.0.2 (Apr 11, 2023)
+
+### Patch
+
+- lint development_process.md ([#2822](https://github.com/pinterest/gestalt/pull/2822)) - [Preview link](https://deploy-preview-2822--gestalt.netlify.app)
+
+## 108.0.1 (Apr 11, 2023)
+
+### Patch
+
+- Internal: add PR title checker action ([#2819](https://github.com/pinterest/gestalt/pull/2819)) - [Preview link](https://deploy-preview-2819--gestalt.netlify.app)
+
 ## 108.0.0 (Apr 10, 2023)
 
 ### Major

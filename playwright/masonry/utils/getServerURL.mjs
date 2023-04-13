@@ -20,6 +20,7 @@ type Options = ?{|
   manualFetch?: boolean,
   noScroll?: boolean,
   offsetTop?: number,
+  realisticPinHeights?: boolean,
   scrollContainer?: boolean,
   virtualize?: boolean,
   virtualBoundsTop?: number,
