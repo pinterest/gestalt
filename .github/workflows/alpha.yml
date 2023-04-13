@@ -55,10 +55,4 @@ jobs:
       - name: Publish Alpha to npm
         run: |
           cd packages/gestalt-design-tokens
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --tag alpha --new-version ${{ steps.pre_release.outputs.VERSION }}
-          cd ../gestalt
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --tag alpha --new-version ${{ steps.pre_release.outputs.VERSION }}
-          cd ../gestalt-datepicker
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --tag alpha --new-version ${{ steps.pre_release.outputs.VERSION }}
-          cd ../eslint-plugin-gestalt
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --tag alpha --new-version ${{ steps.pre_release.outputs.VERSION }}
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }} --tag alpha --dry-run
