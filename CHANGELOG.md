@@ -1,3 +1,9 @@
+## 108.0.7-alpha.4 (Apr 13, 2023)
+
+### Prerelease
+
+- DateField, DatePicker: DateField new component (ALPHA), DatePicker moved to named export ([#2832](https://github.com/pinterest/gestalt/pull/2832)) - [Preview link](https://deploy-preview-2832--gestalt.netlify.app)
+
 ## 108.0.7-alpha.3 (Apr 13, 2023)
 
 ### Prerelease
