@@ -10,16 +10,27 @@ export default function Example(): Node {
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <DateField
-        id="mainExample"
+        id="errorExample"
         label="Date of birth"
         helperText="Enter your date of birth"
-        onError={({ errorMessage }) => setErrorText(errorMessage)}
+        onError={({ errorMessage, value }) => {
+          const date = value ? new Date(value) : null;
+
+          if (errorMessage === 'invalidDate') return;
+          if (errorMessage === 'disableFuture' || (date && date.getFullYear() === 1))
+            setErrorText('Please, select a valid birth date');
+          if (date && date.getFullYear() > 1) setErrorText(null);
+        }}
         errorMessage={errorText || undefined}
         onChange={(value) => {
           setDateValue(value);
         }}
         value={dateValue}
-        onClearInput={() => setDateValue(null)}
+        disableRange="disableFuture"
+        onClearInput={() => {
+          setErrorText(null);
+          setDateValue(null);
+        }}
         name="bday_datefield"
         size="lg"
       />
