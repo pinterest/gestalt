@@ -122,8 +122,12 @@ function commitChanges({ message }) {
   shell.exec(`git commit -am "${message}"`);
 }
 
-function pushChanges() {
-  shell.exec('git push --set-upstream origin master');
+function pushChanges(releaseType) {
+  const upstreamBranch = 'origin master';
+  if (releaseType === 'prerelease') {
+    upstreamBranch = 'origin alpha';
+  }
+  shell.exec(`git push --set-upstream ${upstreamBranch}`);
 }
 
 async function createGitHubRelease({ newVersion, releaseNotes }) {
@@ -195,7 +199,7 @@ function buildPackages() {
   console.log('\nCommit Changes');
   commitChanges({ message: `Version bump: v${newVersion}` });
 
-  pushChanges();
+  pushChanges(releaseType);
 
   console.log(`\nBuild packages`);
   buildPackages();
