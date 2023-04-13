@@ -1,3 +1,9 @@
+## 108.0.5 (Apr 13, 2023)
+
+### Patch
+
+- Internal: add `realisticPinHeights` option for Masonry integration test route ([#2823](https://github.com/pinterest/gestalt/pull/2823)) - [Preview link](https://deploy-preview-2823--gestalt.netlify.app)
+
 ## 108.0.4 (Apr 13, 2023)
 
 ### Patch
