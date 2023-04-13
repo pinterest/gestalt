@@ -1,3 +1,9 @@
+## 108.0.4 (Apr 13, 2023)
+
+### Patch
+
+- Docs: lint `android/avatar.md` ([#2827](https://github.com/pinterest/gestalt/pull/2827)) - [Preview link](https://deploy-preview-2827--gestalt.netlify.app)
+
 ## 108.0.3 (Apr 12, 2023)
 
 ### Patch
