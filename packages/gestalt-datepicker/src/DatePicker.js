@@ -142,9 +142,6 @@ type Props = {|
 |};
 
 /**
- * Use [Datepicker](https://gestalt.pinterest.systems/web/datepicker) when the user has to select a date or date range.
- */
-/**
  * [DatePicker](https://gestalt.pinterest.systems/web/datepicker) is used when the user has to select a date or date range.
  * DatePicker is distributed in its own package and must be installed separately.
  *

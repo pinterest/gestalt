@@ -1,7 +1,7 @@
 // @flow strict
 import { useState, type Node } from 'react';
 import { Flex, SegmentedControl } from 'gestalt';
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): Node {
   const mapOptions = { '0': ['month'], '1': ['year'], '2': ['year', 'month'] };

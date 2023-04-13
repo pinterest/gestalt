@@ -25,7 +25,7 @@ const componentData = [
 ];
 
 type Props = {|
-  badge?: 'pilot' | 'deprecated',
+  badge?: 'pilot' | 'deprecated' | 'experimental',
   children?: Node,
   /**
    * @deprecated : Use `children` instead of `defaultCode`
@@ -76,6 +76,10 @@ export default function PageHeader({
     pilot: {
       text: 'Pilot',
       tooltipText: `This is the initial version of ${name}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!`,
+    },
+    experimental: {
+      text: 'Experimental',
+      tooltipText: `This is an experimental version of ${name}. This component might significantly change in the future with additional breaking functionality. The component could be deprecated as well. We recommend not using it unless discuss and agreed with the Gestalt team`,
     },
     deprecated: {
       text: 'Deprecated',
