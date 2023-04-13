@@ -1,0 +1,16 @@
+name: Check Commit Message
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  check-commit-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Commit Message
+        run: |
+          PR_TITLE=$(git log --format=%s ${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }})
+          COMMIT_MSG=$(git log --format=%s -1)
+          if [ "$PR_TITLE" != "$COMMIT_MSG" ]; then
+            echo "::error::Commit message does not match PR title"
+          fi
