@@ -123,7 +123,7 @@ function commitChanges({ message }) {
 }
 
 function pushChanges(releaseType) {
-  const upstreamBranch = 'origin master';
+  let upstreamBranch = 'origin master';
   if (releaseType === 'prerelease') {
     upstreamBranch = 'origin alpha';
   }
