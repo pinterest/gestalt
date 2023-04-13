@@ -1,3 +1,9 @@
+## 108.0.6 (Apr 13, 2023)
+
+### Patch
+
+- Internal: upgrade @codesandbox/sandpack-react to 1.20.9 ([#2829](https://github.com/pinterest/gestalt/pull/2829)) - [Preview link](https://deploy-preview-2829--gestalt.netlify.app)
+
 ## 108.0.5 (Apr 13, 2023)
 
 ### Patch
