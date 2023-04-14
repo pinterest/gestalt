@@ -15,7 +15,7 @@ const rollupConfig = {
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
       },
-      sourcemap: 'inline',
+      sourcemap: true,
     },
     {
       file: 'dist/gestalt.es.js',
@@ -28,7 +28,7 @@ const rollupConfig = {
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
       },
-      sourcemap: 'inline',
+      sourcemap: true,
     },
   ],
   external: ['react', 'classnames/bind', 'classnames', 'react-dom'],
