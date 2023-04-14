@@ -10,6 +10,24 @@
 
 - Internal: upgrade @codesandbox/sandpack-react to 2.6.0 ([#2830](https://github.com/pinterest/gestalt/pull/2830)) - [Preview link](https://deploy-preview-2830--gestalt.netlify.app)
 
+## 108.0.7-alpha.4 (Apr 13, 2023)
+
+### Prerelease
+
+- DateField, DatePicker: DateField new component (ALPHA), DatePicker moved to named export ([#2832](https://github.com/pinterest/gestalt/pull/2832)) - [Preview link](https://deploy-preview-2832--gestalt.netlify.app)
+
+## 108.0.7-alpha.3 (Apr 13, 2023)
+
+### Prerelease
+
+- testing alpha release
+
+## 108.0.7-alpha.2 (Apr 13, 2023)
+
+### Prerelease
+
+- fix const error
+
 ## 108.0.6 (Apr 13, 2023)
 
 ### Patch
