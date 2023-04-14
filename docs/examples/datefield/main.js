@@ -15,13 +15,12 @@ export default function Example(): Node {
         helperText="Enter your date of birth"
         onError={({ errorMessage }) => setErrorText(errorMessage)}
         errorMessage={errorText || undefined}
-        onChange={(value) => {
+        onChange={({ value }) => {
           setDateValue(value);
         }}
         value={dateValue}
         onClearInput={() => setDateValue(null)}
         name="bday_datefield"
-        size="lg"
       />
     </Flex>
   );

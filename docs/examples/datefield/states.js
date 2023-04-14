@@ -16,7 +16,6 @@ export default function Example(): Node {
         value={new Date('1995-12-17T03:24:00')}
         onClearInput={() => {}}
         name="bday_datefield"
-        size="lg"
       />
       <DateField
         id="errorExample"
@@ -28,7 +27,6 @@ export default function Example(): Node {
         value={new Date('1995-12-17T03:24:00')}
         onClearInput={() => {}}
         name="bday_datefield"
-        size="lg"
       />
     </Flex>
   );

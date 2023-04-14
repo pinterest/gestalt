@@ -22,7 +22,7 @@ export default function Example(): Node {
           if (date && date.getFullYear() > 1) setErrorText(null);
         }}
         errorMessage={errorText || undefined}
-        onChange={(value) => {
+        onChange={({ value }) => {
           setDateValue(value);
         }}
         value={dateValue}
@@ -32,7 +32,6 @@ export default function Example(): Node {
           setDateValue(null);
         }}
         name="bday_datefield"
-        size="lg"
       />
     </Flex>
   );

@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import InternalDateField from './InternalDateField.js';
+import InternalDateField from './DateField/InternalDateField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // flowlint unclear-type:off
@@ -47,35 +47,35 @@ type Props = {|
    */
   autoComplete?: 'bday' | 'off',
   /**
-   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textfield#Disabled) for more details.
+   * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/web/datefield#States) for more details.
    */
   disabled?: boolean,
   /**
-   * Prevent the user from selecting future or past dates. "disableFuture" disables values after the current date and "disablePast" disables values before the current date. This will return an error on `onError`with values "disableFuture" or "disablePast". See the [disableRange](https://gestalt.pinterest.systems/web/textfield#Disabled) for more details.
+   * Prevent the user from selecting future or past dates. "disableFuture" disables values after the current date and "disablePast" disables values before the current date. This will return an error on `onError`with values "disableFuture" or "disablePast". See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   disableRange?: 'disableFuture' | 'disablePast',
   /**
-   * Customize your error message for the cases the user enters invalid dates.
+   * Customize your error message for the cases the user enters invalid dates. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   errorMessage?: string,
   /**
-   * More information about how to complete the date field.
+   * More information about how to complete the date field. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   helperText?: string,
   /**
-   * A unique identifier for the input.
+   * A unique identifier for the input. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   id: string,
   /**
-   * The label for the input. Be sure to localize the text.
+   * The label for the input. Be sure to localize the text. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   label?: string,
   /**
-   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems#Label-visibility) for more info.
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually.
    */
   labelDisplay?: 'visible' | 'hidden',
   /**
-   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
+   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datefield#localeData) to learn more.
    */
   localeData?: LocaleData,
   /**
@@ -87,11 +87,11 @@ type Props = {|
    */
   minDate?: Date,
   /**
-   * Mobile only prop. Optionally specify the action label to present for the enter key on virtual keyboards. See the [enterKeyHint variant](https://gestalt.pinterest.systems/web/textfield#EnterKeyHint) for more info.
+   * Mobile only prop. Optionally specify the action label to present for the enter key on virtual keyboards.
    */
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   /**
-   * A unique name for the input.
+   * A unique name for the input. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   name?: string,
   /**
@@ -102,18 +102,18 @@ type Props = {|
     value: string,
   |}) => void,
   /**
-   * DateField is a controlled component. `onChange` is the  callback triggered when the value of the input changes. Should be used to modify the controlled value.
+   * DateField is a controlled component. `onChange` is the  callback triggered when the value of the input changes. Should be used to modify the controlled value. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
-  onChange: (value: Date) => void,
+  onChange: ({| value: ?Date |}) => void,
   /**
-   * Callback triggered when the value entered is invalid. See the [onError example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
+   * Callback triggered when the value entered is invalid. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   onError?: ({|
     errorMessage: string,
     value: ?Date,
   |}) => void,
   /**
-   * DateField is a controlled component. `onClearInput` is the callback triggered when the user clicks on the "clear" icon button. Should be used to clear the entered dates in the controlled component.
+   * DateField is a controlled component. `onClearInput` is the callback triggered when the user clicks on the "clear" icon button. Should be used to clear the entered dates in the controlled component. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   onClearInput: () => void,
   /**
@@ -124,21 +124,17 @@ type Props = {|
     value: string,
   |}) => void,
   /**
-   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textfield#Read-only) for more details.
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/datefield#States) for more details.
    */
   readOnly?: boolean,
   /**
-   * DateField is provided in sizes: "md" (40px) and "lg" (48px).
-   */
-  size?: 'md' | 'lg',
-  /**
-   * DateField is a controlled component. `value` sets the current value of the input.
+   * DateField is a controlled component. `value` sets the current value of the input.  See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   value: ?Date,
 |};
 
 /**
- * [DateField](https://gestalt.pinterest.systems/web/datefield) is used when the user has to select a date. Compared to [DatePicker](https://gestalt.pinterest.systems/web/datepicker), DateField has no supporting calendaronly to select a data, the user must input date values with a numeric keyboard.
+ * [DateField](https://gestalt.pinterest.systems/web/datefield) is used when the user has to select a date. Compared to [DatePicker](https://gestalt.pinterest.systems/web/datepicker), DateField has no supporting calendar to select a date, the user must input date values with a numeric keyboard.
 
  * DateField is distributed within the "gestalt-datepicker" package and must be installed separately.
  *
@@ -165,7 +161,6 @@ function DateField({
   onError,
   onFocus,
   readOnly = false,
-  size = 'md',
   value,
 }: Props): Node {
   return (
@@ -190,7 +185,6 @@ function DateField({
           onError={onError}
           onFocus={onFocus}
           readOnly={readOnly}
-          size={size}
           value={value}
         />
       </LocalizationProvider>

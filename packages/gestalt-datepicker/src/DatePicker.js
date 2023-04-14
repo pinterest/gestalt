@@ -12,7 +12,7 @@ import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import styles from './DatePicker.css';
-import DatePickerTextField from './DatePickerTextField.js';
+import DatePickerTextField from './DatePicker/TextField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // flowlint unclear-type:off

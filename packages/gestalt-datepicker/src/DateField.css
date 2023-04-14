@@ -97,10 +97,6 @@
   white-space: nowrap;
 }
 
-.layoutMedium {
-  min-height: 40px;
-}
-
 .layoutLarge {
   min-height: 48px;
 }

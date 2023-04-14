@@ -6,7 +6,7 @@ import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateF
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
 import classnames from 'classnames';
 import { Box, Text, Flex, Status, TapArea, Pog } from 'gestalt';
-import styles from './DateField.css';
+import styles from '../DateField.css';
 
 const ENTER: number = 13;
 const SPACE: number = 32;
@@ -27,7 +27,6 @@ type CustomTextFieldProps = {|
   ownerState: {|
     passthroughProps: {|
       autoComplete: 'bday' | 'off',
-      size: 'md' | 'lg',
       id: string,
       errorMessage: boolean,
       enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
@@ -67,14 +66,11 @@ const CustomTextField = forwardRef(
       styles.formElementBase,
       styles.typographyTruncate,
       styles.actionButton,
+      styles.layoutLarge,
       disabled ? styles.formElementDisabled : styles.formElementEnabled,
       ownerState?.passthroughProps?.errorMessage && !focused
         ? styles.formElementErrored
         : styles.formElementNormal,
-      {
-        [styles.layoutMedium]: ownerState?.passthroughProps?.size === 'md',
-        [styles.layoutLarge]: ownerState?.passthroughProps?.size === 'lg',
-      },
     );
 
     return (
@@ -143,7 +139,7 @@ type InternalDateFieldProps = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onChange: (value: Date) => void,
+  onChange: ({| value: ?Date |}) => void,
   onClearInput: () => void,
   onError?: ({|
     errorMessage: string,
@@ -155,7 +151,6 @@ type InternalDateFieldProps = {|
   |}) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
-  size?: 'md' | 'lg',
   value: ?Date,
 |};
 
@@ -178,7 +173,6 @@ function InternalDateField({
   onError,
   onFocus,
   readOnly = false,
-  size = 'md',
   value,
 }: InternalDateFieldProps): Node {
   const [focused, setFocused] = useState(false);
@@ -197,7 +191,7 @@ function InternalDateField({
       </label>
       <Box position="relative" display="flex" alignItems="center">
         <MUIDatePicker
-          onChange={onChange}
+          onChange={(dateValue) => onChange({ value: dateValue })}
           disabled={disabled}
           readOnly={readOnly}
           onError={(error) => onError?.({ errorMessage: error, value })}
@@ -210,7 +204,6 @@ function InternalDateField({
           value={value}
           passthroughProps={{
             autoComplete,
-            size,
             id,
             errorMessage: !!errorMessage,
             enterKeyHint: mobileEnterKeyHint,

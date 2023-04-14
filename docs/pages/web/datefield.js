@@ -166,11 +166,19 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               value={null}
               name={localeMap[localeDataCode].lang}
               localeData={localeMap[localeDataCode].localeData}
-              size="lg"
             />
           </Box>
         )}
       </Combination>
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+      **[DatePicker](/DatePicker)**
+Use DatePicker if the user is allowed to pick a date from a calendar popup.
+    `}
+        />
+      </MainSection>
     </Page>
   );
 }
