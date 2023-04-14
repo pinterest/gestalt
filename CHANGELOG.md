@@ -1,3 +1,9 @@
+## 109.0.1-alpha.0 (Apr 14, 2023)
+
+### Prerelease
+
+- DateField, DatePicker: Alpha release 2 ([#2840](https://github.com/pinterest/gestalt/pull/2840)) - [Preview link](https://deploy-preview-2840--gestalt.netlify.app)
+
 ## 109.0.0 (Apr 14, 2023)
 
 ### Major
