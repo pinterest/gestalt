@@ -16,7 +16,7 @@ const rollupConfig = {
         'react-dom': 'ReactDOM',
         'react-datepicker': 'ReactDatePicker',
       },
-      sourcemap: 'inline',
+      sourcemap: true,
     },
     {
       file: 'dist/gestalt-datepicker.es.js',
@@ -30,7 +30,7 @@ const rollupConfig = {
         'react-dom': 'ReactDOM',
         'react-datepicker': 'ReactDatePicker',
       },
-      sourcemap: 'inline',
+      sourcemap: true,
     },
   ],
   external: ['react', 'classnames/bind', 'classnames', 'react-dom', 'react-datepicker', 'gestalt'],
