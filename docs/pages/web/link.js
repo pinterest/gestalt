@@ -230,16 +230,12 @@ Accessible content is critical if we consider that assistive technology also pre
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={accessibilityBoxes}
-                hideEditor
-                name="Accessibility Checklist"
-              />
+              <SandpackExample code={accessibilityBoxes} name="Accessibility Checklist" />
             }
           />
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={accessibilityTiers} hideEditor name="Accessibility Tiers" />
+              <SandpackExample code={accessibilityTiers} name="Accessibility Tiers" />
             }
           />
         </MainSection.Subsection>
@@ -405,7 +401,12 @@ However, Link's underline style can be overridden at any time using the \`underl
               onClick: () => {},
             }}
           />
-          <SandpackExample code={variantTarget} layout="column" name="Variants - Target" />
+          <SandpackExample
+            previewHeight={160}
+            code={variantTarget}
+            layout="column"
+            name="Variants - Target"
+          />
         </MainSection.Subsection>
       </MainSection>
 
