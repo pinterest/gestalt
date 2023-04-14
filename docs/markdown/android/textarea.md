@@ -1,5 +1,5 @@
 ---
-title: Text area
+title: TextArea
 description: TextArea allows for multi-line input.
 fullwidth: true
 ---
@@ -64,29 +64,55 @@ These practices give users of assistive technologies more information about the 
 
 ### Default
 TextArea will expand to fill the width of the parent container by default.
+
+<br/>
+
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22670%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
 
 ### Helper text
 Whenever you want to provide more information about a form field, you should use helperText.
+
+<br/>
+
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22816%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
 
 ### Disabled
 TextArea can be disabled to indicate the user is unable to interact with it. Disabled fields do not need to pass contrast requirements, so do not use a disabled TextArea to present information important information to the user.
+
+<br/>
+
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A23035%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
 
 ### Error
 TextArea can display an error message. Don't use errorMessage to provide feedback on character count errors. See the maximum length variant below for more details.
+
+<br/>
+
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A23108%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
 
 ## Maximum length
-TextArea supports maxLength . Max length sets the maximum number of characters allowed to be entered by the user in TextArea. maxLength must be an integer value 0 or higher.
+TextArea supports a max length . The max length sets the maximum number of characters allowed to be entered by the user in TextArea.
 
-The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the maxLength.
+The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the max length.
 
-When maxLength is used in TextArea, the component displays a character counter as well as a [warning or problem Status](https://gestalt.pinterest.systems/web/status) when the user reaches or the pre-populated controlled value exceeds the maximum length of characters.
+When a max length is used in TextArea, the component displays a character counter as well as a [warning or problem Status](https://gestalt.pinterest.systems/web/status) when the user reaches or the pre-populated controlled value exceeds the maximum length of characters.
 
-The first example shows an empty TextArea with maxLength set to 200 characters. The second example shows the warning and problem Status.
+The first example shows a TextArea with a max length warning. The second example shows a max length problem Status.
+
+<TwoCol>
+<Group>
+### Warning
+
+<br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22889%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+</Group>
+
+<Group>
+### Error
+
+<br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22962%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+</Group>
+</TwoCol>
