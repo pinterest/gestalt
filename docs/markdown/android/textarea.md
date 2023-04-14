@@ -48,7 +48,7 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 
 ### Comprehension
-e sure to [provide instructions](https://www.w3.org/WAI/tutorials/forms/instructions/) to help users understand how to complete the form and use individual form controls.
+Be sure to [provide instructions](https://www.w3.org/WAI/tutorials/forms/instructions/) to help users understand how to complete the form and use individual form controls.
 
 ### Labels
 Ensure the labels are precise and concise. Labels should only describe the text field they are associate with, and they must be visible.
@@ -104,6 +104,7 @@ The first example shows a TextArea with a max length warning. The second example
 <b>Warning</b>
 
 <br/>
+<br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22889%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
 </Group>
@@ -111,6 +112,7 @@ The first example shows a TextArea with a max length warning. The second example
 <Group>
 <b>Error</b>
 
+<br/>
 <br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22962%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
