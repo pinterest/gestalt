@@ -21,6 +21,8 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js'
 type Props = {|
   // The actual Masonry component to be used (if using an experimental version of Masonry).
   MasonryComponent: typeof Masonry,
+  // Experimental prop to batch paints of measured items.
+  batchPaints?: boolean,
   // Sets up props to display a collage layout.
   collage?: boolean,
   // Constrains the width of the grid rendering.
@@ -238,9 +240,11 @@ export default class MasonryContainer extends Component<Props, State> {
             randomNumberSeed: this.randomNumberSeed,
           });
 
-    this.setState(({ items }) => ({
-      items: [...items, ...newItems],
-    }));
+    setTimeout(() => {
+      this.setState(({ items }) => ({
+        items: [...items, ...newItems],
+      }));
+    }, 2000);
   };
 
   // $FlowFixMe[unclear-type]
@@ -255,17 +259,18 @@ export default class MasonryContainer extends Component<Props, State> {
   render(): Element<'div'> {
     const {
       MasonryComponent,
-      finiteLength,
-      flexible,
+      batchPaints,
       collage,
       constrained,
       externalCache,
+      finiteLength,
+      flexible,
       measurementStore,
       noScroll,
       offsetTop,
-      virtualize,
-      virtualBoundsTop,
       virtualBoundsBottom,
+      virtualBoundsTop,
+      virtualize,
     } = this.props;
 
     const { hasScrollContainer, mountGrid, items } = this.state;
@@ -322,14 +327,15 @@ export default class MasonryContainer extends Component<Props, State> {
         {mountGrid && (
           // $FlowFixMe[incompatible-exact]
           <MasonryComponent
-            ref={this.gridRef}
-            renderItem={this.renderItem}
+            _batchPaints={batchPaints}
+            columnWidth={columnWidth}
+            gutterWidth={0}
             items={items}
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
+            ref={this.gridRef}
+            renderItem={this.renderItem}
             virtualize={virtualize}
-            columnWidth={columnWidth}
-            gutterWidth={0}
             {...dynamicGridProps}
           />
         )}

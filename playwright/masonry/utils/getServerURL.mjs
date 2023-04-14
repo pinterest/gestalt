@@ -12,6 +12,7 @@ const normalizeValue = (val /*: boolean | number */) => {
 
 /*::
 type Options = ?{|
+  batchPaints?: boolean,
   constrained?: boolean,
   deferMount?: boolean,
   externalCache?: boolean,
