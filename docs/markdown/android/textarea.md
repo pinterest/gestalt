@@ -90,7 +90,7 @@ TextArea can display an error message. Don't use errorMessage to provide feedbac
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A23108%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
 
-## Maximum length
+### Maximum length
 TextArea supports a max length . The max length sets the maximum number of characters allowed to be entered by the user in TextArea.
 
 The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the max length.
@@ -101,7 +101,7 @@ The first example shows a TextArea with a max length warning. The second example
 
 <TwoCol>
 <Group>
-### Warning
+<b>Warning</b>
 
 <br/>
 
@@ -109,7 +109,7 @@ The first example shows a TextArea with a max length warning. The second example
 </Group>
 
 <Group>
-### Error
+<b>Error</b>
 
 <br/>
 
