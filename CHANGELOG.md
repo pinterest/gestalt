@@ -1,3 +1,9 @@
+## 109.0.3 (Apr 14, 2023)
+
+### Patch
+
+- TextArea: Add Android guidelines and specs
+
 ## 109.0.2 (Apr 14, 2023)
 
 ### Patch
