@@ -11,14 +11,14 @@ const rollupConfig = {
       format: 'umd',
       name: 'eslint-plugin-gestalt',
       exports: 'named',
-      sourcemap: 'inline',
+      sourcemap: false,
     },
     {
       file: 'dist/eslint-plugin-gestalt.es.js',
       format: 'es',
       name: 'eslint-plugin-gestalt',
       exports: 'named',
-      sourcemap: 'inline',
+      sourcemap: false,
     },
   ],
   plugins: [
