@@ -10,7 +10,8 @@ function ThemeAwareComponent() {
 describe('ColorSchemeProvider', () => {
   it('renders child content in a div', () => {
     const { container } = render(<ColorSchemeProvider>Child 1</ColorSchemeProvider>);
-    expect(container.firstChild).toMatchInlineSnapshot(`
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('div')).toMatchInlineSnapshot(`
         <div class="">
           Child 1
         </div>
@@ -19,7 +20,7 @@ describe('ColorSchemeProvider', () => {
 
   it('renders styling for light mode when no color scheme specified', () => {
     const { container } = render(<ColorSchemeProvider>Content</ColorSchemeProvider>);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 

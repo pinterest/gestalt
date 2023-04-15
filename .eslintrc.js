@@ -125,7 +125,6 @@ module.exports = {
     'react/sort-comp': OFF,
     'react/state-in-constructor': [ERROR, NEVER],
     'react/static-property-placement': [ERROR, 'static public field'],
-    'testing-library/no-node-access': [ERROR, { 'allowContainerFirstChild': true }],
     'validate-jsx-nesting/no-invalid-jsx-nesting': ERROR,
   },
   'overrides': [
