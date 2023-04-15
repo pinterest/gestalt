@@ -14,6 +14,7 @@
 
 
 .hovered {
+  background-color: var(--color-background-secondary-base);
   composes: pointer from "../Cursor.css";
 }
 
@@ -27,4 +28,10 @@
 
 .selected {
   composes: secondary from "../Colors.css";
+}
+
+.disabled{
+  background-color: var(--g-colorGray100);
+  cursor: default;
+  pointer-events: none;
 }

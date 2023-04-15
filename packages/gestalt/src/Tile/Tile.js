@@ -18,42 +18,29 @@ type Props = {|
    */
   children?: Node,
   /**
-   * Omit if and only if an ancestor element already has the aria-label set.
-   * This is similar to having [empty alt attributes](https://davidwalsh.name/accessibility-tip-empty-alt-attributes).
-   */
-  accessibilityLabel?: string,
-  /**
-   * Indicate if Pog is in an active state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
-   */
-  active?: boolean,
-  /**
-   * The background color of the tile
+   * The background color of the tile as a hex. Don't forget about tokenization
    */
   bgColor?: string,
   /**
-   * The border color of the tile
+   * The border color of the tile. Don't forget about tokenization
    */
   borderColor?: string,
   /**
-   * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
+   * Should the tile be disabled
    */
-  focused?: boolean,
+  disabled?: boolean,
   /**
-   * Indicate if Pog is in a hovered state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
+   * Id to identify the tile
    */
-  hovered?: boolean,
-  /**
-   * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
-   */
-  padding?: 1 | 2 | 3 | 4 | 5,
+  id?: string,
   /**
    * Indicate if tile is in a selected state
    */
   selected?: boolean,
   /**
-   * This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px). See [size combinations](https://gestalt.pinterest.systems/web/pog#sizeCombinations) for more details.
+   * Handler if the item is selected
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  onSelected?: (id: string, selected: boolean) => void,
   /**
    * Ties a visible checkbox to the tile's selected state
    */
@@ -69,14 +56,12 @@ type Props = {|
  */
 export default function Tile({
   accessibilityLabel = '',
-  active = false,
-  bgColor = 'secondary',
+  bgColor,
+  borderColor,
+  id = 'no-id-prop-provided-to-tile',
+  disabled = false,
   children,
-  focused = false,
-  hovered = false,
-  padding,
   selected = false,
-  size = 'md',
   tooltip,
   showCheckbox,
 }: Props): Node {
@@ -92,18 +77,47 @@ export default function Tile({
 
   const classes = classnames(styles.tile, {
     [styles.selected]: isSelected,
-    [styles.transparent]: !isSelected,
     [styles.focused]: isFocusVisible,
     [styles.hovered]: isHovered && !isFocusVisible,
+    [styles.disabled]: disabled,
   });
 
   const handleClick = () => {
     setIsSelected(!isSelected);
   };
 
+  const generateSelectedColorStyles = () => {
+    const styles: React.CSSProperties = {};
+    if (!isSelected) return styles;
+
+    if (borderColor.startsWith('#') && borderColor) {
+      styles.border = `var(--g-border-width) solid ${borderColor}`;
+    }
+    if (bgColor.startsWith('#') && bgColor) {
+      styles.backgroundColor = `${bgColor}`;
+    }
+    return styles;
+  };
+
+  const DisabledOverlay = () => {
+    return (
+      <div
+        style={{
+          position: 'absolute',
+          backgroundColor: 'var(--g-colorGray100)',
+          height: '100%',
+          width: '100%',
+          opacity: 0.7,
+          zIndex: '100',
+        }}
+        className={styles.tile}
+      />
+    );
+  };
+
   const TooltipWrapper = ({ tooltip, children }: { tooltip?: string, children: Node }) => {
     const tooltipZIndex = new FixedZIndex(1);
-    if (!tooltip) return children;
+    if (!tooltip || disabled) return children;
     return (
       <Tooltip idealDirection="up" text={tooltip} zIndex={tooltipZIndex}>
         {children}
@@ -118,25 +132,29 @@ export default function Tile({
   };
 
   return (
-    <TooltipWrapper tooltip={''}>
-      <div
-        role="button"
-        className={classes}
-        onBlur={handleOnBlur}
-        onClick={handleClick}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        onKeyDown={handleKeyDown}
-      >
-        <Flex direction="row">
-          <Flex.Item>{children}</Flex.Item>
-          <Flex.Item>
-            {isSelected && showCheckbox && (
-              <Checkbox id={`tile-id`} checked={isSelected} onChange={() => {}} size="sm" />
-            )}
-          </Flex.Item>
-        </Flex>
-      </div>
-    </TooltipWrapper>
+    <div style={{ position: 'relative' }}>
+      {disabled && <DisabledOverlay />}
+      <TooltipWrapper tooltip={tooltip}>
+        <div
+          role="button"
+          className={classes}
+          onBlur={handleOnBlur}
+          onClick={handleClick}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          onKeyDown={handleKeyDown}
+          style={generateSelectedColorStyles()}
+        >
+          <Flex direction="row">
+            <Flex.Item>{children}</Flex.Item>
+            <Flex.Item>
+              {showCheckbox && (
+                <Checkbox id={id} checked={isSelected} onChange={() => {}} size="sm" />
+              )}
+            </Flex.Item>
+          </Flex>
+        </div>
+      </TooltipWrapper>
+    </div>
   );
 }
