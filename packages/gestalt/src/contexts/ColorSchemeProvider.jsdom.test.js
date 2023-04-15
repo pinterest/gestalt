@@ -12,7 +12,9 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(<ColorSchemeProvider>Child 1</ColorSchemeProvider>);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('div')).toMatchInlineSnapshot(`
-        <div class="">
+        <div
+          class=""
+        >
           Child 1
         </div>
       `);
