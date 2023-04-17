@@ -131,6 +131,7 @@ import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
+import moon from './moon.svg';
 import movePin from './move-pin.svg';
 import move from './move.svg';
 import musicOff from './music-off.svg';
@@ -174,6 +175,7 @@ import speechEllipsis from './speech-ellipsis.svg';
 import speech from './speech.svg';
 import starHalf from './star-half.svg';
 import star from './star.svg';
+import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
 import terms from './terms.svg';
@@ -346,6 +348,7 @@ const icons = Object.freeze({
   menu,
   minimize,
   mobile,
+  moon,
   move,
   mute,
   'move-pin': movePin,
@@ -389,6 +392,7 @@ const icons = Object.freeze({
   'speech-ellipsis': speechEllipsis,
   star,
   'star-half': starHalf,
+  sun,
   'switch-account': switchAccount,
   tag,
   terms,
