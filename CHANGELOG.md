@@ -1,3 +1,9 @@
+## 109.1.1 (Apr 17, 2023)
+
+### Patch
+
+- Docs: update dark mode and text direction from "global" when changed ([#2851](https://github.com/pinterest/gestalt/pull/2851)) - [Preview link](https://deploy-preview-2851--gestalt.netlify.app)
+
 ## 109.1.0 (Apr 17, 2023)
 
 ### Minor
