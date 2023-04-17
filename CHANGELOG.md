@@ -1,3 +1,9 @@
+## 109.0.6-alpha.0 (Apr 17, 2023)
+
+### Prerelease
+
+- Internal: [ALPHA release] TypeScript support with declaration files #2848 ([#2849](https://github.com/pinterest/gestalt/pull/2849)) - [Preview link](https://deploy-preview-2849--gestalt.netlify.app)
+
 ## 109.0.5 (Apr 17, 2023)
 
 ### Patch
@@ -38,8 +44,8 @@
 
 ### Patch
 
-- Internal: upgrade @codesandbox/sandpack-react to 2.6.0 ([#2830](https://github.com/pinterest/gestalt/pull/2830)) - [Preview link](https://deploy-preview-2830--gestalt.netlify.app)
-=======
+- # Internal: upgrade @codesandbox/sandpack-react to 2.6.0 ([#2830](https://github.com/pinterest/gestalt/pull/2830)) - [Preview link](https://deploy-preview-2830--gestalt.netlify.app)
+
 ## 109.0.1-alpha.0 (Apr 14, 2023)
 
 ### Prerelease
