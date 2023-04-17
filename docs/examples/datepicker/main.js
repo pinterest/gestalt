@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Flex } from 'gestalt';
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): Node {
   return (

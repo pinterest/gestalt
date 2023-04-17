@@ -1,7 +1,7 @@
 /*
 pages/[id].js renders a dynamic gestalt docs page with a with a page that isn't defined .
 
-The getStaticPaths() will look at the files in the ./markdown folder and try to render a page if it exists, or returns a 404.
+getStaticPaths() will look at the files in the ./markdown folder and try to render a page if it exists, or returns a 404.
 
 We do this so we don't have to define each page, and can just define the pages in the markdown folder.
 */
