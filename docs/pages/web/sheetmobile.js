@@ -82,16 +82,18 @@ export default function SheetMobilePage({
             description={`
 - Always include a collapse affordance. SheetMobile should close when users press the dismiss icon button, a cancel/close button, when swiped away or when users tap the area outside the partial sheet.
 - Include a grabber for partial sheets. This provides a visual indicator of resizability and allows screen reader users to resize the sheet.
-- Include a header title, either in the default or editorial format as it add context to the task.`}
+- Include a header title as it adds context to the task. Headers can be either center or start aligned, but should remain consistant throughout a flow.
+-  `}
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             title="Don't"
             description={`
-- Have more than two buttons (primary and secondary) in the footer of the sheet. This prevents unclear hierarchy and crowding on mobile screens.
+- Have more than two buttons (primary and secondary) in the footer of the sheet. This prevents unclear hierarchy and crowding on mobile screens. Footers should be simple and provide clear actions for the user.
 - Remove the wash behind the partial SheetMobile. The wash separates the sheet content from the primary content and allows for better focus and accessibility.
-- Display more than one sheet at a time or overlay sheets. For transitions and navigation within sheets, view the Interactions and transitions section below.`}
+- Display more than one sheet at a time or overlay sheets. For transitions and navigation within sheets, view the Interactions and transitions section below.
+- Truncate header text. Headers should be no more than two lines of text. If they are, consider revising the content.`}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -181,6 +183,7 @@ There is one size variant for full Sheets: "full". See examples below for more d
 - It requires a \`heading\` prop and an optional \`subHeading\`.
 - It can display navigation buttons (back and forward navigation) using the \`backIconButton\` and \`forwardIconButton\`.
 - It can display a dismiss button (\`showDismissButton\` prop) as well as a primary action button (\`primaryAction\` prop).
+- It can display either a center-aligned or start-aligned header.
 
 See the following cases for reference.
         `}
