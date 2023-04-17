@@ -183,7 +183,7 @@ There is one size variant for full Sheets: "full". See examples below for more d
 - It requires a \`heading\` prop and an optional \`subHeading\`.
 - It can display navigation buttons (back and forward navigation) using the \`backIconButton\` and \`forwardIconButton\`.
 - It can display a dismiss button (\`showDismissButton\` prop) as well as a primary action button (\`primaryAction\` prop).
-- It can display either a center aligned or start-aligned header.
+- It can display either a center-aligned or start-aligned header.
 
 See the following cases for reference.
         `}
