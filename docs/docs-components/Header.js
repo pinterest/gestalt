@@ -1,14 +1,6 @@
 // @flow strict
-import {
-  type Node,
-  type ElementRef,
-  useCallback,
-  useEffect,
-  useState,
-  useRef,
-  useMemo,
-} from 'react';
-import { Box, Dropdown, Flex, IconButton, Label, Link, Sticky, Switch, Tabs, Text } from 'gestalt';
+import { type Node, useCallback, useEffect, useState, useRef, useMemo } from 'react';
+import { Box, Flex, IconButton, Link, Sticky, Tabs, Text } from 'gestalt';
 import { useRouter } from 'next/router';
 import { useAppContext } from './appContext.js';
 import DocSearch from './DocSearch.js';
@@ -17,116 +9,6 @@ import GestaltLogo from './GestaltLogo.js';
 import { useNavigationContext } from './navigationContext.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
-
-function SettingsDropdown({
-  anchorRef,
-  closeDropdown,
-}: {|
-  anchorRef: {| current: ?ElementRef<typeof IconButton> |},
-  closeDropdown: () => void,
-|}) {
-  const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
-    process.env.NODE_ENV === 'development',
-  );
-
-  useEffect(() => {
-    if (
-      process.env.NODE_ENV === 'production' &&
-      window?.location?.href?.startsWith('https://deploy-preview-')
-    )
-      setShowDevelopmentEditorSwitch(true);
-  }, [setShowDevelopmentEditorSwitch]);
-
-  const {
-    colorScheme,
-    setColorScheme,
-    textDirection,
-    setTextDirection,
-    devExampleMode,
-    setDevExampleMode,
-  } = useAppContext();
-
-  const colorSchemeCopy = colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View';
-
-  const onChangeColorScheme = () => {
-    trackButtonClick('Toggle color scheme', colorSchemeCopy);
-    return setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
-  };
-
-  const directionCopy = textDirection === 'rtl' ? 'Left-To-Right View' : 'Right-To-Left View';
-
-  const onChangeTextDirection = () => {
-    trackButtonClick('Toggle page direction', directionCopy);
-    closeDropdown();
-    return setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
-  };
-
-  const onChangeDevExampleMode = () => {
-    trackButtonClick('Toggle Sandpack visibility', devExampleMode);
-    closeDropdown();
-    return setDevExampleMode(devExampleMode === 'default' ? 'development' : 'default');
-  };
-
-  return (
-    <Dropdown
-      anchor={anchorRef.current}
-      id="site-settings-dropdown"
-      onDismiss={closeDropdown}
-      zIndex={PAGE_HEADER_POPOVER_ZINDEX}
-      isWithinFixedContainer
-    >
-      <Dropdown.Item
-        onSelect={onChangeColorScheme}
-        option={{ value: 'isDarkMode', label: 'Toggle dark mode' }}
-      >
-        <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
-          <Label htmlFor="darkMode-switch">
-            <Text weight="bold">Dark mode</Text>
-          </Label>
-          <Switch
-            switched={colorScheme === 'dark'}
-            onChange={onChangeColorScheme}
-            id="darkMode-switch"
-          />
-        </Flex>
-      </Dropdown.Item>
-
-      <Dropdown.Item
-        onSelect={onChangeTextDirection}
-        option={{ value: 'isRTL', label: 'Toggle text direction' }}
-      >
-        <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
-          <Label htmlFor="rtl-switch">
-            <Text weight="bold">Right-to-left</Text>
-          </Label>
-          <Switch
-            switched={textDirection === 'rtl'}
-            onChange={onChangeTextDirection}
-            id="rtl-switch"
-          />
-        </Flex>
-      </Dropdown.Item>
-
-      {showDevelopmentEditorSwitch ? (
-        <Dropdown.Item
-          onSelect={onChangeDevExampleMode}
-          option={{ value: 'default', label: 'Toggle development example mode' }}
-        >
-          <Flex alignItems="center" justifyContent="between" flex="grow" gap={8}>
-            <Label htmlFor="devExampleMode-switch">
-              <Text weight="bold">Enable development view</Text>
-            </Label>
-            <Switch
-              switched={devExampleMode === 'development'}
-              onChange={onChangeDevExampleMode}
-              id="devExampleMode-switch"
-            />
-          </Flex>
-        </Dropdown.Item>
-      ) : null}
-    </Dropdown>
-  );
-}
 
 function getTabs(componentPlatform) {
   return [
@@ -145,10 +27,8 @@ function getTabs(componentPlatform) {
 function Header() {
   const router = useRouter();
   const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
-  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
 
-  const siteSettingsAnchorRef = useRef(null);
   const searchAnchorRef = useRef(null);
 
   const mainNavigationTabs = useMemo(
@@ -177,6 +57,34 @@ function Header() {
           ),
     );
   }, [router.events, router.pathname, mainNavigationTabs]);
+
+  const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
+    process.env.NODE_ENV === 'development',
+  );
+
+  useEffect(() => {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      window?.location?.href?.startsWith('https://deploy-preview-')
+    )
+      setShowDevelopmentEditorSwitch(true);
+  }, [setShowDevelopmentEditorSwitch]);
+
+  const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
+
+  const darkModeButtonLabel = `Toggle ${colorScheme === 'dark' ? 'light' : 'dark'} mode`;
+  const onChangeColorScheme = () => {
+    trackButtonClick(
+      'Toggle color scheme',
+      colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View',
+    );
+    return setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
+  };
+
+  const onChangeDevExampleMode = () => {
+    trackButtonClick('Toggle Sandpack visibility', devExampleMode);
+    return setDevExampleMode(devExampleMode === 'default' ? 'development' : 'default');
+  };
 
   return (
     <Box
@@ -243,30 +151,38 @@ function Header() {
       </Box>
       <Flex alignItems="center" justifyContent="end" flex="grow">
         <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
-          <IconButton
-            accessibilityControls="site-settings-dropdown"
-            accessibilityExpanded={isSettingsDropdownOpen}
-            accessibilityHaspopup
-            accessibilityLabel="Site settings"
-            icon="filter"
-            iconColor="darkGray"
-            onClick={() => setSettingsDropdownOpen((prevVal) => !prevVal)}
-            ref={siteSettingsAnchorRef}
-            selected={isSettingsDropdownOpen}
-            size="sm"
-            tooltip={{
-              'text': 'Site settings',
-              'idealDirection': 'right',
-              'zIndex': PAGE_HEADER_POPOVER_ZINDEX,
-            }}
-          />
+          <Flex gap={3}>
+            <IconButton
+              accessibilityLabel={darkModeButtonLabel}
+              iconColor="darkGray"
+              icon={colorScheme === 'dark' ? 'sun' : 'moon'}
+              onClick={onChangeColorScheme}
+              tooltip={{
+                text: darkModeButtonLabel,
+                inline: true,
+                idealDirection: 'down',
+                accessibilityLabel: '',
+                zIndex: PAGE_HEADER_POPOVER_ZINDEX,
+              }}
+            />
+
+            {showDevelopmentEditorSwitch && (
+              <IconButton
+                accessibilityLabel="Toggle dev example mode"
+                iconColor={devExampleMode === 'development' ? 'red' : 'darkGray'}
+                icon="code"
+                onClick={onChangeDevExampleMode}
+                tooltip={{
+                  text: 'Toggle dev example mode',
+                  inline: true,
+                  idealDirection: 'down',
+                  accessibilityLabel: '',
+                  zIndex: PAGE_HEADER_POPOVER_ZINDEX,
+                }}
+              />
+            )}
+          </Flex>
         </Box>
-        {isSettingsDropdownOpen && (
-          <SettingsDropdown
-            anchorRef={siteSettingsAnchorRef}
-            closeDropdown={() => setSettingsDropdownOpen(false)}
-          />
-        )}
 
         <Box display="none" mdDisplay="block" flex="grow">
           <Flex justifyContent="center">
