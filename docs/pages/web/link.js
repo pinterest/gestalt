@@ -9,22 +9,37 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import accessibilityBoxes from '../../examples/link/accessibilityBoxes.js';
+import accessibilityTiers from '../../examples/link/accessibilityTiers.js';
+import doClarity from '../../examples/link/doClarity.js';
+import doDisplayExternal from '../../examples/link/doDisplayExternal.js';
+import doMatchStyle from '../../examples/link/doMatchStyle.js';
+import doMeaning from '../../examples/link/doMeaning.js';
+import dontGeneric from '../../examples/link/dontGeneric.js';
+import dontMultiple from '../../examples/link/dontMultiple.js';
+import dontOtherIcons from '../../examples/link/dontOtherIcons.js';
+import dontOveruse from '../../examples/link/dontOveruse.js';
+import dontUnderlineLists from '../../examples/link/dontUnderlineLists.js';
+import dontWeightTexts from '../../examples/link/dontWeightTexts.js';
+import doUnderline from '../../examples/link/doUnderline.js';
+import doWeightLists from '../../examples/link/doWeightLists.js';
 import inline from '../../examples/link/inline.js';
+import main from '../../examples/link/main.js';
+import variantExternalIcon from '../../examples/link/variantExternalIcon.js';
+import variantHiddenUnderline from '../../examples/link/variantHiddenUnderline.js';
+import variantInlineLink from '../../examples/link/variantInlineLink.js';
+import variantInlineOverride from '../../examples/link/variantInlineOverride.js';
+import variantLinkText from '../../examples/link/variantLinkText.js';
+import variantRel from '../../examples/link/variantRel.js';
+import variantStandaloneLink from '../../examples/link/variantStandaloneLink.js';
+import variantTarget from '../../examples/link/variantTarget.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Text inline>
-To see how you can grow your business, visit
-  <Link href="https://business.pinterest.com/advertise" display="inlineBlock" externalLinkIcon="default" target="blank">Pinterest Ads</Link>
-</Text>
-        `}
-      />
-
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main Badge example" hideEditor previewHeight={150} />
+      </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={['disabled']} />
 
       <MainSection name="Usage guidelines">
@@ -57,194 +72,75 @@ To see how you can grow your business, visit
           <MainSection.Card
             type="do"
             description="Display an underline on inline Links in the context of heavy text around them or in dense layouts such as Links on dashboards. The underline helps to determine its interactivity and reinforces accessibility standards."
-            defaultCode={`
-<Box color="elevationAccent" padding={4} rounding={4}>
-  <Flex gap={{ column: 4, row: 0 }} direction="column">
-    <Text weight="bold" align="center"> Product details </Text>
-    <Text> Tennis-inspired retro sneaker by Pinterest, elevated with a stacked midsole for extra height and a chunky profile. </Text>
-    <Text inline> Ships from and sold by
-      <Link href="http://www.pinterest.com" display="inline"> pinterest.com </Link>
-    </Text>
-  </Flex>
-</Box>
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={doUnderline} hideEditor name="Do - Underline" />
+            }
           />
           <MainSection.Card
             type="don't"
             description="Use a bold font weight to represent inline Links in the context of text around them. Bold font weight in the text context can be perceived as emphasis purposes, and it could fail to convey interactivity. "
-            defaultCode={`
-<Flex gap={{ column: 4, row: 0 }} direction="column" width="100%">
-  <Text weight="bold"> Need help? </Text>
-  <Text inline> Find tips and best practices on the
-    <Text weight="bold" inline>
-      <Link href="https://business.pinterest.com/" display="inline" underline="hover"> Pinterest Business Site </Link>
-    </Text>
-  </Text>
-  <Text inline> Troubleshoot issues with the
-    <Text weight="bold" inline>
-      <Link href="https://help.pinterest.com" display="inline" underline="hover"> Pinterest Help Center </Link>
-    </Text>
-  </Text>
-</Flex>
-            `}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={dontWeightTexts}
+                hideEditor
+                hideControls
+                name="Don't - Font Weight In Text"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
             description="Use bold font-weight in link elements such as lists, profile and board names, and any link element that an underline style isn't necessary to convey interactivity. For example, the user easily recognizes the bold element as a link since it is a typical treatment across our surfaces."
-            defaultCode={`
-<Flex gap={{ row: 2, column: 0 }} alignItems="center">
-  <Box aria-hidden>
-    <Avatar
-      name="Shanice Romero"
-      accessibilityLabel="Shanice Romero"
-      size="sm"
-      src="https://i.ibb.co/7tGKGvb/shanice.jpg"
-    />
-  </Box>
-  <Text>
-    <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Shanice Romero </Link>
-    </Text>
-    {" "}saved to
-    <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Capoeira </Link>
-    </Text>
-    </Text>
-</Flex>
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={doWeightLists} hideEditor name="Do - Font Weight In Lists" />
+            }
           />
           <MainSection.Card
             type="don't"
             description="Display an underline on Links that aren't within a paragraph context, for example, lists or table links, as it could create cognitive load. Please note: If these elements are nested inside message components, consider displaying an underline, as it reinforces interactivity."
-            defaultCode={`
-<Flex gap={{ row: 4, column: 0 }} width="100%" wrap width={300}>
-  {[
-    'About',
-    'Blog',
-    'Business',
-    'Careers',
-    'Developers',
-    'Removals',
-    'Privacy',
-    'Personalized ads',
-    'Terms',
-  ].map((item, idx) => {
-    return (
-      <Text key={idx} color="subtle" weight="bold">
-        <Box paddingY={1}>
-          <Link href="https://www.pinterest.com/" underline="always">
-            {item}
-          </Link>
-        </Box>
-      </Text>
-    );
-  })}
-</Flex>
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={dontUnderlineLists}
+                hideEditor
+                hideControls
+                name="Don't - Underline Lists"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
             description="Match Link to the text size and font-weight of the content they are accompanying for consistency and visual balance."
-            defaultCode={`
-<Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
-  <Flex.Item>
-    <Box display="visuallyHidden">
-      <Label htmlFor="example-email-1">Email</Label>
-    </Box>
-    <TextField placeholder="Email" id="example-email-1" onChange={() => {}} type="email" value="" />
-  </Flex.Item>
-  <Flex.Item>
-    <Box display="visuallyHidden">
-      <Label htmlFor="example-password-1">Password</Label>
-    </Box>
-    <TextField
-      placeholder="Create password"
-      id="example-password-1"
-      onChange={() => {}}
-      type="password"
-      value=""
-    />
-  </Flex.Item>
-  <Flex.Item>
-    <Box display="visuallyHidden">
-      <Label htmlFor="example-age-1">Age</Label>
-    </Box>
-    <NumberField placeholder="Age" id="example-age-1" onChange={() => {}} value="" />
-  </Flex.Item>
-  <Button fullWidth text="Create account" size="md" color="red" />
-  <Button fullWidth text="Log into existing account" size="md" type="submit" />
-  <Text size="100" align="center">
-    By continuing, you agree to Pinterest's
-    <Text size="100" inline>
-      <Link href="https://www.pinterest.com" display="inline">
-        {' '}
-        Business Terms of Service{' '}
-      </Link>
-    </Text>{' '}
-    and acknowledge you've read our
-    <Text size="100" inline>
-      <Link href="https://www.pinterest.com" display="inline">
-        {' '}
-        Privacy Policy{' '}
-      </Link>
-    </Text>
-  </Text>
-</Flex>;
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                previewHeight={350}
+                code={doMatchStyle}
+                hideEditor
+                name="Do - Match Styles"
+              />
+            }
           />
           <MainSection.Card
             type="don't"
             description="Apply multiple text styles on links paired with text, as it can create inconsistency it can make it hard to scan. See the [Link and color variant](/web/link#Link-and-Text) for guidelines."
-            defaultCode={`
-<Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
-  <Flex.Item>
-    <Box display="visuallyHidden">
-      <Label htmlFor="example-email-2">Email</Label>
-    </Box>
-    <TextField placeholder="Email" id="example-email-2" onChange={() => {}} type="email" value="" />
-  </Flex.Item>
-  <Flex.Item>
-    <Box display="visuallyHidden">
-      <Label htmlFor="example-password-2">Password</Label>
-    </Box>
-    <TextField
-      placeholder="Create password"
-      id="example-password-2"
-      onChange={() => {}}
-      type="password"
-      value=""
-    />
-  </Flex.Item>
-  <Flex.Item>
-    <Box display="visuallyHidden">
-      <Label htmlFor="example-age-2">Age</Label>
-    </Box>
-    <NumberField placeholder="Age" id="example-age-2" onChange={() => {}} value="" />
-  </Flex.Item>
-  <Button fullWidth text="Create account" size="md" color="red" />
-  <Button fullWidth text="Log into existing account" size="md" type="submit" />
-  <Text size="100" align="center">
-    By continuing, you agree to Pinterest's
-    <Text size="100" inline weight="bold">
-      <Link href="https://www.pinterest.com" display="inline">
-        {' '}
-        Business Terms of Service{' '}
-      </Link>
-    </Text>{' '}
-    and acknowledge you've read our
-    <Text size="100" inline weight="bold">
-      <Link href="https://www.pinterest.com" display="inline">
-        {' '}
-        Privacy Policy{' '}
-      </Link>
-    </Text>
-  </Text>
-</Flex>;
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                previewHeight={350}
+                code={dontMultiple}
+                hideEditor
+                hideControls
+                name="Don't - Multiple Styles"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -253,26 +149,23 @@ To see how you can grow your business, visit
             description={`
 Display the external icon ("visit" icon) when the link text needs support to convey an external domain or subsite, and when it helps Pinners scan and pick a navigation option. If the name of the link clearly lets a user know they are going to an external site, the icon is not needed.
 `}
-            defaultCode={`
-<Text inline>
-  To receive push notifications instead of texts,
-  <Link href="https://authy.com/download/" display="inline" externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>.
-</Text>
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={doDisplayExternal} hideEditor name="Do - External Icon" />
+            }
           />
           <MainSection.Card
             type="don't"
             description="Use other icons to represent an external Link. Instead, use the appropriate external icon."
-            defaultCode={`
-<Flex gap={2} justifyContent="center" width="100%">
-  <Text inline> Visit
-    <Text inline>
-      <Link href="https://www.w3.org/WAI/standards-guidelines/" display="inline"> WCAG accessibility resources</Link>
-    </Text>
-  </Text>
-  <Icon icon="link" accessibilityLabel="" color="default" />
-</Flex>
-            `}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={dontOtherIcons}
+                hideEditor
+                hideControls
+                name="Don't - Other Icons"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -281,12 +174,8 @@ Display the external icon ("visit" icon) when the link text needs support to con
             description={`
 Add clarity to external links through explicit link text and predictable destinations instead of overusing external icons when the link is surrounded by text content. If not possible, limit to a maximum of two external icons per paragraph.
 `}
-            defaultCode={`
-<Text inline>
-  Go to
-  <Link href="https://developers.pinterest.com/account-setup/" display="inline" externalLinkIcon="default" target="blank">My Apps</Link>.
-</Text>
-`}
+            cardSize="md"
+            sandpackExample={<SandpackExample code={doClarity} hideEditor name="Do - Clarity" />}
           />
           <MainSection.Card
             type="don't"
@@ -294,23 +183,10 @@ Add clarity to external links through explicit link text and predictable destina
 Overuse external icons, especially when they are part of text content.
 
 Displaying multiple icons within the same text block can cause unnecessary visual load and negatively impact readability. Instead, add clarity to external links through explicit link text.`}
-            defaultCode={`
-<Flex gap={2} direction="column" justifyContent="center" width="100%">
-  <Text inline>- Comply with our
-    <Link href="https://policy.pinterest.com/en/developer-guidelines" display="inlineBlock" externalLinkIcon="default"> Development guidelines</Link>{" "}
-    or ensure you are currently logged into an existing
-    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" display="inlineBlock" externalLinkIcon="default">business account.</Link>
-  </Text>
-  <Text inline>-
-    <Link href="" display="inlineBlock" externalLinkIcon="default">Create a Pinterest business account</Link>{" "}
-    or ensure you are currently logged into an existing
-    <Link href="https://help.pinterest.com/en/business/article/get-a-business-account#section-8746" display="inlineBlock" externalLinkIcon="default">business account</Link>
-  </Text>
-  <Text inline>-
-    <Link href="https://developers.pinterest.com/account-setup/" display="inlineBlock" externalLinkIcon="default">Go to My Apps</Link>
-  </Text>
-</Flex>
-            `}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={dontOveruse} hideEditor hideControls name="Don't - Overuse" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -318,31 +194,23 @@ Displaying multiple icons within the same text block can cause unnecessary visua
             type="do"
             description={`
 Provide a meaningful descriptive label to the link that clearly indicates the link’s destination.`}
-            defaultCode={`
-<Text>
-      Visit{' '}
-      <Text inline>
-        <Link display="inline" href="https://pinterest.com">
-          Pinterest.com
-        </Link>
-      </Text>{' '}
-      for more information.
-    </Text>
-`}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={doMeaning} hideEditor name="Do - Meaningful label" />
+            }
           />
           <MainSection.Card
             type="don't"
             description={`Use generic phrases like "click here" or "go to" on links. Review [Writing guidelines](#Writing) for reference.`}
-            defaultCode={`
-<Text>
-  For more information,{' '}
-  <Text inline>
-    <Link accessibilityLabel="visit https://pinterest.com" display="inline" href="https://pinterest.com">
-      click here
-    </Link>
-  </Text>
-</Text>
-            `}
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={dontGeneric}
+                hideEditor
+                hideControls
+                name="Don't - Generic label"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -361,122 +229,14 @@ Accessible content is critical if we consider that assistive technology also pre
       `}
         >
           <MainSection.Card
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Flex gap={{ column: 0, row: 2 }}>
-    <Checkbox
-      checked
-      id="1"
-      onChange={() => {}}
-      size="sm"
-    />
-    <Label htmlFor="1">
-      <Text>
-        Use sites you visit to improve which recommendations and ads you see on Pinterest.{' '}
-        <Link accessibilityLabel="Learn more about personalization and data" display="inline" href="https://pinterest.com/_/_/help/article/personalization-and-data#info-ad">
-          Learn more
-        </Link>
-      </Text>
-    </Label>
-  </Flex>
-  <Flex gap={{ column: 0, row: 2 }}>
-    <Checkbox
-      checked
-      id="2"
-      onChange={() => {}}
-      size="sm"
-    />
-    <Label htmlFor="2">
-      <Text>
-        Share activity for ads performance reporting.{' '}
-        <Link accessibilityLabel="Learn more about ads performance reporting" display="inline" href="https://www.pinterest.com/_/_/help/article/ads-performance-reporting">
-          Learn more
-        </Link>
-      </Text>
-    </Label>
-  </Flex>
-  <Flex gap={{ column: 0, row: 2 }}>
-    <Checkbox
-      checked
-      id="3"
-      onChange={() => {}}
-      size="sm"
-    />
-    <Label htmlFor="3">
-      <Text>
-        Use your activity to improve ads you see about Pinterest on other sites or apps you may visit.{' '}
-        <Link accessibilityLabel="Learn more about third-party analytics" display="inline" href="https://www.pinterest.com/_/_/help/article/third-party-analytics-or-advertising-providers-pinterest-uses-or-allows">
-          Learn more
-        </Link>
-      </Text>
-    </Label>
-  </Flex>
-
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={accessibilityBoxes} name="Accessibility Checklist" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-            <Table accessibilityLabel="See what's possible with access tiers" maxHeight={200}>
-  <Table.Header sticky>
-    <Table.Row>
-      <Table.HeaderCell />
-      <Table.HeaderCell>
-        <Text weight="bold">Trial</Text>
-      </Table.HeaderCell>
-      <Table.HeaderCell>
-        <Text weight="bold">Standard</Text>
-      </Table.HeaderCell>
-    </Table.Row>
-  </Table.Header>
-  <Table.Body>
-    <Table.Row>
-      <Table.Cell>
-        <Text weight="bold">Basic analytics</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>Included</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>Included</Text>
-      </Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <Text weight="bold">Rate limits</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Text size="100">1000/day</Text>
-          <Text>
-            <Link
-              accessibilityLabel="See rate limit details for trial package"
-              underline="always"
-              href="https://developers.pinterest.com/docs/api/v5/#tag/Rate-limits"
-            >
-              See details
-            </Link>
-          </Text>
-        </Flex>
-      </Table.Cell>
-      <Table.Cell>
-        <Flex direction="column" gap={{ column: 1, row: 0 }}>
-          <Text size="100">Variable</Text>
-          <Text>
-            <Link
-              accessibilityLabel="See rate limit details for standard package"
-              underline="always"
-              href="https://developers.pinterest.com/docs/api/v5/#tag/Rate-limits"
-            >
-              See details
-            </Link>
-          </Text>
-        </Flex>
-      </Table.Cell>
-    </Table.Row>
-  </Table.Body>
-</Table>;
-`}
+            sandpackExample={
+              <SandpackExample code={accessibilityTiers} name="Accessibility Tiers" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -532,21 +292,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
           title="Link and Text"
           description="Link depends on [Text](/web/text) to inherit style attributes including weight, color, and size. Aim to match the text size and style of the content they are accompanying. Always use Link within [Text](/web/text) to get the correct underline color."
         >
-          <MainSection.Card
-            defaultCode={`
-<Box color="infoBase" width="50%" padding={4} rounding={3}>
-  <Flex direction="column" gap={{ column: 3, row: 0 }} alignItems="center">
-    <Text color="inverse" weight="bold" size="600">Tips</Text>
-      <Flex gap={{ row: 1, column: 0 }} alignItems="center">
-        <Text color="inverse" size="400" align="center" weight="bold">
-          <Link href="https://pinterest.com" display="inline">Add a Pinterest widget</Link>{" "}
-          and get inspired right from your phone's home screen.
-        </Text>
-      </Flex>
-  </Flex>
-</Box>
-`}
-          />
+          <SandpackExample code={variantLinkText} layout="column" name="Variants - Link and Text" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -586,76 +332,35 @@ However, Link's underline style can be overridden at any time using the \`underl
         >
           <MainSection.Card
             title="Inline Link"
-            defaultCode={`
-<Text inline>
-  Find tips and best practices on the
-  <Link href="https://business.pinterest.com/" display="inline"> Pinterest Business Site </Link>
-</Text>
-`}
+            sandpackExample={
+              <SandpackExample code={variantInlineLink} name="Variants - Inline Link" />
+            }
           />
           <MainSection.Card
             title="Standalone Link"
-            defaultCode={`
-<Flex gap={{ row: 4, column: 0 }} width="100%" wrap width={300}>
-  {[
-    'About',
-    'Blog',
-    'Business',
-    'Careers',
-    'Developers',
-    'Removals',
-    'Privacy',
-    'Personalized ads',
-    'Terms',
-  ].map((item, idx) => {
-    return (
-      <Text key={idx} color="subtle" weight="bold">
-        <Box paddingY={1}>
-          <Link href="https://www.pinterest.com/">
-            {item}
-          </Link>
-        </Box>
-      </Text>
-    );
-  })}
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample code={variantStandaloneLink} name="Variants - Standalone Link" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             title="Inline Link with overridden underline"
-            defaultCode={`
-<Flex gap={{ row: 2, column: 0 }} alignItems="center">
-  <Box aria-hidden>
-    <Avatar
-      name="Shanice Romero"
-      accessibilityLabel="Shanice Romero"
-      size="sm"
-      src="https://i.ibb.co/7tGKGvb/shanice.jpg"
-    />
-  </Box>
-  <Text>
-    <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Shanice Romero </Link>
-    </Text>
-    {" "}saved to
-    <Text weight="bold" inline>
-      <Link href="https://www.pinterest.com" display="inline" underline="hover"> Capoeira </Link>
-    </Text>
-    </Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={variantInlineOverride}
+                name="Variants - Inline Overriden Underline"
+              />
+            }
           />
           <MainSection.Card
             title="Link with hidden underline"
-            defaultCode={`
-<Flex gap={{ column: 2, row: 0 }} direction="column">
-  <Text weight="bold">
-    <Link href="https://www.pinterest.com" display="inline" underline="none">I'm a link with no underline</Link>
-  </Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={variantHiddenUnderline}
+                name="Variants - Inline Overriden Underline"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -696,13 +401,11 @@ However, Link's underline style can be overridden at any time using the \`underl
               onClick: () => {},
             }}
           />
-          <MainSection.Card
-            defaultCode={`
-<Text inline>
-  Find tips and best practices on the
-  <Link href="https://business.pinterest.com/" display="inline"> Pinterest Business Site</Link>
-</Text>
-`}
+          <SandpackExample
+            previewHeight={160}
+            code={variantTarget}
+            layout="column"
+            name="Variants - Target"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -723,31 +426,12 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
       `}
       >
         <MainSection.Card
-          defaultCode={`
-<Text inline>
-  To receive push notifications instead of texts,
-  <Link href="https://authy.com/download/" display="inline" externalLinkIcon="default" target="blank" rel="nofollow">download the Authy app</Link>
-</Text>
-`}
+          sandpackExample={
+            <SandpackExample code={variantExternalIcon} name="Variant - External Icon" />
+          }
         />
         <MainSection.Card
-          defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Text inline size="100">
-    Visit
-    <Link href="https://authy.com/download/" display="inline" externalLinkIcon={{ size: "100" }} target="blank" rel="nofollow">
-    MyBusiness.com
-    </Link>{" "}
-    for shipping details
-  </Text>
-  <Text inline size="400" color="success">
-    <Link href="https://authy.com/download/" display="inline" externalLinkIcon={{ size: "400", color: "success" }} target="blank" rel="nofollow">
-      MyBusiness.com
-    </Link>{" "}
-    was successfully claimed
-  </Text>
-</Flex>
-`}
+          sandpackExample={<SandpackExample code={variantRel} name="Variant - Rel" />}
         />
       </MainSection.Subsection>
 

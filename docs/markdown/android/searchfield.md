@@ -1,5 +1,5 @@
 ---
-title: Search Field
+title: SearchField
 description: SearchField allows users to search for specific content within the Pinterest app. 
 fullwidth: true
 ---

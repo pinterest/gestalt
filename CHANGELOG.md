@@ -1,3 +1,45 @@
+## 109.0.5 (Apr 17, 2023)
+
+### Patch
+
+- Docs: additional information about releases: codemod outputs in csv and alpha release process ([#2845](https://github.com/pinterest/gestalt/pull/2845)) - [Preview link](https://deploy-preview-2845--gestalt.netlify.app)
+
+## 109.0.4 (Apr 17, 2023)
+
+### Patch
+
+- SheetMobile: Added additional header and footer context ([#2842](https://github.com/pinterest/gestalt/pull/2842)) - [Preview link](https://deploy-preview-2842--gestalt.netlify.app)
+
+## 109.0.3 (Apr 14, 2023)
+
+### Patch
+
+- TextArea: Add Android guidelines and specs
+
+## 109.0.2 (Apr 14, 2023)
+
+### Patch
+
+- Internal: upgrade Flow to 0.188.2 ([#2841](https://github.com/pinterest/gestalt/pull/2841)) - [Preview link](https://deploy-preview-2841--gestalt.netlify.app)
+
+## 109.0.1 (Apr 14, 2023)
+
+### Patch
+
+- Link: Convert examples to use Sandpack ([#2828](https://github.com/pinterest/gestalt/pull/2828)) - [Preview link](https://deploy-preview-2828--gestalt.netlify.app)
+
+## 109.0.0 (Apr 14, 2023)
+
+### Major
+
+- Internal: Stop generating inline sourcemaps ([#2833](https://github.com/pinterest/gestalt/pull/2833)) - [Preview link](https://deploy-preview-2833--gestalt.netlify.app)
+
+## 108.0.7 (Apr 13, 2023)
+
+### Patch
+
+- Internal: upgrade @codesandbox/sandpack-react to 2.6.0 ([#2830](https://github.com/pinterest/gestalt/pull/2830)) - [Preview link](https://deploy-preview-2830--gestalt.netlify.app)
+=======
 ## 109.0.1-alpha.0 (Apr 14, 2023)
 
 ### Prerelease
