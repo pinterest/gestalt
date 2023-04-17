@@ -1,3 +1,9 @@
+## 109.0.4 (Apr 17, 2023)
+
+### Patch
+
+- SheetMobile: Added additional header and footer context ([#2842](https://github.com/pinterest/gestalt/pull/2842)) - [Preview link](https://deploy-preview-2842--gestalt.netlify.app)
+
 ## 109.0.3 (Apr 14, 2023)
 
 ### Patch
