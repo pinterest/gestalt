@@ -1,3 +1,9 @@
+## 109.0.5 (Apr 17, 2023)
+
+### Patch
+
+- Docs: additional information about releases: codemod outputs in csv and alpha release process ([#2845](https://github.com/pinterest/gestalt/pull/2845)) - [Preview link](https://deploy-preview-2845--gestalt.netlify.app)
+
 ## 109.0.4 (Apr 17, 2023)
 
 ### Patch
