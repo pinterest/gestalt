@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './Image.css';
 import Box from './Box.js';
 
-const shouldScaleImage = (fit) => fit === 'cover' || fit === 'contain';
+const shouldScaleImage = (fit: void | "contain" | "cover" | "none") => fit === 'cover' || fit === 'contain';
 
 type Props = {|
   /**

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
+import type { Node as $IMPORTED_TYPE$_Node } from "react";import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
 import styles from './Table.css';
 import Box from './Box.js';
 import { useTableContext } from './contexts/TableContext.js';
@@ -35,7 +35,7 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
     }
   }, [stickyColumns]);
 
-  const renderCellWithAdjustedIndex = (child, index) => {
+  const renderCellWithAdjustedIndex = (child: $IMPORTED_TYPE$_Node, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns

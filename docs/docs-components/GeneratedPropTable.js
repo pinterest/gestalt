@@ -51,7 +51,7 @@ function getDefaultValue(description?: string): {
   };
 }
 
-function removeDomain(description) {
+function removeDomain(description: $FlowFixMe | string) {
   return { description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '') };
 }
 

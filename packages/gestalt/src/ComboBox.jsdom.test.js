@@ -1,5 +1,5 @@
 // @flow strict
-import { fireEvent, render, screen } from '@testing-library/react';
+import type { Node } from "react";import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ComboBox from './ComboBox.js';
 import Tag from './Tag.js';
@@ -44,7 +44,8 @@ describe('ComboBox', () => {
     />
   ));
 
-  const renderComboBox = ({
+  const renderComboBox = (
+  {
     // Cmp Props
     accessibilityClearButtonLabel = CLEAR,
     disabled = false,
@@ -64,8 +65,22 @@ describe('ComboBox', () => {
     placeholder = PLACEHOLDER,
     selectedOption = undefined,
     size = undefined,
-    tags = undefined,
-  }) =>
+    tags = undefined
+  }: 
+    | { ... }
+    | { disabled: boolean }
+    | { inputValue: string, options: Array<{ label: string, value: string }> }
+    | {
+      inputValue: string,
+      options: Array<{ label: string, value: string }>,
+      selectedOption: { label: string, value: string },
+    }
+    | {
+      inputValue: string,
+      options: Array<{ label: string, value: string }>,
+      tags: Array<Node>,
+    },
+) =>
     render(
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}

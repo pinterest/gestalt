@@ -2,13 +2,36 @@
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import LZString from 'lz-string';
 
-const compress = (object) =>
+const compress = (
+  object: {
+    files: {
+      "example.js": { content: string },
+      "index.html": { content: string },
+      "index.js": { content: string },
+      "package.json": {
+        content: {
+          dependencies: {
+            gestalt: string,
+            "gestalt-datepicker": string,
+            react: string,
+            "react-dom": string,
+          },
+          devDependencies: { "react-scripts": string },
+          main: string,
+          scripts: { start: string },
+          title: string,
+        },
+      },
+    },
+    module: string,
+  },
+) =>
   LZString.compressToBase64(JSON.stringify(object))
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); // Remove ending '='
 
-const exportDefaultMaybe = ({ code }) =>
+const exportDefaultMaybe = ({code}: { code: string }) =>
   code.startsWith('function') || code.startsWith('class')
     ? `export default ${code}`
     : `const Demo = () => (

@@ -6,7 +6,7 @@ import resizeWidth from './utils/resizeWidth.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-async function getItemColumnMap(gridItems) {
+async function getItemColumnMap(gridItems: $FlowFixMe) {
   const itemLeftMap = {};
   for (let i = 0; i < gridItems.length; i += 1) {
     const boundingBox = await gridItems[i].boundingBox();

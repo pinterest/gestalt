@@ -5,13 +5,13 @@ const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
   let cache = measurements;
 
   return {
-    get(item) {
+    get(item: string) {
       return cache[item];
     },
-    has(item) {
+    has(item: string) {
       return !!cache[item];
     },
-    set(item, value) {
+    set(item: string, value: number) {
       cache[item] = value;
     },
     reset() {
@@ -120,7 +120,7 @@ test('justify', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
 
-  const makeLayout = (justify) =>
+  const makeLayout = (justify: string) =>
     defaultLayout({
       cache: stubCache(measurements),
       columnWidth: 100,

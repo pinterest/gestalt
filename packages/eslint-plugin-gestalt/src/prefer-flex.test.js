@@ -14,8 +14,8 @@ const pathFormatter = getPathFormatterByRuleName(ruleName);
 const validPrepender = getTestTypePrepender('valid');
 const invalidPrepender = getTestTypePrepender('invalid');
 
-const mapToValidTestName = (testName) => readTestByPath(pathFormatter(validPrepender(testName)));
-const mapToInvalidTestName = (testName) =>
+const mapToValidTestName = (testName: string) => readTestByPath(pathFormatter(validPrepender(testName)));
+const mapToInvalidTestName = (testName: string) =>
   readTestByPath(pathFormatter(invalidPrepender(testName)));
 
 const validTests = ['display-flex', 'rounding'].map(mapToValidTestName);

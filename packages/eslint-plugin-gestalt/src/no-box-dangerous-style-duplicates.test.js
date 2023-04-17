@@ -16,7 +16,7 @@ const invalidPrepender = getTestTypePrepender('invalid');
 
 const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
-const buildInvalidTest = (name) => readTestByPath(pathFormatter(invalidPrepender(name)));
+const buildInvalidTest = (name: string) => readTestByPath(pathFormatter(invalidPrepender(name)));
 
 const invalidAlignContentInput = buildInvalidTest('invalid-alignContent-input');
 const invalidAlignContentOutput = buildInvalidTest('invalid-alignContent-output');
@@ -86,7 +86,7 @@ const invalidWrapOutput = buildInvalidTest('invalid-wrap-output');
 const invalidZIndexInput = buildInvalidTest('invalid-zIndex-input');
 const invalidZIndexOutput = buildInvalidTest('invalid-zIndex-output');
 
-const getErrorMessage = (error) =>
+const getErrorMessage = (error: ?string) =>
   `Unnecessary Box dangerous styles found. https://gestalt.pinterest.systems/Box\n${error ?? ''}`;
 
 ruleTester.run('no-box-dangerous-style-duplicates', rule, {

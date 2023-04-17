@@ -86,10 +86,10 @@ function setupGlobalFocusEvents() {
   // $FlowExpectedError[method-unbinding]
   const { focus } = HTMLElement.prototype;
   // $FlowIssue[cannot-write]
-  HTMLElement.prototype.focus = function focusElement(...args) {
-    hasEventBeforeFocus = true;
-    focus.apply(this, args);
-  };
+  HTMLElement.prototype.focus = (function focusElement(this: $FlowFixMe, ...args) {
+  hasEventBeforeFocus = true;
+  focus.apply(this, args);
+});
 
   document.addEventListener('keydown', handleKeyboardEvent, true);
   document.addEventListener('keyup', handleKeyboardEvent, true);

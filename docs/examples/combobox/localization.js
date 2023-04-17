@@ -15,7 +15,16 @@ export default function Example(): Node {
 
   const [errorMessage, setErrorMessage] = useState();
 
-  const handleOnBlur = ({ value }) => {
+  const handleOnBlur = (
+  {
+    value
+  }: {
+    event: 
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticEvent<HTMLInputElement>,
+    value: string,
+  },
+) => {
     if (value !== '' && !PRONOUNS.includes(value))
       setErrorMessage('Por favor, selecciona una opción válida');
   };

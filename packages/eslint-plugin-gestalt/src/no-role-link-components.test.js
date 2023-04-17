@@ -24,7 +24,7 @@ const invalidTapArea = readFileSync(
   'utf-8',
 );
 
-const getErrorMessage = (cmp) =>
+const getErrorMessage = (cmp: string) =>
   `${cmp} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${cmp}Link.js instead.`;
 
 ruleTester.run('no-role-link-components', rule, {

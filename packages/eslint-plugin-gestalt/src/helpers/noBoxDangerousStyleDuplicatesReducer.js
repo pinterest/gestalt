@@ -1,5 +1,5 @@
 // @flow strict
-import {
+import type { GenericType } from "./reducerTypes";import {
   type ReducerType,
   type GenerateDefaultMessageType,
   type BuildReducerType,
@@ -36,7 +36,16 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
 
     // This function manages all suggested alternatives, if existing
-    const handleAlternative = ({ alternative }) => {
+    const handleAlternative = (
+  {
+    alternative
+  }: 
+    | { alternative: string }
+    | { alternative: ?string }
+    | { alternative: string | void }
+    | { alternative: ?(number | string) }
+    | { alternative: ?string },
+) => {
       if (alternative) {
         accumulatorAlternativesBuilder.push({
           node,
@@ -47,7 +56,7 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
     };
 
     // This function is guard clause for those opt-out props from ESLint configuration
-    function includeKey(keyName) {
+    function includeKey(keyName: GenericType) {
       const { onlyKeys } = context?.options?.[0] ?? {}; // Access options from ESLint configuration
       return !onlyKeys || onlyKeys.includes(keyName);
     }

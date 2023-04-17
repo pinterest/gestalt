@@ -148,7 +148,9 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     />
   );
 
-  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+  const handleClick = (event: 
+  | SyntheticKeyboardEvent<HTMLAnchorElement>
+  | SyntheticMouseEvent<HTMLAnchorElement>, dangerouslyDisableOnNavigation: (() => void)) =>
     onClick
       ? onClick({
           event,
@@ -156,7 +158,17 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
         })
       : undefined;
 
-  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
+  const handleLinkClick = (
+  {
+    event,
+    dangerouslyDisableOnNavigation
+  }: {
+    dangerouslyDisableOnNavigation: () => void,
+    event: 
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  },
+) =>
     handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = () => {

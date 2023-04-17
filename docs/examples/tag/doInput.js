@@ -6,7 +6,7 @@ export default function Example(): Node {
   const [tags, setTags] = useState<$ReadOnlyArray<string>>(['Design systems', 'Color', 'Tokens']);
   const [currentValue, setCurrentValue] = useState<string>('');
 
-  const handleChange = ({ value }) => {
+  const handleChange = ({value}: { event: SyntheticInputEvent<HTMLInputElement>, value: string }) => {
     setCurrentValue(value);
   };
 

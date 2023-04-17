@@ -2,7 +2,7 @@
 import { type Node, useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
-const myI18nTranslator = (val) => val.toUpperCase();
+const myI18nTranslator = (val: string) => val.toUpperCase();
 
 const labels = {
   ComboBox: {
@@ -70,7 +70,16 @@ const pronouns = [
 export default function Example(): Node {
   const [errorMessage, setErrorMessage] = useState();
 
-  const handleOnBlur = ({ value }) => {
+  const handleOnBlur = (
+  {
+    value
+  }: {
+    event: 
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticEvent<HTMLInputElement>,
+    value: string,
+  },
+) => {
     if (value !== '' && !pronouns.includes(value)) setErrorMessage('Please, select a valid option');
   };
 

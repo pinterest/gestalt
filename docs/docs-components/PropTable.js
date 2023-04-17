@@ -19,11 +19,11 @@ async function copyFlowType(code: string) {
   }
 }
 
-function isNumeric(value) {
+function isNumeric(value: string) {
   return /^-?\d+(\.\d+)?$/.test(value);
 }
 
-const transformDefaultValue = (input) => {
+const transformDefaultValue = (input: ?(number | string | boolean)) => {
   if (input === 'true') {
     return true;
   }
@@ -36,7 +36,29 @@ const transformDefaultValue = (input) => {
   return input;
 };
 
-const sortBy = (list, fn) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
+const sortBy = (list: $ReadOnlyArray<
+  {
+    defaultValue?: boolean | string | number | null,
+    description?: string | $ReadOnlyArray<string>,
+    href?: string,
+    name: string,
+    nullable?: boolean,
+    required?: boolean,
+    responsive?: boolean,
+    type: string,
+  },
+>, fn: ((
+  {
+    defaultValue?: boolean | string | number | null,
+    description?: string | $ReadOnlyArray<string>,
+    href?: string,
+    name: string,
+    nullable?: boolean,
+    required?: boolean,
+    responsive?: boolean,
+    type: string,
+  }
+) => string)) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
 function FormattedCode({ children }: {| children: Node |}) {
   return (

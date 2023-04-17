@@ -35,7 +35,7 @@ const rule: ESLintRule = {
     let localIdentifierName;
     const componentName = 'Button';
 
-    function getAttribute(node, attributeName) {
+    function getAttribute(node, attributeName: string) {
       return Object.entries(node.attributes).find(
         // eslint-disable-next-line no-unused-vars
         ([key, value]) =>
@@ -44,7 +44,7 @@ const rule: ESLintRule = {
       );
     }
 
-    function getValue(attribute) {
+    function getValue(attribute: void | [string, mixed]) {
       // $FlowFixMe[incompatible-use]
       return attribute ? attribute[1].value.value : null;
     }

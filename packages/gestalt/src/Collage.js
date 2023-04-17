@@ -50,7 +50,7 @@ const columnLayout = (numOfColumns: 1 | Column) => {
   }
 };
 
-const paddingAll = (gutter, positions) =>
+const paddingAll = (gutter: number, positions: Array<{ height: number, left: number, top: number, width: number }>) =>
   positions.map(({ top, left, width, height }) => ({
     top,
     left,
@@ -58,7 +58,7 @@ const paddingAll = (gutter, positions) =>
     height: height - gutter,
   }));
 
-const mindex = (arr) => arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
+const mindex = (arr: Array<number>) => arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
 
 const columnsForCollageWithCover = (numOfColumns: Column) => (numOfColumns === 4 ? 2 : 1);
 

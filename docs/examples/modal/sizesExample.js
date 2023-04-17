@@ -3,7 +3,7 @@ import { type Node, useReducer } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Layer, Modal, Heading } from 'gestalt';
 
 export default function SizesExample(): Node {
-  function reducer(state, action) {
+  function reducer(state: { modal: string }, action: { type: string }) {
     switch (action.type) {
       case 'small':
         return { modal: 'small' };

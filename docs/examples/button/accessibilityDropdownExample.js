@@ -7,7 +7,14 @@ export default function ActionDropdownExample(): Node {
   const [selected, setSelected] = useState(null);
   const anchorRef = useRef(null);
 
-  const onSelect = ({ item }) => setSelected(item);
+  const onSelect = (
+  {
+    item
+  }: {
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: { label: string, subtext?: string, value: string },
+  },
+) => setSelected(item);
 
   return (
     <Box padding={8} display="flex" justifyContent="center" width="100%">

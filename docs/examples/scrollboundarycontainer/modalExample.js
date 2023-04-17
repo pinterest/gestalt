@@ -23,7 +23,14 @@ export default function ScrollBoundaryContainerExample(): Node {
   const [parentComponent, setParentComponent] = useState('modal');
   const anchorDropdownRef = useRef(null);
 
-  const handleSelect = ({ item }) => setSelected(item);
+  const handleSelect = (
+  {
+    item
+  }: {
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: { label: string, subtext?: string, value: string },
+  },
+) => setSelected(item);
 
   const MODAL_Z_INDEX = new FixedZIndex(11);
 

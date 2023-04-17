@@ -120,7 +120,7 @@ function iconHasKeyword(iconName?: string, searchTerm: string) {
   return (
     iconCategoryData.icons.find(
       ({ name, keywords }) =>
-        name === iconName && keywords?.find((word) => word.includes(searchTerm)),
+        name === iconName && (keywords?.find(word => word.includes(searchTerm))),
     ) !== undefined
   );
 }
@@ -143,7 +143,7 @@ export default function IconPage(): Node {
   const [inputValue, setInputValue] = useState();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
-  const handleOnChange = ({ value }) => {
+  const handleOnChange = ({value}: { syntheticEvent: SyntheticEvent<HTMLInputElement>, value: string }) => {
     setInputValue(value);
     setSuggestedOptions(
       value

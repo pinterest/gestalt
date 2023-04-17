@@ -70,7 +70,7 @@ class Contents extends Component<Props, State> {
     caret: true,
   };
 
-  state = {
+  state: State = {
     popoverOffset: {
       top: undefined,
       left: undefined,
@@ -203,7 +203,7 @@ class Contents extends Component<Props, State> {
     }
   };
 
-  calcTopHeight() {
+  calcTopHeight(): { height: null, top: null } | { height: number, top: number | null } {
     if (!window || !document) {
       return { top: null, height: null };
     }

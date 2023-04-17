@@ -15,7 +15,7 @@ import {
 } from 'gestalt';
 
 export default function Example(): Node {
-  function reducer(state, action) {
+  function reducer(state: { heading: string, size: string } | { heading: void | string } | { ... }, action: { type: string }) {
     switch (action.type) {
       case 'small':
         return { heading: 'Small overlay panel', size: 'sm' };

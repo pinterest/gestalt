@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState, useEffect } from 'react';
+import type { siteIndexType } from "./siteIndex";import { type Node, useState, useEffect } from 'react';
 import { SideNavigation, Flex, SelectList } from 'gestalt';
 import { useRouter } from 'next/router';
 import { useNavigationContext } from './navigationContext.js';
@@ -84,10 +84,10 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
   );
 
   useEffect(() => {
-    const isComponentsCallback = (section) =>
+    const isComponentsCallback = (section: siteIndexType) =>
       convertNamesForURL(section.sectionName).includes(componentPlatformFilteredBy);
 
-    const isNotComponentsCallback = (section) =>
+    const isNotComponentsCallback = (section: siteIndexType) =>
       isMobile
         ? section.sectionName === selectedTab
         : (dynamicUrlPath || pathname).includes(convertNamesForURL(section.sectionName));

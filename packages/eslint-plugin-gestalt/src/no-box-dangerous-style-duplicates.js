@@ -147,15 +147,17 @@ const rule: ESLintRule = {
       // exit if there are not style properties alternatives to suggest/autofix
       if (!validatorResponse.map((a) => !!a.prop).filter(Boolean).length) return null;
 
-      const newPropsToAddToBox = validatorResponse
-        ?.map((alternative) => {
-          if (typeof alternative.prop === 'string' && alternative.prop.startsWith('zIndex')) {
-            addFixedZIndex = true;
-          }
-          return alternative.prop;
-        })
-        .sort()
-        .join(' ');
+      const newPropsToAddToBox = validatorResponse?.map(
+  alternative => {
+    if (
+      typeof alternative.prop === 'string' &&
+        alternative.prop.startsWith('zIndex')
+    ) {
+      addFixedZIndex = true;
+    }
+    return alternative.prop;
+  },
+).sort().join(' ');
 
       const attributesToRemoveFromDangerouslySetInlineStyle = isFixable
         ? validatorResponse.map(

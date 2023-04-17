@@ -5,7 +5,7 @@ import getServerURL from './utils/getServerURL.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-const getItemColumnMap = async (page) => {
+const getItemColumnMap = async (page: $FlowFixMe) => {
   const gridItems = await getGridItems(page);
   const itemLeftMap = {};
 

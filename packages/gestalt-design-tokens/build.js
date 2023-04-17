@@ -61,7 +61,7 @@ function darkFormat(dictionary) {
   });
 }
 
-function darkFormatWrapper(format) {
+function darkFormatWrapper(format: string) {
   return (args) => {
     const dictionary = { ...args.dictionary };
     // Override each token's `value` with `darkValue`

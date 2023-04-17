@@ -53,7 +53,7 @@ const rule: ESLintRule = {
       // access the component with spread props
       const componentName = getComponentNameFromAttribute({ nodeAttribute });
 
-      const isGestaltComponent = importedComponents?.map((cmp) => cmp[1]).includes(componentName);
+      const isGestaltComponent = importedComponents?.map(cmp => cmp[1]).includes(componentName);
 
       if (!isGestaltComponent) {
         return null;

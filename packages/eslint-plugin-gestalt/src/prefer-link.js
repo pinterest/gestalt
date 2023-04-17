@@ -111,7 +111,7 @@ const rule: ESLintRule = {
         reducerCallbackFn: preferLinkReducer,
       });
 
-      const newPropsToAddToLink = ({ alternativeComponent }) => {
+      const newPropsToAddToLink = ({alternativeComponent}: { alternativeComponent: string }) => {
         const newResponse =
           alternativeComponent === 'Link'
             ? [...validatorResponse]
@@ -119,32 +119,26 @@ const rule: ESLintRule = {
 
         switch (alternativeComponent) {
           case 'Link':
-            return newResponse
-              ?.map((alternative) => alternative.prop)
-              .sort()
-              .join(' ');
+            return newResponse?.map(alternative => alternative.prop).sort().join(' ');
 
           case 'TapArea':
-            return newResponse
-              ?.map((alternative) => {
-                if (
-                  typeof alternative.prop === 'string' &&
-                  alternative.prop.startsWith('accessibilitySelected')
-                ) {
-                  return false;
-                }
-                if (
-                  typeof alternative.prop === 'string' &&
-                  alternative.prop.startsWith('onKeyPress')
-                ) {
-                  return false;
-                }
-                return alternative.prop;
-              })
-              .filter(Boolean)
-              .sort()
-              .join(' ')
-              .replace('onClick', 'onTap');
+            return newResponse?.map(
+  alternative => {
+    if (
+      typeof alternative.prop === 'string' &&
+        alternative.prop.startsWith('accessibilitySelected')
+    ) {
+      return false;
+    }
+    if (
+      typeof alternative.prop === 'string' &&
+        alternative.prop.startsWith('onKeyPress')
+    ) {
+      return false;
+    }
+    return alternative.prop;
+  },
+).filter(Boolean).sort().join(' ').replace('onClick', 'onTap');
 
           default:
             return '';

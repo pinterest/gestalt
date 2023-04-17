@@ -20,13 +20,13 @@ export default function App({ children, files }: Props): Node {
   const router = useRouter();
 
   // $FlowIssue[prop-missing]
-  const isLeftClickEvent = (event) => event.button === 0; // ignore everything but left clicks
-  const isModifiedEvent = (event) =>
+  const isLeftClickEvent = (event: SyntheticEvent<EventTarget, Event>) => event.button === 0; // ignore everything but left clicks
+  const isModifiedEvent = (event: SyntheticEvent<EventTarget, Event>) =>
     // $FlowIssue[prop-missing]
     !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey); // ignore clicks with modifier keys
 
-  const useOnNavigation = ({ href, target }) => {
-    const onNavigationClick = ({ event }) => {
+  const useOnNavigation = ({href, target}: { href: string, target?: null | "self" | "blank" }) => {
+    const onNavigationClick = ({event}: { +event: SyntheticEvent<> }) => {
       if (event.defaultPrevented) return; // onClick prevented default
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       if (target === 'blank') return; // let browser handle "target=_blank"

@@ -115,7 +115,7 @@ export default function HelpButton({
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
-  const handlePopoverKeyDown = ({ event }) => {
+  const handlePopoverKeyDown = ({event}: { event: SyntheticKeyboardEvent<HTMLElement> }) => {
     // Avoid others KeyDown events to listen this call
     if (innerModalFocus) event.stopPropagation();
 
@@ -141,7 +141,15 @@ export default function HelpButton({
     }
   };
 
-  const handleTapAreaKeyDown = ({ event }) => {
+  const handleTapAreaKeyDown = (
+  {
+    event
+  }: {
+    event: 
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  },
+) => {
     if (event.keyCode === TAB && open) {
       event.preventDefault();
       textRef.current?.focus();
@@ -155,7 +163,16 @@ export default function HelpButton({
     setOpen((currVal) => !currVal);
   };
 
-  const onHandleTap = (...args) => {
+  const onHandleTap = (...args: Array<
+  {
+    dangerouslyDisableOnNavigation: () => void,
+    event: 
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  },
+>) => {
     toggleView();
     onClick?.(...args);
   };

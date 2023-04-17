@@ -1,6 +1,6 @@
 // @flow strict
 
-const contains = (key, arr) => arr.indexOf(key) >= 0;
+const contains = (key: string, arr: $ReadOnlyArray<string>) => arr.indexOf(key) >= 0;
 // $FlowExpectedError[unclear-type]
 const omit = (keys: $ReadOnlyArray<string>, obj: Object): Object =>
   Object.keys(obj).reduce((acc, k: string) => {

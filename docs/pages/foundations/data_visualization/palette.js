@@ -70,7 +70,7 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
   );
 }
 
-function getColorTiles(colors, mode = 'light'): Node {
+function getColorTiles(colors: Array<{ darkText: string, lightText: string, name: string }>, mode: string = 'light'): Node {
   return (
     <Flex
       direction="column"

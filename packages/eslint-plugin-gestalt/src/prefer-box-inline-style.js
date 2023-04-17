@@ -19,7 +19,7 @@ function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
 }
 
-function getVariableDefinedStyles(ref) {
+function getVariableDefinedStyles(ref: $FlowFixMe) {
   return ref.resolved &&
     ref.resolved.defs &&
     ref.resolved.defs[0] &&

@@ -69,7 +69,11 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
 
     const { isFocusVisible } = useFocusVisible();
 
-    const handleClick = (event) => (onClick ? onClick({ event }) : undefined);
+    const handleClick = (
+  event: 
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
+) => (onClick ? onClick({ event }) : undefined);
 
     const handleOnBlur = () => setFocused(false);
 

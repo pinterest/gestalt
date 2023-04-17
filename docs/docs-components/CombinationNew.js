@@ -12,13 +12,13 @@ type Props = {
   ...
 };
 
-const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
-const combinations = (variationsByField) => {
+const flatMap = (arr, fn: ((newAcc: { ... }) => $FlowFixMe)) => arr.map(fn).reduce((a, b) => a.concat(b));
+const combinations = (variationsByField: { ... }) => {
   const fieldNames = Object.keys(variationsByField);
 
   if (!fieldNames.length) return [{}];
 
-  const combine = ([fieldName, ...restFieldNames], acc) => {
+  const combine = ([fieldName, ...restFieldNames]: Array<empty>, acc: { ... }) => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
@@ -39,7 +39,7 @@ const combinations = (variationsByField) => {
   return combine(fieldNames, {});
 };
 
-const toReactAttribute = (key, value) => {
+const toReactAttribute = (key: string, value: $FlowFixMe) => {
   switch (typeof value) {
     case 'boolean':
       return (value && key).toString();

@@ -67,7 +67,7 @@ const rule: ESLintRule = {
       if (!isGestaltImportNode) return;
 
       componentName =
-        node?.specifiers?.find((item) => item?.imported?.name === 'Icon')?.local?.name || 'Icon';
+        (node?.specifiers?.find(item => item?.imported?.name === 'Icon')?.local?.name) || 'Icon';
       gestaltImportNode = node;
     };
 

@@ -5,7 +5,7 @@ import { Box, Flex, Link, Text } from 'gestalt';
 const HEADER_HEIGHT_PX = 60;
 const FOOTER_HEIGHT_PX = 112;
 
-function throttle(func, wait) {
+function throttle(func: null | (() => void), wait: number) {
   let context;
   let args;
   let result;
@@ -27,38 +27,38 @@ function throttle(func, wait) {
       args = null;
     }
   }
-  return function throttled(...params) {
-    if (!func) {
-      return null;
+  return function throttled(this: null, ...params) {
+  if (!func) {
+    return null;
+  }
+  const now = Date.now();
+  if (!previous) previous = now;
+  const remaining = wait - (now - previous);
+  context = this;
+  args = params;
+  if (remaining <= 0 || remaining > wait) {
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
     }
-    const now = Date.now();
-    if (!previous) previous = now;
-    const remaining = wait - (now - previous);
-    context = this;
-    args = params;
-    if (remaining <= 0 || remaining > wait) {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-      previous = now;
-      if (args) {
-        result = func.apply(context, args);
-      } else {
-        result = func.apply(context);
-      }
-      if (!timeout) {
-        context = null;
-        args = null;
-      }
-    } else if (!timeout) {
-      timeout = setTimeout(later, remaining);
+    previous = now;
+    if (args) {
+      result = func.apply(context, args);
+    } else {
+      result = func.apply(context);
     }
-    return result;
-  };
+    if (!timeout) {
+      context = null;
+      args = null;
+    }
+  } else if (!timeout) {
+    timeout = setTimeout(later, remaining);
+  }
+  return result;
+};
 }
 
-function useThrottledOnScroll(callback, delay) {
+function useThrottledOnScroll(callback: null | (() => void), delay: number) {
   const throttledCallback = useMemo(() => throttle(callback, delay), [callback, delay]);
 
   useEffect(() => {
@@ -120,7 +120,9 @@ export default function Toc({ cards }: Props): Node {
   // Corresponds to 10 frames at 60 Hz
   useThrottledOnScroll(anchors.length > 0 ? findActiveIndex : null, 166);
 
-  const handleClick = (hash, event) => {
+  const handleClick = (hash: string, event: 
+  | SyntheticKeyboardEvent<HTMLAnchorElement>
+  | SyntheticMouseEvent<HTMLAnchorElement>) => {
     // Ignore click for new tab/new window behavior
     if (
       event.defaultPrevented ||
