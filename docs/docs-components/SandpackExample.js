@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, Fragment, type Node } from 'react';
+import { useEffect, useState, Fragment, type Node } from 'react';
 import {
   SandpackProvider,
   SandpackLayout,
@@ -159,6 +159,12 @@ export default function SandpackExample({
   const { colorScheme, devExampleMode, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
+
+  // If the user changes the color scheme or text direction, update examples
+  useEffect(() => {
+    setExampleColorScheme(colorScheme);
+    setExampleTextDirection(textDirection);
+  }, [colorScheme, textDirection]);
 
   return devExampleMode === 'default' ? (
     <SandpackProvider
