@@ -14,8 +14,8 @@ export default function CodeExampleDarkModeButton({ currentMode, onClick }: Prop
   return (
     <IconButton
       accessibilityLabel={label}
-      iconColor={currentMode === 'dark' ? 'gray' : 'darkGray'}
-      icon="lightbulb"
+      iconColor="darkGray"
+      icon={currentMode === 'dark' ? 'sun' : 'moon'}
       onClick={() => {
         trackButtonClick('Toggle dark mode for code example');
         onClick();
