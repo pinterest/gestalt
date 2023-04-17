@@ -1,3 +1,9 @@
+## 109.1.0 (Apr 17, 2023)
+
+### Minor
+
+- Icon: add sun/moon icons, use in docs dark mode button ([#2850](https://github.com/pinterest/gestalt/pull/2850)) - [Preview link](https://deploy-preview-2850--gestalt.netlify.app)
+
 ## 109.0.5 (Apr 17, 2023)
 
 ### Patch
