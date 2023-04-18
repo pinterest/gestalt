@@ -97,7 +97,7 @@ fullwidth: true
 
 A minimum text size of 16pt is recommended for readability, especially for longer blocks of text. Some short text labels or secondary text can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability.
 
-### Dynamic Type sizes for accessibility (iOS)
+### Dynamic Type sizes for accessibility
 
 As users scale text with Accessibility settings, sizes should scale according to iOS defaults. Our text sizes when Accessibility settings are turned on are below.
 
