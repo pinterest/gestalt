@@ -8,10 +8,10 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/tiledata/main.js';
 import color from '../../examples/tiledata/color.js';
-import group from '../../examples/tiledata/group.js';
 import disabled from '../../examples/tiledata/disabled.js';
+import group from '../../examples/tiledata/group.js';
+import main from '../../examples/tiledata/main.js';
 import tooltip from '../../examples/tiledata/tooltip.js';
 
 export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -45,7 +45,7 @@ function Example() {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`TileData can be used with a tooltip to display clarifying information`}
+          description="TileData can be used with a tooltip to display clarifying information"
           title="Tooltip"
         >
           <MainSection.Card
@@ -54,7 +54,7 @@ function Example() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Removes interactivity from the element`}
+          description="Removes interactivity from the element"
           title="Disabled"
         >
           <MainSection.Card

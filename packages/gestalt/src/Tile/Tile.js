@@ -1,16 +1,14 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
-import styles from './Tile.css';
-import Box from '../Box.js';
-
 import classnames from 'classnames';
-import useInteractiveStates from '../utils/useInteractiveStates';
-import Tooltip from '../Tooltip.js';
-import Flex from '../Flex.js';
 import Checkbox from '../Checkbox.js';
-import { FixedZIndex } from '../zIndex';
-import useFocusVisible from '../useFocusVisible';
-import { ENTER } from '../keyCodes';
+import Flex from '../Flex.js';
+import { ENTER } from '../keyCodes.js';
+import Tooltip from '../Tooltip.js';
+import useFocusVisible from '../useFocusVisible.js';
+import useInteractiveStates from '../utils/useInteractiveStates.js';
+import { FixedZIndex } from '../zIndex.js';
+import styles from './Tile.css';
 
 type Props = {|
   /**
@@ -51,11 +49,32 @@ type Props = {|
   tooltip?: string,
 |};
 
+function DisabledOverlay() {
+  return <div className={classnames(styles.tile, styles.disabledOverlay)} />;
+}
+
+function TooltipWrapper({
+  tooltip,
+  disabled,
+  children,
+}: {|
+  tooltip?: string,
+  children: Node,
+  disabled?: boolean,
+|}) {
+  const tooltipZIndex = new FixedZIndex(1);
+  if (!tooltip || disabled) return children;
+  return (
+    <Tooltip idealDirection="up" text={tooltip} zIndex={tooltipZIndex}>
+      {children}
+    </Tooltip>
+  );
+}
+
 /**
  * [Tile] https://gestalt.pinterest.systems/web/tiledata component should be used for ... on the page.
  */
 export default function Tile({
-  accessibilityLabel = '',
   bgColor,
   borderColor,
   id = '',
@@ -66,7 +85,7 @@ export default function Tile({
   showCheckbox,
   onSelected,
 }: Props): Node {
-  const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+  const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
 
   const [isSelected, setIsSelected] = useState(selected);
@@ -91,32 +110,18 @@ export default function Tile({
   };
 
   const generateSelectedColorStyles = () => {
-    const styles: React.CSSProperties = {};
+    const colorStyles: React.CSSProperties = {};
     if (!isSelected) return styles;
 
     // the interal base component uses hex codes
     // but could be passed in pre-tokenized values
     if (borderColor.startsWith('#') && borderColor) {
-      styles.borderColor = `${borderColor}`;
+      colorStyles.borderColor = `${borderColor}`;
     }
     if (bgColor.startsWith('#') && bgColor) {
-      styles.backgroundColor = `${bgColor}`;
+      colorStyles.backgroundColor = `${bgColor}`;
     }
-    return styles;
-  };
-
-  const DisabledOverlay = () => {
-    return <div className={classnames(styles.tile, styles.disabledOverlay)} />;
-  };
-
-  const TooltipWrapper = ({ tooltip, children }: { tooltip?: string, children: Node }) => {
-    const tooltipZIndex = new FixedZIndex(1);
-    if (!tooltip || disabled) return children;
-    return (
-      <Tooltip idealDirection="up" text={tooltip} zIndex={tooltipZIndex}>
-        {children}
-      </Tooltip>
-    );
+    return colorStyles;
   };
 
   const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
@@ -130,6 +135,7 @@ export default function Tile({
       {disabled && <DisabledOverlay />}
       <TooltipWrapper tooltip={tooltip}>
         <div
+          tabIndex={0}
           role="button"
           className={classes}
           onBlur={handleOnBlur}

@@ -1,11 +1,11 @@
 // @flow strict
-import { useState } from "react";
+import { useState } from 'react';
 
 /**
  * Returns event handlers that manage state for active, focus and hover states
  * @returns handled states
  */
-const useInteractiveStates = (): {
+const useInteractiveStates = (): ({
   handleOnBlur: () => void,
   handleOnFocus: () => void,
   handleOnMouseDown: () => void,
@@ -14,8 +14,8 @@ const useInteractiveStates = (): {
   handleOnMouseUp: () => void,
   isActive: boolean,
   isFocused: boolean,
-  isHovered: boolean
-} => {
+  isHovered: boolean,
+}) => {
   const [isActive, setActive] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
@@ -45,7 +45,18 @@ const useInteractiveStates = (): {
     setHovered(false);
   };
 
-  return { handleOnBlur, handleOnFocus, handleOnMouseDown, handleOnMouseUp, handleOnMouseLeave, handleOnMouseEnter, handleOnMouseLeave, isActive, isFocused, isHovered };
+  return {
+    handleOnBlur,
+    handleOnFocus,
+    handleOnMouseDown,
+    handleOnMouseUp,
+    handleOnMouseLeave,
+    handleOnMouseEnter,
+    handleOnMouseLeave,
+    isActive,
+    isFocused,
+    isHovered,
+  };
 };
 
 export default useInteractiveStates;
