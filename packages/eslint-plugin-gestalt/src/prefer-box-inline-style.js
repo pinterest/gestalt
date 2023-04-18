@@ -20,7 +20,8 @@ function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
 }
 
-function getVariableDefinedStyles(ref: $FlowFixMe) {
+// $FlowFixMe[missing-local-annot]
+function getVariableDefinedStyles(ref) {
   return ref.resolved &&
     ref.resolved.defs &&
     ref.resolved.defs[0] &&

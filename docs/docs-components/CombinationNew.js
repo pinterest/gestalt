@@ -38,7 +38,8 @@ const combinations = (variationsByField: { ... }) => {
   return combine(fieldNames, {});
 };
 
-const toReactAttribute = (key: string, value: $FlowFixMe) => {
+// $FlowFixMe[unclear-type]
+const toReactAttribute = (key: string, value: any) => {
   switch (typeof value) {
     case 'boolean':
       return (value && key).toString();

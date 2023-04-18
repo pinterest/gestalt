@@ -29,7 +29,8 @@ function getAttributeName(attributeName): ?string {
   return attributeName?.name;
 }
 
-function getExpressionValues(valueExpression: $FlowFixMe): $ReadOnlyArray<string> {
+// $FlowFixMe[missing-local-annot]
+function getExpressionValues(valueExpression): $ReadOnlyArray<string> {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
@@ -77,7 +78,8 @@ function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   );
 }
 
-function hasDangerouslySetFlexDisplay(stylesObject: null | { [string]: $FlowFixMe }): boolean {
+// $FlowFixMe[missing-local-annot]
+function hasDangerouslySetFlexDisplay(stylesObject): boolean {
   if (!stylesObject || !stylesObject.display) {
     return false;
   }

@@ -5,7 +5,8 @@ import getServerURL from './utils/getServerURL.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-const getItemColumnMap = async (page: $FlowFixMe) => {
+// $FlowFixMe[missing-local-annot]
+const getItemColumnMap = async (page) => {
   const gridItems = await getGridItems(page);
   const itemLeftMap = {};
 
