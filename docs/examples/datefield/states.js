@@ -5,12 +5,18 @@ import { DateField } from 'gestalt-datepicker';
 
 export default function Example(): Node {
   return (
-    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
+    <Flex
+      alignItems="center"
+      gap={6}
+      height="100%"
+      justifyContent="center"
+      width="100%"
+      direction="column"
+    >
       <DateField
-        id="errorExample"
+        id="disabled_example"
         disabled
         label="Date of birth"
-        helperText="Enter your date of birth"
         onError={() => {}}
         onChange={() => {}}
         value={new Date('1995-12-17T03:24:00')}
@@ -18,10 +24,9 @@ export default function Example(): Node {
         name="bday_datefield"
       />
       <DateField
-        id="errorExample"
+        id="readonly_example"
         readOnly
         label="Date of birth"
-        helperText="Enter your date of birth"
         onError={() => {}}
         onChange={() => {}}
         value={new Date('1995-12-17T03:24:00')}

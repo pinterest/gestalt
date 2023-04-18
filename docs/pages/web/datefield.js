@@ -109,7 +109,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
-          previewHeight={450}
+          previewHeight={200}
         />
       </PageHeader>
 
