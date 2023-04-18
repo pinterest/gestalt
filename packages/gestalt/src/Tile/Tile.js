@@ -58,12 +58,13 @@ export default function Tile({
   accessibilityLabel = '',
   bgColor,
   borderColor,
-  id = 'no-id-prop-provided-to-tile',
+  id = '',
   disabled = false,
   children,
   selected = false,
   tooltip,
   showCheckbox,
+  onSelected,
 }: Props): Node {
   const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
@@ -84,14 +85,19 @@ export default function Tile({
 
   const handleClick = () => {
     setIsSelected(!isSelected);
+    if (onSelected) {
+      onSelected(id, !isSelected);
+    }
   };
 
   const generateSelectedColorStyles = () => {
     const styles: React.CSSProperties = {};
     if (!isSelected) return styles;
 
+    // the interal base component uses hex codes
+    // but could be passed in pre-tokenized values
     if (borderColor.startsWith('#') && borderColor) {
-      styles.border = `var(--g-border-width) solid ${borderColor}`;
+      styles.borderColor = `${borderColor}`;
     }
     if (bgColor.startsWith('#') && bgColor) {
       styles.backgroundColor = `${bgColor}`;
@@ -100,19 +106,7 @@ export default function Tile({
   };
 
   const DisabledOverlay = () => {
-    return (
-      <div
-        style={{
-          position: 'absolute',
-          backgroundColor: 'var(--g-colorGray100)',
-          height: '100%',
-          width: '100%',
-          opacity: 0.7,
-          zIndex: '100',
-        }}
-        className={styles.tile}
-      />
-    );
+    return <div className={classnames(styles.tile, styles.disabledOverlay)} />;
   };
 
   const TooltipWrapper = ({ tooltip, children }: { tooltip?: string, children: Node }) => {
@@ -149,7 +143,7 @@ export default function Tile({
             <Flex.Item>{children}</Flex.Item>
             <Flex.Item>
               {showCheckbox && (
-                <Checkbox id={id} checked={isSelected} onChange={() => {}} size="sm" />
+                <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
               )}
             </Flex.Item>
           </Flex>

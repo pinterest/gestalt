@@ -20,29 +20,34 @@ type Props = {|
    */
   accessibilityLabel?: string,
   /**
-   * A color from the data visualization palette. if it's not in the pallete
+   * disables interactivity
    */
-  selectedColor: DataVisualizationColors,
+  disabled?: boolean,
+
   /**
    * An identifier to be passed in a callback, and distinguish multiple DataPoints
    */
   id?: string,
   /**
+   * Handler if the item is selected
+   */
+  onSelected: (id: string, selected: boolean) => void,
+  /**
    * Controls whether the tile is selected or not
    */
   selected?: boolean,
   /**
-   * disables interactii
+   * A color from the data visualization palette. if it's not in the pallete
    */
-  disabled?: boolean,
-  /**
-   * Adds a Tooltip on hover/focus of the Tile. See the With Tooltip variant to learn more.
-   */
-  tooltip?: boolean,
+  selectedColor: DataVisualizationColors,
   /**
    * Shows a checkbox. Useful when multi-select is available
    */
   showCheckbox?: boolean,
+  /**
+   * Adds a Tooltip on hover/focus of the Tile. See the With Tooltip variant to learn more.
+   */
+  tooltip?: string,
 |};
 
 /**
@@ -51,14 +56,17 @@ type Props = {|
 export default function TileData({
   accessibilityLabel,
   disabled = false,
-  id,
+  id = 'no-tile-id-provided',
   selected,
   selectedColor = 'data-visualization-05',
   showCheckbox,
+  onSelected,
+  tooltip,
 }: Props): Node {
   // bg color is a standard hex
   const [borderColor, setBorderColor] = useState('');
 
+  /**We use the color hex to generate a shade*/
   const getColorHex = (color: string) =>
     getComputedStyle(document.documentElement).getPropertyValue(`--color-${color}`);
 
@@ -75,13 +83,14 @@ export default function TileData({
 
   return (
     <Tile
-      tooltip="The number of times your Pins were on screen"
+      tooltip={tooltip}
       selected={selected}
       showCheckbox={showCheckbox}
       disabled={disabled}
       id={id}
       bgColor={getBackgroundShade(selectedColor)}
       borderColor={getColorHex(selectedColor)}
+      onSelected={onSelected}
     >
       <DataPoint
         title="Werbeausgaben zurückgeben"

@@ -9,12 +9,12 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/tiledata/main.js';
+import color from '../../examples/tiledata/color.js';
+import group from '../../examples/tiledata/group.js';
+import disabled from '../../examples/tiledata/disabled.js';
+import tooltip from '../../examples/tiledata/tooltip.js';
 
-export default function TileDataPage({
-  generatedDocGen,
-}: {|
-  generatedDocGen: DocGen,
-|}): Node {
+export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -43,7 +43,43 @@ function Example() {
 
       <MainSection name="Subcomponents" />
 
-      <MainSection name="Variants" />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`TileData can be used with a tooltip to display clarifying information`}
+          title="Tooltip"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={tooltip} name="Tooltip variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`Removes interactivity from the element`}
+          title="Disabled"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={disabled} name="Disabled variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`Use TileData's Data Visulization to display multiple colors`}
+          title="Colors"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={color} name="Colors Variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`Use checkboxes when enabling a multi-select experience. You can manage state by passing the \`selected\` prop`}
+          title="Group"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={group} name="Checkbox Variant" />}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Writing" />
 
