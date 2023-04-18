@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Link, Box, Flex, Text, HelpButton } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker, DateField } from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import { useAppContext } from './appContext.js';
 import theme from './atomDark.js';
@@ -54,7 +54,7 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
     return null;
   }
 
-  const scope = { ...gestalt, DatePicker };
+  const scope = { ...gestalt, DatePicker, DateField };
 
   const codeFileCleaned = code
     ?.toString()

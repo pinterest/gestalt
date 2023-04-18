@@ -40,6 +40,7 @@ import Checkbox from '../graphics/general/Checkbox.svg';
 import Collage from '../graphics/general/Collage.svg';
 import ComboBox from '../graphics/general/ComboBox.svg';
 import Datapoint from '../graphics/general/Datapoint.svg';
+import DateField from '../graphics/general/DateField.svg';
 import DatePicker from '../graphics/general/DatePicker.svg';
 import Divider from '../graphics/general/Divider.svg';
 import Dropdown from '../graphics/general/Dropdown.svg';
@@ -124,7 +125,7 @@ export type AccessibleStatus = {|
 
 type PlatformStatus = {|
   accessible: AccessibleStatus,
-  badge: null | 'New' | 'Pilot',
+  badge: null | 'New' | 'Pilot' | 'Experimental',
   deprecated?: boolean,
   documentation: StatusType,
   figma: ?StatusType,
@@ -879,6 +880,58 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <DateField />,
+    name: 'DateField',
+    aliases: [],
+    previouslyNamed: [],
+    hasDarkBackground: false,
+    description:
+      'DateField is used when the user has to select a date. The user must input date values with a numeric keyboard.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: 'ready',
+        a11yScreenreader: 'partial',
+        a11yNavigation: 'partial',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Experimental',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'notAvailable',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
     },
     android: {
       accessible: {
