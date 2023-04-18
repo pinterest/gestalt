@@ -47,6 +47,7 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import disabled from '../../examples/datefield/disabled.js';
 import error from '../../examples/datefield/error.js';
 import main from '../../examples/datefield/main.js';
 import states from '../../examples/datefield/states.js';
@@ -146,6 +147,17 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={states} name="Controlled component example" layout="row" />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Disable future & past"
+          description="DateField supports disabling future & past dates from being selected."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} name="disableRange example" layout="row" />
             }
           />
         </MainSection.Subsection>
