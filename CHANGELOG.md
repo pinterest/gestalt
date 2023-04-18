@@ -1,3 +1,9 @@
+## 110.0.1 (Apr 18, 2023)
+
+### Patch
+
+- Docs: update header icon button toggles ([#2852](https://github.com/pinterest/gestalt/pull/2852)) - [Preview link](https://deploy-preview-2852--gestalt.netlify.app)
+
 ## 110.0.0 (Apr 18, 2023)
 
 ### Major
