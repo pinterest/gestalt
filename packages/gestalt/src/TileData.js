@@ -1,11 +1,7 @@
 // @flow strict
-import { useEffect, type Node, useState } from 'react';
-import styles from './TileData.css';
-import Box from './Box.js';
+import { type Node } from 'react';
+import DataPoint from './Datapoint.js';
 import Tile from './Tile/Tile.js';
-import DataPoint from './Datapoint';
-import generateColorShade from './utils/generateColorShade';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 
 type DataVisualizationColors =
   | 'data-visualization-01'
@@ -15,10 +11,6 @@ type DataVisualizationColors =
   | 'data-visualization-05';
 
 type Props = {|
-  /**
-   * Prop description.
-   */
-  accessibilityLabel?: string,
   /**
    * disables interactivity
    */
@@ -54,7 +46,6 @@ type Props = {|
  * Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points
  */
 export default function TileData({
-  accessibilityLabel,
   disabled = false,
   id = 'no-tile-id-provided',
   selected,
@@ -63,10 +54,7 @@ export default function TileData({
   onSelected,
   tooltip,
 }: Props): Node {
-  // bg color is a standard hex
-  const [borderColor, setBorderColor] = useState('');
-
-  /**We use the color hex to generate a shade*/
+  /** We use the color hex to generate a shade */
   const getColorHex = (color: string) =>
     getComputedStyle(document.documentElement).getPropertyValue(`--color-${color}`);
 
@@ -77,7 +65,7 @@ export default function TileData({
     // value of the codes are injected
     const shade = getColorHex(selectedColor);
     // add an alpha channel to the hex, at 10% opacity
-    const bgColor = shade + '10';
+    const bgColor = `${shade}10`;
     return bgColor;
   };
 
