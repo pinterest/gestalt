@@ -267,6 +267,12 @@
       "keywords": ["notifications"]
     },
     {
+      "name": "briefcase",
+      "categories": ["Utility and tools"],
+      "description": "Indicates business manager and business-related tasks",
+      "keywords": ["business manager", "business", "company"]
+    },
+    {
       "name": "calendar",
       "categories": ["Time", "Toggle"],
       "description": "Indicates date selection",
@@ -896,6 +902,12 @@
       "keywords": ["screen", "size", "break point", "responsive", "phone"]
     },
     {
+      "name": "moon",
+      "categories": ["Toggle"],
+      "description": "Indicates dark mode",
+      "keywords": ["dark mode"]
+    },
+    {
       "name": "move",
       "categories": ["Arrows", "Utility and tools"],
       "description": "Indicates an ability to move an object",
@@ -1182,6 +1194,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a Story Pin",
       "keywords": []
+    },
+    {
+      "name": "sun",
+      "categories": ["Toggle"],
+      "description": "Indicates light mode",
+      "keywords": ["light mode"]
     },
     {
       "name": "switch-account",

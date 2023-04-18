@@ -39,6 +39,24 @@ components,
       />
 
       <MainSection
+        name="Alpha releases"
+        description={`Gestalt's deployment system supports automatic alpha releases.
+
+To run an alpha release, follow these steps:
+
+- Create a branch (regular step)
+- Submit a Pull Request to github (regular step)
+- Click on the "Compare & pull request" on Github
+- Instead of <code>base repository:pinterest/gestalt</code> and <code>base: master</code>, select <code>base: alpha</code>
+- Merge your branch. There's no need to set a label or wait for builds to pass as some might fail.
+- On your terminal, check <code>npm view gestalt</code> or <code>npm view gestalt-datepicker</code> to see the latest alpha release
+- Visit https://www.npmjs.com/package/gestalt/v/<alpha version>
+- In package.json, replace the Gestalt dependency with the released alpha version
+- Run <code>yarn</code>
+`}
+      />
+
+      <MainSection
         name="Codemods"
         description={`Run codemods to automate required code changes related to major releases (breaking changes in usage or in typing) in Gestalt.
 
@@ -60,6 +78,12 @@ Do you want to learn more about how codemods work or want to start developing ge
 Codemods modifying prop-values also throw errors when they encouter spread props used in Gestalt components. Spread props are opaque to codemods and require manual action.
 
 Error messages include the location (file path) and the code line of the node that caused the error to facilitate addressing the corresponding issue.
+
+To output the results into a CSV file, append the following code into the command.
+
+~~~bash
+  > ~/path/to/your/code/gestalt-codemode-output.csv</code>
+~~~
 `}
       >
         <MainSection.Subsection

@@ -8,8 +8,10 @@ import {
   useEffect,
   useState,
 } from 'react';
+import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
+import layoutStyles from '../Layout.css';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -142,6 +144,10 @@ type Props = {|
    */
   colorScheme?: ColorScheme,
   /**
+   * Sets the dimensions of the outputted `<div>` to 100% width and height.
+   */
+  fullDimensions?: boolean,
+  /**
    * An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).
    */
   id?: ?string,
@@ -153,6 +159,7 @@ type Props = {|
 export default function ColorSchemeProvider({
   children,
   colorScheme = 'light',
+  fullDimensions = false,
   id,
 }: Props): Element<typeof ThemeContext.Provider> {
   const [theme, setTheme] = useState(getTheme(colorScheme));
@@ -188,7 +195,14 @@ ${themeToStyles(darkModeTheme)} }
 ${themeToStyles(theme)} }`,
         }}
       />
-      <div className={className}>{children}</div>
+      <div
+        className={classnames(className, {
+          [layoutStyles.fullHeight]: fullDimensions,
+          [layoutStyles.fullWidth]: fullDimensions,
+        })}
+      >
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 }
