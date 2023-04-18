@@ -35,6 +35,7 @@ const rule: ESLintRule = {
     let localIdentifierName;
     const componentName = 'Button';
 
+    // $FlowFixMe[missing-local-annot]
     function getAttribute(node, attributeName: string) {
       return Object.entries(node.attributes).find(
         // eslint-disable-next-line no-unused-vars

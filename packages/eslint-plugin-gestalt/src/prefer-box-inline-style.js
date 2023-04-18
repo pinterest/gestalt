@@ -15,6 +15,7 @@ import {
   validateBorderRadius,
 } from './helpers/styleValidators.js';
 
+// $FlowFixMe[missing-local-annot]
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
 }
@@ -51,6 +52,7 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+    // $FlowFixMe[missing-local-annot]
     function matchKeyErrors(matchedErrors, key) {
       let alternateProp = '';
       switch (key.name) {

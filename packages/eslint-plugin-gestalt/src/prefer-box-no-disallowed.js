@@ -46,6 +46,7 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let importFixerRun = false;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -56,6 +57,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXElementFnc = (node) => {
       const boxDisallowedAttributes = ['className', 'onClick'];
 

@@ -100,20 +100,23 @@ export default function InternalSheet({
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
-  function buildDismissableSubcomponent(component: ?(
-  | NodeOrRenderProp
-  | $Iterable<?React$Node, void, void>
-  | React$Portal
-  | number
-  | string
-  | boolean
-  | (({ onDismissStart: () => void }) => Node)
-  | {
-    +key: React$Key | null,
-    +props: React$ElementProps<$FlowFixMe>,
-    +ref: $FlowFixMe,
-    +type: $FlowFixMe,
-  })) {
+  function buildDismissableSubcomponent(
+    component: ?(
+      | NodeOrRenderProp
+      | $Iterable<?React$Node, void, void>
+      | React$Portal
+      | number
+      | string
+      | boolean
+      | (({| onDismissStart: () => void |}) => Node)
+      | {|
+          +key: React$Key | null,
+          +props: React$ElementProps<$FlowFixMe>,
+          +ref: $FlowFixMe,
+          +type: $FlowFixMe,
+        |}
+    ),
+  ) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })
       : component;
@@ -153,7 +156,7 @@ export default function InternalSheet({
   }, [dismissButtonRef]);
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
       // Handle onDismiss triggering from ESC keyup event
       if (event.keyCode === ESCAPE && enabledDismiss) {
         onExternalDismiss();

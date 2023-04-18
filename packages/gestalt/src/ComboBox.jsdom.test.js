@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node } from "react";import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ComboBox from './ComboBox.js';
 import Tag from './Tag.js';
@@ -44,43 +44,51 @@ describe('ComboBox', () => {
     />
   ));
 
-  const renderComboBox = (
-  {
+  const renderComboBox = ({
     // Cmp Props
     accessibilityClearButtonLabel = CLEAR,
     disabled = false,
-    errorMessage = undefined,
-    helperText = undefined,
+    errorMessage,
+    helperText,
     id = 'test',
-    inputValue = undefined,
+    inputValue,
     label = LABEL,
     noResultText = NO_RESULTS,
-    onBlur = undefined,
-    onChange = undefined,
-    onClear = undefined,
-    onFocus = undefined,
-    onKeyDown = undefined,
-    onSelect = undefined,
+    onBlur,
+    onChange,
+    onClear,
+    onFocus,
+    onKeyDown,
+    onSelect,
     options = defaultOptions,
     placeholder = PLACEHOLDER,
-    selectedOption = undefined,
-    size = undefined,
-    tags = undefined
-  }: 
-    | { ... }
-    | { disabled: boolean }
-    | { inputValue: string, options: Array<{ label: string, value: string }> }
-    | {
-      inputValue: string,
-      options: Array<{ label: string, value: string }>,
-      selectedOption: { label: string, value: string },
-    }
-    | {
-      inputValue: string,
-      options: Array<{ label: string, value: string }>,
-      tags: Array<Node>,
-    },
-) =>
+    selectedOption,
+    size,
+    tags,
+  }: {|
+    accessibilityClearButtonLabel?: $ElementType<
+      React$ElementConfig<typeof ComboBox>,
+      'accessibilityClearButtonLabel',
+    >,
+    disabled?: $ElementType<React$ElementConfig<typeof ComboBox>, 'disabled'>,
+    errorMessage?: $ElementType<React$ElementConfig<typeof ComboBox>, 'errorMessage'>,
+    helperText?: $ElementType<React$ElementConfig<typeof ComboBox>, 'helperText'>,
+    id?: $ElementType<React$ElementConfig<typeof ComboBox>, 'id'>,
+    inputValue?: $ElementType<React$ElementConfig<typeof ComboBox>, 'inputValue'>,
+    label?: $ElementType<React$ElementConfig<typeof ComboBox>, 'label'>,
+    noResultText?: $ElementType<React$ElementConfig<typeof ComboBox>, 'noResultText'>,
+    onBlur?: $ElementType<React$ElementConfig<typeof ComboBox>, 'onBlur'>,
+    onChange?: $ElementType<React$ElementConfig<typeof ComboBox>, 'onChange'>,
+    onClear?: $ElementType<React$ElementConfig<typeof ComboBox>, 'onClear'>,
+    onFocus?: $ElementType<React$ElementConfig<typeof ComboBox>, 'onFocus'>,
+    onKeyDown?: $ElementType<React$ElementConfig<typeof ComboBox>, 'onKeyDown'>,
+    onSelect?: $ElementType<React$ElementConfig<typeof ComboBox>, 'onSelect'>,
+    options?: $ElementType<React$ElementConfig<typeof ComboBox>, 'options'>,
+    placeholder?: $ElementType<React$ElementConfig<typeof ComboBox>, 'placeholder'>,
+    selectedOption?: $ElementType<React$ElementConfig<typeof ComboBox>, 'selectedOption'>,
+    size?: $ElementType<React$ElementConfig<typeof ComboBox>, 'size'>,
+    tags?: $ElementType<React$ElementConfig<typeof ComboBox>, 'tags'>,
+  |}) =>
     render(
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}
@@ -106,7 +114,7 @@ describe('ComboBox', () => {
     );
   describe('Uncontrolled ComboBox', () => {
     it('renders default', () => {
-      const { baseElement } = renderComboBox({});
+      const { baseElement } = renderComboBox(Object.freeze({}));
 
       expect(screen.getByRole('combobox')).toBeVisible();
       expect(baseElement).toMatchSnapshot();
@@ -124,7 +132,7 @@ describe('ComboBox', () => {
     });
 
     it('renders dropdown with options on click', () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       fireEvent.click(screen.getByLabelText(LABEL));
 
@@ -134,7 +142,7 @@ describe('ComboBox', () => {
     });
 
     it('selects an option on click', () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       fireEvent.click(screen.getByLabelText(LABEL));
 
@@ -149,7 +157,7 @@ describe('ComboBox', () => {
     });
 
     it('filters options on valid input resets options after selecting', async () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       const input1 = 'he';
       const input2 = 'r';
@@ -175,7 +183,7 @@ describe('ComboBox', () => {
     });
 
     it('resets options after selecting', () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       fireEvent.click(screen.getByLabelText(LABEL));
 
@@ -187,7 +195,7 @@ describe('ComboBox', () => {
     });
 
     it('returns no results message if no options match input', async () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       const input = 'xxxx';
 
@@ -197,7 +205,7 @@ describe('ComboBox', () => {
     });
 
     it('shows correct icons', async () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
 
@@ -208,7 +216,7 @@ describe('ComboBox', () => {
     });
 
     it('clears selected options with clear button', async () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
       const SPACE = '{space}';
       const ENTER = '{enter}';
 
@@ -242,7 +250,7 @@ describe('ComboBox', () => {
     });
 
     it('manages focus', async () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       expect(document.body).toHaveFocus();
 
@@ -268,7 +276,7 @@ describe('ComboBox', () => {
     });
 
     it("doesn't clear input on blur when no option is selected", async () => {
-      renderComboBox({});
+      renderComboBox(Object.freeze({}));
 
       await userEvent.tab();
 

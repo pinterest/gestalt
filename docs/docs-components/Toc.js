@@ -27,35 +27,35 @@ function throttle(func: null | (() => void), wait: number) {
       args = null;
     }
   }
-  return function throttled(this: null, ...params) {
-  if (!func) {
-    return null;
-  }
-  const now = Date.now();
-  if (!previous) previous = now;
-  const remaining = wait - (now - previous);
-  context = this;
-  args = params;
-  if (remaining <= 0 || remaining > wait) {
-    if (timeout) {
-      clearTimeout(timeout);
-      timeout = null;
+  return function throttled(this: null, ...params: $ArrayLike<mixed>) {
+    if (!func) {
+      return null;
     }
-    previous = now;
-    if (args) {
-      result = func.apply(context, args);
-    } else {
-      result = func.apply(context);
+    const now = Date.now();
+    if (!previous) previous = now;
+    const remaining = wait - (now - previous);
+    context = this;
+    args = params;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      if (args) {
+        result = func.apply(context, args);
+      } else {
+        result = func.apply(context);
+      }
+      if (!timeout) {
+        context = null;
+        args = null;
+      }
+    } else if (!timeout) {
+      timeout = setTimeout(later, remaining);
     }
-    if (!timeout) {
-      context = null;
-      args = null;
-    }
-  } else if (!timeout) {
-    timeout = setTimeout(later, remaining);
-  }
-  return result;
-};
+    return result;
+  };
 }
 
 function useThrottledOnScroll(callback: null | (() => void), delay: number) {
@@ -120,9 +120,10 @@ export default function Toc({ cards }: Props): Node {
   // Corresponds to 10 frames at 60 Hz
   useThrottledOnScroll(anchors.length > 0 ? findActiveIndex : null, 166);
 
-  const handleClick = (hash: string, event: 
-  | SyntheticKeyboardEvent<HTMLAnchorElement>
-  | SyntheticMouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (
+    hash: string,
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+  ) => {
     // Ignore click for new tab/new window behavior
     if (
       event.defaultPrevented ||

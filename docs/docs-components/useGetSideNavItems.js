@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useNavigationContext } from './navigationContext.js';
 import { type siteIndexType } from './siteIndex.js';
 
-function convertNamesForURL(name: siteIndexType | string) {
+function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 

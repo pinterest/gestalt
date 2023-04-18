@@ -141,7 +141,9 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     },
   );
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (
+    event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  ) => {
     // Check to see if space or enter were pressed
     if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed
@@ -151,9 +153,10 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     }
   };
 
-  const handleClick = (event: 
-  | SyntheticKeyboardEvent<HTMLAnchorElement>
-  | SyntheticMouseEvent<HTMLAnchorElement>, dangerouslyDisableOnNavigation: (() => void)) =>
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
     !disabled && onTap
       ? onTap({
           event,
@@ -161,18 +164,13 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
         })
       : undefined;
 
-  const handleLinkClick = (
-  {
+  const handleLinkClick = ({
     event,
-    dangerouslyDisableOnNavigation
-  }: {
+    dangerouslyDisableOnNavigation,
+  }: {|
     dangerouslyDisableOnNavigation: () => void,
-    event: 
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  },
-) =>
-    handleClick(event, dangerouslyDisableOnNavigation);
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = (event: SyntheticFocusEvent<HTMLAnchorElement>) => {
     if (!disabled && onBlur) {
@@ -180,7 +178,8 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     }
   };
 
-  const handleLinkOnBlur = ({event}: { event: SyntheticFocusEvent<HTMLAnchorElement> }) => handleOnBlur(event);
+  const handleLinkOnBlur = ({ event }: {| event: SyntheticFocusEvent<HTMLAnchorElement> |}) =>
+    handleOnBlur(event);
 
   const handleOnFocus = (event: SyntheticFocusEvent<HTMLAnchorElement>) => {
     if (!disabled && onFocus) {
@@ -188,53 +187,43 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     }
   };
 
-  const handleLinkOnFocus = ({event}: { event: SyntheticFocusEvent<HTMLAnchorElement> }) => handleOnFocus(event);
+  const handleLinkOnFocus = ({ event }: {| event: SyntheticFocusEvent<HTMLAnchorElement> |}) =>
+    handleOnFocus(event);
 
   const handleOnKeyDown = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     if (!disabled && onKeyDown) onKeyDown({ event });
   };
 
-  const handleLinkOnKeyDown = ({event}: { event: SyntheticKeyboardEvent<HTMLAnchorElement> }) => handleOnKeyDown(event);
+  const handleLinkOnKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLAnchorElement> |}) =>
+    handleOnKeyDown(event);
 
   const handleOnMouseEnter = (
-  event: 
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticMouseEvent<HTMLDivElement>,
-) => {
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  ) => {
     if (!disabled && onMouseEnter) {
       onMouseEnter({ event });
     }
   };
 
-  const handleLinkOnMouseEnter = (
-  {
-    event
-  }: {
-    event: 
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticMouseEvent<HTMLDivElement>,
-  },
-) => handleOnMouseEnter(event);
+  const handleLinkOnMouseEnter = ({
+    event,
+  }: {|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => handleOnMouseEnter(event);
 
   const handleOnMouseLeave = (
-  event: 
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticMouseEvent<HTMLDivElement>,
-) => {
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  ) => {
     if (!disabled && onMouseLeave) {
       onMouseLeave({ event });
     }
   };
 
-  const handleLinkOnMouseLeave = (
-  {
-    event
-  }: {
-    event: 
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticMouseEvent<HTMLDivElement>,
-  },
-) => handleOnMouseLeave(event);
+  const handleLinkOnMouseLeave = ({
+    event,
+  }: {|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => handleOnMouseLeave(event);
 
   if (props.role === 'link') {
     const { accessibilityCurrent, href, rel = 'none', target = null } = props;

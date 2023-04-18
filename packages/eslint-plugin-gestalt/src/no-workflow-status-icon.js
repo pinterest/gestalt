@@ -41,6 +41,7 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let componentName = 'Icon';
 
+    // $FlowFixMe[missing-local-annot]
     const matchValues = (node) => {
       const props = {};
       node.attributes.forEach(({ name, value }) => {
@@ -59,6 +60,7 @@ const rule: ESLintRule = {
       return node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -67,10 +69,11 @@ const rule: ESLintRule = {
       if (!isGestaltImportNode) return;
 
       componentName =
-        (node?.specifiers?.find(item => item?.imported?.name === 'Icon')?.local?.name) || 'Icon';
+        node?.specifiers?.find((item) => item?.imported?.name === 'Icon')?.local?.name || 'Icon';
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXOpeningElementFnc = (node) => {
       // exit if Gestalt is not imported
       if (!gestaltImportNode) return null;

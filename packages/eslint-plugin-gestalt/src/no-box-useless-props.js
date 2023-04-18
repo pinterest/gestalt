@@ -24,6 +24,7 @@ const flexPropNames = [
 ];
 const dangerousFlexGridDisplays = ['inline-flex', 'grid', 'inline-grid'];
 
+// $FlowFixMe[missing-local-annot]
 function getAttributeName(attributeName): ?string {
   return attributeName?.name;
 }
@@ -32,6 +33,7 @@ function getExpressionValues(valueExpression: $FlowFixMe): $ReadOnlyArray<string
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
+// $FlowFixMe[missing-local-annot]
 function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   const staticValue = attributeValue?.value;
   const isBooleanShorthand = attributeValue === null;
@@ -58,20 +60,21 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   return undefined;
 }
 
+// $FlowFixMe[missing-local-annot]
 // $FlowExpectedError[unclear-type]
 function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   const valueExpression = attributeValue.expression;
-  const styleObject = valueExpression?.properties?.find(({key}) => key.name === '__style');
+  const styleObject = valueExpression?.properties?.find(({ key }) => key.name === '__style');
   if (!styleObject) {
     return null;
   }
   return styleObject.value?.properties?.reduce(
-  (acc, {key, value}) => ({
-    ...acc,
-    [ key?.name ]: value,
-  }),
-  {},
-);
+    (acc, { key, value }) => ({
+      ...acc,
+      [key?.name]: value,
+    }),
+    {},
+  );
 }
 
 function hasDangerouslySetFlexDisplay(stylesObject: null | { [string]: $FlowFixMe }): boolean {
@@ -112,7 +115,7 @@ const rule: ESLintRule = {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        localBoxName = (decl.specifiers.find(node => node.imported.name === 'Box')?.local?.name);
+        localBoxName = decl.specifiers.find((node) => node.imported.name === 'Box')?.local?.name;
       },
 
       JSXOpeningElement(node) {

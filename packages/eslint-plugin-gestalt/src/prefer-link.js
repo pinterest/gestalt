@@ -51,6 +51,7 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let importFixerRun = false;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -61,6 +62,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXElementFnc = (node) => {
       const boxDisallowedAttributes = ['className', 'style'];
       const supportedAriaAttributes = ['aria-label', 'aria-selected'];
@@ -111,7 +113,11 @@ const rule: ESLintRule = {
         reducerCallbackFn: preferLinkReducer,
       });
 
-      const newPropsToAddToLink = ({alternativeComponent}: { alternativeComponent: string }) => {
+      const newPropsToAddToLink = ({
+        alternativeComponent,
+      }: {|
+        alternativeComponent: string,
+      |}) => {
         const newResponse =
           alternativeComponent === 'Link'
             ? [...validatorResponse]
@@ -119,26 +125,32 @@ const rule: ESLintRule = {
 
         switch (alternativeComponent) {
           case 'Link':
-            return newResponse?.map(alternative => alternative.prop).sort().join(' ');
+            return newResponse
+              ?.map((alternative) => alternative.prop)
+              .sort()
+              .join(' ');
 
           case 'TapArea':
-            return newResponse?.map(
-  alternative => {
-    if (
-      typeof alternative.prop === 'string' &&
-        alternative.prop.startsWith('accessibilitySelected')
-    ) {
-      return false;
-    }
-    if (
-      typeof alternative.prop === 'string' &&
-        alternative.prop.startsWith('onKeyPress')
-    ) {
-      return false;
-    }
-    return alternative.prop;
-  },
-).filter(Boolean).sort().join(' ').replace('onClick', 'onTap');
+            return newResponse
+              ?.map((alternative) => {
+                if (
+                  typeof alternative.prop === 'string' &&
+                  alternative.prop.startsWith('accessibilitySelected')
+                ) {
+                  return false;
+                }
+                if (
+                  typeof alternative.prop === 'string' &&
+                  alternative.prop.startsWith('onKeyPress')
+                ) {
+                  return false;
+                }
+                return alternative.prop;
+              })
+              .filter(Boolean)
+              .sort()
+              .join(' ')
+              .replace('onClick', 'onTap');
 
           default:
             return '';

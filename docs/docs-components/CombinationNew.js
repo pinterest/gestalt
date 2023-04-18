@@ -12,13 +12,12 @@ type Props = {
   ...
 };
 
-const flatMap = (arr, fn: ((newAcc: { ... }) => $FlowFixMe)) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = (variationsByField: { ... }) => {
   const fieldNames = Object.keys(variationsByField);
 
   if (!fieldNames.length) return [{}];
 
-  const combine = ([fieldName, ...restFieldNames]: Array<empty>, acc: { ... }) => {
+  const combine = ([fieldName, ...restFieldNames]: $ReadOnlyArray<empty>, acc: { ... }) => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
@@ -33,7 +32,7 @@ const combinations = (variationsByField: { ... }) => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return flatMap(vs, (newAcc) => combine(restFieldNames, newAcc));
+    return vs.flatMap((newAcc) => combine(restFieldNames, newAcc));
   };
 
   return combine(fieldNames, {});

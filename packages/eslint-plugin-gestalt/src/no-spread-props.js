@@ -33,6 +33,7 @@ const rule: ESLintRule = {
   create(context) {
     let gestaltImportNode;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -43,6 +44,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXSpreadAttributeFnc = (nodeAttribute) => {
       if (!gestaltImportNode) {
         return null;
@@ -53,7 +55,7 @@ const rule: ESLintRule = {
       // access the component with spread props
       const componentName = getComponentNameFromAttribute({ nodeAttribute });
 
-      const isGestaltComponent = importedComponents?.map(cmp => cmp[1]).includes(componentName);
+      const isGestaltComponent = importedComponents?.map((cmp) => cmp[1]).includes(componentName);
 
       if (!isGestaltComponent) {
         return null;

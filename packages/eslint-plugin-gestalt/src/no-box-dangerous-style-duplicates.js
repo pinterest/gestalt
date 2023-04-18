@@ -58,6 +58,7 @@ const rule: ESLintRule = {
     let isImportFixerExecuted = false;
     let addFixedZIndex = false;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -68,6 +69,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXOpeningElementFnc = (node) => {
       // exit if Gestalt is not imported
       if (!gestaltImportNode) return null;
@@ -147,17 +149,15 @@ const rule: ESLintRule = {
       // exit if there are not style properties alternatives to suggest/autofix
       if (!validatorResponse.map((a) => !!a.prop).filter(Boolean).length) return null;
 
-      const newPropsToAddToBox = validatorResponse?.map(
-  alternative => {
-    if (
-      typeof alternative.prop === 'string' &&
-        alternative.prop.startsWith('zIndex')
-    ) {
-      addFixedZIndex = true;
-    }
-    return alternative.prop;
-  },
-).sort().join(' ');
+      const newPropsToAddToBox = validatorResponse
+        ?.map((alternative) => {
+          if (typeof alternative.prop === 'string' && alternative.prop.startsWith('zIndex')) {
+            addFixedZIndex = true;
+          }
+          return alternative.prop;
+        })
+        .sort()
+        .join(' ');
 
       const attributesToRemoveFromDangerouslySetInlineStyle = isFixable
         ? validatorResponse.map(
