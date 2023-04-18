@@ -26,14 +26,25 @@ export default function MeasureItems<T>({
 }: Props<T>): Node {
   const measuringPositions = getPositions(items);
   const refs = useMemo(() => new Map(), []);
+  // Need a separate variable for use in useLayoutEffect's dependency array
+  const refsSize = refs.size;
 
   useLayoutEffect(() => {
-    if (refs.size === items.length) {
+    // Do we have a full batch of refs?
+    if (refsSize === items.length) {
+      // Measure all the refs
+      const heights = new Map();
       refs.forEach((el, data) => {
-        measurementStore.set(data, el.clientHeight);
+        heights.set(data, el.clientHeight);
       });
+      // Store the measurements, which should trigger a paint
+      heights.forEach((height, data) => {
+        measurementStore.set(data, height);
+      });
+      // We're done with this batch, so clear the way for the next one
+      refs.clear();
     }
-  }, [items.length, measurementStore, refs]);
+  }, [items.length, measurementStore, refs, refsSize]);
 
   return (
     <Fragment>

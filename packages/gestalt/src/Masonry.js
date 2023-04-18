@@ -543,6 +543,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
+
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
@@ -553,7 +554,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
               <MeasureItems
                 baseIndex={itemsToRender.length}
                 getPositions={getPositions}
-                items={items}
+                items={itemsToMeasure}
                 measurementStore={measurementStore}
                 renderItem={renderItem}
               />
