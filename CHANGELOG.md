@@ -1,3 +1,9 @@
+## 109.1.2 (Apr 18, 2023)
+
+### Patch
+
+- Box, Textfield, TextArea: fixed `visuallyHidden` prop CSS configuration, fixed bug in overflowing `maxLength.errorAccessibilityLabel` ([#2846](https://github.com/pinterest/gestalt/pull/2846)) - [Preview link](https://deploy-preview-2846--gestalt.netlify.app)
+
 ## 109.1.1 (Apr 17, 2023)
 
 ### Patch
