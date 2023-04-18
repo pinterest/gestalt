@@ -240,11 +240,9 @@ export default class MasonryContainer extends Component<Props, State> {
             randomNumberSeed: this.randomNumberSeed,
           });
 
-    setTimeout(() => {
-      this.setState(({ items }) => ({
-        items: [...items, ...newItems],
-      }));
-    }, 2000);
+    this.setState(({ items }) => ({
+      items: [...items, ...newItems],
+    }));
   };
 
   // $FlowFixMe[unclear-type]

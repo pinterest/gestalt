@@ -37,12 +37,12 @@ export default function MeasureItems<T>({
 
   return (
     <Fragment>
-      {items.map((data, i) => {
-        // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
+      {items.map((data, index) => {
+        // items is always the length of minCols, so index will always be 0..minCols.length
         // we normalize the index here relative to the item list as a whole so that itemIdx is correct
         // and so that React doesnt reuse the measurement nodes
-        const measurementIndex = baseIndex + i;
-        const position = measuringPositions[i];
+        const measurementIndex = baseIndex + index;
+        const position = measuringPositions[index];
         return (
           <div
             key={`measuring-${measurementIndex}`}
@@ -56,7 +56,6 @@ export default function MeasureItems<T>({
             }}
             ref={(el) => {
               if (el) {
-                // measurementStore.set(data, el.clientHeight);
                 refs.set(data, el);
               }
             }}
