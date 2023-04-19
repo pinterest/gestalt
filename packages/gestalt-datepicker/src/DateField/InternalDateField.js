@@ -98,7 +98,7 @@ const CustomTextField = forwardRef(
           onMouseUp={onMouseUp}
         />
         {!disabled && !readOnly ? (
-          <div className={classnames(styles.actionButtonContainer)}>
+          <div className={classnames(styles.actionButtonWrapper)}>
             <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
               <TapArea
                 accessibilityLabel="Clear date"
