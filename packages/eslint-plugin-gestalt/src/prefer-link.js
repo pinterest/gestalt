@@ -51,6 +51,7 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let importFixerRun = false;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -61,6 +62,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXElementFnc = (node) => {
       const boxDisallowedAttributes = ['className', 'style'];
       const supportedAriaAttributes = ['aria-label', 'aria-selected'];
@@ -111,7 +113,11 @@ const rule: ESLintRule = {
         reducerCallbackFn: preferLinkReducer,
       });
 
-      const newPropsToAddToLink = ({ alternativeComponent }) => {
+      const newPropsToAddToLink = ({
+        alternativeComponent,
+      }: {|
+        alternativeComponent: string,
+      |}) => {
         const newResponse =
           alternativeComponent === 'Link'
             ? [...validatorResponse]

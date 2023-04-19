@@ -221,7 +221,10 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     </Text>
   );
 
-  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
     onClick
       ? onClick({
           event,
@@ -229,8 +232,13 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
         })
       : undefined;
 
-  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
-    handleClick(event, dangerouslyDisableOnNavigation);
+  const handleLinkClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
   if (props.role === 'link') {
     const { href, rel = 'none', target = null } = props;

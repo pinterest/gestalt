@@ -143,7 +143,12 @@ export default function IconPage(): Node {
   const [inputValue, setInputValue] = useState();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
-  const handleOnChange = ({ value }) => {
+  const handleOnChange = ({
+    value,
+  }: {|
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+    value: string,
+  |}) => {
     setInputValue(value);
     setSuggestedOptions(
       value

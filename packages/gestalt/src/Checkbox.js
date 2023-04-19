@@ -121,13 +121,13 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     }
   }, [indeterminate]);
 
-  const handleChange = (event) => {
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange({ event, checked: event.target.checked });
     }
   };
 
-  const handleClick = (event) => {
+  const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) => {
     if (onClick) {
       onClick({ event, checked: event.currentTarget.checked });
     }

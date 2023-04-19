@@ -58,6 +58,7 @@ const rule: ESLintRule = {
     let isImportFixerExecuted = false;
     let addFixedZIndex = false;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -68,6 +69,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXOpeningElementFnc = (node) => {
       // exit if Gestalt is not imported
       if (!gestaltImportNode) return null;

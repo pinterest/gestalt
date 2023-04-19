@@ -11,18 +11,20 @@ export default function Example(): Node {
   const veryLongText =
     'Tag brand partners in your Idea Pins with the paid partnership tool. Just make an Idea Pin in the app, add the paid partnership label and tag your partner brand. Once they approve the request, their brand name will show up on your Idea Pin. Brands can also choose to promote your Idea Pins as ads, boosting your reach to even more people. When you use the paid partnership tool, you work directly with brands to define the payment terms and process. Pinterest will not be directly involved in payment.';
 
-  const textRef = useRef(null);
+  const textRef = useRef();
   const [ellipsisActive, setEllipsisActive] = useState(false);
 
-  const isEllipsisActive = (element) =>
+  const isEllipsisActive = (element: HTMLElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
 
   useEffect(() => {
     const checkEllipsisActive = () => {
-      if (textRef.current && !ellipsisActive && isEllipsisActive(textRef.current)) {
-        setEllipsisActive(true);
-      } else if (textRef.current && ellipsisActive && !isEllipsisActive(textRef.current)) {
-        setEllipsisActive(false);
+      if (textRef.current) {
+        if (!ellipsisActive && isEllipsisActive(textRef.current)) {
+          setEllipsisActive(true);
+        } else if (ellipsisActive && !isEllipsisActive(textRef.current)) {
+          setEllipsisActive(false);
+        }
       }
     };
     checkEllipsisActive();

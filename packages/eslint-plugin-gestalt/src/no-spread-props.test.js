@@ -31,7 +31,7 @@ const invalidNotFixableOutput = readFileSync(
   'utf-8',
 );
 
-const getErrorMessage = (cmp, index) =>
+const getErrorMessage = (cmp: string, index: number) =>
   `Prop spreading in Gestalt component ${cmp} is forbidden, write your props out instead. ${
     index === 0 ? 'Autofix available' : ''
   }`;
