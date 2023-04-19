@@ -18,8 +18,8 @@ import {
 export default function Example(): Node {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
 
-  const useOnNavigation = ({href}: { href: string, target?: null | "self" | "blank" }) => {
-    const onNavigationClick = ({event}: { +event: SyntheticEvent<> }) => {
+  const useOnNavigation = ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
+    const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
       event.preventDefault();
       // eslint-disable-next-line no-alert
       alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);

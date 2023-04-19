@@ -72,7 +72,7 @@ class Controller extends Component<Props, State> {
     anchor,
     positionRelativeToAnchor,
     scrollBoundaryContainerRef,
-  }: Props): { relativeOffset: ?Coordinates, triggerBoundingRect: ?ClientRect } {
+  }: Props): {| relativeOffset: ?Coordinates, triggerBoundingRect: ?ClientRect |} {
     return getTriggerRect({ anchor, positionRelativeToAnchor, scrollBoundaryContainerRef });
   }
 

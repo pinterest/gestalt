@@ -52,8 +52,10 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
   const devExampleMode: DevExampleMode =
     cookies[devExampleModeKey] === 'development' ? 'development' : 'default';
 
-  const setColorScheme = (newColorScheme: ColorScheme) => setCookies(colorSchemeKey, newColorScheme);
-  const setPropTableVariant = (variant: PropTableVariant) => setCookies(propTableVariantKey, variant);
+  const setColorScheme = (newColorScheme: ColorScheme) =>
+    setCookies(colorSchemeKey, newColorScheme);
+  const setPropTableVariant = (variant: PropTableVariant) =>
+    setCookies(propTableVariantKey, variant);
   const setTextDirection = (direction: DirectionScheme) => setCookies(textDirectionKey, direction);
   const setExperiments = (component: Experiments) => {
     setCookies(experimentsKey, component);

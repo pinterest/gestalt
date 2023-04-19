@@ -6,14 +6,12 @@ export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
   const anchorRef = useRef(null);
-  const onSelect = (
-  {
-    item
-  }: {
+  const onSelect = ({
+    item,
+  }: {|
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: { label: string, subtext?: string, value: string },
-  },
-) => setSelected(item);
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => setSelected(item);
 
   return (
     <Box padding={4}>

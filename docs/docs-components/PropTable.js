@@ -36,29 +36,19 @@ const transformDefaultValue = (input: ?(number | string | boolean)) => {
   return input;
 };
 
-const sortBy = (list: $ReadOnlyArray<
-  {
-    defaultValue?: boolean | string | number | null,
-    description?: string | $ReadOnlyArray<string>,
-    href?: string,
-    name: string,
-    nullable?: boolean,
-    required?: boolean,
-    responsive?: boolean,
-    type: string,
-  },
->, fn: ((
-  {
-    defaultValue?: boolean | string | number | null,
-    description?: string | $ReadOnlyArray<string>,
-    href?: string,
-    name: string,
-    nullable?: boolean,
-    required?: boolean,
-    responsive?: boolean,
-    type: string,
-  }
-) => string)) => [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
+type Prop = {|
+  defaultValue?: boolean | string | number | null,
+  description?: string | $ReadOnlyArray<string>,
+  href?: string,
+  name: string,
+  nullable?: boolean,
+  required?: boolean,
+  responsive?: boolean,
+  type: string,
+|};
+
+const sortBy = (list: $ReadOnlyArray<Prop>, fn: (Prop) => string) =>
+  [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
 function FormattedCode({ children }: {| children: Node |}) {
   return (
@@ -133,16 +123,7 @@ type Props = {|
   componentName: string,
   id?: string,
   name?: string,
-  props: $ReadOnlyArray<{|
-    defaultValue?: boolean | string | number | null,
-    description?: string | $ReadOnlyArray<string>,
-    href?: string,
-    name: string,
-    nullable?: boolean,
-    required?: boolean,
-    responsive?: boolean,
-    type: string,
-  |}>,
+  props: $ReadOnlyArray<Prop>,
 |};
 
 export default function PropTable({

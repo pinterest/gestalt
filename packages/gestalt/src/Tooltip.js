@@ -12,7 +12,10 @@ const TIMEOUT = 100;
 
 const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false };
 
-const reducer = (state: { hoveredIcon: boolean, hoveredText: boolean, isOpen: boolean }, action: { type: string }) => {
+const reducer = (
+  state: {| hoveredIcon: boolean, hoveredText: boolean, isOpen: boolean |},
+  action: {| type: 'hoverInIcon' | 'hoverInText' | 'hoverOutIcon' | 'hoverOutText' |},
+) => {
   switch (action.type) {
     case 'hoverInIcon':
       return {

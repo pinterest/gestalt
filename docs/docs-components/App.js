@@ -25,8 +25,14 @@ export default function App({ children, files }: Props): Node {
     // $FlowIssue[prop-missing]
     !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey); // ignore clicks with modifier keys
 
-  const useOnNavigation = ({href, target}: { href: string, target?: null | "self" | "blank" }) => {
-    const onNavigationClick = ({event}: { +event: SyntheticEvent<> }) => {
+  const useOnNavigation = ({
+    href,
+    target,
+  }: {|
+    href: string,
+    target?: null | 'self' | 'blank',
+  |}) => {
+    const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
       if (event.defaultPrevented) return; // onClick prevented default
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       if (target === 'blank') return; // let browser handle "target=_blank"

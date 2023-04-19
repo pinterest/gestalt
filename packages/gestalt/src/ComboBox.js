@@ -217,7 +217,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 
   let selectedTags = tags;
   if (disabled && !!tags && tags.length > 0) {
-    selectedTags = (tags?.map(tag => cloneElement(tag, { disabled: true })));
+    selectedTags = tags?.map((tag) => cloneElement(tag, { disabled: true }));
   }
 
   // ==== UNCONTROLLED COMBOBOX: Set suggestions ====

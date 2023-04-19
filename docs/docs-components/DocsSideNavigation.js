@@ -1,9 +1,9 @@
 // @flow strict
-import type { siteIndexType } from "./siteIndex";import { type Node, useState, useEffect } from 'react';
+import { type Node, useState, useEffect } from 'react';
 import { SideNavigation, Flex, SelectList } from 'gestalt';
 import { useRouter } from 'next/router';
 import { useNavigationContext } from './navigationContext.js';
-import newSidebarIndex from './siteIndex.js';
+import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
 import { useDocsConfig } from './contexts/DocsConfigProvider.js';

@@ -148,9 +148,10 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     />
   );
 
-  const handleClick = (event: 
-  | SyntheticKeyboardEvent<HTMLAnchorElement>
-  | SyntheticMouseEvent<HTMLAnchorElement>, dangerouslyDisableOnNavigation: (() => void)) =>
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
     onClick
       ? onClick({
           event,
@@ -158,18 +159,13 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
         })
       : undefined;
 
-  const handleLinkClick = (
-  {
+  const handleLinkClick = ({
     event,
-    dangerouslyDisableOnNavigation
-  }: {
+    dangerouslyDisableOnNavigation,
+  }: {|
     dangerouslyDisableOnNavigation: () => void,
-    event: 
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  },
-) =>
-    handleClick(event, dangerouslyDisableOnNavigation);
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = () => {
     setFocused(false);

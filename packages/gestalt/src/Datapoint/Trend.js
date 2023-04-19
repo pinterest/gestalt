@@ -12,7 +12,7 @@ const TREND_COLOR_MAP = {
 
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
-function getValueColor({ sentiment, value }: { sentiment: string, value: number }) {
+function getValueColor({ sentiment, value }: {| sentiment: Sentiment, value: number |}) {
   if (sentiment === 'auto') {
     if (value === 0) {
       return 'default';

@@ -203,7 +203,7 @@ class Contents extends Component<Props, State> {
     }
   };
 
-  calcTopHeight(): { height: null, top: null } | { height: number, top: number | null } {
+  calcTopHeight(): {| height: ?number, top: ?number |} {
     if (!window || !document) {
       return { top: null, height: null };
     }

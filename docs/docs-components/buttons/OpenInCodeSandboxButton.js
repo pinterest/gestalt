@@ -4,7 +4,7 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 import LZString from 'lz-string';
 import OpenSandboxButton from './OpenSandboxButton.js';
 
-const getParameters = (parameters: { files: { ... } } | { files: { ... }, template: string }): string =>
+const getParameters = (parameters: {| files: { ... }, template?: string |}): string =>
   LZString.compressToBase64(JSON.stringify(parameters))
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'

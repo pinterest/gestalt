@@ -87,9 +87,10 @@ function DatePickerTextField(props: Props) {
   );
 }
 
-function textFieldForwardRef(props: Props, ref: 
-  | ((null | HTMLInputElement) => mixed)
-  | { current: null | HTMLInputElement, ... }) {
+function textFieldForwardRef(
+  props: Props,
+  ref: ((null | HTMLInputElement) => mixed) | { current: null | HTMLInputElement, ... },
+) {
   return <DatePickerTextField {...props} forwardedRef={ref} />;
 }
 

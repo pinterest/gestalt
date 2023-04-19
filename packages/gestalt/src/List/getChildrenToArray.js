@@ -17,7 +17,7 @@ const getChildrenToArray = ({
   const navigationChildren = [];
   let recursionLevel = 0;
 
-  const getChildren = ({nodeChildren}: { nodeChildren: React$Node }) =>
+  const getChildren = ({ nodeChildren }: {| nodeChildren: Node |}) =>
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid
       if (child?.type === Fragment) {

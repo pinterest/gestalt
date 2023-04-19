@@ -7,16 +7,16 @@ import expectToThrow from './utils/testing/expectToThrow.js';
 
 const LABEL = 'textfieldLabel';
 
-const renderTextArea = (
-  {
-    // Cmp Props
-    id = 'test',
-    onChange = jest.fn(),
-    onFocus = jest.fn(),
-    onBlur = jest.fn(),
-    maxLength
-  }: { maxLength: { characterCount: number, errorAccessibilityLabel: string } },
-) =>
+const renderTextArea = ({
+  // Cmp Props
+  id = 'test',
+  onChange = jest.fn(),
+  onFocus = jest.fn(),
+  onBlur = jest.fn(),
+  maxLength,
+}: {|
+  maxLength: {| characterCount: number, errorAccessibilityLabel: string |},
+|}) =>
   render(
     <TextArea
       id={id}

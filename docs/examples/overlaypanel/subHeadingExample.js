@@ -25,20 +25,18 @@ export default function SubheadingExample(): Node {
   const chRef = useRef();
   const refs = [enRef, esRef, ptRef, chRef];
 
-  const handleChangeTab = (
-  {
+  const handleChangeTab = ({
     activeTabIndex: activeTabIndexLocal,
-    event
-  }: {
+    event,
+  }: {|
     +activeTabIndex: number,
     dangerouslyDisableOnNavigation: () => void,
-    event: 
+    event:
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  },
-) => {
+  |}) => {
     event.preventDefault();
     setActiveTabIndex(activeTabIndexLocal);
     refs[activeTabIndexLocal].current?.scrollIntoView({

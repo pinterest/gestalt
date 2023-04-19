@@ -10,15 +10,13 @@ type Handler = Function;
 
 const parseHandlerValue =
   (handler?: Handler) =>
-  (
-  {
+  ({
     event,
-    value
-  }: 
-    | { event: SyntheticInputEvent<HTMLInputElement>, value: string }
-    | { event: SyntheticFocusEvent<HTMLInputElement>, value: string }
-    | { event: SyntheticKeyboardEvent<HTMLInputElement>, value: string },
-) => {
+    value,
+  }:
+    | {| event: SyntheticInputEvent<HTMLInputElement>, value: string |}
+    | {| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}
+    | {| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => {
     const parsedValue = parseFloat(value);
     handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
   };
