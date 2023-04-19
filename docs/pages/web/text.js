@@ -131,7 +131,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Center-align paragraph text. This is hard to read, especially for users with dyslexia."
             sandpackExample={
-              <SandpackExample code={dontCenterAlign} hideEditor name="Don't - Center Align" />
+              <SandpackExample
+                code={dontCenterAlign}
+                hideEditor
+                hideControls
+                name="Don't - Center Align"
+              />
             }
           />
         </MainSection.Subsection>
