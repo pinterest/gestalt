@@ -1,3 +1,9 @@
+## 110.0.7 (Apr 19, 2023)
+
+### Patch
+
+- TextField: fix tooltip triggering on icon button ([#2862](https://github.com/pinterest/gestalt/pull/2862)) - [Preview link](https://deploy-preview-2862--gestalt.netlify.app)
+
 ## 110.0.6 (Apr 19, 2023)
 
 ### Patch
