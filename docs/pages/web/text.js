@@ -57,7 +57,9 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Emphasize text inside of paragraphs by using a bold weight."
-            sandpackExample={<SandpackExample code={doWeight} hideEditor name="Do - Font Weight" />}
+            sandpackExample={
+              <SandpackExample layout="column" code={doWeight} hideEditor name="Do - Font Weight" />
+            }
           />
           <MainSection.Card
             cardSize="md"
@@ -78,7 +80,9 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use size to emphasize things like numbers that don’t define a page structure."
-            sandpackExample={<SandpackExample code={doUseSize} hideEditor name="Do - Use Size" />}
+            sandpackExample={
+              <SandpackExample layout="column" code={doUseSize} hideEditor name="Do - Use Size" />
+            }
           />
           <MainSection.Card
             cardSize="md"
@@ -100,7 +104,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Use a minimal amount of sizes and styles to keep the UI clean and readable."
             sandpackExample={
-              <SandpackExample code={doMinimalStyle} hideEditor name="Do - Minimal Style" />
+              <SandpackExample
+                layout="column"
+                code={doMinimalStyle}
+                hideEditor
+                name="Do - Minimal Style"
+              />
             }
           />
           <MainSection.Card
@@ -123,7 +132,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             description="Start-align paragraph text."
             sandpackExample={
-              <SandpackExample code={doStartAlign} hideEditor name="Do - Start Align" />
+              <SandpackExample
+                layout="column"
+                code={doStartAlign}
+                hideEditor
+                name="Do - Start Align"
+              />
             }
           />
           <MainSection.Card
