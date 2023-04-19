@@ -35,7 +35,6 @@ type CustomTextFieldProps = {|
         event: SyntheticFocusEvent<HTMLInputElement>,
         value: string,
       |}) => void,
-      onClearInput: () => void,
       onFocus: ({|
         event: SyntheticFocusEvent<HTMLInputElement>,
         value: string,
@@ -62,8 +61,6 @@ const CustomTextField = forwardRef(
     }: CustomTextFieldProps,
     inputRef,
   ): Node => {
-    const [iconFocused, setIconFocused] = useState(false);
-
     const styledClasses = classnames(
       styles.textField,
       styles.formElementBase,
@@ -77,7 +74,7 @@ const CustomTextField = forwardRef(
     );
 
     return (
-      <Box ref={containerRef} rounding={4} position="relative" display="flex" flex="grow">
+      <Box ref={containerRef} rounding={4}>
         <input
           autoComplete={ownerState?.passthroughProps?.autoComplete ?? 'off'}
           id={ownerState?.passthroughProps?.id}
@@ -97,35 +94,6 @@ const CustomTextField = forwardRef(
           onKeyDown={onKeyDown}
           onMouseUp={onMouseUp}
         />
-        {!disabled && !readOnly ? (
-          <div className={classnames(styles.actionButtonContainer)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
-              <TapArea
-                accessibilityLabel="Clear date"
-                onBlur={() => setIconFocused(false)}
-                onFocus={() => setIconFocused(true)}
-                onKeyDown={({ event }) => {
-                  if ([ENTER, SPACE].includes(event.keyCode))
-                    ownerState?.passthroughProps?.onClearInput();
-                  if (event.keyCode !== TAB) event.preventDefault();
-                }}
-                onMouseEnter={() => setIconFocused(true)}
-                onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState?.passthroughProps?.onClearInput()}
-                rounding="circle"
-                tapStyle="compress"
-              >
-                <Pog
-                  accessibilityLabel=""
-                  bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                  icon="cancel"
-                  iconColor="darkGray"
-                  size="xs"
-                />
-              </TapArea>
-            </Box>
-          </div>
-        ) : null}
       </Box>
     );
   },
@@ -207,6 +175,8 @@ function InternalDateField({
   readOnly = false,
   value,
 }: InternalDateFieldProps): Node {
+  const [focused, setFocused] = useState(false);
+
   return (
     <Box>
       <label
@@ -240,10 +210,37 @@ function InternalDateField({
             name,
             onBlur,
             onFocus,
-            onClearInput,
           }}
           viewRenderers={null}
         />
+        {!disabled && !readOnly ? (
+          <div className={classnames(styles.actionButtonWrapper)}>
+            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
+              <TapArea
+                accessibilityLabel="Clear date"
+                onBlur={() => setFocused(false)}
+                onFocus={() => setFocused(true)}
+                onKeyDown={({ event }) => {
+                  if ([ENTER, SPACE].includes(event.keyCode)) onClearInput();
+                  if (event.keyCode !== TAB) event.preventDefault();
+                }}
+                onMouseEnter={() => setFocused(true)}
+                onMouseLeave={() => setFocused(false)}
+                onTap={() => onClearInput()}
+                rounding="circle"
+                tapStyle="compress"
+              >
+                <Pog
+                  accessibilityLabel=""
+                  bgColor={focused ? 'lightGray' : 'transparent'}
+                  icon="cancel"
+                  iconColor="darkGray"
+                  size="xs"
+                />
+              </TapArea>
+            </Box>
+          </div>
+        ) : null}
       </Box>
       {helperText && !errorMessage ? (
         <Box marginTop={2} id={`${id}-helperText`}>
