@@ -14,7 +14,7 @@ import uniformRowLayout from './Masonry/uniformRowLayout.js';
 
 const RESIZE_DEBOUNCE = 300;
 
-const layoutNumberToCssDimension = (n: void | number) => (n !== Infinity ? n : undefined);
+const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
 type Position = {| top: number, left: number, width: number, height: number |};
 

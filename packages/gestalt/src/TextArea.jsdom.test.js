@@ -15,7 +15,12 @@ const renderTextArea = ({
   onBlur = jest.fn(),
   maxLength,
 }: {|
-  maxLength: {| characterCount: number, errorAccessibilityLabel: string |},
+  id?: $ElementType<React$ElementConfig<typeof TextArea>, 'id'>,
+  onChange?: $ElementType<React$ElementConfig<typeof TextArea>, 'onChange'>,
+  onFocus?: $ElementType<React$ElementConfig<typeof TextArea>, 'onFocus'>,
+  onBlur?: $ElementType<React$ElementConfig<typeof TextArea>, 'onBlur'>,
+  id?: $ElementType<React$ElementConfig<typeof TextArea>, 'id'>,
+  maxLength?: $ElementType<React$ElementConfig<typeof TextArea>, 'maxLength'>,
 |}) =>
   render(
     <TextArea

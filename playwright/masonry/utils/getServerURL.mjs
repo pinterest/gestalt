@@ -3,7 +3,7 @@
 const BASE_DOMAIN = 'http://localhost:8888';
 const BASE_PATH = '/integration-test/masonry';
 
-const normalizeValue = (val: boolean | number) => {
+const normalizeValue = (val /*: boolean | number */) => {
   if (typeof val === 'boolean') {
     return val ? '1' : '0';
   }
