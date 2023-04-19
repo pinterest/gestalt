@@ -1,3 +1,9 @@
+## 110.0.4 (Apr 19, 2023)
+
+### Patch
+
+- DateField: undoing .\_gestalt in DateField.css file as it breaks style ([#2861](https://github.com/pinterest/gestalt/pull/2861)) - [Preview link](https://deploy-preview-2861--gestalt.netlify.app)
+
 ## 110.0.3 (Apr 19, 2023)
 
 ### Patch
