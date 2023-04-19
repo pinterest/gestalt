@@ -8,6 +8,16 @@ import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 import styles from './InternalTextField.css';
 
+function MaybeTooltip({ children, tooltipText }: {| children: Node, tooltipText: ?string |}) {
+  return tooltipText ? (
+    <Tooltip inline text={tooltipText}>
+      {children}
+    </Tooltip>
+  ) : (
+    children
+  );
+}
+
 type Props = {|
   accessibilityChecked?: boolean,
   accessibilityHidden?: boolean,
@@ -35,7 +45,7 @@ export default function InternalTextFieldIconButton({
 }: Props): Node {
   const [focused, setFocused] = useState(false);
 
-  const iconButton = (
+  return (
     // styles.actionButtonContainer is required for RTL positioning
     <div className={classnames(styles.actionButtonContainer)}>
       <Box
@@ -46,41 +56,35 @@ export default function InternalTextFieldIconButton({
         marginEnd={2}
         rounding="circle"
       >
-        <TapArea
-          accessibilityChecked={accessibilityChecked}
-          accessibilityLabel={accessibilityLabel}
-          onBlur={() => setFocused(false)}
-          onFocus={() => setFocused(true)}
-          onKeyDown={({ event }) => {
-            if ([ENTER, SPACE].includes(event.keyCode)) onClick();
-            if (event.keyCode !== TAB) event.preventDefault();
-          }}
-          onMouseEnter={() => setFocused(true)}
-          onMouseLeave={() => setFocused(false)}
-          onTap={onClick}
-          role={role}
-          rounding="circle"
-          tabIndex={accessibilityHidden ? -1 : 0}
-          tapStyle={tapStyle}
-        >
-          <Pog
-            accessibilityLabel=""
-            bgColor={focused && hoverStyle === 'default' ? 'lightGray' : 'transparent'}
-            icon={icon}
-            iconColor="darkGray"
-            padding={pogPadding}
-            size="xs"
-          />
-        </TapArea>
+        <MaybeTooltip tooltipText={tooltipText}>
+          <TapArea
+            accessibilityChecked={accessibilityChecked}
+            accessibilityLabel={accessibilityLabel}
+            onBlur={() => setFocused(false)}
+            onFocus={() => setFocused(true)}
+            onKeyDown={({ event }) => {
+              if ([ENTER, SPACE].includes(event.keyCode)) onClick();
+              if (event.keyCode !== TAB) event.preventDefault();
+            }}
+            onMouseEnter={() => setFocused(true)}
+            onMouseLeave={() => setFocused(false)}
+            onTap={onClick}
+            role={role}
+            rounding="circle"
+            tabIndex={accessibilityHidden ? -1 : 0}
+            tapStyle={tapStyle}
+          >
+            <Pog
+              accessibilityLabel=""
+              bgColor={focused && hoverStyle === 'default' ? 'lightGray' : 'transparent'}
+              icon={icon}
+              iconColor="darkGray"
+              padding={pogPadding}
+              size="xs"
+            />
+          </TapArea>
+        </MaybeTooltip>
       </Box>
     </div>
-  );
-
-  return tooltipText ? (
-    <Tooltip inline text={tooltipText}>
-      {iconButton}
-    </Tooltip>
-  ) : (
-    iconButton
   );
 }
