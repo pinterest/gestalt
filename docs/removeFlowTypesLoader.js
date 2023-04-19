@@ -5,11 +5,8 @@ const prettier = require('prettier');
 /**
  * This Webpack loader is used to clean up the docs code examples for display in the Sandpack code editor. It removes Flow types and eslint disable comments.
  */
-module.exports = function removeFlowTypesLoader(
-  // $FlowFixMe[unclear-type]
-  this: interface { async: any, cacheable: any }, // eslint-disable-line flowtype/require-exact-type
-  source: string,
-) {
+// $FlowFixMe[missing-this-annot]
+module.exports = function removeFlowTypesLoader(source /*: string */) {
   const callback = this.async();
   this.cacheable();
 
