@@ -1,3 +1,9 @@
+## 110.0.3 (Apr 19, 2023)
+
+### Patch
+
+- DateField: css fixes ([#2859](https://github.com/pinterest/gestalt/pull/2859)) - [Preview link](https://deploy-preview-2859--gestalt.netlify.app)
+
 ## 110.0.2 (Apr 18, 2023)
 
 ### Patch
