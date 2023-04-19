@@ -64,7 +64,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/web/link)."
             sandpackExample={
-              <SandpackExample code={dontUnderline} hideEditor name="Don't - Underline" />
+              <SandpackExample
+                code={dontUnderline}
+                hideEditor
+                hideControls
+                name="Don't - Underline"
+              />
             }
           />
         </MainSection.Subsection>
@@ -80,7 +85,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/web/heading) instead."
             sandpackExample={
-              <SandpackExample code={dontUseHierarchy} hideEditor name="Don't - Use Hierarchy" />
+              <SandpackExample
+                code={dontUseHierarchy}
+                hideEditor
+                hideControls
+                name="Don't - Use Hierarchy"
+              />
             }
           />
         </MainSection.Subsection>
@@ -98,7 +108,12 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="don't"
             description="Mix styles and alignment, as this can be hard to read and follow."
             sandpackExample={
-              <SandpackExample code={dontMixStyles} hideEditor name="Don't - Mix Styles" />
+              <SandpackExample
+                code={dontMixStyles}
+                hideEditor
+                hideControls
+                name="Don't - Mix Styles"
+              />
             }
           />
         </MainSection.Subsection>
@@ -157,7 +172,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Alignment"
           description="Use `align` to adjust the positioning of text within wrapper elements."
         >
-          <SandpackExample code={variantAlignment} layout="column" name="Variants - Alignment" />
+          <SandpackExample code={variantAlignment} name="Variants - Alignment" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -169,7 +184,6 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <SandpackExample
             previewHeight={180}
             code={variantBoxInline}
-            layout="column"
             name="Variants - Alignment"
           />
         </MainSection.Subsection>
@@ -181,12 +195,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         `}
         >
-          <SandpackExample
-            previewHeight={380}
-            code={variantColors}
-            layout="column"
-            name="Variants - Colors"
-          />
+          <SandpackExample code={variantColors} name="Variants - Colors" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -194,9 +203,8 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description="Gestalt provides utility options to deal with text overflow."
         >
           <SandpackExample
-            previewHeight={480}
+            previewHeight={500}
             code={variantOverflowTruncation}
-            layout="column"
             name="Variants - Overflow & Truncation"
           />
         </MainSection.Subsection>
@@ -219,12 +227,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Styles"
           description="There are multiple styles, such as bold and italic, that we can attach to the Text component."
         >
-          <SandpackExample
-            previewHeight={200}
-            code={variantStyles}
-            layout="column"
-            name="Variants - Styles"
-          />
+          <SandpackExample previewHeight={200} code={variantStyles} name="Variants - Styles" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
