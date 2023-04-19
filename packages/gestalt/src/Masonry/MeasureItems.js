@@ -3,7 +3,7 @@ import { Fragment, type Node, useLayoutEffect, useMemo } from 'react';
 import { type Cache } from './Cache.js';
 import { type Position } from './types.js';
 
-const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
+const layoutNumberToCssDimension = (n: number) => (n !== Infinity ? n : undefined);
 
 type Props<T> = {|
   baseIndex: number,
