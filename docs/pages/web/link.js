@@ -99,7 +99,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
-            layout="column"
             description="Use bold font-weight in link elements such as lists, profile and board names, and any link element that an underline style isn't necessary to convey interactivity. For example, the user easily recognizes the bold element as a link since it is a typical treatment across our surfaces."
             cardSize="md"
             sandpackExample={
