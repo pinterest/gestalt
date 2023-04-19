@@ -90,7 +90,6 @@ export default function TableRowExpandable({
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
-    // $FlowFixMe[incompatible-call]
     // $FlowFixMe[incompatible-exact]
     // $FlowFixMe[incompatible-type]
     return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
