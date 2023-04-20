@@ -1,3 +1,9 @@
+## 110.0.9 (Apr 20, 2023)
+
+### Patch
+
+- Link: Fixing code examples not expanding vertically ([#2860](https://github.com/pinterest/gestalt/pull/2860)) - [Preview link](https://deploy-preview-2860--gestalt.netlify.app)
+
 ## 110.0.8 (Apr 20, 2023)
 
 ### Patch
