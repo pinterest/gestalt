@@ -3,7 +3,7 @@ import { type Node, useState, useEffect } from 'react';
 import { SideNavigation, Flex, SelectList } from 'gestalt';
 import { useRouter } from 'next/router';
 import { useNavigationContext } from './navigationContext.js';
-import newSidebarIndex from './siteIndex.js';
+import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
 import useGetSideNavItems from './useGetSideNavItems.js';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
 import { useDocsConfig } from './contexts/DocsConfigProvider.js';
@@ -84,10 +84,10 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
   );
 
   useEffect(() => {
-    const isComponentsCallback = (section) =>
+    const isComponentsCallback = (section: siteIndexType) =>
       convertNamesForURL(section.sectionName).includes(componentPlatformFilteredBy);
 
-    const isNotComponentsCallback = (section) =>
+    const isNotComponentsCallback = (section: siteIndexType) =>
       isMobile
         ? section.sectionName === selectedTab
         : (dynamicUrlPath || pathname).includes(convertNamesForURL(section.sectionName));

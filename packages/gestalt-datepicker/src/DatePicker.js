@@ -219,7 +219,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
     left: 'left',
   };
 
-  const updateNextRef = (submitted) => {
+  const updateNextRef = (submitted: boolean) => {
     if (
       (rangeSelector === 'start' && !rangeEndDate) ||
       (rangeSelector === 'end' && !rangeStartDate)

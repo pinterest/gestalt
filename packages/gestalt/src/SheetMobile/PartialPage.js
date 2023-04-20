@@ -99,7 +99,7 @@ export default function PartialPage({
   }, [closeOnOutsideClick, onExternalDismiss]);
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
       // Handle onDismiss triggering from ESC keyup event
       if (event.keyCode === ESCAPE) {
         onExternalDismiss();

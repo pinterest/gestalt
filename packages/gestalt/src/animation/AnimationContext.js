@@ -63,7 +63,7 @@ export default function AnimationProvider({
 /* A backward-compatible shim for React < 18
  * flushSync is needed in React 18+ to ensure that the animation is finished before the onDismiss callback is called.
  */
-const flushSync = (callback) => {
+const flushSync = (callback: () => void) => {
   if (ReactDOM.flushSync) {
     ReactDOM.flushSync(callback);
   } else {

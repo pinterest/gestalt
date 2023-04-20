@@ -8,12 +8,12 @@ import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 import { SlimBannerExperiment } from './SlimBannerExperiment.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
-const buildSourceLinkPath = (componentName) => {
+const buildSourceLinkPath = (componentName: string) => {
   const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
   return `packages/${packageName}/src/${componentName}.js`;
 };
 
-const buildSourceLinkUrl = (componentName) =>
+const buildSourceLinkUrl = (componentName: string) =>
   ['https://github.com/pinterest/gestalt/blob/master', buildSourceLinkPath(componentName)].join(
     '/',
   );

@@ -10,7 +10,7 @@ import { useNavigationContext } from './navigationContext.js';
 import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
-function getTabs(componentPlatform) {
+function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
   return [
     { href: '/get_started/about_us', text: 'Get started' },
     {

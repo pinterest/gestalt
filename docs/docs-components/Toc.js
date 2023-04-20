@@ -5,7 +5,7 @@ import { Box, Flex, Link, Text } from 'gestalt';
 const HEADER_HEIGHT_PX = 60;
 const FOOTER_HEIGHT_PX = 112;
 
-function throttle(func, wait) {
+function throttle(func: null | (() => void), wait: number) {
   let context;
   let args;
   let result;
@@ -27,7 +27,7 @@ function throttle(func, wait) {
       args = null;
     }
   }
-  return function throttled(...params) {
+  return function throttled(this: null, ...params: $ArrayLike<mixed>) {
     if (!func) {
       return null;
     }
@@ -58,7 +58,7 @@ function throttle(func, wait) {
   };
 }
 
-function useThrottledOnScroll(callback, delay) {
+function useThrottledOnScroll(callback: null | (() => void), delay: number) {
   const throttledCallback = useMemo(() => throttle(callback, delay), [callback, delay]);
 
   useEffect(() => {
@@ -120,7 +120,10 @@ export default function Toc({ cards }: Props): Node {
   // Corresponds to 10 frames at 60 Hz
   useThrottledOnScroll(anchors.length > 0 ? findActiveIndex : null, 166);
 
-  const handleClick = (hash, event) => {
+  const handleClick = (
+    hash: string,
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+  ) => {
     // Ignore click for new tab/new window behavior
     if (
       event.defaultPrevented ||

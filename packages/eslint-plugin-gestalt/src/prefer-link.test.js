@@ -15,7 +15,7 @@ const invalidPrependerNoDisallowed = getTestTypePrepender('invalid');
 
 const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
-const buildInvalidTestNoDisallowed = (name) =>
+const buildInvalidTestNoDisallowed = (name: string) =>
   readTestByPath(pathFormatter(invalidPrependerNoDisallowed(name)));
 
 const invalidImportSingleInput = buildInvalidTestNoDisallowed('no-gestalt-import-single-input');

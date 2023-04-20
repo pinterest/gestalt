@@ -104,7 +104,34 @@ const darkModeTheme = {
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 
-const themeToStyles = (theme) => {
+const themeToStyles = (theme: {|
+  blueActive: string,
+  blueHovered: string,
+  colorGray0: string,
+  colorGray0Active: string,
+  colorGray0Hovered: string,
+  colorGray100: string,
+  colorGray100Active: string,
+  colorGray100Hovered: string,
+  colorGray150: string,
+  colorGray150Hovered: string,
+  colorGray200: string,
+  colorGray200Active: string,
+  colorGray200Hovered: string,
+  colorGray300: string,
+  colorGray400: string,
+  colorGray50: string,
+  colorRed0: string,
+  colorRed100: string,
+  colorRed100Active: string,
+  colorRed100Hovered: string,
+  colorTransparentDarkGray: string,
+  colorTransparentGray100: string,
+  colorTransparentGray500: string,
+  colorTransparentGray60: string,
+  colorTransparentWhite: string,
+  name: string,
+|}) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
@@ -166,8 +193,8 @@ export default function ColorSchemeProvider({
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
 
-  const handlePrefChange = (e) => {
-    setTheme(getTheme(e.matches ? 'dark' : 'light'));
+  const handlePrefChange = (event: MediaQueryList) => {
+    setTheme(getTheme(event.matches ? 'dark' : 'light'));
   };
 
   useEffect(() => {

@@ -75,7 +75,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
   // Determine if the option is a current selected item
   const isSelectedItem = matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
-  const handleOnTap = (event) => {
+  const handleOnTap = (event: SyntheticInputEvent<HTMLInputElement>) => {
     if (!href && !children) {
       event.preventDefault();
     }

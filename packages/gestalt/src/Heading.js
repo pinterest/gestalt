@@ -6,7 +6,7 @@ import styles from './Heading.css';
 import typography from './Typography.css';
 import { semanticColors } from './textTypes.js';
 
-function isNotNullish(val): boolean {
+function isNotNullish(val: ?number): boolean {
   return val !== null && val !== undefined;
 }
 

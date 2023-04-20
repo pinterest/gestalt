@@ -48,7 +48,7 @@ export default function Overview({
             name={`${platform} component overview`}
             description={`Gestalt provides an extensive set of React components for use in building larger web experiences and patterns. They include interactive UI components and developer utilities to help with implemention.
 
-Not sure which component to use? [Set up time with the Gestalt team.](/get_started/how_to_work_with_us#Slack-channels)`}
+Not sure which component to use? [Set up time with the Gestalt team.](/team_support/get_help#Slack-channels)`}
             type="guidelines"
           />
         </IllustrationContainer>

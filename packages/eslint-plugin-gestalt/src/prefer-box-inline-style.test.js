@@ -24,7 +24,7 @@ const invalidBorder = readFileSync(
   'utf-8',
 );
 
-const getErrorMessage = (string) =>
+const getErrorMessage = (string: string) =>
   `Replace this div with a Gestalt Box.\n  Use prop ${string} instead`;
 
 ruleTester.run('prefer-box', rule, {
