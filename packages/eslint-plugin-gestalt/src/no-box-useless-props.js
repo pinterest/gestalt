@@ -24,14 +24,17 @@ const flexPropNames = [
 ];
 const dangerousFlexGridDisplays = ['inline-flex', 'grid', 'inline-grid'];
 
+// $FlowFixMe[missing-local-annot]
 function getAttributeName(attributeName): ?string {
   return attributeName?.name;
 }
 
+// $FlowFixMe[missing-local-annot]
 function getExpressionValues(valueExpression): $ReadOnlyArray<string> {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
+// $FlowFixMe[missing-local-annot]
 function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   const staticValue = attributeValue?.value;
   const isBooleanShorthand = attributeValue === null;
@@ -58,6 +61,7 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   return undefined;
 }
 
+// $FlowFixMe[missing-local-annot]
 // $FlowExpectedError[unclear-type]
 function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   const valueExpression = attributeValue.expression;
@@ -74,6 +78,7 @@ function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   );
 }
 
+// $FlowFixMe[missing-local-annot]
 function hasDangerouslySetFlexDisplay(stylesObject): boolean {
   if (!stylesObject || !stylesObject.display) {
     return false;

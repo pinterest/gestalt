@@ -64,6 +64,7 @@ const rule: ESLintRule = {
     let hasJustifyContent = false;
     let boxImportName;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclaration = (decl) => {
       // Not a Gestalt import
       if (decl.source.value !== 'gestalt') {
@@ -81,6 +82,7 @@ const rule: ESLintRule = {
       }
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jsxOpeningElement = (node) => {
       // We have no Boxes, or this is not a Box
       if (!hasImportedBox || node.name.name !== boxImportName) {

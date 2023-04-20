@@ -2,7 +2,7 @@
 import { type Cache } from './Cache.js';
 import { type Position } from './types.js';
 
-const offscreen = (width, height = Infinity) => ({
+const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,
   left: -9999,
   width,

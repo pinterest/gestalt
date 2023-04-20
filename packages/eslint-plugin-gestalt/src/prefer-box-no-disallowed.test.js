@@ -17,7 +17,7 @@ const invalidPrependerNoDisallowed = getTestTypePrepender('invalid-no-disallowed
 const validCode = readTestByPath(pathFormatter(validPrepender('valid')));
 
 // lonely-ref
-const buildInvalidTestLonelyRef = (name) =>
+const buildInvalidTestLonelyRef = (name: string) =>
   readTestByPath(pathFormatter(invalidPrependerLonelyRef(name)));
 
 const lonelyRefNoGestaltImportInput = buildInvalidTestLonelyRef('no-gestalt-import-input');
@@ -48,7 +48,7 @@ const lonelyRefGestaltImportWithoutBoxOutput = buildInvalidTestLonelyRef(
 );
 
 // no-disallowed
-const buildInvalidTestNoDisallowed = (name) =>
+const buildInvalidTestNoDisallowed = (name: string) =>
   readTestByPath(pathFormatter(invalidPrependerNoDisallowed(name)));
 
 const noDisallowedNoGestaltImportInput = buildInvalidTestNoDisallowed('no-gestalt-import-input');

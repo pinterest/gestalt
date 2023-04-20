@@ -16,7 +16,12 @@ export default function PrimaryActionExample(): Node {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const anchorRef = React.useRef(null);
-  const handleSelect = ({ item }) => {
+  const handleSelect = ({
+    item,
+  }: {|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => {
     if (selected.some((selectedItem) => selectedItem.value === item.value)) {
       setSelected((localSelected) =>
         localSelected.filter((selectedItem) => selectedItem.value !== item.value),

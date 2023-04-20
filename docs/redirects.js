@@ -150,7 +150,7 @@ const misc = [
   },
   {
     source: '/get_started/how_to_work_with_us',
-    destination: '/team_support/contributions',
+    destination: '/team_support/overview',
     permanent: true,
   },
   {

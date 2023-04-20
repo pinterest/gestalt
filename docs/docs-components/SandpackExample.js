@@ -83,7 +83,7 @@ function SandpackContainer({
               height:
                 isMobileRowLayout || isMobileColumnLayout
                   ? MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT
-                  : (!editorShown && previewHeight) || MIN_EDITOR_HEIGHT,
+                  : (!editorShown && previewHeight) || codeEditorHeight || MIN_EDITOR_HEIGHT,
             }}
             showRefreshButton={false}
             showOpenInCodeSandbox={false}
