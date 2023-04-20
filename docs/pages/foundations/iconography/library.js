@@ -228,7 +228,7 @@ export default function IconPage(): Node {
       </Text>
       <Text>
         Need a new icon?{' '}
-        <Link display="inlineBlock" href="/get_started/how_to_work_with_us#Slack-channels">
+        <Link display="inlineBlock" href="/team_support/get_help#Slack-channels">
           Reach out to us
         </Link>
         , and we can evaluate your request.
