@@ -122,26 +122,26 @@ Use these tokens for applying size, weight and color styles to Text.
 
 ## Variants
 
-### Headings and titles
+### Headings
 
 Used for surface titles and section headings
 <br/>
 
-<iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76497%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="546" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76497%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
 
-### Body and labels
+### Body
 
 Used for text that is part of paragraphs or UI controls
 <br/>
 
-<iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76579%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="492" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76579%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
 
 ## Size
 
 These font sizes follow those available through our [Typography scale](https://gestalt.pinterest.systems/foundations/typography/guidelines#Scale)
 <br/>
 
-<iframe style={{border:0}} width="100%" height="776" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20521%253A76933%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="906" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20521%253A76933%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
 
 ### Dynamic Type sizes
 
@@ -154,7 +154,7 @@ This is how text scales when people resize text. Our default text sizes correspo
 For emphasizing text in body copy and in sizes below 16pt and below, use `bold`. For titles and headings, use `semibold`.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="411" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76157%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="477" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76157%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
 
 ## Alignment
 
