@@ -360,13 +360,13 @@ When using these render props, just pass the argument \`onDismissStart\` to your
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Modal](/Modal)**
+**[Modal](/web/modal)**
 Modal displays content that requires user interaction. Modals appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal.
 
-**[ModalAlert](/ModalAlert)**
+**[ModalAlert](/web/modalalert)**
 ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action.
 
-**[OverlayPanel](/OverlayPanel)**
+**[OverlayPanel](/web/overlaypanel)**
 OverlayPanels are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page.
     `}
         />

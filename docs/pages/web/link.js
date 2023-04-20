@@ -319,7 +319,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
           columns={2}
           description={`To follow Link design guidelines and [best practices](#Best-practices), \`inline\` and \`underline\` props must be used accordingly. In addition, using Links consistently will ensure a great usability experience.
 
-We recommend showing the underline on the link, at least upon a hover behavior; it will sustain accessibility standards. Only hide the underline if the link element has a different hover behavior (e.g., a color background), and the user can still perceive the element as a link. In that case, it’s always a good idea to test this assumption with users. Reach out to [Gestalt for assistance](/get_started/how_to_work_with_us#Meetings-and-events).
+We recommend showing the underline on the link, at least upon a hover behavior; it will sustain accessibility standards. Only hide the underline if the link element has a different hover behavior (e.g., a color background), and the user can still perceive the element as a link. In that case, it’s always a good idea to test this assumption with users. Reach out to [Gestalt for assistance](/team_support/get_help#Meetings-and-events).
 
 Don’t underline [Text](/web/text) that isn’t a Link, as underline has a strong link affordance.
 
