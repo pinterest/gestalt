@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InternalPopover does not render when the anchor is null 1`] = `null`;
+
+exports[`InternalPopover renders correctly 1`] = `
+<div>
+  <div
+    className="container rounding4 contents maxDimensions minDimensions"
+    style={
+      Object {
+        "left": -10,
+        "top": 8,
+        "visibility": "visible",
+      }
+    }
+    tabIndex={-1}
+  >
+    <div
+      aria-label="text"
+      className="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+      role="dialog"
+      style={
+        Object {
+          "maxHeight": 691.1999999999999,
+          "maxWidth": 230,
+        }
+      }
+    >
+      <div
+        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+      >
+        text
+      </div>
+    </div>
+  </div>
+</div>
+`;

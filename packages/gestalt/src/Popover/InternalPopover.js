@@ -1,6 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
-import InternalPopover from './Popover/InternalPopover.js';
+import { type Node, useRef, useEffect } from 'react';
+import Box from '../Box.js';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import Controller from '../Controller.js';
+import Flex from '../Flex.js';
+import InternalDismissButton from '../shared/InternalDismissButton.js';
 
 type Color = 'blue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -99,25 +103,55 @@ export default function Popover({
   size = 'sm',
   __dangerouslySetMaxHeight,
 }: Props): null | Node {
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('Popover');
+
+  const dismissButtonRef = useRef();
+
+  useEffect(() => {
+    dismissButtonRef.current?.focus();
+  }, []);
+
+  if (!anchor) {
+    return null;
+  }
+
   return (
-    <InternalPopover
+    <Controller
       accessibilityLabel={accessibilityLabel}
-      accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
       anchor={anchor}
-      showDismissButton={showDismissButton}
+      bgColor={color}
+      border
+      caret={showCaret}
       onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
-      color={color}
       role={role}
+      rounding={4}
       shouldFocus={shouldFocus}
-      showCaret={showCaret}
-      size={size}
-      __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
+      size={size === 'flexible' ? null : size}
+      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
     >
-      {children}
-    </InternalPopover>
+      {showDismissButton ? (
+        <Flex direction="column">
+          <Box alignSelf="end" padding={2}>
+            <InternalDismissButton
+              accessibilityLabel={
+                accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+              }
+              onClick={onDismiss}
+              size="xs"
+              ref={dismissButtonRef}
+              iconColor={color === 'white' ? 'darkGray' : 'white'}
+            />
+          </Box>
+          {children}
+        </Flex>
+      ) : (
+        children
+      )}
+    </Controller>
   );
 }
