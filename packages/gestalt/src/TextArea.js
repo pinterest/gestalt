@@ -222,7 +222,6 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
   const tagsWrapperStyle = {
     minHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
     maxHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
-   
   };
 
   return (
