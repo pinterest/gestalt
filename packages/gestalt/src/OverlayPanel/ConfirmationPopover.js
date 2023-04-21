@@ -67,7 +67,7 @@ export default function ConfirmationPopover({
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
       if (event.keyCode === ESCAPE) event.stopPropagation();
     }
     window.addEventListener('keydown', handleKeyDown);

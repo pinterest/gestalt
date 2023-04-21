@@ -14,7 +14,13 @@ const renderTextField = ({
   onFocus = jest.fn(),
   onBlur = jest.fn(),
   maxLength,
-}) =>
+}: {|
+  id?: $ElementType<React$ElementConfig<typeof TextField>, 'id'>,
+  onChange?: $ElementType<React$ElementConfig<typeof TextField>, 'onChange'>,
+  onFocus?: $ElementType<React$ElementConfig<typeof TextField>, 'onFocus'>,
+  onBlur?: $ElementType<React$ElementConfig<typeof TextField>, 'onBlur'>,
+  maxLength?: $ElementType<React$ElementConfig<typeof TextField>, 'maxLength'>,
+|}) =>
   render(
     <TextField
       id={id}

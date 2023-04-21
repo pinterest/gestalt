@@ -10,10 +10,6 @@ import PartialPage from './SheetMobile/PartialPage.js';
 
 type Props = {|
   /**
-   * String that clients such as VoiceOver will read to describe SheetMobile when opened. See [Accessibility section](https://gestalt.pinterest.systems/web/sheetmobile#Accessibility) for more info.
-   */
-  accessibilityLabel?: string,
-  /**
    * Specify the alignment of `heading` & `subHeading` strings. See the [Header variant](https://gestalt.pinterest.systems/web/sheetmobile#Heading) for more info.
    */
   align?: 'start' | 'center',
@@ -121,7 +117,6 @@ type Props = {|
  *
  */
 function SheetMobile({
-  accessibilityLabel,
   align = 'start',
   backIconButton,
   children,
@@ -150,7 +145,6 @@ function SheetMobile({
   if (size === 'full')
     return (
       <FullPage
-        accessibilityLabel={accessibilityLabel}
         align={align}
         backIconButton={backIconButton}
         forwardIconButton={forwardIconButton}
@@ -171,7 +165,6 @@ function SheetMobile({
     return (
       <AnimationProvider>
         <PartialPage
-          accessibilityLabel={accessibilityLabel}
           align={align}
           backIconButton={backIconButton}
           closeOnOutsideClick={closeOnOutsideClick}

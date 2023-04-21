@@ -20,6 +20,8 @@ declare module.exports: {|
   +'flexGrow': string,
   +'flexNone': string,
   +'flexWrap': string,
+  +'fullHeight': string,
+  +'fullWidth': string,
   +'inline': string,
   +'inlineBlock': string,
   +'inlineFlex': string,

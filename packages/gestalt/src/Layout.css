@@ -326,3 +326,13 @@
 .minWidth60 {
   min-width: 60px;
 }
+
+/* Dimensions */
+
+.fullWidth {
+  width: 100%;
+}
+
+.fullHeight {
+  height: 100%;
+}

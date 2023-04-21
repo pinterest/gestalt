@@ -6,6 +6,7 @@ import resizeWidth from './utils/resizeWidth.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
+// $FlowFixMe[missing-local-annot]
 async function getItemColumnMap(gridItems) {
   const itemLeftMap = {};
   for (let i = 0; i < gridItems.length; i += 1) {

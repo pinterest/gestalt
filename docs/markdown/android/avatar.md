@@ -30,12 +30,12 @@ For general Avatar best practices, refer to the [Avatar web documentation](/web/
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/92/e5/ec/92e5ec30eb262ff1decfb70653a0d92c.png" alt="example profile with correct avatar size"/>
     <Do title="Do" />
-    Use round Avatars in the appropriate size for your need. 
+    Use round Avatars in the appropriate size for your need.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/43/f4/5c/43f45caf6d30655c47eaaf89e4a9d6d4.png" alt="example of triangle avatar"/>
     <Dont title="Don't" />
-    Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style. 
+    Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/f4/5d/bd/f45dbde69d53684aeab0a81eede52609.png" alt="avatar with a name underneath"/>

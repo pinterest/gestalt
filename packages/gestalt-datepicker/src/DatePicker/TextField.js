@@ -2,7 +2,7 @@
 import { forwardRef, type ElementRef, type AbstractComponent } from 'react';
 import classnames from 'classnames';
 import { Box, Icon, Label, TextField } from 'gestalt';
-import styles from './DatePicker.css';
+import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
 // Datepicker takes this props and then funnels them to DatePickerTextField.
@@ -87,7 +87,10 @@ function DatePickerTextField(props: Props) {
   );
 }
 
-function textFieldForwardRef(props, ref) {
+function textFieldForwardRef(
+  props: Props,
+  ref: ((null | HTMLInputElement) => mixed) | { current: null | HTMLInputElement, ... },
+) {
   return <DatePickerTextField {...props} forwardedRef={ref} />;
 }
 

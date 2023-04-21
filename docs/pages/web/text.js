@@ -8,15 +8,31 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import doMinimalStyle from '../../examples/text/doMinimalStyle.js';
+import dontCenterAlign from '../../examples/text/dontCenterAlign.js';
+import dontMixStyles from '../../examples/text/dontMixStyles.js';
+import dontUnderline from '../../examples/text/dontUnderline.js';
+import dontUseHierarchy from '../../examples/text/dontUseHierarchy.js';
+import doStartAlign from '../../examples/text/doStartAlign.js';
+import doUseSize from '../../examples/text/doUseSize.js';
+import doWeight from '../../examples/text/doWeight.js';
+import main from '../../examples/text/main.js';
+import variantAlignment from '../../examples/text/variantAlignment.js';
+import variantBoxInline from '../../examples/text/variantBoxInline.js';
+import variantColors from '../../examples/text/variantColors.js';
+import variantOverflowTruncation from '../../examples/text/variantOverflowTruncation.js';
+import variantRefs from '../../examples/text/variantRefs.js';
+import variantSizes from '../../examples/text/variantSizes.js';
+import variantStyles from '../../examples/text/variantStyles.js';
+import variantTitle from '../../examples/text/variantTitle.js';
 
 export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`<Flex direction="column" gap={{ column: 4, row: 0 }}><Text size="500">This simple description uses the Text component.</Text><Badge text="Badge also uses it" /></Flex>`}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main Badge example" hideEditor previewHeight={150} />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
@@ -41,17 +57,22 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Emphasize text inside of paragraphs by using a bold weight."
-            defaultCode={`
-<Text>For campaign optimization and delivery, <Text weight="bold" inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
-`}
+            sandpackExample={
+              <SandpackExample layout="column" code={doWeight} hideEditor name="Do - Font Weight" />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/web/link)."
-            defaultCode={`
- <Text>For campaign optimization and delivery, <Text underline inline>set optimization and delivery at the campaign level</Text> so all ad groups have the same values.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={dontUnderline}
+                hideEditor
+                hideControls
+                name="Don't - Underline"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -59,23 +80,22 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use size to emphasize things like numbers that don’t define a page structure."
-            defaultCode={`
-<Flex direction="column">
-  <Text size={200}>Impressions</Text>
-  <Text size={500} weight="bold">1.25M</Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample layout="column" code={doUseSize} hideEditor name="Do - Use Size" />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/web/heading) instead."
-            defaultCode={`
-<Flex direction="column" gap={{ column: 2, row: 0 }}>
-  <Text size={300} weight="bold">Impressions</Text>
-  <Text size={100}>1,250,000</Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={dontUseHierarchy}
+                hideEditor
+                hideControls
+                name="Don't - Use Hierarchy"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -83,23 +103,27 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use a minimal amount of sizes and styles to keep the UI clean and readable."
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Text>Pinterest is building a positive online space for creators. That’s why we made the <Text weight="bold" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
-  <Text>Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text italic inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                layout="column"
+                code={doMinimalStyle}
+                hideEditor
+                name="Do - Minimal Style"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Mix styles and alignment, as this can be hard to read and follow."
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Text size={100}>Pinterest is building a positive online space for creators. That’s why we made the <Text size={100} color="success" inline>Creator Code: A commitment to kindness for everyone on Pinterest.</Text> We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
-  <Text weight="bold" align="center">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: <Text weight="bold" italic color="warning" inline>Fashion inspiration to freshen up a wardrobe.</Text></Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={dontMixStyles}
+                hideEditor
+                hideControls
+                name="Don't - Mix Styles"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -107,17 +131,27 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Start-align paragraph text."
-            defaultCode={`
-<Text>Our mission is to bring everyone the inspiration to create a life they love. To do that, we show you personalized content and ads we think you’ll be interested in based on information we collect from you and third parties. We only use that information where we have a proper legal basis for doing so.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                layout="column"
+                code={doStartAlign}
+                hideEditor
+                name="Do - Start Align"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Center-align paragraph text. This is hard to read, especially for users with dyslexia."
-            defaultCode={`
-<Text align="center">Our mission is to bring everyone the inspiration to create a life they love. To do that, we show you personalized content and ads we think you’ll be interested in based on information we collect from you and third parties. We only use that information where we have a proper legal basis for doing so.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                code={dontCenterAlign}
+                hideEditor
+                hideControls
+                name="Don't - Center Align"
+              />
+            }
           />
         </MainSection.Subsection>
         <SlimBanner
@@ -157,21 +191,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Alignment"
           description="Use `align` to adjust the positioning of text within wrapper elements."
         >
-          <MainSection.Card
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }} width={200}>
-  <Text align="start">Start (default)</Text>
-  <Divider />
-  <Text align="end">End</Text>
-  <Divider />
-  <Text align="center">Center</Text>
-  <Divider />
-  <Text align="forceLeft">Force left</Text>
-  <Divider />
-  <Text align="forceRight">Force right</Text>
-</Flex>
-`}
-          />
+          <SandpackExample code={variantAlignment} name="Variants - Alignment" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -180,17 +200,10 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           The Text component allows you to specify whether you want \`block\` or \`inline\` text.
         `}
         >
-          <MainSection.Card
-            defaultCode={`
-<Flex alignItems="start" direction="column" gap={{ column: 4, row: 0 }}>
-  <Text>Some content in a default block element. (default)</Text>
-  <Box>
-    <Text inline>Inline text with the inline prop.</Text>
-    {' '}
-    <Text inline>More inline text.</Text>
-  </Box>
-</Flex>
-          `}
+          <SandpackExample
+            previewHeight={180}
+            code={variantBoxInline}
+            name="Variants - Alignment"
           />
         </MainSection.Subsection>
 
@@ -201,68 +214,17 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         `}
         >
-          <MainSection.Card
-            defaultCode={`
-  <Flex alignItems="start" direction="column" gap={{ column: 3, row: 0 }}>
-    <Box color="inverse" padding={1}>
-      <Text color="inverse" size="400">Inverse</Text>
-    </Box>
-    <Text color="subtle" size="400">Subtle</Text>
-    <Text color="default" size="400">Default</Text>
-    <Text color="success" size="400">Success</Text>
-    <Text color="warning" size="400">Warning</Text>
-    <Text color="error" size="400">Error</Text>
-    <Text color="shopping" size="400">Shopping</Text>
-    <Box color="primary" padding={1}>
-      <Text color="light" size="400">Light</Text>
-    </Box>
-    <Box color="infoWeak" padding={1}>
-      <Text color="dark" size="400">Dark</Text>
-    </Box>
-  </Flex>
-          `}
-          />
+          <SandpackExample code={variantColors} name="Variants - Colors" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Overflow & truncation"
           description="Gestalt provides utility options to deal with text overflow."
         >
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-<Flex maxWidth={200} direction="column" gap={{ column: 8, row: 0 }}>
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-    <Text>breakWord (default):</Text>
-    <Box color="secondary" padding={2} rounding={2}>
-      <Text>
-        This is a long and Supercalifragilisticexpialidocious sentence.
-        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      </Text>
-    </Box>
-  </Flex>
-
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-    <Text>normal:</Text>
-    <Box color="secondary" padding={2} rounding={2}>
-      <Text overflow="normal">
-        This is a long and Supercalifragilisticexpialidocious sentence.
-        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      </Text>
-    </Box>
-  </Flex>
-
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-  <Text>lineClamp:</Text>
-    <Box color="secondary" padding={2} rounding={2}>
-      <Text lineClamp={2}>
-        This is a long and Supercalifragilisticexpialidocious sentence.
-        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      </Text>
-    </Box>
-  </Flex>
-</Flex>
-        `}
+          <SandpackExample
+            previewHeight={500}
+            code={variantOverflowTruncation}
+            name="Variants - Overflow & Truncation"
           />
         </MainSection.Subsection>
 
@@ -273,64 +235,10 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         `}
         >
-          <MainSection.Card
-            defaultCode={`
-<Flex alignItems="start" direction="column" gap={{ column: 2, row: 0 }}>
-  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-    <Text inline size="100">Size 100</Text>
-    <span lang="ja">
-      <Text inline size="100">
-        こんにちは
-      </Text>
-    </span>
-  </Flex>
-
-  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-    <Text inline size="200">Size 200</Text>
-    <span lang="ja">
-      <Text inline size="200">
-        こんにちは
-      </Text>
-    </span>
-  </Flex>
-
-  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-    <Text inline size="300">Size 300 (default size)</Text>
-    <span lang="ja">
-      <Text inline size="300">
-        こんにちは
-      </Text>
-    </span>
-  </Flex>
-
-  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-    <Text inline size="400">Size 400</Text>
-    <span lang="ja">
-      <Text inline size="400">
-        こんにちは
-      </Text>
-    </span>
-  </Flex>
-
-  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-    <Text inline size="500">Size 500</Text>
-    <span lang="ja">
-      <Text inline size="500">
-        こんにちは
-      </Text>
-    </span>
-  </Flex>
-
-  <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-    <Text inline size="600">Size 600</Text>
-    <span lang="ja">
-      <Text inline size="600">
-        こんにちは
-      </Text>
-    </span>
-  </Flex>
-</Flex>
-          `}
+          <SandpackExample
+            code={variantSizes}
+            layout="column"
+            name="Variants - Overflow & Truncation"
           />
         </MainSection.Subsection>
 
@@ -338,15 +246,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Styles"
           description="There are multiple styles, such as bold and italic, that we can attach to the Text component."
         >
-          <MainSection.Card
-            defaultCode={`
-<Flex direction="column" gap={{ column: 2, row: 0 }}>
-  <Text weight="bold">Bold</Text>
-  <Text italic>Italic</Text>
-  <Text underline>Underline</Text>
-</Flex>
-          `}
-          />
+          <SandpackExample previewHeight={200} code={variantStyles} name="Variants - Styles" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -354,159 +254,18 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`The \`title\` attribute on a \`<div>\` can be used to show the full text of a truncated string on hover. That attribute is populated automatically when the text is truncated using \`lineClamp\`, as long as \`children\` is a string.
            If \`children\` is a \`React.Node\` (e.g. [when using Link](/web/link#Link-and-Text)), use the \`title\` prop to manually set the \`title\` attribute.`}
         >
-          <MainSection.Card
-            defaultCode={`
-<Flex alignItems="center" direction="column" gap={{ column: 2, row: 0 }}>
-  <Text size="200" weight="bold">
-    Hover over the examples below for a few seconds to see the title text:
-  </Text>
-
-  <Box borderStyle="sm" maxWidth={400} padding={1}>
-    <Flex direction="column" gap={{ column: 3, row: 0 }}>
-      <Flex direction="column" gap={{ column: 1, row: 0 }}>
-        <Text italic size="100">
-          This title attribute is automatically added because lineClamp is used and children is a string.
-        </Text>
-        <Text lineClamp={1}>
-          This is a long and Supercalifragilisticexpialidocious sentence.
-          次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-        </Text>
-      </Flex>
-
-      <Flex direction="column" gap={{ column: 1, row: 0 }}>
-        <Text italic size="100">
-          This example uses lineClamp but has no title attribute, because children is a React.Node.
-        </Text>
-        <Text lineClamp={1}>
-          <Link href="#">
-            This is a long and Supercalifragilisticexpialidocious sentence.
-            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </Link>
-        </Text>
-      </Flex>
-
-      <Flex direction="column" gap={{ column: 1, row: 0 }}>
-        <Text italic size="100">
-          This example uses lineClamp and children is a React.Node, but uses the title prop.
-        </Text>
-        <Text
-          lineClamp={1}
-          title="This is a long and Supercalifragilisticexpialidocious sentence. 次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉"
-        >
-          <Link href="#">
-            This is a long and Supercalifragilisticexpialidocious sentence.
-            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </Link>
-        </Text>
-      </Flex>
-    </Flex>
-  </Box>
-</Flex>
-`}
-          />
+          <SandpackExample code={variantTitle} layout="column" name="Variants - Title" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Refs"
           description={`Don't use \`ref\` to manipulate the underlaying HTML div or span elements. Use \`ref\` to only read HTML attributes. For example, a valid use case can be detecting [truncation](#Overflow-and-truncation). The example below illustrates a case where detecting truncation allows rendering links contained within Text.`}
         >
-          <MainSection.Card
-            defaultCode={`
-function Example() {
-  const [showLongText, setShowLongText] = React.useState(false);
-  const [applyTruncationDetection, setApplyTruncationDetection] = React.useState(false);
-
-
-  const text = "Tag brand partners in your Idea Pins with the paid partnership tool."
-
-  const veryLongText = "Tag brand partners in your Idea Pins with the paid partnership tool. Just make an Idea Pin in the app, add the paid partnership label and tag your partner brand. Once they approve the request, their brand name will show up on your Idea Pin. Brands can also choose to promote your Idea Pins as ads, boosting your reach to even more people. When you use the paid partnership tool, you work directly with brands to define the payment terms and process. Pinterest will not be directly involved in payment."
-
-  const textRef = React.useRef(null);
-  const [ellipsisActive, setEllipsisActive] = React.useState(false);
-
-  const isEllipsisActive = (element) =>
-    element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
-
-  const checkEllipsisActive = () => {
-    if (textRef.current && !ellipsisActive && isEllipsisActive(textRef.current)) {
-      setEllipsisActive(true);
-    } else if (textRef.current && ellipsisActive && !isEllipsisActive(textRef.current)) {
-      setEllipsisActive(false);
-    }
-  };
-
-  React.useEffect(() => {
-    checkEllipsisActive();
-    window.addEventListener('resize', checkEllipsisActive);
-    return () => {
-      window.removeEventListener('resize', checkEllipsisActive);
-    };
-  }, [checkEllipsisActive]);
-
-  return (
-    <Flex gap={8} direction="column" width="100%">
-      <Flex gap={2} direction="column">
-        <Box display="flex" alignItems="center">
-          <Box paddingX={2} WIDTH>
-            <Label htmlFor="longText">
-              <Text>Show long text</Text>
-            </Label>
-          </Box>
-          <Switch
-            onChange={() => setShowLongText(!showLongText)}
-            id="longText"
-            switched={showLongText}
-          />
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Box paddingX={2}>
-            <Label htmlFor="truncation">
-              <Text>Apply truncation detection</Text>
-            </Label>
-          </Box>
-          <Switch
-            onChange={() => setApplyTruncationDetection(!applyTruncationDetection)}
-            id="truncation"
-            switched={applyTruncationDetection}
-          />
-        </Box>
-      </Flex >
-      <Flex direction="column">
-        <Text
-          inline
-          align="start"
-          lineClamp={2}
-          ref={textRef}
-          title={ellipsisActive && typeof veryLongText === 'string' ? veryLongText : undefined}
-        >
-          {showLongText ? veryLongText : text }
-          {' '}
-          <Text inline>
-            <Link
-              accessibilityLabel="Visit our Help Site"
-              href="#"
-              display="inline"
-            >
-              Visit our Help Site
-            </Link>
-          </Text>
-        </Text>
-        {ellipsisActive && applyTruncationDetection? (
-          <Text>
-            <Link
-              accessibilityLabel="Visit our Help Site"
-              href="#"
-              display="inline"
-            >
-            Visit our Help Site
-            </Link>
-          </Text>
-        ) : null}
-      </Flex>
-    </Flex>
-  );
-}
-`}
+          <SandpackExample
+            previewHeight={250}
+            code={variantRefs}
+            layout="column"
+            name="Variants - Refs"
           />
         </MainSection.Subsection>
 

@@ -38,6 +38,7 @@ import arrowUpRight from './arrow-up-right.svg';
 import arrowUp from './arrow-up.svg';
 import bell from './bell.svg';
 import board from './board.svg';
+import briefcase from './briefcase.svg';
 import calendarCheck from './calendar-check.svg';
 import calendar from './calendar.svg';
 import cameraRoll from './camera-roll.svg';
@@ -130,6 +131,7 @@ import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
+import moon from './moon.svg';
 import movePin from './move-pin.svg';
 import move from './move.svg';
 import musicOff from './music-off.svg';
@@ -173,6 +175,7 @@ import speechEllipsis from './speech-ellipsis.svg';
 import speech from './speech.svg';
 import starHalf from './star-half.svg';
 import star from './star.svg';
+import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
 import terms from './terms.svg';
@@ -250,8 +253,9 @@ const icons = Object.freeze({
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-right': arrowUpRight,
-  board,
   bell,
+  board,
+  briefcase,
   calendar,
   'calendar-check': calendarCheck,
   camera,
@@ -344,6 +348,7 @@ const icons = Object.freeze({
   menu,
   minimize,
   mobile,
+  moon,
   move,
   mute,
   'move-pin': movePin,
@@ -387,6 +392,7 @@ const icons = Object.freeze({
   'speech-ellipsis': speechEllipsis,
   star,
   'star-half': starHalf,
+  sun,
   'switch-account': switchAccount,
   tag,
   terms,

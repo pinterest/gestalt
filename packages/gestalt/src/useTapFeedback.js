@@ -12,7 +12,7 @@ type Coordinate = {|
 type TapTargetHTMLElement = HTMLDivElement;
 
 export const keyPressShouldTriggerTap = (
-  event: SyntheticKeyboardEvent<TapTargetHTMLElement>,
+  event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
 ): boolean => [ENTER, SPACE].includes(event.charCode);
 
 export default function useTapFeedback({ height, width }: {| height: ?number, width: ?number |}): {|

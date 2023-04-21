@@ -25,7 +25,12 @@ export default function Example(): Node {
     options.filter((pronoun) => !selected.includes(pronoun.value)),
   );
 
-  const handleOnSelect = ({ item: { label } }) => {
+  const handleOnSelect = ({
+    item: { label },
+  }: {|
+    event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => {
     if (!selected.includes(label) && selected.length < 2) {
       const newSelected = [...selected, label];
       setSelected(newSelected);
@@ -34,7 +39,12 @@ export default function Example(): Node {
     }
   };
 
-  const handleOnChange = ({ value }) => {
+  const handleOnChange = ({
+    value,
+  }: {|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
+  |}) => {
     setSearchTerm(value);
 
     const suggested = value
@@ -51,7 +61,12 @@ export default function Example(): Node {
     setSuggestedOptions(options);
   };
 
-  const handleOnKeyDown = ({ event: { keyCode, currentTarget } }) => {
+  const handleOnKeyDown = ({
+    event: { keyCode, currentTarget },
+  }: {|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => {
     // Remove tag on backspace if the cursor is at the beginning of the field
 
     if (keyCode === 8 /* Backspace */ && currentTarget.selectionEnd === 0) {
@@ -61,7 +76,7 @@ export default function Example(): Node {
     }
   };
 
-  const handleRemoveTag = (removedValue) => {
+  const handleRemoveTag = (removedValue: string) => {
     const newSelected = selected.filter((tagValue) => tagValue !== removedValue);
     setSelected(newSelected);
     setSuggestedOptions(options.filter((pronoun) => !newSelected.includes(pronoun.label)));

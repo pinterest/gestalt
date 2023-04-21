@@ -19,6 +19,7 @@ const KEYS = {
 
 const dropdownItemDisplayNames = ['Dropdown.Item', 'Dropdown.Link'];
 
+// $FlowFixMe[missing-local-annot]
 function getChildrenOptions(childrenArray) {
   return childrenArray.reduce((accumulatedChildren, currentChild) => {
     const {
@@ -53,7 +54,8 @@ function getChildrenOptions(childrenArray) {
  * used for keyboard navigation,
  * we must clone the item and inject the index prop
  */
-const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
+// $FlowFixMe[missing-local-annot]
+const renderDropdownItemsWithIndex = (dropdownChildren, idxBase: number) =>
   dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
@@ -62,6 +64,7 @@ const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
     return child;
   });
 
+// $FlowFixMe[missing-local-annot]
 const renderChildrenWithIndex = (childrenArray) => {
   let numItemsRendered = 0;
 
@@ -153,7 +156,7 @@ export default function Dropdown({
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;
-  const setOptionRef = (optionRef) => {
+  const setOptionRef = (optionRef: ?HTMLElement) => {
     selectedElement = optionRef;
     const linkElement = selectedElement?.getElementsByTagName('a')[0];
     if (linkElement) {
@@ -163,7 +166,10 @@ export default function Dropdown({
     }
   };
 
-  const handleKeyNavigation = (event, direction: DirectionOptionType) => {
+  const handleKeyNavigation = (
+    event: SyntheticKeyboardEvent<HTMLElement>,
+    direction: DirectionOptionType,
+  ) => {
     const newIndex = direction + hoveredItem;
     const optionsCount = allowedChildrenOptions.length - 1;
 
@@ -194,7 +200,7 @@ export default function Dropdown({
     }
   };
 
-  const onKeyDown = ({ event }) => {
+  const onKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);

@@ -1,5 +1,5 @@
 ---
-title: Text field
+title: TextField
 description: TextField allows for multiple types of text input.
 fullwidth: true
 ---
