@@ -1,3 +1,9 @@
+## 110.0.2-alpha.0 (Apr 21, 2023)
+
+### Prerelease
+
+- Merge branch 'alpha' of https://github.com/pinterest/gestalt into alpha
+
 ## 110.0.1 (Apr 18, 2023)
 
 ### Patch
