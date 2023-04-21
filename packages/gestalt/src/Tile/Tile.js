@@ -145,13 +145,13 @@ export default function Tile({
           onKeyDown={handleKeyDown}
           style={generateSelectedColorStyles()}
         >
-          <Flex direction="row">
+          <Flex direction="row" gap={2}>
             <Flex.Item>{children}</Flex.Item>
+            {showCheckbox && (isSelected || isHovered) &&  (
             <Flex.Item>
-              {showCheckbox && (
-                <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
-              )}
-            </Flex.Item>
+              <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
+            </Flex.Item> 
+             )}
           </Flex>
         </div>
       </TooltipWrapper>

@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import DataPoint from './Datapoint.js';
 import Tile from './Tile/Tile.js';
 
+
 type DataVisualizationColors =
   | 'data-visualization-01'
   | 'data-visualization-02'
@@ -12,10 +13,9 @@ type DataVisualizationColors =
 
 type Props = {|
   /**
-   * disables interactivity
+   * disables component interactivity
    */
   disabled?: boolean,
-
   /**
    * An identifier to be passed in a callback, and distinguish multiple DataPoints
    */
@@ -40,7 +40,7 @@ type Props = {|
    * Adds a Tooltip on hover/focus of the Tile. See the With Tooltip variant to learn more.
    */
   tooltip?: string,
-|};
+|} & DataPointCore;
 
 /**
  * Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points
@@ -52,7 +52,7 @@ export default function TileData({
   selectedColor = 'data-visualization-05',
   showCheckbox,
   onSelected,
-  tooltip,
+  tooltip
 }: Props): Node {
   /** We use the color hex to generate a shade */
   const getColorHex = (color: string) =>
