@@ -10,7 +10,7 @@
 
   /* Note: this may cause responsiveness weirdness on mobile*/
   max-width: 196px;
-  width: 100%;
+  width: min-content;
   border-color: transparent;
 }
 

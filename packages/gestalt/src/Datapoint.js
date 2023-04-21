@@ -19,28 +19,12 @@ type BadgeObject = {|
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
 |};
 
-type Props = {|
-  /**
-   * Adds a badge to the title. Currently a beta feature, expect changes.
-   */
-  badge?: BadgeObject,
-  /**
-   * Used to set the size of the datapoint. See the [size](https://gestalt.pinterest.systems#Size) variant to learn more.
-   */
-  size?: 'md' | 'lg',
+export type DataPointCore = {
   /**
    * The header text for the component.
    */
-  title: string,
-  /**
-   * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
-   */
-  tooltipText?: string,
-  /**
-   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
-   */
-  tooltipZIndex?: Indexable,
-  /**
+    title: string,
+     /**
    * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems#Trend) variant to learn more.
    */
   trend?: TrendObject,
@@ -52,7 +36,26 @@ type Props = {|
    * The datapoint value (e.g., 1.23M)
    */
   value: string,
-|};
+}
+
+type Props = {|
+  /**
+   * Adds a badge to the title. Currently a beta feature, expect changes.
+   */
+  badge?: BadgeObject,
+  /**
+   * Used to set the size of the datapoint. See the [size](https://gestalt.pinterest.systems#Size) variant to learn more.
+   */
+  size?: 'md' | 'lg',
+  /**
+   * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
+   */
+  tooltipText?: string,
+  /**
+   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
+   */
+  tooltipZIndex?: Indexable,
+|} & DataPointCore;
 
 /**
  * [Datapoint](https://gestalt.pinterest.systems/web/datapoint) displays at-a-glance data for a user to quickly view key metrics.
