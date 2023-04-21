@@ -63,7 +63,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           },
           {
             name: 'iconColor',
-            type: `"darkGray" | "gray" | "red" | "white"`,
+            type: `"darkGray" | "gray" | "red" | "white" | "brandPrimary"`,
             defaultValue: 'darkGray',
             description:
               'Primary color to apply to the [Icon](/web/icon). See [icon color](#Icon-color) variant to learn more.',

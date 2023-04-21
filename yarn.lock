@@ -8758,6 +8758,14 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
+gestalt-datepicker@>0.0.0:
+  version "109.0.5"
+  resolved "https://registry.yarnpkg.com/gestalt-datepicker/-/gestalt-datepicker-109.0.5.tgz#d300c61074ea70b05bf5c373e8faaf634a981025"
+  integrity sha512-nMl5HWFTMYajSugbtWXJ2iEuyGD9ckvvMBOuNRFRQL4ZSqf5oet9XAl8kXqYB/KJV3AtKDNdzIzGCk5cptf6LQ==
+  dependencies:
+    classnames "^2.2.6"
+    react-datepicker "4.0.0"
+
 get-amd-module-type@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/get-amd-module-type/-/get-amd-module-type-3.0.0.tgz"
@@ -17326,6 +17334,11 @@ typescript@^3.8.3, typescript@^3.9.7:
   version "3.9.7"
   resolved "https://registry.npmjs.org/typescript/-/typescript-3.9.7.tgz"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
+
+typescript@^5.0.2:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.3.tgz#fe976f0c826a88d0a382007681cbb2da44afdedf"
+  integrity sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==
 
 ua-parser-js@^1.0.33:
   version "1.0.33"
