@@ -1,3 +1,9 @@
+## 110.0.10 (Apr 21, 2023)
+
+### Patch
+
+- Text: iOS component specs and guidelines ([#2809](https://github.com/pinterest/gestalt/pull/2809)) - [Preview link](https://deploy-preview-2809--gestalt.netlify.app)
+
 ## 110.0.9 (Apr 20, 2023)
 
 ### Patch
