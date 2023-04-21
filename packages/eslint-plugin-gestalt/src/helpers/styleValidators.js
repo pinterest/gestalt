@@ -58,7 +58,8 @@ export function genBointLookup(
   start: number,
   end: number = 12,
 ): GenBointLookupType {
-  const lookupMap = {};
+  const lookupMap: {| [string | number]: string |} = {};
+
   for (let i = start; i <= end; i += 1) {
     const px = i * 4;
 
@@ -78,7 +79,7 @@ export function genBointLookup(
 type GenOpacityLookupType = () => {| [string | number]: string |};
 
 const genOpacityLookup: GenOpacityLookupType = () => {
-  const lookupMap = {};
+  const lookupMap: {| [string | number]: string |} = {};
   for (let i = 0; i <= 10; i += 1) {
     const val = i / 10; // Why not increment i by 0.1? Floats
     const msg = `opacity={${val}}`;

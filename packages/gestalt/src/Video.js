@@ -626,7 +626,7 @@ export default class Video extends PureComponent<Props, State> {
   // Sent periodically to inform interested parties of progress downloading the media
   handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onLoadedChange } = this.props;
-    const { buffered } = this.video || {};
+    const { buffered } = this.video || { buffered: undefined };
     const loaded = buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
 
     onLoadedChange?.({ event, loaded });

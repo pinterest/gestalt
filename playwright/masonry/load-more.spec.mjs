@@ -65,7 +65,10 @@ test.describe('Masonry: scrolls', () => {
     // Scroll a few times to triggle multiple scrolls.
     await page.evaluate(() => {
       // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement || {};
+      const documentElement = document.documentElement || {
+        scrollHeight: 0,
+        clientHeight: 0,
+      };
       window.scrollTo(
         0,
         documentElement.scrollHeight - documentElement.clientHeight
@@ -80,7 +83,10 @@ test.describe('Masonry: scrolls', () => {
 
     await page.evaluate(() => {
       // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement || {};
+      const documentElement = document.documentElement || {
+        scrollHeight: 0,
+        clientHeight: 0,
+      };
       window.scrollTo(
         0,
         documentElement.scrollHeight - documentElement.clientHeight

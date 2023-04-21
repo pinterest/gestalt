@@ -59,21 +59,21 @@ export const mapClassName =
     inlineStyle,
   });
 
-export type ToPropsOutput = {| className: string, style: InlineStyle |};
+export type ToPropsOutput = {| className: ?string, style: ?InlineStyle |};
 
 export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
-  const props = {};
-
+  let classNameTemp;
   if (className.size > 0) {
     // Sorting here ensures that classNames are always stable, reducing diff
     // churn. Box usually has a small number of properties so it's not a perf
     // concern.
-    props.className = Array.from(className).sort().join(' ');
+    classNameTemp = Array.from(className).sort().join(' ');
   }
+  let styleTemp;
 
   if (Object.keys(inlineStyle).length > 0) {
-    props.style = inlineStyle;
+    styleTemp = inlineStyle;
   }
 
-  return { ...props };
+  return { className: classNameTemp, style: styleTemp };
 };

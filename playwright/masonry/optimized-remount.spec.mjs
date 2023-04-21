@@ -18,7 +18,10 @@ test.describe('Masonry: external cache', () => {
     // Scroll a couple of times.
     await page.evaluate(() => {
       // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement ?? {};
+      const documentElement = document.documentElement ?? {
+        scrollHeight: 0,
+        clientHeight: 0,
+      };
       const scrollTo =
         documentElement.scrollHeight - documentElement.clientHeight - 50;
       window.scrollTo(0, scrollTo);
@@ -27,7 +30,10 @@ test.describe('Masonry: external cache', () => {
 
     await page.evaluate(() => {
       // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement ?? {};
+      const documentElement = document.documentElement ?? {
+        scrollHeight: 0,
+        clientHeight: 0,
+      };
       const scrollTo =
         documentElement.scrollHeight - documentElement.clientHeight;
       window.scrollTo(0, scrollTo);

@@ -21,7 +21,7 @@ export const getRoundingStyle = (rounding: Rounding): Style => {
   return identity();
 };
 
-const getRoundingClassName = (rounding: Rounding): string =>
+const getRoundingClassName = (rounding: Rounding): ?string =>
   toProps(getRoundingStyle(rounding)).className;
 
 export default getRoundingClassName;
