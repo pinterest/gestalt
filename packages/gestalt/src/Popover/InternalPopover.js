@@ -40,8 +40,8 @@ export default function InternalPopover({
   id,
   idealDirection,
   onDismiss,
-  positionRelativeToAnchor,
-  color,
+  positionRelativeToAnchor = false,
+  color = 'white',
   role,
   shouldFocus,
   showCaret,
@@ -65,14 +65,14 @@ export default function InternalPopover({
     <Controller
       accessibilityLabel={accessibilityLabel}
       anchor={anchor}
-      bgColor={color || 'white'}
+      bgColor={color}
       border
       caret={showCaret}
       onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      positionRelativeToAnchor={positionRelativeToAnchor || false}
+      positionRelativeToAnchor={positionRelativeToAnchor}
       role={role}
       rounding={4}
       shouldFocus={shouldFocus}

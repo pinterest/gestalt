@@ -121,7 +121,7 @@ type Props = {|
  * ![PopoverEducational dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational-dark.spec.mjs-snapshots/PopoverEducational-dark-chromium-darwin.png)
  */
 export default function PopoverEducational({
-  accessibilityLabel,
+  accessibilityLabel = 'PopoverEducational',
   anchor,
   children,
   id,
@@ -171,7 +171,7 @@ export default function PopoverEducational({
         onDismiss={onDismiss}
         positionRelativeToAnchor
         showCaret
-        shouldFocus={shouldFocus ?? false}
+        shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
       >
