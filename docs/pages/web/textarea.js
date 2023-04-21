@@ -577,7 +577,7 @@ function TextAreaPopoverExample() {
             defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
-  const [tags, setTags] = React.useState(['San Francisco', 'New York']);
+  const [tags, setTags] = React.useState(Array(100).fill("New York", 0, 100));
   const ref = React.useRef();
 
   const onChangeTagManagement = ({ value }) => {
