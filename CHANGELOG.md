@@ -1,3 +1,9 @@
+## 110.0.12 (Apr 22, 2023)
+
+### Patch
+
+- Popover, PopoverEducational: internal popover component to build different APIs for Popover & PopoverEducational ([#2864](https://github.com/pinterest/gestalt/pull/2864)) - [Preview link](https://deploy-preview-2864--gestalt.netlify.app)
+
 ## 110.0.11 (Apr 21, 2023)
 
 ### Patch
