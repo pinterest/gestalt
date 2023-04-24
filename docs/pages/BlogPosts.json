@@ -54,7 +54,6 @@
             "imageAltText": "Example of the TagData Figma component.",
             "content": "The M10n component train keeps chugging with the addition of two M10n-centric Figma components. First is TagData which is a Tag component specifically made for the context of data visualizations. You can find this component in our Data viz Figma component library.\n\nThe other component is our new TableofContents, which is used to navigate to anchors on a page. It also serves as an outline of a page’s content. TableofContents is available for use in our Figma Web library."
           }
-
         ]
       },
       {
