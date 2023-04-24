@@ -37,7 +37,6 @@ module.exports = function removeFlowTypesLoader(source /*: string */) {
       // https://stackoverflow.com/a/9168133/5253702
       .replace(/\u2028/g, '\\u2028')
       .replace(/\u2029/g, '\\u2029');
-    const esModule = true;
-    callback(null, `${esModule ? 'export default' : 'module.exports ='} ${json};`);
+    callback(null, `export default ${json};`);
   });
 };
