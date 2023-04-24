@@ -20,7 +20,7 @@
             "imageColor": "blue-skycicle-0",
             "imageSrc": "https://i.pinimg.com/originals/d0/eb/c1/d0ebc19d8630dec7bdc47bdda93037ea.png",
             "imageAltText": "Example of Gestalt's DateField component.",
-            "content": "We shipped an experimental [DateField component](https://gestalt.pinterest.systems/web/datefield) to address an pressing need within product. This component also has some kinks to iron out, but we felt it was ready to ship in an experimental state. This was a great team effort to get a workable solution out the door in such a short time, so big congrats to all involved!"
+            "content": "We shipped an experimental [DateField component](https://gestalt.pinterest.systems/web/datefield) to address a pressing need within product. This component also has some kinks to iron out, but we felt it was ready to ship in an experimental state. This was a great team effort to get a workable solution out the door in such a short time, so big congrats to all involved!"
           },
           {
             "title": "Alpha release pipeline",
