@@ -10,7 +10,9 @@ export default function NewTabAccessibilityLabel({
 |}): Node {
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
   return target === 'blank' ? (
-    <Box display="visuallyHidden">{`; ${accessibilityNewTabLabel}`}</Box>
+    <Box position="relative">
+      <Box display="visuallyHidden">{`; ${accessibilityNewTabLabel}`}</Box>
+    </Box>
   ) : null;
 }
 
