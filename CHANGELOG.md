@@ -1,3 +1,9 @@
+## 110.0.13 (Apr 24, 2023)
+
+### Patch
+
+- Icon: additions to android repo ([#2866](https://github.com/pinterest/gestalt/pull/2866)) - [Preview link](https://deploy-preview-2866--gestalt.netlify.app)
+
 ## 110.0.12 (Apr 22, 2023)
 
 ### Patch
