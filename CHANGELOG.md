@@ -1,3 +1,9 @@
+## 110.1.0 (Apr 25, 2023)
+
+### Minor
+
+- Masonry: add experimental prop to batch paints ([#2853](https://github.com/pinterest/gestalt/pull/2853)) - [Preview link](https://deploy-preview-2853--gestalt.netlify.app)
+
 ## 110.0.15 (Apr 25, 2023)
 
 ### Patch
