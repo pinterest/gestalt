@@ -1,3 +1,9 @@
+## 110.0.15 (Apr 25, 2023)
+
+### Patch
+
+- PopoverEducational: changing `accessibilityLabel` prop to optional ([#2871](https://github.com/pinterest/gestalt/pull/2871)) - [Preview link](https://deploy-preview-2871--gestalt.netlify.app)
+
 ## 110.0.14 (Apr 25, 2023)
 
 ### Patch
