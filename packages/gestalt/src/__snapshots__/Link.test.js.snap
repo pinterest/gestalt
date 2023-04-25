@@ -164,6 +164,11 @@ exports[`target blank 1`] = `
   Link
   <div
     className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
   >
     <div
       className="box xsDisplayVisuallyHidden"
