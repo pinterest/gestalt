@@ -6,7 +6,9 @@ export default function Example(): Node {
   return (
     <Flex height="100%" width="100%" justifyContent="center" alignItems="center">
       <Text>Enable your screen reader to hear the following text:</Text>
-      <Box display="visuallyHidden">Hi there.</Box>
+      <Box position="relative">
+        <Box display="visuallyHidden">Hi there.</Box>
+      </Box>
     </Flex>
   );
 }
