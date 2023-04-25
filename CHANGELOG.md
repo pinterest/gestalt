@@ -1,3 +1,9 @@
+## 110.0.14 (Apr 25, 2023)
+
+### Patch
+
+- Link, Button, TapArea, IconButton: fix default label to target="blank" positioning issue on Tables. Fix BUG-157543 ([#2870](https://github.com/pinterest/gestalt/pull/2870)) - [Preview link](https://deploy-preview-2870--gestalt.netlify.app)
+
 ## 110.0.13 (Apr 24, 2023)
 
 ### Patch
