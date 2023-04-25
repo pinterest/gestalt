@@ -706,6 +706,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   </div>
                   <div
                     class="box relative"
+                    style="display: inline;"
                   >
                     <div
                       class="box xsDisplayVisuallyHidden"
@@ -878,6 +879,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   </div>
                   <div
                     class="box relative"
+                    style="display: inline;"
                   >
                     <div
                       class="box xsDisplayVisuallyHidden"
@@ -954,6 +956,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                   </div>
                   <div
                     class="box relative"
+                    style="display: inline;"
                   >
                     <div
                       class="box xsDisplayVisuallyHidden"
