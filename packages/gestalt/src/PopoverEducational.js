@@ -29,7 +29,7 @@ type PrimaryActionType = {|
 |};
 
 function PrimaryAction({
-  accessibilityLabel,
+  accessibilityLabel = 'Popover',
   href,
   text,
   onClick,
@@ -64,7 +64,7 @@ type Props = {|
   /**
    * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
    */
-  accessibilityLabel: string,
+  accessibilityLabel?: string,
   /**
    * The reference element that PopoverEducational uses to set its position.
    */
