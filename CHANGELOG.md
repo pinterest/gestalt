@@ -1,3 +1,9 @@
+## 110.1.1 (Apr 25, 2023)
+
+### Patch
+
+- Link, Button, TapArea, IconButton: fix default label for `target="blank"` ([#2872](https://github.com/pinterest/gestalt/pull/2872)) - [Preview link](https://deploy-preview-2872--gestalt.netlify.app)
+
 ## 110.1.0 (Apr 25, 2023)
 
 ### Minor
