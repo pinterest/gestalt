@@ -1,3 +1,9 @@
+## 110.1.2 (Apr 26, 2023)
+
+### Patch
+
+- Docs: Roadmap updates ([#2873](https://github.com/pinterest/gestalt/pull/2873)) - [Preview link](https://deploy-preview-2873--gestalt.netlify.app)
+
 ## 110.1.1 (Apr 25, 2023)
 
 ### Patch
