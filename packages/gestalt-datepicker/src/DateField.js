@@ -10,45 +10,28 @@ import InternalDateField from './DateField/InternalDateField.js';
 // They will get picked up by the docgen and bork the type displayed on the docs
 type LocaleData = {|
   code?: string,
-  // $FlowFixMe[unclear-type]
-  formatDistance?: (...args: $ReadOnlyArray<any>) => any,
-  // $FlowFixMe[unclear-type]
-  formatRelative?: (...args: $ReadOnlyArray<any>) => any,
+  formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   localize?: {|
-    // $FlowFixMe[unclear-type]
-    ordinalNumber: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    era: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    quarter: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    month: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    day: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    dayPeriod: (...args: $ReadOnlyArray<any>) => any,
+    ordinalNumber: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   |},
   formatLong?: {|
-    // $FlowFixMe[unclear-type]
-    date: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    time: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    dateTime: (...args: $ReadOnlyArray<any>) => any,
+    date: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    time: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dateTime: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   |},
   match?: {|
-    // $FlowFixMe[unclear-type]
-    ordinalNumber: (...args: $ReadOnlyArray<string>) => any,
-    // $FlowFixMe[unclear-type]
-    era: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    quarter: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    month: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    day: (...args: $ReadOnlyArray<any>) => any,
-    // $FlowFixMe[unclear-type]
-    dayPeriod: (...args: $ReadOnlyArray<any>) => any,
+    ordinalNumber: (...args: $ReadOnlyArray<string>) => { ... },
+    era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   |},
   options?: {|
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,

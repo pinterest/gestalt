@@ -1,4 +1,6 @@
 // @flow strict
+type LookupMapProp = {| [string | number]: string |};
+
 const colorMap = {
   '#e60023': `color="red"`,
   'white': `color="white"`,
@@ -51,14 +53,14 @@ type KebabToCamelCaseType = ({| attribute: string |}) => string;
 export const kebabToCamelCase: KebabToCamelCaseType = ({ attribute }) =>
   attribute.replace(/-([a-z])/gi, (s, group1) => group1.toUpperCase());
 
-type GenBointLookupType = {| [string | number]: string |};
+type GenBointLookupType = LookupMapProp;
 
 export function genBointLookup(
   propName: string,
   start: number,
   end: number = 12,
 ): GenBointLookupType {
-  const lookupMap: {| [string | number]: string |} = {};
+  const lookupMap: LookupMapProp = {};
 
   for (let i = start; i <= end; i += 1) {
     const px = i * 4;
@@ -76,10 +78,10 @@ export function genBointLookup(
   return lookupMap;
 }
 
-type GenOpacityLookupType = () => {| [string | number]: string |};
+type GenOpacityLookupType = () => LookupMapProp;
 
 const genOpacityLookup: GenOpacityLookupType = () => {
-  const lookupMap: {| [string | number]: string |} = {};
+  const lookupMap: LookupMapProp = {};
   for (let i = 0; i <= 10; i += 1) {
     const val = i / 10; // Why not increment i by 0.1? Floats
     const msg = `opacity={${val}}`;

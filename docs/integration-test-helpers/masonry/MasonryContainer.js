@@ -125,7 +125,7 @@ export default class MasonryContainer extends Component<Props, State> {
 
   handleAddItems: () => void = () => {
     const { items } = this.state;
-    this.customLoadItems?.({ name: 'Manual Fetch Pin', from: items.length, force: true });
+    this.customLoadItems({ name: 'Manual Fetch Pin', from: items.length, force: true });
   };
 
   handleShuffleItems: () => void = () => {
@@ -369,7 +369,7 @@ export default class MasonryContainer extends Component<Props, State> {
       dynamicGridProps.scrollContainer = undefined;
     } else if (hasScrollContainer) {
       const query = document.querySelector('[data-scroll-container]');
-      if (typeof document === 'undefined' || query === null) {
+      if (typeof document === 'undefined') {
         dynamicGridProps.scrollContainer = undefined;
       } else if (query) {
         dynamicGridProps.scrollContainer = () => query;
