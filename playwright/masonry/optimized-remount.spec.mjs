@@ -5,6 +5,11 @@ import getServerURL from './utils/getServerURL.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
+const documentElement = document.documentElement ?? {
+  scrollHeight: 0,
+  clientHeight: 0,
+};
+
 test.describe('Masonry: external cache', () => {
   test('should only mount visible items on remount', async ({ page }) => {
     await page.setViewportSize({ width: 800, height: 800 });
@@ -17,8 +22,6 @@ test.describe('Masonry: external cache', () => {
 
     // Scroll a couple of times.
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement ?? {};
       const scrollTo =
         documentElement.scrollHeight - documentElement.clientHeight - 50;
       window.scrollTo(0, scrollTo);
@@ -26,8 +29,6 @@ test.describe('Masonry: external cache', () => {
     await waitForRenderedItems(page, { targetItems: 30, scrollHeight: 5064 });
 
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement ?? {};
       const scrollTo =
         documentElement.scrollHeight - documentElement.clientHeight;
       window.scrollTo(0, scrollTo);

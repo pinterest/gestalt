@@ -51,7 +51,7 @@ function randomSample({
   // eslint-disable-next-line no-return-assign
   const { height } = samples.find((pin) => (sample -= pin[field]) < 0) ?? {};
 
-  return height;
+  return height ?? 0;
 }
 
 export default function TestPage({

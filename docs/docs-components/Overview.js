@@ -33,11 +33,11 @@ export default function Overview({
 
   // GENERAL_COMPONENT_LIST is an array with component data. Each array item contains the SVG data and other metadata such as the component category. The following reduce method processes the GENERAL_COMPONENT_LIST array into an object grouping and mapping components per category so that we can map per category and pass each category value to <List />.
   const GENERAL_COMPONENT_CATEGORY_MAP = generalComponents.reduce((acc, cur) => {
-    const { category } = cur;
-    if (category) {
-      acc[category] = (acc[category] ?? []).concat(cur);
+    const newAcc: { [string]: $ReadOnlyArray<ListItemType> } = JSON.parse(JSON.stringify(acc));
+    if (cur?.category) {
+      newAcc[cur.category] = [...newAcc[cur.category], cur];
     }
-    return acc;
+    return newAcc;
   }, {});
 
   return (

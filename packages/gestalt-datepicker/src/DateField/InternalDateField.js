@@ -48,7 +48,7 @@ const CustomTextField = forwardRef(
   (
     {
       disabled,
-      InputProps: { ref: containerRef } = {},
+      InputProps: { ref: containerRef } = { ref: { current: undefined } },
       focused,
       placeholder,
       value,

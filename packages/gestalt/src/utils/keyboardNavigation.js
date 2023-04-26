@@ -12,11 +12,7 @@ type Props = {|
   currentHoveredOption: ?HTMLElement,
 |};
 
-const handleContainerScrolling = ({
-  direction,
-  containerRef = {},
-  currentHoveredOption,
-}: Props) => {
+const handleContainerScrolling = ({ direction, containerRef, currentHoveredOption }: Props) => {
   const container = containerRef?.current;
 
   // Based on keyboard navigation we get the next or previous option

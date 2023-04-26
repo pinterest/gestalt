@@ -6,6 +6,11 @@ import getStaticGridItems from './utils/getStaticGridItems.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
+const documentElement = document.documentElement || {
+  scrollHeight: 0,
+  clientHeight: 0,
+};
+
 test.describe('Masonry: scrolls', () => {
   test('loads more when it gets to the bottom of the viewport', async ({
     page,
@@ -64,8 +69,6 @@ test.describe('Masonry: scrolls', () => {
 
     // Scroll a few times to triggle multiple scrolls.
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement || {};
       window.scrollTo(
         0,
         documentElement.scrollHeight - documentElement.clientHeight
@@ -79,8 +82,6 @@ test.describe('Masonry: scrolls', () => {
     await waitForRenderedItems(page, { targetItems: 35 });
 
     await page.evaluate(() => {
-      // eslint-disable-next-line playwright/no-conditional-in-test
-      const documentElement = document.documentElement || {};
       window.scrollTo(
         0,
         documentElement.scrollHeight - documentElement.clientHeight
