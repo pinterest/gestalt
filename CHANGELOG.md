@@ -1,3 +1,9 @@
+## 110.1.4 (Apr 26, 2023)
+
+### Patch
+
+- Docs: Weekly update for April 21 ([#2868](https://github.com/pinterest/gestalt/pull/2868)) - [Preview link](https://deploy-preview-2868--gestalt.netlify.app)
+
 ## 110.1.3 (Apr 26, 2023)
 
 ### Patch
