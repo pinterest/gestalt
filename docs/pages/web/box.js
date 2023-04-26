@@ -167,7 +167,19 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
         <MainSection.Subsection
           title="Visually hidden content"
           description={`
-    Setting \`display="visuallyHidden"\` on Box allows for an element to be visually hidden but still be read by screen readers.
+Setting \`display="visuallyHidden"\` on Box allows for an element to be visually hidden but still be read by screen readers.
+
+The ‘visually-hidden’ CSS technique applies absolute positioning to the element.
+
+    <code>
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
+      ...
+    </code>
+
+For a correct implementation, make sure the  ‘visually-hidden’ element is correctly contained within a relative-positioned Box.
   `}
         >
           <MainSection.Card

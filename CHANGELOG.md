@@ -1,3 +1,51 @@
+## 110.1.1 (Apr 25, 2023)
+
+### Patch
+
+- Link, Button, TapArea, IconButton: fix default label for `target="blank"` ([#2872](https://github.com/pinterest/gestalt/pull/2872)) - [Preview link](https://deploy-preview-2872--gestalt.netlify.app)
+
+## 110.1.0 (Apr 25, 2023)
+
+### Minor
+
+- Masonry: add experimental prop to batch paints ([#2853](https://github.com/pinterest/gestalt/pull/2853)) - [Preview link](https://deploy-preview-2853--gestalt.netlify.app)
+
+## 110.0.15 (Apr 25, 2023)
+
+### Patch
+
+- PopoverEducational: changing `accessibilityLabel` prop to optional ([#2871](https://github.com/pinterest/gestalt/pull/2871)) - [Preview link](https://deploy-preview-2871--gestalt.netlify.app)
+
+## 110.0.14 (Apr 25, 2023)
+
+### Patch
+
+- Link, Button, TapArea, IconButton: fix default label to target="blank" positioning issue on Tables. Fix BUG-157543 ([#2870](https://github.com/pinterest/gestalt/pull/2870)) - [Preview link](https://deploy-preview-2870--gestalt.netlify.app)
+
+## 110.0.13 (Apr 24, 2023)
+
+### Patch
+
+- Icon: additions to android repo ([#2866](https://github.com/pinterest/gestalt/pull/2866)) - [Preview link](https://deploy-preview-2866--gestalt.netlify.app)
+
+## 110.0.12 (Apr 22, 2023)
+
+### Patch
+
+- Popover, PopoverEducational: internal popover component to build different APIs for Popover & PopoverEducational ([#2864](https://github.com/pinterest/gestalt/pull/2864)) - [Preview link](https://deploy-preview-2864--gestalt.netlify.app)
+
+## 110.0.11 (Apr 21, 2023)
+
+### Patch
+
+- Internal: update Flow to v0.190.1 ([#2865](https://github.com/pinterest/gestalt/pull/2865)) - [Preview link](https://deploy-preview-2865--gestalt.netlify.app)
+
+## 110.0.10 (Apr 21, 2023)
+
+### Patch
+
+- Text: iOS component specs and guidelines ([#2809](https://github.com/pinterest/gestalt/pull/2809)) - [Preview link](https://deploy-preview-2809--gestalt.netlify.app)
+
 ## 110.0.9 (Apr 20, 2023)
 
 ### Patch
