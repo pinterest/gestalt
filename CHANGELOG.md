@@ -1,3 +1,9 @@
+## 110.1.6 (Apr 26, 2023)
+
+### Patch
+
+- Docs: fix incorrect links ([#2875](https://github.com/pinterest/gestalt/pull/2875)) - [Preview link](https://deploy-preview-2875--gestalt.netlify.app)
+
 ## 110.1.5 (Apr 26, 2023)
 
 ### Patch
