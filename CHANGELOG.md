@@ -1,3 +1,9 @@
+## 110.1.5 (Apr 26, 2023)
+
+### Patch
+
+- TextArea: Add MaxHeight for Rows with Tags ([#2869](https://github.com/pinterest/gestalt/pull/2869)) - [Preview link](https://deploy-preview-2869--gestalt.netlify.app)
+
 ## 110.1.4 (Apr 26, 2023)
 
 ### Patch
