@@ -645,7 +645,7 @@ function Example(props) {
         <MainSection.Subsection
           title="With rows"
           description={`
-  You can use the rows property to set the max height of the Textarea. It will begin to overflow after the rows limit has been reached`}
+          The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit.`}
         >
           <MainSection.Card
             defaultCode={`          
@@ -655,17 +655,18 @@ const [value, setValue] = React.useState('');
 const [rows, setRows] = React.useState(2);
 
 return (
-  <Box width="100%">
-    <Box marginBottom={2}>
+  <Flex direction="column" width="100%" gap={4}>
+    <Box width={120}>
       <NumberField label="Number of Rows" onChange={({value})=>{setRows(value)}} value={rows}/>
     </Box>
     <TextArea
+      label="Rows example"
       onChange={({value})=>{setValue(value)}}
       placeholder={"this text area has " + rows + " rows"}
       value={value}
       rows={rows}
     />
-  </Box>
+  </Flex>
 );
 }
 `}
