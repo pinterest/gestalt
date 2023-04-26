@@ -567,17 +567,20 @@ function TextAreaPopoverExample() {
         <MainSection.Subsection
           title="With tags"
           description={`
-    You can include [Tag](/web/tag) elements in the input using the \`tags\` prop.
+    You can include [Tag](/web/tag) elements in the input using the \`tags\` prop. You can use the \`rows\` prop to limit the number of lines for tags.
 
     Note that the \`TextArea\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 
     This example showcases the recommended behavior.`}
         >
           <MainSection.Card
-            defaultCode={`
+            defaultCode={`          
 function Example(props) {
+  
+  const CITIES = ['San Francisco', 'New York']
   const [value, setValue] = React.useState('');
-  const [tags, setTags] = React.useState(['San Francisco', 'New York']);
+  const [tags, setTags] = React.useState(CITIES);
+
   const ref = React.useRef();
 
   const onChangeTagManagement = ({ value }) => {
@@ -634,6 +637,37 @@ function Example(props) {
       />
     </Box>
   );
+}
+`}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="With rows"
+          description={`
+          The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit.`}
+        >
+          <MainSection.Card
+            defaultCode={`          
+function Example(props) {
+
+const [value, setValue] = React.useState('');
+const [rows, setRows] = React.useState(2);
+
+return (
+  <Flex direction="column" width="100%" gap={4}>
+    <Box width={120}>
+      <NumberField label="Number of Rows" onChange={({value})=>{setRows(value)}} value={rows}/>
+    </Box>
+    <TextArea
+      label="Rows example"
+      onChange={({value})=>{setValue(value)}}
+      placeholder={"this text area has " + rows + " rows"}
+      value={value}
+      rows={rows}
+    />
+  </Flex>
+);
 }
 `}
           />
