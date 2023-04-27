@@ -3,7 +3,7 @@ import { createContext, type Context } from 'react';
 
 type DropdownContextType = {|
   id: string,
-  hoveredItem: number,
+  hoveredItem: ?number,
   setHoveredItem: (n: number) => void,
   setOptionRef: (?HTMLElement) => void,
 |};

@@ -41,6 +41,7 @@ type Props = {|
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
+    mobileOnDismissStart: () => void,
   |}) => void,
   /**
    * Object detailing the label, value, and optional subtext for this item.

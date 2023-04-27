@@ -8,7 +8,10 @@ import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
 import { type Indexable } from './zIndex.js';
+import AnimationProvider from './animation/AnimationContext.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { DropdownContextProvider } from './Dropdown/Context.js';
+import PartialPage from './SheetMobile/PartialPage.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 
 const KEYS = {
@@ -123,6 +126,11 @@ type Props = {|
    */
   maxHeight?: '30vh',
   /**
+   * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
+   */
+  mobileOnAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+
+  /**
    * Callback fired when the menu is closed.
    */
   onDismiss: () => void,
@@ -149,8 +157,12 @@ export default function Dropdown({
   onDismiss,
   zIndex,
   maxHeight,
+  mobileOnAnimationEnd,
 }: Props): Node {
-  const [hoveredItem, setHoveredItem] = useState<number>(0);
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
+  const [hoveredItem, setHoveredItem] = useState<?number>(isMobile ? undefined : 0);
 
   const dropdownChildrenArray = Children.toArray(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
@@ -170,7 +182,7 @@ export default function Dropdown({
     event: SyntheticKeyboardEvent<HTMLElement>,
     direction: DirectionOptionType,
   ) => {
-    const newIndex = direction + hoveredItem;
+    const newIndex = direction + (hoveredItem ?? 0);
     const optionsCount = allowedChildrenOptions.length - 1;
 
     // If there's an existing item, navigate from that position
@@ -218,6 +230,27 @@ export default function Dropdown({
       event.preventDefault();
     }
   };
+  if (isMobile) {
+    return (
+      <AnimationProvider>
+        <PartialPage
+          align="start"
+          padding="default"
+          onDismiss={onDismiss}
+          onAnimationEnd={mobileOnAnimationEnd}
+          role="dialog"
+          showDismissButton
+          size="auto"
+          zIndex={zIndex}
+        >
+          {headerContent}
+          <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+            {renderChildrenWithIndex(dropdownChildrenArray)}
+          </DropdownContextProvider>
+        </PartialPage>
+      </AnimationProvider>
+    );
+  }
 
   const dropdown = (
     <Popover
