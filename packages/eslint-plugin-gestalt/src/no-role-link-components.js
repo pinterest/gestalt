@@ -51,7 +51,6 @@ const rule: ESLintRule = {
             value.name &&
             value.name.name === 'role' &&
             value.value &&
-            // $FlowFixMe[incompatible-use]
             value.value.value === 'link',
         );
 
