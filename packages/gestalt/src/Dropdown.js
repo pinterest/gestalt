@@ -129,11 +129,14 @@ type Props = {|
    * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
    */
   mobileOnAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
-
   /**
    * Callback fired when the menu is closed.
    */
   onDismiss: () => void,
+  /**
+   * Dropdown can adapt to mobile devices to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile). Mobile adaptation is disabled by default. Set to 'false' to enable SheetMobile in mobile devices. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
+   */
+  disableMobileUI?: boolean,
   /**
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
@@ -158,11 +161,12 @@ export default function Dropdown({
   zIndex,
   maxHeight,
   mobileOnAnimationEnd,
+  disableMobileUI = true,
 }: Props): Node {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const [hoveredItem, setHoveredItem] = useState<?number>(isMobile ? undefined : 0);
+  const [hoveredItemIndex, setHoveredItemIndex] = useState<?number>(isMobile ? undefined : 0);
 
   const dropdownChildrenArray = Children.toArray(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
@@ -182,7 +186,7 @@ export default function Dropdown({
     event: SyntheticKeyboardEvent<HTMLElement>,
     direction: DirectionOptionType,
   ) => {
-    const newIndex = direction + (hoveredItem ?? 0);
+    const newIndex = direction + (hoveredItemIndex ?? 0);
     const optionsCount = allowedChildrenOptions.length - 1;
 
     // If there's an existing item, navigate from that position
@@ -201,7 +205,7 @@ export default function Dropdown({
 
     if (cursorOption) {
       const item = cursorOption.option;
-      setHoveredItem(cursorIndex);
+      setHoveredItemIndex(cursorIndex);
 
       if (direction === KEYS.ENTER) {
         cursorOption.onSelect?.({
@@ -230,7 +234,7 @@ export default function Dropdown({
       event.preventDefault();
     }
   };
-  if (isMobile) {
+  if (isMobile && !disableMobileUI) {
     return (
       <AnimationProvider>
         <PartialPage
@@ -244,7 +248,9 @@ export default function Dropdown({
           zIndex={zIndex}
         >
           {headerContent}
-          <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+          <DropdownContextProvider
+            value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+          >
             {renderChildrenWithIndex(dropdownChildrenArray)}
           </DropdownContextProvider>
         </PartialPage>
@@ -276,7 +282,9 @@ export default function Dropdown({
       >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
-        <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+        <DropdownContextProvider
+          value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+        >
           {renderChildrenWithIndex(dropdownChildrenArray)}
         </DropdownContextProvider>
       </Box>

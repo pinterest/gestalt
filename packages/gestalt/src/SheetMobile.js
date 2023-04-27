@@ -106,7 +106,7 @@ type Props = {|
    */
   size?: 'default' | 'full' | 'auto',
   /**
-   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   * An object representing the zIndex value of SheetMobile. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
 |};

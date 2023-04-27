@@ -36,7 +36,7 @@ type Props = {|
    */
   isExternal?: boolean,
   /**
-   * Callback fired when clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Callback fired when clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation. To learn more about `mobileOnDismissStart`, see the [animation variant in SheetMobile](https://deploy-preview-2879--gestalt.netlify.app/web/sheetmobile#Animation). `mobileOnDismissStart` is the equivalent of `onDismissStart` in SheetMobile.
    */
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
@@ -68,11 +68,11 @@ export default function DropdownLink({
 }: Props): Node {
   return (
     <DropdownContextConsumer>
-      {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
+      {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
         <OptionItem
           badge={badge}
           dataTestId={dataTestId}
-          hoveredItemIndex={hoveredItem}
+          hoveredItemIndex={hoveredItemIndex}
           href={href}
           id={id}
           index={_index}
@@ -80,7 +80,7 @@ export default function DropdownLink({
           key={`${option.value + _index}`}
           onClick={onClick}
           option={option}
-          setHoveredItemIndex={setHoveredItem}
+          setHoveredItemIndex={setHoveredItemIndex}
           ref={setOptionRef}
           textWeight="bold"
         >

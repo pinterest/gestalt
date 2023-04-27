@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node, useState, useRef } from 'react';
-import { Button, Dropdown, Box, FixedZIndex, CompositeZIndex } from 'gestalt';
+import { Button, Dropdown, Flex, Box, Tooltip, Text, FixedZIndex, CompositeZIndex } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
@@ -14,23 +14,25 @@ export default function CustomIconButtonPopoverExample(): Node {
 
   return (
     <Fragment>
-      <Box display="flex" justifyContent="center" width="100%" margin={2}>
-        <Button
-          accessibilityControls="demo-dropdown-example"
-          accessibilityExpanded={open}
-          accessibilityHaspopup
-          iconEnd="arrow-down"
-          onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
-          selected={open}
-          size="lg"
-          text="Menu"
-        />
-      </Box>
+      <Flex justifyContent="center" width="100%" height="100%">
+        <Box margin={2}>
+          <Button
+            accessibilityControls="tooltips-dropdown-example"
+            accessibilityHaspopup
+            accessibilityExpanded={open}
+            iconEnd="arrow-down"
+            text="Menu"
+            ref={anchorRef}
+            selected={open}
+            size="lg"
+            onClick={() => setOpen((prevVal) => !prevVal)}
+          />
+        </Box>
+      </Flex>
       {open && (
         <Dropdown
           anchor={anchorRef.current}
-          id="demo-dropdown-example"
+          id="tooltips-dropdown-example"
           onDismiss={() => setOpen(false)}
           zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >
@@ -44,7 +46,13 @@ export default function CustomIconButtonPopoverExample(): Node {
             onSelect={onSelect}
             option={{ value: 'Hide Pin', label: 'Hide Pin' }}
             selected={selected}
-          />
+          >
+            <Box width="100%">
+              <Tooltip text="Hides this Pin for this account only">
+                <Text>Hide Pin</Text>
+              </Tooltip>
+            </Box>
+          </Dropdown.Item>
           <Dropdown.Link
             href="https://pinterest.com"
             isExternal

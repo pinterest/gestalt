@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node, useState, useRef } from 'react';
-import { Button, Dropdown, Box, FixedZIndex, CompositeZIndex } from 'gestalt';
+import { IconButton, Dropdown, Flex, Box, FixedZIndex, CompositeZIndex } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
@@ -14,23 +14,27 @@ export default function CustomIconButtonPopoverExample(): Node {
 
   return (
     <Fragment>
-      <Box display="flex" justifyContent="center" width="100%" margin={2}>
-        <Button
-          accessibilityControls="demo-dropdown-example"
-          accessibilityExpanded={open}
-          accessibilityHaspopup
-          iconEnd="arrow-down"
-          onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
-          selected={open}
-          size="lg"
-          text="Menu"
-        />
-      </Box>
+      <Flex justifyContent="center" width="100%" height="100%">
+        <Box margin={2}>
+          <IconButton
+            accessibilityControls="selectlist-dropdown-example3"
+            accessibilityExpanded={open}
+            accessibilityHaspopup
+            accessibilityLabel="Menu"
+            bgColor="lightGray"
+            icon="ellipsis"
+            iconColor="darkGray"
+            onClick={() => setOpen((prevVal) => !prevVal)}
+            ref={anchorRef}
+            selected={open}
+            size="lg"
+          />
+        </Box>
+      </Flex>
       {open && (
         <Dropdown
           anchor={anchorRef.current}
-          id="demo-dropdown-example"
+          id="selectlist-dropdown-example3"
           onDismiss={() => setOpen(false)}
           zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >

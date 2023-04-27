@@ -768,10 +768,12 @@ interface DropdownProps {
   id: string;
   onDismiss: () => void;
   anchor?: HTMLElement | null | undefined;
+  disableMobileUI?: boolean | undefined;
   headerContent?: Node | undefined;
   idealDirection?: FourDirections | undefined;
   isWithinFixedContainer?: boolean | undefined;
   maxHeight?: '30vh' | undefined;
+  mobileOnAnimationEnd?: OnAnimationEndType | undefined;
   zIndex?: Indexable | undefined;
 }
 
@@ -802,7 +804,12 @@ interface DropdownLinkProps {
   children?: Node;
   dataTestId?: string | undefined;
   isExternal?: boolean | undefined;
-  onClick?: ButtonEventHandlerType | undefined;
+  onClick?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation: () => void; mobileOnDismissStart: () => void }
+      >
+    | undefined;
 }
 
 interface DropdownSectionProps {
@@ -1242,7 +1249,7 @@ interface OverlayPanelProps {
   };
   footer?: NodeOrRenderProp | undefined;
   heading?: string | undefined;
-  onAnimationEnd?: OnAnimationEndType;
+  onAnimationEnd?: OnAnimationEndType | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   subHeading?: NodeOrRenderProp | undefined;
 }
@@ -1521,6 +1528,7 @@ interface SheetMobileProps {
       showDismissButton?: boolean | undefined;
       subHeading?: string | undefined;
       size?: 'default' | 'full' | 'auto' | undefined;
+      zIndex?: Indexable | undefined;
     };
   };
 }
@@ -2162,7 +2170,6 @@ export const DefaultLabelProvider: React.FunctionComponent<
  */
 export const Divider: React.FunctionComponent;
 
-
 export interface DropdownSubComponents {
   Item: React.FunctionComponent<DropdownItemProps>;
   Link: React.FunctionComponent<DropdownLinkProps>;
@@ -2182,7 +2189,6 @@ export const Dropdown: React.FunctionComponent<DropdownProps> & DropdownSubCompo
  * https://gestalt.pinterest.systems/web/fieldset
  */
 export const Fieldset: React.FunctionComponent<FieldsetProps>;
-
 
 export interface FlexSubComponents {
   Item: React.FunctionComponent<FlexItemProps>;
@@ -2245,7 +2251,6 @@ export const Letterbox: React.FunctionComponent<LetterboxProps>;
  */
 export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
 
-
 export interface ListSubCmoponents {
   Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
 }
@@ -2277,7 +2282,6 @@ export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
  */
 export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
 
-
 export interface ModuleSubComponents {
   Expandable: React.FunctionComponent<ModuleExpandableProps>;
 }
@@ -2299,7 +2303,6 @@ export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
  * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
  */
 export const OnLinkNavigationProvider: React.FunctionComponent<OnLinkNavigationProviderProps>;
-
 
 export interface OverlayPanelSubComponents {
   DismissingElement: React.FunctionComponent<OverlayPanelDismissingElementProps>;
@@ -2342,7 +2345,6 @@ export const Pulsar: React.FunctionComponent<PulsarProps>;
  * https://gestalt.pinterest.systems/web/radiobutton
  */
 export const RadioButton: ReactForwardRef<HTMLInputElement, RadioButtonProps>;
-
 
 export interface RadioGroupSubComponents {
   RadioButton: React.FunctionComponent<RadioGroupRadioButtonProps>;

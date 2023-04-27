@@ -9,9 +9,23 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import action from '../../examples/dropdown/action.js';
+import badges from '../../examples/dropdown/badges.js';
+import composability from '../../examples/dropdown/composability.js';
+import customHeader from '../../examples/dropdown/customHeader.js';
 import customItem from '../../examples/dropdown/customItem.js';
+import doFeatures from '../../examples/dropdown/doFeatures.js';
+import doIcons from '../../examples/dropdown/doIcons.js';
+import dontCustom from '../../examples/dropdown/dontCustom.js';
+import dontSelectList from '../../examples/dropdown/dontSelectList.js';
+import dontTooltips from '../../examples/dropdown/dontTooltips.js';
+import doOrder from '../../examples/dropdown/doOrder.js';
+import link from '../../examples/dropdown/link.js';
 import main from '../../examples/dropdown/main.js';
 import mobile from '../../examples/dropdown/mobile.js';
+import sections from '../../examples/dropdown/sections.js';
+import subtext from '../../examples/dropdown/subtext.js';
+import truncation from '../../examples/dropdown/truncation.js';
 
 export default function ComponentPage({
   generatedDocGen,
@@ -36,9 +50,9 @@ export default function ComponentPage({
             type="do"
             title="When to use"
             description={`
-          - Displaying a list of actions, options, or links. Usually displays 3 or more options.
-          - Allowing complex functionality that a [SelectList](/web/selectlist) can't accomplish.
-          - Taking immediate action or navigating users to another view.
+- Displaying a list of actions, options, or links. Usually displays 3 or more options.
+- Allowing complex functionality that a [SelectList](/web/selectlist) can't accomplish.
+- Taking immediate action or navigating users to another view.
             `}
           />
           <MainSection.Card
@@ -46,9 +60,9 @@ export default function ComponentPage({
             type="don't"
             title="When not to use"
             description={`
-          - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioGroup](/web/radiogroup) or [Checkboxes](/web/checkbox) instead.
-          - When it is desirable to filter a long list of options. Use [ComboBox](/web/combobox) instead.
-          - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/web/selectlist) instead.
+- In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioGroup](/web/radiogroup) or [Checkboxes](/web/checkbox) instead.
+- When it is desirable to filter a long list of options. Use [ComboBox](/web/combobox) instead.
+- Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/web/selectlist) instead.
             `}
           />
         </MainSection.Subsection>
@@ -60,127 +74,28 @@ export default function ComponentPage({
             cardSize="md"
             type="do"
             description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/web/selectlist)."
-            defaultCode={`
-      function BestPracticeDropdownExample() {
-        const [open, setOpen] = React.useState(false);
-        const [selected, setSelected] = React.useState(null);
-        const anchorRef = React.useRef(null);
-        const onSelect = ({ item }) => setSelected(item);
-
-        return (
-          <Flex justifyContent="center">
-            <Button
-              accessibilityControls="selectlist-dropdown-example1"
-              accessibilityExpanded={open}
-              accessibilityHaspopup
-              iconEnd="arrow-down"
-              onClick={() => setOpen((prevVal) => !prevVal)}
-              ref={anchorRef}
-              selected={open}
-              size="lg"
-              text="Menu"
-            />
-            {open && (
-              <Dropdown anchor={anchorRef.current} id="selectlist-dropdown-example1" onDismiss={() => setOpen(false)}>
-                <Dropdown.Item
-                  onSelect={onSelect}
-                  option={{ value: "item 1", label: "Item 1" }}
-                  selected={selected}
-                />
-                <Dropdown.Item
-                  onSelect={onSelect}
-                  option={{ value: "item 2", label: "Item 2 with a really long, detailed, complex name" }}
-                  selected={selected}
-                />
-                <Dropdown.Link
-                  href="https://pinterest.com"
-                  isExternal
-                  option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
-                />
-                <Dropdown.Item
-                  badge={{ text: 'New' }}
-                  onSelect={onSelect}
-                  option={{ value: "item 4", label: "Item 4" }}
-                  selected={selected}
-                />
-                <Dropdown.Link
-                  badge={{ text: 'New' }}
-                  href="https://pinterest.com"
-                  isExternal
-                  option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
-                />
-                <Dropdown.Link
-                  href="/combobox"
-                  option={{ value: "item 6", label: "Item 6 navigates internally" }}
-                />
-              </Dropdown>
-            )}
-          </Flex>
-        );
-      }`}
+            sandpackExample={
+              <SandpackExample
+                code={doFeatures}
+                name="simple list of items example"
+                layout="column"
+                hideEditor
+              />
+            }
           />
-
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use Dropdown for a simple list of items. Use [SelectList](/web/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
-            defaultCode={`
-    function SimpleListDropdownExample() {
-      const [open, setOpen] = React.useState(false);
-      const [selected, setSelected] = React.useState(null);
-      const anchorRef = React.useRef(null);
-      const onSelect = ({ item }) => setSelected(item);
-
-      return (
-        <Flex justifyContent="center">
-          <Button
-            accessibilityControls="selectlist-dropdown-example2"
-            accessibilityExpanded={open}
-            accessibilityHaspopup
-            iconEnd="arrow-down"
-            onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
-            selected={open}
-            size="lg"
-            text="Date range"
-          />
-          {open && (
-            <Dropdown anchor={anchorRef.current} id="selectlist-dropdown-example2" onDismiss={() => setOpen(false)}>
-              <Dropdown.Item
-                onSelect={onSelect}
-                option={{ value: "item 1", label: "Last 7 days" }}
-                selected={selected}
+            sandpackExample={
+              <SandpackExample
+                code={dontSelectList}
+                name="Don't simple list of items"
+                layout="column"
+                hideEditor
+                hideControls
               />
-              <Dropdown.Item
-                onSelect={onSelect}
-                option={{ value: "item 2", label: "Last 14 days" }}
-                selected={selected}
-              />
-              <Dropdown.Item
-                onSelect={onSelect}
-                option={{ value: "item 3", label: "Last 21 days" }}
-                selected={selected}
-              />
-              <Dropdown.Item
-                onSelect={onSelect}
-                option={{ value: "item 4", label: "Last 30 days" }}
-                selected={selected}
-              />
-              <Dropdown.Item
-                onSelect={onSelect}
-                option={{ value: "item 5", label: "Last 60 days" }}
-                selected={selected}
-              />
-              <Dropdown.Item
-                onSelect={onSelect}
-                option={{ value: "item 6", label: "Last 90 days" }}
-                selected={selected}
-              />
-            </Dropdown>
-          )}
-        </Flex>
-          );
-        }`}
+            }
           />
         </MainSection.Subsection>
 
@@ -189,226 +104,42 @@ export default function ComponentPage({
             cardSize="md"
             type="do"
             description="Order the items in Dropdown either alphabetically or by usage. Place destructive actions at the bottom."
-            defaultCode={`
-function OrderDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="selectlist-dropdown-example3"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="Menu"
-        bgColor="lightGray"
-        icon="ellipsis"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="selectlist-dropdown-example3" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Download image", label: "Download image" }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            badge={{ text: 'New' }}
-            onSelect={onSelect}
-            option={{ value: "Hide Pin", label: "Hide Pin" }}
-            selected={selected}
-          />
-          <Dropdown.Link
-            href="https://pinterest.com"
-            isExternal
-            option={{ value: "Report Pin", label: "Report Pin" }}
-          />
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Delete Pin", label: "Delete Pin" }}
-            selected={selected}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={doOrder} name="Do order items" layout="column" hideEditor />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Attach Tooltips to menu items. Use the \`subtext\` property if additional explanation is needed."
-            defaultCode={`
-function NoTooltipsDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="tooltips-dropdown-example"
-        accessibilityHaspopup
-        accessibilityExpanded={open}
-        iconEnd="arrow-down"
-        text="Menu"
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        onClick={ () => setOpen((prevVal) => !prevVal) }
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="tooltips-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Download image", label: "Download image" }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            badge={{ text: 'New' }}
-            onSelect={onSelect}
-            option={{ value: "Hide Pin", label: "Hide Pin" }}
-            selected={selected}
-          >
-            <Box width="100%">
-              <Tooltip text="Hides this Pin for this account only">
-                <Text>Hide Pin</Text>
-              </Tooltip>
-            </Box>
-          </Dropdown.Item>
-          <Dropdown.Link
-            href="https://pinterest.com"
-            isExternal
-            option={{ value: "Report Pin", label: "Report Pin" }}
-          />
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Delete Pin", label: "Delete Pin" }}
-            selected={selected}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample
+                code={dontTooltips}
+                name="Don't tooltips"
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
             description={`Add an icon indicator when links are external using the \`isExternal\` prop. External links are either links outside of Pinterest or another sub-site of Pinterest.`}
-            defaultCode={`
-function ExternalLinksDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="do-icon-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        text="Menu"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="do-icon-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Settings", label: "Settings" }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            badge={{ text: 'New' }}
-            onSelect={onSelect}
-            option={{ value: "Report a bug", label: "Report a bug" }}
-            selected={selected}
-          />
-          <Dropdown.Link
-            href="https://help.pinterest.com/en?source=gear_menu_web"
-            isExternal
-            option={{ value: "Get help", label: "Get help" }}
-          />
-          <Dropdown.Link
-            href="https://policy.pinterest.com/en/privacy-policy"
-            isExternal
-            option={{ value: "See terms and privacy", label: "See terms and privacy" }}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={doIcons} name="Do icons" layout="column" hideEditor />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Add custom elements within Dropdown. While some custom elements may be technically possible, it is best to avoid customization that becomes difficult to maintain."
-            defaultCode={`
-function CustomContentDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="dont-custom-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        text="Menu"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="dont-custom-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: "Settings", label: "Settings" }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            badge={{ text: 'New' }}
-            onSelect={onSelect}
-            option={{ value: "Report a bug", label: "Report a bug" }}
-            selected={selected}
-          />
-          <Dropdown.Link
-            href="https://help.pinterest.com/en?source=gear_menu_web"
-            isExternal
-            option={{ value: "Get help", label: "Get help" }}
-          >
-            <Icon accessibilityLabel="Ad" color="default" icon="ad"/>
-            <Text>Get help</Text>
-          </Dropdown.Link>
-          <Dropdown.Link
-            href="https://policy.pinterest.com/en/privacy-policy"
-            isExternal
-            option={{ value: "See terms and privacy", label: "See terms and privacy" }}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={dontCustom} name="Don't custom" layout="column" hideEditor />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -453,57 +184,9 @@ function CustomContentDropdownExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function TruncationDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item.value === (selected || {}).value ? null : item);
-
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="truncation-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        text="Menu"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="truncation-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            badge={{ text: 'New' }}
-            onSelect={onSelect}
-            option={{
-              value: 'Homefeed anpassen',
-              label: 'Homefeed anpassen',
-              subtext:
-                'Aktualisieren Sie Ihren Homefeed, um Ihre Vorlieben und Ideen besser widerzuspiegeln',
-            }}
-            selected={selected}
-          />
-          <Dropdown.Link
-            href="https://help.pinterest.com/en?source=gear_menu_web"
-            isExternal
-            option={{ value: 'Hilfe anfordern', label: 'Hilfe anfordern' }}
-          />
-          <Dropdown.Link
-            href="https://policy.pinterest.com/en/privacy-policy"
-            isExternal
-            option={{
-              value: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',
-              label: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',
-            }}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={truncation} name="Truncation example" layout="row" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -547,92 +230,16 @@ function TruncationDropdownExample() {
             cardSize="md"
             title="Action/Selection"
             description={`Typically a Dropdown item triggers an action, like “Hide a Pin”, or makes a selection, like “Cozy” for a layout setting. Use Dropdown.Item for these use cases. \`onSelect\` handles the user interaction, with the optional \`selected\` indicating the currently-selected item.`}
-            defaultCode={`
-function ActionDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="action-variant-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        text={selected ? selected.label : 'Display'}
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="action-variant-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: 'Cozy', label: 'Cozy' }}
-            selected={selected}
-          />
-          <Dropdown.Item
-            onSelect={onSelect}
-            option={{ value: 'Comfy', label: 'Comfy' }}
-            selected={selected}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={
+              <SandpackExample code={action} name="Action example" layout="column" />
+            }
           />
           <MainSection.Card
             cardSize="md"
             title="Link"
             description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
             `}
-            defaultCode={`
-function LinkDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="link-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        icon="arrow-down"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="link-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Link
-            href="https://pinterest.com"
-            option={{ value: 'Create new board', label: 'Create new board' }}
-          />
-          <Dropdown.Link
-            href="https://help.pinterest.com/en?source=gear_menu_web"
-            isExternal
-            onClick={() => { /* log click here */ }}
-            option={{ value: 'Get help', label: 'Get help' }}
-          />
-          <Dropdown.Link
-            href="https://policy.pinterest.com/en/privacy-policy"
-            isExternal
-            option={{ value: 'See terms and privacy', label: 'See terms and privacy' }}
-          />
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}`}
+            sandpackExample={<SandpackExample code={link} name="Link example" layout="column" />}
           />
         </MainSection.Subsection>
 
@@ -642,67 +249,7 @@ function LinkDropdownExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SectionsIconButtonDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => {
-    if (selected.some(({ value }) => value === item.value )) {
-      setSelected((selected) => selected.filter(({ value }) => value != item.value));
-    } else {
-      setSelected((selected) => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="sections-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        bgColor="lightGray"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="sections-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Section label="Create">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="Add">
-            <Dropdown.Item
-              badge={{ text: 'New' }}
-              onSelect={onSelect}
-              option={{ value: 'Note', label: 'Note' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Section', label: 'Section' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={<SandpackExample code={sections} name="Sections example" />}
           />
         </MainSection.Subsection>
 
@@ -712,80 +259,7 @@ function SectionsIconButtonDropdownExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function CustomHeaderExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center">
-      <Button
-        accessibilityControls="header-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-        text="Menu"
-      />
-      {open && (
-        <Dropdown
-          anchor={anchorRef.current}
-          headerContent={
-            <Text align="start" size="100">
-              This Pin was inspired by your{' '}
-              <Text weight="bold" size="100">
-                <Link href="https://pinterest.com">recent activity</Link>
-              </Text>
-            </Text>
-          }
-          id="header-dropdown-example"
-          onDismiss={() => {
-            setOpen(false);
-          }}
-        >
-          <Dropdown.Item
-            onSelect={() => alert('Pin has been hidden')}
-            option={{ value: 'item 1', label: 'Hide Pin' }}
-            selected={selected}
-          />
-          <Dropdown.Link
-            href="https://pinterest.com"
-            isExternal
-            option={{
-              value: 'item 2',
-              label: 'Report Pin',
-            }}
-            selected={selected}
-          />
-          <Dropdown.Section label="View options">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'item 3', label: 'Default' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              badge={{ text: 'New' }}
-              onSelect={onSelect}
-              option={{ value: 'item 4', label: 'Compact' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'item 5', label: 'List' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={<SandpackExample code={customHeader} name="Custom header example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -794,81 +268,7 @@ function CustomHeaderExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SubtextDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({item}) => {
-    if (selected.some(({ value }) => value === item.value )) {
-      setSelected((selected) => selected.filter(({ value }) => value != item.value));
-    } else {
-      setSelected(selected => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="subtext-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        icon="arrow-down"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="subtext-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Section label="Accounts">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{
-                value: 'Pepper the Pupper',
-                label: 'Pepper the Pupper',
-                subtext: 'pepper@thepupper.com',
-              }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{
-                value: 'Mizu the Kitty',
-                label: 'Mizu the Kitty',
-                subtext: 'mizu@thekitty.com',
-              }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="More options">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{
-                value: 'Settings',
-                label: 'Settings',
-              }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Tune your home feed', label: 'Tune your home feed' }}
-              selected={selected}
-            />
-            <Dropdown.Link
-              href="https://pinterest.com"
-              isExternal
-              option={{ value: 'Get help', label: 'Get help' }}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={<SandpackExample code={subtext} name="Subtext example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -877,66 +277,7 @@ function SubtextDropdownExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function BadgesDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const onSelect = ({item}) => {
-    if (selected.some(({ value }) => value === item.value )) {
-      setSelected((selected) => selected.filter(({ value }) => value != item.value));
-    } else {
-      setSelected(selected => [...selected, item]);
-    }
-  };
-
-  return (
-    <Flex justifyContent="center">
-      <IconButton
-        accessibilityControls="badges-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} id="badges-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.Section label="Create">
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="Add">
-            <Dropdown.Item
-              badge={{ text: 'New' }}
-              onSelect={onSelect}
-              option={{ value: 'Note', label: 'Note' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Section', label: 'Section' }}
-              selected={selected}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={<SandpackExample code={badges} name="Badges example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -960,7 +301,7 @@ function BadgesDropdownExample() {
           />
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={customItem} name="Custom item example" />}
+            sandpackExample={<SandpackExample code={customItem} name="Composability example" />}
           />
         </MainSection.Subsection>
 
@@ -976,99 +317,15 @@ When building a Dropdown, we might want to render different combinations of subc
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-            function Example() {
-  const [open, setOpen] = React.useState(false);
-  const [switched, setSwitched] = React.useState(true);
-  const [selected, setSelected] = React.useState(null);
-
-  const anchorRef = React.useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
-
-  return (
-    <Flex justifyContent="center" direction="column" gap={4}>
-      <Box display="flex" alignItems="center">
-        <Box paddingX={2}>
-          <Label htmlFor="dropdown-example">
-            <Text>Toggle Dropdown subcomponents</Text>
-          </Label>
-        </Box>
-        <Switch
-          onChange={() => setSwitched((value) => !value)}
-          id="dropdown-example"
-          switched={switched}
-        />
-      </Box>
-      <IconButton
-        accessibilityControls="custom-dropdown-example"
-        accessibilityExpanded={open}
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        icon="add"
-        iconColor="darkGray"
-        onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
-        selected={open}
-        size="lg"
-      />
-      {open && (
-        <Dropdown
-          anchor={anchorRef.current}
-          id="custom-dropdown-example"
-          onDismiss={() => setOpen(false)}
-        >
-          {switched ? (
-            <React.Fragment>
-              <Dropdown.Link isExternal option={{ value: 'item 1', label: 'Custom link 1' }}>
-                <Box width="100%">
-                  <Text>
-                    <Link hoverStyle="none" href="https://pinterest.com" target="blank">
-                      Custom link 1
-                    </Link>
-                  </Text>
-                </Box>
-              </Dropdown.Link>
-              <Dropdown.Link isExternal option={{ value: 'item 2', label: 'Another custom link' }}>
-                <Box width="100%">
-                  <Text>
-                    <Link hoverStyle="none" href="https://google.com" target="blank">
-                      Another custom link
-                    </Link>
-                  </Text>
-                </Box>
-              </Dropdown.Link>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {[1, 2, 3, 4, 5, 6].map((x) => (
-                <Dropdown.Item
-                  key={x}
-                  onSelect={() => {}}
-                  option={{ value: x.toString(), label: x.toString() }}
-                />
-              ))}
-              {[7, 8, 9, 10, 11, 12].map((x) => (
-                <Dropdown.Item
-                  key={x}
-                  onSelect={() => {}}
-                  option={{ value: x.toString(), label: x.toString() }}
-                />
-              ))}
-            </React.Fragment>
-          )}
-        </Dropdown>
-      )}
-    </Flex>
-  );
-}
-
-            `}
+            sandpackExample={<SandpackExample code={composability} name="Custom item example" />}
           />
         </MainSection.Subsection>
 
         <MainSection
           name="Mobile"
           description={`Dropdown requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+
+SheetMobile has animation. To learn more about Dropdown.Link´s \`mobileOnDismissStart\`, see the [animation variant in SheetMobile](https://deploy-preview-2879--gestalt.netlify.app/web/sheetmobile#Animation). \`mobileOnDismissStart\` is the equivalent of \`onDismissStart\` in SheetMobile.
 `}
         >
           <MainSection.Card

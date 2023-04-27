@@ -40,6 +40,7 @@ export default function Example(): Node {
           id="demo-dropdown-example"
           onDismiss={() => setOpen(false)}
           zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
+          disableMobileUI={false}
           headerContent={
             <Text align="start" size="100" inline>
               This Pin was inspired by your{' '}

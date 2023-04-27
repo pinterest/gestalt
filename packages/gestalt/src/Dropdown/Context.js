@@ -3,15 +3,15 @@ import { createContext, type Context } from 'react';
 
 type DropdownContextType = {|
   id: string,
-  hoveredItem: ?number,
-  setHoveredItem: (n: number) => void,
+  hoveredItemIndex: ?number,
+  setHoveredItemIndex: (n: number) => void,
   setOptionRef: (?HTMLElement) => void,
 |};
 
 const initialContextState = {
   id: '',
-  hoveredItem: -1,
-  setHoveredItem: () => {},
+  hoveredItemIndex: -1,
+  setHoveredItemIndex: () => {},
   setOptionRef: () => {},
 };
 
