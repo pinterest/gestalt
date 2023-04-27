@@ -1,3 +1,9 @@
+## 110.1.9 (Apr 27, 2023)
+
+### Patch
+
+- Docs: Fix broken web Overview page ([#2877](https://github.com/pinterest/gestalt/pull/2877)) - [Preview link](https://deploy-preview-2877--gestalt.netlify.app)
+
 ## 110.1.8 (Apr 27, 2023)
 
 ### Patch
