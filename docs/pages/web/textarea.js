@@ -574,9 +574,9 @@ function TextAreaPopoverExample() {
     This example showcases the recommended behavior.`}
         >
           <MainSection.Card
-            defaultCode={`          
+            defaultCode={`
 function Example(props) {
-  
+
   const CITIES = ['San Francisco', 'New York']
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(CITIES);
@@ -648,7 +648,7 @@ function Example(props) {
           The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit.`}
         >
           <MainSection.Card
-            defaultCode={`          
+            defaultCode={`
 function Example(props) {
 
 const [value, setValue] = React.useState('');
@@ -657,7 +657,7 @@ const [rows, setRows] = React.useState(2);
 return (
   <Flex direction="column" width="100%" gap={4}>
     <Box width={120}>
-      <NumberField label="Number of Rows" onChange={({value})=>{setRows(value)}} value={rows}/>
+      <NumberField id='numberfield_rows' label="Number of Rows" onChange={({value})=>{setRows(value)}} value={rows}/>
     </Box>
     <TextArea
       label="Rows example"
