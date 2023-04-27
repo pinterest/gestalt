@@ -1,3 +1,9 @@
+## 110.1.8 (Apr 27, 2023)
+
+### Patch
+
+- Internal: fix master after missing id in TextArea example (introduced in #2869) ([#2878](https://github.com/pinterest/gestalt/pull/2878)) - [Preview link](https://deploy-preview-2878--gestalt.netlify.app)
+
 ## 110.1.7 (Apr 26, 2023)
 
 ### Patch
