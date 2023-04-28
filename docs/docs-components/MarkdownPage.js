@@ -32,9 +32,7 @@ const components = {
       <List>
         {filtered.map((a, index) => (
           <List.Item
-            // $FlowFixMe[incompatible-use]
             key={JSON.stringify(a?.props.child ?? index)}
-            // $FlowFixMe[incompatible-use]
             text={<Text>{a?.props.children}</Text>}
           />
         ))}
@@ -48,9 +46,7 @@ const components = {
       <List type="ordered">
         {filtered.map((a, index) => (
           <List.Item
-            // $FlowFixMe[incompatible-use]
             key={JSON.stringify(a?.props.child ?? index)}
-            // $FlowFixMe[incompatible-use]
             text={<Text>{a?.props.children}</Text>}
           />
         ))}
