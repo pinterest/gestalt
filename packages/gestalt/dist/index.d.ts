@@ -636,31 +636,8 @@ export interface BoxProps extends BoxPassthroughProps {
   zIndex?: Indexable | undefined;
 }
 
-type ConditionalButtonProps =
-  | {
-      href: string;
-      role: 'link';
-      rel?: RelType | undefined;
-      target?: TargetType | undefined;
-    }
-  | {
-      accessibilityControls?: string | undefined;
-      accessibilityExpanded?: boolean | undefined;
-      accessibilityHaspopup?: boolean | undefined;
-      selected?: boolean | undefined;
-      role?: 'button' | undefined;
-      type?: 'button' | undefined;
-    }
-  | {
-      role?: 'button' | undefined;
-      type?: 'submit' | undefined;
-    };
-
 type CommonButtonProps = {
   text: string;
-  accessibilityControls?: string | undefined;
-  accessibilityExpanded?: boolean | undefined;
-  accessibilityHaspopup?: boolean | undefined;
   accessibilityLabel?: string | undefined;
   color?:
     | 'gray'
@@ -674,21 +651,38 @@ type CommonButtonProps = {
   dataTestId?: string;
   disabled?: boolean | undefined;
   fullWidth?: boolean | undefined;
-  href?: string | undefined;
   iconEnd?: Icons | undefined;
   name?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
-  rel?: 'none' | 'nofollow' | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   tabIndex?: -1 | 0 | undefined;
-  target?: null | 'self' | 'blank' | undefined;
-  type?: 'submit' | 'button' | undefined;
+};
+
+type ButtonLinkProps = CommonButtonProps & {
+  role: 'link';
+  href: string;
+  rel?: RelType | undefined;
+  target?: TargetType | undefined;
+};
+
+type ButtonButtonProps = CommonButtonProps & {
+  role?: 'button' | undefined;
+  type?: 'button' | undefined;
+  accessibilityControls?: string | undefined;
+  accessibilityExpanded?: boolean | undefined;
+  accessibilityHaspopup?: boolean | undefined;
+  selected?: boolean | undefined;
+};
+
+type ButtonSubmitProps = CommonButtonProps & {
+  role: 'button' | undefined;
+  type: 'submit';
 };
 
 /**
  * https://gestalt.pinterest.systems/web/button
  */
-export type ButtonProps = CommonButtonProps & ConditionalButtonProps;
+export type ButtonProps = ButtonLinkProps | ButtonButtonProps | ButtonSubmitProps;
 
 /**
  * https://gestalt.pinterest.systems/web/buttongroup
@@ -1009,23 +1003,6 @@ export interface IconProps {
   size?: number | string | undefined;
 }
 
-type ConditionalIconButtonProps =
-  | {
-      role?: 'link';
-      href: string | undefined;
-      target?: TargetType | undefined;
-      rel?: RelType | undefined;
-    }
-  | {
-      role?: 'button' | undefined;
-      accessibilityControls?: string | undefined;
-      accessibilityExpanded?: boolean | undefined;
-      accessibilityHaspopup?: boolean | undefined;
-      accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
-      selected?: boolean | undefined;
-      type?: 'submit' | 'button' | undefined;
-    };
-
 type CommonIconButtonProps = {
   accessibilityLabel: string;
   bgColor?:
@@ -1043,7 +1020,6 @@ type CommonIconButtonProps = {
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
-  role?: 'button' | 'link' | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   tabIndex?: -1 | 0 | undefined;
   tooltip?:
@@ -1051,10 +1027,32 @@ type CommonIconButtonProps = {
     | undefined;
 };
 
+type IconButtonLinkProps = CommonIconButtonProps & {
+  role: 'link';
+  href: string;
+  rel?: RelType | undefined;
+  target?: TargetType | undefined;
+};
+
+type IconButtonButtonProps = CommonIconButtonProps & {
+  role?: 'button' | undefined;
+  type?: 'button' | undefined;
+  accessibilityControls?: string | undefined;
+  accessibilityExpanded?: boolean | undefined;
+  accessibilityHaspopup?: boolean | undefined;
+  accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
+  selected?: boolean | undefined;
+};
+
+type IconButtonSubmitProps = CommonButtonProps & {
+  role: 'button' | undefined;
+  type: 'submit';
+};
+
 /**
  * https://gestalt.pinterest.systems/web/iconbutton
  */
-export type IconButtonProps = CommonIconButtonProps & ConditionalIconButtonProps;
+export type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
@@ -2023,31 +2021,6 @@ export interface TagProps {
   type?: 'default' | 'error' | 'warning' | undefined;
 }
 
-type ConditionalTapAreaProps =
-  | {
-      href: string;
-      role: 'link';
-      rel?: RelType | undefined;
-      target?: TargetType | undefined;
-      accessibilityCurrent?:
-        | 'page'
-        | 'step'
-        | 'location'
-        | 'date'
-        | 'time'
-        | 'true'
-        | 'false'
-        | 'section';
-    }
-  | {
-      role?: 'button' | 'switch' | undefined;
-      accessibilityChecked?: boolean | undefined;
-      accessibilityControls?: string | undefined;
-      accessibilityExpanded?: boolean | undefined;
-      accessibilityHaspopup?: boolean | undefined;
-      type?: 'submit' | 'button' | undefined;
-    };
-
 type CommonTapAreaProps = {
   accessibilityLabel?: string | undefined;
   children?: Node | undefined;
@@ -2082,16 +2055,39 @@ type CommonTapAreaProps = {
     | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
     | undefined;
   onTap?: TapAreaEventHandlerType | undefined;
-  role?: 'button' | 'link' | undefined;
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
   tapStyle?: 'none' | 'compress' | undefined;
 };
 
+type TapAreaLinkProps = CommonIconButtonProps & {
+  role: 'link';
+  href: string;
+  rel?: RelType | undefined;
+  target?: TargetType | undefined;
+  accessibilityCurrent?:
+    | 'page'
+    | 'step'
+    | 'location'
+    | 'date'
+    | 'time'
+    | 'true'
+    | 'false'
+    | 'section';
+};
+
+type TapAreaButtonProps = CommonIconButtonProps & {
+  role?: 'button' | 'switch' | undefined;
+  accessibilityChecked?: boolean | undefined;
+  accessibilityControls?: string | undefined;
+  accessibilityExpanded?: boolean | undefined;
+  accessibilityHaspopup?: boolean | undefined;
+};
+
 /**
  * https://gestalt.pinterest.systems/web/taparea
  */
-export type TapAreaProps = CommonTapAreaProps & ConditionalTapAreaProps;
+export type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
 
 /**
  * https://gestalt.pinterest.systems/web/text
