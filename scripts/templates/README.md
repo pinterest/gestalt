@@ -73,6 +73,24 @@ Before merging
 
 yarn run flow-generate:css
 
+## Update the TypeScript declaration files
+
+`packages/gestalt/dist/index.d.ts`
+
+Add:
+
+/\*\*
+
+- https://gestalt.pinterest.systems/web/componentname
+  \*/
+  export interface ComponentNameProps {
+  prop: value;
+  prop: value;
+  prop: value;
+  }
+
+export const ComponentName: React.FunctionComponent<ComponentNameProps>;
+
 ## Update all Gestalt packages builds running rollup
 
 yarn build

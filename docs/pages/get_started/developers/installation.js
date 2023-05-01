@@ -123,40 +123,6 @@ yarn start
           </Text>
         </Flex>
       </Card>
-
-      <Card name="Typescript Support">
-        <Flex
-          alignItems="start"
-          direction="column"
-          gap={{
-            row: 0,
-            column: 4,
-          }}
-        >
-          <Text>
-            Install the{' '}
-            <Link
-              display="inlineBlock"
-              href="https://www.npmjs.com/package/@types/gestalt"
-              target="blank"
-            >
-              <Text weight="bold">DefinitelyTyped</Text>
-            </Link>{' '}
-            definitions.
-          </Text>
-          <Heading size="400">Usage</Heading>
-          <Markdown
-            text="
-~~~jsx
-npm i --save @types/gestalt
-~~~
-or
-~~~jsx
-yarn add @types/gestalt
-~~~"
-          />
-        </Flex>
-      </Card>
     </Page>
   );
 }
