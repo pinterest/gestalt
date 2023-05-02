@@ -682,7 +682,7 @@ type ButtonSubmitProps = CommonButtonProps & {
 /**
  * https://gestalt.pinterest.systems/web/button
  */
-export type ButtonProps = ButtonLinkProps & ButtonButtonProps & ButtonSubmitProps;
+export type ButtonProps = ButtonLinkProps | ButtonButtonProps | ButtonSubmitProps;
 
 /**
  * https://gestalt.pinterest.systems/web/buttongroup
@@ -1052,8 +1052,7 @@ type IconButtonSubmitProps = CommonButtonProps & {
 /**
  * https://gestalt.pinterest.systems/web/iconbutton
  */
-export type IconButtonProps = IconButtonLinkProps & IconButtonButtonProps & IconButtonSubmitProps;
-
+export type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
@@ -2088,8 +2087,7 @@ type TapAreaButtonProps = CommonIconButtonProps & {
 /**
  * https://gestalt.pinterest.systems/web/taparea
  */
-export type TapAreaProps = TapAreaLinkProps & TapAreaButtonProps;
-
+export type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
 
 /**
  * https://gestalt.pinterest.systems/web/text
