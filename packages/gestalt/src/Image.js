@@ -4,7 +4,9 @@ import classnames from 'classnames';
 import styles from './Image.css';
 import Box from './Box.js';
 
-const shouldScaleImage = (fit) => fit === 'cover' || fit === 'contain';
+type Fit = 'cover' | 'contain' | 'none';
+
+const shouldScaleImage = (fit: ?Fit) => fit === 'cover' || fit === 'contain';
 
 type Props = {|
   /**
@@ -40,7 +42,7 @@ type Props = {|
    * Sets how the image is resized to fit its container. See the [Fit example](https://gestalt.pinterest.systems/web/image#fit) for more details.
    * Note: this doesn't work with srcSet or sizes.
    */
-  fit?: 'contain' | 'cover' | 'none',
+  fit?: Fit,
   /**
    * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/web/image#Lazy) for more details.
    */

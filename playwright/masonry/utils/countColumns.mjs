@@ -9,7 +9,9 @@ export default async function countColumns(
   // $FlowFixMe[unclear-type] flow-typed def for playwright is…lacking
 ) /*: Promise<any> */ {
   return await page.evaluate((gridItemsSelector) => {
-    const itemLeftMap = {};
+    const itemLeftMap: {
+      [number]: $ReadOnlyArray<ClientRect>,
+    } = {};
     const gridItems = document.querySelectorAll(gridItemsSelector);
 
     for (let i = 0; i < gridItems.length; i += 1) {
@@ -17,7 +19,7 @@ export default async function countColumns(
 
       itemLeftMap[itemRect.x] = itemLeftMap[itemRect.x] || [];
 
-      itemLeftMap[itemRect.x].push(itemRect);
+      itemLeftMap[itemRect.x] = [...itemLeftMap[itemRect.x], itemRect];
     }
 
     return Object.keys(itemLeftMap).length;

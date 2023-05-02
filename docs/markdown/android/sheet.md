@@ -18,7 +18,7 @@ fullwidth: true
   </Group>
   <Group>
     <Dont title="When not to use" />
-      - Displaying system errors or notices. Consider a [Callout](callout) instead
+      - Displaying system errors or notices. Consider a [Callout](/web/callout) instead
       - Any time a separate, designated URL is desired
       - Any action that should not interrupt users from their current work stream
       - On top of another sheet, as this can create usability issues and confusion

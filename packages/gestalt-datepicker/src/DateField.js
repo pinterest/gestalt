@@ -6,40 +6,38 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import InternalDateField from './DateField/InternalDateField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-// flowlint unclear-type:off
 // NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE
 // They will get picked up by the docgen and bork the type displayed on the docs
 type LocaleData = {|
   code?: string,
-  formatDistance?: (...args: $ReadOnlyArray<any>) => any,
-  formatRelative?: (...args: $ReadOnlyArray<any>) => any,
+  formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   localize?: {|
-    ordinalNumber: (...args: $ReadOnlyArray<any>) => any,
-    era: (...args: $ReadOnlyArray<any>) => any,
-    quarter: (...args: $ReadOnlyArray<any>) => any,
-    month: (...args: $ReadOnlyArray<any>) => any,
-    day: (...args: $ReadOnlyArray<any>) => any,
-    dayPeriod: (...args: $ReadOnlyArray<any>) => any,
+    ordinalNumber: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   |},
   formatLong?: {|
-    date: (...args: $ReadOnlyArray<any>) => any,
-    time: (...args: $ReadOnlyArray<any>) => any,
-    dateTime: (...args: $ReadOnlyArray<any>) => any,
+    date: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    time: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dateTime: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   |},
   match?: {|
-    ordinalNumber: (...args: $ReadOnlyArray<string>) => any,
-    era: (...args: $ReadOnlyArray<any>) => any,
-    quarter: (...args: $ReadOnlyArray<any>) => any,
-    month: (...args: $ReadOnlyArray<any>) => any,
-    day: (...args: $ReadOnlyArray<any>) => any,
-    dayPeriod: (...args: $ReadOnlyArray<any>) => any,
+    ordinalNumber: (...args: $ReadOnlyArray<string>) => { ... },
+    era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   |},
   options?: {|
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   |},
 |};
-// flowlint unclear-type:error
 
 type Props = {|
   /**

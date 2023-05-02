@@ -100,6 +100,7 @@ export default function InternalSheet({
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
+  // $FlowFixMe[missing-local-annot]
   function buildDismissableSubcomponent(component) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })
@@ -140,7 +141,7 @@ export default function InternalSheet({
   }, [dismissButtonRef]);
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
       // Handle onDismiss triggering from ESC keyup event
       if (event.keyCode === ESCAPE && enabledDismiss) {
         onExternalDismiss();

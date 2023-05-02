@@ -451,7 +451,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             </Box>
           </Flex>
           <Box maxWidth={572}>
-            <Markdown text="Please [get in touch](/get_started/how_to_work_with_us#Slack-channels) if you need specific iOS and Android icons guidelines." />
+            <Markdown text="Please [get in touch](/team_support/get_help#Slack-channels) if you need specific iOS and Android icons guidelines." />
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -585,7 +585,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             </Flex>
           </Box>
           <Box maxWidth={572}>
-            <Markdown text="If you need a new logo set as an icon, [reach out to us](/get_started/how_to_work_with_us#Meetings-and-events), and we will direct you." />
+            <Markdown text="If you need a new logo set as an icon, [reach out to us](/team_support/get_help#Meetings-and-events), and we will direct you." />
           </Box>
         </MainSection.Subsection>
       </MainSection>

@@ -5,11 +5,11 @@ const prettier = require('prettier');
 /**
  * This Webpack loader is used to clean up the docs code examples for display in the Sandpack code editor. It removes Flow types and eslint disable comments.
  */
+// $FlowFixMe[missing-this-annot]
 module.exports = function removeFlowTypesLoader(source /*: string */) {
   const callback = this.async();
   this.cacheable();
 
-  const options = {};
   // Remove Flow declarations/types
   const removed = flowRemoveTypes(source)
     .toString()
@@ -37,7 +37,6 @@ module.exports = function removeFlowTypesLoader(source /*: string */) {
       // https://stackoverflow.com/a/9168133/5253702
       .replace(/\u2028/g, '\\u2028')
       .replace(/\u2029/g, '\\u2029');
-    const esModule = typeof options.esModule !== 'undefined' ? options.esModule : true;
-    callback(null, `${esModule ? 'export default' : 'module.exports ='} ${json};`);
+    callback(null, `export default ${json};`);
   });
 };

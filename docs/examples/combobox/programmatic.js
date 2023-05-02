@@ -41,7 +41,12 @@ export default function Example(): Node {
     setSuggestedOptions(CATEGORIES[currentCategory]);
   };
 
-  const handleOnChange = ({ value }) => {
+  const handleOnChange = ({
+    value,
+  }: {|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
+  |}) => {
     setSelectedOption();
     if (value) {
       setInputValue(value);
@@ -55,7 +60,12 @@ export default function Example(): Node {
     }
   };
 
-  const handleSelect = ({ item }) => {
+  const handleSelect = ({
+    item,
+  }: {|
+    event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => {
     setInputValue(item.label);
     setSelectedOption(item);
     resetOptions();

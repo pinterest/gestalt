@@ -73,6 +73,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Sheet',
       'Switch',
       'Tabs',
+      'Text',
       'TextField',
       'Toast',
     ],

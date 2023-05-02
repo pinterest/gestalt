@@ -214,7 +214,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
     if (onClick && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed

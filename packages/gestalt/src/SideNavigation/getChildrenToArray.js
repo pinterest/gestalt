@@ -17,7 +17,7 @@ const getChildrenToArray = ({
   const navigationChildren = [];
 
   let recursionLevel = 0;
-  const getChildren = ({ nodeChildren }) =>
+  const getChildren = ({ nodeChildren }: {| nodeChildren: Node |}) =>
     Children.toArray(nodeChildren).forEach((child) => {
       // Detect incorrect subcomponent usage at the main level
       if (filterLevel === 'main' && ALLOWED_CHILDREN_MAP.nested.includes(child.type.displayName)) {
