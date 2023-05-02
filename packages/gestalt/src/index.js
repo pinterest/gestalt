@@ -1,3 +1,5 @@
+
+
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
 import ActivationCard from './ActivationCard.js';
@@ -63,6 +65,7 @@ import Switch from './Switch.js';
 import Table from './Table.js';
 import Tabs from './Tabs.js';
 import Tag from './Tag.js';
+import TagData from './TagData.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
@@ -143,6 +146,7 @@ export {
   Table,
   Tabs,
   Tag,
+  TagData,
   TapArea,
   Text,
   TextArea,
