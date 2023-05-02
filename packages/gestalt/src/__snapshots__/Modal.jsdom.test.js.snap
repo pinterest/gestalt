@@ -122,21 +122,21 @@ exports[`Modal Mobile Modal renders 1`] = `
       name="trap-focus"
     >
       <div
-        aria-label="Test modal"
-        class="container"
-        id=":r0:"
-        role="dialog"
+        class="container fullPageContainer"
       >
         <div
           class="backdrop"
         />
         <div
-          class="mobileWrapper hideOutline"
+          aria-label="Bottom sheet"
+          class="fullPageWrapper hideOutline"
+          id=":r0:"
+          role="dialog"
           style="width: 100%;"
           tabindex="-1"
         >
           <div
-            class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+            class="box relative xsDirectionColumn xsDisplayFlex"
             style="width: 100%;"
           >
             <div
@@ -150,7 +150,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                 >
                   <button
                     aria-controls=":r0:"
-                    aria-label="Close modal"
+                    aria-label="Close bottom sheet"
                     class="parentButton"
                     type="button"
                   >
@@ -158,7 +158,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                       class="button tapTransition enabled"
                     >
                       <div
-                        class="pog transparent focused"
+                        class="pog transparent"
                         style="height: 48px; width: 48px;"
                       >
                         <svg
@@ -181,27 +181,27 @@ exports[`Modal Mobile Modal renders 1`] = `
                 <div
                   class="FlexItem flexGrow"
                 >
-                  <h1
-                    class="Heading fontSize400 defaultText alignCenter breakWord lineClamp"
-                    title="Heading"
+                  <div
+                    class="Flex rowGap0 columnGap0 xsDirectionColumn"
                   >
-                    Heading
-                  </h1>
+                    <h1
+                      class="Heading fontSize300 defaultText alignCenter breakWord lineClamp"
+                      title="Heading"
+                    >
+                      Heading
+                    </h1>
+                    <div
+                      class="Text fontSize100 defaultText alignCenter breakWord fontWeightNormal"
+                    >
+                      Subheading
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX4 paddingY4"
+              class="box flexGrow overflowAuto paddingX4 paddingY2"
             >
-              <div
-                class="box marginBottom4 paddingX0 paddingY0"
-              >
-                <div
-                  class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
-                >
-                  Subheading
-                </div>
-              </div>
               Modal content
             </div>
             <div

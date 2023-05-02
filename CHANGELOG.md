@@ -1,8 +1,14 @@
-## 110.1.16-alpha.0 (May 2, 2023)
+## 110.1.17 (May 2, 2023)
 
-### Prerelease
+### Patch
 
-- Alpha final2 ([#2889](https://github.com/pinterest/gestalt/pull/2889)) - [Preview link](https://deploy-preview-2889--gestalt.netlify.app)
+- Docs: add April newsletter ([#2887](https://github.com/pinterest/gestalt/pull/2887)) - [Preview link](https://deploy-preview-2887--gestalt.netlify.app)
+
+## 110.1.16 (May 1, 2023)
+
+### Patch
+
+- Modal: Implement SheetMobile for mobile Modal and fix DismissButton positioning bug ([#2886](https://github.com/pinterest/gestalt/pull/2886)) - [Preview link](https://deploy-preview-2886--gestalt.netlify.app)
 
 ## 110.1.15 (Apr 29, 2023)
 
