@@ -131,7 +131,7 @@ export default function Tile({
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} aria-disabled={disabled}>
       {disabled && <DisabledOverlay />}
       <TooltipWrapper tooltip={tooltip}>
         <div
@@ -147,11 +147,11 @@ export default function Tile({
         >
           <Flex direction="row" gap={2}>
             <Flex.Item>{children}</Flex.Item>
-            {showCheckbox && (isSelected || isHovered) &&  (
-            <Flex.Item>
-              <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
-            </Flex.Item> 
-             )}
+            {showCheckbox && (isSelected || isHovered) && (
+              <Flex.Item>
+                <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
+              </Flex.Item>
+            )}
           </Flex>
         </div>
       </TooltipWrapper>
