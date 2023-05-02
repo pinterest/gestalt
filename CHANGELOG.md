@@ -178,6 +178,7 @@
 
 - DateField: fixed responsiveness issue & added disableRange example ([#2855](https://github.com/pinterest/gestalt/pull/2855)) - [Preview link](https://deploy-preview-2855--gestalt.netlify.app)
 
+
 ## 110.0.1 (Apr 18, 2023)
 
 ### Patch

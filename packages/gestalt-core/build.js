@@ -57,7 +57,15 @@ const cssModules = (options = {}) => {
         scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
       }
 
-      return scopeNames[hash];
+      // if it's dev mode, append the full class name for debugging and don't minify classnames
+      // this only happens when rollup is run in watch mode
+      const isDevMode = process.argv.includes('-w') || process.argv.includes('--watch');
+      let minifiedName = scopeNames[hash];
+      if (isDevMode) {
+        minifiedName = `${name}__${minifiedName}`;
+      }
+
+      return minifiedName;
     },
     getJSON: (filePath, exportTokens) => {
       Object.entries(exportTokens).forEach(([className, value]) => {

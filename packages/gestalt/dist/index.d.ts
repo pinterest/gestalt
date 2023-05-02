@@ -1054,6 +1054,7 @@ type IconButtonSubmitProps = CommonButtonProps & {
  */
 export type IconButtonProps = IconButtonLinkProps & IconButtonButtonProps & IconButtonSubmitProps;
 
+
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
  */
@@ -2088,6 +2089,7 @@ type TapAreaButtonProps = CommonIconButtonProps & {
  * https://gestalt.pinterest.systems/web/taparea
  */
 export type TapAreaProps = TapAreaLinkProps & TapAreaButtonProps;
+
 
 /**
  * https://gestalt.pinterest.systems/web/text
