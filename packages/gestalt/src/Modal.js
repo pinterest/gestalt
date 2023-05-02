@@ -7,7 +7,6 @@ import Backdrop from './Backdrop.js';
 import Box from './Box.js';
 import Heading from './Heading.js';
 import { ESCAPE } from './keyCodes.js';
-import MobileModal from './MobileModal.js';
 import Text from './Text.js';
 import { FixedZIndex } from './zIndex.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
@@ -15,6 +14,7 @@ import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
+import FullPage from './SheetMobile/FullPage.js';
 
 type Props = {|
   /**
@@ -173,8 +173,7 @@ export default function Modal({
 
   if (isMobile) {
     return (
-      <MobileModal
-        accessibilityModalLabel={accessibilityModalLabel}
+      <FullPage
         align={align}
         onDismiss={onDismiss}
         footer={footer}
@@ -182,9 +181,10 @@ export default function Modal({
         heading={heading}
         role={role}
         subHeading={subHeading}
+        showDismissButton
       >
         {children}
-      </MobileModal>
+      </FullPage>
     );
   }
 
