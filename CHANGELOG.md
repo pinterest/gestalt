@@ -1,9 +1,3 @@
-## 110.1.18-alpha.1 (May 2, 2023)
-
-### Prerelease
-
-- Alpha final9 ([#2896](https://github.com/pinterest/gestalt/pull/2896)) - [Preview link](https://deploy-preview-2896--gestalt.netlify.app)
-
 ## 110.1.15 (Apr 29, 2023)
 
 ### Patch
