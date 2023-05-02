@@ -8758,31 +8758,6 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-gestalt-datepicker@>0.0.0:
-  version "110.1.17"
-  resolved "https://registry.yarnpkg.com/gestalt-datepicker/-/gestalt-datepicker-110.1.17.tgz#035ca9eabf58f0d38f16f3c4df91cf8a9c78620a"
-  integrity sha512-uqH+awVJUVT0lGjCpl3JlkAjDqSj5kq9XR9wDZUlIDW2sAAyCo0vy512tu1k/DagFXdJr12fRL30qzz+xQ0aPw==
-  dependencies:
-    "@emotion/react" "^11.10.6"
-    "@emotion/styled" "^11.10.6"
-    "@mui/material" "^5.12.0"
-    "@mui/x-date-pickers" "6.1.0"
-    classnames "^2.2.6"
-    react-datepicker "4.0.0"
-
-gestalt-design-tokens@>0.0.0:
-  version "110.1.17"
-  resolved "https://registry.yarnpkg.com/gestalt-design-tokens/-/gestalt-design-tokens-110.1.17.tgz#076344e151a8f2d8376432528320b13f32168b34"
-  integrity sha512-Zz/usYIsvmkLdXNf4TwwC3FEx3QKDEBkwlNzRmGSpQ+Pcdpca6x1Pa1PPmtvTyBGU78pZcFNXNLGFWWrCY/GYA==
-
-gestalt@>0.0.0:
-  version "110.1.17"
-  resolved "https://registry.yarnpkg.com/gestalt/-/gestalt-110.1.17.tgz#c0de0f5b9db7e945ba0cbac4bcdfbf6784613ec7"
-  integrity sha512-GKrpO4X5j7YySJUsoNMkdd4bX0tdHdLFEjkNKnqghxsJdCLAsy6vWAKGF5m4zlyBycq9bYGrzcwNBYqNv24kBg==
-  dependencies:
-    classnames "^2.2.6"
-    gestalt-design-tokens ">0.0.0"
-
 get-amd-module-type@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/get-amd-module-type/-/get-amd-module-type-3.0.0.tgz"
