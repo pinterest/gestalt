@@ -681,7 +681,6 @@ interface ButtonSubmitProps extends CommonButtonProps {
   type: 'submit';
 }
 
-
 /**
  * https://gestalt.pinterest.systems/web/button
  */
@@ -1031,7 +1030,6 @@ interface CommonIconButtonProps {
 }
 
 interface IconButtonLinkProps extends CommonIconButtonProps {
-
   role: 'link';
   href: string;
   rel?: RelType | undefined;
@@ -1039,7 +1037,6 @@ interface IconButtonLinkProps extends CommonIconButtonProps {
 }
 
 interface IconButtonButtonProps extends CommonIconButtonProps {
-
   role?: 'button' | undefined;
   type?: 'button' | undefined;
   accessibilityControls?: string | undefined;
@@ -1053,7 +1050,6 @@ interface IconButtonSubmitProps extends CommonIconButtonProps {
   role: 'button' | undefined;
   type: 'submit';
 }
-
 
 /**
  * https://gestalt.pinterest.systems/web/iconbutton
@@ -2084,14 +2080,12 @@ interface TapAreaLinkProps extends CommonTapAreaProps {
 }
 
 interface TapAreaButtonProps extends CommonTapAreaProps {
-
   role?: 'button' | 'switch' | undefined;
   accessibilityChecked?: boolean | undefined;
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
 }
-
 
 /**
  * https://gestalt.pinterest.systems/web/taparea
