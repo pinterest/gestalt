@@ -78,6 +78,17 @@ Pretty nifty! This shows a few things happening:
 
 Now let's make a change and see how that affects things. Open up `tokens/color/base.json` and change `"#111111"` to `"#000000"`. After you make that change, save the file and re-run the build command `yarn build`. Open up the build files and take a look.
 
+## Where are the CSS Modules
+
+Predefined css classes come from the following files:
+
+```
+Layout.css // Flex, and flex related classes (think align-center)
+boxWhitespace.css // padding
+Borders.css // accessbility focus, border-radius
+Cursors.css // various pointers
+```
+
 **Huzzah!**
 
 Now go forth and create! This package is utilizing [Style Dictionary](https://amzn.github.io/style-dictionary). Take a look at all the built-in [transforms](https://amzn.github.io/style-dictionary/#/transforms?id=pre-defined-transforms) and [formats](https://amzn.github.io/style-dictionary/#/formats?id=pre-defined-formats).

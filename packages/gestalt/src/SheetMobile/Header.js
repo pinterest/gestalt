@@ -115,8 +115,9 @@ export default function Header({
             />
           </Flex.Item>
         ) : null}
-        {heading ? (
-          <Flex.Item flex="grow">
+        <Flex.Item flex="grow">
+          {/* Flex.Item must wrap the conditional to prevent the DismissButton from being centered if there's no heading */}
+          {heading ? (
             <Flex direction="column">
               {typeof heading === 'string' ? (
                 <Heading align={align} size="300" accessibilityLevel={1} lineClamp={2}>
@@ -131,8 +132,8 @@ export default function Header({
                 </Text>
               )}
             </Flex>
-          </Flex.Item>
-        ) : null}
+          ) : null}
+        </Flex.Item>
         {forwardIconButton && !primaryAction ? (
           <Flex.Item flex="none">
             <IconButton

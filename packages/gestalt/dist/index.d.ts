@@ -2064,6 +2064,7 @@ interface CommonTapAreaProps {
 }
 
 type TapAreaLinkProps =  CommonIconButtonProps & {
+
   role: 'link';
   href: string;
   rel?: RelType | undefined;
