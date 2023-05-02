@@ -660,26 +660,27 @@ interface CommonButtonProps {
   tabIndex?: -1 | 0 | undefined;
 }
 
-type ButtonLinkProps = CommonButtonProps & {
+interface ButtonLinkProps extends CommonButtonProps {
   role: 'link';
   href: string;
   rel?: RelType | undefined;
   target?: TargetType | undefined;
-};
+}
 
-type ButtonButtonProps = CommonButtonProps & {
+interface ButtonButtonProps extends CommonButtonProps {
   role?: 'button' | undefined;
   type?: 'button' | undefined;
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
   selected?: boolean | undefined;
-};
+}
 
-type ButtonSubmitProps = CommonButtonProps & {
+interface ButtonSubmitProps extends CommonButtonProps {
   role: 'button' | undefined;
   type: 'submit';
-};
+}
+
 
 /**
  * https://gestalt.pinterest.systems/web/button
@@ -1029,14 +1030,16 @@ interface CommonIconButtonProps {
     | undefined;
 }
 
-type IconButtonLinkProps = CommonIconButtonProps & {
+interface IconButtonLinkProps extends CommonIconButtonProps {
+
   role: 'link';
   href: string;
   rel?: RelType | undefined;
   target?: TargetType | undefined;
-};
+}
 
-type IconButtonButtonProps = CommonIconButtonProps & {
+interface IconButtonButtonProps extends CommonIconButtonProps {
+
   role?: 'button' | undefined;
   type?: 'button' | undefined;
   accessibilityControls?: string | undefined;
@@ -1044,12 +1047,13 @@ type IconButtonButtonProps = CommonIconButtonProps & {
   accessibilityHaspopup?: boolean | undefined;
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
   selected?: boolean | undefined;
-};
+}
 
-type IconButtonSubmitProps = CommonButtonProps & {
+interface IconButtonSubmitProps extends CommonIconButtonProps {
   role: 'button' | undefined;
   type: 'submit';
-};
+}
+
 
 /**
  * https://gestalt.pinterest.systems/web/iconbutton
@@ -2063,8 +2067,7 @@ interface CommonTapAreaProps {
   tapStyle?: 'none' | 'compress' | undefined;
 }
 
-type TapAreaLinkProps =  CommonIconButtonProps & {
-
+interface TapAreaLinkProps extends CommonTapAreaProps {
   role: 'link';
   href: string;
   rel?: RelType | undefined;
@@ -2078,15 +2081,17 @@ type TapAreaLinkProps =  CommonIconButtonProps & {
     | 'true'
     | 'false'
     | 'section';
-};
+}
 
-type TapAreaButtonProps = CommonIconButtonProps & {
+interface TapAreaButtonProps extends CommonTapAreaProps {
+
   role?: 'button' | 'switch' | undefined;
   accessibilityChecked?: boolean | undefined;
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
-};
+}
+
 
 /**
  * https://gestalt.pinterest.systems/web/taparea
