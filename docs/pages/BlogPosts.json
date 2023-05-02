@@ -3,50 +3,7 @@
     "year": "2023",
     "digests": [
       {
-        "month": "April",
-        "summary": "",
-        "posts": [
-          {
-            "title": "Gestalt Eng April Newsletter",
-            "audience": ["Engineering"],
-            "content": "A recap of significant changes from April."
-          },
-          {
-            "title": "SheetMobile",
-            "audience": ["Engineering"],
-            "imageSrc": "https://i.pinimg.com/originals/95/e3/41/95e3416596e9a53b2e3bbb377b20830b.png",
-            "imageAltText": "Screenshot of SheetMobile UI",
-            "content": "Remember when we renamed Sheet to OverlayPanel? Here's why: introducing our new mobile-only component, [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile)! This mweb-specific component is a generic container for a variety of content. It animates up from the bottom of the screen, and back down when dismissed. You can use this component to create mweb experiences with a more native feel. But don't go too crazy with it yet — we plan to make several of our existing components \"adaptive\" on mobile, automatically switching to use this new UI instead. Also this component is still in pilot, so expect possible breaking changes in the near future."
-          },
-          {
-            "title": "DateField",
-            "audience": ["Engineering"],
-            "imageSrc": "https://i.pinimg.com/originals/32/f4/8d/32f48d0bd19fb2fad2e44ec8915749a4.png",
-            "imageAltText": "Screenshot of DateField UI",
-            "content": "We recently released an experimental new component, [DateField](https://gestalt.pinterest.systems/web/datefield)! Built to help support Project Protect, this component allows the user to easily input a date using only the keyboard. Keep in mind that this component is experimental, and may see breaking changes in the near future."
-          },
-          {
-            "title": "Component updates: DatePicker, IconButtonFloating, NumberField, Popover, Table, TextField, TextField, TextArea",
-            "audience": ["Engineering"],
-            "imageSrc": "https://i.pinimg.com/originals/ef/0f/9d/ef0f9d54f98b6e6b23c43946c54e7e16.png",
-            "imageAltText": "Screenshot of DatePicker UI with month and year dropdowns",
-            "content": "[DatePicker](https://gestalt.pinterest.systems/web/datepicker) now supports dropdowns for \"month\" and \"year\" for faster date selection. [TextField](https://gestalt.pinterest.systems/web/textfield) nows allows specification of the input mode, and along with [NumberField](https://gestalt.pinterest.systems/web/numberfield) has mobile-only props indicated by a prefix, like `mobileEnterKeyHint` and `mobileInputMode`. [TextArea](https://gestalt.pinterest.systems/web/textarea) now uses its existing `rows` prop to indicate both the minimum and the maximum number of rows shown, with scrollable overflow. [Table](https://gestalt.pinterest.systems/web/table) saw a couple of changes: headers and footers now have a border, and Table.RowExpanded can be used in a controlled manner using the `expanded` prop. We also added a number of icons: `briefcase`, `sun`, and `moon` on web; and `arrow-circle-back`, `add-section`, `briefcase`, `move-pin`, and `workflow-queued` on Android. Finally, we've been upgrading Flow versions and are nearly at the most current version. This will greatly increase type safety for all our components!"
-          },
-          {
-            "title": "Docs updates",
-            "audience": ["Engineering"],
-            "imageSrc": "https://i.pinimg.com/originals/6d/8a/c4/6d8ac4e251bb3125fb8d37965568a350.png",
-            "imageAltText": "Screenshot of code example UI showing new dark mode and text direction buttons",
-            "content": "You can now toggle dark mode and text direction for each code example! No need to change settings for the entire site just for one example. [Toast](https://gestalt.pinterest.systems/android/toast) and [TextArea](https://gestalt.pinterest.systems/android/textarea) for Android both saw updates, as did [Text](https://gestalt.pinterest.systems/ios/text) on iOS. And we converted 3 more web component pages to use Sandpack for code examples."
-          },
-          {
-            "title": "Shoutouts",
-            "audience": ["Engineering"],
-            "content": "Special shoutout to Yen-Wei Liu for a change to how we handle sourcemaps, leading to ~50% bundle size decrease!"
-          }
-        ]
-      },
-      {
+
         "week": "April 21, 2023",
         "summary": "New SheetMobile and DateField Web components, various docs additions/improvements, a new alpha release pipeline and new Figma components.",
         "posts": [

@@ -201,6 +201,7 @@ type Icons =
   | 'megaphone'
   | 'menu'
   | 'minimize'
+  | 'moon'
   | 'move'
   | 'mute'
   | 'music-off'
@@ -241,6 +242,7 @@ type Icons =
   | 'speech-ellipsis'
   | 'star'
   | 'star-half'
+  | 'sun'
   | 'switch-account'
   | 'tag'
   | 'terms'
@@ -636,7 +638,7 @@ export interface BoxProps extends BoxPassthroughProps {
   zIndex?: Indexable | undefined;
 }
 
-type CommonButtonProps = {
+interface CommonButtonProps {
   text: string;
   accessibilityLabel?: string | undefined;
   color?:
@@ -656,7 +658,7 @@ type CommonButtonProps = {
   onClick?: ButtonEventHandlerType | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   tabIndex?: -1 | 0 | undefined;
-};
+}
 
 type ButtonLinkProps = CommonButtonProps & {
   role: 'link';
@@ -1003,7 +1005,7 @@ export interface IconProps {
   size?: number | string | undefined;
 }
 
-type CommonIconButtonProps = {
+interface CommonIconButtonProps {
   accessibilityLabel: string;
   bgColor?:
     | 'transparent'
@@ -1025,7 +1027,7 @@ type CommonIconButtonProps = {
   tooltip?:
     | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
     | undefined;
-};
+}
 
 type IconButtonLinkProps = CommonIconButtonProps & {
   role: 'link';
@@ -1200,6 +1202,7 @@ export interface MeasurementStore<K, V> {
  * https://gestalt.pinterest.systems/web/masonry
  */
 export interface MasonryProps<T = any> {
+  _batchPaints?: boolean | undefined;
   items: ReadonlyArray<T>;
   renderItem: (args: { data: T; itemIdx: number; isMeasuring: boolean }) => Node;
 
@@ -1492,7 +1495,7 @@ export interface PopoverProps {
  * https://gestalt.pinterest.systems/web/popovereducational
  */
 export interface PopoverEducationalProps {
-  accessibilityLabel: string;
+  accessibilityLabel?: string | undefined;
   anchor: HTMLElement | null | undefined;
   onDismiss: () => void;
   children?: Node | undefined;
@@ -2021,9 +2024,9 @@ export interface TagProps {
   type?: 'default' | 'error' | 'warning' | undefined;
 }
 
-type CommonTapAreaProps = {
+interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;
-  children?: Node | undefined;
+  children: Node;
   disabled?: boolean | undefined;
   fullHeight?: boolean | undefined;
   fullWidth?: boolean | undefined;
@@ -2058,9 +2061,10 @@ type CommonTapAreaProps = {
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
   tapStyle?: 'none' | 'compress' | undefined;
-};
+}
 
-type TapAreaLinkProps = CommonIconButtonProps & {
+type TapAreaLinkProps =  CommonIconButtonProps & {
+
   role: 'link';
   href: string;
   rel?: RelType | undefined;
