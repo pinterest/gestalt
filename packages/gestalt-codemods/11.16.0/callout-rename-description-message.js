@@ -1,6 +1,6 @@
 /*
  * Converts
- *  <Text leading='short' /> to <Text/>
+ *   <Text leading='short' /> to <Text/>
  */
 
 export default function transformer(file, api) {
