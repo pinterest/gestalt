@@ -33,12 +33,14 @@ export default function docgen({ componentName }: {| componentName: string |}): 
 
 export function multipledocgen({
   componentName,
+  opts,
 }: {|
   componentName: $ReadOnlyArray<string> | string,
+  opts?: {| flattenProps?: boolean |},
 |}): {|
   [string]: DocGen,
 |} {
-  return Array.isArray(componentName)
+  const allComponents = Array.isArray(componentName)
     ? componentName.reduce(
         (prevValue: { [string]: DocGen }, currentComponentName: string) => ({
           ...prevValue,
@@ -47,6 +49,18 @@ export function multipledocgen({
         {},
       )
     : metadata[componentName];
+
+  if (opts && opts.flattenProps) {
+    let updatedProps = {};
+    Object.keys(allComponents).forEach((key) => {
+      const { props } = allComponents[key];
+      updatedProps = { ...props, ...updatedProps };
+    });
+    allComponents[componentName[0]].props = updatedProps;
+    return allComponents[componentName[0]];
+  }
+
+  return allComponents;
 }
 
 export function overrideTypes(docGen: DocGen, typeOverrides: {| [string]: string |}): DocGen {

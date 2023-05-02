@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -271,8 +271,19 @@ Use Status in instances where information is more categorical or qualitative (su
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
+  const docGen = await multipledocgen({
+    componentName: ['Datapoint', 'DataPointBaseProps'],
+    opts: {
+      flattenProps: true,
+    },
+  });
+
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Datapoint' }) },
+    props: {
+      generatedDocGen: docGen,
+    },
   };
 }
