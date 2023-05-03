@@ -1,3 +1,9 @@
+## 110.1.18 (May 3, 2023)
+
+### Patch
+
+- IconButton: document "brandPrimary" option for `iconColor` ([#2899](https://github.com/pinterest/gestalt/pull/2899)) - [Preview link](https://deploy-preview-2899--gestalt.netlify.app)
+
 ## 110.1.17 (May 2, 2023)
 
 ### Patch
