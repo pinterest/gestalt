@@ -658,6 +658,7 @@ interface ButtonGroupProps {
 }
 
 interface CalloutProps {
+
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
@@ -753,6 +754,7 @@ interface ContainerProps {
 }
 
 interface DatapointProps {
+
   title: string;
   value: string;
   badge?: BadgeObject | undefined;
@@ -1689,8 +1691,6 @@ interface TableBodyProps {
   children: Node;
 }
 
-/**
- */
 interface TableFooterProps {
   children: Node;
   sticky?: boolean | undefined;
@@ -2121,6 +2121,7 @@ export const Collage: React.FunctionComponent<CollageProps>;
 /**
  * https://gestalt.pinterest.systems/web/utilities/colorschemeprovider
  */
+
 export const ColorSchemeProvider: React.FunctionComponent<
   React.PropsWithChildren<ColorSchemeProviderProps>
 >;
@@ -2148,6 +2149,7 @@ export const Datapoint: React.FunctionComponent<DatapointProps>;
 /**
  * https://gestalt.pinterest.systems/web/utilities/devicetypeprovider
  */
+
 export const DeviceTypeProvider: React.FunctionComponent<
   React.PropsWithChildren<DeviceTypeProviderProps>
 >;
@@ -2170,6 +2172,7 @@ export const Divider: React.FunctionComponent;
    * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item
 
  */
+
 export interface DropdownSubComponents {
   Item: React.FunctionComponent<DropdownItemProps>;
   Link: React.FunctionComponent<DropdownLinkProps>;
@@ -2352,6 +2355,7 @@ export const RadioButton: ReactForwardRef<HTMLInputElement, RadioButtonProps>;
 /**
  * https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButtonProps
  */
+
 export interface RadioGroupSubComponents {
   RadioButton: React.FunctionComponent<RadioGroupRadioButtonProps>;
 }
@@ -2411,6 +2415,7 @@ export const SheetMobile: ReactForwardRef<HTMLDivElement, SheetMobileProps> &
  * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedGroup
 
  */
+
 export interface SideNavigationSubcomponents {
   Section: React.FunctionComponent<SideNavigationSectionProps>;
   TopItem: React.FunctionComponent<SideNavigationTopItemProps>;

@@ -22,6 +22,7 @@ packages/gestalt-design-tokens/dist
 !packages/gestalt/dist/gestalt-datepicker.js.flow
 !packages/gestalt-datepicker/dist/index.d.ts
 
+
 playwright/test-results
 
 # Local Netlify folder
