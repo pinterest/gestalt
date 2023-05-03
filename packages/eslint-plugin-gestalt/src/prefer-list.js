@@ -13,7 +13,7 @@ const rule: ESLintRule = {
         'Prefer List: Prevent ul or ol list tags for basic use cases. Use Gestalt List, instead',
       category: 'Gestalt alternatives',
       recommended: true,
-      url: '',
+      url: 'https://gestalt.pinterest.systems/web/list',
     },
     schema: [],
     messages: {
