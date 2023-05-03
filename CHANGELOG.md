@@ -1,3 +1,9 @@
+## 111.0.0 (May 3, 2023)
+
+### Major
+
+- Internal: add TypeScript declaration files ([#2812](https://github.com/pinterest/gestalt/pull/2812)) - [Preview link](https://deploy-preview-2812--gestalt.netlify.app)
+
 ## 110.1.18 (May 3, 2023)
 
 ### Patch
