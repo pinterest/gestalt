@@ -233,6 +233,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Be a Gestalt advocate',
       'Component request',
       'Contributions',
+      {
+        sectionName: 'Design File',
+        pages: ['Creating and updating pages', 'Development process'],
+      },
       'Get help',
       'Training',
     ],
