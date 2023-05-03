@@ -1,3 +1,9 @@
+## 111.0.2 (May 3, 2023)
+
+### Patch
+
+- TextField: Update Android docs content and specs ([#2902](https://github.com/pinterest/gestalt/pull/2902)) - [Preview link](https://deploy-preview-2902--gestalt.netlify.app)
+
 ## 111.0.1 (May 3, 2023)
 
 ### Patch
