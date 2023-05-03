@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Heading, Link, Text } from 'gestalt';
+import { Flex, Link, Text } from 'gestalt';
 import Card from '../../../docs-components/Card.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';

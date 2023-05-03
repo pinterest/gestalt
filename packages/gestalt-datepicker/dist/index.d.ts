@@ -283,22 +283,14 @@ interface FormatLongFnOptions {
 type FormatLongFn = (options: FormatLongFnOptions) => string;
 
 type BuildLocalizeFnArgCallback<Result extends LocaleUnit | number> = (
-  value: Result
-) => LocalizeUnitIndex<Result>
+  value: Result,
+) => LocalizeUnitIndex<Result>;
 
-type LocalizeEraValues = readonly [string, string]
+type LocalizeEraValues = readonly [string, string];
 
-type LocalizeQuarterValues = readonly [string, string, string, string]
+type LocalizeQuarterValues = readonly [string, string, string, string];
 
-type LocalizeDayValues = readonly [
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string
-]
+type LocalizeDayValues = readonly [string, string, string, string, string, string, string];
 
 type LocalizeMonthValues = readonly [
   string,
@@ -312,12 +304,13 @@ type LocalizeMonthValues = readonly [
   string,
   string,
   string,
-  string
-]
+  string,
+];
 
-type LocalizeUnitValuesIndex<
-  Values extends LocalizeUnitValues<any>
-> = Values extends Record<LocaleDayPeriod, string>
+type LocalizeUnitValuesIndex<Values extends LocalizeUnitValues<any>> = Values extends Record<
+  LocaleDayPeriod,
+  string
+>
   ? string
   : Values extends LocalizeEraValues
   ? Era
@@ -327,11 +320,9 @@ type LocalizeUnitValuesIndex<
   ? Day
   : Values extends LocalizeMonthValues
   ? Month
-  : never
+  : never;
 
-type LocalizeUnitValues<
-  Unit extends LocaleUnit
-> = Unit extends LocaleDayPeriod
+type LocalizeUnitValues<Unit extends LocaleUnit> = Unit extends LocaleDayPeriod
   ? Record<LocaleDayPeriod, string>
   : Unit extends Era
   ? LocalizeEraValues
@@ -341,7 +332,7 @@ type LocalizeUnitValues<
   ? LocalizeDayValues
   : Unit extends Month
   ? LocalizeMonthValues
-  : never
+  : never;
 
 interface LocaleData {
   code: string;
@@ -359,36 +350,30 @@ interface LocaleData {
  * =========================================================
  */
 
-/**
- * https://gestalt.pinterest.systems/web/datepicker
- */
 export interface DatePickerProps {
-    id: string,
-  disabled?: boolean | undefined,
-  errorMessage?: string | undefined,
-  excludeDates?: Date[] | undefined,
-  helperText?: string | undefined,
-  idealDirection?: 'up' | 'right' | 'down' | 'left' | undefined,
-  includeDates?: Date[] | undefined,
-  label?: string | undefined,
-  localeData?: LocaleData | undefined,
-  maxDate?: Date | undefined,
-  minDate?: Date | undefined,
-  name?: string | undefined,
+  id: string;
+  disabled?: boolean | undefined;
+  errorMessage?: string | undefined;
+  excludeDates?: Date[] | undefined;
+  helperText?: string | undefined;
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | undefined;
+  includeDates?: Date[] | undefined;
+  label?: string | undefined;
+  localeData?: LocaleData | undefined;
+  maxDate?: Date | undefined;
+  minDate?: Date | undefined;
+  name?: string | undefined;
   nextRef?: { current?: HTMLElement | undefined } | undefined;
-  onChange:  AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: Date }>;
-  placeholder?: string | undefined,
-  rangeEndDate?: Date | undefined,
-  rangeSelector?: 'start' | 'end' | undefined,
-  rangeStartDate?: Date | undefined,
+  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: Date }>;
+  placeholder?: string | undefined;
+  rangeEndDate?: Date | undefined;
+  rangeSelector?: 'start' | 'end' | undefined;
+  rangeStartDate?: Date | undefined;
   ref?: { current?: HTMLElement | undefined } | undefined;
-  selectLists?: ('month' | 'year')[] | undefined
-  value?: Date | undefined,
+  selectLists?: ('month' | 'year')[] | undefined;
+  value?: Date | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/datefield
- */
 export interface DateFieldProps {
   id: string;
   onChange: (arg: { value: Date | null | undefined }) => void;
@@ -435,6 +420,12 @@ export interface DateFieldProps {
  * =========================================================
  */
 
+/**
+ * https://gestalt.pinterest.systems/web/datepicker
+ */
 export const DatePicker: ReactForwardRef<HTMLInputElement, DatePickerProps>;
 
+/**
+ * https://gestalt.pinterest.systems/web/datefield
+ */
 export const DateField: React.FunctionComponent<DateFieldProps>;
