@@ -318,19 +318,13 @@ type DismissingElementChildrenType = (arg: { onDismissStart: () => void }) => No
  * =========================================================
  */
 
-/**
- * https://gestalt.pinterest.systems/web/utilities/colorschemeprovider
- */
-export interface ColorSchemeProviderProps {
+interface ColorSchemeProviderProps {
   children: Node;
   colorScheme: 'light' | 'dark' | 'userPreference';
   id?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider
- */
-export interface DefaultLabelProviderProps {
+interface DefaultLabelProviderProps {
   children: Node;
   labels?:
     | {
@@ -383,18 +377,12 @@ export interface DefaultLabelProviderProps {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/utilities/devicetypeprovider
- */
-export interface DeviceTypeProviderProps {
+interface DeviceTypeProviderProps {
   children: Node;
   deviceType: 'desktop' | 'mobile';
 }
 
-/**
- * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
- */
-export interface OnLinkNavigationProviderProps {
+interface OnLinkNavigationProviderProps {
   children: Node;
   onNavigation?:
     | ((args: {
@@ -404,10 +392,7 @@ export interface OnLinkNavigationProviderProps {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/scrollboundarycontainer
- */
-export interface ScrollBoundaryContainerProps {
+interface ScrollBoundaryContainerProps {
   children: Node;
   height?: number | string | undefined;
   overflow?: 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible' | undefined;
@@ -419,10 +404,7 @@ export interface ScrollBoundaryContainerProps {
  * =========================================================
  */
 
-/**
- * https://gestalt.pinterest.systems/web/activationcard
- */
-export interface ActivationCardProps {
+interface ActivationCardProps {
   message: string;
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete';
   statusMessage: string;
@@ -440,10 +422,7 @@ export interface ActivationCardProps {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/avatar
- */
-export interface AvatarProps {
+interface AvatarProps {
   name: string;
   accessibilityLabel?: string | undefined;
   outline?: boolean | undefined;
@@ -452,10 +431,7 @@ export interface AvatarProps {
   verified?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/avatargroup
- */
-export interface AvatarGroupProps {
+interface AvatarGroupProps {
   accessibilityLabel: string;
   collaborators: ReadonlyArray<{ name: string; src?: string | undefined }>;
   accessibilityControls?: string | undefined;
@@ -468,10 +444,7 @@ export interface AvatarGroupProps {
   size?: 'xs' | 'sm' | 'md' | 'fit' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/badge
- */
-export interface BadgeProps {
+interface BadgeProps {
   text: string;
   position?: 'middle' | 'top' | undefined;
   type?:
@@ -486,7 +459,7 @@ export interface BadgeProps {
     | undefined;
 }
 
-export type BoxPassthroughProps = Omit<
+type BoxPassthroughProps = Omit<
   React.ComponentProps<'div'>,
   'onClick' | 'className' | 'style' | 'ref'
 > &
@@ -500,10 +473,7 @@ type FlexType = 'grow' | 'shrink' | 'none';
 type JustifyContentType = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 type OverflowType = 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
 
-/**
- * https://gestalt.pinterest.systems/web/box
- */
-export interface BoxProps extends BoxPassthroughProps {
+interface BoxProps extends BoxPassthroughProps {
   alignContent?: AlignContentType | undefined;
   alignItems?: AlignItemsType | undefined;
   smAlignItems?: AlignItemsType | undefined;
@@ -681,22 +651,13 @@ interface ButtonSubmitProps extends CommonButtonProps {
   type: 'submit';
 }
 
-/**
- * https://gestalt.pinterest.systems/web/button
- */
-export type ButtonProps = ButtonLinkProps | ButtonButtonProps | ButtonSubmitProps;
+type ButtonProps = ButtonLinkProps | ButtonButtonProps | ButtonSubmitProps;
 
-/**
- * https://gestalt.pinterest.systems/web/buttongroup
- */
-export interface ButtonGroupProps {
+interface ButtonGroupProps {
   children?: Node | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/callout
- */
-export interface CalloutProps {
+interface CalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
@@ -706,10 +667,7 @@ export interface CalloutProps {
   title?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/checkbox
- */
-export interface CheckboxProps {
+interface CheckboxProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
   checked?: boolean | undefined;
@@ -727,10 +685,7 @@ export interface CheckboxProps {
   size?: 'sm' | 'md' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/collage
- */
-export interface CollageProps {
+interface CollageProps {
   columns: number;
   height: number;
   renderImage: (args: { width: number; height: number; index: number }) => Node;
@@ -740,10 +695,7 @@ export interface CollageProps {
   layoutKey?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/column
- */
-export interface ColumnProps {
+interface ColumnProps {
   span: UnsignedUpTo12;
   smSpan?: UnsignedUpTo12 | undefined;
   mdSpan?: UnsignedUpTo12 | undefined;
@@ -751,16 +703,13 @@ export interface ColumnProps {
   children?: Node | undefined;
 }
 
-export interface ComboBoxItemType {
+interface ComboBoxItemType {
   label: string;
   subtext?: string;
   value: string;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/combobox
- */
-export interface ComboBoxProps {
+interface ComboBoxProps {
   id: string;
   label: string;
   options: ComboBoxItemType[];
@@ -799,17 +748,11 @@ export interface ComboBoxProps {
   zIndex?: Indexable | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/container
- */
-export interface ContainerProps {
+interface ContainerProps {
   children?: Node | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/datapoint
- */
-export interface DatapointProps {
+interface DatapointProps {
   title: string;
   value: string;
   badge?: BadgeObject | undefined;
@@ -820,10 +763,7 @@ export interface DatapointProps {
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/dropdown
- */
-export interface DropdownProps {
+interface DropdownProps {
   children: Node;
   id: string;
   onDismiss: () => void;
@@ -835,16 +775,13 @@ export interface DropdownProps {
   zIndex?: Indexable | undefined;
 }
 
-export interface DropdownOption {
+interface DropdownOption {
   label: string;
   value: string;
   subtext?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item
- */
-export interface DropdownItemProps {
+interface DropdownItemProps {
   onSelect: AbstractEventHandler<
     React.FocusEvent<HTMLInputElement>,
     {
@@ -858,10 +795,7 @@ export interface DropdownItemProps {
   selected?: DropdownOption | ReadonlyArray<DropdownOption> | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link
- */
-export interface DropdownLinkProps {
+interface DropdownLinkProps {
   href: string;
   option: DropdownOption;
   badge?: BadgeObject | undefined;
@@ -871,18 +805,12 @@ export interface DropdownLinkProps {
   onClick?: ButtonEventHandlerType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section
- */
-export interface DropdownSectionProps {
+interface DropdownSectionProps {
   children: Node;
   label: string;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/fieldset
- */
-export interface FieldsetProps {
+interface FieldsetProps {
   children: Node;
   legend: string;
   id?: string;
@@ -890,10 +818,7 @@ export interface FieldsetProps {
   legendDisplay?: 'visible' | 'hidden' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/flex
- */
-export interface FlexProps {
+interface FlexProps {
   alignContent?: AlignContentType | undefined;
   alignItems?: AlignItemsType | undefined;
   alignSelf?: 'auto' | AlignItemsType | undefined;
@@ -916,10 +841,7 @@ export interface FlexProps {
   wrap?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/flex#Flex.Item
- */
-export interface FlexItemProps {
+interface FlexItemProps {
   alignSelf?: 'auto' | AlignItemsType | undefined;
   children?: Node | undefined;
   dataTestId?: string | undefined;
@@ -929,10 +851,7 @@ export interface FlexItemProps {
   minWidth?: number | string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/heading
- */
-export interface HeadingProps {
+interface HeadingProps {
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 'none' | undefined;
   align?: TextAlignType | undefined;
   children?: Node | undefined;
@@ -943,10 +862,7 @@ export interface HeadingProps {
   size?: TextSizeType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/helpbutton
- */
-export interface HelpButtonProps {
+interface HelpButtonProps {
   accessibilityLabel: string;
   accessibilityPopoverLabel: string;
   text: string | React.ReactElement<typeof Text>;
@@ -980,10 +896,7 @@ export interface HelpButtonProps {
   zIndex?: Indexable | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/icon
- */
-export interface IconProps {
+interface IconProps {
   accessibilityLabel: string;
   color?:
     | 'default'
@@ -1051,15 +964,9 @@ interface IconButtonSubmitProps extends CommonIconButtonProps {
   type: 'submit';
 }
 
-/**
- * https://gestalt.pinterest.systems/web/iconbutton
- */
-export type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
+type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
 
-/**
- * https://gestalt.pinterest.systems/web/iconbuttonfloating
- */
-export interface IconButtonFloatingProps {
+interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
   icon: Icons;
@@ -1077,10 +984,7 @@ export interface IconButtonFloatingProps {
   selected?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/image
- */
-export interface ImageProps {
+interface ImageProps {
   alt: string;
   naturalHeight: number;
   naturalWidth: number;
@@ -1100,36 +1004,24 @@ export interface ImageProps {
   srcSet?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/label
- */
-export interface LabelProps {
+interface LabelProps {
   htmlFor: string;
   children?: Node | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/layer
- */
-export interface LayerProps {
+interface LayerProps {
   children: Node;
   zIndex?: Indexable | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/letterbox
- */
-export interface LetterboxProps {
+interface LetterboxProps {
   contentAspectRatio: number;
   height: number;
   width: number;
   children?: Node | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/link
- */
-export interface LinkProps {
+interface LinkProps {
   href: string;
   accessibilityLabel?: string | undefined;
   children?: Node | undefined;
@@ -1156,10 +1048,7 @@ export interface LinkProps {
   underline?: 'auto' | 'none' | 'always' | 'hover' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/list
- */
-export interface ListProps {
+interface ListProps {
   children: Node;
   label?: string | React.ReactElement<typeof Text>;
   labelDisplay?: 'visible' | 'hidden' | undefined;
@@ -1167,10 +1056,7 @@ export interface ListProps {
   type?: 'bare' | 'ordered' | 'unordered' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/list#List.Itemt
- */
-export interface ListItemProps {
+interface ListItemProps {
   text: string | React.ReactElement<typeof Text>;
   children?:
     | string
@@ -1179,10 +1065,7 @@ export interface ListItemProps {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/mask
- */
-export interface MaskProps {
+interface MaskProps {
   children?: Node | undefined;
   height?: number | string | undefined;
   rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | undefined;
@@ -1191,17 +1074,14 @@ export interface MaskProps {
   willChangeTransform?: boolean | undefined;
 }
 
-export interface MeasurementStore<K, V> {
+interface MeasurementStore<K, V> {
   get(key: K): V | undefined;
   has(key: K): boolean;
   set(key: K, value: V): void;
   reset(): void;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/masonry
- */
-export interface MasonryProps<T = any> {
+interface MasonryProps<T = any> {
   _batchPaints?: boolean | undefined;
   items: ReadonlyArray<T>;
   renderItem: (args: { data: T; itemIdx: number; isMeasuring: boolean }) => Node;
@@ -1225,11 +1105,7 @@ export interface MasonryProps<T = any> {
   virtualize?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/modal
- */
-
-export interface ModalProps {
+interface ModalProps {
   accessibilityModalLabel: string;
   onDismiss: () => void;
   _dangerouslyDisableScrollBoundaryContainer?: boolean;
@@ -1244,7 +1120,7 @@ export interface ModalProps {
   subHeading?: string | undefined;
 }
 
-export interface ModalAlertActionDataType {
+interface ModalAlertActionDataType {
   accessibilityLabel: string;
   label: string;
   dataTestId?: string | undefined;
@@ -1255,10 +1131,7 @@ export interface ModalAlertActionDataType {
   target?: TargetType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/modalalert
- */
-export interface ModalAlertProps {
+interface ModalAlertProps {
   accessibilityModalLabel: string;
   children: Node;
   heading: string;
@@ -1269,10 +1142,7 @@ export interface ModalAlertProps {
   type?: 'default' | 'warning' | 'error' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/module
- */
-export interface ModuleProps {
+interface ModuleProps {
   id: string;
   badge?: BadgeObject | undefined;
   children?: Node | undefined;
@@ -1283,10 +1153,7 @@ export interface ModuleProps {
   type?: 'error' | 'info' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/module#Module.Expandable
- */
-export interface ModuleExpandableProps {
+interface ModuleExpandableProps {
   accessibilityCollapseLabel: string;
   accessibilityExpandLabel: string;
   id: string;
@@ -1304,10 +1171,7 @@ export interface ModuleExpandableProps {
   onExpandedChange?: ((expandedIndex: number | null) => void) | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/numberfield
- */
-export interface NumberFieldProps {
+interface NumberFieldProps {
   id: string;
   onChange: AbstractEventHandler<
     React.SyntheticEvent<HTMLInputElement>,
@@ -1356,10 +1220,7 @@ export interface NumberFieldProps {
 
 type NodeOrRenderProp = ((prop: { onDismissStart: () => void }) => Node) | Node;
 
-/**
- * https://gestalt.pinterest.systems/web/overlaypanel
- */
-export interface OverlayPanelProps {
+interface OverlayPanelProps {
   accessibilityLabel: string;
   children?: NodeOrRenderProp | undefined;
   onDismiss: () => void;
@@ -1386,14 +1247,11 @@ export interface OverlayPanelProps {
   subHeading?: NodeOrRenderProp | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/overlaypanel#DismissingElement
- */
-export interface OverlayPanelDismissingElementProps {
+interface OverlayPanelDismissingElementProps {
   children: DismissingElementChildrenType;
 }
 
-export interface PageHeaderAction {
+interface PageHeaderAction {
   component:
     | React.ReactElement<
         typeof Button | typeof IconButton | typeof Link | typeof Tooltip | typeof Text
@@ -1406,10 +1264,7 @@ export interface PageHeaderAction {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/pageheader
- */
-export interface PageHeaderProps {
+interface PageHeaderProps {
   title: string;
   badge?:
     | {
@@ -1444,10 +1299,7 @@ export interface PageHeaderProps {
   thumbnail?: React.ReactElement<typeof Image> | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/pog
- */
-export interface PogProps {
+interface PogProps {
   accessibilityLabel?: string | undefined;
   active?: boolean | undefined;
   bgColor?:
@@ -1469,10 +1321,7 @@ export interface PogProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/popover
- */
-export interface PopoverProps {
+interface PopoverProps {
   anchor: HTMLElement | null | undefined;
   onDismiss: () => void;
   accessibilityDismissButtonLabel?: string | undefined;
@@ -1491,10 +1340,7 @@ export interface PopoverProps {
   __dangerouslySetMaxHeight?: '30vh' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/popovereducational
- */
-export interface PopoverEducationalProps {
+interface PopoverEducationalProps {
   accessibilityLabel?: string | undefined;
   anchor: HTMLElement | null | undefined;
   onDismiss: () => void;
@@ -1518,18 +1364,12 @@ export interface PopoverEducationalProps {
   zIndex?: Indexable | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/pulsar
- */
-export interface PulsarProps {
+interface PulsarProps {
   paused?: boolean | undefined;
   size?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/radiobutton
- */
-export interface RadioButtonProps {
+interface RadioButtonProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
   value: string;
@@ -1542,10 +1382,7 @@ export interface RadioButtonProps {
   subtext?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/radiogroup
- */
-export interface RadioGroupProps {
+interface RadioGroupProps {
   id: string;
   children: Node;
   legend: string;
@@ -1554,10 +1391,7 @@ export interface RadioGroupProps {
   legendDisplay?: 'visible' | 'hidden' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButtonProps
- */
-export interface RadioGroupRadioButtonProps {
+interface RadioGroupRadioButtonProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
   value: string;
@@ -1570,10 +1404,7 @@ export interface RadioGroupRadioButtonProps {
   size?: 'sm' | 'md' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/searchfield
- */
-export interface SearchFieldProps {
+interface SearchFieldProps {
   accessibilityLabel: string;
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
@@ -1595,20 +1426,14 @@ export interface SearchFieldProps {
   value?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/segmentedcontrol
- */
-export interface SegmentedControlProps {
+interface SegmentedControlProps {
   items: Node[];
   onChange: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>, { activeIndex: number }>;
   selectedItemIndex: number;
   responsive?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/selectlist
- */
-export interface SelectListProps {
+interface SelectListProps {
   children: Node;
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLElement>, { value: string }>;
@@ -1623,19 +1448,13 @@ export interface SelectListProps {
   value?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/selectlist#SelectList.Option
- */
-export interface SelectListOptionProps {
+interface SelectListOptionProps {
   label: string;
   value: string;
   disabled?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/selectlist#SelectList.Group
- */
-export interface SelectListGroupProps {
+interface SelectListGroupProps {
   children: Node;
   label: string;
   disabled?: boolean | undefined;
@@ -1652,10 +1471,7 @@ type PrimaryActionType = {
   dropdownItems?: Array<React.ReactElement<typeof Dropdown['Item']>>;
 };
 
-/**
- * https://gestalt.pinterest.systems/web/sheetmobile
- */
-export interface SheetMobileProps {
+interface SheetMobileProps {
   heading: string;
   onDismiss: () => void;
   accessibilityLabel?: string | undefined;
@@ -1709,17 +1525,11 @@ export interface SheetMobileProps {
   };
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sheetmobile#DismissingElement
- */
-export interface SheetMobileDismissingElementProps {
+interface SheetMobileDismissingElementProps {
   children: DismissingElementChildrenType;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sidenavigation
- */
-export interface SideNavigationProps {
+interface SideNavigationProps {
   accessibilityLabel: string;
   children: Node;
   dismissButton?: { accessibilityLabel?: string; onDismiss: () => void } | undefined;
@@ -1729,18 +1539,12 @@ export interface SideNavigationProps {
   title?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section
- */
-export interface SideNavigationSectionProps {
+interface SideNavigationSectionProps {
   children: Node;
   label: string;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem
- */
-export interface SideNavigationTopItemProps {
+interface SideNavigationTopItemProps {
   href: string;
   label: string;
   active?: 'page' | 'section' | undefined;
@@ -1757,10 +1561,7 @@ export interface SideNavigationTopItemProps {
   primaryAction?: PrimaryActionType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem
- */
-export interface SideNavigationNestedItemProps {
+interface SideNavigationNestedItemProps {
   href: string;
   label: string;
   active?: 'page' | 'section' | undefined;
@@ -1768,10 +1569,7 @@ export interface SideNavigationNestedItemProps {
   onClick?: ButtonEventHandlerType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Group
- */
-export interface SideNavigationGroupProps {
+interface SideNavigationGroupProps {
   children: Node;
   label: string;
   badge?: BadgeProps | undefined;
@@ -1782,20 +1580,14 @@ export interface SideNavigationGroupProps {
   primaryAction?: PrimaryActionType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedGroup
- */
-export interface SideNavigationNestedGroupProps {
+interface SideNavigationNestedGroupProps {
   children: Node;
   label: string;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   display?: 'expandable' | 'static' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/slimbanner
- */
-export interface SlimBannerProps {
+interface SlimBannerProps {
   message: React.ReactElement<typeof Text> | string;
   dismissButton?: OnDismissButtonObject | undefined;
   helperLink?: {
@@ -1846,10 +1638,7 @@ export interface SlimBannerProps {
     | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/spinner
- */
-export interface SpinnerProps {
+interface SpinnerProps {
   accessibilityLabel: string;
   show: boolean;
   color?: 'default' | 'subtle' | undefined;
@@ -1857,20 +1646,14 @@ export interface SpinnerProps {
   size?: 'sm' | 'md' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/status
- */
-export interface StatusProps {
+interface StatusProps {
   type: 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
   accessibilityLabel?: string | undefined;
   subtext?: string | undefined;
   title?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/sticky
- */
-export interface StickyProps {
+interface StickyProps {
   children: Node;
   bottom?: number | string | undefined;
   height?: number | undefined;
@@ -1880,10 +1663,7 @@ export interface StickyProps {
   zIndex?: Indexable | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/switch
- */
-export interface SwitchProps {
+interface SwitchProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: boolean }>;
   disabled?: boolean | undefined;
@@ -1891,10 +1671,7 @@ export interface SwitchProps {
   switched?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table
- */
-export interface TableProps {
+interface TableProps {
   accessibilityLabel: string;
   children: Node;
   borderStyle?: 'sm' | 'none' | undefined;
@@ -1902,53 +1679,35 @@ export interface TableProps {
   stickyColumns?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.Header
- */
-export interface TableHeaderProps {
+interface TableHeaderProps {
   children: Node;
   display?: 'tableHeaderGroup' | 'visuallyHidden' | undefined;
   sticky?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.Body
- */
-export interface TableBodyProps {
+interface TableBodyProps {
   children: Node;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.Footer
- */
-export interface TableFooterProps {
+interface TableFooterProps {
   children: Node;
   sticky?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.Cell
- */
-export interface TableCellProps {
+interface TableCellProps {
   children: Node;
   colSpan?: number | undefined;
   rowSpan?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.HeaderCell
- */
-export interface TableHeaderCellProps {
+interface TableHeaderCellProps {
   children: Node;
   scope?: 'col' | 'row' | 'colgroup' | 'rowgroup' | undefined;
   colSpan?: number | undefined;
   rowSpan?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.SortableHeaderCell
- */
-export interface TableSortableHeaderCellProps {
+interface TableSortableHeaderCellProps {
   children: Node;
   onSortChange: AbstractEventHandler<
     React.MouseEvent<HTMLTableCellElement> | React.KeyboardEvent<HTMLTableCellElement>
@@ -1960,17 +1719,11 @@ export interface TableSortableHeaderCellProps {
   rowSpan?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.Row
- */
-export interface TableRowProps {
+interface TableRowProps {
   children: Node;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.RowExpandable
- */
-export interface TableRowExpandableProps {
+interface TableRowExpandableProps {
   accessibilityCollapseLabel: string;
   accessibilityExpandLabel: string;
   children: Node;
@@ -1981,19 +1734,13 @@ export interface TableRowExpandableProps {
   onExpand?: BareButtonEventHandlerType | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/table#Table.RowDrawer
- */
-export interface TableRowDrawerProps {
+interface TableRowDrawerProps {
   children: Node;
   drawerContents: Node;
   id: string;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/tabs
- */
-export interface TabsProps {
+interface TabsProps {
   activeTabIndex: number;
   onChange: AbstractEventHandler<
     | React.MouseEvent<HTMLDivElement>
@@ -2013,10 +1760,7 @@ export interface TabsProps {
   bgColor?: 'default' | 'transparent' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/tag
- */
-export interface TagProps {
+interface TagProps {
   onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>;
   text: string;
   accessibilityRemoveIconLabel?: string | undefined;
@@ -2087,15 +1831,9 @@ interface TapAreaButtonProps extends CommonTapAreaProps {
   accessibilityHaspopup?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/taparea
- */
-export type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
+type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
 
-/**
- * https://gestalt.pinterest.systems/web/text
- */
-export interface TextProps {
+interface TextProps {
   align?: TextAlignType | undefined;
   children?: Node | undefined;
   color?: BaseTextColorType | 'link' | undefined;
@@ -2109,10 +1847,7 @@ export interface TextProps {
   title?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/textarea
- */
-export interface TextAreaProps {
+interface TextAreaProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLTextAreaElement>, { value: string }>;
   disabled?: boolean | undefined;
@@ -2139,10 +1874,7 @@ export interface TextAreaProps {
   value?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/textfield
- */
-export interface TextFieldProps {
+interface TextFieldProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
   autoComplete?:
@@ -2176,10 +1908,7 @@ export interface TextFieldProps {
   value?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/toast
- */
-export interface ToastProps {
+interface ToastProps {
   text: string | React.ReactElement<typeof Text>;
   dissmissButton:
     | {
@@ -2215,10 +1944,7 @@ export interface ToastProps {
   variant?: 'default' | 'success' | 'error' | 'progress' | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/tooltip
- */
-export interface TooltipProps {
+interface TooltipProps {
   children: Node;
   text: string;
   accessibilityLabel?: string | undefined;
@@ -2228,10 +1954,7 @@ export interface TooltipProps {
   zIndex?: Indexable | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/upsell
- */
-export interface UpsellProps {
+interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
   children?: React.ReactElement<typeof Upsell.Form>;
   dismissButton?: OnDismissButtonObject | undefined;
@@ -2252,10 +1975,7 @@ export interface UpsellProps {
   title?: string | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/upsell#Upsell.Form
- */
-export interface UpsellFormProps {
+interface UpsellFormProps {
   children: Node;
   onSubmit: BareButtonEventHandlerType;
   submitButtonText: string;
@@ -2263,10 +1983,7 @@ export interface UpsellFormProps {
   submitButtonDisabled?: boolean | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/video
- */
-export interface VideoProps {
+interface VideoProps {
   accessibilityMaximizeLabel: string;
   accessibilityMinimizeLabel: string;
   accessibilityMuteLabel: string;
@@ -2335,16 +2052,481 @@ export interface VideoProps {
   volume?: number | undefined;
 }
 
-/**
- * https://gestalt.pinterest.systems/web/washanimated
- */
-export interface WashAnimatedProps {
+interface WashAnimatedProps {
   active?: boolean | undefined;
   children?: Node | undefined;
   image?: Node | undefined;
   onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
   onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
 }
+
+/**
+ * =========================================================
+ * ========================= INDEX =========================
+ * =========================================================
+ */
+
+/**
+ * https://gestalt.pinterest.systems/web/activationcard
+ */
+export const ActivationCard: React.FunctionComponent<ActivationCardProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/avatar
+ */
+export const Avatar: React.FunctionComponent<AvatarProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/avatargroup
+ */
+export const AvatarGroup: React.FunctionComponent<AvatarGroupProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/badge
+ */
+export const Badge: React.FunctionComponent<BadgeProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/box
+ */
+export const Box: ReactForwardRef<HTMLDivElement, BoxProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/button
+ */
+export const Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/buttongroup
+ */
+export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/callout
+ */
+export const Callout: React.FunctionComponent<CalloutProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/checkbox
+ */
+export const Checkbox: ReactForwardRef<HTMLInputElement, CheckboxProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/collage
+ */
+export const Collage: React.FunctionComponent<CollageProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/utilities/colorschemeprovider
+ */
+export const ColorSchemeProvider: React.FunctionComponent<
+  React.PropsWithChildren<ColorSchemeProviderProps>
+>;
+
+/**
+ * https://gestalt.pinterest.systems/web/column
+ */
+export const Column: React.FunctionComponent<ColumnProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/combobox
+ */
+export const ComboBox: React.FunctionComponent<ComboBoxProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/container
+ */
+export const Container: React.FunctionComponent<ContainerProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/datapoint
+ */
+export const Datapoint: React.FunctionComponent<DatapointProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/utilities/devicetypeprovider
+ */
+export const DeviceTypeProvider: React.FunctionComponent<
+  React.PropsWithChildren<DeviceTypeProviderProps>
+>;
+
+/**
+ * https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider
+ */
+export const DefaultLabelProvider: React.FunctionComponent<
+  React.PropsWithChildren<DefaultLabelProviderProps>
+>;
+
+/**
+ * https://gestalt.pinterest.systems/web/divider
+ */
+export const Divider: React.FunctionComponent;
+
+
+export interface DropdownSubComponents {
+  Item: React.FunctionComponent<DropdownItemProps>;
+  Link: React.FunctionComponent<DropdownLinkProps>;
+  Section: React.FunctionComponent<DropdownSectionProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/dropdown
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link
+ * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section
+ * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item
+ */
+export const Dropdown: React.FunctionComponent<DropdownProps> & DropdownSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/fieldset
+ */
+export const Fieldset: React.FunctionComponent<FieldsetProps>;
+
+
+export interface FlexSubComponents {
+  Item: React.FunctionComponent<FlexItemProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/flex
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/flex#Flex.Item
+ */
+export const Flex: React.FunctionComponent<FlexProps> & FlexSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/heading
+ */
+export const Heading: React.FunctionComponent<HeadingProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/helpbutton
+ */
+export const HelpButton: React.FunctionComponent<HelpButtonProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/icon
+ */
+export const Icon: React.FunctionComponent<IconProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/iconbutton
+ */
+export const IconButton: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, IconButtonProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/iconbuttonfloating
+ */
+export const IconButtonFloating: React.FunctionComponent<IconButtonFloatingProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/image
+ */
+export const Image: React.FunctionComponent<ImageProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/label
+ */
+export const Label: React.FunctionComponent<LabelProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/layer
+ */
+export const Layer: React.FunctionComponent<LayerProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/letterbox
+ */
+export const Letterbox: React.FunctionComponent<LetterboxProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/link
+ */
+export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
+
+
+export interface ListSubCmoponents {
+  Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/list
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/list#List.Itemt
+ */
+export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubCmoponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/mask
+ */
+export const Mask: React.FunctionComponent<MaskProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/masonry
+ */
+export const Masonry: React.FunctionComponent<MasonryProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/modal
+ */
+export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/modalalert
+ */
+export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
+
+
+export interface ModuleSubComponents {
+  Expandable: React.FunctionComponent<ModuleExpandableProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/module
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/module#Module.Expandable
+ */
+export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps>> &
+  ModuleSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/numberfield
+ */
+export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
+ */
+export const OnLinkNavigationProvider: React.FunctionComponent<OnLinkNavigationProviderProps>;
+
+
+export interface OverlayPanelSubComponents {
+  DismissingElement: React.FunctionComponent<OverlayPanelDismissingElementProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/overlaypanel
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/overlaypanel#DismissingElement
+ */
+export const OverlayPanel: ReactForwardRef<HTMLDivElement, OverlayPanelProps> &
+  OverlayPanelSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/pageheader
+ */
+export const PageHeader: React.FunctionComponent<PageHeaderProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/pog
+ */
+export const Pog: React.FunctionComponent<PogProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/popover
+ */
+export const Popover: React.FunctionComponent<PopoverProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/popovereducational
+ */
+export const Popovereducational: React.FunctionComponent<PopoverEducationalProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/pulsar
+ */
+export const Pulsar: React.FunctionComponent<PulsarProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/radiobutton
+ */
+export const RadioButton: ReactForwardRef<HTMLInputElement, RadioButtonProps>;
+
+
+export interface RadioGroupSubComponents {
+  RadioButton: React.FunctionComponent<RadioGroupRadioButtonProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/radiogroup
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButtonProps
+ */
+export const RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/scrollboundarycontainer
+ */
+export const ScrollBoundaryContainer: React.FunctionComponent<ScrollBoundaryContainerProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/searchfield
+ */
+export const SearchField: ReactForwardRef<HTMLInputElement, SearchFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/segmentedcontrol
+ */
+export const SegmentedControl: React.FunctionComponent<SegmentedControlProps>;
+
+export interface SelectListSubComponents {
+  Option: React.FunctionComponent<SelectListOptionProps>;
+  Group: React.FunctionComponent<SelectListGroupProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/selectlist
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/selectlist#SelectList.Group
+ * https://gestalt.pinterest.systems/web/selectlist#SelectList.Option
+ */
+export const SelectList: React.FunctionComponent<SelectListProps> & SelectListSubComponents;
+
+export interface SheetMobileSubComponents {
+  DismissingElement: React.FunctionComponent<SheetMobileDismissingElementProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/sheetmobile
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/sheetmobile#DismissingElement
+ */
+export const SheetMobile: ReactForwardRef<HTMLDivElement, SheetMobileProps> &
+  SheetMobileSubComponents;
+
+export interface SideNavigationSubcomponents {
+  Section: React.FunctionComponent<SideNavigationSectionProps>;
+  TopItem: React.FunctionComponent<SideNavigationTopItemProps>;
+  NestedItem: React.FunctionComponent<SideNavigationNestedItemProps>;
+  Group: React.FunctionComponent<SideNavigationGroupProps>;
+  NestedGroup: React.FunctionComponent<SideNavigationNestedGroupProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/sidenavigation
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Group
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section
+ * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedGroup
+ */
+export const SideNavigation: React.FunctionComponent<SideNavigationProps> &
+  SideNavigationSubcomponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/slimbanner
+ */
+export const SlimBanner: React.FunctionComponent<SlimBannerProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/spinner
+ */
+export const Spinner: React.FunctionComponent<SpinnerProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/status
+ */
+export const Status: React.FunctionComponent<StatusProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/sticky
+ */
+export const Sticky: React.FunctionComponent<StickyProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/switch
+ */
+export const Switch: React.FunctionComponent<SwitchProps>;
+
+export interface TableSubComponents {
+  Body: React.FunctionComponent<TableBodyProps>;
+  Cell: React.FunctionComponent<TableCellProps>;
+  Footer: React.FunctionComponent<TableFooterProps>;
+  Header: React.FunctionComponent<TableHeaderProps>;
+  HeaderCell: React.FunctionComponent<TableHeaderCellProps>;
+  Row: React.FunctionComponent<TableRowProps>;
+  RowExpandable: React.FunctionComponent<TableRowExpandableProps>;
+  SortableHeaderCell: React.FunctionComponent<TableSortableHeaderCellProps>;
+  RowDrawer: React.FunctionComponent<TableRowDrawerProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/table
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/table#Table.RowDrawer
+ * https://gestalt.pinterest.systems/web/table#Table.RowExpandable
+ * https://gestalt.pinterest.systems/web/table#Table.Row
+ * https://gestalt.pinterest.systems/web/table#Table.SortableHeaderCell
+ * https://gestalt.pinterest.systems/web/table#Table.HeaderCell
+ * https://gestalt.pinterest.systems/web/table#Table.Cell
+ * https://gestalt.pinterest.systems/web/table#Table.Footer
+ * https://gestalt.pinterest.systems/web/table#Table.Body
+ * https://gestalt.pinterest.systems/web/table#Table.Header
+ */
+export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/tabs
+ */
+export const Tabs: React.FunctionComponent<TabsProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/tag
+ */
+export const Tag: React.FunctionComponent<TagProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/taparea
+ */
+export const TapArea: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/text
+ */
+export const Text: ReactForwardRef<HTMLDivElement | HTMLSpanElement, TextProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/textarea
+ */
+export const TextArea: ReactForwardRef<HTMLTextAreaElement, TextAreaProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/textfield
+ */
+export const TextField: ReactForwardRef<HTMLInputElement, TextFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/toast
+ */
+export const Toast: React.FunctionComponent<ToastProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/tooltip
+ */
+export const Tooltip: React.FunctionComponent<TooltipProps>;
+
+export interface UpsellSubComponents {
+  Form: React.FunctionComponent<UpsellFormProps>;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/upsell
+ * Subcomponents:
+ * https://gestalt.pinterest.systems/web/upsell#Upsell.Form
+ */
+export const Upsell: React.FunctionComponent<UpsellProps> & UpsellSubComponents;
+
+/**
+ * https://gestalt.pinterest.systems/web/video
+ */
+export const Video: React.FunctionComponent<VideoProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/washanimated
+ */
+export const WashAnimated: React.FunctionComponent<WashAnimatedProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/zindex_classes#FixedZIndex
@@ -2365,220 +2547,11 @@ export class CompositeZIndex implements Indexable {
 }
 
 /**
- * =========================================================
- * ========================= INDEX =========================
- * =========================================================
+ * https://gestalt.pinterest.systems/web/utilities/usereducedmotion
  */
-
-export const ActivationCard: React.FunctionComponent<ActivationCardProps>;
-
-export const Avatar: React.FunctionComponent<AvatarProps>;
-
-export const AvatarGroup: React.FunctionComponent<AvatarGroupProps>;
-
-export const Badge: React.FunctionComponent<BadgeProps>;
-
-export const Box: ReactForwardRef<HTMLDivElement, BoxProps>;
-
-export const Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
-
-export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
-
-export const Callout: React.FunctionComponent<CalloutProps>;
-
-export const ComboBox: React.FunctionComponent<ComboBoxProps>;
-
-export const Checkbox: ReactForwardRef<HTMLInputElement, CheckboxProps>;
-
-export const Collage: React.FunctionComponent<CollageProps>;
-
-export const ColorSchemeProvider: React.FunctionComponent<
-  React.PropsWithChildren<ColorSchemeProviderProps>
->;
-
-export const Column: React.FunctionComponent<ColumnProps>;
-
-export const Container: React.FunctionComponent<ContainerProps>;
-
-export const Datapoint: React.FunctionComponent<DatapointProps>;
-
-export const ScrollBoundaryContainer: React.FunctionComponent<ScrollBoundaryContainerProps>;
-
-export const DeviceTypeProvider: React.FunctionComponent<
-  React.PropsWithChildren<DeviceTypeProviderProps>
->;
-
-export const DefaultLabelProvider: React.FunctionComponent<
-  React.PropsWithChildren<DefaultLabelProviderProps>
->;
-
-export const Divider: React.FunctionComponent;
-
-export interface DropdownSubComponents {
-  Item: React.FunctionComponent<DropdownItemProps>;
-  Link: React.FunctionComponent<DropdownLinkProps>;
-  Section: React.FunctionComponent<DropdownSectionProps>;
-}
-
-export const Dropdown: React.FunctionComponent<DropdownProps> & DropdownSubComponents;
-
-export const Fieldset: React.FunctionComponent<FieldsetProps>;
-
-export interface FlexSubComponents {
-  Item: React.FunctionComponent<FlexItemProps>;
-}
-
-export const Flex: React.FunctionComponent<FlexProps> & FlexSubComponents;
-
-export const Heading: React.FunctionComponent<HeadingProps>;
-
-export const HelpButton: React.FunctionComponent<HelpButtonProps>;
-
-export const Icon: React.FunctionComponent<IconProps>;
-
-export const IconButton: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, IconButtonProps>;
-
-export const IconButtonFloating: React.FunctionComponent<IconButtonFloatingProps>;
-
-export const Image: React.FunctionComponent<ImageProps>;
-
-export const Label: React.FunctionComponent<LabelProps>;
-
-export const Layer: React.FunctionComponent<LayerProps>;
-
-export const Letterbox: React.FunctionComponent<LetterboxProps>;
-
-export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
-
-export interface ListSubCmoponents {
-  Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
-}
-
-export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubCmoponents;
-
-export const Mask: React.FunctionComponent<MaskProps>;
-
-export const Masonry: React.FunctionComponent<MasonryProps>;
-
-export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
-
-export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
-
-export interface ModuleSubComponents {
-  Expandable: React.FunctionComponent<ModuleExpandableProps>;
-}
-
-export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps>> &
-  ModuleSubComponents;
-
-export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
-
-export const OnLinkNavigationProvider: React.FunctionComponent<OnLinkNavigationProviderProps>;
-
-export const PageHeader: React.FunctionComponent<PageHeaderProps>;
-
-export const Pog: React.FunctionComponent<PogProps>;
-
-export const Popover: React.FunctionComponent<PopoverProps>;
-
-export const Popovereducational: React.FunctionComponent<PopoverEducationalProps>;
-
-export const Pulsar: React.FunctionComponent<PulsarProps>;
-
-export const RadioButton: ReactForwardRef<HTMLInputElement, RadioButtonProps>;
-
-export interface RadioGroupSubComponents {
-  RadioButton: React.FunctionComponent<RadioGroupRadioButtonProps>;
-}
-
-export const RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
-
-export const SearchField: ReactForwardRef<HTMLInputElement, SearchFieldProps>;
-
-export const SegmentedControl: React.FunctionComponent<SegmentedControlProps>;
-
-export interface SelectListSubComponents {
-  Option: React.FunctionComponent<SelectListOptionProps>;
-  Group: React.FunctionComponent<SelectListGroupProps>;
-}
-
-export const SelectList: React.FunctionComponent<SelectListProps> & SelectListSubComponents;
-
-export interface SideNavigationSubcomponents {
-  Section: React.FunctionComponent<SideNavigationSectionProps>;
-  TopItem: React.FunctionComponent<SideNavigationTopItemProps>;
-  NestedItem: React.FunctionComponent<SideNavigationNestedItemProps>;
-  Group: React.FunctionComponent<SideNavigationGroupProps>;
-  NestedGroup: React.FunctionComponent<SideNavigationNestedGroupProps>;
-}
-
-export const SideNavigation: React.FunctionComponent<SideNavigationProps> &
-  SideNavigationSubcomponents;
-
-export interface OverlayPanelSubComponents {
-  DismissingElement: React.FunctionComponent<OverlayPanelDismissingElementProps>;
-}
-
-export const OverlayPanel: ReactForwardRef<HTMLDivElement, OverlayPanelProps> &
-  OverlayPanelSubComponents;
-
-export interface SheetMobileSubComponents {
-  DismissingElement: React.FunctionComponent<SheetMobileDismissingElementProps>;
-}
-
-export const SheetMobile: ReactForwardRef<HTMLDivElement, SheetMobileProps> &
-  SheetMobileSubComponents;
-
-export const SlimBanner: React.FunctionComponent<SlimBannerProps>;
-
-export const Spinner: React.FunctionComponent<SpinnerProps>;
-
-export const Status: React.FunctionComponent<StatusProps>;
-
-export const Sticky: React.FunctionComponent<StickyProps>;
-
-export const Switch: React.FunctionComponent<SwitchProps>;
-
-export interface TableSubComponents {
-  Body: React.FunctionComponent<TableBodyProps>;
-  Cell: React.FunctionComponent<TableCellProps>;
-  Footer: React.FunctionComponent<TableFooterProps>;
-  Header: React.FunctionComponent<TableHeaderProps>;
-  HeaderCell: React.FunctionComponent<TableHeaderCellProps>;
-  Row: React.FunctionComponent<TableRowProps>;
-  RowExpandable: React.FunctionComponent<TableRowExpandableProps>;
-  SortableHeaderCell: React.FunctionComponent<TableSortableHeaderCellProps>;
-  RowDrawer: React.FunctionComponent<TableRowDrawerProps>;
-}
-
-export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
-
-export const Tabs: React.FunctionComponent<TabsProps>;
-
-export const Tag: React.FunctionComponent<TagProps>;
-
-export const TapArea: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
-
-export const Text: ReactForwardRef<HTMLDivElement | HTMLSpanElement, TextProps>;
-
-export const TextArea: ReactForwardRef<HTMLTextAreaElement, TextAreaProps>;
-
-export const TextField: ReactForwardRef<HTMLInputElement, TextFieldProps>;
-
-export const Toast: React.FunctionComponent<ToastProps>;
-
-export const Tooltip: React.FunctionComponent<TooltipProps>;
-
-export interface UpsellSubCompnents {
-  Form: React.FunctionComponent<UpsellFormProps>;
-}
-
-export const Upsell: React.FunctionComponent<UpsellProps> & UpsellSubCompnents;
-
-export const Video: React.FunctionComponent<VideoProps>;
-
-export const WashAnimated: React.FunctionComponent<WashAnimatedProps>;
-
 export function useReducedMotion(): boolean;
 
+/**
+ * https://gestalt.pinterest.systems/web/utilities/usefocusvisible
+ */
 export function useFocusVisible(): { isFocusVisible: boolean };
