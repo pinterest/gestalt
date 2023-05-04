@@ -38,7 +38,7 @@ type Props = {|
   /**
    * Handler if the item is selected
    */
-  onSelected?: (id: string, selected: boolean) => void,
+  onChange?: ({| selected: boolean, id?: string |}) => void,
   /**
    * Ties a visible checkbox to the tile's selected state
    */
@@ -83,7 +83,7 @@ export default function Tile({
   selected = false,
   tooltip,
   showCheckbox,
-  onSelected,
+  onChange,
 }: Props): Node {
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
@@ -104,8 +104,8 @@ export default function Tile({
 
   const handleClick = () => {
     setIsSelected(!isSelected);
-    if (onSelected) {
-      onSelected(id, !isSelected);
+    if (onChange) {
+      onChange({ id, selected: !isSelected });
     }
   };
 
@@ -147,11 +147,11 @@ export default function Tile({
         >
           <Flex direction="row" gap={2}>
             <Flex.Item>{children}</Flex.Item>
-            {showCheckbox && (isSelected || isHovered) &&  (
-            <Flex.Item>
-              <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
-            </Flex.Item> 
-             )}
+            {showCheckbox && (isSelected || isHovered) && (
+              <Flex.Item>
+                <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
+              </Flex.Item>
+            )}
           </Flex>
         </div>
       </TooltipWrapper>
