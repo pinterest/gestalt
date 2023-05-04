@@ -13,7 +13,7 @@ const rule: ESLintRule = {
         'Prefer List: Prevent ul or ol list tags for basic use cases. Use Gestalt List, instead',
       category: 'Gestalt alternatives',
       recommended: true,
-      url: 'https://gestalt.pinterest.systems/web/list',
+      url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-list',
     },
     schema: [],
     messages: {
@@ -27,7 +27,7 @@ const rule: ESLintRule = {
         if (node.name.name === 'ul' || node.name.name === 'ol') {
           context.report({
             node,
-            messageId: 'useGestaltList',
+            messageId: 'messageList',
           });
         }
       },

@@ -8,7 +8,7 @@ import { parserOptions } from './helpers/testHelpers.js';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-list/valid.js'),
+  path.resolve(__dirname, './__fixtures__/prefer-list/valid/valid.js'),
   'utf-8',
 );
 
