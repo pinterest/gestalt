@@ -2,6 +2,7 @@
 import { type ElementConfig, type Node } from 'react';
 import Button from './Button.js';
 import Link from './Link.js';
+import { type Indexable } from './zIndex.js';
 import AnimationProvider from './animation/AnimationContext.js';
 import DismissingElement from './animation/DismissingElement.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
@@ -104,6 +105,10 @@ type Props = {|
    * Sets the SheetMobile's height. See the [size variant](https://gestalt.pinterest.systems/web/sheetmobile#Size) for more info.
    */
   size?: 'default' | 'full' | 'auto',
+  /**
+   * An object representing the zIndex value of SheetMobile. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  zIndex?: Indexable,
 |};
 
 /**
@@ -132,6 +137,7 @@ function SheetMobile({
   showDismissButton = true,
   subHeading,
   size = 'default',
+  zIndex,
 }: Props): Node {
   const deviceType = useDeviceType();
 
@@ -179,6 +185,7 @@ function SheetMobile({
           showDismissButton={showDismissButton}
           subHeading={subHeading}
           size={size}
+          zIndex={zIndex}
         >
           {children}
         </PartialPage>

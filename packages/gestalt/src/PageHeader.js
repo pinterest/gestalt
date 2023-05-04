@@ -128,8 +128,6 @@ export default function PageHeader({
   thumbnail,
   borderStyle = 'none',
 }: Props): Node {
-  const { text: badgeText, tooltipText: badgeTooltipText } = badge || {};
-
   return (
     <div className={borderStyle === 'sm' ? styles.pageHeaderBorderBottom : styles.pageHeader}>
       <Box color="default" paddingX={8} paddingY={4} width="100%">
@@ -149,8 +147,8 @@ export default function PageHeader({
                         <Flex gap={{ column: 0, row: 3 }}>
                           {badge ? (
                             <PageHeaderBadge
-                              badgeText={badgeText}
-                              badgeTooltipText={badgeTooltipText}
+                              badgeText={badge.text}
+                              badgeTooltipText={badge.tooltipText}
                             />
                           ) : null}
                           {helperIconButton ? (

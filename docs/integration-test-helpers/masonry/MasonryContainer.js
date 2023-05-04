@@ -127,7 +127,7 @@ export default class MasonryContainer extends Component<Props, State> {
 
   handleAddItems: () => void = () => {
     const { items } = this.state;
-    this.loadItems({ name: 'Manual Fetch Pin', from: items.length, force: true });
+    this.customLoadItems({ name: 'Manual Fetch Pin', from: items.length, force: true });
   };
 
   handleShuffleItems: () => void = () => {
@@ -201,7 +201,7 @@ export default class MasonryContainer extends Component<Props, State> {
     this.forceUpdate();
   };
 
-  loadItems: ({| force: boolean, from?: number, name?: string |}) => void = ({
+  customLoadItems: ({| force: boolean, from?: number, name?: string |}) => void = ({
     name,
     from = 0,
     force = false,
@@ -245,6 +245,48 @@ export default class MasonryContainer extends Component<Props, State> {
     }));
   };
 
+  loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'> = (props) => {
+    const { collage, manualFetch, pinHeightsSample } = this.props;
+
+    if (manualFetch) {
+      return;
+    }
+
+    window.TEST_FETCH_COUNTS += 1;
+
+    const defaultFrom = props?.from ?? 0;
+
+    let until = defaultFrom + 20;
+    let baseHeight = 200;
+
+    if (collage) {
+      until = 5;
+      baseHeight = 40;
+    }
+
+    this.randomNumberSeed += 1;
+    const newItems =
+      pinHeightsSample && pinHeightsSample.length > 1
+        ? generateRealisticExampleItems({
+            name: undefined,
+            numberOfItems: until - defaultFrom,
+            previousItemCount: defaultFrom,
+            randomNumberSeed: Math.random(),
+            pinHeightsSample,
+          })
+        : generateExampleItems({
+            name: undefined,
+            numberOfItems: until - defaultFrom,
+            previousItemCount: defaultFrom,
+            baseHeight,
+            randomNumberSeed: this.randomNumberSeed,
+          });
+
+    this.setState(({ items }) => ({
+      items: [...items, ...newItems],
+    }));
+  };
+
   // $FlowFixMe[unclear-type]
   renderItem: ({| +data: any, +itemIdx: number, +isMeasuring: boolean |}) => Node = ({
     data,
@@ -273,9 +315,29 @@ export default class MasonryContainer extends Component<Props, State> {
 
     const { hasScrollContainer, mountGrid, items } = this.state;
 
-    const dynamicGridProps = {};
+    const dynamicGridProps: {|
+      minCols: $ElementType<React$ElementConfig<typeof Masonry>, 'minCols'>,
+      gutterWidth: $ElementType<React$ElementConfig<typeof Masonry>, 'gutterWidth'>,
+      loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'>,
+      virtualBoundsTop: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
+      virtualBoundsBottom: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
+      scrollContainer: $ElementType<React$ElementConfig<typeof Masonry>, 'scrollContainer'>,
+    |} = {
+      minCols: undefined,
+      gutterWidth: undefined,
+      loadItems: undefined,
+      virtualBoundsTop: undefined,
+      virtualBoundsBottom: undefined,
+      scrollContainer: undefined,
+    };
 
-    const gridStyle = {};
+    const gridStyle: {|
+      margin: ?string,
+      width: ?string | number,
+    |} = {
+      margin: undefined,
+      width: undefined,
+    };
 
     if (constrained) {
       gridStyle.margin = '0px 200px';
@@ -307,14 +369,16 @@ export default class MasonryContainer extends Component<Props, State> {
     }
 
     if (noScroll) {
-      dynamicGridProps.scrollContainer = () => undefined;
+      dynamicGridProps.scrollContainer = undefined;
     } else if (hasScrollContainer) {
-      dynamicGridProps.scrollContainer = () =>
-        typeof document === 'undefined'
-          ? undefined
-          : document.querySelector('[data-scroll-container]');
+      const query = document.querySelector('[data-scroll-container]');
+      if (typeof document === 'undefined') {
+        dynamicGridProps.scrollContainer = undefined;
+      } else if (query) {
+        dynamicGridProps.scrollContainer = () => query;
+      }
     } else {
-      dynamicGridProps.scrollContainer = () => (typeof window === 'undefined' ? undefined : window);
+      dynamicGridProps.scrollContainer = typeof window === 'undefined' ? undefined : () => window;
     }
 
     const columnWidth = flexible ? 300 : 240;
@@ -323,7 +387,6 @@ export default class MasonryContainer extends Component<Props, State> {
       <div id="gridWrapper" className="gridCentered" style={gridStyle}>
         <div id="top-sibling" />
         {mountGrid && (
-          // $FlowFixMe[incompatible-exact]
           <MasonryComponent
             _batchPaints={batchPaints}
             columnWidth={columnWidth}

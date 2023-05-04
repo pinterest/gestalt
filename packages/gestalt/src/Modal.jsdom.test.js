@@ -107,7 +107,7 @@ describe('Modal', () => {
     expect(screen.getByText('Cancel')).toBeVisible();
     expect(screen.getByText('Next')).toBeVisible();
     expect(screen.getAllByRole('button')).toHaveLength(3);
-    expect(screen.getByLabelText('Test modal')).toBeVisible();
-    expect(screen.getByLabelText('Close modal')).toBeVisible();
+    expect(screen.getByLabelText('Bottom sheet')).toBeVisible();
+    expect(screen.getByLabelText('Close bottom sheet')).toBeVisible();
   });
 });

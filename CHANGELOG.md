@@ -1,3 +1,129 @@
+## 111.1.0 (May 4, 2023)
+
+### Minor
+
+- Dropdown: implement adaptive Dropdown with SheetMobile for mobile devices ([#2879](https://github.com/pinterest/gestalt/pull/2879)) - [Preview link](https://deploy-preview-2879--gestalt.netlify.app)
+
+## 111.0.2 (May 3, 2023)
+
+### Patch
+
+- TextField: Update Android docs content and specs ([#2902](https://github.com/pinterest/gestalt/pull/2902)) - [Preview link](https://deploy-preview-2902--gestalt.netlify.app)
+
+## 111.0.1 (May 3, 2023)
+
+### Patch
+
+- Docs: fix broken link ([#2901](https://github.com/pinterest/gestalt/pull/2901)) - [Preview link](https://deploy-preview-2901--gestalt.netlify.app)
+
+## 111.0.0 (May 3, 2023)
+
+### Major
+
+- Internal: add TypeScript declaration files ([#2812](https://github.com/pinterest/gestalt/pull/2812)) - [Preview link](https://deploy-preview-2812--gestalt.netlify.app)
+
+## 110.1.18 (May 3, 2023)
+
+### Patch
+
+- IconButton: document "brandPrimary" option for `iconColor` ([#2899](https://github.com/pinterest/gestalt/pull/2899)) - [Preview link](https://deploy-preview-2899--gestalt.netlify.app)
+
+## 110.1.17 (May 2, 2023)
+
+### Patch
+
+- Docs: add April newsletter ([#2887](https://github.com/pinterest/gestalt/pull/2887)) - [Preview link](https://deploy-preview-2887--gestalt.netlify.app)
+
+## 110.1.16 (May 1, 2023)
+
+### Patch
+
+- Modal: Implement SheetMobile for mobile Modal and fix DismissButton positioning bug ([#2886](https://github.com/pinterest/gestalt/pull/2886)) - [Preview link](https://deploy-preview-2886--gestalt.netlify.app)
+
+## 110.1.15 (Apr 29, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow v0.202.0 ([#2885](https://github.com/pinterest/gestalt/pull/2885)) - [Preview link](https://deploy-preview-2885--gestalt.netlify.app)
+
+## 110.1.14 (Apr 28, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.201.0 ([#2884](https://github.com/pinterest/gestalt/pull/2884)) - [Preview link](https://deploy-preview-2884--gestalt.netlify.app)
+
+## 110.1.13 (Apr 28, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.198.2 ([#2883](https://github.com/pinterest/gestalt/pull/2883)) - [Preview link](https://deploy-preview-2883--gestalt.netlify.app)
+
+## 110.1.12 (Apr 28, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.196.2 ([#2882](https://github.com/pinterest/gestalt/pull/2882)) - [Preview link](https://deploy-preview-2882--gestalt.netlify.app)
+
+## 110.1.11 (Apr 28, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.195.2 ([#2881](https://github.com/pinterest/gestalt/pull/2881)) - [Preview link](https://deploy-preview-2881--gestalt.netlify.app)
+
+## 110.1.10 (Apr 27, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.193.0 ([#2876](https://github.com/pinterest/gestalt/pull/2876)) - [Preview link](https://deploy-preview-2876--gestalt.netlify.app)
+
+## 110.1.9 (Apr 27, 2023)
+
+### Patch
+
+- Docs: Fix broken web Overview page ([#2877](https://github.com/pinterest/gestalt/pull/2877)) - [Preview link](https://deploy-preview-2877--gestalt.netlify.app)
+
+## 110.1.8 (Apr 27, 2023)
+
+### Patch
+
+- Internal: fix master after missing id in TextArea example (introduced in #2869) ([#2878](https://github.com/pinterest/gestalt/pull/2878)) - [Preview link](https://deploy-preview-2878--gestalt.netlify.app)
+
+## 110.1.7 (Apr 26, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.192.0 ([#2874](https://github.com/pinterest/gestalt/pull/2874)) - [Preview link](https://deploy-preview-2874--gestalt.netlify.app)
+
+## 110.1.6 (Apr 26, 2023)
+
+### Patch
+
+- Docs: fix incorrect links ([#2875](https://github.com/pinterest/gestalt/pull/2875)) - [Preview link](https://deploy-preview-2875--gestalt.netlify.app)
+
+## 110.1.5 (Apr 26, 2023)
+
+### Patch
+
+- TextArea: Add MaxHeight for Rows with Tags ([#2869](https://github.com/pinterest/gestalt/pull/2869)) - [Preview link](https://deploy-preview-2869--gestalt.netlify.app)
+
+## 110.1.4 (Apr 26, 2023)
+
+### Patch
+
+- Docs: Weekly update for April 21 ([#2868](https://github.com/pinterest/gestalt/pull/2868)) - [Preview link](https://deploy-preview-2868--gestalt.netlify.app)
+
+## 110.1.3 (Apr 26, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.191.0 ([#2867](https://github.com/pinterest/gestalt/pull/2867)) - [Preview link](https://deploy-preview-2867--gestalt.netlify.app)
+
+## 110.1.2 (Apr 26, 2023)
+
+### Patch
+
+- Docs: Roadmap updates ([#2873](https://github.com/pinterest/gestalt/pull/2873)) - [Preview link](https://deploy-preview-2873--gestalt.netlify.app)
+
 ## 110.1.1 (Apr 25, 2023)
 
 ### Patch
