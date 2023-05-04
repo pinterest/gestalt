@@ -19,6 +19,7 @@ import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
 import sheetMobileStyles from '../SheetMobile.css';
+import { type Indexable } from '../zIndex.js';
 import ContentContainer from './ContentContainer.js';
 import Header from './Header.js';
 
@@ -59,6 +60,7 @@ type Props = {|
   showDismissButton?: boolean,
   size: 'default' | 'full' | 'auto',
   subHeading?: string,
+  zIndex?: Indexable,
 |};
 
 export default function PartialPage({
@@ -78,6 +80,7 @@ export default function PartialPage({
   showDismissButton,
   size,
   subHeading,
+  zIndex,
 }: Props): Node {
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
 
@@ -142,6 +145,7 @@ export default function PartialPage({
             sheetMobileStyles.container,
             sheetMobileStyles.partialPageContainer,
           )}
+          style={zIndex ? { zIndex: zIndex.index() } : undefined}
         >
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
