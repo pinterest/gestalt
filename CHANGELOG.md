@@ -1,3 +1,9 @@
+## 111.1.0 (May 4, 2023)
+
+### Minor
+
+- Dropdown: implement adaptive Dropdown with SheetMobile for mobile devices ([#2879](https://github.com/pinterest/gestalt/pull/2879)) - [Preview link](https://deploy-preview-2879--gestalt.netlify.app)
+
 ## 111.0.2 (May 3, 2023)
 
 ### Patch
