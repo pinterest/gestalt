@@ -11,7 +11,6 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import color from '../../examples/tiledata/color.js';
 import disabled from '../../examples/tiledata/disabled.js';
 import group from '../../examples/tiledata/group.js';
-import main from '../../examples/tiledata/main.js';
 import tooltip from '../../examples/tiledata/tooltip.js';
 
 export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -23,13 +22,15 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         defaultCode={`
 function Example() {
   return (
-    <TileData title="Impressions" value="10M" selected />
-  );
+    <TileData
+      title="Impressions"
+      value="10M"
+      selected
+      trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+    />)
 }
         `}
-      >
-        <SandpackExample code={main} hideEditor name="Main TileData example" />
-      </PageHeader>
+      />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
