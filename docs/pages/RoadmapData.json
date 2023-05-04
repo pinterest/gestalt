@@ -148,7 +148,7 @@
     {
       "task": "Mobile web adaptive Dropdown component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Development of a mobile web treatment for the Dropdown component along with respective documentation.",
       "link": ""
