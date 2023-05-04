@@ -23,7 +23,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         defaultCode={`
 function Example() {
   return (
-    <TileData title="Hello"/>
+    <TileData title="Impressions" value="10M" selected />
   );
 }
         `}
@@ -33,17 +33,91 @@ function Example() {
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Usage guidelines" />
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to use"
+            description={`
+        - When selecting and/or comparing categories with an accompanying chart or graph view that displays at-a-glance data for a user to quickly view key metrics
+      `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When not to use"
+            description={`
+        - When grouping Datapoints that aren't selectable
+        - For selectable information that is not part of a data visualization
+      `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-      <MainSection name="Best practices" />
+      <MainSection name="Best practices">
+        {/* <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Use TileData paired with data visualization colors to make a visual connection between a chart and it’s related data"
+            defaultCode={`<TileData color="data-visualization-01" title="Blah" value="2" selected /> `}
+          />
 
-      <AccessibilitySection name={generatedDocGen?.displayName} />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Use colors outside of the Data Visualization palette. Please refer to the [Usage](/foundations/data_visualization/usage) and [Palette](/data_visualization/palette)."
+          />
+</MainSection.Subsection> */}
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Always present one tile in its selected state on default"
+            defaultCode={`<TileData color="data-visualization-01" title="Impressions" value="2" selected /> `}
+          />
 
-      <MainSection name="Localization" />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Present only a single option, since they don't need to be in a selected state. Use a [Datapoint](/web/datapoint) instead."
+            defaultCode={`<TileData color="data-visualization-01" title="Impressions" value="2" /> `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="sm"
+            type="do"
+            description="Use TileData to switch between data on charts"
+          />
+          <MainSection.Card
+            cardSize="sm"
+            type="don't"
+            description="Use for page-level navigation, as TileData is to be used in conjunction with a chart. Use [Tabs](/web/tabs), [SegmentedControl](/web/segmentedcontrol), [SideNav](/web/sidenavigation), or another local navigation instead."
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
-      <MainSection name="Subcomponents" />
+      <AccessibilitySection
+        name={generatedDocGen?.displayName}
+        description="Users should be able to navigate or activate a TagData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader within the child element."
+      />
+
+      <MainSection
+        name="Localization"
+        description="Make sure content that is placed in a data point is set-up to work in R-T-L languages. Be sure to localize text and `accessibilityLabel` in TileData and all subcomponents as well. When the text of the TileData reaches its Max width, either intentionally or through localization, will wrap as needed to display the full text. Keep this in mind when selecting wording for your TileData menu items. Note that localization can lengthen text by 20 to 30 percent. "
+      />
 
       <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`Use TileData's Data Visulization to display multiple colors`}
+          title="Colors"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={color} name="Colors Variant" />}
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           description="TileData can be used with a tooltip to display clarifying information"
           title="Tooltip"
@@ -63,15 +137,6 @@ function Example() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Use TileData's Data Visulization to display multiple colors`}
-          title="Colors"
-        >
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={color} name="Colors Variant" />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
           description={`Use checkboxes when enabling a multi-select experience. You can manage state by passing the \`selected\` prop`}
           title="Group"
         >
@@ -81,15 +146,13 @@ function Example() {
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Writing" />
-
       <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[TileData](/TileData)**
-      Details about why to use this over current component.
+      **[Datapoint](/Datapoint)**
+      Datapoint displays at-a-glance data for a user to quickly view key metrics.
     `}
         />
       </MainSection>

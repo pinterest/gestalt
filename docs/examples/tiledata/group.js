@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Box, TileData, Flex } from 'gestalt';
+import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const DataSources = [
@@ -28,17 +28,17 @@ export default function Example(): Node {
   ];
 
   // add all elements to our map
-  const selectedMap = DataSources.reduce((acc, tile, idx) => {
+  const selectedMap = DataSources.reduce((acc, tile) => {
     acc[tile.id] = tile.id;
     return acc;
   }, {});
 
   const [selectedItems, setSelectedItems] = useState(selectedMap);
 
-  const handleSelect = (id: string, isSelected: boolean) => {
+  const handleSelect = ({ id }) => {
     const itemsCopy = Object.assign(selectedItems, {});
     if (itemsCopy[id]) {
-      delete 'id' in itemsCopy;
+      delete itemsCopy.id;
       setSelectedItems(itemsCopy);
     } else {
       itemsCopy[id] = id;
@@ -54,8 +54,10 @@ export default function Example(): Node {
           showCheckbox
           onSelected={handleSelect}
           selected={!!selectedItems[tile.id]}
-          selectedColor={tile.color}
+          color={tile.color}
           tooltip={tile.tooltip}
+          title={tile.name}
+          value={tile.value}
         />
       ))}
     </Flex>
