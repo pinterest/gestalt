@@ -2809,6 +2809,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <TileData />,
     name: 'TileData',
     aliases: ['Tile Data'],
+    badge: 'Pilot',
     description:
       'Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points',
     category: 'Fields and forms',

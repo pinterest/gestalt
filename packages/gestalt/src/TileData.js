@@ -5,6 +5,7 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type DataPointBaseProps } from './Datapoint/DataPointBaseProps.js';
 import Tile from './Tile/Tile.js';
 
+// Note: 03 is ommited because it doesn't have a corresponding dark token
 type DataVisualizationColors =
   | '01'
   | '02'
