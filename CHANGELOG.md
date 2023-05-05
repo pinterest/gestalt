@@ -1,3 +1,9 @@
+## 111.2.0 (May 5, 2023)
+
+### Minor
+
+- Internal: Create ESLint rule to enforce List usage ([#2903](https://github.com/pinterest/gestalt/pull/2903)) - [Preview link](https://deploy-preview-2903--gestalt.netlify.app)
+
 ## 111.1.1 (May 5, 2023)
 
 ### Patch
