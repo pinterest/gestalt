@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "node-fetch": "^2.6.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
@@ -83,8 +84,8 @@
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
-    "xml2js": "^0.5.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "xml2js": "^0.5.0"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",

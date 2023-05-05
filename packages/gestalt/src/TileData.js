@@ -20,6 +20,7 @@ type DataVisualizationColors =
   | '12';
 
 type Props = {|
+  ...DataPointBaseProps,
   /**
    * disables component interactivity
    */
@@ -39,7 +40,7 @@ type Props = {|
   /**
    * A valid color code from the data visualization palette
    */
-  color: DataVisualizationColors,
+  color?: DataVisualizationColors,
   /**
    * Shows a checkbox. Useful when multi-select is available
    */
@@ -48,7 +49,7 @@ type Props = {|
    * Adds a Tooltip on hover/focus of the Tile. See the with [Tooltip](#Tooltip) variant to learn more.
    */
   tooltip?: string,
-|} & DataPointBaseProps;
+|};
 
 /**
  * Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points
@@ -68,8 +69,8 @@ export default function TileData({
   const theme = useColorScheme();
 
   /** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
-  const getColorHex = (tokenName: string) => {
-    const hex = theme[`colorDataVisualization${tokenName}`];
+  const getColorHex = (vizColor: string) => {
+    const hex = theme[`colorDataVisualization${vizColor}`];
     if (!hex) throw new Error('Invalid Color Token provided to TileData');
     return hex;
   };
@@ -93,7 +94,7 @@ export default function TileData({
       showCheckbox={showCheckbox}
       disabled={disabled}
       id={id}
-      bgColor={getBackgroundShade(color)}
+      bgColor={getBackgroundShade()}
       borderColor={getColorHex(color)}
       onChange={onChange}
     >

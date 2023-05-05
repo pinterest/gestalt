@@ -42,7 +42,7 @@ type Theme = {|
   colorTransparentWhite: string,
   blueHovered: string,
   blueActive: string,
-  [tokenName]: string,
+  [tokenName: string]: string,
 |};
 
 const lightModeTheme = {
@@ -106,7 +106,7 @@ const darkModeTheme = {
 /**
  * Turns a token name like color-text-warning to colorTextWarning
  */
-const cleanTokenName = (tokenName: string) => {
+const cleanTokenName = (tokenName: string): string => {
   const split = tokenName.split('-');
   return split
     .map((w, idx) => {
@@ -122,15 +122,15 @@ const cleanTokenName = (tokenName: string) => {
  */
 const addTokensToThemes = () => {
   // For now, add only the Data Visualization Tokens to the themes
-  const isDataVisualizationToken = (key) => key.toLowerCase().includes('data');
+  const isDataVisualizationToken = (key: string) => key.toLowerCase().includes('data');
   Object.keys(darkColorDesignTokens).forEach((key) => {
     if (isDataVisualizationToken(key))
-      darkModeTheme[cleanTokenName(key)] = darkColorDesignTokens[key];
+      (darkModeTheme: Theme)[cleanTokenName(key)] = darkColorDesignTokens[key];
   });
 
   Object.keys(lightColorDesignTokens).forEach((key) => {
     if (isDataVisualizationToken(key))
-      lightModeTheme[cleanTokenName(key)] = lightColorDesignTokens[key];
+      (lightModeTheme: Theme)[cleanTokenName(key)] = lightColorDesignTokens[key];
   });
 };
 
