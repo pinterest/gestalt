@@ -1,15 +1,22 @@
 // @flow strict
 import { type Node } from 'react';
 import DataPoint from './Datapoint.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { type DataPointBaseProps } from './Datapoint/DataPointBaseProps.js';
 import Tile from './Tile/Tile.js';
 
 type DataVisualizationColors =
-  | 'data-visualization-01'
-  | 'data-visualization-02'
-  | 'data-visualization-03'
-  | 'data-visualization-04'
-  | 'data-visualization-05';
+  | '01'
+  | '02'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | '10'
+  | '11'
+  | '12';
 
 type Props = {|
   /**
@@ -29,7 +36,7 @@ type Props = {|
    */
   selected?: boolean,
   /**
-   * A color from the data visualization palette. if it's not in the pallete
+   * A valid color code from the data visualization palette
    */
   color: DataVisualizationColors,
   /**
@@ -47,9 +54,9 @@ type Props = {|
  */
 export default function TileData({
   disabled = false,
-  id = 'no-tile-id-provided',
+  id,
   selected,
-  color = 'data-visualization-05',
+  color = '05',
   showCheckbox,
   onChange,
   tooltip,
@@ -57,9 +64,14 @@ export default function TileData({
   value,
   trend,
 }: Props): Node {
-  /** We use the color hex to generate a shade. Data visualization colors are a part of the tokens */
-  const getColorHex = (tokenName: string) =>
-    getComputedStyle(document.documentElement).getPropertyValue(`--color-${tokenName}`);
+  const theme = useColorScheme();
+
+  /** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
+  const getColorHex = (tokenName: string) => {
+    const hex = theme[`colorDataVisualization${tokenName}`];
+    if (!hex) throw new Error('Invalid Color Token provided to TileData');
+    return hex;
+  };
 
   /**
    * Generates a background shade that's 10% lighter. This is dynamic
@@ -68,7 +80,8 @@ export default function TileData({
     // value of the codes are injected
     const shade = getColorHex(color);
     // add an alpha channel to the hex, at 10% opacity
-    const bgColor = `${shade}10`;
+    // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+    const bgColor = `${shade}1A`;
     return bgColor;
   };
 
