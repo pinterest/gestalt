@@ -15,14 +15,6 @@
             "content": "This is a big, _big_ update. Gestalt now officially supports TypeScript as of v111.0.0. Gestalt will also now maintain TS types internally. With that said, this is an initial release, so if you run into any incorrect types, please reach out to #gestalt-eng-web or send us a PR with a fix!"
           },
           {
-            "title": "mWeb-adaptive Dropdown",
-            "audience": ["Design", "Engineering"],
-            "imageColor": "blue-skycicle-0",
-            "imageSrc": "https://i.pinimg.com/originals/f3/8f/d0/f38fd05290058020d113a581d48b771e.png",
-            "imageAltText": "Examples of Dropdown in desktop and mobile web contexts.",
-            "content": "Gestalt's Web Dropdown now is [mWeb adaptive](https://gestalt.pinterest.systems/web/dropdown#Mobile). This is awesome because now using Dropdown will _just work_ in any situation. For desktop, the menu will display as a Popover and on mobile, it'll reveal as a Sheet. This means just one less thing for you to do when building experiences. So make sure to treat yourself to something nice with all the extra time you now have."
-          },
-          {
             "title": "TextField Android docs",
             "audience": ["Design", "Engineering"],
             "imageColor": "blue-skycicle-0",
