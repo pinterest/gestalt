@@ -1,3 +1,9 @@
+## 111.1.1 (May 5, 2023)
+
+### Patch
+
+- PopoverEducational: fix unresponsive `zIndex` prop ([#2905](https://github.com/pinterest/gestalt/pull/2905)) - [Preview link](https://deploy-preview-2905--gestalt.netlify.app)
+
 ## 111.1.0 (May 4, 2023)
 
 ### Minor
