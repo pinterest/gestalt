@@ -110,15 +110,15 @@ export default function Tile({
   };
 
   const generateSelectedColorStyles = () => {
-    const colorStyles: React.CSSProperties = {};
+    const colorStyles: {| borderColor: string, backgroundColor: string |} = {};
     if (!isSelected) return styles;
 
     // the interal base component uses hex codes
     // but could be passed in pre-tokenized values
-    if (borderColor.startsWith('#') && borderColor) {
+    if (borderColor && borderColor.startsWith('#')) {
       colorStyles.borderColor = `${borderColor}`;
     }
-    if (bgColor.startsWith('#') && bgColor) {
+    if (bgColor && bgColor.startsWith('#')) {
       colorStyles.backgroundColor = `${bgColor}`;
     }
     return colorStyles;

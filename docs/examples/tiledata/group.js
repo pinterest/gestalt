@@ -58,7 +58,6 @@ export default function Example(): Node {
           tooltip={tile.tooltip}
           title={tile.name}
           value={tile.value}
-          trend={tile.trend}
         />
       ))}
     </Flex>

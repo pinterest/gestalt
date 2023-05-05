@@ -16,6 +16,7 @@ type BadgeObject = {|
 |};
 
 type Props = {|
+  ...DataPointBaseProps,
   /**
    * Adds a badge to the title. Currently a beta feature, expect changes.
    */
@@ -32,7 +33,7 @@ type Props = {|
    * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
    */
   tooltipZIndex?: Indexable,
-|} & DataPointBaseProps;
+|};
 
 /**
  * [Datapoint](https://gestalt.pinterest.systems/web/datapoint) displays at-a-glance data for a user to quickly view key metrics.
