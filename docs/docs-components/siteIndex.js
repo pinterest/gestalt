@@ -234,8 +234,8 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Component request',
       'Contributions',
       {
-        sectionName: 'Design File',
-        pages: ['Creating and updating pages', 'Development process'],
+        sectionName: 'Design file hygiene',
+        pages: ['Naming convention', 'Organizing layout', 'Figma branches', 'Design handoff'],
       },
       'Get help',
       'Training',

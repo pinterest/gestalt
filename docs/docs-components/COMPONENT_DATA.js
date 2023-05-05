@@ -173,9 +173,9 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <DesignFileHygiene />,
     name: 'Design file hygiene',
     description:
-      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files',
+      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files.',
     category: 'Team support',
-    path: '/team_support/design_file_hygiene',
+    path: '/team_support/design_file_hygiene/naming_convention',
   },
   {
     svg: <ContributionsTile />,

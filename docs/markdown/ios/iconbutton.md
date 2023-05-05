@@ -4,7 +4,7 @@ description: IconButton allows users to take actions and make choices with a sin
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" width={44} height={44} alt="IconButton component"/>
+<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" width={44} height={44} alt="Icon bButton component example."/>
 
 ## Usage guidelines
 
