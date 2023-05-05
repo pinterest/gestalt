@@ -7,21 +7,21 @@ export default function Example(): Node {
     {
       id: 'data-1',
       name: 'MAU',
-      value: 100,
+      value: '100M',
       color: '01',
       tooltip: 'Monthly active users',
     },
     {
       id: 'data-2',
       name: 'WAU',
-      value: 80,
+      value: '80M',
       color: '02',
       tooltip: 'Weekly active users',
     },
     {
       id: 'data-4',
       name: 'DAU',
-      value: 10,
+      value: '10M',
       color: '04',
       tooltip: 'Daily active users',
     },
@@ -58,6 +58,7 @@ export default function Example(): Node {
           tooltip={tile.tooltip}
           title={tile.name}
           value={tile.value}
+          trend={tile.trend}
         />
       ))}
     </Flex>

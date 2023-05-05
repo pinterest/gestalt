@@ -8,8 +8,11 @@ describe('TileData', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders an accessibility label', () => {
-    const tree = create(<TileData />).toJSON();
+  test('TileData renders with tooltip', () => {
+    const component = create(
+      <TileData title="Text Impressions" value="1.23M" tooltip="this is a tooltip" />,
+    );
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

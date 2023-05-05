@@ -76,14 +76,14 @@ function Example() {
             cardSize="sm"
             type="do"
             description="Always present one tile in its selected state on default"
-            defaultCode={`<TileData color="01" title="Impressions" value="2" selected /> `}
+            defaultCode={`<TileData color="01" title="Impressions" value="2M" selected trend={{ value: 5, accessibilityLabel: 'Trending up' }} /> `}
           />
 
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Present only a single option, since they don't need to be in a selected state. Use a [Datapoint](/web/datapoint) instead."
-            defaultCode={`<TileData color="01" title="Impressions" value="2" /> `}
+            description="Use it to present a single option, since they don't need to be selected. Use a [Datapoint](/web/datapoint) instead."
+            defaultCode={`<TileData color="01" title="Impressions" value="2M" trend={{ value: 1, accessibilityLabel: 'Trending up' }}/> `}
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
