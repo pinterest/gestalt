@@ -121,12 +121,16 @@ const cleanTokenName = (tokenName: string) => {
  * Appends additional tokens from the Gestalt Tokens Library to the context
  */
 const addTokensToThemes = () => {
+  // For now, add only the Data Visualization Tokens to the themes
+  const isDataVisualizationToken = (key) => key.toLowerCase().includes('data');
   Object.keys(darkColorDesignTokens).forEach((key) => {
-    darkModeTheme[cleanTokenName(key)] = darkColorDesignTokens[key];
+    if (isDataVisualizationToken(key))
+      darkModeTheme[cleanTokenName(key)] = darkColorDesignTokens[key];
   });
 
   Object.keys(lightColorDesignTokens).forEach((key) => {
-    lightModeTheme[cleanTokenName(key)] = lightColorDesignTokens[key];
+    if (isDataVisualizationToken(key))
+      lightModeTheme[cleanTokenName(key)] = lightColorDesignTokens[key];
   });
 };
 
