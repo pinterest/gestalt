@@ -29,5 +29,5 @@ ruleTester.run('prefer-list', rule, {
   invalid: [
     [noGestaltListOl, messageList],
     [noGestaltListUl, messageList],
-  ].map(([input, output, errors]) => ({ code: input, output, errors })),
+  ].map(([input]) => ({ code: input, errors: [{ messageId: 'messageList' }] })),
 });
