@@ -135,8 +135,9 @@ export default function Tile({
       {disabled && <DisabledOverlay />}
       <TooltipWrapper tooltip={tooltip}>
         <div
-          tabIndex={0}
+          tabIndex={disabled ? null : 0}
           role="button"
+          aria-pressed={selected}
           className={classes}
           onBlur={handleOnBlur}
           onClick={handleClick}

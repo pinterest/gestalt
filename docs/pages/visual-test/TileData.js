@@ -4,7 +4,7 @@ import { TileData, ColorSchemeProvider, Box } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" padding={1}>
         <TileData
           title="Impressions"

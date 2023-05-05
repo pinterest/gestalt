@@ -42,6 +42,7 @@ type Theme = {|
   colorTransparentWhite: string,
   blueHovered: string,
   blueActive: string,
+  [tokenName]: string,
 |};
 
 const lightModeTheme = {
@@ -102,36 +103,42 @@ const darkModeTheme = {
   blueActive: '#4a85c9',
 };
 
+/**
+ * Turns a token name like color-text-warning to colorTextWarning
+ */
+const cleanTokenName = (tokenName: string) => {
+  const split = tokenName.split('-');
+  return split
+    .map((w, idx) => {
+      if (idx === 0) return w;
+      const capitalized = w.charAt(0).toUpperCase() + w.slice(1);
+      return capitalized;
+    })
+    .join('');
+};
+
+/**
+ * Appends additional tokens from the Gestalt Tokens Library to the context
+ */
+const addTokensToThemes = () => {
+  Object.keys(darkColorDesignTokens).forEach((key) => {
+    darkModeTheme[cleanTokenName(key)] = darkColorDesignTokens[key];
+  });
+
+  Object.keys(lightColorDesignTokens).forEach((key) => {
+    lightModeTheme[cleanTokenName(key)] = lightColorDesignTokens[key];
+  });
+};
+
+// runs once, statically appends to our JSON themes
+addTokensToThemes();
+
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 
-const themeToStyles = (theme: {|
-  blueActive: string,
-  blueHovered: string,
-  colorGray0: string,
-  colorGray0Active: string,
-  colorGray0Hovered: string,
-  colorGray100: string,
-  colorGray100Active: string,
-  colorGray100Hovered: string,
-  colorGray150: string,
-  colorGray150Hovered: string,
-  colorGray200: string,
-  colorGray200Active: string,
-  colorGray200Hovered: string,
-  colorGray300: string,
-  colorGray400: string,
-  colorGray50: string,
-  colorRed0: string,
-  colorRed100: string,
-  colorRed100Active: string,
-  colorRed100Hovered: string,
-  colorTransparentDarkGray: string,
-  colorTransparentGray100: string,
-  colorTransparentGray500: string,
-  colorTransparentGray60: string,
-  colorTransparentWhite: string,
-  name: string,
-|}) => {
+/**
+ * Appends tokens as injected CSS tokens
+ */
+const themeToStyles = (theme) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
@@ -193,8 +200,8 @@ export default function ColorSchemeProvider({
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
 
-  const handlePrefChange = (event: MediaQueryList) => {
-    setTheme(getTheme(event.matches ? 'dark' : 'light'));
+  const handlePrefChange = (e) => {
+    setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
 
   useEffect(() => {
