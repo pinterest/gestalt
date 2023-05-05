@@ -4,13 +4,12 @@ import { Box, Label, Text } from 'gestalt';
 import Card from './Card.js';
 import Checkerboard from './Checkerboard.js';
 
-const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
-const combinations = (variationsByField) => {
+const combinations = (variationsByField: { heading?: boolean, ... }) => {
   const fieldNames = Object.keys(variationsByField);
 
   if (!fieldNames.length) return [{}];
 
-  const combine = ([fieldName, ...restFieldNames], acc) => {
+  const combine = ([fieldName, ...restFieldNames]: $ReadOnlyArray<'heading'>, acc: { ... }) => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
@@ -25,13 +24,14 @@ const combinations = (variationsByField) => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return flatMap(vs, (newAcc) => combine(restFieldNames, newAcc));
+    return vs.flatMap((newAcc) => combine(restFieldNames, newAcc));
   };
 
   return combine(fieldNames, {});
 };
 
-const toReactAttribute = (key, value) => {
+// $FlowFixMe[unclear-type]
+const toReactAttribute = (key: string, value: any) => {
   switch (typeof value) {
     case 'boolean':
       return value && key;
@@ -47,7 +47,7 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-function layoutReducer(layout) {
+function layoutReducer(layout: string) {
   switch (layout) {
     case '2column':
       return {

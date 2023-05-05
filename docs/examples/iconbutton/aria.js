@@ -7,7 +7,12 @@ export default function Example(): Node {
   const [selected, setSelected] = useState([]);
   const anchorRef = useRef(null);
 
-  const onSelect = ({ item }) => {
+  const onSelect = ({
+    item,
+  }: {|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => {
     if (selected.some(({ value }) => value === item.value)) {
       setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));
     } else {

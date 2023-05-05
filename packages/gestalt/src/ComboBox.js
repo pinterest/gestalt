@@ -271,7 +271,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     (event, direction: DirectionOptionType) => {
       if (!showOptionsList) setShowOptionsList(true);
 
-      const getNextHoveredIndex = (keyboardDirection) => {
+      const getNextHoveredIndex = (keyboardDirection: DirectionOptionType) => {
         if (keyboardDirection === UP_ARROW) {
           return direction + (hoveredItemIndex || 0);
         }

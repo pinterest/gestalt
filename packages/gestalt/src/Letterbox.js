@@ -11,7 +11,7 @@ import Mask from './Mask.js';
   I highly recommend you read that first before continuing on reading.
 */
 
-const aspectRatio = (width, height) => width / height;
+const aspectRatio = (width: number, height: number) => width / height;
 
 type Props = {|
   /**

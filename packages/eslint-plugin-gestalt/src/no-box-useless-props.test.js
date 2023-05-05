@@ -7,10 +7,10 @@ import { parserOptions } from './helpers/testHelpers.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 
-const mapFileNameToPath = (pathPart) => (fileName) =>
+const mapFileNameToPath = (pathPart: string) => (fileName: string) =>
   `./__fixtures__/no-box-useless-props/${pathPart}/${fileName}.js`;
 
-function mapPathsToCode(codePath) {
+function mapPathsToCode(codePath: string) {
   return readFileSync(path.resolve(__dirname, codePath), 'utf-8');
 }
 

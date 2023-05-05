@@ -5,13 +5,13 @@ const stubCache = (measurements?: { [item: string]: number } = {}) => {
   let cache = measurements;
 
   return {
-    get(item) {
+    get(item: string) {
       return cache[item];
     },
-    has(item) {
+    has(item: string) {
       return !!cache[item];
     },
-    set(item, value) {
+    set(item: string, value: number) {
       cache[item] = value;
     },
     reset() {

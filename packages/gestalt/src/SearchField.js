@@ -150,7 +150,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     onChange({ value: '', syntheticEvent: event });
   };
 
-  const handleBlur = (event) => {
+  const handleBlur = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
     setFocused(false);
     if (onBlur) {
       onBlur({ value: event.currentTarget.value, event });

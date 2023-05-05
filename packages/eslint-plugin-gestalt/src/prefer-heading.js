@@ -51,6 +51,7 @@ const rule: ESLintRule = {
     let importFixerRun = false;
     const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -61,6 +62,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXElementFnc = (node) => {
       const headingDisallowedAttributes = ['className'];
 

@@ -221,7 +221,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](/get_started/how_to_work_with_us#Meetings-and-events) and we will evaluate."
+            description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](/team_support/get_help#Meetings-and-events) and we will evaluate."
             sandpackExample={
               <SandpackExample
                 code={alternativeColorTokensExample}
@@ -250,7 +250,7 @@ export default function ColorExamplesPage(): Node {
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](/get_started/how_to_work_with_us#Meetings-and-events) and we will assist."
+            description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](/team_support/get_help#Meetings-and-events) and we will assist."
             sandpackExample={
               <SandpackExample
                 code={invalidElevationExample}

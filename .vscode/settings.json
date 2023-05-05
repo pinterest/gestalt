@@ -9,6 +9,5 @@
   "grunt.autoDetect": "off",
   "javascript.validate.enable": false,
   "npm.packageManager": "yarn",
-  "typescript.validate.enable": false,
-  "explorer.autoReveal": true
+  "typescript.validate.enable": true
 }

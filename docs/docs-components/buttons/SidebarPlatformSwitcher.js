@@ -31,7 +31,12 @@ export default function SidebarPlatformSwitcher({
   ];
 
   // Updates both the cookie and the state that tracks the selected platform
-  const onSelect = ({ activeIndex }) => {
+  const onSelect = ({
+    activeIndex,
+  }: {|
+    activeIndex: number,
+    event: SyntheticMouseEvent<HTMLButtonElement>,
+  |}) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,
     );

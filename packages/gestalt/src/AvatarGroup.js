@@ -113,7 +113,9 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
     );
 
     const pileCount =
-      displayedCollaborators.length + showCollaboratorsCount + showAddCollaboratorsButton;
+      displayedCollaborators.length +
+      (showCollaboratorsCount ? 1 : 0) +
+      (showAddCollaboratorsButton ? 1 : 0);
 
     const collaboratorStack = displayedCollaborators.map(({ src, name }, index) => (
       <CollaboratorAvatar

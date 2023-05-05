@@ -39,9 +39,11 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
   { isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value }: Props,
   ref,
 ): Node {
-  const handleEventPreventDefault = (event) => event.preventDefault();
+  const handleEventPreventDefault = (event: SyntheticInputEvent<HTMLDivElement>) =>
+    event.preventDefault();
 
-  const handleOnTap = (event) => onSelect?.({ event, item: { label, value, subtext } });
+  const handleOnTap = (event: SyntheticInputEvent<HTMLInputElement>) =>
+    onSelect?.({ event, item: { label, value, subtext } });
 
   const handleOnMouseEnter = () => setHoveredItemIndex(index);
 

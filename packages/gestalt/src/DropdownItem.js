@@ -76,11 +76,11 @@ export default function DropdownItem({
 }: Props): Node {
   return (
     <DropdownContextConsumer>
-      {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
+      {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
         <OptionItem
           badge={badge}
           dataTestId={dataTestId}
-          hoveredItemIndex={hoveredItem}
+          hoveredItemIndex={hoveredItemIndex}
           id={id}
           index={_index}
           key={`${option.value + _index}`}
@@ -88,7 +88,7 @@ export default function DropdownItem({
           option={option}
           ref={setOptionRef}
           selected={selected}
-          setHoveredItemIndex={setHoveredItem}
+          setHoveredItemIndex={setHoveredItemIndex}
           textWeight="bold"
         >
           {children}

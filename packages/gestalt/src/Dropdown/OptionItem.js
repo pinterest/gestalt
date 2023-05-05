@@ -1,8 +1,10 @@
 // @flow strict
 import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
+import { useAnimation } from '../animation/AnimationContext.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
+import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
 import Flex from '../Flex.js';
 import focusStyles from '../Focus.css';
 import getRoundingClassName from '../getRoundingClassName.js';
@@ -36,6 +38,7 @@ type Props = {|
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
+    mobileOnDismissStart: () => void,
   |}) => void,
   onSelect?: ({|
     item: OptionItemType,
@@ -69,13 +72,18 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
   }: Props,
   ref,
 ): Node {
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
+  const { onExternalDismiss } = useAnimation();
+
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
   );
   // Determine if the option is a current selected item
   const isSelectedItem = matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
-  const handleOnTap = (event) => {
+  const handleOnTap = (event: SyntheticInputEvent<HTMLInputElement>) => {
     if (!href && !children) {
       event.preventDefault();
     }
@@ -166,7 +174,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
       ref={index === hoveredItemIndex ? ref : null}
       role="menuitem"
       rounding={2}
-      tabIndex={-1}
+      tabIndex={isMobile ? 0 : -1}
     >
       <Box
         color={index === hoveredItemIndex ? 'secondary' : 'transparent'}
@@ -179,7 +187,13 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
           <Link
             underline="none"
             href={href}
-            onClick={onClick}
+            onClick={({ event, dangerouslyDisableOnNavigation }) =>
+              onClick?.({
+                event,
+                dangerouslyDisableOnNavigation,
+                mobileOnDismissStart: isMobile ? onExternalDismiss : () => {},
+              })
+            }
             target={isExternal ? 'blank' : 'self'}
           >
             {optionItemContent}

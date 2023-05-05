@@ -86,7 +86,7 @@ function setupGlobalFocusEvents() {
   // $FlowExpectedError[method-unbinding]
   const { focus } = HTMLElement.prototype;
   // $FlowIssue[cannot-write]
-  HTMLElement.prototype.focus = function focusElement(...args) {
+  HTMLElement.prototype.focus = function focusElement(this: HTMLElement, ...args) {
     hasEventBeforeFocus = true;
     focus.apply(this, args);
   };

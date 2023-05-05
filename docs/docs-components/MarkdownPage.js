@@ -1,7 +1,4 @@
 // @flow strict
-
-// ignoring: since we do in fact want to render each component md block again
-
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Text, Box, Link, Flex, Icon, List, Button } from 'gestalt';
@@ -13,7 +10,6 @@ import MainSection from './MainSection.js';
 import { MAX_WIDTH } from './MainSectionSubsection.js';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
-
 import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
@@ -29,36 +25,35 @@ type Props = {|
 |};
 
 const components = {
+  // $FlowFixMe[missing-local-annot]
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
       <List>
         {filtered.map((a, index) => (
           <List.Item
-            // $FlowFixMe[incompatible-use]
             key={JSON.stringify(a?.props.child ?? index)}
-            // $FlowFixMe[incompatible-use]
             text={<Text>{a?.props.children}</Text>}
           />
         ))}
       </List>
     );
   },
+  // $FlowFixMe[missing-local-annot]
   ol: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
       <List type="ordered">
         {filtered.map((a, index) => (
           <List.Item
-            // $FlowFixMe[incompatible-use]
             key={JSON.stringify(a?.props.child ?? index)}
-            // $FlowFixMe[incompatible-use]
             text={<Text>{a?.props.children}</Text>}
           />
         ))}
       </List>
     );
   },
+  // $FlowFixMe[missing-local-annot]
   small: (props) => <Text size="100">{props.children}</Text>,
   pre: (props: {|
     children: {| props: {| className: $ReadOnlyArray<string>, children: string | null |} |},
@@ -86,9 +81,10 @@ const components = {
       </Box>
     </Flex>
   ),
-  h2: ({ children }) => (
+  // $FlowFixMe[missing-local-annot]
+  h2: (props) => (
     <Box marginTop={12} marginBottom={0}>
-      <MainSection name={children} />
+      <MainSection name={props.children} />
     </Box>
   ),
   hr: () => (
@@ -165,6 +161,7 @@ const components = {
     />
   ),
   IllustrationCard,
+  // $FlowFixMe[missing-local-annot]
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
   Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
     const newProps = { ...props };
