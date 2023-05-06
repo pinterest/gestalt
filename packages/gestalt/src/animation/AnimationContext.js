@@ -9,6 +9,8 @@ import {
   useContext,
   useMemo,
   useState,
+  useEffect,
+  useRef,
 } from 'react';
 import ReactDOM from 'react-dom';
 import useReducedMotion from '../useReducedMotion.js';
@@ -44,12 +46,52 @@ const initialState = {
 
 const AnimationContext: Context<AnimationType> = createContext<AnimationType>(initialState);
 
+function getRequestAnimationFrameId(): ?number {
+  if (
+    typeof window === 'undefined' ||
+    // $FlowFixMe[method-unbinding] flow 0.158.0 upgrade
+    !Object.prototype.hasOwnProperty.call(window, 'requestAnimationFrame')
+  ) {
+    return undefined;
+  }
+
+  return window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {});
+  });
+}
+
 export default function AnimationProvider({
   children,
 }: AnimationProviderProps): Element<typeof AnimationContext.Provider> | null {
   const [animationState, setAnimationState] = useState<AnimationStateType>(
     useReducedMotion() ? null : ANIMATION_STATE.animatedOpening,
   );
+
+  const requestAnimationFrameId = useRef(null);
+
+  useEffect(() => {
+    requestAnimationFrameId.current = ['animatedOpening', 'animatedClosing'].includes(
+      animationState,
+    )
+      ? getRequestAnimationFrameId()
+      : null;
+
+    const cancelAnimationFrameId = () => {
+      if (
+        typeof window !== 'undefined' &&
+        // $FlowFixMe[method-unbinding] flow 0.158.0 upgrade
+        Object.prototype.hasOwnProperty.call(window, 'cancelAnimationFrame') &&
+        requestAnimationFrameId.current
+      ) {
+        window.cancelAnimationFrame(requestAnimationFrameId.current);
+        requestAnimationFrameId.current = null;
+      }
+    };
+
+    return () => {
+      cancelAnimationFrameId();
+    };
+  }, [animationState]);
 
   return (
     <AnimationContext.Provider
