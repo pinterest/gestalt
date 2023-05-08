@@ -15,6 +15,7 @@ export default function Screenshot(): Node {
         <Status type="warning" title="Warning" subtext="Updated 2 days ago" />
         <Status type="problem" title="Problem" subtext="Please try again" />
         <Status type="unstarted" title="Unstarted" />
+        <Status type="queued" title="Queued" />
         <Status type="inProgress" title="In progress" />
         <Status type="halted" title="Halted" />
         <Status type="ok" title="OK" />
