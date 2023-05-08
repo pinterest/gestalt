@@ -1,3 +1,9 @@
+## 111.3.1 (May 8, 2023)
+
+### Patch
+
+- Status: updates visual snapshots ([#2910](https://github.com/pinterest/gestalt/pull/2910)) - [Preview link](https://deploy-preview-2910--gestalt.netlify.app)
+
 ## 111.3.0 (May 8, 2023)
 
 ### Minor
