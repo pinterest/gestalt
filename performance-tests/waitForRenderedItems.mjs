@@ -25,14 +25,15 @@ type WaitForRenderedItemsArgs = {|
   args: Args,
   timeout?: number,
   debug?: boolean,
-|};
+  |};
+
+  // $FlowExpectedError[unclear-type]
+  type WaitForRenderedItemsOutput = Promise<any>;
 */
 
 export default async function waitForRenderedItems(
   { page, args, timeout = 5000, debug } /*: WaitForRenderedItemsArgs */
-  // prettier-ignore
-) // $FlowExpectedError[unclear-type]
-/*: Promise<any> */ {
+) /*: WaitForRenderedItemsOutput */ {
   return page
     .waitForFunction(
       ({
@@ -47,7 +48,10 @@ export default async function waitForRenderedItems(
         },
         debugMode,
       }) => {
-        const log = (message /*: string */) => debugMode ? console.log(`waitForRenderedItems: ${message}`) : undefined;
+        const log = (message /*: string */) =>
+          debugMode
+            ? console.log(`waitForRenderedItems: ${message}`)
+            : undefined;
 
         const items = Array.from(document.querySelectorAll(selector));
         const loadedItems = items.filter(
@@ -58,7 +62,7 @@ export default async function waitForRenderedItems(
         );
 
         if (loadingItems.length > 0) {
-          log(`Still loading: ${loadingItems.length} items.`)
+          log(`Still loading: ${loadingItems.length} items.`);
           return false;
         }
 
@@ -66,42 +70,56 @@ export default async function waitForRenderedItems(
           typeof targetItems !== 'undefined' &&
           loadedItems.length !== targetItems
         ) {
-          log(`targetItems failed: ${loadedItems.length} items loaded, expected ${targetItems}`)
+          log(
+            `targetItems failed: ${loadedItems.length} items loaded, expected ${targetItems}`
+          );
           return false;
         }
         if (
           typeof targetItemsLT !== 'undefined' &&
           loadedItems.length >= targetItemsLT
         ) {
-          log(`targetItemsLT failed: ${loadedItems.length} items loaded, expected < ${targetItemsLT}`)
+          log(
+            `targetItemsLT failed: ${loadedItems.length} items loaded, expected < ${targetItemsLT}`
+          );
           return false;
         }
         if (
           typeof targetItemsLTE !== 'undefined' &&
           loadedItems.length > targetItemsLTE
         ) {
-          log(`targetItemsLTE failed: ${loadedItems.length} items loaded, expected <= ${targetItemsLTE}`)
+          log(
+            `targetItemsLTE failed: ${loadedItems.length} items loaded, expected <= ${targetItemsLTE}`
+          );
           return false;
         }
         if (
           typeof targetItemsGT !== 'undefined' &&
           loadedItems.length <= targetItemsGT
         ) {
-          log(`targetItemsGT failed: ${loadedItems.length} items loaded, expected > ${targetItemsGT}`)
+          log(
+            `targetItemsGT failed: ${loadedItems.length} items loaded, expected > ${targetItemsGT}`
+          );
           return false;
         }
         if (
           typeof targetItemsGTE !== 'undefined' &&
           loadedItems.length < targetItemsGTE
         ) {
-          log(`targetItemsGTE failed: ${loadedItems.length} items loaded, expected >= ${targetItemsGTE}`)
+          log(
+            `targetItemsGTE failed: ${loadedItems.length} items loaded, expected >= ${targetItemsGTE}`
+          );
           return false;
         }
         if (
           typeof scrollHeight !== 'undefined' &&
           document.body?.scrollHeight < scrollHeight
         ) {
-          log(`scrollHeight failed: ${document.body?.scrollHeight ?? 'undefined'} < ${scrollHeight}`)
+          log(
+            `scrollHeight failed: ${
+              document.body?.scrollHeight ?? 'undefined'
+            } < ${scrollHeight}`
+          );
           return false;
         }
 
@@ -109,7 +127,7 @@ export default async function waitForRenderedItems(
 Success!
   ${loadedItems.length} items loaded
   ${scrollHeight ? `${scrollHeight} achieved` : ''}
-`)
+`);
         return true;
       },
       {
