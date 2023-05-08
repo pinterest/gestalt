@@ -3,6 +3,36 @@
     "year": "2023",
     "digests": [
       {
+        "week": "May 5, 2023",
+        "summary": "Official TypeScript support, mweb-adaptive Dropdowns, TextField Android docs and boatloads of Figma library updates.",
+        "posts": [
+          {
+            "title": "Official TypeScript declarations",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/e5/be/58/e5be58c014ce9da62682608d76540b84.png",
+            "imageAltText": "Gestalt and TypeScript logos.",
+            "content": "This is a big, _big_ update. Gestalt now officially supports TypeScript as of v111.0.0. Gestalt will also now maintain TS types internally. With that said, this is an initial release, so if you run into any incorrect types, please reach out to #gestalt-eng-web or send us a PR with a fix!"
+          },
+          {
+            "title": "TextField Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/b9/aa/2b/b9aa2b28430d9d4e113a85de057a3da5.png",
+            "imageAltText": "Screenshot of TextField's Android docs.",
+            "content": "The team published design specs for our [Android TextField component](https://gestalt.pinterest.systems/android/textfield). We're now up to 13 Android component docs as of this month, which is a major accomplishment for the team."
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/e1/d7/9a/e1d79a970e84017acfead5470ecb1495.png",
+            "imageAltText": "Examples of Tag, Tabs, AvatarGroup and Modal components.",
+            "content": "We have a boatload of Figma library updates:\n* Image fills for all components across all libraries now use our imagery styles from our Foundations library.\n* We made numerous improvements to our Modal and Sheet Figma components across all platforms to more closely represent Gestalt's current specs and guidelines.\n* The Tabs component now can display a numeric indicator.\n* We added a missing warning variant to the Tag component in our Web library."
+          }
+        ]
+      },
+      {
         "month": "April",
         "summary": "",
         "posts": [
