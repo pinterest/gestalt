@@ -110,7 +110,7 @@ export default function Tile({
   };
 
   const generateSelectedColorStyles = () => {
-    const colorStyles: {| borderColor: string, backgroundColor: string |} = {};
+    const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {};
     if (!isSelected) return styles;
 
     // the interal base component uses hex codes
