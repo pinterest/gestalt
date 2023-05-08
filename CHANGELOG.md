@@ -1,3 +1,9 @@
+## 111.2.1 (May 8, 2023)
+
+### Patch
+
+- Docs: Weekly update and roadmap updates ([#2904](https://github.com/pinterest/gestalt/pull/2904)) - [Preview link](https://deploy-preview-2904--gestalt.netlify.app)
+
 ## 111.2.0 (May 5, 2023)
 
 ### Minor
