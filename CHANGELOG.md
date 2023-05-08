@@ -1,3 +1,9 @@
+## 111.2.2 (May 8, 2023)
+
+### Patch
+
+- Docs: new Design file hygiene section ([#2906](https://github.com/pinterest/gestalt/pull/2906)) - [Preview link](https://deploy-preview-2906--gestalt.netlify.app)
+
 ## 111.2.1 (May 8, 2023)
 
 ### Patch
