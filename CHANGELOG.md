@@ -1,3 +1,21 @@
+## 111.2.0 (May 5, 2023)
+
+### Minor
+
+- Internal: Create ESLint rule to enforce List usage ([#2903](https://github.com/pinterest/gestalt/pull/2903)) - [Preview link](https://deploy-preview-2903--gestalt.netlify.app)
+
+## 111.1.1 (May 5, 2023)
+
+### Patch
+
+- PopoverEducational: fix unresponsive `zIndex` prop ([#2905](https://github.com/pinterest/gestalt/pull/2905)) - [Preview link](https://deploy-preview-2905--gestalt.netlify.app)
+
+## 111.1.0 (May 4, 2023)
+
+### Minor
+
+- Dropdown: implement adaptive Dropdown with SheetMobile for mobile devices ([#2879](https://github.com/pinterest/gestalt/pull/2879)) - [Preview link](https://deploy-preview-2879--gestalt.netlify.app)
+
 ## 111.0.2 (May 3, 2023)
 
 ### Patch
