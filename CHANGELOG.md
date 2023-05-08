@@ -1,3 +1,9 @@
+## 111.3.0 (May 8, 2023)
+
+### Minor
+
+- Status: Adds type="queued" status ([#2907](https://github.com/pinterest/gestalt/pull/2907)) - [Preview link](https://deploy-preview-2907--gestalt.netlify.app)
+
 ## 111.2.2 (May 8, 2023)
 
 ### Patch
