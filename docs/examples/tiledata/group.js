@@ -3,7 +3,7 @@ import { useState, type Node } from 'react';
 import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
-  const DataSources = [
+  const dataSources = [
     {
       id: 'data-1',
       name: 'MAU',
@@ -27,37 +27,32 @@ export default function Example(): Node {
     },
   ];
 
-  // add all elements to our map
-  const selectedMap = DataSources.reduce((acc, tile) => {
-    acc[tile.id] = tile.id;
-    return acc;
-  }, {});
+  const allIds = dataSources.map(({ id }) => id);
 
-  const [selectedItems, setSelectedItems] = useState(selectedMap);
+  const [selectedItems, setSelectedItems] = useState(allIds);
 
-  const handleSelect = ({ id }) => {
-    const itemsCopy = Object.assign(selectedItems, {});
-    if (itemsCopy[id]) {
-      delete itemsCopy.id;
-      setSelectedItems(itemsCopy);
+  const handleSelect = ({ id, selected }) => {
+    let selectedIds = [];
+    if (selected) {
+      selectedIds = selectedItems.filter((tileId) => tileId !== id);
     } else {
-      itemsCopy[id] = id;
+      selectedIds = selectedItems.concat([id]);
     }
-    setSelectedItems(itemsCopy);
+    setSelectedItems(selectedIds);
   };
 
   return (
     <Flex gap={4}>
-      {DataSources.map((tile) => (
+      {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
-          key={tile.id}
+          key={id}
           showCheckbox
           onSelected={handleSelect}
-          selected={!!selectedItems[tile.id]}
-          color={tile.color}
-          tooltip={tile.tooltip}
-          title={tile.name}
-          value={tile.value}
+          selected={selectedItems.includes(id)}
+          color={color}
+          tooltip={tooltip}
+          title={name}
+          value={value}
         />
       ))}
     </Flex>

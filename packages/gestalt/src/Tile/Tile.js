@@ -1,9 +1,11 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
 import classnames from 'classnames';
+import Box from '../Box.js';
 import Checkbox from '../Checkbox.js';
 import Flex from '../Flex.js';
 import { ENTER } from '../keyCodes.js';
+import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
@@ -12,15 +14,15 @@ import styles from './Tile.css';
 
 type Props = {|
   /**
-   * Prop description.
+   * The content to be wrapped by tile.
    */
   children?: Node,
   /**
-   * The background color of the tile as a hex. Don't forget about tokenization
+   * The background color of the tile as a hex. Don't forget about tokenization.
    */
   bgColor?: string,
   /**
-   * The border color of the tile. Don't forget about tokenization
+   * The border color of the tile. Don't forget about tokenization.
    */
   borderColor?: string,
   /**
@@ -28,17 +30,21 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * Id to identify the tile
+   * Id to identify the tile.
    */
   id?: string,
   /**
-   * Indicate if tile is in a selected state
+   * Indicate if tile is in a selected state.
    */
   selected?: boolean,
   /**
-   * Handler if the item is selected
+   * Handler if the item is selected.
    */
-  onChange?: ({| selected: boolean, id?: string |}) => void,
+  onChange?: ({|
+    event: $ElementType<ElementConfig<typeof TapArea>, 'onClick'>,
+    selected: boolean,
+    id?: string,
+  |}) => void,
   /**
    * Ties a visible checkbox to the tile's selected state
    */
@@ -53,7 +59,7 @@ function DisabledOverlay() {
   return <div className={classnames(styles.tile, styles.disabledOverlay)} />;
 }
 
-function TooltipWrapper({
+function ShouldUseTooltip({
   tooltip,
   disabled,
   children,
@@ -77,13 +83,13 @@ function TooltipWrapper({
 export default function Tile({
   bgColor,
   borderColor,
-  id = '',
-  disabled = false,
   children,
-  selected = false,
-  tooltip,
-  showCheckbox,
+  disabled = false,
+  id = '',
   onChange,
+  selected = false,
+  showCheckbox,
+  tooltip,
 }: Props): Node {
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
@@ -104,21 +110,19 @@ export default function Tile({
 
   const handleClick = () => {
     setIsSelected(!isSelected);
-    if (onChange) {
-      onChange({ id, selected: !isSelected });
-    }
+    onChange?.({ id, selected: !isSelected });
   };
 
   const generateSelectedColorStyles = () => {
     const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {};
     if (!isSelected) return styles;
 
-    // the interal base component uses hex codes
+    // the internal base component uses hex codes
     // but could be passed in pre-tokenized values
-    if (borderColor && borderColor.startsWith('#')) {
+    if (borderColor?.startsWith('#')) {
       colorStyles.borderColor = `${borderColor}`;
     }
-    if (bgColor && bgColor.startsWith('#')) {
+    if (bgColor?.startsWith('#')) {
       colorStyles.backgroundColor = `${bgColor}`;
     }
     return colorStyles;
@@ -131,10 +135,10 @@ export default function Tile({
   };
 
   return (
-    <div style={{ position: 'relative' }} aria-disabled={disabled}>
+    <Box style={{ position: 'relative' }}>
       {disabled && <DisabledOverlay />}
-      <TooltipWrapper tooltip={tooltip}>
-        <div
+      <ShouldUseTooltip tooltip={tooltip}>
+        <TapArea
           tabIndex={disabled ? null : 0}
           role="button"
           aria-pressed={selected}
@@ -154,8 +158,8 @@ export default function Tile({
               </Flex.Item>
             )}
           </Flex>
-        </div>
-      </TooltipWrapper>
-    </div>
+        </TapArea>
+      </ShouldUseTooltip>
+    </Box>
   );
 }

@@ -61,7 +61,7 @@ function Example() {
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use TileData paired with data visualization colors to make a visual connection between a chart and it’s related data"
+            description="Use TileData paired with data visualization colors to make a visual connection between a chart and its related data"
             defaultCode={`<TileData color="data-visualization-01" title="Blah" value="2" selected /> `}
           />
 
@@ -95,24 +95,24 @@ function Example() {
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use for page-level navigation, as TileData is to be used in conjunction with a chart. Use [Tabs](/web/tabs), [SegmentedControl](/web/segmentedcontrol), [SideNav](/web/sidenavigation), or another local navigation instead."
+            description="Use for page-level navigation, as TileData is to be used in conjunction with a chart. Use [Tabs](/web/tabs), [SegmentedControl](/web/segmentedcontrol), [SideNavigation](/web/sidenavigation), or another local navigation instead."
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description="Users should be able to navigate or activate a TagData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader within the child element."
+        description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader within the child element."
       />
 
       <MainSection
         name="Localization"
-        description="Make sure content that is placed in a data point is set-up to work in R-T-L languages. Be sure to localize text and `accessibilityLabel` in TileData and all subcomponents as well. When the text of the TileData reaches its Max width, either intentionally or through localization, will wrap as needed to display the full text. Keep this in mind when selecting wording for your TileData menu items. Note that localization can lengthen text by 20 to 30 percent. "
+        description="Make sure content that is placed in a Datapoint is set-up to work in RTL languages. Be sure to localize `title`, `value` and `trend.accessibilityLabel` in TileData and all subcomponents as well. When the title of the TileData reaches its max width, either intentionally or through localization, the title will wrap as needed to display the full text. Keep this in mind when selecting wording for your TileData menu items. Note that localization can lengthen text by 20 to 30 percent. "
       />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Use TileData's Data Visulization to display multiple colors`}
+          description={`Use TileData's Data Visulization to display multiple colors.`}
           title="Colors"
         >
           <MainSection.Card
@@ -120,7 +120,7 @@ function Example() {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="TileData can be used with a tooltip to display clarifying information"
+          description="TileData can be used with a tooltip to display clarifying information."
           title="Tooltip"
         >
           <MainSection.Card
@@ -129,7 +129,7 @@ function Example() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Removes interactivity from the element"
+          description="Removes interactivity from the element."
           title="Disabled"
         >
           <MainSection.Card
@@ -138,7 +138,7 @@ function Example() {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Use checkboxes when enabling a multi-select experience. You can manage state by passing the \`selected\` prop`}
+          description={`Use checkboxes when enabling a multi-select experience. You can manage state by passing the \`selected\` prop.`}
           title="Group"
         >
           <MainSection.Card

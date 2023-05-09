@@ -2810,7 +2810,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'TileData',
     aliases: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
     description:
-      'Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points',
+      'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
     category: 'Fields and forms',
     status: {
       accessible: {
