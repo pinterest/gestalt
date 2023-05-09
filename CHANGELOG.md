@@ -1,3 +1,9 @@
+## 111.3.3 (May 9, 2023)
+
+### Patch
+
+- Internal: disable `import/no-namespace` for test files ([#2913](https://github.com/pinterest/gestalt/pull/2913)) - [Preview link](https://deploy-preview-2913--gestalt.netlify.app)
+
 ## 111.3.2 (May 9, 2023)
 
 ### Patch
