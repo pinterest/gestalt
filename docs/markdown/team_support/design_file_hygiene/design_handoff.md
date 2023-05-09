@@ -4,7 +4,7 @@ description: Instructions and tolls to help you setting up design files for deve
 fullwidth: true
 ---
 When your design file is ready to hand off for development, we ask you to follow the best practices below to make it super clear what designs need to be implemented. 
-We've created a library to facilitate your design handoff process by providing tips, annotation assets, design specs, and ready-to-use components. You can enable our [Handoff Kit library](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/%5BLibrary%5D-Gestalt-Handoff-Kit?node-id=249%3A517&t=3H5nmocXTsIKd8sf-1) to learn more about hiding components. in your Figma files and get all its benefits. 
+We've created a library to facilitate your design handoff process by providing tips, annotation assets, design specs, and ready-to-use components. You can enable our [Handoff Kit library](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/%5BLibrary%5D-Gestalt-Handoff-Kit?node-id=249%3A517&t=3H5nmocXTsIKd8sf-1) in your Figma files and get all its benefits. 
 
 ## Adding covers to files
 The cover should have all the essential information to help design system users understand its context. It includes: the project type, title, related Jira ticket and platform, status, and owner. 
