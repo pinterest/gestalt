@@ -106,7 +106,7 @@ const darkModeTheme = {
 /**
  * Turns a token name like color-text-warning to colorTextWarning
  */
-const cleanTokenName = (tokenName: string): string => {
+const transformKebabToCamelCase = (tokenName: string): string => {
   const split = tokenName.split('-');
   return split
     .map((w, idx) => {
@@ -125,16 +125,16 @@ const addTokensToThemes = () => {
   const isDataVisualizationToken = (key: string) => key.toLowerCase().includes('data');
   Object.keys(darkColorDesignTokens).forEach((key) => {
     if (isDataVisualizationToken(key))
-      (darkModeTheme: Theme)[cleanTokenName(key)] = darkColorDesignTokens[key];
+      (darkModeTheme: Theme)[transformKebabToCamelCase(key)] = darkColorDesignTokens[key];
   });
 
   Object.keys(lightColorDesignTokens).forEach((key) => {
     if (isDataVisualizationToken(key))
-      (lightModeTheme: Theme)[cleanTokenName(key)] = lightColorDesignTokens[key];
+      (lightModeTheme: Theme)[transformKebabToCamelCase(key)] = lightColorDesignTokens[key];
   });
 };
 
-// runs once, statically appends to our JSON themes
+// runs once, statically appends more tokens to our JSON themes
 addTokensToThemes();
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);

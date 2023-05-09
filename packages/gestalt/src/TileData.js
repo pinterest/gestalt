@@ -2,8 +2,15 @@
 import { type Node } from 'react';
 import DataPoint from './Datapoint.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { type DataPointBaseProps } from './Datapoint/DataPointBaseProps.js';
 import Tile from './Tile/Tile.js';
+
+type TooltipProps = {|
+  accessibilityLabel?: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  text: string,
+  zIndex?: Indexable,
+|};
 
 // Note: 03 is ommited because it doesn't have a corresponding dark token
 type DataVisualizationColors =
@@ -19,36 +26,64 @@ type DataVisualizationColors =
   | '11'
   | '12';
 
+type TrendObject = {|
+  accessibilityLabel: string,
+  value: number,
+|};
+
+type DataPointBaseProps = {|
+  /**
+   * The header text for the component.
+   */
+  title: string,
+  /**
+   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
+   */
+  trend?: TrendObject,
+  /**
+   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
+   */
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+  /**
+   * The datapoint value (e.g., 1.23M).
+   */
+  value: string,
+|};
+
 type Props = {|
   ...DataPointBaseProps,
   /**
-   * disables component interactivity
-   */
-  disabled?: boolean,
-  /**
-   * An identifier to be passed in a callback, and distinguish multiple DataPoints
-   */
-  id?: string,
-  /**
-   * Handler if the item is selected
-   */
-  onChange: ({| selected: boolean, id?: string |}) => void,
-  /**
-   * Controls whether the tile is selected or not
-   */
-  selected?: boolean,
-  /**
-   * A valid color code from the data visualization palette
+   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette). 03 is not supported yet, because it has no corresponding dark theme.
    */
   color?: DataVisualizationColors,
   /**
-   * Shows a checkbox. Useful when multi-select is available
+   * Indicates if TileData should be disabled. Disabled TileData is inactive and cannot be interacted with.
+   */
+  disabled?: boolean,
+  /**
+   * An optional identifier to be passed back in the onChange callback. It can be helpful to distinguish multiple DataPoints.
+   */
+  id?: string,
+  /**
+   * Handler if the item is selected.
+   */
+  onChange: ({|
+    event: SyntheticKeyboardEvent<HTMLDivElement>,
+    selected: boolean,
+    id?: string,
+  |}) => void,
+  /**
+   * Controls whether the tile is selected or not.
+   */
+  selected?: boolean,
+  /**
+   * Shows a visible checkbox when the tile is selected state. See when using in a [group](http://gestalt.pinterest.systems/web/tiledata#Group).
    */
   showCheckbox?: boolean,
   /**
-   * Adds a Tooltip on hover/focus of the Tile. See the with [Tooltip](#Tooltip) variant to learn more.
+   * Adds a Tooltip on hover/focus of the Tile. See the with [Tooltip](https://gestalt.pinterest.systems/web/tooltip) variant to learn more.
    */
-  tooltip?: string,
+  tooltip?: TooltipProps,
 |};
 
 /**
@@ -63,8 +98,9 @@ export default function TileData({
   onChange,
   tooltip,
   title,
-  value,
   trend,
+  trendSentiment,
+  value,
 }: Props): Node {
   const theme = useColorScheme();
 
@@ -98,7 +134,7 @@ export default function TileData({
       borderColor={getColorHex(color)}
       onChange={onChange}
     >
-      <DataPoint title={title} value={value} trend={trend} />
+      <DataPoint title={title} value={value} trend={trend} trendSentiment={trendSentiment} />
     </Tile>
   );
 }

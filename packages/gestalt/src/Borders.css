@@ -9,6 +9,10 @@
   border: var(--g-border-width) solid var(--color-border-container);
 }
 
+.transparentBorder {
+  border-color: transparent;
+}
+
 .borderColorSelected {
   border-color: var(--color-background-selected-base);
 }

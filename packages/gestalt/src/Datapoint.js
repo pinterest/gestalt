@@ -7,12 +7,35 @@ import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 import { type Indexable } from './zIndex.js';
-import { type DataPointBaseProps } from './Datapoint/DataPointBaseProps.js';
 import DatapointTrend from './Datapoint/Trend.js';
 
 type BadgeObject = {|
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+|};
+
+type TrendObject = {|
+  accessibilityLabel: string,
+  value: number,
+|};
+
+type DataPointBaseProps = {|
+  /**
+   * The header text for the component.
+   */
+  title: string,
+  /**
+   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
+   */
+  trend?: TrendObject,
+  /**
+   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
+   */
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+  /**
+   * The datapoint value (e.g., 1.23M).
+   */
+  value: string,
 |};
 
 type Props = {|
