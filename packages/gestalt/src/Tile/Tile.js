@@ -9,8 +9,15 @@ import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
-import { FixedZIndex } from '../zIndex.js';
 import styles from './Tile.css';
+
+type TooltipProps = {|
+  accessibilityLabel?: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  text: string,
+  zIndex?: Indexable,
+|};
 
 type Props = {|
   /**
@@ -26,7 +33,7 @@ type Props = {|
    */
   borderColor?: string,
   /**
-   * Should the tile be disabled
+   * Indicates if TileData should be disabled. Disabled TileData is inactive and cannot be interacted with.
    */
   disabled?: boolean,
   /**
@@ -38,21 +45,21 @@ type Props = {|
    */
   selected?: boolean,
   /**
-   * Handler if the item is selected.
+   * Handler if the item selection state is changed.
    */
   onChange?: ({|
-    event: $ElementType<ElementConfig<typeof TapArea>, 'onClick'>,
+    event: SyntheticKeyboardEvent<HTMLDivElement>,
     selected: boolean,
     id?: string,
   |}) => void,
   /**
-   * Ties a visible checkbox to the tile's selected state
+   * Shows a visible checkbox when the tile is selected state. See when using in a [group](http://gestalt.pinterest.systems/web/tiledata#Group).
    */
   showCheckbox?: boolean,
   /**
    * Adds a Tooltip on hover/focus of the Tile. See the With Tooltip variant to learn more.
    */
-  tooltip?: string,
+  tooltip?: TooltipProps,
 |};
 
 function DisabledOverlay() {
@@ -60,25 +67,30 @@ function DisabledOverlay() {
 }
 
 function ShouldUseTooltip({
-  tooltip,
-  disabled,
   children,
+  disabled,
+  tooltip,
 }: {|
-  tooltip?: string,
   children: Node,
   disabled?: boolean,
+  tooltip?: TooltipProps,
 |}) {
-  const tooltipZIndex = new FixedZIndex(1);
   if (!tooltip || disabled) return children;
   return (
-    <Tooltip idealDirection="up" text={tooltip} zIndex={tooltipZIndex}>
+    <Tooltip
+      accessibilityLabel={tooltip.accessibilityLabel}
+      inline={tooltip.inline}
+      idealDirection={tooltip.idealDirection || 'up'}
+      text={tooltip.text}
+      zIndex={tooltip.zIndex}
+    >
       {children}
     </Tooltip>
   );
 }
 
 /**
- * [Tile] https://gestalt.pinterest.systems/web/tiledata component should be used for ... on the page.
+ * Used Internally to wrap a component with a Tile View
  */
 export default function Tile({
   bgColor,
@@ -107,8 +119,8 @@ export default function Tile({
     [styles.disabled]: disabled,
   });
 
-  const handleClick = () => {
-    onChange?.({ id, selected: !isSelected });
+  const handleClick = (ev) => {
+    onChange?.({ ev, id, selected: !isSelected });
     setIsSelected(!isSelected);
   };
 
@@ -138,6 +150,7 @@ export default function Tile({
       {disabled && <DisabledOverlay />}
       <ShouldUseTooltip tooltip={tooltip}>
         <TapArea
+          disabled={disabled}
           rounding={4}
           tabIndex={disabled ? -1 : 0}
           role="button"

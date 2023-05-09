@@ -1,5 +1,3 @@
-/* https://www.figma.com/file/t0uPPhr3vjwVwVsxEVwY8D/TagData-and-TileData-components?node-id=187-6540&t=aAjye5Ima2fHNHsh-0 */
-
 .tile {
   composes: flex from "../Layout.css";
   composes: paddingX4 from "../boxWhitespace.css";
@@ -8,7 +6,7 @@
   composes: borderBox from "../Layout.css";
   composes: sizeLg from "../Borders.css";
   composes: solid from "../Borders.css";
-  border-color: transparent;
+  composes: transparentBorder from "../Borders.css";
 
   /* Note: this may cause responsiveness weirdness on mobile */
   max-width: 196px;
@@ -17,7 +15,7 @@
 
 .hovered {
   composes: pointer from "../Cursor.css";
-  background-color: var(--color-background-secondary-base);
+  composes: secondary from "../Colors.css";
 }
 
 .focused {
@@ -33,13 +31,13 @@
 }
 
 .disabled {
-  background-color: var(--g-colorGray100);
+  composes: lightGrayBg from "../Colors.css";
   cursor: default;
   pointer-events: none;
 }
 
 .disabledOverlay {
-  background-color: var(--g-colorGray100);
+  composes: lightGrayBg from "../Colors.css";
   height: 100%;
   opacity: 0.7;
   position: absolute;

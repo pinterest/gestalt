@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -75,7 +75,7 @@ function Example() {
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Always present one tile in its selected state on default"
+            description="Always present one tile in its selected state on default."
             defaultCode={`<TileData color="01" title="Impressions" value="2M" selected trend={{ value: 5, accessibilityLabel: 'Trending up' }} /> `}
           />
 
@@ -90,7 +90,7 @@ function Example() {
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use TileData to switch between data on charts"
+            description="Use TileData to switch between data on charts."
           />
           <MainSection.Card
             cardSize="sm"
@@ -112,7 +112,7 @@ function Example() {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Use TileData's Data Visulization to display multiple colors.`}
+          description={`Use TileData's Data Visualization to display multiple colors.`}
           title="Colors"
         >
           <MainSection.Card
@@ -164,16 +164,7 @@ function Example() {
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docGen = await multipledocgen({
-    componentName: ['TileData', 'DataPointBaseProps'],
-    opts: {
-      flattenProps: true,
-    },
-  });
-
   return {
-    props: {
-      generatedDocGen: docGen,
-    },
+    props: { generatedDocGen: await docgen({ componentName: 'TileData' }) },
   };
 }

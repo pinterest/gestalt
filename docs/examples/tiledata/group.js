@@ -50,7 +50,7 @@ export default function Example(): Node {
           onSelected={handleSelect}
           selected={selectedItems.includes(id)}
           color={color}
-          tooltip={tooltip}
+          tooltip={{ text: tooltip }}
           title={name}
           value={value}
         />
