@@ -65,7 +65,7 @@ type Props = {|
    */
   id?: string,
   /**
-   * Handler if the item is selected.
+   * Handler if the item selection state is changed.
    */
   onChange: ({|
     event: SyntheticKeyboardEvent<HTMLDivElement>,
@@ -77,7 +77,7 @@ type Props = {|
    */
   selected?: boolean,
   /**
-   * Shows a visible checkbox when the tile is selected state. See when using in a [group](http://gestalt.pinterest.systems/web/tiledata#Group).
+   * Shows a visible checkbox when the tile is selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tiledata#Group).
    */
   showCheckbox?: boolean,
   /**
