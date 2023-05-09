@@ -103,14 +103,13 @@ export default function Tile({
 
   const classes = classnames(styles.tile, {
     [styles.selected]: isSelected,
-    [styles.focused]: isFocusVisible,
     [styles.hovered]: isHovered && !isFocusVisible,
     [styles.disabled]: disabled,
   });
 
   const handleClick = () => {
-    setIsSelected(!isSelected);
     onChange?.({ id, selected: !isSelected });
+    setIsSelected(!isSelected);
   };
 
   const generateSelectedColorStyles = () => {
@@ -135,29 +134,28 @@ export default function Tile({
   };
 
   return (
-    <Box style={{ position: 'relative' }}>
+    <Box position="relative">
       {disabled && <DisabledOverlay />}
       <ShouldUseTooltip tooltip={tooltip}>
         <TapArea
-          tabIndex={disabled ? null : 0}
+          rounding={4}
+          tabIndex={disabled ? -1 : 0}
           role="button"
           aria-pressed={selected}
-          className={classes}
           onBlur={handleOnBlur}
-          onClick={handleClick}
+          onTap={handleClick}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
           onKeyDown={handleKeyDown}
-          style={generateSelectedColorStyles()}
         >
-          <Flex direction="row" gap={2}>
-            <Flex.Item>{children}</Flex.Item>
-            {showCheckbox && (isSelected || isHovered) && (
-              <Flex.Item>
+          <div className={classes} style={generateSelectedColorStyles()}>
+            <Flex direction="row" gap={2}>
+              {children}
+              {showCheckbox && (isSelected || isHovered) && (
                 <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
-              </Flex.Item>
-            )}
-          </Flex>
+              )}
+            </Flex>
+          </div>
         </TapArea>
       </ShouldUseTooltip>
     </Box>
