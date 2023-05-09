@@ -6,8 +6,8 @@ export default function Example(): Node {
   const [selectedTileId, setSelectedTileId] = useState('1');
 
   const isSelected = (id: string) => selectedTileId === id;
-  const handleSelection = (ev) => {
-    setSelectedTileId(ev.id);
+  const handleSelection = ({ id }) => {
+    setSelectedTileId(id);
   };
 
   return (
