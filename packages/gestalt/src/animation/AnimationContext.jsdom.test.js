@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, getNodeText, render } from '@testing-library/react';
-import * as useReducedMotionHook from '../useReducedMotion.js'; // eslint-disable-line import/no-namespace
+import * as useReducedMotionHook from '../useReducedMotion.js';
 import AnimationProvider, { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
 
 jest.mock('../useReducedMotion.js');
