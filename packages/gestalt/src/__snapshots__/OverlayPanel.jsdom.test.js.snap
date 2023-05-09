@@ -14,7 +14,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
       <div
         aria-label="Test OverlayPanel"
         class="wrapper hideOutline"
-        id=":rg:"
+        id=":rf:"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -31,7 +31,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
               style="z-index: 1;"
             >
               <button
-                aria-controls=":rg:"
+                aria-controls=":rf:"
                 aria-label="Dismiss"
                 class="parentButton"
                 type="button"
@@ -179,6 +179,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
       </div>
     </div>
   </div>
+   
 </div>
 `;
 
@@ -191,11 +192,11 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline animationInSide"
+        class="wrapper hideOutline"
         id=":r0:"
         role="dialog"
         style="width: 540px;"
@@ -275,6 +276,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
       </div>
     </div>
   </div>
+   
 </div>
 `;
 
@@ -287,11 +289,11 @@ exports[`OverlayPanel should render all props with render props 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="OverlayPanel"
-        class="wrapper hideOutline animationInSide"
+        class="wrapper hideOutline"
         id=":r1:"
         role="dialog"
         style="width: 540px;"
@@ -377,6 +379,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
       </div>
     </div>
   </div>
+   
 </div>
 `;
 
@@ -451,6 +454,7 @@ exports[`OverlayPanel should render animation in 1`] = `
       </div>
     </div>
   </div>
+   
 </div>
 `;
 
@@ -525,5 +529,6 @@ exports[`OverlayPanel should render animation out 1`] = `
       </div>
     </div>
   </div>
+   
 </div>
 `;

@@ -1,6 +1,6 @@
 // @flow strict
 import { useRef, useEffect, type Node, type ElementConfig, Fragment } from 'react';
-import { useAnimation } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Box from '../Box.js';
 import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
@@ -58,7 +58,7 @@ export default function Header({
 }: Props): Node {
   const { accessibilityDismissButtonLabel, accessibilityGrabberLabel } =
     useDefaultLabelContext('SheetMobile');
-  const { onExternalDismiss } = useAnimation();
+  const { onExternalDismiss } = useRequestAnimationFrame();
 
   const dismissButtonRef = useRef();
   const grabberRef = useRef();

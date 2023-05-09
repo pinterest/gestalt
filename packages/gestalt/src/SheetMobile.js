@@ -5,6 +5,7 @@ import Link from './Link.js';
 import { type Indexable } from './zIndex.js';
 import AnimationProvider from './animation/AnimationContext.js';
 import DismissingElement from './animation/DismissingElement.js';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import FullPage from './SheetMobile/FullPage.js';
 import PartialPage from './SheetMobile/PartialPage.js';
@@ -170,25 +171,27 @@ function SheetMobile({
   if (['default', 'auto'].includes(size))
     return (
       <AnimationProvider>
-        <PartialPage
-          align={align}
-          backIconButton={backIconButton}
-          closeOnOutsideClick={closeOnOutsideClick}
-          forwardIconButton={forwardIconButton}
-          onAnimationEnd={onAnimationEnd}
-          onDismiss={onDismiss}
-          footer={footer}
-          heading={heading}
-          padding={padding}
-          primaryAction={primaryAction}
-          role={role}
-          showDismissButton={showDismissButton}
-          subHeading={subHeading}
-          size={size}
-          zIndex={zIndex}
-        >
-          {children}
-        </PartialPage>
+        <RequestAnimationFrameProvider>
+          <PartialPage
+            align={align}
+            backIconButton={backIconButton}
+            closeOnOutsideClick={closeOnOutsideClick}
+            forwardIconButton={forwardIconButton}
+            onAnimationEnd={onAnimationEnd}
+            onDismiss={onDismiss}
+            footer={footer}
+            heading={heading}
+            padding={padding}
+            primaryAction={primaryAction}
+            role={role}
+            showDismissButton={showDismissButton}
+            subHeading={subHeading}
+            size={size}
+            zIndex={zIndex}
+          >
+            {children}
+          </PartialPage>
+        </RequestAnimationFrameProvider>
       </AnimationProvider>
     );
 

@@ -28,14 +28,15 @@ type AnimationType = {|
 
 type UseAnimationType = {|
   animationState: AnimationStateType,
-  handleAnimation: () => void,
-  onExternalDismiss: () => void,
+  handleAnimationEnd: () => void,
+  handleExternalDismiss: () => void,
 |};
 
 type AnimationProviderProps = {|
   children: Node,
 |};
 
+// CONTEXT
 const initialState = {
   // null here is used to mount OverlayPanel with reduced motion, no animation.
   animationState: null,
@@ -44,6 +45,7 @@ const initialState = {
 
 const AnimationContext: Context<AnimationType> = createContext<AnimationType>(initialState);
 
+// PROVIDER
 export default function AnimationProvider({
   children,
 }: AnimationProviderProps): Element<typeof AnimationContext.Provider> | null {
@@ -60,10 +62,12 @@ export default function AnimationProvider({
   );
 }
 
-/* A backward-compatible shim for React < 18
- * flushSync is needed in React 18+ to ensure that the animation is finished before the onDismiss callback is called.
- */
+// HELPER
 const flushSync = (callback: () => void) => {
+  /*
+    A backward-compatible shim for React < 18
+    flushSync is needed in React 18+ to ensure that the animation is finished before the onDismiss callback is called.
+  */
   if (ReactDOM.flushSync) {
     ReactDOM.flushSync(callback);
   } else {
@@ -71,27 +75,32 @@ const flushSync = (callback: () => void) => {
   }
 };
 
+// HOOK
 export function useAnimation(): UseAnimationType {
   const reducedMotion = useReducedMotion();
 
   const { animationState, setAnimationState } = useContext(AnimationContext);
 
-  // onAnimatedDismiss is ultimately the callback that triggers unmounting with/without animation externally. It can be accessed via render props in the API (onDismissStart)
-  const onExternalDismiss = useCallback(() => {
+  /*
+    onAnimatedDismiss is ultimately the callback that triggers unmounting with/without animation externally.
+  */
+  const handleExternalDismiss = useCallback(() => {
     flushSync(() =>
       setAnimationState(reducedMotion ? ANIMATION_STATE.unmount : ANIMATION_STATE.animatedClosing),
     );
   }, [reducedMotion, setAnimationState]);
 
-  const handleAnimation = useCallback(() => {
+  const handleAnimationEnd = useCallback(() => {
     if (
       !reducedMotion &&
       [ANIMATION_STATE.animatedOpening, ANIMATION_STATE.animatedClosing].includes(animationState)
     )
       flushSync(() =>
         setAnimationState(
-          // null here is used to used to mount OverlayPanel with motion.
-          // ANIMATION_STATE.unmount here isets the component to internally unmount before onDismiss gets called and full component gets unmounted
+          /*
+            null here is used to used to mount OverlayPanel with motion.
+            ANIMATION_STATE.unmount here isets the component to internally unmount before onDismiss gets called and full component gets unmounted
+          */
           animationState === ANIMATION_STATE.animatedOpening ? null : ANIMATION_STATE.unmount,
         ),
       );
@@ -99,7 +108,7 @@ export function useAnimation(): UseAnimationType {
 
   return {
     animationState,
-    onExternalDismiss,
-    handleAnimation,
+    handleExternalDismiss,
+    handleAnimationEnd,
   };
 }
