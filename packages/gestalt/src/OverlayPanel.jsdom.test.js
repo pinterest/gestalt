@@ -2,7 +2,7 @@
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import { ESCAPE } from './keyCodes.js';
 import OverlayPanel from './OverlayPanel.js';
-import * as AnimationControllerModule from './animation/AnimationContext.js'; // eslint-disable-line import/no-namespace
+import * as AnimationControllerModule from './animation/AnimationContext.js';
 
 describe('OverlayPanel', () => {
   let useAnimationMock;
