@@ -1,3 +1,9 @@
+## 111.3.2 (May 9, 2023)
+
+### Patch
+
+- Docs: Design handoff page typo fix ([#2912](https://github.com/pinterest/gestalt/pull/2912)) - [Preview link](https://deploy-preview-2912--gestalt.netlify.app)
+
 ## 111.3.1 (May 8, 2023)
 
 ### Patch
