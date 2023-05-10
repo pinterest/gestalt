@@ -24,6 +24,10 @@
   height: 100%;
 }
 
+.initialize {
+  opacity: 0;
+}
+
 .backdropAnimationIn {
   animation: fade-in 400ms linear;
 }
