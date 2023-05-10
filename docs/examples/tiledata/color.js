@@ -6,9 +6,6 @@ export default function Example(): Node {
   const [selectedTileId, setSelectedTileId] = useState('1');
 
   const isSelected = (id: string) => selectedTileId === id;
-  const handleSelection = ({ id }) => {
-    setSelectedTileId(id);
-  };
 
   return (
     <Flex gap={4} wrap justifyContent="center">
@@ -16,7 +13,7 @@ export default function Example(): Node {
         id="1"
         color="01"
         selected={isSelected('1')}
-        onChange={handleSelection}
+        onChange={({ id }) => setSelectedTileId(id)}
         title="Impressions"
         value="41.25m"
       />
@@ -24,7 +21,7 @@ export default function Example(): Node {
         id="2"
         color="02"
         selected={isSelected('2')}
-        onChange={handleSelection}
+        onChange={({ id }) => setSelectedTileId(id)}
         title="CPM"
         value="$1.57"
       />
@@ -32,7 +29,7 @@ export default function Example(): Node {
         id="4"
         color="04"
         selected={isSelected('4')}
-        onChange={handleSelection}
+        onChange={({ id }) => setSelectedTileId(id)}
         title="CPC"
         value="$1.57"
       />
@@ -40,7 +37,7 @@ export default function Example(): Node {
         id="5"
         color="05"
         selected={isSelected('5')}
-        onChange={handleSelection}
+        onChange={({ id }) => setSelectedTileId(id)}
         title="ROAS"
         value="$1.57"
       />
@@ -48,7 +45,7 @@ export default function Example(): Node {
         id="6"
         color="06"
         selected={isSelected('6')}
-        onChange={handleSelection}
+        onChange={({ id }) => setSelectedTileId(id)}
         title="Spend"
         value="$1.57"
       />

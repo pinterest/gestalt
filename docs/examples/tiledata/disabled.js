@@ -3,5 +3,5 @@ import { type Node } from 'react';
 import { TileData } from 'gestalt';
 
 export default function Example(): Node {
-  return <TileData tooltip="Weekly Active Users" title="WAU" value="1.25M" disabled />;
+  return <TileData tooltip={{ text: 'Weekly Active Users' }} title="WAU" value="1.25M" disabled />;
 }

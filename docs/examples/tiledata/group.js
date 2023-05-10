@@ -31,23 +31,22 @@ export default function Example(): Node {
 
   const [selectedItems, setSelectedItems] = useState(allIds);
 
-  const handleSelect = ({ id, selected }) => {
-    let selectedIds = [];
-    if (selected) {
-      selectedIds = selectedItems.filter((tileId) => tileId !== id);
-    } else {
-      selectedIds = selectedItems.concat([id]);
-    }
-    setSelectedItems(selectedIds);
-  };
-
   return (
     <Flex gap={4}>
       {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
           key={id}
           showCheckbox
-          onSelected={handleSelect}
+          onChange={({ id: selectedId, selected }) => {
+            let selectedIds: Array<string> = [];
+            if (selected) {
+              selectedIds = selectedItems.filter((tileId) => tileId !== selectedId);
+            } else {
+              if (!selectedId) return;
+              selectedIds = selectedItems.concat([selectedId]);
+            }
+            setSelectedItems(selectedIds);
+          }}
           selected={selectedItems.includes(id)}
           color={color}
           tooltip={{ text: tooltip }}
