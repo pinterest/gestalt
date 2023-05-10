@@ -1,3 +1,9 @@
+## 111.3.5 (May 10, 2023)
+
+### Patch
+
+- ButtonGroup: added Android docs for ButtonGroup([#2916](https://github.com/pinterest/gestalt/pull/2916)) - [Preview link](https://deploy-preview-2916--gestalt.netlify.app)
+
 ## 111.3.4 (May 10, 2023)
 
 ### Patch
