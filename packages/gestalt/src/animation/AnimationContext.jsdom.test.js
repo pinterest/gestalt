@@ -6,13 +6,13 @@ import AnimationProvider, { useAnimation, ANIMATION_STATE } from './AnimationCon
 jest.mock('../useReducedMotion.js');
 
 function AnimatedComponent() {
-  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+  const { animationState, handleAnimationEnd, handleExternalDismiss } = useAnimation();
 
   return (
     <button
       aria-label="animated"
-      onAnimationEnd={handleAnimation}
-      onClick={onExternalDismiss}
+      onAnimationEnd={handleAnimationEnd}
+      onClick={handleExternalDismiss}
       type="submit"
     >
       {animationState}

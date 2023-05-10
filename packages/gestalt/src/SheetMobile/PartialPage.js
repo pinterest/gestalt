@@ -10,6 +10,7 @@ import {
 import classnames from 'classnames';
 import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
@@ -86,14 +87,16 @@ export default function PartialPage({
 
   const id = useId();
 
-  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+  const { animationState, handleAnimationEnd } = useAnimation();
+  const { handleRequestAnimationFrame, onExternalDismiss } = useRequestAnimationFrame();
 
   const handleOnAnimationEnd = useCallback(() => {
-    handleAnimation();
+    handleAnimationEnd();
+    handleRequestAnimationFrame();
     onAnimationEnd?.({
       animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
     });
-  }, [animationState, onAnimationEnd, handleAnimation]);
+  }, [animationState, onAnimationEnd, handleAnimationEnd, handleRequestAnimationFrame]);
 
   const handleBackdropClick = useCallback(() => {
     if (closeOnOutsideClick) {
