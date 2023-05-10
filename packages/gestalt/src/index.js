@@ -73,6 +73,7 @@ import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
+import EffectsProvider from './contexts/EffectsProvider.js';
 import ExperimentProvider from './contexts/ExperimentProvider.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
 
@@ -97,6 +98,7 @@ export {
   DeviceTypeProvider,
   Divider,
   Dropdown,
+  EffectsProvider,
   ExperimentProvider,
   Fieldset,
   FixedZIndex,

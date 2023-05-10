@@ -90,6 +90,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           'ColorSchemeProvider',
           'DefaultLabelProvider',
           'DeviceTypeProvider',
+          'EffectsProvider',
           'OnLinkNavigationProvider',
           'ScrollBoundaryContainer',
           'useFocusVisible',

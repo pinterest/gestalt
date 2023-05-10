@@ -16,6 +16,7 @@ import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import { useEffectsContext } from '../contexts/EffectsProvider.js';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
@@ -86,6 +87,9 @@ export default function PartialPage({
   zIndex,
 }: Props): Node {
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
+
+  const { sheetMobile: sheetMobileEffects } = useEffectsContext() ?? { sheetMobile: () => {} };
+  sheetMobileEffects();
 
   const id = useId();
 
