@@ -16,7 +16,7 @@ describe('TileData', () => {
         title="Text Impressions"
         value="1.23M"
         selected
-        tooltip="this is a tooltip"
+        tooltip={{ text: 'This is a tooltip' }}
         onChange={() => {}}
       />,
     );

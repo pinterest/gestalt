@@ -271,10 +271,8 @@ Use Status in instances where information is more categorical or qualitative (su
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'DataPoint' }) },
+    props: { generatedDocGen: await docgen({ componentName: 'Datapoint' }) },
   };
 }

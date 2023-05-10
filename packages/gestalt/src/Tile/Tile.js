@@ -5,10 +5,11 @@ import Box from '../Box.js';
 import Checkbox from '../Checkbox.js';
 import Flex from '../Flex.js';
 import { ENTER } from '../keyCodes.js';
-import TapArea from '../TapArea.js';
+import TapArea, { type OnTapType } from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
+import { type Indexable } from '../zIndex.js';
 import styles from './Tile.css';
 
 type TooltipProps = {|
@@ -18,6 +19,16 @@ type TooltipProps = {|
   text: string,
   zIndex?: Indexable,
 |};
+
+type TileChangeHandler = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  selected: boolean,
+  id?: string,
+|}) => void;
 
 type Props = {|
   /**
@@ -47,11 +58,7 @@ type Props = {|
   /**
    * Handler if the item selection state is changed.
    */
-  onChange?: ({|
-    event: SyntheticKeyboardEvent<HTMLDivElement>,
-    selected: boolean,
-    id?: string,
-  |}) => void,
+  onChange?: TileChangeHandler,
   /**
    * Shows a visible checkbox when the tile is selected state. See when using in a [group](http://gestalt.pinterest.systems/web/tiledata#Group).
    */
@@ -119,8 +126,8 @@ export default function Tile({
     [styles.disabled]: disabled,
   });
 
-  const handleClick = (ev) => {
-    onChange?.({ ev, id, selected: !isSelected });
+  const handleClick: OnTapType = ({ event }) => {
+    onChange?.({ event, id, selected: !isSelected });
     setIsSelected(!isSelected);
   };
 
@@ -130,16 +137,20 @@ export default function Tile({
 
     // the internal base component uses hex codes
     // but could be passed in pre-tokenized values
-    if (borderColor?.startsWith('#')) {
+    if (borderColor && borderColor.startsWith('#')) {
       colorStyles.borderColor = `${borderColor}`;
     }
-    if (bgColor?.startsWith('#')) {
+    if (bgColor && bgColor.startsWith('#')) {
       colorStyles.backgroundColor = `${bgColor}`;
     }
     return colorStyles;
   };
 
-  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = ({
+    event,
+  }: {|
+    event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => {
     if (event.keyCode === ENTER) {
       setIsSelected(!isSelected);
     }
@@ -150,11 +161,10 @@ export default function Tile({
       {disabled && <DisabledOverlay />}
       <ShouldUseTooltip tooltip={tooltip}>
         <TapArea
+          role="button"
           disabled={disabled}
           rounding={4}
           tabIndex={disabled ? -1 : 0}
-          role="button"
-          aria-pressed={selected}
           onBlur={handleOnBlur}
           onTap={handleClick}
           onMouseEnter={handleOnMouseEnter}
@@ -165,7 +175,7 @@ export default function Tile({
             <Flex direction="row" gap={2}>
               {children}
               {showCheckbox && (isSelected || isHovered) && (
-                <Checkbox id={id} checked={isSelected} onChange={handleClick} size="sm" />
+                <Checkbox id={id} checked={isSelected} onChange={() => {}} size="sm" />
               )}
             </Flex>
           </div>

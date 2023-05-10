@@ -150,9 +150,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'TileData' }) },
   };

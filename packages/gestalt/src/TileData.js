@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import DataPoint from './Datapoint.js';
+import { type Indexable } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Tile from './Tile/Tile.js';
 
@@ -11,6 +12,16 @@ type TooltipProps = {|
   text: string,
   zIndex?: Indexable,
 |};
+
+export type TileChangeHandler = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  selected: boolean,
+  id?: string,
+|}) => void;
 
 // Note: 03 is ommited because it doesn't have a corresponding dark token
 type DataVisualizationColors =
@@ -67,11 +78,7 @@ type Props = {|
   /**
    * Handler if the item selection state is changed.
    */
-  onChange: ({|
-    event: SyntheticKeyboardEvent<HTMLDivElement>,
-    selected: boolean,
-    id?: string,
-  |}) => void,
+  onChange?: TileChangeHandler,
   /**
    * Controls whether the tile is selected or not.
    */
