@@ -69,19 +69,6 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
-## Writing
-
-<TwoCol>
-  <Group>
-    <Do title="Do" />
-    - Be clear and brief with checkbox labels so they are easily scanned
-  </Group>
-
-  <Group>
-    <Dont title="Don't" />
-    - Include lengthy text labels that make it hard for a user to scan a list of choices
-  </Group>
-</TwoCol>
 
 ## Variants
 
@@ -125,11 +112,17 @@ Checkbox supports helper text to provide more detail about an option.
 
 <ImgContainer src="https://i.pinimg.com/originals/dd/12/5a/dd125a30d6fb4cdd8c44c002f363dd56.jpg" noPadding alt="Example of checkbox with helper text" />
 
-## Related
+## Writing
 
-- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup)
-  Use when presenting a user with a list of choices for which there can only be one selection.
-- [Switch](https://gestalt.pinterest.systems/android/switch)
-  Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
-- [Fieldset](https://gestalt.pinterest.systems/web/fieldset)
-  Use to group a list of related Checkboxes with a legend that describes the list.
+<TwoCol>
+  <Group>
+    <Do title="Do" />
+    - Be clear and brief with checkbox labels so they are easily scanned
+  </Group>
+
+  <Group>
+    <Dont title="Don't" />
+    - Include lengthy text labels that make it hard for a user to scan a list of choices
+  </Group>
+</TwoCol>
+
