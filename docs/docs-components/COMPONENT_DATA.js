@@ -90,6 +90,7 @@ import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
+import ProviderEffects from '../graphics/utilities/provider-effects.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 
 export type Category =
@@ -3948,6 +3949,59 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
       iOS: 'notAvailable',
       figma: 'notAvailable',
       responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <ProviderEffects />,
+    name: 'EffectsProvider',
+    aliases: ['React.useEffect'],
+    previouslyNamed: [],
+    path: '/web/utilities/effectsprovider',
+    hasDarkBackground: false,
+    description:
+      'React context provider that allows your Gestalt components to synchronize with shared external systems.',
+    category: 'Utilities',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
     },
     android: {
       accessible: {

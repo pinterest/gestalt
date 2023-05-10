@@ -391,6 +391,13 @@ interface OnLinkNavigationProviderProps {
     | undefined;
 }
 
+interface EffectsProviderProps {
+  children: Node;
+  sheetMobile?:
+    | (() => void)
+    | undefined;
+}
+
 interface ScrollBoundaryContainerProps {
   children: Node;
   height?: number | string | undefined;
@@ -2297,6 +2304,12 @@ export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps
  * https://gestalt.pinterest.systems/web/numberfield
  */
 export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/utilities/effectsprovider
+ */
+export const EffectsProvider: React.FunctionComponent<EffectsProviderProps>;
+
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
