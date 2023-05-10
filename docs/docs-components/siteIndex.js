@@ -48,6 +48,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Overview',
       'Avatar',
       'Button',
+      'ButtonGroup',
       'Checkbox',
       'Icon',
       'IconButton',
