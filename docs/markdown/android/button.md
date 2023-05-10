@@ -40,7 +40,7 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 ### Size
 
-Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16dp).
+Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16sp).
 
 1. **lg (60dp)**
    Large should be primarily used on Pinner, business and internal surfaces.
