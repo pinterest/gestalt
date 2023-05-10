@@ -1,3 +1,9 @@
+## 111.3.6 (May 10, 2023)
+
+### Patch
+
+- Dropdown: changed Dropdown.Link icon to "visit" ([#2919](https://github.com/pinterest/gestalt/pull/2919)) - [Preview link](https://deploy-preview-2919--gestalt.netlify.app)
+
 ## 111.3.5 (May 10, 2023)
 
 ### Patch
