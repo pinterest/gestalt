@@ -90,6 +90,7 @@ import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
+import ProviderHandlers from '../graphics/utilities/provider-handlers.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 
 export type Category =
@@ -3948,6 +3949,59 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
       iOS: 'notAvailable',
       figma: 'notAvailable',
       responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <ProviderHandlers />,
+    name: 'HandlersProvider',
+    aliases: ['React.useEffect'],
+    previouslyNamed: [],
+    path: '/web/utilities/handlersprovider',
+    hasDarkBackground: false,
+    description:
+      'React context provider that that allows to share external handlers with consuming components.',
+    category: 'Utilities',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
     },
     android: {
       accessible: {

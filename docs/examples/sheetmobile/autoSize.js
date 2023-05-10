@@ -33,7 +33,12 @@ export default function Example(): Node {
             }
             size="auto"
           >
-            <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+            <Box>
+              {Array(100).map((number, index) => {
+                const key = `example${index}`;
+                return <Text key={key}>Content</Text>;
+              })}
+            </Box>
           </SheetMobile>
         </Layer>
       ) : null}

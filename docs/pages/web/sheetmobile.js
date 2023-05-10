@@ -9,6 +9,7 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import SheetMobileHandlers from '../../examples/handlersprovider/sheetMobileHandlers.js';
 import animation from '../../examples/sheetmobile/animation.js';
 import autoSize from '../../examples/sheetmobile/autoSize.js';
 import defaultSize from '../../examples/sheetmobile/defaultSize.js';
@@ -323,6 +324,27 @@ When using these render props, just pass the argument \`onDismissStart\` to your
                 name="Different size transition with back and forward navigation"
                 code={differentSize}
                 layout="mobileColumn"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="External handlers"
+          description={`SheetMobile consumes external handlers from HandlersProvider.
+
+Handlers:
+- onOpen: executed on useEffect
+- onClose: executed on the cleanup function of useEffect
+
+See [HandlersProvider](/web/utilities/handlersprovider) for more information.`}
+          columns={2}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={SheetMobileHandlers}
+                name="External handlers for SheetMobile"
               />
             }
           />
