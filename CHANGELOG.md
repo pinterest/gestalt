@@ -1,3 +1,9 @@
+## 111.3.4 (May 10, 2023)
+
+### Patch
+
+- SheetMobile, OverlayPanel: implement `window.requestAnimationFrame` method ([#2911](https://github.com/pinterest/gestalt/pull/2911)) - [Preview link](https://deploy-preview-2911--gestalt.netlify.app)
+
 ## 111.3.3 (May 9, 2023)
 
 ### Patch
