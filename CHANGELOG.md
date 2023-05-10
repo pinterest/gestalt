@@ -1,3 +1,57 @@
+## 111.3.4 (May 10, 2023)
+
+### Patch
+
+- SheetMobile, OverlayPanel: implement `window.requestAnimationFrame` method ([#2911](https://github.com/pinterest/gestalt/pull/2911)) - [Preview link](https://deploy-preview-2911--gestalt.netlify.app)
+
+## 111.3.3 (May 9, 2023)
+
+### Patch
+
+- Internal: disable `import/no-namespace` for test files ([#2913](https://github.com/pinterest/gestalt/pull/2913)) - [Preview link](https://deploy-preview-2913--gestalt.netlify.app)
+
+## 111.3.2 (May 9, 2023)
+
+### Patch
+
+- Docs: Design handoff page typo fix ([#2912](https://github.com/pinterest/gestalt/pull/2912)) - [Preview link](https://deploy-preview-2912--gestalt.netlify.app)
+
+## 111.3.1 (May 8, 2023)
+
+### Patch
+
+- Status: updates visual snapshots ([#2910](https://github.com/pinterest/gestalt/pull/2910)) - [Preview link](https://deploy-preview-2910--gestalt.netlify.app)
+
+## 111.3.0 (May 8, 2023)
+
+### Minor
+
+- Status: Adds type="queued" status ([#2907](https://github.com/pinterest/gestalt/pull/2907)) - [Preview link](https://deploy-preview-2907--gestalt.netlify.app)
+
+## 111.2.2 (May 8, 2023)
+
+### Patch
+
+- Docs: new Design file hygiene section ([#2906](https://github.com/pinterest/gestalt/pull/2906)) - [Preview link](https://deploy-preview-2906--gestalt.netlify.app)
+
+## 111.2.1 (May 8, 2023)
+
+### Patch
+
+- Docs: Weekly update and roadmap updates ([#2904](https://github.com/pinterest/gestalt/pull/2904)) - [Preview link](https://deploy-preview-2904--gestalt.netlify.app)
+
+## 111.2.0 (May 5, 2023)
+
+### Minor
+
+- Internal: Create ESLint rule to enforce List usage ([#2903](https://github.com/pinterest/gestalt/pull/2903)) - [Preview link](https://deploy-preview-2903--gestalt.netlify.app)
+
+## 111.1.1 (May 5, 2023)
+
+### Patch
+
+- PopoverEducational: fix unresponsive `zIndex` prop ([#2905](https://github.com/pinterest/gestalt/pull/2905)) - [Preview link](https://deploy-preview-2905--gestalt.netlify.app)
+
 ## 111.1.0 (May 4, 2023)
 
 ### Minor

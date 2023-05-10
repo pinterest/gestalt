@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
-import { useAnimation } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
 import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
@@ -75,7 +75,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const { onExternalDismiss } = useAnimation();
+  const { onExternalDismiss } = useRequestAnimationFrame();
 
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
