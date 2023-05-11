@@ -2,7 +2,7 @@
 import { type Node, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import Box from '../Box.js';
-import Checkbox from '../Checkbox.js';
+import InternalCheckbox from '../Checkbox/InternalCheckbox.js';
 import Flex from '../Flex.js';
 import { ENTER } from '../keyCodes.js';
 import TapArea, { type OnTapType } from '../TapArea.js';
@@ -133,7 +133,7 @@ export default function Tile({
 
   const generateSelectedColorStyles = () => {
     const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {};
-    if (!isSelected) return styles;
+    if (!isSelected || disabled) return colorStyles;
 
     // the internal base component uses hex codes
     // but could be passed in pre-tokenized values
@@ -156,6 +156,8 @@ export default function Tile({
     }
   };
 
+  const colorStyles = generateSelectedColorStyles();
+
   return (
     <Box position="relative">
       {disabled && <DisabledOverlay />}
@@ -171,11 +173,17 @@ export default function Tile({
           onMouseLeave={handleOnMouseLeave}
           onKeyDown={handleKeyDown}
         >
-          <div className={classes} style={generateSelectedColorStyles()}>
+          <div className={classes} style={colorStyles}>
             <Flex direction="row" gap={2}>
               {children}
               {showCheckbox && (isSelected || isHovered) && (
-                <Checkbox id={id} checked={isSelected} onChange={() => {}} size="sm" />
+                <InternalCheckbox
+                  id={id}
+                  checked={isSelected}
+                  readOnly
+                  size="sm"
+                  style={{ backgroundColor: colorStyles.borderColor, borderColor: 'transparent' }}
+                />
               )}
             </Flex>
           </div>
