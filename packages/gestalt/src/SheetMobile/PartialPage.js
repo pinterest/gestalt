@@ -157,6 +157,7 @@ export default function PartialPage({
               className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
                 [sheetMobileStyles.defaultWrapper]: size === 'default',
                 [sheetMobileStyles.autoWrapper]: size === 'auto',
+                [animation.slideUpInitialize]: animationState === ANIMATION_STATE.hidden,
                 [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutBottom]: animationState === ANIMATION_STATE.animatedClosing,
               })}

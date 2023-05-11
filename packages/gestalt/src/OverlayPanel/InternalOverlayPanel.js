@@ -70,7 +70,7 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
-export default function InternalSheet({
+export default function InternalOverlayPanel({
   accessibilityDismissButtonLabel,
   accessibilityLabel,
   children,
@@ -192,6 +192,7 @@ export default function InternalSheet({
               id={id}
               aria-label={accessibilityLabel}
               className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
+                [animation.slideInRtlInitialize]: animationState === ANIMATION_STATE.hidden,
                 [animation.animationInSide]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutSide]: animationState === ANIMATION_STATE.animatedClosing,
               })}

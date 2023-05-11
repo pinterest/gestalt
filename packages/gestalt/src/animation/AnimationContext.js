@@ -17,9 +17,15 @@ export const ANIMATION_STATE = {
   animatedOpening: 'animatedOpening',
   animatedClosing: 'animatedClosing',
   unmount: 'unmount',
+  hidden: 'hidden',
 };
 
-export type AnimationStateType = null | 'animatedOpening' | 'animatedClosing' | 'unmount';
+export type AnimationStateType =
+  | null
+  | 'animatedOpening'
+  | 'animatedClosing'
+  | 'unmount'
+  | 'hidden';
 
 type AnimationType = {|
   animationState: AnimationStateType,
@@ -28,6 +34,7 @@ type AnimationType = {|
 
 type UseAnimationType = {|
   animationState: AnimationStateType,
+  setAnimationState: (AnimationStateType) => void,
   handleAnimationEnd: () => void,
   handleExternalDismiss: () => void,
 |};
@@ -50,7 +57,7 @@ export default function AnimationProvider({
   children,
 }: AnimationProviderProps): Element<typeof AnimationContext.Provider> | null {
   const [animationState, setAnimationState] = useState<AnimationStateType>(
-    useReducedMotion() ? null : ANIMATION_STATE.animatedOpening,
+    useReducedMotion() ? null : ANIMATION_STATE.hidden,
   );
 
   return (
@@ -108,6 +115,7 @@ export function useAnimation(): UseAnimationType {
 
   return {
     animationState,
+    setAnimationState,
     handleExternalDismiss,
     handleAnimationEnd,
   };

@@ -11,4 +11,6 @@ declare module.exports: {|
   +'slide-out-ltr': string,
   +'slide-out-rtl': string,
   +'slide-up': string,
+  +'slideInRtlInitialize': string,
+  +'slideUpInitialize': string,
 |};
