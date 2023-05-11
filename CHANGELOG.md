@@ -1,3 +1,9 @@
+## 111.3.8 (May 11, 2023)
+
+### Patch
+
+- Dropdown: fixes visual snapshots after [#2919] ([#2927](https://github.com/pinterest/gestalt/pull/2927)) - [Preview link](https://deploy-preview-2927--gestalt.netlify.app)
+
 ## 111.3.7 (May 11, 2023)
 
 ### Patch
