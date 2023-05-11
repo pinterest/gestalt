@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import DataPoint from './Datapoint.js';
 import { type Indexable } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import Tile from './Tile/Tile.js';
 
 type TooltipProps = {|
@@ -97,12 +97,12 @@ type Props = {|
  * Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points
  */
 export default function TileData({
+  color = '05',
   disabled = false,
   id,
-  selected,
-  color = '05',
-  showCheckbox,
   onChange,
+  selected,
+  showCheckbox,
   tooltip,
   title,
   trend,
@@ -141,7 +141,13 @@ export default function TileData({
       borderColor={getColorHex(color)}
       onChange={onChange}
     >
-      <DataPoint title={title} value={value} trend={trend} trendSentiment={trendSentiment} />
+      <InternalDatapoint
+        title={title}
+        value={value}
+        trend={trend}
+        trendSentiment={trendSentiment}
+        disabled={disabled}
+      />
     </Tile>
   );
 }
