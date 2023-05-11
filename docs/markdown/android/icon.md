@@ -102,14 +102,14 @@ Used sparingly to draw attention to an icon that might otherwise be missed
 Icon colors are semantic—they have a specific meaning and aren't arbitrary. There is no disabled color for icons, as that is handled by the button state that an icon is in.
 
 #### Light mode
-
+<br/>
 <iframe style={{border:0}} width="100%" height="490" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D5058%253A18866%26t%3D0eckWD5MZ5KL7Upr-1" allowFullScreen></iframe>
 
 #### Dark mode
-
+<br/>
 <iframe style={{border:0}} width="100%" height="490" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D5058%253A19057%26t%3DEOtvT24P2BprSIEh-1" allowFullScreen></iframe>
 
-### Platform-specific icons
+## Platform-specific icons
 
 1. **Share**
 On Android, use the `android-share` icon to indicate the ability to share an element.
