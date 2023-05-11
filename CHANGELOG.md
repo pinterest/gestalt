@@ -1,3 +1,9 @@
+## 111.4.0 (May 11, 2023)
+
+### Minor
+
+- SheetMobile: adding `onOutsideClick` prop ([#2915](https://github.com/pinterest/gestalt/pull/2915)) - [Preview link](https://deploy-preview-2915--gestalt.netlify.app)
+
 ## 111.3.9 (May 11, 2023)
 
 ### Patch
