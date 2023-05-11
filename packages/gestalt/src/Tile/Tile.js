@@ -69,10 +69,6 @@ type Props = {|
   tooltip?: TooltipProps,
 |};
 
-function DisabledOverlay() {
-  return <div className={classnames(styles.tile, styles.disabledOverlay)} />;
-}
-
 function ShouldUseTooltip({
   children,
   disabled,
@@ -160,7 +156,6 @@ export default function Tile({
 
   return (
     <Box position="relative">
-      {disabled && <DisabledOverlay />}
       <ShouldUseTooltip tooltip={tooltip}>
         <TapArea
           role="button"
