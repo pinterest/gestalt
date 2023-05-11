@@ -1,3 +1,9 @@
+## 111.3.9 (May 11, 2023)
+
+### Patch
+
+- SheetMobile, OverlayPanel: fixes to animation ([#2920](https://github.com/pinterest/gestalt/pull/2920)) - [Preview link](https://deploy-preview-2920--gestalt.netlify.app)
+
 ## 111.3.8 (May 11, 2023)
 
 ### Patch
