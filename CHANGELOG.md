@@ -1,3 +1,9 @@
+## 111.3.7 (May 11, 2023)
+
+### Patch
+
+- Docs: refactors in Android pages for layout consistency ([#2917](https://github.com/pinterest/gestalt/pull/2917)) - [Preview link](https://deploy-preview-2917--gestalt.netlify.app)
+
 ## 111.3.6 (May 10, 2023)
 
 ### Patch
