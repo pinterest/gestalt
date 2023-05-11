@@ -1,5 +1,5 @@
 // @flow strict
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 /**
  * Returns event handlers that manage state for active, focus and hover states
@@ -20,30 +20,30 @@ const useInteractiveStates = (): ({|
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
-  const handleOnBlur = () => {
+  const handleOnBlur = useCallback(() => {
     setFocused(false);
-  };
+  }, []);
 
-  const handleOnFocus = () => {
+  const handleOnFocus = useCallback(() => {
     setFocused(true);
-  };
+  }, []);
 
-  const handleOnMouseDown = () => {
+  const handleOnMouseDown = useCallback(() => {
     setActive(true);
-  };
+  }, []);
 
-  const handleOnMouseUp = () => {
+  const handleOnMouseUp = useCallback(() => {
     setActive(false);
-  };
+  }, []);
 
-  const handleOnMouseEnter = () => {
+  const handleOnMouseEnter = useCallback(() => {
     setHovered(true);
-  };
+  }, []);
 
-  const handleOnMouseLeave = () => {
+  const handleOnMouseLeave = useCallback(() => {
     setActive(false);
     setHovered(false);
-  };
+  }, []);
 
   return {
     handleOnBlur,
