@@ -23,10 +23,10 @@ export type TileChangeHandler = ({|
   id?: string,
 |}) => void;
 
-// Note: 03 is ommited because it doesn't have a corresponding dark token
 type DataVisualizationColors =
   | '01'
   | '02'
+  | '03'
   | '04'
   | '05'
   | '06'
@@ -44,7 +44,7 @@ type TrendObject = {|
 
 type Props = {|
   /**
-   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette). 03 is not supported yet, because it has no corresponding dark theme.
+   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette).
    */
   color?: DataVisualizationColors,
   /**
