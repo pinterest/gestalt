@@ -1,12 +1,16 @@
 // @flow strict
 import { type Node, useRef, useState } from 'react';
-import { Button, Dropdown, Flex, OnLinkNavigationProvider } from 'gestalt';
-import { useRouter } from 'next/router';
+import { Button, Dropdown, Flex, OnLinkNavigationProvider, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
-  const router = useRouter();
+
+  const useRouter = {
+    push: (href: string) => {
+      window.location.href = `${window.location.href}${href}`;
+    },
+  };
 
   const useOnNavigation = ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
     const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
@@ -22,6 +26,7 @@ export default function Example(): Node {
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <OnLinkNavigationProvider onNavigation={useOnNavigation}>
         <Flex direction="column" gap={2}>
+          <Text>Example url: {window.location.href}</Text>
           <Flex justifyContent="center">
             <Button
               accessibilityControls="basic-dropdown-example"
@@ -50,7 +55,7 @@ export default function Example(): Node {
                   onClick={({ event, dangerouslyDisableOnNavigation }) => {
                     event.preventDefault();
                     dangerouslyDisableOnNavigation();
-                    router.push('#');
+                    useRouter.push('#');
                     setOpen(false);
                   }}
                 />
