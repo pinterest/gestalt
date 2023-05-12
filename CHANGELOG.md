@@ -1,3 +1,9 @@
+## 111.4.4 (May 12, 2023)
+
+### Patch
+
+- DateField: added "spacious" format ([#2934](https://github.com/pinterest/gestalt/pull/2934)) - [Preview link](https://deploy-preview-2934--gestalt.netlify.app)
+
 ## 111.4.3 (May 12, 2023)
 
 ### Patch
