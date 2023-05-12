@@ -3,6 +3,44 @@
     "year": "2023",
     "digests": [
       {
+        "week": "May 12, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Dropdown updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": ""
+          },
+          {
+            "title": "Figma file hygiene guidelines",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": ""
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": ""
+          },
+          {
+            "title": "ButtonGroup Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": ""
+          }
+        ]
+      },
+      {
         "week": "May 5, 2023",
         "summary": "Official TypeScript support, mweb-adaptive Dropdowns, TextField Android docs and boatloads of Figma library updates.",
         "posts": [
