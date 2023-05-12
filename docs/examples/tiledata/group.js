@@ -22,7 +22,7 @@ export default function Example(): Node {
       id: 'data-4',
       name: 'DAU',
       value: '10M',
-      color: '04',
+      color: '03',
       tooltip: 'Daily active users',
     },
   ];

@@ -3,8 +3,7 @@ import { type Node } from 'react';
 import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
-  // note 03 doesn't exist as a color
-  const allColors = ['01', '02', '04', '05', '06', '08', '09', '10', '11', '12'];
+  const allColors = ['01', '02', '03', '04', '05', '06', '08', '09', '10', '11', '12'];
 
   return (
     <Flex gap={4} wrap justifyContent="center">
