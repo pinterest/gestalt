@@ -12,7 +12,7 @@
             "imageColor": "blue-skycicle-100",
             "imageSrc": "https://i.pinimg.com/originals/7a/77/45/7a7745342069fdb0dab8134ec86dfc27.png",
             "imageAltText": "Examples of Dropdown in desktop and mobile web contexts.",
-            "content": "Gestalt's Web Dropdown now is [mWeb adaptive](https://gestalt.pinterest.systems/web/dropdown#Mobile). This is awesome because now using Dropdown will _just work_ in any situation. For desktop, the menu will display as a Popover and on mobile, it'll reveal as a Sheet. This means just one less thing for you to do when building experiences. So make sure to treat yourself to something nice with all the extra time you now have..\n\nWe also switched out the link affordance to our new standard `visit` icon. This will ensure greater visual continuity throughout the product."
+            "content": "Gestalt's Web Dropdown now is [mWeb adaptive](https://gestalt.pinterest.systems/web/dropdown#Mobile). This is awesome because now using Dropdown will _just work_ in any situation. For desktop, the menu will display as a Popover and on mobile, it'll reveal as a Sheet. This means just one less thing for you to do when building experiences. So make sure to treat yourself to something nice with all the extra time you now have\n\n*Note:* Dropdown mobile adaptation is not set as default yet. We are still improving SheetMobile to support additional functionality. Once the refinements are finished, we'll set mobile adaptation to SheetMobile as default.\n\nWe also switched out the link affordance to our new standard `visit` icon. This will ensure greater visual continuity throughout the product."
           },
           {
             "title": "Animation improvements for Sheet and OverlayPanel",
