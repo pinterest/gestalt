@@ -136,7 +136,7 @@ export default function DocSearch({
       appId: 'GS3KDMZW6P',
       apiKey: '88c1825a5951ee68c92b4fbf4e85ec7f',
       debug: false, // Set debug to true if you want to keep open and inspect the dropdown
-      indexName: 'gestalt',
+      indexName: 'gestalt_test_index',
       inputSelector: `#${INPUT_ID}`,
     });
   }, []);
