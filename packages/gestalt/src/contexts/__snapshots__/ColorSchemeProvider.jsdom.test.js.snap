@@ -77,7 +77,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-data-visualization-error-text: #eb4242;
   --color-data-visualization-01: #005fcb;
   --color-data-visualization-02: #75e4d5;
-  --color-data-visualization-03: #974CFF;
+  --color-data-visualization-03: #B190FF;
   --color-data-visualization-04: #FDA600;
   --color-data-visualization-05: #75bfff;
   --color-data-visualization-06: #de2c62;
@@ -442,7 +442,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-data-visualization-error-text: #eb4242;
   --color-data-visualization-01: #005fcb;
   --color-data-visualization-02: #75e4d5;
-  --color-data-visualization-03: #974CFF;
+  --color-data-visualization-03: #B190FF;
   --color-data-visualization-04: #FDA600;
   --color-data-visualization-05: #75bfff;
   --color-data-visualization-06: #de2c62;
