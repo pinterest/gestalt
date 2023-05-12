@@ -42,7 +42,7 @@ export default function Example(): Node {
                 }}
               >
                 <Dropdown.Link
-                  href="#"
+                  href="#Disabling-the-provider"
                   option={{
                     value: 'link item',
                     label: 'This item is a link',
@@ -51,6 +51,7 @@ export default function Example(): Node {
                     event.preventDefault();
                     dangerouslyDisableOnNavigation();
                     router.push('#');
+                    setOpen(false);
                   }}
                 />
               </Dropdown>

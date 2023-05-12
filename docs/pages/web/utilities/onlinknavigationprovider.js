@@ -57,6 +57,36 @@ The returned \`onNavigationClick\` function inside the hook function uses the ev
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Disabling the provider"
+          description={`
+All components that consume from the OnLinkNavigationProvider also allow to disable the default navigation logic set in the provider from the component itself.
+
+The triggering events, like \`onClick\`, provide access to the event and "dangerouslyDisableOnNavigation".
+
+"dangerouslyDisableOnNavigation" is a callback function that, when called, disables the logic set in OnLinkNavigationProvider in that component instance.
+
+"dangerouslyDisableOnNavigation" can be used to use the native anchor element directly or to use an alternative navigation
+logic.
+
+Don't forget to call <code>event.preventDefault</code> when implementing an alternative navigation, e.g. router logic inside the onClick event. <code>event.preventDefault</code> will prevent your underlying anchor and the alternative navigation to act at the same time, having two navigations occurring at the same time.
+
+The example below demonstrates the correct use of "dangerouslyDisableOnNavigation".
+`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={dangerouslyDisableOnNavigation}
+                name="Example - dangerouslyDisableOnNavigation"
+                layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Examples">
         <MainSection.Subsection title="Link, Button, IconButton, TapArea">
@@ -94,20 +124,6 @@ The returned \`onNavigationClick\` function inside the hook function uses the ev
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={examplesDropdown} name="Example - Dropdown" layout="column" />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="dangerouslyDisableOnNavigation">
-          <MainSection.Card
-            title="How to use dangerouslyDisableOnNavigation"
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={dangerouslyDisableOnNavigation}
-                name="Example - Dropdown"
-                layout="column"
-              />
             }
           />
         </MainSection.Subsection>
