@@ -8,6 +8,7 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
+import dangerouslyDisableOnNavigation from '../../../examples/onlinknavigationprovider/dangerouslyDisableOnNavigation.js';
 import examplesCalloutUpsell from '../../../examples/onlinknavigationprovider/examplesCalloutUpsell.js';
 import examplesDropdown from '../../../examples/onlinknavigationprovider/examplesDropdown.js';
 import examplesLinkButton from '../../../examples/onlinknavigationprovider/examplesLinkButton.js';
@@ -89,10 +90,24 @@ The returned \`onNavigationClick\` function inside the hook function uses the ev
 
         <MainSection.Subsection title="Dropdown">
           <MainSection.Card
-            title="With a Dropdown"
+            title="Examples: Dropdown.Link"
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={examplesDropdown} name="Example - Dropdown" layout="column" />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="dangerouslyDisableOnNavigation">
+          <MainSection.Card
+            title="How to use dangerouslyDisableOnNavigation"
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={dangerouslyDisableOnNavigation}
+                name="Example - Dropdown"
+                layout="column"
+              />
             }
           />
         </MainSection.Subsection>
