@@ -13,6 +13,7 @@
       },
       "03": {
         "value": "#924AF7",
+        "darkValue": "#974CFF",
         "comment": "Third option for data visualization colors"
       },
       "04": {
