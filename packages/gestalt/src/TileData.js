@@ -42,27 +42,7 @@ type TrendObject = {|
   value: number,
 |};
 
-type DataPointBaseProps = {|
-  /**
-   * The header text for the component.
-   */
-  title: string,
-  /**
-   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
-   */
-  trend?: TrendObject,
-  /**
-   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
-   */
-  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
-  /**
-   * The datapoint value (e.g., 1.23M).
-   */
-  value: string,
-|};
-
 type Props = {|
-  ...DataPointBaseProps,
   /**
    * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette). 03 is not supported yet, because it has no corresponding dark theme.
    */
@@ -88,9 +68,25 @@ type Props = {|
    */
   showCheckbox?: boolean,
   /**
+   * The header text for the component.
+   */
+  title: string,
+  /**
    * Adds a Tooltip on hover/focus of the Tile. See the with [Tooltip](https://gestalt.pinterest.systems/web/tooltip) variant to learn more.
    */
   tooltip?: TooltipProps,
+  /**
+   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
+   */
+  trend?: TrendObject,
+  /**
+   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
+   */
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+  /**
+   * The datapoint value (e.g., 1.23M).
+   */
+  value: string,
 |};
 
 /**

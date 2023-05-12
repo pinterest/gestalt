@@ -19,30 +19,7 @@ type TrendObject = {|
   value: number,
 |};
 
-/**
- * Shared across Datapoint and TileData
- */
-type DataPointBaseProps = {|
-  /**
-   * The header text for the component.
-   */
-  title: string,
-  /**
-   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
-   */
-  trend?: TrendObject,
-  /**
-   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
-   */
-  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
-  /**
-   * The datapoint value (e.g., 1.23M).
-   */
-  value: string,
-|};
-
 type Props = {|
-  ...DataPointBaseProps,
   /**
    * Adds a badge to the title. Currently a beta feature, expect changes.
    */
@@ -56,13 +33,29 @@ type Props = {|
    */
   size?: 'md' | 'lg',
   /**
+   * The header text for the component.
+   */
+  title: string,
+  /**
    * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
    */
   tooltipText?: string,
   /**
+   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
+   */
+  trend?: TrendObject,
+  /**
+   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
+   */
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+  /**
    * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
    */
   tooltipZIndex?: Indexable,
+  /**
+   * The datapoint value (e.g., 1.23M).
+   */
+  value: string,
 |};
 
 /**
