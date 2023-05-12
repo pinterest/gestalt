@@ -52,6 +52,7 @@ export default function Example(): Node {
           tooltip={{ text: tooltip }}
           title={name}
           value={value}
+          trend={{ value: 20, accessibilityLabel: 'Trending up' }}
         />
       ))}
     </Flex>
