@@ -10,7 +10,7 @@ import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter.js';
 const MAIN_STEPS = [
   { name: '01', lightText: 'light', darkText: 'light' },
   { name: '02', lightText: 'dark', darkText: 'dark' },
-  { name: '03', lightText: 'light', darkText: 'light' },
+  { name: '03', lightText: 'light', darkText: 'dark' },
   { name: '04', lightText: 'dark', darkText: 'dark' },
   { name: '05', lightText: 'dark', darkText: 'dark' },
   { name: '06', lightText: 'dark', darkText: 'light' },
