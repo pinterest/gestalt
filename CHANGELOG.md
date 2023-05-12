@@ -1,3 +1,9 @@
+## 111.4.5 (May 12, 2023)
+
+### Patch
+
+- OnLinkNavigationProvider: example fix ([#2935](https://github.com/pinterest/gestalt/pull/2935)) - [Preview link](https://deploy-preview-2935--gestalt.netlify.app)
+
 ## 111.4.4 (May 12, 2023)
 
 ### Patch
