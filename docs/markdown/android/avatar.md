@@ -20,12 +20,12 @@ fullwidth: true
 </TwoCol>
 
 ## Best practices
-
+For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
 - Use the default alternative if no image source is available. This will be the first character of the provided name.
 - Don’t place elements like washes, text or icons on Avatar.
 - Don’t use Avatar to represent metaphorical ideas, like a Board.
+<br/>
 
-For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
 <TwoCol>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/92/e5/ec/92e5ec30eb262ff1decfb70653a0d92c.png" alt="example profile with correct avatar size"/>
@@ -55,6 +55,10 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 ### Size
 
+Avatar comes in 6 different sizes.
+<br/>
+<ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="different avatar variations"/>
+
 1. **xxl** **(120px)**
 2. **xl** **(60px)**
 3. **lg** **(44px)**
@@ -62,7 +66,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 5. **sm** **(24px)**
 6. **xs** **(16px)**
 
-<ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="different avatar variations"/>
+<br/>
 
 ### Without an image
 
@@ -71,14 +75,3 @@ If there is no image source provided for the Avatar, the first character of the 
 <br/>
 
 <ImgContainer src="https://i.pinimg.com/originals/09/fb/35/09fb35ea880ea6748003d7ed0b3de426.png" alt="avatar without any image"/>
-
-## Related
-
-<ThreeCol>
-  <IllustrationCard
-  title="AvatarGroup"
-  description="AvatarGroup is the ideal component where multiple people/groups need to be displayed"
-  color="teal-spabattical-450"
-  image="avatar-group"
-  />
-</ThreeCol>

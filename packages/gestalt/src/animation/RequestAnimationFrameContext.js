@@ -3,7 +3,6 @@
 import {
   useRef,
   useEffect,
-  useState,
   useContext,
   useCallback,
   createContext,
@@ -83,9 +82,7 @@ export default function RequestAnimationFrameProvider({
   typeof RequestAnimationFrameContext.Provider,
 > | null {
   const reducedMotion = useReducedMotion();
-  // reducedMotion controls the initial rendering state of the component
-  const [render, setRender] = useState(reducedMotion);
-  const { animationState, handleExternalDismiss } = useAnimation();
+  const { animationState, setAnimationState, handleExternalDismiss } = useAnimation();
   const requestAnimationFrameId = useRef(null);
   /*
   Summary to understand what event controls requestAnimationFrame during the lifecycle of the component
@@ -99,7 +96,7 @@ export default function RequestAnimationFrameProvider({
   */
 
   /*
-  useEffect  (mounting/unmounting)
+  useEffect (mounting/unmounting)
 
     This useEffect controls requestAnimationFrame on the "in" animation when mounting and cancelAnimationFrame on the "out" animation when unmounting
   */
@@ -107,7 +104,7 @@ export default function RequestAnimationFrameProvider({
     // requestAnimationFrame manages the initial rendering of the component when component is animated
     requestAnimationFrameId.current = getRequestAnimationFrame(() => {
       if (!reducedMotion && !!requestAnimationFrameId.current) {
-        setRender(true);
+        setAnimationState?.(ANIMATION_STATE.animatedOpening);
       }
     });
 
@@ -117,7 +114,7 @@ export default function RequestAnimationFrameProvider({
         requestAnimationFrameId: requestAnimationFrameId.current,
       });
     };
-  }, [reducedMotion]);
+  }, [reducedMotion, setAnimationState]);
 
   /*
   onExternalDismiss (onDismiss)
@@ -159,7 +156,7 @@ export default function RequestAnimationFrameProvider({
         [handleRequestAnimationFrame, onExternalDismiss],
       )}
     >
-      {render ? children : null}
+      {children}
     </RequestAnimationFrameContext.Provider>
   );
 }

@@ -1,3 +1,39 @@
+## 111.4.0 (May 11, 2023)
+
+### Minor
+
+- SheetMobile: adding `onOutsideClick` prop ([#2915](https://github.com/pinterest/gestalt/pull/2915)) - [Preview link](https://deploy-preview-2915--gestalt.netlify.app)
+
+## 111.3.9 (May 11, 2023)
+
+### Patch
+
+- SheetMobile, OverlayPanel: fixes to animation ([#2920](https://github.com/pinterest/gestalt/pull/2920)) - [Preview link](https://deploy-preview-2920--gestalt.netlify.app)
+
+## 111.3.8 (May 11, 2023)
+
+### Patch
+
+- Dropdown: fixes visual snapshots after [#2919] ([#2927](https://github.com/pinterest/gestalt/pull/2927)) - [Preview link](https://deploy-preview-2927--gestalt.netlify.app)
+
+## 111.3.7 (May 11, 2023)
+
+### Patch
+
+- Docs: refactors in Android pages for layout consistency ([#2917](https://github.com/pinterest/gestalt/pull/2917)) - [Preview link](https://deploy-preview-2917--gestalt.netlify.app)
+
+## 111.3.6 (May 10, 2023)
+
+### Patch
+
+- Dropdown: changed Dropdown.Link icon to "visit" ([#2919](https://github.com/pinterest/gestalt/pull/2919)) - [Preview link](https://deploy-preview-2919--gestalt.netlify.app)
+
+## 111.3.5 (May 10, 2023)
+
+### Patch
+
+- ButtonGroup: added Android docs for ButtonGroup([#2916](https://github.com/pinterest/gestalt/pull/2916)) - [Preview link](https://deploy-preview-2916--gestalt.netlify.app)
+
 ## 111.3.4 (May 10, 2023)
 
 ### Patch

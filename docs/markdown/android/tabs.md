@@ -104,17 +104,6 @@ The underline style of Tabs sits primarily in the header of the screen.
   </Group>
 </TwoCol>
 
-### Animation
+## Animation
 
 By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
-
-## Related
-
-<ThreeCol>
-  <IllustrationCard
-  title="SegmentedControl"
-  description="SegmentedControl is used to switch between views within a small area of content, such as a Popover."
-  color="teal-spabattical-450"
-  image="segmented-control"
-  />
-</ThreeCol>

@@ -6,5 +6,6 @@ declare module.exports: {|
   +'backdropAnimationOut': string,
   +'fade-in': string,
   +'fade-out': string,
+  +'initialize': string,
   +'zoomOut': string,
 |};

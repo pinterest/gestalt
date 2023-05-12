@@ -68,6 +68,10 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
+   * Callback fired when clicking on the backdrop (gray area) outside of SheetMobile.
+   */
+  onOutsideClick?: () => void,
+  /**
    * The main SheetMobile content section has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
    */
   padding?: 'default' | 'none',
@@ -130,6 +134,7 @@ function SheetMobile({
   forwardIconButton,
   onAnimationEnd,
   onDismiss,
+  onOutsideClick,
   footer,
   padding,
   primaryAction,
@@ -179,6 +184,7 @@ function SheetMobile({
             forwardIconButton={forwardIconButton}
             onAnimationEnd={onAnimationEnd}
             onDismiss={onDismiss}
+            onOutsideClick={onOutsideClick}
             footer={footer}
             heading={heading}
             padding={padding}
