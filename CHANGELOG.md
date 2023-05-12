@@ -1,3 +1,9 @@
+## 111.4.3 (May 12, 2023)
+
+### Patch
+
+- OnLinkNavigationProvider: added "disabling provider" variant ([#2930](https://github.com/pinterest/gestalt/pull/2930)) - [Preview link](https://deploy-preview-2930--gestalt.netlify.app)
+
 ## 111.4.2 (May 12, 2023)
 
 ### Patch
