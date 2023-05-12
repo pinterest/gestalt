@@ -1,3 +1,9 @@
+## 111.4.1 (May 12, 2023)
+
+### Patch
+
+- Internal: alphabetize dependencies ([#2932](https://github.com/pinterest/gestalt/pull/2932)) - [Preview link](https://deploy-preview-2932--gestalt.netlify.app)
+
 ## 111.4.0 (May 11, 2023)
 
 ### Minor
