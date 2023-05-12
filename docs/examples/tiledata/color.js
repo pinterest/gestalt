@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node } from 'react';
 import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
