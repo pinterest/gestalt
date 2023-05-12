@@ -17,7 +17,10 @@ const combinations = (variationsByField: { ... }) => {
 
   if (!fieldNames.length) return [{}];
 
-  const combine = ([fieldName, ...restFieldNames]: $ReadOnlyArray<empty>, acc: { ... }) => {
+  const combine = (
+    [fieldName, ...restFieldNames]: $ReadOnlyArray<empty>,
+    acc: { ... },
+  ): $ReadOnlyArray<{||}> => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
