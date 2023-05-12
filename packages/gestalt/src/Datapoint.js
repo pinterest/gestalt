@@ -13,7 +13,15 @@ type TrendObject = {|
   value: number,
 |};
 
-type DataPointBaseProps = {|
+type Props = {|
+  /**
+   * Adds a badge to the title. Currently a beta feature, expect changes.
+   */
+  badge?: BadgeObject,
+  /**
+   * Used to set the size of the datapoint. See the [size](https://gestalt.pinterest.systems#Size) variant to learn more.
+   */
+  size?: 'md' | 'lg',
   /**
    * The header text for the component.
    */
@@ -30,18 +38,6 @@ type DataPointBaseProps = {|
    * The datapoint value (e.g., 1.23M).
    */
   value: string,
-|};
-
-type Props = {|
-  ...DataPointBaseProps,
-  /**
-   * Adds a badge to the title. Currently a beta feature, expect changes.
-   */
-  badge?: BadgeObject,
-  /**
-   * Used to set the size of the datapoint. See the [size](https://gestalt.pinterest.systems#Size) variant to learn more.
-   */
-  size?: 'md' | 'lg',
   /**
    * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
    */
