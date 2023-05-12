@@ -223,6 +223,7 @@ function InternalDateField({
         <MUIDatePicker
           onChange={(dateValue) => onChange({ value: dateValue })}
           disabled={disabled}
+          formatDensity="spacious"
           readOnly={readOnly}
           onError={(error) => onError?.({ errorMessage: error, value })}
           errorMessage={!!errorMessage}
