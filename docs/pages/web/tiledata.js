@@ -101,7 +101,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Use TileData's Data Visualization to display multiple colors.`}
+          description={`Use TileData's to display multiple colors that represent the data trend`}
           title="Colors"
         >
           <MainSection.Card
