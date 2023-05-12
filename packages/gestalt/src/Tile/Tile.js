@@ -171,13 +171,16 @@ export default function Tile({
           <div className={classes} style={colorStyles}>
             <Flex direction="row" gap={2}>
               {children}
-              {showCheckbox && (isSelected || isHovered) && (
+              {showCheckbox && (
                 <InternalCheckbox
                   id={id}
                   checked={isSelected}
                   readOnly
                   size="sm"
-                  style={{ backgroundColor: colorStyles.borderColor, borderColor: 'transparent' }}
+                  style={{
+                    backgroundColor: isSelected ? colorStyles.borderColor : 'transparent',
+                    borderColor: 'transparent',
+                  }}
                 />
               )}
             </Flex>
