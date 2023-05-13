@@ -214,7 +214,7 @@ describe('OverlayPanel', () => {
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button = getByText('Submit');
+    const button: HTMLElement = getByText('Submit');
     fireEvent.click(button);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -245,7 +245,7 @@ describe('OverlayPanel', () => {
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button = getByText('Submit');
+    const button: HTMLElement = getByText('Submit');
     fireEvent.click(button);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -277,7 +277,7 @@ describe('OverlayPanel', () => {
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button = getByText('Submit');
+    const button: HTMLElement = getByText('Submit');
     fireEvent.click(button);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));

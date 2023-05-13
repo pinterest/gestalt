@@ -6,7 +6,7 @@ export default function Example(): Node {
   // eslint-disable-next-line no-use-before-define
   const [tags, setTags] = useState<$ReadOnlyArray<Element<typeof Tag>>>([generateTag()]);
 
-  function generateTag() {
+  function generateTag(): Element<typeof Tag> {
     return (
       <Tag
         onRemove={() => {

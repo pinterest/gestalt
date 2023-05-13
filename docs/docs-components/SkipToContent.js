@@ -12,7 +12,7 @@ export default function SkipToContent(): Node {
   const [focused, setFocused] = useState(false);
   const [mainContent, setMainContent] = useState(null);
 
-  const handleTabIndex = useCallback(() => {
+  const handleTabIndex: () => void = useCallback(() => {
     mainContent?.removeAttribute('tabindex');
     mainContent?.removeEventListener('blur', handleTabIndex);
     mainContent?.removeEventListener('focusout', handleTabIndex);

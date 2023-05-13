@@ -43,7 +43,7 @@ function getRequestAnimationFrame(callback: () => void): number {
   }
 
   /* the callback routine must itself call requestAnimationFrame() again to animate another frame at the next repaint. requestAnimationFrame() is 1 shot. */
-  let requestId;
+  let requestId: number | null;
   /* update the requestId each time requestAnimationFrame is called */
   requestId = window.requestAnimationFrame(() => {
     requestId = window.requestAnimationFrame(() => {
