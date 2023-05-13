@@ -83,7 +83,7 @@ export default function RequestAnimationFrameProvider({
 > | null {
   const reducedMotion = useReducedMotion();
   const { animationState, setAnimationState, handleExternalDismiss } = useAnimation();
-  const requestAnimationFrameId = useRef(null);
+  const requestAnimationFrameId = useRef<null | number>(null);
   /*
   Summary to understand what event controls requestAnimationFrame during the lifecycle of the component
     "in" animation

@@ -32,7 +32,7 @@ export default function useTapFeedback({ height, width }: {| height: ?number, wi
     y: 0,
   });
 
-  const [compressStyle, setCompressStyle] = useState(null);
+  const [compressStyle, setCompressStyle] = useState<null | {| transform: string |}>(null);
 
   useEffect(() => {
     if (height != null && width != null) {

@@ -1,10 +1,10 @@
 // @flow strict
-import { useState } from 'react';
+import { useState, type Node } from 'react';
 import { Flex, NumberField } from 'gestalt';
 
-export default function Example(): React$Node {
-  const [value1, setValue1] = useState();
-  const [value2, setValue2] = useState();
+export default function Example(): Node {
+  const [value1, setValue1] = useState<void | number>();
+  const [value2, setValue2] = useState<void | number>();
 
   return (
     <Flex

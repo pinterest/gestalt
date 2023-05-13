@@ -6,7 +6,11 @@ export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<null | {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>(null);
   const anchorRef = useRef(null);
   const onSelect: $ElementType<React$ElementConfig<typeof Dropdown.Item>, 'onSelect'> = ({
     item,

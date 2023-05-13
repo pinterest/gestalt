@@ -68,7 +68,7 @@ const pronouns = [
 ];
 
 export default function Example(): Node {
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,
