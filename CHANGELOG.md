@@ -1,3 +1,9 @@
+## 111.5.2 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-cycles --write .` ([#2938](https://github.com/pinterest/gestalt/pull/2938)) - [Preview link](https://deploy-preview-2938--gestalt.netlify.app)
+
 ## 111.5.1 (May 13, 2023)
 
 ### Patch
