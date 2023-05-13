@@ -93,6 +93,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-data-visualization-error-text: #eb4242;
   --color-data-visualization-01: #005fcb;
   --color-data-visualization-02: #75e4d5;
+  --color-data-visualization-03: #B190FF;
   --color-data-visualization-04: #FDA600;
   --color-data-visualization-05: #75bfff;
   --color-data-visualization-06: #de2c62;
@@ -199,6 +200,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-data-visualization-error-text: #cc0000;
   --color-data-visualization-01: #003c96;
   --color-data-visualization-02: #11a69c;
+  --color-data-visualization-03: #924af7;
   --color-data-visualization-04: #d17711;
   --color-data-visualization-05: #0081fe;
   --color-data-visualization-06: #ff5383;
@@ -305,6 +307,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-data-visualization-error-text: #cc0000;
   --color-data-visualization-01: #003c96;
   --color-data-visualization-02: #11a69c;
+  --color-data-visualization-03: #924af7;
   --color-data-visualization-04: #d17711;
   --color-data-visualization-05: #0081fe;
   --color-data-visualization-06: #ff5383;
@@ -411,6 +414,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-data-visualization-error-text: #cc0000;
   --color-data-visualization-01: #003c96;
   --color-data-visualization-02: #11a69c;
+  --color-data-visualization-03: #924af7;
   --color-data-visualization-04: #d17711;
   --color-data-visualization-05: #0081fe;
   --color-data-visualization-06: #ff5383;
@@ -518,6 +522,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-data-visualization-error-text: #eb4242;
   --color-data-visualization-01: #005fcb;
   --color-data-visualization-02: #75e4d5;
+  --color-data-visualization-03: #B190FF;
   --color-data-visualization-04: #FDA600;
   --color-data-visualization-05: #75bfff;
   --color-data-visualization-06: #de2c62;

@@ -6,20 +6,41 @@ fullwidth: true
 
 <ImgContainer src="https://i.pinimg.com/originals/a8/24/be/a824be59514046f5088ae0f56a135b55.png" alt="a red button that says Save" />
 
-## Mobile best practices
+## Usage guidelines
 
+<TwoCol>
+  <Group>
+    <Do title="When to use" />
+      - Communicating an action that will occur.
+      - Triggering or enabling an action, such as submitting requested information.
+      - Progressing or regressing a user through a step in a flow.
+  </Group>
+  <Group>
+  <Dont title="When not to use" />
+     - Directing users to a new page or different part within the same page. Instead, use [Link](https://gestalt.pinterest.systems/web/link).
+     - Limited space available. Consider using an [IconButton](https://gestalt.pinterest.systems/android/iconbutton) instead.
+  </Group>
+</TwoCol>
+
+## Mobile best practices
+For general Button best practices, refer to the [Button web documentation](/web/button).
 - Place primary buttons to the right or top of other buttons when in a button group.
 - Keep elements inside a button container grouped. Label text and icons should remain centered when the Button width increases.
 - Avoid using multiple button sizes in the same experience.
 - If necessary, adjust the button placement and size when scaling from large screens to small screens.
 
-For general Button best practices, refer to the [Button web documentation](/web/button).
+## Accessibility
+
+People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
+
+[Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
+[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
 ## Variants
 
 ### Size
 
-Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16dp).
+Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16sp).
 
 1. **lg (60dp)**
    Large should be primarily used on Pinner, business and internal surfaces.
@@ -57,21 +78,14 @@ fullWidth
 </Group>
 </TwoCol>
 
-### Styling
+## Styling
 
 For information on color, icons, roles, and states, refer to the [web Button documentation](/web/button).
 
-### Writing
+## Writing
 
 For writing best practices, refer to the [web Button documentation](/web/button).
 
-## Accessibility
-
-People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
-
-[Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
-
 ## Localization
 
-For RTL (right-to-left) languages, the layout of the button is mirrored. The icon is placed on the right side of the text.
+For RTL (right-to-left) languages, the layout of the button is mirrored.

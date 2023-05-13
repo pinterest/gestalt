@@ -10,6 +10,7 @@ import {
 import classnames from 'classnames';
 import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
@@ -46,6 +47,7 @@ type Props = {|
   heading?: Node,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
   onDismiss: () => void,
+  onOutsideClick?: () => void,
   padding?: 'default' | 'none',
   primaryAction?: {|
     accessibilityLabel: string,
@@ -71,6 +73,7 @@ export default function PartialPage({
   closeOnOutsideClick = true,
   onAnimationEnd,
   onDismiss,
+  onOutsideClick,
   footer,
   forwardIconButton,
   padding,
@@ -86,20 +89,24 @@ export default function PartialPage({
 
   const id = useId();
 
-  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+  const { animationState, handleAnimationEnd } = useAnimation();
+  const { handleRequestAnimationFrame, onExternalDismiss } = useRequestAnimationFrame();
 
   const handleOnAnimationEnd = useCallback(() => {
-    handleAnimation();
+    handleAnimationEnd();
+    handleRequestAnimationFrame();
     onAnimationEnd?.({
       animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
     });
-  }, [animationState, onAnimationEnd, handleAnimation]);
+  }, [animationState, onAnimationEnd, handleAnimationEnd, handleRequestAnimationFrame]);
 
   const handleBackdropClick = useCallback(() => {
+    onOutsideClick?.();
+
     if (closeOnOutsideClick) {
       onExternalDismiss();
     }
-  }, [closeOnOutsideClick, onExternalDismiss]);
+  }, [closeOnOutsideClick, onExternalDismiss, onOutsideClick]);
 
   useEffect(() => {
     function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
@@ -154,6 +161,7 @@ export default function PartialPage({
               className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
                 [sheetMobileStyles.defaultWrapper]: size === 'default',
                 [sheetMobileStyles.autoWrapper]: size === 'auto',
+                [animation.slideUpInitialize]: animationState === ANIMATION_STATE.hidden,
                 [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutBottom]: animationState === ANIMATION_STATE.animatedClosing,
               })}

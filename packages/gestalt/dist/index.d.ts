@@ -1655,7 +1655,7 @@ interface SpinnerProps {
 }
 
 interface StatusProps {
-  type: 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
+  type: 'unstarted' | 'queued' |'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
   accessibilityLabel?: string | undefined;
   subtext?: string | undefined;
   title?: string | undefined;

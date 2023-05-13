@@ -94,7 +94,7 @@ fullwidth: true
 
 ### Minimum text size
 
-A minimum text size of 16dp is recommended for readability, especially for longer blocks of text. Some short text labels or secondary text can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability.
+A minimum text size of 16sp is recommended for readability, especially for longer blocks of text. Some short text labels or secondary text can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability.
 
 ### Color
 
@@ -142,7 +142,7 @@ These font sizes follow those available through our [Typography scale](https://g
 <iframe style={{border:0}} width="100%" height="776" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20317%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
 
 ## Weight
-For emphasizing text in body copy and in sizes below 16dp and below, use `bold`. For titles and headings, use `semibold`.
+For emphasizing text in body copy and in sizes below 16sp and below, use `bold`. For titles and headings, use `semibold`.
 <br/>
 
 <iframe style={{border:0}} width="100%" height="411" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20481%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>

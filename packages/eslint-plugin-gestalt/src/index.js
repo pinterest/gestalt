@@ -15,6 +15,7 @@ import preferBoxNoClassname from './prefer-box-no-disallowed.js';
 import preferFlex from './prefer-flex.js';
 import preferHeading from './prefer-heading.js';
 import preferLink from './prefer-link.js';
+import preferList from './prefer-list.js';
 
 module.exports = {
   rules: {
@@ -33,6 +34,7 @@ module.exports = {
     'prefer-flex': preferFlex,
     'prefer-heading': preferHeading,
     'prefer-link': preferLink,
+    'prefer-list': preferList,
   },
 };
 /* eslint-enable import/no-import-module-exports */

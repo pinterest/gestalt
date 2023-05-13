@@ -5,6 +5,7 @@ import Link from './Link.js';
 import { type Indexable } from './zIndex.js';
 import AnimationProvider from './animation/AnimationContext.js';
 import DismissingElement from './animation/DismissingElement.js';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import FullPage from './SheetMobile/FullPage.js';
 import PartialPage from './SheetMobile/PartialPage.js';
@@ -66,6 +67,10 @@ type Props = {|
    * Callback fired when SheetMobile is dismissed. Must be used for controlling SheetMobile's visibility state.
    */
   onDismiss: () => void,
+  /**
+   * Callback fired when clicking on the backdrop (gray area) outside of SheetMobile.
+   */
+  onOutsideClick?: () => void,
   /**
    * The main SheetMobile content section has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
    */
@@ -129,6 +134,7 @@ function SheetMobile({
   forwardIconButton,
   onAnimationEnd,
   onDismiss,
+  onOutsideClick,
   footer,
   padding,
   primaryAction,
@@ -170,25 +176,28 @@ function SheetMobile({
   if (['default', 'auto'].includes(size))
     return (
       <AnimationProvider>
-        <PartialPage
-          align={align}
-          backIconButton={backIconButton}
-          closeOnOutsideClick={closeOnOutsideClick}
-          forwardIconButton={forwardIconButton}
-          onAnimationEnd={onAnimationEnd}
-          onDismiss={onDismiss}
-          footer={footer}
-          heading={heading}
-          padding={padding}
-          primaryAction={primaryAction}
-          role={role}
-          showDismissButton={showDismissButton}
-          subHeading={subHeading}
-          size={size}
-          zIndex={zIndex}
-        >
-          {children}
-        </PartialPage>
+        <RequestAnimationFrameProvider>
+          <PartialPage
+            align={align}
+            backIconButton={backIconButton}
+            closeOnOutsideClick={closeOnOutsideClick}
+            forwardIconButton={forwardIconButton}
+            onAnimationEnd={onAnimationEnd}
+            onDismiss={onDismiss}
+            onOutsideClick={onOutsideClick}
+            footer={footer}
+            heading={heading}
+            padding={padding}
+            primaryAction={primaryAction}
+            role={role}
+            showDismissButton={showDismissButton}
+            subHeading={subHeading}
+            size={size}
+            zIndex={zIndex}
+          >
+            {children}
+          </PartialPage>
+        </RequestAnimationFrameProvider>
       </AnimationProvider>
     );
 

@@ -1,7 +1,7 @@
 // @flow strict
 import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
 import classnames from 'classnames';
-import { useAnimation } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
 import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
@@ -75,7 +75,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const { onExternalDismiss } = useAnimation();
+  const { onExternalDismiss } = useRequestAnimationFrame();
 
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
@@ -147,7 +147,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
           // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
           marginStart={2}
         >
-          <Icon accessibilityLabel="" color="default" icon="arrow-up-right" size={12} />
+          <Icon accessibilityLabel="" color="default" icon="visit" size={12} />
         </Box>
       )}
     </Flex>

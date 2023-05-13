@@ -9,6 +9,7 @@ import Layer from './Layer.js';
 import Popover from './Popover.js';
 import { type Indexable } from './zIndex.js';
 import AnimationProvider from './animation/AnimationContext.js';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { DropdownContextProvider } from './Dropdown/Context.js';
 import PartialPage from './SheetMobile/PartialPage.js';
@@ -237,23 +238,25 @@ export default function Dropdown({
   if (isMobile && !disableMobileUI) {
     return (
       <AnimationProvider>
-        <PartialPage
-          align="start"
-          padding="default"
-          onDismiss={onDismiss}
-          onAnimationEnd={mobileOnAnimationEnd}
-          role="dialog"
-          showDismissButton
-          size="auto"
-          zIndex={zIndex}
-        >
-          {headerContent}
-          <DropdownContextProvider
-            value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+        <RequestAnimationFrameProvider>
+          <PartialPage
+            align="start"
+            padding="default"
+            onDismiss={onDismiss}
+            onAnimationEnd={mobileOnAnimationEnd}
+            role="dialog"
+            showDismissButton
+            size="auto"
+            zIndex={zIndex}
           >
-            {renderChildrenWithIndex(dropdownChildrenArray)}
-          </DropdownContextProvider>
-        </PartialPage>
+            {headerContent}
+            <DropdownContextProvider
+              value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+            >
+              {renderChildrenWithIndex(dropdownChildrenArray)}
+            </DropdownContextProvider>
+          </PartialPage>
+        </RequestAnimationFrameProvider>
       </AnimationProvider>
     );
   }

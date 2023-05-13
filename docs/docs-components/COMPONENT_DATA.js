@@ -85,6 +85,7 @@ import WashAnimated from '../graphics/general/WashAnimated.svg';
 import AdvocateTile from '../graphics/team_support/advocate.svg';
 import ComponentRequest from '../graphics/team_support/component-request.svg';
 import ContributionsTile from '../graphics/team_support/contributions.svg';
+import DesignFileHygiene from '../graphics/team_support/design-file-hygiene.svg';
 import GetHelpTile from '../graphics/team_support/get-help.svg';
 import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
@@ -168,6 +169,14 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
       'Instructions on how to request new components or updates to an existent component.',
     category: 'Team support',
     path: '/team_support/component_request',
+  },
+  {
+    svg: <DesignFileHygiene />,
+    name: 'Design file hygiene',
+    description:
+      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files.',
+    category: 'Team support',
+    path: '/team_support/design_file_hygiene/naming_convention',
   },
   {
     svg: <ContributionsTile />,
@@ -578,7 +587,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: null,
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
       documentation: 'partial',
       iOS: 'notAvailable',
@@ -595,7 +604,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {

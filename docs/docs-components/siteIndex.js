@@ -48,6 +48,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Overview',
       'Avatar',
       'Button',
+      'ButtonGroup',
       'Checkbox',
       'Icon',
       'IconButton',
@@ -233,6 +234,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Be a Gestalt advocate',
       'Component request',
       'Contributions',
+      {
+        sectionName: 'Design file hygiene',
+        pages: ['Naming convention', 'Organizing layout', 'Figma branches', 'Design handoff'],
+      },
       'Get help',
       'Training',
     ],

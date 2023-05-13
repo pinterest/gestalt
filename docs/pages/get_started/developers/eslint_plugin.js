@@ -72,6 +72,13 @@ With AUTOFIX!
       `}
         />
         <MainSection.Subsection
+          title="gestalt/prefer-list"
+          description={`Prevent ul or ol list tags for basic use cases. Suggests using Gestalt List instead.
+
+[Read more about List](/web/list).
+      `}
+        />
+        <MainSection.Subsection
           title="gestalt/prefer-heading"
           description={`Prevent heading tags (h1 ... h6) using Gestalt Heading with the corresponding accessibilityLevel, instead.
 
