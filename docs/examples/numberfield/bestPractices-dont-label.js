@@ -1,9 +1,9 @@
 // @flow strict
-import { useState } from 'react';
+import { useState, type Node } from 'react';
 import { Flex, NumberField } from 'gestalt';
 
-export default function Example(): React$Node {
-  const [currentValue, setCurrentValue] = useState();
+export default function Example(): Node {
+  const [currentValue, setCurrentValue] = useState<void | number>();
 
   return (
     <Flex alignItems="center" justifyContent="center" height="100%" width="100%">

@@ -4,7 +4,9 @@ import { IconButtonFloating, Box, Dropdown, Flex } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<
+    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+  >([]);
   const anchorRef = useRef(null);
 
   const onSelect = ({

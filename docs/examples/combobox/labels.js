@@ -34,7 +34,7 @@ export default function Example(): Node {
     value: `value${index}`,
   }));
 
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,

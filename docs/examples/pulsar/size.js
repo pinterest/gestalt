@@ -3,7 +3,7 @@ import { type Node, useState } from 'react';
 import { Box, Flex, NumberField, Pulsar } from 'gestalt';
 
 export default function Example(): Node {
-  const [sizePX, setSizePx] = useState();
+  const [sizePX, setSizePx] = useState<void | number>();
 
   return (
     <Box padding={2}>

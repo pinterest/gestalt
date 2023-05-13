@@ -12,9 +12,9 @@ import {
 } from 'gestalt';
 
 export default function Example(): Node {
-  const [content, setContent] = useState(null);
-  const [claimed, setClaimed] = useState(null);
-  const [device, setDevice] = useState(null);
+  const [content, setContent] = useState<?string>(null);
+  const [claimed, setClaimed] = useState<?string>(null);
+  const [device, setDevice] = useState<?string>(null);
 
   return (
     <Box padding={4} color="secondary" height="100%">
