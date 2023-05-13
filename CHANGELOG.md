@@ -1,3 +1,9 @@
+## 111.5.1 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-empty-array --write . ` ([#2937](https://github.com/pinterest/gestalt/pull/2937)) - [Preview link](https://deploy-preview-2937--gestalt.netlify.app)
+
 ## 111.5.0 (May 13, 2023)
 
 ### Minor
