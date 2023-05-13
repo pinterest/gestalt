@@ -1,3 +1,9 @@
+## 111.5.0 (May 13, 2023)
+
+### Minor
+
+- Internal: Add 03 Dark Value to Data Viz Pallete ([#2933](https://github.com/pinterest/gestalt/pull/2933)) - [Preview link](https://deploy-preview-2933--gestalt.netlify.app)
+
 ## 111.4.5 (May 12, 2023)
 
 ### Patch
