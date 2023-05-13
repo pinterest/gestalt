@@ -1,3 +1,9 @@
+## 111.5.3 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-react-hooks --write .` ([#2939](https://github.com/pinterest/gestalt/pull/2939)) - [Preview link](https://deploy-preview-2939--gestalt.netlify.app)
+
 ## 111.5.2 (May 13, 2023)
 
 ### Patch
