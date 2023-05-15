@@ -117,7 +117,7 @@ describe('ModuleExpandable', () => {
     const newProps = {
       ...props,
       expandedIndex: 0,
-      onExpandedChange: jest.fn(),
+      onExpandedChange: jest.fn<[?number], void>(),
     };
     render(<ModuleExpandable {...newProps} />);
 

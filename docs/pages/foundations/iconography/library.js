@@ -126,7 +126,7 @@ function iconHasKeyword(iconName?: string, searchTerm: string) {
 }
 
 export default function IconPage(): Node {
-  const [showToastText, setShowToastText] = useState(false);
+  const [showToastText, setShowToastText] = useState<void | string>();
 
   const iconOptions = icons
     .map((name, index) => ({

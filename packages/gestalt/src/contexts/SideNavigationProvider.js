@@ -10,8 +10,8 @@ type SideNavigationContextType = {|
   setSelectedItemId: (string) => void,
   selectedMobileChildren: Node | null,
   setSelectedMobileChildren: (Node | null) => void,
-  hideActiveChildren: boolean | null,
-  setHideActiveChildren: (boolean | null) => void,
+  hideActiveChildren: boolean,
+  setHideActiveChildren: (boolean) => void,
   dismissButton?: {|
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -39,7 +39,7 @@ const { Provider } = SideNavigationContext;
 function SideNavigationProvider({ children, dismissButton }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<Node>(null);
-  const [hideActiveChildren, setHideActiveChildren] = useState(false);
+  const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
 
   const sideNavigationContext = {
     selectedItemId,

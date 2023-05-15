@@ -131,18 +131,18 @@ function VideoControls({
 
   const muted = volume === 0;
 
-  const [showFullscreenButton, setShowFullscreenButton] = useState(false);
+  const [showFullscreenButton, setShowFullscreenButton] = useState<boolean>(false);
 
   useEffect(() => {
     setShowFullscreenButton(
       typeof document !== 'undefined' &&
-        (document.fullscreenEnabled ||
+        (!!document.fullscreenEnabled ||
           // $FlowExpectedError[prop-missing]
-          document.webkitFullscreenEnabled ||
+          !!document.webkitFullscreenEnabled ||
           // $FlowExpectedError[prop-missing]
-          document.mozFullScreenEnabled ||
+          !!document.mozFullScreenEnabled ||
           // $FlowExpectedError[prop-missing]
-          document.msFullscreenEnabled),
+          !!document.msFullscreenEnabled),
     );
   }, []);
 

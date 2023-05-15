@@ -3,8 +3,14 @@ import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import Checkbox from './Checkbox.js';
 
-const mockOnClick = jest.fn();
-const mockOnChange = jest.fn();
+const mockOnClick = jest.fn<
+  [{| checked: boolean, event: SyntheticInputEvent<HTMLInputElement> |}],
+  void,
+>();
+const mockOnChange = jest.fn<
+  [{| checked: boolean, event: SyntheticInputEvent<HTMLInputElement> |}],
+  void,
+>();
 
 describe('Checkbox', () => {
   it('Checkbox handles click', () => {
@@ -21,14 +27,14 @@ describe('Checkbox', () => {
   });
 
   it('forwards a ref to the innermost input element', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLInputElement>();
     render(<Checkbox checked id="testcheckbox" onChange={mockOnChange} ref={ref} />);
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.checked).toEqual(true);
   });
 
   it('sets the innermost input to indeterminate with ref', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLInputElement>();
     render(<Checkbox indeterminate id="testcheckbox" onChange={mockOnChange} ref={ref} />);
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.indeterminate).toEqual(true);

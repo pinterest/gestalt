@@ -3,7 +3,10 @@ import { fireEvent, render } from '@testing-library/react';
 import VideoControls from './Controls.js';
 
 test('VideoControls handles play events', () => {
-  const mockOnPlay = jest.fn();
+  const mockOnPlay = jest.fn<
+    [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
+    void,
+  >();
   const { getByLabelText } = render(
     <VideoControls
       accessibilityHideCaptionsLabel="Hide captions"
@@ -37,7 +40,10 @@ test('VideoControls handles play events', () => {
 });
 
 test('VideoControls handles pause events', () => {
-  const mockOnPause = jest.fn();
+  const mockOnPause = jest.fn<
+    [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
+    void,
+  >();
   const { getByLabelText } = render(
     <VideoControls
       accessibilityHideCaptionsLabel="Hide captions"
@@ -71,7 +77,10 @@ test('VideoControls handles pause events', () => {
 });
 
 test('VideoControls handles volume events', () => {
-  const mockOnVolumeChange = jest.fn();
+  const mockOnVolumeChange = jest.fn<
+    [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
+    void,
+  >();
   const { getByLabelText } = render(
     <VideoControls
       accessibilityHideCaptionsLabel="Hide captions"

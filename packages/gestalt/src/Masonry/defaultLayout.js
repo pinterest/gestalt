@@ -36,7 +36,7 @@ const defaultLayout =
     const columnWidthAndGutter = columnWidth + gutter;
     const columnCount = Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
     // the total height of each column
-    const heights = new Array(columnCount).fill(0);
+    const heights = new Array<number>(columnCount).fill(0);
 
     let centerOffset;
     if (justify === 'center') {
