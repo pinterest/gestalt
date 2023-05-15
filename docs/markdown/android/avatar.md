@@ -59,12 +59,12 @@ Avatar comes in 6 different sizes.
 <br/>
 <ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="different avatar variations"/>
 
-1. **xxl** **(120px)**
-2. **xl** **(60px)**
-3. **lg** **(44px)**
-4. **md** **(32px)**
-5. **sm** **(24px)**
-6. **xs** **(16px)**
+1. **xxl** **(120dp)**
+2. **xl** **(60dp)**
+3. **lg** **(44dp)**
+4. **md** **(32dp)**
+5. **sm** **(24dp)**
+6. **xs** **(16dp)**
 
 <br/>
 
