@@ -1,3 +1,9 @@
+## 111.5.6 (May 15, 2023)
+
+### Patch
+
+- Avatar: (Android) corrects measurement units for Android ([#2940](https://github.com/pinterest/gestalt/pull/2940)) - [Preview link](https://deploy-preview-2940--gestalt.netlify.app)
+
 ## 111.5.5 (May 15, 2023)
 
 ### Patch
