@@ -19,7 +19,7 @@ const combinations = (variationsByField: { heading?: boolean, ... }) => {
       throw new Error(`Please provide a non-empty array of possible values for prop ${fieldName}`);
     }
 
-    const vs = variationsForField.map((fieldValue) => ({
+    const vs = variationsForField.map((fieldValue: string) => ({
       ...acc,
       [fieldName]: fieldValue,
     }));
@@ -27,7 +27,7 @@ const combinations = (variationsByField: { heading?: boolean, ... }) => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return vs.flatMap((newAcc) => combine(restFieldNames, newAcc));
+    return vs.flatMap((newAcc: { [string]: string }) => combine(restFieldNames, newAcc));
   };
 
   return combine(fieldNames, {});

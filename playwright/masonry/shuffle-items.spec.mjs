@@ -1,14 +1,14 @@
 // @flow strict
-import { expect, test } from '@playwright/test';
+import { expect, test, Page } from '@playwright/test';
 import getGridItems from './utils/getGridItems.mjs';
 import getServerURL from './utils/getServerURL.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-// $FlowFixMe[missing-local-annot]
-const getItemColumnMap = async (page) => {
+const getItemColumnMap = async (page: typeof Page) => {
   const gridItems = await getGridItems(page);
-  const itemLeftMap = {};
+  // $FlowFixMe[unclear-type]
+  const itemLeftMap: any = {};
 
   for (let i = 0; i < gridItems.length; i += 1) {
     const boundingBox = await gridItems[i].boundingBox();

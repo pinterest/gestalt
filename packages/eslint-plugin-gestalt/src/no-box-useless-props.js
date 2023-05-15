@@ -29,8 +29,11 @@ function getAttributeName(attributeName): ?string {
   return attributeName?.name;
 }
 
-// $FlowFixMe[missing-local-annot]
-function getExpressionValues(valueExpression): $ReadOnlyArray<string> {
+function getExpressionValues(valueExpression: {|
+  value: string,
+  consequent: {| value: string |},
+  alternate: {| value: string |},
+|}): $ReadOnlyArray<string> {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
@@ -61,9 +64,23 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   return undefined;
 }
 
-// $FlowFixMe[missing-local-annot]
-// $FlowExpectedError[unclear-type]
-function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
+function getDangerouslySetStyles(attributeValue: {|
+  expression: {|
+    properties: $ReadOnlyArray<{
+      key: {| name: string |},
+      value: {
+        properties: $ReadOnlyArray<{
+          key: {| name: string |},
+          value: { properties: $ReadOnlyArray<{ ... }>, ... },
+          ...
+        }>,
+        ...
+      },
+      ...
+    }>,
+  |},
+  // $FlowFixMe[unclear-type]
+|}): any {
   const valueExpression = attributeValue.expression;
   const styleObject = valueExpression?.properties?.find(({ key }) => key.name === '__style');
   if (!styleObject) {
@@ -78,8 +95,15 @@ function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   );
 }
 
-// $FlowFixMe[missing-local-annot]
-function hasDangerouslySetFlexDisplay(stylesObject): boolean {
+function hasDangerouslySetFlexDisplay(
+  stylesObject: null | {|
+    display: {|
+      value: string,
+      consequent: {| value: string |},
+      alternate: {| value: string |},
+    |},
+  |},
+): boolean {
   if (!stylesObject || !stylesObject.display) {
     return false;
   }
