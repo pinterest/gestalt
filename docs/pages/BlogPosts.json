@@ -3,6 +3,52 @@
     "year": "2023",
     "digests": [
       {
+        "week": "May 12, 2023",
+        "summary": "Dropdown updates, smoother animations, new guidelines to help with design file hygiene, more Figma library updates and mobile documentation.",
+        "posts": [
+          {
+            "title": "Dropdown updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/7a/77/45/7a7745342069fdb0dab8134ec86dfc27.png",
+            "imageAltText": "Examples of Dropdown in desktop and mobile web contexts.",
+            "content": "Gestalt's Web Dropdown now is [mWeb adaptive](https://gestalt.pinterest.systems/web/dropdown#Mobile). This is awesome because now using Dropdown will _just work_ in any situation. For desktop, the menu will display as a Popover and on mobile, it'll reveal as a Sheet. This means just one less thing for you to do when building experiences. So make sure to treat yourself to something nice with all the extra time you now have\n\n**Note:** Dropdown mobile adaptation is not set as default yet. We are still improving SheetMobile to support additional functionality. Once the refinements are finished, we'll set mobile adaptation to SheetMobile as default.\n\nWe also switched out the link affordance to our new standard `visit` icon. This will ensure greater visual continuity throughout the product."
+          },
+          {
+            "title": "Animation improvements for Sheet and OverlayPanel",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/f6/22/9c/f6229cdc4b5608650e4f48f144c58e45.png",
+            "imageAltText": "",
+            "content": "We implemented `window.requestAnimationFrame` to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) and [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) so our browsers can be smarter and more performant managing the animations in these components. This means silkier and smooth-ier in-product transitions."
+          },
+          {
+            "title": "Design hygiene guidelines",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/85/74/1f/85741f88e9f47364c5f6e43f03df78cc.png",
+            "imageAltText": "",
+            "content": "Keeping our design files clean and organized is one of those unspoken, yet absolutely critical things to help maintain focus and flow. We've put together a set of guidelines to help ensure we're all keeping our files clear and tidy. These guidelines include [naming conventions](https://gestalt.pinterest.systems/team_support/design_file_hygiene/naming_convention), [organizing layout](https://gestalt.pinterest.systems/team_support/design_file_hygiene/organizing_layout), [Figma branches](https://gestalt.pinterest.systems/team_support/design_file_hygiene/figma_branches) and last but _definitely not least_, [design handoff](https://gestalt.pinterest.systems/team_support/design_file_hygiene/design_handoff).\n\nWe are really hopeful these guidelines will help everyone's day to day work and would love your feedback on this!"
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/8d/b9/e8/8db9e8f95ffa9cdc4f50d5508b94a869.png",
+            "imageAltText": "",
+            "content": "It seems like every week comes with a bunch of Figma library updates and this week is no exception.\n\n* We are super excited to share that we've implemented [simplified component instances](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#simplified) in most of the Figma web library components. This update means only editable layers for our components are visible in the layers panel. We started with Web to get your feedback and plan to roll out to all libraries once we hear your feedback. \n\n* We also have a new component on the web Figma library: our trusty List component. Using List will ensure that you're following the standard spacing and bullets used for our React components.\n\n* Lastly, we added disabled variants to the Android and iOS Switch components."
+          },
+          {
+            "title": "ButtonGroup Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/2a/85/4c/2a854c2a84b0b7b40062dd8839878b02.png",
+            "imageAltText": "",
+            "content": "Lastly, we've added component docs for [Android ButtonGroup](https://gestalt.pinterest.systems/android/buttongroup). This is our first step towards getting this component built and available in the Android codebase."
+          }
+        ]
+      },
+      {
         "week": "May 5, 2023",
         "summary": "Official TypeScript support, mweb-adaptive Dropdowns, TextField Android docs and boatloads of Figma library updates.",
         "posts": [

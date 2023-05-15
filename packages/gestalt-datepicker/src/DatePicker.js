@@ -176,7 +176,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
   }: Props,
   ref,
 ): Element<'div'> {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLDivElement>(null);
   useImperativeHandle(ref, () => innerRef.current);
 
   const [selected, setSelected] = useState<?Date>(dateValue);

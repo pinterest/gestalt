@@ -63,8 +63,8 @@ export default function TableRowExpandable({
   hoverStyle = 'gray',
 }: Props): Node {
   const { stickyColumns } = useTableContext();
-  const rowRef = useRef();
-  const [columnWidths, setColumnWidths] = useState([]);
+  const rowRef = useRef<?HTMLTableRowElement>();
+  const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
   const [isExpanded, setIsExpanded] = useState(expandedControlled ?? false);
 
   useEffect(() => {

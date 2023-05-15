@@ -17,14 +17,17 @@ const combinations = (variationsByField: { ... }) => {
 
   if (!fieldNames.length) return [{}];
 
-  const combine = ([fieldName, ...restFieldNames]: $ReadOnlyArray<empty>, acc: { ... }) => {
+  const combine = (
+    [fieldName, ...restFieldNames]: $ReadOnlyArray<empty>,
+    acc: { ... },
+  ): $ReadOnlyArray<{||}> => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
       throw new Error(`Please provide a non-empty array of possible values for prop ${fieldName}`);
     }
 
-    const vs = variationsForField.map((fieldValue) => ({
+    const vs = variationsForField.map((fieldValue: string) => ({
       ...acc,
       [fieldName]: fieldValue,
     }));
@@ -32,7 +35,7 @@ const combinations = (variationsByField: { ... }) => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return vs.flatMap((newAcc) => combine(restFieldNames, newAcc));
+    return vs.flatMap((newAcc: { [string]: string }) => combine(restFieldNames, newAcc));
   };
 
   return combine(fieldNames, {});

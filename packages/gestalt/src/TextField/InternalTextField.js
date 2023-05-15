@@ -109,7 +109,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
   ref,
 ): Node {
   // ==== REFS ====
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLInputElement | HTMLDivElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   // $FlowFixMe[incompatible-call]
   useImperativeHandle(ref, () => innerRef.current);

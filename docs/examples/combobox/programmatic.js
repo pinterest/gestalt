@@ -35,7 +35,11 @@ export default function Example(): Node {
 
   const [inputValue, setInputValue] = useState('');
 
-  const [selectedOption, setSelectedOption] = useState();
+  const [selectedOption, setSelectedOption] = useState<void | {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>();
 
   const resetOptions = () => {
     setSuggestedOptions(CATEGORIES[currentCategory]);

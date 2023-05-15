@@ -1,3 +1,75 @@
+## 111.5.6 (May 15, 2023)
+
+### Patch
+
+- Avatar: (Android) corrects measurement units for Android ([#2940](https://github.com/pinterest/gestalt/pull/2940)) - [Preview link](https://deploy-preview-2940--gestalt.netlify.app)
+
+## 111.5.5 (May 15, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-functions-and-classes --include-lti --write .` ([#2941](https://github.com/pinterest/gestalt/pull/2941)) - [Preview link](https://deploy-preview-2941--gestalt.netlify.app)
+
+## 111.5.4 (May 15, 2023)
+
+### Patch
+
+- Icon: Update names for Android ([#2928](https://github.com/pinterest/gestalt/pull/2928)) - [Preview link](https://deploy-preview-2928--gestalt.netlify.app)
+
+## 111.5.3 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-react-hooks --write .` ([#2939](https://github.com/pinterest/gestalt/pull/2939)) - [Preview link](https://deploy-preview-2939--gestalt.netlify.app)
+
+## 111.5.2 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-cycles --write .` ([#2938](https://github.com/pinterest/gestalt/pull/2938)) - [Preview link](https://deploy-preview-2938--gestalt.netlify.app)
+
+## 111.5.1 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-empty-array --write . ` ([#2937](https://github.com/pinterest/gestalt/pull/2937)) - [Preview link](https://deploy-preview-2937--gestalt.netlify.app)
+
+## 111.5.0 (May 13, 2023)
+
+### Minor
+
+- Internal: Add 03 Dark Value to Data Viz Pallete ([#2933](https://github.com/pinterest/gestalt/pull/2933)) - [Preview link](https://deploy-preview-2933--gestalt.netlify.app)
+
+## 111.4.5 (May 12, 2023)
+
+### Patch
+
+- OnLinkNavigationProvider: example fix ([#2935](https://github.com/pinterest/gestalt/pull/2935)) - [Preview link](https://deploy-preview-2935--gestalt.netlify.app)
+
+## 111.4.4 (May 12, 2023)
+
+### Patch
+
+- DateField: added "spacious" format ([#2934](https://github.com/pinterest/gestalt/pull/2934)) - [Preview link](https://deploy-preview-2934--gestalt.netlify.app)
+
+## 111.4.3 (May 12, 2023)
+
+### Patch
+
+- OnLinkNavigationProvider: added "disabling provider" variant ([#2930](https://github.com/pinterest/gestalt/pull/2930)) - [Preview link](https://deploy-preview-2930--gestalt.netlify.app)
+
+## 111.4.2 (May 12, 2023)
+
+### Patch
+
+- Docs: Weekly update for May 12 ([#2931](https://github.com/pinterest/gestalt/pull/2931)) - [Preview link](https://deploy-preview-2931--gestalt.netlify.app)
+
+## 111.4.1 (May 12, 2023)
+
+### Patch
+
+- Internal: alphabetize dependencies ([#2932](https://github.com/pinterest/gestalt/pull/2932)) - [Preview link](https://deploy-preview-2932--gestalt.netlify.app)
+
 ## 111.4.0 (May 11, 2023)
 
 ### Minor

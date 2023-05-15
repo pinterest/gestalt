@@ -4,7 +4,7 @@ import { Box, ComboBox, Flex, Tag } from 'gestalt';
 
 export default function Example(): Node {
   const ref = useRef();
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<$ReadOnlyArray<string>>([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   const PRONOUNS = [

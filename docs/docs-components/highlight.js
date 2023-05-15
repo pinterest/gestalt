@@ -10,7 +10,7 @@ type Props = {|
 |};
 
 export default function Highlighter({ children, classNames }: Props): React$Element<'pre'> {
-  const node = useRef();
+  const node = useRef<?HTMLPreElement>();
 
   useEffect(() => {
     highlightjs.highlightBlock(node.current);

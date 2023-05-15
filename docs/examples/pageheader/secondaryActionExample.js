@@ -4,7 +4,9 @@ import { Button, Divider, Dropdown, Flex, IconButton, PageHeader, Tooltip } from
 
 export default function SecondaryActionsExample(): Node {
   const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
+  const [selected, setSelected] = React.useState<
+    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+  >([]);
   const anchorRef = React.useRef(null);
   const handleSelect = ({
     item,

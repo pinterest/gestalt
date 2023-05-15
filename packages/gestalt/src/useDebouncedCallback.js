@@ -8,7 +8,7 @@ import { useEffect, useRef } from 'react';
  * result in a warning. See https://stackoverflow.com/a/60907638/117193 for more info
  */
 export default function useDebouncedCallback(callback: () => void, wait: number): () => void {
-  const timeout = useRef();
+  const timeout = useRef<void | TimeoutID>();
 
   function cleanup() {
     if (timeout.current) {

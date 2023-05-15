@@ -38,7 +38,7 @@ const { Provider } = SideNavigationContext;
 
 function SideNavigationProvider({ children, dismissButton }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
-  const [selectedMobileChildren, setSelectedMobileChildren] = useState(null);
+  const [selectedMobileChildren, setSelectedMobileChildren] = useState<Node>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState(false);
 
   const sideNavigationContext = {

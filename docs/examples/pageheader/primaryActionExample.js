@@ -14,7 +14,9 @@ import {
 
 export default function PrimaryActionExample(): Node {
   const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
+  const [selected, setSelected] = React.useState<
+    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+  >([]);
   const anchorRef = React.useRef(null);
   const handleSelect = ({
     item,

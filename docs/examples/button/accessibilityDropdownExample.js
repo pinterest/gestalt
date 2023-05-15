@@ -4,7 +4,11 @@ import { Button, Dropdown, Box } from 'gestalt';
 
 export default function ActionDropdownExample(): Node {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<null | {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>(null);
   const anchorRef = useRef(null);
 
   const onSelect = ({

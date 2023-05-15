@@ -103,7 +103,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
   }: Props,
   ref,
 ): Element<'a'> {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 

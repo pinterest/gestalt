@@ -107,7 +107,7 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   }: Props,
   ref,
 ): Node {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLInputElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
