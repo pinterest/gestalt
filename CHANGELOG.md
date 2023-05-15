@@ -1,3 +1,9 @@
+## 111.5.7 (May 15, 2023)
+
+### Patch
+
+- Docs: Figma plugins links update ([#2943](https://github.com/pinterest/gestalt/pull/2943)) - [Preview link](https://deploy-preview-2943--gestalt.netlify.app)
+
 ## 111.5.6 (May 15, 2023)
 
 ### Patch
