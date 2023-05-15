@@ -108,8 +108,7 @@ export default function SideNavigationGroup({
     filterLevel: 'nested',
   });
 
-  // $FlowFixMe[missing-local-annot]
-  const hasActiveChildCallback = (child) =>
+  const hasActiveChildCallback = (child: {| props: {| active: 'page' | 'section' |} |}) =>
     child?.props?.active && ['page', 'section'].includes(child?.props?.active);
 
   const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);

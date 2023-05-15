@@ -102,8 +102,9 @@ export default function InternalOverlayPanel({
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
-  // $FlowFixMe[missing-local-annot]
-  function buildDismissableSubcomponent(component) {
+  function buildDismissableSubcomponent(
+    component: Node | (({| onDismissStart: () => void |}) => Node),
+  ) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })
       : component;
