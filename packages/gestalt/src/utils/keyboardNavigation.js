@@ -8,7 +8,7 @@ export const KEYS = {
 export type DirectionOptionType = -1 | 0 | 1;
 type Props = {|
   direction: DirectionOptionType,
-  containerRef?: {| current: ?HTMLElement |},
+  containerRef?: {| current: null | HTMLElement |},
   currentHoveredOption: ?HTMLElement,
 |};
 

@@ -1,3 +1,27 @@
+## 111.5.4 (May 15, 2023)
+
+### Patch
+
+- Icon: Update names for Android ([#2928](https://github.com/pinterest/gestalt/pull/2928)) - [Preview link](https://deploy-preview-2928--gestalt.netlify.app)
+
+## 111.5.3 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-react-hooks --write .` ([#2939](https://github.com/pinterest/gestalt/pull/2939)) - [Preview link](https://deploy-preview-2939--gestalt.netlify.app)
+
+## 111.5.2 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-cycles --write .` ([#2938](https://github.com/pinterest/gestalt/pull/2938)) - [Preview link](https://deploy-preview-2938--gestalt.netlify.app)
+
+## 111.5.1 (May 13, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-empty-array --write . ` ([#2937](https://github.com/pinterest/gestalt/pull/2937)) - [Preview link](https://deploy-preview-2937--gestalt.netlify.app)
+
 ## 111.5.0 (May 13, 2023)
 
 ### Minor

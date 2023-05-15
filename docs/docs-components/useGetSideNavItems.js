@@ -17,7 +17,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     navItem: siteIndexType,
     previousSectionName: string,
     nestingLevel: number = 0,
-  ) => {
+  ): Node => {
     // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
     const { id: pathId } = query;
     const urlPath = pathId ? pathId.join('/') : '';

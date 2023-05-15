@@ -45,7 +45,7 @@ function IconTile({
   iconDescription: string,
   onTap: () => void,
 |}) {
-  const [hovered, setHovered] = useState();
+  const [hovered, setHovered] = useState<?boolean>();
 
   return (
     <Tooltip text={iconDescription} accessibilityLabel={iconDescription} idealDirection="down">
@@ -140,7 +140,7 @@ export default function IconPage(): Node {
     });
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState<void | string>();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
   const handleOnChange = ({

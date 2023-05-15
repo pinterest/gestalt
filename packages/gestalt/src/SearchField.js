@@ -121,7 +121,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
   const [focused, setFocused] = useState<boolean>(false);
 
   // Ref to the input
-  const inputRef = useRef(null);
+  const inputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => inputRef.current);
 
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {

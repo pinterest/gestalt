@@ -14,8 +14,8 @@ type Props = {|
  */
 export default function TableRow({ children }: Props): Node {
   const { stickyColumns } = useTableContext();
-  const rowRef = useRef();
-  const [columnWidths, setColumnWidths] = useState([]);
+  const rowRef = useRef<?HTMLTableRowElement>();
+  const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
