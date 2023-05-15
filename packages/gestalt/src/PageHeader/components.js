@@ -161,7 +161,7 @@ export function PageHeaderActionBlock({
   dropdownAccessibilityLabel?: string,
 |}): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const consolidatedDropdownItems = [
     ...(primaryAction?.dropdownItems ?? []),

@@ -3,7 +3,7 @@ import { useState, useRef, type Node } from 'react';
 import { ColorSchemeProvider, Popover, Flex, Box, Text, IconButton } from 'gestalt';
 
 export default function Snapshot(): Node {
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
 
   return (

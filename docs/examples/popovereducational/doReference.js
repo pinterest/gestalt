@@ -4,7 +4,7 @@ import { TapArea, Box, Flex, Mask, Image, Text, PopoverEducational, Icon } from 
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   useEffect(() => {
     setOpen(true);

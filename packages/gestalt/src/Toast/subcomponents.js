@@ -45,7 +45,7 @@ export function ToastMessage({
   type: 'default' | 'success' | 'error' | 'progress',
 |}): Node {
   const isError = type === 'error';
-  const textRef = useRef(null);
+  const textRef = useRef<null | HTMLElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
 
   // There’s two attributes for HTML elements which we can use to check if the text is truncated, offsetHeight and scrollHeight. scrollHeight is the total scrollable content height, and offsetHeight is the visible height on the screen. For an overflow view, the scrollHeight is larger than offsetHeight. We can deduce that if the scrollHeight is larger than the offsetHeight, then the element is truncated.

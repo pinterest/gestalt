@@ -3,7 +3,7 @@ import { useState, useRef, type Node } from 'react';
 import { Box, ComboBox, Flex, Tag } from 'gestalt';
 
 export default function Example(): Node {
-  const ref = useRef();
+  const ref = useRef<null | HTMLInputElement>(null);
   const [selected, setSelected] = useState<$ReadOnlyArray<string>>([]);
   const [searchTerm, setSearchTerm] = useState('');
 

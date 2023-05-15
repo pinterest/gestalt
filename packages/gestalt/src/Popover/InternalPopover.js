@@ -51,7 +51,7 @@ export default function InternalPopover({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
-  const dismissButtonRef = useRef();
+  const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   useEffect(() => {
     dismissButtonRef.current?.focus();

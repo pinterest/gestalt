@@ -196,8 +196,8 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 
   // ==== REFS ====
 
-  const innerRef = useRef(null);
-  const optionRef = useRef(null);
+  const innerRef = useRef<null | HTMLInputElement>(null);
+  const optionRef = useRef<null | void | HTMLElement>(null);
   const dropdownRef = useRef<null | HTMLElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);

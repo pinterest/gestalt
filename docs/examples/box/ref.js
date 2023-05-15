@@ -5,7 +5,7 @@ import { Text, Box, Flex, Button, Popover } from 'gestalt';
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
 
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   return (
     <Fragment>

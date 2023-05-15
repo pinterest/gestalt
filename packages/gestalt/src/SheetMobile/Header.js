@@ -60,8 +60,8 @@ export default function Header({
     useDefaultLabelContext('SheetMobile');
   const { onExternalDismiss } = useRequestAnimationFrame();
 
-  const dismissButtonRef = useRef();
-  const grabberRef = useRef();
+  const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const grabberRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showGrabber && dismissButtonRef.current) {

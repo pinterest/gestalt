@@ -152,7 +152,8 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     text,
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);

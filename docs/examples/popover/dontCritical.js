@@ -4,8 +4,8 @@ import { Box, Layer, Popover, Text, TextField } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
-  const viewRef = useRef();
+  const anchorRef = useRef<null | HTMLElement>(null);
+  const viewRef = useRef<null | HTMLElement>(null);
 
   useEffect(() => {
     setOpen(true);
