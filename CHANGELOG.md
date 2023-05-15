@@ -1,3 +1,9 @@
+## 111.5.4 (May 15, 2023)
+
+### Patch
+
+- Icon: Update names for Android ([#2928](https://github.com/pinterest/gestalt/pull/2928)) - [Preview link](https://deploy-preview-2928--gestalt.netlify.app)
+
 ## 111.5.3 (May 13, 2023)
 
 ### Patch
