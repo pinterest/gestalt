@@ -118,7 +118,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Use checkboxes when enabling a multi-select experience. You can manage state by passing the \`selected\` prop.`}
+          description={`Use checkboxes when enabling a multi-select experience. You can show a checkbox state by passing the \`showCheckbox\` prop.`}
           title="Group"
         >
           <MainSection.Card
