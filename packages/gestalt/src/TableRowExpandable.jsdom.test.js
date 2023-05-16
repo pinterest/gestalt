@@ -7,7 +7,19 @@ import TableCell from './TableCell.js';
 import TableRowExpandable from './TableRowExpandable.js';
 import Text from './Text.js';
 
-const mockOnExpand = jest.fn();
+const mockOnExpand = jest.fn<
+  [
+    {|
+      event:
+        | SyntheticMouseEvent<HTMLButtonElement>
+        | SyntheticKeyboardEvent<HTMLButtonElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      expanded: boolean,
+    |},
+  ],
+  void,
+>();
 
 test('TableRowExpandable handles expand contents call', () => {
   const { getByText } = render(

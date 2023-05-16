@@ -128,8 +128,20 @@ describe('SheetMobile', () => {
   });
 
   it('calls onDismiss on full inanimated sheet', async () => {
-    const mockOnClick = jest.fn();
-    const mockOnClickPrimaryAction = jest.fn();
+    const mockOnClick = jest.fn<[], void>();
+    const mockOnClickPrimaryAction = jest.fn<
+      [
+        {|
+          event:
+            | SyntheticMouseEvent<HTMLButtonElement>
+            | SyntheticKeyboardEvent<HTMLButtonElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+          onDismissStart: () => void,
+        |},
+      ],
+      void,
+    >();
 
     render(
       <DeviceTypeProvider deviceType="mobile">
@@ -163,8 +175,20 @@ describe('SheetMobile', () => {
   // This test was skipped because, despite the logic works fine, the animationState is not being correctly updated in the test in the handleExternalDismiss function. We should try to make it work.
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('calls onDismiss on animated partial sheet', async () => {
-    const mockOnClick = jest.fn();
-    const mockOnClickPrimaryAction = jest.fn();
+    const mockOnClick = jest.fn<[], void>();
+    const mockOnClickPrimaryAction = jest.fn<
+      [
+        {|
+          event:
+            | SyntheticMouseEvent<HTMLButtonElement>
+            | SyntheticKeyboardEvent<HTMLButtonElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+          onDismissStart: () => void,
+        |},
+      ],
+      void,
+    >();
     useReducedMotionMock.mockReturnValue(false);
 
     render(

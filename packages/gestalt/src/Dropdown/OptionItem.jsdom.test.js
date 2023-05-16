@@ -11,7 +11,7 @@ describe('OptionItem', () => {
       label: 'Option item label',
       value: 'Option item value',
     },
-    setHoveredItemIndex: jest.fn(),
+    setHoveredItemIndex: jest.fn<[number], void>(),
   };
 
   it('Should render correctly', () => {

@@ -3,7 +3,15 @@ import { render, screen } from '@testing-library/react';
 import Dropdown from './Dropdown.js';
 
 describe('Dropdown.Item', () => {
-  const onSelectMock = jest.fn();
+  const onSelectMock = jest.fn<
+    [
+      {|
+        event: SyntheticInputEvent<HTMLInputElement>,
+        item: {| label: string, subtext?: string, value: string |},
+      |},
+    ],
+    void,
+  >();
 
   test('calls onSelect when Item clicked', () => {
     render(

@@ -10,7 +10,7 @@ describe('ModuleExpandableItem', () => {
     title: 'test title',
     summary: ['summary1', 'summary2', 'summary3'],
     isCollapsed: true,
-    onModuleClicked: jest.fn(),
+    onModuleClicked: jest.fn<[boolean], void>(),
     type: 'info',
   };
 

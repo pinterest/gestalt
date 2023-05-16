@@ -35,7 +35,7 @@ const fullWidthLayout = <T>({
 
   return (items: $ReadOnlyArray<T>) => {
     // the total height of each column
-    const heights = new Array(columnCount).fill(0);
+    const heights = new Array<number>(columnCount).fill(0);
 
     return items.reduce((acc, item) => {
       const positions = acc;

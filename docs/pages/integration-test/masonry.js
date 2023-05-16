@@ -13,7 +13,7 @@ import MasonryContainer from '../../integration-test-helpers/masonry/MasonryCont
 // This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
 const REALISTIC_PINS_DATASET_SIZE = 1000;
 
-const measurementStore = Masonry.createMeasurementStore();
+const measurementStore = Masonry.createMeasurementStore<{ ... }, mixed>();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
 function booleanize(value: string): boolean {

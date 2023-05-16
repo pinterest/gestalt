@@ -68,7 +68,11 @@ export default function Example(): Node {
 
   const [suggestedOptions, setSuggestedOptions] = useState(usStatesOptions);
   const [inputValue, setInputValue] = useState(usStatesOptions[5].label);
-  const [selected, setSelected] = useState(usStatesOptions[5]);
+  const [selected, setSelected] = useState<void | {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>(usStatesOptions[5]);
 
   const handleOnChange = ({
     value,

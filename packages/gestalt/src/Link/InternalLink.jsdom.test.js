@@ -3,7 +3,15 @@ import { render } from '@testing-library/react';
 import InternalLink from './InternalLink.js';
 
 test('InternalLink handles onClick callback', () => {
-  const mockOnClick = jest.fn();
+  const mockOnClick = jest.fn<
+    [
+      {|
+        dangerouslyDisableOnNavigation: () => void,
+        event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      |},
+    ],
+    void,
+  >();
   const { getByText } = render(
     <InternalLink
       wrappedComponent="button"

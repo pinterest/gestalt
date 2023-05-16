@@ -172,8 +172,20 @@ describe('AvatarGroup', () => {
   });
 
   it('should render clickable TapArea with button role and ref', () => {
-    const onClickMock = jest.fn();
-    const ref = createRef();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLDivElement>
+            | SyntheticKeyboardEvent<HTMLDivElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
+    const ref = createRef<mixed>();
     renderCmp({
       collaborators: [
         {
@@ -192,8 +204,20 @@ describe('AvatarGroup', () => {
   });
 
   it('should render clickable TapArea with link role and ref', () => {
-    const onClickMock = jest.fn();
-    const ref = createRef();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLDivElement>
+            | SyntheticKeyboardEvent<HTMLDivElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
+    const ref = createRef<mixed>();
     renderCmp({
       collaborators: [
         {
@@ -213,7 +237,19 @@ describe('AvatarGroup', () => {
   });
 
   it('should not call onClick when clicked on display-only role', () => {
-    const onClickMock = jest.fn();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLDivElement>
+            | SyntheticKeyboardEvent<HTMLDivElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
     renderCmp({
       collaborators: [
         {

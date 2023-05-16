@@ -3,7 +3,19 @@ import { fireEvent, render } from '@testing-library/react';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 
 test('mouse click calls onSortChange', () => {
-  const mockOnSortChange = jest.fn();
+  const mockOnSortChange = jest.fn<
+    [
+      {|
+        dangerouslyDisableOnNavigation: () => void,
+        event:
+          | SyntheticMouseEvent<HTMLDivElement>
+          | SyntheticKeyboardEvent<HTMLDivElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      |},
+    ],
+    void,
+  >();
   const { getByText } = render(
     <table>
       <thead>
@@ -25,7 +37,19 @@ test('mouse click calls onSortChange', () => {
 });
 
 test('keypress calls onSortChange', () => {
-  const mockOnSortChange = jest.fn();
+  const mockOnSortChange = jest.fn<
+    [
+      {|
+        dangerouslyDisableOnNavigation: () => void,
+        event:
+          | SyntheticMouseEvent<HTMLDivElement>
+          | SyntheticKeyboardEvent<HTMLDivElement>
+          | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      |},
+    ],
+    void,
+  >();
   const { getByText } = render(
     <table>
       <thead>
@@ -41,7 +65,7 @@ test('keypress calls onSortChange', () => {
       </thead>
     </table>,
   );
-  const mockEvent = { charCode: 32, preventDefault: jest.fn() };
+  const mockEvent = { charCode: 32, preventDefault: jest.fn<$ReadOnlyArray<$FlowFixMe>, mixed>() };
   // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
   fireEvent.keyPress(getByText('column name'), mockEvent);
   expect(mockOnSortChange).toHaveBeenCalled();

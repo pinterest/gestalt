@@ -33,7 +33,7 @@ export default function MeasureItems<T>({
     // Do we have a full batch of refs?
     if (refsSize === items.length) {
       // Measure all the refs
-      const heights = new Map();
+      const heights = new Map<T, number>();
       refs.forEach((el, data) => {
         heights.set(data, el.clientHeight);
       });

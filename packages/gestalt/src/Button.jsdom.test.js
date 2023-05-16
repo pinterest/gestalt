@@ -5,7 +5,19 @@ import Button from './Button.js';
 
 describe('Button', () => {
   it('handles click', () => {
-    const mockOnClick = jest.fn();
+    const mockOnClick = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLButtonElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLButtonElement>,
+        |},
+      ],
+      void,
+    >();
     const { getByText } = render(<Button text="ButtonText" onClick={mockOnClick} />);
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
     getByText('ButtonText').click();
@@ -13,14 +25,14 @@ describe('Button', () => {
   });
 
   it('renders a submit button and forwards a ref to the innermost <button> element', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(<Button type="submit" text="test" ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current?.type).toEqual('submit');
   });
 
   it('renders a default button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(<Button text="test" ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current?.type).toEqual('button');
@@ -68,7 +80,7 @@ describe('Button', () => {
   });
 
   it('renders a link button with sequential keyboard navigation and forwards a ref to the innermost <a> element', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(
       <Button text="test" role="link" href="http://www.pinterest.com" ref={ref} target="blank" />,
     );
@@ -80,14 +92,14 @@ describe('Button', () => {
   });
 
   it('renders a disabled button', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(<Button text="test" disabled ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.disabled).toEqual(true);
   });
 
   it('renders a disabled link button', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(
       <Button
         text="test"
@@ -103,14 +115,14 @@ describe('Button', () => {
   });
 
   it('renders a button removed from sequential keyboard navigation via tabIndex', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(<Button text="test" ref={ref} tabIndex={-1} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(-1);
   });
 
   it('renders a link button removed from sequential keyboard navigation via tabIndex', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
     render(
       <Button
         text="test"

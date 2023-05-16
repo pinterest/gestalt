@@ -103,7 +103,10 @@ describe('TextArea', () => {
   });
 
   it('handles blur events', () => {
-    const mockBlur = jest.fn();
+    const mockBlur = jest.fn<
+      [{| event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string |}],
+      void,
+    >();
     const { getByDisplayValue } = render(
       <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />,
     );
@@ -114,7 +117,10 @@ describe('TextArea', () => {
   });
 
   it('handles change events', () => {
-    const mockChange = jest.fn();
+    const mockChange = jest.fn<
+      [{| event: SyntheticInputEvent<HTMLTextAreaElement>, value: string |}],
+      void,
+    >();
     const { container } = render(
       <TextArea id="test" onChange={mockChange} value="TextArea Text" />,
     );
@@ -132,7 +138,10 @@ describe('TextArea', () => {
   });
 
   it('handles focus events', () => {
-    const mockFocus = jest.fn();
+    const mockFocus = jest.fn<
+      [{| event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string |}],
+      void,
+    >();
     const { getByDisplayValue } = render(
       <TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />,
     );
@@ -143,7 +152,10 @@ describe('TextArea', () => {
   });
 
   it('handles key down events', () => {
-    const mockKeyDown = jest.fn();
+    const mockKeyDown = jest.fn<
+      [{| event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string |}],
+      void,
+    >();
     const { container } = render(
       <TextArea id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextArea Text" />,
     );
@@ -161,7 +173,7 @@ describe('TextArea', () => {
   });
 
   it('forwards a ref to <input />', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLTextAreaElement>();
     render(
       <TextArea
         id="test"

@@ -7,7 +7,7 @@ import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerPr
 
 describe('ScrollBoundaryContainer', () => {
   it('renders successfully', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLElement>();
 
     const { getByTestId } = render(
       <ScrollBoundaryContainer overflow="scroll">
@@ -20,7 +20,7 @@ describe('ScrollBoundaryContainer', () => {
   });
 
   it('passes default ScrollBoundaryContainer props through context correctly', () => {
-    const scrollBoundaryContainer = createRef();
+    const scrollBoundaryContainer = createRef<void | HTMLElement>();
 
     function TestBox() {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
@@ -46,7 +46,7 @@ describe('ScrollBoundaryContainer', () => {
   });
 
   it('passes custom ScrollBoundaryContainer props through context correctly', () => {
-    const scrollBoundaryContainer = createRef();
+    const scrollBoundaryContainer = createRef<void | HTMLElement>();
 
     function TestBox() {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
