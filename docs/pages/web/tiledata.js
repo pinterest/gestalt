@@ -92,7 +92,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Use TileData's disabled prop to remove interactivity from the element. This is commonly used to ______`}
+          description="TileData can be used along side the colors provided from the Data Visualization [Color Palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). You may use colors to distinguish different data lines."
           title="Colors"
         >
           <MainSection.Card
