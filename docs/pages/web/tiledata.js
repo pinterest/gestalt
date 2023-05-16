@@ -109,7 +109,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Removes interactivity from the element."
+          description="Disabled TileData cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data pre-requisites have not been met"
           title="Disabled"
         >
           <MainSection.Card
