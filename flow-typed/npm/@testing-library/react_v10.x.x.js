@@ -227,7 +227,7 @@ declare module '@testing-library/react' {
         | Array<HTMLElement | DocumentFragment>,
       maxLength?: number
     ) => void,
-    rerender: (ui: React$Element<*>) => void,
+    rerender: (ui: React$Element<any>) => void,
     ...
   };
 

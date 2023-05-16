@@ -60,7 +60,7 @@ type Props<T> = {|
    * Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
    */
   // $FlowFixMe[unclear-type]
-  measurementStore?: Cache<T, *>,
+  measurementStore?: Cache<T, any>,
   /**
    * Minimum number of columns to display.
    */
@@ -189,9 +189,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     this.containerHeight = 0;
     this.containerOffset = 0;
-
     // $FlowFixMe[unclear-type]
-    const measurementStore: Cache<T, *> =
+    const measurementStore: Cache<T, any> =
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.state = {
