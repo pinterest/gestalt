@@ -151,6 +151,7 @@ export default function PopoverEducational({
   if (
     message &&
     typeof message !== 'string' &&
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.only(message).type.displayName === 'Text'
   ) {
     const textColorOverrideStyles = isDarkMode

@@ -62,7 +62,7 @@ const fullWidthLayout = <T>({
           height,
         };
       }
-
+      // $FlowFixMe[prop-missing]
       positions.push(position);
       return positions;
     }, []);

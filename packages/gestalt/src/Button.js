@@ -199,6 +199,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
+    // $FlowFixMe[invalid-computed-prop]
     [styles[colorClass]]: !disabled && !selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,

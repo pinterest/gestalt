@@ -12,6 +12,7 @@ const mediaqueryDefaults = {
 describe('useResponsiveMinWidth', () => {
   test('returns `xs` for extra small screens', () => {
     window.matchMedia = jest
+      // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
         {|
@@ -34,6 +35,7 @@ describe('useResponsiveMinWidth', () => {
 
   test('returns `sm` for small screens', () => {
     window.matchMedia = jest
+      // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
         {|
@@ -56,6 +58,7 @@ describe('useResponsiveMinWidth', () => {
 
   test('returns `md` for medium screens', () => {
     window.matchMedia = jest
+      // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
         {|
@@ -78,6 +81,7 @@ describe('useResponsiveMinWidth', () => {
 
   test('returns `lg` for large screens', () => {
     window.matchMedia = jest
+      // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
         {|
@@ -100,6 +104,7 @@ describe('useResponsiveMinWidth', () => {
 
   test('handles the resize of screen', () => {
     let change;
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     window.matchMedia = jest.fn().mockImplementation((query) => ({
       ...mediaqueryDefaults,
       matches: false,

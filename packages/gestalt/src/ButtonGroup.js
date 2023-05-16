@@ -24,6 +24,7 @@ function ButtonGroup({ children }: Props): Node {
   return (
     <Box margin={-1} display="flex" wrap>
       {Children.map(children, (child) =>
+        // $FlowFixMe[incompatible-type]
         child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
       )}
     </Box>

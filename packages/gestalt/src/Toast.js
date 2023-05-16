@@ -129,6 +129,7 @@ export default function Toast({
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
+  // $FlowFixMe[underconstrained-implicit-instantiation]
   const isTextNode = typeof text !== 'string' && Children.only(text).type.displayName === 'Text';
 
   if (isTextNode) {
@@ -163,6 +164,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.image &&
+          // $FlowFixMe[underconstrained-implicit-instantiation]
           Children.only(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
               <ToastImageThumbnail thumbnail={thumbnail.image} />
@@ -172,6 +174,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.icon &&
+          // $FlowFixMe[underconstrained-implicit-instantiation]
           Children.only(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
               <ToastIconThumbnail thumbnail={thumbnail.icon} />
@@ -181,6 +184,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.avatar &&
+          // $FlowFixMe[underconstrained-implicit-instantiation]
           Children.only(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
               <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />

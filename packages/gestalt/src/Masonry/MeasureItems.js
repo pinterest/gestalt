@@ -25,6 +25,7 @@ export default function MeasureItems<T>({
   renderItem,
 }: Props<T>): Node {
   const measuringPositions = getPositions(items);
+  // $FlowFixMe[underconstrained-implicit-instantiation]
   const refs = useMemo(() => new Map(), []);
   // Need a separate variable for use in useLayoutEffect's dependency array
   const refsSize = refs.size;
