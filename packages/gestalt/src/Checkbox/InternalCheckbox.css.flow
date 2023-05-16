@@ -12,6 +12,7 @@ declare module.exports: {|
   +'check': string,
   +'input': string,
   +'inputEnabled': string,
+  +'readOnly': string,
   +'sizeMd': string,
   +'sizeSm': string,
 |};

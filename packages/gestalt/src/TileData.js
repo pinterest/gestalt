@@ -52,13 +52,13 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * An optional identifier to be passed back in the onChange callback. It can be helpful to distinguish multiple DataPoints.
+   * An optional identifier to be passed back in the onChange callback. It can be helpful to distinguish multiple TileDatas.
    */
   id?: string,
   /**
    * Handler if the item selection state is changed.
    */
-  onChange?: TileChangeHandler,
+  onTap?: TileChangeHandler,
   /**
    * Controls whether the tile is selected or not.
    */
@@ -90,13 +90,17 @@ type Props = {|
 |};
 
 /**
- * Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points
+ * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
+ *
+ * ![TileData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TileData.spec.mjs-snapshots/TileData-chromium-darwin.png)
+ * ![TileData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TileData-dark.spec.mjs-snapshots/TileData-dark-chromium-darwin.png)
+ *
  */
 export default function TileData({
   color = '05',
   disabled = false,
   id,
-  onChange,
+  onTap,
   selected,
   showCheckbox,
   tooltip,
@@ -128,21 +132,22 @@ export default function TileData({
 
   return (
     <Tile
-      tooltip={tooltip}
-      selected={selected}
-      showCheckbox={showCheckbox}
-      disabled={disabled}
-      id={id}
       bgColor={getBackgroundShade()}
       borderColor={getColorHex(color)}
-      onChange={onChange}
+      disabled={disabled}
+      id={id}
+      onTap={onTap}
+      selected={selected}
+      showCheckbox={showCheckbox}
+      tooltip={tooltip}
     >
       <InternalDatapoint
+        disabled={disabled}
+        lineClamp={2}
         title={title}
-        value={value}
         trend={trend}
         trendSentiment={trendSentiment}
-        disabled={disabled}
+        value={value}
       />
     </Tile>
   );

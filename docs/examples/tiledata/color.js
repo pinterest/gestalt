@@ -12,7 +12,7 @@ export default function Example(): Node {
           key={color}
           color={color}
           selected
-          onChange={() => {}}
+          onTap={() => {}}
           title={`Color ${color}`}
           value="41.25m"
         />
