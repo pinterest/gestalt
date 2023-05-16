@@ -26,6 +26,7 @@ function MainSectionSubsection({
   marginBottom = 'default',
 }: Props): Node {
   const slugifiedId = slugify(title || '');
+  // $FlowFixMe[underconstrained-implicit-instantiation]
   const arrayChildren = Children.toArray(children);
 
   let defaultBottomMargin = title || description ? 8 : 0;

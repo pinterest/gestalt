@@ -87,6 +87,7 @@ export default function Blog(): Node {
   const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
 
   // Get all digests across years
+  // $FlowFixMe[missing-local-annot]
   const allDigests = blogPosts.reduce((acc, { digests }) => [...acc, ...digests], []);
 
   // We don't want to show empty digests, so remove if no posts for the current filter

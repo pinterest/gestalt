@@ -66,6 +66,7 @@ const defaultLayout =
         heights[col] += heightAndGutter;
         position = { top, left, width: columnWidth, height };
       }
+      // $FlowFixMe[prop-missing]
       positions.push(position);
       return positions;
     }, []);

@@ -135,6 +135,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
+      // $FlowFixMe[invalid-computed-prop]
       [styles[mouseCursor]]: !disabled,
       [styles.tapCompress]:
         props.role !== 'link' && !disabled && tapStyle === 'compress' && isTapping,

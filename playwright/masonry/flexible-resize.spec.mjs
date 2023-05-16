@@ -89,6 +89,7 @@ test.describe('Masonry: flexible resize', () => {
     for (let i = 0; i < originalColumns.length; i += 1) {
       const originalCol = originalItemMap[originalColumns[i]];
       const newCol = newItemMap[newColumns[i]];
+      // $FlowFixMe[missing-local-annot]
       originalCol.forEach((item, row: number) => {
         const newItem = newCol[row];
         expect(newItem).not.toBeUndefined();

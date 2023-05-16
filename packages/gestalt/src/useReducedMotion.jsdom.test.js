@@ -12,6 +12,7 @@ const mediaqueryDefaults = {
 describe('useReducedMotion', () => {
   test('returns true if "Reduced Motion" is enabled', () => {
     window.matchMedia = jest
+      // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
         {|
@@ -34,6 +35,7 @@ describe('useReducedMotion', () => {
 
   test('returns false if "Reduced Motion" is disabled', () => {
     window.matchMedia = jest
+      // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
         {|
@@ -55,6 +57,7 @@ describe('useReducedMotion', () => {
 
   test('handles change of "prefers-reduce-motion" media query value', () => {
     let change;
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     window.matchMedia = jest.fn().mockImplementation((query) => ({
       ...mediaqueryDefaults,
       matches: false,

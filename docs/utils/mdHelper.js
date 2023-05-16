@@ -78,6 +78,7 @@ export async function getAllMarkdownPosts(): Promise<$ReadOnlyArray<$ReadOnlyArr
     }
   };
 
+  // $FlowFixMe[incompatible-call]
   const pathResults = await Promise.all(pagePaths.map((pagePath) => checkIfPathExists(pagePath)));
 
   const validMarkdownPages = pathResults.filter((p) => p.length > 0);

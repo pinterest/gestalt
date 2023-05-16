@@ -165,6 +165,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
     isTapArea && mouseCursor
       ? {
+          // $FlowFixMe[invalid-computed-prop]
           [touchableStyles[mouseCursor]]: !disabled,
         }
       : {},

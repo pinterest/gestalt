@@ -112,7 +112,8 @@ function hasDangerouslySetFlexDisplay(
     return false;
   }
   return Array.isArray(displayValue)
-    ? displayValue.some((value) => dangerousFlexGridDisplays.includes(value))
+    ? // $FlowFixMe[missing-local-annot]
+      displayValue.some((value) => dangerousFlexGridDisplays.includes(value))
     : dangerousFlexGridDisplays.includes(displayValue);
 }
 
