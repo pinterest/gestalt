@@ -49,6 +49,10 @@
   composes: pointer from "../Cursor.css";
 }
 
+.readOnly {
+  pointer-events: none;
+}
+
 .input {
   composes: absolute from "../Layout.css";
   composes: m0 from "../Whitespace.css";

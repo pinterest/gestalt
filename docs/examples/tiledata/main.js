@@ -4,7 +4,7 @@ import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
   return (
-    <Flex gap={5}>
+    <Flex gap={5} justifyContent="center">
       <TileData
         title="Impressions"
         value="10M"

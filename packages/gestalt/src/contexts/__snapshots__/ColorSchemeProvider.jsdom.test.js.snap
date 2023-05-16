@@ -36,6 +36,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --g-colorDataVisualizationErrorText: #eb4242;
   --g-colorDataVisualization01: #005fcb;
   --g-colorDataVisualization02: #75e4d5;
+  --g-colorDataVisualization03: #B190FF;
   --g-colorDataVisualization04: #FDA600;
   --g-colorDataVisualization05: #75bfff;
   --g-colorDataVisualization06: #de2c62;
@@ -143,6 +144,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorDataVisualizationErrorText: #cc0000;
   --g-colorDataVisualization01: #003c96;
   --g-colorDataVisualization02: #11a69c;
+  --g-colorDataVisualization03: #924af7;
   --g-colorDataVisualization04: #d17711;
   --g-colorDataVisualization05: #0081fe;
   --g-colorDataVisualization06: #ff5383;
@@ -250,6 +252,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorDataVisualizationErrorText: #cc0000;
   --g-colorDataVisualization01: #003c96;
   --g-colorDataVisualization02: #11a69c;
+  --g-colorDataVisualization03: #924af7;
   --g-colorDataVisualization04: #d17711;
   --g-colorDataVisualization05: #0081fe;
   --g-colorDataVisualization06: #ff5383;
@@ -357,6 +360,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorDataVisualizationErrorText: #cc0000;
   --g-colorDataVisualization01: #003c96;
   --g-colorDataVisualization02: #11a69c;
+  --g-colorDataVisualization03: #924af7;
   --g-colorDataVisualization04: #d17711;
   --g-colorDataVisualization05: #0081fe;
   --g-colorDataVisualization06: #ff5383;
@@ -465,6 +469,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --g-colorDataVisualizationErrorText: #eb4242;
   --g-colorDataVisualization01: #005fcb;
   --g-colorDataVisualization02: #75e4d5;
+  --g-colorDataVisualization03: #B190FF;
   --g-colorDataVisualization04: #FDA600;
   --g-colorDataVisualization05: #75bfff;
   --g-colorDataVisualization06: #de2c62;

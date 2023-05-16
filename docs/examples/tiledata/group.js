@@ -32,20 +32,20 @@ export default function Example(): Node {
   const [selectedItems, setSelectedItems] = useState(allIds);
 
   return (
-    <Flex gap={4}>
+    <Flex gap={4} justifyContent="center">
       {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
           key={id}
           showCheckbox
-          onChange={({ id: selectedId, selected }) => {
-            let selectedIds: Array<string> = [];
-            if (selected) {
-              selectedIds = selectedItems.filter((tileId) => tileId !== selectedId);
-            } else {
-              if (!selectedId) return;
-              selectedIds = selectedItems.concat([selectedId]);
+          onTap={({ id: selectedId, selected }) => {
+            if (!selectedId) {
+              return;
             }
-            setSelectedItems(selectedIds);
+            setSelectedItems((currSelectedIds) =>
+              selected
+                ? currSelectedIds.filter((tileId) => tileId !== selectedId)
+                : [...currSelectedIds, selectedId],
+            );
           }}
           selected={selectedItems.includes(id)}
           color={color}

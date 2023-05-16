@@ -7,10 +7,17 @@
   composes: sizeLg from "../Borders.css";
   composes: solid from "../Borders.css";
   composes: transparentBorder from "../Borders.css";
-
-  /* Note: this may cause responsiveness weirdness on mobile */
-  max-width: 196px;
   width: min-content;
+}
+
+.tileWidth {
+  max-width: 196px;
+}
+
+@media (--g-sm) {
+  .tileWidth {
+    max-width: none;
+  }
 }
 
 .hovered {

@@ -27,6 +27,14 @@ type Props = {|
    */
   title: string,
   /**
+   * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
+   */
+  tooltipText?: string,
+  /**
+   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
+   */
+  tooltipZIndex?: Indexable,
+  /**
    * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
    */
   trend?: TrendObject,
@@ -38,14 +46,6 @@ type Props = {|
    * The datapoint value (e.g., 1.23M).
    */
   value: string,
-  /**
-   * Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](https://gestalt.pinterest.systems#Tooltip-text) variant to learn more.
-   */
-  tooltipText?: string,
-  /**
-   * Specifying the z-index of the tooltip may be necessary if other elements with higher z-indices overlap the tooltip. See [ZIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) to learn more.
-   */
-  tooltipZIndex?: Indexable,
 |};
 
 /**

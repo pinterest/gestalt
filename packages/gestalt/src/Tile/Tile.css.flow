@@ -6,5 +6,6 @@ declare module.exports: {|
   +'hovered': string,
   +'selected': string,
   +'tile': string,
+  +'tileWidth': string,
   +'transparent': string,
 |};
