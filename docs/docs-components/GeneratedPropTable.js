@@ -90,7 +90,6 @@ export default function GeneratedPropTable({
         getResponsive,
       ].reduce(
         (acc, cur) => ({
-          // $FlowFixMe[exponential-spread]
           ...acc,
           ...cur(acc.description),
         }),
