@@ -1,3 +1,9 @@
+## 111.5.8 (May 16, 2023)
+
+### Patch
+
+- Internal: typed useRefs prepping for 0.203.1 ([#2944](https://github.com/pinterest/gestalt/pull/2944)) - [Preview link](https://deploy-preview-2944--gestalt.netlify.app)
+
 ## 111.5.7 (May 15, 2023)
 
 ### Patch
