@@ -1526,6 +1526,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                         className="box paddingX1 relative"
                       >
                         <input
+                          aria-hidden={true}
                           aria-invalid="false"
                           checked={true}
                           className="input sizeSm inputEnabled readOnly"
@@ -1537,7 +1538,6 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           onFocus={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
-                          role="presentation"
                           type="checkbox"
                         />
                         <div
@@ -1686,6 +1686,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                         className="box paddingX1 relative"
                       >
                         <input
+                          aria-hidden={true}
                           aria-invalid="false"
                           checked={true}
                           className="input sizeSm inputEnabled readOnly"
@@ -1697,7 +1698,6 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           onFocus={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
-                          role="presentation"
                           type="checkbox"
                         />
                         <div
@@ -1846,6 +1846,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                         className="box paddingX1 relative"
                       >
                         <input
+                          aria-hidden={true}
                           aria-invalid="false"
                           checked={true}
                           className="input sizeSm inputEnabled readOnly"
@@ -1857,7 +1858,6 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           onFocus={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
-                          role="presentation"
                           type="checkbox"
                         />
                         <div
