@@ -1,3 +1,9 @@
+## 111.5.9 (May 16, 2023)
+
+### Patch
+
+- Internal: fixes to pass ` flow codemod annotate-implicit-instantiations --write --include-widened .` & `flow codemod annotate-implicit-instantiations --write .` ([#2942](https://github.com/pinterest/gestalt/pull/2942)) - [Preview link](https://deploy-preview-2942--gestalt.netlify.app)
+
 ## 111.5.8 (May 16, 2023)
 
 ### Patch
