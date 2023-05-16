@@ -1537,6 +1537,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           onFocus={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
+                          role="presentation"
                           type="checkbox"
                         />
                         <div
@@ -1696,6 +1697,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           onFocus={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
+                          role="presentation"
                           type="checkbox"
                         />
                         <div
@@ -1855,6 +1857,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           onFocus={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
+                          role="presentation"
                           type="checkbox"
                         />
                         <div
