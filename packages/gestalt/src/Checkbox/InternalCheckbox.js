@@ -160,6 +160,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             onMouseLeave={handleHover}
             ref={innerRef}
             type="checkbox"
+            role={readOnly ? 'presentation' : undefined}
           />
           <div
             style={style}
