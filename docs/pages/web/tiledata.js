@@ -79,7 +79,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader if you're using the `trend` label"
+        description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader if you're using the `trend` or `tooltip` label."
       />
 
       <MainSection
@@ -109,7 +109,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Disabled TileData cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data pre-requisites have not been met"
+          description="Disabled TileData cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data pre-requisites have not been met."
           title="Disabled"
         >
           <MainSection.Card
