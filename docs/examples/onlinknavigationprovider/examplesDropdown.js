@@ -5,7 +5,7 @@ import { Button, Divider, Dropdown, Flex, OnLinkNavigationProvider, RadioGroup }
 export default function Example(): Node {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const useOnNavigation = ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
     const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {

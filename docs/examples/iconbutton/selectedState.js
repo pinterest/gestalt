@@ -7,7 +7,7 @@ export default function Example(): Node {
   const [selected, setSelected] = useState<
     $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
   >([]);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const onSelect = ({
     item,

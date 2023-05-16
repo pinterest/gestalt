@@ -104,7 +104,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     tapStyle = 'none',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 

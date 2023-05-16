@@ -4,7 +4,7 @@ import { IconButton, Dropdown, Box, ColorSchemeProvider, Flex } from 'gestalt';
 
 export default function Snapshot(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
     <ColorSchemeProvider colorScheme="light">

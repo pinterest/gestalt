@@ -76,7 +76,7 @@ type AnimationProps = {|
 |};
 
 function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
-  const [animationData, setAnimationData] = useState();
+  const [animationData, setAnimationData] = useState<null | { ... }>(null);
   useEffect(() => {
     import(`../graphics/year-in-review/lottie/discoStars.json`).then((res) =>
       setAnimationData(res.default),

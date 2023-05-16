@@ -17,7 +17,7 @@ const cards = [
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   return (
     <Box margin={2}>

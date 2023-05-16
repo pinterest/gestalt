@@ -11,7 +11,8 @@ export default function CustomIconButtonPopoverExample(): Node {
     subtext?: string,
     value: string,
   |}>(null);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+
   const onSelect: $ElementType<React$ElementConfig<typeof Dropdown.Item>, 'onSelect'> = ({
     item,
   }) => setSelected(item);

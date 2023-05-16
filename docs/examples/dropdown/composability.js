@@ -16,7 +16,7 @@ export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
   const [switched, setSwitched] = useState(true);
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
     <Fragment>

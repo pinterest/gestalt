@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, type Node } from 'react';
 import { Flex, AvatarGroup, Text, SearchField, Layer, Popover, Box } from 'gestalt';
 
 function SearchCollaboratorsField(): Node {
-  const ref = useRef();
+  const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
     ref.current?.focus();
@@ -23,7 +23,7 @@ function SearchCollaboratorsField(): Node {
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   return (
     <Flex height="100%" width="100%">

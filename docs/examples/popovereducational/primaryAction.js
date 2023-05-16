@@ -4,7 +4,7 @@ import { TapArea, Box, Flex, Text, Mask, Image, PopoverEducational } from 'gesta
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useEffect(() => {
     setOpen(true);

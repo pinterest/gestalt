@@ -22,7 +22,7 @@ export default function ScrollBoundaryContainerExample(): Node {
   const [selected, setSelected] =
     useState<?{| label: string, subtext?: string, value: string |}>(null);
   const [parentComponent, setParentComponent] = useState('modal');
-  const anchorDropdownRef = useRef(null);
+  const anchorDropdownRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const handleSelect = ({
     item,

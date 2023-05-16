@@ -9,7 +9,7 @@ export default function ActionDropdownExample(): Node {
     subtext?: string,
     value: string,
   |}>(null);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const onSelect = ({
     item,

@@ -4,7 +4,7 @@ import { Button, Dropdown, Flex, OnLinkNavigationProvider, Text } from 'gestalt'
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const useRouter = {
     push: (href: string) => {

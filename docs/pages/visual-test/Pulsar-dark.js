@@ -3,7 +3,7 @@ import { useRef, type Node } from 'react';
 import { ColorSchemeProvider, Flex, Box, Pulsar, Button } from 'gestalt';
 
 export default function Snapshot(): Node {
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   return (
     <ColorSchemeProvider colorScheme="dark">

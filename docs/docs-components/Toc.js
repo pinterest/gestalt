@@ -76,7 +76,7 @@ type Props = {|
 export default function Toc({ cards }: Props): Node {
   const [anchors, setAnchors] = useState<$ReadOnlyArray<HTMLElement>>([]);
   const [activeState, setActiveState] = useState<null | string>(null);
-  const clickedRef = useRef(false);
+  const clickedRef = useRef<boolean>(false);
   const unsetClickedRef = useRef<null | TimeoutID>(null);
 
   const findActiveIndex = useCallback(() => {

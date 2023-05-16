@@ -4,7 +4,7 @@ import { Box, Flex, IconButton, Button, Text, PopoverEducational } from 'gestalt
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRefA = useRef();
+  const anchorRefA = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   useEffect(() => {
     setOpen(true);

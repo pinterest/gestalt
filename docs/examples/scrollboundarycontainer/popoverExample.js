@@ -4,7 +4,7 @@ import { Flex, Box, ScrollBoundaryContainer, Text, Button, Layer, Popover } from
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   useEffect(() => {
     setOpen(true);
