@@ -38,5 +38,6 @@ export default function throttle(
     }
   };
 
+  // $FlowFixMe[incompatible-exact]
   return throttled;
 }

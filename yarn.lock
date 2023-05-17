@@ -8523,10 +8523,10 @@ flatten@^1.0.2:
   resolved "https://registry.npmjs.org/flatten/-/flatten-1.0.3.tgz"
   integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
 
-flow-bin@^0.204.1:
-  version "0.204.1"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.204.1.tgz#096c1dc5413edfa3f8284f888449f436a10a68fc"
-  integrity sha512-gYlDS1cRIV/FnqLc8G0xb/pFdu9eGM+NuxZlihlxRrt3GTfei8IioPSXMpiJz11DPPkiAr9tpIyI+g5RcP1W7Q==
+flow-bin@^0.206.0:
+  version "0.206.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.206.0.tgz#a593304be5440a965ae773efcef55071b6d33178"
+  integrity sha512-cZTEs/OEWcbxfvb8BP+Fw0Cep5wrEyEzQHGpXyjVpQXrAraRA5wZUXvTf1C5YHufQaAYY9YkKY5WAr461JvmOA==
 
 flow-parser@0.*:
   version "0.122.0"

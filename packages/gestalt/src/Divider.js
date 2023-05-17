@@ -9,6 +9,7 @@ import styles from './Divider.css';
  * ![Divider dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Divider-dark.spec.mjs-snapshots/Divider-dark-chromium-darwin.png)
  *
  */
-export default function Divider(): Node {
+// eslint-disable-next-line no-empty-pattern
+export default function Divider({}: {||}): Node {
   return <hr className={styles.divider} />;
 }
