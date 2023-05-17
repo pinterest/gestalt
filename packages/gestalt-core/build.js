@@ -57,7 +57,7 @@ const cssModules = (options = {}) => {
         scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
       }
 
-      // if it's dev mode, also append the full class name for debugging
+      // if rollup is running in watch mode, with the -w or --watch flag also append the full class name for debugging
       const isDevMode = process.argv.includes('-w') || process.argv.includes('--watch');
       let minifiedName = scopeNames[hash];
       if (isDevMode) {
