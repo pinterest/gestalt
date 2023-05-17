@@ -3,13 +3,20 @@ import { type Node } from 'react';
 import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
+  const allColors = ['01', '02', '03', '04', '05', '06', '08', '09', '10', '11', '12'];
+
   return (
     <Flex gap={4} wrap justifyContent="center">
-      <TileData selectedColor="data-visualization-01" selected />
-      <TileData selectedColor="data-visualization-02" selected />
-      <TileData selectedColor="data-visualization-03" selected />
-      <TileData selectedColor="data-visualization-04" selected />
-      <TileData selectedColor="data-visualization-05" selected />
+      {allColors.map((color) => (
+        <TileData
+          key={color}
+          color={color}
+          selected
+          onTap={() => {}}
+          title={`Color ${color}`}
+          value="41.25m"
+        />
+      ))}
     </Flex>
   );
 }

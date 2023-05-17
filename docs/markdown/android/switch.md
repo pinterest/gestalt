@@ -66,24 +66,6 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
-## Writing
-
-<TwoCol>
-  <Group>
-    <Do title="Do" />
-    - Be clear and brief with Switch labels so they can be easily understood.
-    - When possible, use verbs to clarify the action. Something like “set…” or “show…”.
-    - If possible, be clear whether the setting is activated or deactivated.
-    - Use sentence case for labels.
-  </Group>
-
-  <Group>
-    <Dont title="Don't" />
-    - Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
-    - Don’t use “you,” “your,” or “my” to describe an action. Instead of “turn on your notifications,” say “turn on notifications.”
-  </Group>
-</TwoCol>
-
 ## Variants
 
 ### Disabled and active states
@@ -119,11 +101,20 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
-## Related
+## Writing
 
-- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup)
-  Use when presenting a user with a list of choices for which there can only be one selection.
-- [Checkbox](https://gestalt.pinterest.systems/android/checkbox)
-  Used when presenting a user with a list of choices for which there can be multiple selections.
-- [Fieldset](https://gestalt.pinterest.systems/web/fieldset)
-  Used to group a list of related Switches with a legend that describes the list.
+<TwoCol>
+  <Group>
+    <Do title="Do" />
+    - Be clear and brief with Switch labels so they can be easily understood.
+    - When possible, use verbs to clarify the action. Something like “set…” or “show…”.
+    - If possible, be clear whether the setting is activated or deactivated.
+    - Use sentence case for labels.
+  </Group>
+
+  <Group>
+    <Dont title="Don't" />
+    - Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
+    - Don’t use “you,” “your,” or “my” to describe an action. Instead of “turn on your notifications,” say “turn on notifications.”
+  </Group>
+</TwoCol>

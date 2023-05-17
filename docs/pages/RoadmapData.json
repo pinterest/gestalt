@@ -60,7 +60,7 @@
     {
       "task": "Figma tooling to support design workflow",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": [],
       "description": "Ship Figma plugin functionality to enhance designers' day-to-day workflow.",
       "link": ""
@@ -92,7 +92,7 @@
     {
       "task": "Mobile Icon component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Android", "iOS"],
       "description": "Development of the Icon component for Android and iOS along with respective documentation.",
       "link": ""
@@ -108,7 +108,7 @@
     {
       "task": "Mobile IconButton component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Android"],
       "description": "Development of a mobile-specific treatment of the IconButton component along with respective documentation.",
       "link": ""
@@ -124,7 +124,7 @@
     {
       "task": "Masonry component integration tests",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Increase safety of future Masonry work by establishing a baseline of integration tests.",
       "link": ""
@@ -140,7 +140,7 @@
     {
       "task": "Mobile web adaptive Popover component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "problem",
       "platforms": ["Web"],
       "description": "Development of a mobile web treatment for the Popover component along with respective documentation.",
       "link": ""
@@ -148,7 +148,7 @@
     {
       "task": "Mobile web adaptive Dropdown component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Development of a mobile web treatment for the Dropdown component along with respective documentation.",
       "link": ""
@@ -164,7 +164,7 @@
     {
       "task": "Mobile web Sheet component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Development of a mobile web Sheet component along with respective documentation.",
       "link": ""

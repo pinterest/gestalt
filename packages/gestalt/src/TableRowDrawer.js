@@ -25,8 +25,8 @@ type Props = {|
  */
 export default function TableRowDrawer({ children, drawerContents, id }: Props): Node {
   const { stickyColumns } = useTableContext();
-  const rowRef = useRef();
-  const [columnWidths, setColumnWidths] = useState([]);
+  const rowRef = useRef<?HTMLTableRowElement>();
+  const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
@@ -35,7 +35,7 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
     }
   }, [stickyColumns]);
 
-  const renderCellWithAdjustedIndex = (child, index) => {
+  const renderCellWithAdjustedIndex = (child: Node, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns
@@ -45,6 +45,8 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+    // $FlowFixMe[incompatible-exact]
+    // $FlowFixMe[incompatible-type]
     return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
   };
 

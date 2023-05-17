@@ -1,10 +1,10 @@
 // @flow strict
-import { useState } from 'react';
+import { useState, type Node } from 'react';
 import { Box, Flex, NumberField } from 'gestalt';
 
-export default function Example(): React$Node {
-  const [ageValue, setAgeValue] = useState();
-  const [petsValue, setPetsValue] = useState();
+export default function Example(): Node {
+  const [ageValue, setAgeValue] = useState<void | number>();
+  const [petsValue, setPetsValue] = useState<void | number>();
 
   return (
     <Box height="100%" padding={3}>

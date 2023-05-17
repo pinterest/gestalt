@@ -49,13 +49,10 @@ const rule: ESLintRule = {
 
         const sizeAttribute = Object.entries(node.attributes).find(
           // eslint-disable-next-line no-unused-vars
-          ([key, value]) =>
-            // $FlowFixMe[incompatible-use]
-            value && value.name && value.name.name === 'size',
+          ([key, value]) => value && value.name && value.name.name === 'size',
         );
 
         // No size defined or size is not "lg"
-        // $FlowFixMe[incompatible-use]
         if (!sizeAttribute || sizeAttribute[1].value.value === 'md') {
           context.report(node, 'Gestalt form fields should always have size="lg" set on them');
         }

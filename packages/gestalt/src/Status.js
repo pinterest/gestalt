@@ -30,13 +30,25 @@ const ICON_COLOR_MAP = {
     icon: 'workflow-status-unstarted',
     color: 'default',
   },
+  queued: {
+    icon: 'workflow-status-queued',
+    color: 'default',
+  },
   warning: {
     icon: 'workflow-status-warning',
     color: 'warning',
   },
 };
 
-type StatusType = 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
+type StatusType =
+  | 'unstarted'
+  | 'queued'
+  | 'inProgress'
+  | 'halted'
+  | 'ok'
+  | 'problem'
+  | 'canceled'
+  | 'warning';
 
 type Props = {|
   /**

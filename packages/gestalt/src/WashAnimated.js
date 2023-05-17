@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './WashAnimated.css';
 import Box from './Box.js';
 
-function isNil(val) {
+function isNil(val: ?boolean) {
   return val === undefined || val === null;
 }
 
@@ -45,12 +45,12 @@ export default function WashAnimated({
 }: Props): Node {
   const [hovered, setHovered] = useState(false);
 
-  const handleMouseEnter = (event) => {
+  const handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     setHovered(true);
     onMouseEnter?.({ event });
   };
 
-  const handleMouseLeave = (event) => {
+  const handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     setHovered(false);
     onMouseLeave?.({ event });
   };

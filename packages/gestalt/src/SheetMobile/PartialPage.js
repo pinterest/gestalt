@@ -10,6 +10,7 @@ import {
 import classnames from 'classnames';
 import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
@@ -19,6 +20,7 @@ import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
 import sheetMobileStyles from '../SheetMobile.css';
+import { type Indexable } from '../zIndex.js';
 import ContentContainer from './ContentContainer.js';
 import Header from './Header.js';
 
@@ -45,6 +47,7 @@ type Props = {|
   heading?: Node,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
   onDismiss: () => void,
+  onOutsideClick?: () => void,
   padding?: 'default' | 'none',
   primaryAction?: {|
     accessibilityLabel: string,
@@ -59,6 +62,7 @@ type Props = {|
   showDismissButton?: boolean,
   size: 'default' | 'full' | 'auto',
   subHeading?: string,
+  zIndex?: Indexable,
 |};
 
 export default function PartialPage({
@@ -69,6 +73,7 @@ export default function PartialPage({
   closeOnOutsideClick = true,
   onAnimationEnd,
   onDismiss,
+  onOutsideClick,
   footer,
   forwardIconButton,
   padding,
@@ -78,28 +83,33 @@ export default function PartialPage({
   showDismissButton,
   size,
   subHeading,
+  zIndex,
 }: Props): Node {
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
 
   const id = useId();
 
-  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+  const { animationState, handleAnimationEnd } = useAnimation();
+  const { handleRequestAnimationFrame, onExternalDismiss } = useRequestAnimationFrame();
 
   const handleOnAnimationEnd = useCallback(() => {
-    handleAnimation();
+    handleAnimationEnd();
+    handleRequestAnimationFrame();
     onAnimationEnd?.({
       animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
     });
-  }, [animationState, onAnimationEnd, handleAnimation]);
+  }, [animationState, onAnimationEnd, handleAnimationEnd, handleRequestAnimationFrame]);
 
   const handleBackdropClick = useCallback(() => {
+    onOutsideClick?.();
+
     if (closeOnOutsideClick) {
       onExternalDismiss();
     }
-  }, [closeOnOutsideClick, onExternalDismiss]);
+  }, [closeOnOutsideClick, onExternalDismiss, onOutsideClick]);
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
       // Handle onDismiss triggering from ESC keyup event
       if (event.keyCode === ESCAPE) {
         onExternalDismiss();
@@ -142,6 +152,7 @@ export default function PartialPage({
             sheetMobileStyles.container,
             sheetMobileStyles.partialPageContainer,
           )}
+          style={zIndex ? { zIndex: zIndex.index() } : undefined}
         >
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
@@ -150,6 +161,7 @@ export default function PartialPage({
               className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
                 [sheetMobileStyles.defaultWrapper]: size === 'default',
                 [sheetMobileStyles.autoWrapper]: size === 'auto',
+                [animation.slideUpInitialize]: animationState === ANIMATION_STATE.hidden,
                 [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutBottom]: animationState === ANIMATION_STATE.animatedClosing,
               })}

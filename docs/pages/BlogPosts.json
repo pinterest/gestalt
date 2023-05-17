@@ -3,6 +3,180 @@
     "year": "2023",
     "digests": [
       {
+        "week": "May 12, 2023",
+        "summary": "Dropdown updates, smoother animations, new guidelines to help with design file hygiene, more Figma library updates and mobile documentation.",
+        "posts": [
+          {
+            "title": "Dropdown updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/7a/77/45/7a7745342069fdb0dab8134ec86dfc27.png",
+            "imageAltText": "Examples of Dropdown in desktop and mobile web contexts.",
+            "content": "Gestalt's Web Dropdown now is [mWeb adaptive](https://gestalt.pinterest.systems/web/dropdown#Mobile). This is awesome because now using Dropdown will _just work_ in any situation. For desktop, the menu will display as a Popover and on mobile, it'll reveal as a Sheet. This means just one less thing for you to do when building experiences. So make sure to treat yourself to something nice with all the extra time you now have\n\n**Note:** Dropdown mobile adaptation is not set as default yet. We are still improving SheetMobile to support additional functionality. Once the refinements are finished, we'll set mobile adaptation to SheetMobile as default.\n\nWe also switched out the link affordance to our new standard `visit` icon. This will ensure greater visual continuity throughout the product."
+          },
+          {
+            "title": "Animation improvements for Sheet and OverlayPanel",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/f6/22/9c/f6229cdc4b5608650e4f48f144c58e45.png",
+            "imageAltText": "",
+            "content": "We implemented `window.requestAnimationFrame` to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) and [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) so our browsers can be smarter and more performant managing the animations in these components. This means silkier and smooth-ier in-product transitions."
+          },
+          {
+            "title": "Design hygiene guidelines",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/85/74/1f/85741f88e9f47364c5f6e43f03df78cc.png",
+            "imageAltText": "",
+            "content": "Keeping our design files clean and organized is one of those unspoken, yet absolutely critical things to help maintain focus and flow. We've put together a set of guidelines to help ensure we're all keeping our files clear and tidy. These guidelines include [naming conventions](https://gestalt.pinterest.systems/team_support/design_file_hygiene/naming_convention), [organizing layout](https://gestalt.pinterest.systems/team_support/design_file_hygiene/organizing_layout), [Figma branches](https://gestalt.pinterest.systems/team_support/design_file_hygiene/figma_branches) and last but _definitely not least_, [design handoff](https://gestalt.pinterest.systems/team_support/design_file_hygiene/design_handoff).\n\nWe are really hopeful these guidelines will help everyone's day to day work and would love your feedback on this!"
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/8d/b9/e8/8db9e8f95ffa9cdc4f50d5508b94a869.png",
+            "imageAltText": "",
+            "content": "It seems like every week comes with a bunch of Figma library updates and this week is no exception.\n\n* We are super excited to share that we've implemented [simplified component instances](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#simplified) in most of the Figma web library components. This update means only editable layers for our components are visible in the layers panel. We started with Web to get your feedback and plan to roll out to all libraries once we hear your feedback. \n\n* We also have a new component on the web Figma library: our trusty List component. Using List will ensure that you're following the standard spacing and bullets used for our React components.\n\n* Lastly, we added disabled variants to the Android and iOS Switch components."
+          },
+          {
+            "title": "ButtonGroup Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/2a/85/4c/2a854c2a84b0b7b40062dd8839878b02.png",
+            "imageAltText": "",
+            "content": "Lastly, we've added component docs for [Android ButtonGroup](https://gestalt.pinterest.systems/android/buttongroup). This is our first step towards getting this component built and available in the Android codebase."
+          }
+        ]
+      },
+      {
+        "week": "May 5, 2023",
+        "summary": "Official TypeScript support, mweb-adaptive Dropdowns, TextField Android docs and boatloads of Figma library updates.",
+        "posts": [
+          {
+            "title": "Official TypeScript declarations",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/e5/be/58/e5be58c014ce9da62682608d76540b84.png",
+            "imageAltText": "Gestalt and TypeScript logos.",
+            "content": "This is a big, _big_ update. Gestalt now officially supports TypeScript as of v111.0.0. Gestalt will also now maintain TS types internally. With that said, this is an initial release, so if you run into any incorrect types, please reach out to #gestalt-eng-web or send us a PR with a fix!"
+          },
+          {
+            "title": "TextField Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/b9/aa/2b/b9aa2b28430d9d4e113a85de057a3da5.png",
+            "imageAltText": "Screenshot of TextField's Android docs.",
+            "content": "The team published design specs for our [Android TextField component](https://gestalt.pinterest.systems/android/textfield). We're now up to 13 Android component docs as of this month, which is a major accomplishment for the team."
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/e1/d7/9a/e1d79a970e84017acfead5470ecb1495.png",
+            "imageAltText": "Examples of Tag, Tabs, AvatarGroup and Modal components.",
+            "content": "We have a boatload of Figma library updates:\n* Image fills for all components across all libraries now use our imagery styles from our Foundations library.\n* We made numerous improvements to our Modal and Sheet Figma components across all platforms to more closely represent Gestalt's current specs and guidelines.\n* The Tabs component now can display a numeric indicator.\n* We added a missing warning variant to the Tag component in our Web library."
+          }
+        ]
+      },
+      {
+        "month": "April",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng April Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from April."
+          },
+          {
+            "title": "SheetMobile",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/95/e3/41/95e3416596e9a53b2e3bbb377b20830b.png",
+            "imageAltText": "Screenshot of SheetMobile UI",
+            "content": "Remember when we renamed Sheet to OverlayPanel? Here's why: introducing our new mobile-only component, [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile)! This mweb-specific component is a generic container for a variety of content. It animates up from the bottom of the screen, and back down when dismissed. You can use this component to create mweb experiences with a more native feel. But don't go too crazy with it yet — we plan to make several of our existing components \"adaptive\" on mobile, automatically switching to use this new UI instead. Also this component is still in pilot, so expect possible breaking changes in the near future."
+          },
+          {
+            "title": "DateField",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/32/f4/8d/32f48d0bd19fb2fad2e44ec8915749a4.png",
+            "imageAltText": "Screenshot of DateField UI",
+            "content": "We recently released an experimental new component, [DateField](https://gestalt.pinterest.systems/web/datefield)! Built to help support Project Protect, this component allows the user to easily input a date using only the keyboard. Keep in mind that this component is experimental, and may see breaking changes in the near future."
+          },
+          {
+            "title": "Component updates: DatePicker, IconButtonFloating, NumberField, Popover, Table, TextField, TextField, TextArea",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/ef/0f/9d/ef0f9d54f98b6e6b23c43946c54e7e16.png",
+            "imageAltText": "Screenshot of DatePicker UI with month and year dropdowns",
+            "content": "[DatePicker](https://gestalt.pinterest.systems/web/datepicker) now supports dropdowns for \"month\" and \"year\" for faster date selection. [TextField](https://gestalt.pinterest.systems/web/textfield) nows allows specification of the input mode, and along with [NumberField](https://gestalt.pinterest.systems/web/numberfield) has mobile-only props indicated by a prefix, like `mobileEnterKeyHint` and `mobileInputMode`. [TextArea](https://gestalt.pinterest.systems/web/textarea) now uses its existing `rows` prop to indicate both the minimum and the maximum number of rows shown, with scrollable overflow. [Table](https://gestalt.pinterest.systems/web/table) saw a couple of changes: headers and footers now have a border, and Table.RowExpanded can be used in a controlled manner using the `expanded` prop. We also added a number of icons: `briefcase`, `sun`, and `moon` on web; and `arrow-circle-back`, `add-section`, `briefcase`, `move-pin`, and `workflow-queued` on Android. Finally, we've been upgrading Flow versions and are nearly at the most current version. This will greatly increase type safety for all our components!"
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/6d/8a/c4/6d8ac4e251bb3125fb8d37965568a350.png",
+            "imageAltText": "Screenshot of code example UI showing new dark mode and text direction buttons",
+            "content": "You can now toggle dark mode and text direction for each code example! No need to change settings for the entire site just for one example. [Toast](https://gestalt.pinterest.systems/android/toast) and [TextArea](https://gestalt.pinterest.systems/android/textarea) for Android both saw updates, as did [Text](https://gestalt.pinterest.systems/ios/text) on iOS. And we converted 3 more web component pages to use Sandpack for code examples."
+          },
+          {
+            "title": "Shoutouts",
+            "audience": ["Engineering"],
+            "content": "Special shoutout to Yen-Wei Liu for a change to how we handle sourcemaps, leading to ~50% bundle size decrease!"
+          }
+        ]
+      },
+      {
+        "week": "April 21, 2023",
+        "summary": "New SheetMobile and DateField Web components, various docs additions/improvements, a new alpha release pipeline and new Figma components.",
+        "posts": [
+          {
+            "title": "New SheetMobile component (pilot version)",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/d9/fa/78/d9fa78b9b76f6403871b831701fab910.png",
+            "imageAltText": "Example of Gestalt's SheetMobile component.",
+            "content": "We've shipped a pilot version of our [SheetMobile component](https://gestalt.pinterest.systems/web/sheetmobile). This represents one of our highest priorities for H1, so we're super excited for this initial launch. We're still working on some kinks, but it's well on its way to being ready to use. We look forward to having more updates on this topic."
+          },
+          {
+            "title": "New DateField component (experimental version)",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/d0/eb/c1/d0ebc19d8630dec7bdc47bdda93037ea.png",
+            "imageAltText": "Example of Gestalt's DateField component.",
+            "content": "We shipped an experimental [DateField component](https://gestalt.pinterest.systems/web/datefield) to address a pressing need within product. This component also has some kinks to iron out, but we felt it was ready to ship in an experimental state. This was a great team effort to get a workable solution out the door in such a short time, so big congrats to all involved!"
+          },
+          {
+            "title": "Alpha release pipeline",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/d5/bd/bb/d5bdbb38fa2047cc0616f74e5ccc241c.png",
+            "imageAltText": "Greek alpha symbol.",
+            "content": "We're super excited to announce that we've implemented an alpha release pipeline for Gestalt. This means we'll be able to ship new/improved features to Gestalt much sooner through alpha releases.\n\nWant to learn more about this? Of course you do! We've added an [alpha releases guide](https://gestalt.pinterest.systems/get_started/developers/releases#Alpha-releases) to our docs just for you."
+          },
+          {
+            "title": "Mobile docs updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/81/16/84/811684262801a6007bc56dd02cd9dc30.png",
+            "imageAltText": "Screenshot of Gestalt's iOS Text documentation.",
+            "content": "Our mobile documentation continues to grow at a steady pace. We recently added the following component docs:\n* [Android Text](https://gestalt.pinterest.systems/android/text)\n * [Android TextArea](https://gestalt.pinterest.systems/android/textarea)\n* [iOS Text](https://gestalt.pinterest.systems/ios/text)\n\nThere's more where this came from, so stay tuned."
+          },
+          {
+            "title": "Dark mode and RTL for component code examples",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/44/d5/a3/44d5a30808a94a017d4ff8dbd206f445.png",
+            "imageAltText": "Screenshot of the Gestalt Button component example in dark mode.",
+            "content": "Sometimes you just need to see how a component example looks in RTL and/or dark mode. Well, now our component examples have toggles for dark mode and RTL. No more fiddling with site-wide settings!"
+          },
+          {
+            "title": "New TagData and TableofContents Figma components",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-0",
+            "imageSrc": "https://i.pinimg.com/originals/d7/c8/3d/d7c83d519a542ba5eb32b8a899161070.png",
+            "imageAltText": "Example of the TagData Figma component.",
+            "content": "The M10n component train keeps chugging with the addition of two M10n-centric Figma components. First is TagData which is a Tag component specifically made for the context of data visualizations. You can find this component in our Data viz Figma component library.\n\nThe other component is our new TableofContents, which is used to navigate to anchors on a page. It also serves as an outline of a page’s content. TableofContents is available for use in our Figma Web library."
+          }
+        ]
+      },
+      {
         "week": "April 7, 2023",
         "summary": "Updates related to date/number entry, new unauth Figma components, Table enhancements and additional color tokens.",
         "posts": [

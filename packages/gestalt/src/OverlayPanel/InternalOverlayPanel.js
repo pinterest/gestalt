@@ -4,6 +4,7 @@ import { type Node, useCallback, useState, useLayoutEffect, useEffect, useRef, u
 import classnames from 'classnames';
 import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
@@ -69,7 +70,7 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
-export default function InternalSheet({
+export default function InternalOverlayPanel({
   accessibilityDismissButtonLabel,
   accessibilityLabel,
   children,
@@ -91,7 +92,8 @@ export default function InternalSheet({
 
   const id = useId();
 
-  const { animationState, handleAnimation, onExternalDismiss } = useAnimation();
+  const { animationState, handleAnimationEnd } = useAnimation();
+  const { handleRequestAnimationFrame, onExternalDismiss } = useRequestAnimationFrame();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('OverlayPanel');
@@ -100,6 +102,7 @@ export default function InternalSheet({
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
+  // $FlowFixMe[missing-local-annot]
   function buildDismissableSubcomponent(component) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })
@@ -107,11 +110,12 @@ export default function InternalSheet({
   }
 
   const handleOnAnimationEnd = useCallback(() => {
-    handleAnimation();
+    handleAnimationEnd?.();
+    handleRequestAnimationFrame();
     onAnimationEnd?.({
       animationState: animationState === ANIMATION_STATE.animatedOpening ? 'in' : 'out',
     });
-  }, [animationState, onAnimationEnd, handleAnimation]);
+  }, [animationState, onAnimationEnd, handleAnimationEnd, handleRequestAnimationFrame]);
 
   const handleBackdropClick = useCallback(() => {
     if (closeOnOutsideClick && enabledDismiss) {
@@ -140,7 +144,7 @@ export default function InternalSheet({
   }, [dismissButtonRef]);
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
       // Handle onDismiss triggering from ESC keyup event
       if (event.keyCode === ESCAPE && enabledDismiss) {
         onExternalDismiss();
@@ -188,6 +192,7 @@ export default function InternalSheet({
               id={id}
               aria-label={accessibilityLabel}
               className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
+                [animation.slideInRtlInitialize]: animationState === ANIMATION_STATE.hidden,
                 [animation.animationInSide]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutSide]: animationState === ANIMATION_STATE.animatedClosing,
               })}

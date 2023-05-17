@@ -8,15 +8,11 @@ export const KEYS = {
 export type DirectionOptionType = -1 | 0 | 1;
 type Props = {|
   direction: DirectionOptionType,
-  containerRef?: {| current: ?HTMLElement |},
+  containerRef?: {| current: null | HTMLElement |},
   currentHoveredOption: ?HTMLElement,
 |};
 
-const handleContainerScrolling = ({
-  direction,
-  containerRef = {},
-  currentHoveredOption,
-}: Props) => {
+const handleContainerScrolling = ({ direction, containerRef, currentHoveredOption }: Props) => {
   const container = containerRef?.current;
 
   // Based on keyboard navigation we get the next or previous option

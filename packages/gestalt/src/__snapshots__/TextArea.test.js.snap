@@ -252,6 +252,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     className="textArea base enabled normal textAreaWrapper"
     style={
       Object {
+        "maxHeight": 92,
         "minHeight": 92,
       }
     }

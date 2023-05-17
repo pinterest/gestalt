@@ -45,6 +45,7 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let isImportFixerExecuted = false;
 
+    // $FlowFixMe[missing-local-annot]
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -55,6 +56,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+    // $FlowFixMe[missing-local-annot]
     const jSXElementFnc = (node) => {
       const tagName = getHtmlTag({ elementNode: node });
 

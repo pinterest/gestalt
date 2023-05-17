@@ -83,8 +83,8 @@ type Props = {|
 function ExampleMasonry({ id, layout }: Props): Node {
   const [pins, setPins] = useState<$ReadOnlyArray<Pin>>([]);
   const [width, setWidth] = useState<number>(700);
-  const scrollContainerRef = useRef();
-  const gridRef = useRef();
+  const scrollContainerRef = useRef<?HTMLDivElement>();
+  const gridRef = useRef<?Masonry<Pin>>();
 
   useEffect(() => {
     getPins().then((startPins) => {

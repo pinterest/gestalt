@@ -18,7 +18,7 @@ fullwidth: true
   </Group>
   <Group>
     <Dont title="When not to use" />
-      - Displaying system errors or notices. Consider a [Callout](callout) instead
+      - Displaying system errors or notices. Consider a [Callout](/web/callout) instead
       - Any time a separate, designated URL is desired
       - Any action that should not interrupt users from their current work stream
       - On top of another sheet, as this can create usability issues and confusion
@@ -55,6 +55,13 @@ fullwidth: true
     Round the corners of full sheets. Only Partial and Action sheets should have rounded corners.
   </Group>
 </TwoCol>
+
+## Accessibility
+
+People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
+
+- [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
+- [Accessible development on Android](hhttps://developer.android.com/guide/topics/ui/accessibility)
 
 ## Variants
 
@@ -103,13 +110,8 @@ Sheets can utilize several navigation actions.
 5. **Outside click**
    For the Partial Sheet and Action Sheet the user may be able to tap outside of the sheet to exit.
 
-### Animation
+## Animation
 
 By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
 
-## Accessibility
 
-People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
-
-- [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-- [Accessible development on Android](hhttps://developer.android.com/guide/topics/ui/accessibility)

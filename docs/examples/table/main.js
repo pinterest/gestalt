@@ -10,11 +10,6 @@ export default function Example(): Node {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>
-                <Box display="visuallyHidden">
-                  <Text weight="bold">Open/Close row</Text>
-                </Box>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
                 <Text weight="bold">Campaign</Text>
               </Table.HeaderCell>
               <Table.HeaderCell>

@@ -70,7 +70,7 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   );
 
   // Set the cookie, and update the state
-  const setComponentPlatformFilteredByCookie = (organizedBy) => {
+  const setComponentPlatformFilteredByCookie = (organizedBy: ComponentPlatformFilteredBy) => {
     setCookies(localStorageOrganizedByKey, organizedBy);
     setComponentPlatformFilteredBy(organizedBy);
   };

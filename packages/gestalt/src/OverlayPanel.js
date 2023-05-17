@@ -3,6 +3,7 @@
 import { type Node } from 'react';
 import AnimationProvider from './animation/AnimationContext.js';
 import DismissingElement from './animation/DismissingElement.js';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel.js';
 
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
@@ -100,20 +101,22 @@ function OverlayPanel({
 }: Props): Node {
   return (
     <AnimationProvider>
-      <InternalOverlayPanel
-        accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
-        accessibilityLabel={accessibilityLabel}
-        closeOnOutsideClick={closeOnOutsideClick}
-        dismissConfirmation={dismissConfirmation}
-        footer={footer}
-        heading={heading}
-        onAnimationEnd={onAnimationEnd}
-        onDismiss={onDismiss}
-        size={size}
-        subHeading={subHeading}
-      >
-        {children}
-      </InternalOverlayPanel>
+      <RequestAnimationFrameProvider>
+        <InternalOverlayPanel
+          accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
+          accessibilityLabel={accessibilityLabel}
+          closeOnOutsideClick={closeOnOutsideClick}
+          dismissConfirmation={dismissConfirmation}
+          footer={footer}
+          heading={heading}
+          onAnimationEnd={onAnimationEnd}
+          onDismiss={onDismiss}
+          size={size}
+          subHeading={subHeading}
+        >
+          {children}
+        </InternalOverlayPanel>{' '}
+      </RequestAnimationFrameProvider>
     </AnimationProvider>
   );
 }

@@ -51,7 +51,7 @@ function randomSample({
   // eslint-disable-next-line no-return-assign
   const { height } = samples.find((pin) => (sample -= pin[field]) < 0) ?? {};
 
-  return height;
+  return height ?? 0;
 }
 
 export default function TestPage({
@@ -61,6 +61,7 @@ export default function TestPage({
 |}): Node {
   const router = useRouter();
   const {
+    batchPaints,
     constrained,
     deferMount,
     externalCache,
@@ -97,6 +98,7 @@ export default function TestPage({
     <ColorSchemeProvider colorScheme="light">
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
         <MasonryContainer
+          batchPaints={booleanize(batchPaints)}
           constrained={booleanize(constrained)}
           externalCache={booleanize(externalCache)}
           finiteLength={booleanize(finiteLength)}

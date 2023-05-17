@@ -45,7 +45,7 @@ function IconTile({
   iconDescription: string,
   onTap: () => void,
 |}) {
-  const [hovered, setHovered] = useState();
+  const [hovered, setHovered] = useState<?boolean>();
 
   return (
     <Tooltip text={iconDescription} accessibilityLabel={iconDescription} idealDirection="down">
@@ -140,10 +140,15 @@ export default function IconPage(): Node {
     });
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState<void | string>();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
-  const handleOnChange = ({ value }) => {
+  const handleOnChange = ({
+    value,
+  }: {|
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+    value: string,
+  |}) => {
     setInputValue(value);
     setSuggestedOptions(
       value
@@ -223,7 +228,7 @@ export default function IconPage(): Node {
       </Text>
       <Text>
         Need a new icon?{' '}
-        <Link display="inlineBlock" href="/get_started/how_to_work_with_us#Slack-channels">
+        <Link display="inlineBlock" href="/team_support/get_help#Slack-channels">
           Reach out to us
         </Link>
         , and we can evaluate your request.

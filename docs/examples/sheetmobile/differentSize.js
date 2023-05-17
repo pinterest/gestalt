@@ -14,13 +14,13 @@ import {
 
 export default function Example(): Node {
   const [showComponent, setShowComponent] = useState(true);
-  const [showComponentData, setShowComponentData] = useState(null);
-  const [showNextData, setShowNextData] = useState(null);
+  const [showComponentData, setShowComponentData] = useState<?string>(null);
+  const [showNextData, setShowNextData] = useState<?string>(null);
 
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
-  const resetShowNextData = (animationState) => {
+  const resetShowNextData = (animationState: 'in' | 'out') => {
     if (animationState === 'in') {
       setShowNextData(null);
     }

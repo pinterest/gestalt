@@ -30,4 +30,5 @@ declare module.exports: {|
   +'sizeLg': string,
   +'sizeSm': string,
   +'solid': string,
+  +'transparentBorder': string,
 |};

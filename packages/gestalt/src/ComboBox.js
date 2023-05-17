@@ -21,7 +21,7 @@ import Popover from './Popover.js';
 import Tag from './Tag.js';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
-import ComboBoxItem from './ComboBox/Item.js';
+import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalTextField from './TextField/InternalTextField.js';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
@@ -198,7 +198,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 
   const innerRef = useRef(null);
   const optionRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<null | HTMLElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -253,8 +253,16 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 
   // ==== EVENT HANDLING: ComboBoxItem ====
 
-  const handleSelectItem = useCallback(
-    ({ event, item }) => {
+  const handleSelectItem: (
+    | {| event: SyntheticInputEvent<HTMLInputElement>, item: ComboBoxItemType |}
+    | {| event: SyntheticKeyboardEvent<HTMLElement>, item: OptionType |},
+  ) => void = useCallback(
+    ({
+      event,
+      item,
+    }:
+      | {| event: SyntheticInputEvent<HTMLInputElement>, item: ComboBoxItemType |}
+      | {| event: SyntheticKeyboardEvent<HTMLElement>, item: OptionType |}) => {
       onSelect?.({ event, item });
       if (isNotControlled) {
         setSelectedItem(item);
@@ -268,10 +276,10 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxItem ====
 
   const handleKeyNavigation = useCallback(
-    (event, direction: DirectionOptionType) => {
+    (event: SyntheticKeyboardEvent<HTMLElement>, direction: DirectionOptionType) => {
       if (!showOptionsList) setShowOptionsList(true);
 
-      const getNextHoveredIndex = (keyboardDirection) => {
+      const getNextHoveredIndex = (keyboardDirection: DirectionOptionType) => {
         if (keyboardDirection === UP_ARROW) {
           return direction + (hoveredItemIndex || 0);
         }
@@ -316,7 +324,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   // ==== EVENT HANDLING: Popover ====
 
   const handleKeyDown = useCallback(
-    ({ event }) => {
+    ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
       const { keyCode } = event;
 
       if (keyCode === UP_ARROW) {
@@ -341,14 +349,22 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 
   // ==== EVENT HANDLING: InternalTextField ====
 
-  const handleOnBlur = useCallback(({ event, value }) => onBlur?.({ event, value }), [onBlur]);
+  const handleOnBlur = useCallback(
+    ({ event, value }: {| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) =>
+      onBlur?.({ event, value }),
+    [onBlur],
+  );
 
-  const handleOnFocus = useCallback(({ event, value }) => onFocus?.({ event, value }), [onFocus]);
+  const handleOnFocus = useCallback(
+    ({ event, value }: {| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) =>
+      onFocus?.({ event, value }),
+    [onFocus],
+  );
 
   const handleSetShowOptionsList = useCallback(() => setShowOptionsList(true), []);
 
   const handleOnChange = useCallback(
-    ({ event, value }) => {
+    ({ event, value }: {| event: SyntheticInputEvent<HTMLInputElement>, value: string |}) => {
       setHoveredItemIndex(null);
       if (isNotControlled) {
         setSelectedItem(null);
@@ -372,7 +388,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   }, [isNotControlled, onClear, options]);
 
   const handleOnKeyDown = useCallback(
-    ({ event, value }) => {
+    ({ event, value }: {| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => {
       if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
       onKeyDown?.({ event, value });
     },

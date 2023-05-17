@@ -1,7 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, TileData } from 'gestalt';
+import { Flex, TileData } from 'gestalt';
 
 export default function Example(): Node {
-  return <TileData tooltip="This is TileData with a tooltip" />;
+  return (
+    <Flex justifyContent="center">
+      <TileData tooltip={{ text: 'Weekly Active Users' }} title="WAU" value="1.25M" selected />{' '}
+    </Flex>
+  );
 }

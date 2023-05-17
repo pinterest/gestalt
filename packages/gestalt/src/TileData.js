@@ -1,89 +1,153 @@
 // @flow strict
 import { type Node } from 'react';
-import DataPoint from './Datapoint.js';
+import { type Indexable } from './zIndex.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import Tile from './Tile/Tile.js';
 
+type TooltipProps = {|
+  accessibilityLabel?: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  text: string,
+  zIndex?: Indexable,
+|};
+
+export type TileChangeHandler = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  selected: boolean,
+  id?: string,
+|}) => void;
 
 type DataVisualizationColors =
-  | 'data-visualization-01'
-  | 'data-visualization-02'
-  | 'data-visualization-03'
-  | 'data-visualization-04'
-  | 'data-visualization-05';
+  | '01'
+  | '02'
+  | '03'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | '10'
+  | '11'
+  | '12';
+
+type TrendObject = {|
+  accessibilityLabel: string,
+  value: number,
+|};
 
 type Props = {|
   /**
-   * disables component interactivity
+   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette).
+   */
+  color?: DataVisualizationColors,
+  /**
+   * Indicates if TileData should be disabled. Disabled TileData is inactive and cannot be interacted with.
    */
   disabled?: boolean,
   /**
-   * An identifier to be passed in a callback, and distinguish multiple DataPoints
+   * An optional identifier to be passed back in the onChange callback. It can be helpful to distinguish multiple TileDatas.
    */
   id?: string,
   /**
-   * Handler if the item is selected
+   * Handler if the item selection state is changed.
    */
-  onSelected: (id: string, selected: boolean) => void,
+  onTap?: TileChangeHandler,
   /**
-   * Controls whether the tile is selected or not
+   * Controls whether the tile is selected or not.
    */
   selected?: boolean,
   /**
-   * A color from the data visualization palette. if it's not in the pallete
-   */
-  selectedColor: DataVisualizationColors,
-  /**
-   * Shows a checkbox. Useful when multi-select is available
+   * Shows a visible checkbox when the tile is selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tiledata#Group).
    */
   showCheckbox?: boolean,
   /**
-   * Adds a Tooltip on hover/focus of the Tile. See the With Tooltip variant to learn more.
+   * The header text for the component.
    */
-  tooltip?: string,
-|} & DataPointCore;
+  title: string,
+  /**
+   * Adds a Tooltip on hover/focus of the Tile. See the with [Tooltip](https://gestalt.pinterest.systems/web/tooltip) variant to learn more.
+   */
+  tooltip?: TooltipProps,
+  /**
+   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
+   */
+  trend?: TrendObject,
+  /**
+   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
+   */
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+  /**
+   * The datapoint value (e.g., 1.23M).
+   */
+  value: string,
+|};
 
 /**
- * Use TileData to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points
+ * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
+ *
+ * ![TileData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TileData.spec.mjs-snapshots/TileData-chromium-darwin.png)
+ * ![TileData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TileData-dark.spec.mjs-snapshots/TileData-dark-chromium-darwin.png)
+ *
  */
 export default function TileData({
+  color = '05',
   disabled = false,
-  id = 'no-tile-id-provided',
+  id,
+  onTap,
   selected,
-  selectedColor = 'data-visualization-05',
   showCheckbox,
-  onSelected,
-  tooltip
+  tooltip,
+  title,
+  trend,
+  trendSentiment,
+  value,
 }: Props): Node {
-  /** We use the color hex to generate a shade */
-  const getColorHex = (color: string) =>
-    getComputedStyle(document.documentElement).getPropertyValue(`--color-${color}`);
+  const theme = useColorScheme();
+
+  /** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
+  const getColorHex = (vizColor: string) => {
+    const hex = theme[`colorDataVisualization${vizColor}`];
+    if (!hex) throw new Error('Invalid Color Token provided to TileData');
+    return hex;
+  };
 
   /**
    * Generates a background shade that's 10% lighter. This is dynamic
    */
   const getBackgroundShade = () => {
     // value of the codes are injected
-    const shade = getColorHex(selectedColor);
+    const shade = getColorHex(color);
     // add an alpha channel to the hex, at 10% opacity
-    const bgColor = `${shade}10`;
+    // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+    const bgColor = `${shade}1A`;
     return bgColor;
   };
 
   return (
     <Tile
-      tooltip={tooltip}
-      selected={selected}
-      showCheckbox={showCheckbox}
+      bgColor={getBackgroundShade()}
+      borderColor={getColorHex(color)}
       disabled={disabled}
       id={id}
-      bgColor={getBackgroundShade(selectedColor)}
-      borderColor={getColorHex(selectedColor)}
-      onSelected={onSelected}
+      onTap={onTap}
+      selected={selected}
+      showCheckbox={showCheckbox}
+      tooltip={tooltip}
     >
-      <DataPoint
-        title="Werbeausgaben zurückgeben"
-        value="1.5M"
-        trend={{ value: 10, accessibilityLabel: 's' }}
+      <InternalDatapoint
+        disabled={disabled}
+        lineClamp={2}
+        title={title}
+        trend={trend}
+        trendSentiment={trendSentiment}
+        value={value}
       />
     </Tile>
   );

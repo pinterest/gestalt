@@ -1,61 +1,58 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Box, TileData, Flex } from 'gestalt';
+import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
-  const DataSources = [
+  const dataSources = [
     {
       id: 'data-1',
       name: 'MAU',
-      value: 100,
-      color: 'data-visualization-01',
+      value: '100M',
+      color: '01',
       tooltip: 'Monthly active users',
     },
     {
       id: 'data-2',
       name: 'WAU',
-      value: 80,
-      color: 'data-visualization-02',
+      value: '80M',
+      color: '02',
       tooltip: 'Weekly active users',
     },
     {
-      id: 'data-3',
+      id: 'data-4',
       name: 'DAU',
-      value: 10,
-      color: 'data-visualization-03',
+      value: '10M',
+      color: '03',
       tooltip: 'Daily active users',
     },
   ];
 
-  // add all elements to our map
-  const selectedMap = DataSources.reduce((acc, tile, idx) => {
-    acc[tile.id] = tile.id;
-    return acc;
-  }, {});
+  const allIds = dataSources.map(({ id }) => id);
 
-  const [selectedItems, setSelectedItems] = useState(selectedMap);
-
-  const handleSelect = (id: string, isSelected: boolean) => {
-    const itemsCopy = Object.assign(selectedItems, {});
-    if (itemsCopy[id]) {
-      delete 'id' in itemsCopy;
-      setSelectedItems(itemsCopy);
-    } else {
-      itemsCopy[id] = id;
-    }
-    setSelectedItems(itemsCopy);
-  };
+  const [selectedItems, setSelectedItems] = useState(allIds);
 
   return (
-    <Flex gap={4}>
-      {DataSources.map((tile) => (
+    <Flex gap={4} justifyContent="center">
+      {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
-          key={tile.id}
+          key={id}
           showCheckbox
-          onSelected={handleSelect}
-          selected={!!selectedItems[tile.id]}
-          selectedColor={tile.color}
-          tooltip={tile.tooltip}
+          onTap={({ id: selectedId, selected }) => {
+            if (!selectedId) {
+              return;
+            }
+            setSelectedItems((currSelectedIds) =>
+              selected
+                ? currSelectedIds.filter((tileId) => tileId !== selectedId)
+                : [...currSelectedIds, selectedId],
+            );
+          }}
+          selected={selectedItems.includes(id)}
+          color={color}
+          tooltip={{ text: tooltip }}
+          title={name}
+          value={value}
+          trend={{ value: 20, accessibilityLabel: 'Trending up' }}
         />
       ))}
     </Flex>

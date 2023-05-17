@@ -101,17 +101,17 @@
   min-height: 48px;
 }
 
-.actionButtonContainer {
+.actionButtonWrapper {
   bottom: var(--space-0);
   position: absolute;
   top: var(--space-0);
 }
 
-html:not([dir="rtl"]) .actionButtonContainer {
+html:not([dir="rtl"]) .actionButtonWrapper {
   right: var(--space-0);
 }
 
-html[dir="rtl"] .actionButtonContainer {
+html[dir="rtl"] .actionButtonWrapper {
   left: var(--space-0);
 }
 

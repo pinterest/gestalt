@@ -8,7 +8,11 @@ import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
 import { type Indexable } from './zIndex.js';
+import AnimationProvider from './animation/AnimationContext.js';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { DropdownContextProvider } from './Dropdown/Context.js';
+import PartialPage from './SheetMobile/PartialPage.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 
 const KEYS = {
@@ -19,6 +23,7 @@ const KEYS = {
 
 const dropdownItemDisplayNames = ['Dropdown.Item', 'Dropdown.Link'];
 
+// $FlowFixMe[missing-local-annot]
 function getChildrenOptions(childrenArray) {
   return childrenArray.reduce((accumulatedChildren, currentChild) => {
     const {
@@ -53,7 +58,8 @@ function getChildrenOptions(childrenArray) {
  * used for keyboard navigation,
  * we must clone the item and inject the index prop
  */
-const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
+// $FlowFixMe[missing-local-annot]
+const renderDropdownItemsWithIndex = (dropdownChildren, idxBase: number) =>
   dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
@@ -62,6 +68,7 @@ const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) =>
     return child;
   });
 
+// $FlowFixMe[missing-local-annot]
 const renderChildrenWithIndex = (childrenArray) => {
   let numItemsRendered = 0;
 
@@ -120,9 +127,17 @@ type Props = {|
    */
   maxHeight?: '30vh',
   /**
+   * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
+   */
+  mobileOnAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  /**
    * Callback fired when the menu is closed.
    */
   onDismiss: () => void,
+  /**
+   * Dropdown can adapt to mobile devices to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile). Mobile adaptation is disabled by default. Set to 'false' to enable SheetMobile in mobile devices. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
+   */
+  disableMobileUI?: boolean,
   /**
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
@@ -146,14 +161,19 @@ export default function Dropdown({
   onDismiss,
   zIndex,
   maxHeight,
+  mobileOnAnimationEnd,
+  disableMobileUI = true,
 }: Props): Node {
-  const [hoveredItem, setHoveredItem] = useState<number>(0);
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
+  const [hoveredItemIndex, setHoveredItemIndex] = useState<?number>(isMobile ? undefined : 0);
 
   const dropdownChildrenArray = Children.toArray(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;
-  const setOptionRef = (optionRef) => {
+  const setOptionRef = (optionRef: ?HTMLElement) => {
     selectedElement = optionRef;
     const linkElement = selectedElement?.getElementsByTagName('a')[0];
     if (linkElement) {
@@ -163,8 +183,11 @@ export default function Dropdown({
     }
   };
 
-  const handleKeyNavigation = (event, direction: DirectionOptionType) => {
-    const newIndex = direction + hoveredItem;
+  const handleKeyNavigation = (
+    event: SyntheticKeyboardEvent<HTMLElement>,
+    direction: DirectionOptionType,
+  ) => {
+    const newIndex = direction + (hoveredItemIndex ?? 0);
     const optionsCount = allowedChildrenOptions.length - 1;
 
     // If there's an existing item, navigate from that position
@@ -183,7 +206,7 @@ export default function Dropdown({
 
     if (cursorOption) {
       const item = cursorOption.option;
-      setHoveredItem(cursorIndex);
+      setHoveredItemIndex(cursorIndex);
 
       if (direction === KEYS.ENTER) {
         cursorOption.onSelect?.({
@@ -194,7 +217,7 @@ export default function Dropdown({
     }
   };
 
-  const onKeyDown = ({ event }) => {
+  const onKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
@@ -212,6 +235,31 @@ export default function Dropdown({
       event.preventDefault();
     }
   };
+  if (isMobile && !disableMobileUI) {
+    return (
+      <AnimationProvider>
+        <RequestAnimationFrameProvider>
+          <PartialPage
+            align="start"
+            padding="default"
+            onDismiss={onDismiss}
+            onAnimationEnd={mobileOnAnimationEnd}
+            role="dialog"
+            showDismissButton
+            size="auto"
+            zIndex={zIndex}
+          >
+            {headerContent}
+            <DropdownContextProvider
+              value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+            >
+              {renderChildrenWithIndex(dropdownChildrenArray)}
+            </DropdownContextProvider>
+          </PartialPage>
+        </RequestAnimationFrameProvider>
+      </AnimationProvider>
+    );
+  }
 
   const dropdown = (
     <Popover
@@ -237,7 +285,9 @@ export default function Dropdown({
       >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
-        <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+        <DropdownContextProvider
+          value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+        >
           {renderChildrenWithIndex(dropdownChildrenArray)}
         </DropdownContextProvider>
       </Box>

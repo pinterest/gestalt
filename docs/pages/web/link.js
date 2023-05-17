@@ -74,7 +74,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Display an underline on inline Links in the context of heavy text around them or in dense layouts such as Links on dashboards. The underline helps to determine its interactivity and reinforces accessibility standards."
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={doUnderline} hideEditor name="Do - Underline" />
+              <SandpackExample
+                code={doUnderline}
+                hideEditor
+                layout="column"
+                name="Do - Underline"
+              />
             }
           />
           <MainSection.Card
@@ -97,7 +102,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description="Use bold font-weight in link elements such as lists, profile and board names, and any link element that an underline style isn't necessary to convey interactivity. For example, the user easily recognizes the bold element as a link since it is a typical treatment across our surfaces."
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={doWeightLists} hideEditor name="Do - Font Weight In Lists" />
+              <SandpackExample
+                code={doWeightLists}
+                hideEditor
+                layout="column"
+                name="Do - Font Weight In Lists"
+              />
             }
           />
           <MainSection.Card
@@ -124,6 +134,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 previewHeight={350}
                 code={doMatchStyle}
                 hideEditor
+                layout="column"
                 name="Do - Match Styles"
               />
             }
@@ -151,7 +162,12 @@ Display the external icon ("visit" icon) when the link text needs support to con
 `}
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={doDisplayExternal} hideEditor name="Do - External Icon" />
+              <SandpackExample
+                code={doDisplayExternal}
+                hideEditor
+                layout="column"
+                name="Do - External Icon"
+              />
             }
           />
           <MainSection.Card
@@ -175,7 +191,9 @@ Display the external icon ("visit" icon) when the link text needs support to con
 Add clarity to external links through explicit link text and predictable destinations instead of overusing external icons when the link is surrounded by text content. If not possible, limit to a maximum of two external icons per paragraph.
 `}
             cardSize="md"
-            sandpackExample={<SandpackExample code={doClarity} hideEditor name="Do - Clarity" />}
+            sandpackExample={
+              <SandpackExample code={doClarity} hideEditor layout="column" name="Do - Clarity" />
+            }
           />
           <MainSection.Card
             type="don't"
@@ -196,7 +214,12 @@ Displaying multiple icons within the same text block can cause unnecessary visua
 Provide a meaningful descriptive label to the link that clearly indicates the link’s destination.`}
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={doMeaning} hideEditor name="Do - Meaningful label" />
+              <SandpackExample
+                code={doMeaning}
+                hideEditor
+                layout="column"
+                name="Do - Meaningful label"
+              />
             }
           />
           <MainSection.Card
@@ -230,12 +253,20 @@ Accessible content is critical if we consider that assistive technology also pre
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={accessibilityBoxes} name="Accessibility Checklist" />
+              <SandpackExample
+                code={accessibilityBoxes}
+                layout="column"
+                name="Accessibility Checklist"
+              />
             }
           />
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={accessibilityTiers} name="Accessibility Tiers" />
+              <SandpackExample
+                code={accessibilityTiers}
+                layout="column"
+                name="Accessibility Tiers"
+              />
             }
           />
         </MainSection.Subsection>
@@ -319,7 +350,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
           columns={2}
           description={`To follow Link design guidelines and [best practices](#Best-practices), \`inline\` and \`underline\` props must be used accordingly. In addition, using Links consistently will ensure a great usability experience.
 
-We recommend showing the underline on the link, at least upon a hover behavior; it will sustain accessibility standards. Only hide the underline if the link element has a different hover behavior (e.g., a color background), and the user can still perceive the element as a link. In that case, it’s always a good idea to test this assumption with users. Reach out to [Gestalt for assistance](/get_started/how_to_work_with_us#Meetings-and-events).
+We recommend showing the underline on the link, at least upon a hover behavior; it will sustain accessibility standards. Only hide the underline if the link element has a different hover behavior (e.g., a color background), and the user can still perceive the element as a link. In that case, it’s always a good idea to test this assumption with users. Reach out to [Gestalt for assistance](/team_support/get_help#Meetings-and-events).
 
 Don’t underline [Text](/web/text) that isn’t a Link, as underline has a strong link affordance.
 
@@ -333,13 +364,21 @@ However, Link's underline style can be overridden at any time using the \`underl
           <MainSection.Card
             title="Inline Link"
             sandpackExample={
-              <SandpackExample code={variantInlineLink} name="Variants - Inline Link" />
+              <SandpackExample
+                code={variantInlineLink}
+                layout="column"
+                name="Variants - Inline Link"
+              />
             }
           />
           <MainSection.Card
             title="Standalone Link"
             sandpackExample={
-              <SandpackExample code={variantStandaloneLink} name="Variants - Standalone Link" />
+              <SandpackExample
+                code={variantStandaloneLink}
+                layout="column"
+                name="Variants - Standalone Link"
+              />
             }
           />
         </MainSection.Subsection>
@@ -349,6 +388,7 @@ However, Link's underline style can be overridden at any time using the \`underl
             sandpackExample={
               <SandpackExample
                 code={variantInlineOverride}
+                layout="column"
                 name="Variants - Inline Overriden Underline"
               />
             }
@@ -358,6 +398,7 @@ However, Link's underline style can be overridden at any time using the \`underl
             sandpackExample={
               <SandpackExample
                 code={variantHiddenUnderline}
+                layout="column"
                 name="Variants - Inline Overriden Underline"
               />
             }
@@ -427,11 +468,17 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
       >
         <MainSection.Card
           sandpackExample={
-            <SandpackExample code={variantExternalIcon} name="Variant - External Icon" />
+            <SandpackExample
+              code={variantExternalIcon}
+              layout="column"
+              name="Variant - External Icon"
+            />
           }
         />
         <MainSection.Card
-          sandpackExample={<SandpackExample code={variantRel} name="Variant - Rel" />}
+          sandpackExample={
+            <SandpackExample code={variantRel} layout="column" name="Variant - Rel" />
+          }
         />
       </MainSection.Subsection>
 

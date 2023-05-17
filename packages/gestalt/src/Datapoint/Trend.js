@@ -12,7 +12,7 @@ const TREND_COLOR_MAP = {
 
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
-function getValueColor({ sentiment, value }) {
+function getValueColor({ sentiment, value }: {| sentiment: Sentiment, value: number |}) {
   if (sentiment === 'auto') {
     if (value === 0) {
       return 'default';
@@ -23,13 +23,19 @@ function getValueColor({ sentiment, value }) {
 }
 
 type Props = {|
+  disabled?: boolean,
   iconAccessibilityLabel: string,
   sentiment?: Sentiment,
   value: number,
 |};
 
-export default function Trend({ iconAccessibilityLabel, sentiment = 'auto', value }: Props): Node {
-  const color = getValueColor({ sentiment, value });
+export default function Trend({
+  disabled = false,
+  iconAccessibilityLabel,
+  sentiment = 'auto',
+  value,
+}: Props): Node {
+  const color = disabled ? 'subtle' : getValueColor({ sentiment, value });
 
   return (
     <Flex gap={{ column: 0, row: 1 }}>

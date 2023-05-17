@@ -110,24 +110,71 @@ These practices give users of assistive technologies more information about the 
 ### Keyboards
 Make sure your keyboards match the function of your form field. For example, asking for a phone number should pull up the phone pad keyboard.
 
+## Design tokens
+Use these tokens for applying size and color styles to TextField.
+<br/>
+<iframe style={{border:0}} width="100%" height="1092" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D12211%253A22232%26t%3DSivN2y3BCANz7Ao5-" allowFullScreen></iframe>
+
+## Anatomy 
+See below how the TextField component is constructed. 
+<br/>
+<iframe style={{border:0}} width="100%" height="562" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D12211%253A21706%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+
 
 ## Variants
 
 ### With helper text
 Whenever you want to provide more information about a form field, you should use helper text.
-<ImgContainer src="https://i.pinimg.com/originals/d2/2e/c4/d22ec44c1fa6403735c086c884168c7d.jpg" alt="A form field with helper text under the form that reads, enter a valid web address."/>
-
-### Disabled
-Disabled Text Fields cannot be interacted with. They also do not need to meet contrast requirements, so do not use them to present info to the user.
-<ImgContainer src="https://i.pinimg.com/originals/59/7a/c2/597ac27e8f9cdcadcd9290292c4228fa.jpg" alt="A disabled text field that is grayed out and not interactive."/>
+<TwoCol>
+<Group>
+<ImgContainer src="https://i.pinimg.com/originals/b5/a3/d8/b5a3d8c5c012a1b93f3feeb01202e4c5.png" alt="An example of a text field showing the helper text hint." />
+</Group>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D14308%253A22737%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+</Group>
+</TwoCol>
 
 ### Error
 Text Field can display an error message below the field. Always include an icon to illustrate the error by more than just color. 
-<ImgContainer src="https://i.pinimg.com/originals/4f/c8/9a/4fc89a0420dbb27ca2ef202e1b1965f2.jpg" alt="A form field with an error. The error text reads, that username is not available."/>
+<TwoCol>
+<Group>
+<ImgContainer src="https://i.pinimg.com/originals/8f/2f/43/8f2f43079abaaa6957320f874ab9bc29.png" alt="An example of a text field showing an error variant." />
+</Group>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D14308%253A22932%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+</Group>
+</TwoCol>
 
 ### Success
 Text Field can display a success message below the field. Always include an icon to illustrate the success by more than just color. 
-<ImgContainer src="https://i.pinimg.com/originals/30/a9/8b/30a98b273216c496130f1a5e88fe5b37.jpg" alt="A text field that was successfully submitted. The success text reads, that username is available."/>
+<TwoCol>
+<Group>
+<ImgContainer src="https://i.pinimg.com/originals/b1/e9/1e/b1e91e746332aa4d3879e174cd11b04c.png" alt="An example of a text field showing a success variant." />
+</Group>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D14308%253A23094%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+</Group>
+</TwoCol>
+
+### Disabled
+Disabled Text Fields cannot be interacted with. They also do not need to meet contrast requirements, so do not use them to present info to the user.
+<TwoCol>
+<Group>
+<ImgContainer src="https://i.pinimg.com/originals/60/63/8c/60638cb814032eee0ec29e44060d8027.png" alt="An example of a text field showing a disabled variant." />
+</Group>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D14308%253A23240%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+</Group>
+</TwoCol>
+
+## Colors
+Overview of how the TextField colors look in both themes. 
+<br/>
+### Light mode
+<iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D13956%253A23239%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+
+### Dark mode
+<iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D14064%253A23345%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
 
 ## Animation
 By default, the placeholder text will animate up into the label position when the user interacts with the field. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/animation/).
