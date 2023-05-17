@@ -13,17 +13,7 @@ import main from '../../examples/tagdata/main.js';
 export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function Example() {
-  return (
-    <TagData />
-  );
-}
-        `}
-      >
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} hideEditor name="Main TagData example" />
       </PageHeader>
 

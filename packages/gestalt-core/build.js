@@ -57,7 +57,14 @@ const cssModules = (options = {}) => {
         scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
       }
 
-      return scopeNames[hash];
+      // if it's dev mode, also append the full class name for debugging
+      const isDevMode = process.argv.includes('-w') || process.argv.includes('--watch');
+      let minifiedName = scopeNames[hash];
+      if (isDevMode) {
+        minifiedName = `${name}__${minifiedName}`;
+      }
+
+      return minifiedName;
     },
     getJSON: (filePath, exportTokens) => {
       Object.entries(exportTokens).forEach(([className, value]) => {
