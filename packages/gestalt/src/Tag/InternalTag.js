@@ -123,7 +123,7 @@ export default function InternalTag({
           </Text>
         </div>
 
-        <Box marginStart={disabled ? 2 : 1}>
+        <Box marginStart={disabled ? 2 : 1} height="100%">
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
               <Icon

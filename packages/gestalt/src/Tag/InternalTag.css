@@ -3,6 +3,7 @@
   composes: paddingX2 from "../boxWhitespace.css";
   composes: paddingY3 from "../boxWhitespace.css";
   composes: pointer from "../Cursor.css";
+  height: 100%;
 }
 
 html[dir="rtl"] .button {
