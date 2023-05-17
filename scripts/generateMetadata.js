@@ -41,7 +41,7 @@ async function docgen(filePath) {
     return parsed;
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error);
+    console.log(`'DocGen Error: ${error} at ${filePath}`);
     return null;
   }
 }

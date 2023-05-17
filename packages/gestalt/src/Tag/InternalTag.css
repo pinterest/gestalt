@@ -1,0 +1,53 @@
+.button {
+  composes: noBorder from "../Borders.css";
+  composes: paddingX2 from "../boxWhitespace.css";
+  composes: paddingY3 from "../boxWhitespace.css";
+  composes: pointer from "../Cursor.css";
+}
+
+html[dir="rtl"] .button {
+  border-radius: 8px 0 0 8px;
+}
+
+html:not([dir="rtl"]) .button {
+  border-radius: 0 8px 8px 0;
+}
+
+.secondary {
+  composes: secondary from "../Colors.css";
+}
+
+.button.secondary:hover,
+.button.secondary:focus {
+  background-color: var(--g-colorGray100Hovered);
+}
+
+.button.secondary:active {
+  background-color: var(--g-colorGray100Active);
+}
+
+.errorBase {
+  composes: errorBase from "../Colors.css";
+}
+
+.errorBase:hover,
+.errorBase:focus {
+  background-color: var(--g-colorRed100Hovered);
+}
+
+.errorBase:active {
+  background-color: var(--g-colorRed100Active);
+}
+
+.warningBase {
+  composes: warningBase from "../Colors.css";
+}
+
+.warningBase:hover,
+.warningBase:focus {
+  background-color: var(--g-colorYellow100Hovered);
+}
+
+.warningBase:active {
+  background-color: var(--g-colorYellow100Active);
+}
