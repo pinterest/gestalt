@@ -93,7 +93,6 @@ import gif from './gif.svg';
 import globeChecked from './globe-checked.svg';
 import globe from './globe.svg';
 import gmail from './gmail.svg';
-import googlePlus from './google-plus.svg';
 import graphBar from './graph-bar.svg';
 import handPointing from './hand-pointing.svg';
 import handle from './handle.svg';
@@ -310,7 +309,6 @@ const icons = Object.freeze({
   globe,
   'globe-checked': globeChecked,
   gmail,
-  'google-plus': googlePlus,
   'graph-bar': graphBar,
   handle,
   'hand-pointing': handPointing,
