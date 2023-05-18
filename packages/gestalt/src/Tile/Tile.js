@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node } from 'react';
 import classnames from 'classnames';
 import Box from '../Box.js';
 import InternalCheckbox from '../Checkbox/InternalCheckbox.js';
@@ -31,10 +31,6 @@ type TileChangeHandler = ({|
 
 type Props = {|
   /**
-   * The content to be wrapped by tile.
-   */
-  children?: Node,
-  /**
    * The background color of the tile as a hex. Don't forget about tokenization.
    */
   bgColor?: string,
@@ -43,28 +39,14 @@ type Props = {|
    */
   borderColor?: string,
   /**
-   * Indicates if TileData should be disabled. Disabled TileData is inactive and cannot be interacted with.
+   * The content to be wrapped by tile.
    */
+  children?: Node,
   disabled?: boolean,
-  /**
-   * Id to identify the tile.
-   */
   id?: string,
-  /**
-   * Indicate if tile is in a selected state.
-   */
   selected?: boolean,
-  /**
-   * Handler if the item selection state is changed.
-   */
-  onTap?: TileChangeHandler,
-  /**
-   * Shows a visible checkbox when the tile is selected state. See when using in a [group](http://gestalt.pinterest.systems/web/tiledata#Group).
-   */
   showCheckbox?: boolean,
-  /**
-   * Adds a Tooltip on hover/focus of the Tile. See the With Tooltip variant to learn more.
-   */
+  onTap?: TileChangeHandler,
   tooltip?: TooltipProps,
 |};
 
@@ -91,6 +73,29 @@ function MaybeTooltip({
   );
 }
 
+function getCheckboxColor(
+  state: {|
+    disabled: boolean,
+    hovered: boolean,
+    selected: boolean,
+  |},
+  colorStyles: {| borderColor?: string, backgroundColor?: string |},
+) {
+  let backgroundColor = 'transparent';
+  let borderColor = 'transparent';
+
+  if (state.selected) {
+    backgroundColor = colorStyles.borderColor;
+  }
+
+  if (state.hovered && !state.selected) {
+    backgroundColor = `var(--g-colorGray0)`;
+    borderColor = `var(--color-border-default)`;
+  }
+
+  return { backgroundColor, borderColor };
+}
+
 /**
  * Used Internally to wrap a component with a Tile View
  */
@@ -108,22 +113,16 @@ export default function Tile({
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
 
-  const [isSelected, setIsSelected] = useState(selected);
   const { isFocusVisible } = useFocusVisible();
 
-  useEffect(() => {
-    setIsSelected(selected);
-  }, [selected]);
-
   const classes = classnames(styles.tile, styles.tileWidth, {
-    [styles.selected]: isSelected,
+    [styles.selected]: selected,
     [styles.hovered]: isHovered && !isFocusVisible,
     [styles.disabled]: disabled,
   });
 
   const handleClick: OnTapType = ({ event }) => {
-    onTap?.({ event, id, selected: !isSelected });
-    setIsSelected(!isSelected);
+    onTap?.({ event, id, selected: !selected });
   };
 
   const handleKeyDown = ({
@@ -132,13 +131,12 @@ export default function Tile({
     event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   |}) => {
     if (event.key === 'ENTER') {
-      setIsSelected(!isSelected);
-      onTap?.({ event, id, selected: !isSelected });
+      onTap?.({ event, id, selected: !selected });
     }
   };
 
   const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {};
-  if (isSelected && !disabled) {
+  if (selected && !disabled) {
     // the internal base component uses hex codes
     // but could be passed in pre-tokenized values
     if (borderColor && borderColor.startsWith('#')) {
@@ -148,6 +146,8 @@ export default function Tile({
       colorStyles.backgroundColor = `${bgColor}`;
     }
   }
+
+  const checkBoxStyle = getCheckboxColor({ hovered: isHovered, selected, disabled }, colorStyles);
 
   return (
     <Box position="relative">
@@ -168,13 +168,11 @@ export default function Tile({
               {showCheckbox && (
                 <InternalCheckbox
                   id={id}
-                  checked={isSelected}
+                  checked={selected}
                   readOnly
+                  disabled
                   size="sm"
-                  style={{
-                    backgroundColor: isSelected ? colorStyles.borderColor : 'transparent',
-                    borderColor: 'transparent',
-                  }}
+                  style={checkBoxStyle}
                 />
               )}
             </Flex>

@@ -95,7 +95,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use Tiledata when multiple items can be selected without a visible checkbox."
+            description="Use TileData when multiple items can be selected without a visible checkbox."
             sandpackExample={
               <SandpackExample
                 code={multipleCheckboxDont}
@@ -110,7 +110,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader if you're using the `trend` or `tooltip` label."
+        description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader if you're using the `trend` or `tooltip` props."
       />
 
       <MainSection

@@ -19,7 +19,7 @@ export default function Example(): Node {
       tooltip: 'Weekly active users',
     },
     {
-      id: 'data-4',
+      id: 'data-3',
       name: 'DAU',
       value: '10M',
       color: '03',
@@ -36,15 +36,17 @@ export default function Example(): Node {
       {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
           key={id}
+          id={id}
           showCheckbox
           onTap={({ id: selectedId, selected }) => {
             if (!selectedId) {
               return;
             }
+
             setSelectedItems((currSelectedIds) =>
-              selected
+              !selected
                 ? currSelectedIds.filter((tileId) => tileId !== selectedId)
-                : [...currSelectedIds, selectedId],
+                : currSelectedIds.concat([selectedId]),
             );
           }}
           selected={selectedItems.includes(id)}

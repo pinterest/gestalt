@@ -52,7 +52,7 @@ type Props = {|
    */
   disabled?: boolean,
   /**
-   * An optional identifier to be passed back in the onChange callback. It can be helpful to distinguish multiple TileDatas.
+   * An optional identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TileDatas.
    */
   id?: string,
   /**
@@ -60,11 +60,11 @@ type Props = {|
    */
   onTap?: TileChangeHandler,
   /**
-   * Controls whether the tile is selected or not.
+   * Controls whether the TileData is selected or not. Use it alongside the OnTap Handler
    */
   selected?: boolean,
   /**
-   * Shows a visible checkbox when the tile is selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tiledata#Group).
+   * Shows a visible checkbox when TileData is in a selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tiledata#Group).
    */
   showCheckbox?: boolean,
   /**
