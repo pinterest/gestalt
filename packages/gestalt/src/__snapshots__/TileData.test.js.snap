@@ -73,15 +73,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -181,15 +190,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -289,15 +307,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -397,15 +424,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -505,15 +541,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -613,15 +658,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -721,15 +775,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -829,15 +892,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -937,15 +1009,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1045,15 +1126,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1153,15 +1243,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1261,15 +1360,24 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title="Text Impressions"
                           >
-                            Text Impressions
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title="Text Impressions"
+                            >
+                              Text Impressions
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1370,15 +1478,24 @@ exports[`TileData TileData renders with tooltip 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                        className="box"
                         style={
                           Object {
-                            "WebkitLineClamp": 2,
+                            "minWidth": 80,
                           }
                         }
-                        title="Text Impressions"
                       >
-                        Text Impressions
+                        <div
+                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 2,
+                            }
+                          }
+                          title="Text Impressions"
+                        >
+                          Text Impressions
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1483,14 +1600,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title=""
-                          />
+                          >
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title=""
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1643,14 +1769,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title=""
-                          />
+                          >
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title=""
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1803,14 +1938,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            className="box"
                             style={
                               Object {
-                                "WebkitLineClamp": 2,
+                                "minWidth": 80,
                               }
                             }
-                            title=""
-                          />
+                          >
+                            <div
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              style={
+                                Object {
+                                  "WebkitLineClamp": 2,
+                                }
+                              }
+                              title=""
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1964,15 +2108,24 @@ exports[`TileData TileData title truncates when really long 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                        className="box"
                         style={
                           Object {
-                            "WebkitLineClamp": 2,
+                            "minWidth": 80,
                           }
                         }
-                        title="This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part"
                       >
-                        This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part
+                        <div
+                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 2,
+                            }
+                          }
+                          title="This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part"
+                        >
+                          This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2055,15 +2208,24 @@ exports[`TileData Tiledata is disabled 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                    className="box"
                     style={
                       Object {
-                        "WebkitLineClamp": 2,
+                        "minWidth": 80,
                       }
                     }
-                    title="Text Impressions"
                   >
-                    Text Impressions
+                    <div
+                      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                      style={
+                        Object {
+                          "WebkitLineClamp": 2,
+                        }
+                      }
+                      title="Text Impressions"
+                    >
+                      Text Impressions
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2149,15 +2311,24 @@ exports[`TileData renders 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    className="box"
                     style={
                       Object {
-                        "WebkitLineClamp": 2,
+                        "minWidth": 80,
                       }
                     }
-                    title="Text Impressions"
                   >
-                    Text Impressions
+                    <div
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      style={
+                        Object {
+                          "WebkitLineClamp": 2,
+                        }
+                      }
+                      title="Text Impressions"
+                    >
+                      Text Impressions
+                    </div>
                   </div>
                 </div>
               </div>

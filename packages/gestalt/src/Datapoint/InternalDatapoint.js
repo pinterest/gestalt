@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Badge from '../Badge.js';
+import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Icon from '../Icon.js';
 import TapArea from '../TapArea.js';
@@ -29,6 +30,10 @@ type Props = {|
    * Number of lines to truncate the title value
    */
   lineClamp?: number,
+  /**
+   * Min width length for the title
+   */
+  minTitleWidth?: number,
   size?: 'md' | 'lg',
   title: string,
   tooltipText?: string,
@@ -38,10 +43,15 @@ type Props = {|
   value: string,
 |};
 
+function MaybeMinWidth({ minWidth, children }: {| minWidth: number, children: Node |}) {
+  return minWidth ? <Box minWidth={minWidth}>{children}</Box> : children;
+}
+
 export default function InternalDatapoint({
   badge,
   disabled = false,
   lineClamp,
+  minTitleWidth,
   size = 'md',
   title,
   tooltipText,
@@ -54,9 +64,11 @@ export default function InternalDatapoint({
   return (
     <Flex gap={{ column: 1, row: 0 }} direction="column">
       <Flex gap={{ row: 1, column: 0 }} alignItems="center" minHeight={24}>
-        <Text size="200" color={textColor} lineClamp={lineClamp}>
-          {title}
-        </Text>
+        <MaybeMinWidth minWidth={minTitleWidth}>
+          <Text size="200" color={textColor} lineClamp={lineClamp}>
+            {title}
+          </Text>
+        </MaybeMinWidth>
         {tooltipText && (
           <Tooltip
             accessibilityLabel=""
@@ -77,6 +89,7 @@ export default function InternalDatapoint({
         <Text size={size === 'lg' ? '500' : '400'} weight="bold" color={textColor}>
           {value}
         </Text>
+
         {trend && (
           <DatapointTrend
             disabled={disabled}

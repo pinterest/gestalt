@@ -144,6 +144,7 @@ export default function TileData({
       <InternalDatapoint
         disabled={disabled}
         lineClamp={2}
+        minTitleWidth={80}
         title={title}
         trend={trend}
         trendSentiment={trendSentiment}
