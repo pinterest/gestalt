@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node, type Element } from 'react';
 import styles from './PageHeader.css';
+import {type TypeOptions} from './Badge.js';
 import Box from './Box.js';
 import { type Dimension } from './boxTypes.js';
 import Button from './Button.js';
@@ -29,7 +30,7 @@ type Props = {|
   /**
    * Add [Badge](https://gestalt.pinterest.systems/web/badge) displayed after the title. Be sure to localize the text. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
    */
-  badge?: {| text: string, tooltipText?: string |},
+  badge?: {| text: string, tooltipText?: string, type?: TypeOptions |},
   /**
    * Specify a bottom border style for PageHeader: "sm" is 1px. See the [max width & border variant](https://gestalt.pinterest.systems/web/pageheader#Max-width-and-border) to learn more.
    */
@@ -149,6 +150,7 @@ export default function PageHeader({
                             <PageHeaderBadge
                               badgeText={badge.text}
                               badgeTooltipText={badge.tooltipText}
+                              type={badge.type}
                             />
                           ) : null}
                           {helperIconButton ? (
