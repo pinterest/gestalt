@@ -38,13 +38,6 @@ type Props = {|
   value: string,
 |};
 
-/**
- * [Datapoint](https://gestalt.pinterest.systems/web/datapoint) displays at-a-glance data for a user to quickly view key metrics.
- *
- * ![Datapoint light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Datapoint.spec.mjs-snapshots/Datapoint-chromium-darwin.png)
- * ![Datapoint dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Datapoint-dark.spec.mjs-snapshots/Datapoint-dark-chromium-darwin.png)
- *
- */
 export default function InternalDatapoint({
   badge,
   disabled = false,

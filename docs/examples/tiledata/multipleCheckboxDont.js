@@ -1,0 +1,24 @@
+// @flow strict
+import { type Node } from 'react';
+import { TileData, Flex } from 'gestalt';
+
+export default function Example(): Node {
+  return (
+    <Flex gap={2} height="100%" width="100%" alignItems="center" justifyContent="center">
+      <TileData
+        color="01"
+        title="Impressions"
+        selected
+        value="2M"
+        trend={{ value: 1, accessibilityLabel: 'Trending up' }}
+      />
+      <TileData
+        color="02"
+        title="Impressions"
+        selected
+        value="2M"
+        trend={{ value: 1, accessibilityLabel: 'Trending up' }}
+      />
+    </Flex>
+  );
+}

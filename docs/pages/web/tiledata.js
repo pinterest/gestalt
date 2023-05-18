@@ -12,6 +12,10 @@ import color from '../../examples/tiledata/color.js';
 import disabled from '../../examples/tiledata/disabled.js';
 import group from '../../examples/tiledata/group.js';
 import main from '../../examples/tiledata/main.js';
+import multipleCheckboxDo from '../../examples/tiledata/multipleCheckboxDo.js';
+import multipleCheckboxDont from '../../examples/tiledata/multipleCheckboxDont.js';
+import singleTileDo from '../../examples/tiledata/singleTileDo.js';
+import singleTileDont from '../../examples/tiledata/singleTileDont.js';
 import tooltip from '../../examples/tiledata/tooltip.js';
 
 export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -51,28 +55,55 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
             cardSize="sm"
             type="do"
             description="Always present one tile in its selected state on default."
-            defaultCode={`<TileData color="01" title="Impressions" value="2M" selected trend={{ value: 5, accessibilityLabel: 'Trending up' }} /> `}
+            sandpackExample={
+              <SandpackExample
+                code={singleTileDo}
+                name="show one selected tile"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
-
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use TileData to present a single option, since TileData's don't need to be selected. Use [Datapoint](https://gestalt.pinterest.systems/web/datapoint) instead."
-            defaultCode={`<TileData color="01" title="Impressions" value="2M" trend={{ value: 1, accessibilityLabel: 'Trending up' }}/> `}
+            description="Use TileData to present a single option. If TileData's don't need to be selected, then use a [Datapoint](https://gestalt.pinterest.systems/web/datapoint) instead."
+            sandpackExample={
+              <SandpackExample
+                code={singleTileDont}
+                name="show one tile not selected"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use the `showCheckbox` property when multiple Tiledatas can be selected. See the [group](https://gestalt.pinterest.systems/web/tiledata#Group) variant."
-            defaultCode={`<Flex gap={2}> <TileData color="01" title="Impressions" selected value="2M" showCheckbox trend={{ value: 1, accessibilityLabel: 'Trending up' }}/> <TileData color="02" title="Impressions" selected showCheckbox value="2M" trend={{ value: 1, accessibilityLabel: 'Trending up' }}/>   </Flex>`}
+            description="Use the `showCheckbox` property when multiple Tiledata can be selected. See the [group](https://gestalt.pinterest.systems/web/tiledata#Group) variant for more details."
+            sandpackExample={
+              <SandpackExample
+                code={multipleCheckboxDo}
+                name="show multiple with checkboxes"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Use Tiledata when multiple items can be selected without a visible checkbox."
-            defaultCode={`<Flex gap={2}> <TileData color="01" title="Impressions" selected value="2M"  trend={{ value: 1, accessibilityLabel: 'Trending up' }}/> <TileData color="02" title="MAU" selected  value="2M" trend={{ value: 1, accessibilityLabel: 'Trending up' }}/>   </Flex>`}
+            sandpackExample={
+              <SandpackExample
+                code={multipleCheckboxDont}
+                name="not show multiple with checkboxes"
+                hideEditor
+                previewHeight={200}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -85,7 +116,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
       <MainSection
         name="Localization"
         description={`
-          Make sure that is placed in a Datapoint is set-up to work in RTL languages. Be sure to localize \`title\`, \`value\`, \`trend.accessibilityLabel\`, and \`tooltip.accessibilityLabel\` in TileData. 
+        Be sure to localize \`title\`, \`value\`, \`trend.accessibilityLabel\`, and \`tooltip.accessibilityLabel\` in TileData. 
 
         When the title of the TileData reaches its max width, either intentionally or through localization, the title will wrap as needed to display the full text. Keep this in mind when selecting wording for your TileData menu items. Note that localization can lengthen text by 20 to 30 percent. `}
       />
@@ -100,7 +131,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Use tooltip to display clarifying information on hover/focus. We recommend using tooltips when trying to provide the user additional context/details."
+          description="Use `tooltip` to display clarifying information on hover/focus. We recommend using tooltips when trying to provide the user additional context/details."
           title="Tooltip"
         >
           <MainSection.Card
@@ -133,7 +164,13 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         <MainSection.Subsection
           description={`
       **[Datapoint](/Datapoint)**
-      Datapoint displays at-a-glance data for a user to quickly view key metrics.
+      Used to display data at-a-glance data for a user to quickly view key metrics.
+      
+      **[Checkbox](/web/checkbox)**
+      Used when presenting a user with a list of choices for which there can be multiple selections.
+
+      **[RadioGroup](/web/radiogroup)**
+      Use when presenting a user with a list of choices for which there can only be one selection.
     `}
         />
       </MainSection>

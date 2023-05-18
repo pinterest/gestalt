@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { type Indexable } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useColorScheme, type Theme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import Tile from './Tile/Tile.js';
 
@@ -72,7 +72,7 @@ type Props = {|
    */
   title: string,
   /**
-   * Adds a Tooltip on hover/focus of the Tile. See the with [Tooltip](https://gestalt.pinterest.systems/web/tooltip) variant to learn more.
+   * Adds a Tooltip on hover/focus of the TileData. See the with [Tooltip](https://gestalt.pinterest.systems/web/tooltip) variant to learn more.
    */
   tooltip?: TooltipProps,
   /**
@@ -88,6 +88,25 @@ type Props = {|
    */
   value: string,
 |};
+
+/** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
+const getColorHex = (theme: Theme, vizColor: string) => {
+  const hex = theme[`colorDataVisualization${vizColor}`];
+  if (!hex) throw new Error('Invalid Color Token provided to TileData');
+  return hex;
+};
+
+/**
+ * Generates a background shade that's 10% lighter. This is dynamic
+ */
+const getBackgroundShade = (theme: Theme, color: DataVisualizationColors) => {
+  // value of the codes are injected
+  const shade = getColorHex(theme, color);
+  // add an alpha channel to the hex, at 10% opacity
+  // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+  const bgColor = `${shade}1A`;
+  return bgColor;
+};
 
 /**
  * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
@@ -111,29 +130,10 @@ export default function TileData({
 }: Props): Node {
   const theme = useColorScheme();
 
-  /** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
-  const getColorHex = (vizColor: string) => {
-    const hex = theme[`colorDataVisualization${vizColor}`];
-    if (!hex) throw new Error('Invalid Color Token provided to TileData');
-    return hex;
-  };
-
-  /**
-   * Generates a background shade that's 10% lighter. This is dynamic
-   */
-  const getBackgroundShade = () => {
-    // value of the codes are injected
-    const shade = getColorHex(color);
-    // add an alpha channel to the hex, at 10% opacity
-    // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-    const bgColor = `${shade}1A`;
-    return bgColor;
-  };
-
   return (
     <Tile
-      bgColor={getBackgroundShade()}
-      borderColor={getColorHex(color)}
+      bgColor={getBackgroundShade(theme, color)}
+      borderColor={getColorHex(theme, color)}
       disabled={disabled}
       id={id}
       onTap={onTap}
