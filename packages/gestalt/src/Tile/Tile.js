@@ -93,6 +93,10 @@ function getCheckboxColor(
     borderColor = `var(--color-border-default)`;
   }
 
+  if (state.disabled) {
+    backgroundColor = `var(--color-gray-roboflow-300)`;
+  }
+
   return { backgroundColor, borderColor };
 }
 
@@ -170,7 +174,6 @@ export default function Tile({
                   id={id}
                   checked={selected}
                   readOnly
-                  disabled
                   size="sm"
                   style={checkBoxStyle}
                 />
