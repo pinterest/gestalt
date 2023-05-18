@@ -14,8 +14,8 @@ import {
 } from 'gestalt';
 
 export default function Example(): Node {
-  const [showComponent, setShowComponent] = useState(true);
-  const [reduceMotionState, setReduceMotionState] = useState(null);
+  const [showComponent, setShowComponent] = useState<null | boolean>(true);
+  const [reduceMotionState, setReduceMotionState] = useState<null | boolean>(null);
 
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
