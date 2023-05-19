@@ -34,7 +34,7 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);
 
-  const { pathname } = useRouter();
+  const { asPath: pathname } = useRouter();
 
   let currentPlatform = null;
 
@@ -47,7 +47,6 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   } else if (pathname.includes('/ios/')) {
     currentPlatform = 'ios';
   }
-
   let currentSiteSection = null;
 
   if (currentPlatform) {
