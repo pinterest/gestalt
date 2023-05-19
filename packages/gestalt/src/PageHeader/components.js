@@ -70,7 +70,7 @@ export function PageHeaderBadge({
       }}
     />
   ) : (
-    <Badge text={badgeText} type="info" position="middle" />
+    <Badge text={badgeText} type={type} position="middle" />
   );
 }
 
