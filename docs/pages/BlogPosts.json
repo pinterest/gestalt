@@ -3,6 +3,36 @@
     "year": "2023",
     "digests": [
       {
+        "week": "May 17, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Docs search improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/ec/96/ad/ec96adec5575603e00a6189eff6efc84.png",
+            "imageAltText": "A search field with text entered that says, 'It works now'.",
+            "content": "We've dramatically improved the relevance of search results in our documentation. This has admittedly been an issue for some time and has been a frequently shared pain point by folks who use our documentation. We're super excited to say that our search improvements should alleviate a lot of those frustrations. We apologize it took so long to get this fix out, but we're so glad it's landed."
+          },
+          {
+            "title": "Figma Pin component aspect ratios",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/1d/e3/e3/1de3e3ac2ec3075e5623e514d9e2ef38.png",
+            "imageAltText": "Example of the Pin Figma component and list of supported aspect ratios.",
+            "content": "We've added landscape Pin image aspect ratio variants to our Figma Android, iOS and Web libraries. Specifically, 16:9, 3:2 and 4:3. This enables better support for alternative ways Pins are displayed."
+          },
+          {
+            "title": "Gestalt icons added for Android",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/73/83/65/73836529f6a8b91a2b4a2a3e23e76b01.png",
+            "imageAltText": "Thumbs up icon.",
+            "content": "We've added the full Gestalt icon set in Android format to our codebase. This is a _major_ step towards creating a centralized, unified, cross platform icon collection. Doing so will allow us to make macro-level visual iconography improvements across all platforms with near zero operational overhead. This is just the first step, but a big one."
+          }
+        ]
+      },
+      {
         "week": "May 12, 2023",
         "summary": "Dropdown updates, smoother animations, new guidelines to help with design file hygiene, more Figma library updates and mobile documentation.",
         "posts": [
