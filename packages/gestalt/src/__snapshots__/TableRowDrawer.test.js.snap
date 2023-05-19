@@ -29,7 +29,9 @@ exports[`renders correctly with drawer 1`] = `
     <thead
       className="thead"
     >
-      <tr>
+      <tr
+        className=""
+      >
         <th
           className="th"
           scope="col"
@@ -101,6 +103,7 @@ exports[`renders correctly with drawer 1`] = `
     >
       <tr
         aria-details="drawerTest"
+        className=""
       >
         <td
           className="td"
@@ -229,7 +232,9 @@ exports[`renders correctly with drawer 1`] = `
           </div>
         </td>
       </tr>
-      <tr>
+      <tr
+        className=""
+      >
         <td
           className="td"
           style={
