@@ -20,7 +20,9 @@ exports[`Table.Footer renders correctly 1`] = `
         <tfoot
           class="tfooter"
         >
-          <tr>
+          <tr
+            class=""
+          >
             <td
               class="td"
             >
@@ -58,7 +60,9 @@ exports[`Table.Footer sticky footer renders correctly 1`] = `
         <tfoot
           class="stickyFooter"
         >
-          <tr>
+          <tr
+            class=""
+          >
             <td
               class="td"
             >
