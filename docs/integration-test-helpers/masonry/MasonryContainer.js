@@ -49,6 +49,8 @@ type Props = {|
   pinHeightsSample?: $ReadOnlyArray<number>,
   // If we should position the grid within a scrollContainer besides the window.
   scrollContainer?: boolean,
+  // Insert two-column items into the feed
+  twoColItems?: boolean,
   // If we should virtualize the grid
   virtualize?: boolean,
   // The relative amount in pixel to extend the virtualized viewport top value.
@@ -206,7 +208,7 @@ export default class MasonryContainer extends Component<Props, State> {
     from = 0,
     force = false,
   }) => {
-    const { collage, manualFetch, pinHeightsSample } = this.props;
+    const { collage, manualFetch, pinHeightsSample, twoColItems } = this.props;
 
     if (manualFetch && !force) {
       return;
@@ -231,6 +233,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: from,
             randomNumberSeed: Math.random(),
             pinHeightsSample,
+            twoColItems: twoColItems && from > 0,
           })
         : generateExampleItems({
             name,
@@ -238,6 +241,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: from,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
+            twoColItems: twoColItems && from > 0,
           });
 
     this.setState(({ items }) => ({
@@ -246,7 +250,7 @@ export default class MasonryContainer extends Component<Props, State> {
   };
 
   loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'> = (props) => {
-    const { collage, manualFetch, pinHeightsSample } = this.props;
+    const { collage, manualFetch, pinHeightsSample, twoColItems } = this.props;
 
     if (manualFetch) {
       return;
@@ -273,6 +277,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: defaultFrom,
             randomNumberSeed: Math.random(),
             pinHeightsSample,
+            twoColItems: twoColItems && defaultFrom > 0,
           })
         : generateExampleItems({
             name: undefined,
@@ -280,6 +285,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: defaultFrom,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
+            twoColItems: twoColItems && defaultFrom > 0,
           });
 
     this.setState(({ items }) => ({
