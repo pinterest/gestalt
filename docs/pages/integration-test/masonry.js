@@ -72,6 +72,7 @@ export default function TestPage({
     offsetTop,
     realisticPinHeights,
     scrollContainer,
+    twoColItems,
     virtualize,
     virtualBoundsTop,
     virtualBoundsBottom,
@@ -115,6 +116,7 @@ export default function TestPage({
           offsetTop={offsetTop}
           pinHeightsSample={realisticPinHeights ? pinHeightsSample : undefined}
           scrollContainer={booleanize(scrollContainer)}
+          twoColItems={booleanize(twoColItems)}
           virtualize={booleanize(virtualize)}
           virtualBoundsTop={virtualBoundsTop}
           virtualBoundsBottom={virtualBoundsBottom}
