@@ -28,7 +28,9 @@ export type ActionType = Element<
 
 type Props = {|
   /**
-   * Add [Badge](https://gestalt.pinterest.systems/web/badge) displayed after the title. Be sure to localize the text. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
+   * Adds [Badge](https://gestalt.pinterest.systems/web/badge) displayed after the title. Be sure to localize the text. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
+   *
+   * \`type\` option determines the style of the badge. The default value is "info". See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
    */
   badge?: {| text: string, tooltipText?: string, type?: TypeOptions |},
   /**
