@@ -98,9 +98,17 @@ type Props<T> = {|
    */
   virtualize?: boolean,
   /**
-   * Experimental prop to batch paints for possible performance improvements. This is an experimental prop and may be removed in the future.
+   * Experimental prop to batch paints for possible performance improvements.
+   *
+   * This is an experimental prop and may be removed in the future.
    */
   _batchPaints?: boolean,
+  /**
+   * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
+   *
+   * This is an experimental prop and may be removed in the future.
+   */
+  _twoColItems?: boolean,
 |};
 
 type State<T> = {|
@@ -108,6 +116,7 @@ type State<T> = {|
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
   measurementStore: Cache<T, number>,
+  positionStore: Cache<T, Position>,
   scrollTop: number,
   width: ?number,
 |};
@@ -197,11 +206,14 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const measurementStore: Cache<T, *> =
       props.measurementStore || Masonry.createMeasurementStore();
 
+    const positionStore: Cache<T, Position> = new MeasurementStore();
+
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
       isFetching: false,
       items: props.items,
       measurementStore,
+      positionStore,
       scrollTop: 0,
       width: undefined,
     };
@@ -231,12 +243,13 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
     const { items } = this.props;
-    const { measurementStore } = this.state;
+    const { measurementStore, positionStore } = this.state;
 
     this.measureContainerAsync();
 
     if (prevState.width != null && this.state.width !== prevState.width) {
       measurementStore.reset();
+      positionStore.reset();
     }
     // calculate whether we still have pending measurements
     const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
@@ -380,6 +393,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       measurementStore.reset();
     }
     this.state.measurementStore.reset();
+    this.state.positionStore.reset();
 
     this.measureContainer();
     this.forceUpdate();
@@ -454,7 +468,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       scrollContainer,
       _batchPaints,
     } = this.props;
-    const { hasPendingMeasurements, measurementStore, width } = this.state;
+    const { hasPendingMeasurements, measurementStore, positionStore, width } = this.state;
 
     let getPositions;
 
@@ -476,7 +490,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       });
     } else {
       getPositions = defaultLayout({
-        cache: measurementStore,
+        measurementCache: measurementStore,
+        positionCache: positionStore,
         columnWidth,
         gutter,
         justify: layout === 'basicCentered' ? 'center' : 'start',
@@ -536,10 +551,12 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
+      // [RYAN] Batch size for measuring is currently minCol. Should this be the actual number of columns?
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, minCols);
 
+      // [RYAN] separate out getRenderPositions and getMeasuringPositions?
       const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
