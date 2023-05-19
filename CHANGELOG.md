@@ -1,3 +1,9 @@
+## 112.0.0 (May 19, 2023)
+
+### Major
+
+- Icon: Remove 'google-plus' icon ([#2950](https://github.com/pinterest/gestalt/pull/2950)) - [Preview link](https://deploy-preview-2950--gestalt.netlify.app)
+
 ## 111.5.13 (May 19, 2023)
 
 ### Patch
