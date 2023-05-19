@@ -642,12 +642,6 @@
       "keywords": ["logo", "share", "email", "send"]
     },
     {
-      "name": "google-plus",
-      "categories": ["Social"],
-      "description": "Indicates a Google Plus service",
-      "keywords": []
-    },
-    {
       "name": "graph-bar",
       "categories": ["Ads and measurement"],
       "description": "Indicates a graph-bar data format",

@@ -170,7 +170,6 @@ type Icons =
   | 'globe'
   | 'globe-checked'
   | 'gmail'
-  | 'google-plus'
   | 'graph-bar'
   | 'handle'
   | 'hand-pointing'
