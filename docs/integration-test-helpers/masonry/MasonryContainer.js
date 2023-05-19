@@ -18,6 +18,8 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js'
 // Masonry works, MasonryContainer also supports certain SSR functionality such
 // as generating styles that affect pre-hydration Masonry content.
 
+const TWO_COL_MINDEX = 50;
+
 type Props = {|
   // The actual Masonry component to be used (if using an experimental version of Masonry).
   MasonryComponent: typeof Masonry,
@@ -233,7 +235,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: from,
             randomNumberSeed: Math.random(),
             pinHeightsSample,
-            twoColItems: twoColItems && from > 0,
+            twoColItems: twoColItems && from > TWO_COL_MINDEX,
           })
         : generateExampleItems({
             name,
@@ -241,7 +243,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: from,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
-            twoColItems: twoColItems && from > 0,
+            twoColItems: twoColItems && from > TWO_COL_MINDEX,
           });
 
     this.setState(({ items }) => ({
@@ -277,7 +279,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: defaultFrom,
             randomNumberSeed: Math.random(),
             pinHeightsSample,
-            twoColItems: twoColItems && defaultFrom > 0,
+            twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
           })
         : generateExampleItems({
             name: undefined,
@@ -285,7 +287,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: defaultFrom,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
-            twoColItems: twoColItems && defaultFrom > 0,
+            twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
           });
 
     this.setState(({ items }) => ({
