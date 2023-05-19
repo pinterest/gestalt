@@ -1,3 +1,9 @@
+## 111.5.13 (May 19, 2023)
+
+### Patch
+
+- Docs: fix bug in navigation ([#2951](https://github.com/pinterest/gestalt/pull/2951)) - [Preview link](https://deploy-preview-2951--gestalt.netlify.app)
+
 ## 111.5.12 (May 17, 2023)
 
 ### Patch
