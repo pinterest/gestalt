@@ -1,3 +1,9 @@
+## 112.1.0 (May 19, 2023)
+
+### Minor
+
+- Table: added "selected"and "hoverStyle" prop to all Table.Row subcomponents ([#2952](https://github.com/pinterest/gestalt/pull/2952)) - [Preview link](https://deploy-preview-2952--gestalt.netlify.app)
+
 ## 112.0.0 (May 19, 2023)
 
 ### Major
