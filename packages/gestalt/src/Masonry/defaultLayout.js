@@ -4,6 +4,10 @@ import Graph from './Graph.js';
 import mindex from './mindex.js';
 import { type NodeData, type Position } from './types.js';
 
+function isNotNil(value: mixed): boolean %checks {
+  return value !== null && value !== undefined;
+}
+
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,
   left: -9999,
@@ -31,26 +35,26 @@ function getPositions<T>({
   positionCache: Cache<T, Position>,
 |}): {| positions: $ReadOnlyArray<Position>, heights: $ReadOnlyArray<number> |} {
   const heights = [...heightsArg];
-  const positions = items.reduce((acc, item) => {
-    const positionsSoFar = acc;
-    const height = measurementCache.get(item);
-    let position;
+  const positions = items
+    .reduce((positionsSoFar, item) => {
+      const height = measurementCache.get(item);
+      // Since we've already confirmed that there's a height for this item, this should never stay null
+      let position = null;
 
-    if (height == null) {
-      position = offscreen(columnWidth);
-    } else {
-      const heightAndGutter = height + gutter;
-      const col = mindex(heights);
-      const top = heights[col];
-      const left = col * columnWidthAndGutter + centerOffset;
+      if (isNotNil(height)) {
+        const heightAndGutter = height + gutter;
+        const col = mindex(heights);
+        const top = heights[col];
+        const left = col * columnWidthAndGutter + centerOffset;
 
-      heights[col] += heightAndGutter;
-      position = { top, left, width: columnWidth, height };
-      positionCache.set(item, position);
-    }
-    positionsSoFar.push(position);
-    return positionsSoFar;
-  }, []);
+        heights[col] += heightAndGutter;
+        position = { top, left, width: columnWidth, height };
+        positionCache.set(item, position);
+      }
+      return [...positionsSoFar, position];
+    }, [])
+    .filter(Boolean);
+
   return { positions, heights };
 }
 
@@ -75,7 +79,7 @@ const defaultLayout =
     width?: ?number,
   |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
   (items): $ReadOnlyArray<Position> => {
-    if (width == null) {
+    if (width == null || !items.every((item) => measurementCache.has(item))) {
       return items.map(() => offscreen(columnWidth));
     }
 
