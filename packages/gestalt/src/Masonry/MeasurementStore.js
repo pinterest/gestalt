@@ -1,7 +1,6 @@
 // @flow strict
 import { type Cache } from './Cache.js';
 
-// replace V with "number"
 export default class MeasurementStore<T: { ... } | $ReadOnlyArray<mixed>, V>
   implements Cache<T, V>
 {
