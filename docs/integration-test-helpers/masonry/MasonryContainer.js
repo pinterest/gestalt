@@ -1,5 +1,5 @@
 // @flow strict
-import { Component, createRef, type Element, type Node } from 'react';
+import { Component, createRef, type Element } from 'react';
 import { Masonry } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem.js';
 import getClassicGridServerStyles from './getClassicGridServerStyles.js';
@@ -288,7 +288,7 @@ export default class MasonryContainer extends Component<Props, State> {
   };
 
   // $FlowFixMe[unclear-type]
-  renderItem: ({| +data: any, +itemIdx: number, +isMeasuring: boolean |}) => Node = ({
+  renderItem: $ElementType<React$ElementConfig<typeof Masonry>, 'renderItem'> = ({
     data,
     itemIdx,
   }) => {
