@@ -6,3 +6,10 @@ export type Position = {|
   width: number,
   height: number,
 |};
+
+export type NodeData = {|
+  // $FlowFixMe[unclear-type]
+  id: any,
+  heights: $ReadOnlyArray<number>,
+  positions: $ReadOnlyArray<Position>,
+|};
