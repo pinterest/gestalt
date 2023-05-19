@@ -17,10 +17,11 @@ describe('PageHeader', () => {
   });
 
   it('renders badge with type', () => {
-    const tree = create(<PageHeader title="Settings" badge={{text:'Needs attention', type:'warning'}} />).toJSON();
+    const tree = create(
+      <PageHeader title="Settings" badge={{ text: 'Needs attention', type: 'warning' }} />,
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
 
   it('renders within a max width', () => {
     const tree = create(
