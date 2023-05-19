@@ -6,7 +6,11 @@ type NodesList = Map<NodeData, GraphNode>;
 
 interface GraphInterface {
   nodes: NodesList;
-  addEdge(source: NodeData, destination: NodeData): $ReadOnlyArray<GraphNodeInterface>;
+  addEdge(
+    source: NodeData,
+    destination: NodeData,
+    edgeScore: number,
+  ): $ReadOnlyArray<GraphNodeInterface>;
   addNode(data: NodeData): GraphNodeInterface;
   removeNode(data: NodeData): boolean | void;
   removeEdge(source: NodeData, destination: NodeData): $ReadOnlyArray<?GraphNodeInterface>;
@@ -19,11 +23,15 @@ export default class Graph implements GraphInterface {
 
   nodes: NodesList;
 
-  addEdge(source: NodeData, destination: NodeData): $ReadOnlyArray<GraphNodeInterface> {
+  addEdge(
+    source: NodeData,
+    destination: NodeData,
+    edgeScore: number,
+  ): $ReadOnlyArray<GraphNodeInterface> {
     const sourceNode = this.addNode(source);
     const destinationNode = this.addNode(destination);
 
-    sourceNode.addEdge(destinationNode);
+    sourceNode.addEdge(destinationNode, edgeScore);
     return [sourceNode, destinationNode];
   }
 
@@ -42,7 +50,7 @@ export default class Graph implements GraphInterface {
   removeNode(data: NodeData): boolean | void {
     const current = this.nodes.get(data);
     if (current) {
-      current.edges.forEach((node) => {
+      current.edges.forEach(({ node }) => {
         node.removeEdge(current);
       });
     }
@@ -74,7 +82,7 @@ export default class Graph implements GraphInterface {
         : graphNode.data.id;
       let result = `${prefix}${JSON.stringify(graphNodeData)}\n`;
       graphNode.edges.forEach((edge) => {
-        result += prettyPrintNode(edge.data, level + 1);
+        result += prettyPrintNode(edge.node.data, level + 1);
       });
       return result;
     }
