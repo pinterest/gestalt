@@ -2,32 +2,32 @@
 import GraphNode, { type GraphNodeInterface } from './GraphNode.js';
 import { type NodeData } from './types.js';
 
-type NodesList = Map<NodeData, GraphNode>;
+type NodesList<T> = Map<NodeData<T>, GraphNode<T>>;
 
-interface GraphInterface {
-  nodes: NodesList;
+interface GraphInterface<T> {
+  nodes: NodesList<T>;
   addEdge(
-    source: NodeData,
-    destination: NodeData,
+    source: NodeData<T>,
+    destination: NodeData<T>,
     edgeScore: number,
-  ): $ReadOnlyArray<GraphNodeInterface>;
-  addNode(data: NodeData): GraphNodeInterface;
-  removeNode(data: NodeData): boolean | void;
-  removeEdge(source: NodeData, destination: NodeData): $ReadOnlyArray<?GraphNodeInterface>;
+  ): $ReadOnlyArray<GraphNodeInterface<T>>;
+  addNode(data: NodeData<T>): GraphNodeInterface<T>;
+  removeNode(data: NodeData<T>): boolean | void;
+  removeEdge(source: NodeData<T>, destination: NodeData<T>): $ReadOnlyArray<?GraphNodeInterface<T>>;
 }
 
-export default class Graph implements GraphInterface {
+export default class Graph<T> implements GraphInterface<T> {
   constructor() {
     this.nodes = new Map();
   }
 
-  nodes: NodesList;
+  nodes: NodesList<T>;
 
   addEdge(
-    source: NodeData,
-    destination: NodeData,
+    source: NodeData<T>,
+    destination: NodeData<T>,
     edgeScore: number,
-  ): $ReadOnlyArray<GraphNodeInterface> {
+  ): $ReadOnlyArray<GraphNodeInterface<T>> {
     const sourceNode = this.addNode(source);
     const destinationNode = this.addNode(destination);
 
@@ -35,7 +35,7 @@ export default class Graph implements GraphInterface {
     return [sourceNode, destinationNode];
   }
 
-  addNode(data: NodeData): GraphNodeInterface {
+  addNode(data: NodeData<T>): GraphNodeInterface<T> {
     if (this.nodes.has(data)) {
       const nodeData = this.nodes.get(data);
       if (nodeData) {
@@ -47,7 +47,7 @@ export default class Graph implements GraphInterface {
     return node;
   }
 
-  removeNode(data: NodeData): boolean | void {
+  removeNode(data: NodeData<T>): boolean | void {
     const current = this.nodes.get(data);
     if (current) {
       current.edges.forEach(({ node }) => {
@@ -57,7 +57,10 @@ export default class Graph implements GraphInterface {
     return this.nodes.delete(data);
   }
 
-  removeEdge(source: NodeData, destination: NodeData): $ReadOnlyArray<?GraphNodeInterface> {
+  removeEdge(
+    source: NodeData<T>,
+    destination: NodeData<T>,
+  ): $ReadOnlyArray<?GraphNodeInterface<T>> {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
 
@@ -68,25 +71,53 @@ export default class Graph implements GraphInterface {
     return [sourceNode, destinationNode];
   }
 
-  prettyPrintGraph(startNode: NodeData, identifier?: string): string {
+  prettyPrintGraph(startNode: NodeData<T>): string {
     const thisGraph = this;
 
-    function prettyPrintNode(node: NodeData, level: number): string {
+    function prettyPrintNode(node: NodeData<T>, level: number, score?: number): string {
       const prefix = ' '.repeat(level * 4);
+      const edgeScore = score ? `(edge score: ${score}) - ` : '';
       const graphNode = thisGraph.nodes.get(node);
       if (!graphNode) {
         return '';
       }
-      const graphNodeData = identifier
-        ? graphNode.data.id[identifier] ?? graphNode.data.id
-        : graphNode.data.id;
-      let result = `${prefix}${JSON.stringify(graphNodeData)}\n`;
+      let result = `${prefix}${edgeScore}${JSON.stringify(graphNode.data)}\n`;
       graphNode.edges.forEach((edge) => {
-        result += prettyPrintNode(edge.node.data, level + 1);
+        result += prettyPrintNode(edge.node.data, level + 1, edge.score);
       });
       return result;
     }
 
     return prettyPrintNode(startNode, 0);
+  }
+
+  findLowestScore(startNode: NodeData<T>): {|
+    lowestScore: number | null,
+    lowestScoreNode: NodeData<T>,
+  |} {
+    let lowestScore = null;
+    let lowestScoreNode = startNode;
+
+    function findLowestScoreRecursive(node: GraphNodeInterface<T>): void {
+      const edges = node.getEdges();
+      if (edges.length === 0) {
+        return;
+      }
+      const scores = edges.map((edge) => edge.score);
+      const minScore = Math.min(...scores);
+      if (lowestScore === null || minScore < lowestScore) {
+        lowestScore = minScore;
+        lowestScoreNode = node.data;
+      }
+      edges.forEach((edge) => {
+        findLowestScoreRecursive(edge.node);
+      });
+    }
+
+    const startGraphNode = this.nodes.get(startNode);
+    if (startGraphNode) {
+      findLowestScoreRecursive(startGraphNode);
+    }
+    return { lowestScore, lowestScoreNode };
   }
 }

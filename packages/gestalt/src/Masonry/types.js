@@ -7,9 +7,8 @@ export type Position = {|
   height: number,
 |};
 
-export type NodeData = {|
-  // $FlowFixMe[unclear-type]
-  id: any,
+export type NodeData<T> = {|
+  id: 'start' | T,
   heights: $ReadOnlyArray<number>,
-  positions: $ReadOnlyArray<Position>,
+  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
 |};

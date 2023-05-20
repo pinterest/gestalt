@@ -15,6 +15,8 @@ import uniformRowLayout from './Masonry/uniformRowLayout.js';
 
 const RESIZE_DEBOUNCE = 300;
 
+const TWO_COL_ITEMS_MEASURE_COUNT = 4;
+
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
 type Position = {| top: number, left: number, width: number, height: number |};
@@ -551,12 +553,16 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
-      // [RYAN] Batch size for measuring is currently minCol. Should this be the actual number of columns?
+
+      const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
+      // $FlowFixMe[prop-missing] clearly I don't understand how the `T` type works
+      const hasTwoColumnItems = itemsWithoutPositions.some((item) => item.columnSpan === 2);
+      // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
+      const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_COUNT : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
-        .slice(0, minCols);
+        .slice(0, itemsToMeasureCount);
 
-      // [RYAN] separate out getRenderPositions and getMeasuringPositions?
       const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions

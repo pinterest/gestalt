@@ -15,6 +15,12 @@ const offscreen = (width: number, height: number = Infinity) => ({
   height,
 });
 
+function getPositionsOnly<T>(
+  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+): $ReadOnlyArray<Position> {
+  return positions.map(({ position }) => position);
+}
+
 function getPositions<T>({
   centerOffset,
   columnWidth,
@@ -23,7 +29,6 @@ function getPositions<T>({
   heights: heightsArg,
   items,
   measurementCache,
-  positionCache,
 }: {|
   centerOffset: number,
   columnWidth: number,
@@ -32,28 +37,37 @@ function getPositions<T>({
   heights: $ReadOnlyArray<number>,
   items: $ReadOnlyArray<T>,
   measurementCache: Cache<T, number>,
-  positionCache: Cache<T, Position>,
-|}): {| positions: $ReadOnlyArray<Position>, heights: $ReadOnlyArray<number> |} {
+|}): {|
+  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+  heights: $ReadOnlyArray<number>,
+|} {
   const heights = [...heightsArg];
-  const positions = items
-    .reduce((positionsSoFar, item) => {
-      const height = measurementCache.get(item);
-      // Since we've already confirmed that there's a height for this item, this should never stay null
-      let position = null;
+  const positions = items.reduce((positionsSoFar, item) => {
+    const height = measurementCache.get(item);
 
-      if (isNotNil(height)) {
-        const heightAndGutter = height + gutter;
-        const col = mindex(heights);
-        const top = heights[col];
-        const left = col * columnWidthAndGutter + centerOffset;
+    if (isNotNil(height)) {
+      const heightAndGutter = height + gutter;
+      const col = mindex(heights);
+      const top = heights[col];
+      const left = col * columnWidthAndGutter + centerOffset;
 
-        heights[col] += heightAndGutter;
-        position = { top, left, width: columnWidth, height };
-        positionCache.set(item, position);
-      }
-      return [...positionsSoFar, position];
-    }, [])
-    .filter(Boolean);
+      heights[col] += heightAndGutter;
+      return [
+        ...positionsSoFar,
+        {
+          item,
+          position: {
+            top,
+            left,
+            width: columnWidth,
+            height,
+          },
+        },
+      ];
+    }
+
+    return positionsSoFar;
+  }, []);
 
   return { positions, heights };
 }
@@ -117,9 +131,9 @@ const defaultLayout =
       columnWidthAndGutter,
       gutter,
       measurementCache,
-      positionCache,
     };
 
+    // if (false) {
     if (hasTwoColumnItems) {
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } = getPositions({
@@ -146,19 +160,21 @@ const defaultLayout =
         arr,
         prevNode,
         heightsArr,
+        itemsSoFar = [],
       }: {|
         item: T,
         i: number,
         arr: $ReadOnlyArray<T>,
-        prevNode: NodeData,
+        prevNode: NodeData<T>,
         heightsArr: $ReadOnlyArray<number>,
+        itemsSoFar?: $ReadOnlyArray<T>,
       |}) {
-        // Copy the heights array so we don't mutate it
+        // Copy the heights and positions arrays so we don't mutate them
         const heightsSoFar = [...heightsArr];
 
         // Get the positions and heights after adding this item
         const { positions: updatedPositions, heights: updatedHeights } = getPositions<T>({
-          items: [item],
+          items: [...itemsSoFar, item],
           heights: heightsSoFar,
           ...commonGetPositionArgs,
         });
@@ -169,8 +185,18 @@ const defaultLayout =
           heights: updatedHeights,
           positions: updatedPositions,
         };
+
+        const adjacentColumnHeightDeltas = updatedHeights.reduce((acc, height, index) => {
+          const adjacentColumnHeight = updatedHeights[index + 1];
+          if (adjacentColumnHeight) {
+            return [...acc, Math.abs(height - adjacentColumnHeight)];
+          }
+          return acc;
+        }, []);
+        const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
+
         graph.addNode(paintedItemData);
-        graph.addEdge(prevNode, paintedItemData);
+        graph.addEdge(prevNode, paintedItemData, lowestAdjacentColumnHeightDelta);
 
         // If there are items remaining in the array that haven't yet been laid out, keep going
         if (arr.length > 1) {
@@ -183,6 +209,7 @@ const defaultLayout =
               arr: array,
               heightsArr: updatedHeights,
               prevNode: paintedItemData,
+              itemsSoFar: [...itemsSoFar, item],
             });
           });
         }
@@ -199,8 +226,22 @@ const defaultLayout =
         });
       });
 
-      console.log('graph', graph.prettyPrintGraph(startNodeData, 'name'));
-      return [...paintedItemPositions];
+      console.log('graph', graph.prettyPrintGraph(startNodeData));
+
+      const { lowestScore, lowestScoreNode } = graph.findLowestScore(startNodeData);
+      console.log('lowestScore', lowestScore);
+      console.log('lowestScoreNode', lowestScoreNode);
+
+      const { positions: finalPositions } = lowestScoreNode;
+
+      // INSERT 2-COL ITEM
+
+      // LAYOUT REMAINING ITEMS
+
+      // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
+      // If so, we could save the 2-col item somehow and try again with the next batch of items
+
+      return getPositionsOnly(finalPositions);
     }
 
     const { positions: itemPositions } = getPositions<T>({
@@ -208,8 +249,12 @@ const defaultLayout =
       heights,
       ...commonGetPositionArgs,
     });
+    itemPositions.forEach(({ item, position }) => {
+      positionCache.set(item, position);
+    });
+    const positionsOnly = getPositionsOnly<T>(itemPositions);
 
-    return itemPositions;
+    return positionsOnly;
   };
 
 export default defaultLayout;
