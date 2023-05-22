@@ -15,7 +15,9 @@ import uniformRowLayout from './Masonry/uniformRowLayout.js';
 
 const RESIZE_DEBOUNCE = 300;
 
-const TWO_COL_ITEMS_MEASURE_COUNT = 4;
+// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
+// The number of items measured at a time is the number of columns * this multiplier
+const TWO_COL_ITEMS_MEASURE_MULTIPLIER = 1;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
@@ -562,7 +564,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       // $FlowFixMe[prop-missing] clearly I don't understand how the `T` type works
       const hasTwoColumnItems = itemsWithoutPositions.some((item) => item.columnSpan === 2);
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-      const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_COUNT : minCols;
+      const itemsToMeasureCount = hasTwoColumnItems
+        ? this.numColumns * TWO_COL_ITEMS_MEASURE_MULTIPLIER
+        : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);

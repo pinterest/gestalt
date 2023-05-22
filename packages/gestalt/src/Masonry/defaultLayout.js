@@ -72,6 +72,8 @@ function getPositions<T>({
   return { positions, heights };
 }
 
+function getTwoColItemPosition() {}
+
 const defaultLayout = <T>({
   columnWidth = 236,
   gutter = 14,
@@ -239,7 +241,7 @@ const defaultLayout = <T>({
         console.log('lowestScore', lowestScore);
         console.log('lowestScoreNode', lowestScoreNode);
 
-        const { positions: finalPositions } = lowestScoreNode;
+        const { positions: winningPositions } = lowestScoreNode;
 
         // PULL OUT REMAINING ITEMS(?)
 
