@@ -554,7 +554,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsToRender = items.filter((item) => item && measurementStore.has(item));
+      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
 
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       // $FlowFixMe[prop-missing] clearly I don't understand how the `T` type works
@@ -565,7 +565,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      const positions = getPositions(itemsToRender);
+      const positions = getPositions(itemsWithMeasurements);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -580,7 +580,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           <div className={styles.Masonry} style={{ width }}>
             {_batchPaints ? (
               <MeasureItems
-                baseIndex={itemsToRender.length}
+                baseIndex={itemsWithMeasurements.length}
                 getPositions={getPositions}
                 items={itemsToMeasure}
                 measurementStore={measurementStore}
@@ -591,7 +591,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
                 // we normalize the index here relative to the item list as a whole so that itemIdx is correct
                 // and so that React doesnt reuse the measurement nodes
-                const measurementIndex = itemsToRender.length + i;
+                const measurementIndex = itemsWithMeasurements.length + i;
                 const position = measuringPositions[i];
                 return (
                   <div
