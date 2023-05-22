@@ -1,6 +1,6 @@
 // @flow strict
 import { cloneElement, useState, useRef, Fragment, type Element, type Node } from 'react';
-import Badge, {type TypeOptions} from '../Badge.js';
+import Badge, { type TypeOptions } from '../Badge.js';
 import Box from '../Box.js';
 import Dropdown from '../Dropdown.js';
 import Flex from '../Flex.js';
@@ -52,11 +52,11 @@ export function PageHeaderThumbnail({ thumbnail }: {| thumbnail: Element<typeof 
 export function PageHeaderBadge({
   badgeText,
   badgeTooltipText,
-  type = 'info'
+  type = 'info',
 }: {|
   badgeText: string,
   badgeTooltipText?: string,
-  type?: TypeOptions
+  type?: TypeOptions,
 |}): Node {
   return badgeTooltipText ? (
     <Badge
