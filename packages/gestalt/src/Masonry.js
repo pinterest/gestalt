@@ -134,48 +134,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return new MeasurementStore();
   }
 
-  /**
-   * Delays resize handling in case the scroll container is still being resized.
-   */
-  handleResize: DebounceReturn = debounce(() => {
-    if (this.gridWrapper) {
-      this.setState({ width: this.gridWrapper.clientWidth });
-    }
-  }, RESIZE_DEBOUNCE);
-
-  // Using throttle here to schedule the handler async, outside of the event
-  // loop that produced the event.
-  updateScrollPosition: ThrottleReturn = throttle(() => {
-    if (!this.scrollContainer) {
-      return;
-    }
-    const scrollContainer = this.scrollContainer.getScrollContainerRef();
-
-    if (!scrollContainer) {
-      return;
-    }
-
-    this.setState({
-      scrollTop: getScrollPos(scrollContainer),
-    });
-  });
-
-  measureContainerAsync: DebounceReturn = debounce(() => {
-    this.measureContainer();
-  }, 0);
-
-  containerHeight: number;
-
-  containerOffset: number;
-
-  gridWrapper: ?HTMLElement;
-
-  insertAnimationFrame: AnimationFrameID;
-
-  measureTimeout: TimeoutID;
-
-  scrollContainer: ?ScrollContainer;
-
   static defaultProps: {|
     columnWidth?: number,
     layout?: Layout,
@@ -219,6 +177,48 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       width: undefined,
     };
   }
+
+  containerHeight: number;
+
+  containerOffset: number;
+
+  gridWrapper: ?HTMLElement;
+
+  insertAnimationFrame: AnimationFrameID;
+
+  measureTimeout: TimeoutID;
+
+  scrollContainer: ?ScrollContainer;
+
+  /**
+   * Delays resize handling in case the scroll container is still being resized.
+   */
+  handleResize: DebounceReturn = debounce(() => {
+    if (this.gridWrapper) {
+      this.setState({ width: this.gridWrapper.clientWidth });
+    }
+  }, RESIZE_DEBOUNCE);
+
+  // Using throttle here to schedule the handler async, outside of the event
+  // loop that produced the event.
+  updateScrollPosition: ThrottleReturn = throttle(() => {
+    if (!this.scrollContainer) {
+      return;
+    }
+    const scrollContainer = this.scrollContainer.getScrollContainerRef();
+
+    if (!scrollContainer) {
+      return;
+    }
+
+    this.setState({
+      scrollTop: getScrollPos(scrollContainer),
+    });
+  });
+
+  measureContainerAsync: DebounceReturn = debounce(() => {
+    this.measureContainer();
+  }, 0);
 
   /**
    * Adds hooks after the component mounts.
