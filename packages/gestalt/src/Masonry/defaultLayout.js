@@ -4,8 +4,8 @@ import Graph from './Graph.js';
 import mindex from './mindex.js';
 import { type NodeData, type Position } from './types.js';
 
-function isNotNil(value: mixed): boolean %checks {
-  return value !== null && value !== undefined;
+function isNil(value: mixed): boolean %checks {
+  return value === null || value === undefined;
 }
 
 const offscreen = (width: number, height: number = Infinity) => ({
@@ -45,7 +45,7 @@ function getPositions<T>({
   const positions = items.reduce((positionsSoFar, item) => {
     const height = measurementCache.get(item);
 
-    if (isNotNil(height)) {
+    if (!isNil(height)) {
       const heightAndGutter = height + gutter;
       const col = mindex(heights);
       const top = heights[col];
