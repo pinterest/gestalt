@@ -204,8 +204,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.containerHeight = 0;
     this.containerOffset = 0;
 
-    // $FlowFixMe[unclear-type]
-    const measurementStore: Cache<T, *> =
+    const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
     const positionStore: Cache<T, Position> = new MeasurementStore();
