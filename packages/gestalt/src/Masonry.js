@@ -161,6 +161,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     this.containerHeight = 0;
     this.containerOffset = 0;
+    this.numColumns = props.minCols;
 
     const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
@@ -187,6 +188,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   insertAnimationFrame: AnimationFrameID;
 
   measureTimeout: TimeoutID;
+
+  numColumns: number;
 
   scrollContainer: ?ScrollContainer;
 
