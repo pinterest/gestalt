@@ -493,7 +493,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         width,
       });
     } else {
-      getPositions = defaultLayout({
+      const { columnCount, getPositions: getPositionsFunc } = defaultLayout({
         measurementCache: measurementStore,
         positionCache: positionStore,
         columnWidth,
@@ -503,6 +503,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         rawItemCount: items.length,
         width,
       });
+      this.numColumns = columnCount ?? minCols;
+      getPositions = getPositionsFunc;
     }
 
     let gridBody;
