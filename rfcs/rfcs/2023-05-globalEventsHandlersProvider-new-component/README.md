@@ -221,23 +221,23 @@ On each instance or implementation
 ```javascript
 const Example = () => {
 
-  const { sheetMobileEffects } = useReusableEffects() ?? {
-    sheetMobileEffects: () => {},
+  const { sheetMobileHandler } = useGlobalHandler() ?? {
+    sheetMobileHandler: () => {},
   };
 
-  return <SheetMobile effects={sheetMobileEffects}>{children}<SheetMobile >}
+  return <SheetMobile effects={sheetMobileHandler}>{children}<SheetMobile >}
 ```
 
-In the case of Popover, we would only need this effects to be passed to SheetMobile, we would need to specify that is a mobile prop prefixing mobileEffects
+In the case of Popover, we would only need this to be passed to SheetMobile, we would need to specify that is a mobile prop prefixing mobile
 
 ```javascript
 const Example = () => {
 
-  const { popoverMobileEffects } = useReusableEffects() ?? {
-    popoverMobileEffects: () => {},
+  const { popoverMobileHandler } = useGlobalHandler() ?? {
+    popoverMobileHandler: () => {},
   };
 
-  return <Popover mobileEffects={popoverMobileEffects}> {children}<Popover >
+  return <Popover mobileHandler={popoverMobileHandler}> {children}<Popover >
 }
 ```
 
