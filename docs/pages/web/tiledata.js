@@ -163,7 +163,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Datapoint](/Datapoint)**
+      **[Datapoint](/web/Datapoint)**
       Used to display data at-a-glance data for a user to quickly view key metrics.
       
       **[Checkbox](/web/checkbox)**

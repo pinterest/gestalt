@@ -19,6 +19,14 @@ type TooltipProps = {|
   zIndex?: Indexable,
 |};
 
+type ColorStyles = {| borderColor?: string, backgroundColor?: string |};
+
+type InteractionStates = {|
+  disabled: boolean,
+  hovered: boolean,
+  selected: boolean,
+|};
+
 type TileChangeHandler = ({|
   event:
     | SyntheticMouseEvent<HTMLDivElement>
@@ -73,31 +81,40 @@ function MaybeTooltip({
   );
 }
 
-function getCheckboxColor(
-  state: {|
-    disabled: boolean,
-    hovered: boolean,
-    selected: boolean,
-  |},
-  colorStyles: {| borderColor?: string, backgroundColor?: string |},
-) {
-  let backgroundColor = 'transparent';
-  let borderColor = 'transparent';
+function getCheckboxColors(state: InteractionStates, colorStyles: ColorStyles) {
+  const defaultBackgroundColor = 'transparent';
+  const defaultBorderColor = 'transparent';
 
-  if (state.selected) {
-    backgroundColor = colorStyles.borderColor;
+  if (state.disabled) {
+    return {
+      backgroundColor: `var(--color-gray-roboflow-300)`,
+      borderColor: defaultBorderColor,
+    };
   }
 
   if (state.hovered && !state.selected) {
-    backgroundColor = `var(--g-colorGray0)`;
-    borderColor = `var(--color-border-default)`;
+    return {
+      backgroundColor: `var(--g-colorGray0)`,
+      borderColor: 'var(--color-border-default)',
+    };
   }
 
-  if (state.disabled) {
-    backgroundColor = `var(--color-gray-roboflow-300)`;
+  if (state.selected) {
+    return {
+      backgroundColor: colorStyles.borderColor,
+      borderColor: defaultBorderColor,
+    };
   }
 
-  return { backgroundColor, borderColor };
+  return { backgroundColor: defaultBackgroundColor, borderColor: defaultBorderColor };
+}
+
+function getTileColors(state: InteractionStates, colorStyles: ColorStyles) {
+  // only show colors in a selected state
+  if (state.selected && !state.disabled) {
+    return colorStyles;
+  }
+  return {};
 }
 
 /**
@@ -139,19 +156,14 @@ export default function Tile({
     }
   };
 
-  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {};
-  if (selected && !disabled) {
-    // the internal base component uses hex codes
-    // but could be passed in pre-tokenized values
-    if (borderColor && borderColor.startsWith('#')) {
-      colorStyles.borderColor = `${borderColor}`;
-    }
-    if (bgColor && bgColor.startsWith('#')) {
-      colorStyles.backgroundColor = `${bgColor}`;
-    }
-  }
+  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
+    borderColor,
+    backgroundColor: bgColor,
+  };
 
-  const checkBoxStyle = getCheckboxColor({ hovered: isHovered, selected, disabled }, colorStyles);
+  const tileStyle = getTileColors({ hovered: isHovered, selected, disabled }, colorStyles);
+
+  const checkBoxStyle = getCheckboxColors({ hovered: isHovered, selected, disabled }, colorStyles);
 
   return (
     <Box position="relative">
@@ -166,7 +178,7 @@ export default function Tile({
           onMouseLeave={handleOnMouseLeave}
           onKeyDown={handleKeyDown}
         >
-          <div className={classes} style={colorStyles}>
+          <div className={classes} style={tileStyle}>
             <Flex direction="row" gap={2}>
               {children}
               {showCheckbox && (
