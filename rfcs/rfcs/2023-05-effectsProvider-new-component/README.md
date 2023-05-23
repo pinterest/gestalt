@@ -311,3 +311,25 @@ Any other alternative?
 ## Related Discussions
 
 --
+
+## Feedback
+
+@liuyenwei: his abstraction definitely feels strange to me. this is basically saying "add any code you want to run whenever FullPage is rendered in here" which I don't think is something we should be enabling. at the very least, if we continue down this path, we should wrap this in a useEffect so at least the thing defined in the context is confined to just being run in a useEffect hook. that being said, it still doesn't feel great since it exposes the underlying use of effects to the consumer
+
+my preference in this case would still be to just use a wrapper component:
+
+its the most composable solution
+its clear from a developer perspective what is happening
+it limits the scope of changes to just pinboard
+a few other options if we really really don't want to use wrapper components:
+
+very specific context provider (i.e. only providing a hook into onModalOpen or something)
+emitting a custom event that components can listen to. This is flexible but imo feels like an antipattern in React
+
+@dangerismycat: +1 to Yen's comments.
+
+Yen might be thinking of something even more specific, but a "HandlerProvider" could work — something that would provide additional logic to allowlisted handlers on certain components. That would also solve the SterlingTheme issue. Basically something like DefaultLabelProvider, but instead of providing strings for specific props, the dev would provide a function that would be called for specific handler props (onClick, onModalOpen, etc). Ideally there would be a way of opting out of the additional logic at the callsite, perhaps by wrapping the opted-out component in another instance of the provider.
+
+## Action
+
+Downsetting proposal. Refactoring into HandlersProvider. See new RFC.

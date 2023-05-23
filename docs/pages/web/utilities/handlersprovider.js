@@ -6,7 +6,7 @@ import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
-import SheetMobileEffects from '../../../examples/effectsprovider/sheetMobileEffects.js';
+import SheetMobileHandlers from '../../../examples/handlersprovider/sheetMobileHandlers.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -20,10 +20,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="EffectsProvider in SheetMobile">
+        <MainSection.Subsection title="HandlersProvider in SheetMobile">
           <MainSection.Card
             cardSize="lg"
-            description={`EffectsProvider has one prop for each component subscribing to the provider.
+            description={`HandlersProvider has one prop for each component subscribing to the provider.
 
 The effects passed down to SheetMobile must be wrapped in a custom component. Inside the custom component, use the React's useEffect hook to build the effects needed for your component to synchronize with shared external systems.
 
@@ -32,7 +32,7 @@ EffectsProvider's \`sheetMobile\` props only subscribes SheetMobile and those ad
 In the example below, SheetMobile's header announced the state reduce motion ("on"/"off"). useEffect synchronizes all SheetMobiles with the reduced motion OS settings. If we change the reduced motion OS settings, the changes will be reflected in the header. The useEffect clear method logs "Unmounted".
 `}
             sandpackExample={
-              <SandpackExample code={SheetMobileEffects} name="EffectsProvider in SheetMobile" />
+              <SandpackExample code={SheetMobileHandlers} name="HandlersProvider in SheetMobile" />
             }
           />
         </MainSection.Subsection>
@@ -45,7 +45,7 @@ export async function getServerSideProps(): Promise<{| props: {| generatedDocGen
   return {
     props: {
       generatedDocGen: await docgen({
-        componentName: 'EffectsProvider',
+        componentName: 'HandlersProvider',
       }),
     },
   };

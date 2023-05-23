@@ -90,7 +90,7 @@ import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
-import ProviderEffects from '../graphics/utilities/provider-effects.svg';
+import ProviderHandlers from '../graphics/utilities/provider-handlers.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 
 export type Category =
@@ -3978,14 +3978,13 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <ProviderEffects />,
-    name: 'EffectsProvider',
+    svg: <ProviderHandlers />,
+    name: 'HandlersProvider',
     aliases: ['React.useEffect'],
     previouslyNamed: [],
-    path: '/web/utilities/effectsprovider',
+    path: '/web/utilities/handlersprovider',
     hasDarkBackground: false,
-    description:
-      'React context provider that allows your Gestalt components to synchronize with shared external systems.',
+    description: 'React context provider that allows your Gestalt components to ....',
     category: 'Utilities',
     status: {
       accessible: {

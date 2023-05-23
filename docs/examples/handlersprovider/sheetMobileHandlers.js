@@ -1,5 +1,5 @@
 // @flow strict
-import { useEffect, type Node, useState } from 'react';
+import { type Node, useState } from 'react';
 import {
   Flex,
   Layer,
@@ -9,40 +9,28 @@ import {
   Button,
   FixedZIndex,
   CompositeZIndex,
-  EffectsProvider,
-  useReducedMotion,
+  HandlersProvider,
 } from 'gestalt';
 
 export default function Example(): Node {
   const [showComponent, setShowComponent] = useState<null | boolean>(true);
-  const [reduceMotionState, setReduceMotionState] = useState<null | boolean>(null);
 
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
-  const useSheetMobileEffects = () => {
-    const reducedMotion = useReducedMotion();
-
-    useEffect(() => {
-      setReduceMotionState(reducedMotion);
-      return () => {
-        // eslint-disable-next-line no-console
-        console.log(`Unmounting`);
-      };
-    }, [reducedMotion]);
-  };
-
   return (
-    <EffectsProvider sheetMobile={useSheetMobileEffects}>
+    <HandlersProvider
+      sheetMobile={{
+        // eslint-disable-next-line no-console
+        onOpen: () => console.log(`on open handler`),
+        // eslint-disable-next-line no-console
+        onClose: () => console.log(`on close handler`),
+      }}
+    >
       <DeviceTypeProvider deviceType="mobile">
         {showComponent ? (
           <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
-            <SheetMobile
-              heading={`Reduce motion is ${reduceMotionState ? 'on' : 'off'} in your OS`}
-              subHeading="Toggle reduce motion in your settings to see the change in SheetMobile"
-              onDismiss={() => setShowComponent(false)}
-              size="auto"
-            >
+            <SheetMobile heading="Heading" onDismiss={() => setShowComponent(false)} size="auto">
               <SheetMobile.DismissingElement>
                 {({ onDismissStart }) => (
                   <Flex justifyContent="center" alignItems="center" height="100%">
@@ -63,6 +51,6 @@ export default function Example(): Node {
           />
         </Box>
       </DeviceTypeProvider>
-    </EffectsProvider>
+    </HandlersProvider>
   );
 }
