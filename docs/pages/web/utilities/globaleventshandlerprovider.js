@@ -6,7 +6,7 @@ import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
-import SheetMobileHandlers from '../../../examples/GlobalEventsHandlerProvider/sheetMobileHandlers.js';
+import SheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
