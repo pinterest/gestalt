@@ -2,7 +2,7 @@
 - RFC PR: https://github.com/pinterest/gestalt/pull/2956
 - Authors: Alberto Carreras, acarreras
 
-# (RFC title goes here)
+# HandlersProvider: new utility provider
 
 ## Summary
 
