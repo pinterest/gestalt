@@ -27,7 +27,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
 EffectsProvider's \`sheetMobile\` props only subscribes SheetMobile and those adaptive components that use SheetMobile in their mobile UI (Modal, Dropdown.)
 
-In the example below, SheetMobile's header announced the state reduce motion ("on"/"off"). useEffect synchronizes all SheetMobiles with the reduced motion OS settings. If we change the reduced motion OS settings, the changes will be reflected in the header. The useEffect clear method logs "Unmounted".
+In the example below, SheetMobile's logs when opens and closes, when useEffect runs first and clears on unmounting.
 `}
             sandpackExample={
               <SandpackExample
