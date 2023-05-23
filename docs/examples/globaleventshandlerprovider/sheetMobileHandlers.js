@@ -9,7 +9,7 @@ import {
   Button,
   FixedZIndex,
   CompositeZIndex,
-  HandlersProvider,
+  GlobalEventsHandlerProvider,
 } from 'gestalt';
 
 export default function Example(): Node {
@@ -19,7 +19,7 @@ export default function Example(): Node {
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
   return (
-    <HandlersProvider
+    <GlobalEventsHandlerProvider
       sheetMobile={{
         // eslint-disable-next-line no-console
         onOpen: () => console.log(`on open handler`),
@@ -51,6 +51,6 @@ export default function Example(): Node {
           />
         </Box>
       </DeviceTypeProvider>
-    </HandlersProvider>
+    </GlobalEventsHandlerProvider>
   );
 }

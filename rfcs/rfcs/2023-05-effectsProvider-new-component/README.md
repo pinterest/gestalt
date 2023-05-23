@@ -332,4 +332,4 @@ Yen might be thinking of something even more specific, but a "HandlerProvider" c
 
 ## Action
 
-Downsetting proposal. Refactoring into HandlersProvider. See new RFC.
+Downsetting proposal. Refactoring into GlobalEventsHandlerProvider. See new RFC.

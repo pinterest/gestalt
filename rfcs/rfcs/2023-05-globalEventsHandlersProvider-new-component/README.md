@@ -2,11 +2,11 @@
 - RFC PR: https://github.com/pinterest/gestalt/pull/2956
 - Authors: Alberto Carreras, acarreras
 
-# HandlersProvider: new utility provider
+# GlobalEventsHandlerProvider: new utility provider
 
 ## Summary
 
-HandlersProvider is a React.Context provider intended to share external handlers with consuming components.
+GlobalEventsHandlerProvider is a React.Context provider intended to share external handlers with consuming components.
 
 ## Motivation
 
@@ -32,26 +32,26 @@ See previous [onInteraction proposal](https://paper.dropbox.com/doc/Proposal-New
 
 ## Detailed Design
 
-HandlersProvider is a React.Context provider to share external handlers with consuming components.
+GlobalEventsHandlerProvider is a React.Context provider to share external handlers with consuming components.
 
-HandlersProvider has props for each specific Gestalt component consuming from it.
+GlobalEventsHandlerProvider has props for each specific Gestalt component consuming from it.
 
 ```javascript
-<HandlersProvider componentName={{ handlerOne: () => {}, handlerTwo: () => {} }}>
+<GlobalEventsHandlerProvider componentName={{ handlerOne: () => {}, handlerTwo: () => {} }}>
   {children}
-<HandlersProvider >
+<GlobalEventsHandlerProvider >
 ```
 
 This is a hypothetical implementation of EffectsProvider passing down to SheetMobile a custom hook named "useSheetMobileEffects"
 
 ```javascript
-<HandlersProvider sheetMobile={{ onOpen: () => {}, onClose: () => {} }}>
+<GlobalEventsHandlerProvider sheetMobile={{ onOpen: () => {}, onClose: () => {} }}>
   {children}
-<HandlersProvider >
+<GlobalEventsHandlerProvider >
 
 ```
 
-Inside of SheetMobile, we access the custom hook that was passed to the EffectsProvider via the "sheetMobile" prop from the associated "useEffectsContext" hook and we execute it.
+Inside of SheetMobile, we access the event handler that was passed to the GlobalEventsHandlerProvider via the "sheetMobile" prop from the associated "useEffectsContext" hook and we execute it.
 
 ```javascript
 const { sheetMobile: sheetMobileEffects } = useEffectsContext() ?? {
@@ -68,7 +68,7 @@ Considerations:
 
 ## Documentation
 
-This component will be documented in the [Gestalt Docs under the utilities category](https://deploy-preview-2918--gestalt.netlify.app/web/utilities/handlersprovider)
+This component will be documented in the [Gestalt Docs under the utilities category](https://deploy-preview-2918--gestalt.netlify.app/web/utilities/GlobalEventsHandlerProvider)
 
 Also, each component will have a external handlers variant section will details of where each handler is executed within the component.
 
@@ -97,7 +97,7 @@ A senior experienced engineer would:
 - Use React Developer Tools to inspect behaviors
   ![Inspecting Link in React Developer Tools to detect OnLinkNavigationProvider logic](https://raw.githubusercontent.com/pinterest/gestalt/c339a3fa0e1c230515429294c14c6e22edbac1b2/rfcs/rfcs/2023-05-effectsProvider-new-component/onLinkNavigation.png)
 
-The same way, effects from HandlersProvider in a Gestalt component could be documented and inspected. In the case of OnLinkNavigationProvider, there are several use cases where the logic should be disabled so the engineer can implement alternative navigation logic.
+The same way, effects from GlobalEventsHandlerProvider in a Gestalt component could be documented and inspected. In the case of OnLinkNavigationProvider, there are several use cases where the logic should be disabled so the engineer can implement alternative navigation logic.
 
 Most engineers don't currently know the particular logic inside MobileModal in Pinboard (as it is so complex and full of tech debt that it's almost imposible to immediately track down to get a quick sense of what is doing). An engineer interested in that logic would follow the steps below to identify and understand them.
 

@@ -91,7 +91,7 @@ import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
-import ProviderHandlers from '../graphics/utilities/provider-handlers.svg';
+import ProviderHandlers from '../graphics/utilities/provider-global-events-handler.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 
 export type Category =
@@ -4030,10 +4030,10 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
   },
   {
     svg: <ProviderHandlers />,
-    name: 'HandlersProvider',
+    name: 'GlobalEventsHandlerProvider',
     aliases: ['React.useEffect'],
     previouslyNamed: [],
-    path: '/web/utilities/handlersprovider',
+    path: '/web/utilities/GlobalEventsHandlerProvider',
     hasDarkBackground: false,
     description:
       'React context provider that that allows to share external handlers with consuming components.',

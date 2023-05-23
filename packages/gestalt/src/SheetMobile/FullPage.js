@@ -6,7 +6,7 @@ import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import { useHandlersContext } from '../contexts/HandlersProvider.js';
+import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
@@ -67,8 +67,8 @@ export default function FullPage({
   // Consumes DefaultLabelProvider
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
 
-  // Consumes HandlersProvider
-  const { sheetMobile } = useHandlersContext() ?? {
+  // Consumes GlobalEventsHandlerProvider
+  const { sheetMobile } = useGlobalEventsHandlerContext() ?? {
     sheetMobile: { onOpen: () => {}, onClose: () => {} },
   };
 

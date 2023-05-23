@@ -410,7 +410,7 @@ interface OnLinkNavigationProviderProps {
     | undefined;
 }
 
-interface HandlersProviderProps {
+interface GlobalEventsHandlerProviderProps {
   children: Node;
   sheetMobile?: { onOpen?: (() => void) | void, onClose?: (() => void)| void } | void
 }
@@ -2342,9 +2342,9 @@ export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps
 export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
 
 /**
- * https://gestalt.pinterest.systems/web/utilities/handlersprovider
+ * https://gestalt.pinterest.systems/web/utilities/GlobalEventsHandlerProvider
  */
-export const HandlersProvider: React.FunctionComponent<HandlersProviderProps>;
+export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
 
 
 /**
