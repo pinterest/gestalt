@@ -9,7 +9,7 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import SheetMobileHandlers from '../../examples/GlobalEventsHandlerProvider/sheetMobileHandlers.js';
+import SheetMobileHandlers from '../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
 import animation from '../../examples/sheetmobile/animation.js';
 import autoSize from '../../examples/sheetmobile/autoSize.js';
 import defaultSize from '../../examples/sheetmobile/defaultSize.js';
