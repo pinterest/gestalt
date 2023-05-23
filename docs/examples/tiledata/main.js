@@ -3,7 +3,7 @@ import { type Node, useState } from 'react';
 import { TileData, Flex } from 'gestalt';
 
 export default function Example(): Node {
-  const [selectedId, setSelectedId] = useState('01');
+  const [selectedId, setSelectedId] = useState<string | void>('01');
   const isSelected = (id: string) => selectedId === id;
 
   return (
