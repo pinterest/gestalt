@@ -1,3 +1,9 @@
+## 112.2.1 (May 23, 2023)
+
+### Patch
+
+- Internal: Add Troubleshooting section to Readme ([#2702](https://github.com/pinterest/gestalt/pull/2702)) - [Preview link](https://deploy-preview-2702--gestalt.netlify.app)
+
 ## 112.2.0 (May 23, 2023)
 
 ### Minor
