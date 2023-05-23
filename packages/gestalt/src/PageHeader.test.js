@@ -16,6 +16,13 @@ describe('PageHeader', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renders badge with type', () => {
+    const tree = create(
+      <PageHeader title="Settings" badge={{ text: 'Needs attention', type: 'warning' }} />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders within a max width', () => {
     const tree = create(
       <PageHeader title="Settings" subtext="5 followers" maxWidth="60%" />,

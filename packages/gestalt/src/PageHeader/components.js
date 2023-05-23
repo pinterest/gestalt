@@ -1,6 +1,6 @@
 // @flow strict
 import { cloneElement, useState, useRef, Fragment, type Element, type Node } from 'react';
-import Badge from '../Badge.js';
+import Badge, { type TypeOptions } from '../Badge.js';
 import Box from '../Box.js';
 import Dropdown from '../Dropdown.js';
 import Flex from '../Flex.js';
@@ -52,14 +52,16 @@ export function PageHeaderThumbnail({ thumbnail }: {| thumbnail: Element<typeof 
 export function PageHeaderBadge({
   badgeText,
   badgeTooltipText,
+  type = 'info',
 }: {|
   badgeText: string,
   badgeTooltipText?: string,
+  type?: TypeOptions,
 |}): Node {
   return badgeTooltipText ? (
     <Badge
       text={badgeText}
-      type="info"
+      type={type}
       position="middle"
       tooltip={{
         accessibilityLabel: '',
@@ -68,7 +70,7 @@ export function PageHeaderBadge({
       }}
     />
   ) : (
-    <Badge text={badgeText} type="info" position="middle" />
+    <Badge text={badgeText} type={type} position="middle" />
   );
 }
 

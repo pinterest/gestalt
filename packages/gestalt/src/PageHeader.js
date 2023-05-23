@@ -27,9 +27,23 @@ export type ActionType = Element<
 
 type Props = {|
   /**
-   * Add [Badge](https://gestalt.pinterest.systems/web/badge) displayed after the title. Be sure to localize the text. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
+   * Adds [Badge](https://gestalt.pinterest.systems/web/badge) displayed after the title. Be sure to localize the text. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
+   *
+   * \`type\` option determines the style of the badge. The default value is "info". See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
    */
-  badge?: {| text: string, tooltipText?: string |},
+  badge?: {|
+    text: string,
+    tooltipText?: string,
+    type?:
+      | 'info'
+      | 'error'
+      | 'warning'
+      | 'success'
+      | 'neutral'
+      | 'recommendation'
+      | 'darkWash'
+      | 'lightWash',
+  |},
   /**
    * Specify a bottom border style for PageHeader: "sm" is 1px. See the [max width & border variant](https://gestalt.pinterest.systems/web/pageheader#Max-width-and-border) to learn more.
    */
@@ -149,6 +163,7 @@ export default function PageHeader({
                             <PageHeaderBadge
                               badgeText={badge.text}
                               badgeTooltipText={badge.tooltipText}
+                              type={badge.type}
                             />
                           ) : null}
                           {helperIconButton ? (
