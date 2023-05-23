@@ -1,3 +1,9 @@
+## 112.2.0 (May 23, 2023)
+
+### Minor
+
+- PageHeader: Expose badge type prop ([#2953](https://github.com/pinterest/gestalt/pull/2953)) - [Preview link](https://deploy-preview-2953--gestalt.netlify.app)
+
 ## 112.1.1 (May 22, 2023)
 
 ### Patch
