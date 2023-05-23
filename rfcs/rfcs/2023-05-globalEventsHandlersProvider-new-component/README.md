@@ -32,7 +32,7 @@ See previous [onInteraction proposal](https://paper.dropbox.com/doc/Proposal-New
 
 ## Detailed Design
 
-GlobalEventsHandlerProvider is a React.Context provider to share external handlers with consuming components.
+GlobalEventsHandlerProvider is a React.Context provider to share gloal event handlers with consuming components.
 
 GlobalEventsHandlerProvider has props for each specific Gestalt component consuming from it.
 
@@ -42,7 +42,7 @@ GlobalEventsHandlerProvider has props for each specific Gestalt component consum
 <GlobalEventsHandlerProvider >
 ```
 
-This is a hypothetical implementation of EffectsProvider passing down to SheetMobile a custom hook named "useSheetMobileEffects"
+This is a hypothetical implementation of EffectsProvider passing down to SheetMobile custom event handlers
 
 ```javascript
 <GlobalEventsHandlerProvider sheetMobile={{ onOpen: () => {}, onClose: () => {} }}>
@@ -51,14 +51,18 @@ This is a hypothetical implementation of EffectsProvider passing down to SheetMo
 
 ```
 
-Inside of SheetMobile, we access the event handler that was passed to the GlobalEventsHandlerProvider via the "sheetMobile" prop from the associated "useEffectsContext" hook and we execute it.
+Inside of SheetMobile, we access the event handlers that were passed to the GlobalEventsHandlerProvider via the "sheetMobile" prop and we execute it.
 
 ```javascript
-const { sheetMobile: sheetMobileEffects } = useEffectsContext() ?? {
-  sheetMobile: () => {},
+const {
+  sheetMobile: { onOpen, onClose },
+} = useGlobalEventsHandlerContext() ?? {
+  sheetMobile: { onOpen: () => {}, onClose: () => {} },
 };
 
-sheetMobileEffects();
+// within useEffect
+onOpen();
+onClose();
 ```
 
 Considerations:
@@ -68,7 +72,7 @@ Considerations:
 
 ## Documentation
 
-This component will be documented in the [Gestalt Docs under the utilities category](https://deploy-preview-2918--gestalt.netlify.app/web/utilities/GlobalEventsHandlerProvider)
+This component will be documented in the [Gestalt Docs under the utilities category](https://deploy-preview-2918--gestalt.netlify.app/web/utilities/globaleventshandlerprovider)
 
 Also, each component will have a external handlers variant section will details of where each handler is executed within the component.
 
@@ -239,7 +243,7 @@ const Example = () => {
 
 This approach makes it more explicit the additional behavior. But it has several problems.
 
-- It's not a dry solution. AN engineer would eventually create a wrapper for this getting to the same problems stated before.
+- It's not a dry solution. An engineer would eventually create a wrapper for this getting to the same problems stated before.
 
 - The prop would be optional and the only way to make it required in Pinboard would be with an Eslint rule. This ESLint rule could be disabled. We could not enforce a particular custom hook to be passed to "effects" prop and engineers could just pass any noop function to silence it () => {}. But the problem would led to situation one where some engineer would create a wrapper eventually to prevent the repetitive code.
 
