@@ -4036,7 +4036,7 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
     path: '/web/utilities/GlobalEventsHandlerProvider',
     hasDarkBackground: false,
     description:
-      'React context provider that that allows to share external handlers with consuming components.',
+      'React context provider that that allows to share global event handlers with consuming components.',
     category: 'Utilities',
     status: {
       accessible: {
