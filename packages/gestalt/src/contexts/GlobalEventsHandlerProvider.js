@@ -26,7 +26,7 @@ const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
 const { Provider } = GlobalEventsHandlerContext;
 
 /**
- * [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) is a [React context provider](https://react.dev/learn/passing-data-deeply-with-context) that allows to share global event handlers with consuming components.
+ * [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) is a [React context provider](https://react.dev/learn/passing-data-deeply-with-context) that allows sharing global event handlers with consuming components.
  */
 export default function HandlerProvider({
   children,
