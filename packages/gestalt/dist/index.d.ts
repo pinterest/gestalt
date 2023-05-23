@@ -2342,7 +2342,7 @@ export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps
 export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
 
 /**
- * https://gestalt.pinterest.systems/web/utilities/GlobalEventsHandlerProvider
+ * https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider
  */
 export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
 
