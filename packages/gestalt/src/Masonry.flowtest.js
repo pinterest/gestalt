@@ -4,6 +4,7 @@ import Masonry from './Masonry.js';
 function Item() {
   return <div />;
 }
+// $FlowFixMe[missing-empty-array-annot]
 const Valid = <Masonry items={[]} renderItem={() => <Item />} />;
 
 // $FlowExpectedError[prop-missing]

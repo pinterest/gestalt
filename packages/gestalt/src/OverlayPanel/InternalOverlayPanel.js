@@ -87,8 +87,8 @@ export default function InternalOverlayPanel({
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const [showPopover, setShowPopover] = useState<boolean>(false);
 
-  const contentRef = useRef<?HTMLElement>(null);
-  const dismissButtonRef = useRef();
+  const contentRef = useRef<null | HTMLElement>(null);
+  const dismissButtonRef = useRef<null | HTMLElement>(null);
 
   const id = useId();
 
@@ -102,8 +102,9 @@ export default function InternalOverlayPanel({
 
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
-  // $FlowFixMe[missing-local-annot]
-  function buildDismissableSubcomponent(component) {
+  function buildDismissableSubcomponent(
+    component: Node | (({| onDismissStart: () => void |}) => Node),
+  ) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })
       : component;

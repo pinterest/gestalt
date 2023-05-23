@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import ActivationCard from './ActivationCard.js';
 
 test('ActivationCard handles onDismiss callback', () => {
-  const mockOnDismiss = jest.fn();
+  const mockOnDismiss = jest.fn<[], void>();
   const { getByLabelText } = render(
     <ActivationCard
       status="pending"

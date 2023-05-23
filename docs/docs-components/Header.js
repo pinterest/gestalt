@@ -29,7 +29,7 @@ function Header() {
   const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
 
-  const searchAnchorRef = useRef(null);
+  const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const mainNavigationTabs = useMemo(
     () => getTabs(componentPlatformFilteredBy),

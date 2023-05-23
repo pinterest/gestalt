@@ -6,8 +6,8 @@ export default function Example(): Node {
   const [openA, setOpenA] = useState(false);
   const [openB, setOpenB] = useState(false);
 
-  const anchorRefA = useRef();
-  const anchorRefB = useRef();
+  const anchorRefA = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
+  const anchorRefB = useRef<null | HTMLElement>(null);
 
   useEffect(() => {
     setOpenA(true);

@@ -48,7 +48,17 @@ const getPins = () => {
     },
   ];
 
-  const pinList = [...new Array(3)].map(() => [...pins]).flat();
+  const pinList = [
+    ...new Array<void | {|
+      color: string,
+      height: number,
+      name: string,
+      src: string,
+      width: number,
+    |}>(3),
+  ]
+    .map(() => [...pins])
+    .flat();
   return Promise.resolve(pinList);
 };
 

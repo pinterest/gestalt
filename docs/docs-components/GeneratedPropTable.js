@@ -90,7 +90,6 @@ export default function GeneratedPropTable({
         getResponsive,
       ].reduce(
         (acc, cur) => ({
-          // $FlowFixMe[exponential-spread]
           ...acc,
           ...cur(acc.description),
         }),
@@ -114,7 +113,7 @@ export default function GeneratedPropTable({
         // Replace "Ref" with "React.Ref" to match docs convention
         // Includes `<` to avoid picking up `HTMLDivElement` and similar
         .replace(/Ref</g, 'React.Ref<');
-
+      // $FlowFixMe[cannot-spread-inexact]
       return {
         name: key,
         type: transformedType,

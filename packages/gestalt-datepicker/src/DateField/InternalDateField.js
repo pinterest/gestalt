@@ -60,7 +60,7 @@ const CustomTextField = forwardRef(
       onMouseUp,
       ownerState,
     }: CustomTextFieldProps,
-    inputRef,
+    inputRef: ((null | HTMLInputElement) => mixed) | { current: null | HTMLInputElement, ... },
   ): Node => {
     const [iconFocused, setIconFocused] = useState(false);
 

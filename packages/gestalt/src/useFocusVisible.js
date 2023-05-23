@@ -85,7 +85,8 @@ function setupGlobalFocusEvents() {
   // method on HTMLElement.prototype is a bit hacky, but works.
   // $FlowExpectedError[method-unbinding]
   const { focus } = HTMLElement.prototype;
-  // $FlowIssue[cannot-write]
+  // $FlowFixMe[missing-local-annot]
+  // $FlowFixMe[cannot-write]
   HTMLElement.prototype.focus = function focusElement(this: HTMLElement, ...args) {
     hasEventBeforeFocus = true;
     focus.apply(this, args);

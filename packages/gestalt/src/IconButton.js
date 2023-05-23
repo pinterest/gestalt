@@ -105,7 +105,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     size = 'lg',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);

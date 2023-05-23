@@ -19,7 +19,10 @@ function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: bo
 }
 
 describe('DatePicker', () => {
-  const mockOnChange = jest.fn();
+  const mockOnChange = jest.fn<
+    [{| event: SyntheticInputEvent<HTMLInputElement>, value: Date |}],
+    void,
+  >();
 
   global.document.createRange = () => ({
     setStart: () => {},

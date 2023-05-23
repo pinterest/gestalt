@@ -23,14 +23,14 @@ const figmaLibraries = [
 
 const figmaPlugins = [
   {
+    title: 'Pinterest Design',
+    url: 'https://www.figma.com/community/plugin/1215463263194174399',
+    a11yLabel: 'Pinterest Design Figma Plugin',
+  },
+  {
     title: 'Color',
     url: 'https://www.figma.com/community/plugin/1019681360638128106/Pinterest-Brand-color-palettes',
     a11yLabel: 'Brand Color Figma Plugin',
-  },
-  {
-    title: 'Docs',
-    url: 'https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta)',
-    a11yLabel: 'Gestalt Docs Figma Plugin',
   },
 ];
 

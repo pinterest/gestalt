@@ -48,7 +48,7 @@ export default function ConfirmationPopover({
   secondaryAction,
   onDismiss,
 }: Props): Node {
-  const confirmationButtonRef = useRef();
+  const confirmationButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const { onExternalDismiss } = useRequestAnimationFrame();
 

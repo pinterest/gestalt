@@ -12,7 +12,7 @@ type Props = {|
 |};
 
 export default function FormHelperTextCounter({ currentLength, maxLength }: Props): Node {
-  const ref = useRef();
+  const ref = useRef<null | HTMLElement>(null);
   const [width, setWidth] = useState<void | number>(undefined);
 
   useEffect(() => {

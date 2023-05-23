@@ -18,6 +18,7 @@ const getChildrenToArray = ({
   let recursionLevel = 0;
 
   const getChildren: ({| nodeChildren: Node |}) => void = ({ nodeChildren }) =>
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid
       if (child?.type === Fragment) {

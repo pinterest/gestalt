@@ -52,7 +52,7 @@ export default function Example(): Node {
   const [selected, setSelected] = useState<
     $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
   >([]);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   const onSelect = ({
     item,
@@ -71,7 +71,7 @@ export default function Example(): Node {
     <Box margin={3}>
       <Box role="main">
         <Flex justifyContent="center" width="100%" height="100%" gap={5} alignItems="center" wrap>
-          {[...new Array(3)].map(() =>
+          {[...new Array<void | $ReadOnlyArray<Node>>(3)].map(() =>
             pins.map((pin) => (
               <Mask rounding={2} key={pin.name} height={170} width={100}>
                 <Image

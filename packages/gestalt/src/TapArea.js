@@ -104,7 +104,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     tapStyle = 'none',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -135,6 +135,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
+      // $FlowFixMe[invalid-computed-prop]
       [styles[mouseCursor]]: !disabled,
       [styles.tapCompress]:
         props.role !== 'link' && !disabled && tapStyle === 'compress' && isTapping,

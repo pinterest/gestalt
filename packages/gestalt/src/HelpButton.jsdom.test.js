@@ -160,7 +160,15 @@ describe('HelpButton', () => {
   });
 
   it('renders a link spying the link trigger', () => {
-    const spy = jest.fn();
+    const spy = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
     render(
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"

@@ -137,6 +137,7 @@ export default function Flex({
           return null;
         }
         return wrapWithComponent({
+          // $FlowFixMe[incompatible-call]
           element: child,
           Component: FlexItem,
           props: {

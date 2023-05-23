@@ -104,8 +104,8 @@ export default function HelpButton({
   text,
   zIndex,
 }: Props): Node {
-  const tapAreaRef = useRef(null);
-  const textRef = useRef(null);
+  const tapAreaRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
+  const textRef = useRef<null | HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);

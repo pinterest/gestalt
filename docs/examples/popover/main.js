@@ -14,7 +14,7 @@ import {
 } from 'gestalt';
 
 function SearchBoardField() {
-  const ref = useRef();
+  const ref = useRef<null | HTMLElement>(null);
 
   useEffect(() => {
     ref.current?.focus();
@@ -96,7 +96,7 @@ function List({
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const handleImageTap = (imageTitle: string) => {
     setSelectedBoard(imageTitle);

@@ -209,6 +209,8 @@ export default function PropTable({
                   ) => {
                     const propNameHasSecondRow = description || responsive;
                     const transformedDefaultValue = transformDefaultValue(defaultValue);
+                    // $FlowFixMe[incompatible-use]
+                    // $FlowFixMe[prop-missing]
                     acc.push(
                       <tr key={name}>
                         <Td shrink border={!propNameHasSecondRow}>
@@ -282,6 +284,8 @@ export default function PropTable({
                     );
 
                     if (propNameHasSecondRow) {
+                      // $FlowFixMe[incompatible-use]
+                      // $FlowFixMe[prop-missing]
                       acc.push(
                         <tr key={`${name}-second-row`}>
                           <Td colspan={1}>

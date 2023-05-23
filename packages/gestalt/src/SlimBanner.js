@@ -219,6 +219,7 @@ export default function SlimBanner({
                 ) : null}
               </Text>
             ) : null}
+            {/* $FlowFixMe[underconstrained-implicit-instantiation] */}
             {typeof message !== 'string' && Children.only(message).type.displayName === 'Text'
               ? message
               : null}

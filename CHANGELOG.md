@@ -1,3 +1,51 @@
+## 111.5.12 (May 17, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.206.0 ([#2947](https://github.com/pinterest/gestalt/pull/2947)) - [Preview link](https://deploy-preview-2947--gestalt.netlify.app)
+
+## 111.5.11 (May 16, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.204.1 ([#2946](https://github.com/pinterest/gestalt/pull/2946)) - [Preview link](https://deploy-preview-2946--gestalt.netlify.app)
+
+## 111.5.10 (May 16, 2023)
+
+### Patch
+
+- Internal: upgrade to Flow 0.203.1 ([#2945](https://github.com/pinterest/gestalt/pull/2945)) - [Preview link](https://deploy-preview-2945--gestalt.netlify.app)
+
+## 111.5.9 (May 16, 2023)
+
+### Patch
+
+- Internal: fixes to pass ` flow codemod annotate-implicit-instantiations --write --include-widened .` & `flow codemod annotate-implicit-instantiations --write .` ([#2942](https://github.com/pinterest/gestalt/pull/2942)) - [Preview link](https://deploy-preview-2942--gestalt.netlify.app)
+
+## 111.5.8 (May 16, 2023)
+
+### Patch
+
+- Internal: typed useRefs prepping for 0.203.1 ([#2944](https://github.com/pinterest/gestalt/pull/2944)) - [Preview link](https://deploy-preview-2944--gestalt.netlify.app)
+
+## 111.5.7 (May 15, 2023)
+
+### Patch
+
+- Docs: Figma plugins links update ([#2943](https://github.com/pinterest/gestalt/pull/2943)) - [Preview link](https://deploy-preview-2943--gestalt.netlify.app)
+
+## 111.5.6 (May 15, 2023)
+
+### Patch
+
+- Avatar: (Android) corrects measurement units for Android ([#2940](https://github.com/pinterest/gestalt/pull/2940)) - [Preview link](https://deploy-preview-2940--gestalt.netlify.app)
+
+## 111.5.5 (May 15, 2023)
+
+### Patch
+
+- Internal: fixes to pass `flow codemod annotate-functions-and-classes --include-lti --write .` ([#2941](https://github.com/pinterest/gestalt/pull/2941)) - [Preview link](https://deploy-preview-2941--gestalt.netlify.app)
+
 ## 111.5.4 (May 15, 2023)
 
 ### Patch
