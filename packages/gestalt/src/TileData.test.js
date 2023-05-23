@@ -53,6 +53,7 @@ describe('TileData', () => {
         disabled
         title="Text Impressions"
         value="1.23M"
+        showCheckbox
         selected
         tooltip={{ text: 'This is a tooltip' }}
         onTap={() => {}}

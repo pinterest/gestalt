@@ -2,8 +2,34 @@
 import { type Node, useState } from 'react';
 import { TileData, Flex } from 'gestalt';
 
+type DataVisualizationColors =
+  | '01'
+  | '02'
+  | '03'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | '10'
+  | '11'
+  | '12';
+
 export default function Example(): Node {
-  const allColors = ['01', '02', '03', '04', '05', '06', '08', '09', '10', '11', '12'];
+  const allColors: $ReadOnlyArray<DataVisualizationColors> = [
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12',
+  ];
 
   const [selectedColors, setSelectedColors] = useState(allColors);
 
@@ -22,8 +48,8 @@ export default function Example(): Node {
 
             setSelectedColors((currSelectedColors) =>
               !selected
-                ? currSelectedColors.filter((tileId) => tileId !== selectedId)
-                : currSelectedColors.concat([selectedId]),
+                ? currSelectedColors.filter((tileId) => tileId !== color)
+                : currSelectedColors.concat([color]),
             );
           }}
           title={`Color ${color}`}

@@ -43,7 +43,7 @@ type Props = {|
   value: string,
 |};
 
-function MaybeMinWidth({ minWidth, children }: {| minWidth: number, children: Node |}) {
+function MaybeMinWidth({ minWidth, children }: {| minWidth?: number, children: Node |}) {
   return minWidth ? <Box minWidth={minWidth}>{children}</Box> : children;
 }
 

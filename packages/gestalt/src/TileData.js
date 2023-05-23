@@ -60,7 +60,7 @@ type Props = {|
    */
   onTap?: TileChangeHandler,
   /**
-   * Controls whether the TileData is selected or not. Use it alongside the OnTap Handler
+   * Controls whether the TileData is selected or not. Use it alongside the OnTap handler.
    */
   selected?: boolean,
   /**
