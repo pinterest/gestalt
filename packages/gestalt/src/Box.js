@@ -530,7 +530,7 @@ type Props = {
 // back to the underlying `<div/>`. That's generally useful, but we'd also like
 // to strip out a few naughty properties that break style encapsulation
 // (className, style) or accessibility (onClick).
-const disallowedProps = [
+export const disallowedProps = [
   'onClick',
   'className',
   'style',
