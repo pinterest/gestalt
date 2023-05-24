@@ -76,6 +76,7 @@ import Tag from '../graphics/general/Tag.svg';
 import Text from '../graphics/general/Text.svg';
 import TextArea from '../graphics/general/TextArea.svg';
 import TextField from '../graphics/general/TextField.svg';
+import TileData from '../graphics/general/TileData.svg';
 import Toast from '../graphics/general/Toast.svg';
 import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
@@ -2801,6 +2802,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'ready',
+      figma: null,
+    },
+  },
+  {
+    svg: <TileData />,
+    name: 'TileData',
+    aliases: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
+    description:
+      'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'ready',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
       figma: null,
     },
   },

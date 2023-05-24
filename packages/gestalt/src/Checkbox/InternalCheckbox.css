@@ -24,34 +24,38 @@
 }
 
 .borderHovered {
-  composes: borderColorLightGrayHovered from "./Borders.css";
+  composes: borderColorLightGrayHovered from "../Borders.css";
 }
 
 .borderRadiusSm {
-  composes: rounding1 from "./Borders.css";
+  composes: rounding1 from "../Borders.css";
 }
 
 .borderRadiusMd {
-  composes: rounding2 from "./Borders.css";
+  composes: rounding2 from "../Borders.css";
 }
 
 .check {
-  composes: block from "./Layout.css";
-  composes: borderBox from "./Layout.css";
-  composes: flex from "./Layout.css";
-  composes: xsItemsCenter from "./Layout.css";
-  composes: justifyCenter from "./Layout.css";
-  composes: sizeLg from "./Borders.css";
-  composes: solid from "./Borders.css";
+  composes: block from "../Layout.css";
+  composes: borderBox from "../Layout.css";
+  composes: flex from "../Layout.css";
+  composes: xsItemsCenter from "../Layout.css";
+  composes: justifyCenter from "../Layout.css";
+  composes: sizeLg from "../Borders.css";
+  composes: solid from "../Borders.css";
 }
 
 .inputEnabled {
-  composes: pointer from "./Cursor.css";
+  composes: pointer from "../Cursor.css";
+}
+
+.readOnly {
+  pointer-events: none;
 }
 
 .input {
-  composes: absolute from "./Layout.css";
-  composes: m0 from "./Whitespace.css";
+  composes: absolute from "../Layout.css";
+  composes: m0 from "../Whitespace.css";
   appearance: none;
   opacity: 0;
   outline: 0;

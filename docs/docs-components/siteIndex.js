@@ -158,6 +158,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Text',
       'TextArea',
       'TextField',
+      'TileData',
       'Toast',
       'Tooltip',
       'Upsell',
