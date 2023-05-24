@@ -1,3 +1,9 @@
+## 112.3.0 (May 24, 2023)
+
+### Minor
+
+- TileData: Adding new component ([#2844](https://github.com/pinterest/gestalt/pull/2844)) - [Preview link](https://deploy-preview-2844--gestalt.netlify.app)
+
 ## 112.2.1 (May 23, 2023)
 
 ### Patch
