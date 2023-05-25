@@ -10,12 +10,13 @@ import {
 import classnames from 'classnames';
 import styles from './IconButton.css';
 import touchableStyles from './TapArea.css';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import icons from './icons/index.js';
 import InternalLink from './Link/InternalLink.js';
