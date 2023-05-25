@@ -99,7 +99,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Don't - Use Callouts for marketing new products or features"
                 code={dontUseForMarketing}
-                hideEditor
+                hideControls
               />
             }
           />
@@ -113,7 +113,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Don't - Stack Callouts"
                 code={dontStack}
-                hideEditor
+                hideControls
                 previewHeight={552}
               />
             }
