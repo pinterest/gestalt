@@ -80,8 +80,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
       child.type === Fragment
     ) {
-      // $FlowFixMe[underconstrained-implicit-instantiation]
-      const sectionChildrenArray = Children.toArray(subSectionChildren).flat();
+      const sectionChildrenArray = Children.toArray<Node>(subSectionChildren).flat();
 
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
@@ -170,8 +169,7 @@ export default function Dropdown({
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<?number>(isMobile ? undefined : 0);
 
-  // $FlowFixMe[underconstrained-implicit-instantiation]
-  const dropdownChildrenArray = Children.toArray(children);
+  const dropdownChildrenArray = Children.toArray<Node>(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;

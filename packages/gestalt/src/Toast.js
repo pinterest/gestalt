@@ -129,8 +129,9 @@ export default function Toast({
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  // $FlowFixMe[underconstrained-implicit-instantiation]
-  const isTextNode = typeof text !== 'string' && Children.only(text).type.displayName === 'Text';
+  const isTextNode =
+    typeof text !== 'string' &&
+    Children.only<Element<typeof Text>>(text).type.displayName === 'Text';
 
   if (isTextNode) {
     let textColorOverrideStyles = isDarkMode
@@ -164,8 +165,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.image &&
-          // $FlowFixMe[underconstrained-implicit-instantiation]
-          Children.only(thumbnail.image).type.displayName === 'Image' ? (
+          Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
               <ToastImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
@@ -174,8 +174,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.icon &&
-          // $FlowFixMe[underconstrained-implicit-instantiation]
-          Children.only(thumbnail.icon).type.displayName === 'Icon' ? (
+          Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
               <ToastIconThumbnail thumbnail={thumbnail.icon} />
             </Flex.Item>
@@ -184,8 +183,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.avatar &&
-          // $FlowFixMe[underconstrained-implicit-instantiation]
-          Children.only(thumbnail.avatar).type.displayName === 'Avatar' ? (
+          Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
               <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
             </Flex.Item>
