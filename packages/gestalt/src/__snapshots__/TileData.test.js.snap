@@ -121,6 +121,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -251,6 +265,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -381,6 +409,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -511,6 +553,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -641,6 +697,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -771,6 +841,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -901,6 +985,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1031,6 +1129,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1161,6 +1273,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1291,6 +1417,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1421,6 +1561,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1551,6 +1705,20 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1682,6 +1850,20 @@ exports[`TileData TileData renders with tooltip 1`] = `
                         className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                       >
                         1.23M
+                        <div
+                          className="box relative"
+                          style={
+                            Object {
+                              "display": "inline",
+                            }
+                          }
+                        >
+                          <div
+                            className="box xsDisplayVisuallyHidden"
+                          >
+                            ,
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1816,6 +1998,20 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.43M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1999,6 +2195,20 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.13M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -2182,6 +2392,20 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                           >
                             1.13M
+                            <div
+                              className="box relative"
+                              style={
+                                Object {
+                                  "display": "inline",
+                                }
+                              }
+                            >
+                              <div
+                                className="box xsDisplayVisuallyHidden"
+                              >
+                                ,
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -2367,6 +2591,20 @@ exports[`TileData TileData title truncates when really long 1`] = `
                         className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                       >
                         1.23M
+                        <div
+                          className="box relative"
+                          style={
+                            Object {
+                              "display": "inline",
+                            }
+                          }
+                        >
+                          <div
+                            className="box xsDisplayVisuallyHidden"
+                          >
+                            ,
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2480,6 +2718,20 @@ exports[`TileData Tiledata is disabled 1`] = `
                     className="Text fontSize400 subtleText alignStart breakWord fontWeightSemiBold"
                   >
                     1.23M
+                    <div
+                      className="box relative"
+                      style={
+                        Object {
+                          "display": "inline",
+                        }
+                      }
+                    >
+                      <div
+                        className="box xsDisplayVisuallyHidden"
+                      >
+                        ,
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2650,6 +2902,20 @@ exports[`TileData renders 1`] = `
                     className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
                   >
                     1.23M
+                    <div
+                      className="box relative"
+                      style={
+                        Object {
+                          "display": "inline",
+                        }
+                      }
+                    >
+                      <div
+                        className="box xsDisplayVisuallyHidden"
+                      >
+                        ,
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

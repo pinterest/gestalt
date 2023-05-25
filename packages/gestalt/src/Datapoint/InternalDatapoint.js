@@ -90,6 +90,7 @@ export default function InternalDatapoint({
       <Flex gap={size === 'lg' ? 4 : 2} alignItems="center">
         <Text size={size === 'lg' ? '500' : '400'} weight="bold" color={textColor}>
           {value}
+          <AccessibilityPause />
         </Text>
 
         {trend && (
