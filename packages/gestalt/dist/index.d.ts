@@ -170,7 +170,6 @@ type Icons =
   | 'globe'
   | 'globe-checked'
   | 'gmail'
-  | 'google-plus'
   | 'graph-bar'
   | 'handle'
   | 'hand-pointing'
@@ -1729,6 +1728,8 @@ interface TableSortableHeaderCellProps {
 
 interface TableRowProps {
   children: Node;
+  hoverStyle?: 'gray' | 'none' | undefined;
+  selected?: 'selected' | 'unselected' | undefined;
 }
 
 interface TableRowExpandableProps {
@@ -1736,16 +1737,19 @@ interface TableRowExpandableProps {
   accessibilityExpandLabel: string;
   children: Node;
   expandedContents: Node;
-  id: string;
   expanded?: string | undefined;
-  hoverStyle?: 'none' | 'gray' | undefined;
+  hoverStyle?: 'gray' | 'none' | undefined;
+  id: string;
   onExpand?: BareButtonEventHandlerType | undefined;
+  selected?: 'selected' | 'unselected' | undefined;
 }
 
 interface TableRowDrawerProps {
   children: Node;
   drawerContents: Node;
+  hoverStyle?: 'gray' | 'none' | undefined;
   id: string;
+  selected?: 'selected' | 'unselected' | undefined;
 }
 
 interface TabsProps {

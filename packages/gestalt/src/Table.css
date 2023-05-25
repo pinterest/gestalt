@@ -88,3 +88,23 @@
 .hoverShadeGray:hover .columnSticky {
   background-color: var(--g-colorGray100);
 }
+
+.selected {
+  background-color: var(--g-colorGray100);
+}
+
+html:not([dir="rtl"]) .selected td:first-child {
+  border-left: 3px solid var(--g-colorGray400);
+}
+
+html[dir="rtl"] .selected td:first-child {
+  border-right: 3px solid var(--g-colorGray400);
+}
+
+html:not([dir="rtl"]) .unselected td:first-child {
+  border-left: 3px solid var(--color-background-elevation-floating);
+}
+
+html[dir="rtl"] .unselected td:first-child {
+  border-right: 3px solid var(--color-background-elevation-floating);
+}

@@ -1,3 +1,45 @@
+## 112.3.0 (May 24, 2023)
+
+### Minor
+
+- TileData: Adding new component ([#2844](https://github.com/pinterest/gestalt/pull/2844)) - [Preview link](https://deploy-preview-2844--gestalt.netlify.app)
+
+## 112.2.1 (May 23, 2023)
+
+### Patch
+
+- Internal: Add Troubleshooting section to Readme ([#2702](https://github.com/pinterest/gestalt/pull/2702)) - [Preview link](https://deploy-preview-2702--gestalt.netlify.app)
+
+## 112.2.0 (May 23, 2023)
+
+### Minor
+
+- PageHeader: Expose badge type prop ([#2953](https://github.com/pinterest/gestalt/pull/2953)) - [Preview link](https://deploy-preview-2953--gestalt.netlify.app)
+
+## 112.1.1 (May 22, 2023)
+
+### Patch
+
+- Docs: May 19, 2023 update ([#2954](https://github.com/pinterest/gestalt/pull/2954)) - [Preview link](https://deploy-preview-2954--gestalt.netlify.app)
+
+## 112.1.0 (May 19, 2023)
+
+### Minor
+
+- Table: added "selected"and "hoverStyle" prop to all Table.Row subcomponents ([#2952](https://github.com/pinterest/gestalt/pull/2952)) - [Preview link](https://deploy-preview-2952--gestalt.netlify.app)
+
+## 112.0.0 (May 19, 2023)
+
+### Major
+
+- Icon: Remove 'google-plus' icon ([#2950](https://github.com/pinterest/gestalt/pull/2950)) - [Preview link](https://deploy-preview-2950--gestalt.netlify.app)
+
+## 111.5.13 (May 19, 2023)
+
+### Patch
+
+- Docs: fix bug in navigation ([#2951](https://github.com/pinterest/gestalt/pull/2951)) - [Preview link](https://deploy-preview-2951--gestalt.netlify.app)
+
 ## 111.5.12 (May 17, 2023)
 
 ### Patch
