@@ -110,7 +110,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         Stack Callouts. In the case that banners must be stacked, Callouts should come before Upsells.
         `}
             sandpackExample={
-              <SandpackExample name="Don't - Stack Callouts" code={dontStack} hideEditor />
+              <SandpackExample
+                name="Don't - Stack Callouts"
+                code={dontStack}
+                hideEditor
+                previewHeight={552}
+              />
             }
           />
         </MainSection.Subsection>
@@ -197,7 +202,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Variants - Warning" code={variantWarning} hideEditor />
+              <SandpackExample
+                name="Variants - Warning"
+                code={variantWarning}
+                hideEditor
+                previewHeight={460}
+              />
             }
           />
         </MainSection.Subsection>

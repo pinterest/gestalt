@@ -1,20 +1,24 @@
 // @flow strict
 import { type Node } from 'react';
-import { Callout } from 'gestalt';
+import { Callout, Flex, Box } from 'gestalt';
 
 export default function Example(): Node {
   return (
-    <Callout
-      iconAccessibilityLabel="Error"
-      message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
-      primaryAction={{
-        accessibilityLabel: 'Fix Pinterest tag',
-        href: 'https://pinterest.com',
-        label: 'Fix tag',
-        target: 'blank',
-      }}
-      title="Pinterest tag needs attention"
-      type="error"
-    />
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Box paddingY={8} paddingX={8}>
+        <Callout
+          iconAccessibilityLabel="Error"
+          message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
+          primaryAction={{
+            accessibilityLabel: 'Fix Pinterest tag',
+            href: 'https://pinterest.com',
+            label: 'Fix tag',
+            target: 'blank',
+          }}
+          title="Pinterest tag needs attention"
+          type="error"
+        />
+      </Box>
+    </Flex>
   );
 }
