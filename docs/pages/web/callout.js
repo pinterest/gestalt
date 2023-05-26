@@ -30,6 +30,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         <SandpackExample
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}
+          layout="column"
           hideEditor
         />
       </PageHeader>
@@ -71,6 +72,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Do - Use Callout for product messages"
                 code={productMessages}
+                layout="column"
                 hideEditor
               />
             }
@@ -85,6 +87,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Do - Place Callout at the top of the page"
                 code={placeAtTop}
+                layout="column"
                 hideEditor
               />
             }
@@ -100,6 +103,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Don't - Use Callouts for marketing new products or features"
                 code={dontUseForMarketing}
                 hideControls
+                layout="column"
+                hideEditor
               />
             }
           />
@@ -114,6 +119,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Don't - Stack Callouts"
                 code={dontStack}
                 hideControls
+                layout="column"
+                hideEditor
                 previewHeight={552}
               />
             }
@@ -135,7 +142,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Callout labels" code={accessibilityExample} hideEditor />
+              <SandpackExample
+                name="Callout labels"
+                code={accessibilityExample}
+                layout="column"
+                // hideEditor
+              />
             }
           />
         </MainSection.Subsection>
@@ -149,7 +161,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Callout localization" code={localizationExample} hideEditor />
+              <SandpackExample
+                name="Callout localization"
+                code={localizationExample}
+                layout="column"
+                // hideEditor
+                previewHeight={380}
+              />
             }
           />
         </MainSection.Subsection>
@@ -163,7 +181,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Variants - Info" code={variantInfo} hideEditor />
+              <SandpackExample
+                name="Variants - Info"
+                code={variantInfo}
+                layout="column"
+                // hideEditor
+              />
             }
           />
         </MainSection.Subsection>
@@ -178,7 +201,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Variants - Recommendation"
                 code={variantRecommendation}
-                hideEditor
+                layout="column"
+                // hideEditor
               />
             }
           />
@@ -190,7 +214,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Variants - Success" code={variantSuccess} hideEditor />
+              <SandpackExample
+                name="Variants - Success"
+                code={variantSuccess}
+                layout="column"
+                // hideEditor
+              />
             }
           />
         </MainSection.Subsection>
@@ -205,7 +234,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Variants - Warning"
                 code={variantWarning}
-                hideEditor
+                layout="column"
+                // hideEditor
                 previewHeight={460}
               />
             }
@@ -219,7 +249,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Variants - Error" code={variantError} hideEditor />
+              <SandpackExample
+                name="Variants - Error"
+                code={variantError}
+                layout="column"
+                // hideEditor
+                previewHeight={380}
+              />
             }
           />
         </MainSection.Subsection>
@@ -240,7 +276,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Callout actions" code={actionsExample} hideEditor />
+              <SandpackExample
+                name="Callout actions"
+                code={actionsExample}
+                layout="column"
+                // hideEditor
+              />
             }
           />
         </MainSection.Subsection>
@@ -258,7 +299,12 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Dismissable Callout" code={dismissibleExample} hideEditor />
+              <SandpackExample
+                name="Dismissable Callout"
+                code={dismissibleExample}
+                layout="column"
+                // hideEditor
+              />
             }
           />
         </MainSection.Subsection>
