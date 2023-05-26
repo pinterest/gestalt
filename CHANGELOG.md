@@ -1,3 +1,9 @@
+## 112.3.2 (May 26, 2023)
+
+### Patch
+
+- TileData: add accessibility pause ([#2964](https://github.com/pinterest/gestalt/pull/2964)) - [Preview link](https://deploy-preview-2964--gestalt.netlify.app)
+
 ## 112.3.1 (May 25, 2023)
 
 ### Patch
