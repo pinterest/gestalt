@@ -9,7 +9,6 @@ import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
 import { type Indexable } from '../zIndex.js';
-import styles from './Tile.css';
 
 type TooltipProps = {|
   accessibilityLabel?: string,
@@ -49,6 +48,15 @@ type Props = {|
   /**
    * The content to be wrapped by tile.
    */
+  /**
+   * Optional style classes
+   */
+  customClasses?: {|
+    base?: string,
+    selected?: string,
+    hovered?: string,
+    disabled?: string,
+  |},
   children?: Node,
   disabled?: boolean,
   id?: string,
@@ -123,6 +131,7 @@ function getTileColors(state: InteractionStates, colorStyles: ColorStyles) {
 export default function Tile({
   bgColor,
   borderColor,
+  customClasses,
   children,
   disabled = false,
   id = '',
@@ -136,11 +145,13 @@ export default function Tile({
 
   const { isFocusVisible } = useFocusVisible();
 
-  const classes = classnames(styles.tile, styles.tileWidth, {
-    [styles.selected]: selected,
-    [styles.hovered]: isHovered && !isFocusVisible,
-    [styles.disabled]: disabled,
-  });
+  const cssClasses = customClasses
+    ? classnames(customClasses.base, {
+        [customClasses.selected]: selected,
+        [customClasses.hovered]: isHovered && !isFocusVisible,
+        [customClasses.disabled]: disabled,
+      })
+    : '';
 
   const handleClick: OnTapType = ({ event }) => {
     onTap?.({ event, id, selected: !selected });
@@ -178,7 +189,7 @@ export default function Tile({
           onMouseLeave={handleOnMouseLeave}
           onKeyDown={handleKeyDown}
         >
-          <div className={classes} style={tileStyle}>
+          <div className={cssClasses} style={tileStyle}>
             <Flex direction="row" gap={2}>
               {children}
               {showCheckbox && (

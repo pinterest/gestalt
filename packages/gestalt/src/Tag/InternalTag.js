@@ -8,8 +8,8 @@ import Flex from '../Flex.js';
 import focusStyles from '../Focus.css';
 import Icon from '../Icon.js';
 import touchableStyles from '../TapArea.css';
-import TapArea from '../TapArea.js';
 import Text from '../Text.js';
+import Tile from '../Tile/Tile.js';
 import useFocusVisible from '../useFocusVisible.js';
 import styles from './InternalTag.css';
 
@@ -30,10 +30,12 @@ const iconsByType = Object.freeze({
   warning: 'workflow-status-warning',
 });
 
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
+
 type Props = {|
   accessibilityRemoveIconLabel?: string,
   disabled?: boolean,
-  onRemove: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
+  onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
   text: string,
   type?: 'default' | 'error' | 'warning',
   /**
@@ -43,16 +45,30 @@ type Props = {|
   /**
    * Gestalt font size (e.g. 100, 200, sm, large)
    */
-  fontSize?: string,
+  fontSize?: Size,
 |};
 
 /**
  * Makes the body clickable
  * @returns
  */
-function MaybeTapArea() {
-  return <TapArea />;
+function MaybeTile({
+  children,
+  interactive,
+  tooltip,
+}: {|
+  children: Node,
+  interactive: boolean,
+  tooltip: any,
+|}): Node {
+  return interactive ? <Tile tooltip={tooltip}>{children} </Tile> : children;
 }
+
+// wrap content in a tap area
+
+// add left children and move to tag area
+
+// move color styles to main tag component
 
 export default function InternalTag({
   accessibilityRemoveIconLabel,
@@ -97,7 +113,12 @@ export default function InternalTag({
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
-        __style: disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {},
+        __style:
+          disabled && !hasIcon
+            ? { border: `solid 1px ${colorGray200}` }
+            : {
+                backgroundColor: 'red',
+              },
       }}
       display="inlineBlock"
       height={containerHeight}
@@ -105,23 +126,25 @@ export default function InternalTag({
       rounding={2}
     >
       <Flex alignItems="center" height="100%">
-        <Box marginStart={hasIcon ? 2 : 0} marginEnd={2}>
-          {/* Not using hasIcon to appease Flow */}
-          {(type === 'error' || type === 'warning') && (
-            <Icon
-              accessibilityLabel={accessibilityLabels[type]}
-              color={fgColor}
-              icon={iconsByType[type]}
-              size={12}
-            />
-          )}
-        </Box>
+        <Flex alignItems="center" height="100%">
+          <Box marginStart={hasIcon ? 2 : 0} marginEnd={2}>
+            {/* Not using hasIcon to appease Flow */}
+            {(type === 'error' || type === 'warning') && (
+              <Icon
+                accessibilityLabel={accessibilityLabels[type]}
+                color={fgColor}
+                icon={iconsByType[type]}
+                size={12}
+              />
+            )}
+          </Box>
 
-        <div title={text}>
-          <Text color={fgColor} inline size={fontSize} lineClamp={1}>
-            {text}
-          </Text>
-        </div>
+          <div title={text}>
+            <Text color={fgColor} inline size={fontSize} lineClamp={1}>
+              {text}
+            </Text>
+          </div>
+        </Flex>
 
         <Box marginStart={disabled ? 2 : 1} height="100%">
           {!disabled && (

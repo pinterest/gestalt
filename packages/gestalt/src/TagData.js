@@ -1,8 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import InternalTag from './Tag/InternalTag.js';
+import classnames from 'classnames';
+import styles from './TagData.css';
+import Flex from './Flex.js';
+import Text from './Text.js';
+import Tile from './Tile/Tile.js';
 
-type Props = {|
+export type Props = {|
   /**
    * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
@@ -14,7 +18,7 @@ type Props = {|
   /**
    * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the Tag.
    */
-  onRemove: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
+  onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
   /**
    * Size of the Tag Data, see the [sizes](https://gestalt.pinterest.systems.com/web/tagdata#sizes) variant
    */
@@ -44,15 +48,17 @@ export default function TagData({
     'md': { height: 40, font: '200' },
   };
 
+  const classes = classnames(styles.tag);
+
   return (
-    <InternalTag
-      accessibilityRemoveIconLabel={accessibilityRemoveIconLabel}
-      containerHeight={sizes[size].height}
-      disabled={disabled}
-      fontSize={sizes[size].fontSize}
-      onRemove={onRemove}
-      text={text}
-      type="default"
-    />
+    <Flex>
+      <Tile classes={classes}>
+        <div title={text}>
+          <Text inline fontSize={sizes[size].fontSize} lineClamp={1}>
+            {text}
+          </Text>
+        </div>
+      </Tile>
+    </Flex>
   );
 }

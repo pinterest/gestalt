@@ -1,3 +1,11 @@
-.customClass {
-  background: rgb(0 0 0 / 0.061);
+.tag {
+  composes: flex from "./Layout.css";
+  composes: paddingX4 from "./boxWhitespace.css";
+  composes: paddingY4 from "./boxWhitespace.css";
+  composes: rounding4 from "./Borders.css";
+  composes: borderBox from "./Layout.css";
+  composes: sizeLg from "./Borders.css";
+  composes: solid from "./Borders.css";
+  composes: transparentBorder from "./Borders.css";
+  background-color: red;
 }
