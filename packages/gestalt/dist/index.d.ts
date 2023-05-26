@@ -299,6 +299,25 @@ type IdealDirectionType = 'up' | 'right' | 'down' | 'left';
 
 type MobileEnterKeyHintType = 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
 
+type DataVisualizationColors =
+  | '01'
+  | '02'
+  | '03'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | '10'
+  | '11'
+  | '12';
+
+type TrendObject = {
+  accessibilityLabel: string,
+  value: number,
+};
+  
 interface ActionData {
   accessibilityLabel: string;
   disabled?: boolean;
@@ -758,7 +777,7 @@ interface DatapointProps {
   size?: 'md' | 'lg' | undefined;
   tooltipText?: string | undefined;
   tooltipZIndex?: Indexable | undefined;
-  trend?: { accessibilityLabel: string; value: number } | undefined;
+  trend?: TrendObject | undefined;
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
 }
 
@@ -1920,6 +1939,28 @@ interface TextFieldProps {
   value?: string | undefined;
 }
 
+interface TileDataProps {
+   color?: DataVisualizationColors,
+   disabled?: boolean,
+   id?: string,
+   onTap?:(
+    event:
+      | React.MouseEvent<HTMLDivElement, MouseEvent> 
+      | React.KeyboardEvent<HTMLDivElement>
+      | React.MouseEvent<HTMLAnchorElement, MouseEvent>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+    selected: boolean,
+    id?: string,
+  )=>void
+   selected?: boolean,
+   showCheckbox?: boolean,
+   title: string,
+   tooltip?: TooltipProps,
+   trend?: TrendObject,
+   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+   value: string,
+}
+
 interface ToastProps {
   text: string | React.ReactElement<typeof Text>;
   dissmissButton:
@@ -2502,6 +2543,11 @@ export const TextArea: ReactForwardRef<HTMLTextAreaElement, TextAreaProps>;
  * https://gestalt.pinterest.systems/web/textfield
  */
 export const TextField: ReactForwardRef<HTMLInputElement, TextFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/tiledata
+ */
+export const TileData: React.FunctionComponent<TileDataProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/toast
