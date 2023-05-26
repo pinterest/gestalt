@@ -1,8 +1,8 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import { Callout, Flex, Box } from 'gestalt';
 
-export default function ResponsiveExample(): Node {
+export default function Example(): Node {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box paddingY={8} paddingX={8}>
@@ -12,20 +12,20 @@ export default function ResponsiveExample(): Node {
             onDismiss: () => {},
           }}
           iconAccessibilityLabel="Info"
-          message="Apply to the Verified Merchant Program"
+          message="Bewerben Sie sich beim Verified Merchant Program"
           primaryAction={{
-            accessibilityLabel: 'Get started: Verified Merchant Program',
+            accessibilityLabel: 'Loslegen: Verified Merchant Program',
             href: 'https://pinterest.com',
-            label: 'Get started',
+            label: 'Loslegen',
             target: 'blank',
           }}
           secondaryAction={{
-            accessibilityLabel: 'Learn more: Verified Merchant Program',
+            accessibilityLabel: 'Erfahren Sie mehr: Verified Merchant Program',
             href: 'https://pinterest.com',
-            label: 'Learn more',
+            label: 'Erfahren Sie mehr',
             target: 'blank',
           }}
-          title="Your business account was created!"
+          title="Ihr Geschäftskonto wurde erstellt!"
           type="info"
         />
       </Box>
