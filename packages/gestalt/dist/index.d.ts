@@ -1940,24 +1940,16 @@ interface TextFieldProps {
 }
 
 interface TileDataProps {
-   color?: DataVisualizationColors,
-   disabled?: boolean,
-   id?: string,
-   onTap?:(
-    event:
-      | React.MouseEvent<HTMLDivElement, MouseEvent> 
-      | React.KeyboardEvent<HTMLDivElement>
-      | React.MouseEvent<HTMLAnchorElement, MouseEvent>
-      | React.KeyboardEvent<HTMLAnchorElement>,
-    selected: boolean,
-    id?: string,
-  )=>void
-   selected?: boolean,
-   showCheckbox?: boolean,
+   color?: DataVisualizationColors | undefined,
+   disabled?: boolean | undefined,
+   id?: string | undefined,
+   onTap?: AbstractEventHandler<React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>| React.KeyboardEvent<HTMLAnchorElement>, { selected: boolean, id?: string | undefined }> | undefined;
+   selected?: boolean | undefined,
+   showCheckbox?: boolean | undefined,
    title: string,
-   tooltip?: TooltipProps,
-   trend?: TrendObject,
-   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+   tooltip?: TooltipProps | undefined,
+   trend?: TrendObject | undefined,
+   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined,
    value: string,
 }
 
