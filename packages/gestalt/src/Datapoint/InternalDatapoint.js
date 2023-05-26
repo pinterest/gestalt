@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import AccessibilityPause from '../accessibility/AccessibilityPause.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
@@ -67,6 +68,7 @@ export default function InternalDatapoint({
         <MaybeMinWidth minWidth={minTitleWidth}>
           <Text size="200" color={textColor} lineClamp={lineClamp}>
             {title}
+            <AccessibilityPause />
           </Text>
         </MaybeMinWidth>
         {tooltipText && (
@@ -88,6 +90,7 @@ export default function InternalDatapoint({
       <Flex gap={size === 'lg' ? 4 : 2} alignItems="center">
         <Text size={size === 'lg' ? '500' : '400'} weight="bold" color={textColor}>
           {value}
+          <AccessibilityPause />
         </Text>
 
         {trend && (
