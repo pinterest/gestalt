@@ -7,7 +7,7 @@ export default function Example(): Node {
   const isSelected = (id: string) => selectedId === id;
 
   return (
-    <Flex gap={5} justifyContent="center">
+    <Flex gap={5} justifyContent="center" alignItems="center" width="100%" height="100%">
       <TileData
         id="01"
         title="Impressions"
