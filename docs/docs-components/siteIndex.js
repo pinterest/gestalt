@@ -120,6 +120,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Datapoint',
       'DateField',
       'DatePicker',
+      'DateRange',
       'Divider',
       'Dropdown',
       'Fieldset',

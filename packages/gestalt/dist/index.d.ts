@@ -2622,6 +2622,12 @@ export const TagData: React.FunctionComponent<TagDataProps>;
 export const TapArea: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
 
 /**
+ * https://gestalt.pinterest.systems/web/tiledata
+ */
+export const TileData: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
+
+
+/**
  * https://gestalt.pinterest.systems/web/text
  */
 export const Text: ReactForwardRef<HTMLDivElement | HTMLSpanElement, TextProps>;

@@ -350,6 +350,12 @@ interface LocaleData {
  * =========================================================
  */
 
+export interface DateRangeProps {
+  prop: value;
+  prop: value;
+  prop: value;
+}
+
 export interface DatePickerProps {
   id: string;
   disabled?: boolean | undefined;
@@ -419,6 +425,11 @@ export interface DateFieldProps {
  * ========================= INDEX =========================
  * =========================================================
  */
+
+/**
+ * https://gestalt.pinterest.systems/web/dateranger
+ */
+export const DateRange: React.FunctionComponent<DateRangeProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/datepicker

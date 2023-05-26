@@ -27,6 +27,7 @@ import ComboBox from '../../graphics/general/ComboBox.svg';
 import Datapoint from '../../graphics/general/Datapoint.svg';
 import DateField from '../../graphics/general/DateField.svg';
 import DatePicker from '../../graphics/general/DatePicker.svg';
+import DateRange from '../../graphics/general/DateRange.svg';
 import Divider from '../../graphics/general/Divider.svg';
 import Dropdown from '../../graphics/general/Dropdown.svg';
 import Heading from '../../graphics/general/Heading.svg';
@@ -633,6 +634,57 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+    },
+  },
+  {
+    svg: <DateRange />,
+    name: 'DateRange',
+    aliases: [],
+    previouslyNamed: [],
+    hasDarkBackground: false,
+    description: 'DateRange is description',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'notAvailable',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
     },
   },
   {
