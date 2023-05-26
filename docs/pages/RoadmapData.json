@@ -20,7 +20,7 @@
     {
       "task": "Global navigation guidelines",
       "deadline": "",
-      "status": "unstarted",
+      "status": "inProgress",
       "platforms": [],
       "description": "Release general guidelines and principles for navigation content and display.",
       "link": ""
@@ -44,7 +44,7 @@
     {
       "task": "Tile component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Creation of a Tile component to support emerging M10n needs.",
       "link": ""
@@ -172,7 +172,7 @@
     {
       "task": "Default labels in Gestalt components",
       "deadline": "",
-      "status": "unstarted",
+      "status": "inProgress",
       "platforms": ["Web"],
       "description": "Implement all default labels supported in components for faster development and message consistency.",
       "link": ""
