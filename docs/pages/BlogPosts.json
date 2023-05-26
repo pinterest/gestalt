@@ -3,8 +3,46 @@
     "year": "2023",
     "digests": [
       {
+        "week": "May 26, 2023",
+        "summary": "New TileData component, updates to PageHeader, more Figma library updates and better documentation code examples.",
+        "posts": [
+          {
+            "title": "New TileData component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/c7/f1/11/c7f111ec88907d1021f4dfe7d06cbf1f.png",
+            "imageAltText": "Example of Gestalt's TileData component.",
+            "content": "Say hello [TileData](https://gestalt.pinterest.systems/web/tiledata)! This component is part of our effort to provide greater support for data visualization within Gestalt. TileData is for selecting categories in a graph or chart. And we plan to ship graphs/charts within Gestalt the second half of this year."
+          },
+          {
+            "title": "PageHeader badge update",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/b3/f7/09/b3f709f674fcb5c59ae84a2cdd61452b.png",
+            "imageAltText": "Gestalt PageHeader component with a success badge.",
+            "content": "We've increased the awesomosity of [PageHeader](https://gestalt.pinterest.systems/web/pageheader) by enabling the title badge to be set to different types (like `success`). To see this in action, have a look at the [PageHeader title variant example](https://gestalt.pinterest.systems/web/pageheader#Title)."
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/91/63/a3/9163a3141d6bc10738842aa144e3bbb9.png",
+            "imageAltText": "Gestalt text displayed with line height called out.",
+            "content": "We continue to make Figma library updates by the buckets. Here are the highlights:\n* The line height for Android and iOS text styles were updated to more accurately reflect what’s in code\n * We implemented [simplified component instances](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#simplified) for our iOS and Android components\n * Lastly, we updated our mobile Contextual Menu component to be, well, an actual component. Sorry about that!"
+          },
+          {
+            "title": "Code example updates",
+            "audience": ["Engineering"],
+            "imageColor": "black-cosmicore-900",
+            "imageSrc": "https://i.pinimg.com/originals/02/ed/d1/02edd11bfeaef81b9cea02376e158021.png",
+            "imageAltText": "Screenshot of Gestalt example code.",
+            "content": "Our old documentation code samples have some issues - specifically around selecting text. We're fixing that by migrating our code examples to Sandpack. We just shipped shiny new examples for [Callout](https://gestalt.pinterest.systems/web/callout), which brings us close to 60% of components migrated over. We plan to keep this going by migrating [SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) and [Table](https://gestalt.pinterest.systems/web/table) in the next couple weeks."
+          }
+        ]
+      },
+      {
         "week": "May 17, 2023",
-        "summary": "",
+        "summary": "Improved search results, new Pin aspect ratios and Android icons in the Gestalt codebase",
         "posts": [
           {
             "title": "Docs search improvements",
