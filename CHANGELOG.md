@@ -1,3 +1,9 @@
+## 112.3.5 (May 26, 2023)
+
+### Patch
+
+- Docs: Weekly update and roadmap updates ([#2967](https://github.com/pinterest/gestalt/pull/2967)) - [Preview link](https://deploy-preview-2967--gestalt.netlify.app)
+
 ## 112.3.4 (May 26, 2023)
 
 ### Patch
