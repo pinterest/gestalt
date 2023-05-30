@@ -8,7 +8,6 @@ import {
   useId,
 } from 'react';
 import classnames from 'classnames';
-import once from 'jscodeshift/dist/utils/once';
 import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
