@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Table, Text, Status, Box } from 'gestalt';
+import { Table, Text, Status } from 'gestalt';
 
 function HeaderRow() {
   return (
