@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import classnames from 'classnames';
 import styles from './TileData.css';
 import { type Indexable } from './zIndex.js';
 import { useColorScheme, type Theme } from './contexts/ColorSchemeProvider.js';
@@ -132,21 +131,11 @@ export default function TileData({
 }: Props): Node {
   const theme = useColorScheme();
 
-  console.log(styles.tiledata);
-  console.log(classnames(styles.tiledata));
-
-  const customClasses = {
-    base: classnames(styles.tiledata, styles.tileWidth),
-    selected: styles.selected,
-    hovered: styles.hovered,
-    disabled: styles.disabled,
-  };
-
   return (
     <Tile
       bgColor={getBackgroundShade(theme, color)}
       borderColor={getColorHex(theme, color)}
-      customClasses={customClasses}
+      className={styles}
       disabled={disabled}
       id={id}
       onTap={onTap}

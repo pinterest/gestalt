@@ -49,10 +49,11 @@ type Props = {|
    * The content to be wrapped by tile.
    */
   /**
-   * Optional style classes
+   * Optional style classes, these CSS classes are helpful when styling the container. No default classes are applied
    */
-  customClasses?: {|
-    base?: string,
+  className?: {|
+    baseTile?: string,
+    tileWidth?: string,
     selected?: string,
     hovered?: string,
     disabled?: string,
@@ -131,7 +132,7 @@ function getTileColors(state: InteractionStates, colorStyles: ColorStyles) {
 export default function Tile({
   bgColor,
   borderColor,
-  customClasses,
+  className,
   children,
   disabled = false,
   id = '',
@@ -145,11 +146,14 @@ export default function Tile({
 
   const { isFocusVisible } = useFocusVisible();
 
-  const cssClasses = customClasses
-    ? classnames(customClasses.base, {
-        [customClasses.selected]: selected,
-        [customClasses.hovered]: isHovered && !isFocusVisible,
-        [customClasses.disabled]: disabled,
+  /**
+   * CSS classes that are applied during interaction. Look at TagData.css
+   */
+  const cssClasses = className
+    ? classnames(className.baseTile, className.tileWidth, {
+        [className.selected]: selected,
+        [className.hovered]: isHovered && !isFocusVisible,
+        [className.disabled]: disabled,
       })
     : '';
 

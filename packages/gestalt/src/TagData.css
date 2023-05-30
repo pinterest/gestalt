@@ -1,4 +1,4 @@
-.tag {
+.baseTile {
   composes: flex from "./Layout.css";
   composes: paddingX4 from "./boxWhitespace.css";
   composes: paddingY4 from "./boxWhitespace.css";
@@ -8,4 +8,5 @@
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
   background-color: red;
+  font-style: italic;
 }

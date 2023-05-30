@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-import classnames from 'classnames';
 import styles from './TagData.css';
 import Flex from './Flex.js';
 import Text from './Text.js';
@@ -48,11 +47,9 @@ export default function TagData({
     'md': { height: 40, font: '200' },
   };
 
-  const classes = classnames(styles.tag);
-
   return (
     <Flex>
-      <Tile classes={classes}>
+      <Tile className={styles}>
         <div title={text}>
           <Text inline fontSize={sizes[size].fontSize} lineClamp={1}>
             {text}
