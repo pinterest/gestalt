@@ -1,47 +1,45 @@
 // @flow strict
 import { type Node } from 'react';
-import { Table, Flex, Text, Box } from 'gestalt';
+import { Table, Text, Box } from 'gestalt';
 
 export default function Example(): Node {
   return (
-    <Box height="100%" width="100%" overflow="scroll">
-      <Flex alignItems="start" gap={4} height="100%" justifyContent="center" width="100%">
-        <Table accessibilityLabel="Main example table">
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>
-                <Text weight="bold">Campaign</Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Text weight="bold">Status</Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
-                <Text weight="bold">Date</Text>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
+    <Box padding={4} width="100%" height="100%" display="flex" justifyContent="center">
+      <Table accessibilityLabel="Main example table">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>
+              <Text weight="bold">Campaign</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Status</Text>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Text weight="bold">Date</Text>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
 
-          <Table.Body>
-            {[
-              { id: 'row1', campaign: 'Winter', status: 'Draft', date: 'December 25, 2023' },
-              { id: 'row2', campaign: 'Spring', status: 'Active', date: 'April 25, 2023' },
-              { id: 'row3', campaign: 'Fall', status: 'Finished', date: 'October 25, 2022' },
-            ].map(({ id, campaign, status, date }) => (
-              <Table.Row key={id}>
-                <Table.Cell>
-                  <Text>{campaign}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{status}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{date}</Text>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Flex>
+        <Table.Body>
+          {[
+            { id: 'row1', campaign: 'Winter', status: 'Draft', date: 'December 25, 2023' },
+            { id: 'row2', campaign: 'Spring', status: 'Active', date: 'April 25, 2023' },
+            { id: 'row3', campaign: 'Fall', status: 'Finished', date: 'October 25, 2022' },
+          ].map(({ id, campaign, status, date }) => (
+            <Table.Row key={id}>
+              <Table.Cell>
+                <Text>{campaign}</Text>
+              </Table.Cell>
+              <Table.Cell>
+                <Text>{status}</Text>
+              </Table.Cell>
+              <Table.Cell>
+                <Text>{date}</Text>
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
     </Box>
   );
 }
