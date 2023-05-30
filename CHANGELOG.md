@@ -1,3 +1,9 @@
+## 112.3.7 (May 30, 2023)
+
+### Patch
+
+- TileData: Add Typescript Types ([#2966](https://github.com/pinterest/gestalt/pull/2966)) - [Preview link](https://deploy-preview-2966--gestalt.netlify.app)
+
 ## 112.3.6 (May 30, 2023)
 
 ### Patch
