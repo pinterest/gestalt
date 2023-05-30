@@ -57,14 +57,11 @@ const cssModules = (options = {}) => {
         scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
       }
 
-      // if the DEVMODE environment variable is set, then don't minify the classnames
-      const isDevMode = process.env.DEVMODE === 'true';
-      let minifiedName = scopeNames[hash];
-      if (isDevMode) {
-        minifiedName = `${name}__${minifiedName}`;
-      }
+      // if it's not production, use the minfied name + extended name
+      const className =
+        process.env.DEVMODE === 'true' ? `${name}__${scopeNames[hash]}` : scopeNames[hash];
 
-      return minifiedName;
+      return className;
     },
     getJSON: (filePath, exportTokens) => {
       Object.entries(exportTokens).forEach(([className, value]) => {
