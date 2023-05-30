@@ -1,3 +1,9 @@
+## 112.3.6 (May 30, 2023)
+
+### Patch
+
+- SlimBanner: Convert examples to use Sandpack ([#2968](https://github.com/pinterest/gestalt/pull/2968)) - [Preview link](https://deploy-preview-2968--gestalt.netlify.app)
+
 ## 112.3.5 (May 26, 2023)
 
 ### Patch
