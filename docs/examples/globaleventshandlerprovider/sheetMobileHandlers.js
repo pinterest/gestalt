@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node, useCallback, useMemo, useState } from 'react';
 import {
   Flex,
   Layer,
@@ -18,15 +18,17 @@ export default function Example(): Node {
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
+  // eslint-disable-next-line no-console
+  const sheetMobileOnOpen = useCallback(() => console.log('On open handler'), []);
+  // eslint-disable-next-line no-console
+  const sheetMobileOnClose = useCallback(() => console.log('On close handler'), []);
+  const sheetMobileHandlers = useMemo(
+    () => ({ onOpen: sheetMobileOnOpen, onClose: sheetMobileOnClose }),
+    [sheetMobileOnOpen, sheetMobileOnClose],
+  );
+
   return (
-    <GlobalEventsHandlerProvider
-      sheetMobile={{
-        // eslint-disable-next-line no-console
-        onOpen: () => console.log(`on open handler`),
-        // eslint-disable-next-line no-console
-        onClose: () => console.log(`on close handler`),
-      }}
-    >
+    <GlobalEventsHandlerProvider sheetMobileHandlers={sheetMobileHandlers}>
       <DeviceTypeProvider deviceType="mobile">
         {showComponent ? (
           <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>

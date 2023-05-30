@@ -334,10 +334,10 @@ When using these render props, just pass the argument \`onDismissStart\` to your
           description={`SheetMobile consumes external handlers from GlobalEventsHandlerProvider.
 
 Handlers:
-- onOpen: executed on useEffect
-- onClose: executed on the cleanup function of useEffect
+- onOpen: executed when SheetMobile opens
+- onClose: executed when SheetMobile closes
 
-See [GlobalEventsHandlerProvider](/web/utilities/GlobalEventsHandlerProvider) for more information.`}
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider) for more information.`}
           columns={2}
         >
           <MainSection.Card

@@ -68,17 +68,18 @@ export default function FullPage({
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
 
   // Consumes GlobalEventsHandlerProvider
-  const { sheetMobile } = useGlobalEventsHandlerContext() ?? {
-    sheetMobile: { onOpen: () => {}, onClose: () => {} },
+  const { sheetMobileHandlers } = useGlobalEventsHandlerContext() ?? {
+    sheetMobileHandlers: { onOpen: () => {}, onClose: () => {} },
   };
 
+  const { onClose, onOpen } = sheetMobileHandlers ?? { onOpen: () => {}, onClose: () => {} };
   useEffect(() => {
-    sheetMobile?.onOpen?.();
+    onOpen?.();
 
     return function cleanup() {
-      sheetMobile?.onClose?.();
+      onClose?.();
     };
-  }, [sheetMobile]);
+  }, [onClose, onOpen]);
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {

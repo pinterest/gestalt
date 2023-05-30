@@ -8,6 +8,7 @@ import {
   useId,
 } from 'react';
 import classnames from 'classnames';
+import once from 'jscodeshift/dist/utils/once';
 import animation from '../animation/animation.css';
 import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
@@ -92,17 +93,27 @@ export default function PartialPage({
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
 
   // Consumes GlobalEventsHandlerProvider
-  const { sheetMobile } = useGlobalEventsHandlerContext() ?? {
-    sheetMobile: { onOpen: () => {}, onClose: () => {} },
+  const { sheetMobileHandlers } = useGlobalEventsHandlerContext() ?? {
+    sheetMobileHandlers: { onOpen: () => {}, onClose: () => {} },
   };
 
+  const { onClose, onOpen } = sheetMobileHandlers ?? { onOpen: () => {}, onClose: () => {} };
+
   useEffect(() => {
-    sheetMobile?.onOpen?.();
+    onOpen?.();
 
     return function cleanup() {
-      sheetMobile?.onClose?.();
+      onClose?.();
     };
-  }, [sheetMobile]);
+  }, [onClose, onOpen]);
+
+  useEffect(() => {
+    onOpen?.();
+
+    return function cleanup() {
+      onClose?.();
+    };
+  }, [onClose, onOpen]);
 
   // Consumes AnimationProvider & RequestAnimationFrameProvider
   const { animationState, handleAnimationEnd } = useAnimation();

@@ -25,9 +25,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="lg"
             description={`GlobalEventsHandlerProvider has one prop for each component subscribing to the provider.
 
-EffectsProvider's \`sheetMobile\` props only subscribes SheetMobile and those adaptive components that use SheetMobile in their mobile UI (Modal, Dropdown.)
+GlobalEventsHandlerProvider's \`sheetMobileHandlers\` props only subscribes SheetMobile and those adaptive components that use SheetMobile in their mobile UI (Modal, Dropdown.)
 
-In the example below, SheetMobile's logs when opens and closes, when useEffect runs first and clears on unmounting.
+In the example below, SheetMobile's logs when opens and closes.
 `}
             sandpackExample={
               <SandpackExample

@@ -3,11 +3,9 @@ import { createContext, type Context, type Element, type Node, useContext } from
 
 export type NoopType = () => void;
 
-type SheetMobileHandlersType = {|
-  sheetMobile?: {| onOpen?: NoopType, onClose?: NoopType |},
+type GlobalEventsHandlerContextType = {|
+  sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
 |} | void;
-
-type GlobalEventsHandlerContextType = {| ...SheetMobileHandlersType |} | void;
 
 type Props = {|
   /**
@@ -17,7 +15,7 @@ type Props = {|
   /**
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
-  sheetMobile?: {| onOpen?: NoopType, onClose?: NoopType |},
+  sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
 |};
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
@@ -30,9 +28,9 @@ const { Provider } = GlobalEventsHandlerContext;
  */
 export default function GlobalEventsHandlerProvider({
   children,
-  sheetMobile,
+  sheetMobileHandlers,
 }: Props): Element<typeof Provider> {
-  return <Provider value={{ sheetMobile }}>{children}</Provider>;
+  return <Provider value={{ sheetMobileHandlers }}>{children}</Provider>;
 }
 
 export function useGlobalEventsHandlerContext(): GlobalEventsHandlerContextType {

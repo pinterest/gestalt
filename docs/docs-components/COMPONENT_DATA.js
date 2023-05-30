@@ -4031,12 +4031,12 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
   {
     svg: <ProviderHandlers />,
     name: 'GlobalEventsHandlerProvider',
-    aliases: ['React.useEffect'],
+    aliases: [],
     previouslyNamed: [],
-    path: '/web/utilities/GlobalEventsHandlerProvider',
+    path: '/web/utilities/globaleventshandlerprovider',
     hasDarkBackground: false,
     description:
-      'React context provider that that allows sharing global event handlers with consuming components.',
+      'React context provider that that allows to share external handlers with consuming components.',
     category: 'Utilities',
     status: {
       accessible: {

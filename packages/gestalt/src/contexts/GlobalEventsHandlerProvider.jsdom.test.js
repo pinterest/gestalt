@@ -23,7 +23,7 @@ describe('Dropdown.Item', () => {
 
     return (
       <GlobalEventsHandlerProvider
-        sheetMobile={{
+        sheetMobileHandlers={{
           onOpen,
           onClose,
         }}
