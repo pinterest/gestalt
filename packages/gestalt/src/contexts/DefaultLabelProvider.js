@@ -14,7 +14,14 @@ import { type Context, type Node, createContext, useContext } from 'react';
  */
 
 export type DefaultLabelContextType = {|
+  ActivationCard: {|
+    accessibilityDismissButtonLabel: string,
+  |},
+  Callout: {|
+    accessibilityDismissButtonLabel: string,
+  |},
   ComboBox: {|
+    noResultText: string,
     accessibilityClearButtonLabel: string,
   |},
   Link: {|
@@ -40,6 +47,15 @@ export type DefaultLabelContextType = {|
     accessibilityGrabberLabel: string,
     accessibilityLabel: string,
   |},
+  SideNavigation: {|
+    accessibilityDismissButtonLabel: string,
+  |},
+  SlimBanner: {|
+    accessibilityDismissButtonLabel: string,
+  |},
+  Spinner: {|
+    accessibilityLabel: string,
+  |},
   Tag: {|
     accessibilityErrorIconLabel: string,
     accessibilityRemoveIconLabel: string,
@@ -48,6 +64,20 @@ export type DefaultLabelContextType = {|
   TextField: {|
     accessibilityHidePasswordLabel: string,
     accessibilityShowPasswordLabel: string,
+  |},
+  Upsell: {|
+    accessibilityDismissButtonLabel: string,
+  |},
+  Video: {|
+    accessibilityMaximizeLabel: string,
+    accessibilityMinimizeLabel: string,
+    accessibilityMuteLabel: string,
+    accessibilityPauseLabel: string,
+    accessibilityPlayLabel: string,
+    accessibilityProgressLabel: string,
+    accessibilityUnmuteLabel: string,
+    accessibilityHideCaptionsLabel: string,
+    accessibilityShowCaptionsLabel: string,
   |},
   HelpButton: {|
     tooltipMessage: string,
@@ -61,7 +91,14 @@ export type DefaultLabelContextType = {|
 |};
 
 export const fallbackLabels: DefaultLabelContextType = {
+  ActivationCard: {
+    accessibilityDismissButtonLabel: 'Dismiss',
+  },
+  Callout: {
+    accessibilityDismissButtonLabel: 'Dismiss',
+  },
   ComboBox: {
+    noResultText: 'No results',
     accessibilityClearButtonLabel: 'Clear input',
   },
   Link: {
@@ -87,6 +124,15 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityGrabberLabel: 'Grabber',
     accessibilityLabel: 'Bottom sheet',
   },
+  SideNavigation: {
+    accessibilityDismissButtonLabel: 'Close side navigation',
+  },
+  SlimBanner: {
+    accessibilityDismissButtonLabel: 'Dismiss',
+  },
+  Spinner: {
+    accessibilityLabel: 'Loading',
+  },
   Tag: {
     accessibilityErrorIconLabel: 'Error',
     accessibilityRemoveIconLabel: 'Remove tag',
@@ -104,6 +150,20 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityIconSuccessLabel: 'Success message',
     accessibilityIconErrorLabel: 'Error message',
     accessibilityProcessingLabel: 'Processing message',
+  },
+  Upsell: {
+    accessibilityDismissButtonLabel: 'Dismiss',
+  },
+  Video: {
+    accessibilityMaximizeLabel: 'Maximize',
+    accessibilityMinimizeLabel: 'Minimize',
+    accessibilityMuteLabel: 'Mute',
+    accessibilityPauseLabel: 'Pause',
+    accessibilityPlayLabel: 'Play',
+    accessibilityProgressLabel: 'Video progress',
+    accessibilityUnmuteLabel: 'Unmute',
+    accessibilityHideCaptionsLabel: 'Hide captions',
+    accessibilityShowCaptionsLabel: 'Show captions',
   },
 };
 

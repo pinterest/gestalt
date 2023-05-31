@@ -16,7 +16,14 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
+          ActivationCard: {
+            accessibilityDismissButtonLabel: 'Dismiss',
+          },
+          Callout: {
+            accessibilityDismissButtonLabel: 'Dismiss',
+          },
           ComboBox: {
+            noResultText: 'No results',
             accessibilityClearButtonLabel: 'Clear input',
           },
           Link: {
@@ -42,6 +49,15 @@ describe('useDefaultLabelContext', () => {
             accessibilityGrabberLabel: 'Grabber',
             accessibilityLabel: 'Bottom sheet',
           },
+          SideNavigation: {
+            accessibilityDismissButtonLabel: 'Close side navigation',
+          },
+          SlimBanner: {
+            accessibilityDismissButtonLabel: 'Dismiss',
+          },
+          Spinner: {
+            accessibilityLabel: 'Loading',
+          },
           Tag: {
             accessibilityErrorIconLabel: 'Error',
             accessibilityRemoveIconLabel: 'Remove tag',
@@ -59,6 +75,20 @@ describe('useDefaultLabelContext', () => {
             accessibilityIconSuccessLabel: 'Success message',
             accessibilityIconErrorLabel: 'Error message',
             accessibilityProcessingLabel: 'Processing message',
+          },
+          Upsell: {
+            accessibilityDismissButtonLabel: 'Dismiss',
+          },
+          Video: {
+            accessibilityMaximizeLabel: 'Maximize',
+            accessibilityMinimizeLabel: 'Minimize',
+            accessibilityMuteLabel: 'Mute',
+            accessibilityPauseLabel: 'Pause',
+            accessibilityPlayLabel: 'Play',
+            accessibilityProgressLabel: 'Video progress',
+            accessibilityUnmuteLabel: 'Unmute',
+            accessibilityHideCaptionsLabel: 'Hide captions',
+            accessibilityShowCaptionsLabel: 'Show captions',
           },
         }}
       >
