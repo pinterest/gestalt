@@ -106,14 +106,6 @@ export default function PartialPage({
     };
   }, [onClose, onOpen]);
 
-  useEffect(() => {
-    onOpen?.();
-
-    return function cleanup() {
-      onClose?.();
-    };
-  }, [onClose, onOpen]);
-
   // Consumes AnimationProvider & RequestAnimationFrameProvider
   const { animationState, handleAnimationEnd } = useAnimation();
   const { handleRequestAnimationFrame, onExternalDismiss } = useRequestAnimationFrame();

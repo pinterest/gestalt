@@ -317,7 +317,7 @@ type TrendObject = {
   accessibilityLabel: string,
   value: number,
 };
-  
+
 interface ActionData {
   accessibilityLabel: string;
   disabled?: boolean;
@@ -412,7 +412,7 @@ interface OnLinkNavigationProviderProps {
 
 interface GlobalEventsHandlerProviderProps {
   children: Node;
-  sheetMobile?: { onOpen?: (() => void) | void, onClose?: (() => void)| void } | void
+  sheetMobileHandlers?: { onOpen?: (() => void) | void, onClose?: (() => void)| void } | void
 }
 
 interface ScrollBoundaryContainerProps {
