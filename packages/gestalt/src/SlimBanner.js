@@ -8,6 +8,7 @@ import IconButton from './IconButton.js';
 import Link from './Link.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type DismissButtonType = {|
   accessibilityLabel: string,
@@ -15,9 +16,10 @@ type DismissButtonType = {|
 |};
 
 function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SlimBanner');
   return (
     <IconButton
-      accessibilityLabel={accessibilityLabel}
+      accessibilityLabel={accessibilityLabel ?? accessibilityDismissButtonLabel}
       icon="cancel"
       iconColor="darkGray"
       onClick={onDismiss}

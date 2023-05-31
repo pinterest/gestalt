@@ -12,6 +12,7 @@ import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
@@ -163,6 +164,7 @@ export default function Upsell({
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('Upsell');
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -290,7 +292,7 @@ export default function Upsell({
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
-            accessibilityLabel={dismissButton.accessibilityLabel}
+            accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}

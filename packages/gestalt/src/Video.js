@@ -25,27 +25,27 @@ type Props = {|
   /**
    * Accessibility label for the fullscreen maximize button if controls are shown.
    */
-  accessibilityMaximizeLabel: string,
+  accessibilityMaximizeLabel?: string,
   /**
    * Accessibility label for the fullscreen minimize button if controls are shown.
    */
-  accessibilityMinimizeLabel: string,
+  accessibilityMinimizeLabel?: string,
   /**
    * Accessibility label for the mute button if controls are shown.
    */
-  accessibilityMuteLabel: string,
+  accessibilityMuteLabel?: string,
   /**
    * Accessibility label for the pause button if controls are shown.
    */
-  accessibilityPauseLabel: string,
+  accessibilityPauseLabel?: string,
   /**
    * Accessibility label for the play button if controls are shown.
    */
-  accessibilityPlayLabel: string,
+  accessibilityPlayLabel?: string,
   /**
    * Accessibility label for the video progress bar.
    */
-  accessibilityProgressBarLabel: string,
+  accessibilityProgressBarLabel?: string,
   /**
    * Accessibility label for the button to show captions if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
@@ -53,7 +53,7 @@ type Props = {|
   /**
    * Accessibility label for the unmute button if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
-  accessibilityUnmuteLabel: string,
+  accessibilityUnmuteLabel?: string,
   /**
    * When set to autoplay, the video will automatically start playing. See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
@@ -761,8 +761,8 @@ export default class Video extends PureComponent<Props, State> {
         {/* Need to use full path for these props so Flow can infer correct subtype */}
         {this.props.controls && (
           <VideoControls
-            accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
-            accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
+            accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel}
+            accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel}
             accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
             accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
             accessibilityMuteLabel={this.props.accessibilityMuteLabel}

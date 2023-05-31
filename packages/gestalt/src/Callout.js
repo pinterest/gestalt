@@ -9,6 +9,7 @@ import IconButton from './IconButton.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
@@ -165,6 +166,7 @@ export default function Callout({
   title,
 }: Props): Node {
   const responsiveMinWidth = useResponsiveMinWidth();
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('Callout');
 
   return (
     <Box
@@ -236,7 +238,7 @@ export default function Callout({
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
-            accessibilityLabel={dismissButton.accessibilityLabel}
+            accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}

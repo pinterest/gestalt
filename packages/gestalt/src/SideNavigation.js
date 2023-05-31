@@ -12,6 +12,7 @@ import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
@@ -68,7 +69,7 @@ export default function SideNavigation({
   title,
 }: Props): Node {
   const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
-
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
@@ -77,7 +78,7 @@ export default function SideNavigation({
     return (
       <SideNavigationProvider
         dismissButton={{
-          accessibilityLabel: dismissButton?.accessibilityLabel,
+          accessibilityLabel: dismissButton?.accessibilityLabel ?? accessibilityDismissButtonLabel,
           onDismiss: dismissButton?.onDismiss ?? (() => {}),
           id,
         }}
@@ -87,7 +88,14 @@ export default function SideNavigation({
             accessibilityLabel={accessibilityLabel}
             footer={footer}
             header={header}
-            dismissButton={dismissButton}
+            dismissButton={
+              dismissButton && !dismissButton.accessibilityLabel
+                ? {
+                    onDismiss: dismissButton.onDismiss,
+                    accessibilityLabel: accessibilityDismissButtonLabel,
+                  }
+                : dismissButton
+            }
             showBorder={showBorder}
             title={title}
             id={id}
