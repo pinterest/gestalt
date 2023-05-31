@@ -85,7 +85,8 @@ Google Fonts
 Wondering how a component works? The dos and dont's of its use?
 
 All of Gestalt’s documentation can be found right here at [gestalt.pinterest.systems](https://gestalt.pinterest.systems). This site is continuously updated and serves as the Gestalt source of truth. If you can’t find something or have ideas for our documentation, reach out or set up a meeting with the Gestalt team.
-If you want to see the Gestalt documentation without leaving Figma, you can use the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)! 
+
+Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)! 
 
           `}
         />
