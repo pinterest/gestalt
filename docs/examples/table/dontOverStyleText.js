@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Table, Box, Label, Checkbox, Text } from 'gestalt';
 
-function HeaderRow({ id }: any) {
+function HeaderRow({ id }: {| id: string |}) {
   return (
     <Table.Header>
       <Table.Row>
@@ -14,7 +14,7 @@ function HeaderRow({ id }: any) {
         </Table.HeaderCell>
         {['Status', 'Campaign'].map((title) => (
           <Table.HeaderCell key={title}>
-            <Text color={title === 'Campaign' ? 'red' : 'blue'} weight="bold">
+            <Text color={title === 'Campaign' ? 'error' : 'link'} weight="bold">
               {title}
             </Text>
           </Table.HeaderCell>
@@ -24,6 +24,7 @@ function HeaderRow({ id }: any) {
   );
 }
 
+// $FlowIgnore
 function BaseRow({ id, checked, disabled, text, campaign, bold, underline, italic, color }: any) {
   return (
     <Table.Row>
@@ -45,7 +46,7 @@ function BaseRow({ id, checked, disabled, text, campaign, bold, underline, itali
             .replace(/'/g, '')}`}
         >
           <Text
-            weight={bold ? 'bold' : 'regular'}
+            weight={bold ? 'bold' : 'normal'}
             underline={underline ? true : undefined}
             italic={italic ? true : undefined}
           >

@@ -18,6 +18,7 @@ function HeaderRow() {
   );
 }
 
+// $FlowIgnore
 function BaseRow({ name, subtext, total, lineClamp }: any) {
   return (
     <Table.Row>

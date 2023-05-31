@@ -18,6 +18,7 @@ function HeaderRow() {
   );
 }
 
+// $FlowIgnore
 function BaseRow({ disabled, type, title, subtext, rate }: any) {
   return (
     <Table.Row>
@@ -25,7 +26,7 @@ function BaseRow({ disabled, type, title, subtext, rate }: any) {
         <Status type={type} title={title} subtext={subtext} />
       </Table.Cell>
       <Table.Cell>
-        <Text overflow="noWrap" align="end" color={disabled ? 'gray' : 'darkGray'}>
+        <Text overflow="noWrap" align="end" color={disabled ? 'subtle' : 'default'}>
           {rate}
         </Text>
       </Table.Cell>

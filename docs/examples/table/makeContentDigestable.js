@@ -18,7 +18,17 @@ function HeaderRow() {
   );
 }
 
-function BaseRow({ name, subtext, total, lineClamp }: any) {
+function BaseRow({
+  name,
+  subtext,
+  total,
+  lineClamp,
+}: {|
+  name: string,
+  subtext: string,
+  total: string,
+  lineClamp?: number,
+|}) {
   return (
     <Table.Row>
       <Table.Cell>

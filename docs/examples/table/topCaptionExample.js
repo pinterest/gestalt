@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Table, Box, Label, Checkbox, Text, Status, Flex } from 'gestalt';
 
-function HeaderRow({ id }: any) {
+function HeaderRow({ id }: {| id: string |}) {
   return (
     <Table.Header>
       <Table.Row>
@@ -22,7 +22,23 @@ function HeaderRow({ id }: any) {
   );
 }
 
-function BaseRow({ id, checked, disabled, type, text, subtext, campaign }: any) {
+function BaseRow({
+  id,
+  checked,
+  disabled,
+  type,
+  text,
+  subtext,
+  campaign,
+}: {|
+  id: string,
+  checked?: boolean,
+  disabled?: boolean,
+  type: $ElementType<React$ElementConfig<typeof Status>, 'type'>,
+  text: string,
+  subtext: string,
+  campaign: string,
+|}) {
   return (
     <Table.Row>
       <Table.Cell>
@@ -45,7 +61,7 @@ function BaseRow({ id, checked, disabled, type, text, subtext, campaign }: any) 
             .replace(/ /g, '_')
             .replace(/'/g, '')}`}
         >
-          <Text color={disabled ? 'gray' : 'darkGray'}>{campaign}</Text>
+          <Text color={disabled ? 'subtle' : 'default'}>{campaign}</Text>
         </Label>
       </Table.Cell>
     </Table.Row>

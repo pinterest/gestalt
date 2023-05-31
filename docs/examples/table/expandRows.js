@@ -21,7 +21,23 @@ function HeaderRow() {
   );
 }
 
-function BaseRow({ name, team, src, teamRole, hours, active, setActive }: any) {
+function BaseRow({
+  name,
+  team,
+  src,
+  teamRole,
+  hours,
+  active,
+  setActive,
+}: {|
+  name: string,
+  team: string,
+  src: string,
+  teamRole: string,
+  hours: string,
+  active: boolean,
+  setActive: (active: boolean) => void,
+|}) {
   return (
     <Table.RowExpandable
       accessibilityExpandLabel="Expand"

@@ -93,7 +93,7 @@ export default function Example(): Node {
             accessibilityCollapseLabel="Collapse"
             id="row2"
             expandedContents={
-              <Table maxWidth={800} maxHeight={500}>
+              <Table accessibilityLabel="none">
                 <Table.Header sticky>
                   <Table.Row>
                     <Table.HeaderCell>
@@ -105,7 +105,7 @@ export default function Example(): Node {
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                  <Table.Row colSpan={10}>
+                  <Table.Row>
                     <Table.Cell>
                       <Text>Vision</Text>
                     </Table.Cell>

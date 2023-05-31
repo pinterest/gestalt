@@ -45,7 +45,7 @@ function ExpandedContents() {
             Latest boards
           </Heading>
           <Flex gap={{ row: 6, column: 0 }} width="100%">
-            <Flex.Item width="50%">
+            <Flex.Item>
               <TapArea tapStyle="compress" onTap={() => {}}>
                 <Mask rounding={4}>
                   <Collage
@@ -108,7 +108,7 @@ function ExpandedContents() {
                   />
                 </Mask>
                 <Flex direction="column" gap={{ column: 2, row: 0 }}>
-                  <Heading size="400" accessibilityLevel={0}>
+                  <Heading size="400" accessibilityLevel="none">
                     Uniform
                   </Heading>
                   <Flex gap={{ column: 0, row: 5 }}>
@@ -139,7 +139,7 @@ function ExpandedContents() {
                   onChange={() => {}}
                   placeholder=""
                   label="Budget (USD)"
-                  value="100000"
+                  value={100000}
                 />
                 <TextField
                   id="scope"
@@ -243,6 +243,7 @@ function HeaderRow() {
   );
 }
 
+// $FlowIgnore
 function RowExpandable({ campaign, status, empty, budget, scope }: any) {
   return (
     <Table.RowExpandable

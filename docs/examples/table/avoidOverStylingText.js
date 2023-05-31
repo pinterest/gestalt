@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Table, Box, Label, Checkbox, Text } from 'gestalt';
 
-function HeaderRow({ id }: any) {
+function HeaderRow({ id }: {| id: string |}) {
   return (
     <Table.Header>
       <Table.Row>
@@ -22,7 +22,19 @@ function HeaderRow({ id }: any) {
   );
 }
 
-function BaseRow({ id, checked, disabled, text, campaign }: any) {
+function BaseRow({
+  id,
+  checked,
+  disabled,
+  text,
+  campaign,
+}: {|
+  id: string,
+  checked?: boolean,
+  disabled?: boolean,
+  text: string,
+  campaign: string,
+|}) {
   return (
     <Table.Row>
       <Table.Cell>
@@ -46,7 +58,7 @@ function BaseRow({ id, checked, disabled, text, campaign }: any) {
         </Label>
       </Table.Cell>
       <Table.Cell>
-        <Text color={disabled ? 'gray' : 'darkGray'}>{campaign}</Text>
+        <Text color={disabled ? 'subtle' : 'default'}>{campaign}</Text>
       </Table.Cell>
     </Table.Row>
   );

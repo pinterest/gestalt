@@ -6,7 +6,7 @@ export default function SortableHeaderExample(): Node {
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState('name');
 
-  const onSortChange = (col) => {
+  const onSortChange = (col: string) => {
     if (sortCol !== col) {
       setSortCol(col);
       setSortOrder('desc');
