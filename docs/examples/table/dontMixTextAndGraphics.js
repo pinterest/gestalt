@@ -18,7 +18,7 @@ function HeaderRow() {
   );
 }
 
-// $FlowIgnore
+// $FlowFixMe[unclear-type]
 function BaseRow({ disabled, type, title, subtext, rate }: any) {
   return (
     <Table.Row>

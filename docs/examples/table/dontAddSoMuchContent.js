@@ -18,7 +18,7 @@ function HeaderRow() {
   );
 }
 
-// $FlowIgnore
+// $FlowFixMe[unclear-type]
 function BaseRow({ name, subtext, total, lineClamp }: any) {
   return (
     <Table.Row>

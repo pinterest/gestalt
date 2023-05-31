@@ -24,7 +24,7 @@ function HeaderRow({ id }: {| id: string |}) {
   );
 }
 
-// $FlowIgnore
+// $FlowFixMe[unclear-type]
 function BaseRow({ id, checked, disabled, text, campaign, bold, underline, italic, color }: any) {
   return (
     <Table.Row>

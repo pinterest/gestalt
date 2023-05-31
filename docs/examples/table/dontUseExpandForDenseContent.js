@@ -243,7 +243,7 @@ function HeaderRow() {
   );
 }
 
-// $FlowIgnore
+// $FlowFixMe[unclear-type]
 function RowExpandable({ campaign, status, empty, budget, scope }: any) {
   return (
     <Table.RowExpandable
