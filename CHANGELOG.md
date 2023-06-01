@@ -1,3 +1,9 @@
+## 112.3.8 (Jun 1, 2023)
+
+### Patch
+
+- Docs: Added Android specs for Avatar, Button, Checkbox, IconButton, Searchfield, Sheet, Switch, Tabs, Textfield ([#2972](https://github.com/pinterest/gestalt/pull/2972)) - [Preview link](https://deploy-preview-2972--gestalt.netlify.app)
+
 ## 112.3.7 (May 30, 2023)
 
 ### Patch
