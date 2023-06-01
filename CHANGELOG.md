@@ -1,3 +1,9 @@
+## 112.5.0 (Jun 1, 2023)
+
+### Minor
+
+- Docs: Update Designers page ([#2971](https://github.com/pinterest/gestalt/pull/2971)) - [Preview link](https://deploy-preview-2971--gestalt.netlify.app)
+
 ## 112.4.0 (Jun 1, 2023)
 
 ### Minor
