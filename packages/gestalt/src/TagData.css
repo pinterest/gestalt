@@ -25,6 +25,7 @@
 .hovered {
   composes: pointer from "./Cursor.css";
   composes: secondary from "./Colors.css";
+  composes: borderColorLightGray from "./Borders.css";
 }
 
 .focused {
