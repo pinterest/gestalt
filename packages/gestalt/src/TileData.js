@@ -1,10 +1,14 @@
 // @flow strict
 import { type Node } from 'react';
+import classnames from 'classnames';
 import styles from './TileData.css';
+import Flex from './Flex.js';
 import { type Indexable } from './zIndex.js';
-import { useColorScheme, type Theme } from './contexts/ColorSchemeProvider.js';
+import InternalCheckbox from './Checkbox/InternalCheckbox.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
-import Tile from './Tile/Tile.js';
+import Tile, { type InteractionStates } from './Tile/Tile.js';
+import DataVizColor from './utils/datavizcolors.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,
@@ -24,7 +28,7 @@ export type TileChangeHandler = ({|
   id?: string,
 |}) => void;
 
-type DataVisualizationColors =
+export type DataVisualizationColors =
   | '01'
   | '02'
   | '03'
@@ -90,25 +94,6 @@ type Props = {|
   value: string,
 |};
 
-/** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
-const getColorHex = (theme: Theme, vizColor: string) => {
-  const hex = theme[`colorDataVisualization${vizColor}`];
-  if (!hex) throw new Error('Invalid Color Token provided to TileData');
-  return hex;
-};
-
-/**
- * Generates a background shade that's 10% lighter. This is dynamic
- */
-const getBackgroundShade = (theme: Theme, color: DataVisualizationColors) => {
-  // value of the codes are injected
-  const shade = getColorHex(theme, color);
-  // add an alpha channel to the hex, at 10% opacity
-  // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-  const bgColor = `${shade}1A`;
-  return bgColor;
-};
-
 /**
  * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
  *
@@ -130,11 +115,27 @@ export default function TileData({
   value,
 }: Props): Node {
   const theme = useColorScheme();
+  const borderColor = DataVizColor.getDataVisualizationColor(theme, color);
+  const bgColor = DataVizColor.getDataVisualizationColorForBackground(theme, color);
+
+  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
+    borderColor,
+    backgroundColor: bgColor,
+  };
+
+  const getClasses = ({
+    hovered,
+    selected: tapSelected,
+    disabled: tapDisabled,
+  }: InteractionStates) =>
+    classnames(styles.baseTile, styles.tileWidth, {
+      [styles.selected]: tapSelected,
+      [styles.hovered]: hovered,
+      [styles.disabled]: tapDisabled,
+    });
 
   return (
     <Tile
-      bgColor={getBackgroundShade(theme, color)}
-      borderColor={getColorHex(theme, color)}
       className={styles}
       disabled={disabled}
       id={id}
@@ -143,15 +144,43 @@ export default function TileData({
       showCheckbox={showCheckbox}
       tooltip={tooltip}
     >
-      <InternalDatapoint
-        disabled={disabled}
-        lineClamp={2}
-        minTitleWidth={80}
-        title={title}
-        trend={trend}
-        trendSentiment={trendSentiment}
-        value={value}
-      />
+      {(interactionState) => {
+        const { hovered, disabled: disabledTap, selected: selectedTap } = interactionState;
+        const tileStyle = DataVizColor.getTileColors(
+          { hovered, selected: selectedTap, disabled: disabledTap },
+          colorStyles,
+        );
+
+        const checkBoxStyle = DataVizColor.getCheckboxColors(
+          { hovered, selected: selectedTap, disabled: disabledTap },
+          colorStyles,
+        );
+
+        return (
+          <div style={tileStyle} className={getClasses(interactionState)}>
+            <Flex direction="row" gap={2}>
+              <InternalDatapoint
+                disabled={disabled}
+                lineClamp={2}
+                minTitleWidth={80}
+                title={title}
+                trend={trend}
+                trendSentiment={trendSentiment}
+                value={value}
+              />
+              {showCheckbox && (
+                <InternalCheckbox
+                  id="readonly-checkbox-blah"
+                  checked={selected}
+                  readOnly
+                  size="sm"
+                  style={checkBoxStyle}
+                />
+              )}
+            </Flex>
+          </div>
+        );
+      }}
     </Tile>
   );
 }

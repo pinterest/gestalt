@@ -1,9 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import classnames from 'classnames';
 import Box from '../Box.js';
-import InternalCheckbox from '../Checkbox/InternalCheckbox.js';
-import Flex from '../Flex.js';
+import { type Rounding } from '../boxTypes.js';
 import TapArea, { type OnTapType } from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
@@ -18,9 +16,9 @@ type TooltipProps = {|
   zIndex?: Indexable,
 |};
 
-type ColorStyles = {| borderColor?: string, backgroundColor?: string |};
+export type ColorStyles = {| borderColor?: string, backgroundColor?: string |};
 
-type InteractionStates = {|
+export type InteractionStates = {|
   disabled: boolean,
   hovered: boolean,
   selected: boolean,
@@ -37,32 +35,11 @@ type TileChangeHandler = ({|
 |}) => void;
 
 type Props = {|
-  /**
-   * The background color of the tile as a hex. Don't forget about tokenization.
-   */
-  bgColor?: string,
-  /**
-   * The border color of the tile. Don't forget about tokenization.
-   */
-  borderColor?: string,
-  /**
-   * The content to be wrapped by tile.
-   */
-  /**
-   * Optional style classes, these CSS classes are helpful when styling the container. No default classes are applied
-   */
-  className?: {|
-    baseTile?: string,
-    tileWidth?: string,
-    selected?: string,
-    hovered?: string,
-    disabled?: string,
-  |},
-  children?: Node,
+  children?: Node | ((state: InteractionStates) => Node),
   disabled?: boolean,
   id?: string,
+  rounding?: Rounding,
   selected?: boolean,
-  showCheckbox?: boolean,
   onTap?: TileChangeHandler,
   tooltip?: TooltipProps,
 |};
@@ -90,72 +67,22 @@ function MaybeTooltip({
   );
 }
 
-function getCheckboxColors(state: InteractionStates, colorStyles: ColorStyles) {
-  const defaultBackgroundColor = 'transparent';
-  const defaultBorderColor = 'transparent';
-
-  if (state.disabled) {
-    return {
-      backgroundColor: `var(--color-gray-roboflow-300)`,
-      borderColor: defaultBorderColor,
-    };
-  }
-
-  if (state.hovered && !state.selected) {
-    return {
-      backgroundColor: `var(--g-colorGray0)`,
-      borderColor: 'var(--color-border-default)',
-    };
-  }
-
-  if (state.selected) {
-    return {
-      backgroundColor: colorStyles.borderColor,
-      borderColor: defaultBorderColor,
-    };
-  }
-
-  return { backgroundColor: defaultBackgroundColor, borderColor: defaultBorderColor };
-}
-
-function getTileColors(state: InteractionStates, colorStyles: ColorStyles) {
-  // only show colors in a selected state
-  if (state.selected && !state.disabled) {
-    return colorStyles;
-  }
-  return {};
-}
-
 /**
  * Used Internally to wrap a component with a Tile View
  */
 export default function Tile({
-  bgColor,
-  borderColor,
-  className,
   children,
   disabled = false,
   id = '',
   onTap,
+  rounding = 4,
   selected = false,
-  showCheckbox,
   tooltip,
 }: Props): Node {
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
 
   const { isFocusVisible } = useFocusVisible();
-
-  /**
-   * CSS classes that are applied during interaction. Look at TagData.css
-   */
-  const cssClasses = className
-    ? classnames(className.baseTile, className.tileWidth, {
-        [className.selected]: selected,
-        [className.hovered]: isHovered && !isFocusVisible,
-        [className.disabled]: disabled,
-      })
-    : '';
 
   const handleClick: OnTapType = ({ event }) => {
     onTap?.({ event, id, selected: !selected });
@@ -171,42 +98,28 @@ export default function Tile({
     }
   };
 
-  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
-    borderColor,
-    backgroundColor: bgColor,
-  };
-
-  const tileStyle = getTileColors({ hovered: isHovered, selected, disabled }, colorStyles);
-
-  const checkBoxStyle = getCheckboxColors({ hovered: isHovered, selected, disabled }, colorStyles);
-
   return (
-    <Box position="relative">
+    <Box position="relative" height="100%" width="100%">
       <MaybeTooltip tooltip={tooltip} disabled={disabled}>
         <TapArea
           role="button"
           disabled={disabled}
-          rounding={4}
+          rounding={rounding}
           onBlur={handleOnBlur}
           onTap={handleClick}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
           onKeyDown={handleKeyDown}
+          fullHeight
+          fullWidth
         >
-          <div className={cssClasses} style={tileStyle}>
-            <Flex direction="row" gap={2}>
+          {typeof children !== 'function' ? (
+            <Box height="100%" width="100%" borderStyle="none">
               {children}
-              {showCheckbox && (
-                <InternalCheckbox
-                  id={id}
-                  checked={selected}
-                  readOnly
-                  size="sm"
-                  style={checkBoxStyle}
-                />
-              )}
-            </Flex>
-          </div>
+            </Box>
+          ) : (
+            children({ selected, hovered: isHovered && !isFocusVisible, disabled })
+          )}
         </TapArea>
       </MaybeTooltip>
     </Box>

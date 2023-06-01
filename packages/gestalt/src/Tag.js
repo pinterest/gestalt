@@ -125,7 +125,7 @@ export default function Tag({
           </Text>
         </div>
 
-        <Box marginStart={disabled ? 2 : 1}>
+        <Box marginStart={disabled ? 2 : 0}>
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
               <Icon

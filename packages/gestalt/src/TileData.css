@@ -6,6 +6,7 @@
   composes: borderBox from "./Layout.css";
   composes: sizeLg from "./Borders.css";
   composes: solid from "./Borders.css";
+  box-sizing: border-box;
   composes: transparentBorder from "./Borders.css";
   width: min-content;
 }

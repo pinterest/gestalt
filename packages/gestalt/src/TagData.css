@@ -1,12 +1,47 @@
-.baseTile {
+.tagWrapperDismiss {
+  border-radius: 8px 0 0 8px;
+  border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
+    var(--g-border-width-lg);
+}
+
+.tagWrapperRounded {
+  border-radius: 8px;
+  border-width: var(--g-border-width-lg);
+}
+
+.tagWrapper {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  composes: paddingX2 from "./boxWhitespace.css";
+  composes: paddingY2 from "./boxWhitespace.css";
   composes: flex from "./Layout.css";
-  composes: paddingX4 from "./boxWhitespace.css";
-  composes: paddingY4 from "./boxWhitespace.css";
-  composes: rounding4 from "./Borders.css";
-  composes: borderBox from "./Layout.css";
-  composes: sizeLg from "./Borders.css";
+  composes: xsItemsCenter from "./Layout.css";
+  composes: secondary from "./Colors.css";
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
-  background-color: red;
-  font-style: italic;
+}
+
+.hovered {
+  composes: pointer from "./Cursor.css";
+  composes: secondary from "./Colors.css";
+}
+
+.focused {
+  composes: accessibilityOutlineFocus from "./Focus.css";
+}
+
+.transparent {
+  composes: transparentBg from "./Colors.css";
+}
+
+.selected {
+  composes: secondary from "./Colors.css";
+}
+
+.disabled {
+  composes: lightGrayBg from "./Colors.css";
+  composes: transparentBorder from "./Borders.css";
+  cursor: default;
+  pointer-events: none;
 }

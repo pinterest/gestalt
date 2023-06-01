@@ -1,7 +1,18 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useState } from 'react';
 import { TagData } from 'gestalt';
 
 export default function Example(): Node {
-  return <TagData text="Impressions" size="lg" />;
+  const [isSelected, setSelected] = useState(false);
+
+  return (
+    <TagData
+      text="Impressions"
+      size="lg"
+      selected={isSelected}
+      onTap={() => {
+        setSelected(!isSelected);
+      }}
+    />
+  );
 }
