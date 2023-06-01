@@ -37,6 +37,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
 * Avoid detaching components when possible. Instead, use the component’s variant options or show and hide layers within the component. If a component is not working as expected, reach out via #gestalt-design.
 * Make sure to keep your components up-to-date. You may see a notification in the bottom right corner of Figma when an update is available.
 * We recommend using [Gestalt's handoff kit](http://pinch.pinadmin.com/figmaHandoffKit) when prepping a design for implementation. The handoff kit provides guidance on design file structure, best practices, and annotation/flow components to make the design handoff process smoother between engineers and designers.
+* The [Product Surfaces library](http://pinch.pinadmin.com/ProductSurfaces) is a single reference point for all key product surfaces in Figma for many product areas. This collection of surfaces can be used as a faster way to reference, grab or duplicate product surfaces to your workflow.
           `}
         />
         <MainSection.Subsection
@@ -85,8 +86,8 @@ Wondering how a component works? The dos and dont's of its use?
 
 All of Gestalt’s documentation can be found right here at [gestalt.pinterest.systems](https://gestalt.pinterest.systems). This site is continuously updated and serves as the Gestalt source of truth. If you can’t find something or have ideas for our documentation, reach out or set up a meeting with the Gestalt team.
 
-[**Gestalt docs for Figma**](https://www.figma.com/community/plugin/977755389228415646/Gestalt-docs-for-Figma-(Beta))
-View the Gestalt documentation without leaving Figma!
+Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)! 
+
           `}
         />
       </MainSection>
