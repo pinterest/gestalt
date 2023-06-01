@@ -51,7 +51,6 @@ Feedback should be provided to describe a successful search, one that is process
 ## Design tokens
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9334%253A20613%26t%3DuRG22TuwKvZC87MH-1" allowFullScreen></iframe>
 
-
 ## Anatomy
 <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9334%253A19655%26t%3DuRG22TuwKvZC87MH-11" allowFullScreen></iframe>
 
