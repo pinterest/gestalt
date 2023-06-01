@@ -9,8 +9,6 @@
 }
 
 .tagWrapper {
-  height: 100%;
-  width: 100%;
   box-sizing: border-box;
   border-radius: 8px;
   composes: flex from "./Layout.css";
@@ -18,6 +16,13 @@
   composes: secondary from "./Colors.css";
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
+  composes: fullWidth from "./Layout.css";
+  composes: fullHeight from "./Layout.css";
+}
+
+.tagOuterContainer {
+  composes: fullWidth from "./Layout.css";
+  composes: fullHeight from "./Layout.css";
 }
 
 .hovered {
@@ -46,11 +51,11 @@
 }
 
 .dismissButton {
+  composes: fullHeight from "./Layout.css";
   composes: transparentBg from "./Colors.css";
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
   border-radius: 0 8px 8px 0;
-  height: 100%;
 }
 
 .dismissButton:focus {

@@ -41,6 +41,7 @@ type Props = {|
   rounding?: Rounding,
   selected?: boolean,
   onTap?: TileChangeHandler,
+  outerContainerClass?: string,
   tooltip?: TooltipProps,
 |};
 
@@ -75,6 +76,7 @@ export default function Tile({
   disabled = false,
   id = '',
   onTap,
+  outerContainerClass,
   rounding = 4,
   selected = false,
   tooltip,
@@ -99,7 +101,7 @@ export default function Tile({
   };
 
   return (
-    <Box position="relative" height="100%" width="100%">
+    <div className={outerContainerClass}>
       <MaybeTooltip tooltip={tooltip} disabled={disabled}>
         <TapArea
           role="button"
@@ -122,6 +124,6 @@ export default function Tile({
           )}
         </TapArea>
       </MaybeTooltip>
-    </Box>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import styles from './TileData.css';
 import Flex from './Flex.js';
@@ -123,6 +123,8 @@ export default function TileData({
     backgroundColor: bgColor,
   };
 
+  const checkboxId = useId();
+
   const getClasses = ({
     hovered,
     selected: tapSelected,
@@ -135,15 +137,7 @@ export default function TileData({
     });
 
   return (
-    <Tile
-      className={styles}
-      disabled={disabled}
-      id={id}
-      onTap={onTap}
-      selected={selected}
-      showCheckbox={showCheckbox}
-      tooltip={tooltip}
-    >
+    <Tile disabled={disabled} id={id} onTap={onTap} selected={selected} tooltip={tooltip}>
       {(interactionState) => {
         const { hovered, disabled: disabledTap, selected: selectedTap } = interactionState;
         const tileStyle = DataVizColor.getTileColors(
@@ -170,7 +164,7 @@ export default function TileData({
               />
               {showCheckbox && (
                 <InternalCheckbox
-                  id="readonly-checkbox-blah"
+                  id={`readonly-checkbox-blah-${checkboxId}`}
                   checked={selected}
                   readOnly
                   size="sm"

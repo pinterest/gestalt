@@ -152,64 +152,68 @@ export default function TagData({
       maxWidth={300}
       rounding={2}
     >
-      <Box width="100%" height="100%" alignItems="center" display="flex">
-        <Tile rounding={dismissable ? 0 : 2} onTap={onTap} selected={selected} disabled={disabled}>
-          {(interactionStates) => {
-            const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
-            const tileStyle = DataVizColor.getTileColors(
-              { hovered, selected: selectedTap, disabled: disabledTap },
-              colorStyles,
-            );
+      <Tile
+        rounding={dismissable ? 0 : 2}
+        onTap={onTap}
+        selected={selected}
+        disabled={disabled}
+        outerContainerClass={styles.tagOuterContainer}
+      >
+        {(interactionStates) => {
+          const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
+          const tileStyle = DataVizColor.getTileColors(
+            { hovered, selected: selectedTap, disabled: disabledTap },
+            colorStyles,
+          );
 
-            const checkBoxStyle = DataVizColor.getCheckboxColors(
-              { hovered, selected: selectedTap, disabled: disabledTap },
-              colorStyles,
-              { showByDefault: true },
-            );
+          const checkBoxStyle = DataVizColor.getCheckboxColors(
+            { hovered, selected: selectedTap, disabled: disabledTap },
+            colorStyles,
+            { showByDefault: true },
+          );
 
-            return (
-              <div className={getTagClasses(interactionStates)} style={tileStyle}>
-                <Box alignItems="center" display="flex" padding={2} width="100%">
-                  {showCheckbox && (
-                    <InternalCheckbox
-                      id={`readonly-checkbox-${checkboxId}`}
-                      checked={selectedTap}
-                      readOnly
-                      size="sm"
-                      style={checkBoxStyle}
+          return (
+            <div className={getTagClasses(interactionStates)} style={tileStyle}>
+              <Box alignItems="center" display="flex" padding={2} width="100%">
+                {showCheckbox && (
+                  <InternalCheckbox
+                    id={`readonly-checkbox-${checkboxId}`}
+                    checked={selectedTap}
+                    readOnly
+                    size="sm"
+                    style={checkBoxStyle}
+                  />
+                )}
+                <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
+                  <Text inline size={sizes[size]?.fontSize} lineClamp={1}>
+                    {text}
+                  </Text>
+                </div>
+              </Box>
+
+              <Box marginStart={disabled ? 2 : 0} height="100%">
+                {dismissable && (
+                  <button
+                    className={getRemoveIconClasses(interactionStates)}
+                    onClick={onRemove}
+                    type="button"
+                    style={{ height: '100%' }}
+                  >
+                    <Icon
+                      accessibilityLabel={
+                        accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+                      }
+                      color="default"
+                      icon="cancel"
+                      size={8}
                     />
-                  )}
-                  <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
-                    <Text inline size={sizes[size]?.fontSize} lineClamp={1}>
-                      {text}
-                    </Text>
-                  </div>
-                </Box>
-
-                <Box marginStart={disabled ? 2 : 0} height="100%">
-                  {dismissable && (
-                    <button
-                      className={getRemoveIconClasses(interactionStates)}
-                      onClick={onRemove}
-                      type="button"
-                      style={{ height: '100%' }}
-                    >
-                      <Icon
-                        accessibilityLabel={
-                          accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-                        }
-                        color="default"
-                        icon="cancel"
-                        size={8}
-                      />
-                    </button>
-                  )}
-                </Box>
-              </div>
-            );
-          }}
-        </Tile>
-      </Box>
+                  </button>
+                )}
+              </Box>
+            </div>
+          );
+        }}
+      </Tile>
     </Box>
   );
 }

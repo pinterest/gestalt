@@ -6,6 +6,7 @@ declare module.exports: {|
   +'focused': string,
   +'hovered': string,
   +'selected': string,
+  +'tagOuterContainer': string,
   +'tagWrapper': string,
   +'tagWrapperDismiss': string,
   +'tagWrapperRounded': string,
