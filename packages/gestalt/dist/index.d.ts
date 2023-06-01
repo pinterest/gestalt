@@ -317,7 +317,7 @@ type TrendObject = {
   accessibilityLabel: string,
   value: number,
 };
-  
+
 interface ActionData {
   accessibilityLabel: string;
   disabled?: boolean;
@@ -408,6 +408,11 @@ interface OnLinkNavigationProviderProps {
         target?: null | 'self' | 'blank' | undefined;
       }) => EventHandlerType | null | undefined)
     | undefined;
+}
+
+interface GlobalEventsHandlerProviderProps {
+  children: Node;
+  sheetMobileHandlers?: { onOpen?: (() => void) | void, onClose?: (() => void)| void } | void
 }
 
 interface ScrollBoundaryContainerProps {
@@ -2335,6 +2340,12 @@ export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps
  * https://gestalt.pinterest.systems/web/numberfield
  */
 export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider
+ */
+export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
+
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
