@@ -5,7 +5,14 @@ import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 const myI18nTranslator = (val: string) => val.toUpperCase();
 
 const labels = {
+  ActivationCard: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+  },
+  Callout: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+  },
   ComboBox: {
+    noResultText: myI18nTranslator('No results'),
     accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
   },
   Link: {
@@ -35,6 +42,15 @@ const labels = {
     accessibilityDismissButtonLabel: myI18nTranslator('Close bottom sheet'),
     accessibilityLabel: myI18nTranslator('Bottom sheet'),
   },
+  SideNavigation: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Close side navigation'),
+  },
+  SlimBanner: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+  },
+  Spinner: {
+    accessibilityLabel: myI18nTranslator('Loading'),
+  },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),
     accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),
@@ -52,6 +68,20 @@ const labels = {
     accessibilityIconSuccessLabel: myI18nTranslator('Success message'),
     accessibilityIconErrorLabel: myI18nTranslator('Error message'),
     accessibilityProcessingLabel: myI18nTranslator('Processing message'),
+  },
+  Upsell: {
+    accessibilityDismissButtonLabel: 'Dismiss',
+  },
+  Video: {
+    accessibilityMaximizeLabel: myI18nTranslator('Maximize'),
+    accessibilityMinimizeLabel: myI18nTranslator('Minimize'),
+    accessibilityMuteLabel: myI18nTranslator('Mute'),
+    accessibilityPauseLabel: myI18nTranslator('Pause'),
+    accessibilityPlayLabel: myI18nTranslator('Play'),
+    accessibilityProgressLabel: myI18nTranslator('Video progress'),
+    accessibilityUnmuteLabel: myI18nTranslator('Unmute'),
+    accessibilityHideCaptionsLabel: myI18nTranslator('Hide captions'),
+    accessibilityShowCaptionsLabel: myI18nTranslator('Show captions'),
   },
 };
 

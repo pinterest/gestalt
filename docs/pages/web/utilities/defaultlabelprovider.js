@@ -10,6 +10,212 @@ import SandpackExample from '../../../docs-components/SandpackExample.js';
 import noTranslations from '../../../examples/defaultlabelprovider/no-translations.js';
 import translations from '../../../examples/defaultlabelprovider/translations.js';
 
+// Function to generate the table below - need access to fallbackLabels to actually do so
+function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */) {
+  return [
+    {
+      'component': 'ActivationCard',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Dismiss',
+    },
+    {
+      'component': 'Callout',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Dismiss',
+    },
+    {
+      'component': 'ComboBox',
+      'prop': 'noResultText',
+      'label': 'No results',
+    },
+    {
+      'component': 'ComboBox',
+      'prop': 'accessibilityClearButtonLabel',
+      'label': 'Clear input',
+    },
+    {
+      'component': 'Link',
+      'prop': 'accessibilityNewTabLabel',
+      'label': 'Opens a new tab',
+    },
+    {
+      'component': 'Modal',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Close modal',
+    },
+    {
+      'component': 'Popover',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Close popover',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Close overlay panel',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'dismissConfirmationMessage',
+      'label': 'Are you sure you want to dismiss?',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'dismissConfirmationSubtext',
+      'label': 'You will lose all of your changes. This cannot be undone.',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'dismissConfirmationPrimaryActionText',
+      'label': 'Yes, dismiss',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'dismissConfirmationPrimaryActionTextLabel',
+      'label': 'Yes, dismiss the overlay panel.',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'dismissConfirmationSecondaryActionText',
+      'label': 'No, go back',
+    },
+    {
+      'component': 'OverlayPanel',
+      'prop': 'dismissConfirmationSecondaryActionTextLabel',
+      'label': 'No, go back to the overlay panel.',
+    },
+    {
+      'component': 'SheetMobile',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Close bottom sheet',
+    },
+    {
+      'component': 'SheetMobile',
+      'prop': 'accessibilityGrabberLabel',
+      'label': 'Grabber',
+    },
+    {
+      'component': 'SheetMobile',
+      'prop': 'accessibilityLabel',
+      'label': 'Bottom sheet',
+    },
+    {
+      'component': 'SideNavigation',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Close side navigation',
+    },
+    {
+      'component': 'SlimBanner',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Dismiss',
+    },
+    {
+      'component': 'Spinner',
+      'prop': 'accessibilityLabel',
+      'label': 'Loading',
+    },
+    {
+      'component': 'Tag',
+      'prop': 'accessibilityErrorIconLabel',
+      'label': 'Error',
+    },
+    {
+      'component': 'Tag',
+      'prop': 'accessibilityRemoveIconLabel',
+      'label': 'Remove tag',
+    },
+    {
+      'component': 'Tag',
+      'prop': 'accessibilityWarningIconLabel',
+      'label': 'Warning',
+    },
+    {
+      'component': 'TextField',
+      'prop': 'accessibilityHidePasswordLabel',
+      'label': 'Hide password',
+    },
+    {
+      'component': 'TextField',
+      'prop': 'accessibilityShowPasswordLabel',
+      'label': 'Show password',
+    },
+    {
+      'component': 'HelpButton',
+      'prop': 'tooltipMessage',
+      'label': 'Click to learn more',
+    },
+    {
+      'component': 'Toast',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Close toast',
+    },
+    {
+      'component': 'Toast',
+      'prop': 'accessibilityIconSuccessLabel',
+      'label': 'Success message',
+    },
+    {
+      'component': 'Toast',
+      'prop': 'accessibilityIconErrorLabel',
+      'label': 'Error message',
+    },
+    {
+      'component': 'Toast',
+      'prop': 'accessibilityProcessingLabel',
+      'label': 'Processing message',
+    },
+    {
+      'component': 'Upsell',
+      'prop': 'accessibilityDismissButtonLabel',
+      'label': 'Dismiss',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityMaximizeLabel',
+      'label': 'Maximize',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityMinimizeLabel',
+      'label': 'Minimize',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityMuteLabel',
+      'label': 'Mute',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityPauseLabel',
+      'label': 'Pause',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityPlayLabel',
+      'label': 'Play',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityProgressLabel',
+      'label': 'Video progress',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityUnmuteLabel',
+      'label': 'Unmute',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityHideCaptionsLabel',
+      'label': 'Hide captions',
+    },
+    {
+      'component': 'Video',
+      'prop': 'accessibilityShowCaptionsLabel',
+      'label': 'Show captions',
+    },
+  ];
+}
+
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
@@ -61,208 +267,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           </Table.Header>
 
           <Table.Body>
-            {[
-              {
-                'component': 'ActivationCard',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Dismiss',
-              },
-              {
-                'component': 'Callout',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Dismiss',
-              },
-              {
-                'component': 'ComboBox',
-                'prop': 'noResultText',
-                'label': 'No results',
-              },
-              {
-                'component': 'ComboBox',
-                'prop': 'accessibilityClearButtonLabel',
-                'label': 'Clear input',
-              },
-              {
-                'component': 'Link',
-                'prop': 'accessibilityNewTabLabel',
-                'label': 'Opens a new tab',
-              },
-              {
-                'component': 'Modal',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Close modal',
-              },
-              {
-                'component': 'Popover',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Close popover',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Close overlay panel',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'dismissConfirmationMessage',
-                'label': 'Are you sure you want to dismiss?',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'dismissConfirmationSubtext',
-                'label': 'You will lose all of your changes. This cannot be undone.',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'dismissConfirmationPrimaryActionText',
-                'label': 'Yes, dismiss',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'dismissConfirmationPrimaryActionTextLabel',
-                'label': 'Yes, dismiss the overlay panel.',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'dismissConfirmationSecondaryActionText',
-                'label': 'No, go back',
-              },
-              {
-                'component': 'OverlayPanel',
-                'prop': 'dismissConfirmationSecondaryActionTextLabel',
-                'label': 'No, go back to the overlay panel.',
-              },
-              {
-                'component': 'SheetMobile',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Close bottom sheet',
-              },
-              {
-                'component': 'SheetMobile',
-                'prop': 'accessibilityGrabberLabel',
-                'label': 'Grabber',
-              },
-              {
-                'component': 'SheetMobile',
-                'prop': 'accessibilityLabel',
-                'label': 'Bottom sheet',
-              },
-              {
-                'component': 'SideNavigation',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Close side navigation',
-              },
-              {
-                'component': 'SlimBanner',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Dismiss',
-              },
-              {
-                'component': 'Spinner',
-                'prop': 'accessibilityLabel',
-                'label': 'Loading',
-              },
-              {
-                'component': 'Tag',
-                'prop': 'accessibilityErrorIconLabel',
-                'label': 'Error',
-              },
-              {
-                'component': 'Tag',
-                'prop': 'accessibilityRemoveIconLabel',
-                'label': 'Remove tag',
-              },
-              {
-                'component': 'Tag',
-                'prop': 'accessibilityWarningIconLabel',
-                'label': 'Warning',
-              },
-              {
-                'component': 'TextField',
-                'prop': 'accessibilityHidePasswordLabel',
-                'label': 'Hide password',
-              },
-              {
-                'component': 'TextField',
-                'prop': 'accessibilityShowPasswordLabel',
-                'label': 'Show password',
-              },
-              {
-                'component': 'HelpButton',
-                'prop': 'tooltipMessage',
-                'label': 'Click to learn more',
-              },
-              {
-                'component': 'Toast',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Close toast',
-              },
-              {
-                'component': 'Toast',
-                'prop': 'accessibilityIconSuccessLabel',
-                'label': 'Success message',
-              },
-              {
-                'component': 'Toast',
-                'prop': 'accessibilityIconErrorLabel',
-                'label': 'Error message',
-              },
-              {
-                'component': 'Toast',
-                'prop': 'accessibilityProcessingLabel',
-                'label': 'Processing message',
-              },
-              {
-                'component': 'Upsell',
-                'prop': 'accessibilityDismissButtonLabel',
-                'label': 'Dismiss',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityMaximizeLabel',
-                'label': 'Maximize',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityMinimizeLabel',
-                'label': 'Minimize',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityMuteLabel',
-                'label': 'Mute',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityPauseLabel',
-                'label': 'Pause',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityPlayLabel',
-                'label': 'Play',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityProgressLabel',
-                'label': 'Video progress',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityUnmuteLabel',
-                'label': 'Unmute',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityHideCaptionsLabel',
-                'label': 'Hide captions',
-              },
-              {
-                'component': 'Video',
-                'prop': 'accessibilityShowCaptionsLabel',
-                'label': 'Show captions',
-              },
-            ].map(({ component, prop, label }) => (
+            {getLabelsTable().map(({ component, prop, label }) => (
               <Table.Row key={`${component}-${prop}`}>
                 <Table.Cell>
                   <Text>{component}</Text>
@@ -279,18 +284,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </Table>
       </MainSection>
     </Page>
-  );
-}
-
-// Function to generate the table above - need access to fallbackLabels to actually do so
-// eslint-disable-next-line no-unused-vars
-function getLabelsTable(fallbackLabels: { [string]: { [string]: mixed } }) {
-  Object.keys(fallbackLabels).flatMap((component) =>
-    Object.keys(fallbackLabels[component]).map((prop) => ({
-      component,
-      prop,
-      label: fallbackLabels[component][prop],
-    })),
   );
 }
 
