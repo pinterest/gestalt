@@ -40,6 +40,7 @@ import Checkbox from '../graphics/general/Checkbox.svg';
 import Collage from '../graphics/general/Collage.svg';
 import ComboBox from '../graphics/general/ComboBox.svg';
 import Datapoint from '../graphics/general/Datapoint.svg';
+import DateField from '../graphics/general/DateField.svg';
 import DatePicker from '../graphics/general/DatePicker.svg';
 import Divider from '../graphics/general/Divider.svg';
 import Dropdown from '../graphics/general/Dropdown.svg';
@@ -75,6 +76,7 @@ import Tag from '../graphics/general/Tag.svg';
 import Text from '../graphics/general/Text.svg';
 import TextArea from '../graphics/general/TextArea.svg';
 import TextField from '../graphics/general/TextField.svg';
+import TileData from '../graphics/general/TileData.svg';
 import Toast from '../graphics/general/Toast.svg';
 import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
@@ -83,6 +85,7 @@ import WashAnimated from '../graphics/general/WashAnimated.svg';
 import AdvocateTile from '../graphics/team_support/advocate.svg';
 import ComponentRequest from '../graphics/team_support/component-request.svg';
 import ContributionsTile from '../graphics/team_support/contributions.svg';
+import DesignFileHygiene from '../graphics/team_support/design-file-hygiene.svg';
 import GetHelpTile from '../graphics/team_support/get-help.svg';
 import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
@@ -124,7 +127,7 @@ export type AccessibleStatus = {|
 
 type PlatformStatus = {|
   accessible: AccessibleStatus,
-  badge: null | 'New' | 'Pilot',
+  badge: null | 'New' | 'Pilot' | 'Experimental',
   deprecated?: boolean,
   documentation: StatusType,
   figma: ?StatusType,
@@ -166,6 +169,14 @@ const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
       'Instructions on how to request new components or updates to an existent component.',
     category: 'Team support',
     path: '/team_support/component_request',
+  },
+  {
+    svg: <DesignFileHygiene />,
+    name: 'Design file hygiene',
+    description:
+      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files.',
+    category: 'Team support',
+    path: '/team_support/design_file_hygiene/naming_convention',
   },
   {
     svg: <ContributionsTile />,
@@ -576,7 +587,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: null,
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
       documentation: 'partial',
       iOS: 'notAvailable',
@@ -593,7 +604,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
@@ -879,6 +890,58 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       iOS: 'notAvailable',
       figma: 'ready',
       responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <DateField />,
+    name: 'DateField',
+    aliases: [],
+    previouslyNamed: [],
+    hasDarkBackground: false,
+    description:
+      'DateField is used when the user has to select a date. The user must input date values with a numeric keyboard.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: 'ready',
+        a11yScreenreader: 'partial',
+        a11yNavigation: 'partial',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Experimental',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'notAvailable',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
     },
     android: {
       accessible: {
@@ -2610,10 +2673,10 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
-      documentation: 'partial',
-      iOS: 'planned',
+      documentation: 'ready',
+      iOS: 'ready',
       figma: 'ready',
       responsive: 'ready',
     },
@@ -2627,7 +2690,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'planned',
       figma: null,
     },
     iOS: {
@@ -2640,8 +2703,8 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
-      figma: null,
+      documentation: 'ready',
+      figma: 'ready',
     },
   },
   {
@@ -2659,7 +2722,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
         a11yComprehension: 'ready',
       },
       badge: null,
-      android: 'planned',
+      android: 'ready',
       deprecated: false,
       documentation: 'ready',
       iOS: 'notAvailable',
@@ -2676,7 +2739,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'notAvailable',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
@@ -2739,6 +2802,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'ready',
+      figma: null,
+    },
+  },
+  {
+    svg: <TileData />,
+    name: 'TileData',
+    aliases: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
+    description:
+      'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'ready',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
       figma: null,
     },
   },

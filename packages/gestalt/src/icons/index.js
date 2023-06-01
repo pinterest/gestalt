@@ -93,7 +93,6 @@ import gif from './gif.svg';
 import globeChecked from './globe-checked.svg';
 import globe from './globe.svg';
 import gmail from './gmail.svg';
-import googlePlus from './google-plus.svg';
 import graphBar from './graph-bar.svg';
 import handPointing from './hand-pointing.svg';
 import handle from './handle.svg';
@@ -131,6 +130,7 @@ import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
+import moon from './moon.svg';
 import movePin from './move-pin.svg';
 import move from './move.svg';
 import musicOff from './music-off.svg';
@@ -174,6 +174,7 @@ import speechEllipsis from './speech-ellipsis.svg';
 import speech from './speech.svg';
 import starHalf from './star-half.svg';
 import star from './star.svg';
+import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
 import terms from './terms.svg';
@@ -308,7 +309,6 @@ const icons = Object.freeze({
   globe,
   'globe-checked': globeChecked,
   gmail,
-  'google-plus': googlePlus,
   'graph-bar': graphBar,
   handle,
   'hand-pointing': handPointing,
@@ -346,6 +346,7 @@ const icons = Object.freeze({
   menu,
   minimize,
   mobile,
+  moon,
   move,
   mute,
   'move-pin': movePin,
@@ -389,6 +390,7 @@ const icons = Object.freeze({
   'speech-ellipsis': speechEllipsis,
   star,
   'star-half': starHalf,
+  sun,
   'switch-account': switchAccount,
   tag,
   terms,

@@ -41,7 +41,7 @@ function ItemIconButton({
 }: Props): Node {
   const id = useId();
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   const [selected, setSelected] = useState(dropdownItems ? false : undefined);
   const [open, setOpen] = useState(false);

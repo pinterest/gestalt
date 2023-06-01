@@ -14,7 +14,13 @@ const renderTextField = ({
   onFocus = jest.fn(),
   onBlur = jest.fn(),
   maxLength,
-}) =>
+}: {|
+  id?: $ElementType<React$ElementConfig<typeof TextField>, 'id'>,
+  onChange?: $ElementType<React$ElementConfig<typeof TextField>, 'onChange'>,
+  onFocus?: $ElementType<React$ElementConfig<typeof TextField>, 'onFocus'>,
+  onBlur?: $ElementType<React$ElementConfig<typeof TextField>, 'onBlur'>,
+  maxLength?: $ElementType<React$ElementConfig<typeof TextField>, 'maxLength'>,
+|}) =>
   render(
     <TextField
       id={id}
@@ -108,7 +114,7 @@ describe('TextField', () => {
   });
 
   it('forwards a ref to <input />', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLInputElement>();
     render(
       <TextField
         id="test"
@@ -124,7 +130,10 @@ describe('TextField', () => {
   });
 
   it('handles blur events', () => {
-    const mockBlur = jest.fn();
+    const mockBlur = jest.fn<
+      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}],
+      void,
+    >();
     const { getByDisplayValue } = render(
       <TextField id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextField Text" />,
     );
@@ -135,7 +144,10 @@ describe('TextField', () => {
   });
 
   it('handles change events', () => {
-    const mockChange = jest.fn();
+    const mockChange = jest.fn<
+      [{| event: SyntheticInputEvent<HTMLInputElement>, value: string |}],
+      void,
+    >();
     const { container } = render(
       <TextField id="test" onChange={mockChange} value="TextField Text" />,
     );
@@ -153,7 +165,10 @@ describe('TextField', () => {
   });
 
   it('handles focus events', () => {
-    const mockFocus = jest.fn();
+    const mockFocus = jest.fn<
+      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}],
+      void,
+    >();
     const { getByDisplayValue } = render(
       <TextField id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextField Text" />,
     );
@@ -164,7 +179,10 @@ describe('TextField', () => {
   });
 
   it('handles key down events', () => {
-    const mockKeyDown = jest.fn();
+    const mockKeyDown = jest.fn<
+      [{| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}],
+      void,
+    >();
     const { container } = render(
       <TextField id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextField Text" />,
     );

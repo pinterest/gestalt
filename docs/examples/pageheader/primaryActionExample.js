@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, useState, useRef, type Node } from 'react';
 import {
   Button,
   Divider,
@@ -13,10 +13,17 @@ import {
 } from 'gestalt';
 
 export default function PrimaryActionExample(): Node {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({ item }) => {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState<
+    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+  >([]);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const handleSelect = ({
+    item,
+  }: {|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => {
     if (selected.some((selectedItem) => selectedItem.value === item.value)) {
       setSelected((localSelected) =>
         localSelected.filter((selectedItem) => selectedItem.value !== item.value),
@@ -48,7 +55,7 @@ export default function PrimaryActionExample(): Node {
         title="Kitchen Reno Ideas"
         primaryAction={{
           component: (
-            <React.Fragment>
+            <Fragment>
               <Tooltip idealDirection="up" text="Board options">
                 <IconButton
                   accessibilityControls="page-header-example"
@@ -95,7 +102,7 @@ export default function PrimaryActionExample(): Node {
                   />
                 </Dropdown>
               )}
-            </React.Fragment>
+            </Fragment>
           ),
           dropdownItems: [
             <Dropdown.Item

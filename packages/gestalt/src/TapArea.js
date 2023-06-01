@@ -5,9 +5,10 @@ import focusStyles from './Focus.css';
 import styles from './TapArea.css';
 import { type AriaCurrent } from './ariaTypes.js';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalLink from './Link/InternalLink.js';
 
@@ -104,7 +105,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     tapStyle = 'none',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -135,13 +136,16 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
+      // $FlowFixMe[invalid-computed-prop]
       [styles[mouseCursor]]: !disabled,
       [styles.tapCompress]:
         props.role !== 'link' && !disabled && tapStyle === 'compress' && isTapping,
     },
   );
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (
+    event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  ) => {
     // Check to see if space or enter were pressed
     if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed
@@ -151,7 +155,10 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     }
   };
 
-  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
     !disabled && onTap
       ? onTap({
           event,
@@ -159,46 +166,66 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
         })
       : undefined;
 
-  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
-    handleClick(event, dangerouslyDisableOnNavigation);
+  const handleLinkClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
-  const handleOnBlur = (event) => {
+  const handleOnBlur = (event: SyntheticFocusEvent<HTMLAnchorElement>) => {
     if (!disabled && onBlur) {
       onBlur({ event });
     }
   };
 
-  const handleLinkOnBlur = ({ event }) => handleOnBlur(event);
+  const handleLinkOnBlur = ({ event }: {| event: SyntheticFocusEvent<HTMLAnchorElement> |}) =>
+    handleOnBlur(event);
 
-  const handleOnFocus = (event) => {
+  const handleOnFocus = (event: SyntheticFocusEvent<HTMLAnchorElement>) => {
     if (!disabled && onFocus) {
       onFocus({ event });
     }
   };
 
-  const handleLinkOnFocus = ({ event }) => handleOnFocus(event);
+  const handleLinkOnFocus = ({ event }: {| event: SyntheticFocusEvent<HTMLAnchorElement> |}) =>
+    handleOnFocus(event);
 
-  const handleOnKeyDown = (event) => {
+  const handleOnKeyDown = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     if (!disabled && onKeyDown) onKeyDown({ event });
   };
 
-  const handleLinkOnKeyDown = ({ event }) => handleOnKeyDown(event);
+  const handleLinkOnKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLAnchorElement> |}) =>
+    handleOnKeyDown(event);
 
-  const handleOnMouseEnter = (event) => {
+  const handleOnMouseEnter = (
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  ) => {
     if (!disabled && onMouseEnter) {
       onMouseEnter({ event });
     }
   };
 
-  const handleLinkOnMouseEnter = ({ event }) => handleOnMouseEnter(event);
+  const handleLinkOnMouseEnter = ({
+    event,
+  }: {|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => handleOnMouseEnter(event);
 
-  const handleOnMouseLeave = (event) => {
+  const handleOnMouseLeave = (
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  ) => {
     if (!disabled && onMouseLeave) {
       onMouseLeave({ event });
     }
   };
 
-  const handleLinkOnMouseLeave = ({ event }) => handleOnMouseLeave(event);
+  const handleLinkOnMouseLeave = ({
+    event,
+  }: {|
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
+  |}) => handleOnMouseLeave(event);
 
   if (props.role === 'link') {
     const { accessibilityCurrent, href, rel = 'none', target = null } = props;

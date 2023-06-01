@@ -48,7 +48,17 @@ const getPins = () => {
     },
   ];
 
-  const pinList = [...new Array(3)].map(() => [...pins]).flat();
+  const pinList = [
+    ...new Array<void | {|
+      color: string,
+      height: number,
+      name: string,
+      src: string,
+      width: number,
+    |}>(3),
+  ]
+    .map(() => [...pins])
+    .flat();
   return Promise.resolve(pinList);
 };
 
@@ -83,8 +93,8 @@ type Props = {|
 function ExampleMasonry({ id, layout }: Props): Node {
   const [pins, setPins] = useState<$ReadOnlyArray<Pin>>([]);
   const [width, setWidth] = useState<number>(700);
-  const scrollContainerRef = useRef();
-  const gridRef = useRef();
+  const scrollContainerRef = useRef<?HTMLDivElement>();
+  const gridRef = useRef<?Masonry<Pin>>();
 
   useEffect(() => {
     getPins().then((startPins) => {

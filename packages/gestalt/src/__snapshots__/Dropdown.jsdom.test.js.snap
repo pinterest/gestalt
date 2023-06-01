@@ -705,9 +705,14 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box xsDisplayVisuallyHidden"
+                    class="box relative"
+                    style="display: inline;"
                   >
-                    ; Opens a new tab
+                    <div
+                      class="box xsDisplayVisuallyHidden"
+                    >
+                      ; Opens a new tab
+                    </div>
                   </div>
                 </a>
               </div>
@@ -873,9 +878,14 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box xsDisplayVisuallyHidden"
+                    class="box relative"
+                    style="display: inline;"
                   >
-                    ; Opens a new tab
+                    <div
+                      class="box xsDisplayVisuallyHidden"
+                    >
+                      ; Opens a new tab
+                    </div>
                   </div>
                 </a>
               </div>
@@ -945,9 +955,14 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box xsDisplayVisuallyHidden"
+                    class="box relative"
+                    style="display: inline;"
                   >
-                    ; Opens a new tab
+                    <div
+                      class="box xsDisplayVisuallyHidden"
+                    >
+                      ; Opens a new tab
+                    </div>
                   </div>
                 </a>
               </div>

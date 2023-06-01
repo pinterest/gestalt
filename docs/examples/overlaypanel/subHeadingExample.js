@@ -19,13 +19,24 @@ export default function SubheadingExample(): Node {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const enRef = useRef();
-  const esRef = useRef();
-  const ptRef = useRef();
-  const chRef = useRef();
+  const enRef = useRef<null | HTMLElement>(null);
+  const esRef = useRef<null | HTMLElement>(null);
+  const ptRef = useRef<null | HTMLElement>(null);
+  const chRef = useRef<null | HTMLElement>(null);
   const refs = [enRef, esRef, ptRef, chRef];
 
-  const handleChangeTab = ({ activeTabIndex: activeTabIndexLocal, event }) => {
+  const handleChangeTab = ({
+    activeTabIndex: activeTabIndexLocal,
+    event,
+  }: {|
+    +activeTabIndex: number,
+    dangerouslyDisableOnNavigation: () => void,
+    event:
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => {
     event.preventDefault();
     setActiveTabIndex(activeTabIndexLocal);
     refs[activeTabIndexLocal].current?.scrollIntoView({

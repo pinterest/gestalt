@@ -58,6 +58,10 @@
   }
 }
 
+.slideInRtlInitialize {
+  transform: translateX(100%);
+}
+
 .animationInSide {
   animation: slide-in-ltr 400ms ease-in-out;
 }
@@ -72,6 +76,10 @@ html[dir="rtl"] .animationInSide {
 
 html[dir="rtl"] .animationOutSide {
   animation: slide-out-rtl 400ms ease-in-out;
+}
+
+.slideUpInitialize {
+  transform: translateY(100%);
 }
 
 .animationInBottom {

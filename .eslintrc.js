@@ -166,6 +166,7 @@ module.exports = {
         'browser': true,
       },
       'rules': {
+        'import/no-namespace': OFF,
         'jest/expect-expect': [
           ERROR,
           { 'assertFunctionNames': ['expect', 'runInlineTest', 'runTest'] },

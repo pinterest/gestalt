@@ -80,6 +80,7 @@ const getLocalImportedName = ({
   importSpecifierCollection,
 }: {
   importSpecifierCollection: Collection,
+  // $FlowFixMe[underconstrained-implicit-instantiation]
 }): string => importSpecifierCollection.get(0).node.local?.name;
 
 /**
@@ -230,6 +231,7 @@ const buildReplaceWithRenamedComponent = ({
   nextComponentName: string,
 }): ((nodepath: Collection) => ?JSXNodeType) => {
   const replaceWithRenamedComponent = (nodepath: Collection) => {
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     const newNode = deepCloneNode({ node: nodepath.get().node });
 
     newNode.openingElement.name.name = nextComponentName;
@@ -267,7 +269,7 @@ const buildReplaceWithModifiedAttributes = ({
   const replaceWithModifiedAttributes = (nodepath: Collection) => {
     // In the absence of nextProp & nextValue, we REMOVE prop and values
     if (!nextProp && isNullOrUndefined(nextValue)) return null;
-
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     let newNode = deepCloneNode({ node: nodepath.get().node });
 
     // In the absence of just nextValue, we rename the prop if both prop and value match.
@@ -275,13 +277,11 @@ const buildReplaceWithModifiedAttributes = ({
 
     // In the presence of just nextProp, we change the value if there's a match.
     if (!nextProp && !isNullOrUndefined(nextValue)) {
-      // $FlowFixMe[incompatible-type]
       newNode = buildAttributeFromValue({ j, prop: previousProp, value: nextValue });
     }
 
     // In the presence of both nextProp and nextValue, we change both nextProp and nextValue if there's a match.
     if (nextProp && !isNullOrUndefined(nextValue)) {
-      // $FlowFixMe[incompatible-type]
       newNode = buildAttributeFromValue({ j, prop: nextProp, value: nextValue });
     }
 

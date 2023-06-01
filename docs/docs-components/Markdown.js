@@ -27,7 +27,8 @@ const stripIndent = (str: string): string => {
     return str;
   }
 
-  const indent = Math.min(...match.map((x) => x.length));
+  const arrayMatch = match.map((x) => x.length);
+  const indent = Math.min(...arrayMatch);
 
   if (indent === 0) {
     return str;

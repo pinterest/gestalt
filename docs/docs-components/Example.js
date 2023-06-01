@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker, DateField } from 'gestalt-datepicker';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import theme from './atomDark.js';
 import Card from './Card.js';
@@ -31,7 +31,7 @@ function Example({
   skipContrastCheck = false,
 }: Props): Node {
   const code = defaultCode.trim();
-  const scope = { ...gestalt, DatePicker };
+  const scope = { ...gestalt, DatePicker, DateField };
 
   return (
     <Card

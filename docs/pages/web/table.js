@@ -10,6 +10,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import controlledExpandable from '../../examples/table/controlledExpandable.js';
 import main from '../../examples/table/main.js';
+import selected from '../../examples/table/selected.js';
 import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable.js';
 
 export default function DocsPage({
@@ -2457,6 +2458,19 @@ function Example() {
       );
     }
 `}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Selected & hovered state"
+          description={`Table.Row, Table.RowExpandable and Table.RowDrawer support hovered and selected states.
+
+If a row subcomponent is selectable, toggle the \`selected\` prop between "selected" and "unselected" to keep a constant border space in the row that is only visible when the row is selected.
+
+If the row is not selectable, the \`selected\` prop should not be set. In this case, it doesn't set a side border.
+          `}
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={selected} name="Selected example" />}
           />
         </MainSection.Subsection>
       </MainSection>

@@ -18,7 +18,7 @@ fullwidth: true
   </Group>
   <Group>
     <Dont title="When not to use" />
-      - Displaying system errors or notices. Consider a [Callout](callout) instead
+      - Displaying system errors or notices. Consider a [Callout](/web/callout) instead
       - Any time a separate, designated URL is desired
       - Any action that should not interrupt users from their current work stream
       - On top of another sheet, as this can create usability issues and confusion
@@ -142,6 +142,6 @@ Sheets can utilize several navigation actions.
 Be sure to localize the header, body content and any footer items. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
 <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/d3/3d/f0/d33df0c4e7fcfa4847785dfd23602e42.png" alt="Example of a sheet receding off the view of the image"/>
-## Animation
 
+## Animation
 By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).

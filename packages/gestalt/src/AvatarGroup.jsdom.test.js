@@ -12,12 +12,20 @@ describe('AvatarGroup', () => {
   const renderCmp = ({
     addCollaborators = false,
     collaborators,
-    href = undefined,
-    onClick = undefined,
-    role = undefined,
+    href,
+    onClick,
+    role,
     size = 'md',
-    avatarRef = undefined,
-  }) =>
+    avatarRef,
+  }: {|
+    addCollaborators?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'addCollaborators'>,
+    collaborators: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'collaborators'>,
+    href?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'href'>,
+    onClick?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'onClick'>,
+    role?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'role'>,
+    size?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'size'>,
+    avatarRef?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'ref'>,
+  |}) =>
     render(
       size === 'fit' ? (
         <Box width={200}>
@@ -28,6 +36,7 @@ describe('AvatarGroup', () => {
             href={href}
             onClick={onClick}
             role={role}
+            // $FlowFixMe[incompatible-type]
             ref={avatarRef}
             size={size}
           />
@@ -40,6 +49,7 @@ describe('AvatarGroup', () => {
           href={href}
           onClick={onClick}
           role={role}
+          // $FlowFixMe[incompatible-type]
           ref={avatarRef}
           size={size}
         />
@@ -162,8 +172,20 @@ describe('AvatarGroup', () => {
   });
 
   it('should render clickable TapArea with button role and ref', () => {
-    const onClickMock = jest.fn();
-    const ref = createRef();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLDivElement>
+            | SyntheticKeyboardEvent<HTMLDivElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
+    const ref = createRef<mixed>();
     renderCmp({
       collaborators: [
         {
@@ -173,6 +195,7 @@ describe('AvatarGroup', () => {
       ],
       onClick: onClickMock,
       role: 'button',
+      // $FlowFixMe[incompatible-call]
       avatarRef: ref,
     });
     expect(ref.current instanceof HTMLDivElement).toEqual(true);
@@ -181,8 +204,20 @@ describe('AvatarGroup', () => {
   });
 
   it('should render clickable TapArea with link role and ref', () => {
-    const onClickMock = jest.fn();
-    const ref = createRef();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLDivElement>
+            | SyntheticKeyboardEvent<HTMLDivElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
+    const ref = createRef<mixed>();
     renderCmp({
       collaborators: [
         {
@@ -193,6 +228,7 @@ describe('AvatarGroup', () => {
       onClick: onClickMock,
       role: 'link',
       href: 'http://www.pinterest.com',
+      // $FlowFixMe[incompatible-call]
       avatarRef: ref,
     });
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
@@ -201,7 +237,19 @@ describe('AvatarGroup', () => {
   });
 
   it('should not call onClick when clicked on display-only role', () => {
-    const onClickMock = jest.fn();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event:
+            | SyntheticMouseEvent<HTMLDivElement>
+            | SyntheticKeyboardEvent<HTMLDivElement>
+            | SyntheticMouseEvent<HTMLAnchorElement>
+            | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
     renderCmp({
       collaborators: [
         {

@@ -24,7 +24,7 @@ export default function SideNavigationMobile({
   dismissButton,
   showBorder,
 }: Props): Node {
-  const dismissButtonRef = useRef();
+  const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
 

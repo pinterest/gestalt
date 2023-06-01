@@ -62,6 +62,7 @@ import TapArea from './TapArea.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
 import TextField from './TextField.js';
+import TileData from './TileData.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Upsell from './Upsell.js';
@@ -146,6 +147,7 @@ export {
   Text,
   TextArea,
   TextField,
+  TileData,
   Toast,
   Tooltip,
   Upsell,

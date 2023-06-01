@@ -12,7 +12,7 @@ import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import styles from './DatePicker.css';
-import DatePickerTextField from './DatePickerTextField.js';
+import DatePickerTextField from './DatePicker/TextField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // flowlint unclear-type:off
@@ -142,9 +142,6 @@ type Props = {|
 |};
 
 /**
- * Use [Datepicker](https://gestalt.pinterest.systems/web/datepicker) when the user has to select a date or date range.
- */
-/**
  * [DatePicker](https://gestalt.pinterest.systems/web/datepicker) is used when the user has to select a date or date range.
  * DatePicker is distributed in its own package and must be installed separately.
  *
@@ -179,7 +176,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
   }: Props,
   ref,
 ): Element<'div'> {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLDivElement>(null);
   useImperativeHandle(ref, () => innerRef.current);
 
   const [selected, setSelected] = useState<?Date>(dateValue);
@@ -222,7 +219,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
     left: 'left',
   };
 
-  const updateNextRef = (submitted) => {
+  const updateNextRef = (submitted: boolean) => {
     if (
       (rangeSelector === 'start' && !rangeEndDate) ||
       (rangeSelector === 'end' && !rangeStartDate)

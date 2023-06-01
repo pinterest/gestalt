@@ -71,12 +71,30 @@ function VideoControls({
   seek,
   volume,
 }: Props): Node {
-  const handleFullscreenChange = ({ event }) => {
+  const handleFullscreenChange = ({
+    event,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => {
     event.stopPropagation();
     onFullscreenChange();
   };
 
-  const handlePlayingChange = ({ event }) => {
+  const handlePlayingChange = ({
+    event,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => {
     if (playing) {
       onPause(event);
     } else {
@@ -84,29 +102,47 @@ function VideoControls({
     }
   };
 
-  const handleCaptionsChange = ({ event }) => {
+  const handleCaptionsChange = ({
+    event,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => {
     event.stopPropagation();
     onCaptionsChange(event);
   };
 
-  const handleVolumeChange = ({ event }) => {
+  const handleVolumeChange = ({
+    event,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => {
     onVolumeChange(event);
   };
 
   const muted = volume === 0;
 
-  const [showFullscreenButton, setShowFullscreenButton] = useState(false);
+  const [showFullscreenButton, setShowFullscreenButton] = useState<boolean>(false);
 
   useEffect(() => {
     setShowFullscreenButton(
       typeof document !== 'undefined' &&
-        (document.fullscreenEnabled ||
+        (!!document.fullscreenEnabled ||
           // $FlowExpectedError[prop-missing]
-          document.webkitFullscreenEnabled ||
+          !!document.webkitFullscreenEnabled ||
           // $FlowExpectedError[prop-missing]
-          document.mozFullScreenEnabled ||
+          !!document.mozFullScreenEnabled ||
           // $FlowExpectedError[prop-missing]
-          document.msFullscreenEnabled),
+          !!document.msFullscreenEnabled),
     );
   }, []);
 

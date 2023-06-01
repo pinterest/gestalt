@@ -76,7 +76,7 @@ Example PR title: `Avatar: Add outline prop`
 
 ## Typescript Support
 
-Install the [DefinitelyTyped](https://www.npmjs.com/package/@types/gestalt) definitions.
+Gestalt officiallty supports and maintains Typescript declarations files.
 
 ### DefinitelyTyped Installation
 
@@ -91,3 +91,7 @@ Or via yarn:
 ```bash
 yarn add @types/gestalt
 ```
+
+### Troubleshooting
+
+Take a look at our [FAQ](https://gestalt.pinterest.systems/get_started/faq) section if you run into any development problems.

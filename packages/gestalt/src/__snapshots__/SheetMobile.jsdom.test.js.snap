@@ -8,12 +8,12 @@ exports[`SheetMobile renders correctly auto size 1`] = `
     className="container partialPageContainer"
   >
     <div
-      className="backdrop backdropAnimationIn zoomOut"
+      className="backdrop zoomOut"
       onClick={[Function]}
     />
     <div
       aria-label="Bottom sheet"
-      className="wrapper hideOutline autoWrapper animationInBottom"
+      className="wrapper hideOutline autoWrapper"
       id=":r1:"
       onAnimationEnd={[Function]}
       role="dialog"
@@ -169,12 +169,12 @@ exports[`SheetMobile renders correctly default size 1`] = `
     className="container partialPageContainer"
   >
     <div
-      className="backdrop backdropAnimationIn zoomOut"
+      className="backdrop zoomOut"
       onClick={[Function]}
     />
     <div
       aria-label="Bottom sheet"
-      className="wrapper hideOutline defaultWrapper animationInBottom"
+      className="wrapper hideOutline defaultWrapper"
       id=":r0:"
       onAnimationEnd={[Function]}
       role="dialog"

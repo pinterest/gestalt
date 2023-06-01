@@ -18,10 +18,11 @@ import textStyles from './Typography.css';
 import Box from './Box.js';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 
@@ -165,7 +166,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   }: Props,
   ref,
 ): Element<'a'> {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -214,7 +215,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
     if (onClick && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed

@@ -10,12 +10,13 @@ import {
 import classnames from 'classnames';
 import styles from './IconButton.css';
 import touchableStyles from './TapArea.css';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import icons from './icons/index.js';
 import InternalLink from './Link/InternalLink.js';
@@ -105,7 +106,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     size = 'lg',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
@@ -148,7 +149,10 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     />
   );
 
-  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
     onClick
       ? onClick({
           event,
@@ -156,8 +160,13 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
         })
       : undefined;
 
-  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
-    handleClick(event, dangerouslyDisableOnNavigation);
+  const handleLinkClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
   const handleOnBlur = () => {
     setFocused(false);

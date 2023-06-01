@@ -4,10 +4,10 @@ import styles from './PopoverEducational.css';
 import Box from './Box.js';
 import Button from './Button.js';
 import Flex from './Flex.js';
-import Popover from './Popover.js';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import InternalPopover from './Popover/InternalPopover.js';
 
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
@@ -64,7 +64,7 @@ type Props = {|
   /**
    * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
    */
-  accessibilityLabel: string,
+  accessibilityLabel?: string,
   /**
    * The reference element that PopoverEducational uses to set its position.
    */
@@ -121,7 +121,7 @@ type Props = {|
  * ![PopoverEducational dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational-dark.spec.mjs-snapshots/PopoverEducational-dark-chromium-darwin.png)
  */
 export default function PopoverEducational({
-  accessibilityLabel,
+  accessibilityLabel = 'Popover',
   anchor,
   children,
   id,
@@ -151,7 +151,7 @@ export default function PopoverEducational({
   if (
     message &&
     typeof message !== 'string' &&
-    Children.only(message).type.displayName === 'Text'
+    Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
   ) {
     const textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark
@@ -161,8 +161,8 @@ export default function PopoverEducational({
   }
 
   return (
-    <Box zIndex={zIndex}>
-      <Popover
+    <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
+      <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
         color="blue"
@@ -171,7 +171,7 @@ export default function PopoverEducational({
         onDismiss={onDismiss}
         positionRelativeToAnchor
         showCaret
-        shouldFocus={shouldFocus ?? false}
+        shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
       >
@@ -186,7 +186,7 @@ export default function PopoverEducational({
               </Flex>
             </Box>
           ) : null)}
-      </Popover>
+      </InternalPopover>
     </Box>
   );
 }

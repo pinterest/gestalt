@@ -69,17 +69,31 @@ export default function Collection(props: Props): Node {
 
   // Calculates which items from the item layer to render in the viewport
   // layer.
-  const items = layout.reduce((acc, position, idx) => {
-    if (
-      position.top + position.height > viewportTop &&
-      position.top < viewportHeight + viewportTop &&
-      position.left < viewportWidth + viewportLeft &&
-      position.left + position.width > viewportLeft
-    ) {
-      acc.push({ idx, ...position });
-    }
-    return acc;
-  }, []);
+  const items = layout.reduce(
+    (
+      acc: $ReadOnlyArray<{|
+        height: number,
+        idx: number,
+        left: number,
+        top: number,
+        width: number,
+      |}>,
+      position,
+      idx,
+    ) => {
+      const newAcc = [...acc];
+      if (
+        position.top + position.height > viewportTop &&
+        position.top < viewportHeight + viewportTop &&
+        position.left < viewportWidth + viewportLeft &&
+        position.left + position.width > viewportLeft
+      ) {
+        newAcc.push({ idx, ...position });
+      }
+      return newAcc;
+    },
+    [],
+  );
 
   return (
     <div className={layoutStyles.relative} style={{ width, height }}>

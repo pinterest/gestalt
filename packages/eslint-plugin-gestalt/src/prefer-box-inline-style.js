@@ -15,19 +15,35 @@ import {
   validateBorderRadius,
 } from './helpers/styleValidators.js';
 
+// $FlowFixMe[missing-local-annot]
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
 }
 
-function getVariableDefinedStyles(ref) {
-  return ref.resolved &&
+function getVariableDefinedStyles(ref: {|
+  resolved: {|
+    defs: $ReadOnlyArray<{|
+      node: {|
+        init: {|
+          properties: $ReadOnlyArray<{|
+            key: { value: string, name: string, ... },
+            type: string,
+            value: { value: string, ... },
+          |}>,
+        |},
+      |},
+    |}>,
+  |},
+|}) {
+  return (
+    ref.resolved &&
     ref.resolved.defs &&
     ref.resolved.defs[0] &&
     ref.resolved.defs[0].node &&
     ref.resolved.defs[0].node.init &&
+    ref.resolved.defs[0].node.init.properties &&
     ref.resolved.defs[0].node.init.properties
-    ? ref.resolved.defs[0].node.init.properties
-    : null;
+  );
 }
 
 const rule: ESLintRule = {
@@ -51,6 +67,7 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+    // $FlowFixMe[missing-local-annot]
     function matchKeyErrors(matchedErrors, key) {
       let alternateProp = '';
       switch (key.name) {
@@ -91,7 +108,9 @@ const rule: ESLintRule = {
           const matched = attr.name && attr.name.name === 'style';
           if (matched) {
             // If we have style properties here, this is an object declared inline
-            let styleProperties = getInlineDefinedStyles(attr);
+            let styleProperties: null | $ReadOnlyArray<{ ... }>;
+            styleProperties = getInlineDefinedStyles(attr);
+
             // Not declared inline? Check to see if there's a variable matching the name defined
             if (!styleProperties && attr.value.expression.name) {
               const scope = context.getScope(node);
@@ -108,7 +127,7 @@ const rule: ESLintRule = {
                 .map(({ key, type, value }) => {
                   // Handle things like spread props
                   if (!key || value.value === undefined) {
-                    return { name: type, value: null };
+                    return { name: type, value: '' };
                   }
                   return { name: key.name, value: value.value };
                 })

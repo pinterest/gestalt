@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { Flex, NumberField } from 'gestalt';
 
 export default function Example(): React$Node {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<{|
+    first: ?number,
+    second: ?number,
+    third: ?number,
+  |}>({
     first: undefined,
     second: undefined,
     third: undefined,
@@ -24,6 +28,7 @@ export default function Example(): React$Node {
         onChange={({ value }) => {
           setValues((prevValues) => ({ ...prevValues, first: value }));
         }}
+        // $FlowFixMe[incompatible-type]
         value={values.first}
       />
       <NumberField
@@ -32,6 +37,7 @@ export default function Example(): React$Node {
         onChange={({ value }) => {
           setValues((prevValues) => ({ ...prevValues, second: value }));
         }}
+        // $FlowFixMe[incompatible-type]
         value={values.second}
       />
       <NumberField
@@ -40,6 +46,7 @@ export default function Example(): React$Node {
         onChange={({ value }) => {
           setValues((prevValues) => ({ ...prevValues, third: value }));
         }}
+        // $FlowFixMe[incompatible-type]
         value={values.third}
       />
     </Flex>

@@ -41,17 +41,19 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let componentName = 'Icon';
 
-    const matchValues = (node) => {
-      const props = {};
-      node.attributes.forEach(({ name, value }) => {
-        props[name?.name] = value?.value || value?.expression?.value;
-      });
+    // $FlowFixMe[unclear-type]
+    const matchValues = (node: any) => {
+      const reducedPropValues = node.attributes.reduce((acc, { name, value }) => {
+        const newAcc = { ...acc };
+        newAcc[name?.name] = value?.value || value?.expression?.value;
+        return newAcc;
+      }, {});
 
       const isDisallowedMatch = disallowedMatch.some(
         ({ icon, color }) =>
-          icon === props?.icon &&
-          color === props?.color &&
-          (props?.size === 16 || props?.size === undefined),
+          icon === reducedPropValues?.icon &&
+          color === reducedPropValues?.color &&
+          (reducedPropValues?.size === 16 || reducedPropValues?.size === undefined),
       );
 
       if (!isDisallowedMatch) return null;
@@ -59,7 +61,8 @@ const rule: ESLintRule = {
       return node;
     };
 
-    const importDeclarationFnc = (node) => {
+    // $FlowFixMe[unclear-type]
+    const importDeclarationFnc = (node: any) => {
       if (!node) return;
 
       const isGestaltImportNode = hasImport({ importNode: node, path: 'gestalt' });
@@ -71,7 +74,8 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
-    const jSXOpeningElementFnc = (node) => {
+    // $FlowFixMe[unclear-type]
+    const jSXOpeningElementFnc = (node: any) => {
       // exit if Gestalt is not imported
       if (!gestaltImportNode) return null;
 

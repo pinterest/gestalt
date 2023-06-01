@@ -156,6 +156,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
             defaultCode={`
 <Flex direction="column" gap={{ column: 4, row: 0 }}>
   <Status type='unstarted' title='Unstarted' />
+  <Status type='queued' title='Queued' />
   <Status type='inProgress' title='In progress' />
   <Status type='halted' title='Halted' />
   <Status type='ok' title='OK' />

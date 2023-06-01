@@ -13,9 +13,14 @@ export default function Example(): Node {
 
   const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: `value${index}` }));
 
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<?string>();
 
-  const handleOnBlur = ({ value }) => {
+  const handleOnBlur = ({
+    value,
+  }: {|
+    event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
+    value: string,
+  |}) => {
     if (value !== '' && !PRONOUNS.includes(value))
       setErrorMessage('Por favor, selecciona una opción válida');
   };

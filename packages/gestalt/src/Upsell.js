@@ -175,7 +175,10 @@ export default function Upsell({
     );
   }
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  if (typeof message !== 'string' && Children.only(message).type.displayName === 'Text') {
+  if (
+    typeof message !== 'string' &&
+    Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
+  ) {
     const textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark
       : styles.textColorOverrideLight;

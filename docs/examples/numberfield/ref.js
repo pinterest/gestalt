@@ -1,11 +1,11 @@
 // @flow strict
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type Node } from 'react';
 import { Box, Flex, NumberField } from 'gestalt';
 
-export default function Example(): React$Node {
-  const [currentValue, setCurrentValue] = useState();
-  const [errorMessage, setErrorMessage] = useState(undefined);
-  const ref = useRef();
+export default function Example(): Node {
+  const [currentValue, setCurrentValue] = useState<void | number>();
+  const [errorMessage, setErrorMessage] = useState<void | string>(undefined);
+  const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
     if (ref.current && ref.current.checkValidity() === false) {

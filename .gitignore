@@ -16,9 +16,11 @@ packages/gestalt-datepicker/dist/*
 packages/eslint-plugin-gestalt/dist/*
 packages/gestalt-design-tokens/dist
 
-# the flow export file as it's maintained by hand
+# the following files as they are maintained by hand
 !packages/gestalt/dist/gestalt.js.flow
+!packages/gestalt/dist/index.d.ts
 !packages/gestalt/dist/gestalt-datepicker.js.flow
+!packages/gestalt-datepicker/dist/index.d.ts
 
 playwright/test-results
 

@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
+import classnames from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
@@ -40,13 +41,17 @@ type Props = {|
     expanded: boolean,
   |}) => void,
   /**
-   * Sets the background color on hover over the row.
+   * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
   hoverStyle?: 'gray' | 'none',
   /**
    * Unique id for Table.RowExpandable.
    */
   id: string,
+  /**
+   * Indicates if Table.RowExpandable is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  selected?: 'selected' | 'unselected',
 |};
 
 /**
@@ -61,10 +66,11 @@ export default function TableRowExpandable({
   onExpand,
   id,
   hoverStyle = 'gray',
+  selected,
 }: Props): Node {
   const { stickyColumns } = useTableContext();
-  const rowRef = useRef();
-  const [columnWidths, setColumnWidths] = useState([]);
+  const rowRef = useRef<?HTMLTableRowElement>();
+  const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
   const [isExpanded, setIsExpanded] = useState(expandedControlled ?? false);
 
   useEffect(() => {
@@ -80,7 +86,7 @@ export default function TableRowExpandable({
     }
   }, [isExpanded, setIsExpanded, expandedControlled]);
 
-  const renderCellWithAdjustedIndex = (child, index) => {
+  const renderCellWithAdjustedIndex = (child: Node, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns
@@ -90,12 +96,20 @@ export default function TableRowExpandable({
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+    // $FlowFixMe[incompatible-exact]
+    // $FlowFixMe[incompatible-type]
     return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
   };
 
+  const rowStyle = classnames({
+    [styles.hoverShadeGray]: hoverStyle === 'gray' && selected !== 'selected',
+    [styles.selected]: selected === 'selected',
+    [styles.unselected]: selected === 'unselected',
+  });
+
   return (
     <Fragment>
-      <tr className={hoverStyle === 'gray' ? styles.hoverShadeGray : null} ref={rowRef}>
+      <tr className={rowStyle} ref={rowRef}>
         <TableCell
           shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
           previousTotalWidth={0}

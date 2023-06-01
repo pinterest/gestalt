@@ -182,6 +182,6 @@ declare module 'react-datepicker' {
     weekAriaLabelPrefix?: string
   |};
 
-  declare class Datepicker extends React$Component<Props> { input: ElementRef<*> }
+  declare class Datepicker extends React$Component<Props> { input: ElementRef<any> }
   declare export default typeof Datepicker;
 }

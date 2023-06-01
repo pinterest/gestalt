@@ -1,5 +1,5 @@
 ---
-title: Search Field
+title: SearchField
 description: SearchField allows users to search for specific content within the Pinterest app. 
 fullwidth: true
 ---
@@ -104,10 +104,9 @@ The SearchField can include an Button trailing after the field. This button serv
 </TwoCol>
 
 ## Writing
+For writing best practices, refer to the [Content standards](https://gestalt.pinterest.systems/foundations/content_standards/voice). 
 - Don't truncate label text. If the text is too long for one line, it should be reduced.
 - Use clear labeling with placeholder text that indicates what the user can search for. For example, “Search products”, Search Users,” etc.
 - Use consistent language/naming for the SearchField and it’s labels across screens. 
 - Provide clear and concise error messages that are easy to understand and provide guidance on how to correct the search query or find alternative content.
 - If needed, provide helper text to clarify the SearchFields purpose. Especially when users could be unfamiliar with the app or it’s search functionality. 
-
-For writing best practices, refer to the [Content standards](https://gestalt.pinterest.systems/foundations/content_standards/voice). 

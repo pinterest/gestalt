@@ -121,3 +121,7 @@ This is the default tab style. Use the filled style for any Tabs that sit within
 Be sure to localize the tab text. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
 <ImgContainer src="https://i.pinimg.com/originals/00/a4/ce/00a4cef58fafd51e28808e8a46c4f5b6.png" alt="start aligned tabs"/>
+
+## Animation
+
+By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).

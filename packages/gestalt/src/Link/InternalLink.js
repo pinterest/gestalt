@@ -103,7 +103,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
   }: Props,
   ref,
 ): Element<'a'> {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -165,6 +165,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
     isTapArea && mouseCursor
       ? {
+          // $FlowFixMe[invalid-computed-prop]
           [touchableStyles[mouseCursor]]: !disabled,
         }
       : {},
@@ -181,7 +182,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
     if (onClick && keyPressShouldTriggerTap(event)) {
       // Prevent the default action to stop scrolling when space is pressed

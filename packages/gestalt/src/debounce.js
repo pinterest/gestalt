@@ -35,5 +35,6 @@ export default function debounce(
     }
   };
 
+  // $FlowFixMe[incompatible-exact]
   return debounced;
 }

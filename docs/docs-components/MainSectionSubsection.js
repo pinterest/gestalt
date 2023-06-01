@@ -26,7 +26,7 @@ function MainSectionSubsection({
   marginBottom = 'default',
 }: Props): Node {
   const slugifiedId = slugify(title || '');
-  const arrayChildren = Children.toArray(children);
+  const arrayChildren = Children.toArray<Node>(children);
 
   let defaultBottomMargin = title || description ? 8 : 0;
 

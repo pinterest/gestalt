@@ -43,7 +43,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
     }: Props,
     ref,
   ): Node {
-    const innerRef = useRef(null);
+    const innerRef = useRef<HTMLButtonElement | null>(null);
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
     // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
@@ -69,7 +69,9 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
 
     const { isFocusVisible } = useFocusVisible();
 
-    const handleClick = (event) => (onClick ? onClick({ event }) : undefined);
+    const handleClick = (
+      event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+    ) => (onClick ? onClick({ event }) : undefined);
 
     const handleOnBlur = () => setFocused(false);
 

@@ -9,9 +9,16 @@
 
 .visuallyHidden {
   border: 0;
+
+  /* clip is deprecated https: //developer.mozilla.org/en-US/docs/Web/CSS/clip */
   clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+
+  /* clip is replaced with clip-path */
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
+  overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;

@@ -22,7 +22,7 @@ export default function Page({
   hideEditLink = false,
   pageSourceUrl,
 }: Props): Node {
-  const sections = Children.toArray(children);
+  const sections = Children.toArray<Node>(children);
 
   const editPageUrl =
     pageSourceUrl ??

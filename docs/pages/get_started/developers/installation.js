@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Heading, Link, Text } from 'gestalt';
+import { Flex, Link, Text } from 'gestalt';
 import Card from '../../../docs-components/Card.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
@@ -63,7 +63,7 @@ import 'gestalt/dist/gestalt.css';
           <Markdown
             text="
 ~~~jsx
-import DatePicker from 'gestalt-datepicker';
+import { DatePicker } from 'gestalt-datepicker';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 ~~~
 "
@@ -121,40 +121,6 @@ yarn start
             </Link>{' '}
             and click on a component to view the docs.
           </Text>
-        </Flex>
-      </Card>
-
-      <Card name="Typescript Support">
-        <Flex
-          alignItems="start"
-          direction="column"
-          gap={{
-            row: 0,
-            column: 4,
-          }}
-        >
-          <Text>
-            Install the{' '}
-            <Link
-              display="inlineBlock"
-              href="https://www.npmjs.com/package/@types/gestalt"
-              target="blank"
-            >
-              <Text weight="bold">DefinitelyTyped</Text>
-            </Link>{' '}
-            definitions.
-          </Text>
-          <Heading size="400">Usage</Heading>
-          <Markdown
-            text="
-~~~jsx
-npm i --save @types/gestalt
-~~~
-or
-~~~jsx
-yarn add @types/gestalt
-~~~"
-          />
         </Flex>
       </Card>
     </Page>

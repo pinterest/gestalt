@@ -4,9 +4,15 @@ import { Box, IconButton, Flex, Tooltip, Dropdown, Button } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const anchorRef = useRef(null);
-  const onSelect = ({ item }) => setSelected(item);
+  const [selected, setSelected] =
+    useState<?{| label: string, subtext?: string, value: string |}>(null);
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const onSelect = ({
+    item,
+  }: {|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    item: {| label: string, subtext?: string, value: string |},
+  |}) => setSelected(item);
 
   return (
     <Box padding={4}>

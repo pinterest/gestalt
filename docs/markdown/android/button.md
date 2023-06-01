@@ -23,6 +23,7 @@ fullwidth: true
 </TwoCol>
 
 ## Best practices
+
 For general Button best practices, refer to the [Button web documentation](/web/button).
 - Place primary buttons to the right or top of other buttons when in a button group.
 - Keep elements inside a button container grouped. Label text and icons should remain centered when the Button width increases.
@@ -46,7 +47,7 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 ### Size
 
-Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16dp).
+Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16sp).
 
 1. **lg (60dp)**
    Large should be primarily used on Pinner, business and internal surfaces.
@@ -111,7 +112,6 @@ Low emphasis when placed on dark/image backgrounds, used for tertiary actions in
 </Group>
 </TwoCol>
 
-
 ### States
 1. **Disabled**
 Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
@@ -120,13 +120,11 @@ When Button is used to toggle a boolean state or control the visibility of other
 <TwoCol>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46095%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-
 **Disabled**
 </Group>
 
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A45988%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-
 **Selected**
 </Group>
 </TwoCol>
@@ -141,4 +139,4 @@ For writing best practices, refer to the [web Button documentation](/web/button)
 
 ## Localization
 
-For RTL (right-to-left) languages, the layout of the button is mirrored. The icon is placed on the right side of the text.
+For RTL (right-to-left) languages, the layout of the button is mirrored.

@@ -108,7 +108,7 @@ export default function SideNavigationGroup({
     filterLevel: 'nested',
   });
 
-  const hasActiveChildCallback = (child) =>
+  const hasActiveChildCallback = (child: {| props: {| active: 'page' | 'section' |} |}) =>
     child?.props?.active && ['page', 'section'].includes(child?.props?.active);
 
   const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);

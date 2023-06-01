@@ -121,6 +121,154 @@ exports[`PageHeader renders 1`] = `
 </div>
 `;
 
+exports[`PageHeader renders badge with type 1`] = `
+<div
+  className="pageHeader"
+>
+  <div
+    className="box default paddingX8 paddingY4"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap0 columnGap0 flexGrow justifyCenter xsDirectionRow"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        className="Flex rowGap0 columnGap0 flexGrow xsDirectionRow"
+        style={
+          Object {
+            "maxWidth": "100%",
+          }
+        }
+      >
+        <div
+          className="FlexItem flexGrow selfCenter"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="box marginEnd6"
+          >
+            <div
+              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="box smDisplayNone xsDisplayBlock"
+                      >
+                        <h1
+                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box smDisplayBlock xsDisplayNone"
+                      >
+                        <h1
+                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 1,
+                            }
+                          }
+                          title="Settings"
+                        >
+                          Settings
+                        </h1>
+                      </div>
+                      <div
+                        className="box marginStart1 smDisplayBlock xsDisplayNone"
+                      >
+                        <div
+                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                        >
+                          <div
+                            className="FlexItem"
+                          >
+                            <div
+                              className="Badge middle warningBase"
+                            >
+                              <div
+                                className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                              >
+                                <div
+                                  className="FlexItem"
+                                >
+                                  <div
+                                    className="box xsDisplayInlineBlock"
+                                    style={
+                                      Object {
+                                        "marginTop": "2px",
+                                      }
+                                    }
+                                  >
+                                    Needs attention
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem flexNone"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`PageHeader renders primary action 1`] = `
 <div
   className="pageHeader"

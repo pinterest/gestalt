@@ -32,7 +32,7 @@ function List(): Node {
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLDivElement | HTMLAnchorElement>(null);
 
   return (
     <Flex height="100%" width="100%" alignItems="center" justifyContent="center">

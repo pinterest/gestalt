@@ -13,10 +13,11 @@ import focusStyles from './Focus.css';
 import touchableStyles from './TapArea.css';
 import Flex from './Flex.js';
 import Icon, { type IconColor } from './Icon.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import icons from './icons/index.js';
@@ -152,7 +153,8 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     text,
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
@@ -198,6 +200,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
+    // $FlowFixMe[invalid-computed-prop]
     [styles[colorClass]]: !disabled && !selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
@@ -221,7 +224,10 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     </Text>
   );
 
-  const handleClick = (event, dangerouslyDisableOnNavigation) =>
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
     onClick
       ? onClick({
           event,
@@ -229,8 +235,13 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
         })
       : undefined;
 
-  const handleLinkClick = ({ event, dangerouslyDisableOnNavigation }) =>
-    handleClick(event, dangerouslyDisableOnNavigation);
+  const handleLinkClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
   if (props.role === 'link') {
     const { href, rel = 'none', target = null } = props;

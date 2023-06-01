@@ -1,5 +1,5 @@
 ---
-title: Text field
+title: TextField
 description: TextField allows for multiple types of text input.
 fullwidth: true
 ---
@@ -112,8 +112,10 @@ Make sure your keyboards match the function of your form field. For example, ask
 ## Design tokens
 <iframe style={{border:0}} width="100%" height="1580" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12211%253A22232%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
-## Anatomy
-<iframe style={{border:0}} width="100%" height="430" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12211%253A21706%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+## Anatomy 
+See below how the TextField component is constructed. 
+<br/>
+<iframe style={{border:0}} width="100%" height="562" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D12211%253A21706%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
 
 ## Variants
 1. **With helper text**
@@ -147,26 +149,14 @@ Text Field can display a success message below the field. Always include an icon
 </Group>
 </TwoCol>
 
+## Colors
+Overview of how the TextField colors look in both themes. 
+<br/>
+### Light mode
+<iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D13956%253A23239%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+
+### Dark mode
+<iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D14064%253A23345%26t%3DSivN2y3BCANz7Ao5-1" allowFullScreen></iframe>
+
 ## Animation
 Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/motion).
-
-{/*
-## Related
-
-<TwoCol>
-
-<IllustrationCard
-              title="TextArea"
-              description="TextArea allows for multi-line input."
-              color="green-matchacado-50"
-              image="text-area"
-            />
-
-<IllustrationCard
-              title="SelectList"
-              description="SelectList displays a list of actions or options using the browser’s native select."
-              color="green-matchacado-50"
-              image="select-list"
-            />
-
-</TwoCol> */}

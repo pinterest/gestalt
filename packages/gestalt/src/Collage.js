@@ -50,7 +50,10 @@ const columnLayout = (numOfColumns: 1 | Column) => {
   }
 };
 
-const paddingAll = (gutter, positions) =>
+const paddingAll = (
+  gutter: number,
+  positions: $ReadOnlyArray<{| height: number, left: number, top: number, width: number |}>,
+) =>
   positions.map(({ top, left, width, height }) => ({
     top,
     left,
@@ -58,7 +61,8 @@ const paddingAll = (gutter, positions) =>
     height: height - gutter,
   }));
 
-const mindex = (arr) => arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
+const mindex = (arr: $ReadOnlyArray<number>) =>
+  arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
 
 const columnsForCollageWithCover = (numOfColumns: Column) => (numOfColumns === 4 ? 2 : 1);
 
@@ -96,8 +100,8 @@ function getCollageLayout({
   // that here? a.) fewer dependencies and b.) we need the algorithm to
   // roughly preserve the order of the collages from when they were ordered
   // by Masonry.
-  const colHeights = new Array(gridCols).fill(0);
-  const colCounts = new Array(gridCols).fill(0);
+  const colHeights = new Array<number>(gridCols).fill(0);
+  const colCounts = new Array<number>(gridCols).fill(0);
 
   // We iterate over every position that we think we could _potentially_ have
   // so that we can fill them with empty sections if need be.

@@ -30,6 +30,7 @@ function Providers({ children, isMobile }: {| children: Node, isMobile: boolean 
 
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
+  // $FlowFixMe[missing-local-annot]
   // $FlowFixMe[signature-verification-failure]
   { Component, pageProps, cookieHeader, isMobile, files }, // eslint-disable-line react/prop-types
 ): Node {

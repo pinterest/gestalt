@@ -136,7 +136,7 @@ exports[`renders correctly with explicit hover 1`] = `
 
 exports[`renders correctly without hover 1`] = `
 <tr
-  className={null}
+  className=""
 >
   <td
     className="td"

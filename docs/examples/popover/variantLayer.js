@@ -35,7 +35,7 @@ const images = [
 ];
 
 function SearchBoardField() {
-  const ref = useRef();
+  const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
     ref.current?.focus();
@@ -100,7 +100,7 @@ function List({
 function SelectBoard() {
   const [openPopover, setOpenPopover] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const handleImageTap = (imageTitle: string) => {
     setSelectedBoard(imageTitle);

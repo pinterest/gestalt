@@ -8,12 +8,14 @@ import {
   useEffect,
   useState,
 } from 'react';
+import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
+import layoutStyles from '../Layout.css';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
-type Theme = {|
+export type Theme = {|
   name: string,
   colorRed0: string,
   colorRed100: string,
@@ -40,6 +42,7 @@ type Theme = {|
   colorTransparentWhite: string,
   blueHovered: string,
   blueActive: string,
+  [tokenName: string]: string,
 |};
 
 const lightModeTheme = {
@@ -100,9 +103,73 @@ const darkModeTheme = {
   blueActive: '#4a85c9',
 };
 
+/**
+ * Turns a token name like color-text-warning to colorTextWarning
+ */
+const transformKebabToCamelCase = (tokenName: string): string => {
+  const split = tokenName.split('-');
+  return split
+    .map((w, idx) => {
+      if (idx === 0) return w;
+      const capitalized = w.charAt(0).toUpperCase() + w.slice(1);
+      return capitalized;
+    })
+    .join('');
+};
+
+/**
+ * Appends additional tokens from the Gestalt Tokens Library to the context
+ */
+const addTokensToThemes = () => {
+  // For now, add only the Data Visualization Tokens to the themes
+  const isDataVisualizationToken = (key: string) => key.toLowerCase().includes('data');
+  Object.keys(darkColorDesignTokens).forEach((key) => {
+    if (isDataVisualizationToken(key))
+      (darkModeTheme: Theme)[transformKebabToCamelCase(key)] = darkColorDesignTokens[key];
+  });
+
+  Object.keys(lightColorDesignTokens).forEach((key) => {
+    if (isDataVisualizationToken(key))
+      (lightModeTheme: Theme)[transformKebabToCamelCase(key)] = lightColorDesignTokens[key];
+  });
+};
+
+// runs once, statically appends more tokens to our JSON themes
+addTokensToThemes();
+
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 
-const themeToStyles = (theme) => {
+/**
+ * Appends tokens as injected CSS tokens
+ */
+const themeToStyles = (theme: {|
+  blueActive: string,
+  blueHovered: string,
+  colorGray0: string,
+  colorGray0Active: string,
+  colorGray0Hovered: string,
+  colorGray100: string,
+  colorGray100Active: string,
+  colorGray100Hovered: string,
+  colorGray150: string,
+  colorGray150Hovered: string,
+  colorGray200: string,
+  colorGray200Active: string,
+  colorGray200Hovered: string,
+  colorGray300: string,
+  colorGray400: string,
+  colorGray50: string,
+  colorRed0: string,
+  colorRed100: string,
+  colorRed100Active: string,
+  colorRed100Hovered: string,
+  colorTransparentDarkGray: string,
+  colorTransparentGray100: string,
+  colorTransparentGray500: string,
+  colorTransparentGray60: string,
+  colorTransparentWhite: string,
+  name: string,
+|}) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
@@ -142,6 +209,10 @@ type Props = {|
    */
   colorScheme?: ColorScheme,
   /**
+   * Sets the dimensions of the outputted `<div>` to 100% width and height.
+   */
+  fullDimensions?: boolean,
+  /**
    * An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).
    */
   id?: ?string,
@@ -153,14 +224,15 @@ type Props = {|
 export default function ColorSchemeProvider({
   children,
   colorScheme = 'light',
+  fullDimensions = false,
   id,
 }: Props): Element<typeof ThemeContext.Provider> {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
 
-  const handlePrefChange = (e) => {
-    setTheme(getTheme(e.matches ? 'dark' : 'light'));
+  const handlePrefChange = (event: MediaQueryList) => {
+    setTheme(getTheme(event.matches ? 'dark' : 'light'));
   };
 
   useEffect(() => {
@@ -188,7 +260,14 @@ ${themeToStyles(darkModeTheme)} }
 ${themeToStyles(theme)} }`,
         }}
       />
-      <div className={className}>{children}</div>
+      <div
+        className={classnames(className, {
+          [layoutStyles.fullHeight]: fullDimensions,
+          [layoutStyles.fullWidth]: fullDimensions,
+        })}
+      >
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 }

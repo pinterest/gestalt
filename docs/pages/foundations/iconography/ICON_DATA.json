@@ -642,12 +642,6 @@
       "keywords": ["logo", "share", "email", "send"]
     },
     {
-      "name": "google-plus",
-      "categories": ["Social"],
-      "description": "Indicates a Google Plus service",
-      "keywords": []
-    },
-    {
       "name": "graph-bar",
       "categories": ["Ads and measurement"],
       "description": "Indicates a graph-bar data format",
@@ -900,6 +894,12 @@
       "categories": ["Toggle"],
       "description": "Indicates mobile screen",
       "keywords": ["screen", "size", "break point", "responsive", "phone"]
+    },
+    {
+      "name": "moon",
+      "categories": ["Toggle"],
+      "description": "Indicates dark mode",
+      "keywords": ["dark mode"]
     },
     {
       "name": "move",
@@ -1188,6 +1188,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a Story Pin",
       "keywords": []
+    },
+    {
+      "name": "sun",
+      "categories": ["Toggle"],
+      "description": "Indicates light mode",
+      "keywords": ["light mode"]
     },
     {
       "name": "switch-account",

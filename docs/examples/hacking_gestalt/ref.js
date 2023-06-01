@@ -1,9 +1,9 @@
 // @flow strict
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type Node } from 'react';
 import { Flex, TextField } from 'gestalt';
 
-export default function Example(): React$Node {
-  const ref = useRef();
+export default function Example(): Node {
+  const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
     if (ref.current) {

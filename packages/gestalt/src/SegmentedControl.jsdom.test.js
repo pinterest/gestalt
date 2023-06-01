@@ -4,7 +4,10 @@ import SegmentedControl from './SegmentedControl.js';
 
 describe('<SegmentedControl />', () => {
   it('handles a click', () => {
-    const mockOnChange = jest.fn();
+    const mockOnChange = jest.fn<
+      [{| activeIndex: number, event: SyntheticMouseEvent<HTMLButtonElement> |}],
+      void,
+    >();
     const { getByText } = render(
       <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={mockOnChange} />,
     );

@@ -104,8 +104,8 @@ export default function HelpButton({
   text,
   zIndex,
 }: Props): Node {
-  const tapAreaRef = useRef(null);
-  const textRef = useRef(null);
+  const tapAreaRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
+  const textRef = useRef<null | HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -115,7 +115,7 @@ export default function HelpButton({
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
-  const handlePopoverKeyDown = ({ event }) => {
+  const handlePopoverKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
     // Avoid others KeyDown events to listen this call
     if (innerModalFocus) event.stopPropagation();
 
@@ -141,7 +141,11 @@ export default function HelpButton({
     }
   };
 
-  const handleTapAreaKeyDown = ({ event }) => {
+  const handleTapAreaKeyDown = ({
+    event,
+  }: {|
+    event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => {
     if (event.keyCode === TAB && open) {
       event.preventDefault();
       textRef.current?.focus();
@@ -155,7 +159,16 @@ export default function HelpButton({
     setOpen((currVal) => !currVal);
   };
 
-  const onHandleTap = (...args) => {
+  const onHandleTap = (
+    ...args: $ReadOnlyArray<{|
+      dangerouslyDisableOnNavigation: () => void,
+      event:
+        | SyntheticMouseEvent<HTMLDivElement>
+        | SyntheticKeyboardEvent<HTMLDivElement>
+        | SyntheticMouseEvent<HTMLAnchorElement>
+        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    |}>
+  ) => {
     toggleView();
     onClick?.(...args);
   };

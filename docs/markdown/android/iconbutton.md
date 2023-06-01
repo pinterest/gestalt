@@ -27,8 +27,8 @@ fullwidth: true
 
 ## Best practices
 
-- Avoid using a floating icon button if it obscures important information on the screen. 
-- IconButton on mobile should primarily utilize the lg (44dp) size as the increased size will better accommodate tapping with a finger.   
+- Avoid using a floating icon button if it obscures important information on the screen.
+- IconButton on mobile should primarily utilize the lg (44dp) size as the increased size will better accommodate tapping with a finger.
 
 For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
@@ -46,7 +46,7 @@ Use these tokens for applying size and color styles to IconButton.
 
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A18843%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
-**Please note**: Icons on IconButton have a limited range of colors and sizes compared to regular icons, as they are different components and have particular usage cases. See Icon for additional information. 
+**Please note**: Icons on IconButton have a limited range of colors and sizes compared to regular icons, as they are different components and have particular usage cases. See Icon for additional information.
 
 ## Anatomy
 
@@ -59,22 +59,22 @@ IconButtons use icons instead of text to convey available actions on a screen. S
 
 ## Variants
 
-### Size 
+### Size
 
-**Size specs—Container** 
+**Size specs—Container**
 
 <br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19569%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
-**Size specs—Icon** 
+**Size specs—Icon**
 
 <br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19660%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
 
-**Size use cases** 
+**Size use cases**
 
 1. **lg** **(44dp)**
 Large is the only size that should be used on Pinner surfaces.
@@ -87,23 +87,23 @@ Small IconButton should be used sparingly and only in places where the UI is ver
 
 Icon colors are semantic—they have a specific meaning and aren't arbitrary. There is no disabled color for icons, as that is handled by the button state that an icon is in.
 
-**Light mode** 
+**Light mode**
 <br/>
 
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19752%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
-**Dark mode** 
+**Dark mode**
 <br/>
 
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19857%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
 ## Elevation
 
-For elevated IconButton, we suggest using the IconButtonFloating component (Android documentation in progress). See the [IconButtonFloating web](/web/IconButtonFloating) for reference.
+For elevated IconButton, we suggest using the IconButtonFloating component (Android documentation in progress). See the [IconButtonFloating web](/web/iconbuttonfloating) for reference.
 
 ## Writing
 
-For writing best practices, refer to the [content standards](/foundations/content_standards/ui_elements). 
+For writing best practices, refer to the [content standards](/foundations/content_standards/ui_elements).
 
 <TwoCol>
   <Group>

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useNavigationContext } from './navigationContext.js';
 import { type siteIndexType } from './siteIndex.js';
 
-function convertNamesForURL(name) {
+function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
@@ -17,7 +17,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     navItem: siteIndexType,
     previousSectionName: string,
     nestingLevel: number = 0,
-  ) => {
+  ): Node => {
     // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
     const { id: pathId } = query;
     const urlPath = pathId ? pathId.join('/') : '';

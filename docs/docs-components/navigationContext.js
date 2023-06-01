@@ -34,7 +34,7 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);
 
-  const { pathname } = useRouter();
+  const { asPath: pathname } = useRouter();
 
   let currentPlatform = null;
 
@@ -47,7 +47,6 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   } else if (pathname.includes('/ios/')) {
     currentPlatform = 'ios';
   }
-
   let currentSiteSection = null;
 
   if (currentPlatform) {
@@ -70,7 +69,7 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   );
 
   // Set the cookie, and update the state
-  const setComponentPlatformFilteredByCookie = (organizedBy) => {
+  const setComponentPlatformFilteredByCookie = (organizedBy: ComponentPlatformFilteredBy) => {
     setCookies(localStorageOrganizedByKey, organizedBy);
     setComponentPlatformFilteredBy(organizedBy);
   };

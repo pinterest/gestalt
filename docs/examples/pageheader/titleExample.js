@@ -8,7 +8,7 @@ export default function PageHeaderTitleExample(): Node {
     <React.Fragment>
       <PageHeader
         title="Pinterest app"
-        badge={{ text: 'New', tooltipText: 'New integration' }}
+        badge={{ text: 'New', type: 'info', tooltipText: 'New integration' }}
         helperIconButton={{
           accessibilityControls: '',
           accessibilityExpanded: false,

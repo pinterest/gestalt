@@ -238,7 +238,11 @@ Be brief with text in all components to account for languages with longer words.
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Title"
-          description={`PageHeader's \`title\` is the main part of the component as it represents the page's main heading (it will always be a level 1 heading). It can be complemented with three additional elements: a thumbnail (left) and a badge and/or a help Icon (right). Don't forget to localized its content.`}
+          description={`PageHeader's \`title\` is the main part of the component as it represents the page's main heading (it will always be a level 1 heading).
+
+It can be complemented with three additional elements: a thumbnail (left) and a badge and/or a help Icon (right). The badge style can be changed through [type](/web/badge#Type) option of \`badge\` prop.
+
+Don't forget to localize its content.`}
         >
           <MainSection.Card
             cardSize="lg"

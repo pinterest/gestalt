@@ -129,6 +129,7 @@ export default function Pog({
   };
 
   const classes = classnames(styles.pog, {
+    // $FlowFixMe[invalid-computed-prop]
     [styles[bgColor]]: !selected,
     [styles.selected]: selected,
     [styles.active]: active,

@@ -145,7 +145,6 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
       >
         <Flex alignItems="center" direction="column">
           <Box
-            // $FlowExpectedError[incompatible-type] Flow doesn't understand the non-RGBA colors are valid for Box
             color={color.startsWith('rgba') ? undefined : color}
             {...(color.startsWith('rgba')
               ? {

@@ -52,5 +52,6 @@ export default function clipboardCopy(text: string): Promise<void> {
 
   return success
     ? Promise.resolve()
-    : Promise.reject(new DOMException('The request is not allowed', 'NotAllowedError'));
+    : // $FlowIssue[cannot-resolve-name] DOMException is not part of the internal flow definitions
+      Promise.reject(new DOMException('The request is not allowed', 'NotAllowedError'));
 }

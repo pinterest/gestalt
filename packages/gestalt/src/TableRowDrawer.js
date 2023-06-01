@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
+import classnames from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import { useTableContext } from './contexts/TableContext.js';
@@ -15,18 +16,33 @@ type Props = {|
    */
   drawerContents: Node,
   /**
+   * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  hoverStyle?: 'gray' | 'none',
+
+  /**
    * Unique id for Table.RowDrawer.
    */
   id: string,
+  /**
+   * Indicates if Table.RowDrawer is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  selected?: 'selected' | 'unselected',
 |};
 
 /**
  * Use [Table.RowDrawer](https://gestalt.pinterest.systems/web/table#Table.RowDrawer) to define a row drawer to display additional content.
  */
-export default function TableRowDrawer({ children, drawerContents, id }: Props): Node {
+export default function TableRowDrawer({
+  children,
+  drawerContents,
+  hoverStyle = 'none',
+  id,
+  selected,
+}: Props): Node {
   const { stickyColumns } = useTableContext();
-  const rowRef = useRef();
-  const [columnWidths, setColumnWidths] = useState([]);
+  const rowRef = useRef<?HTMLTableRowElement>();
+  const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
@@ -35,7 +51,7 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
     }
   }, [stickyColumns]);
 
-  const renderCellWithAdjustedIndex = (child, index) => {
+  const renderCellWithAdjustedIndex = (child: Node, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns
@@ -45,12 +61,20 @@ export default function TableRowDrawer({ children, drawerContents, id }: Props):
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+    // $FlowFixMe[incompatible-exact]
+    // $FlowFixMe[incompatible-type]
     return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
   };
 
+  const rowStyle = classnames({
+    [styles.hoverShadeGray]: hoverStyle === 'gray' && selected !== 'selected',
+    [styles.selected]: selected === 'selected',
+    [styles.unselected]: selected === 'unselected',
+  });
+
   return (
     <Fragment>
-      <tr aria-details={drawerContents ? id : undefined} ref={rowRef}>
+      <tr aria-details={drawerContents ? id : undefined} className={rowStyle} ref={rowRef}>
         {/* This needs to be fixed for children wrapped in React.Fragment when sticky columns are present */}
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>

@@ -24,14 +24,20 @@ const flexPropNames = [
 ];
 const dangerousFlexGridDisplays = ['inline-flex', 'grid', 'inline-grid'];
 
+// $FlowFixMe[missing-local-annot]
 function getAttributeName(attributeName): ?string {
   return attributeName?.name;
 }
 
-function getExpressionValues(valueExpression): $ReadOnlyArray<string> {
+function getExpressionValues(valueExpression: {|
+  value: string,
+  consequent: {| value: string |},
+  alternate: {| value: string |},
+|}): $ReadOnlyArray<string> {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
+// $FlowFixMe[missing-local-annot]
 function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   const staticValue = attributeValue?.value;
   const isBooleanShorthand = attributeValue === null;
@@ -58,8 +64,23 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   return undefined;
 }
 
-// $FlowExpectedError[unclear-type]
-function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
+function getDangerouslySetStyles(attributeValue: {|
+  expression: {|
+    properties: $ReadOnlyArray<{
+      key: {| name: string |},
+      value: {
+        properties: $ReadOnlyArray<{
+          key: {| name: string |},
+          value: { properties: $ReadOnlyArray<{ ... }>, ... },
+          ...
+        }>,
+        ...
+      },
+      ...
+    }>,
+  |},
+  // $FlowFixMe[unclear-type]
+|}): any {
   const valueExpression = attributeValue.expression;
   const styleObject = valueExpression?.properties?.find(({ key }) => key.name === '__style');
   if (!styleObject) {
@@ -74,7 +95,15 @@ function getDangerouslySetStyles(attributeValue): null | { [string]: Object } {
   );
 }
 
-function hasDangerouslySetFlexDisplay(stylesObject): boolean {
+function hasDangerouslySetFlexDisplay(
+  stylesObject: null | {|
+    display: {|
+      value: string,
+      consequent: {| value: string |},
+      alternate: {| value: string |},
+    |},
+  |},
+): boolean {
   if (!stylesObject || !stylesObject.display) {
     return false;
   }
@@ -83,7 +112,8 @@ function hasDangerouslySetFlexDisplay(stylesObject): boolean {
     return false;
   }
   return Array.isArray(displayValue)
-    ? displayValue.some((value) => dangerousFlexGridDisplays.includes(value))
+    ? // $FlowFixMe[missing-local-annot]
+      displayValue.some((value) => dangerousFlexGridDisplays.includes(value))
     : dangerousFlexGridDisplays.includes(displayValue);
 }
 

@@ -80,7 +80,7 @@ function List({
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
     <Flex alignItems="start" justifyContent="center" height="100%" width="100%">

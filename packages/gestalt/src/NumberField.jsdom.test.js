@@ -44,7 +44,7 @@ describe('NumberField', () => {
   });
 
   it('forwards a ref to <input />', () => {
-    const ref = createRef();
+    const ref = createRef<HTMLInputElement>();
     render(
       <NumberField
         id="test"
@@ -60,7 +60,10 @@ describe('NumberField', () => {
   });
 
   it('handles blur events', () => {
-    const mockBlur = jest.fn();
+    const mockBlur = jest.fn<
+      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: number | void |}],
+      void,
+    >();
     const { getByDisplayValue } = render(
       <NumberField id="test" onBlur={mockBlur} onChange={jest.fn()} value={42} />,
     );
@@ -71,7 +74,10 @@ describe('NumberField', () => {
   });
 
   it('handles change events', () => {
-    const mockChange = jest.fn();
+    const mockChange = jest.fn<
+      [{| event: SyntheticInputEvent<HTMLInputElement>, value: number | void |}],
+      void,
+    >();
     const { container } = render(<NumberField id="test" onChange={mockChange} value={42} />);
 
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
@@ -87,7 +93,10 @@ describe('NumberField', () => {
   });
 
   it('handles focus events', () => {
-    const mockFocus = jest.fn();
+    const mockFocus = jest.fn<
+      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: number | void |}],
+      void,
+    >();
     const { getByDisplayValue } = render(
       <NumberField id="test" onChange={jest.fn()} onFocus={mockFocus} value={42} />,
     );
@@ -98,7 +107,10 @@ describe('NumberField', () => {
   });
 
   it('handles key down events', () => {
-    const mockKeyDown = jest.fn();
+    const mockKeyDown = jest.fn<
+      [{| event: SyntheticKeyboardEvent<HTMLInputElement>, value: number | void |}],
+      void,
+    >();
     const { container } = render(
       <NumberField id="test" onChange={() => {}} onKeyDown={mockKeyDown} value={42} />,
     );

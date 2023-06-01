@@ -40,7 +40,7 @@ export default function ExampleCode({
   const [expanded, setExpanded] = useState(developmentEditor);
   const [showExpandButton, setShowExpandButton] = useState(hideCodePreview);
   const [maxHeight, setMaxHeight] = useState('500px');
-  const codeExampleRef = useRef(null);
+  const codeExampleRef = useRef<null | HTMLDivElement>(null);
   const codeBoxMinHeight = hideCodePreview ? undefined : '152px';
   let containerBoxMaxHeight;
 
