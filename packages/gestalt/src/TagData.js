@@ -55,11 +55,15 @@ export type Props = {|
    */
   dismissable?: boolean,
   /**
+   * An optional identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TagDatas.
+   */
+  id?: string,
+  /**
    * Handler if the item selection state was changed.
    */
   onTap?: TileChangeHandler,
   /**
-   * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the Tag.
+   * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the TagData.
    */
   onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
   /**
@@ -97,6 +101,7 @@ export default function TagData({
   color = '05',
   dismissable = false,
   disabled = false,
+  id,
   onTap,
   onRemove,
   selected,
@@ -112,6 +117,7 @@ export default function TagData({
   const theme = useColorScheme();
   const borderColor = DataVizColor.getDataVisualizationColor(theme, color);
   const bgColor = DataVizColor.getDataVisualizationColorForBackground(theme, color);
+  const fgColor = disabled ? 'subtle' : 'default';
 
   const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
     borderColor,
@@ -131,13 +137,11 @@ export default function TagData({
     });
 
   const getRemoveIconClasses = ({
-    hovered,
     selected: tapSelected,
     disabled: tapDisabled,
   }: InteractionStates) =>
     classnames(styles.dismissButton, focusStyles.hideOutline, {
       [styles.selected]: tapSelected,
-      [styles.hovered]: hovered,
       [styles.disabled]: tapDisabled,
       [focusStyles.accessibilityOutline]: isFocusVisible,
     });
@@ -153,6 +157,7 @@ export default function TagData({
       rounding={2}
     >
       <Tile
+        id={id}
         rounding={dismissable ? 0 : 2}
         onTap={onTap}
         selected={selected}
@@ -185,25 +190,27 @@ export default function TagData({
                   />
                 )}
                 <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
-                  <Text inline size={sizes[size]?.fontSize} lineClamp={1}>
+                  <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
                     {text}
                   </Text>
                 </div>
               </Box>
-
-              <Box marginStart={disabled ? 2 : 0} height="100%">
+              <Box height="100%">
                 {dismissable && (
                   <button
                     className={getRemoveIconClasses(interactionStates)}
-                    onClick={onRemove}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      onRemove?.({ event });
+                    }}
                     type="button"
-                    style={{ height: '100%' }}
+                    disabled={disabled}
                   >
                     <Icon
                       accessibilityLabel={
                         accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
                       }
-                      color="default"
+                      color={fgColor}
                       icon="cancel"
                       size={8}
                     />

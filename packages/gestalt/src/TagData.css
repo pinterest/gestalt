@@ -45,7 +45,6 @@
 
 .disabled {
   composes: lightGrayBg from "./Colors.css";
-  composes: transparentBorder from "./Borders.css";
   cursor: default;
   pointer-events: none;
 }
