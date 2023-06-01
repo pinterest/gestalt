@@ -282,7 +282,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-// Function to generate the table above
+// Function to generate the table above - need access to fallbackLabels to actually do so
+// eslint-disable-next-line no-unused-vars
 function getLabelsTable(fallbackLabels: { [string]: { [string]: mixed } }) {
   Object.keys(fallbackLabels).flatMap((component) =>
     Object.keys(fallbackLabels[component]).map((prop) => ({
