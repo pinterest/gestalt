@@ -1,3 +1,9 @@
+## 112.5.1 (Jun 1, 2023)
+
+### Patch
+
+- Docs: Fix links on Android docs pages ([#2973](https://github.com/pinterest/gestalt/pull/2973)) - [Preview link](https://deploy-preview-2973--gestalt.netlify.app)
+
 ## 112.5.0 (Jun 1, 2023)
 
 ### Minor
