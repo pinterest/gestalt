@@ -2,11 +2,8 @@
 import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
-import tagStyles from './Tag.css';
 import styles from './TagData.css';
-import touchableStyles from './TapArea.css';
 import Box from './Box.js';
-import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
@@ -58,7 +55,7 @@ export type Props = {|
    */
   dismissable?: boolean,
   /**
-   * Handler if the item selection state is changed.
+   * Handler if the item selection state was changed.
    */
   onTap?: TileChangeHandler,
   /**
@@ -66,13 +63,17 @@ export type Props = {|
    */
   onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
   /**
-   * Controls whether the TileData is selected or not. Use it alongside the OnTap handler.
+   * Controls whether the Tagdata is selected or not. Use it alongside the OnTap handler.
    */
   selected?: boolean,
   /**
    * Size of the Tag Data, see the [sizes](https://gestalt.pinterest.systems.com/web/tagdata#sizes) variant
    */
   size?: 'sm' | 'md' | 'lg',
+  /**
+   * Shows a visible checkbox when Tagdata is in a selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tagdata#Group).
+   */
+  showCheckbox?: boolean,
   /**
    * Short text to render inside the Tag.
    */
@@ -99,6 +100,7 @@ export default function TagData({
   onTap,
   onRemove,
   selected,
+  showCheckbox,
   size = 'md',
   text,
 }: Props): Node {
@@ -106,16 +108,6 @@ export default function TagData({
     useDefaultLabelContext('Tag');
 
   const { isFocusVisible } = useFocusVisible();
-
-  const removeIconClasses = classnames(
-    tagStyles.button,
-    tagStyles.secondary,
-    focusStyles.hideOutline,
-    touchableStyles.tapTransition,
-    {
-      [focusStyles.accessibilityOutline]: isFocusVisible,
-    },
-  );
 
   const theme = useColorScheme();
   const borderColor = DataVizColor.getDataVisualizationColor(theme, color);
@@ -126,7 +118,7 @@ export default function TagData({
     backgroundColor: bgColor,
   };
 
-  const getClasses = ({
+  const getTagClasses = ({
     hovered,
     selected: tapSelected,
     disabled: tapDisabled,
@@ -135,8 +127,19 @@ export default function TagData({
       [styles.selected]: tapSelected,
       [styles.hovered]: hovered,
       [styles.disabled]: tapDisabled,
-      [styles.tagWrapperDismiss]: dismissable,
-      [styles.tagWrapperRounded]: !dismissable,
+      [styles.tagWrapperRounded]: tapSelected,
+    });
+
+  const getRemoveIconClasses = ({
+    hovered,
+    selected: tapSelected,
+    disabled: tapDisabled,
+  }: InteractionStates) =>
+    classnames(styles.dismissButton, focusStyles.hideOutline, {
+      [styles.selected]: tapSelected,
+      [styles.hovered]: hovered,
+      [styles.disabled]: tapDisabled,
+      [focusStyles.accessibilityOutline]: isFocusVisible,
     });
 
   const checkboxId = useId();
@@ -165,44 +168,47 @@ export default function TagData({
             );
 
             return (
-              <div className={getClasses(interactionStates)} style={tileStyle}>
-                <Flex alignItems="center" height="100%" gap={2}>
-                  <InternalCheckbox
-                    id={`readonly-checkbox-${checkboxId}`}
-                    checked={selectedTap}
-                    readOnly
-                    size="sm"
-                    style={checkBoxStyle}
-                  />
-                  <div title={text} style={{ height: '100%' }}>
+              <div className={getTagClasses(interactionStates)} style={tileStyle}>
+                <Box alignItems="center" display="flex" padding={2} width="100%">
+                  {showCheckbox && (
+                    <InternalCheckbox
+                      id={`readonly-checkbox-${checkboxId}`}
+                      checked={selectedTap}
+                      readOnly
+                      size="sm"
+                      style={checkBoxStyle}
+                    />
+                  )}
+                  <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
                     <Text inline size={sizes[size]?.fontSize} lineClamp={1}>
                       {text}
                     </Text>
                   </div>
-                </Flex>
+                </Box>
+
+                <Box marginStart={disabled ? 2 : 0} height="100%">
+                  {dismissable && (
+                    <button
+                      className={getRemoveIconClasses(interactionStates)}
+                      onClick={onRemove}
+                      type="button"
+                      style={{ height: '100%' }}
+                    >
+                      <Icon
+                        accessibilityLabel={
+                          accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+                        }
+                        color="default"
+                        icon="cancel"
+                        size={8}
+                      />
+                    </button>
+                  )}
+                </Box>
               </div>
             );
           }}
         </Tile>
-        <Box marginStart={disabled ? 2 : 0} height="100%">
-          {dismissable && (
-            <button
-              className={removeIconClasses}
-              onClick={onRemove}
-              type="button"
-              style={{ height: '100%' }}
-            >
-              <Icon
-                accessibilityLabel={
-                  accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-                }
-                color="default"
-                icon="cancel"
-                size={8}
-              />
-            </button>
-          )}
-        </Box>
       </Box>
     </Box>
   );

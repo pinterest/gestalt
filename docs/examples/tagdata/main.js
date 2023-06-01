@@ -9,6 +9,7 @@ export default function Example(): Node {
     <TagData
       text="Impressions"
       size="lg"
+      dismissable
       selected={isSelected}
       onTap={() => {
         setSelected(!isSelected);

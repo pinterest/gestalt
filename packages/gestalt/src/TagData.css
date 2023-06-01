@@ -5,7 +5,6 @@
 }
 
 .tagWrapperRounded {
-  border-radius: 8px;
   border-width: var(--g-border-width-lg);
 }
 
@@ -13,8 +12,7 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  composes: paddingX2 from "./boxWhitespace.css";
-  composes: paddingY2 from "./boxWhitespace.css";
+  border-radius: 8px;
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: secondary from "./Colors.css";
@@ -45,4 +43,20 @@
   composes: transparentBorder from "./Borders.css";
   cursor: default;
   pointer-events: none;
+}
+
+.dismissButton {
+  composes: transparentBg from "./Colors.css";
+  composes: noBorder from "./Borders.css";
+  composes: pointer from "./Cursor.css";
+  border-radius: 0 8px 8px 0;
+  height: 100%;
+}
+
+.dismissButton:focus {
+  border-radius: 0 8px 8px 0;
+}
+
+.dismissButton:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
