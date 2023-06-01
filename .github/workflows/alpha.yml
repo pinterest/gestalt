@@ -1,0 +1,63 @@
+name: Alpha Release
+
+on:
+  push:
+    paths-ignore:
+      - 'CHANGELOG.md'
+    tags-ignore:
+      - '**'
+    branches:
+      - alpha
+
+jobs:
+  release-alpha:
+    name: Alpha Release Gestalt
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    if: |
+      contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt'
+    steps:
+      - name: Set Pre-Release label
+        id: extract_labels
+        run: |
+          echo "::set-output name=labels::["prerelease release"]"
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Setup npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
+      - name: Install dependencies
+        run: yarn install
+      - name: Setup GitHub access tokens
+        env:
+          RYAN_GITHUB_PERSONAL_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+        run: |
+          echo "machine github.com" >> ~/.netrc
+          echo "login dangerismycat" >> ~/.netrc
+          echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
+      - name: Release Steps
+        id: pre_release
+        run: ./scripts/releaseSteps.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABELS: ${{ steps.extract_labels.outputs.labels }}
+      - name: Get Github Workflow Version
+        run: echo ${{ steps.pre_release.outputs.VERSION }}
+      - name: Publish Alpha to npm
+        run: |
+          cd packages/gestalt-design-tokens
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }} --tag alpha
+          cd ../gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }} --tag alpha
+          cd ../gestalt-datepicker
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }} --tag alpha
+          cd ../eslint-plugin-gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.pre_release.outputs.VERSION }} --tag alpha
