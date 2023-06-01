@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Table } from 'gestalt';
+import { Text, Table, Link } from 'gestalt';
 import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -250,8 +250,11 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           }
         />
       </MainSection>
-      <MainSection name="Defaults strings provided">
-        <Table accessibilityLabel="Defaults strings provided table">
+      <MainSection
+        name="Default strings provided"
+        description="The following strings are provided by default:"
+      >
+        <Table accessibilityLabel="Default strings provided table">
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>
@@ -261,7 +264,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 <Text weight="bold">Prop</Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
-                <Text weight="bold">Default Label</Text>
+                <Text weight="bold">Default String</Text>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -270,10 +273,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             {getLabelsTable().map(({ component, prop, label }) => (
               <Table.Row key={`${component}-${prop}`}>
                 <Table.Cell>
-                  <Text>{component}</Text>
+                  <Text>
+                    <Link href={`/web/${component.toLowerCase()}`}>{component}</Link>
+                  </Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text>{prop}</Text>
+                  <Text>
+                    <code>{prop}</code>
+                  </Text>
                 </Table.Cell>
                 <Table.Cell>
                   <Text>{label}</Text>
