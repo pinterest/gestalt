@@ -51,16 +51,6 @@ Feedback should be provided to describe a successful search, one that is process
 ## Design tokens
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9334%253A20613%26t%3DuRG22TuwKvZC87MH-1" allowFullScreen></iframe>
 
-
-## Content
-- Don't truncate label text. If the text is too long for one line, it should be reduced.
-- Use clear labeling with placeholder text that indicates what the user can search for. For example, “Search products”, Search Users,” etc.
-- Use consistent language/naming for the SearchField and it’s labels across screens. 
-- Provide clear and concise error messages that are easy to understand and provide guidance on how to correct the search query or find alternative content.
-- If needed, provide helper text to clarify the SearchFields purpose. Especially when users could be unfamiliar with the app or it’s search functionality. 
-
-For writing best practices, refer to the [Content standards](https://gestalt.pinterest.systems/foundations/content_standards/voice). 
-
 ## Anatomy
 <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9334%253A19655%26t%3DuRG22TuwKvZC87MH-11" allowFullScreen></iframe>
 
@@ -113,16 +103,11 @@ The SearchField can include an Button trailing after the field. This button serv
 </Group>
 </TwoCol>
 
-{/*
-## Related
+## Writing
+- Don't truncate label text. If the text is too long for one line, it should be reduced.
+- Use clear labeling with placeholder text that indicates what the user can search for. For example, “Search products”, Search Users,” etc.
+- Use consistent language/naming for the SearchField and it’s labels across screens. 
+- Provide clear and concise error messages that are easy to understand and provide guidance on how to correct the search query or find alternative content.
+- If needed, provide helper text to clarify the SearchFields purpose. Especially when users could be unfamiliar with the app or it’s search functionality. 
 
-<TwoCol>
-
-<TextField
-              title="TextField"
-              description="TextField allows for multiple types of text input."
-              color="green-matchacado-50"
-              image="text-field"
-            />
-
-</TwoCol> */}
+For writing best practices, refer to the [Content standards](https://gestalt.pinterest.systems/foundations/content_standards/voice). 

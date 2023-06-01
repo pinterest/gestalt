@@ -4,7 +4,7 @@ description: Avatar is used to represent a user. Every Avatar image has a subtle
 fullwidth: true
 ---
 
-<ImgContainer padding="standard" src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="all variations of the avatar component"/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/6d/e1/8b/6de18ba22c600bb022f45629556385e4.png" alt="all variations of the avatar component"/>
 
 ## Usage guidelines
 
@@ -20,25 +20,24 @@ fullwidth: true
 </TwoCol>
 
 ## Best practices
-
+For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
 - Use the default alternative if no image source is available. This will be the first character of the provided name.
 - Don’t place elements like washes, text or icons on Avatar.
 - Don’t use Avatar to represent metaphorical ideas, like a Board.
-
-For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
+<br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/92/e5/ec/92e5ec30eb262ff1decfb70653a0d92c.png" alt="example profile with correct avatar size"/>
+    <ImgContainer src="https://i.pinimg.com/originals/83/4c/85/834c85d6296e37c23cbae448168cb5aa.png" alt="example profile with correct avatar size"/>
     <Do title="Do" />
     Use round Avatars in the appropriate size for your need.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/43/f4/5c/43f45caf6d30655c47eaaf89e4a9d6d4.png" alt="example of triangle avatar"/>
+    <ImgContainer src="https://i.pinimg.com/originals/30/ef/9d/30ef9d831e6b7b548699da80c0522cc8.png" alt="example of triangle avatar"/>
     <Dont title="Don't" />
     Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/f4/5d/bd/f45dbde69d53684aeab0a81eede52609.png" alt="avatar with a name underneath"/>
+    <ImgContainer src="https://i.pinimg.com/originals/6a/83/92/6a83922c62920e546b682a27042b7d57.png" alt="avatar with a name underneath"/>
     <Do title="Do" />
     Use the collaborator’s name nearby or in an alternative view if possible.
   </Group>
@@ -51,6 +50,13 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 [Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FC7wC6TnM4VTM1qsmtVUVq0%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33387%26t%3D1nM9mzfmuC0Y1RGQ-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33041%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+
 ## Variants
 
 ### Size
@@ -62,23 +68,34 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 5. **sm** **(24px)**
 6. **xs** **(16px)**
 
-<ImgContainer src="https://i.pinimg.com/originals/af/75/6f/af756f3ad767857e5695d6cb626c1a12.png" alt="different avatar variations"/>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33199%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
 ### Without an image
 
 If there is no image source provided for the Avatar, the first character of the name provided will be used as a placeholder.
+1. With image
+2. Without image
 
 <br/>
+<TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33121%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+  </Group>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20221%253A35222%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+  </Group>
+  </TwoCol>
 
-<ImgContainer src="https://i.pinimg.com/originals/09/fb/35/09fb35ea880ea6748003d7ed0b3de426.png" alt="avatar without any image"/>
+### Stroke
 
-## Related
+The avatar has an optional 1dp border. 
 
-<ThreeCol>
-  <IllustrationCard
-  title="AvatarGroup"
-  description="AvatarGroup is the ideal component where multiple people/groups need to be displayed"
-  color="teal-spabattical-450"
-  image="avatar-group"
-  />
-</ThreeCol>
+<br/>
+<TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33528%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+  </Group>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33617%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+  </Group>
+  </TwoCol>
