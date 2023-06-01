@@ -16,6 +16,7 @@ import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
@@ -85,10 +86,27 @@ export default function PartialPage({
   subHeading,
   zIndex,
 }: Props): Node {
-  const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
-
   const id = useId();
 
+  // Consumes DefaultLabelProvider
+  const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
+
+  // Consumes GlobalEventsHandlerProvider
+  const { sheetMobileHandlers } = useGlobalEventsHandlerContext() ?? {
+    sheetMobileHandlers: { onOpen: () => {}, onClose: () => {} },
+  };
+
+  const { onClose, onOpen } = sheetMobileHandlers ?? { onOpen: () => {}, onClose: () => {} };
+
+  useEffect(() => {
+    onOpen?.();
+
+    return function cleanup() {
+      onClose?.();
+    };
+  }, [onClose, onOpen]);
+
+  // Consumes AnimationProvider & RequestAnimationFrameProvider
   const { animationState, handleAnimationEnd } = useAnimation();
   const { handleRequestAnimationFrame, onExternalDismiss } = useRequestAnimationFrame();
 
@@ -100,17 +118,9 @@ export default function PartialPage({
     });
   }, [animationState, onAnimationEnd, handleAnimationEnd, handleRequestAnimationFrame]);
 
-  const handleBackdropClick = useCallback(() => {
-    onOutsideClick?.();
-
-    if (closeOnOutsideClick) {
-      onExternalDismiss();
-    }
-  }, [closeOnOutsideClick, onExternalDismiss, onOutsideClick]);
-
+  // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
     function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
-      // Handle onDismiss triggering from ESC keyup event
       if (event.keyCode === ESCAPE) {
         onExternalDismiss();
       }
@@ -122,10 +132,10 @@ export default function PartialPage({
     };
   }, [onExternalDismiss]);
 
+  // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
   useEffect(() => {
     let prevOverflowStyle = 'auto';
 
-    // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
     if (window && window.body?.style?.overflow) {
       prevOverflowStyle = window.body.style.overflow;
       window.body.style.overflow = 'hidden';
@@ -143,6 +153,15 @@ export default function PartialPage({
       onDismiss();
     }
   }, [animationState, onDismiss]);
+
+  // Handle click outside the bottom sheet
+  const handleBackdropClick = useCallback(() => {
+    onOutsideClick?.();
+
+    if (closeOnOutsideClick) {
+      onExternalDismiss();
+    }
+  }, [closeOnOutsideClick, onExternalDismiss, onOutsideClick]);
 
   return (
     <StopScrollBehavior>

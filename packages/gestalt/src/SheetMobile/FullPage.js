@@ -6,6 +6,7 @@ import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
@@ -61,8 +62,26 @@ export default function FullPage({
   showDismissButton,
   subHeading,
 }: Props): Node {
+  const id = useId();
+
+  // Consumes DefaultLabelProvider
   const { accessibilityLabel: defaultAccessibilityLabel } = useDefaultLabelContext('SheetMobile');
 
+  // Consumes GlobalEventsHandlerProvider
+  const { sheetMobileHandlers } = useGlobalEventsHandlerContext() ?? {
+    sheetMobileHandlers: { onOpen: () => {}, onClose: () => {} },
+  };
+
+  const { onClose, onOpen } = sheetMobileHandlers ?? { onOpen: () => {}, onClose: () => {} };
+  useEffect(() => {
+    onOpen?.();
+
+    return function cleanup() {
+      onClose?.();
+    };
+  }, [onClose, onOpen]);
+
+  // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
       if (event.keyCode === ESCAPE) {
@@ -76,12 +95,10 @@ export default function FullPage({
     };
   }, [onDismiss]);
 
-  const id = useId();
-
+  // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
   useEffect(() => {
     let prevOverflowStyle = 'auto';
 
-    // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
     if (window && window.body?.style?.overflow) {
       prevOverflowStyle = window.body.style.overflow;
       window.body.style.overflow = 'hidden';
