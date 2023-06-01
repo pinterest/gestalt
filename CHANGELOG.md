@@ -1,3 +1,9 @@
+## 112.3.9 (Jun 1, 2023)
+
+### Patch
+
+- Table: Convert examples to use Sandpack ([#2969](https://github.com/pinterest/gestalt/pull/2969)) - [Preview link](https://deploy-preview-2969--gestalt.netlify.app)
+
 ## 112.3.8 (Jun 1, 2023)
 
 ### Patch
