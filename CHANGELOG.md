@@ -1,3 +1,9 @@
+## 112.4.0 (Jun 1, 2023)
+
+### Minor
+
+- GlobalEventsHandlerProvider: new provider to share global event handlers to consuming components ([#2959](https://github.com/pinterest/gestalt/pull/2959)) - [Preview link](https://deploy-preview-2959--gestalt.netlify.app)
+
 ## 112.3.9 (Jun 1, 2023)
 
 ### Patch
