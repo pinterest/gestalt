@@ -4,7 +4,7 @@ description: Use Switch for single-cell options that can be turned on and off on
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/90/ad/d390ad2e3fa4c1c8319d7baa7508cb0a.jpg"  alt="Primary example of Switch component" />
+<ImgContainer src="https://i.pinimg.com/originals/9d/ce/b3/9dceb3b2c53cb702f9791bd69d91e7b0.png"  alt="Primary example of Switch component" />
 
 ## Usage guidelines
 
@@ -66,6 +66,12 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19372%253A35341%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19372%253A35107%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
 ## Variants
 
 ### Disabled and active states
@@ -98,6 +104,25 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/e2/12/af/e212aff2d4ff881e3246bdbe2396a058.jpg"  alt="Example of disabled active state of Switch" />
     **Disabled | Active state**
+  </Group>
+</TwoCol>
+
+### With label
+
+1. **Label left**
+Label sits to the left of the switch
+1. **Label right**
+Label sits to the right of the switch
+
+<TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20083%253A35488%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+    **Label left**
+  </Group>
+
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20083%253A35651%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+    **Label right**
   </Group>
 </TwoCol>
 

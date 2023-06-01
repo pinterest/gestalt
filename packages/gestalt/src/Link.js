@@ -18,10 +18,11 @@ import textStyles from './Typography.css';
 import Box from './Box.js';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 

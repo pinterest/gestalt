@@ -32,7 +32,7 @@ export default function Example(): Node {
   const [selectedItems, setSelectedItems] = useState(allIds);
 
   return (
-    <Flex gap={4} justifyContent="center">
+    <Flex gap={4} justifyContent="center" alignItems="center" width="100%" height="100%" wrap>
       {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
           key={id}

@@ -73,6 +73,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
                 code={singleTileDont}
                 name="show one tile not selected"
                 hideEditor
+                hideControls
                 previewHeight={200}
               />
             }
@@ -101,6 +102,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
                 code={multipleCheckboxDont}
                 name="not show multiple with checkboxes"
                 hideEditor
+                hideControls
                 previewHeight={200}
               />
             }

@@ -201,7 +201,7 @@ const getTheme = (colorScheme: ?ColorScheme) =>
 
 type Props = {|
   /**
-   *
+   * Context lets a parent component provide data to the entire tree below it. Only components within the ColorSchemeProvider tree will be able to subscribe to it.
    */
   children: Node,
   /**

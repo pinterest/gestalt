@@ -11,18 +11,19 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />
-      - Communicating an action that will occur.
-      - Triggering or enabling an action, such as submitting requested information.
-      - Progressing or regressing a user through a step in a flow.
+    - Communicating an action that will occur.
+    - Triggering or enabling an action, such as submitting requested information.
+    - Progressing or regressing a user through a step in a flow.
   </Group>
   <Group>
   <Dont title="When not to use" />
-     - Directing users to a new page or different part within the same page. Instead, use [Link](https://gestalt.pinterest.systems/web/link).
-     - Limited space available. Consider using an [IconButton](https://gestalt.pinterest.systems/android/iconbutton) instead.
+    - Directing users to a new page or different part within the same page.
+    - Limited space available. Consider using an IconButton instead.
   </Group>
 </TwoCol>
 
-## Mobile best practices
+## Best practices
+
 For general Button best practices, refer to the [Button web documentation](/web/button).
 - Place primary buttons to the right or top of other buttons when in a button group.
 - Keep elements inside a button container grouped. Label text and icons should remain centered when the Button width increases.
@@ -36,6 +37,12 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="1500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A35145%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A34374%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
 ## Variants
 
 ### Size
@@ -47,17 +54,7 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 2. **sm (48dp)**
    Small should be used sparingly and only in places where the UI is very dense.
 
-<TwoCol>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/33/8b/84/338b84c2f282d39a9fe20dcf7b3b9622.png" alt="a small red button that says Save" />
-size = “sm”
-</Group>
-
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/6e/da/6b/6eda6b3f5412607b31d58446b97d57c1.png" alt="a large red button that says Save"/>
-size = "lg"
-</Group>
-</TwoCol>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A34077%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
 ### Width
 
@@ -68,19 +65,73 @@ size = "lg"
 
 <TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/ef/87/89/ef878985da4fe1eb9a18471ec0506aca.png" alt="a default button that says Save and is the length of its text"/>
-default
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19158%253A36268%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/41/aa/cd/41aacd4f33058566574f283498a3612c.png" alt="a fullwidth button that says Save and is the full width of the content area"/>
-fullWidth
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19158%253A36413%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
 
-## Styling
+### Styling
+For more information on color, icons, roles, and states, refer to the [web Button documentation](/web/button)
+1. **Red (Primary)**
+High emphasis, used for primary actions.
+2. **Blue (Primary in shopping context)**
+The blue Button is only intended for the shopping experience and is used for primary shopping actions.
+3. **Gray (Secondary)**
+Medium emphasis, used for secondary actions.
+4. **Transparent (Tertiary)**
+Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. Note, this treatment should be used with caution as it has potential color contrast issues.
+<br/>
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A45560%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
-For information on color, icons, roles, and states, refer to the [web Button documentation](/web/button).
+**Primary**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A45881%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+**Shopping**
+</Group>
+</TwoCol>
+
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A45667%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+**Secondary**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A45774%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+**Tertiary**
+</Group>
+</TwoCol>
+
+### States
+1. **Disabled**
+Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
+2. **Selected**
+When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown).
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46095%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Disabled**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A45988%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Selected**
+</Group>
+</TwoCol>
+
+
+## Color
+<iframe style={{border:0}} width="100%" height="640" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D21497%253A48071%26t%3DH6iA4iyiJUHmCEcT-1" allowFullScreen></iframe>
 
 ## Writing
 

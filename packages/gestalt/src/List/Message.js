@@ -21,8 +21,10 @@ export default function ListText({ text }: Props): Node {
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  // $FlowFixMe[underconstrained-implicit-instantiation]
-  if (typeof text !== 'string' && Children.only(text)?.type.displayName === 'Text') {
+  if (
+    typeof text !== 'string' &&
+    Children.only<Element<typeof Text>>(text)?.type.displayName === 'Text'
+  ) {
     const isDarkMode = colorSchemeName === 'darkMode';
 
     const textColorOverrideStyles = isDarkMode

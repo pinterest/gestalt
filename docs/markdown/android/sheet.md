@@ -4,7 +4,7 @@ description: Sheets are bottom-anchored overlays that that allow the user to eas
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/41/a6/36/41a6369d262d24bf04d08ee32beef508.png" alt="examples of three types of sheets: a Full sheet, a Partial resizable sheet and an Action sheet"/>
+<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/11/ab/a3/11aba3afb1a02f7d604d1bf22424b5ec.png" alt="Example of a sheet receding off the view of the image"/>
 
 ## Usage guidelines
 
@@ -25,20 +25,20 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Mobile best practices
+## Best practices
 
 - Sheets should be triggered by the users action, like tapping on a button.
 - Use a sheet for non-immersive content and simple tasks.
 - Sheets always sit in front of other UI elements.
-
+<br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/84/d4/0d/84d40d290128608db361a276a586da87.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/ce/13/94/ce1394f470a86edaeb29978641c7c6e4.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
     Provide a collapse or a close affordance&mdash;multiple if possible. This could include an X, back arrow, grabber or close button.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/5d/3a/20/5d3a20657045824cb4b7d89263b6ec30.png" alt="a partial sheet with a button in the top right corner of the header"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/70/95/9b/70959b4f5d631bcbe014135dbeaf661d.png" alt="a partial sheet with a button in the top right corner of the header"/>
     <Dont title="Don't" />
     Include Buttons in the header of Sheet as this can lead to sizing and internationalization problems.
   </Group>
@@ -46,11 +46,11 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/06/e9/6f/06e96f0193da3a32a25d7f1174d5dfa1.png" alt="a partial sheet with a grabber to help resize"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/5a/7b/1c/5a7b1c7de2a285aaabfeba183b7ded6c.png" alt="a partial sheet with a grabber to help resize"/>
     <Do title="Do" />Utilize a grabber for Partial sheets that are able to be resized.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/62/a4/fa/62a4fa0befb32c836519b6d9f1af5f28.png" alt="a full sheet with rounded corners"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/66/b4/aa/66b4aa9ed823011e68c640174f62e2f2.png" alt="a full sheet with rounded corners"/>
     <Dont title="Don't" />
     Round the corners of full sheets. Only Partial and Action sheets should have rounded corners.
   </Group>
@@ -63,35 +63,60 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 - [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 - [Accessible development on Android](hhttps://developer.android.com/guide/topics/ui/accessibility)
 
-## Variants
+## Design tokens
+<iframe style={{border:0}} width="100%" height="940" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A34356%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
-### Size
-
-Sheets are available in three sizes.
-
-1. **Full sheet**
-   Full sheet is always the full height of the viewport. They need to be dismissed to interact with underlying content.
-2. **Partial sheet**
-   Partial sheet can be any height from 50% to 90% of the viewport. They are used when content on the sheet relates to the layer behind, therefore a background wash is optional. They are dismissed by swiping down or tapping outside of the sheet area.
-3. **Action sheet**
-   Action sheets can be any height up to 50% of the viewport. They always include a background wash and need to be dismissed to interact with the underlying content. Action sheets can serve as an alternative to dialogs and inline menus.
-
-<ThreeCol>
+## Anatomy
+<TwoCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/5a/47/1d/5a471d7d44d380915953f57777455c7d.png" alt="a Full sheet that takes up the full phone screen and shows a profile picture and the ability to see ideas from a pinner, along with other actions like downloading and changing the profile picture" />
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A35498%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 **Full sheet**
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/09/7a/72/097a72f92026753e50b29641eab975ff.png" alt="a Partial sheet that can be closed and/or resized. It is for Creating a board" />
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A34240%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Partial sheet**
+</Group>
+</TwoCol>
+
+## Variants
+
+### Size
+
+Sheets are available in two sizes.
+
+1. **Partial sheet**
+   Partial sheet can be any height from 50% to 90% of the viewport. They are used when content on the sheet relates to the layer behind, therefore a background wash is optional. They are dismissed by swiping down or tapping outside of the sheet area.
+2. **Full sheet**
+   Full sheet is always the full height of the viewport. They need to be dismissed to interact with underlying content.
+
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A35799%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 **Partial sheet**
 </Group>
 
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/df/d3/8f/dfd38f800948c6bc8f3cb5a53d575a87.png" alt="An Action sheet that allows for sorting and organization" />
-**Action sheet**
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A34025%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Full sheet**
 </Group>
-</ThreeCol>
+</TwoCol>
+
+### Footer
+
+Sheet footers are optional for both partial and full sheets.
+
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20848%253A47234%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Full sheet**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A36388%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Partial sheet**
+</Group>
+</TwoCol>
 
 ### Navigation
 
@@ -110,8 +135,13 @@ Sheets can utilize several navigation actions.
 5. **Outside click**
    For the Partial Sheet and Action Sheet the user may be able to tap outside of the sheet to exit.
 
+## Color
+<iframe style={{border:0}} width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A35930%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+## Localization
+Be sure to localize the header, body content and any footer items. Note that localization can lengthen text by 20 to 30 percent.
+<br/>
+<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/d3/3d/f0/d33df0c4e7fcfa4847785dfd23602e42.png" alt="Example of a sheet receding off the view of the image"/>
+
 ## Animation
-
 By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
-
-

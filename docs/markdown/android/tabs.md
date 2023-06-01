@@ -4,7 +4,7 @@ description: Tabs may be used to navigate between multiple URLs. Tabs are intend
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/5b/b9/0e/5bb90ee7b0b2e9f336cb803303f3eecf.png" width={413} height={48} alt="an example of tabs"/>
+<ImgContainer src="https://i.pinimg.com/originals/53/2a/58/532a582ec88923c308981698ea921ce7.png" alt="an example of tabs"/>
 
 ## Usage guidelines
 
@@ -30,22 +30,22 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d7/27/63/d727634455161d98e7614c8b12b956f6.png" width={233} height={48} alt="example with concise tab labels"/>
+    <ImgContainer src="https://i.pinimg.com/originals/55/7a/d8/557ad8eec26e2cba4281430ac17a4f9b.png" alt="example with concise tab labels"/>
     <Do title="Do" />
     Keep Tab labels short and concise, one or two words.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/ae/f7/f8/aef7f8343979091c40c01111e732a95c.png" width={78} height={48} alt="example of only one tab"/>
+    <ImgContainer src="https://i.pinimg.com/originals/1c/07/51/1c075150e78c4e55b403424786d659ab.png" alt="example of only one tab"/>
     <Dont title="Don't" />
     Hide or disable Tabs if that Tab’s content is empty. Additionally, there should always be at least two tabs.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/0d/08/71/0d08712e4810341422d3d20fbe9fd4cb.png" alt="example of tabs scrolling horizontally"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/ce/cd/a3/cecda350757cfb6370705f46b2f64516.png" alt="example of tabs scrolling horizontally"/>
     <Do title="Do" />
     Allow tabs to scroll horizontally.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fe/97/b2/fe97b2a279741762771f98bcd47e8e15.png" alt="example of tabs with truncated labels"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/fb/a9/a5/fba9a5d63809b6217dc2e76a8121dffc.png" alt="example of tabs with truncated labels"/>
     <Dont title="Don't" />
     Truncate tabs to fit within a view.
   </Group>
@@ -57,6 +57,22 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 [Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+
+## Design tokens
+<iframe style={{border:0}} width="100%" height="1100" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A37878%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+## Anatomy
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A37718%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Default tabs**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A38295%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Filled tabs**
+</Group>
+</TwoCol>
 
 ## Variants
 
@@ -71,14 +87,12 @@ This variant may be used if you have two or three tabs. Center aligned Tabs shou
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/00/f2/1e/00f21e5c900eba214a575805c2198820.png" alt="start aligned tabs"/>
-    
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/55/e2/ad/55e2addac3e74b55e61833a91da185f5.png" alt="start aligned tabs"/>
     **Start or end aligned (Default)**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/dc/60/4d/dc604d623a98939ed89acad50e77bdab.png" alt="center aligned tabs"/>
-   
-    **Center aligned**
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/de/a4/0f/dea40fda2ea9af1a06fec7faa719f90f.png" alt="center aligned tabs"/>
+   **Center aligned**
   </Group>
 </TwoCol>
 
@@ -86,23 +100,27 @@ This variant may be used if you have two or three tabs. Center aligned Tabs shou
 
 Tabs can be aligned to either the start or end point depending on language direction or centered.
 
-1. **Filled (Default)**
-This is the default tab style. Use the filled style for any Tabs that sit within a screen.
-2. **Underline**
+1. **Underline**
 The underline style of Tabs sits primarily in the header of the screen.
-
+2. **Filled (Default)**
+This is the default tab style. Use the filled style for any Tabs that sit within a screen.
+<br/>
 <TwoCol>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cd/56/43/cd5643de79de5d00f4dff323451fb5d3.png" alt="filled tabs style"/>
-    
-    **Filled (Default)**
-  </Group>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/95/07/7b/95077b097278c0d1a69e16397ab268a7.png" alt="underlined tabs style"/>
-    
-    **Underline**
-  </Group>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A37796%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Default tabs**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A38507%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+**Filled tabs**
+</Group>
 </TwoCol>
+
+## Localization
+Be sure to localize the tab text. Note that localization can lengthen text by 20 to 30 percent.
+<br/>
+<ImgContainer src="https://i.pinimg.com/originals/00/a4/ce/00a4cef58fafd51e28808e8a46c4f5b6.png" alt="start aligned tabs"/>
 
 ## Animation
 

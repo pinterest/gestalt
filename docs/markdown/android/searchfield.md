@@ -49,11 +49,10 @@ Be sure that a unique label is associated with the correct field. The SearchFiel
 Feedback should be provided to describe a successful search, one that is processing or if an error has occurred. This messaging should be associated with the SearchField so that it is recognized by screen readers.
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9334%253A20613%26t%3DuRG22TuwKvZC87MH-1" allowFullScreen></iframe>
-
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D9334%253A20613%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9334%253A19655%26t%3DuRG22TuwKvZC87MH-11" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D9334%253A19655%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 1 Container | 2 Content | 3 Label | 4 Helper text | 5 Leading icon | 6 Trailing icon
 For more detailed anatomy, visit the [Android SearchField](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?node-id=9334%3A19654&t=uRG22TuwKvZC87MH-1) page in Figma. 
@@ -67,7 +66,7 @@ The default search field is meant to handle the bulk of search tasks. It include
 <ImgContainer src="https://i.pinimg.com/originals/4d/f7/2b/4df72bc804f8be0e8ce79b7c870b06af.jpg" alt="An example of a default search field." />
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9867%253A21179%26t%3D5ACadZVcuphJYW1e-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D9867%253A21179%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
 
@@ -78,7 +77,7 @@ When text is entered into a search field, the entered text color will change to 
 <ImgContainer src="https://i.pinimg.com/originals/dd/47/af/dd47af8f79e4a51124b921f825c31918.jpg" alt="An example of a search field with text entered and a clear icon." />
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9867%253A21179%26t%3D5ACadZVcuphJYW1e-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?type=design&node-id=9867%3A21703&t=qA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
 
@@ -89,7 +88,7 @@ The SearchField can include an IconButton leading before the field. This icon bu
 <ImgContainer src="https://i.pinimg.com/originals/c3/da/a4/c3daa418e8461758fdc01d97b7d87873.jpg" alt="An example of a search field with a leading icon button allowing the user to move backwards." />
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9867%253A21270%26t%3D5ACadZVcuphJYW1e-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D9867%253A21270%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
 
@@ -100,7 +99,7 @@ The SearchField can include an Button trailing after the field. This button serv
 <ImgContainer src="https://i.pinimg.com/originals/0b/ed/90/0bed902cb36ad0f78bdb4ccac1640433.jpg" alt="An example of a search field with a trailing button, allowing the user to cancel the search." />
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D9867%253A21356%26t%3D5ACadZVcuphJYW1e-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D9867%253A21356%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
 
