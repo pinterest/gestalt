@@ -1,3 +1,9 @@
+## 112.5.2 (Jun 2, 2023)
+
+### Patch
+
+- Checkbox: Update InternalCheckbox.css ([#2978](https://github.com/pinterest/gestalt/pull/2978)) - [Preview link](https://deploy-preview-2978--gestalt.netlify.app)
+
 ## 112.5.1 (Jun 1, 2023)
 
 ### Patch
