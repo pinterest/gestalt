@@ -62,7 +62,7 @@ Table is a set of structured data that is easy for a user to scan, examine, and 
         <MainSection.Subsection
           description={`
           Yes, we are aware that our data visualization components are limited, but we plan to work on the following this year:
-          - TileData—for displaying DataPoints and selecting multiple metrics to compare
+          - TagData—for displaying filters as tags and using them to navigate and compare graph data
           - Charts
             - Line
             - Bar
