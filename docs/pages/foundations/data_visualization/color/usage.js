@@ -1,17 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Image, SlimBanner } from 'gestalt';
-import ColorTile from '../../../docs-components/ColorTile.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import DataViz2Colors from '../../../graphics/data-viz-color-examples/dataViz2Colors.svg';
-import DataViz3Colors from '../../../graphics/data-viz-color-examples/dataViz3Colors.svg';
-import DataViz4Colors from '../../../graphics/data-viz-color-examples/dataViz4Colors.svg';
-import DataViz6Colors from '../../../graphics/data-viz-color-examples/dataViz6Colors.svg';
-import DataViz8Colors from '../../../graphics/data-viz-color-examples/dataViz8Colors.svg';
-import DataVizPrimary from '../../../graphics/data-viz-color-examples/dataVizPrimary.svg';
-import DataVizSuccessError from '../../../graphics/data-viz-color-examples/dataVizSuccessError.svg';
+import ColorTile from '../../../../docs-components/ColorTile.js';
+import MainSection from '../../../../docs-components/MainSection.js';
+import Page from '../../../../docs-components/Page.js';
+import PageHeader from '../../../../docs-components/PageHeader.js';
+import DataViz2Colors from '../../../../graphics/data-viz-color-examples/dataViz2Colors.svg';
+import DataViz3Colors from '../../../../graphics/data-viz-color-examples/dataViz3Colors.svg';
+import DataViz4Colors from '../../../../graphics/data-viz-color-examples/dataViz4Colors.svg';
+import DataViz6Colors from '../../../../graphics/data-viz-color-examples/dataViz6Colors.svg';
+import DataViz8Colors from '../../../../graphics/data-viz-color-examples/dataViz8Colors.svg';
+import DataVizPrimary from '../../../../graphics/data-viz-color-examples/dataVizPrimary.svg';
+import DataVizSuccessError from '../../../../graphics/data-viz-color-examples/dataVizSuccessError.svg';
 
 const COLOR_TEXT_PAIRINGS = {
   '01': 'light',
