@@ -22,9 +22,6 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Mobile best practices
-- Avoid using IconButtonFloating if it obscures important information on the screen.
-
 ## Accessibility
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
