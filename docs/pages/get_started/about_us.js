@@ -40,7 +40,7 @@ export default function DocsPage(): Node {
               <InclusiveVisual style={{ width: '100%', height: 'auto' }} />
             </Box>
             <Flex direction="column" gap={2}>
-              <Heading size={400} accessibilityLevel={3}>
+              <Heading size="400" accessibilityLevel={3}>
                 Gestalt powers intuitive, inclusive and accessible interfaces
               </Heading>
 
@@ -67,7 +67,7 @@ export default function DocsPage(): Node {
             </Box>
 
             <Flex direction="column" gap={2}>
-              <Heading size={400} accessibilityLevel={3}>
+              <Heading size="400" accessibilityLevel={3}>
                 It creates harmonious experiences
               </Heading>
 
@@ -94,7 +94,7 @@ export default function DocsPage(): Node {
             </Box>
 
             <Flex direction="column" gap={2}>
-              <Heading size={400} accessibilityLevel={3}>
+              <Heading size="400" accessibilityLevel={3}>
                 It objectively improves product development velocity
               </Heading>
               <Markdown text="Gestalt enables a better product experience in less time. Designers and engineers agree nearly unanimously that Gestalt speeds up their workflow. And the magnitude is dramatic—an estimated 33% efficiency gain (and climbing)." />
@@ -104,7 +104,7 @@ export default function DocsPage(): Node {
       </MainSection>
       <MainSection name="Gestalt is for everyone making Pinterest’s product" showHeading={false}>
         <Flex direction="column" gap={2}>
-          <Heading size={500} accessibilityLevel={2}>
+          <Heading size="500" accessibilityLevel={2}>
             Gestalt is for everyone making Pinterest’s product
           </Heading>
           <Box maxWidth={816}>
@@ -116,7 +116,7 @@ export default function DocsPage(): Node {
       </MainSection>
       <MainSection name="We’re available in Slack, office hours and events" showHeading={false}>
         <Flex direction="column" gap={2}>
-          <Heading size={500} accessibilityLevel={2}>
+          <Heading size="500" accessibilityLevel={2}>
             We’re ready to help in Slack, office hours and events
           </Heading>
           <Box maxWidth={816}>
