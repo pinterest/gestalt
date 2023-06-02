@@ -24,6 +24,31 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'label': 'Dismiss',
     },
     {
+      'component': 'Callout',
+      'prop': 'iconAccessibilityLabelError',
+      'label': 'Error',
+    },
+    {
+      'component': 'Callout',
+      'prop': 'iconAccessibilityLabelInfo',
+      'label': 'Info',
+    },
+    {
+      'component': 'Callout',
+      'prop': 'iconAccessibilityLabelRecommendation',
+      'label': 'Recommendation',
+    },
+    {
+      'component': 'Callout',
+      'prop': 'iconAccessibilityLabelWarning',
+      'label': 'Warning',
+    },
+    {
+      'component': 'Callout',
+      'prop': 'iconAccessibilityLabelSuccess',
+      'label': 'Success',
+    },
+    {
       'component': 'ComboBox',
       'prop': 'noResultText',
       'label': 'No results',
@@ -47,6 +72,31 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'component': 'Popover',
       'prop': 'accessibilityDismissButtonLabel',
       'label': 'Dismiss popover',
+    },
+    {
+      'component': 'Pog',
+      'prop': 'iconAccessibilityLabelError',
+      'label': 'Error',
+    },
+    {
+      'component': 'Pog',
+      'prop': 'iconAccessibilityLabelInfo',
+      'label': 'Info',
+    },
+    {
+      'component': 'Pog',
+      'prop': 'iconAccessibilityLabelRecommendation',
+      'label': 'Recommendation',
+    },
+    {
+      'component': 'Pog',
+      'prop': 'iconAccessibilityLabelWarning',
+      'label': 'Warning',
+    },
+    {
+      'component': 'Pog',
+      'prop': 'iconAccessibilityLabelSuccess',
+      'label': 'Success',
     },
     {
       'component': 'OverlayPanel',
@@ -107,6 +157,31 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'component': 'SlimBanner',
       'prop': 'accessibilityDismissButtonLabel',
       'label': 'Dismiss',
+    },
+    {
+      'component': 'SlimBanner',
+      'prop': 'iconAccessibilityLabelError',
+      'label': 'Error',
+    },
+    {
+      'component': 'SlimBanner',
+      'prop': 'iconAccessibilityLabelInfo',
+      'label': 'Info',
+    },
+    {
+      'component': 'SlimBanner',
+      'prop': 'iconAccessibilityLabelRecommendation',
+      'label': 'Recommendation',
+    },
+    {
+      'component': 'SlimBanner',
+      'prop': 'iconAccessibilityLabelWarning',
+      'label': 'Warning',
+    },
+    {
+      'component': 'SlimBanner',
+      'prop': 'iconAccessibilityLabelSuccess',
+      'label': 'Success',
     },
     {
       'component': 'Spinner',

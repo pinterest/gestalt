@@ -19,6 +19,11 @@ export type DefaultLabelContextType = {|
   |},
   Callout: {|
     accessibilityDismissButtonLabel: string,
+    iconAccessibilityLabelError: string,
+    iconAccessibilityLabelInfo: string,
+    iconAccessibilityLabelRecommendation: string,
+    iconAccessibilityLabelWarning: string,
+    iconAccessibilityLabelSuccess: string,
   |},
   ComboBox: {|
     noResultText: string,
@@ -29,6 +34,13 @@ export type DefaultLabelContextType = {|
   |},
   Modal: {|
     accessibilityDismissButtonLabel: string,
+  |},
+  Pog: {|
+    iconAccessibilityLabelError: string,
+    iconAccessibilityLabelInfo: string,
+    iconAccessibilityLabelRecommendation: string,
+    iconAccessibilityLabelWarning: string,
+    iconAccessibilityLabelSuccess: string,
   |},
   Popover: {|
     accessibilityDismissButtonLabel: string,
@@ -52,6 +64,11 @@ export type DefaultLabelContextType = {|
   |},
   SlimBanner: {|
     accessibilityDismissButtonLabel: string,
+    iconAccessibilityLabelError: string,
+    iconAccessibilityLabelInfo: string,
+    iconAccessibilityLabelRecommendation: string,
+    iconAccessibilityLabelWarning: string,
+    iconAccessibilityLabelSuccess: string,
   |},
   Spinner: {|
     accessibilityLabel: string,
@@ -96,6 +113,11 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Callout: {
     accessibilityDismissButtonLabel: 'Dismiss',
+    iconAccessibilityLabelError: 'Error',
+    iconAccessibilityLabelInfo: 'Info',
+    iconAccessibilityLabelRecommendation: 'Recommendation',
+    iconAccessibilityLabelWarning: 'Warning',
+    iconAccessibilityLabelSuccess: 'Success',
   },
   ComboBox: {
     noResultText: 'No results',
@@ -105,13 +127,20 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityNewTabLabel: 'Opens a new tab',
   },
   Modal: {
-    accessibilityDismissButtonLabel: 'Close modal',
+    accessibilityDismissButtonLabel: 'Dismiss modal',
   },
   Popover: {
-    accessibilityDismissButtonLabel: 'Close popover',
+    accessibilityDismissButtonLabel: 'Dismiss popover',
+  },
+  Pog: {
+    iconAccessibilityLabelError: 'Error',
+    iconAccessibilityLabelInfo: 'Info',
+    iconAccessibilityLabelRecommendation: 'Recommendation',
+    iconAccessibilityLabelWarning: 'Warning',
+    iconAccessibilityLabelSuccess: 'Success',
   },
   OverlayPanel: {
-    accessibilityDismissButtonLabel: 'Close overlay panel',
+    accessibilityDismissButtonLabel: 'Dismiss overlay panel',
     dismissConfirmationMessage: 'Are you sure you want to dismiss?',
     dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
     dismissConfirmationPrimaryActionText: 'Yes, dismiss',
@@ -120,15 +149,20 @@ export const fallbackLabels: DefaultLabelContextType = {
     dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
   },
   SheetMobile: {
-    accessibilityDismissButtonLabel: 'Close bottom sheet',
+    accessibilityDismissButtonLabel: 'Dismiss bottom sheet',
     accessibilityGrabberLabel: 'Grabber',
     accessibilityLabel: 'Bottom sheet',
   },
   SideNavigation: {
-    accessibilityDismissButtonLabel: 'Close side navigation',
+    accessibilityDismissButtonLabel: 'Dismiss side navigation',
   },
   SlimBanner: {
     accessibilityDismissButtonLabel: 'Dismiss',
+    iconAccessibilityLabelError: 'Error',
+    iconAccessibilityLabelInfo: 'Info',
+    iconAccessibilityLabelRecommendation: 'Recommendation',
+    iconAccessibilityLabelWarning: 'Warning',
+    iconAccessibilityLabelSuccess: 'Success',
   },
   Spinner: {
     accessibilityLabel: 'Loading',
@@ -146,7 +180,7 @@ export const fallbackLabels: DefaultLabelContextType = {
     tooltipMessage: 'Click to learn more',
   },
   Toast: {
-    accessibilityDismissButtonLabel: 'Close toast',
+    accessibilityDismissButtonLabel: 'Dismiss toast',
     accessibilityIconSuccessLabel: 'Success message',
     accessibilityIconErrorLabel: 'Error message',
     accessibilityProcessingLabel: 'Processing message',

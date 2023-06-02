@@ -10,6 +10,11 @@ const labels = {
   },
   Callout: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+    iconAccessibilityLabelError: myI18nTranslator('Error'),
+    iconAccessibilityLabelInfo: myI18nTranslator('Info'),
+    iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
+    iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
+    iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
   },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),
@@ -19,34 +24,46 @@ const labels = {
     accessibilityNewTabLabel: myI18nTranslator('Opens a new tab'),
   },
   Modal: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Close modal'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss modal'),
   },
   Popover: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Close popover'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss popover'),
+  },
+  Pog: {
+    iconAccessibilityLabelError: myI18nTranslator('Error'),
+    iconAccessibilityLabelInfo: myI18nTranslator('Info'),
+    iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
+    iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
+    iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
   },
   OverlayPanel: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Close overlay panel'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss overlay panel'),
     dismissConfirmationMessage: myI18nTranslator('Are you sure you want to dismiss?'),
     dismissConfirmationSubtext: myI18nTranslator(
       'You will lose all of your changes. This cannot be undone.',
     ),
-    dismissConfirmationPrimaryActionText: myI18nTranslator('Yes, dismiss.'),
+    dismissConfirmationPrimaryActionText: myI18nTranslator('Yes, dismiss'),
     dismissConfirmationPrimaryActionTextLabel: myI18nTranslator('Yes, dismiss the overlay panel.'),
-    dismissConfirmationSecondaryActionText: myI18nTranslator('No, go back.'),
+    dismissConfirmationSecondaryActionText: myI18nTranslator('No, go back'),
     dismissConfirmationSecondaryActionTextLabel: myI18nTranslator(
       'No, go back to the overlay panel.',
     ),
   },
   SheetMobile: {
     accessibilityGrabberLabel: myI18nTranslator('Grabber'),
-    accessibilityDismissButtonLabel: myI18nTranslator('Close bottom sheet'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss bottom sheet'),
     accessibilityLabel: myI18nTranslator('Bottom sheet'),
   },
   SideNavigation: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Close side navigation'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
   },
   SlimBanner: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+    iconAccessibilityLabelError: myI18nTranslator('Error'),
+    iconAccessibilityLabelInfo: myI18nTranslator('Info'),
+    iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
+    iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
+    iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
   },
   Spinner: {
     accessibilityLabel: myI18nTranslator('Loading'),
@@ -64,13 +81,13 @@ const labels = {
     tooltipMessage: myI18nTranslator('Click to learn more'),
   },
   Toast: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Close toast'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss toast'),
     accessibilityIconSuccessLabel: myI18nTranslator('Success message'),
     accessibilityIconErrorLabel: myI18nTranslator('Error message'),
     accessibilityProcessingLabel: myI18nTranslator('Processing message'),
   },
   Upsell: {
-    accessibilityDismissButtonLabel: 'Dismiss',
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss banner'),
   },
   Video: {
     accessibilityMaximizeLabel: myI18nTranslator('Maximize'),
