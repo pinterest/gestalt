@@ -1,3 +1,9 @@
+## 112.6.3 (Jun 2, 2023)
+
+### Patch
+
+- Internal: fix TS declaration file ([#2985](https://github.com/pinterest/gestalt/pull/2985)) - [Preview link](https://deploy-preview-2985--gestalt.netlify.app)
+
 ## 112.6.2 (Jun 2, 2023)
 
 ### Patch
