@@ -1,76 +1,130 @@
 // @flow strict
 import { type Node } from 'react';
+import { Box, Flex, Heading } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
+import Markdown from '../../docs-components/Markdown.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
+import HarmoniousVisual from '../../graphics/about_us/harmonious.svg';
+import InclusiveVisual from '../../graphics/about_us/inclusive.svg';
+import VelocityVisual from '../../graphics/about_us/velocity.svg';
 
 export default function DocsPage(): Node {
   return (
-    <Page title="About us">
+    <Page title="About us" hideSideNav>
       <PageHeader name="About us" type="guidelines" />
 
       <MainSection
-        name="We make Gestalt, Pinterest’s design system"
+        name="Pinterest’s experience is guided and built by Gestalt"
         description={`
-Our system includes a React component library with comprehensive guidelines, best practices, tools, and resources to support designers and engineers delivering a high-quality product.
-
-We constantly ask ourselves how might we improve experiences to be even more intuitive and inclusive. We believe that this is a never-ending journey and something to improve every day. We've integrated accessibility into the design and development of our components, following the [WCAG 2.1 AA guidelines](https://www.w3.org/TR/WCAG21/), ensuring they are not only compliant but accessible by users of all abilities.
-
-We work closely with the Brand team to maintain Pinterest's identity and aesthetic; however, Gestalt and Brand are different areas within our organization. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
-`}
-      />
-      <MainSection
-        name="Who uses Gestalt?"
-        description={`
-Gestalt is built for every cross-functional team member, such as designers, engineers, product managers, and every user part of Pinterest's product experience. Our system provides Pinterest with a shared language, facilitates cross-functional collaboration, avoids duplication of efforts, saves design and development time, and establishes design cohesion.
-    `}
-      />
-      <MainSection
-        name="Our design principles"
-        description={`
-We create digital experiences that span across culture, devices, and across a diverse group of people. Our design decisions should be purposeful in order to **meet people where they are**, **celebrate content**, **clear the noise**, **invite interaction**, and **keep visual continuity**. These principles are at the heart of how we approach problems from a design perspective. Putting each principle to practice is a vital aspect of the design process and should act as a guiding force in every decision we make. Any Pinterest experience should feel welcoming, inspiring, and inclusive.
+        Pinterest’s design system includes foundational standards, component documentation and guidelines to enable high-quality experiences for millions of people.
 `}
       >
-        <MainSection.Subsection
-          title="Meet people where they are "
-          description={`
-To deliver a clear, holistic experience, we must think about the needs of different types of Pinners and businesses. We are designing at scale, so we mustn't design for a single use case or type of Pinner or business. When we do, we create an isolated experience that is unwelcoming for others. Instead, we should strive to understand our internal and external users' nuances while considering multiple languages, cultures, and abilities. We should design solutions that are inclusive of all types of people, meeting them where they are.
-`}
-        />
-        <MainSection.Subsection
-          title="Celebrate content"
-          description={`
-Pinterest is a visual platform. Little should distract from or compete with Pinterest's content. Inspire with visuals, follow with text, and end with the interface. We should ensure nothing gets in the way of people getting absorbed in that inspiring content, insightful dashboard, or content creation flow. Components should have a consistent and appropriate hierarchy across all experiences.
-          `}
-        />
-        <MainSection.Subsection
-          title="Clear the noise"
-          description={`
-Each experience should remain simple even though our technology is robust and complex. Finding inspiration and inspiring others should feel effortless and, at times—downright magic. A magician is a master at keeping people's attention where they want it. We do that by getting rid of anything unnecessary and providing a clear path forward. When it comes to interface, reduce, reuse and condense whenever possible. Consider minimal color use, concise typography, and breathable whitespace.
-          `}
-        />
-        <MainSection.Subsection
-          title="Invite interaction"
-          description={`
-Every action should strive to make the experience as intuitive as possible. Every design should be familiar and encourage people to tap or click with confidence and ease. Consider mobile use-cases, organization of interactions and feedback.
-`}
-        />
-        <MainSection.Subsection
-          title="Keep visual continuity"
-          description={`
-From space to space, across any journey, Pinterest's elements should keep their form and meaning anytime someone sees them. This consistency prevents a disorienting journey where signs and landmarks drastically change or move. It is especially important when transitioning across surfaces and in navigation flows. We should strive to keep things consistent visually and conceptually.
-`}
-        />
+        <Flex direction="column" gap={10}>
+          <Box
+            display="flex"
+            alignItems="start"
+            direction="column"
+            lgDirection="row"
+            maxWidth={816}
+          >
+            <Box
+              column={12}
+              lgColumn={6}
+              marginEnd={0}
+              lgMarginEnd={8}
+              marginBottom={8}
+              lgMarginBottom={0}
+              minWidth={340}
+            >
+              <InclusiveVisual style={{ width: '100%', height: 'auto' }} />
+            </Box>
+            <Flex direction="column" gap={2}>
+              <Heading size="400" accessibilityLevel={3}>
+                Gestalt powers intuitive, inclusive and accessible interfaces
+              </Heading>
+
+              <Markdown text="Gestalt ensures everyone can enjoy Pinterest. Our system streamlines localization, right-to-left text and light/dark color schemes. Accessibility is at the heart of our components. It follows [WCAG 2.1 AA guidelines](https://www.w3.org/TR/WCAG21/), to guarantee they are not only compliant but accessible to as many people as possible." />
+            </Flex>
+          </Box>
+          <Box
+            display="flex"
+            alignItems="start"
+            direction="column"
+            lgDirection="row"
+            maxWidth={816}
+          >
+            <Box
+              column={12}
+              lgColumn={6}
+              marginEnd={0}
+              lgMarginEnd={8}
+              marginBottom={8}
+              lgMarginBottom={0}
+              minWidth={340}
+            >
+              <HarmoniousVisual style={{ width: '100%', height: 'auto' }} />
+            </Box>
+
+            <Flex direction="column" gap={2}>
+              <Heading size="400" accessibilityLevel={3}>
+                It creates harmonious experiences
+              </Heading>
+
+              <Markdown text="Gestalt’s components and patterns enable predictability throughout the product. The component family aims to connect every element in the interface to deliver a coordinated and intuitive end result." />
+            </Flex>
+          </Box>
+          <Box
+            display="flex"
+            alignItems="start"
+            direction="column"
+            lgDirection="row"
+            maxWidth={816}
+          >
+            <Box
+              column={12}
+              lgColumn={6}
+              marginEnd={0}
+              lgMarginEnd={8}
+              marginBottom={8}
+              lgMarginBottom={0}
+              minWidth={340}
+            >
+              <VelocityVisual style={{ width: '100%', height: 'auto' }} />
+            </Box>
+
+            <Flex direction="column" gap={2}>
+              <Heading size="400" accessibilityLevel={3}>
+                It objectively improves product development velocity
+              </Heading>
+              <Markdown text="Gestalt enables a better product experience in less time. Designers and engineers agree nearly unanimously that Gestalt speeds up their workflow. And the magnitude is dramatic—an estimated 33% efficiency gain (and climbing)." />
+            </Flex>
+          </Box>
+        </Flex>
       </MainSection>
-
-      <MainSection name="Connect with Gestalt">
-        <MainSection.Subsection
-          description={`
-[Meet the Gestalt team](http://pinch.pinadmin.com/gestaltOnboarding). We are designers, engineers, producers, writers, and so much more! We love to show our work, debate, and challenge each other, but ultimately we trust and empower each other to create great work, and we're always open to feedback.
-
-You can connect with us through our slack channels, weekly meetings, and events. Visit our [team support page](/team_support/contributions) for support and collaboration details.
-`}
-        />
+      <MainSection name="Gestalt is for everyone making Pinterest’s product" showHeading={false}>
+        <Flex direction="column" gap={2}>
+          <Heading size="500" accessibilityLevel={2}>
+            Gestalt is for everyone making Pinterest’s product
+          </Heading>
+          <Box maxWidth={816}>
+            <Markdown
+              text={`The system is built for every cross-functional team member, such as designers, engineers and product managers. It fuels every part of Pinterest’s product experience. Our system provides Pinterest with a shared language and reusable code. It facilitates cross-functional collaboration, avoids duplication of efforts and establishes design cohesion.\n\nWe work closely with the Brand team to maintain Pinterest’s identity and aesthetic; however, Gestalt and Brand are different areas within our organization. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).`}
+            />
+          </Box>
+        </Flex>
+      </MainSection>
+      <MainSection name="We’re available in Slack, office hours and events" showHeading={false}>
+        <Flex direction="column" gap={2}>
+          <Heading size="500" accessibilityLevel={2}>
+            We’re ready to help in Slack, office hours and events
+          </Heading>
+          <Box maxWidth={816}>
+            <Markdown
+              text={`[Our team](http://pinch.pinadmin.com/gestaltOnboarding) is made up of designers, engineers, producers, writers, and so much more! We love to show our work, debate, and challenge each other, but ultimately we trust and empower each other to create great work, and we’re always open to feedback.\n\nWe’re available in so many ways. Visit our [team support page](https://gestalt.pinterest.systems/team_support/contributions) for support and collaboration.`}
+            />
+          </Box>
+        </Flex>
       </MainSection>
     </Page>
   );
