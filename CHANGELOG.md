@@ -1,3 +1,9 @@
+## 112.6.4 (Jun 2, 2023)
+
+### Patch
+
+- Tabs: Update wrap and best practices docs verbiage ([#2984](https://github.com/pinterest/gestalt/pull/2984)) - [Preview link](https://deploy-preview-2984--gestalt.netlify.app)
+
 ## 112.6.3 (Jun 2, 2023)
 
 ### Patch
