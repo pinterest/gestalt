@@ -255,7 +255,7 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     name: 'Data visualization',
     description: 'Data visualization',
     category: 'Foundations',
-    path: '/foundations/data_visualization/palette',
+    path: '/foundations/data_visualization/overview',
   },
   {
     svg: <Elevation />,
