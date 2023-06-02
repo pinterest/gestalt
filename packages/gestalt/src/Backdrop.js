@@ -7,7 +7,7 @@ import { useAnimation, ANIMATION_STATE } from './animation/AnimationContext.js';
 type Props = {|
   children?: Node,
   closeOnOutsideClick: boolean,
-  onClick?: (event: MouseEvent) => void,
+  onClick?: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
 |};
 
 function Backdrop({ children, closeOnOutsideClick, onClick }: Props): Node {
