@@ -166,7 +166,31 @@ export default function Callout({
   title,
 }: Props): Node {
   const responsiveMinWidth = useResponsiveMinWidth();
-  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('Callout');
+  const {
+    accessibilityDismissButtonLabel,
+    iconAccessibilityLabelError,
+    iconAccessibilityLabelInfo,
+    iconAccessibilityLabelRecommendation,
+    iconAccessibilityLabelSuccess,
+    iconAccessibilityLabelWarning,
+  } = useDefaultLabelContext('Callout');
+
+  const getDefaultIconAccessibilityLabel = () => {
+    switch (type) {
+      case 'success':
+        return iconAccessibilityLabelSuccess;
+      case 'info':
+        return iconAccessibilityLabelInfo;
+      case 'recommendation':
+        return iconAccessibilityLabelRecommendation;
+      case 'warning':
+        return iconAccessibilityLabelWarning;
+      case 'error':
+        return iconAccessibilityLabelError;
+      default:
+        return '';
+    }
+  };
 
   return (
     <Box
@@ -192,7 +216,7 @@ export default function Callout({
         >
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
-              accessibilityLabel={iconAccessibilityLabel}
+              accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
               icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
               size={32}

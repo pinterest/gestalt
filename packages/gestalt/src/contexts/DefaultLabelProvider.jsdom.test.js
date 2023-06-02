@@ -21,6 +21,11 @@ describe('useDefaultLabelContext', () => {
           },
           Callout: {
             accessibilityDismissButtonLabel: 'Dismiss',
+            iconAccessibilityLabelError: 'Error',
+            iconAccessibilityLabelInfo: 'Info',
+            iconAccessibilityLabelRecommendation: 'Recommendation',
+            iconAccessibilityLabelWarning: 'Warning',
+            iconAccessibilityLabelSuccess: 'Success',
           },
           ComboBox: {
             noResultText: 'No results',
@@ -30,30 +35,42 @@ describe('useDefaultLabelContext', () => {
             accessibilityNewTabLabel: 'Opens a new tab',
           },
           Modal: {
-            accessibilityDismissButtonLabel: 'Close modal',
+            accessibilityDismissButtonLabel: 'Dismiss modal',
           },
           Popover: {
-            accessibilityDismissButtonLabel: 'Close popover',
+            accessibilityDismissButtonLabel: 'Dismiss popover',
+          },
+          Pog: {
+            iconAccessibilityLabelError: 'Error',
+            iconAccessibilityLabelInfo: 'Info',
+            iconAccessibilityLabelRecommendation: 'Recommendation',
+            iconAccessibilityLabelWarning: 'Warning',
+            iconAccessibilityLabelSuccess: 'Success',
           },
           OverlayPanel: {
-            accessibilityDismissButtonLabel: 'Close overlay panel',
+            accessibilityDismissButtonLabel: 'Dismiss overlay panel',
             dismissConfirmationMessage: 'Are you sure you want to dismiss?',
             dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
-            dismissConfirmationPrimaryActionText: 'Yes, dismiss.',
+            dismissConfirmationPrimaryActionText: 'Yes, dismiss',
             dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the overlay panel.',
-            dismissConfirmationSecondaryActionText: 'No, go back.',
+            dismissConfirmationSecondaryActionText: 'No, go back',
             dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
           },
           SheetMobile: {
-            accessibilityDismissButtonLabel: 'Close bottom sheet',
+            accessibilityDismissButtonLabel: 'Dismiss bottom sheet',
             accessibilityGrabberLabel: 'Grabber',
             accessibilityLabel: 'Bottom sheet',
           },
           SideNavigation: {
-            accessibilityDismissButtonLabel: 'Close side navigation',
+            accessibilityDismissButtonLabel: 'Dismiss side navigation',
           },
           SlimBanner: {
             accessibilityDismissButtonLabel: 'Dismiss',
+            iconAccessibilityLabelError: 'Error',
+            iconAccessibilityLabelInfo: 'Info',
+            iconAccessibilityLabelRecommendation: 'Recommendation',
+            iconAccessibilityLabelWarning: 'Warning',
+            iconAccessibilityLabelSuccess: 'Success',
           },
           Spinner: {
             accessibilityLabel: 'Loading',
@@ -71,13 +88,13 @@ describe('useDefaultLabelContext', () => {
             tooltipMessage: 'Click to learn more',
           },
           Toast: {
-            accessibilityDismissButtonLabel: 'Close toast',
+            accessibilityDismissButtonLabel: 'Dismiss toast',
             accessibilityIconSuccessLabel: 'Success message',
             accessibilityIconErrorLabel: 'Error message',
             accessibilityProcessingLabel: 'Processing message',
           },
           Upsell: {
-            accessibilityDismissButtonLabel: 'Dismiss',
+            accessibilityDismissButtonLabel: 'Dismiss banner',
           },
           Video: {
             accessibilityMaximizeLabel: 'Maximize',

@@ -63,7 +63,7 @@ describe('SheetMobile', () => {
       }),
     ).toBeVisible();
     expect(
-      screen.getByLabelText('Close bottom sheet', {
+      screen.getByLabelText('Dismiss bottom sheet', {
         exact: true,
       }),
     ).toBeVisible();
@@ -160,7 +160,7 @@ describe('SheetMobile', () => {
     );
 
     act(() => {
-      screen.getByLabelText('Close bottom sheet').click();
+      screen.getByLabelText('Dismiss bottom sheet').click();
     });
 
     expect(mockOnClick).toHaveBeenCalled();

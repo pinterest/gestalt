@@ -51,7 +51,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                       class="box marginStart2"
                     >
                       <button
-                        aria-label="Close modal"
+                        aria-label="Dismiss modal"
                         class="parentButton"
                         tabindex="0"
                         type="button"
@@ -410,7 +410,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                       class="box marginStart2"
                     >
                       <button
-                        aria-label="Close modal"
+                        aria-label="Dismiss modal"
                         class="parentButton"
                         tabindex="0"
                         type="button"
