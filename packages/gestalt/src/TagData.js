@@ -37,21 +37,33 @@ export type TileChangeHandler = ({|
   id?: string,
 |}) => void;
 
+type TooltipProps = {|
+  accessibilityLabel?: string,
+  inline?: boolean,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  text: string,
+  zIndex?: Indexable,
+|};
+
 export type Props = {|
   /**
    * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
   accessibilityRemoveIconLabel?: string,
   /**
-   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette).
+   * A color for the unselected state.
+   */
+  baseColor?: 'default' | 'white',
+  /**
+   * A color code from the the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when the tile is colored.
    */
   color?: DataVisualizationColors,
   /**
-   * Disabled tags appear inactive and cannot be interacted with.
+   * Disabled Tagdatas appear inactive and cannot be interacted with.
    */
   disabled?: boolean,
   /**
-   * Allows the tag to be disabled
+   * Tagdatas can be dismissable by the "X" affordance, which triggers the onRemove callback.
    */
   dismissable?: boolean,
   /**
@@ -65,13 +77,13 @@ export type Props = {|
   /**
    * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the TagData.
    */
-  onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement> |}) => void,
+  onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement>, id?: string |}) => void,
   /**
-   * Controls whether the Tagdata is selected or not. Use it alongside the OnTap handler.
+   * Controls whether the TagData is selected or not. Use it alongside the OnTap handler.
    */
   selected?: boolean,
   /**
-   * Size of the Tag Data, see the [sizes](https://gestalt.pinterest.systems.com/web/tagdata#sizes) variant
+   * Size of the TagData, see the [sizes](https://gestalt.pinterest.systems.com/web/tagdata#sizes) variant.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
@@ -79,9 +91,13 @@ export type Props = {|
    */
   showCheckbox?: boolean,
   /**
-   * Short text to render inside the Tag.
+   * Short text to render inside the TagData.
    */
   text: string,
+  /**
+   * Adds a Tooltip on hover/focus of the TagData. See the with [Tooltip](https://gestalt.pinterest.systems/web/tagdata#tooltip) variant to learn more.
+   */
+  tooltip?: TooltipProps,
 |};
 
 const sizes = {
@@ -98,6 +114,7 @@ const sizes = {
  */
 export default function TagData({
   accessibilityRemoveIconLabel,
+  baseColor = 'default',
   color = '05',
   dismissable = false,
   disabled = false,
@@ -108,6 +125,7 @@ export default function TagData({
   showCheckbox,
   size = 'md',
   text,
+  tooltip,
 }: Props): Node {
   const { accessibilityRemoveIconLabel: accessibilityRemoveIconLabelDefault } =
     useDefaultLabelContext('Tag');
@@ -130,7 +148,8 @@ export default function TagData({
     disabled: tapDisabled,
   }: InteractionStates) =>
     classnames(styles.tagWrapper, {
-      [styles.selected]: tapSelected,
+      [styles.tagBackgroundBaseGray]: baseColor === 'default',
+      [styles.tagBackgroundBaseWhite]: baseColor === 'white',
       [styles.hovered]: hovered,
       [styles.disabled]: tapDisabled,
       [styles.tagWrapperRounded]: tapSelected,
@@ -163,6 +182,7 @@ export default function TagData({
         selected={selected}
         disabled={disabled}
         outerContainerClass={styles.tagOuterContainer}
+        tooltip={tooltip}
       >
         {(interactionStates) => {
           const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
@@ -201,7 +221,7 @@ export default function TagData({
                     className={getRemoveIconClasses(interactionStates)}
                     onClick={(event) => {
                       event.stopPropagation();
-                      onRemove?.({ event });
+                      onRemove?.({ event, id });
                     }}
                     type="button"
                     disabled={disabled}

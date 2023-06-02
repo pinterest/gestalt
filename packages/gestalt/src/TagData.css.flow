@@ -6,6 +6,8 @@ declare module.exports: {|
   +'focused': string,
   +'hovered': string,
   +'selected': string,
+  +'tagBackgroundBaseGray': string,
+  +'tagBackgroundBaseWhite': string,
   +'tagOuterContainer': string,
   +'tagWrapper': string,
   +'tagWrapperDismiss': string,

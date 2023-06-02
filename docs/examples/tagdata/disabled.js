@@ -8,13 +8,16 @@ export default function Example(): Node {
   return (
     <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
       <TagData
-        text="Impressions"
+        disabled
+        text="CPM"
         size="lg"
         dismissable
+        showCheckbox
         selected={isSelected}
         onTap={() => {
           setSelected(!isSelected);
         }}
+        tooltip={{ text: 'Average cost per 1K paid impressions' }}
       />
     </Flex>
   );

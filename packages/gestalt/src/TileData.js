@@ -49,7 +49,7 @@ type TrendObject = {|
 
 type Props = {|
   /**
-   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette).
+   * A color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when Tiledata is selected.
    */
   color?: DataVisualizationColors,
   /**

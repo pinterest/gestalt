@@ -13,11 +13,18 @@
   border-radius: 8px;
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
-  composes: secondary from "./Colors.css";
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
   composes: fullWidth from "./Layout.css";
   composes: fullHeight from "./Layout.css";
+}
+
+.tagBackgroundBaseWhite {
+  composes: default from "./Colors.css";
+}
+
+.tagBackgroundBaseGray {
+  composes: secondary from "./Colors.css";
 }
 
 .tagOuterContainer {
