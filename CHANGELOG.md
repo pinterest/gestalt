@@ -1,3 +1,9 @@
+## 112.5.5 (Jun 2, 2023)
+
+### Patch
+
+- Docs: Added IconButtonFloating Android docs ([#2979](https://github.com/pinterest/gestalt/pull/2979)) - [Preview link](https://deploy-preview-2979--gestalt.netlify.app)
+
 ## 112.5.4 (Jun 2, 2023)
 
 ### Patch
