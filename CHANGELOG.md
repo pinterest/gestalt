@@ -1,3 +1,9 @@
+## 112.6.1 (Jun 2, 2023)
+
+### Patch
+
+- Docs: Fix info on Available components page ([#2983](https://github.com/pinterest/gestalt/pull/2983)) - [Preview link](https://deploy-preview-2983--gestalt.netlify.app)
+
 ## 112.6.0 (Jun 2, 2023)
 
 ### Minor
