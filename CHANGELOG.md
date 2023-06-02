@@ -1,3 +1,9 @@
+## 112.5.4 (Jun 2, 2023)
+
+### Patch
+
+- Docs: Revised About Us page ([#2977](https://github.com/pinterest/gestalt/pull/2977)) - [Preview link](https://deploy-preview-2977--gestalt.netlify.app)
+
 ## 112.5.3 (Jun 2, 2023)
 
 ### Patch
