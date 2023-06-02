@@ -48,7 +48,9 @@ type Props = {|
   heading?: Node,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
   onDismiss: () => void,
-  onOutsideClick?: () => void,
+  onOutsideClick?: ({|
+    event: SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
   padding?: 'default' | 'none',
   primaryAction?: {|
     accessibilityLabel: string,
@@ -155,13 +157,16 @@ export default function PartialPage({
   }, [animationState, onDismiss]);
 
   // Handle click outside the bottom sheet
-  const handleBackdropClick = useCallback(() => {
-    onOutsideClick?.();
+  const handleBackdropClick: (event: SyntheticMouseEvent<HTMLDivElement>) => void = useCallback(
+    (event) => {
+      onOutsideClick?.({ event });
 
-    if (closeOnOutsideClick) {
-      onExternalDismiss();
-    }
-  }, [closeOnOutsideClick, onExternalDismiss, onOutsideClick]);
+      if (closeOnOutsideClick) {
+        onExternalDismiss();
+      }
+    },
+    [closeOnOutsideClick, onExternalDismiss, onOutsideClick],
+  );
 
   return (
     <StopScrollBehavior>
