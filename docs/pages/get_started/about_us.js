@@ -44,7 +44,7 @@ export default function DocsPage(): Node {
                 Gestalt powers intuitive, inclusive and accessible interfaces
               </Heading>
 
-              <Markdown text="Gestalt ensures everyone can enjoy Pinterest. Our system streamlines localization, right-to-left text and light/dark color schemes. Accessibility is at the heart of our components. It follows WCAG 2.1 AA guidelines, to guarantee they are not only compliant but accessible to as many people as possible." />
+              <Markdown text="Gestalt ensures everyone can enjoy Pinterest. Our system streamlines localization, right-to-left text and light/dark color schemes. Accessibility is at the heart of our components. It follows [WCAG 2.1 AA guidelines](https://www.w3.org/TR/WCAG21/), to guarantee they are not only compliant but accessible to as many people as possible." />
             </Flex>
           </Box>
           <Box
@@ -109,7 +109,7 @@ export default function DocsPage(): Node {
           </Heading>
           <Box maxWidth={816}>
             <Markdown
-              text={`The system is built for every cross-functional team member, such as designers, engineers and product managers. It fuels every part of Pinterest’s product experience. Our system provides Pinterest with a shared language and reusable code. It facilitates cross-functional collaboration, avoids duplication of efforts and establishes design cohesion.\n\nWe work closely with the Brand team to maintain Pinterest’s identity and aesthetic; however, Gestalt and Brand are different areas within our organization. For further Brand guidance, please reference the Brand guidelines website.`}
+              text={`The system is built for every cross-functional team member, such as designers, engineers and product managers. It fuels every part of Pinterest’s product experience. Our system provides Pinterest with a shared language and reusable code. It facilitates cross-functional collaboration, avoids duplication of efforts and establishes design cohesion.\n\nWe work closely with the Brand team to maintain Pinterest’s identity and aesthetic; however, Gestalt and Brand are different areas within our organization. For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).`}
             />
           </Box>
         </Flex>
@@ -121,7 +121,7 @@ export default function DocsPage(): Node {
           </Heading>
           <Box maxWidth={816}>
             <Markdown
-              text={`Our team is made up of designers, engineers, producers, writers, and so much more! We love to show our work, debate, and challenge each other, but ultimately we trust and empower each other to create great work, and we’re always open to feedback.\n\nWe’re available in so many ways. Visit our team support page for support and collaboration.`}
+              text={`[Our team](http://pinch.pinadmin.com/gestaltOnboarding) is made up of designers, engineers, producers, writers, and so much more! We love to show our work, debate, and challenge each other, but ultimately we trust and empower each other to create great work, and we’re always open to feedback.\n\nWe’re available in so many ways. Visit our [team support page](https://gestalt.pinterest.systems/team_support/contributions) for support and collaboration.`}
             />
           </Box>
         </Flex>
