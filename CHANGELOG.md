@@ -1,3 +1,9 @@
+## 112.6.0 (Jun 2, 2023)
+
+### Minor
+
+- Internal: Add Alpha Workflow file ([#2975](https://github.com/pinterest/gestalt/pull/2975)) - [Preview link](https://deploy-preview-2975--gestalt.netlify.app)
+
 ## 112.5.5 (Jun 2, 2023)
 
 ### Patch
