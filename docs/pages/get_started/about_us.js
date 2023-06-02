@@ -39,7 +39,7 @@ export default function DocsPage(): Node {
             >
               <InclusiveVisual style={{ width: '100%', height: 'auto' }} />
             </Box>
-            <Flex direction="column" gap={2} column={12} lgColumn={6}>
+            <Flex direction="column" gap={2}>
               <Heading size={400} accessibilityLevel={3}>
                 Gestalt powers intuitive, inclusive and accessible interfaces
               </Heading>
@@ -66,7 +66,7 @@ export default function DocsPage(): Node {
               <HarmoniousVisual style={{ width: '100%', height: 'auto' }} />
             </Box>
 
-            <Flex direction="column" gap={2} column={12} lgColumn={6}>
+            <Flex direction="column" gap={2}>
               <Heading size={400} accessibilityLevel={3}>
                 It creates harmonious experiences
               </Heading>
@@ -93,7 +93,7 @@ export default function DocsPage(): Node {
               <VelocityVisual style={{ width: '100%', height: 'auto' }} />
             </Box>
 
-            <Flex direction="column" gap={2} column={12} lgColumn={6}>
+            <Flex direction="column" gap={2}>
               <Heading size={400} accessibilityLevel={3}>
                 It objectively improves product development velocity
               </Heading>
