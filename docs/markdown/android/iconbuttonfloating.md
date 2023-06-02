@@ -4,7 +4,7 @@ description: IconButtonFloating represents the primary or most common action on 
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/04/af/d1/04afd13f2e6d2e3a659f133cf1c8b360.png" width={48} height={48} alt="IconButton component"/>
+<ImgContainer src="https://i.pinimg.com/originals/6f/4b/44/6f4b44c46c6a43a9b2423c8699724b4b.png" width={56} height={56} alt="IconButtonFloating component"/>
 
 ## Usage guidelines
 
@@ -37,7 +37,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 Use these tokens for applying size and color styles to IconButtonFloating.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A18843%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D7943%253A18691%26t%3DOO2DDugQ4OFa27J9-1" allowFullScreen></iframe>
 
 **Please note**: Icons on IconButtonFloating have a limited range of colors and sizes compared to regular icons, as they are different components and have particular usage cases. See Icon for additional information.
 
@@ -47,49 +47,25 @@ IconButtonFloating uses icons instead of text to convey available actions on a s
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D7716%253A18346%26t%3DeuizGQ2zXauZvtfU-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D7943%253A18471%26t%3DOO2DDugQ4OFa27J9-1" allowFullScreen></iframe>
 
 
 ## Variants
 
-### Size
+### Selected
 
-**Size specs—Container**
-
-<br/>
-
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19569%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
-
-**Size specs—Icon**
-
-<br/>
-
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19660%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
-
-
-**Size use cases**
-
-1. **default** **(56dp)**
-Large is the only size that should be used on Pinner surfaces.
-
-
-## Color
-
-Icon colors are semantic—they have a specific meaning and aren't arbitrary. There is no disabled color for icons, as that is handled by the button state that an icon is in.
+Indicates whether the associated dropdown is open or closed. Not used when IconButtonFloating opens a dialog.
 
 **Light mode**
 <br/>
 
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19752%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D7943%253A19138%26t%3DOO2DDugQ4OFa27J9-1" allowFullScreen></iframe>
 
 **Dark mode**
 <br/>
 
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19857%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D7943%253A20157%26t%3DOO2DDugQ4OFa27J9-1" allowFullScreen></iframe>
 
-## Elevation
-
-For elevated IconButton, we suggest using the IconButtonFloating component (Android documentation in progress). See the [IconButtonFloating web](/web/iconbuttonfloating) for reference.
 
 ## Writing
 
@@ -98,10 +74,10 @@ For writing best practices, refer to the [content standards](/foundations/conten
 <TwoCol>
   <Group>
     <Do title="Do" />
-    - Use a descriptive label to describe the IconButton action by beginning with a verb
+    - Use a descriptive label to describe the IconButtonFloating action by beginning with a verb.
   </Group>
   <Group>
     <Dont title="Don't" />
-    - Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit"
+    - Use the words "image" or "icon" in the description label. Instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".
   </Group>
 </TwoCol>
