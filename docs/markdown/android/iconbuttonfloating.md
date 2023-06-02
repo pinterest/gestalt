@@ -11,14 +11,14 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />
-    - To represent a primary or common action when it has to be visible all the time on the screen on top of everything.
-    - Triggering a Sheet to complete a related task.
-    - Only if it is the most suitable way to present a screen's high-emphasis action.
+    - To represent a primary or common action when it has to be visible all the time on the screen on top of everything
+    - Triggering a Sheet to complete a related task
+    - Only if it is the most suitable way to present a screen's high-emphasis action
   </Group>
   <Group>
   <Dont title="When not to use" />
-    - There isn't a need for a fixed IconButtonFloating visible all the time on the screen.
-    - To replace IconButton established patterns, such as navigation elements.
+    - There isn't a need for a fixed IconButtonFloating visible all the time on the screen
+    - To replace IconButton established patterns, such as navigation elements
   </Group>
 </TwoCol>
 
@@ -71,10 +71,10 @@ For writing best practices, refer to the [content standards](/foundations/conten
 <TwoCol>
   <Group>
     <Do title="Do" />
-    - Use a descriptive label to describe the IconButtonFloating action by beginning with a verb.
+    - Use a descriptive label to describe the IconButtonFloating action by beginning with a verb
   </Group>
   <Group>
     <Dont title="Don't" />
-    - Use the words "image" or "icon" in the description label. Instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".
+    - Use the words "image" or "icon" in the description label. Instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit"
   </Group>
 </TwoCol>
