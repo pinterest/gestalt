@@ -152,7 +152,7 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityProcessingLabel: 'Processing message',
   },
   Upsell: {
-    accessibilityDismissButtonLabel: 'Dismiss',
+    accessibilityDismissButtonLabel: 'Dismiss banner',
   },
   Video: {
     accessibilityMaximizeLabel: 'Maximize',

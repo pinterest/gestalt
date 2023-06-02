@@ -249,12 +249,11 @@ export default function ActivationCard({
       {isCompleted ? (
         <CompletedCard
           dismissButton={
-            dismissButton && !dismissButton.accessibilityLabel
-              ? {
-                  onDismiss: dismissButton.onDismiss,
-                  accessibilityLabel: accessibilityDismissButtonLabel,
-                }
-              : dismissButton
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
           }
           message={message}
           status={status}
@@ -264,12 +263,11 @@ export default function ActivationCard({
       ) : (
         <UncompletedCard
           dismissButton={
-            dismissButton && !dismissButton.accessibilityLabel
-              ? {
-                  onDismiss: dismissButton.onDismiss,
-                  accessibilityLabel: accessibilityDismissButtonLabel,
-                }
-              : dismissButton
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
           }
           link={link}
           message={message}

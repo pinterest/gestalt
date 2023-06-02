@@ -41,17 +41,17 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'Modal',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Close modal',
+      'label': 'Dismiss modal',
     },
     {
       'component': 'Popover',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Close popover',
+      'label': 'Dismiss popover',
     },
     {
       'component': 'OverlayPanel',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Close overlay panel',
+      'label': 'Dismiss overlay panel',
     },
     {
       'component': 'OverlayPanel',
@@ -86,7 +86,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'SheetMobile',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Close bottom sheet',
+      'label': 'Dismiss bottom sheet',
     },
     {
       'component': 'SheetMobile',
@@ -101,7 +101,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'SideNavigation',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Close side navigation',
+      'label': 'Dismiss side navigation',
     },
     {
       'component': 'SlimBanner',
@@ -146,7 +146,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'Toast',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Close toast',
+      'label': 'Dismiss toast',
     },
     {
       'component': 'Toast',
@@ -166,7 +166,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'Upsell',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss',
+      'label': 'Dismiss banner',
     },
     {
       'component': 'Video',

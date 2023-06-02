@@ -89,12 +89,11 @@ export default function SideNavigation({
             footer={footer}
             header={header}
             dismissButton={
-              dismissButton && !dismissButton.accessibilityLabel
-                ? {
-                    onDismiss: dismissButton.onDismiss,
-                    accessibilityLabel: accessibilityDismissButtonLabel,
-                  }
-                : dismissButton
+              dismissButton && {
+                onDismiss: dismissButton.onDismiss,
+                accessibilityLabel:
+                  dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+              }
             }
             showBorder={showBorder}
             title={title}
