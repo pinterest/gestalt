@@ -1529,7 +1529,7 @@ interface SheetMobileProps {
       { onDismissStart: () => void }
     >;
   };
-  onOutsideClick?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;;
+  onOutsideClick?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
   onAnimationEnd?: OnAnimationEndType | undefined;
   primaryAction?: {
     accessibilityLabel: string;
