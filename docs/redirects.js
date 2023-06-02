@@ -125,12 +125,12 @@ const misc = [
   },
   {
     source: '/data_visualization_colors',
-    destination: '/foundations/data_visualization/palette',
+    destination: '/foundations/data_visualization/color/palette',
     permanent: true,
   },
   {
     source: '/data_visualization_guidelines',
-    destination: '/foundations/data_visualization/usage',
+    destination: '/foundations/data_visualization/color/usage',
     permanent: true,
   },
   {
