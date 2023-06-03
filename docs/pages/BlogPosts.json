@@ -10,7 +10,7 @@
             "title": "Data visualization guidelines",
             "audience": ["Design", "Engineering"],
             "imageColor": "blue-skycicle-100",
-            "imageSrc": "",
+            "imageSrc": "https://i.pinimg.com/originals/fd/63/e2/fd63e23c2a4e5a07bd8baf892e6ff7d0.png",
             "imageAltText": "Illustration of data visualizations.",
             "content": "We are beyond excited to share the release of our [expanded data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/overview). These guidelines cover [charts and graphs](https://gestalt.pinterest.systems/foundations/data_visualization/charts_and_graphs), [micro-visualizations](https://gestalt.pinterest.systems/foundations/data_visualization/micro_visualizations), [available components](https://gestalt.pinterest.systems/foundations/data_visualization/available_components), [color palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette) and [color usage](https://gestalt.pinterest.systems/foundations/data_visualization/color/usage). This was a major lift by the team and we're stoked it's available."
           },
@@ -18,7 +18,7 @@
             "title": "Data visualization Figma components",
             "audience": ["Design"],
             "imageColor": "white-mochimalist-0",
-            "imageSrc": "",
+            "imageSrc": "https://i.pinimg.com/originals/c1/a9/30/c1a93054b517ee01e6d995a02adfd3b2.png",
             "imageAltText": "Screenshots of Figma bar chart component.",
             "content": "We're not done on the topic of data visualization. We also added new data viz component to our Figma data viz library! In there you'll find bar charts, line charts, tiles and tags specifically for the purpose of (you guessed it) data visualization. This, along with our guidelines is going to set us up nicely to deliver code-backed React components in H2 of this year."
           },
@@ -26,7 +26,7 @@
             "title": "Gobs of Android docs improvements",
             "audience": ["Design", "Engineering"],
             "imageColor": "blue-skycicle-100",
-            "imageSrc": "",
+            "imageSrc": "https://i.pinimg.com/originals/4f/01/86/4f0186872cb58f4312464c53d3c7d64a.png",
             "imageAltText": "The Android logo.",
             "content": "Our team has been putting a lot of work expanding our mobile documentation. We recently published a major update so that all our Android component docs now include full design specs (including anatomy, token breakdowns, and variant details). As we continue active development of Android components, these updates should make that process smoother and awesomer."
           },
@@ -34,7 +34,7 @@
             "title": "Advertising safe area",
             "audience": ["Design"],
             "imageColor": "white-mochimalist-0",
-            "imageSrc": "",
+            "imageSrc": "https://i.pinimg.com/originals/4d/79/85/4d79855e589e2e7b6126d43704e17f3a.png",
             "imageAltText": "An example of advertising safe zones added to the Figma Pin component.",
             "content": "We've begun the introduction of defining advertising safe zones within the Pin component to ensure content is not occluded by UI. These specifications are currently only in our Figma Web Library, but we are actively discussing how we can make these guidelines more available across Pinterest."
           }
