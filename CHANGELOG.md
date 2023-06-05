@@ -1,3 +1,9 @@
+## 112.6.7 (Jun 5, 2023)
+
+### Patch
+
+- Internal: Update eslint-plugin-gestalt README ([#2989](https://github.com/pinterest/gestalt/pull/2989)) - [Preview link](https://deploy-preview-2989--gestalt.netlify.app)
+
 ## 112.6.6 (Jun 5, 2023)
 
 ### Patch
