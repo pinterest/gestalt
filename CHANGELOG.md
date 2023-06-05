@@ -1,3 +1,9 @@
+## 112.6.10 (Jun 5, 2023)
+
+### Patch
+
+- Internal: Unminify classname when developing ([#2948](https://github.com/pinterest/gestalt/pull/2948)) - [Preview link](https://deploy-preview-2948--gestalt.netlify.app)
+
 ## 112.6.9 (Jun 5, 2023)
 
 ### Patch
