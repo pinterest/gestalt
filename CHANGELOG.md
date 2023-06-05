@@ -1,3 +1,9 @@
+## 112.6.6 (Jun 5, 2023)
+
+### Patch
+
+- TileData: fix typo + copyediting ([#2988](https://github.com/pinterest/gestalt/pull/2988)) - [Preview link](https://deploy-preview-2988--gestalt.netlify.app)
+
 ## 112.6.5 (Jun 5, 2023)
 
 ### Patch
