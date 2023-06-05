@@ -2,6 +2,7 @@
 import { useEffect, useState, Fragment, type Node } from 'react';
 import { Box, Divider, DeviceTypeProvider, Flex } from 'gestalt';
 import { useRouter } from 'next/router';
+import { useAppContext } from './appContext.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
 import Footer from './Footer.js';
 import Header from './Header.js';
@@ -25,6 +26,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   const { isMobile } = useDocsConfig();
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();
+  const { setDevExampleMode } = useAppContext();
 
   const [shouldHideSideNav, setShouldHideSideNav] = useState(true);
 
@@ -37,6 +39,11 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
   useEffect(() => {
     setShouldHideSideNav(fullWidthPages.some((page) => router?.route.includes(page)));
   }, [router]);
+
+  // query param to handle dev code samples
+  if (router.query.devexample) {
+    setDevExampleMode(router.query.devexample === 'true' ? 'development' : 'default');
+  }
 
   useEffect(() => {
     const handleScroll = () => setIsSidebarOpen(false);
