@@ -12,6 +12,12 @@ import baseColor from '../../examples/tagdata/baseColor.js';
 import colors from '../../examples/tagdata/colors.js';
 import disabled from '../../examples/tagdata/disabled.js';
 import dismissable from '../../examples/tagdata/dismissable.js';
+import doChangeBaseColor from '../../examples/tagdata/doChangeBaseColor.js';
+import dontChangeBaseColor from '../../examples/tagdata/dontChangeBaseColor.js';
+import dontMixStyles from '../../examples/tagdata/dontMixStyles.js';
+import dontUseLongLabels from '../../examples/tagdata/dontUseLongLabels.js';
+import doUseSameStyle from '../../examples/tagdata/doUseSameStyle.js';
+import doUseShortLabels from '../../examples/tagdata/doUseShortLabels.js';
 import group from '../../examples/tagdata/group.js';
 import main from '../../examples/tagdata/main.js';
 import sizes from '../../examples/tagdata/sizes.js';
@@ -56,7 +62,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             description="Choose the right soft background to help it stand out in dense data interfaces. If using against a gray background, for example, adopt a white fill"
             sandpackExample={
               <SandpackExample
-                code=""
+                code={doChangeBaseColor}
                 name="show one selected tile"
                 hideEditor
                 previewHeight={200}
@@ -69,7 +75,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             description="Match the TagData fill with the background as it isn't clear the TagData is selectable"
             sandpackExample={
               <SandpackExample
-                code=""
+                code={dontChangeBaseColor}
                 name="show one tile not selected"
                 hideEditor
                 hideControls
@@ -85,7 +91,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             description="Use short and clear labels for easier comprehension — ideally one to two words."
             sandpackExample={
               <SandpackExample
-                code=""
+                code={doUseSameStyle}
                 name="show multiple with checkboxes"
                 hideEditor
                 previewHeight={200}
@@ -98,7 +104,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             description="Mix the TagData variants in the same group. This creates an unclear pattern for the user to understand what TagDatas are removable or not."
             sandpackExample={
               <SandpackExample
-                code=""
+                code={dontMixStyles}
                 name="not show multiple with checkboxes"
                 hideEditor
                 hideControls
@@ -114,7 +120,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             description="Always present at least two options on single-select and multi-select TagData."
             sandpackExample={
               <SandpackExample
-                code=""
+                code={doUseShortLabels}
                 name="show multiple with checkboxes"
                 hideEditor
                 previewHeight={200}
@@ -127,7 +133,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             description="Present only a single option. Use a legend for your chart or graph instead."
             sandpackExample={
               <SandpackExample
-                code=""
+                code={dontUseLongLabels}
                 name="not show multiple with checkboxes"
                 hideEditor
                 hideControls
