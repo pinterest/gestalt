@@ -295,7 +295,6 @@ export default class MasonryContainer extends Component<Props, State> {
     }));
   };
 
-  // $FlowFixMe[unclear-type]
   renderItem: $ElementType<React$ElementConfig<typeof Masonry>, 'renderItem'> = ({
     data,
     itemIdx,

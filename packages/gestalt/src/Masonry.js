@@ -7,6 +7,7 @@ import throttle, { type ThrottleReturn } from './throttle.js';
 import { type Cache } from './Masonry/Cache.js';
 import defaultLayout from './Masonry/defaultLayout.js';
 import fullWidthLayout from './Masonry/fullWidthLayout.js';
+import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore.js';
 import MeasureItems from './Masonry/MeasureItems.js';
 import MeasurementStore from './Masonry/MeasurementStore.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
@@ -169,6 +170,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       props.measurementStore || Masonry.createMeasurementStore();
 
     const positionStore: Cache<T, Position> = new MeasurementStore();
+    this.heightsStore = new HeightsStore();
 
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
@@ -186,6 +188,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   containerOffset: number;
 
   gridWrapper: ?HTMLElement;
+
+  heightsStore: HeightsStoreInterface;
 
   insertAnimationFrame: AnimationFrameID;
 
@@ -419,7 +423,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       virtualBufferFactor,
     } = this.props;
     const { top, left, width, height } = position;
-
     let isVisible;
     if (scrollContainer && virtualBufferFactor) {
       const virtualBuffer = this.containerHeight * virtualBufferFactor;
@@ -500,6 +503,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         positionCache: positionStore,
         columnWidth,
         gutter,
+        heightsCache: this.heightsStore,
         justify: layout === 'basicCentered' ? 'center' : 'start',
         minCols,
         rawItemCount: items.length,
@@ -558,7 +562,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
+      const itemsWithMeasurements = items.filter(
+        (item) => item && measurementStore.has(item),
+        // && !positionStore.has(item),
+      );
+      const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
 
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       // $FlowFixMe[prop-missing] clearly I don't understand how the `T` type works
@@ -571,8 +579,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      const positions = getPositions(itemsWithMeasurements);
-      const measuringPositions = getPositions(itemsToMeasure);
+      const { positions } = getPositions(itemsWithMeasurements);
+      const { positions: measuringPositions } = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
@@ -581,12 +589,20 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
-            {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
+            {itemsWithPositions.map((item, i) =>
+              this.renderMasonryComponent(
+                item,
+                i,
+                // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
+                this.state.positionStore.get(item) ?? positions[i],
+              ),
+            )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {_batchPaints ? (
               <MeasureItems
                 baseIndex={itemsWithMeasurements.length}
+                // $FlowFixMe[incompatible-type] UGH
                 getPositions={getPositions}
                 items={itemsToMeasure}
                 measurementStore={measurementStore}

@@ -15,15 +15,17 @@ const fullWidthLayout = <T>({
   minCols?: number,
   idealColumnWidth?: number,
   width?: ?number,
-|}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
+|}): ((items: $ReadOnlyArray<T>) => {| heights: null, positions: $ReadOnlyArray<Position> |}) => {
   if (width == null) {
-    return (items) =>
-      items.map(() => ({
+    return (items) => ({
+      heights: null,
+      positions: items.map(() => ({
         top: Infinity,
         left: Infinity,
         width: Infinity,
         height: Infinity,
-      }));
+      })),
+    });
   }
 
   // "This is kind of crazy!" - you
@@ -37,35 +39,38 @@ const fullWidthLayout = <T>({
     // the total height of each column
     const heights = new Array(columnCount).fill(0);
 
-    return items.reduce((acc, item) => {
-      const positions = acc;
-      const height = cache.get(item);
-      let position;
+    return {
+      heights: null,
+      positions: items.reduce((acc, item) => {
+        const positions = acc;
+        const height = cache.get(item);
+        let position;
 
-      if (height == null) {
-        position = {
-          top: Infinity,
-          left: Infinity,
-          width: columnWidth,
-          height: Infinity,
-        };
-      } else {
-        const col = mindex(heights);
-        const top = heights[col];
-        const left = col * columnWidth + gutter / 2;
+        if (height == null) {
+          position = {
+            top: Infinity,
+            left: Infinity,
+            width: columnWidth,
+            height: Infinity,
+          };
+        } else {
+          const col = mindex(heights);
+          const top = heights[col];
+          const left = col * columnWidth + gutter / 2;
 
-        heights[col] += height;
-        position = {
-          top,
-          left,
-          width: columnWidth - gutter,
-          height,
-        };
-      }
+          heights[col] += height;
+          position = {
+            top,
+            left,
+            width: columnWidth - gutter,
+            height,
+          };
+        }
 
-      positions.push(position);
-      return positions;
-    }, []);
+        positions.push(position);
+        return positions;
+      }, []),
+    };
   };
 };
 

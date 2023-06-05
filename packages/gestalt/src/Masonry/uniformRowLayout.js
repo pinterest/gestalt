@@ -9,23 +9,22 @@ const offscreen = (width: number, height: number = Infinity) => ({
   height,
 });
 
-const uniformRowLayout =
-  <T>({
-    cache,
-    columnWidth = 236,
-    gutter = 14,
-    width,
-    minCols = 3,
-  }: {|
-    cache: Cache<T, number>,
-    columnWidth?: number,
-    gutter?: number,
-    width?: ?number,
-    minCols?: number,
-  |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
-  (items: $ReadOnlyArray<T>): $ReadOnlyArray<Position> => {
+const uniformRowLayout = <T>({
+  cache,
+  columnWidth = 236,
+  gutter = 14,
+  width,
+  minCols = 3,
+}: {|
+  cache: Cache<T, number>,
+  columnWidth?: number,
+  gutter?: number,
+  width?: ?number,
+  minCols?: number,
+|}): ((items: $ReadOnlyArray<T>) => {| heights: null, positions: $ReadOnlyArray<Position> |}) =>
+  function (items: $ReadOnlyArray<T>): {| heights: null, positions: $ReadOnlyArray<Position> |} {
     if (width == null) {
-      return items.map(() => offscreen(columnWidth));
+      return { heights: null, positions: items.map(() => offscreen(columnWidth)) };
     }
 
     const columnWidthAndGutter = columnWidth + gutter;
@@ -59,7 +58,7 @@ const uniformRowLayout =
       }
       positions.push(position);
     }
-    return positions;
+    return { heights: null, positions };
   };
 
 export default uniformRowLayout;

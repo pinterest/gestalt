@@ -1,6 +1,7 @@
 // @flow strict
 import { type Cache } from './Cache.js';
 import Graph from './Graph.js';
+import { type HeightsStoreInterface } from './HeightsStore.js';
 import mindex from './mindex.js';
 import { type NodeData, type Position } from './types.js';
 
@@ -21,6 +22,16 @@ function getPositionsOnly<T>(
   return positions.map(({ position }) => position);
 }
 
+function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOnlyArray<number> {
+  return heights.reduce((acc, height, index) => {
+    const adjacentColumnHeight = heights[index + 1];
+    if (adjacentColumnHeight) {
+      return [...acc, Math.abs(height - adjacentColumnHeight)];
+    }
+    return acc;
+  }, []);
+}
+
 function getPositions<T>({
   centerOffset,
   columnWidth,
@@ -29,6 +40,7 @@ function getPositions<T>({
   heights: heightsArg,
   items,
   measurementCache,
+  positionCache,
 }: {|
   centerOffset: number,
   columnWidth: number,
@@ -37,6 +49,7 @@ function getPositions<T>({
   heights: $ReadOnlyArray<number>,
   items: $ReadOnlyArray<T>,
   measurementCache: Cache<T, number>,
+  positionCache: Cache<T, Position>,
 |}): {|
   positions: $ReadOnlyArray<{| item: T, position: Position |}>,
   heights: $ReadOnlyArray<number>,
@@ -52,6 +65,11 @@ function getPositions<T>({
       const left = col * columnWidthAndGutter + centerOffset;
 
       heights[col] += heightAndGutter;
+
+      const cachedPosition = positionCache.get(item);
+      if (cachedPosition) {
+        return [...positionsSoFar, { item, position: cachedPosition }];
+      }
       return [
         ...positionsSoFar,
         {
@@ -72,11 +90,74 @@ function getPositions<T>({
   return { positions, heights };
 }
 
-function getTwoColItemPosition() {}
+function getTwoColItemPosition<T>({
+  centerOffset,
+  columnWidth,
+  columnWidthAndGutter,
+  gutter,
+  heights: heightsArg,
+  item,
+  measurementCache,
+  positionCache,
+}: {|
+  centerOffset: number,
+  columnWidth: number,
+  columnWidthAndGutter: number,
+  gutter: number,
+  heights: $ReadOnlyArray<number>,
+  item: T,
+  measurementCache: Cache<T, number>,
+  positionCache: Cache<T, Position>,
+|}): {| heights: $ReadOnlyArray<number>, position: Position |} {
+  const heights = [...heightsArg];
+  const height = measurementCache.get(item);
+
+  if (isNil(height)) {
+    return { heights, position: offscreen(columnWidth) };
+  }
+
+  const heightAndGutter = height + gutter;
+
+  // Find height deltas for each column as compared to the next column
+  const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights);
+  const lowestAdjacentColumnHeightDeltaIndex = adjacentColumnHeightDeltas.indexOf(
+    Math.min(...adjacentColumnHeightDeltas),
+  );
+  // Deltas can go either way, so find which of the two adjacent columns is higher
+  const leftIsHigher =
+    heights[lowestAdjacentColumnHeightDeltaIndex] >
+    heights[lowestAdjacentColumnHeightDeltaIndex + 1];
+  const col = leftIsHigher
+    ? lowestAdjacentColumnHeightDeltaIndex
+    : lowestAdjacentColumnHeightDeltaIndex + 1;
+
+  const top = heights[col];
+  const left = col * columnWidthAndGutter + centerOffset;
+
+  // Increase the heights of both adjacent columns
+  heights[col] += heightAndGutter;
+  heights[leftIsHigher ? col + 1 : col - 1] += heightAndGutter;
+
+  const cachedPosition = positionCache.get(item);
+  if (cachedPosition) {
+    return { heights, position: cachedPosition };
+  }
+
+  return {
+    heights,
+    position: {
+      top,
+      left,
+      width: columnWidth * 2 + gutter,
+      height,
+    },
+  };
+}
 
 const defaultLayout = <T>({
   columnWidth = 236,
   gutter = 14,
+  heightsCache,
   justify,
   measurementCache,
   minCols = 2,
@@ -86,6 +167,7 @@ const defaultLayout = <T>({
 }: {|
   columnWidth?: number,
   gutter?: number,
+  heightsCache: HeightsStoreInterface,
   justify: 'center' | 'start',
   measurementCache: Cache<T, number>,
   minCols?: number,
@@ -94,7 +176,10 @@ const defaultLayout = <T>({
   width?: ?number,
 |}): ({|
   columnCount: number | null,
-  getPositions: (items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>,
+  getPositions: (items: $ReadOnlyArray<T>) => {|
+    heights: $ReadOnlyArray<number>,
+    positions: $ReadOnlyArray<Position>,
+  |},
 |}) => {
   const columnWidthAndGutter = columnWidth + gutter;
   const columnCount = isNil(width)
@@ -103,13 +188,18 @@ const defaultLayout = <T>({
 
   return {
     columnCount,
-    getPositions: (items): $ReadOnlyArray<Position> => {
-      if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-        return items.map(() => offscreen(columnWidth));
-      }
-
+    getPositions: (
+      items,
+    ): {| heights: $ReadOnlyArray<number>, positions: $ReadOnlyArray<Position> |} => {
       // the total height of each column
-      const heights = new Array(columnCount).fill(0);
+      const heights =
+        heightsCache.getHeights().length > 0
+          ? heightsCache.getHeights()
+          : new Array(columnCount).fill(0);
+
+      if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
+        return { heights, positions: items.map(() => offscreen(columnWidth)) };
+      }
 
       const itemsWithPositions = items.filter((item) => positionCache.has(item));
       const itemsWithoutPositions = items.filter((item) => !positionCache.has(item));
@@ -140,9 +230,9 @@ const defaultLayout = <T>({
         columnWidthAndGutter,
         gutter,
         measurementCache,
+        positionCache,
       };
 
-      // if (false) {
       if (hasTwoColumnItems) {
         // Get positions and heights for painted items
         const { positions: paintedItemPositions, heights: paintedItemHeights } = getPositions({
@@ -195,13 +285,7 @@ const defaultLayout = <T>({
             positions: updatedPositions,
           };
 
-          const adjacentColumnHeightDeltas = updatedHeights.reduce((acc, height, index) => {
-            const adjacentColumnHeight = updatedHeights[index + 1];
-            if (adjacentColumnHeight) {
-              return [...acc, Math.abs(height - adjacentColumnHeight)];
-            }
-            return acc;
-          }, []);
+          const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights);
           const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
 
           graph.addNode(paintedItemData);
@@ -235,37 +319,51 @@ const defaultLayout = <T>({
           });
         });
 
-        console.log('graph', graph.prettyPrintGraph(startNodeData));
-
         const { lowestScore, lowestScoreNode } = graph.findLowestScore(startNodeData);
         console.log('lowestScore', lowestScore);
         console.log('lowestScoreNode', lowestScoreNode);
 
         const { positions: winningPositions } = lowestScoreNode;
 
-        // PULL OUT REMAINING ITEMS(?)
+        // IMPLEMENT PIN LEVELING ON WINNING POSITIONS
 
-        // INSERT 2-COL ITEM
+        // Insert 2-col item(s)
+        const twoColItem = twoColumnItems[0]; // this should always only be one
+        const { heights: finalHeights, position: twoColItemPosition } = getTwoColItemPosition<T>({
+          item: twoColItem,
+          heights: lowestScoreNode.heights,
+          ...commonGetPositionArgs,
+        });
 
-        // LAYOUT REMAINING ITEMS
+        console.log('twoColItemPositions', twoColItemPosition);
+        // Combine winning positions and 2-col item position, add to cache
+        const finalPositions = [
+          ...winningPositions,
+          { item: twoColItem, position: twoColItemPosition },
+        ];
+        finalPositions.forEach(({ item, position }) => {
+          console.log('SETTING FROM GRAPH', item, position);
+          positionCache.set(item, position);
+        });
 
         // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
         // If so, we could save the 2-col item somehow and try again with the next batch of items
 
-        return getPositionsOnly(finalPositions);
+        return { heights: finalHeights, positions: getPositionsOnly(finalPositions) };
       }
 
-      const { positions: itemPositions } = getPositions<T>({
+      const { heights: finalHeights, positions: itemPositions } = getPositions<T>({
         items,
         heights,
         ...commonGetPositionArgs,
       });
       itemPositions.forEach(({ item, position }) => {
+        console.log('SETTING FROM DEFAULT', item, position);
         positionCache.set(item, position);
       });
       const positionsOnly = getPositionsOnly<T>(itemPositions);
 
-      return positionsOnly;
+      return { heights: finalHeights, positions: positionsOnly };
     },
   };
 };
