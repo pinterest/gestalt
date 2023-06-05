@@ -64,6 +64,10 @@ Do not allow `role='link'` on `Button`, `TapArea`, and `IconButton` in cases whe
 
 Prevent using inline styles on divs that could be gestalt Box props. We prefer using gestalt Box over divs with inline styling to get styling consistency across the app and shared css classes. This linter checks for usage of inline styling that is available as Box props.
 
+### gestalt/prefer-list
+
+Disallow use of `<ol>` or `<ul>` elements in favor of our [List](https://gestalt.pinterest.systems/web/list) component.
+
 ## Development
 
 New rules should be developed TDD-style by testing against simplified test cases first. See the \*.test.js files and fixtures for examples. Once tests pass, you can check the rules against a project using gestalt through yarn link. For example:
