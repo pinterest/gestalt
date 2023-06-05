@@ -1,3 +1,9 @@
+## 112.6.9 (Jun 5, 2023)
+
+### Patch
+
+- Docs: add May newsletter ([#2991](https://github.com/pinterest/gestalt/pull/2991)) - [Preview link](https://deploy-preview-2991--gestalt.netlify.app)
+
 ## 112.6.8 (Jun 5, 2023)
 
 ### Patch
