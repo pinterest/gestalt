@@ -30,7 +30,7 @@ const getErrorMessage = (string: string) =>
 ruleTester.run('prefer-box', rule, {
   valid: [{ code: validCode }],
   invalid: [
-    [invalidBackgroundColor, '`color="white"`'],
+    [invalidBackgroundColor, '`color="default"`'],
     [invalidBorderRadius, '`rounding="circle"`'],
     [invalidBorder, '`borderStyle="lg"`'],
   ].map(([code, errorMessage]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),
