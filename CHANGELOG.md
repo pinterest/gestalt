@@ -1,3 +1,9 @@
+## 112.6.8 (Jun 5, 2023)
+
+### Patch
+
+- Docs: fix max width for blog post titles ([#2990](https://github.com/pinterest/gestalt/pull/2990)) - [Preview link](https://deploy-preview-2990--gestalt.netlify.app)
+
 ## 112.6.7 (Jun 5, 2023)
 
 ### Patch
