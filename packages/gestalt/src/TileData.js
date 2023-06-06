@@ -137,7 +137,14 @@ export default function TileData({
     });
 
   return (
-    <Tile disabled={disabled} id={id} onTap={onTap} selected={selected} tooltip={tooltip}>
+    <Tile
+      disabled={disabled}
+      id={id}
+      onTap={onTap}
+      selected={selected}
+      tooltip={tooltip}
+      tabIndex={-1}
+    >
       {(interactionState) => {
         const { hovered, disabled: disabledTap, selected: selectedTap } = interactionState;
         const tileStyle = DataVizColor.getTileColors(

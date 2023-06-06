@@ -1,23 +1,35 @@
 .tagOuterContainer {
   composes: fullWidth from "./Layout.css";
   composes: fullHeight from "./Layout.css";
-  box-sizing: border-box;
 }
 
 .tagContainer {
+  composes: flex from "./Layout.css";
   composes: fullWidth from "./Layout.css";
   composes: fullHeight from "./Layout.css";
-  composes: flex from "./Layout.css";
-  gap: 2px;
 }
 
-.tagWrapper {
+.tagBase {
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
-  composes: fullWidth from "./Layout.css";
   composes: fullHeight from "./Layout.css";
+  composes: paddingX2 from "./boxWhitespace.css";
+}
+
+.tagLarge {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.tagMedium {
+  padding-top: 11.5px;
+  padding-bottom: 11.5px;
+}
+
+.tagSmall {
+  composes: paddingY2 from "./boxWhitespace.css";
 }
 
 .tagWrapperDismiss {
@@ -27,7 +39,7 @@
 }
 
 .tagWrapperRounded {
-  border-radius: 8px;
+  composes: rounding2 from "./Borders.css";
   border-width: var(--g-border-width-lg);
 }
 
@@ -48,10 +60,10 @@
   border-radius: 0px 8px 8px 0px;
   border-width: var(--g-border-width-lg) var(--g-border-width-lg)
     var(--g-border-width-lg) 0px;
+  padding-left: 5px;
+  padding-right: 5px;
   composes: fullHeight from "./Layout.css";
   composes: flex from "./Layout.css";
-  composes: paddingX2 from "./boxWhitespace.css";
-  composes: paddingY2 from "./boxWhitespace.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
   composes: transparentBorder from "./Borders.css";

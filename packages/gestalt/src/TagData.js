@@ -113,9 +113,9 @@ export type Props = {|
 |};
 
 const sizes = {
-  'sm': { height: 32, fontSize: '200' },
-  'md': { height: 40, fontSize: '200' },
-  'lg': { height: 48, fontSize: '300' },
+  'sm': { fontSize: '200' },
+  'md': { fontSize: '200' },
+  'lg': { fontSize: '300' },
 };
 
 /**
@@ -142,8 +142,6 @@ export default function TagData({
   const { accessibilityRemoveIconLabel: accessibilityRemoveIconLabelDefault } =
     useDefaultLabelContext('Tag');
 
-  const { isFocusVisible } = useFocusVisible();
-
   const theme = useColorScheme();
   const borderColor = DataVizColor.getDataVisualizationColor(theme, color);
   const bgColor = DataVizColor.getDataVisualizationColorForBackground(theme, color);
@@ -155,7 +153,10 @@ export default function TagData({
   };
 
   const getTagClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
-    classnames(styles.tagWrapper, {
+    classnames(styles.tagBase, {
+      [styles.tagLarge]: size === 'lg',
+      [styles.tagMedium]: size === 'md',
+      [styles.tagSmall]: size === 'sm',
       [cssColorStyles.secondary]: baseColor === 'default',
       [cssColorStyles.default]: baseColor === 'white',
       [styles.hovered]: hovered && !tapDisabled,
@@ -165,20 +166,17 @@ export default function TagData({
     });
 
   const getRemoveIconClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
-    classnames(
-      {
-        [cssColorStyles.secondary]: baseColor === 'default',
-        [cssColorStyles.default]: baseColor === 'white',
-        [styles.dismissHovered]: hovered && !tapDisabled,
-        [styles.disabled]: tapDisabled,
-      },
-      styles.dismissButton,
-    );
+    classnames(styles.dismissButton, {
+      [cssColorStyles.secondary]: baseColor === 'default',
+      [cssColorStyles.default]: baseColor === 'white',
+      [styles.dismissHovered]: hovered && !tapDisabled,
+      [styles.disabled]: tapDisabled,
+    });
 
   const checkboxId = useId();
 
   return (
-    <Box display="inlineBlock" height={sizes[size]?.height || 40} maxWidth={300} rounding={2}>
+    <Box display="inlineBlock" maxWidth={300} rounding={2}>
       <Tile interactive={false} selected={selected} disabled={disabled}>
         {(interactionStates) => {
           const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
@@ -203,9 +201,10 @@ export default function TagData({
                 rounding={0}
                 outerContainerClass={styles.tagOuterContainer}
                 tooltip={tooltip}
+                tabIndex={0}
               >
                 <div className={getTagClasses(interactionStates)} style={tileStyle}>
-                  <Box alignItems="center" display="flex" padding={2} width="100%">
+                  <Box alignItems="center" display="flex" width="100%">
                     {showCheckbox && (
                       <InternalCheckbox
                         id={`readonly-checkbox-${checkboxId}`}

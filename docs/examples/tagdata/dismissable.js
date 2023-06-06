@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Flex, TagData } from 'gestalt';
+import { Box, Flex, Link, TagData, Text } from 'gestalt';
 
 export default function Example(): Node {
   const dataSources = [
@@ -26,11 +26,13 @@ export default function Example(): Node {
 
   const allIds = dataSources.map(({ id }) => id);
 
+  const [data, setData] = useState(dataSources);
+
   const [selectedItems, setSelectedItems] = useState(allIds);
 
   return (
     <Flex justifyContent="center" alignItems="center" height="100%" width="100%" gap={2}>
-      {dataSources.map(({ id, color, tooltip, name }) => (
+      {data.map(({ id, color, tooltip, name }) => (
         <TagData
           key={id}
           id={id}
@@ -53,9 +55,7 @@ export default function Example(): Node {
               return;
             }
 
-            setSelectedItems((currSelectedIds) =>
-              currSelectedIds.filter((tileId) => tileId !== selectedId),
-            );
+            setData((currData) => currData.filter((tile) => tile.id !== selectedId));
           }}
           selected={selectedItems.includes(id)}
           tooltip={{ text: tooltip }}

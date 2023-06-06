@@ -3,7 +3,7 @@ import { type Node, useState } from 'react';
 import { Flex, TagData } from 'gestalt';
 
 export default function Example(): Node {
-  const [isSelected, setSelected] = useState(false);
+  const [isSelected, setSelected] = useState(true);
 
   return (
     <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
