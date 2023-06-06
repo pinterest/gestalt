@@ -48,7 +48,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             title="When not to use"
             description={`
       - Progressing or regressing a user through a step in a flow. Use a [Button](https://gestalt.pinterest.systems/web/button) instead
-      - In conjunction with [TextField](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextArea](https://gestalt.pinterest.systems/web/textarea#tagsExample), and [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags). Use [Tag](https://gestalt.pinterest.systems/web/tag) instead
+      - In conjunction with [TextField](https://gestalt.pinterest.systems/web/textfield#Tags), [TextArea](https://gestalt.pinterest.systems/web/textarea#With-tags), and [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags). Use [Tag](https://gestalt.pinterest.systems/web/tag) instead
     `}
           />
         </MainSection.Subsection>
@@ -59,7 +59,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Choose the right soft background to help it stand out in dense data interfaces. If using against a gray background, for example, adopt a white fill"
+            description="Choose the right soft background to help it stand out in dense data interfaces. If using against a gray background, for example, adopt a white fill."
             sandpackExample={
               <SandpackExample
                 code={doChangeBaseColor}
@@ -146,7 +146,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description="Users should be able to navigate or activate a TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `dismissable` prop and `tooltip` prop. "
+        description="Users should be able to navigate or activate a TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `dismissable` prop and `tooltip` prop."
       />
 
       <MainSection
@@ -229,7 +229,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
         <MainSection.Subsection
           description={`
     **[Tag](/web/tag)**
-    Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
+    Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#Tags), [TextAreas](https://gestalt.pinterest.systems/web/textarea#With-tags), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
     
     **[TileData](/web/tiledata)**
     TileData is a flexible, visually rich component that can be used as single or multiple selections on should be only used with data visualizations.
