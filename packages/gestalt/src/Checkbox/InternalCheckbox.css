@@ -4,23 +4,23 @@
 }
 
 .border {
-  composes: borderColorDarkGray from "./Borders.css";
+  composes: borderColorDarkGray from "../Borders.css";
 }
 
 .borderSelected {
-  composes: borderColorSelected from "./Borders.css";
+  composes: borderColorSelected from "../Borders.css";
 }
 
 .borderDarkGray {
-  composes: borderColorDarkGray from "./Borders.css";
+  composes: borderColorDarkGray from "../Borders.css";
 }
 
 .borderDisabled {
-  composes: borderColorLightGrayDisabled from "./Borders.css";
+  composes: borderColorLightGrayDisabled from "../Borders.css";
 }
 
 .borderError {
-  composes: borderColorRed from "./Borders.css";
+  composes: borderColorRed from "../Borders.css";
 }
 
 .borderHovered {

@@ -314,8 +314,8 @@ type DataVisualizationColors =
   | '12';
 
 type TrendObject = {
-  accessibilityLabel: string,
-  value: number,
+  accessibilityLabel: string;
+  value: number;
 };
 
 interface ActionData {
@@ -412,7 +412,7 @@ interface OnLinkNavigationProviderProps {
 
 interface GlobalEventsHandlerProviderProps {
   children: Node;
-  sheetMobileHandlers?: { onOpen?: (() => void) | void, onClose?: (() => void)| void } | void
+  sheetMobileHandlers?: { onOpen?: (() => void) | void; onClose?: (() => void) | void } | void;
 }
 
 interface ScrollBoundaryContainerProps {
@@ -1508,52 +1508,49 @@ interface SheetMobileProps {
   align?: 'start' | 'center' | undefined;
   backIconButton?: {
     accessibilityLabel: string;
-    onClick:
-      | AbstractEventHandler<
-          | React.MouseEvent<HTMLButtonElement>
-          | React.KeyboardEvent<HTMLButtonElement>
-          | React.MouseEvent<HTMLAnchorElement>
-          | React.KeyboardEvent<HTMLAnchorElement>,
-          { onDismissStart: () => void }
-        >
-      | undefined;
-    children?: Node | undefined;
-    closeOnOutsideClick?: boolean | undefined;
-    footer?: Node | undefined;
-    forwardIconButton?: {
-      accessibilityLabel: string;
-      onClick:
-        | AbstractEventHandler<
-            | React.MouseEvent<HTMLButtonElement>
-            | React.KeyboardEvent<HTMLButtonElement>
-            | React.MouseEvent<HTMLAnchorElement>
-            | React.KeyboardEvent<HTMLAnchorElement>,
-            { onDismissStart: () => void }
-          >
-        | undefined;
-      onAnimationEnd?: OnAnimationEndType | undefined;
-      primaryAction?: {
-        accessibilityLabel: string;
-        label: string;
-        onClick: AbstractEventHandler<
-          | React.MouseEvent<HTMLButtonElement>
-          | React.KeyboardEvent<HTMLButtonElement>
-          | React.MouseEvent<HTMLAnchorElement>
-          | React.KeyboardEvent<HTMLAnchorElement>,
-          { onDismissStart: () => void }
-        >;
-        href?: string | undefined;
-        rel?: RelType | undefined;
-        size?: 'sm' | 'md' | 'lg' | undefined;
-        target?: TargetType | undefined;
-      };
-      role?: 'alertdialog' | 'dialog' | undefined;
-      showDismissButton?: boolean | undefined;
-      subHeading?: string | undefined;
-      size?: 'default' | 'full' | 'auto' | undefined;
-      zIndex?: Indexable | undefined;
-    };
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      { onDismissStart: () => void }
+    >;
   };
+  children?: Node | undefined;
+  closeOnOutsideClick?: boolean | undefined;
+  footer?: Node | undefined;
+  forwardIconButton?: {
+    accessibilityLabel: string;
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      { onDismissStart: () => void }
+    >;
+  };
+  onOutsideClick?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
+  onAnimationEnd?: OnAnimationEndType | undefined;
+  primaryAction?: {
+    accessibilityLabel: string;
+    label: string;
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      { onDismissStart: () => void }
+    >;
+    href?: string | undefined;
+    rel?: RelType | undefined;
+    size?: 'sm' | 'md' | 'lg' | undefined;
+    target?: TargetType | undefined;
+  };
+  role?: 'alertdialog' | 'dialog' | undefined;
+  showDismissButton?: boolean | undefined;
+  subHeading?: string | undefined;
+  size?: 'default' | 'full' | 'auto' | undefined;
+  zIndex?: Indexable | undefined;
 }
 
 interface SheetMobileDismissingElementProps {
@@ -1678,7 +1675,15 @@ interface SpinnerProps {
 }
 
 interface StatusProps {
-  type: 'unstarted' | 'queued' |'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
+  type:
+    | 'unstarted'
+    | 'queued'
+    | 'inProgress'
+    | 'halted'
+    | 'ok'
+    | 'problem'
+    | 'canceled'
+    | 'warning';
   accessibilityLabel?: string | undefined;
   subtext?: string | undefined;
   title?: string | undefined;
@@ -1945,17 +1950,25 @@ interface TextFieldProps {
 }
 
 interface TileDataProps {
-   color?: DataVisualizationColors | undefined,
-   disabled?: boolean | undefined,
-   id?: string | undefined,
-   onTap?: AbstractEventHandler<React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement>| React.KeyboardEvent<HTMLAnchorElement>, { selected: boolean, id?: string | undefined }> | undefined;
-   selected?: boolean | undefined,
-   showCheckbox?: boolean | undefined,
-   title: string,
-   tooltip?: TooltipProps | undefined,
-   trend?: TrendObject | undefined,
-   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined,
-   value: string,
+  color?: DataVisualizationColors | undefined;
+  disabled?: boolean | undefined;
+  id?: string | undefined;
+  onTap?:
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
+  selected?: boolean | undefined;
+  showCheckbox?: boolean | undefined;
+  title: string;
+  tooltip?: TooltipProps | undefined;
+  trend?: TrendObject | undefined;
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
+  value: string;
 }
 
 interface ToastProps {
@@ -2345,7 +2358,6 @@ export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
  * https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider
  */
 export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
-
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider

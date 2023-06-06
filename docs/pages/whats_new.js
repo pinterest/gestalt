@@ -25,14 +25,8 @@ export type Post = {|
 |};
 
 function PostLayout({ audience, content, imageAltText, imageSrc, title, imageColor }: Post): Node {
-  const colorStyle = {
-    __style: {
-      backgroundColor: imageColor ? `var(--color-${imageColor})` : 'white',
-    },
-  };
-
   return (
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={2} maxWidth={POST_WIDTH_PX}>
       <Flex direction="column" gap={1}>
         <Heading size="400">{title}</Heading>
         <Flex gap={2}>{audience.map((item) => badges[item])}</Flex>
@@ -48,7 +42,11 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title, imageCol
           lgMarginBottom={0}
           borderStyle="sm"
           rounding={2}
-          dangerouslySetInlineStyle={colorStyle}
+          dangerouslySetInlineStyle={{
+            __style: {
+              backgroundColor: imageColor ? `var(--color-${imageColor})` : 'white',
+            },
+          }}
         >
           <Mask rounding={2} height={POST_IMAGE_HEIGHT_PX - 2}>
             <Image
@@ -61,7 +59,7 @@ function PostLayout({ audience, content, imageAltText, imageSrc, title, imageCol
           </Mask>
         </Box>
       )}
-      <Flex maxWidth={POST_WIDTH_PX}>
+      <Flex>
         <Markdown text={content} />
       </Flex>
     </Flex>
