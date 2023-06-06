@@ -236,6 +236,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     }
     // calculate whether we still have pending measurements
     const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
+
+    // Per Yen-Wei, we may be able to remove this after https://github.com/pinterest/gestalt/pull/228
     if (
       hasPendingMeasurements ||
       hasPendingMeasurements !== this.state.hasPendingMeasurements ||
