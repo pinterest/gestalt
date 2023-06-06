@@ -3,14 +3,10 @@
 declare module.exports: {|
   +'disabled': string,
   +'dismissButton': string,
-  +'focused': string,
+  +'dismissHovered': string,
   +'hovered': string,
-  +'selected': string,
-  +'tagBackgroundBaseGray': string,
-  +'tagBackgroundBaseWhite': string,
   +'tagOuterContainer': string,
   +'tagWrapper': string,
   +'tagWrapperDismiss': string,
   +'tagWrapperRounded': string,
-  +'transparent': string,
 |};

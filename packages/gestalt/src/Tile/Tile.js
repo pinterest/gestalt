@@ -38,10 +38,12 @@ type Props = {|
   children?: Node | ((state: InteractionStates) => Node),
   disabled?: boolean,
   id?: string,
+  interactive?: boolean,
   rounding?: Rounding,
   selected?: boolean,
   onTap?: TileChangeHandler,
   outerContainerClass?: string,
+  outerContainerStyle?: ColorStyles,
   tooltip?: TooltipProps,
 |};
 
@@ -68,19 +70,15 @@ function MaybeTooltip({
   );
 }
 
-/**
- * Used Internally to wrap a component with a Tile View
- */
-export default function Tile({
+function MaybeTapArea({
   children,
   disabled = false,
   id = '',
+  interactive = false,
   onTap,
-  outerContainerClass,
   rounding = 4,
   selected = false,
-  tooltip,
-}: Props): Node {
+}: Partial<Props>): Node {
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
 
@@ -100,29 +98,71 @@ export default function Tile({
     }
   };
 
+  const renderChildren = () =>
+    typeof children !== 'function' ? (
+      <Box height="100%" width="100%" borderStyle="none">
+        {children}
+      </Box>
+    ) : (
+      children({ selected, hovered: isHovered && !isFocusVisible, disabled })
+    );
+
+  return interactive ? (
+    <TapArea
+      role="button"
+      disabled={disabled}
+      rounding={rounding}
+      onBlur={handleOnBlur}
+      onTap={handleClick}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      onKeyDown={handleKeyDown}
+      fullHeight
+      fullWidth
+    >
+      {renderChildren()}
+    </TapArea>
+  ) : (
+    <div
+      role="presentation"
+      onBlur={handleOnBlur}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      style={{ width: '100%', height: '100%' }}
+    >
+      {renderChildren()}
+    </div>
+  );
+}
+
+/**
+ * Used Internally to wrap a component with a Tile View
+ */
+export default function Tile({
+  children,
+  disabled = false,
+  id = '',
+  interactive = true,
+  onTap,
+  outerContainerClass,
+  outerContainerStyle,
+  rounding = 4,
+  selected = false,
+  tooltip,
+}: Props): Node {
   return (
-    <div className={outerContainerClass}>
+    <div className={outerContainerClass} style={outerContainerStyle}>
       <MaybeTooltip tooltip={tooltip} disabled={disabled}>
-        <TapArea
-          role="button"
+        <MaybeTapArea
           disabled={disabled}
+          id={id}
+          interactive={interactive}
+          onTap={onTap}
           rounding={rounding}
-          onBlur={handleOnBlur}
-          onTap={handleClick}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-          onKeyDown={handleKeyDown}
-          fullHeight
-          fullWidth
+          selected={selected}
         >
-          {typeof children !== 'function' ? (
-            <Box height="100%" width="100%" borderStyle="none">
-              {children}
-            </Box>
-          ) : (
-            children({ selected, hovered: isHovered && !isFocusVisible, disabled })
-          )}
-        </TapArea>
+          {children}
+        </MaybeTapArea>
       </MaybeTooltip>
     </div>
   );

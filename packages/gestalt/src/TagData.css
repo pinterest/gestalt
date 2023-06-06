@@ -1,16 +1,10 @@
-.tagWrapperDismiss {
-  border-radius: 8px 0 0 8px;
-  border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
-    var(--g-border-width-lg);
-}
-
-.tagWrapperRounded {
-  border-width: var(--g-border-width-lg);
+.tagOuterContainer {
+  composes: fullWidth from "./Layout.css";
+  composes: fullHeight from "./Layout.css";
+  box-sizing: border-box;
 }
 
 .tagWrapper {
-  box-sizing: border-box;
-  border-radius: 8px;
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: solid from "./Borders.css";
@@ -19,35 +13,21 @@
   composes: fullHeight from "./Layout.css";
 }
 
-.tagBackgroundBaseWhite {
-  composes: default from "./Colors.css";
+.tagWrapperDismiss {
+  border-radius: 8px 0 0 8px;
+  border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
+    var(--g-border-width-lg);
 }
 
-.tagBackgroundBaseGray {
-  composes: secondary from "./Colors.css";
-}
-
-.tagOuterContainer {
-  composes: fullWidth from "./Layout.css";
-  composes: fullHeight from "./Layout.css";
+.tagWrapperRounded {
+  border-radius: 8px;
+  border-width: var(--g-border-width-lg);
 }
 
 .hovered {
   composes: pointer from "./Cursor.css";
   composes: secondary from "./Colors.css";
   composes: borderColorLightGray from "./Borders.css";
-}
-
-.focused {
-  composes: accessibilityOutlineFocus from "./Focus.css";
-}
-
-.transparent {
-  composes: transparentBg from "./Colors.css";
-}
-
-.selected {
-  composes: secondary from "./Colors.css";
 }
 
 .disabled {
@@ -57,15 +37,17 @@
 }
 
 .dismissButton {
-  composes: fullHeight from "./Layout.css";
-  composes: transparentBg from "./Colors.css";
-  composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
-  border-radius: 0 8px 8px 0;
+  border-radius: 0px 8px 8px 0px;
+  border-width: var(--g-border-width-lg) var(--g-border-width-lg)
+    var(--g-border-width-lg) 0px;
+  box-sizing: border-box;
+  composes: flex from "./Layout.css";
+  composes: xsItemsCenter from "./Layout.css";
 }
 
-.dismissButton:focus {
-  border-radius: 0 8px 8px 0;
+.dismissHovered {
+  composes: borderColorLightGray from "./Borders.css";
 }
 
 .dismissButton:hover {

@@ -1,12 +1,15 @@
 // @flow strict
 import { type Node, useId } from 'react';
 import classnames from 'classnames';
+import cssColorStyles from './Colors.css';
 import focusStyles from './Focus.css';
 import styles from './TagData.css';
 import Box from './Box.js';
+import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
+import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
@@ -34,6 +37,15 @@ export type TileChangeHandler = ({|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
   selected: boolean,
+  id?: string,
+|}) => void;
+
+export type OnRemoveHandler = ({|
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
   id?: string,
 |}) => void;
 
@@ -77,7 +89,7 @@ export type Props = {|
   /**
    * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the TagData.
    */
-  onRemove?: ({| event: SyntheticMouseEvent<HTMLButtonElement>, id?: string |}) => void,
+  onRemove?: OnRemoveHandler,
   /**
    * Controls whether the TagData is selected or not. Use it alongside the OnTap handler.
    */
@@ -142,25 +154,21 @@ export default function TagData({
     backgroundColor: bgColor,
   };
 
-  const getTagClasses = ({
-    hovered,
-    selected: tapSelected,
-    disabled: tapDisabled,
-  }: InteractionStates) =>
+  const getTagClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
     classnames(styles.tagWrapper, {
-      [styles.tagBackgroundBaseGray]: baseColor === 'default',
-      [styles.tagBackgroundBaseWhite]: baseColor === 'white',
-      [styles.hovered]: hovered,
+      [cssColorStyles.secondary]: baseColor === 'default',
+      [cssColorStyles.default]: baseColor === 'white',
+      [styles.hovered]: hovered && !tapDisabled,
       [styles.disabled]: tapDisabled,
-      [styles.tagWrapperRounded]: tapSelected,
+      [styles.tagWrapperRounded]: !dismissable,
+      [styles.tagWrapperDismiss]: dismissable,
     });
 
-  const getRemoveIconClasses = ({
-    selected: tapSelected,
-    disabled: tapDisabled,
-  }: InteractionStates) =>
-    classnames(styles.dismissButton, focusStyles.hideOutline, {
-      [styles.selected]: tapSelected,
+  const getRemoveIconClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
+    classnames(styles.dismissButton, {
+      [cssColorStyles.secondary]: baseColor === 'default',
+      [cssColorStyles.default]: baseColor === 'white',
+      [styles.dismissHovered]: hovered && !tapDisabled,
       [styles.disabled]: tapDisabled,
       [focusStyles.accessibilityOutline]: isFocusVisible,
     });
@@ -168,22 +176,8 @@ export default function TagData({
   const checkboxId = useId();
 
   return (
-    <Box
-      aria-disabled={disabled}
-      display="inlineBlock"
-      height={sizes[size]?.height || 40}
-      maxWidth={300}
-      rounding={2}
-    >
-      <Tile
-        id={id}
-        rounding={dismissable ? 0 : 2}
-        onTap={onTap}
-        selected={selected}
-        disabled={disabled}
-        outerContainerClass={styles.tagOuterContainer}
-        tooltip={tooltip}
-      >
+    <Box display="inlineBlock" height={sizes[size]?.height || 40} maxWidth={300} rounding={2}>
+      <Tile interactive={false} selected={selected} disabled={disabled}>
         {(interactionStates) => {
           const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
           const tileStyle = DataVizColor.getTileColors(
@@ -198,45 +192,55 @@ export default function TagData({
           );
 
           return (
-            <div className={getTagClasses(interactionStates)} style={tileStyle}>
-              <Box alignItems="center" display="flex" padding={2} width="100%">
-                {showCheckbox && (
-                  <InternalCheckbox
-                    id={`readonly-checkbox-${checkboxId}`}
-                    checked={selectedTap}
-                    readOnly
-                    size="sm"
-                    style={checkBoxStyle}
-                  />
-                )}
-                <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
-                  <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
-                    {text}
-                  </Text>
+            <div style={{ display: 'flex', gap: '1px' }}>
+              <Tile
+                id={id}
+                onTap={onTap}
+                disabled={disabled}
+                selected={selected}
+                rounding={0}
+                outerContainerClass={styles.tagOuterContainer}
+                tooltip={tooltip}
+              >
+                <div className={getTagClasses(interactionStates)} style={tileStyle}>
+                  <Box alignItems="center" display="flex" padding={2} width="100%">
+                    {showCheckbox && (
+                      <InternalCheckbox
+                        id={`readonly-checkbox-${checkboxId}`}
+                        checked={selectedTap}
+                        readOnly
+                        size="sm"
+                        style={checkBoxStyle}
+                      />
+                    )}
+                    <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
+                      <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
+                        {text}
+                      </Text>
+                    </div>
+                  </Box>
                 </div>
-              </Box>
-              <Box height="100%">
-                {dismissable && (
-                  <button
-                    className={getRemoveIconClasses(interactionStates)}
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      onRemove?.({ event, id });
-                    }}
-                    type="button"
-                    disabled={disabled}
-                  >
-                    <Icon
-                      accessibilityLabel={
-                        accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-                      }
-                      color={fgColor}
-                      icon="cancel"
-                      size={8}
-                    />
-                  </button>
-                )}
-              </Box>
+              </Tile>
+              {dismissable && (
+                <Tile
+                  outerContainerClass={getRemoveIconClasses(interactionStates)}
+                  outerContainerStyle={tileStyle}
+                  onTap={({ event }) => {
+                    onRemove?.({ event, id });
+                  }}
+                  type="button"
+                  disabled={disabled}
+                >
+                  <Icon
+                    accessibilityLabel={
+                      accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+                    }
+                    color={fgColor}
+                    icon="cancel"
+                    size={8}
+                  />
+                </Tile>
+              )}
             </div>
           );
         }}
