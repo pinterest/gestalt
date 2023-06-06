@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Box, Flex, Link, TagData, Text } from 'gestalt';
+import { Flex, TagData } from 'gestalt';
 
 export default function Example(): Node {
   const dataSources = [

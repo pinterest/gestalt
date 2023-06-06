@@ -119,10 +119,10 @@ const sizes = {
 };
 
 /**
- * [Tags](https://gestalt.pinterest.systems/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
+ * [TagData](https://gestalt.pinterest.systems/web/tagdata) is a component based on Tag and is used with data visualizations. It has the same set sizes as [Buttons](https://gestalt.pinterest.systems/web/button) and can contain one label. It can be selectable, and when paired with charts and graphs, can use a data visualization color.
  *
- * ![Tag light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tag.spec.mjs-snapshots/Tag-chromium-darwin.png)
- * ![Tag dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tag-dark.spec.mjs-snapshots/Tag-dark-chromium-darwin.png)
+ * ![TagData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata.spec.mjs-snapshots/tagdata-chromium-darwin.png)
+ * ![TagData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata-dark.spec.mjs-snapshots/tagdata-dark-chromium-darwin.png)
  */
 export default function TagData({
   accessibilityRemoveIconLabel,
@@ -201,12 +201,11 @@ export default function TagData({
                 rounding={0}
                 outerContainerClass={styles.tagOuterContainer}
                 tooltip={tooltip}
-                tabIndex={0}
               >
                 <div className={getTagClasses(interactionStates)} style={tileStyle}>
                   <Flex alignItems="center" width="100%">
                     {showCheckbox && (
-                      <Box paddingX={1}>
+                      <div className={styles.checkBoxMargin}>
                         <InternalCheckbox
                           id={`readonly-checkbox-${checkboxId}`}
                           checked={selectedTap}
@@ -214,7 +213,7 @@ export default function TagData({
                           size="sm"
                           style={checkBoxStyle}
                         />
-                      </Box>
+                      </div>
                     )}
                     <div title={text}>
                       <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>

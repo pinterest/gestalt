@@ -44,6 +44,14 @@ html:not([dir="rtl"]) .tagWrapperDismiss {
     var(--g-border-width-lg);
 }
 
+html[dir="rtl"] .checkBoxMargin {
+  margin-left: 4px;
+}
+
+html:not([dir="rtl"]) .checkBoxMargin {
+  margin-right: 4px;
+}
+
 .tagWrapperRounded {
   composes: rounding2 from "./Borders.css";
   border-width: var(--g-border-width-lg);

@@ -44,7 +44,6 @@ type Props = {|
   onTap?: TileChangeHandler,
   outerContainerClass?: string,
   outerContainerStyle?: ColorStyles,
-  tabIndex?: -1 | 0,
   tooltip?: TooltipProps,
 |};
 
@@ -79,7 +78,6 @@ function MaybeTapArea({
   onTap,
   rounding = 4,
   selected = false,
-  tabIndex,
 }: Partial<Props>): Node {
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
@@ -121,7 +119,6 @@ function MaybeTapArea({
       onKeyDown={handleKeyDown}
       role="button"
       rounding={rounding}
-      tabIndex={tabIndex}
     >
       {renderChildren()}
     </TapArea>
@@ -152,7 +149,6 @@ export default function Tile({
   rounding = 4,
   selected = false,
   tooltip,
-  tabIndex,
 }: Props): Node {
   return (
     <div className={outerContainerClass} style={outerContainerStyle}>
@@ -164,7 +160,6 @@ export default function Tile({
           onTap={onTap}
           rounding={rounding}
           selected={selected}
-          tabIndex={tabIndex}
         >
           {children}
         </MaybeTapArea>
