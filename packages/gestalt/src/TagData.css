@@ -32,7 +32,13 @@
   composes: paddingY2 from "./boxWhitespace.css";
 }
 
-.tagWrapperDismiss {
+html[dir="rtl"] .tagWrapperDismiss {
+  border-radius: 0px 8px 8px 0px;
+  border-width: var(--g-border-width-lg) var(--g-border-width-lg)
+    var(--g-border-width-lg) 0px;
+}
+
+html:not([dir="rtl"]) .tagWrapperDismiss {
   border-radius: 8px 0 0 8px;
   border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
     var(--g-border-width-lg);
@@ -57,9 +63,6 @@
 
 .dismissButton {
   composes: pointer from "./Cursor.css";
-  border-radius: 0px 8px 8px 0px;
-  border-width: var(--g-border-width-lg) var(--g-border-width-lg)
-    var(--g-border-width-lg) 0px;
   padding-left: 5px;
   padding-right: 5px;
   composes: fullHeight from "./Layout.css";
@@ -69,6 +72,18 @@
   composes: transparentBorder from "./Borders.css";
   composes: solid from "./Borders.css";
   composes: borderBox from "./Layout.css";
+}
+
+html[dir="rtl"] .dismissButtonRounding {
+  border-radius: 8px 0px 0px 8px;
+  border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
+    var(--g-border-width-lg);
+}
+
+html:not([dir="rtl"]) .dismissButtonRounding {
+  border-radius: 0px 8px 8px 0px;
+  border-width: var(--g-border-width-lg) var(--g-border-width-lg)
+    var(--g-border-width-lg) 0px;
 }
 
 .dismissHovered {

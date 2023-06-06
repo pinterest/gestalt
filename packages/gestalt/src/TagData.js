@@ -166,7 +166,7 @@ export default function TagData({
     });
 
   const getRemoveIconClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
-    classnames(styles.dismissButton, {
+    classnames(styles.dismissButton, styles.dismissButtonRounding, {
       [cssColorStyles.secondary]: baseColor === 'default',
       [cssColorStyles.default]: baseColor === 'white',
       [styles.dismissHovered]: hovered && !tapDisabled,
@@ -204,22 +204,24 @@ export default function TagData({
                 tabIndex={0}
               >
                 <div className={getTagClasses(interactionStates)} style={tileStyle}>
-                  <Box alignItems="center" display="flex" width="100%">
+                  <Flex alignItems="center" width="100%">
                     {showCheckbox && (
-                      <InternalCheckbox
-                        id={`readonly-checkbox-${checkboxId}`}
-                        checked={selectedTap}
-                        readOnly
-                        size="sm"
-                        style={checkBoxStyle}
-                      />
+                      <Box paddingX={1}>
+                        <InternalCheckbox
+                          id={`readonly-checkbox-${checkboxId}`}
+                          checked={selectedTap}
+                          readOnly
+                          size="sm"
+                          style={checkBoxStyle}
+                        />
+                      </Box>
                     )}
-                    <div title={text} style={{ marginLeft: showCheckbox ? '4px' : 'none' }}>
+                    <div title={text}>
                       <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
                         {text}
                       </Text>
                     </div>
-                  </Box>
+                  </Flex>
                 </div>
               </Tile>
               {dismissable && (
