@@ -165,13 +165,15 @@ export default function TagData({
     });
 
   const getRemoveIconClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
-    classnames(styles.dismissButton, {
-      [cssColorStyles.secondary]: baseColor === 'default',
-      [cssColorStyles.default]: baseColor === 'white',
-      [styles.dismissHovered]: hovered && !tapDisabled,
-      [styles.disabled]: tapDisabled,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
-    });
+    classnames(
+      {
+        [cssColorStyles.secondary]: baseColor === 'default',
+        [cssColorStyles.default]: baseColor === 'white',
+        [styles.dismissHovered]: hovered && !tapDisabled,
+        [styles.disabled]: tapDisabled,
+      },
+      styles.dismissButton,
+    );
 
   const checkboxId = useId();
 
@@ -192,7 +194,7 @@ export default function TagData({
           );
 
           return (
-            <div style={{ display: 'flex', gap: '1px' }}>
+            <div className={styles.tagContainer}>
               <Tile
                 id={id}
                 onTap={onTap}
@@ -223,22 +225,22 @@ export default function TagData({
               </Tile>
               {dismissable && (
                 <Tile
-                  outerContainerClass={getRemoveIconClasses(interactionStates)}
-                  outerContainerStyle={tileStyle}
                   onTap={({ event }) => {
                     onRemove?.({ event, id });
                   }}
-                  type="button"
                   disabled={disabled}
+                  rounding={0}
                 >
-                  <Icon
-                    accessibilityLabel={
-                      accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-                    }
-                    color={fgColor}
-                    icon="cancel"
-                    size={8}
-                  />
+                  <div className={getRemoveIconClasses(interactionStates)} style={tileStyle}>
+                    <Icon
+                      accessibilityLabel={
+                        accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+                      }
+                      color={fgColor}
+                      icon="cancel"
+                      size={8}
+                    />
+                  </div>
                 </Tile>
               )}
             </div>

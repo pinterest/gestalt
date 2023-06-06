@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+.tagContainer {
+  composes: fullWidth from "./Layout.css";
+  composes: fullHeight from "./Layout.css";
+  composes: flex from "./Layout.css";
+  gap: 2px;
+}
+
 .tagWrapper {
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
@@ -41,9 +48,15 @@
   border-radius: 0px 8px 8px 0px;
   border-width: var(--g-border-width-lg) var(--g-border-width-lg)
     var(--g-border-width-lg) 0px;
-  box-sizing: border-box;
+  composes: fullHeight from "./Layout.css";
   composes: flex from "./Layout.css";
+  composes: paddingX2 from "./boxWhitespace.css";
+  composes: paddingY2 from "./boxWhitespace.css";
   composes: xsItemsCenter from "./Layout.css";
+  composes: justifyCenter from "./Layout.css";
+  composes: transparentBorder from "./Borders.css";
+  composes: solid from "./Borders.css";
+  composes: borderBox from "./Layout.css";
 }
 
 .dismissHovered {
@@ -52,4 +65,5 @@
 
 .dismissButton:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: brightness(0.9);
 }
