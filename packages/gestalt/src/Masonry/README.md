@@ -41,7 +41,7 @@ We determine the number of columns by first starting with a "guess" of the width
 
 Item positions are determined by the existing height of the target column (for `top`), and by multipling the item width of each column by the index of the column, plus half the gutter width (for `left`).
 
--------------------------
+---
 
 ## Component lifecycle
 
@@ -64,7 +64,7 @@ The `renderMasonryComponent` method handles rendering the actual grid item. Here
 
 In addition to these layout tasks, Masonry keeps track of changes in its container size or the item references in `items`. If either changes, it reflows the grid (recalculates the layout for all items). (Note that since Masonry recalculates the layout for all items on every render anyway, this recalculation doesn't represent a performance issue — though repainting the entire grid when positions change does.)
 
--------------------------
+---
 
 ## Server-side Rendering (SSR)
 
