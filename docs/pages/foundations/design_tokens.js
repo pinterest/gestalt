@@ -37,7 +37,7 @@ const tokenCategories = [
     id: 'data-visualization',
     infoPage: {
       name: 'Data Visualization Guidelines',
-      path: 'foundations/data_visualization/palette',
+      path: 'foundations/data_visualization/color/palette',
     },
   },
   {
