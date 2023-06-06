@@ -18,13 +18,13 @@
 }
 
 .tagLarge {
-  padding-top: 14px;
   padding-bottom: 14px;
+  padding-top: 14px;
 }
 
 .tagMedium {
-  padding-top: 11.5px;
   padding-bottom: 11.5px;
+  padding-top: 11.5px;
 }
 
 .tagSmall {
@@ -32,14 +32,14 @@
 }
 
 html[dir="rtl"] .tagWrapperDismiss {
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0 8px 8px 0;
   border-width: var(--g-border-width-lg) var(--g-border-width-lg)
-    var(--g-border-width-lg) 0px;
+    var(--g-border-width-lg) 0;
 }
 
 html:not([dir="rtl"]) .tagWrapperDismiss {
   border-radius: 8px 0 0 8px;
-  border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
+  border-width: var(--g-border-width-lg) 0 var(--g-border-width-lg)
     var(--g-border-width-lg);
 }
 
@@ -70,8 +70,6 @@ html:not([dir="rtl"]) .checkBoxMargin {
 
 .dismissButton {
   composes: pointer from "./Cursor.css";
-  padding-left: 5px;
-  padding-right: 5px;
   composes: fullHeight from "./Layout.css";
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
@@ -79,18 +77,20 @@ html:not([dir="rtl"]) .checkBoxMargin {
   composes: transparentBorder from "./Borders.css";
   composes: solid from "./Borders.css";
   composes: borderBox from "./Layout.css";
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 html[dir="rtl"] .dismissButtonRounding {
-  border-radius: 8px 0px 0px 8px;
-  border-width: var(--g-border-width-lg) 0px var(--g-border-width-lg)
+  border-radius: 8px 0 0 8px;
+  border-width: var(--g-border-width-lg) 0 var(--g-border-width-lg)
     var(--g-border-width-lg);
 }
 
 html:not([dir="rtl"]) .dismissButtonRounding {
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0 8px 8px 0;
   border-width: var(--g-border-width-lg) var(--g-border-width-lg)
-    var(--g-border-width-lg) 0px;
+    var(--g-border-width-lg) 0;
 }
 
 .dismissHovered {
@@ -98,6 +98,6 @@ html:not([dir="rtl"]) .dismissButtonRounding {
 }
 
 .dismissButton:hover {
-  background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: brightness(0.9);
+  background-color: rgb(0 0 0 / 0.1);
 }
