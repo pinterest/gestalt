@@ -5,17 +5,16 @@
 
 .tagContainer {
   composes: flex from "./Layout.css";
-  composes: fullWidth from "./Layout.css";
-  composes: fullHeight from "./Layout.css";
+  composes: tagOuterContainer;
 }
 
 .tagBase {
+  composes: fullHeight from "./Layout.css";
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
+  composes: paddingX2 from "./boxWhitespace.css";
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
-  composes: fullHeight from "./Layout.css";
-  composes: paddingX2 from "./boxWhitespace.css";
 }
 
 .tagLarge {

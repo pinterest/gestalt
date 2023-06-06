@@ -2,13 +2,11 @@
 import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import cssColorStyles from './Colors.css';
-import focusStyles from './Focus.css';
 import styles from './TagData.css';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
 import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
@@ -63,7 +61,7 @@ export type Props = {|
    */
   accessibilityRemoveIconLabel?: string,
   /**
-   * A color for the unselected state.
+   * The default color for TagData shown on an unselected state. This prop can be used depending on the background.
    */
   baseColor?: 'default' | 'white',
   /**
@@ -71,11 +69,11 @@ export type Props = {|
    */
   color?: DataVisualizationColors,
   /**
-   * Disabled Tagdatas appear inactive and cannot be interacted with.
+   * Indicates if TileData should be disabled. Disabled TileDatas are inactive and cannot be interacted with. See the [disabled](https://gestalt.pinterest.systems/web/tagdata#disabled) variant to learn more.
    */
   disabled?: boolean,
   /**
-   * Tagdatas can be dismissable by the "X" affordance, which triggers the onRemove callback.
+   * Tagdatas can be dismissable by the "X" affordance, which triggers the `onRemove` callback.
    */
   dismissable?: boolean,
   /**
@@ -119,7 +117,7 @@ const sizes = {
 };
 
 /**
- * [TagData](https://gestalt.pinterest.systems/web/tagdata) is a component based on Tag and is used with data visualizations. It has the same set sizes as [Buttons](https://gestalt.pinterest.systems/web/button) and can contain one label. It can be selectable, and when paired with charts and graphs, can use a data visualization color.
+ * [TagData](https://gestalt.pinterest.systems/web/tagdata) enables users to select multiple categories to compare with each other in a graph or chart view as a compact filter and can contain a label.
  *
  * ![TagData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata.spec.mjs-snapshots/tagdata-chromium-darwin.png)
  * ![TagData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata-dark.spec.mjs-snapshots/tagdata-dark-chromium-darwin.png)

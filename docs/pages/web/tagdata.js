@@ -72,7 +72,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Match the TagData fill with the background as it isn't clear the TagData is selectable"
+            description="Match the TagData fill with the background as it isn't clear the TagData is selectable."
             sandpackExample={
               <SandpackExample
                 code={dontChangeBaseColor}
@@ -88,7 +88,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use short and clear labels for easier comprehension — ideally one to two words."
+            description="Use the same properties in TagData in a group, depending on what type of behavior TagData should have."
             sandpackExample={
               <SandpackExample
                 code={doUseSameStyle}
@@ -117,7 +117,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Always present at least two options on single-select and multi-select TagData."
+            description="Use short and clear labels for easier comprehension — ideally one to two words."
             sandpackExample={
               <SandpackExample
                 code={doUseShortLabels}
@@ -130,7 +130,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Present only a single option. Use a legend for your chart or graph instead."
+            description="Use long sentences in a label, since the text in TagData truncates as needed to preserve max-width."
             sandpackExample={
               <SandpackExample
                 code={dontUseLongLabels}
