@@ -36,6 +36,7 @@ const exportDefaultMaybe = ({ code }: {| code: string |}) =>
     : `const Demo = () => (
 ${code}
 );
+
 export default Demo;`;
 
 const dedupeArray = <T>(arr: $ReadOnlyArray<T>): $ReadOnlyArray<T> => [...new Set(arr)];
