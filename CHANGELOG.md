@@ -1,3 +1,9 @@
+## 112.6.13 (Jun 7, 2023)
+
+### Patch
+
+- Internal: fixes to gestalt-datepicker in editors and templates ([#2997](https://github.com/pinterest/gestalt/pull/2997)) - [Preview link](https://deploy-preview-2997--gestalt.netlify.app)
+
 ## 112.6.12 (Jun 7, 2023)
 
 ### Patch
