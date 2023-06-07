@@ -134,6 +134,16 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/data_visualization/palette',
+    destination: '/foundations/data_visualization/color/palette',
+    permanent: true,
+  },
+  {
+    source: '/foundations/data_visualization/usage',
+    destination: '/foundations/data_visualization/color/usage',
+    permanent: true,
+  },
+  {
     source: '/development',
     destination: '/get_started/developers/contributing/development_process',
     permanent: true,
