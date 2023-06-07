@@ -31,7 +31,7 @@ const compress = (object: {|
     .replace(/=+$/, ''); // Remove ending '='
 
 const exportDefaultMaybe = ({ code }: {| code: string |}) =>
-  code.startsWith('function') || code.startsWith('class')
+  code.trimStart().startsWith('function') || code.startsWith('class')
     ? `export default ${code}`
     : `const Demo = () => (
 ${code}
