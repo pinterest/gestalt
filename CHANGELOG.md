@@ -1,3 +1,9 @@
+## 112.6.12 (Jun 7, 2023)
+
+### Patch
+
+- Internal: Upgrade ESLint to 8.23.0 ([#2998](https://github.com/pinterest/gestalt/pull/2998)) - [Preview link](https://deploy-preview-2998--gestalt.netlify.app)
+
 ## 112.6.11 (Jun 6, 2023)
 
 ### Patch
