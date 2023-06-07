@@ -1,3 +1,9 @@
+## 112.6.14 (Jun 7, 2023)
+
+### Patch
+
+- Internal: add README explaining Masonry ([#2993](https://github.com/pinterest/gestalt/pull/2993)) - [Preview link](https://deploy-preview-2993--gestalt.netlify.app)
+
 ## 112.6.13 (Jun 7, 2023)
 
 ### Patch
