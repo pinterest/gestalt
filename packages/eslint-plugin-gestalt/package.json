@@ -8,7 +8,7 @@
   "jsnext:main": "dist/eslint-plugin-gestalt.es.js",
   "module": "dist/eslint-plugin-gestalt.es.js",
   "devDependencies": {
-    "eslint": "7.11.0"
+    "eslint": "8.23.0"
   },
   "keywords": [
     "eslint",
