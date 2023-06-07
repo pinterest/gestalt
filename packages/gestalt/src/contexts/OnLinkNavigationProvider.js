@@ -12,7 +12,7 @@ type OnLinkNavigationContextType = {| onNavigation: OnLinkNavigationType |};
 
 type Props = {|
   /**
-   *
+   * Context lets a parent component provide data to the entire tree below it. Only components within the OnLinkNavigationProvider tree will be able to subscribe to it.
    */
   children: Node,
   /**

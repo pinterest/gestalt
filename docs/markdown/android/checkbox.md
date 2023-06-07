@@ -4,7 +4,7 @@ description: Checkbox is used for multiple choice selection.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/66/fb/d366fb0a6b4bc150779c149aea472a24.jpg" alt="Primary example of Checkbox component" />
+<ImgContainer src="https://i.pinimg.com/originals/4d/3a/2e/4d3a2ebd653d15cc60a37ba2752d6c5e.png" alt="Primary example of Checkbox component" />
 
 ## Usage guidelines
 
@@ -69,6 +69,11 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="980" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19345%253A33883%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19345%253A33513%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
 ## Variants
 
@@ -79,41 +84,43 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 1. **Error**
 1. **Indeterminate**
 1. **Disabled**
-
-<ThreeCol spacing="expanded">
+<br/>
+<TwoCol spacing="expanded">
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/45/01/9f/45019f108f27c0d3aa9480fcf001b115.jpg" noPadding alt="Example of unchecked checkbox" />
+  <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46332%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
     **Unchecked**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fd/06/05/fd06051095a0d1c76122ec282ec54bea.jpg" noPadding alt="Example of checked checkbox" />
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46217%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
     **Checked**
   </Group>
-
+  </TwoCol>
+  <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/60/60/48/60604885afd2ee2e8b9cad4c1efdbb0a.jpg" noPadding alt="Example of checkbox with an error" />
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46432%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
     **Error**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e0/ab/e1/e0abe172b2dfe56166d33b5d8a8175f2.jpg" noPadding alt="Example of checkbox with an indeterminate state" />
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46514%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
     **Indeterminate**
   </Group>
-
+  </TwoCol>
+<TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/82/50/5c/82505c5eb557f3b85049965ccbe14435.jpg" noPadding alt="Example of checkbox with a disabled state" />
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46595%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
     **Disabled**
   </Group>
-</ThreeCol>
+  <Group>
+  </Group>
+</TwoCol>
 
 **With helper text**
 Checkbox supports helper text to provide more detail about an option.
-
-<ImgContainer src="https://i.pinimg.com/originals/dd/12/5a/dd125a30d6fb4cdd8c44c002f363dd56.jpg" noPadding alt="Example of checkbox with helper text" />
+ <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46696%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
 ## Writing
-
 <TwoCol>
   <Group>
     <Do title="Do" />
@@ -125,4 +132,3 @@ Checkbox supports helper text to provide more detail about an option.
     - Include lengthy text labels that make it hard for a user to scan a list of choices
   </Group>
 </TwoCol>
-

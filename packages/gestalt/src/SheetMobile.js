@@ -70,7 +70,9 @@ type Props = {|
   /**
    * Callback fired when clicking on the backdrop (gray area) outside of SheetMobile.
    */
-  onOutsideClick?: () => void,
+  onOutsideClick?: ({|
+    event: SyntheticMouseEvent<HTMLDivElement>,
+  |}) => void,
   /**
    * The main SheetMobile content section has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
    */

@@ -75,6 +75,7 @@ import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvi
 import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import ExperimentProvider from './contexts/ExperimentProvider.js';
+import GlobalEventsHandlerProvider from './contexts/GlobalEventsHandlerProvider.js';
 import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
 
 export {
@@ -102,6 +103,7 @@ export {
   Fieldset,
   FixedZIndex,
   Flex,
+  GlobalEventsHandlerProvider,
   Heading,
   HelpButton,
   Icon,

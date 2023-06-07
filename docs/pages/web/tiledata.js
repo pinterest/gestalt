@@ -42,7 +42,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
             type="don't"
             title="When not to use"
             description={`
-        - When grouping Datapoints that aren't selectable
+        - When grouping data points that aren't selectable
         - For selectable information that is not part of a data visualization
       `}
           />
@@ -67,7 +67,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use TileData to present a single option. If TileData's don't need to be selected, then use a [Datapoint](https://gestalt.pinterest.systems/web/datapoint) instead."
+            description="Use TileData to present a single option. If TileData's don't need to be selected, then use [Datapoint](https://gestalt.pinterest.systems/web/datapoint) instead."
             sandpackExample={
               <SandpackExample
                 code={singleTileDont}
@@ -83,7 +83,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use the `showCheckbox` property when multiple Tiledata can be selected. See the [group](https://gestalt.pinterest.systems/web/tiledata#Group) variant for more details."
+            description="Use the `showCheckbox` prop when multiple Tiledatas can be selected. See the [group variant](https://gestalt.pinterest.systems/web/tiledata#Group) for more details."
             sandpackExample={
               <SandpackExample
                 code={multipleCheckboxDo}
@@ -118,14 +118,14 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
       <MainSection
         name="Localization"
         description={`
-        Be sure to localize \`title\`, \`value\`, \`trend.accessibilityLabel\`, and \`tooltip.accessibilityLabel\` in TileData. 
+        Be sure to localize \`title\`, \`value\`, \`trend.accessibilityLabel\`, and \`tooltip.accessibilityLabel\` in TileData.
 
-        When the title of the TileData reaches its max width, either intentionally or through localization, the title will wrap as needed to display the full text. Keep this in mind when selecting wording for your TileData menu items. Note that localization can lengthen text by 20 to 30 percent. `}
+        When the title of TileData reaches its max width, either intentionally or through localization, the title will wrap as needed to display the full text. Keep this in mind when selecting wording for TileData menu items. Note that localization can lengthen text by 20 to 30 percent. `}
       />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description="TileData can be used along side the colors provided from the Data Visualization [Color Palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). You may use colors to distinguish different data lines."
+          description="TileData can be used along side the colors provided from the Data Visualization [color palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette#12-Color-categorical-palette). You may use colors to distinguish different data lines."
           title="Colors"
         >
           <MainSection.Card
@@ -142,7 +142,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Disabled TileData cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data pre-requisites have not been met."
+          description="Disabled TileDatas cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data prerequisites have not been met."
           title="Disabled"
         >
           <MainSection.Card
@@ -167,7 +167,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
           description={`
       **[Datapoint](/web/datapoint)**
       Used to display data at-a-glance data for a user to quickly view key metrics.
-      
+
       **[Checkbox](/web/checkbox)**
       Used when presenting a user with a list of choices for which there can be multiple selections.
 

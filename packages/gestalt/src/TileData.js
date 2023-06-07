@@ -48,39 +48,39 @@ type Props = {|
    */
   color?: DataVisualizationColors,
   /**
-   * Indicates if TileData should be disabled. Disabled TileData is inactive and cannot be interacted with.
+   * Indicates if TileData should be disabled. Disabled TileDatas are inactive and cannot be interacted with. See the [disabled variant](https://gestalt.pinterest.systems/web/tiledata#Disabled) to learn more.
    */
   disabled?: boolean,
   /**
-   * An optional identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TileDatas.
+   * An optional identifier to be passed back in the `onTap` callback. It can be helpful to distinguish multiple TileDatas.
    */
   id?: string,
   /**
-   * Handler if the item selection state is changed.
+   * Handler called when the item selection state is changed.
    */
   onTap?: TileChangeHandler,
   /**
-   * Controls whether the TileData is selected or not. Use it alongside the OnTap handler.
+   * Controls whether TileData is selected or not. Use this prop along with the `onTap` handler.
    */
   selected?: boolean,
   /**
-   * Shows a visible checkbox when TileData is in a selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tiledata#Group).
+   * Shows a visible checkbox when TileData is in a selected state. See the [group variant](https://gestalt.pinterest.systems/web/tiledata#Group) to learn more.
    */
   showCheckbox?: boolean,
   /**
-   * The header text for the component.
+   * The header text for TileData.
    */
   title: string,
   /**
-   * Adds a Tooltip on hover/focus of the TileData. See the with [Tooltip](https://gestalt.pinterest.systems/web/tooltip) variant to learn more.
+   * Adds a tooltip on hover/focus of TileData. See the [with tooltip](https://gestalt.pinterest.systems/web/tiledata#Tooltip) variant to learn more.
    */
   tooltip?: TooltipProps,
   /**
-   * Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](https://gestalt.pinterest.systems/web/datapoint#Trend) variant to learn more.
+   * Object detailing the trend value (change in time - e.g., +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
    */
   trend?: TrendObject,
   /**
-   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) variant to learn more.
+   * A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment variant](https://gestalt.pinterest.systems/web/datapoint#Trend-sentiment) to learn more.
    */
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
   /**
@@ -109,7 +109,7 @@ const getBackgroundShade = (theme: Theme, color: DataVisualizationColors) => {
 };
 
 /**
- * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
+ * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
  *
  * ![TileData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TileData.spec.mjs-snapshots/TileData-chromium-darwin.png)
  * ![TileData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TileData-dark.spec.mjs-snapshots/TileData-dark-chromium-darwin.png)

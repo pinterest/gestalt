@@ -3,6 +3,88 @@
     "year": "2023",
     "digests": [
       {
+        "week": "June 2, 2023",
+        "summary": "Major data visualization updates, significant Android docs improvements and advertising safe zone guidelines.",
+        "posts": [
+          {
+            "title": "Data visualization guidelines",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/fd/63/e2/fd63e23c2a4e5a07bd8baf892e6ff7d0.png",
+            "imageAltText": "Illustration of data visualizations.",
+            "content": "We are beyond excited to share the release of our [expanded data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/overview). These guidelines cover [charts and graphs](https://gestalt.pinterest.systems/foundations/data_visualization/charts_and_graphs), [micro-visualizations](https://gestalt.pinterest.systems/foundations/data_visualization/micro_visualizations), [available components](https://gestalt.pinterest.systems/foundations/data_visualization/available_components), [color palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette) and [color usage](https://gestalt.pinterest.systems/foundations/data_visualization/color/usage). This was a major lift by the team and we're stoked it's available."
+          },
+          {
+            "title": "Data visualization Figma components",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/c1/a9/30/c1a93054b517ee01e6d995a02adfd3b2.png",
+            "imageAltText": "Screenshots of Figma bar chart component.",
+            "content": "We're not done on the topic of data visualization. We also added new data viz component to our Figma data viz library! In there you'll find bar charts, line charts, tiles and tags specifically for the purpose of (you guessed it) data visualization. This, along with our guidelines is going to set us up nicely to deliver code-backed React components in H2 of this year."
+          },
+          {
+            "title": "Gobs of Android docs improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/4f/01/86/4f0186872cb58f4312464c53d3c7d64a.png",
+            "imageAltText": "The Android logo.",
+            "content": "Our team has been putting a lot of work expanding our mobile documentation. We recently published a major update so that all our Android component docs now include full design specs (including anatomy, token breakdowns, and variant details). As we continue active development of Android components, these updates should make that process smoother and awesomer."
+          },
+          {
+            "title": "Advertising safe area",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/4d/79/85/4d79855e589e2e7b6126d43704e17f3a.png",
+            "imageAltText": "An example of advertising safe zones added to the Figma Pin component.",
+            "content": "We've begun the introduction of defining advertising safe zones within the Pin component to ensure content is not occluded by UI. These specifications are currently only in our Figma Web Library, but we are actively discussing how we can make these guidelines more available across Pinterest."
+          }
+        ]
+      },
+      {
+        "month": "May",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng May Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from May."
+          },
+          {
+            "title": "TileData",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/f3/ab/a7/f3aba7b207e12d3b61f292da42f5a7d1.png",
+            "imageAltText": "Screenshot of TileData UI",
+            "content": "Introducing our newest component, [TileData](https://gestalt.pinterest.systems/web/tiledata)! TileData enables users to select multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points. We plan to release more data viz components later this year — keep an eye on [our Roadmap page](https://gestalt.pinterest.systems/roadmap) for updates!"
+          },
+          {
+            "title": "TypeScript declarations",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/7d/f9/1f/7df91f42f7244e999e5d38607fd6f123.jpg",
+            "imageAltText": "Decorative TypeScript logo with Seattle skyline",
+            "content": "We now include TypeScript declarations for `gestalt` and `gestalt-datepicker`! Long requested by internal tools folks, this means that you can use Gestalt in TypeScript projects without needing to install any additional packages. We added a `types` field to our `package.json` files, so that TypeScript projects can automatically find the declarations. While we don't have specific plans to migrate to TypeScript yet, this is a big step towards making TypeScript a first-class citizen in Gestalt."
+          },
+          {
+            "title": "Mobile web adaptive components",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/b7/86/51/b786513ca78ffd2a075cb58d300a35d8.png",
+            "imageAltText": "Screenshot of mobile Dropdown UI",
+            "content": "As teased previously, we've started to roll out mobile-specific UI for certain components. Supported components will automatically adapt to the user's device type to show the preferred UI (though this can be overridden when needed). We've started with [Dropdown](https://gestalt.pinterest.systems/web/dropdown) and [Modal](https://gestalt.pinterest.systems/web/modal), and will continue to add more components over time. This means that for most UIs, you can use the same Gestalt components on both web and mobile, and they'll automatically `do the right thing`. This will bring a much more native feel to our mobile experience!"
+          },
+          {
+            "title": "Component updates: Dropdown.Link, Icon, List, OverlayPanel, PageHeader, PopoverEducational, SheetMobile, Status, Table.Row",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/5c/60/6e/5c606efb70e57074a47cbfaa4a398bd7.png",
+            "imageAltText": "Screenshot of Status with `queued` status",
+            "content": "We added a [new lint rule](https://github.com/pinterest/gestalt/tree/master/packages/eslint-plugin-gestalt#gestaltprefer-list) to encourage [List](https://gestalt.pinterest.systems/web/list) usage, which has already been enabled in Pinboard. [Status](https://gestalt.pinterest.systems/web/status) now has a new `queued` status available. [PageHeader](https://gestalt.pinterest.systems/web/pageheader) also now has a full complement of `badge` types available. [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) and related subcomponents gained two new props, `hoverStyle` and `selected`. [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) also got a new prop, `onOutsideClick`. We updated the icon used in [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link) for external links. [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) and [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) got improved animations, and we fixed a bug with [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational)'s `zIndex` prop. Finally, pour one out (again!) for Google Plus — we finally removed the `google-plus` icon from [our icon library](https://gestalt.pinterest.systems/foundations/iconography/library)."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "content": "We added and updated content for our Android ButtonGroup and TextField pages. We also continue to refactor web component pages using our old code editor to use Sandpack instead — two more this month!"
+          }
+        ]
+      },
+      {
         "week": "May 26, 2023",
         "summary": "New TileData component, updates to PageHeader, more Figma library updates and better documentation code examples.",
         "posts": [
