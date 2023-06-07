@@ -125,7 +125,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description="TileData can be used along side the colors provided from the Data Visualization [color palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). You may use colors to distinguish different data lines."
+          description="TileData can be used along side the colors provided from the Data Visualization [color palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette#12-Color-categorical-palette). You may use colors to distinguish different data lines."
           title="Colors"
         >
           <MainSection.Card

@@ -1,5 +1,5 @@
 import { Box as GestaltBox } from 'gestalt';
 
 export default function TestElement() {
-  return <GestaltBox color="white" />;
+  return <GestaltBox color="default" />;
 }

@@ -1,3 +1,21 @@
+## 112.6.13 (Jun 7, 2023)
+
+### Patch
+
+- Internal: fixes to gestalt-datepicker in editors and templates ([#2997](https://github.com/pinterest/gestalt/pull/2997)) - [Preview link](https://deploy-preview-2997--gestalt.netlify.app)
+
+## 112.6.12 (Jun 7, 2023)
+
+### Patch
+
+- Internal: Upgrade ESLint to 8.23.0 ([#2998](https://github.com/pinterest/gestalt/pull/2998)) - [Preview link](https://deploy-preview-2998--gestalt.netlify.app)
+
+## 112.6.11 (Jun 6, 2023)
+
+### Patch
+
+- Docs: fix broken links ([#2994](https://github.com/pinterest/gestalt/pull/2994)) - [Preview link](https://deploy-preview-2994--gestalt.netlify.app)
+
 ## 112.6.10 (Jun 5, 2023)
 
 ### Patch
