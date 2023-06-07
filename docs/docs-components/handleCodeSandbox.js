@@ -1,5 +1,6 @@
 // @flow strict
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
+import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import LZString from 'lz-string';
 
 const compress = (object: {|
@@ -42,7 +43,7 @@ const dedupeArray = <T>(arr: $ReadOnlyArray<T>): $ReadOnlyArray<T> => [...new Se
 
 const handleCodeSandbox = async ({ code, title }: {| code: string, title: string |}) => {
   const gestaltComponents = Object.keys(gestalt);
-  const additionalGestaltComponents = ['DatePicker'];
+  const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
 
   const usedComponents = dedupeArray([
     ...(code.match(/<((\w+))/g) || []).map((component) => component.replace('<', '')),
@@ -51,22 +52,22 @@ const handleCodeSandbox = async ({ code, title }: {| code: string, title: string
     ),
   ]);
 
-  const baseComponents = gestaltComponents.filter((x) => usedComponents.includes(x));
+  const baseGestaltComponents = gestaltComponents.filter((x) => usedComponents.includes(x));
 
-  const additionalComponents = additionalGestaltComponents.filter((x) =>
+  const baseGestaltDatePickerComponents = gestaltDatepickerComponents.filter((x) =>
     usedComponents.includes(x),
   );
 
   const getPackagedComponents = () => {
     const imports = [`import "../node_modules/gestalt/dist/gestalt.css"`];
-    if (additionalComponents.includes('DatePicker')) {
+    if (baseGestaltDatePickerComponents.length > 0) {
+      imports.push('import "../node_modules/gestalt-datepicker/dist/gestalt-datepicker.css";');
       imports.push(
-        'import "../node_modules/gestalt-datepicker/dist/gestalt-datepicker.css";',
-        'import DatePicker from "gestalt-datepicker";',
+        `import { ${baseGestaltDatePickerComponents.join(', ')} } from "gestalt-datepicker";`,
       );
     }
-    if (baseComponents.length > 0) {
-      imports.push(`import { ${baseComponents.join(', ')} } from "gestalt";`);
+    if (baseGestaltComponents.length > 0) {
+      imports.push(`import { ${baseGestaltComponents.join(', ')} } from "gestalt";`);
     }
 
     return imports.join('\n');

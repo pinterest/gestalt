@@ -17,17 +17,7 @@ export default function ComponentNamePage({
 |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-function Example() {
-  return (
-    <Box />
-  );
-}
-        `}
-      >
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} hideEditor name="Main ComponentName example" />
       </PageHeader>
 
@@ -45,8 +35,6 @@ function Example() {
 
       <MainSection name="Variants" />
 
-      <MainSection name="Writing" />
-
       <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Related">
@@ -61,7 +49,7 @@ function Example() {
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: { generatedDocGen: await docgen({ componentName: 'ComponentName' }) },
   };

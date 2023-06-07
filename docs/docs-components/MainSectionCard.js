@@ -2,7 +2,7 @@
 import { type Node, useCallback } from 'react';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
-import { DatePicker } from 'gestalt-datepicker';
+import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import theme from './atomDark.js';
@@ -57,7 +57,7 @@ function MainSectionCard({
   type = 'info',
 }: Props): Node {
   const code = defaultCode?.trim();
-  const scope = { ...gestalt, DatePicker };
+  const scope = { ...gestalt, ...gestaltDatepicker };
   const borderStyle =
     type !== 'info' ? `3px solid var(--color-background-${TYPE_TO_COLOR[type]}-base)` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
