@@ -98,7 +98,7 @@ export type Props = {|
   /**
    * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
    */
-  nextRef?: {| current: ?HTMLInputElement |},
+  nextRef?: {| current: null | HTMLInputElement |},
   /**
    * Callback triggered when the user selects a date.
    */

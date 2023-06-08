@@ -186,50 +186,31 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
 
-        <Example
-          id="rangePicker"
-          description="
-    Use DatePicker to select date range inputs.
-  "
-          name="Date Range Picker"
-          defaultCode={`
-function DatePickerRangeExample() {
-  const [startDate, setStartDate] = React.useState(undefined);
-  const [endDate, setEndDate] = React.useState(undefined);
-  const endDateInput = React.useRef(null)
-  const startDateInput = React.useRef(null)
-
-  return (
-    <Flex gap={{ column: 0, row: 2 }}>
-      <DatePicker
-        rangeStartDate={startDate}
-        rangeEndDate={endDate}
-        id="example-start-date"
-        label="Check In"
-        nextRef={endDateInput}
-        onChange={({ event, value }) => {
-          setStartDate(value);
-        }}
-        rangeSelector="start"
-        value={startDate}
-        ref={startDateInput}
-      />
-      <DatePicker
-        rangeStartDate={startDate}
-        rangeEndDate={endDate}
-        id="example-end-date"
-        label="Check Out"
-        nextRef={startDateInput}
-        onChange={({ event, value }) => setEndDate(value)}
-        rangeSelector="end"
-        value={endDate}
-        ref={endDateInput}
-      />
-    </Flex>
-  );
-}
-`}
-        />
+        <MainSection.Subsection columns={2} title="Date range">
+          <MainSection.Card
+            title="Disabled"
+            sandpackExample={
+              <SandpackExample
+                code={disabled}
+                name="disabled variant"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            title="Error"
+            description="Display an error message. Error message overrides the helper text."
+            sandpackExample={
+              <SandpackExample
+                code={error}
+                name="error variant"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
         <Example
           id="maxMinDates"
