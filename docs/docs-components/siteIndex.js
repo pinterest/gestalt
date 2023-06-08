@@ -75,7 +75,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           'Main component',
           {
             sectionName: 'Subcomponents',
-            pages: ['cardheader'],
+            pages: ['Card.Header'],
           },
         ],
       },
