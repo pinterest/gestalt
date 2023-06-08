@@ -413,3 +413,8 @@ html[dir="rtl"] .calendarIcon {
 html:not([dir="rtl"]) .calendarIcon {
   right: 0;
 }
+
+.disabled {
+  cursor: default;
+  opacity: 0.5;
+}
