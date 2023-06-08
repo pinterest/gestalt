@@ -11,7 +11,7 @@ These guidelines were created in collaboration with the Pinterest Browse Design 
 ## Fixed preview
 Pins PreviewBlock with a fixed preview communicates that the entire preview area is a tap target. It is used when the goal is to direct Pinners to a single destination (ex: topical Pin feed) where they can scan a breadth of and/or compare related ideas. 
 
-<ImgContainer padding="none" color="purple-mysticool-0" src="https://i.pinimg.com/originals/1c/d6/d5/1cd6d59f83129699471438433f2c7a30.jpg" alt="Example of a boards block in Card."/>
+<ImgContainer padding="none" color="purple-mysticool-0" src="https://i.pinimg.com/originals/59/71/b1/5971b10d76fcabdd3b02817ae437a1a3.jpg" alt="Example of a fixed preview pins block in Card."/>
 
 ### Usage guidelines
 <TwoCol>
@@ -54,16 +54,21 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 - [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ### Anatomy
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76473%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 ### Variants
 
 #### 3 up (default)
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76866%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 #### 2 up
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19826%253A75261%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 #### 4 up
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19826%253A75351%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 ### Dark mode 
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76589%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 ## Scrolling preview
 Pins PreviewBlock with a scrolling preview communicates that each preview is an individual tap target that all lead to the same destination (ex: every preview takes you to a specific slot position within a stream). 
@@ -129,11 +134,11 @@ Pin previews can flex to different aspect ratios so that the best dimensions can
 
 Below are some examples of how different aspect ratios and dimensions can be applied.
 
-#### Ex: Aspect ratio=9:16, small previews 
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A78570%26t%3DWEMz4VEOS6WCU1tj-1" allowFullScreen></iframe>
+#### Aspect ratio=9:16, small previews 
 
-#### Ex: Aspect ratio=2:3, large previews 
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A78570%26t%3DWEMz4VEOS6WCU1tj-1" allowFullScreen></iframe>
+
+#### Aspect ratio=2:3, large previews 
+
 
 ### Dark mode
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A80068%26t%3DWEMz4VEOS6WCU1tj-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A80068%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
