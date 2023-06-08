@@ -63,12 +63,23 @@ function Header() {
   );
 
   useEffect(() => {
+    const devModeSetFromUrl = router.query.devexample && router.query.devexample.length > 0;
+
+    // do not show switch if set via url
     if (
+      devModeSetFromUrl &&
+      (router.query.devexample === 'true' || router.query.devexample === 'false')
+    ) {
+      setShowDevelopmentEditorSwitch(false);
+      return;
+    }
+
+    const isDeployPreviewEnvironment =
       process.env.NODE_ENV === 'production' &&
-      window?.location?.href?.startsWith('https://deploy-preview-')
-    )
-      setShowDevelopmentEditorSwitch(true);
-  }, [setShowDevelopmentEditorSwitch]);
+      window?.location?.href?.startsWith('https://deploy-preview-');
+
+    if (isDeployPreviewEnvironment) setShowDevelopmentEditorSwitch(true);
+  }, [setShowDevelopmentEditorSwitch, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
 
