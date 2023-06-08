@@ -1,10 +1,10 @@
 ---
 title: Card
-description: The Card is a semi-modular container used to house a header and a variant of the available preview blocks. Every card must have at least a title and a variant of a preview block.
+description: The Card is a semi-modular container used to house a Card.Header and a variant of the available preview blocks. Every Card must have at least a title and a variant of a preview block.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/fb/df/a0/fbdfa01750ca4951fde9da763052c9de.png" alt="Example of a card container with an area to show where images are placed." noPadding color="background-secondary-base"/>
+<ImgContainer src="https://i.pinimg.com/originals/fb/df/a0/fbdfa01750ca4951fde9da763052c9de.png" alt="Example of a Card container with an area to show where images are placed." noPadding color="background-elevation-accent"/>
 
 
 ## Usage guidelines
@@ -17,9 +17,9 @@ fullwidth: true
 </Group>
 <Group>
 <Dont title="When not to use" />
-- The card does not link to a destination
+- The Card does not link to a destination
 - The information and content contained within the Card are not related
-- The contents of the Card are not the approved subcomponents (i.e. CardHeader and PreviewBlock(s))
+- The contents of the Card are not the approved subcomponents (e.g. CardHeader and Preview Blocks(s))
 </Group>
 </TwoCol>
 
@@ -54,7 +54,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
-- When creating a tab order the Card, the header always comes before the preview block so screen-reader users get context before proceeding to the preview block alt tags.
+- When creating a tab order the Card, the Card.Header always comes before the preview block so screen-reader users get context before proceeding to the preview block alt tags.
 - If the Card itself is selectable, do not put other links inside the Card.
 - Avoid wrapping an entire Card in an anchor tag as this can be a difficult experience for a screen reader user. Instead, have a single anchor tag inside the Card, and have the tappable area of this anchor tag wrap the Card.
 
@@ -71,13 +71,13 @@ Use these tokens for applying size and color styles to a Card.
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A74406%26t%3DpdcqbCwrqHzeYjtv-1" allowFullScreen></iframe>
 
 ### 1. Card
-The Card is a container that holds the header and preview blocks by creating a consistent background and padding. The container uses the default background color and includes 8px padding on the left and right.
+The Card is a container that holds the Card.Header and preview blocks by creating a consistent background and padding. The container uses the default background color and includes 8px padding on the left and right.
 
 ### 2. Header (subcomponent)
-The header sits at the top, inside of the Card container. It is a required subcomponent that includes pre-text, a title and navigational elements. The header should always, at the very least, include a title.
+The Card.Header sits at the top, inside of the Card container. It is a required subcomponent that includes pre-text, a title and navigational elements. The Card.Header should always, at the very least, include a title.
 
 ### 3. Preview block (subcomponent)
-The preview block is a container that sits below the Card’s header. It holds a number of visual preview variations of Pinterest content. As they are designed and unified, more preview block content types will become available. 
+The preview block is a container that sits below the Card’s Card.Header. It holds a number of visual preview variations of Pinterest content. As they are designed and unified, more preview block content types will become available. 
 
 The current preview block content types are:
 - Pin Feed (Montage)
@@ -85,11 +85,11 @@ The current preview block content types are:
 - Boards
 
 ## Variants
-The Card is a container that holds the header and preview blocks. The Card itself does not have any variants. However, the specs and dark mode are illustrated below.
+The Card is a container that holds the Card.Header and preview blocks. The Card itself does not have any variants. However, the specs and dark mode are illustrated below.
 
 <iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A74630%26t%3DpdcqbCwrqHzeYjtv-1" allowFullScreen></iframe>
 
-#### Dark mode
+### Dark mode
 
 <iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A74704%26t%3DpdcqbCwrqHzeYjtv-1" allowFullScreen></iframe>
 
@@ -98,8 +98,8 @@ The Card is a container that holds the header and preview blocks. The Card itsel
 <TwoCol>
 <Group>
 <Do title="Do" />
-- Keep the content concise. Convey the most important information about the card in a few words.
-- Provide context to the user. The user should know what they can expect to find within the card by reading the header and pretext.
+- Keep the content concise. Convey the most important information about the Card in a few words.
+- Provide context to the user. The user should know what they can expect to find within the Card by reading the Card.Header and pre-text.
 
 </Group>
 
@@ -117,4 +117,4 @@ Be sure to localize text. Note that localization can lengthen text by 20 to 30 p
 When in RTL mode, the Card layout will be arranged from right to left. This means that navigation, menus and content will be mirrored to maintain consistency.
 <br/>
 
-<ImgContainer src="https://i.pinimg.com/originals/72/5b/a2/725ba2ed0fb57e5b7ae9aded6a4c4bf7.png" alt="A card with header, menus and image conntent flipped for RTL languages." noPadding color="background-secondary-base" />
+<ImgContainer src="https://i.pinimg.com/originals/72/5b/a2/725ba2ed0fb57e5b7ae9aded6a4c4bf7.png" alt="A Card with Card.Header, menus and image conntent flipped for RTL languages." noPadding color="background-elevation-accent" />

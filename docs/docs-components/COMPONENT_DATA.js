@@ -672,6 +672,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       figma: null,
     },
   },
+
   {
     svg: <WashAnimated />,
     name: 'WashAnimated',
