@@ -79,7 +79,8 @@ function Header() {
       window?.location?.href?.startsWith('https://deploy-preview-');
 
     if (isDeployPreviewEnvironment) setShowDevelopmentEditorSwitch(true);
-  }, [setShowDevelopmentEditorSwitch, router.query]);
+    if (process.env.NODE_ENV === 'development') setShowDevelopmentEditorSwitch(true);
+  }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
 
