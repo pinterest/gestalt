@@ -78,18 +78,18 @@ Use these tokens for applying size and color styles to Card.Header.
 ### Default
 The default Card.Header includes a Card.Header copy, optional pre-text and an optional timestamp.
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/d1/3b/58/d13b580b43ae794af2b4e3fb2c2b364a.png" noPadding color="background-elevation-accent"/>
+<ImgContainer src="https://i.pinimg.com/originals/d1/3b/58/d13b580b43ae794af2b4e3fb2c2b364a.png" noPadding color="background-elevation-accent"alt="Example of a default Card.Header with pre-text, and heading."/>
 <br/>
 ### Editorial
 The editorial Card.Header is the same as the default Card.Header, the difference being that the Card.Header typography size is increased to draw greater focus.
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/4a/6e/49/4a6e493e6dcf5ab5bc0098e316607432.png" noPadding color="background-elevation-accent"/>
+<ImgContainer src="https://i.pinimg.com/originals/4a/6e/49/4a6e493e6dcf5ab5bc0098e316607432.png" noPadding color="background-elevation-accent" alt="Example of an editorial Card.Header with a large headline."/>/>
 <br/>
 
 ### With image
 The image variant of the Card.Header can contain a variety of image representations. The image can represent a Pin, a Product, an avatar & follow button or a topic.
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/0c/f7/05/0cf7052f0f442094909beeefc6e80474.png" noPadding color="background-elevation-accent"/>
+<ImgContainer src="https://i.pinimg.com/originals/0c/f7/05/0cf7052f0f442094909beeefc6e80474.png" noPadding color="background-elevation-accent" alt="Example of a Card.Header with an image next to the pre-text and heading."/>/>
 <br/>
 
 ## Dark mode
