@@ -78,8 +78,8 @@ function Header() {
       process.env.NODE_ENV === 'production' &&
       window?.location?.href?.startsWith('https://deploy-preview-');
 
-    if (isDeployPreviewEnvironment) setShowDevelopmentEditorSwitch(true);
-    if (process.env.NODE_ENV === 'development') setShowDevelopmentEditorSwitch(true);
+    if (isDeployPreviewEnvironment || process.env.NODE_ENV === 'development')
+      setShowDevelopmentEditorSwitch(true);
   }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
