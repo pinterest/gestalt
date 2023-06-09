@@ -363,13 +363,13 @@ export interface DatePickerProps {
   maxDate?: Date | undefined;
   minDate?: Date | undefined;
   name?: string | undefined;
-  nextRef?: { current?: HTMLElement | undefined } | undefined;
+  nextRef?: { current: HTMLElement | null } | undefined;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: Date }>;
   placeholder?: string | undefined;
   rangeEndDate?: Date | undefined;
   rangeSelector?: 'start' | 'end' | undefined;
   rangeStartDate?: Date | undefined;
-  ref?: { current?: HTMLElement | undefined } | undefined;
+  ref?: { current: HTMLElement | null } | undefined;
   selectLists?: ('month' | 'year')[] | undefined;
   value?: Date | undefined;
 }
