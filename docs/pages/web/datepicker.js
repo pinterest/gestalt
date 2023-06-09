@@ -51,10 +51,14 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import controlled from '../../examples/datepicker/controlled.js';
+import disable from '../../examples/datepicker/disable.js';
 import disabled from '../../examples/datepicker/disabled.js';
+import disableSelected from '../../examples/datepicker/disableSelected.js';
 import error from '../../examples/datepicker/error.js';
+import helperText from '../../examples/datepicker/helperText.js';
 import main from '../../examples/datepicker/main.js';
 import preselected from '../../examples/datepicker/preselected.js';
+import range from '../../examples/datepicker/range.js';
 import selectLists from '../../examples/datepicker/selectLists.js';
 
 const localeMap = {
@@ -96,6 +100,8 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 const PREVIEW_HEIGHT = 420;
+const PREVIEW_HEIGHT_HELPERTEXT = 450;
+
 export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DatePicker">
@@ -186,126 +192,72 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection columns={2} title="Date range">
+        <MainSection.Subsection title="Helper text">
           <MainSection.Card
-            title="Disabled"
             sandpackExample={
               <SandpackExample
-                code={disabled}
-                name="disabled variant"
-                layout="column"
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-          <MainSection.Card
-            title="Error"
-            description="Display an error message. Error message overrides the helper text."
-            sandpackExample={
-              <SandpackExample
-                code={error}
-                name="error variant"
-                layout="column"
+                code={helperText}
+                name="helperText variant"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
 
-        <Example
-          id="maxMinDates"
-          description="
-    Disable dates outside of a min and max date range.
-  "
-          name="Delimited selection period"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
+        <MainSection.Subsection title="Date range">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={range}
+                name="range variant"
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <DatePicker
-      id="example-maxMinDates"
-      minDate={new Date(2020, 6, 6)}
-      maxDate={new Date(2020, 6, 10)}
-      label="Select a date"
-      onChange={({value}) => handleChange(value)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="include"
-          description="
-    Enable an array of dates.
-  "
-          name="Enabled dates"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
-
-  return (
-    <DatePicker
-      id="example-include"
-      includeDates={[new Date(2020,2,11), new Date(2020,2,15)]}
-      label="Select Your Appointment"
-      onChange={({value}) => handleChange(value)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="exclude"
-          description="
-    Disable an array of dates.
-  "
-          name="Disabled dates"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
-
-  return (
-    <DatePicker
-      id="example-exclude"
-      excludeDates={[new Date(2020,2,11), new Date(2020,2,12)]}
-      label="Select Your Appointment"
-      onChange={({value}) => handleChange(value)}
-      value={new Date(2020,2,9)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="helperText"
-          description="
-    Display a helper message for cases where you want to provide more information about the date field.
-  "
-          name="Helper Text"
-          defaultCode={`
-function DatePickerExample() {
-  return (
-    <DatePicker
-      helperText="Select a wonderfully sunny wedding date."
-      id="example-helperText"
-      label="Wedding Date"
-      onChange={() => {}}
-      value={new Date()}
-    />
-  )
-}
-`}
-        />
+        <MainSection.Subsection
+          title="Disabled dates"
+          description="DatePicker supports disabling future & past dates as well as an array of selected dates."
+        >
+          <MainSection.Card
+            title="Disable future & past"
+            sandpackExample={
+              <SandpackExample
+                code={disable}
+                name="disable variant"
+                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+                layout="column"
+              />
+            }
+          />
+          <MainSection.Card
+            title="Disable selected dates"
+            sandpackExample={
+              <SandpackExample
+                code={disableSelected}
+                name="disable selected variant"
+                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
         <MainSection.Subsection
           columns={2}
-          title="selectLists"
-          description="Provide select lists for quickly changing year and month"
+          title="Select list"
+          description="Provide select lists for quickly selecting year and month"
         >
           <MainSection.Card
             cardSize="md"
-            sandpackExample={<SandpackExample code={selectLists} name="selectLists example." />}
+            sandpackExample={
+              <SandpackExample
+                code={selectLists}
+                name="selectLists example"
+                previewHeight={PREVIEW_HEIGHT_HELPERTEXT + 100}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -325,6 +277,7 @@ function DatePickerExample() {
             />
           )}
         </Combination>
+
         <Combination
           id="localeData"
           name="Supporting locales"
