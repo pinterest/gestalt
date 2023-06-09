@@ -1,3 +1,9 @@
+## 112.7.2 (Jun 9, 2023)
+
+### Patch
+
+- Docs: fix non-standard Datapoint casing ([#3003](https://github.com/pinterest/gestalt/pull/3003)) - [Preview link](https://deploy-preview-3003--gestalt.netlify.app?devexample=true)
+
 ## 112.7.1 (Jun 9, 2023)
 
 ### Patch
