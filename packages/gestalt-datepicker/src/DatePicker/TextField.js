@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, forwardRef, type ElementRef, type AbstractComponent } from 'react';
+import { forwardRef, type ElementRef, type AbstractComponent } from 'react';
 import { Box, Icon, TextField } from 'gestalt';
 import styles from '../DatePicker.css';
 
