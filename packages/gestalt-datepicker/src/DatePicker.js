@@ -1,18 +1,13 @@
 // @flow strict-local
 import {
   forwardRef,
-  useEffect,
   useImperativeHandle,
-  useState,
   useRef,
   type Element,
   type AbstractComponent,
+  type Node,
 } from 'react';
-import classnames from 'classnames';
-import { Icon, Box, Label, Text } from 'gestalt';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import styles from './DatePicker.css';
-import DatePickerTextField from './DatePicker/TextField.js';
+import InternalDatePicker from './DatePicker/InternalDatePicker.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // flowlint unclear-type:off
@@ -50,21 +45,21 @@ type LocaleData = {|
 |};
 // flowlint unclear-type:error
 
-type Props = {|
+export type Props = {|
   /**
-   *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/web/datepicker#disabled) to learn more.
+   *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/web/datepicker#States) to learn more.
    */
   disabled?: boolean,
   /**
-   * Provide feedback when an error on selection occurs. See the [error message example](https://gestalt.pinterest.systems/web/datepicker#errorMessage) to learn more.
+   * Provide feedback when an error on selection occurs. See the [error message example](https://gestalt.pinterest.systems/web/datepicker#States) to learn more.
    */
   errorMessage?: string,
   /**
-   * Array of disabled dates. Datepicker can be interacted with except for the dates passed which look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/web/datepicker#exclude) to learn more.
+   * Array of disabled dates. Datepicker can be interacted with except for the dates passed which look inactive and cannot be selected. See the [disable selected dates example](https://gestalt.pinterest.systems/web/datepicker#Disabled-dates) to learn more.
    */
   excludeDates?: $ReadOnlyArray<Date>,
   /**
-   * More information about how to complete the DatePicker field. See the [helper text example](https://gestalt.pinterest.systems/web/datepicker#helperText) to learn more.
+   * More information about how to complete the DatePicker field. See the [helper text example](https://gestalt.pinterest.systems/web/datepicker#Helper-text) to learn more.
    */
   helperText?: string,
   /**
@@ -77,7 +72,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
 
   /**
-   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected. See the [disabled dates example](https://gestalt.pinterest.systems/web/datepicker#include) to learn more.
+   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected. See the [disable selected dates example](https://gestalt.pinterest.systems/web/datepicker#Disabled-dates) to learn more.
    */
   includeDates?: $ReadOnlyArray<Date>,
   /**
@@ -89,11 +84,11 @@ type Props = {|
    */
   localeData?: LocaleData,
   /**
-   * Disable dates outside a max date. See the [delimited selection period example](https://gestalt.pinterest.systems/web/datepicker#maxMinDates) to learn more.
+   * Disable dates outside a max date. See the [disable future and past example](https://gestalt.pinterest.systems/web/datepicker#Disabled-dates) to learn more.
    */
   maxDate?: Date,
   /**
-   * Disable dates outside a min date. See the [delimited selection period example](https://gestalt.pinterest.systems/web/datepicker#maxMinDates) to learn more.
+   * Disable dates outside a min date.  See the [disable future and past example](https://gestalt.pinterest.systems/web/datepicker#Disabled-dates) to learn more.
    */
   minDate?: Date,
   /**
@@ -101,9 +96,9 @@ type Props = {|
    */
   name?: string,
   /**
-   * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
-  nextRef?: {| current: ?HTMLInputElement |},
+  nextRef?: {| current: null | HTMLInputElement |},
   /**
    * Callback triggered when the user selects a date.
    */
@@ -116,27 +111,27 @@ type Props = {|
    */
   placeholder?: string,
   /**
-   * Required for date range selection. End date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
+   * Required for date range selection. End date on a date range selection. See the [date range example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
   rangeEndDate?: Date,
   /**
-   * Required for date range selection. Defines the datepicker start/end role in a date range selection.See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Defines the datepicker start/end role in a date range selection.See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
   rangeSelector?: 'start' | 'end',
   /**
-   * Required for date range selection. Start date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Start date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
   rangeStartDate?: Date,
   /**
-   * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#rangePicker) to learn more.
+   * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * Show a select list for quick selection of year and/or month. See the [selectLists variant](https://gestalt.pinterest.systems/web/datepicker#selectLists) to learn more.
+   * Show a select list for quick selection of year and/or month. See the [selectLists variant](https://gestalt.pinterest.systems/web/datepicker#Select-list) to learn more.
    */
   selectLists?: $ReadOnlyArray<'month' | 'year'>,
   /**
-   * Pre-selected date value. See the [preselected date example](https://gestalt.pinterest.systems/web/datepicker#preselectedValue) to learn more.
+   * DatePicker can be a controlled component. `value` sets the current value of the input. See the [controlled component date example](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) to learn more.
    */
   value?: Date,
 |};
@@ -148,9 +143,9 @@ type Props = {|
  * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)
  * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.mjs-snapshots/DatePicker-closed-dark-chromium-darwin.png)
  */
-const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
+const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
-  HTMLDivElement,
+  HTMLInputElement,
 >(function DatePicker(
   {
     disabled,
@@ -172,138 +167,37 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwa
     rangeSelector,
     rangeStartDate,
     selectLists,
-    value: dateValue,
+    value,
   }: Props,
   ref,
-): Element<'div'> {
-  const innerRef = useRef<null | HTMLDivElement>(null);
-  useImperativeHandle(ref, () => innerRef.current);
-
-  const [selected, setSelected] = useState<?Date>(dateValue);
-  // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
-  // in the month and we need to keep the popover pointed at the input correctly
-  const [, setMonth] = useState<?number>();
-  const [format, setFormat] = useState<?string>();
-  const [updatedLocale, setUpdatedLocale] = useState<?string>();
-  const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
-
-  // TO DO: Ideally this component should be fully controlled using value + onChange, where selected/setSelected are unnecessary.
-  useEffect(() => {
-    setSelected(dateValue);
-  }, [dateValue]);
-
-  useEffect(() => {
-    if (rangeSelector) {
-      setInitRangeHighlight(rangeStartDate || rangeEndDate);
-    }
-  }, [rangeStartDate, rangeEndDate, rangeSelector]);
-
-  useEffect(() => {
-    if (localeData && localeData.code) {
-      registerLocale(localeData.code, localeData);
-      setUpdatedLocale(localeData.code);
-      setFormat(
-        localeData?.formatLong
-          ?.date({ width: 'short' })
-          .replace(/(y{1,4})/, 'yyyy')
-          .replace(/(d{1,2})/, 'dd')
-          .replace(/(M{1,2})/, 'MM') ?? 'MM/dd/yyyy',
-      );
-    }
-  }, [localeData]);
-
-  const popperPlacement = {
-    up: 'top',
-    right: 'right',
-    down: 'bottom',
-    left: 'left',
-  };
-
-  const updateNextRef = (submitted: boolean) => {
-    if (
-      (rangeSelector === 'start' && !rangeEndDate) ||
-      (rangeSelector === 'end' && !rangeStartDate)
-    ) {
-      if (nextRef && submitted) {
-        nextRef.current?.focus();
-      }
-    }
-  };
+): Node {
+  const innerInputRef = useRef<null | HTMLInputElement>(null);
+  useImperativeHandle(ref, () => innerInputRef.current);
 
   return (
-    <div className="_gestalt">
-      {label && (
-        <Label htmlFor={id}>
-          <Box marginBottom={2}>
-            <Text size="100">{label}</Text>
-          </Box>
-        </Label>
-      )}
-      <ReactDatePicker
-        calendarClassName={classnames(styles['react-datepicker'])}
-        customInput={
-          <DatePickerTextField
-            name={name}
-            id={id}
-            errorMessage={errorMessage}
-            helperText={helperText}
-          />
-        }
-        dateFormat={format}
-        dayClassName={() => classnames(styles['react-datepicker__days'])}
-        disabled={disabled}
-        dropdownMode="select"
-        endDate={rangeEndDate}
-        excludeDates={excludeDates && [...excludeDates]}
-        highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
-        id={id}
-        includeDates={includeDates && [...includeDates]}
-        locale={updatedLocale}
-        maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
-        minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
-        nextMonthButtonLabel={
-          <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
-        }
-        onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
-          setSelected(value);
-          onChange({ event, value });
-          updateNextRef(event.type === 'click');
-        }}
-        onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
-        onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
-        placeholderText={placeholder ?? format?.toUpperCase()}
-        popperClassName={classnames(styles['react-datepicker-popper'])}
-        popperModifiers={[
-          {
-            name: 'offset',
-            options: {
-              offset: [0, 20],
-            },
-          },
-        ]}
-        popperPlacement={popperPlacement[idealDirection]}
-        previousMonthButtonLabel={
-          <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
-        }
-        ref={(refElement) => {
-          if (!innerRef || !refElement) {
-            return null;
-          }
-          // $FlowFixMe[method-unbinding]
-          if (Object.prototype.hasOwnProperty.call(innerRef, 'current')) {
-            innerRef.current = refElement.input;
-          }
-          return null;
-        }}
-        selected={selected}
-        selectsEnd={rangeSelector === 'end'}
-        selectsStart={rangeSelector === 'start'}
-        showPopperArrow={false}
-        showMonthDropdown={selectLists?.includes('month')}
-        showYearDropdown={selectLists?.includes('year')}
-        startDate={rangeStartDate}
-      />
-    </div>
+    <InternalDatePicker
+      disabled={disabled}
+      errorMessage={errorMessage}
+      excludeDates={excludeDates}
+      helperText={helperText}
+      id={id}
+      idealDirection={idealDirection}
+      includeDates={includeDates}
+      label={label}
+      localeData={localeData}
+      maxDate={maxDate}
+      minDate={minDate}
+      name={name}
+      nextRef={nextRef}
+      onChange={onChange}
+      placeholder={placeholder}
+      rangeEndDate={rangeEndDate}
+      rangeSelector={rangeSelector}
+      rangeStartDate={rangeStartDate}
+      selectLists={selectLists}
+      value={value}
+      ref={innerInputRef}
+    />
   );
 });
 

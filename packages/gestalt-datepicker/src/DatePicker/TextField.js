@@ -1,7 +1,6 @@
 // @flow strict
 import { forwardRef, type ElementRef, type AbstractComponent } from 'react';
-import classnames from 'classnames';
-import { Box, Icon, Label, TextField } from 'gestalt';
+import { Box, Icon, TextField } from 'gestalt';
 import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
@@ -47,43 +46,43 @@ function DatePickerTextField(props: Props) {
   } = props;
 
   return (
-    <Label htmlFor={id}>
-      <Box
-        alignItems={!helperText && !errorMessage ? 'center' : undefined}
-        column={12}
-        display="flex"
-        flex="grow"
-        position="relative"
-      >
-        <Box column={12} flex="grow">
-          <TextField
-            autoComplete="off"
-            disabled={disabled}
-            id={id}
-            mobileInputMode="none"
-            onBlur={(data) => onBlur?.(data.event)}
-            onFocus={(data) => {
-              onFocus?.(data.event);
-              onClick?.();
-            }}
-            errorMessage={errorMessage}
-            helperText={helperText}
-            name={name}
-            onChange={(data) => onChange?.(data.event)}
-            onKeyDown={(data) => onKeyDown?.(data.event)}
-            placeholder={placeholder}
-            ref={(input) => forwardedRef && forwardedRef(input || null)}
-            size="lg"
-            value={value}
-          />
-        </Box>
-        <div className={classnames(styles.calendarIcon)}>
-          <Box position="relative" marginEnd={4} display="flex" alignItems="center" minHeight={48}>
-            <Icon accessibilityLabel="" color="default" icon="calendar" />
-          </Box>
-        </div>
+    <Box
+      alignItems={!helperText && !errorMessage ? 'center' : undefined}
+      column={12}
+      display="flex"
+      flex="grow"
+      position="relative"
+    >
+      <Box column={12} flex="grow">
+        <TextField
+          autoComplete="off"
+          disabled={disabled}
+          id={id}
+          mobileInputMode="none"
+          onBlur={(data) => onBlur?.(data.event)}
+          onFocus={(data) => {
+            onFocus?.(data.event);
+            onClick?.();
+          }}
+          errorMessage={errorMessage}
+          helperText={helperText}
+          name={name}
+          onChange={(data) => onChange?.(data.event)}
+          onKeyDown={(data) => onKeyDown?.(data.event)}
+          placeholder={placeholder}
+          ref={(input) => forwardedRef && forwardedRef(input || null)}
+          size="lg"
+          value={value}
+        />
       </Box>
-    </Label>
+      <div className={styles.calendarIcon}>
+        <Box position="relative" marginEnd={4} display="flex" alignItems="center" minHeight={48}>
+          <div className={disabled ? styles.disabled : undefined}>
+            <Icon accessibilityLabel="" color="default" icon="calendar" />
+          </div>
+        </Box>
+      </div>
+    </Box>
   );
 }
 
