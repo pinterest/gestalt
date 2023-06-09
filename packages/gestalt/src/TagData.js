@@ -185,7 +185,7 @@ export default function TagData({
           );
 
           return (
-            <div className={styles.tagContainer}>
+            <Box width="100%" height="100%" display="flex">
               <Tile
                 id={id}
                 onTap={onTap}
@@ -198,7 +198,7 @@ export default function TagData({
                 <div className={getTagClasses(interactionStates)} style={tileStyle}>
                   <Flex alignItems="center" width="100%">
                     {showCheckbox && (
-                      <div className={styles.checkBoxMargin}>
+                      <Box marginEnd={1}>
                         <InternalCheckbox
                           id={`readonly-checkbox-${checkboxId}`}
                           checked={selectedTap}
@@ -206,13 +206,11 @@ export default function TagData({
                           size="sm"
                           style={checkBoxStyle}
                         />
-                      </div>
+                      </Box>
                     )}
-                    <div title={text}>
-                      <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
-                        {text}
-                      </Text>
-                    </div>
+                    <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
+                      {text}
+                    </Text>
                   </Flex>
                 </div>
               </Tile>
@@ -236,7 +234,7 @@ export default function TagData({
                   </div>
                 </Tile>
               )}
-            </div>
+            </Box>
           );
         }}
       </Tile>

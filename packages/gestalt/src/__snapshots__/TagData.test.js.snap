@@ -23,7 +23,13 @@ exports[`TagData TagData has a tooltip 1`] = `
       }
     >
       <div
-        className="tagContainer"
+        className="box xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
       >
         <div
           className="tagOuterContainer"
@@ -84,21 +90,17 @@ exports[`TagData TagData has a tooltip 1`] = `
                         }
                       }
                     >
-                      <div
+                      <span
+                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                        style={
+                          Object {
+                            "WebkitLineClamp": 1,
+                          }
+                        }
                         title="Text Impressions"
                       >
-                        <span
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                          style={
-                            Object {
-                              "WebkitLineClamp": 1,
-                            }
-                          }
-                          title="Text Impressions"
-                        >
-                          Text Impressions
-                        </span>
-                      </div>
+                        Text Impressions
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -141,7 +143,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -202,21 +210,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -254,7 +258,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -315,21 +325,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -367,7 +373,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -428,21 +440,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -480,7 +488,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -541,21 +555,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -593,7 +603,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -654,21 +670,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -706,7 +718,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -767,21 +785,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -819,7 +833,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -880,21 +900,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -932,7 +948,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -993,21 +1015,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1045,7 +1063,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -1106,21 +1130,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1158,7 +1178,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -1219,21 +1245,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1271,7 +1293,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -1332,21 +1360,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1384,7 +1408,13 @@ exports[`TagData renders all colors as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -1445,21 +1475,17 @@ exports[`TagData renders all colors as expected 1`] = `
                             }
                           }
                         >
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1504,7 +1530,13 @@ exports[`TagData renders base color as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -1566,7 +1598,7 @@ exports[`TagData renders base color as expected 1`] = `
                           }
                         >
                           <div
-                            className="checkBoxMargin"
+                            className="box marginEnd1"
                           >
                             <div
                               className="box"
@@ -1619,21 +1651,17 @@ exports[`TagData renders base color as expected 1`] = `
                               </div>
                             </div>
                           </div>
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1671,7 +1699,13 @@ exports[`TagData renders base color as expected 1`] = `
           }
         >
           <div
-            className="tagContainer"
+            className="box xsDisplayFlex"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
           >
             <div
               className="tagOuterContainer"
@@ -1733,7 +1767,7 @@ exports[`TagData renders base color as expected 1`] = `
                           }
                         >
                           <div
-                            className="checkBoxMargin"
+                            className="box marginEnd1"
                           >
                             <div
                               className="box"
@@ -1786,21 +1820,17 @@ exports[`TagData renders base color as expected 1`] = `
                               </div>
                             </div>
                           </div>
-                          <div
+                          <span
+                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                            style={
+                              Object {
+                                "WebkitLineClamp": 1,
+                              }
+                            }
                             title="Text Impressions"
                           >
-                            <span
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 1,
-                                }
-                              }
-                              title="Text Impressions"
-                            >
-                              Text Impressions
-                            </span>
-                          </div>
+                            Text Impressions
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1839,7 +1869,13 @@ exports[`TagData renders disabled selected state 1`] = `
       }
     >
       <div
-        className="tagContainer"
+        className="box xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
       >
         <div
           className="tagOuterContainer"
@@ -1885,7 +1921,7 @@ exports[`TagData renders disabled selected state 1`] = `
                   }
                 >
                   <div
-                    className="checkBoxMargin"
+                    className="box marginEnd1"
                   >
                     <div
                       className="box"
@@ -1938,21 +1974,17 @@ exports[`TagData renders disabled selected state 1`] = `
                       </div>
                     </div>
                   </div>
-                  <div
+                  <span
+                    className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="Text Impressions"
                   >
-                    <span
-                      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-                      style={
-                        Object {
-                          "WebkitLineClamp": 1,
-                        }
-                      }
-                      title="Text Impressions"
-                    >
-                      Text Impressions
-                    </span>
-                  </div>
+                    Text Impressions
+                  </span>
                 </div>
               </div>
             </div>
@@ -1987,7 +2019,13 @@ exports[`TagData renders disabled unselected state 1`] = `
       }
     >
       <div
-        className="tagContainer"
+        className="box xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
       >
         <div
           className="tagOuterContainer"
@@ -2033,7 +2071,7 @@ exports[`TagData renders disabled unselected state 1`] = `
                   }
                 >
                   <div
-                    className="checkBoxMargin"
+                    className="box marginEnd1"
                   >
                     <div
                       className="box"
@@ -2072,21 +2110,17 @@ exports[`TagData renders disabled unselected state 1`] = `
                       </div>
                     </div>
                   </div>
-                  <div
+                  <span
+                    className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 1,
+                      }
+                    }
                     title="Text Impressions"
                   >
-                    <span
-                      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-                      style={
-                        Object {
-                          "WebkitLineClamp": 1,
-                        }
-                      }
-                      title="Text Impressions"
-                    >
-                      Text Impressions
-                    </span>
-                  </div>
+                    Text Impressions
+                  </span>
                 </div>
               </div>
             </div>
@@ -2121,7 +2155,13 @@ exports[`TagData renders dismisible button with color background 1`] = `
       }
     >
       <div
-        className="tagContainer"
+        className="box xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
       >
         <div
           className="tagOuterContainer"
@@ -2183,7 +2223,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
                       }
                     >
                       <div
-                        className="checkBoxMargin"
+                        className="box marginEnd1"
                       >
                         <div
                           className="box"
@@ -2236,21 +2276,17 @@ exports[`TagData renders dismisible button with color background 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div
+                      <span
+                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                        style={
+                          Object {
+                            "WebkitLineClamp": 1,
+                          }
+                        }
                         title="Text Impressions"
                       >
-                        <span
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                          style={
-                            Object {
-                              "WebkitLineClamp": 1,
-                            }
-                          }
-                          title="Text Impressions"
-                        >
-                          Text Impressions
-                        </span>
-                      </div>
+                        Text Impressions
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -2342,7 +2378,13 @@ exports[`TagData renders dismissable button 1`] = `
       }
     >
       <div
-        className="tagContainer"
+        className="box xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
       >
         <div
           className="tagOuterContainer"
@@ -2404,7 +2446,7 @@ exports[`TagData renders dismissable button 1`] = `
                       }
                     >
                       <div
-                        className="checkBoxMargin"
+                        className="box marginEnd1"
                       >
                         <div
                           className="box"
@@ -2457,21 +2499,17 @@ exports[`TagData renders dismissable button 1`] = `
                           </div>
                         </div>
                       </div>
-                      <div
+                      <span
+                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                        style={
+                          Object {
+                            "WebkitLineClamp": 1,
+                          }
+                        }
                         title="Text Impressions"
                       >
-                        <span
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                          style={
-                            Object {
-                              "WebkitLineClamp": 1,
-                            }
-                          }
-                          title="Text Impressions"
-                        >
-                          Text Impressions
-                        </span>
-                      </div>
+                        Text Impressions
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -2567,7 +2605,13 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
         }
       >
         <div
-          className="tagContainer"
+          className="box xsDisplayFlex"
+          style={
+            Object {
+              "height": "100%",
+              "width": "100%",
+            }
+          }
         >
           <div
             className="tagOuterContainer"
@@ -2613,7 +2657,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
                     }
                   >
                     <div
-                      className="checkBoxMargin"
+                      className="box marginEnd1"
                     >
                       <div
                         className="box"
@@ -2652,21 +2696,17 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
                         </div>
                       </div>
                     </div>
-                    <div
+                    <span
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      style={
+                        Object {
+                          "WebkitLineClamp": 1,
+                        }
+                      }
                       title="LTR Text Tag"
                     >
-                      <span
-                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                        style={
-                          Object {
-                            "WebkitLineClamp": 1,
-                          }
-                        }
-                        title="LTR Text Tag"
-                      >
-                        LTR Text Tag
-                      </span>
-                    </div>
+                      LTR Text Tag
+                    </span>
                   </div>
                 </div>
               </div>

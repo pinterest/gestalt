@@ -34,14 +34,18 @@ type TileChangeHandler = ({|
   id?: string,
 |}) => void;
 
-type Props = {|
+type MaybeTapAreaProps = {|
   children?: Node | ((state: InteractionStates) => Node),
   disabled?: boolean,
   id?: string,
   interactive?: boolean,
-  rounding?: Rounding,
-  selected?: boolean,
   onTap?: TileChangeHandler,
+  selected?: boolean,
+  rounding?: Rounding,
+|};
+
+type Props = {|
+  ...MaybeTapAreaProps,
   outerContainerClass?: string,
   outerContainerStyle?: ColorStyles,
   tooltip?: TooltipProps,
@@ -78,7 +82,7 @@ function MaybeTapArea({
   onTap,
   rounding = 4,
   selected = false,
-}: Partial<Props>): Node {
+}: MaybeTapAreaProps): Node {
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
 

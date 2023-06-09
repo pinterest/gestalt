@@ -3,11 +3,6 @@
   composes: fullHeight from "./Layout.css";
 }
 
-.tagContainer {
-  composes: flex from "./Layout.css";
-  composes: tagOuterContainer;
-}
-
 .tagBase {
   composes: fullHeight from "./Layout.css";
   composes: flex from "./Layout.css";
@@ -23,8 +18,7 @@
 }
 
 .tagMedium {
-  padding-bottom: 11.5px;
-  padding-top: 11.5px;
+  composes: paddingY3 from "./boxWhitespace.css";
 }
 
 .tagSmall {
@@ -41,14 +35,6 @@ html:not([dir="rtl"]) .tagWrapperDismiss {
   border-radius: 8px 0 0 8px;
   border-width: var(--g-border-width-lg) 0 var(--g-border-width-lg)
     var(--g-border-width-lg);
-}
-
-html[dir="rtl"] .checkBoxMargin {
-  margin-left: 4px;
-}
-
-html:not([dir="rtl"]) .checkBoxMargin {
-  margin-right: 4px;
 }
 
 .tagWrapperRounded {
