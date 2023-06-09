@@ -3,7 +3,14 @@ import { type Theme } from '../contexts/ColorSchemeProvider.js';
 import { type InteractionStates, type ColorStyles } from '../Tile/Tile.js';
 import { type DataVisualizationColors } from '../TileData.js';
 
-export default class DataVizColorHelper {
+export default class DataVizColor {
+  /**
+   * Given an interactions state, returns the relevant bg and border color
+   * @param {*} state
+   * @param {*} colorStyles
+   * @param {*} opts
+   * @param {*} boolean
+   * @param {*} */
   static getCheckboxColors(
     state: InteractionStates,
     colorStyles: ColorStyles,
@@ -43,7 +50,7 @@ export default class DataVizColorHelper {
     return { backgroundColor: defaultBackgroundColor, borderColor: defaultBorderColor };
   }
 
-  /** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
+  /** Gets the relevant dataviz color from a code. We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
   static getDataVisualizationColor(theme: Theme, vizColor: string): string {
     const hex = theme[`colorDataVisualization${vizColor}`];
     if (!hex) throw new Error('Invalid Color Token provided to TileData');
@@ -58,7 +65,7 @@ export default class DataVizColorHelper {
     color: DataVisualizationColors,
   ): string {
     // value of the codes are injected
-    const shade = DataVizColorHelper.getDataVisualizationColor(theme, color);
+    const shade = DataVizColor.getDataVisualizationColor(theme, color);
     // add an alpha channel to the hex, at 10% opacity
     // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
     const bgColor = `${shade}1A`;
