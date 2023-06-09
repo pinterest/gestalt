@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Flex, Status, Text, Icon, Link } from 'gestalt';
-import { STATUS_EQUIVALENCY_MAP, STATUS_DESCRIPTION } from './COMPONENT_STATUS_MESSAGING.js';
+import { STATUS_EQUIVALENCY_MAP, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 
 export default function StatusData({
   status,

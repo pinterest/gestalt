@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Flex } from 'gestalt';
-import COMPONENT_DATA from '../../docs-components/COMPONENT_DATA.js';
+import foundationsTiles from '../../docs-components/data/foundations.js';
 import IllustrationCard from '../../docs-components/IllustrationCard.js';
 import IllustrationContainer from '../../docs-components/IllustrationContainer.js';
 import IllustrationSection from '../../docs-components/IllustrationSection.js';
@@ -20,15 +20,15 @@ export default function FoundationsOverview(): Node {
           />
         </IllustrationContainer>
         <IllustrationSection title="" grid="auto-fill" min={312}>
-          {COMPONENT_DATA.foundations.map((element) => (
+          {foundationsTiles.map(({ description, path, svg, title }) => (
             <IllustrationCard
-              headingLevel={2}
-              key={element.name}
-              href={element?.path ?? `/web/${element.name.replace(/\s/g, '_').toLowerCase()}`}
-              title={element.name}
-              description={element.description}
               color="teal-spabattical-50"
-              image={element.svg}
+              description={description}
+              headingLevel={2}
+              href={path}
+              image={svg}
+              key={title}
+              title={title}
             />
           ))}
         </IllustrationSection>
