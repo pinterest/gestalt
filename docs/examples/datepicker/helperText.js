@@ -14,7 +14,7 @@ export default function Example(): Node {
           label="Customer service appointment"
           onChange={({ value }) => setDateValue(value)}
           value={dateValue}
-          helpertext="Select from the next available dateValueDisablePast"
+          helperText="Select from the next available dateValueDisablePast"
           minDate={new Date()}
         />
       </Box>

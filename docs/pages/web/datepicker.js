@@ -43,7 +43,6 @@ import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
