@@ -99,7 +99,7 @@ export default function GuidelinesPage(): Node {
         </Box>
       </MainSection>
       <MainSection
-        name="DataPoints"
+        name="Datapoints"
         description={`
         Datapoints show at-a-glance data for users to quickly understand key metrics. They display a single numerical metric and are accompanied by a trend icon to give users context about the data displayed. Datapoints can be paired with sparklines for extra visual context.
         `}
@@ -114,7 +114,7 @@ export default function GuidelinesPage(): Node {
           marginBottom={8}
         >
           <Image
-            alt="A series of DataPoints."
+            alt="A series of Datapoints."
             naturalHeight={900}
             naturalWidth={1800}
             src="https://i.pinimg.com/originals/07/77/aa/0777aafa727393f356f0c725a629fbba.png"
