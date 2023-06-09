@@ -2,8 +2,8 @@
 import { Fragment, type Node } from 'react';
 import { Flex, Divider, Box, Text, SlimBanner } from 'gestalt';
 import COMPONENT_DATA, { type ListItemType } from './COMPONENT_DATA.js';
-import { STATUS_DESCRIPTION, COMPONENT_STATUS_MESSAGING } from './COMPONENT_STATUS_MESSAGING.js';
 import StatusData from './StatusData.js';
+import { STATUS_DESCRIPTION, COMPONENT_STATUS_MESSAGING } from './data/componentStatusMessaging.js';
 
 const categories = ['figma', 'responsive', 'iOS', 'android', 'accessible'];
 
