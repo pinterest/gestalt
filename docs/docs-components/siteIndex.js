@@ -183,8 +183,8 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Guidelines', 'Color fills'],
       },
       {
-        sectionName: 'Card blocks',
-        pages: ['Boards block', 'Pins block', 'Scrolling guidelines'],
+        sectionName: 'Card preview blocks',
+        pages: ['Boards', 'Pins', 'Scrolling guidelines'],
       },
       {
         sectionName: 'Color',

@@ -1,5 +1,5 @@
 ---
-title: Pins block
+title: Pins preview block
 description: Pins PreviewBlock or “Pins PB” is used to present a collection of imagery to represent a landing experience of Pins (example&colon; feed, stream). There are two preview arrangements (fixed and scrolling), each with its own usage guidelines detailed below.  
 fullwidth: true
 ---

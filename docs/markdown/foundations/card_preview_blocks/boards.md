@@ -1,5 +1,5 @@
 ---
-title: Boards block
+title: Boards preview block
 description: The Boards preview block or “Boards PB” utilizes two of the Board & Section components to present a collection of imagery that typically represents a board. 
 fullwidth: true
 ---
