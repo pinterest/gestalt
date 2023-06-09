@@ -72,7 +72,7 @@ export type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
 
   /**
-   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected.
+   * Array of enabled dates. Datepicker can be interacted with only on the dates passed, all other dates look inactive and cannot be selected. See the [disable selected dates example](https://gestalt.pinterest.systems/web/datepicker#Disabled-dates) to learn more.
    */
   includeDates?: $ReadOnlyArray<Date>,
   /**
