@@ -1,3 +1,9 @@
+## 112.7.1 (Jun 9, 2023)
+
+### Patch
+
+- DateField: refactor InternalDateField logic ([#3002](https://github.com/pinterest/gestalt/pull/3002)) - [Preview link](https://deploy-preview-3002--gestalt.netlify.app?devexample=true)
+
 ## 112.7.0 (Jun 9, 2023)
 
 ### Minor
