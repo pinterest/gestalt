@@ -11,7 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import baseColor from '../../examples/tagdata/baseColor.js';
 import colors from '../../examples/tagdata/colors.js';
 import disabled from '../../examples/tagdata/disabled.js';
-import dismissable from '../../examples/tagdata/dismissable.js';
+import dismissible from '../../examples/tagdata/dismissible.js';
 import doChangeBaseColor from '../../examples/tagdata/doChangeBaseColor.js';
 import dontChangeBaseColor from '../../examples/tagdata/dontChangeBaseColor.js';
 import dontMixStyles from '../../examples/tagdata/dontMixStyles.js';
@@ -59,7 +59,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Choose the right soft background to help it stand out in dense data interfaces. If using against a gray background, for example, adopt a white fill."
+            description="Choose the right soft background to help it stand out in dense data interfaces. For example, if using TagData against a gray background, use a white fill."
             sandpackExample={
               <SandpackExample
                 code={doChangeBaseColor}
@@ -72,7 +72,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Match the TagData fill with the background as it isn't clear the TagData is selectable."
+            description="Match TagData fill with the surrounding background color. Using the same color can make it unclear that TagData is selectable."
             sandpackExample={
               <SandpackExample
                 code={dontChangeBaseColor}
@@ -88,7 +88,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use the same properties in TagData in a group, depending on what type of behavior TagData should have."
+            description="Use the same variants of TagData in a group, depending on the type of behavior TagData should have."
             sandpackExample={
               <SandpackExample
                 code={doUseSameStyle}
@@ -101,7 +101,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Mix the TagData variants in the same group. This creates an unclear pattern for the user to understand what TagDatas are removable or not."
+            description="Mix TagData variants in the same group. This creates an unclear pattern for the user to understand which TagDatas are removable or not."
             sandpackExample={
               <SandpackExample
                 code={dontMixStyles}
@@ -117,7 +117,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Use short and clear labels for easier comprehension — ideally one to two words."
+            description="Use short and clear labels for easier comprehension — ideally one or two words."
             sandpackExample={
               <SandpackExample
                 code={doUseShortLabels}
@@ -130,7 +130,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use long sentences in a label, since the text in TagData truncates as needed to preserve max-width."
+            description="Use long sentences in the text prop, since the text in TagData truncates as needed to preserve the max width."
             sandpackExample={
               <SandpackExample
                 code={dontUseLongLabels}
@@ -155,12 +155,12 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
         
       Be sure to localize \`accessibilityRemoveIconLabel\` ,\`tooltip.accessibilityLabel\`, and \`text\` properties in TagData.  
 
-      When the title of the TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipsis as needed to preserve the max-width. Keep this in mind when selecting wording for TagData. Note that localization can lengthen text by 20 to 30 percent.`}
+      When the title of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width. Keep this in mind when selecting wording for TagData. Note that localization can lengthen text by 20 to 30 percent.`}
       />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`TagData is available in 3 fixed sizes. Each with a varying height. You can set the \`size\` prop to be \`lg\`, \`md\` or \`sm\`
+          description={`TagData is available in 3 fixed sizes.
           - **Large** has height of 48px. Text has a fixed size of 16px. 
           - **Medium** has height of 40px. Text has a fixed size of 14px. 
           - **Small** has height of 32px. Text has a fixed size of 14px.
@@ -172,7 +172,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="TagData's `baseColor` prop can be set depending on the background TagData is placed on. We recommend using a `baseColor` of `white` when on a gray UI background."
+          description="TagData should use a different fill color than the color of the surrounding UI. When used on a white background, it is recommend using a `baseColor` of white when on a gray UI background."
           title="Base Color"
         >
           <MainSection.Card
@@ -180,7 +180,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="TagData can be used along side the colors provided from the Data Visualization [Color Palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). You may use colors to distinguish different data lines. These are visible when TileData is selected."
+          description="TagData is available in the colors from our Data Visualization [Color Palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). Match each TagData's `color` to its respective data line, which will be visible when TagData is selected."
           title="Colors"
         >
           <MainSection.Card
@@ -189,7 +189,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Use checkboxes when enabling a multi-select experience. You can show a checkbox state by passing the \`showCheckbox\` prop.`}
+          description={`Use TagData's \`showCheckbox\` prop to display a checkbox. This is useful when presenting the user with a multi-select experience.`}
           title="Group"
         >
           <MainSection.Card
@@ -197,15 +197,15 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`Includes a "X" affordance. If not disabled, Tags are dismissable by the "X" affordance, which triggers the \`onRemove\` callback. If your app uses DefaultLabelProvider, a default value for this label will be used. This can be overridden with a more specific label if desired.`}
-          title="Dismissable"
+          description={`If not disabled, Tags are dismissible by the "X" affordance, which triggers the \`onRemove\` callback. \`onRemove\` should be used to update the external state that is keeping track of TagDatas. If your app uses DefaultLabelProvider, a default accessibility label for the remove icon will be used. This can be overridden with a more specific label if desired.`}
+          title="Dismissible"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={dismissable} name="Dismissable Variant" />}
+            sandpackExample={<SandpackExample code={dismissible} name="Dismissible Variant" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Use `tooltip` to display clarifying information on hover/focus. We recommend using tooltips when trying to provide the user additional context/details."
+          description="Use `tooltip` to display clarifying information on hover/focus. We recommend using tooltips to provide the user additional context/details."
           title="Tooltip"
         >
           <MainSection.Card
@@ -214,7 +214,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Disabled TagData cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data pre-requisites have not been met."
+          description="Disabled TagData cannot be interacted with using the mouse or keyboard. This is commonly used to disable interaction when there are pending permissions or data prerequisites have not been met."
           title="Disabled"
         >
           <MainSection.Card

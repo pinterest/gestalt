@@ -61,27 +61,27 @@ export type Props = {|
    */
   accessibilityRemoveIconLabel?: string,
   /**
-   * The default color for TagData shown on an unselected state. This prop can be used depending on the background.
+   * The default color for TagData shown on an unselected state.
    */
   baseColor?: 'default' | 'white',
   /**
-   * A color code from the the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when the tile is colored.
+   * A color code from the the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when the tile is selected.
    */
   color?: DataVisualizationColors,
   /**
-   * Indicates if TileData should be disabled. Disabled TileDatas are inactive and cannot be interacted with. See the [disabled](https://gestalt.pinterest.systems/web/tagdata#disabled) variant to learn more.
+   * Indicates if TagData should be disabled. Disabled TagDatas are inactive and cannot be interacted with. See the [disabled](https://gestalt.pinterest.systems/web/tagdata#disabled) variant to learn more.
    */
   disabled?: boolean,
   /**
-   * Tagdatas can be dismissable by the "X" affordance, which triggers the `onRemove` callback.
+   * TagData can be dismissable by the "X" affordance, which triggers the onRemove callback.
    */
   dismissable?: boolean,
   /**
-   * An optional identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TagDatas.
+   * An identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TagDatas.
    */
   id?: string,
   /**
-   * Handler if the item selection state was changed.
+   * Handler if the item selection state was changed with a click or a keyboard press.
    */
   onTap?: TileChangeHandler,
   /**
@@ -93,19 +93,19 @@ export type Props = {|
    */
   selected?: boolean,
   /**
-   * Size of the TagData, see the [sizes](https://gestalt.pinterest.systems.com/web/tagdata#sizes) variant.
+   * Sets the size of the TagData to render. See the [size](https://gestalt.pinterest.systems.com/web/tagdata#size) variant.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
-   * Shows a visible checkbox when Tagdata is in a selected state. See when using in a [group](https://gestalt.pinterest.systems/web/tagdata#Group).
+   * Shows a visible checkbox when Tagdata is in a selected state. See the [group variant](https://gestalt.pinterest.systems/web/tagdata#Group) to learn more.
    */
   showCheckbox?: boolean,
   /**
-   * Short text to render inside the TagData.
+   * Short text to render inside TagData.
    */
   text: string,
   /**
-   * Adds a Tooltip on hover/focus of the TagData. See the with [Tooltip](https://gestalt.pinterest.systems/web/tagdata#tooltip) variant to learn more.
+   * Adds a tooltip on hover/focus of TileData. See the with [Tooltip](https://gestalt.pinterest.systems/web/tagdata#tooltip) variant to learn more.
    */
   tooltip?: TooltipProps,
 |};
@@ -117,7 +117,7 @@ const sizes = {
 };
 
 /**
- * [TagData](https://gestalt.pinterest.systems/web/tagdata) enables users to select multiple categories to compare with each other in a graph or chart view as a compact filter and can contain a label.
+ * [TagData](https://gestalt.pinterest.systems/web/tagdata)  enables users to select multiple categories to compare with each other in a graph or chart. It contains a label and can be used as a filter for different sources.
  *
  * ![TagData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata.spec.mjs-snapshots/tagdata-chromium-darwin.png)
  * ![TagData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata-dark.spec.mjs-snapshots/tagdata-dark-chromium-darwin.png)
@@ -138,7 +138,7 @@ export default function TagData({
   tooltip,
 }: Props): Node {
   const { accessibilityRemoveIconLabel: accessibilityRemoveIconLabelDefault } =
-    useDefaultLabelContext('Tag');
+    useDefaultLabelContext('TagData');
 
   const theme = useColorScheme();
   const borderColor = DataVizColor.getDataVisualizationColor(theme, color);

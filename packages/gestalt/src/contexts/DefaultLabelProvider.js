@@ -45,6 +45,9 @@ export type DefaultLabelContextType = {|
     accessibilityRemoveIconLabel: string,
     accessibilityWarningIconLabel: string,
   |},
+  TagData: {|
+    accessibilityRemoveIconLabel: string,
+  |},
   TextField: {|
     accessibilityHidePasswordLabel: string,
     accessibilityShowPasswordLabel: string,
@@ -91,6 +94,9 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityErrorIconLabel: 'Error',
     accessibilityRemoveIconLabel: 'Remove tag',
     accessibilityWarningIconLabel: 'Warning',
+  },
+  TagData: {
+    accessibilityRemoveIconLabel: 'Remove tag',
   },
   TextField: {
     accessibilityHidePasswordLabel: 'Hide password',
