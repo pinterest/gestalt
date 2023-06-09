@@ -11,9 +11,9 @@ import {
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import styles from './DatePicker.css';
-import { type Props } from './DatePicker.js';
-import DatePickerTextField from './DatePicker/TextField.js';
+import styles from '../DatePicker.css';
+import { type Props } from '../DatePicker.js';
+import DatePickerTextField from './TextField.js';
 
 const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
@@ -43,8 +43,8 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
   }: Props,
   ref,
 ): Element<'div'> {
-  const innerRef = useRef<null | HTMLInputElement>(null);
-  useImperativeHandle(ref, () => innerRef.current);
+  const innerInputRef = useRef<null | HTMLInputElement>(null);
+  useImperativeHandle(ref, () => innerInputRef.current);
 
   const [selected, setSelected] = useState<?Date>(dateValue);
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -153,11 +153,11 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
           <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
         }
         ref={(refElement) => {
-          if (!innerRef || !refElement) {
+          if (!innerInputRef || !refElement) {
             return null;
           }
 
-          innerRef.current = refElement.input;
+          innerInputRef.current = refElement.input;
 
           return null;
         }}

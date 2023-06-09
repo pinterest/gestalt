@@ -7,7 +7,7 @@ import {
   type AbstractComponent,
   type Node,
 } from 'react';
-import InternalDatePicker from './InternalDatePicker.js';
+import InternalDatePicker from './DatePicker/InternalDatePicker.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // flowlint unclear-type:off
@@ -171,8 +171,8 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
   }: Props,
   ref,
 ): Node {
-  const innerRef = useRef<null | HTMLInputElement>(null);
-  useImperativeHandle(ref, () => innerRef.current);
+  const innerInputRef = useRef<null | HTMLInputElement>(null);
+  useImperativeHandle(ref, () => innerInputRef.current);
 
   return (
     <InternalDatePicker
@@ -196,7 +196,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
       rangeStartDate={rangeStartDate}
       selectLists={selectLists}
       value={value}
-      ref={innerRef}
+      ref={innerInputRef}
     />
   );
 });
