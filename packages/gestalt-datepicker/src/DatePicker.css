@@ -21,6 +21,16 @@
   position: relative;
 }
 
+.react-datepicker-inline {
+  background-color: var(--g-colorGray50);
+  border-radius: 16px;
+  color: var(--g-colorGray300);
+  display: inline-block;
+  font-family: var(--font-family-default-latin);
+  padding: 16px;
+  position: relative;
+}
+
 :global ._gestalt .react-datepicker__current-month {
   color: var(--g-colorGray300);
   font-size: var(--font-size-400);
