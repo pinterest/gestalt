@@ -1,3 +1,9 @@
+## 112.7.0 (Jun 9, 2023)
+
+### Minor
+
+- DatePicker: create InternalDatePicker and migrate to Sandpack ([#3000](https://github.com/pinterest/gestalt/pull/3000)) - [Preview link](https://deploy-preview-3000--gestalt.netlify.app?devexample=true)
+
 ## 112.6.15 (Jun 9, 2023)
 
 ### Patch
