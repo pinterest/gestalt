@@ -170,7 +170,7 @@ export default function TagData({
 
   return (
     <Box display="inlineBlock" maxWidth={300} rounding={2}>
-      <Tile interactive={false} selected={selected} disabled={disabled}>
+      <Tile focusable={false} selected={selected} disabled={disabled}>
         {(interactionStates) => {
           const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
           const tileStyle = DataVizColor.getTileColors(

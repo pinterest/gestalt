@@ -38,7 +38,7 @@ type MaybeTapAreaProps = {|
   children?: Node | ((state: InteractionStates) => Node),
   disabled?: boolean,
   id?: string,
-  interactive?: boolean,
+  focusable?: boolean,
   onTap?: TileChangeHandler,
   selected?: boolean,
   rounding?: Rounding,
@@ -78,7 +78,7 @@ function MaybeTapArea({
   children,
   disabled = false,
   id = '',
-  interactive = false,
+  focusable = false,
   onTap,
   rounding = 4,
   selected = false,
@@ -111,7 +111,7 @@ function MaybeTapArea({
       children({ selected, hovered: isHovered && !isFocusVisible, disabled })
     );
 
-  return interactive ? (
+  return focusable ? (
     <TapArea
       fullHeight
       fullWidth
@@ -146,7 +146,7 @@ export default function Tile({
   children,
   disabled = false,
   id = '',
-  interactive = true,
+  focusable = true,
   onTap,
   outerContainerClass,
   outerContainerStyle,
@@ -160,7 +160,7 @@ export default function Tile({
         <MaybeTapArea
           disabled={disabled}
           id={id}
-          interactive={interactive}
+          focusable={focusable}
           onTap={onTap}
           rounding={rounding}
           selected={selected}
