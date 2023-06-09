@@ -1,3 +1,9 @@
+## 112.7.3 (Jun 9, 2023)
+
+### Patch
+
+- Docs: refactor how design tile data is handled ([#3004](https://github.com/pinterest/gestalt/pull/3004)) - [Preview link](https://deploy-preview-3004--gestalt.netlify.app?devexample=true)
+
 ## 112.7.2 (Jun 9, 2023)
 
 ### Patch
