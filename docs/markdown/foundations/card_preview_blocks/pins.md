@@ -10,7 +10,7 @@ These guidelines were created in collaboration with the Pinterest Browse Design 
 
 ## Fixed preview
 Pins PreviewBlock with a fixed preview communicates that the entire preview area is a tap target. It is used when the goal is to direct Pinners to a single destination (ex: topical Pin feed) where they can scan a breadth of and/or compare related ideas. 
-
+<br />
 <ImgContainer padding="none" color="purple-mysticool-0" src="https://i.pinimg.com/originals/59/71/b1/5971b10d76fcabdd3b02817ae437a1a3.jpg" alt="Example of a fixed preview pins block in Card."/>
 
 ### Usage guidelines
@@ -71,10 +71,10 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76589%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 ## Scrolling preview
-Pins PreviewBlock with a scrolling preview communicates that each preview is an individual tap target that all lead to the same destination (ex: every preview takes you to a specific slot position within a stream). 
+Pins PreviewBlock with a scrolling preview communicates that each preview is an individual tap target that all lead to the same destination (ex: every preview takes you to a specific slot position within a stream). Use scrolling preview when the user goal is best supported by focusing them on one Pin at a time. 
 
-Use scrolling preview when the user goal is best supported by focusing them on one Pin at a time. 
-
+Read our [preview block scrolling guidelines](/foundations/card_preview_blocks/scrolling_guidelines) for further guidance and best practices.
+<br />
 <ImgContainer padding="none" color="purple-mysticool-0" src="https://i.pinimg.com/originals/1c/d6/d5/1cd6d59f83129699471438433f2c7a30.jpg" alt="Example of a boards block in Card."/>
 
 ### Usage guidelines

@@ -1,5 +1,5 @@
 ---
-title: Scrolling guidelines
+title: Preview block scrolling guidelines
 description: The Scrolling preview block or “Scrolling PB” presents images in a linear sequence that can be navigated by swiping or through a navigational arrow indicator. Scrolling preview blocks allow users to see a variety of content in a compact space.  
 fullwidth: true
 ---
@@ -73,10 +73,12 @@ The scrolling preview block should never auto advance. The user should be in con
 The default scrolling preview block will be initially scrolled to start. The start aligned navigational icon button will be disabled to indicate there is no further content. The content is overflowed at the end to align with the screen. This indicates that there is more content.
 
 At the end of the content, the opposite will be true. The end icon button will be disabled and the content will overflow to the start edge of the screen. 
+<br />
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A80193%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 ### Scrolled
 The scrolled view will overflow on both sides, being cut off by the edges of the screen. This indicates there is more content in both directions. Both navigational icon buttons will be active and the carousel pagination will not which segment of the content is being viewed.
+<br />
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19801%253A76289%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
 
 ## Dark mode

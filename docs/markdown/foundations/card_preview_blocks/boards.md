@@ -50,5 +50,6 @@ The boards preview block utilizes the Gestalt Board & Section Figma component. T
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A78570%26t%3DWEMz4VEOS6WCU1tj-1" allowFullScreen></iframe>
 
 ## Scrolling
-The Board Preview Block is able to be scrolled. The default view is two boards with an indicator and directional arrows.
+The Board Preview Block is able to be scrolled. The default view is two boards with an indicator and directional arrows. Read our [preview block scrolling guidelines](/foundations/card_preview_blocks/scrolling_guidelines) for further guidance and best practices.
+<br />
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D22128%253A76406%26t%3DkdLCWeBuZmXBXYXe-1" allowFullScreen></iframe>
