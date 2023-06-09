@@ -99,8 +99,18 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
                 <br />
                 <br />
                 To enable/disable the development preview, you can enable it on the site settings
-                dropdown in the page header. If the default preview is enabled and you want to
-                render your local changes in Sandpack append
+                dropdown in the page header.
+                <br />
+                <br />
+                To share a deploy url with this mode enabled, share the nelify url with a
+                <br />
+                <code>?devexample=true</code>
+                <br />
+                appended at the end of the url.
+                <br />
+                <br />
+                If the default preview is enabled and you want to render your local changes in
+                Sandpack append
                 <br />
                 <code>?localFiles=true</code>
                 <br /> after the component name in the URL.{' '}
