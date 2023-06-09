@@ -11,7 +11,7 @@ export default function Example(): Node {
         disabled
         text="CPM"
         size="lg"
-        dismissable
+        onRemove={() => {}}
         showCheckbox
         selected={isSelected}
         onTap={() => {

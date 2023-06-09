@@ -37,7 +37,6 @@ export default function Example(): Node {
           key={id}
           id={id}
           color={color}
-          dismissable
           showCheckbox
           onTap={({ id: selectedId, selected }) => {
             if (!selectedId) {

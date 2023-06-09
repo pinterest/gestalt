@@ -11,11 +11,11 @@ export default function Example(): Node {
         showCheckbox
         text="CPM"
         size="lg"
-        dismissable
         selected={isSelected}
         onTap={() => {
           setSelected(!isSelected);
         }}
+        onRemove={() => {}}
         tooltip={{ text: 'Average cost per 1K paid impressions' }}
       />
     </Flex>

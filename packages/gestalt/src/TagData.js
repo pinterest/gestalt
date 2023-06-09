@@ -73,10 +73,6 @@ export type Props = {|
    */
   disabled?: boolean,
   /**
-   * TagData can be dismissable by the "X" affordance, which triggers the onRemove callback.
-   */
-  dismissable?: boolean,
-  /**
    * An identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TagDatas.
    */
   id?: string,
@@ -85,7 +81,7 @@ export type Props = {|
    */
   onTap?: TileChangeHandler,
   /**
-   * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the TagData.
+   * TagData can be dismissable by the "X" affordance, which triggers the onRemove callback. This handler should take care of state updates to no longer render the TagData.
    */
   onRemove?: OnRemoveHandler,
   /**
@@ -126,7 +122,6 @@ export default function TagData({
   accessibilityRemoveIconLabel,
   baseColor = 'default',
   color = '05',
-  dismissable = false,
   disabled = false,
   id,
   onTap,
@@ -159,8 +154,8 @@ export default function TagData({
       [cssColorStyles.default]: baseColor === 'white',
       [styles.hovered]: hovered && !tapDisabled,
       [styles.disabled]: tapDisabled,
-      [styles.tagWrapperRounded]: !dismissable,
-      [styles.tagWrapperDismiss]: dismissable,
+      [styles.tagWrapperRounded]: !onRemove,
+      [styles.tagWrapperDismiss]: onRemove,
     });
 
   const getRemoveIconClasses = ({ hovered, disabled: tapDisabled }: InteractionStates) =>
@@ -221,7 +216,7 @@ export default function TagData({
                   </Flex>
                 </div>
               </Tile>
-              {dismissable && (
+              {onRemove && (
                 <Tile
                   onTap={({ event }) => {
                     onRemove?.({ event, id });

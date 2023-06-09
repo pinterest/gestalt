@@ -20,7 +20,7 @@ describe('TagData', () => {
   it('renders tagdata in RTL mode as expected', () => {
     const tree = create(
       <html dir="rtl" lang="en">
-        <TagData showCheckbox dismissable text="LTR Text Tag" />
+        <TagData showCheckbox onRemove={() => {}} text="LTR Text Tag" />
       </html>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -105,27 +105,27 @@ describe('TagData', () => {
     const component = create(
       <TagData
         text="Text Impressions"
-        dismissable
         showCheckbox
         selected
         tooltip={{ text: 'This is a tooltip' }}
         onTap={() => {}}
+        onRemove={() => {}}
       />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders dismissable button with color background', () => {
+  it('renders dismisible button with color background', () => {
     const component = create(
       <TagData
         text="Text Impressions"
-        dismissable
         color="03"
         showCheckbox
         selected
         tooltip={{ text: 'This is a tooltip' }}
         onTap={() => {}}
+        onRemove={() => {}}
       />,
     );
     const tree = component.toJSON();

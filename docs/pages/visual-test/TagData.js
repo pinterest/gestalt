@@ -7,15 +7,15 @@ export default function Snapshot(): Node {
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex gap={2}>
-          <TagData baseColor="white" text="CPM" showCheckbox dismissable />
-          <TagData baseColor="white" text="CPM" showCheckbox selected dismissable />
+          <TagData baseColor="white" text="CPM" showCheckbox onRemove={() => {}} />
+          <TagData baseColor="white" text="CPM" showCheckbox selected onRemove={() => {}} />
           <TagData
             baseColor="white"
-            text="Impressions"
+            color="03"
             showCheckbox
             selected
-            dismissable
-            color="03"
+            text="Impressions"
+            onRemove={() => {}}
           />
         </Flex>
       </Box>
