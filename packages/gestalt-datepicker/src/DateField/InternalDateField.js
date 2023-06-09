@@ -100,7 +100,7 @@ const CustomTextField = forwardRef(
           onKeyDown={onKeyDown}
           onMouseUp={onMouseUp}
         />
-        {!disabled && !readOnly ? (
+        {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
           <div className={classnames(styles.actionButtonWrapper)}>
             <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
               <TapArea
@@ -114,7 +114,7 @@ const CustomTextField = forwardRef(
                 }}
                 onMouseEnter={() => setIconFocused(true)}
                 onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState?.passthroughProps?.onClearInput()}
+                onTap={() => ownerState.passthroughProps.onClearInput()}
                 rounding="circle"
                 tapStyle="compress"
               >
@@ -197,7 +197,7 @@ type InternalDateFieldProps = {|
   id: string,
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
-  localeData: ?LocaleData,
+  localeData?: ?LocaleData,
   maxDate?: Date,
   minDate?: Date,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
@@ -207,7 +207,7 @@ type InternalDateFieldProps = {|
     value: string,
   |}) => void,
   onChange: ({| value: ?Date |}) => void,
-  onClearInput: () => void,
+  onClearInput?: () => void,
   onError?: ({|
     errorMessage: string,
     value: ?Date,
