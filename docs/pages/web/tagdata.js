@@ -146,7 +146,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description="Users should be able to navigate or activate a TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `dismissable` prop and `tooltip` prop."
+        description="Users should be able to navigate or activate TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `dismissable` prop and `tooltip` prop."
       />
 
       <MainSection
