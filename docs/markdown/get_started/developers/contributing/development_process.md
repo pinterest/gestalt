@@ -180,7 +180,7 @@ git push -f origin HEAD
 
 - Check the status of your PR https://github.com/pinterest/gestalt/pull/XXXX and access the deploy preview using the built site URL https://deploy-preview-XXXX--gestalt.netlify.app from Netlify. 
 
-- When sharing development urls, you may have to remind viewers to toggle on development mode from the header menu. To simplify sharing, you can add a `?devexample=true` parameter to the docs url to enable the examples by default.
+- When sharing preview urls, you may have to remind viewers to toggle on development mode from the header menu. This is necessary to see unpublished changes in the code examples. To simplify sharing, you can add a `?devexample=true` parameter to the url to enable the examples by default.
 
 
 <details>

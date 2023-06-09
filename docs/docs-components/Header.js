@@ -63,13 +63,10 @@ function Header() {
   );
 
   useEffect(() => {
-    const devModeSetFromUrl = router.query.devexample && router.query.devexample.length > 0;
+    const devModeSetFromUrl = router.query.devexample && router.query.devexample === 'true';
 
     // do not show switch if set via url
-    if (
-      devModeSetFromUrl &&
-      (router.query.devexample === 'true' || router.query.devexample === 'false')
-    ) {
+    if (devModeSetFromUrl) {
       setShowDevelopmentEditorSwitch(false);
       return;
     }
