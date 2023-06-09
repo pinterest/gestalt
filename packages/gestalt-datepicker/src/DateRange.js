@@ -69,61 +69,75 @@ function DateRange({
   }
 
   return (
-    <Flex>
-      <Box minHeight={300} minWidth={300} color="errorBase" marginEnd={2}>
-        {radioGroup}
-      </Box>
-      <Box height="100%" marginEnd={2}>
-        <Divider />
-      </Box>
+    <Box
+      rounding={4}
+      padding={2}
+      color="default"
+      borderStyle="shadow"
+      overflow="scroll"
+      width={800}
+      minHeight={425}
+    >
+      <Flex>
+        <Box minHeight={300} minWidth={300} color="errorWeak" marginEnd={2}>
+          {radioGroup}
+        </Box>
+        <Box height="100%" marginEnd={2}>
+          <Divider />
+        </Box>
 
-      <Flex alignItems="start" height="100%" justifyContent="center" width="100%" gap={2}>
-        <Flex direction="column" gap={2}>
-          <DateField
-            id="datefield-start"
-            onChange={({ value }) => {
-              if (value?.getTime()) onStartDateChange({ value });
-            }}
-            value={startDateValue}
-            onClearInput={() => {}}
-          />
-          <InternalDatePicker
-            inline
-            rangeStartDate={startDateValue}
-            rangeEndDate={endDateValue}
-            id="datepicker-start"
-            onChange={({ value }) => {
-              onStartDateChange({ value });
-            }}
-            rangeSelector="start"
-            value={startDateValue}
-          />
-        </Flex>
-        <Flex direction="column" gap={2}>
-          <DateField
-            id="datefield-end"
-            onChange={({ value }) => {
-              if (value?.getTime()) onEndDateChange({ value });
-            }}
-            value={endDateValue}
-            onClearInput={() => {}}
-          />
-          <InternalDatePicker
-            inline
-            minDate={startDateValue}
-            rangeStartDate={startDateValue}
-            rangeEndDate={endDateValue}
-            id="datepicker-end"
-            onChange={({ value }) => {
-              onEndDateChange({ value });
-            }}
-            rangeSelector="end"
-            value={endDateValue}
-            openToDate={endDateValue ?? next}
-          />
+        <Flex alignItems="start" height="100%" justifyContent="center" width="100%" gap={2}>
+          <Flex direction="column" gap={2}>
+            <Box paddingX={4}>
+              <DateField
+                id="datefield-start"
+                onChange={({ value }) => {
+                  if (value?.getTime()) onStartDateChange({ value });
+                }}
+                value={startDateValue}
+                onClearInput={() => {}}
+              />
+            </Box>
+            <InternalDatePicker
+              inline
+              rangeStartDate={startDateValue}
+              rangeEndDate={endDateValue}
+              id="datepicker-start"
+              onChange={({ value }) => {
+                onStartDateChange({ value });
+              }}
+              rangeSelector="start"
+              value={startDateValue}
+            />
+          </Flex>
+          <Flex direction="column" gap={2}>
+            <Box paddingX={4}>
+              <DateField
+                id="datefield-end"
+                onChange={({ value }) => {
+                  if (value?.getTime()) onEndDateChange({ value });
+                }}
+                value={endDateValue}
+                onClearInput={() => {}}
+              />
+            </Box>
+            <InternalDatePicker
+              inline
+              minDate={startDateValue}
+              rangeStartDate={startDateValue}
+              rangeEndDate={endDateValue}
+              id="datepicker-end"
+              onChange={({ value }) => {
+                onEndDateChange({ value });
+              }}
+              rangeSelector="end"
+              value={endDateValue}
+              openToDate={endDateValue ?? next}
+            />
+          </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </Box>
   );
 }
 
