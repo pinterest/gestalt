@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment, type Node, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
-import { type ListItemType } from './COMPONENT_DATA.js';
+import { type ListItemType } from './data/components.js';
 import IllustrationContainer from './IllustrationContainer.js';
 import List from './OverviewList.js';
 import Page from './Page.js';
