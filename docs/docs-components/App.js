@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { ColorSchemeProvider, OnLinkNavigationProvider } from 'gestalt';
+import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
 import { AppContextConsumer, AppContextProvider } from './appContext.js';
 import AppLayout from './AppLayout.js';
 import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
@@ -67,13 +67,13 @@ export default function App({ children, files }: Props): Node {
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
-              <OnLinkNavigationProvider onNavigation={useOnNavigation}>
+              <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
                 <NavigationContextProvider>
                   <LocalFilesProvider files={files}>
                     <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
                   </LocalFilesProvider>
                 </NavigationContextProvider>
-              </OnLinkNavigationProvider>
+              </GlobalEventsHandlerProvider>
             </ColorSchemeProvider>
           )}
         </AppContextConsumer>
