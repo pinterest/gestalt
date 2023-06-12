@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { useCallback, useMemo, type Node, useRef, useState } from 'react';
 import { Button, Divider, Dropdown, Flex, GlobalEventsHandlerProvider, RadioGroup } from 'gestalt';
 
 export default function Example(): Node {
@@ -7,21 +7,27 @@ export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
-  const useOnNavigation = ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
-    const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
-    };
+  const useOnNavigation = useCallback(
+    ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
+      const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+        event.preventDefault();
+        // eslint-disable-next-line no-alert
+        alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
+      };
 
-    return onNavigationClick;
-  };
+      return onNavigationClick;
+    },
+    [],
+  );
+
+  const linkHandlers = useMemo(
+    () => ({ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }),
+    [onNavigationMode, useOnNavigation],
+  );
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <GlobalEventsHandlerProvider
-        linkHandlers={{ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }}
-      >
+      <GlobalEventsHandlerProvider linkHandlers={linkHandlers}>
         <Flex direction="column" gap={2}>
           <Flex direction="column" gap={2}>
             <RadioGroup id="navigation-type" legend="Navigation type">
