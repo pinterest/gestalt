@@ -35,13 +35,6 @@ export type DefaultLabelContextType = {|
   Modal: {|
     accessibilityDismissButtonLabel: string,
   |},
-  Pog: {|
-    iconAccessibilityLabelError: string,
-    iconAccessibilityLabelInfo: string,
-    iconAccessibilityLabelRecommendation: string,
-    iconAccessibilityLabelWarning: string,
-    iconAccessibilityLabelSuccess: string,
-  |},
   Popover: {|
     accessibilityDismissButtonLabel: string,
   |},
@@ -112,9 +105,9 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityDismissButtonLabel: 'Dismiss',
   },
   Callout: {
-    accessibilityDismissButtonLabel: 'Dismiss',
+    accessibilityDismissButtonLabel: 'Dismiss Banner',
     iconAccessibilityLabelError: 'Error',
-    iconAccessibilityLabelInfo: 'Info',
+    iconAccessibilityLabelInfo: 'Information',
     iconAccessibilityLabelRecommendation: 'Recommendation',
     iconAccessibilityLabelWarning: 'Warning',
     iconAccessibilityLabelSuccess: 'Success',
@@ -131,13 +124,6 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Popover: {
     accessibilityDismissButtonLabel: 'Dismiss popover',
-  },
-  Pog: {
-    iconAccessibilityLabelError: 'Error',
-    iconAccessibilityLabelInfo: 'Info',
-    iconAccessibilityLabelRecommendation: 'Recommendation',
-    iconAccessibilityLabelWarning: 'Warning',
-    iconAccessibilityLabelSuccess: 'Success',
   },
   OverlayPanel: {
     accessibilityDismissButtonLabel: 'Dismiss overlay panel',
@@ -157,9 +143,9 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityDismissButtonLabel: 'Dismiss side navigation',
   },
   SlimBanner: {
-    accessibilityDismissButtonLabel: 'Dismiss',
+    accessibilityDismissButtonLabel: 'Dismiss Banner',
     iconAccessibilityLabelError: 'Error',
-    iconAccessibilityLabelInfo: 'Info',
+    iconAccessibilityLabelInfo: 'Information',
     iconAccessibilityLabelRecommendation: 'Recommendation',
     iconAccessibilityLabelWarning: 'Warning',
     iconAccessibilityLabelSuccess: 'Success',

@@ -20,9 +20,9 @@ describe('useDefaultLabelContext', () => {
             accessibilityDismissButtonLabel: 'Dismiss',
           },
           Callout: {
-            accessibilityDismissButtonLabel: 'Dismiss',
+            accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
-            iconAccessibilityLabelInfo: 'Info',
+            iconAccessibilityLabelInfo: 'Information',
             iconAccessibilityLabelRecommendation: 'Recommendation',
             iconAccessibilityLabelWarning: 'Warning',
             iconAccessibilityLabelSuccess: 'Success',
@@ -39,13 +39,6 @@ describe('useDefaultLabelContext', () => {
           },
           Popover: {
             accessibilityDismissButtonLabel: 'Dismiss popover',
-          },
-          Pog: {
-            iconAccessibilityLabelError: 'Error',
-            iconAccessibilityLabelInfo: 'Info',
-            iconAccessibilityLabelRecommendation: 'Recommendation',
-            iconAccessibilityLabelWarning: 'Warning',
-            iconAccessibilityLabelSuccess: 'Success',
           },
           OverlayPanel: {
             accessibilityDismissButtonLabel: 'Dismiss overlay panel',
@@ -65,9 +58,9 @@ describe('useDefaultLabelContext', () => {
             accessibilityDismissButtonLabel: 'Dismiss side navigation',
           },
           SlimBanner: {
-            accessibilityDismissButtonLabel: 'Dismiss',
+            accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
-            iconAccessibilityLabelInfo: 'Info',
+            iconAccessibilityLabelInfo: 'Information',
             iconAccessibilityLabelRecommendation: 'Recommendation',
             iconAccessibilityLabelWarning: 'Warning',
             iconAccessibilityLabelSuccess: 'Success',

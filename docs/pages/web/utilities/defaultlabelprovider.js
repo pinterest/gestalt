@@ -21,7 +21,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'Callout',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss',
+      'label': 'Dismiss Banner',
     },
     {
       'component': 'Callout',
@@ -31,7 +31,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'Callout',
       'prop': 'iconAccessibilityLabelInfo',
-      'label': 'Info',
+      'label': 'Information',
     },
     {
       'component': 'Callout',
@@ -72,31 +72,6 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'component': 'Popover',
       'prop': 'accessibilityDismissButtonLabel',
       'label': 'Dismiss popover',
-    },
-    {
-      'component': 'Pog',
-      'prop': 'iconAccessibilityLabelError',
-      'label': 'Error',
-    },
-    {
-      'component': 'Pog',
-      'prop': 'iconAccessibilityLabelInfo',
-      'label': 'Info',
-    },
-    {
-      'component': 'Pog',
-      'prop': 'iconAccessibilityLabelRecommendation',
-      'label': 'Recommendation',
-    },
-    {
-      'component': 'Pog',
-      'prop': 'iconAccessibilityLabelWarning',
-      'label': 'Warning',
-    },
-    {
-      'component': 'Pog',
-      'prop': 'iconAccessibilityLabelSuccess',
-      'label': 'Success',
     },
     {
       'component': 'OverlayPanel',
@@ -156,7 +131,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'SlimBanner',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss',
+      'label': 'Dismiss Banner',
     },
     {
       'component': 'SlimBanner',
@@ -166,7 +141,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'SlimBanner',
       'prop': 'iconAccessibilityLabelInfo',
-      'label': 'Info',
+      'label': 'Information',
     },
     {
       'component': 'SlimBanner',

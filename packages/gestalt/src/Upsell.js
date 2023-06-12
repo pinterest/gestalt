@@ -80,7 +80,7 @@ type Props = {|
    * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
   dismissButton?: {|
-    accessibilityLabel: string,
+    accessibilityLabel?: string,
     onDismiss: () => void,
   |},
   /**

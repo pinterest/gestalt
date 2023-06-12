@@ -9,15 +9,6 @@ import styles from '../Video.css';
 import VideoPlayhead from './Playhead.js';
 
 type Props = {|
-  accessibilityHideCaptionsLabel?: string,
-  accessibilityShowCaptionsLabel?: string,
-  accessibilityMaximizeLabel?: string,
-  accessibilityMinimizeLabel?: string,
-  accessibilityMuteLabel?: string,
-  accessibilityPauseLabel?: string,
-  accessibilityPlayLabel?: string,
-  accessibilityProgressBarLabel?: string,
-  accessibilityUnmuteLabel?: string,
   captionsButton: 'enabled' | 'disabled' | null,
   currentTime: number,
   duration: number,
@@ -48,15 +39,6 @@ const timeToString = (time?: number) => {
 };
 
 function VideoControls({
-  accessibilityHideCaptionsLabel,
-  accessibilityShowCaptionsLabel,
-  accessibilityMaximizeLabel,
-  accessibilityMinimizeLabel,
-  accessibilityMuteLabel,
-  accessibilityPauseLabel,
-  accessibilityPlayLabel,
-  accessibilityProgressBarLabel,
-  accessibilityUnmuteLabel,
   captionsButton,
   currentTime,
   duration,
@@ -165,9 +147,7 @@ function VideoControls({
         <TapArea onTap={handlePlayingChange} fullWidth={false}>
           <Icon
             accessibilityLabel={
-              playing
-                ? accessibilityPauseLabel ?? defaultAccessibilityPauseLabel
-                : accessibilityPlayLabel ?? defaultAccessibilityPlayLabel
+              playing ? defaultAccessibilityPauseLabel : defaultAccessibilityPlayLabel
             }
             color="light"
             icon={playing ? 'pause' : 'play'}
@@ -181,8 +161,8 @@ function VideoControls({
             <Icon
               accessibilityLabel={
                 captionsButton === 'enabled'
-                  ? accessibilityHideCaptionsLabel ?? defaultAccessibilityHideCaptionsLabel
-                  : accessibilityShowCaptionsLabel ?? defaultAccessibilityShowCaptionsLabel
+                  ? defaultAccessibilityHideCaptionsLabel
+                  : defaultAccessibilityShowCaptionsLabel
               }
               color="light"
               icon="captions"
@@ -208,9 +188,7 @@ function VideoControls({
       </Box>
       <Box padding={2} flex="grow">
         <VideoPlayhead
-          accessibilityProgressBarLabel={
-            accessibilityProgressBarLabel ?? defaultAccessibilityProgressLabel
-          }
+          accessibilityProgressBarLabel={defaultAccessibilityProgressLabel}
           currentTime={currentTime}
           duration={duration}
           onPlayheadDown={onPlayheadDown}
@@ -227,9 +205,7 @@ function VideoControls({
         <TapArea onTap={handleVolumeChange} fullWidth={false}>
           <Icon
             accessibilityLabel={
-              muted
-                ? accessibilityUnmuteLabel ?? defaultAccessibilityUnmuteLabel
-                : accessibilityMuteLabel ?? defaultAccessibilityMuteLabel
+              muted ? defaultAccessibilityUnmuteLabel : defaultAccessibilityMuteLabel
             }
             color="light"
             icon={muted ? 'mute' : 'sound'}
@@ -242,9 +218,7 @@ function VideoControls({
           <TapArea onTap={handleFullscreenChange} fullWidth={false}>
             <Icon
               accessibilityLabel={
-                fullscreen
-                  ? accessibilityMinimizeLabel ?? defaultAccessibilityMinimizeLabel
-                  : accessibilityMaximizeLabel ?? defaultAccessibilityMaximizeLabel
+                fullscreen ? defaultAccessibilityMinimizeLabel : defaultAccessibilityMaximizeLabel
               }
               color="light"
               icon={fullscreen ? 'minimize' : 'maximize'}

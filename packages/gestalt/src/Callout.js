@@ -33,7 +33,7 @@ type Props = {|
    * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/callout#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  dismissButton?: {| accessibilityLabel: ?string, onDismiss: () => void |},
+  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void |},
   /**
    * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */

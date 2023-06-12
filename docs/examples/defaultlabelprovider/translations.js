@@ -9,9 +9,9 @@ const labels = {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
   },
   Callout: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
-    iconAccessibilityLabelInfo: myI18nTranslator('Info'),
+    iconAccessibilityLabelInfo: myI18nTranslator('Information'),
     iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
     iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
     iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
@@ -29,13 +29,6 @@ const labels = {
   Popover: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss popover'),
   },
-  Pog: {
-    iconAccessibilityLabelError: myI18nTranslator('Error'),
-    iconAccessibilityLabelInfo: myI18nTranslator('Info'),
-    iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
-    iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
-    iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
-  },
   OverlayPanel: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss overlay panel'),
     dismissConfirmationMessage: myI18nTranslator('Are you sure you want to dismiss?'),
@@ -50,17 +43,17 @@ const labels = {
     ),
   },
   SheetMobile: {
-    accessibilityGrabberLabel: myI18nTranslator('Grabber'),
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss bottom sheet'),
+    accessibilityGrabberLabel: myI18nTranslator('Grabber'),
     accessibilityLabel: myI18nTranslator('Bottom sheet'),
   },
   SideNavigation: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
   },
   SlimBanner: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
-    iconAccessibilityLabelInfo: myI18nTranslator('Info'),
+    iconAccessibilityLabelInfo: myI18nTranslator('Information'),
     iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
     iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
     iconAccessibilityLabelSuccess: myI18nTranslator('Success'),

@@ -140,7 +140,7 @@ export default function Pog({
   return (
     <div className={classes} style={inlineStyle}>
       <Icon
-        accessibilityLabel={accessibilityLabel ?? icon}
+        accessibilityLabel={accessibilityLabel || ''}
         color={OLD_TO_NEW_COLOR_MAP[color]}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}

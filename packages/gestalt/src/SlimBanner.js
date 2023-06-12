@@ -11,7 +11,7 @@ import Text from './Text.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type DismissButtonType = {|
-  accessibilityLabel: ?string,
+  accessibilityLabel?: string,
   onDismiss: () => void,
 |};
 
