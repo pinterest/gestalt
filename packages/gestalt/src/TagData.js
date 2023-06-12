@@ -7,12 +7,14 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
+import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
+import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
+import getTileColors from './utils/datavizcolors/getTileColor.js';
 import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Tile, { type InteractionStates } from './Tile/Tile.js';
-import DataVizColor from './utils/datavizcolors.js';
 
 type DataVisualizationColors =
   | '01'
@@ -65,15 +67,15 @@ export type Props = {|
    */
   baseColor?: 'default' | 'white',
   /**
-   * A color code from the the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when the tile is selected.
+   * A color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when the TagData is selected.
    */
   color?: DataVisualizationColors,
   /**
-   * Indicates if TagData should be disabled. Disabled TagDatas are inactive and cannot be interacted with. See the [disabled](https://gestalt.pinterest.systems/web/tagdata#disabled) variant to learn more.
+   * Indicates if TagData should be disabled. Disabled TagDatas are inactive and cannot be interacted with. See the [disabled variant](https://gestalt.pinterest.systems/web/tagdata#disabled) to learn more.
    */
   disabled?: boolean,
   /**
-   * An identifier to be passed back in the onTap callback. It can be helpful to distinguish multiple TagDatas.
+   * An identifier to be passed back in the `onTap` callback. It can be helpful to distinguish multiple TagDatas.
    */
   id?: string,
   /**
@@ -81,15 +83,15 @@ export type Props = {|
    */
   onTap?: TileChangeHandler,
   /**
-   * TagData can be dismissable by the "X" affordance, which triggers the onRemove callback. This handler should take care of state updates to no longer render the TagData.
+   * TagData can be dismissable by the "X" affordance, which triggers the `onRemove` callback. This handler should take care of state updates to no longer render the TagData.
    */
   onRemove?: OnRemoveHandler,
   /**
-   * Controls whether the TagData is selected or not. Use it alongside the OnTap handler.
+   * Controls whether the TagData is selected or not. Use it alongside the `onTap` handler.
    */
   selected?: boolean,
   /**
-   * Sets the size of the TagData to render. See the [size](https://gestalt.pinterest.systems.com/web/tagdata#size) variant.
+   * Sets the size of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size).
    */
   size?: 'sm' | 'md' | 'lg',
   /**
@@ -101,7 +103,7 @@ export type Props = {|
    */
   text: string,
   /**
-   * Adds a tooltip on hover/focus of TileData. See the with [Tooltip](https://gestalt.pinterest.systems/web/tagdata#tooltip) variant to learn more.
+   * Adds a tooltip on hover/focus of TileData. See the with [with tooltip variant](https://gestalt.pinterest.systems/web/tagdata#tooltip) to learn more.
    */
   tooltip?: TooltipProps,
 |};
@@ -136,8 +138,8 @@ export default function TagData({
     useDefaultLabelContext('TagData');
 
   const theme = useColorScheme();
-  const borderColor = DataVizColor.getDataVisualizationColor(theme, color);
-  const bgColor = DataVizColor.getDataVisualizationColorForBackground(theme, color);
+  const borderColor = getDataVisualizationColor(theme, color);
+  const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
   const fgColor = disabled ? 'subtle' : 'default';
 
   const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
@@ -173,12 +175,12 @@ export default function TagData({
       <Tile focusable={false} selected={selected} disabled={disabled}>
         {(interactionStates) => {
           const { hovered, disabled: disabledTap, selected: selectedTap } = interactionStates;
-          const tileStyle = DataVizColor.getTileColors(
+          const tileStyle = getTileColors(
             { hovered, selected: selectedTap, disabled: disabledTap },
             colorStyles,
           );
 
-          const checkBoxStyle = DataVizColor.getCheckboxColors(
+          const checkBoxStyle = getCheckboxColors(
             { hovered, selected: selectedTap, disabled: disabledTap },
             colorStyles,
             { showByDefault: true },
@@ -217,7 +219,7 @@ export default function TagData({
               {onRemove && (
                 <Tile
                   onTap={({ event }) => {
-                    onRemove?.({ event, id });
+                    onRemove({ event, id });
                   }}
                   disabled={disabled}
                   rounding={0}

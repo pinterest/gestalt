@@ -1,5 +1,5 @@
 // @flow strict
-import DataVizColor from './datavizcolors.js';
+import getDataVisualizationColor from './getDataVisualizationColor.js';
 
 const lightModeTheme = {
   name: 'lightMode',
@@ -33,13 +33,13 @@ const lightModeTheme = {
 describe('DataViz Color Unit Tests', () => {
   it('DataViz Color exists in theme', () => {
     const theme = { ...lightModeTheme, colorDataVisualization02: '#00000' };
-    const color = DataVizColor.getDataVisualizationColor(theme, '02');
+    const color = getDataVisualizationColor(theme, '02');
     expect(color).toBe('#00000');
   });
 
   it('Gets lighter shade of DataViz Color', () => {
     const theme = { ...lightModeTheme, colorDataVisualization02: '#00000' };
-    const color = DataVizColor.getDataVisualizationColorForBackground(theme, '02');
+    const color = getDataVisualizationColor(theme, '02', { lighten: true });
     expect(color).toBe('#000001A');
   });
 });

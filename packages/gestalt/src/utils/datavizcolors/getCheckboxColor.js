@@ -1,0 +1,46 @@
+// @flow strict
+
+import { type InteractionStates, type ColorStyles } from '../../Tile/Tile.js';
+
+/**
+ *
+ * Given an interactions state for a checkbox, returns the relevant bg and border color
+ * */
+export default function getCheckboxColors(
+  state: InteractionStates,
+  colorStyles: ColorStyles,
+  opts?: {| showByDefault?: boolean |},
+): ColorStyles {
+  const defaultBackgroundColor = 'transparent';
+  const defaultBorderColor = 'transparent';
+
+  if (state.disabled) {
+    return {
+      backgroundColor: `var(--color-gray-roboflow-300)`,
+      borderColor: defaultBorderColor,
+    };
+  }
+
+  if (state.hovered && !state.selected) {
+    return {
+      backgroundColor: `var(--g-colorGray0)`,
+      borderColor: 'var(--color-border-default)',
+    };
+  }
+
+  if (state.selected) {
+    return {
+      backgroundColor: colorStyles.borderColor,
+      borderColor: defaultBorderColor,
+    };
+  }
+
+  if (opts?.showByDefault) {
+    return {
+      backgroundColor: `var(--g-colorGray0)`,
+      borderColor: 'var(--color-border-default)',
+    };
+  }
+
+  return { backgroundColor: defaultBackgroundColor, borderColor: defaultBorderColor };
+}

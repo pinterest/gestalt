@@ -47,7 +47,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
             type="don't"
             title="When not to use"
             description={`
-      - Progressing or regressing a user through a step in a flow. Use a [Button](https://gestalt.pinterest.systems/web/button) instead
+      - Progressing or regressing a user through a step in a flow. Use [Button](https://gestalt.pinterest.systems/web/button) instead
       - In conjunction with [TextField](https://gestalt.pinterest.systems/web/textfield#Tags), [TextArea](https://gestalt.pinterest.systems/web/textarea#With-tags), and [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags). Use [Tag](https://gestalt.pinterest.systems/web/tag) instead
     `}
           />
@@ -130,7 +130,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="don't"
-            description="Use long sentences in the text prop, since the text in TagData truncates as needed to preserve the max width."
+            description="Use long sentences in the `text` prop, since the text in TagData truncates as needed to preserve the max width."
             sandpackExample={
               <SandpackExample
                 code={dontUseLongLabels}
@@ -146,24 +146,24 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
 
       <AccessibilitySection
         name={generatedDocGen?.displayName}
-        description="Users should be able to navigate or activate TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `dismissable` prop and `tooltip` prop."
+        description="Users should be able to navigate or activate TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `onRemove` prop and `tooltip` prop."
       />
 
       <MainSection
         name="Localization"
         description={`
         
-      Be sure to localize \`accessibilityRemoveIconLabel\` ,\`tooltip.accessibilityLabel\`, and \`text\` properties in TagData.  
+      Be sure to localize \`accessibilityRemoveIconLabel\` ,\`tooltip.accessibilityLabel\`, and \`text\` props in TagData.  
 
-      When the title of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width. Keep this in mind when selecting wording for TagData. Note that localization can lengthen text by 20 to 30 percent.`}
+      When the \`text\` of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width. Keep this in mind when selecting wording for TagData. Note that localization can lengthen text by 20 to 30 percent.`}
       />
 
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`TagData is available in 3 fixed sizes.
-          - **Large** has height of 48px. Text has a fixed size of 16px. 
-          - **Medium** has height of 40px. Text has a fixed size of 14px. 
-          - **Small** has height of 32px. Text has a fixed size of 14px.
+          - **Lg** has height of 48px. Text has a fixed size of 16px. 
+          - **Md** has height of 40px. Text has a fixed size of 14px. 
+          - **Sm** has height of 32px. Text has a fixed size of 14px.
           `}
           title="Size"
         >
@@ -172,7 +172,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="TagData should use a different fill color than the color of the surrounding UI. When used on a white background, it is recommend using a `baseColor` of white when on a gray UI background."
+          description={`By default, TagData uses a light gray fill, which is suitable for placement on a white background. When used on a gray background, use \`baseColor="white"\` for a white fill.`}
           title="Base Color"
         >
           <MainSection.Card
@@ -180,7 +180,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="TagData is available in the colors from our Data Visualization [Color Palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). Match each TagData's `color` to its respective data line, which will be visible when TagData is selected."
+          description="TagData is available in the colors from our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). Match each TagData's `color` to its respective data line, which will be visible when TagData is selected."
           title="Colors"
         >
           <MainSection.Card
@@ -197,7 +197,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`If not disabled, Tags are dismissible by the "X" affordance, which triggers the \`onRemove\` callback. \`onRemove\` should be used to update the external state that is keeping track of TagDatas. If your app uses DefaultLabelProvider, a default accessibility label for the remove icon will be used. This can be overridden with a more specific label if desired.`}
+          description={`Provide an \`onRemove\` callback to make TagData dismissible. Tags are dismissible by the "X" affordance, which triggers the \`onRemove\` callback. \`onRemove\` should be used to update the external state that is keeping track of TagDatas. If your app uses DefaultLabelProvider, a default accessibility label for the remove icon will be used. This can be overridden with a more specific label if desired.`}
           title="Dismissible"
         >
           <MainSection.Card
@@ -205,7 +205,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Use `tooltip` to display clarifying information on hover/focus. We recommend using tooltips to provide the user additional context/details."
+          description="Use `tooltip` to display clarifying information on hover or focus. We recommend using tooltips to provide the user additional context/details."
           title="Tooltip"
         >
           <MainSection.Card

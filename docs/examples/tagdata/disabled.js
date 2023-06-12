@@ -15,7 +15,7 @@ export default function Example(): Node {
         showCheckbox
         selected={isSelected}
         onTap={() => {
-          setSelected(!isSelected);
+          setSelected((selected) => !selected);
         }}
         tooltip={{ text: 'Average cost per 1K paid impressions' }}
       />

@@ -13,7 +13,7 @@ export default function Example(): Node {
         size="lg"
         selected={isSelected}
         onTap={() => {
-          setSelected(!isSelected);
+          setSelected((selected) => !selected);
         }}
         onRemove={() => {}}
         tooltip={{ text: 'Average cost per 1K paid impressions' }}

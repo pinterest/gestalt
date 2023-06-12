@@ -3,12 +3,14 @@ import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import styles from './TileData.css';
 import Flex from './Flex.js';
+import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
+import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
+import getTileColors from './utils/datavizcolors/getTileColor.js';
 import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import Tile, { type InteractionStates } from './Tile/Tile.js';
-import DataVizColor from './utils/datavizcolors.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,
@@ -49,7 +51,7 @@ type TrendObject = {|
 
 type Props = {|
   /**
-   * A color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when Tiledata is selected.
+   * A color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when TileData is selected.
    */
   color?: DataVisualizationColors,
   /**
@@ -115,8 +117,8 @@ export default function TileData({
   value,
 }: Props): Node {
   const theme = useColorScheme();
-  const borderColor = DataVizColor.getDataVisualizationColor(theme, color);
-  const bgColor = DataVizColor.getDataVisualizationColorForBackground(theme, color);
+  const borderColor = getDataVisualizationColor(theme, color);
+  const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
 
   const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
     borderColor,
@@ -140,12 +142,12 @@ export default function TileData({
     <Tile disabled={disabled} id={id} onTap={onTap} selected={selected} tooltip={tooltip}>
       {(interactionState) => {
         const { hovered, disabled: disabledTap, selected: selectedTap } = interactionState;
-        const tileStyle = DataVizColor.getTileColors(
+        const tileStyle = getTileColors(
           { hovered, selected: selectedTap, disabled: disabledTap },
           colorStyles,
         );
 
-        const checkBoxStyle = DataVizColor.getCheckboxColors(
+        const checkBoxStyle = getCheckboxColors(
           { hovered, selected: selectedTap, disabled: disabledTap },
           colorStyles,
         );
