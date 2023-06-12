@@ -7,13 +7,6 @@ export default function Snapshot(): Node {
     <Box width={500}>
       <Video
         aspectRatio={100 / 50}
-        accessibilityMaximizeLabel=""
-        accessibilityMinimizeLabel=""
-        accessibilityMuteLabel=""
-        accessibilityPauseLabel=""
-        accessibilityPlayLabel=""
-        accessibilityProgressBarLabel=""
-        accessibilityUnmuteLabel=""
         captions=""
         controls
         onPlay={() => {}}
