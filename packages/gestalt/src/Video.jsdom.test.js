@@ -1,7 +1,6 @@
 // @flow strict
-import { getByLabelText, render } from '@testing-library/react';
+import { getByLabelText, render, screen } from '@testing-library/react';
 import Video from './Video.js';
-import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
 
 describe('Video loading', () => {
   beforeEach(() => {
@@ -237,8 +236,7 @@ describe('Video loading', () => {
       ],
     };
 
-    const { container } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByLabelText(container, 'Video Progress')).toBeDefined();
+    render(<Video {...props} />);
+    expect(screen.getByLabelText('Video Progress')).toBeDefined();
   });
 });
