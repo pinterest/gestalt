@@ -25,7 +25,7 @@ export default function Example(): Node {
     [],
   );
 
-  const linkHandlers = useMemo(() => ({ onNavigation: useOnNavigation }), []);
+  const linkHandlers = useMemo(() => ({ onNavigation: useOnNavigation }), [useOnNavigation]);
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
