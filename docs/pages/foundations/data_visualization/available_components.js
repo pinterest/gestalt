@@ -24,10 +24,10 @@ export default function DocsPage(): Node {
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="DataPoint"
+          title="Datapoint"
           description={`Datapoint displays at-a-glance data for a user to quickly view key metrics.
 
-[Go to the DataPoint component](/web/datapoint)`}
+[Go to the Datapoint component](/web/datapoint)`}
         >
           <Box
             maxWidth={960}
@@ -45,7 +45,7 @@ export default function DocsPage(): Node {
               src="https://github.com/pinterest/gestalt/assets/96082362/c9c06e33-82f7-4112-8f65-514158a4aba5"
               naturalWidth={1800}
               naturalHeight={384}
-              alt="DataPoint showing total number of impressions, a positive trend and an info icon."
+              alt="Datapoint showing total number of impressions, a positive trend and an info icon."
             />
           </Box>
         </MainSection.Subsection>

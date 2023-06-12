@@ -1,6 +1,6 @@
 // @flow strict
 import { useState, type Node } from 'react';
-import { Flex, SegmentedControl } from 'gestalt';
+import { Box, Flex, SegmentedControl } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): Node {
@@ -9,19 +9,23 @@ export default function Example(): Node {
   const [itemIndex, setItemIndex] = useState(0);
 
   return (
-    <Flex direction="column" gap={4} width="100%">
-      <SegmentedControl
-        items={items}
-        selectedItemIndex={itemIndex}
-        onChange={({ activeIndex }) => setItemIndex(activeIndex)}
-      />
-      <DatePicker
-        id="selectLists"
-        label="Alberto's birth date"
-        onChange={() => {}}
-        value={new Date(1985, 6, 4)}
-        selectLists={mapOptions[itemIndex.toString()]}
-      />
+    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
+      <Box padding={2}>
+        <Flex direction="column" gap={4} width="100%">
+          <SegmentedControl
+            items={items}
+            selectedItemIndex={itemIndex}
+            onChange={({ activeIndex }) => setItemIndex(activeIndex)}
+          />
+          <DatePicker
+            id="selectLists"
+            label="Alberto's birth date"
+            onChange={() => {}}
+            value={new Date(1985, 6, 4)}
+            selectLists={mapOptions[itemIndex.toString()]}
+          />
+        </Flex>
+      </Box>
     </Flex>
   );
 }

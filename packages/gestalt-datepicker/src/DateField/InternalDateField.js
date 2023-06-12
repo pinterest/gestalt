@@ -2,8 +2,11 @@
 /* eslint-disable react/display-name */
 // @flow strict-local
 import { useState, forwardRef, type Node } from 'react';
+import { StyledEngineProvider } from '@mui/material/styles';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
 import { Box, Text, Flex, Status, TapArea, Pog } from 'gestalt';
 import styles from '../DateField.css';
@@ -154,6 +157,37 @@ function CustomDateField({
   );
 }
 
+type LocaleData = {|
+  code?: string,
+  formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  localize?: {|
+    ordinalNumber: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  |},
+  formatLong?: {|
+    date: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    time: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dateTime: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  |},
+  match?: {|
+    ordinalNumber: (...args: $ReadOnlyArray<string>) => { ... },
+    era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+    dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
+  |},
+  options?: {|
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+  |},
+|};
+
 type InternalDateFieldProps = {|
   autoComplete?: 'bday' | 'off',
   disabled?: boolean,
@@ -163,6 +197,7 @@ type InternalDateFieldProps = {|
   id: string,
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
+  localeData: ?LocaleData,
   maxDate?: Date,
   minDate?: Date,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
@@ -195,6 +230,7 @@ function InternalDateField({
   id,
   label,
   labelDisplay = 'visible',
+  localeData,
   maxDate,
   minDate,
   mobileEnterKeyHint,
@@ -208,72 +244,76 @@ function InternalDateField({
   value,
 }: InternalDateFieldProps): Node {
   return (
-    <Box>
-      <label
-        className={classnames(styles.label, {
-          [styles.visuallyHidden]: labelDisplay === 'hidden',
-        })}
-        htmlFor={id}
-      >
-        <div className={styles.formLabel}>
-          <Text size="100">{label}</Text>
-        </div>
-      </label>
-      <Box position="relative" display="flex" alignItems="center">
-        <MUIDatePicker
-          onChange={(dateValue) => onChange({ value: dateValue })}
-          disabled={disabled}
-          formatDensity="spacious"
-          readOnly={readOnly}
-          onError={(error) => onError?.({ errorMessage: error, value })}
-          errorMessage={!!errorMessage}
-          maxDate={maxDate}
-          minDate={minDate}
-          disableFuture={disableRange === 'disableFuture'}
-          disablePast={disableRange === 'disablePast'}
-          slots={{ field: CustomDateField }}
-          value={value}
-          passthroughProps={{
-            autoComplete,
-            id,
-            errorMessage: !!errorMessage,
-            enterKeyHint: mobileEnterKeyHint,
-            name,
-            onBlur,
-            onFocus,
-            onClearInput,
-          }}
-          viewRenderers={null}
-        />
-      </Box>
-      {helperText && !errorMessage ? (
-        <Box marginTop={2} id={`${id}-helperText`}>
-          <Flex gap={4}>
-            <Flex.Item flex="grow">
-              {helperText ? (
-                <Text color="subtle" size="100">
-                  {helperText}
-                </Text>
-              ) : null}
-            </Flex.Item>
-          </Flex>
+    <StyledEngineProvider injectFirst>
+      <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={localeData}>
+        <Box>
+          <label
+            className={classnames(styles.label, {
+              [styles.visuallyHidden]: labelDisplay === 'hidden',
+            })}
+            htmlFor={id}
+          >
+            <div className={styles.formLabel}>
+              <Text size="100">{label}</Text>
+            </div>
+          </label>
+          <Box position="relative" display="flex" alignItems="center">
+            <MUIDatePicker
+              onChange={(dateValue) => onChange({ value: dateValue })}
+              disabled={disabled}
+              formatDensity="spacious"
+              readOnly={readOnly}
+              onError={(error) => onError?.({ errorMessage: error, value })}
+              errorMessage={!!errorMessage}
+              maxDate={maxDate}
+              minDate={minDate}
+              disableFuture={disableRange === 'disableFuture'}
+              disablePast={disableRange === 'disablePast'}
+              slots={{ field: CustomDateField }}
+              value={value}
+              passthroughProps={{
+                autoComplete,
+                id,
+                errorMessage: !!errorMessage,
+                enterKeyHint: mobileEnterKeyHint,
+                name,
+                onBlur,
+                onFocus,
+                onClearInput,
+              }}
+              viewRenderers={null}
+            />
+          </Box>
+          {helperText && !errorMessage ? (
+            <Box marginTop={2} id={`${id}-helperText`}>
+              <Flex gap={4}>
+                <Flex.Item flex="grow">
+                  {helperText ? (
+                    <Text color="subtle" size="100">
+                      {helperText}
+                    </Text>
+                  ) : null}
+                </Flex.Item>
+              </Flex>
+            </Box>
+          ) : null}
+          {errorMessage ? (
+            <Box marginTop={2}>
+              <Text color="error" size="100">
+                <span className={styles.formErrorMessage} id={`${id}-error`}>
+                  <Box role="alert">
+                    <Flex gap={2}>
+                      <Status type="problem" />
+                      {errorMessage}
+                    </Flex>
+                  </Box>
+                </span>
+              </Text>
+            </Box>
+          ) : null}
         </Box>
-      ) : null}
-      {errorMessage ? (
-        <Box marginTop={2}>
-          <Text color="error" size="100">
-            <span className={styles.formErrorMessage} id={`${id}-error`}>
-              <Box role="alert">
-                <Flex gap={2}>
-                  <Status type="problem" />
-                  {errorMessage}
-                </Flex>
-              </Box>
-            </span>
-          </Text>
-        </Box>
-      ) : null}
-    </Box>
+      </LocalizationProvider>
+    </StyledEngineProvider>
   );
 }
 

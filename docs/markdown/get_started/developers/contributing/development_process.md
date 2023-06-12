@@ -178,7 +178,10 @@ git push -f origin HEAD
 
 - After a Gestalt maintainer adds a correct semver label and approves a Pull Request, the PR will be ready to merge. Coordinate with the reviewer to determine when the PR should be merged.
 
-- Check the status of your PR https://github.com/pinterest/gestalt/pull/XXXX and access the deploy preview using the built site URL https://deploy-preview-XXXX--gestalt.netlify.app from Netlify.
+- Check the status of your PR https://github.com/pinterest/gestalt/pull/XXXX and access the deploy preview using the built site URL https://deploy-preview-XXXX--gestalt.netlify.app from Netlify. 
+
+- When sharing preview urls, you may have to remind viewers to toggle on development mode from the header menu. This is necessary to see unpublished changes in the code examples. To simplify sharing, you can add a `?devexample=true` parameter to the url to enable the examples by default.
+
 
 <details>
   <summary><b>My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?</b></summary>

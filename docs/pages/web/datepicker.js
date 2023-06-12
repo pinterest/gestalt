@@ -43,14 +43,21 @@ import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import controlled from '../../examples/datepicker/controlled.js';
+import disable from '../../examples/datepicker/disable.js';
+import disabled from '../../examples/datepicker/disabled.js';
+import disableSelected from '../../examples/datepicker/disableSelected.js';
+import error from '../../examples/datepicker/error.js';
+import helperText from '../../examples/datepicker/helperText.js';
 import main from '../../examples/datepicker/main.js';
+import preselected from '../../examples/datepicker/preselected.js';
+import range from '../../examples/datepicker/range.js';
 import selectLists from '../../examples/datepicker/selectLists.js';
 
 const localeMap = {
@@ -91,6 +98,8 @@ const localeMap = {
   'zh-CN': { localeData: zhCN, lang: 'Chinese (Simplified)' },
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
+const PREVIEW_HEIGHT = 420;
+const PREVIEW_HEIGHT_HELPERTEXT = 450;
 
 export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -100,7 +109,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
-          previewHeight={450}
+          previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
 
@@ -131,222 +140,123 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <Example
-          description="Use DatePicker to select date inputs."
-          name="Basic Date Picker"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
+        <MainSection.Subsection columns={2} title="Controlled component">
+          <MainSection.Card
+            title="Empty input"
+            sandpackExample={
+              <SandpackExample
+                code={controlled}
+                name="controlled variant"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            title="Pre-selected date values"
+            sandpackExample={
+              <SandpackExample
+                code={preselected}
+                name="preselected variant"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <DatePicker
-      id="example-basic"
-      label="Select a date"
-      onChange={({value}) => handleChange(value)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          description="
-    Provide pre-selected date values to DatePicker.
-  "
-          id="preselectedValue"
-          name="Preselected Date"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
+        <MainSection.Subsection columns={2} title="States">
+          <MainSection.Card
+            title="Disabled"
+            sandpackExample={
+              <SandpackExample
+                code={disabled}
+                name="disabled variant"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            title="Error"
+            description="Display an error message. Error message overrides the helper text."
+            sandpackExample={
+              <SandpackExample
+                code={error}
+                name="error variant"
+                layout="column"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <DatePicker
-      id="example-preselected value"
-      label="Alberto's birth date"
-      onChange={({value}) => handleChange(value)}
-      value={new Date(1985,6,4)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="rangePicker"
-          description="
-    Use DatePicker to select date range inputs.
-  "
-          name="Date Range Picker"
-          defaultCode={`
-function DatePickerRangeExample() {
-  const [startDate, setStartDate] = React.useState(undefined);
-  const [endDate, setEndDate] = React.useState(undefined);
-  const endDateInput = React.useRef(null)
-  const startDateInput = React.useRef(null)
+        <MainSection.Subsection title="Helper text">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={helperText}
+                name="helperText variant"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <Flex gap={{ column: 0, row: 2 }}>
-      <DatePicker
-        rangeStartDate={startDate}
-        rangeEndDate={endDate}
-        id="example-start-date"
-        label="Check In"
-        nextRef={endDateInput}
-        onChange={({ event, value }) => {
-          setStartDate(value);
-        }}
-        rangeSelector="start"
-        value={startDate}
-        ref={startDateInput}
-      />
-      <DatePicker
-        rangeStartDate={startDate}
-        rangeEndDate={endDate}
-        id="example-end-date"
-        label="Check Out"
-        nextRef={startDateInput}
-        onChange={({ event, value }) => setEndDate(value)}
-        rangeSelector="end"
-        value={endDate}
-        ref={endDateInput}
-      />
-    </Flex>
-  );
-}
-`}
-        />
-        <Example
-          id="disabled"
-          name="Disabled"
-          defaultCode={`
-function DatePickerExample() {
-  const [date, setDate] = React.useState(new Date());
+        <MainSection.Subsection title="Date range">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={range}
+                name="range variant"
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <DatePicker
-      disabled
-      id="example-disabled"
-      label="User Activation Date"
-      onChange={({value}) => setDate(value)}
-      value={date}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="maxMinDates"
-          description="
-    Disable dates outside of a min and max date range.
-  "
-          name="Delimited selection period"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
+        <MainSection.Subsection
+          title="Disabled dates"
+          description="DatePicker supports disabling future & past dates as well as an array of selected dates."
+        >
+          <MainSection.Card
+            title="Disable future & past"
+            sandpackExample={
+              <SandpackExample
+                code={disable}
+                name="disable variant"
+                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+                layout="column"
+              />
+            }
+          />
+          <MainSection.Card
+            title="Disable selected dates"
+            sandpackExample={
+              <SandpackExample
+                code={disableSelected}
+                name="disable selected variant"
+                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <DatePicker
-      id="example-maxMinDates"
-      minDate={new Date(2020, 6, 6)}
-      maxDate={new Date(2020, 6, 10)}
-      label="Select a date"
-      onChange={({value}) => handleChange(value)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="include"
-          description="
-    Enable an array of dates.
-  "
-          name="Enabled dates"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
-
-  return (
-    <DatePicker
-      id="example-include"
-      includeDates={[new Date(2020,2,11), new Date(2020,2,15)]}
-      label="Select Your Appointment"
-      onChange={({value}) => handleChange(value)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="exclude"
-          description="
-    Disable an array of dates.
-  "
-          name="Disabled dates"
-          defaultCode={`
-function DatePickerExample() {
-  const handleChange = (value) => value;
-
-  return (
-    <DatePicker
-      id="example-exclude"
-      excludeDates={[new Date(2020,2,11), new Date(2020,2,12)]}
-      label="Select Your Appointment"
-      onChange={({value}) => handleChange(value)}
-      value={new Date(2020,2,9)}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="helperText"
-          description="
-    Display a helper message for cases where you want to provide more information about the date field.
-  "
-          name="Helper Text"
-          defaultCode={`
-function DatePickerExample() {
-  return (
-    <DatePicker
-      helperText="Select a wonderfully sunny wedding date."
-      id="example-helperText"
-      label="Wedding Date"
-      onChange={() => {}}
-      value={new Date()}
-    />
-  )
-}
-`}
-        />
-        <Example
-          id="errorMessage"
-          description="
-    Display an error message. Error message overrides the helper text.
-  "
-          name="Error Message"
-          defaultCode={`
-function DatePickerExample() {
-  const [date, setDate] = React.useState(undefined);
-
-  return (
-    <DatePicker
-      errorMessage={!date ? "This field can't be blank!" : null}
-      helperText="Select a preferred day for your training."
-      id="example-errorMessage"
-      label="Schedule Your Training"
-      onChange={({value}) => setDate(value)}
-    />
-  )
-}
-`}
-        />
         <MainSection.Subsection
           columns={2}
-          title="selectLists"
-          description="Provide select lists for quickly changing year and month"
+          title="Select list"
+          description="Provide select lists for quickly selecting year and month"
         >
           <MainSection.Card
             cardSize="md"
-            sandpackExample={<SandpackExample code={selectLists} name="selectLists example." />}
+            sandpackExample={
+              <SandpackExample
+                code={selectLists}
+                name="selectLists example"
+                previewHeight={PREVIEW_HEIGHT_HELPERTEXT + 100}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -366,6 +276,7 @@ function DatePickerExample() {
             />
           )}
         </Combination>
+
         <Combination
           id="localeData"
           name="Supporting locales"
