@@ -9,7 +9,7 @@ import {
   Image,
   Link,
   Mask,
-  OnLinkNavigationProvider,
+  GlobalEventsHandlerProvider,
   RadioGroup,
   TapArea,
   Text,
@@ -30,8 +30,8 @@ export default function Example(): Node {
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <OnLinkNavigationProvider
-        onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}
+      <GlobalEventsHandlerProvider
+        linkHandlers={{ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }}
       >
         <Flex direction="column" gap={2}>
           <Flex direction="column" gap={2}>
@@ -88,7 +88,7 @@ export default function Example(): Node {
             </Box>
           </Flex>
         </Flex>
-      </OnLinkNavigationProvider>
+      </GlobalEventsHandlerProvider>
     </Flex>
   );
 }

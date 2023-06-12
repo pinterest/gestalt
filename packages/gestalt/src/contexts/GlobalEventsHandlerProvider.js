@@ -3,8 +3,19 @@ import { type Context, createContext, type Element, type Node, useContext } from
 
 export type NoopType = () => void;
 
+export type OnLinkNavigationType = ({|
+  href: string,
+  target?: null | 'self' | 'blank',
+|}) => ?({|
+  +event: SyntheticEvent<>,
+|}) => void;
+
 type GlobalEventsHandlerContextType = {|
   sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
+  linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
+  buttonHandlers?: {| onNavigation?: OnLinkNavigationType |},
+  iconButtonHandlers?: {| onNavigation?: OnLinkNavigationType |},
+  tapAreaHandlers?: {| onNavigation?: OnLinkNavigationType |},
 |} | void;
 
 type Props = {|
@@ -16,6 +27,10 @@ type Props = {|
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
   sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
+  /**
+   * Handlers consumed by [Link](https://gestalt.pinterest.systems/web/link#External-handlers).
+   */
+  linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
 |};
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
@@ -29,8 +44,18 @@ const { Provider } = GlobalEventsHandlerContext;
 export default function GlobalEventsHandlerProvider({
   children,
   sheetMobileHandlers,
+  linkHandlers,
 }: Props): Element<typeof Provider> {
-  return <Provider value={{ sheetMobileHandlers }}>{children}</Provider>;
+  return (
+    <Provider
+      value={{
+        sheetMobileHandlers,
+        linkHandlers,
+      }}
+    >
+      {children}
+    </Provider>
+  );
 }
 
 export function useGlobalEventsHandlerContext(): GlobalEventsHandlerContextType {

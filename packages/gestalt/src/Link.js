@@ -14,6 +14,7 @@ import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import Box from './Box.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
 import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName.js';
@@ -215,6 +216,15 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
+  // Consumes GlobalEventsHandlerProvider
+  const { linkHandlers } = useGlobalEventsHandlerContext() ?? {
+    linkHandlers: { onNavigation: undefined },
+  };
+
+  const { onNavigation } = linkHandlers ?? { onNavigation: undefined };
+
+  const onNavigationHandler = onNavigation?.({ href, target }) ?? defaultOnNavigation;
+
   const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
     if (onClick && keyPressShouldTriggerTap(event)) {
@@ -250,8 +260,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
             dangerouslyDisableOnNavigation,
           });
         }
-        if (defaultOnNavigation && defaultOnNavigationIsEnabled) {
-          defaultOnNavigation({ event });
+        if (onNavigationHandler && defaultOnNavigationIsEnabled) {
+          onNavigationHandler({ event });
         }
       }}
       onFocus={(event) => {

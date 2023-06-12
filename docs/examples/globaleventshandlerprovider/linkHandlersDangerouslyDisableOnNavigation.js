@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useRef, useState } from 'react';
-import { Button, Dropdown, Flex, OnLinkNavigationProvider, Text } from 'gestalt';
+import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
@@ -24,7 +24,7 @@ export default function Example(): Node {
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <OnLinkNavigationProvider onNavigation={useOnNavigation}>
+      <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
         <Flex direction="column" gap={2}>
           <Text>Example url: {window.location.href}</Text>
           <Flex justifyContent="center">
@@ -63,7 +63,7 @@ export default function Example(): Node {
             )}
           </Flex>
         </Flex>
-      </OnLinkNavigationProvider>
+      </GlobalEventsHandlerProvider>
     </Flex>
   );
 }

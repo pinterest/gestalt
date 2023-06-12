@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useRef, useState } from 'react';
-import { Button, Divider, Dropdown, Flex, OnLinkNavigationProvider, RadioGroup } from 'gestalt';
+import { Button, Divider, Dropdown, Flex, GlobalEventsHandlerProvider, RadioGroup } from 'gestalt';
 
 export default function Example(): Node {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
@@ -19,8 +19,8 @@ export default function Example(): Node {
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <OnLinkNavigationProvider
-        onNavigation={onNavigationMode === 'custom' ? useOnNavigation : undefined}
+      <GlobalEventsHandlerProvider
+        linkHandlers={{ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }}
       >
         <Flex direction="column" gap={2}>
           <Flex direction="column" gap={2}>
@@ -75,7 +75,7 @@ export default function Example(): Node {
             )}
           </Flex>
         </Flex>
-      </OnLinkNavigationProvider>
+      </GlobalEventsHandlerProvider>
     </Flex>
   );
 }
