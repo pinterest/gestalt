@@ -8,7 +8,7 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutUpsell.js';
-import linkHandlersdangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersdangerouslyDisableOnNavigation.js';
+import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation.js';
 import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown.js';
 import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton.js';
 import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
@@ -97,7 +97,7 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={linkHandlersdangerouslyDisableOnNavigation}
+                code={linkHandlersDangerouslyDisableOnNavigation}
                 name="Example - dangerouslyDisableOnNavigation"
                 layout="column"
               />
