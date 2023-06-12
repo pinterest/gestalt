@@ -4032,7 +4032,7 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
     svg: <ProviderHandlers />,
     name: 'GlobalEventsHandlerProvider',
     aliases: [],
-    previouslyNamed: [],
+    previouslyNamed: ['OnLinkNavigationProvider'],
     path: '/web/utilities/globaleventshandlerprovider',
     hasDarkBackground: false,
     description:

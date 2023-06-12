@@ -97,7 +97,7 @@ type Props = {|
    */
   onBlur?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
   /**
-   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) to learn more about link navigation.
    */
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,

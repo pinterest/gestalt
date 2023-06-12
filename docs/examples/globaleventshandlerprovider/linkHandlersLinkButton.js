@@ -53,7 +53,7 @@ export default function Example(): Node {
               <RadioGroup.RadioButton
                 checked={onNavigationMode === 'custom'}
                 id="custom1"
-                label="Custom OnLinkNavigationProvider Navigation"
+                label="Custom GlobalEventsHandlerProvider Navigation"
                 name="custom"
                 onChange={() => setOnNavigationMode('custom')}
                 value="custom"
