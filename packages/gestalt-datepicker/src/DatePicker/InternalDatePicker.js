@@ -120,7 +120,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
         dropdownMode="select"
-        endDate={rangeEndDate}
+        endDate={rangeEndDate ?? undefined}
         excludeDates={excludeDates && [...excludeDates]}
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
         id={id}
@@ -167,7 +167,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         showPopperArrow={false}
         showMonthDropdown={selectLists?.includes('month')}
         showYearDropdown={selectLists?.includes('year')}
-        startDate={rangeStartDate}
+        startDate={rangeStartDate ?? undefined}
       />
     </div>
   );

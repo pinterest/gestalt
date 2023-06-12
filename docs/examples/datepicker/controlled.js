@@ -4,7 +4,7 @@ import { Box, Flex } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [dateValue, setDateValue] = useState<Date | void>(undefined);
+  const [dateValue, setDateValue] = useState<Date | null>(null);
 
   return (
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">

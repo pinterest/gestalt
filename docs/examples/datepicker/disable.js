@@ -4,8 +4,8 @@ import { Box, Flex } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [dateValueDisableFuture, setDateValueDisableFuture] = useState<void | Date>(undefined);
-  const [dateValueDisablePast, setDatealueDisablePast] = useState<void | Date>(undefined);
+  const [dateValueDisableFuture, setDateValueDisableFuture] = useState<Date | null>(null);
+  const [dateValueDisablePast, setDatealueDisablePast] = useState<Date | null>(null);
 
   return (
     <Flex alignItems="start" gap={4} height="100%" justifyContent="center" width="100%">
