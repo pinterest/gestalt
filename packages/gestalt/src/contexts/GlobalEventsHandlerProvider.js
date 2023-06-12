@@ -3,7 +3,7 @@ import { type Context, createContext, type Element, type Node, useContext } from
 
 export type NoopType = () => void;
 
-export type OnLinkNavigationType = ({|
+type OnLinkNavigationType = ({|
   href: string,
   target?: null | 'self' | 'blank',
 |}) => ?({|
@@ -30,7 +30,14 @@ type Props = {|
   /**
    * Handlers consumed by [Link](https://gestalt.pinterest.systems/web/link#External-handlers).
    */
-  linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
+  linkHandlers?: {|
+    onNavigation?: ({|
+      href: string,
+      target?: null | 'self' | 'blank',
+    |}) => ?({|
+      +event: SyntheticEvent<>,
+    |}) => void,
+  |},
 |};
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
