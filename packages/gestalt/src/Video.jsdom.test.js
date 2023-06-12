@@ -237,6 +237,6 @@ describe('Video loading', () => {
     };
 
     render(<Video {...props} />);
-    expect(screen.getByLabelText('Video Progress')).toBeDefined();
+    expect(screen.getByLabelText('Video progress')).toBeDefined();
   });
 });
