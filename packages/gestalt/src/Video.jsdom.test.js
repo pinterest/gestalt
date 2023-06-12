@@ -1,5 +1,5 @@
 // @flow strict
-import { getByLabelText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Video from './Video.js';
 
 describe('Video loading', () => {
