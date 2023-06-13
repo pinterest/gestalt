@@ -4,8 +4,8 @@ import { Box, Flex } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [startDate, setStartDate] = useState<Date | void>(undefined);
-  const [endDate, setEndDate] = useState<Date | void>(undefined);
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
   const endDateInput = useRef<null | HTMLInputElement>(null);
   const startDateInput = useRef<null | HTMLInputElement>(null);
 
