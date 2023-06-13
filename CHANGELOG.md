@@ -1,3 +1,9 @@
+## 113.0.1 (Jun 13, 2023)
+
+### Patch
+
+- Masonry: overhaul docs page ([#3009](https://github.com/pinterest/gestalt/pull/3009)) - [Preview link](https://deploy-preview-3009--gestalt.netlify.app?devexample=true)
+
 ## 113.0.0 (Jun 13, 2023)
 
 ### Major
