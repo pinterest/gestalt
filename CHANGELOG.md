@@ -1,3 +1,9 @@
+## 113.0.0 (Jun 13, 2023)
+
+### Major
+
+- DatePicker: fixes in Flow|TypeScript types ([#3007](https://github.com/pinterest/gestalt/pull/3007)) - [Preview link](https://deploy-preview-3007--gestalt.netlify.app?devexample=true)
+
 ## 112.7.3 (Jun 9, 2023)
 
 ### Patch
