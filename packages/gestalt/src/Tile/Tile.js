@@ -51,7 +51,7 @@ type Props = {|
   tooltip?: TooltipProps,
 |};
 
-function MaybeTooltip({
+export function MaybeTooltip({
   children,
   disabled,
   tooltip,
