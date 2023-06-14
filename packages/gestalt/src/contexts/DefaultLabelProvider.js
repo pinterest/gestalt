@@ -128,11 +128,11 @@ export const fallbackLabels: DefaultLabelContextType = {
   OverlayPanel: {
     accessibilityDismissButtonLabel: 'Dismiss overlay panel',
     dismissConfirmationMessage: 'Are you sure you want to dismiss?',
-    dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
+    dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone',
     dismissConfirmationPrimaryActionText: 'Yes, dismiss',
-    dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the overlay panel.',
+    dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the overlay panel',
     dismissConfirmationSecondaryActionText: 'No, go back',
-    dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
+    dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel',
   },
   SheetMobile: {
     accessibilityDismissButtonLabel: 'Dismiss bottom sheet',
@@ -143,7 +143,7 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityDismissButtonLabel: 'Dismiss side navigation',
   },
   SlimBanner: {
-    accessibilityDismissButtonLabel: 'Dismiss Banner',
+    accessibilityDismissButtonLabel: 'Dismiss banner',
     iconAccessibilityLabelError: 'Error',
     iconAccessibilityLabelInfo: 'Information',
     iconAccessibilityLabelRecommendation: 'Recommendation',

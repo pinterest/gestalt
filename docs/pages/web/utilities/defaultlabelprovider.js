@@ -86,7 +86,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'OverlayPanel',
       'prop': 'dismissConfirmationSubtext',
-      'label': 'You will lose all of your changes. This cannot be undone.',
+      'label': 'You will lose all of your changes. This cannot be undone',
     },
     {
       'component': 'OverlayPanel',
@@ -96,7 +96,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'OverlayPanel',
       'prop': 'dismissConfirmationPrimaryActionTextLabel',
-      'label': 'Yes, dismiss the overlay panel.',
+      'label': 'Yes, dismiss the overlay panel',
     },
     {
       'component': 'OverlayPanel',
@@ -106,7 +106,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'OverlayPanel',
       'prop': 'dismissConfirmationSecondaryActionTextLabel',
-      'label': 'No, go back to the overlay panel.',
+      'label': 'No, go back to the overlay panel',
     },
     {
       'component': 'SheetMobile',
@@ -131,7 +131,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       'component': 'SlimBanner',
       'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss Banner',
+      'label': 'Dismiss banner',
     },
     {
       'component': 'SlimBanner',

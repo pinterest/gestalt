@@ -33,13 +33,13 @@ const labels = {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss overlay panel'),
     dismissConfirmationMessage: myI18nTranslator('Are you sure you want to dismiss?'),
     dismissConfirmationSubtext: myI18nTranslator(
-      'You will lose all of your changes. This cannot be undone.',
+      'You will lose all of your changes. This cannot be undone',
     ),
     dismissConfirmationPrimaryActionText: myI18nTranslator('Yes, dismiss'),
-    dismissConfirmationPrimaryActionTextLabel: myI18nTranslator('Yes, dismiss the overlay panel.'),
+    dismissConfirmationPrimaryActionTextLabel: myI18nTranslator('Yes, dismiss the overlay panel'),
     dismissConfirmationSecondaryActionText: myI18nTranslator('No, go back'),
     dismissConfirmationSecondaryActionTextLabel: myI18nTranslator(
-      'No, go back to the overlay panel.',
+      'No, go back to the overlay panel',
     ),
   },
   SheetMobile: {
@@ -51,7 +51,7 @@ const labels = {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
   },
   SlimBanner: {
-    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
     iconAccessibilityLabelInfo: myI18nTranslator('Information'),
     iconAccessibilityLabelRecommendation: myI18nTranslator('Recommendation'),
