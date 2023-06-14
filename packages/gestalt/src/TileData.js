@@ -44,7 +44,7 @@ type TrendObject = {|
 
 type Props = {|
   /**
-   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette).
+   * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette).
    */
   color?: DataVisualizationColors,
   /**
