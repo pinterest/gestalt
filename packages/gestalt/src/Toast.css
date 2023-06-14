@@ -21,8 +21,7 @@
   margin-right: 32px;
 
   /*  Ensure that maxWidth isn't greater than viewport width (for small screens)  */
-  max-width: "min(716px, 100vw)";
-  width: 100%;
+  max-width: min(716px, 100vw);
 }
 
 @media (--g-sm) {
