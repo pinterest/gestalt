@@ -427,7 +427,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('No, go back to the overlay panel.', {
+      screen.getByLabelText('No, go back to the overlay panel', {
         exact: true,
       }),
     ).toBeVisible();
@@ -439,7 +439,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('Yes, dismiss the overlay panel.', {
+      screen.getByLabelText('Yes, dismiss the overlay panel', {
         exact: true,
       }),
     ).toBeVisible();
@@ -451,7 +451,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByText('You will lose all of your changes. This cannot be undone.', {
+      screen.getByText('You will lose all of your changes. This cannot be undone', {
         exact: true,
       }),
     ).toBeVisible();
