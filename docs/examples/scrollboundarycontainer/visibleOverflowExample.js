@@ -1,14 +1,14 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import {
-  Flex,
   Box,
-  ScrollBoundaryContainer,
-  Text,
-  Tooltip,
-  TapArea,
+  Flex,
   Icon,
   RadioGroup,
+  ScrollBoundaryContainer,
+  TapArea,
+  Text,
+  Tooltip,
 } from 'gestalt';
 
 export default function Example(): Node {

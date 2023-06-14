@@ -22,18 +22,18 @@ yarn codemod detectManualReplacement ~/path/to/your/code \
  *
  */
 
-import { type FileType, type ApiType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes.js';
 import {
-  getGestaltImport,
-  getComponentIdentifierByName,
-  getLocalImportedName,
-  filterJSXByTargetLocalName,
   filterJSXByAttribute,
+  filterJSXByTargetLocalName,
+  getComponentIdentifierByName,
+  getGestaltImport,
+  getLocalImportedName,
   initialize,
   isNullOrUndefined,
   saveToSource,
-  throwErrorMessageWithNodesData,
   throwErrorIfSpreadProps,
+  throwErrorMessageWithNodesData,
 } from './utils.js';
 
 type OptionsType = {|

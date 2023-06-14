@@ -1,20 +1,20 @@
 // @flow strict
-import { type Node, useCallback, useState, useEffect, useRef } from 'react';
+import { type Node, useCallback, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
-import focusStyles from './Focus.css';
-import modalStyles from './Modal.css';
 import Backdrop from './Backdrop.js';
-import Box from './Box.js';
-import Heading from './Heading.js';
-import { ESCAPE } from './keyCodes.js';
-import Text from './Text.js';
-import { FixedZIndex } from './zIndex.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import Box from './Box.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
+import focusStyles from './Focus.css';
+import Heading from './Heading.js';
+import { ESCAPE } from './keyCodes.js';
+import modalStyles from './Modal.css';
 import InternalScrollBoundaryContainer from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
 import FullPage from './SheetMobile/FullPage.js';
+import Text from './Text.js';
+import { FixedZIndex } from './zIndex.js';
 
 type Props = {|
   /**

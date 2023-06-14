@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import Flex from './Flex.js';
-import Modal from './Modal.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
+import Flex from './Flex.js';
+import Modal from './Modal.js';
 import ModalAlertAction from './ModalAlert/Action.js';
 import ModalAlertHeader from './ModalAlert/Header.js';
 

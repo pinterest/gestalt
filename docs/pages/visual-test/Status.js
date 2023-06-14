@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Status, Box } from 'gestalt';
+import { Box, Flex, Status } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (

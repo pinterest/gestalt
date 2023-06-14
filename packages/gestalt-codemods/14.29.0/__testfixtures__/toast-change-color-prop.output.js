@@ -1,5 +1,5 @@
 // @flow strict
-import { Box, Toast, Toast as Renamed } from 'gestalt';
+import { Box, Toast as Renamed,Toast } from 'gestalt';
 
 export default function TestBox() {
   return (

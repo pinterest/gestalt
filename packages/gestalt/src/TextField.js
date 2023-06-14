@@ -1,14 +1,14 @@
 // @flow strict
 import {
-  forwardRef,
-  type Element,
-  type Node,
   type AbstractComponent,
+  type Element,
+  forwardRef,
+  type Node,
   useEffect,
   useState,
 } from 'react';
-import Tag from './Tag.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import Tag from './Tag.js';
 import InternalTextField from './TextField/InternalTextField.js';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 

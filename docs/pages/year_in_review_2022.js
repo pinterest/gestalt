@@ -1,20 +1,20 @@
 // @flow strict
-import { type Node, useEffect, useState, Fragment } from 'react';
+import { Fragment, type Node, useEffect, useState } from 'react';
+import Lottie from 'lottie-react';
+import Link from 'next/link';
 import {
   Box,
   Button,
+  ColorSchemeProvider,
+  CompositeZIndex,
+  FixedZIndex,
   Flex,
   Heading,
-  ColorSchemeProvider,
   Icon,
-  Text,
-  FixedZIndex,
-  CompositeZIndex,
-  useReducedMotion,
   Link as GestaltLink,
+  Text,
+  useReducedMotion,
 } from 'gestalt';
-import Lottie from 'lottie-react';
-import Link from 'next/link';
 import GestaltLogo from '../docs-components/GestaltLogo.js';
 // SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';

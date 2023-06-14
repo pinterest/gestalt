@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useEffect, useRef, type Node } from 'react';
-import { Flex, Box, ScrollBoundaryContainer, Text, Button, Layer, Popover } from 'gestalt';
+import { type Node, useEffect, useRef, useState } from 'react';
+import { Box, Button, Flex, Layer, Popover, ScrollBoundaryContainer, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);

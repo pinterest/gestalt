@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { Table, Flex, Text, Box } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Flex, Table, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [expandedRows, setExpandedRows] = useState(['row1']);

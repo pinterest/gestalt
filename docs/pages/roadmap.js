@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Text, Link } from 'gestalt';
+import { Box, Flex, Link, Text } from 'gestalt';
+import roadmapData from './RoadmapData.json';
 import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../docs-components/MainSection.js';
 import Page from '../docs-components/Page.js';
 import PageHeader from '../docs-components/PageHeader.js';
-import roadmapData from './RoadmapData.json';
 
 export type Platform = 'Android' | 'iOS' | 'Mobile web' | 'Web';
 export type Status = 'inProgress' | 'problem' | 'ok' | 'unstarted';

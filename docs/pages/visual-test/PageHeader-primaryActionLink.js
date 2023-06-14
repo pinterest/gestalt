@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { PageHeader, Text, Link, Box, Dropdown } from 'gestalt';
+import { Box, Dropdown, Link, PageHeader, Text } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (

@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
+import VideoPlayhead from './Playhead.js';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 import Icon from '../Icon.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 import styles from '../Video.css';
-import VideoPlayhead from './Playhead.js';
 
 type Props = {|
   captionsButton: 'enabled' | 'disabled' | null,

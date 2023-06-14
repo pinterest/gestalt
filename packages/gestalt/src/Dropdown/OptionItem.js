@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, Fragment, type Node, type AbstractComponent } from 'react';
+import { type AbstractComponent, forwardRef, Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Badge from '../Badge.js';

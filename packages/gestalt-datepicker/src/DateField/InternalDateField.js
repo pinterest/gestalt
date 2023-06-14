@@ -1,14 +1,14 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
 // @flow strict-local
-import { useState, forwardRef, type Node } from 'react';
+import { forwardRef, type Node, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
-import { Box, Text, Flex, Status, TapArea, Pog } from 'gestalt';
+import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
 import styles from '../DateField.css';
 
 const ENTER: number = 13;

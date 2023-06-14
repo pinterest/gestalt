@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, Fragment, type Element, type Node } from 'react';
+import { Children, type Element, Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
 import Flex from './Flex.js';

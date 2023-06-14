@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { type Indexable } from './zIndex.js';
-import { useColorScheme, type Theme } from './contexts/ColorSchemeProvider.js';
+import { type Theme, useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import Tile from './Tile/Tile.js';
+import { type Indexable } from './zIndex.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,

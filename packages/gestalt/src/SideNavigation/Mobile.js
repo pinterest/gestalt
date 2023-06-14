@@ -1,6 +1,7 @@
 // @flow strict
-import { Fragment, useRef, useEffect, type Node } from 'react';
+import { Fragment, type Node, useEffect, useRef } from 'react';
 import classnames from 'classnames';
+import getChildrenToArray from './getChildrenToArray.js';
 import borderStyles from '../Borders.css';
 import Box from '../Box.js';
 import { useSideNavigation } from '../contexts/SideNavigationProvider.js';
@@ -10,7 +11,6 @@ import Heading from '../Heading.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 import styles from '../SideNavigation.css';
 import { type Props as SideNavigationProps } from '../SideNavigation.js';
-import getChildrenToArray from './getChildrenToArray.js';
 
 type Props = {| ...SideNavigationProps, id: string |};
 

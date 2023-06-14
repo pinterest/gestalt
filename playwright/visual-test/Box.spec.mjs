@@ -1,5 +1,5 @@
 // @flow strict
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('Box visual regression check', async ({ page }) => {
   await page.goto('/visual-test/Box');

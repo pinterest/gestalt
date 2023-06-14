@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { TileData, Flex } from 'gestalt';
+import { Flex, TileData } from 'gestalt';
 
 export default function Example(): Node {
   const [selectedId, setSelectedId] = useState<string | void>('01');

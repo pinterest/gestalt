@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type AbstractComponent, type Node, useState } from 'react';
+import { type AbstractComponent, forwardRef, type Node, useState } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import TapArea from './TapArea.js';

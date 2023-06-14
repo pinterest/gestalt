@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node as ReactNode, Component } from 'react';
-import Contents, { type Role } from './Contents.js';
-import { ESCAPE } from './keyCodes.js';
+import { Component, type Node as ReactNode } from 'react';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
+import Contents, { type Role } from './Contents.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
+import { ESCAPE } from './keyCodes.js';
 import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
 import { getTriggerRect } from './utils/positioningUtils.js';
 

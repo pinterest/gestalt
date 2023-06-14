@@ -14,7 +14,7 @@ import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
 import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 import MarkdownPage from '../docs-components/MarkdownPage.js';
-import { getDocByRoute, getAllMarkdownPosts } from '../utils/mdHelper.js';
+import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper.js';
 
 type MDXRemoteSerializeResult = {|
   compiledSource: string,

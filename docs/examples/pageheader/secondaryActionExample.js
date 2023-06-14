@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, useState, useRef, type Node } from 'react';
+import { Fragment, type Node, useRef, useState } from 'react';
 import { Button, Divider, Dropdown, Flex, IconButton, PageHeader, Tooltip } from 'gestalt';
 
 export default function SecondaryActionsExample(): Node {

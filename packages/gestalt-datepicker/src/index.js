@@ -2,4 +2,4 @@
 import DateField from './DateField.js';
 import DatePicker from './DatePicker.js';
 
-export { DatePicker, DateField };
+export { DateField, DatePicker };

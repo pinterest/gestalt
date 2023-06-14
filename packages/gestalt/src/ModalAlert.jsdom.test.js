@@ -1,7 +1,7 @@
 // @flow strict
 import { render } from '@testing-library/react';
-import ModalAlert from './ModalAlert.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
+import ModalAlert from './ModalAlert.js';
 
 describe('ModalAlert', () => {
   test('Desktop ModalAlert renders (default)', () => {

@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { IconButtonFloating, Dropdown, Box, Flex, Image, Mask } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Box, Dropdown, Flex, IconButtonFloating, Image, Mask } from 'gestalt';
 
 const pins = [
   {

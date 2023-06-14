@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node, useCallback } from 'react';
+import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import { LiveProvider, LiveError, LivePreview } from 'react-live';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import theme from './atomDark.js';
+import OpenSandboxButton from './buttons/OpenSandboxButton.js';
 import ExampleCode from './ExampleCode.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
 import Markdown from './Markdown.js';
-import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
 type Props = {|
   cardSize?: 'sm' | 'md' | 'lg',

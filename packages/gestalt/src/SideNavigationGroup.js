@@ -1,18 +1,18 @@
 // @flow strict
-import { useState, useId, type Element, type Node } from 'react';
+import { type Element, type Node, useId, useState } from 'react';
 import classnames from 'classnames';
-import styles from './SideNavigation.css';
-import Dropdown from './Dropdown.js';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import TapArea from './TapArea.js';
-import { type Indexable } from './zIndex.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { useNesting, NestingProvider } from './contexts/NestingProvider.js';
+import { NestingProvider, useNesting } from './contexts/NestingProvider.js';
 import { useSideNavigation } from './contexts/SideNavigationProvider.js';
+import Dropdown from './Dropdown.js';
 import icons from './icons/index.js';
+import styles from './SideNavigation.css';
 import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import SideNavigationGroupContent from './SideNavigation/GroupContent.js';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile.js';
+import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
+import TapArea from './TapArea.js';
+import { type Indexable } from './zIndex.js';
 
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';

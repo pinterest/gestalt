@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { ColorSchemeProvider, Masonry, Box, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, Masonry, Text } from 'gestalt';
 
 const dataObject = [
   { height: 100, name: 'Pin 1' },

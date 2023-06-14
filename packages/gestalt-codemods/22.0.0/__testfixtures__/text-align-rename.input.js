@@ -1,5 +1,5 @@
 // @flow strict
-import { Box, Heading, Modal, Text, Text as RenamedText } from 'gestalt';
+import { Box, Heading, Modal, Text as RenamedText,Text } from 'gestalt';
 
 export default function TestBox() {
   return (

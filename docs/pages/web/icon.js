@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Icon } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { overrideTypes, type DocGen } from '../../docs-components/docgen.js';
+import docgen, { type DocGen, overrideTypes } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';

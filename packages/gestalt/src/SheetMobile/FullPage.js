@@ -1,6 +1,8 @@
 // @flow strict
-import { type Node, type ElementConfig, useEffect, useId } from 'react';
+import { type ElementConfig, type Node, useEffect, useId } from 'react';
 import classnames from 'classnames';
+import ContentContainer from './ContentContainer.js';
+import Header from './Header.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
@@ -11,8 +13,6 @@ import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
 import sheetMobileStyles from '../SheetMobile.css';
-import ContentContainer from './ContentContainer.js';
-import Header from './Header.js';
 
 type OnClickType = ({|
   event:

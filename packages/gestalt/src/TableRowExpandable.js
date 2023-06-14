@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node, Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
+import { Children, cloneElement, Fragment, type Node, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
-import styles from './Table.css';
 import Box from './Box.js';
-import IconButton from './IconButton.js';
-import TableCell from './TableCell.js';
 import { useTableContext } from './contexts/TableContext.js';
+import IconButton from './IconButton.js';
+import styles from './Table.css';
 import getChildrenCount from './Table/getChildrenCount.js';
+import TableCell from './TableCell.js';
 
 type Props = {|
   /**

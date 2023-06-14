@@ -1,16 +1,18 @@
 // @flow strict
 import {
-  type Node,
   type Element,
   type ElementConfig,
+  type Node,
   type Ref,
+  useId,
   useRef,
   useState,
-  useId,
 } from 'react';
-import styles from './HelpButton.css';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
+import styles from './HelpButton.css';
 import Icon from './Icon.js';
 import { ESCAPE, TAB } from './keyCodes.js';
 import Layer from './Layer.js';
@@ -19,9 +21,7 @@ import Popover from './Popover.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
-import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex.js';
 
 type LinkType = {|
   accessibilityLabel?: string,

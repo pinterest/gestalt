@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
+import styles from './FormErrorMessage.css';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Status from '../Status.js';
 import Text from '../Text.js';
-import styles from './FormErrorMessage.css';
 
 type Props = {|
   id: string,

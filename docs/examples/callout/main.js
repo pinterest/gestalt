@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Callout, Flex, Box } from 'gestalt';
+import { Box, Callout, Flex } from 'gestalt';
 
 export default function ResponsiveExample(): Node {
   return (

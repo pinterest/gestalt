@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Link, Text } from 'gestalt';
 import { useRouter } from 'next/router';
+import { Box, Link, Text } from 'gestalt';
 import { useNavigationContext } from './navigationContext.js';
 
 type Props = {|

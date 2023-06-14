@@ -1,22 +1,22 @@
 // @flow strict
-import { useEffect, useState, Fragment, type Node } from 'react';
+import { Fragment, type Node, useEffect, useState } from 'react';
 import {
-  SandpackProvider,
+  SandpackCodeEditor,
   SandpackLayout,
   SandpackPreview,
-  SandpackCodeEditor,
+  SandpackProvider,
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { Box, Flex } from 'gestalt';
 import { useAppContext } from './appContext.js';
-import clipboardCopy from './clipboardCopy.js';
-import DevelopmentEditor from './DevelopmentEditor.js';
 import CodeExampleDarkModeButton from './buttons/CodeExampleDarkModeButton.js';
 import CodeExampleTextDirectionButton from './buttons/CodeExampleTextDirectionButton.js';
 import CopyCodeButton from './buttons/CopyCodeButton.js';
 import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
 import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
+import clipboardCopy from './clipboardCopy.js';
 import { useLocalFiles } from './contexts/LocalFilesProvider.js';
+import DevelopmentEditor from './DevelopmentEditor.js';
 
 const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;

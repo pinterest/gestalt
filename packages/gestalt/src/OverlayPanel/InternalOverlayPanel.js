@@ -1,9 +1,10 @@
 // @flow strict
 
-import { type Node, useCallback, useState, useLayoutEffect, useEffect, useRef, useId } from 'react';
+import { type Node, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
+import ConfirmationPopover from './ConfirmationPopover.js';
 import animation from '../animation/animation.css';
-import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
+import { ANIMATION_STATE, useAnimation } from '../animation/AnimationContext.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
@@ -19,7 +20,6 @@ import overlayPanelStyles from '../OverlayPanel.css';
 import InternalScrollBoundaryContainer from '../ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 import { FixedZIndex } from '../zIndex.js';
-import ConfirmationPopover from './ConfirmationPopover.js';
 
 export const PADDING_BOINTS = 6;
 

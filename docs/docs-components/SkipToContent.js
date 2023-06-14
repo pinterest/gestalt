@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useCallback, useEffect, type Node, Fragment } from 'react';
-import { Box, Text, TapArea, Flex } from 'gestalt';
+import { Fragment, type Node, useCallback, useEffect, useState } from 'react';
+import { Box, Flex, TapArea, Text } from 'gestalt';
 import { SKIP_TO_CONTENT_ZINDEX } from './z-indices.js';
 
 /**

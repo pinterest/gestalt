@@ -1,30 +1,30 @@
 // @flow strict
 import {
+  type AbstractComponent,
+  type Element,
+  type ElementConfig,
   forwardRef,
+  type Node,
+  type Ref,
   useImperativeHandle,
   useRef,
-  type AbstractComponent,
-  type Node,
-  type Element,
-  type Ref,
-  type ElementConfig,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
+import Box from './Box.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import focusStyles from './Focus.css';
+import getRoundingClassName from './getRoundingClassName.js';
+import Icon from './Icon.js';
 import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
-import textStyles from './Typography.css';
-import Box from './Box.js';
-import getRoundingClassName from './getRoundingClassName.js';
-import Icon from './Icon.js';
 import Text from './Text.js';
+import textStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 
 const externalLinkIconMap = {
   '100': 12,

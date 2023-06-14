@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Text, useColorScheme } from 'gestalt';
-import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
+import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 type Props = {|
   fullTokenName: string,

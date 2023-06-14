@@ -3,9 +3,9 @@ import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
-import ModuleExpandable from './ModuleExpandable.js';
 import icons from './icons/index.js';
 import ModuleTitle from './Module/Title.js';
+import ModuleExpandable from './ModuleExpandable.js';
 
 type BadgeType = {|
   text: string,

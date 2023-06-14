@@ -1,5 +1,5 @@
 // @flow strict
-import { Box, Icon, IconButton, Pog, Button, Icon as RenamedIcon } from 'gestalt';
+import { Box, Button, Icon, Icon as RenamedIcon,IconButton, Pog } from 'gestalt';
 
 export default function TestBox() {
   const a = true;

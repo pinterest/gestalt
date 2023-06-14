@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Box, Flex, Button } from 'gestalt';
+import { Box, Button, Flex, Text } from 'gestalt';
 
 type Margin =
   | -12
