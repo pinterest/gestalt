@@ -1,6 +1,14 @@
 // @flow strict
 import { useCallback, useMemo, type Node, useRef, useState } from 'react';
-import { Button, Divider, Dropdown, Flex, GlobalEventsHandlerProvider, RadioGroup } from 'gestalt';
+import {
+  Button,
+  Divider,
+  Dropdown,
+  Flex,
+  GlobalEventsHandlerProvider,
+  RadioGroup,
+  Link,
+} from 'gestalt';
 
 export default function Example(): Node {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
@@ -8,7 +16,12 @@ export default function Example(): Node {
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const useOnNavigation = useCallback(
-    ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
+    ({
+      href,
+    }: {|
+      href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
+      target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+    |}) => {
       const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert

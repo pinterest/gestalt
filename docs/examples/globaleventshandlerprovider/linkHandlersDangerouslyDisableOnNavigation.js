@@ -1,6 +1,6 @@
 // @flow strict
 import { useMemo, useCallback, type Node, useRef, useState } from 'react';
-import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Text } from 'gestalt';
+import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Text, Link } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,12 @@ export default function Example(): Node {
   };
 
   const useOnNavigation = useCallback(
-    ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
+    ({
+      href,
+    }: {|
+      href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
+      target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+    |}) => {
       const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert

@@ -199,7 +199,7 @@ type Props = {|
    */
   bgColor?: BgColor,
   /**
-   * If your app requires client navigation, be sure to use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
+   * If your app requires client navigation, be sure to use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
    */
   onChange: OnChangeHandler,
   /**

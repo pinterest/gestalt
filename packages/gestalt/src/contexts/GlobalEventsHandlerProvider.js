@@ -26,7 +26,7 @@ type Props = {|
   /**
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
-  sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
+  sheetMobileHandlers?: {| onOpen?: () => void, onClose?: () => void |},
   /**
    * Handlers consumed by [Link](https://gestalt.pinterest.systems/web/link#External-handlers).
    */

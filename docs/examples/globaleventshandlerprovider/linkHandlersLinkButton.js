@@ -19,7 +19,12 @@ export default function Example(): Node {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
 
   const useOnNavigation = useCallback(
-    ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
+    ({
+      href,
+    }: {|
+      href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
+      target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+    |}) => {
       const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert

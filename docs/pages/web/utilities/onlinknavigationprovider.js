@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             helperLink={{
               text: 'View GlobalEventsHandlerProvider',
               accessibilityLabel: 'View GlobalEventsHandlerProvider documentation',
-              href: '/web/utilities/globaleventshandlerprovider',
+              href: '/web/utilities/globaleventshandlerprovider#Link-handlers',
               onClick: () => {},
             }}
           />

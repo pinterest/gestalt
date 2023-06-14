@@ -512,7 +512,7 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
 **[Text](/web/text)**
 Text provides Link with style: size, color, and font.
 
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider)**
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
 GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
 **[Button](/web/button)**

@@ -134,7 +134,7 @@ export default function ActivationCardPage({
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider)**
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
 GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
       `}
         />

@@ -337,7 +337,7 @@ Handlers:
 - onOpen: executed when SheetMobile opens
 - onClose: executed when SheetMobile closes
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider) for more information.`}
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#SheetMobile-handlers) for more information.`}
           columns={2}
         >
           <MainSection.Card
