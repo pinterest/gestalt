@@ -1,3 +1,9 @@
+## 114.0.0 (Jun 14, 2023)
+
+### Major
+
+- DefaultLabelProvider: Adding new default labels ([#2970](https://github.com/pinterest/gestalt/pull/2970)) - [Preview link](https://deploy-preview-2970--gestalt.netlify.app?devexample=true)
+
 ## 113.0.2 (Jun 14, 2023)
 
 ### Patch
