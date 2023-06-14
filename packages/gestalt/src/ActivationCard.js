@@ -7,6 +7,7 @@ import Button from './Button.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Text from './Text.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 const STATUS_ICONS = {
   notStarted: undefined,
@@ -228,6 +229,7 @@ export default function ActivationCard({
   title,
 }: Props): Node {
   const isCompleted = status === 'complete';
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 
   return (
     <Box
@@ -246,7 +248,13 @@ export default function ActivationCard({
     >
       {isCompleted ? (
         <CompletedCard
-          dismissButton={dismissButton}
+          dismissButton={
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
+          }
           message={message}
           status={status}
           statusMessage={statusMessage}
@@ -254,7 +262,13 @@ export default function ActivationCard({
         />
       ) : (
         <UncompletedCard
-          dismissButton={dismissButton}
+          dismissButton={
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
+          }
           link={link}
           message={message}
           status={status}

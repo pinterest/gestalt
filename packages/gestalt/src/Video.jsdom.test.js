@@ -1,16 +1,6 @@
 // @flow strict
-import { getByLabelText, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Video from './Video.js';
-
-const A11Y_LABELS = Object.freeze({
-  accessibilityMaximizeLabel: 'Maximize',
-  accessibilityMinimizeLabel: 'Minimize',
-  accessibilityMuteLabel: 'Mute',
-  accessibilityPauseLabel: 'Pause',
-  accessibilityPlayLabel: 'Play',
-  accessibilityProgressBarLabel: 'Progress bar',
-  accessibilityUnmuteLabel: 'Unmute',
-});
 
 describe('Video loading', () => {
   beforeEach(() => {
@@ -19,7 +9,6 @@ describe('Video loading', () => {
 
   it('Does not load when string src does not change', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -37,7 +26,6 @@ describe('Video loading', () => {
 
   it('Does not load when array src does not change', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -60,7 +48,6 @@ describe('Video loading', () => {
 
   it('Loads when string src changes to new string src', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -78,7 +65,6 @@ describe('Video loading', () => {
 
   it('Loads when string src changes to new array src', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -106,7 +92,6 @@ describe('Video loading', () => {
 
   it('Loads when array src changes to new string src', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -129,7 +114,6 @@ describe('Video loading', () => {
 
   it('Loads when array src changes to new array src', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -162,7 +146,6 @@ describe('Video loading', () => {
 
   it('Loads when array src changes to new length array src', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -199,7 +182,6 @@ describe('Video loading', () => {
 
   it('DisableRemotePlayback is set on <video />', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -221,7 +203,6 @@ describe('Video loading', () => {
 
   it('DisableRemotePlayback is not set on <video />', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -242,7 +223,6 @@ describe('Video loading', () => {
 
   it('Progress bar label is set', () => {
     const props = {
-      ...A11Y_LABELS,
       onPlay: () => {},
       onPlayError: () => {},
       aspectRatio: 1,
@@ -256,8 +236,7 @@ describe('Video loading', () => {
       ],
     };
 
-    const { container } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByLabelText(container, 'Progress bar')).toBeDefined();
+    render(<Video {...props} />);
+    expect(screen.getByLabelText('Video progress')).toBeDefined();
   });
 });
