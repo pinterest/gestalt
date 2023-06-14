@@ -89,7 +89,7 @@ The editorial Card.Header is the same as the default Card.Header, the difference
 ### With image
 The image variant of the Card.Header can contain a variety of image representations. The image can represent a Pin, a Product, an avatar & follow button or a topic.
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/0c/f7/05/0cf7052f0f442094909beeefc6e80474.png" noPadding color="background-elevation-accent" alt="Example of a Card.Header with an image next to the pre-text and heading."/>/>
+<ImgContainer src="https://i.pinimg.com/originals/0c/f7/05/0cf7052f0f442094909beeefc6e80474.png" noPadding color="background-elevation-accent" alt="Example of a Card.Header with an image next to the pre-text and heading."/>
 <br/>
 
 ## Dark mode
