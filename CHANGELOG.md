@@ -1,3 +1,9 @@
+## 113.0.2 (Jun 14, 2023)
+
+### Patch
+
+- Docs: fix empty aliases bug ([#3011](https://github.com/pinterest/gestalt/pull/3011)) - [Preview link](https://deploy-preview-3011--gestalt.netlify.app?devexample=true)
+
 ## 113.0.1 (Jun 13, 2023)
 
 ### Patch
