@@ -1,3 +1,9 @@
+## 114.0.1 (Jun 14, 2023)
+
+### Patch
+
+- Toast: CSS fix in width ([#3010](https://github.com/pinterest/gestalt/pull/3010)) - [Preview link](https://deploy-preview-3010--gestalt.netlify.app?devexample=true)
+
 ## 114.0.0 (Jun 14, 2023)
 
 ### Major
