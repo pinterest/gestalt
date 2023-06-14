@@ -158,7 +158,7 @@ export default function PageHeader({
           <Flex direction="column" gap={6}>
             <Flex direction="column" gap={1}>
               {description && <Markdown text={description} />}
-              {aliases && (
+              {aliases && aliases.length > 0 && (
                 // using h2 to indicate to Algolia search that this is important, but don't want native browser styling
                 <h2 className="reset">
                   <Text italic>also known as {aliases.join(', ')}</Text>
