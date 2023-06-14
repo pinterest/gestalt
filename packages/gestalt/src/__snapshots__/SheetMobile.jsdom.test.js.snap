@@ -81,7 +81,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
             >
               <button
                 aria-controls=":r1:"
-                aria-label="Close bottom sheet"
+                aria-label="Dismiss bottom sheet"
                 className="parentButton"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -242,7 +242,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
             >
               <button
                 aria-controls=":r0:"
-                aria-label="Close bottom sheet"
+                aria-label="Dismiss bottom sheet"
                 className="parentButton"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -364,7 +364,7 @@ exports[`SheetMobile renders correctly full size 1`] = `
             >
               <button
                 aria-controls=":r2:"
-                aria-label="Close bottom sheet"
+                aria-label="Dismiss bottom sheet"
                 className="parentButton"
                 onBlur={[Function]}
                 onClick={[Function]}

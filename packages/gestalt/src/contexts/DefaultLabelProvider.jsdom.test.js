@@ -16,31 +16,57 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
+          ActivationCard: {
+            accessibilityDismissButtonLabel: 'Dismiss',
+          },
+          Callout: {
+            accessibilityDismissButtonLabel: 'Dismiss Banner',
+            iconAccessibilityLabelError: 'Error',
+            iconAccessibilityLabelInfo: 'Information',
+            iconAccessibilityLabelRecommendation: 'Recommendation',
+            iconAccessibilityLabelWarning: 'Warning',
+            iconAccessibilityLabelSuccess: 'Success',
+          },
           ComboBox: {
+            noResultText: 'No results',
             accessibilityClearButtonLabel: 'Clear input',
           },
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
           },
           Modal: {
-            accessibilityDismissButtonLabel: 'Close modal',
+            accessibilityDismissButtonLabel: 'Dismiss modal',
           },
           Popover: {
-            accessibilityDismissButtonLabel: 'Close popover',
+            accessibilityDismissButtonLabel: 'Dismiss popover',
           },
           OverlayPanel: {
-            accessibilityDismissButtonLabel: 'Close overlay panel',
+            accessibilityDismissButtonLabel: 'Dismiss overlay panel',
             dismissConfirmationMessage: 'Are you sure you want to dismiss?',
             dismissConfirmationSubtext: 'You will lose all of your changes. This cannot be undone.',
-            dismissConfirmationPrimaryActionText: 'Yes, dismiss.',
+            dismissConfirmationPrimaryActionText: 'Yes, dismiss',
             dismissConfirmationPrimaryActionTextLabel: 'Yes, dismiss the overlay panel.',
-            dismissConfirmationSecondaryActionText: 'No, go back.',
+            dismissConfirmationSecondaryActionText: 'No, go back',
             dismissConfirmationSecondaryActionTextLabel: 'No, go back to the overlay panel.',
           },
           SheetMobile: {
-            accessibilityDismissButtonLabel: 'Close bottom sheet',
+            accessibilityDismissButtonLabel: 'Dismiss bottom sheet',
             accessibilityGrabberLabel: 'Grabber',
             accessibilityLabel: 'Bottom sheet',
+          },
+          SideNavigation: {
+            accessibilityDismissButtonLabel: 'Dismiss side navigation',
+          },
+          SlimBanner: {
+            accessibilityDismissButtonLabel: 'Dismiss Banner',
+            iconAccessibilityLabelError: 'Error',
+            iconAccessibilityLabelInfo: 'Information',
+            iconAccessibilityLabelRecommendation: 'Recommendation',
+            iconAccessibilityLabelWarning: 'Warning',
+            iconAccessibilityLabelSuccess: 'Success',
+          },
+          Spinner: {
+            accessibilityLabel: 'Loading',
           },
           Tag: {
             accessibilityErrorIconLabel: 'Error',
@@ -55,10 +81,24 @@ describe('useDefaultLabelContext', () => {
             tooltipMessage: 'Click to learn more',
           },
           Toast: {
-            accessibilityDismissButtonLabel: 'Close toast',
+            accessibilityDismissButtonLabel: 'Dismiss toast',
             accessibilityIconSuccessLabel: 'Success message',
             accessibilityIconErrorLabel: 'Error message',
             accessibilityProcessingLabel: 'Processing message',
+          },
+          Upsell: {
+            accessibilityDismissButtonLabel: 'Dismiss banner',
+          },
+          Video: {
+            accessibilityMaximizeLabel: 'Maximize',
+            accessibilityMinimizeLabel: 'Minimize',
+            accessibilityMuteLabel: 'Mute',
+            accessibilityPauseLabel: 'Pause',
+            accessibilityPlayLabel: 'Play',
+            accessibilityProgressLabel: 'Video progress',
+            accessibilityUnmuteLabel: 'Unmute',
+            accessibilityHideCaptionsLabel: 'Hide captions',
+            accessibilityShowCaptionsLabel: 'Show captions',
           },
         }}
       >

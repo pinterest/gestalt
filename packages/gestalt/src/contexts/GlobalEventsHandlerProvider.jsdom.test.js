@@ -42,7 +42,7 @@ describe('Dropdown.Item', () => {
 
     expect(onOpen).toHaveBeenCalled();
     act(() => {
-      screen.getByLabelText('Close bottom sheet').click();
+      screen.getByLabelText('Dismiss bottom sheet').click();
     });
 
     expect(onClose).toHaveBeenCalled();

@@ -8,16 +8,18 @@ import IconButton from './IconButton.js';
 import Link from './Link.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type DismissButtonType = {|
-  accessibilityLabel: string,
+  accessibilityLabel?: string,
   onDismiss: () => void,
 |};
 
 function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SlimBanner');
   return (
     <IconButton
-      accessibilityLabel={accessibilityLabel}
+      accessibilityLabel={accessibilityLabel ?? accessibilityDismissButtonLabel}
       icon="cancel"
       iconColor="darkGray"
       onClick={onDismiss}
@@ -172,7 +174,35 @@ export default function SlimBanner({
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
+  const {
+    iconAccessibilityLabelError,
+    iconAccessibilityLabelInfo,
+    iconAccessibilityLabelRecommendation,
+    iconAccessibilityLabelSuccess,
+    iconAccessibilityLabelWarning,
+  } = useDefaultLabelContext('SlimBanner');
 
+  const getDefaultIconAccessibilityLabel = () => {
+    switch (type) {
+      case 'success':
+      case 'successBare':
+        return iconAccessibilityLabelSuccess;
+      case 'info':
+      case 'infoBare':
+        return iconAccessibilityLabelInfo;
+      case 'recommendation':
+      case 'recommendationBare':
+        return iconAccessibilityLabelRecommendation;
+      case 'warning':
+      case 'warningBare':
+        return iconAccessibilityLabelWarning;
+      case 'error':
+      case 'errorBare':
+        return iconAccessibilityLabelError;
+      default:
+        return '';
+    }
+  };
   // Buttons not allowed on compact SlimBanners
   const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
@@ -195,10 +225,10 @@ export default function SlimBanner({
         flex="grow"
         width="100%"
       >
-        {!isDefault && iconAccessibilityLabel && (
+        {!isDefault && (
           <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
             <Icon
-              accessibilityLabel={iconAccessibilityLabel}
+              accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={iconColor}
               icon={icon}
               size={16}

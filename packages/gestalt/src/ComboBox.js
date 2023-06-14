@@ -74,7 +74,7 @@ type Props = {|
   /**
    * The text shown when the input value returns no matches.
    */
-  noResultText: string,
+  noResultText?: string,
   /**
    * Callback when you focus outside the component.
    */
@@ -191,8 +191,10 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   }: Props,
   ref,
 ): Node {
-  const { accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault } =
-    useDefaultLabelContext('ComboBox');
+  const {
+    accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault,
+    noResultText: noResultTextDefault,
+  } = useDefaultLabelContext('ComboBox');
 
   // ==== REFS ====
 
@@ -520,7 +522,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
               ) : (
                 <Box width="100%" paddingX={2} paddingY={4}>
                   <Text lineClamp={1} color="subtle">
-                    {noResultText}
+                    {noResultText ?? noResultTextDefault}
                   </Text>
                 </Box>
               )}

@@ -108,6 +108,6 @@ describe('Modal', () => {
     expect(screen.getByText('Next')).toBeVisible();
     expect(screen.getAllByRole('button')).toHaveLength(3);
     expect(screen.getByLabelText('Bottom sheet')).toBeVisible();
-    expect(screen.getByLabelText('Close bottom sheet')).toBeVisible();
+    expect(screen.getByLabelText('Dismiss bottom sheet')).toBeVisible();
   });
 });

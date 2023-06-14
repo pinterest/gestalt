@@ -9,6 +9,7 @@ import IconButton from './IconButton.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
@@ -32,7 +33,7 @@ type Props = {|
    * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/callout#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  dismissButton?: {| accessibilityLabel: string, onDismiss: () => void |},
+  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void |},
   /**
    * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */
@@ -165,6 +166,31 @@ export default function Callout({
   title,
 }: Props): Node {
   const responsiveMinWidth = useResponsiveMinWidth();
+  const {
+    accessibilityDismissButtonLabel,
+    iconAccessibilityLabelError,
+    iconAccessibilityLabelInfo,
+    iconAccessibilityLabelRecommendation,
+    iconAccessibilityLabelSuccess,
+    iconAccessibilityLabelWarning,
+  } = useDefaultLabelContext('Callout');
+
+  const getDefaultIconAccessibilityLabel = () => {
+    switch (type) {
+      case 'success':
+        return iconAccessibilityLabelSuccess;
+      case 'info':
+        return iconAccessibilityLabelInfo;
+      case 'recommendation':
+        return iconAccessibilityLabelRecommendation;
+      case 'warning':
+        return iconAccessibilityLabelWarning;
+      case 'error':
+        return iconAccessibilityLabelError;
+      default:
+        return '';
+    }
+  };
 
   return (
     <Box
@@ -190,7 +216,7 @@ export default function Callout({
         >
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
-              accessibilityLabel={iconAccessibilityLabel}
+              accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
               icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
               size={32}
@@ -236,7 +262,7 @@ export default function Callout({
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
-            accessibilityLabel={dismissButton.accessibilityLabel}
+            accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}
