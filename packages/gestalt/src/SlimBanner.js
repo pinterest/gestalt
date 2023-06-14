@@ -2,13 +2,13 @@
 import { Children, type Element, Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Link from './Link.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 type DismissButtonType = {|
   accessibilityLabel?: string,

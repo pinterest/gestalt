@@ -4,12 +4,12 @@ import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
 import styles from './Callout.css';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
