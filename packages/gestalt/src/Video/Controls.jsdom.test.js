@@ -9,15 +9,6 @@ test('VideoControls handles play events', () => {
   >();
   const { getByLabelText } = render(
     <VideoControls
-      accessibilityHideCaptionsLabel="Hide captions"
-      accessibilityShowCaptionsLabel="Show captions"
-      accessibilityMaximizeLabel="Maximize"
-      accessibilityMinimizeLabel="Minimize"
-      accessibilityMuteLabel="Mute"
-      accessibilityPauseLabel="Pause"
-      accessibilityPlayLabel="Play"
-      accessibilityProgressBarLabel="Progress bar"
-      accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
       duration={67.3}
@@ -46,15 +37,6 @@ test('VideoControls handles pause events', () => {
   >();
   const { getByLabelText } = render(
     <VideoControls
-      accessibilityHideCaptionsLabel="Hide captions"
-      accessibilityShowCaptionsLabel="Show captions"
-      accessibilityMaximizeLabel="Maximize"
-      accessibilityMinimizeLabel="Minimize"
-      accessibilityMuteLabel="Mute"
-      accessibilityPauseLabel="Pause"
-      accessibilityPlayLabel="Play"
-      accessibilityProgressBarLabel="Progress bar"
-      accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
       duration={67.3}
@@ -83,15 +65,6 @@ test('VideoControls handles volume events', () => {
   >();
   const { getByLabelText } = render(
     <VideoControls
-      accessibilityHideCaptionsLabel="Hide captions"
-      accessibilityShowCaptionsLabel="Show captions"
-      accessibilityMaximizeLabel="Maximize"
-      accessibilityMinimizeLabel="Minimize"
-      accessibilityMuteLabel="Mute"
-      accessibilityPauseLabel="Pause"
-      accessibilityPlayLabel="Play"
-      accessibilityProgressBarLabel="Progress bar"
-      accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
       duration={67.3}
