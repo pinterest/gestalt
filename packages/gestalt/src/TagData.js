@@ -202,8 +202,8 @@ export default function TagData({
   );
 
   return (
-    <MaybeTooltip tooltip={tooltip}>
-      <Box display="inlineBlock" position="relative" maxWidth={300} rounding={2}>
+    <Box display="inlineBlock" position="relative" maxWidth={300} rounding={2}>
+      <MaybeTooltip tooltip={tooltip}>
         <TapArea
           fullHeight
           fullWidth
@@ -240,27 +240,25 @@ export default function TagData({
             </Box>
           </div>
         </TapArea>
-        {onRemove && (
-          <button
-            disabled={disabled}
-            className={getRemoveIconClasses()}
-            style={tileStyle}
-            type="button"
-            onClick={(event) => {
-              onRemove({ event, id });
-            }}
-          >
-            <Icon
-              accessibilityLabel={
-                accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-              }
-              color={fgColor}
-              icon="cancel"
-              size={8}
-            />
-          </button>
-        )}
-      </Box>
-    </MaybeTooltip>
+      </MaybeTooltip>
+      {onRemove && (
+        <button
+          disabled={disabled}
+          className={getRemoveIconClasses()}
+          style={tileStyle}
+          type="button"
+          onClick={(event) => {
+            onRemove({ event, id });
+          }}
+        >
+          <Icon
+            accessibilityLabel={accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault}
+            color={fgColor}
+            icon="cancel"
+            size={8}
+          />
+        </button>
+      )}
+    </Box>
   );
 }
