@@ -1,8 +1,8 @@
 // @flow strict
 import renderer from 'react-test-renderer';
+import InternalLink from './InternalLink.js';
 import Pog from '../Pog.js';
 import Text from '../Text.js';
-import InternalLink from './InternalLink.js';
 
 it('renders IconButton', () =>
   expect(

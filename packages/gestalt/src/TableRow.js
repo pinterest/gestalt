@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, Children, cloneElement, useEffect, useRef, useState } from 'react';
+import { Children, cloneElement, type Node, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
-import styles from './Table.css';
 import { useTableContext } from './contexts/TableContext.js';
+import styles from './Table.css';
 
 type Props = {|
   /**

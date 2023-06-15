@@ -12,13 +12,13 @@ import {
   buildKeyValueTypeArray,
   buildProps,
   buildValidatorResponsesFromProperties,
-  hasImport,
-  isGestaltComponent,
-  getNodeFromPropName,
   getInlineDefinedStyles,
+  getNodeFromPropName,
   getTextNodeFromSourceCode,
   getVariableDefinedStyles,
   getVariableNodeInScopeFromName,
+  hasImport,
+  isGestaltComponent,
 } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 import { buildNoBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';

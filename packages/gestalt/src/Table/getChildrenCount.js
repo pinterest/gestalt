@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, Children, type Node } from 'react';
+import { Children, Fragment, type Node } from 'react';
 
 function getChildrenCount(children: Node): number {
   // $FlowFixMe[underconstrained-implicit-instantiation]

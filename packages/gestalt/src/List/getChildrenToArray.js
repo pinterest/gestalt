@@ -1,5 +1,5 @@
 // @flow strict
-import { cloneElement, Fragment, Children, type Node } from 'react';
+import { Children, cloneElement, Fragment, type Node } from 'react';
 
 const ALLOWED_CHILDREN_BY_PARENT = {
   List: ['List.Item'],

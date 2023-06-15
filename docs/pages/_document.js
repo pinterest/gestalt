@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';
+import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import Cookies from 'universal-cookie';
 
 class GestaltDocument extends Document {

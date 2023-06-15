@@ -1,5 +1,5 @@
 // @flow strict
-import { useRef, type Node } from 'react';
+import { type Node, useRef } from 'react';
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example(): Node {

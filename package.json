@@ -54,6 +54,7 @@
     "eslint-plugin-playwright": "^0.10.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-testing-library": "^5.6.0",
     "eslint-plugin-validate-jsx-nesting": "^0.1.0",
     "flow-bin": "^0.206.0",

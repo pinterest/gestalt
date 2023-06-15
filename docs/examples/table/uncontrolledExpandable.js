@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Table, Flex, Text, Box } from 'gestalt';
+import { Box, Flex, Table, Text } from 'gestalt';
 
 export default function Example(): Node {
   return (

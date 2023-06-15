@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Flex, Text } from 'gestalt';
 import { LiveEditor } from 'react-live';
+import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext.js';
-import clipboardCopy from './clipboardCopy.js';
-import handleCodeSandbox from './handleCodeSandbox.js';
 import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton.js';
 import CopyCodeButton from './buttons/CopyCodeButton.js';
 import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import clipboardCopy from './clipboardCopy.js';
+import handleCodeSandbox from './handleCodeSandbox.js';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 

@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import rule, { errorMessages } from './no-box-useless-props.js';
 import { parserOptions } from './helpers/testHelpers.js';
+import rule, { errorMessages } from './no-box-useless-props.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 

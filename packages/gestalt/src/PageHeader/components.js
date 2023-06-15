@@ -1,5 +1,5 @@
 // @flow strict
-import { cloneElement, useState, useRef, Fragment, type Element, type Node } from 'react';
+import { cloneElement, type Element, Fragment, type Node, useRef, useState } from 'react';
 import Badge, { type TypeOptions } from '../Badge.js';
 import Box from '../Box.js';
 import Dropdown from '../Dropdown.js';

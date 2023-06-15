@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import Avatar from '../Avatar.js';
 import { type BaseStackType } from './constants.js';
 import HoverOverlay from './HoverOverlay.js';
 import PositioningWrapper from './PositioningWrapper.js';
+import Avatar from '../Avatar.js';
 
 type Props = {|
   ...BaseStackType,

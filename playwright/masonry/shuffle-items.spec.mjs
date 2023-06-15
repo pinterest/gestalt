@@ -1,5 +1,5 @@
 // @flow strict
-import { expect, test, Page } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
 import getGridItems from './utils/getGridItems.mjs';
 import getServerURL from './utils/getServerURL.mjs';
 import selectors from './utils/selectors.mjs';

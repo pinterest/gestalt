@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Text, ColorSchemeProvider } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import ColorTile from '../../../docs-components/ColorTile.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';

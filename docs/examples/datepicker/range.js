@@ -1,5 +1,5 @@
 // @flow strict
-import { useRef, useState, type Node } from 'react';
+import { type Node, useRef, useState } from 'react';
 import { Box, Flex } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 

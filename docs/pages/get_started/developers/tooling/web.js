@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Icon, Link, Image, List, Text, Table } from 'gestalt';
+import { Box, Button, Flex, Icon, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../../../../docs-components/MainSection.js';

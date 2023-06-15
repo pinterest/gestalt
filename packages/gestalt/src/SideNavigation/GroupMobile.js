@@ -1,8 +1,10 @@
 // @flow strict
-import { Fragment, useState, useCallback, useEffect, useMemo, useId, type Node } from 'react';
+import { Fragment, type Node, useCallback, useEffect, useId, useMemo, useState } from 'react';
 import classnames from 'classnames';
+import getChildrenToArray from './getChildrenToArray.js';
+import SideNavigationGroupContent from './GroupContent.js';
 import Box from '../Box.js';
-import { useNesting, NestingProvider } from '../contexts/NestingProvider.js';
+import { NestingProvider, useNesting } from '../contexts/NestingProvider.js';
 import { useSideNavigation } from '../contexts/SideNavigationProvider.js';
 import Flex from '../Flex.js';
 import Heading from '../Heading.js';
@@ -12,8 +14,6 @@ import styles from '../SideNavigation.css';
 import { type Props } from '../SideNavigationGroup.js';
 import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem.js';
 import TapArea from '../TapArea.js';
-import getChildrenToArray from './getChildrenToArray.js';
-import SideNavigationGroupContent from './GroupContent.js';
 
 type SideNavigationGroupMobileProps = {| ...Props, hasActiveChild: boolean |};
 

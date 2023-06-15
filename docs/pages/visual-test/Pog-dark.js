@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Flex, Pog, Box, ColorSchemeProvider } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, Pog, Text } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (

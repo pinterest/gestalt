@@ -1,5 +1,5 @@
 // @flow strict
-import { type Context, type Node, createContext, useContext } from 'react';
+import { type Context, createContext, type Node, useContext } from 'react';
 
 const defaultDeviceType = 'desktop';
 

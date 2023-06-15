@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
+import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import theme from './atomDark.js';
 import Card from './Card.js';
 import ExampleCode from './ExampleCode.js';

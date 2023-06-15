@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node, Children } from 'react';
-import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
+import { Children, type Node } from 'react';
 import slugify from 'slugify';
+import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
+import CopyLinkButton from './buttons/CopyLinkButton.js';
 import { copyToClipboard } from './Card.js';
 import Markdown from './Markdown.js';
-import CopyLinkButton from './buttons/CopyLinkButton.js';
 
 export const MAX_WIDTH = 572;
 

@@ -1,13 +1,13 @@
 // @flow strict
-import { Fragment, useState, type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
   CompositeZIndex,
   FixedZIndex,
   Flex,
-  IconButton,
   Heading,
+  IconButton,
   Layer,
   Modal,
   RadioGroup,

@@ -1,12 +1,12 @@
 // @flow strict
-import { Fragment, useState, type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import { type ListItemType } from './COMPONENT_DATA.js';
 import IllustrationContainer from './IllustrationContainer.js';
 import List from './OverviewList.js';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
 const sortOrders = ['alphabetical', 'categorical'];
 

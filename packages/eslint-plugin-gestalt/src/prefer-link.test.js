@@ -1,11 +1,11 @@
 // @flow strict
-import rule from './prefer-link.js';
 import {
   getPathFormatterByRuleName,
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
 } from './helpers/testHelpers.js';
+import rule from './prefer-link.js';
 
 const ruleName = 'prefer-link';
 const ruleTester = getRuleTester();

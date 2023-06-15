@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import { SlimBanner, Text, Link } from 'gestalt';
+import { Link, SlimBanner, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';

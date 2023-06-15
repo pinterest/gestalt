@@ -1,5 +1,5 @@
 // @flow strict
-import { render, fireEvent, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import IconButton from './IconButton.js';
 import ModuleExpandable from './ModuleExpandable.js';
 

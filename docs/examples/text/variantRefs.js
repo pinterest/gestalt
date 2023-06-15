@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Label, Switch, Flex, Text, Box, Link } from 'gestalt';
+import { Box, Flex, Label, Link, Switch, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [showLongText, setShowLongText] = useState(false);

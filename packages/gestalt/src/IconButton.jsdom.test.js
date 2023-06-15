@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import IconButton from './IconButton.js';
 
 describe('IconButton', () => {

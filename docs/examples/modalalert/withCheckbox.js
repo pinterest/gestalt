@@ -1,14 +1,14 @@
 // @flow strict
-import { Fragment, useState, type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
-  ModalAlert,
   Checkbox,
   CompositeZIndex,
   FixedZIndex,
   Flex,
   Layer,
+  ModalAlert,
   Text,
 } from 'gestalt';
 
