@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Text, SegmentedControl, Icon } from 'gestalt';
+import { Box, Icon, SegmentedControl, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [itemIndex, setItemIndex] = useState(0);

@@ -1,10 +1,10 @@
 // @flow strict
-import { type Portal, type Node, useRef, useState, useEffect } from 'react';
+import { type Node, type Portal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import styles from './Layer.css';
-import { type Indexable } from './zIndex.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
+import styles from './Layer.css';
 import { getContainerNode } from './utils/positioningUtils.js';
+import { type Indexable } from './zIndex.js';
 
 type Props = {|
   /**

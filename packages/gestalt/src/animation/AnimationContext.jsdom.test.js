@@ -1,7 +1,7 @@
 // @flow strict
 import { fireEvent, getNodeText, render } from '@testing-library/react';
+import AnimationProvider, { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
 import * as useReducedMotionHook from '../useReducedMotion.js';
-import AnimationProvider, { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
 
 jest.mock('../useReducedMotion.js');
 

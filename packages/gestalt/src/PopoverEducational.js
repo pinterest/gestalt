@@ -1,13 +1,13 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
-import styles from './PopoverEducational.css';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
+import InternalPopover from './Popover/InternalPopover.js';
+import styles from './PopoverEducational.css';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import InternalPopover from './Popover/InternalPopover.js';
 
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';

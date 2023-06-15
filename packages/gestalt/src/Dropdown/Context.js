@@ -1,5 +1,5 @@
 // @flow strict
-import { createContext, type Context } from 'react';
+import { type Context, createContext } from 'react';
 
 type DropdownContextType = {|
   id: string,
@@ -21,4 +21,4 @@ const context: Context<DropdownContextType> =
 const DropdownContextProvider = context.Provider;
 const DropdownContextConsumer = context.Consumer;
 
-export { DropdownContextProvider, DropdownContextConsumer };
+export { DropdownContextConsumer, DropdownContextProvider };

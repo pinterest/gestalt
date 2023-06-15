@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Table, Text, SlimBanner } from 'gestalt';
+import { Box, SlimBanner, Table, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [showdrawer, setShowDrawer] = useState(true);

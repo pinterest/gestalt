@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import { type Indexable } from './zIndex.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
+import { type Indexable } from './zIndex.js';
 
 type BadgeObject = {|
   text: string,

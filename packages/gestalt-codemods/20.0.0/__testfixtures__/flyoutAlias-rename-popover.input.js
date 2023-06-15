@@ -1,6 +1,6 @@
 // @flow strict
 import { useRef } from 'react';
-import { Flyout as Renamed, Box } from 'gestalt';
+import { Box,Flyout as Renamed } from 'gestalt';
 
 export default function TestComp() {
     const anchorRef = useRef();

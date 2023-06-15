@@ -1,16 +1,16 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import {
   Box,
-  IconButton,
   Button,
+  Checkbox,
+  CompositeZIndex,
+  FixedZIndex,
   Flex,
+  IconButton,
+  Layer,
   Modal,
   TextField,
-  Checkbox,
-  FixedZIndex,
-  CompositeZIndex,
-  Layer,
 } from 'gestalt';
 
 function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}): Node {

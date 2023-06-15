@@ -5,11 +5,11 @@
 // @flow strict
 import {
   buildPropsFromKeyValuesVariable,
-  hasImport,
   getComponentNameFromAttribute,
   getNamedImportsComponents,
   getPropertiesFromVariable,
   getVariableNodeInScopeFromName,
+  hasImport,
 } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 

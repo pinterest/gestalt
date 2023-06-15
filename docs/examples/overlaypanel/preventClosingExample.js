@@ -9,8 +9,8 @@ import {
   FixedZIndex,
   Flex,
   Layer,
-  RadioButton,
   OverlayPanel,
+  RadioButton,
   Text,
   TextField,
 } from 'gestalt';

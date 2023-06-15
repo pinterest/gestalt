@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { Link, Box, Flex, Text, HelpButton } from 'gestalt';
+import { LiveError, LivePreview, LiveProvider } from 'react-live';
+import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import { useAppContext } from './appContext.js';
 import theme from './atomDark.js';
 import ExampleCode from './ExampleCode.js';

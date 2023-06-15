@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent } from 'react';
+import { type AbstractComponent, forwardRef, type Node } from 'react';
 import classnames from 'classnames';
 import bordersStyles from '../Borders.css';
 import boxWhitespaceStyles from '../boxWhitespace.css';

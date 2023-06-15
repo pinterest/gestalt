@@ -1,18 +1,18 @@
 // @flow strict
 
 import {
-  useRef,
-  useEffect,
-  useContext,
-  useCallback,
-  createContext,
-  useMemo,
   type Context,
+  createContext,
   type Element,
   type Node,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
 } from 'react';
+import { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
 import useReducedMotion from '../useReducedMotion.js';
-import { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
 
 type RequestAnimationFrameProviderProps = {|
   children: Node,

@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, Children, type Node } from 'react';
+import { Children, Fragment, type Node } from 'react';
 
 const ALLOWED_CHILDREN_MAP = {
   'main': ['SideNavigation.Section', 'SideNavigation.TopItem', 'SideNavigation.Group'],

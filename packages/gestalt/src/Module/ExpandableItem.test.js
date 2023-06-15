@@ -1,7 +1,7 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import IconButton from '../IconButton.js';
 import ModuleExpandableItem from './ExpandableItem.js';
+import IconButton from '../IconButton.js';
 
 describe('ModuleExpandableItem', () => {
   test('renders correctly', () => {

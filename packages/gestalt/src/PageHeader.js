@@ -1,6 +1,5 @@
 // @flow strict
-import { type Node, type Element } from 'react';
-import styles from './PageHeader.css';
+import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import { type Dimension } from './boxTypes.js';
 import Button from './Button.js';
@@ -9,17 +8,18 @@ import Flex from './Flex.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Link from './Link.js';
-import Text from './Text.js';
-import Tooltip from './Tooltip.js';
+import styles from './PageHeader.css';
 import {
-  PageHeaderTitle,
+  PageHeaderActionBlock,
   PageHeaderBadge,
   PageHeaderHelperIconButton,
+  PageHeaderItemsBlock,
   PageHeaderSubtext,
   PageHeaderThumbnail,
-  PageHeaderActionBlock,
-  PageHeaderItemsBlock,
+  PageHeaderTitle,
 } from './PageHeader/components.js';
+import Text from './Text.js';
+import Tooltip from './Tooltip.js';
 
 export type ActionType = Element<
   typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip,

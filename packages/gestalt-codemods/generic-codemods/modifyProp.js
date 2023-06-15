@@ -31,14 +31,14 @@
  * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
  */
 
-import { type FileType, type ApiType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes.js';
 import {
   buildReplaceWithModifiedAttributes,
-  getGestaltImport,
-  getComponentIdentifierByName,
-  getLocalImportedName,
-  filterJSXByTargetLocalName,
   filterJSXByAttribute,
+  filterJSXByTargetLocalName,
+  getComponentIdentifierByName,
+  getGestaltImport,
+  getLocalImportedName,
   initialize,
   saveToSource,
   throwErrorIfSpreadProps,

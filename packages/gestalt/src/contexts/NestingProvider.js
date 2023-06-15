@@ -1,5 +1,5 @@
 // @flow strict
-import { type Context, type Element, type Node, useContext, createContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
 type NestingContextType = {|
   nestedLevel: number,

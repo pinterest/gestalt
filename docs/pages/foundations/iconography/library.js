@@ -1,13 +1,13 @@
 // @flow strict
-import { useState, type Node, type ElementProps } from 'react';
+import { type ElementProps, type Node, useState } from 'react';
 import {
   Box,
   Flex,
   Heading,
   Icon,
-  Pog,
   Layer,
   Link,
+  Pog,
   RadioGroup,
   SearchField,
   TapArea,
@@ -15,9 +15,9 @@ import {
   Toast,
   Tooltip,
 } from 'gestalt';
+import iconCategoryData from './ICON_DATA.json';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import iconCategoryData from './ICON_DATA.json';
 
 const { icons } = Icon;
 const CATEGORIES = [

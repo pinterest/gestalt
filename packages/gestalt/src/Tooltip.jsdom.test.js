@@ -1,6 +1,6 @@
 // @flow strict
-import { fireEvent, render } from '@testing-library/react';
 import { create } from 'react-test-renderer';
+import { fireEvent, render } from '@testing-library/react';
 import Link from './Link.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';

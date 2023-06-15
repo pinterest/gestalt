@@ -1,27 +1,27 @@
 // @flow strict
 import {
-  Fragment,
+  type AbstractComponent,
   forwardRef,
+  Fragment,
+  type Node,
   useImperativeHandle,
   useRef,
-  type Node,
-  type AbstractComponent,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import styles from './Button.css';
-import focusStyles from './Focus.css';
-import touchableStyles from './TapArea.css';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
+import focusStyles from './Focus.css';
 import Icon, { type IconColor } from './Icon.js';
+import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
+import touchableStyles from './TapArea.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',

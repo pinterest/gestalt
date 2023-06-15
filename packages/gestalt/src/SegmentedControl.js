@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
+import Box from './Box.js';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
-import Box from './Box.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 

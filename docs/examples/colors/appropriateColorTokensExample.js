@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Button, IconButton, Flex, SearchField, Text } from 'gestalt';
+import { Button, Flex, IconButton, SearchField, Text } from 'gestalt';
 
 export default function AppropriateColorTokensExample(): Node {
   return (

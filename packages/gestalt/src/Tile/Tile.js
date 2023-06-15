@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
+import styles from './Tile.css';
 import Box from '../Box.js';
 import InternalCheckbox from '../Checkbox/InternalCheckbox.js';
 import Flex from '../Flex.js';
@@ -9,7 +10,6 @@ import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
 import { type Indexable } from '../zIndex.js';
-import styles from './Tile.css';
 
 type TooltipProps = {|
   accessibilityLabel?: string,

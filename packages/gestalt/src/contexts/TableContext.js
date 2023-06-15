@@ -1,5 +1,5 @@
 // @flow strict
-import { type Context, type Element, type Node, createContext, useContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
 type TableContextType = {|
   stickyColumns: ?number,

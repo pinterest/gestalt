@@ -88,4 +88,4 @@ function AppContextProvider({ children }: {| children?: Node |}): Node {
   );
 }
 
-export { AppContextProvider, AppContextConsumer, useAppContext };
+export { AppContextConsumer, AppContextProvider, useAppContext };

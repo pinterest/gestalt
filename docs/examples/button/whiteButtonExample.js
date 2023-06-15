@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useRef, useEffect, type Node } from 'react';
+import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, Button, Flex, Layer, Popover, ScrollBoundaryContainer, Tabs, Text } from 'gestalt';
 
 export default function WhiteButtonExample(): Node {

@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import rule from './prefer-box-inline-style.js';
 import { parserOptions } from './helpers/testHelpers.js';
+import rule from './prefer-box-inline-style.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 

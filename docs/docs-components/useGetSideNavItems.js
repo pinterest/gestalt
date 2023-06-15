@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import { SideNavigation } from 'gestalt';
 import { useRouter } from 'next/router';
+import { SideNavigation } from 'gestalt';
 import { useNavigationContext } from './navigationContext.js';
 import { type siteIndexType } from './siteIndex.js';
 

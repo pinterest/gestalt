@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
-import boxStyles from '../Box.css';
 import styles from './InternalLabel.css';
+import boxStyles from '../Box.css';
 
 type Props = {|
   children?: Node,

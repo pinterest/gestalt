@@ -1,17 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
 import {
-  Flex,
-  Text,
-  Module,
-  TextField,
-  SelectList,
+  Box,
+  Checkbox,
   Divider,
   Fieldset,
+  Flex,
+  Module,
   RadioButton,
-  Checkbox,
+  SelectList,
   SlimBanner,
-  Box,
+  Text,
+  TextField,
 } from 'gestalt';
 
 export default function Example(): Node {

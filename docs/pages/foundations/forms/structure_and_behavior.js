@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Table, Box, Image, SlimBanner, Text, Mask } from 'gestalt';
+import { Box, Image, Mask, SlimBanner, Table, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';

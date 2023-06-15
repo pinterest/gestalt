@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { SheetMobile, ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, SheetMobile } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (

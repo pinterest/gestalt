@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Image, PageHeader, OverlayPanel, Text } from 'gestalt';
+import { Image, OverlayPanel, PageHeader, Text } from 'gestalt';
 
 export default function PageHeaderTitleExample(): Node {
   const [open, setOpen] = React.useState(false);

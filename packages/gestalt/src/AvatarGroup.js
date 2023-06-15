@@ -1,11 +1,11 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent, useCallback, useState } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import TapArea, { type OnTapType } from './TapArea.js';
+import { type AbstractComponent, forwardRef, type Node, useCallback, useState } from 'react';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton.js';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar.js';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount.js';
+import Box from './Box.js';
+import Flex from './Flex.js';
+import TapArea, { type OnTapType } from './TapArea.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 

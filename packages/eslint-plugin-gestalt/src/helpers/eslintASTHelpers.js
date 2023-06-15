@@ -2,8 +2,8 @@
 import {
   type GenericNode,
   type GenericType,
-  type ReducerType,
   type ReducerAccType,
+  type ReducerType,
 } from './reducerTypes.js';
 
 /** =================  HELPERS =================
@@ -524,9 +524,9 @@ export {
   hasAttributes,
   hasDataAttributes,
   hasImport,
-  hasUnsupportedAttributes,
   hasLonelyAttribute,
   hasSpreadAttributes,
+  hasUnsupportedAttributes,
   isGestaltComponent,
   isTag,
   retrieveKeyValuesFromVariable,

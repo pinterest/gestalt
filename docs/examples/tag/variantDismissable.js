@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Element, type Node, useState } from 'react';
+import { type Element, Fragment, type Node, useState } from 'react';
 import { Box, Button, Flex, Tag } from 'gestalt';
 
 export default function Example(): Node {

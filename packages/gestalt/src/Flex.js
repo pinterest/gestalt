@@ -1,7 +1,7 @@
 // @flow strict
 import { Children, type Node } from 'react';
-import styles from './Flex.css';
 import { buildStyles } from './boxTransforms.js';
+import styles from './Flex.css';
 import FlexItem from './FlexItem.js';
 import wrapWithComponent from './utils/wrapWithComponent.js';
 

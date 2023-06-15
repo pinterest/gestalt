@@ -29,6 +29,7 @@ module.exports = {
     'jsx-a11y',
     'react',
     'react-hooks',
+    'simple-import-sort',
     'testing-library',
     'validate-jsx-nesting',
   ],
@@ -57,46 +58,15 @@ module.exports = {
     'flowtype/space-before-type-colon': [ERROR, NEVER],
     'flowtype/type-import-style': ERROR,
     'import/extensions': [ERROR, ALWAYS, { 'ignorePackages': true }],
+    'import/first': ERROR,
+    'import/newline-after-import': ERROR,
     'import/no-anonymous-default-export': ERROR,
+    'import/no-duplicates': ERROR,
     'import/no-extraneous-dependencies': OFF,
     'import/no-namespace': ERROR,
     'import/no-relative-parent-imports': OFF,
     'import/no-unresolved': OFF,
-    'import/order': [
-      ERROR,
-      {
-        'groups': [
-          'index',
-          'builtin',
-          'external',
-          'parent',
-          'sibling',
-          'internal',
-          'object',
-          'type',
-        ],
-        'alphabetize': { 'order': 'asc', 'caseInsensitive': true },
-        'newlines-between': 'never',
-        'pathGroups': [
-          {
-            'pattern': 'react',
-            'group': 'builtin',
-            'position': 'before',
-          },
-          {
-            'pattern': './*.css',
-            'group': 'sibling',
-            'position': 'before',
-          },
-          {
-            'pattern': './*/*.js',
-            'group': 'sibling',
-            'position': 'after',
-          },
-        ],
-        'pathGroupsExcludedImportTypes': ['react'],
-      },
-    ],
+    'import/order': OFF,
     'jsx-a11y/label-has-associated-control': [
       ERROR,
       {
@@ -125,6 +95,25 @@ module.exports = {
     'react/sort-comp': OFF,
     'react/state-in-constructor': [ERROR, NEVER],
     'react/static-property-placement': [ERROR, 'static public field'],
+    'simple-import-sort/imports': [
+      ERROR,
+      {
+        groups: [
+          // Groups are an array of arrays, and the outer array adds blank lines between groups
+          [
+            '^\\u0000', // side-effect imports
+            // eslint-disable-next-line global-require
+            `^(${require('module').builtinModules.join('|')})(/|$)`, // node builtins
+            '^react',
+            '^', // catch-all for other packages
+            '^gestalt',
+            '^\\.', // relative paths for "siblings" (e.g. ./Button)
+            '^\\.\\.', // relative paths for "parents" (e.g. ../Button)
+          ],
+        ],
+      },
+    ],
+    'simple-import-sort/exports': ERROR,
     'validate-jsx-nesting/no-invalid-jsx-nesting': ERROR,
   },
   'overrides': [

@@ -1,19 +1,19 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
+import { type Node, useRef, useState } from 'react';
 import {
-  Flex,
   Box,
   Button,
-  Layer,
   ComboBox,
-  TextField,
-  Heading,
-  RadioGroup,
-  FixedZIndex,
   CompositeZIndex,
+  Dropdown,
+  FixedZIndex,
+  Flex,
+  Heading,
+  Layer,
   Modal,
   OverlayPanel,
-  Dropdown,
+  RadioGroup,
+  TextField,
 } from 'gestalt';
 
 export default function ScrollBoundaryContainerExample(): Node {

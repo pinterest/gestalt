@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import DatapointTrend from './Trend.js';
 import AccessibilityPause from '../accessibility/AccessibilityPause.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
@@ -9,7 +10,6 @@ import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 import Tooltip from '../Tooltip.js';
 import { type Indexable } from '../zIndex.js';
-import DatapointTrend from './Trend.js';
 
 type BadgeObject = {|
   text: string,

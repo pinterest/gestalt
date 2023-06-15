@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
+import blogPosts from './BlogPosts.json';
 import MainSection from '../docs-components/MainSection.js';
 import Markdown from '../docs-components/Markdown.js';
 import Page from '../docs-components/Page.js';
 import PageHeader from '../docs-components/PageHeader.js';
-import blogPosts from './BlogPosts.json';
 
 const POST_WIDTH_PX = 600;
 const POST_IMAGE_HEIGHT_PX = 340;

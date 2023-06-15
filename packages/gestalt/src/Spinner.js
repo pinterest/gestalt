@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
-import styles from './Spinner.css';
 import Box from './Box.js';
-import Icon from './Icon.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import Icon from './Icon.js';
+import styles from './Spinner.css';
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,

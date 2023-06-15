@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, type ElementConfig } from 'react';
+import { type ElementConfig, type Node } from 'react';
 import Button from '../Button.js';
 import Link from '../Link.js';
 

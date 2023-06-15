@@ -1,21 +1,21 @@
 // @flow strict
 import {
+  type BuildReducerType,
+  type GenerateDefaultMessageType,
   type GenericType,
   type ReducerType,
-  type GenerateDefaultMessageType,
-  type BuildReducerType,
 } from './reducerTypes.js';
 import {
   dimensionFormatting,
-  marginLookup,
+  kebabToCamelCase,
   marginBottomLookup,
   marginLeftLookup,
+  marginLookup,
   marginRightLookup,
   marginTopLookup,
   opacityLookup,
   overflowLookup,
   paddingLookup,
-  kebabToCamelCase,
   validateBackgroundColor,
   validateBorder,
   validateBorderRadius,
