@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node, useId } from 'react';
 import classnames from 'classnames';
-import styles from './TileData.css';
 import Box from './Box.js';
-import Flex from './Flex.js';
-import TapArea from './TapArea.js';
-import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
-import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
-import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
+import Flex from './Flex.js';
+import TapArea from './TapArea.js';
+import styles from './TileData.css';
+import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
+import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
 import MaybeTooltip from './utils/maybeTooltip.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
+import { type Indexable } from './zIndex.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,

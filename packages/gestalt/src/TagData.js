@@ -2,22 +2,22 @@
 import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
-import cssColorStyles from './Colors.css';
-import focusStyles from './Focus.css';
-import styles from './TagData.css';
 import Box from './Box.js';
+import InternalCheckbox from './Checkbox/InternalCheckbox.js';
+import cssColorStyles from './Colors.css';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import focusStyles from './Focus.css';
 import Icon from './Icon.js';
+import styles from './TagData.css';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
-import { type Indexable } from './zIndex.js';
-import InternalCheckbox from './Checkbox/InternalCheckbox.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import MaybeTooltip from './utils/maybeTooltip.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
+import { type Indexable } from './zIndex.js';
 
 type DataVisualizationColors =
   | '01'
