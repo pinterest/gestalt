@@ -1,3 +1,9 @@
+## 114.0.3 (Jun 15, 2023)
+
+### Patch
+
+- Internal: replace `import/order` with `simple-import-sort` ([#3012](https://github.com/pinterest/gestalt/pull/3012)) - [Preview link](https://deploy-preview-3012--gestalt.netlify.app?devexample=true)
+
 ## 114.0.2 (Jun 14, 2023)
 
 ### Patch
