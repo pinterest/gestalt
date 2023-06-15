@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Flex, SearchField, Box } from 'gestalt';
+import { Box, Flex, SearchField } from 'gestalt';
 
 export default function SearchFieldExample(): Node {
   const [searchValue, setSearchValue] = useState('');
