@@ -2,110 +2,71 @@
 
 exports[`TagData TagData has a tooltip 1`] = `
 <div
-  className="box rounding2 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
     }
   }
 >
-  <div>
+  <div
+    className="box xsDisplayBlock"
+  >
     <div
+      aria-label="This is a tooltip"
+      className="box"
       onBlur={[Function]}
+      onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      role="presentation"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
     >
       <div
-        className="box xsDisplayFlex"
-        style={
-          Object {
-            "height": "100%",
-            "width": "100%",
-          }
-        }
+        aria-disabled={false}
+        className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="tagOuterContainer"
+          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          style={
+            Object {
+              "backgroundColor": "#0081fe1A",
+              "borderColor": "#0081fe",
+            }
+          }
         >
           <div
-            className="box xsDisplayBlock"
+            className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
           >
-            <div
-              aria-label="This is a tooltip"
-              className="box"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
+            <span
+              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              style={
+                Object {
+                  "WebkitLineClamp": 1,
+                }
+              }
+              title="Text Impressions"
             >
-              <div
-                aria-disabled={false}
-                className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                role="button"
-                tabIndex={0}
-              >
-                <div
-                  className="box"
-                  style={
-                    Object {
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
-                >
-                  <div
-                    className="tagBase tagMedium secondary tagWrapperRounded"
-                    style={
-                      Object {
-                        "backgroundColor": "#0081fe1A",
-                        "borderColor": "#0081fe",
-                      }
-                    }
-                  >
-                    <div
-                      className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                      style={
-                        Object {
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <span
-                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                        style={
-                          Object {
-                            "WebkitLineClamp": 1,
-                          }
-                        }
-                        title="Text Impressions"
-                      >
-                        Text Impressions
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              Text Impressions
+            </span>
           </div>
         </div>
       </div>
@@ -122,110 +83,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#003c961A",
+                  "borderColor": "#003c96",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#003c961A",
-                            "borderColor": "#003c96",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -237,110 +159,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#11a69c1A",
+                  "borderColor": "#11a69c",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#11a69c1A",
-                            "borderColor": "#11a69c",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -352,110 +235,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#924af71A",
+                  "borderColor": "#924af7",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#924af71A",
-                            "borderColor": "#924af7",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -467,110 +311,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#d177111A",
+                  "borderColor": "#d17711",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#d177111A",
-                            "borderColor": "#d17711",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -582,110 +387,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#0081fe1A",
+                  "borderColor": "#0081fe",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#0081fe1A",
-                            "borderColor": "#0081fe",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -697,110 +463,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#ff53831A",
+                  "borderColor": "#ff5383",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#ff53831A",
-                            "borderColor": "#ff5383",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -812,110 +539,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#00ab551A",
+                  "borderColor": "#00ab55",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#00ab551A",
-                            "borderColor": "#00ab55",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -927,110 +615,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#4003871A",
+                  "borderColor": "#400387",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#4003871A",
-                            "borderColor": "#400387",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1042,110 +691,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#f2681f1A",
+                  "borderColor": "#f2681f",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#f2681f1A",
-                            "borderColor": "#f2681f",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1157,110 +767,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#0050621A",
+                  "borderColor": "#005062",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#0050621A",
-                            "borderColor": "#005062",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1272,110 +843,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#de2c621A",
+                  "borderColor": "#de2c62",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#de2c621A",
-                            "borderColor": "#de2c62",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1387,110 +919,71 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#660e001A",
+                  "borderColor": "#660e00",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
-                <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
                 >
-                  <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#660e001A",
-                            "borderColor": "#660e00",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1509,164 +1002,125 @@ exports[`TagData renders base color as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium default tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#0081fe1A",
+                  "borderColor": "#0081fe",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
                 <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  className="box marginEnd1"
                 >
                   <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
+                    className="box"
                   >
                     <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
+                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="tagBase tagMedium default tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#0081fe1A",
-                            "borderColor": "#0081fe",
-                          }
-                        }
+                        className="box paddingX1 relative"
                       >
+                        <input
+                          aria-hidden={true}
+                          aria-invalid="false"
+                          checked={true}
+                          className="input sizeSm inputEnabled readOnly"
+                          disabled={true}
+                          id="readonly-checkbox-:r2:"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          type="checkbox"
+                        />
                         <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
-                              "width": "100%",
+                              "backgroundColor": "#0081fe",
+                              "borderColor": "transparent",
                             }
                           }
                         >
-                          <div
-                            className="box marginEnd1"
+                          <svg
+                            aria-hidden={true}
+                            aria-label=""
+                            className="icon inverseIcon iconBlock"
+                            height={8}
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width={8}
                           >
-                            <div
-                              className="box"
-                            >
-                              <div
-                                className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                              >
-                                <div
-                                  className="box paddingX1 relative"
-                                >
-                                  <input
-                                    aria-hidden={true}
-                                    aria-invalid="false"
-                                    checked={true}
-                                    className="input sizeSm inputEnabled readOnly"
-                                    disabled={true}
-                                    id="readonly-checkbox-:r2:"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onMouseEnter={[Function]}
-                                    onMouseLeave={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <div
-                                    className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#0081fe",
-                                        "borderColor": "transparent",
-                                      }
-                                    }
-                                  >
-                                    <svg
-                                      aria-hidden={true}
-                                      aria-label=""
-                                      className="icon inverseIcon iconBlock"
-                                      height={8}
-                                      role="img"
-                                      viewBox="0 0 24 24"
-                                      width={8}
-                                    >
-                                      <path
-                                        d="test-file-stub"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
+                            <path
+                              d="test-file-stub"
+                            />
+                          </svg>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
+                >
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1678,164 +1132,125 @@ exports[`TagData renders base color as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box rounding2 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
         }
       }
     >
-      <div>
+      <div
+        className="box xsDisplayBlock"
+      >
         <div
+          aria-label="This is a tooltip"
+          className="box"
           onBlur={[Function]}
+          onFocus={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="presentation"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
         >
           <div
-            className="box xsDisplayFlex"
-            style={
-              Object {
-                "height": "100%",
-                "width": "100%",
-              }
-            }
+            aria-disabled={false}
+            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
           >
             <div
-              className="tagOuterContainer"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              style={
+                Object {
+                  "backgroundColor": "#0081fe1A",
+                  "borderColor": "#0081fe",
+                }
+              }
             >
               <div
-                className="box xsDisplayBlock"
+                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
                 <div
-                  aria-label="This is a tooltip"
-                  className="box"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  className="box marginEnd1"
                 >
                   <div
-                    aria-disabled={false}
-                    className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyPress={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    role="button"
-                    tabIndex={0}
+                    className="box"
                   >
                     <div
-                      className="box"
-                      style={
-                        Object {
-                          "height": "100%",
-                          "width": "100%",
-                        }
-                      }
+                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="tagBase tagMedium secondary tagWrapperRounded"
-                        style={
-                          Object {
-                            "backgroundColor": "#0081fe1A",
-                            "borderColor": "#0081fe",
-                          }
-                        }
+                        className="box paddingX1 relative"
                       >
+                        <input
+                          aria-hidden={true}
+                          aria-invalid="false"
+                          checked={true}
+                          className="input sizeSm inputEnabled readOnly"
+                          disabled={true}
+                          id="readonly-checkbox-:r3:"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          type="checkbox"
+                        />
                         <div
-                          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
-                              "width": "100%",
+                              "backgroundColor": "#0081fe",
+                              "borderColor": "transparent",
                             }
                           }
                         >
-                          <div
-                            className="box marginEnd1"
+                          <svg
+                            aria-hidden={true}
+                            aria-label=""
+                            className="icon inverseIcon iconBlock"
+                            height={8}
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width={8}
                           >
-                            <div
-                              className="box"
-                            >
-                              <div
-                                className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                              >
-                                <div
-                                  className="box paddingX1 relative"
-                                >
-                                  <input
-                                    aria-hidden={true}
-                                    aria-invalid="false"
-                                    checked={true}
-                                    className="input sizeSm inputEnabled readOnly"
-                                    disabled={true}
-                                    id="readonly-checkbox-:r3:"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onMouseEnter={[Function]}
-                                    onMouseLeave={[Function]}
-                                    type="checkbox"
-                                  />
-                                  <div
-                                    className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                                    style={
-                                      Object {
-                                        "backgroundColor": "#0081fe",
-                                        "borderColor": "transparent",
-                                      }
-                                    }
-                                  >
-                                    <svg
-                                      aria-hidden={true}
-                                      aria-label=""
-                                      className="icon inverseIcon iconBlock"
-                                      height={8}
-                                      role="img"
-                                      viewBox="0 0 24 24"
-                                      width={8}
-                                    >
-                                      <path
-                                        d="test-file-stub"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span
-                            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                            style={
-                              Object {
-                                "WebkitLineClamp": 1,
-                              }
-                            }
-                            title="Text Impressions"
-                          >
-                            Text Impressions
-                          </span>
+                            <path
+                              d="test-file-stub"
+                            />
+                          </svg>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <span
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  style={
+                    Object {
+                      "WebkitLineClamp": 1,
+                    }
+                  }
+                  title="Text Impressions"
+                >
+                  Text Impressions
+                </span>
               </div>
             </div>
           </div>
@@ -1848,907 +1263,84 @@ exports[`TagData renders base color as expected 1`] = `
 
 exports[`TagData renders disabled selected state 1`] = `
 <div
-  className="box rounding2 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
     }
   }
->
-  <div>
-    <div
-      onBlur={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="presentation"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-    >
-      <div
-        className="box xsDisplayFlex"
-        style={
-          Object {
-            "height": "100%",
-            "width": "100%",
-          }
-        }
-      >
-        <div
-          className="tagOuterContainer"
-        >
-          <div
-            aria-disabled={true}
-            className="hideOutline tapTransition rounding0 fullHeight fullWidth"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={null}
-          >
-            <div
-              className="box"
-              style={
-                Object {
-                  "height": "100%",
-                  "width": "100%",
-                }
-              }
-            >
-              <div
-                className="tagBase tagMedium secondary disabled tagWrapperRounded"
-                style={Object {}}
-              >
-                <div
-                  className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                  style={
-                    Object {
-                      "width": "100%",
-                    }
-                  }
-                >
-                  <div
-                    className="box marginEnd1"
-                  >
-                    <div
-                      className="box"
-                    >
-                      <div
-                        className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                      >
-                        <div
-                          className="box paddingX1 relative"
-                        >
-                          <input
-                            aria-hidden={true}
-                            aria-invalid="false"
-                            checked={true}
-                            className="input sizeSm inputEnabled readOnly"
-                            disabled={true}
-                            id="readonly-checkbox-:rg:"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onClick={[Function]}
-                            onFocus={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            type="checkbox"
-                          />
-                          <div
-                            className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                            style={
-                              Object {
-                                "backgroundColor": "var(--color-gray-roboflow-300)",
-                                "borderColor": "transparent",
-                              }
-                            }
-                          >
-                            <svg
-                              aria-hidden={true}
-                              aria-label=""
-                              className="icon inverseIcon iconBlock"
-                              height={8}
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width={8}
-                            >
-                              <path
-                                d="test-file-stub"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <span
-                    className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-                    style={
-                      Object {
-                        "WebkitLineClamp": 1,
-                      }
-                    }
-                    title="Text Impressions"
-                  >
-                    Text Impressions
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TagData renders disabled unselected state 1`] = `
-<div
-  className="box rounding2 xsDisplayInlineBlock"
-  style={
-    Object {
-      "maxWidth": 300,
-    }
-  }
->
-  <div>
-    <div
-      onBlur={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="presentation"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-    >
-      <div
-        className="box xsDisplayFlex"
-        style={
-          Object {
-            "height": "100%",
-            "width": "100%",
-          }
-        }
-      >
-        <div
-          className="tagOuterContainer"
-        >
-          <div
-            aria-disabled={true}
-            className="hideOutline tapTransition rounding0 fullHeight fullWidth"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={null}
-          >
-            <div
-              className="box"
-              style={
-                Object {
-                  "height": "100%",
-                  "width": "100%",
-                }
-              }
-            >
-              <div
-                className="tagBase tagMedium secondary disabled tagWrapperRounded"
-                style={Object {}}
-              >
-                <div
-                  className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                  style={
-                    Object {
-                      "width": "100%",
-                    }
-                  }
-                >
-                  <div
-                    className="box marginEnd1"
-                  >
-                    <div
-                      className="box"
-                    >
-                      <div
-                        className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                      >
-                        <div
-                          className="box paddingX1 relative"
-                        >
-                          <input
-                            aria-hidden={true}
-                            aria-invalid="false"
-                            checked={false}
-                            className="input sizeSm inputEnabled readOnly"
-                            disabled={true}
-                            id="readonly-checkbox-:rh:"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onClick={[Function]}
-                            onFocus={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            type="checkbox"
-                          />
-                          <div
-                            className="whiteBg border borderRadiusSm sizeSm check"
-                            style={
-                              Object {
-                                "backgroundColor": "var(--color-gray-roboflow-300)",
-                                "borderColor": "transparent",
-                              }
-                            }
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <span
-                    className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-                    style={
-                      Object {
-                        "WebkitLineClamp": 1,
-                      }
-                    }
-                    title="Text Impressions"
-                  >
-                    Text Impressions
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TagData renders dismisible button with color background 1`] = `
-<div
-  className="box rounding2 xsDisplayInlineBlock"
-  style={
-    Object {
-      "maxWidth": 300,
-    }
-  }
->
-  <div>
-    <div
-      onBlur={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="presentation"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-    >
-      <div
-        className="box xsDisplayFlex"
-        style={
-          Object {
-            "height": "100%",
-            "width": "100%",
-          }
-        }
-      >
-        <div
-          className="tagOuterContainer"
-        >
-          <div
-            className="box xsDisplayBlock"
-          >
-            <div
-              aria-label="This is a tooltip"
-              className="box"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                aria-disabled={false}
-                className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                role="button"
-                tabIndex={0}
-              >
-                <div
-                  className="box"
-                  style={
-                    Object {
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
-                >
-                  <div
-                    className="tagBase tagMedium secondary tagWrapperDismiss"
-                    style={
-                      Object {
-                        "backgroundColor": "#924af71A",
-                        "borderColor": "#924af7",
-                      }
-                    }
-                  >
-                    <div
-                      className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                      style={
-                        Object {
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="box marginEnd1"
-                      >
-                        <div
-                          className="box"
-                        >
-                          <div
-                            className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                          >
-                            <div
-                              className="box paddingX1 relative"
-                            >
-                              <input
-                                aria-hidden={true}
-                                aria-invalid="false"
-                                checked={true}
-                                className="input sizeSm inputEnabled readOnly"
-                                disabled={true}
-                                id="readonly-checkbox-:rj:"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onClick={[Function]}
-                                onFocus={[Function]}
-                                onMouseEnter={[Function]}
-                                onMouseLeave={[Function]}
-                                type="checkbox"
-                              />
-                              <div
-                                className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                                style={
-                                  Object {
-                                    "backgroundColor": "#924af7",
-                                    "borderColor": "transparent",
-                                  }
-                                }
-                              >
-                                <svg
-                                  aria-hidden={true}
-                                  aria-label=""
-                                  className="icon inverseIcon iconBlock"
-                                  height={8}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={8}
-                                >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                        style={
-                          Object {
-                            "WebkitLineClamp": 1,
-                          }
-                        }
-                        title="Text Impressions"
-                      >
-                        Text Impressions
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div
-            aria-disabled={false}
-            className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            <div
-              className="box"
-              style={
-                Object {
-                  "height": "100%",
-                  "width": "100%",
-                }
-              }
-            >
-              <div
-                className="dismissButton dismissButtonRounding secondary"
-                style={
-                  Object {
-                    "backgroundColor": "#924af71A",
-                    "borderColor": "#924af7",
-                  }
-                }
-              >
-                <svg
-                  aria-hidden={null}
-                  aria-label="Remove tag"
-                  className="icon defaultIcon iconBlock"
-                  height={8}
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width={8}
-                >
-                  <path
-                    d="test-file-stub"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TagData renders dismissable button 1`] = `
-<div
-  className="box rounding2 xsDisplayInlineBlock"
-  style={
-    Object {
-      "maxWidth": 300,
-    }
-  }
->
-  <div>
-    <div
-      onBlur={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="presentation"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-    >
-      <div
-        className="box xsDisplayFlex"
-        style={
-          Object {
-            "height": "100%",
-            "width": "100%",
-          }
-        }
-      >
-        <div
-          className="tagOuterContainer"
-        >
-          <div
-            className="box xsDisplayBlock"
-          >
-            <div
-              aria-label="This is a tooltip"
-              className="box"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-            >
-              <div
-                aria-disabled={false}
-                className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                role="button"
-                tabIndex={0}
-              >
-                <div
-                  className="box"
-                  style={
-                    Object {
-                      "height": "100%",
-                      "width": "100%",
-                    }
-                  }
-                >
-                  <div
-                    className="tagBase tagMedium secondary tagWrapperDismiss"
-                    style={
-                      Object {
-                        "backgroundColor": "#0081fe1A",
-                        "borderColor": "#0081fe",
-                      }
-                    }
-                  >
-                    <div
-                      className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                      style={
-                        Object {
-                          "width": "100%",
-                        }
-                      }
-                    >
-                      <div
-                        className="box marginEnd1"
-                      >
-                        <div
-                          className="box"
-                        >
-                          <div
-                            className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                          >
-                            <div
-                              className="box paddingX1 relative"
-                            >
-                              <input
-                                aria-hidden={true}
-                                aria-invalid="false"
-                                checked={true}
-                                className="input sizeSm inputEnabled readOnly"
-                                disabled={true}
-                                id="readonly-checkbox-:ri:"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onClick={[Function]}
-                                onFocus={[Function]}
-                                onMouseEnter={[Function]}
-                                onMouseLeave={[Function]}
-                                type="checkbox"
-                              />
-                              <div
-                                className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                                style={
-                                  Object {
-                                    "backgroundColor": "#0081fe",
-                                    "borderColor": "transparent",
-                                  }
-                                }
-                              >
-                                <svg
-                                  aria-hidden={true}
-                                  aria-label=""
-                                  className="icon inverseIcon iconBlock"
-                                  height={8}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={8}
-                                >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                        style={
-                          Object {
-                            "WebkitLineClamp": 1,
-                          }
-                        }
-                        title="Text Impressions"
-                      >
-                        Text Impressions
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div
-            aria-disabled={false}
-            className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            <div
-              className="box"
-              style={
-                Object {
-                  "height": "100%",
-                  "width": "100%",
-                }
-              }
-            >
-              <div
-                className="dismissButton dismissButtonRounding secondary"
-                style={
-                  Object {
-                    "backgroundColor": "#0081fe1A",
-                    "borderColor": "#0081fe",
-                  }
-                }
-              >
-                <svg
-                  aria-hidden={null}
-                  aria-label="Remove tag"
-                  className="icon defaultIcon iconBlock"
-                  height={8}
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width={8}
-                >
-                  <path
-                    d="test-file-stub"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TagData renders tagdata in RTL mode as expected 1`] = `
-<html
-  dir="rtl"
-  lang="en"
 >
   <div
-    className="box rounding2 xsDisplayInlineBlock"
-    style={
-      Object {
-        "maxWidth": 300,
-      }
-    }
+    aria-disabled={true}
+    className="hideOutline tapTransition rounding2 fullHeight fullWidth"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="button"
+    tabIndex={null}
   >
-    <div>
+    <div
+      className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+      style={Object {}}
+    >
       <div
-        onBlur={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        role="presentation"
+        className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
         style={
           Object {
             "height": "100%",
-            "width": "100%",
           }
         }
       >
         <div
-          className="box xsDisplayFlex"
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
-            }
-          }
+          className="box marginEnd1"
         >
           <div
-            className="tagOuterContainer"
+            className="box"
           >
             <div
-              aria-disabled={false}
-              className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              role="button"
-              tabIndex={0}
+              className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
             >
               <div
-                className="box"
-                style={
-                  Object {
-                    "height": "100%",
-                    "width": "100%",
-                  }
-                }
+                className="box paddingX1 relative"
               >
+                <input
+                  aria-hidden={true}
+                  aria-invalid="false"
+                  checked={true}
+                  className="input sizeSm inputEnabled readOnly"
+                  disabled={true}
+                  id="readonly-checkbox-:rg:"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="checkbox"
+                />
                 <div
-                  className="tagBase tagMedium secondary tagWrapperDismiss"
-                  style={Object {}}
-                >
-                  <div
-                    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
-                    style={
-                      Object {
-                        "width": "100%",
-                      }
+                  className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                  style={
+                    Object {
+                      "backgroundColor": "var(--color-gray-roboflow-300)",
+                      "borderColor": "transparent",
                     }
-                  >
-                    <div
-                      className="box marginEnd1"
-                    >
-                      <div
-                        className="box"
-                      >
-                        <div
-                          className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                        >
-                          <div
-                            className="box paddingX1 relative"
-                          >
-                            <input
-                              aria-hidden={true}
-                              aria-invalid="false"
-                              checked={false}
-                              className="input sizeSm inputEnabled readOnly"
-                              disabled={true}
-                              id="readonly-checkbox-:r1:"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onMouseEnter={[Function]}
-                              onMouseLeave={[Function]}
-                              type="checkbox"
-                            />
-                            <div
-                              className="whiteBg border borderRadiusSm sizeSm check"
-                              style={
-                                Object {
-                                  "backgroundColor": "var(--g-colorGray0)",
-                                  "borderColor": "var(--color-border-default)",
-                                }
-                              }
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      style={
-                        Object {
-                          "WebkitLineClamp": 1,
-                        }
-                      }
-                      title="LTR Text Tag"
-                    >
-                      LTR Text Tag
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              aria-disabled={false}
-              className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              role="button"
-              tabIndex={0}
-            >
-              <div
-                className="box"
-                style={
-                  Object {
-                    "height": "100%",
-                    "width": "100%",
                   }
-                }
-              >
-                <div
-                  className="dismissButton dismissButtonRounding secondary"
-                  style={Object {}}
                 >
                   <svg
-                    aria-hidden={null}
-                    aria-label="Remove tag"
-                    className="icon defaultIcon iconBlock"
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon inverseIcon iconBlock"
                     height={8}
                     role="img"
                     viewBox="0 0 24 24"
@@ -2763,8 +1355,549 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
             </div>
           </div>
         </div>
+        <span
+          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
+          title="Text Impressions"
+        >
+          Text Impressions
+        </span>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`TagData renders disabled unselected state 1`] = `
+<div
+  className="box relative rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    aria-disabled={true}
+    className="hideOutline tapTransition rounding2 fullHeight fullWidth"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="button"
+    tabIndex={null}
+  >
+    <div
+      className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+      style={Object {}}
+    >
+      <div
+        className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      >
+        <div
+          className="box marginEnd1"
+        >
+          <div
+            className="box"
+          >
+            <div
+              className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+            >
+              <div
+                className="box paddingX1 relative"
+              >
+                <input
+                  aria-hidden={true}
+                  aria-invalid="false"
+                  checked={false}
+                  className="input sizeSm inputEnabled readOnly"
+                  disabled={true}
+                  id="readonly-checkbox-:rh:"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="checkbox"
+                />
+                <div
+                  className="whiteBg border borderRadiusSm sizeSm check"
+                  style={
+                    Object {
+                      "backgroundColor": "var(--color-gray-roboflow-300)",
+                      "borderColor": "transparent",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
+          title="Text Impressions"
+        >
+          Text Impressions
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TagData renders dismisible button with color background 1`] = `
+<div
+  className="box relative rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="This is a tooltip"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        aria-disabled={false}
+        className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          style={
+            Object {
+              "backgroundColor": "#924af71A",
+              "borderColor": "#924af7",
+            }
+          }
+        >
+          <div
+            className="box marginEnd4 paddingX2 xsDisplayFlex xsItemsCenter"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          >
+            <div
+              className="box marginEnd1"
+            >
+              <div
+                className="box"
+              >
+                <div
+                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                >
+                  <div
+                    className="box paddingX1 relative"
+                  >
+                    <input
+                      aria-hidden={true}
+                      aria-invalid="false"
+                      checked={true}
+                      className="input sizeSm inputEnabled readOnly"
+                      disabled={true}
+                      id="readonly-checkbox-:rj:"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      type="checkbox"
+                    />
+                    <div
+                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      style={
+                        Object {
+                          "backgroundColor": "#924af7",
+                          "borderColor": "transparent",
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="icon inverseIcon iconBlock"
+                        height={8}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={8}
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              style={
+                Object {
+                  "WebkitLineClamp": 1,
+                }
+              }
+              title="Text Impressions"
+            >
+              Text Impressions
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#924af71A",
+        "borderColor": "#924af7",
+      }
+    }
+    type="button"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="Remove tag"
+      className="icon defaultIcon iconBlock"
+      height={8}
+      role="img"
+      viewBox="0 0 24 24"
+      width={8}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagData renders dismissable button 1`] = `
+<div
+  className="box relative rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="box xsDisplayBlock"
+  >
+    <div
+      aria-label="This is a tooltip"
+      className="box"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        aria-disabled={false}
+        className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          style={
+            Object {
+              "backgroundColor": "#0081fe1A",
+              "borderColor": "#0081fe",
+            }
+          }
+        >
+          <div
+            className="box marginEnd4 paddingX2 xsDisplayFlex xsItemsCenter"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          >
+            <div
+              className="box marginEnd1"
+            >
+              <div
+                className="box"
+              >
+                <div
+                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                >
+                  <div
+                    className="box paddingX1 relative"
+                  >
+                    <input
+                      aria-hidden={true}
+                      aria-invalid="false"
+                      checked={true}
+                      className="input sizeSm inputEnabled readOnly"
+                      disabled={true}
+                      id="readonly-checkbox-:ri:"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      type="checkbox"
+                    />
+                    <div
+                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      style={
+                        Object {
+                          "backgroundColor": "#0081fe",
+                          "borderColor": "transparent",
+                        }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="icon inverseIcon iconBlock"
+                        height={8}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={8}
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              style={
+                Object {
+                  "WebkitLineClamp": 1,
+                }
+              }
+              title="Text Impressions"
+            >
+              Text Impressions
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#0081fe1A",
+        "borderColor": "#0081fe",
+      }
+    }
+    type="button"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="Remove tag"
+      className="icon defaultIcon iconBlock"
+      height={8}
+      role="img"
+      viewBox="0 0 24 24"
+      width={8}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagData renders tagdata in RTL mode as expected 1`] = `
+<html
+  dir="rtl"
+  lang="en"
+>
+  <div
+    className="box relative rounding2 xsDisplayInlineBlock"
+    style={
+      Object {
+        "maxWidth": 300,
+      }
+    }
+  >
+    <div
+      aria-disabled={false}
+      className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <div
+        className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+        style={Object {}}
+      >
+        <div
+          className="box marginEnd4 paddingX2 xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd1"
+          >
+            <div
+              className="box"
+            >
+              <div
+                className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+              >
+                <div
+                  className="box paddingX1 relative"
+                >
+                  <input
+                    aria-hidden={true}
+                    aria-invalid="false"
+                    checked={false}
+                    className="input sizeSm inputEnabled readOnly"
+                    disabled={true}
+                    id="readonly-checkbox-:r1:"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    type="checkbox"
+                  />
+                  <div
+                    className="whiteBg border borderRadiusSm sizeSm check"
+                    style={
+                      Object {
+                        "backgroundColor": "var(--g-colorGray0)",
+                        "borderColor": "var(--color-border-default)",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
+            title="LTR Text Tag"
+          >
+            LTR Text Tag
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+      disabled={false}
+      onClick={[Function]}
+      style={Object {}}
+      type="button"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Remove tag"
+        className="icon defaultIcon iconBlock"
+        height={8}
+        role="img"
+        viewBox="0 0 24 24"
+        width={8}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </button>
   </div>
 </html>
 `;

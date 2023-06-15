@@ -12,7 +12,7 @@ export type InteractionStates = {|
  *
  * Given an interactions state for a checkbox, returns the relevant bg and border color
  * */
-export default function getCheckboxColors(
+export default function getCheckboxColor(
   state: InteractionStates,
   colorStyles: ColorStyles,
   opts?: {| showByDefault?: boolean |},

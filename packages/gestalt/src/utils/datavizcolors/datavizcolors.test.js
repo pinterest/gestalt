@@ -1,4 +1,5 @@
 // @flow strict
+import getCheckboxColor from './getCheckboxColor.js';
 import getDataVisualizationColor from './getDataVisualizationColor.js';
 
 const lightModeTheme = {
@@ -30,16 +31,75 @@ const lightModeTheme = {
   blueActive: '#4a85c9',
 };
 
+const theme = { ...lightModeTheme, colorDataVisualization02: '#00000' };
+
 describe('DataViz Color Unit Tests', () => {
   it('DataViz Color exists in theme', () => {
-    const theme = { ...lightModeTheme, colorDataVisualization02: '#00000' };
     const color = getDataVisualizationColor(theme, '02');
     expect(color).toBe('#00000');
   });
 
   it('Gets lighter shade of DataViz Color', () => {
-    const theme = { ...lightModeTheme, colorDataVisualization02: '#00000' };
     const color = getDataVisualizationColor(theme, '02', { lighten: true });
     expect(color).toBe('#000001A');
+  });
+
+  it('gives a transparent checkbox by default', () => {
+    const backgroundColor = getDataVisualizationColor(theme, '02');
+    const borderColor = getDataVisualizationColor(theme, '02');
+    const color = getCheckboxColor(
+      { hovered: false, disabled: false, selected: false },
+      { borderColor, backgroundColor },
+    );
+    expect(color.backgroundColor).toBe('transparent');
+    expect(color.borderColor).toBe('transparent');
+  });
+
+  it('gives a visible checkbox when show by default is set', () => {
+    const backgroundColor = getDataVisualizationColor(theme, '02');
+    const borderColor = getDataVisualizationColor(theme, '02');
+    const color = getCheckboxColor(
+      { hovered: false, disabled: false, selected: false },
+      { borderColor, backgroundColor },
+      { showByDefault: true },
+    );
+    expect(color.backgroundColor).toBe('var(--g-colorGray0)');
+    expect(color.borderColor).toBe('var(--color-border-default)');
+  });
+
+  it('gives a colored checkbox when selected', () => {
+    const backgroundColor = getDataVisualizationColor(theme, '02');
+    const borderColor = getDataVisualizationColor(theme, '02');
+    const color = getCheckboxColor(
+      { hovered: false, disabled: false, selected: true },
+      { borderColor, backgroundColor },
+      { showByDefault: true },
+    );
+    expect(color.backgroundColor).toBe('#00000');
+    expect(color.borderColor).toBe('transparent');
+  });
+
+  it('gives a disabled checkbox, no border, when disabled', () => {
+    const backgroundColor = getDataVisualizationColor(theme, '02');
+    const borderColor = getDataVisualizationColor(theme, '02');
+    const color = getCheckboxColor(
+      { hovered: false, disabled: true, selected: false },
+      { borderColor, backgroundColor },
+      { showByDefault: true },
+    );
+    expect(color.backgroundColor).toBe('var(--color-gray-roboflow-300)');
+    expect(color.borderColor).toBe('transparent');
+  });
+
+  it('gives a border on hover', () => {
+    const backgroundColor = getDataVisualizationColor(theme, '02');
+    const borderColor = getDataVisualizationColor(theme, '02');
+    const color = getCheckboxColor(
+      { hovered: true, disabled: false, selected: false },
+      { borderColor, backgroundColor },
+      { showByDefault: true },
+    );
+    expect(color.backgroundColor).toBe('var(--g-colorGray0)');
+    expect(color.borderColor).toBe('var(--color-border-default)');
   });
 });

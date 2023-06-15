@@ -7,9 +7,9 @@ export default function Example(): Node {
     <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
       <Box width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
         <Flex gap={2} wrap>
-          <TagData text="Impressions" baseColor="white" />
-          <TagData text="CPM" baseColor="white" />
-          <TagData text="Spend" baseColor="white" />
+          <TagData text="Impressions" baseColor="secondary" />
+          <TagData text="CPM" baseColor="secondary" />
+          <TagData text="Spend" baseColor="secondary" />
         </Flex>
       </Box>
     </Flex>

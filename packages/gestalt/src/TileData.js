@@ -7,7 +7,6 @@ import Flex from './Flex.js';
 import TapArea from './TapArea.js';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
-import getTileColors from './utils/datavizcolors/getTileColor.js';
 import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
@@ -140,10 +139,7 @@ export default function TileData({
       [styles.disabled]: disabled,
     });
 
-  const tileStyle = getTileColors(
-    { hovered: isHovered, selected: !!selected, disabled },
-    colorStyles,
-  );
+  const tileStyle = selected && !disabled ? colorStyles : {};
 
   const checkBoxStyle = getCheckboxColors(
     { hovered: isHovered, selected: !!selected, disabled },

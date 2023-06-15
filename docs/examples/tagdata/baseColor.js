@@ -6,7 +6,7 @@ export default function Example(): Node {
   return (
     <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
       <Box width="50%" height="100%" display="flex" justifyContent="center" alignItems="center">
-        <TagData text="Small TagData" size="sm" baseColor="default" />
+        <TagData text="Small TagData" size="sm" baseColor="primary" />
       </Box>
       <Box
         width="50%"
@@ -16,7 +16,7 @@ export default function Example(): Node {
         alignItems="center"
         color="tertiary"
       >
-        <TagData text="Small TagData" size="sm" baseColor="white" />
+        <TagData text="Small TagData" size="sm" baseColor="secondary" />
       </Box>
     </Flex>
   );

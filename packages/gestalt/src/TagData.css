@@ -41,26 +41,26 @@ html:not([dir="rtl"]) .tagWrapperDismiss {
 }
 
 .dismissButton {
-  position: absolute;
-  outline: none;
-  height: 100%;
-  width: 24px;
   /*
   Since the button is on an already transparent bg, it appears darker. This adjusts the background color to be a tad brighter since it's layered on top.
   */
   backdrop-filter: brightness(1.1);
+  height: 100%;
+  outline: none;
+  position: absolute;
+  width: 24px;
 }
 
 html[dir="rtl"] .dismissButtonPosition {
-  top: 0;
   left: 0;
   right: unset;
+  top: 0;
 }
 
 html:not([dir="rtl"]) .dismissButtonPosition {
-  top: 0;
-  right: 0;
   left: unset;
+  right: 0;
+  top: 0;
 }
 
 html[dir="rtl"] .dismissButtonRounding {

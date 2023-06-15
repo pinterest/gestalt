@@ -59,7 +59,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           <MainSection.Card
             cardSize="sm"
             type="do"
-            description="Choose the right background to help it stand out in dense data interfaces. For example, set `baseColor=white` when using TagData against a gray background."
+            description="Choose the right background to help it stand out in dense data interfaces. For example, set `baseColor=secondary` when using TagData against a gray background."
             sandpackExample={
               <SandpackExample
                 code={doChangeBaseColor}
@@ -172,7 +172,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`By default, TagData uses a light gray fill, which is suitable for placement on a white background. When used on a gray background, use \`baseColor="white"\` for a white fill.`}
+          description={`By default, TagData uses a light gray fill, which is suitable for placement on a white background. When used on a gray background, use \`baseColor="secondary"\` for a white fill.`}
           title="Base Color"
         >
           <MainSection.Card

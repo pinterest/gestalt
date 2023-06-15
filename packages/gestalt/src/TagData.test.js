@@ -30,7 +30,7 @@ describe('TagData', () => {
     const tree = create(
       <Flex gap={2}>
         <TagData
-          baseColor="white"
+          baseColor="secondary"
           showCheckbox
           selected
           text="Text Impressions"
@@ -39,7 +39,7 @@ describe('TagData', () => {
         />
 
         <TagData
-          baseColor="default"
+          baseColor="primary"
           selected
           showCheckbox
           text="Text Impressions"

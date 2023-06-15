@@ -10,7 +10,7 @@ export default function Snapshot(): Node {
           <TagData text="CPM" showCheckbox onRemove={() => {}} />
           <TagData text="CPM" showCheckbox selected onRemove={() => {}} />
           <TagData
-            baseColor="white"
+            baseColor="primary"
             color="03"
             onRemove={() => {}}
             showCheckbox

@@ -14,9 +14,9 @@ export default function Example(): Node {
         color="secondary"
       >
         <Flex gap={2} wrap>
-          <TagData text="Impressions" baseColor="white" />
-          <TagData text="CPM" baseColor="white" />
-          <TagData text="Spend" baseColor="white" />
+          <TagData text="Impressions" baseColor="secondary" />
+          <TagData text="CPM" baseColor="secondary" />
+          <TagData text="Spend" baseColor="secondary" />
         </Flex>
       </Box>
     </Flex>

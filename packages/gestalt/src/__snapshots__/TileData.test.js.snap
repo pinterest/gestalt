@@ -7,21 +7,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -149,21 +156,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -291,21 +305,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -433,21 +454,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -575,21 +603,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -717,21 +752,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -859,21 +901,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1001,21 +1050,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1143,21 +1199,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1285,21 +1348,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1427,21 +1497,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1569,21 +1646,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1712,21 +1796,28 @@ exports[`TileData TileData renders all colors as expected 1`] = `
 `;
 
 exports[`TileData TileData renders with tooltip 1`] = `
-<div>
+<div
+  className="box xsDisplayBlock"
+>
   <div
-    className="box xsDisplayBlock"
+    aria-label="This is a tooltip"
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
-      aria-label="This is a tooltip"
       className="box"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+      style={
+        Object {
+          "maxWidth": 196,
+        }
+      }
     >
       <div
         aria-disabled={false}
-        className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+        className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1859,21 +1950,28 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2054,21 +2152,28 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2249,21 +2354,28 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
   <div
     className="FlexItem"
   >
-    <div>
+    <div
+      className="box xsDisplayBlock"
+    >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+            className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2445,21 +2557,28 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
 `;
 
 exports[`TileData TileData title truncates when really long 1`] = `
-<div>
+<div
+  className="box xsDisplayBlock"
+>
   <div
-    className="box xsDisplayBlock"
+    aria-label="This is a tooltip"
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
-      aria-label="This is a tooltip"
       className="box"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+      style={
+        Object {
+          "maxWidth": 196,
+        }
+      }
     >
       <div
         aria-disabled={false}
-        className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+        className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -2586,10 +2705,17 @@ exports[`TileData TileData title truncates when really long 1`] = `
 `;
 
 exports[`TileData Tiledata is disabled 1`] = `
-<div>
+<div
+  className="box"
+  style={
+    Object {
+      "maxWidth": 196,
+    }
+  }
+>
   <div
     aria-disabled={true}
-    className="hideOutline tapTransition rounding4 fullHeight fullWidth"
+    className="hideOutline tapTransition rounding4 fullWidth"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2763,10 +2889,17 @@ exports[`TileData Tiledata is disabled 1`] = `
 `;
 
 exports[`TileData renders 1`] = `
-<div>
+<div
+  className="box"
+  style={
+    Object {
+      "maxWidth": 196,
+    }
+  }
+>
   <div
     aria-disabled={false}
-    className="hideOutline tapTransition rounding4 accessibilityOutline fullHeight fullWidth pointer"
+    className="hideOutline tapTransition rounding4 accessibilityOutline fullWidth pointer"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
