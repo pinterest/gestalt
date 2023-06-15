@@ -1,6 +1,6 @@
 // @flow strict
-import { useMemo, useCallback, type Node, useRef, useState } from 'react';
-import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Text, Link } from 'gestalt';
+import { type Node, useCallback, useMemo, useRef, useState } from 'react';
+import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Link, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);

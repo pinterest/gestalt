@@ -1,15 +1,15 @@
 // @flow strict
-import { useMemo, useCallback, type Node, useState } from 'react';
+import { type Node, useCallback, useMemo, useState } from 'react';
 import {
   ActivationCard,
   Callout,
   Divider,
   Flex,
-  Icon,
   GlobalEventsHandlerProvider,
+  Icon,
+  Link,
   RadioGroup,
   Upsell,
-  Link,
 } from 'gestalt';
 
 export default function Example(): Node {

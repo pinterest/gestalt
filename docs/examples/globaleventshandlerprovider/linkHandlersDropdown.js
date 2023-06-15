@@ -1,13 +1,13 @@
 // @flow strict
-import { useCallback, useMemo, type Node, useRef, useState } from 'react';
+import { type Node, useCallback, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Divider,
   Dropdown,
   Flex,
   GlobalEventsHandlerProvider,
-  RadioGroup,
   Link,
+  RadioGroup,
 } from 'gestalt';
 
 export default function Example(): Node {

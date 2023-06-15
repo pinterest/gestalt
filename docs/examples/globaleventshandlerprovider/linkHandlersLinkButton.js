@@ -1,15 +1,15 @@
 // @flow strict
-import { useCallback, useMemo, type Node, useState } from 'react';
+import { type Node, useCallback, useMemo, useState } from 'react';
 import {
   Box,
   Button,
   Divider,
   Flex,
+  GlobalEventsHandlerProvider,
   IconButton,
   Image,
   Link,
   Mask,
-  GlobalEventsHandlerProvider,
   RadioGroup,
   TapArea,
   Text,
