@@ -36,7 +36,7 @@ type Props = {|
    */
   isExternal?: boolean,
   /**
-   * Callback fired when clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation. To learn more about `mobileOnDismissStart`, see the [animation variant in SheetMobile](https://deploy-preview-2879--gestalt.netlify.app/web/sheetmobile#Animation). `mobileOnDismissStart` is the equivalent of `onDismissStart` in SheetMobile.
+   * Callback fired when clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation. To learn more about `mobileOnDismissStart`, see the [animation variant in SheetMobile](https://deploy-preview-2879--gestalt.netlify.app/web/sheetmobile#Animation). `mobileOnDismissStart` is the equivalent of `onDismissStart` in SheetMobile.
    */
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,

@@ -1,6 +1,6 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
-import { Button, Dropdown, Flex, OnLinkNavigationProvider, Text } from 'gestalt';
+import { type Node, useCallback, useMemo, useRef, useState } from 'react';
+import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Link, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
@@ -12,19 +12,29 @@ export default function Example(): Node {
     },
   };
 
-  const useOnNavigation = ({ href }: {| href: string, target?: null | 'self' | 'blank' |}) => {
-    const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
-      event.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
-    };
+  const useOnNavigation = useCallback(
+    ({
+      href,
+    }: {|
+      href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
+      target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
+    |}) => {
+      const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+        event.preventDefault();
+        // eslint-disable-next-line no-alert
+        alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
+      };
 
-    return onNavigationClick;
-  };
+      return onNavigationClick;
+    },
+    [],
+  );
+
+  const linkHandlers = useMemo(() => ({ onNavigation: useOnNavigation }), [useOnNavigation]);
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <OnLinkNavigationProvider onNavigation={useOnNavigation}>
+      <GlobalEventsHandlerProvider linkHandlers={linkHandlers}>
         <Flex direction="column" gap={2}>
           <Text>Example url: {window.location.href}</Text>
           <Flex justifyContent="center">
@@ -63,7 +73,7 @@ export default function Example(): Node {
             )}
           </Flex>
         </Flex>
-      </OnLinkNavigationProvider>
+      </GlobalEventsHandlerProvider>
     </Flex>
   );
 }

@@ -247,7 +247,7 @@ yarn unlink eslint-plugin-gestalt
           description={`
         Do not allow role=&apos;link&apos; on Button, TapArea, and IconButton in cases where an alternative with additional functionality must be used instead such as for use with a routing library.
 
-        Deprecation due to: [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) enables external link navigation in Gestalt components.
+        Deprecation due to: [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) enables external link navigation in Gestalt components.
       `}
         />
       </MainSection>
