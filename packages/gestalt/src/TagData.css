@@ -46,7 +46,7 @@ html:not([dir="rtl"]) .tagWrapperDismiss {
   height: 100%;
   width: 24px;
   /*
-  Since the button is on an already transparent, it appears darker. This adjusts the background color to be a tad brighter since it's layered on top.
+  Since the button is on an already transparent bg, it appears darker. This adjusts the background color to be a tad brighter since it's layered on top.
   */
   backdrop-filter: brightness(1.1);
 }

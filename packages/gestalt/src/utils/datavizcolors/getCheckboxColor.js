@@ -1,6 +1,12 @@
 // @flow strict
 
-import { type InteractionStates, type ColorStyles } from '../../Tile/Tile.js';
+type ColorStyles = {| borderColor?: string, backgroundColor?: string |};
+
+export type InteractionStates = {|
+  disabled: boolean,
+  hovered: boolean,
+  selected: boolean,
+|};
 
 /**
  *
