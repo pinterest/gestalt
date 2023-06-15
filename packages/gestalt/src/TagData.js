@@ -70,7 +70,7 @@ export type Props = {|
    */
   baseColor?: 'primary' | 'secondary',
   /**
-   * A color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette) that appears when the TagData is selected.
+   * A color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette) that appears when the TagData is selected.
    */
   color?: DataVisualizationColors,
   /**
