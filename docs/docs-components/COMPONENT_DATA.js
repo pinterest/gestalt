@@ -2691,7 +2691,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       },
       badge: null,
       deprecated: false,
-      documentation: 'planned',
+      documentation: 'ready',
       figma: null,
     },
     iOS: {
