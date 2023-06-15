@@ -9,8 +9,8 @@ import {
   Flex,
   Layer,
   Module,
-  RadioButton,
   OverlayPanel,
+  RadioButton,
   Text,
 } from 'gestalt';
 

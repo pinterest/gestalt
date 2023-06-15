@@ -7,46 +7,32 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import accessibilityExample from '../../examples/searchfield/accessibilityExample.js';
+import dontAddCriticalInfoToPlaceholder from '../../examples/searchfield/dontAddCriticalInfoToPlaceholder.js';
+import dontHideBehindIcon from '../../examples/searchfield/dontHideBehindIcon.js';
+import dontTruncateText from '../../examples/searchfield/dontTruncateText.js';
+import errorExample from '../../examples/searchfield/errorExample.js';
+import localizationExample from '../../examples/searchfield/localizationExample.js';
+import mainExample from '../../examples/searchfield/mainExample.js';
+import makePlaceholderSpecific from '../../examples/searchfield/makePlaceholderSpecific.js';
+import makeSearchFieldWide from '../../examples/searchfield/makeSearchFieldWide.js';
+import placeAboveContent from '../../examples/searchfield/placeAboveContent.js';
+import sizesExample from '../../examples/searchfield/sizesExample.js';
+import variantsExample from '../../examples/searchfield/variantsExample.js';
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="SearchField">
-      <PageHeader
-        name="SearchField"
-        description={generatedDocGen?.description}
-        defaultCode={`
-  function SearchFieldExample() {
-    const [value, setValue] = React.useState('');
-
-    return (
-      <Flex gap={{ row: 4, column: 0 }} alignItems="center" flex="grow">
-        <Icon
-          icon="pinterest"
-          color="brandPrimary"
-          size={20}
-          accessibilityLabel="Pinterest"
+      <PageHeader name="SearchField" description={generatedDocGen?.description}>
+        <SandpackExample
+          name="Main example"
+          code={mainExample}
+          hideEditor
+          hideControls
+          layout="column"
         />
-        <Flex.Item flex="grow">
-          <SearchField
-            accessibilityLabel="Search all of Pinterest"
-            accessibilityClearButtonLabel="Clear search field"
-            id="searchFieldMainExample"
-            onChange={({value}) => setValue(value)}
-            placeholder="Search and explore"
-            value={value}
-          />
-        </Flex.Item>
-        <IconButton
-          accessibilityLabel="Notifications"
-          icon="speech-ellipsis"
-          size="md"
-        />
-        <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-      </Flex>
-    );
-  }
-`}
-      />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -79,17 +65,28 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             showCode={false}
             type="do"
             description="Place SearchField above the content the user will be searching."
-            defaultCode={`
-<SearchField accessibilityLabel="Search your Pins" accessibilityClearButtonLabel="Clear search field" id="bestPracticesDo1" onChange={() => {}} placeholder="Search your Pins" />
-      `}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Place SearchField above the content the user will be searching."
+                code={placeAboveContent}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Hide SearchField behind an IconButton if there is enough space for the full component."
-            defaultCode={`
-<IconButton accessibilityLabel="Search your Pins" icon="search" />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Hide SearchField behind an IconButton if there is enough space for the full component."
+                code={dontHideBehindIcon}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -98,37 +95,28 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             cardSize="md"
             type="do"
             description="Make the `placeholder` specific. Give the user a hint about the content they're searching and/or what parameters they can use to search."
-            defaultCode={`
-<Flex alignItems="center" flex="grow">
-  <Flex.Item flex="grow">
-    <SearchField
-      accessibilityLabel="Search by audience name or ID"
-      accessibilityClearButtonLabel="Clear search field"
-      id="bestPracticesDo2"
-      onChange={() => {}}
-      placeholder="Search by audience name or ID"
-    />
-  </Flex.Item>
-</Flex>
-      `}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Make the `placeholder` specific"
+                code={makePlaceholderSpecific}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Add critical information to the `placeholder`. The `placeholder` text disappears once the user begins entering data and will therefore be unavailable."
-            defaultCode={`
-<Flex alignItems="center" flex="grow">
-  <Flex.Item flex="grow">
-    <SearchField
-      accessibilityLabel="Search your Pins"
-      accessibilityClearButtonLabel="Clear search field"
-      id="bestPracticesDont2"
-      onChange={() => {}}
-      placeholder="Click the submit button to search"
-    />
-  </Flex.Item>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Add critical information to the `placeholder`."
+                code={dontAddCriticalInfoToPlaceholder}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -137,33 +125,28 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             cardSize="md"
             type="do"
             description="Make sure SearchField is displayed wide enough to completely display common search terms."
-            defaultCode={`
-<Box width={300}>
-  <SearchField
-    accessibilityLabel="Search your Pins"
-    accessibilityClearButtonLabel="Clear search field"
-    id="bestPracticesDo3"
-    onChange={() => {}}
-    value="Homecoming dresses"
-  />
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Make sure SearchField is displayed wide enough to completely display common search terms."
+                code={makeSearchFieldWide}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Truncate or wrap text within SearchField."
-            defaultCode={`
-<Box width={300}>
-  <SearchField
-    accessibilityLabel="Search your Pins"
-    accessibilityClearButtonLabel="Clear search field"
-    id="bestPracticesDont3"
-    onChange={() => {}}
-    value="Swiss architecure from the 195…"
-  />
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Truncate or wrap text within SearchField."
+                code={dontTruncateText}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -179,37 +162,13 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-  function SearchFieldExample() {
-    const [value, setValue] = React.useState('');
-    return (
-      <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
-        <Icon
-          accessibilityLabel="Pinterest"
-          color="brandPrimary"
-          icon="pinterest"
-          size={20}
-        />
-        <Flex.Item flex="grow">
-          <SearchField
-            accessibilityLabel="Search all of Pinterest"
-            accessibilityClearButtonLabel="Clear search field"
-            id="searchFieldA11yExample"
-            onChange={({value}) => setValue(value)}
-            placeholder="Search and explore"
-            value={value}
-          />
-        </Flex.Item>
-        <IconButton
-          accessibilityLabel="Notifications"
-          icon="speech-ellipsis"
-          size="md"
-        />
-        <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-      </Flex>
-    );
-  }
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Accessibility example"
+                code={accessibilityExample}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -224,37 +183,13 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-  function SearchFieldExample() {
-    const [value, setValue] = React.useState('');
-    return (
-      <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
-        <Icon
-          accessibilityLabel="Pinterest"
-          color="brandPrimary"
-          icon="pinterest"
-          size={20}
-        />
-        <Flex.Item flex="grow">
-          <SearchField
-            accessibilityLabel="सभी Pinterest खोजें"
-            accessibilityClearButtonLabel="खोज फ़ील्ड साफ़ करें"
-            id="searchFieldLocalizationExample"
-            onChange={({value}) => setValue(value)}
-            placeholder="खोजें और एक्सप्लोर करें"
-            value={value}
-          />
-        </Flex.Item>
-        <IconButton
-          accessibilityLabel="सूचनाएं"
-          icon="speech-ellipsis"
-          size="md"
-        />
-        <IconButton accessibilityLabel="प्रोफ़ाइल" icon="person" size="md" />
-      </Flex>
-    );
-  }
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Localization example"
+                code={localizationExample}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -266,26 +201,9 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SearchFieldExample() {
-  const [value, setValue] = React.useState('');
-  return (
-    <Flex alignItems="center" flex="grow">
-      <Flex.Item flex="grow">
-        <SearchField
-          accessibilityLabel=""
-          accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
-          id="searchMessagesLabelExample"
-          onChange={({value}) => setValue(value)}
-          placeholder="Search by name"
-          value={value}
-        />
-        </Flex.Item>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Variants example" code={variantsExample} layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -295,41 +213,9 @@ function SearchFieldExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SearchFieldExample() {
-  const [value, setValue] = React.useState('');
-  const [lgValue, setLgValue] = React.useState('');
-  return (
-    <Flex alignItems="center" gap={12}>
-      <Flex direction="column" flex="grow" gap={{ column: 4, row: 0 }}>
-        <Text>Medium (md)</Text>
-        <SearchField
-          accessibilityLabel=""
-          accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
-          id="searchMessagesMedium"
-          onChange={({value}) => setValue(value)}
-          placeholder="Search by name"
-          value={value}
-        />
-      </Flex>
-      <Flex direction="column" flex="grow" gap={{ column: 4, row: 0 }}>
-        <Text>Large (lg)</Text>
-        <SearchField
-          accessibilityLabel=""
-          accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
-          id="searchMessagesLarge"
-          onChange={({value}) => setLgValue(value)}
-          placeholder="Search by name"
-          value={lgValue}
-          size="lg"
-        />
-      </Flex>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Sizes example" code={sizesExample} layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -339,27 +225,9 @@ function SearchFieldExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function SearchFieldExample() {
-  const [value, setValue] = React.useState('pepper#$%');
-  return (
-    <Flex alignItems="center" flex="grow">
-      <Flex.Item flex="grow">
-        <SearchField
-          accessibilityLabel=""
-          accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
-          id="searchMessagesError"
-          onChange={({value}) => setValue(value)}
-          placeholder="Search by name"
-          value={value}
-          errorMessage="Invalid search term, please avoid special characters."
-        />
-      </Flex.Item>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Error example" code={errorExample} layout="column" />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

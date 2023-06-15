@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { useFocusVisible, Flex, Text } from 'gestalt';
+import { Flex, Text, useFocusVisible } from 'gestalt';
 
 export default function Example(): Node {
   const { isFocusVisible } = useFocusVisible();

@@ -3,16 +3,16 @@ import { Fragment, type Node, useState } from 'react';
 import {
   Box,
   Button,
+  Checkbox,
   CompositeZIndex,
+  Fieldset,
   FixedZIndex,
   Flex,
   Layer,
   OverlayPanel,
+  RadioButton,
   Text,
   TextField,
-  Fieldset,
-  Checkbox,
-  RadioButton,
 } from 'gestalt';
 
 export default function Example(): Node {

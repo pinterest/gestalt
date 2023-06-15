@@ -1,5 +1,5 @@
 // @flow strict
-import { type Context, type Element, type Node, useContext, useState, createContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext, useState } from 'react';
 
 export interface Indexable {
   index(): number;

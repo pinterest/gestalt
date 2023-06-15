@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import { Badge, Box, WashAnimated, Flex, Heading, TapArea, Text } from 'gestalt';
-import illustrations, { type IllustrationTypes } from '../graphics/index.js';
+import { Badge, Box, Flex, Heading, TapArea, Text, WashAnimated } from 'gestalt';
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
+import illustrations, { type IllustrationTypes } from '../graphics/index.js';
 
 export type IllustrationCardProps = {|
   headingLevel: 2 | 3,

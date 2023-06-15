@@ -3,8 +3,8 @@ import { createElement, type Node } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
-import typography from './Typography.css';
 import { semanticColors } from './textTypes.js';
+import typography from './Typography.css';
 
 function isNotNullish(val: ?number): boolean {
   return val !== null && val !== undefined;

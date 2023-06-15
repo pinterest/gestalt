@@ -1,6 +1,6 @@
 // @flow strict
 
-import { FixedZIndex, CompositeZIndex } from './zIndex.js';
+import { CompositeZIndex, FixedZIndex } from './zIndex.js';
 
 describe('FixedZIndex', () => {
   test('index', () => {

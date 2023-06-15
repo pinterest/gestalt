@@ -1,225 +1,119 @@
 // @flow strict
-import { type Node, type ElementProps, useEffect, useRef, useState } from 'react';
-import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
+import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import Card from '../../docs-components/Card.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/masonry/main.js';
+import variantsBasic from '../../examples/masonry/variantsBasic.js';
+import variantsFlexible from '../../examples/masonry/variantsFlexible.js';
+import variantsUniform from '../../examples/masonry/variantsUniform.js';
 
-const getPins = () => {
-  const pins = [
-    {
-      color: '#2b3938',
-      height: 316,
-      src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
-      width: 474,
-      name: 'the Hang Son Doong cave in Vietnam',
-    },
-    {
-      color: '#8e7439',
-      height: 1081,
-      src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
-      width: 474,
-      name: 'La Gran Muralla, Pekín, China',
-    },
-    {
-      color: '#698157',
-      height: 711,
-      src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
-      width: 474,
-      name: 'Plitvice Lakes National Park, Croatia',
-    },
-    {
-      color: '#4e5d50',
-      height: 632,
-      src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
-      width: 474,
-      name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
-    },
-    {
-      color: '#6d6368',
-      height: 710,
-      src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
-      width: 474,
-      name: 'Border of China and Vietnam',
-    },
-  ];
-
-  const pinList = [
-    ...new Array<void | {|
-      color: string,
-      height: number,
-      name: string,
-      src: string,
-      width: number,
-    |}>(3),
-  ]
-    .map(() => [...pins])
-    .flat();
-  return Promise.resolve(pinList);
-};
-
-type Pin = {|
-  color: string,
-  height: number,
-  name: string,
-  src: string,
-  width: number,
-|};
-
-function GridComponent({ data }: { data: Pin, ... }) {
-  return (
-    <Flex direction="column">
-      <Image
-        alt={data.name}
-        color={data.color}
-        naturalHeight={data.height}
-        naturalWidth={data.width}
-        src={data.src}
-      />
-      <Text>{data.name}</Text>
-    </Flex>
-  );
-}
-
-type Props = {|
-  id?: string,
-  layout?: $ElementType<ElementProps<typeof Masonry>, 'layout'>,
-|};
-
-function ExampleMasonry({ id, layout }: Props): Node {
-  const [pins, setPins] = useState<$ReadOnlyArray<Pin>>([]);
-  const [width, setWidth] = useState<number>(700);
-  const scrollContainerRef = useRef<?HTMLDivElement>();
-  const gridRef = useRef<?Masonry<Pin>>();
-
-  useEffect(() => {
-    getPins().then((startPins) => {
-      setPins(startPins);
-    });
-  }, []);
-
-  useEffect(() => {
-    gridRef.current?.handleResize();
-  }, [width]);
-
-  const updateWidth = ({ target }: {| target: HTMLInputElement |}) => {
-    setWidth(Number(target.value));
-  };
-
-  return (
-    <Box>
-      <Label htmlFor={`input-${id || ''}`}>
-        <Text>Container Width</Text>
-      </Label>
-      <input
-        id={`input-${id || ''}`}
-        type="range"
-        defaultValue={700}
-        onChange={updateWidth}
-        min={200}
-        max={700}
-        step={5}
-        style={{ width: '700px', display: 'block', margin: '10px auto' }}
-      />
-
-      <div
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={0}
-        ref={(el) => {
-          scrollContainerRef.current = el;
-        }}
-        style={{
-          height: '300px',
-          margin: '0 auto',
-          outline: '3px solid #ddd',
-          overflowY: 'scroll',
-          width: `${width}px`,
-        }}
-      >
-        {scrollContainerRef.current && (
-          <Masonry
-            columnWidth={170}
-            gutterWidth={5}
-            items={pins}
-            layout={layout}
-            minCols={1}
-            ref={(ref) => {
-              gridRef.current = ref;
-            }}
-            renderItem={({ data }) => <GridComponent data={data} />}
-            // $FlowFixMe[incompatible-type]
-            scrollContainer={() => scrollContainerRef.current}
-          />
-        )}
-      </div>
-    </Box>
-  );
-}
+const PREVIEW_HEIGHT = 400;
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Masonry">
-      <PageHeader name="Masonry" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          name="Main Masonry example"
+          code={main}
+          hideEditor
+          layout="column"
+          previewHeight={PREVIEW_HEIGHT}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <Card
-        description={`
-    The number of columns in this grid changes responsively based on the width of the parent.
+      <MainSection name="How Masonry works">
+        <MainSection.Subsection
+          description={`
+          Generally, Masonry renders items in two passes: an initial render off-screen to collect measurements, then an on-screen render with the correct measurements. This is necessary because we need to know the height of each item before we can render it in the correct position. This mental model is necessary to understand [the \`serverRenderedFlexible\` layout](/web/masonry#Flexible-layouts), as well as [the common overlap / extra vertical whitespace bug](/web/masonry#Why-is-there-too-much-too-little-vertical-whitespace-between-items).
 
-    ~~~jsx
-    <Masonry
-      items={this.state.pins}
-      loadItems={this.loadItems}
-      minCols={1}
-      renderItem={({ data }) => <Item data={data} />}
-    />
-    ~~~
-  `}
-        name="Fluid number of columns"
-      />
-      <Card
-        description={`
-    When layout is set to \`flexible\`, the item width will shrink/grow to fill the container. This is great for responsive designs.
+          Check out [this README](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md) for more details about how Masonry works. Pinterest employees can also check out [this PDocs page](https://pdocs.pinadmin.com/docs/webapp/masonry-ssr) to learn more about our Masonry SSR optimizations in Pinboard.
+          `}
+        />
+      </MainSection>
 
-    ~~~jsx
-    <Masonry layout="flexible" items={items} minCols={1} renderItem={({ data }) => <Item data={data} />} />
-    ~~~
-    `}
-        name="Flexible item width"
-      >
-        <ExampleMasonry layout="flexible" id="flexible-width" />
-      </Card>
-      <Card
-        description={`
-    When the \`flexible\` property is omitted, the item width will be fixed to \`columnWidth\`.
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Classic layouts"
+          description={`
+          Masonry offers two "classic" layouts: \`basic\` and \`basicCentered\`. These layouts use a fixed column width and include whitespace (if necessary given the container width) on the right side or both sides of the grid, respectively.
+        `}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantsBasic}
+                layout="column"
+                name="Variants - Basic example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-    ~~~jsx
-    <Masonry items={items} minCols={1} renderItem={({ data }) => <Item data={data} />} />
-    ~~~
-  `}
-        name="Non-flexible item width"
-      >
-        <ExampleMasonry id="non-flexible-width" />
-      </Card>
-      <Card
-        description={`
-    Using the \`uniformRow\` layout.
+        <MainSection.Subsection
+          title="Flexible layouts"
+          description={`
+          Masonry offers two layouts with flexible column widths: \`flexible\` and \`serverRenderedFlexible\`. These layouts use \`columnWidth\` as a starting point, but grow or shrink the column width to fill the container width. This creates an immersive, responsive, "full bleed" experience.
 
-    ~~~jsx
-    <Masonry items={items} layout="uniformRow" renderItem={({ data }) => <Item data={data} />} />;
-    ~~~
-  `}
-        name="Uniform row heights"
-      >
-        <ExampleMasonry layout="uniformRow" id="uniform" />
-      </Card>
+          \`serverRenderedFlexible\` corrects an issue with rendering a flexible layout on the server. This layout option assumes that you have provided the proper CSS to ensure the layout is correct during SSR.
+          `}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantsFlexible}
+                layout="column"
+                name="Variants - Flexible example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Uniform row heights"
+          description={`
+            Use the \`uniformRow\` layout to create a grid with uniform row heights. Note that Masonry does not crop or otherwise alter items, so each row will be as tall as the tallest item in that row. Any shorter items within the row will have additional whitespace below them.
+          `}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantsUniform}
+                layout="column"
+                name="Variants - Uniform example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="FAQ">
+        <MainSection.Subsection
+          title="Why is there too much / too little vertical whitespace between items?"
+          description={`
+          [As mentioned above](/web/masonry#How-Masonry-works), Masonry calculates the height of each item before rendering it. This means that if the height of an item changes after it has been rendered, the items below it will not be repositioned. This can lead to extra whitespace between items if the height of an item decreases, or overlapping items if the height of an item increases.
+
+          To avoid this issue, ensure that your items do not change height after their intial render. Common causes of this issue include:
+          - lazy-loading item content (especially things that increase item height, like Pin footer content)
+          - placeholder images that don't match the size of the final content (this is particularly common with videos)
+          - items that grow/shrink based on user interaction (this requires reflowing the entire grid)
+          `}
+        />
+      </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );

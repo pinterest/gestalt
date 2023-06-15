@@ -1,17 +1,17 @@
 // @flow strict-local
 import { useState } from 'react';
-import { act, render, screen, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import DatePicker from './DatePicker.js';
 
 const initialDate = new Date(2018, 11, 14);
 
 function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: boolean |}) {
-  const [date, setDate] = useState(initialDate);
+  const [date, setDate] = useState<Date | null>(initialDate);
 
   return (
     <DatePicker
       id="fake_id"
-      onChange={(e) => setDate(e.value)}
+      onChange={({ value }) => setDate(value)}
       value={date}
       selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
     />
@@ -20,7 +20,7 @@ function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: bo
 
 describe('DatePicker', () => {
   const mockOnChange = jest.fn<
-    [{| event: SyntheticInputEvent<HTMLInputElement>, value: Date |}],
+    [{| event: SyntheticInputEvent<HTMLInputElement>, value: Date | null |}],
     void,
   >();
 

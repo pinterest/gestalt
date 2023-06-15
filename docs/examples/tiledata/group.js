@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { TileData, Flex } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Flex, TileData } from 'gestalt';
 
 export default function Example(): Node {
   const dataSources = [

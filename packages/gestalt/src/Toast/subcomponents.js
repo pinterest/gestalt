@@ -1,13 +1,13 @@
 // @flow strict
 import {
   cloneElement,
-  useCallback,
-  useRef,
-  useEffect,
-  useState,
-  Fragment,
   type Element,
+  Fragment,
   type Node,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import Avatar from '../Avatar.js';
 import Box from '../Box.js';

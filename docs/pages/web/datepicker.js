@@ -25,8 +25,8 @@ import {
   nb,
   nl,
   pl,
-  ptBR,
   pt,
+  ptBR,
   ro,
   ru,
   sk,
@@ -295,7 +295,7 @@ import { it } from 'date-fns/locale';
         >
           {({ localeDataCode }) => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            const [date, setDate] = useState(new Date());
+            const [date, setDate] = useState<Date | null>(new Date());
 
             return (
               <Box width="100%" height="100%" color="default">

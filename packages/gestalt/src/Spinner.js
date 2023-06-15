@@ -1,9 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
-import styles from './Spinner.css';
 import Box from './Box.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
+import styles from './Spinner.css';
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
@@ -14,7 +15,7 @@ type Props = {|
   /**
    * String that clients such as VoiceOver will read to describe the element. Always localize the label.
    */
-  accessibilityLabel: string,
+  accessibilityLabel?: string,
   /**
    * Color of the Spinner.
    */
@@ -46,13 +47,14 @@ export default function Spinner({
   show,
   size = 'md',
 }: Props): Node {
+  const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           color={color}
           icon="knoop"
-          accessibilityLabel={accessibilityLabel}
+          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       </div>

@@ -1,9 +1,9 @@
 // @flow strict
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Button from './Button.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Flex from './Flex.js';
 import Modal from './Modal.js';
-import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 
 describe('Modal', () => {
   test('Desktop Modal renders', () => {
@@ -108,6 +108,6 @@ describe('Modal', () => {
     expect(screen.getByText('Next')).toBeVisible();
     expect(screen.getAllByRole('button')).toHaveLength(3);
     expect(screen.getByLabelText('Bottom sheet')).toBeVisible();
-    expect(screen.getByLabelText('Close bottom sheet')).toBeVisible();
+    expect(screen.getByLabelText('Dismiss bottom sheet')).toBeVisible();
   });
 });

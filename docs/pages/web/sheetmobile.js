@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -337,7 +337,7 @@ Handlers:
 - onOpen: executed when SheetMobile opens
 - onClose: executed when SheetMobile closes
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider) for more information.`}
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#SheetMobile-handlers) for more information.`}
           columns={2}
         >
           <MainSection.Card

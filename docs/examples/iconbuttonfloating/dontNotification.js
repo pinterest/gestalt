@@ -1,6 +1,6 @@
 // @flow strict
-import { useRef, type Node } from 'react';
-import { IconButtonFloating, Box, Flex } from 'gestalt';
+import { type Node, useRef } from 'react';
+import { Box, Flex, IconButtonFloating } from 'gestalt';
 
 export default function Example(): Node {
   const anchorRef = useRef<null | HTMLElement>(null);

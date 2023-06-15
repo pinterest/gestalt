@@ -1,18 +1,18 @@
 // @flow strict-local
 import {
+  type AbstractComponent,
+  type Element,
   forwardRef,
+  type Node,
   useImperativeHandle,
   useRef,
-  type Element,
-  type AbstractComponent,
-  type Node,
 } from 'react';
 import InternalDatePicker from './DatePicker/InternalDatePicker.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-// flowlint unclear-type:off
 // NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE
 // They will get picked up by the docgen and bork the type displayed on the docs
+// flowlint unclear-type:off
 type LocaleData = {|
   code?: string,
   formatDistance?: (...args: $ReadOnlyArray<any>) => any,
@@ -104,7 +104,7 @@ export type Props = {|
    */
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
-    value: Date,
+    value: Date | null,
   |}) => void,
   /**
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
@@ -113,7 +113,7 @@ export type Props = {|
   /**
    * Required for date range selection. End date on a date range selection. See the [date range example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
-  rangeEndDate?: Date,
+  rangeEndDate?: Date | null,
   /**
    * Required for date range selection. Defines the datepicker start/end role in a date range selection.See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
@@ -121,7 +121,7 @@ export type Props = {|
   /**
    * Required for date range selection. Start date on a date range selection. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
-  rangeStartDate?: Date,
+  rangeStartDate?: Date | null,
   /**
    * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
@@ -133,7 +133,7 @@ export type Props = {|
   /**
    * DatePicker can be a controlled component. `value` sets the current value of the input. See the [controlled component date example](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) to learn more.
    */
-  value?: Date,
+  value?: Date | null,
 |};
 
 /**

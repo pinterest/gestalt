@@ -1,6 +1,6 @@
 // @flow strict
-import { useRef, type Node } from 'react';
-import { ColorSchemeProvider, Flex, Box, Pulsar, Button } from 'gestalt';
+import { type Node, useRef } from 'react';
+import { Box, Button, ColorSchemeProvider, Flex, Pulsar } from 'gestalt';
 
 export default function Snapshot(): Node {
   const anchorRef = useRef<null | HTMLElement>(null);

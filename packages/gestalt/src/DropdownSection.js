@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import styles from './Dropdown.css';
 import Box from './Box.js';
+import styles from './Dropdown.css';
 import Text from './Text.js';
 
 type Props = {|

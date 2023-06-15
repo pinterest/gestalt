@@ -1,17 +1,17 @@
 // @flow strict
 import {
+  type AbstractComponent,
   forwardRef,
   type Node,
-  type AbstractComponent,
-  useState,
-  useRef,
   useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
 import classnames from 'classnames';
-import layout from './Layout.css';
-import styles from './SearchField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
+import layout from './Layout.css';
+import styles from './SearchField.css';
 import formElement from './shared/FormElement.css';
 import FormErrorMessage from './shared/FormErrorMessage.js';
 import FormLabel from './shared/FormLabel.js';

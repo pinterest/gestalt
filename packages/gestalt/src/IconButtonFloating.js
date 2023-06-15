@@ -1,9 +1,9 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent } from 'react';
+import { type AbstractComponent, forwardRef, type Node } from 'react';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
-import { type Indexable } from './zIndex.js';
 import icons from './icons/index.js';
+import { type Indexable } from './zIndex.js';
 
 type Props = {|
   /**

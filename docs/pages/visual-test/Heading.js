@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, Fragment } from 'react';
+import { Fragment, type Node } from 'react';
 import { Box, Heading } from 'gestalt';
 
 export default function Snapshot(): Node {

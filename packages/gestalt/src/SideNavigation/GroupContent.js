@@ -1,5 +1,6 @@
 // @flow strict
-import { useEffect, useState, type Node, type Element } from 'react';
+import { type Element, type Node, useEffect, useState } from 'react';
+import PrimaryActionIconButton from './PrimaryActionIconButton.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
 import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
@@ -9,7 +10,6 @@ import Icon from '../Icon.js';
 import icons from '../icons/index.js';
 import Text from '../Text.js';
 import { type Indexable } from '../zIndex.js';
-import PrimaryActionIconButton from './PrimaryActionIconButton.js';
 
 type IconType = $Keys<typeof icons> | {| __path: string |};
 type Display = 'expandable' | 'static';

@@ -1,9 +1,8 @@
 // @flow strict
-import { type Node, Component as ReactComponent } from 'react';
-import styles from './Masonry.css';
+import { Component as ReactComponent, type Node } from 'react';
 import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
-import throttle, { type ThrottleReturn } from './throttle.js';
+import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache.js';
 import defaultLayout from './Masonry/defaultLayout.js';
 import fullWidthLayout from './Masonry/fullWidthLayout.js';
@@ -12,6 +11,7 @@ import MeasurementStore from './Masonry/MeasurementStore.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
 import uniformRowLayout from './Masonry/uniformRowLayout.js';
+import throttle, { type ThrottleReturn } from './throttle.js';
 
 const RESIZE_DEBOUNCE = 300;
 
@@ -23,8 +23,8 @@ type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' 
 
 type Props<T> = {|
   /**
-   * The preferred/target item width. If 'flexible' is set, the item width will
-   * grow to fill column space, and shrink to fit if below min columns.
+   * The preferred/target item width in pixels. If `layout="flexible"` is set, the item width will
+   * grow to fill column space, and shrink to fit if below the minimum number of columns.
    */
   columnWidth?: number,
   /**
@@ -32,22 +32,21 @@ type Props<T> = {|
    */
   gutterWidth?: number,
   /**
-   * An array of items to display that contains the data to be rendered by `renderItem()` (fallback to the deprecated `<Item />` if `renderItem` is not passed).
+   * An array of items to display that contains the data to be rendered by `renderItem`.
    */
   items: $ReadOnlyArray<T>,
   /**
-   * `basic`: Left aligned masonry layout.
-   * `basicCentered`: Center aligned masonry layout.
-   * `flexible`: Item width grows to fill column space and shrinks to fit if below min columns.
-   * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below min columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
-   * `uniformRow`: Items are laid out in a single row, with all items having the same height.
+   * `basic`: Left-aligned, fixed-column-width masonry layout.
+   * `basicCentered`: Center-aligned, fixed-column-width masonry layout.
+   * `flexible`: Item width grows to fill column space and shrinks to fit if below the minimum number of columns.
+   * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below the minimum number of columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
+   * `uniformRow`: Items are laid out in a single row, with all items having the same height. Note that Masonry does _not_ crop or alter items in any way — rows will take the height of the tallest item in the row, with additional whitespace shown below any shorter items.
    */
   layout?: Layout,
   /**
-   * A callback which the grid calls when we need to load more items as the user scrolls.
-   * The callback should update the state of the items, and pass those in as props
-   * to this component.
-   * Note that `scrollContainer` must be specified.
+   * A callback fired when the user scrolls past a given threshold, based on the height of the container. The callback should update the state of the items, which must be reflected in the `items` prop.
+   *
+   * _Note that `scrollContainer` must be specified._
    */
   loadItems?:
     | false
@@ -57,16 +56,15 @@ type Props<T> = {|
         |},
       ) => void | boolean | { ... }),
   /**
-   * Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
+   * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
    */
-  // $FlowFixMe[unclear-type]
-  measurementStore?: Cache<T, any>,
+  measurementStore?: Cache<T, number>,
   /**
-   * Minimum number of columns to display.
+   * Minimum number of columns to display, regardless of the container width.
    */
   minCols: number,
   /**
-   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   * A function that renders the item to be displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    */
   renderItem: ({|
     +data: T,
@@ -74,7 +72,8 @@ type Props<T> = {|
     +isMeasuring: boolean,
   |}) => Node,
   /**
-   * A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
+   * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
+   *
    * This is required if the grid is expected to be scrollable.
    */
   scrollContainer?: () => HTMLElement,
@@ -189,8 +188,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     this.containerHeight = 0;
     this.containerOffset = 0;
-    // $FlowFixMe[unclear-type]
-    const measurementStore: Cache<T, any> =
+    const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.state = {

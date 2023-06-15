@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import Flex from './Flex.js';
-import Modal from './Modal.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
+import Flex from './Flex.js';
+import Modal from './Modal.js';
 import ModalAlertAction from './ModalAlert/Action.js';
 import ModalAlertHeader from './ModalAlert/Header.js';
 
@@ -51,13 +51,13 @@ type Props = {|
    */
   type?: 'default' | 'warning' | 'error',
   /**
-   * Main action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Main action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
    */
   primaryAction: ActionDataType,
   /**
-   * Secondary action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Secondary action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
    */

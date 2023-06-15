@@ -1,14 +1,14 @@
 // @flow strict
-import { forwardRef, type Element, type Node, type AbstractComponent, useState } from 'react';
+import { type AbstractComponent, type Element, forwardRef, type Node, useState } from 'react';
 import classnames from 'classnames';
-import focusStyles from './Focus.css';
-import styles from './TextArea.css';
 import Box from './Box.js';
+import focusStyles from './Focus.css';
 import formElement from './shared/FormElement.css';
-import Tag from './Tag.js';
 import FormErrorMessage from './shared/FormErrorMessage.js';
 import FormHelperText from './shared/FormHelperText.js';
 import FormLabel from './shared/FormLabel.js';
+import Tag from './Tag.js';
+import styles from './TextArea.css';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;

@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -237,7 +237,7 @@ export default function ComponentPage({
           <MainSection.Card
             cardSize="md"
             title="Link"
-            description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+            description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
             `}
             sandpackExample={<SandpackExample code={link} name="Link example" layout="column" />}
           />
@@ -353,8 +353,8 @@ If users need to select from a short, simple list (without needing sections, sub
 **[ComboBox](/web/combobox)**
 If users need the ability to choose an option by typing in an input and filtering a long list of options, use ComboBox.
 
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
           `}
         />
       </MainSection>

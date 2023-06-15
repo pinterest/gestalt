@@ -1,15 +1,17 @@
 // @flow strict
 import {
-  type Node,
   type ElementConfig,
+  type Node,
   useCallback,
-  useLayoutEffect,
   useEffect,
   useId,
+  useLayoutEffect,
 } from 'react';
 import classnames from 'classnames';
+import ContentContainer from './ContentContainer.js';
+import Header from './Header.js';
 import animation from '../animation/animation.css';
-import { useAnimation, ANIMATION_STATE } from '../animation/AnimationContext.js';
+import { ANIMATION_STATE, useAnimation } from '../animation/AnimationContext.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
@@ -22,8 +24,6 @@ import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
 import sheetMobileStyles from '../SheetMobile.css';
 import { type Indexable } from '../zIndex.js';
-import ContentContainer from './ContentContainer.js';
-import Header from './Header.js';
 
 type OnClickType = ({|
   event:

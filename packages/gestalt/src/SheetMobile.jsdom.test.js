@@ -1,9 +1,9 @@
 // @flow strict
-import { act, screen, render, fireEvent } from '@testing-library/react';
 import { create } from 'react-test-renderer';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import SheetMobile from './SheetMobile.js';
 import * as useReducedMotionHook from './useReducedMotion.js';
-import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 
 jest.mock('./useReducedMotion.js');
 
@@ -63,7 +63,7 @@ describe('SheetMobile', () => {
       }),
     ).toBeVisible();
     expect(
-      screen.getByLabelText('Close bottom sheet', {
+      screen.getByLabelText('Dismiss bottom sheet', {
         exact: true,
       }),
     ).toBeVisible();
@@ -160,7 +160,7 @@ describe('SheetMobile', () => {
     );
 
     act(() => {
-      screen.getByLabelText('Close bottom sheet').click();
+      screen.getByLabelText('Dismiss bottom sheet').click();
     });
 
     expect(mockOnClick).toHaveBeenCalled();

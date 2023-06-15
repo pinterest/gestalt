@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, TapArea, Text, SlimBanner } from 'gestalt';
+import { Box, SlimBanner, TapArea, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
@@ -162,7 +162,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description: [
               'Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.',
               'Required with button-role + button-type buttons.',
-              'See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
+              'See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
             ],
             href: 'basic-taparea',
           },
@@ -305,7 +305,7 @@ function TapAreaExample() {
           id="link_buttons"
           description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
-TapArea with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+TapArea with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
   `}
           name="TapArea with Link/Button"
           defaultCode={`
@@ -669,8 +669,8 @@ function MenuButtonExample() {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
       `}
         />
       </MainSection>

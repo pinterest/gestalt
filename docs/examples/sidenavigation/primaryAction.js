@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { SideNavigation, Dropdown, Button, Box, DeviceTypeProvider, Flex } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Button, DeviceTypeProvider, Dropdown, Flex, SideNavigation } from 'gestalt';
 
 export default function Example(): Node {
   const [mobile, setMobile] = useState(false);

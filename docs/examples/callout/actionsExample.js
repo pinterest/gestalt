@@ -2,17 +2,17 @@
 import { type Node, useState } from 'react';
 import {
   Box,
+  Button,
+  ButtonGroup,
   Callout,
+  Column,
+  Flex,
+  Label,
   Layer,
   Modal,
-  Flex,
-  ButtonGroup,
-  Button,
-  Column,
-  Label,
   Text,
-  TextField,
   TextArea,
+  TextField,
 } from 'gestalt';
 
 export default function Example(): Node {

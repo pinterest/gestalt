@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Text from './Text.js';
@@ -47,7 +48,7 @@ type Props = {|
    * - `accessibilityLabel`: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
    * - `onClick`: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
    *
-   * ActivationCard can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * ActivationCard can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
   link?: LinkData,
   /**
@@ -228,6 +229,7 @@ export default function ActivationCard({
   title,
 }: Props): Node {
   const isCompleted = status === 'complete';
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 
   return (
     <Box
@@ -246,7 +248,13 @@ export default function ActivationCard({
     >
       {isCompleted ? (
         <CompletedCard
-          dismissButton={dismissButton}
+          dismissButton={
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
+          }
           message={message}
           status={status}
           statusMessage={statusMessage}
@@ -254,7 +262,13 @@ export default function ActivationCard({
         />
       ) : (
         <UncompletedCard
-          dismissButton={dismissButton}
+          dismissButton={
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
+          }
           link={link}
           message={message}
           status={status}

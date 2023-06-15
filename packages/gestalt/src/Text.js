@@ -1,10 +1,10 @@
 // @flow strict
-import { forwardRef, type AbstractComponent, type Element, type Node } from 'react';
+import { type AbstractComponent, type Element, forwardRef, type Node } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
-import typography from './Typography.css';
 import { semanticColors } from './textTypes.js';
+import typography from './Typography.css';
 
 function isNotNullish(val: ?number): boolean {
   return val !== null && val !== undefined;

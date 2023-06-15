@@ -1,9 +1,9 @@
 // @flow strict
-import { act, fireEvent, screen, render } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import * as AnimationControllerModule from './animation/AnimationContext.js';
 import { ESCAPE } from './keyCodes.js';
 import OverlayPanel from './OverlayPanel.js';
 import * as useReducedMotionHook from './useReducedMotion.js';
-import * as AnimationControllerModule from './animation/AnimationContext.js';
 
 jest.mock('./useReducedMotion.js');
 
@@ -427,7 +427,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('No, go back to the overlay panel.', {
+      screen.getByLabelText('No, go back to the overlay panel', {
         exact: true,
       }),
     ).toBeVisible();
@@ -439,7 +439,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('Yes, dismiss the overlay panel.', {
+      screen.getByLabelText('Yes, dismiss the overlay panel', {
         exact: true,
       }),
     ).toBeVisible();
@@ -451,7 +451,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByText('You will lose all of your changes. This cannot be undone.', {
+      screen.getByText('You will lose all of your changes. This cannot be undone', {
         exact: true,
       }),
     ).toBeVisible();

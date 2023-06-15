@@ -30,7 +30,7 @@ Related articles:
 https://americanexpress.io/hydra/
 https://kentcdodds.com/blog/how-to-use-react-context-effectively */
 
-import { createContext, useContext, type Context, type Node } from 'react';
+import { type Context, createContext, type Node, useContext } from 'react';
 
 export type Hydra<ContextType> = {|
   Provider: $PropertyType<Context<ContextType | void>, 'Provider'>,

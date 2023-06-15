@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { multipledocgen, type DocGen } from '../../docs-components/docgen.js';
+import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -471,7 +471,7 @@ export default function DocsPage({
           description={`
       Upsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
 
-      Upsell actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+      Upsell actions with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
 
       For example, “Learn more” may link to a separate documentation site, while “Send invite” could be a button that opens a [Modal](/web/modal) with an invite flow. Be sure to localize the labels of the actions.
 
@@ -749,8 +749,8 @@ If the \`message\` text requires more complex style, such as bold text or inline
       **[Toast](/web/toast)**
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
-      **[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-      OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+      **[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+      GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
       **[ActivationCard](/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.

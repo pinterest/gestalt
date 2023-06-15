@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import Box from '../Box.js';
 import { type Size, SIZE_MAP } from './constants.js';
+import Box from '../Box.js';
 
 type Props = {|
   children: Node,

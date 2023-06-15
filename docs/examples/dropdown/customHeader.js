@@ -1,6 +1,6 @@
 // @flow strict
-import { Fragment, type Node, useState, useRef } from 'react';
-import { Link, Box, Button, Dropdown, Flex, Text, FixedZIndex, CompositeZIndex } from 'gestalt';
+import { Fragment, type Node, useRef, useState } from 'react';
+import { Box, Button, CompositeZIndex, Dropdown, FixedZIndex, Flex, Link, Text } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);

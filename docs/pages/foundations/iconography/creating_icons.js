@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { List, Link, Text } from 'gestalt';
+import { Link, List, Text } from 'gestalt';
 import InternalOnlyIconButton from '../../../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';

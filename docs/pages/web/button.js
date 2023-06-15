@@ -122,7 +122,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             required: false,
             description: [
               'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
-              'See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
+              'See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
             ],
           },
           {
@@ -662,9 +662,9 @@ Use TapArea to make non-button elements interactive, like an Image. This ensures
 **[Tabs](/web/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
 
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
       `}
         />
       </MainSection>
