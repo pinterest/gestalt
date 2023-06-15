@@ -1,3 +1,9 @@
+## 115.0.0 (Jun 15, 2023)
+
+### Major
+
+- GlobalEventsHandlerProvider: migrating OnLinkNavigationProvider to `linkHandlers.onNavigation` ([#3006](https://github.com/pinterest/gestalt/pull/3006)) - [Preview link](https://deploy-preview-3006--gestalt.netlify.app?devexample=true)
+
 ## 114.0.5 (Jun 15, 2023)
 
 ### Patch
