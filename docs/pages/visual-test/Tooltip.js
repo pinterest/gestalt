@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Tooltip, IconButton, Box } from 'gestalt';
+import { Box, IconButton, Tooltip } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (

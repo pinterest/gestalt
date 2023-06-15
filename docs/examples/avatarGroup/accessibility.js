@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useRef, useEffect, type Node } from 'react';
-import { Flex, AvatarGroup, Text, SearchField, Layer, Popover, Box } from 'gestalt';
+import { type Node, useEffect, useRef, useState } from 'react';
+import { AvatarGroup, Box, Flex, Layer, Popover, SearchField, Text } from 'gestalt';
 
 function SearchCollaboratorsField(): Node {
   const ref = useRef<null | HTMLInputElement>(null);

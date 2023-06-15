@@ -43,18 +43,18 @@
  * REMOVE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
-import { type FileType, type ApiType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes.js';
 import {
   buildReplaceWithModifiedAttributes,
-  getGestaltImport,
-  getComponentIdentifierByName,
-  getLocalImportedName,
-  filterJSXByTargetLocalName,
+  deepCloneNode,
   filterJSXByAttribute,
+  filterJSXByTargetLocalName,
+  getComponentIdentifierByName,
+  getGestaltImport,
+  getLocalImportedName,
   initialize,
   isNullOrUndefined,
   saveToSource,
-  deepCloneNode,
   throwErrorIfSpreadProps,
 } from './utils.js';
 

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Table, Link } from 'gestalt';
+import { Link, Table, Text } from 'gestalt';
 import docgen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';

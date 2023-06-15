@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Box, Table, Label, Checkbox } from 'gestalt';
+import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
 function BaseRow({
   id,

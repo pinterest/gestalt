@@ -1,6 +1,6 @@
 // @flow strict
 import borders from './Borders.css';
-import { fromClassName, identity, toProps, type Style } from './style.js';
+import { fromClassName, identity, type Style, toProps } from './style.js';
 import { bind, range } from './transforms.js';
 
 export type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';

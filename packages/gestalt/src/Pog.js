@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
-import styles from './Pog.css';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
+import styles from './Pog.css';
 
 const SIZE_NAME_TO_PADDING_PIXEL = {
   xs: 6,

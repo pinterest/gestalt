@@ -1,5 +1,5 @@
 // @flow strict
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('IconButtonFloating dark mode visual regression check', async ({
   page,

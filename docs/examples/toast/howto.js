@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { Box, Toast, Button, Layer, Text, Link, Image } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Button, Image, Layer, Link, Text, Toast } from 'gestalt';
 
 export default function Example(): Node {
   const [showToast, setShowToast] = useState(false);

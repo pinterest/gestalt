@@ -4,7 +4,7 @@
 // https://github.com/facebook/react/blob/cc7c1aece46a6b69b41958d731e0fd27c94bfc6c/packages/react-interactions/events/src/dom/create-event-handle/Focus.js
 // https://github.com/adobe/react-spectrum/blob/c700898916bbd076bcc63e49d77c16d80623a8e7/packages/@react-aria/interactions/src/useFocusVisible.ts
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 type Modality = 'keyboard' | 'pointer';
 type HandlerEvent = PointerEvent | MouseEvent | KeyboardEvent | FocusEvent;

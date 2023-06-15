@@ -1,16 +1,16 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useRef } from 'react';
+import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import focusStyles from './Focus.css';
-import styles from './TapArea.css';
-import { type AriaCurrent } from './ariaTypes.js';
-import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
+import { type AriaCurrent } from './ariaTypes.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import focusStyles from './Focus.css';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 import InternalLink from './Link/InternalLink.js';
+import styles from './TapArea.css';
+import useFocusVisible from './useFocusVisible.js';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 
 type FocusEventHandler = ({|
   event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { SideNavigation, RadioGroup, Flex } from 'gestalt';
+import { Flex, RadioGroup, SideNavigation } from 'gestalt';
 
 export default function Example(): Node {
   const [organisedBy, setOrganisedBy] = React.useState('categorized');

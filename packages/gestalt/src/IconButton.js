@@ -1,25 +1,25 @@
 // @flow strict
 import {
-  type Node,
   type AbstractComponent,
   forwardRef,
+  type Node,
   useImperativeHandle,
-  useState,
   useRef,
+  useState,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import styles from './IconButton.css';
-import touchableStyles from './TapArea.css';
+import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
 import Pog from './Pog.js';
+import touchableStyles from './TapArea.css';
 import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,

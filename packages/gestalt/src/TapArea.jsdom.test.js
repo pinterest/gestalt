@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { screen, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import TapArea from './TapArea.js';
 
 describe('TapArea', () => {

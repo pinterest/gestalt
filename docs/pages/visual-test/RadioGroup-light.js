@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, RadioGroup, ColorSchemeProvider } from 'gestalt';
+import { Box, ColorSchemeProvider, RadioGroup } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (

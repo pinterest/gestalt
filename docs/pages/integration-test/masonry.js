@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
-import { ColorSchemeProvider, Masonry } from 'gestalt';
-import { useRouter } from 'next/router';
 import LazyHydrate from 'react-lazy-hydration';
+import { useRouter } from 'next/router';
+import { ColorSchemeProvider, Masonry } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems.js';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems.js';
 import pinHeights, {

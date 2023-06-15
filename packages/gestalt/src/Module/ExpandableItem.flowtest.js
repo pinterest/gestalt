@@ -1,6 +1,6 @@
 // @flow strict
-import IconButton from '../IconButton.js';
 import ModuleExpandableItem from './ExpandableItem.js';
+import IconButton from '../IconButton.js';
 
 const Valid = (
   <ModuleExpandableItem

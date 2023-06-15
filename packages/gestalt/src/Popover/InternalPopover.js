@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useEffect } from 'react';
+import { type Node, useEffect, useRef } from 'react';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 import Controller from '../Controller.js';

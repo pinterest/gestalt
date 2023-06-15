@@ -1,5 +1,5 @@
 // @flow strict
-import { renderHook, act } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 const mediaqueryDefaults = {

@@ -1,5 +1,5 @@
 // @flow strict
-import { createContext, type Context, type Element, type Node, useContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
 export type NoopType = () => void;
 

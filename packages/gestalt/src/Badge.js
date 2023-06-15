@@ -2,8 +2,8 @@
 import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
-import colors from './Colors.css';
 import Box from './Box.js';
+import colors from './Colors.css';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';

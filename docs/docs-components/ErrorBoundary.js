@@ -1,7 +1,7 @@
 // @flow strict
 
 import React, { type Node } from 'react';
-import { Text, Button } from 'gestalt';
+import { Button, Text } from 'gestalt';
 
 class ErrorBoundary extends React.Component<{| children: Node |}, {| hasError: boolean |}> {
   state: {| hasError: boolean |} = { hasError: false };

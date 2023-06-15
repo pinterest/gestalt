@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import classnames from 'classnames';
-import styles from './WashAnimated.css';
 import Box from './Box.js';
+import styles from './WashAnimated.css';
 
 function isNil(val: ?boolean) {
   return val === undefined || val === null;

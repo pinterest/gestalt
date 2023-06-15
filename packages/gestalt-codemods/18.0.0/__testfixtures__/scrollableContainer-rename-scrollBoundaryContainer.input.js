@@ -1,4 +1,4 @@
-import { ScrollableContainer, Box } from 'gestalt';
+import { Box,ScrollableContainer } from 'gestalt';
 
 export default function TestComp() {
   return (

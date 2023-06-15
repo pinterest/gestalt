@@ -1,11 +1,11 @@
 // @flow strict-local
 import {
+  type AbstractComponent,
+  type Element,
   forwardRef,
+  type Node,
   useImperativeHandle,
   useRef,
-  type Element,
-  type AbstractComponent,
-  type Node,
 } from 'react';
 import InternalDatePicker from './DatePicker/InternalDatePicker.js';
 

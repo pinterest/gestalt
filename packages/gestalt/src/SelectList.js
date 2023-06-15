@@ -1,13 +1,13 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import classnames from 'classnames';
-import layout from './Layout.css';
-import styles from './SelectList.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
-import formElement from './shared/FormElement.css';
+import layout from './Layout.css';
+import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup.js';
 import SelectListOption from './SelectList/SelectListOption.js';
+import formElement from './shared/FormElement.css';
 import FormErrorMessage from './shared/FormErrorMessage.js';
 import FormHelperText from './shared/FormHelperText.js';
 import FormLabel from './shared/FormLabel.js';

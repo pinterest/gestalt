@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, TapArea, Text, SlimBanner } from 'gestalt';
+import { Box, SlimBanner, TapArea, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';

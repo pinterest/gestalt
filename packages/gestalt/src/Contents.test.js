@@ -1,13 +1,13 @@
 // @flow strict
 import {
-  getPopoverDir,
-  getCaretDir,
-  calcEdgeShifts,
-  baseOffsets,
   adjustOffsets,
+  baseOffsets,
+  BORDER_RADIUS,
+  calcEdgeShifts,
   CARET_HEIGHT,
   CARET_WIDTH,
-  BORDER_RADIUS,
+  getCaretDir,
+  getPopoverDir,
 } from './utils/positioningUtils.js';
 
 const windowSize = {

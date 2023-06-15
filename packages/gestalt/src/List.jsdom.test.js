@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import List from './List.js';
 import Text from './Text.js';
 

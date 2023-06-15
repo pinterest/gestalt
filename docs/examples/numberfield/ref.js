@@ -1,5 +1,5 @@
 // @flow strict
-import { useEffect, useRef, useState, type Node } from 'react';
+import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, Flex, NumberField } from 'gestalt';
 
 export default function Example(): Node {

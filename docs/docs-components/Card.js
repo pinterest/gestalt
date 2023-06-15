@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Heading, Tooltip, Badge } from 'gestalt';
 import slugify from 'slugify';
-import Markdown from './Markdown.js';
+import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
+import Markdown from './Markdown.js';
 
 type Props = {|
   children?: Node,

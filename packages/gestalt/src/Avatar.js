@@ -1,11 +1,11 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
+import DefaultAvatar from './Avatar/DefaultAvatar.js';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
-import DefaultAvatar from './Avatar/DefaultAvatar.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 const sizes = {
   xs: 24,

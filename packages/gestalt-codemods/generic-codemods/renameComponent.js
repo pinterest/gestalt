@@ -15,16 +15,16 @@ yarn codemod renameComponent ~/path/to/your/code \
  * --nextComponentName: new component name to replace with
  */
 
-import { type FileType, type ApiType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes.js';
 import {
-  getGestaltImport,
-  getComponentIdentifierByName,
-  getLocalImportedName,
-  filterJSXByTargetLocalName,
-  initialize,
-  saveToSource,
   buildReplaceWithRenamedComponent,
   buildReplaceWithRenamedImport,
+  filterJSXByTargetLocalName,
+  getComponentIdentifierByName,
+  getGestaltImport,
+  getLocalImportedName,
+  initialize,
+  saveToSource,
 } from './utils.js';
 
 type OptionsType = {|

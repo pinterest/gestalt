@@ -1,9 +1,9 @@
 // @flow strict
+import 'highlight.js/styles/a11y-light.css';
 import { type Node } from 'react';
-import { Text } from 'gestalt';
 import highlightjs from 'highlight.js';
 import { marked, Renderer } from 'marked';
-import 'highlight.js/styles/a11y-light.css';
+import { Text } from 'gestalt';
 
 type Props = {|
   textColor?:

@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { Flex, AvatarGroup, Avatar, Text, Box, Layer, Popover } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Avatar, AvatarGroup, Box, Flex, Layer, Popover, Text } from 'gestalt';
 
 const collaborators = [
   {
