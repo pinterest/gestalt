@@ -3,8 +3,8 @@ import { type Node } from 'react';
 import Box from '../Box.js';
 import { type Rounding } from '../boxTypes.js';
 import TapArea, { type OnTapType } from '../TapArea.js';
-import Tooltip from '../Tooltip.js';
 import useFocusVisible from '../useFocusVisible.js';
+import MaybeTooltip from '../utils/maybeTooltip.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
 import { type Indexable } from '../zIndex.js';
 
@@ -50,29 +50,6 @@ type Props = {|
   outerContainerStyle?: ColorStyles,
   tooltip?: TooltipProps,
 |};
-
-export function MaybeTooltip({
-  children,
-  disabled,
-  tooltip,
-}: {|
-  children: Node,
-  disabled?: boolean,
-  tooltip?: TooltipProps,
-|}) {
-  if (!tooltip || disabled) return children;
-  return (
-    <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
-      inline={tooltip.inline}
-      idealDirection={tooltip.idealDirection || 'up'}
-      text={tooltip.text}
-      zIndex={tooltip.zIndex}
-    >
-      {children}
-    </Tooltip>
-  );
-}
 
 function MaybeTapArea({
   children,

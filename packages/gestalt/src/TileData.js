@@ -2,7 +2,9 @@
 import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import styles from './TileData.css';
+import Box from './Box.js';
 import Flex from './Flex.js';
+import TapArea from './TapArea.js';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
 import getTileColors from './utils/datavizcolors/getTileColor.js';
@@ -10,7 +12,8 @@ import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
-import Tile, { type InteractionStates } from './Tile/Tile.js';
+import MaybeTooltip from './utils/maybeTooltip.js';
+import useInteractiveStates from './utils/useInteractiveStates.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,
@@ -125,35 +128,41 @@ export default function TileData({
     backgroundColor: bgColor,
   };
 
+  const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+    useInteractiveStates();
+
   const checkboxId = useId();
 
-  const getClasses = ({
-    hovered,
-    selected: tapSelected,
-    disabled: tapDisabled,
-  }: InteractionStates) =>
+  const getClasses = () =>
     classnames(styles.baseTile, styles.tileWidth, {
-      [styles.selected]: tapSelected,
-      [styles.hovered]: hovered,
-      [styles.disabled]: tapDisabled,
+      [styles.selected]: selected,
+      [styles.hovered]: isHovered,
+      [styles.disabled]: disabled,
     });
 
+  const tileStyle = getTileColors(
+    { hovered: isHovered, selected: !!selected, disabled },
+    colorStyles,
+  );
+
+  const checkBoxStyle = getCheckboxColors(
+    { hovered: isHovered, selected: !!selected, disabled },
+    colorStyles,
+  );
+
   return (
-    <Tile disabled={disabled} id={id} onTap={onTap} selected={selected} tooltip={tooltip}>
-      {(interactionState) => {
-        const { hovered, disabled: disabledTap, selected: selectedTap } = interactionState;
-        const tileStyle = getTileColors(
-          { hovered, selected: selectedTap, disabled: disabledTap },
-          colorStyles,
-        );
-
-        const checkBoxStyle = getCheckboxColors(
-          { hovered, selected: selectedTap, disabled: disabledTap },
-          colorStyles,
-        );
-
-        return (
-          <div style={tileStyle} className={getClasses(interactionState)}>
+    <MaybeTooltip tooltip={tooltip} disabled={disabled}>
+      <Box maxWidth={196}>
+        <TapArea
+          disabled={disabled}
+          onBlur={handleOnBlur}
+          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          role="button"
+          rounding={4}
+        >
+          <div style={tileStyle} className={getClasses()}>
             <Flex direction="row" gap={2}>
               <InternalDatapoint
                 disabled={disabled}
@@ -175,8 +184,8 @@ export default function TileData({
               )}
             </Flex>
           </div>
-        );
-      }}
-    </Tile>
+        </TapArea>
+      </Box>
+    </MaybeTooltip>
   );
 }

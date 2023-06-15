@@ -6,11 +6,9 @@ import cssColorStyles from './Colors.css';
 import focusStyles from './Focus.css';
 import styles from './TagData.css';
 import Box from './Box.js';
-import Flex from './Flex.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { MaybeTooltip } from './Tile/Tile';
 import useFocusVisible from './useFocusVisible.js';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
@@ -19,6 +17,7 @@ import { type Indexable } from './zIndex.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import MaybeTooltip from './utils/maybeTooltip.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
 
 type DataVisualizationColors =
@@ -203,7 +202,7 @@ export default function TagData({
 
   return (
     <Box display="inlineBlock" position="relative" maxWidth={300} rounding={2}>
-      <MaybeTooltip tooltip={tooltip}>
+      <MaybeTooltip tooltip={tooltip} disabled={disabled}>
         <TapArea
           fullHeight
           fullWidth
