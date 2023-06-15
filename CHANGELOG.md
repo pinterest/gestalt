@@ -1,3 +1,9 @@
+## 114.0.4 (Jun 15, 2023)
+
+### Patch
+
+- SearchField: Convert examples to use Sandpack ([#3015](https://github.com/pinterest/gestalt/pull/3015)) - [Preview link](https://deploy-preview-3015--gestalt.netlify.app?devexample=true)
+
 ## 114.0.3 (Jun 15, 2023)
 
 ### Patch
