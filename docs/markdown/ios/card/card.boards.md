@@ -1,6 +1,6 @@
 ---
 title: Card.Boards
-description: The Boards preview block or “Boards PB” utilizes two of the Board and Section components to present a collection of imagery that typically represents a Card.Boards.
+description: The Boards preview block utilizes two of the Board and Section components to present a collection of imagery that typically represents a Card.Boards.
 fullwidth: true
 ---
 

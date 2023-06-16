@@ -26,32 +26,16 @@ Center Card.Header text. Card.Header content should always be start-aligned.
 <TwoCol>
 <Group>
 <Do title="Do"/>
-Keep Card content clear and concise. Cards are designed to focus on the imagery. Any content should be short and easily digestible.
-
+- Keep Card content clear and concise. Cards are designed to focus on the imagery. Any content should be short and easily digestible.
+- Include a “follow” button if the Card content pertains to a Pinner, company or brand within the product.
+- Keep pre-text and Card.Header text to the defined font size.
 </Group>
+
 <Group>
 <Dont title="Don't" />
-Use too much content and overload the Card. Consider if the content should live on the page instead.
-</Group>
-
-<Group>
-<Do title="Do"/>
-Include a “follow” button if the Card content pertains to a Pinner, company or brand within the product.
-
-</Group>
-<Group>
-<Dont title="Don't" />
-Truncate pre-text. Instead edit the content to be concise enough to fit on one line.
-</Group>
-
-<Group>
-<Do title="Do"/>
-Keep pre-text and Card.Header text to the defined font size.
-
-</Group>
-<Group>
-<Dont title="Don't" />
-Change the defined size of the pre-text or Card.Header text. These set sizes help users understand the content hierarchy within the Card.
+- Use too much content and overload the Card. Consider if the content should live on the page instead.
+- Truncate pre-text. Instead edit the content to be concise enough to fit on one line.
+- Change the defined size of the pre-text or Card.Header text. These set sizes help users understand the content hierarchy within the Card.
 </Group>
 </TwoCol>
 
@@ -106,7 +90,7 @@ Keep Card content clear and concise. Cards are designed to focus on the imagery.
 
 <Group>
 <Dont title="Don't" />
-Use too much content and overload the Card.Header. Consider if the content should live on the page instead.
+Use too much content and overload Card.Header. Consider if the content should live on the page instead.
 
 </Group>
 </TwoCol>

@@ -1,6 +1,6 @@
 ---
 title: Card
-description: The Card is a semi-modular container used to house a Card.Header and a variant of the available preview blocks. Every Card must have at least a title and a variant of a preview block.
+description: Card is a semi-modular container used to house a Card.Header and a variant of the available preview blocks. Every Card must have at least a title and a variant of a preview block.
 fullwidth: true
 ---
 
@@ -12,14 +12,14 @@ fullwidth: true
 <TwoCol>
 <Group>
 <Do title="When to use"/>
-- Previewing information about recommended content (ex: pin feed, boards, profiles, topics, etc) that also serves as an entry point to a destination containing the content
+- Previewing information about recommended content (ex: Pin feed, boards, profiles, topics, etc) that also serves as an entry point to a destination containing the content
 
 </Group>
 <Group>
 <Dont title="When not to use" />
-- The Card does not link to a destination
-- The information and content contained within the Card are not related
-- The contents of the Card are not the approved subcomponents (e.g. CardHeader and Preview Blocks(s))
+- Card does not link to a destination
+- The information and content contained within Card are not related
+- The contents of a Card are not the approved subcomponents (e.g. Card.Header and preview blocks(s))
 </Group>
 </TwoCol>
 
@@ -33,7 +33,7 @@ Keep Card content clear and concise. Cards are designed to focus on the imagery.
 </Group>
 <Group>
 <Dont title="Don't" />
-Use too much content and overload the Card. Consider if the content should live on the page instead.
+Use too much content and overload a Card. Consider if the content should live on the page instead.
 </Group>
 
 <Group>
@@ -43,7 +43,7 @@ Use the built-in Card dimensions and appropriate spacing between Cards. This ens
 </Group>
 <Group>
 <Dont title="Don't" />
-Resize the Card. It is designed to adapt to the full width of a mobile screen.
+Resize Card. It is designed to adapt to the full width of a mobile screen.
 </Group>
 </TwoCol>
 
@@ -54,9 +54,9 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
-- When creating a tab order the Card, the Card.Header always comes before the preview block so screen-reader users get context before proceeding to the preview block alt tags.
-- If the Card itself is selectable, do not put other links inside the Card.
-- Avoid wrapping an entire Card in an anchor tag as this can be a difficult experience for a screen reader user. Instead, have a single anchor tag inside the Card, and have the tappable area of this anchor tag wrap the Card.
+- When creating a tab order in Card, Card.Header always comes before the preview block so screen-reader users get context before proceeding to the preview block alt tags.
+- If Card itself is selectable, do not put other links inside it.
+- Avoid wrapping an entire Card in an anchor tag as this can be a difficult experience for a screen reader user. Instead, have a single anchor tag inside a Card, and have the tappable area of this anchor tag wrap the Card.
 
 ## Design tokens
 
@@ -71,13 +71,13 @@ Use these tokens for applying size and color styles to a Card.
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A74406%26t%3DpdcqbCwrqHzeYjtv-1" allowFullScreen></iframe>
 
 ### 1. Card
-The Card is a container that holds the Card.Header and preview blocks by creating a consistent background and padding. The container uses the default background color and includes 8px padding on the left and right.
+Card is a container that holds Card.Header and preview blocks by creating a consistent background and padding. The container uses the default background color and includes 8pt padding on the left and right.
 
 ### 2. Header (subcomponent)
-The Card.Header sits at the top, inside of the Card container. It is a required subcomponent that includes pre-text, a title and navigational elements. The Card.Header should always, at the very least, include a title.
+Card.Header sits at the top, inside of Card container. It is a required subcomponent that includes pre-text, a title and navigational elements. Card.Header should always, at the very least, include a title.
 
 ### 3. Preview block (subcomponent)
-The preview block is a container that sits below the Card’s Card.Header. It holds a number of visual preview variations of Pinterest content. As they are designed and unified, more preview block content types will become available. 
+The preview block is a container that sits below Card’s Card.Header. It holds a number of visual preview variations of Pinterest content. As they are designed and unified, more preview block content types will become available. 
 
 The current preview block content types are:
 - Pin Feed (Montage)
@@ -85,7 +85,7 @@ The current preview block content types are:
 - Boards
 
 ## Variants
-The Card is a container that holds the Card.Header and preview blocks. The Card itself does not have any variants. However, the specs and dark mode are illustrated below.
+Card is a container that holds Card.Header and preview blocks. Card itself does not have any variants. However, the specs and dark mode are illustrated below.
 
 <iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A74630%26t%3DpdcqbCwrqHzeYjtv-1" allowFullScreen></iframe>
 
@@ -98,15 +98,15 @@ The Card is a container that holds the Card.Header and preview blocks. The Card 
 <TwoCol>
 <Group>
 <Do title="Do" />
-- Keep the content concise. Convey the most important information about the Card in a few words.
-- Provide context to the user. The user should know what they can expect to find within the Card by reading the Card.Header and pre-text.
+- Keep the content concise. Convey the most important information about a Card in a few words.
+- Provide context to the user. The user should know what they can expect to find within a Card by reading Card.Header and pre-text.
 
 </Group>
 
 <Group>
 <Dont title="Don't" />
 - Use jargon or technical terms that may not be familiar to users. 
-- Use pre-text as helper text. It should give additional context, but should not be an in-depth explanation of the Card's context.
+- Use pre-text as helper text. It should give additional context, but should not be an in-depth explanation of a Card's context.
 
 </Group>
 </TwoCol>
@@ -114,7 +114,7 @@ The Card is a container that holds the Card.Header and preview blocks. The Card 
 ## Localization
 Be sure to localize text. Note that localization can lengthen text by 20 to 30 percent. 
 
-When in RTL mode, the Card layout will be arranged from right to left. This means that navigation, menus and content will be mirrored to maintain consistency.
+When in RTL mode, Card layout will be arranged from right to left. This means that navigation, menus and content will be mirrored to maintain consistency.
 <br/>
 
 <ImgContainer src="https://i.pinimg.com/originals/72/5b/a2/725ba2ed0fb57e5b7ae9aded6a4c4bf7.png" alt="A Card with Card.Header, menus and image conntent flipped for RTL languages." noPadding color="background-elevation-accent" />

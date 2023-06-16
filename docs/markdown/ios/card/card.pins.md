@@ -1,6 +1,6 @@
 ---
 title: Card.Pins
-description: The Boards preview block or “Boards PB” utilizes two of the Board and Section components to present a collection of imagery that typically represents a Card.Boards.
+description: The Boards preview block utilizes two of the Board and Section components to present a collection of imagery that typically represents Card.Boards.
 fullwidth: true
 ---
 
@@ -27,28 +27,15 @@ fullwidth: true
 <TwoCol>
 <Group>
 <Do title="Do"/>
-Pin previews can flex to different common aspect ratios so that the best dimensions can be used to preview different media types.
+- Flex Pin previews to different common aspect ratios so that the best dimensions can be used to preview different media types
+- Flex Pin previews to different sizes to support various levels of visual prominence
+- Make all images within the preview block equal in size
+- Use a single tap target for each preview within the preview block that leads to the same destination
 
 </Group>
 <Group>
 <Dont title="Don't" />
-Make the entire scrolling PreviewBlock a single tap target. Each Pin preview should be an individual tap target.
-</Group>
-
-<Group>
-<Do title="Do"/>
-Pin previews can also flex to different sizes to support various levels of visual prominence. 
-
-</Group>
-<Group>
-<Do title="Do"/>
-All images with the PreviewBlock should be equal in size.
-
-</Group>
-<Group>
-<Do title="Do"/>
-Each preview within the PreviewBlock is a single tap target that all lead to the same destination.
-
+- Make the entire scrolling preview block a single tap target. Each Pin preview should be an individual tap target.
 </Group>
 </TwoCol>
 
