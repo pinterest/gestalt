@@ -9,7 +9,7 @@ export default function Example(): Node {
     <Flex gap={4} direction="column">
       <Box height="100%" margin="auto">
         <Video
-          aspectRatio={1920 / 1016}
+          aspectRatio={1920 / 1080}
           controls
           onPlayError={({ error }) => error && setPlaying(false)}
           onPlay={() => setPlaying(true)}
