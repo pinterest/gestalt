@@ -1,3 +1,9 @@
+## 115.0.4 (Jun 16, 2023)
+
+### Patch
+
+- Docs: Data visualization videos ([#3018](https://github.com/pinterest/gestalt/pull/3018)) - [Preview link](https://deploy-preview-3018--gestalt.netlify.app?devexample=true)
+
 ## 115.0.3 (Jun 16, 2023)
 
 ### Patch
