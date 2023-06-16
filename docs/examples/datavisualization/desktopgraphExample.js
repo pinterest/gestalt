@@ -9,7 +9,7 @@ export default function Example(): Node {
     <Flex gap={4} direction="column">
       <Box height="100%" margin="auto">
         <Video
-          aspectRatio={1920 / 1016}
+          aspectRatio={1920 / 1080}
           controls
           onPlayError={({ error }) => error && setPlaying(false)}
           onPlay={() => setPlaying(true)}
@@ -18,7 +18,7 @@ export default function Example(): Node {
           onEnded={() => setPlaying(false)}
           playing={playing}
           loop
-          src="https://github.com/pinterest/gestalt/assets/96082362/6378b31d-9f2f-45d0-816b-c107b5a179dc"
+          src="https://github.com/pinterest/gestalt/assets/96082362/000de356-e9d2-483e-9991-025f509f0f65"
         />
       </Box>
       <Box smPadding={2} marginTop={-2}>
