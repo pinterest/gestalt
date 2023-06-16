@@ -15,7 +15,7 @@ import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
-import MaybeTooltip from './utils/maybeTooltip.js';
+import MaybeTooltip from './utils/MaybeTooltip.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
 import { type Indexable } from './zIndex.js';
 
@@ -62,11 +62,11 @@ type TooltipProps = {|
 
 export type Props = {|
   /**
-   * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
+   * If your app uses [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider), a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
   accessibilityRemoveIconLabel?: string,
   /**
-   * The default color for TagData shown on an unselected state.
+   * The default color for TagData shown in an unselected state.
    */
   baseColor?: 'primary' | 'secondary',
   /**
@@ -94,7 +94,7 @@ export type Props = {|
    */
   selected?: boolean,
   /**
-   * Sets the size of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size).
+   * Sets the size of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size) to learn more.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
@@ -106,7 +106,7 @@ export type Props = {|
    */
   text: string,
   /**
-   * Adds a tooltip on hover/focus of TileData. See the with [with tooltip variant](https://gestalt.pinterest.systems/web/tagdata#tooltip) to learn more.
+   * Adds a tooltip on hover/focus of TagData. See the [with tooltip variant](https://gestalt.pinterest.systems/web/tagdata#tooltip) to learn more.
    */
   tooltip?: TooltipProps,
 |};

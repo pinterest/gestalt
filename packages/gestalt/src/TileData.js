@@ -10,7 +10,7 @@ import TapArea from './TapArea.js';
 import styles from './TileData.css';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
-import MaybeTooltip from './utils/maybeTooltip.js';
+import MaybeTooltip from './utils/MaybeTooltip.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
 import { type Indexable } from './zIndex.js';
 

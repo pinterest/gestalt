@@ -161,9 +161,9 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`TagData is available in 3 fixed sizes.
-          - **Lg** has height of 48px. Text has a fixed size of 16px. 
-          - **Md** has height of 40px. Text has a fixed size of 14px. 
-          - **Sm** has height of 32px. Text has a fixed size of 14px.
+          - **lg** has height of 48px. Text has a fixed size of 16px. 
+          - **md** has height of 40px. Text has a fixed size of 14px. 
+          - **sm** has height of 32px. Text has a fixed size of 14px.
           `}
           title="Size"
         >
@@ -197,7 +197,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`Provide an \`onRemove\` callback to make TagData dismissible. Tags are dismissible by the "X" affordance, which triggers the \`onRemove\` callback. \`onRemove\` should be used to update the external state that is keeping track of TagDatas. If your app uses DefaultLabelProvider, a default accessibility label for the remove icon will be used. This can be overridden with a more specific label if desired.`}
+          description={`Provide an \`onRemove\` callback to make TagData dismissible. Tags are dismissible by the "X" affordance, which triggers the \`onRemove\` callback. \`onRemove\` should be used to update the external state that is keeping track of TagDatas. If your app uses [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider), a default accessibility label for the remove icon will be used. This can be overridden with a more specific label if desired.`}
           title="Dismissible"
         >
           <MainSection.Card

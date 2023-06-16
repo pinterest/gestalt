@@ -1870,9 +1870,9 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
                 "WebkitLineClamp": 1,
               }
             }
-            title="LTR Text Tag"
+            title="RTL Text Tag"
           >
-            LTR Text Tag
+            RTL Text Tag
           </span>
         </div>
       </div>

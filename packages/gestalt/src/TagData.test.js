@@ -20,7 +20,7 @@ describe('TagData', () => {
   it('renders tagdata in RTL mode as expected', () => {
     const tree = create(
       <html dir="rtl" lang="en">
-        <TagData showCheckbox onRemove={() => {}} text="LTR Text Tag" />
+        <TagData showCheckbox onRemove={() => {}} text="RTL Text Tag" />
       </html>,
     ).toJSON();
     expect(tree).toMatchSnapshot();

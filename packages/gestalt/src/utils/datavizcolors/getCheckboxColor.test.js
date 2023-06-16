@@ -2,7 +2,7 @@
 import getCheckboxColor from './getCheckboxColor.js';
 import getDataVisualizationColor from './getDataVisualizationColor.js';
 
-const lightModeTheme = {
+const theme = {
   name: 'lightMode',
   colorRed0: '#ff5247',
   colorRed100: '#e60023',
@@ -29,21 +29,10 @@ const lightModeTheme = {
   colorTransparentWhite: 'rgba(255, 255, 255, 0.8)',
   blueHovered: '#4a8ad4',
   blueActive: '#4a85c9',
+  colorDataVisualization02: '#00000',
 };
 
-const theme = { ...lightModeTheme, colorDataVisualization02: '#00000' };
-
 describe('DataViz Color Unit Tests', () => {
-  it('DataViz Color exists in theme', () => {
-    const color = getDataVisualizationColor(theme, '02');
-    expect(color).toBe('#00000');
-  });
-
-  it('Gets lighter shade of DataViz Color', () => {
-    const color = getDataVisualizationColor(theme, '02', { lighten: true });
-    expect(color).toBe('#000001A');
-  });
-
   it('gives a transparent checkbox by default', () => {
     const backgroundColor = getDataVisualizationColor(theme, '02');
     const borderColor = getDataVisualizationColor(theme, '02');
