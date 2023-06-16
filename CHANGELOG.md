@@ -1,3 +1,9 @@
+## 115.0.2 (Jun 16, 2023)
+
+### Patch
+
+- Docs: Card component documentation for iOS ([#2996](https://github.com/pinterest/gestalt/pull/2996)) - [Preview link](https://deploy-preview-2996--gestalt.netlify.app?devexample=true)
+
 ## 115.0.1 (Jun 16, 2023)
 
 ### Patch
