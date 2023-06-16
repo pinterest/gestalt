@@ -1,3 +1,9 @@
+## 115.0.3 (Jun 16, 2023)
+
+### Patch
+
+- Internal: Cleaner Logging for DocGen Errors ([#2974](https://github.com/pinterest/gestalt/pull/2974)) - [Preview link](https://deploy-preview-2974--gestalt.netlify.app?devexample=true)
+
 ## 115.0.2 (Jun 16, 2023)
 
 ### Patch
