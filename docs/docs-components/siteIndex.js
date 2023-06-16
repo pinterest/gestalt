@@ -69,6 +69,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Overview',
       'Avatar',
       'Button',
+      {
+        sectionName: 'Card',
+        pages: ['Card', 'Card.Header', 'Card.Boards', 'Card.Pins'],
+      },
       'Checkbox',
       'Icon',
       'IconButton',
