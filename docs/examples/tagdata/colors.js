@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Flex,TagData } from 'gestalt';
+import { Box, Flex, TagData } from 'gestalt';
 
 type DataVisualizationColors =
   | '01'
