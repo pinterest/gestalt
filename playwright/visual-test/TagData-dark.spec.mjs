@@ -1,5 +1,5 @@
 // @flow strict
-import { expect,test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('TagData dark mode visual regression check', async ({ page }) => {
   await page.goto('/visual-test/TagData-dark');
