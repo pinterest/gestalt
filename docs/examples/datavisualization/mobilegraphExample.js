@@ -18,7 +18,7 @@ export default function Example(): Node {
           onEnded={() => setPlaying(false)}
           playing={playing}
           loop
-          src="https://github.com/pinterest/gestalt/assets/96082362/cb332732-0176-4f7e-ada9-2232d5732152"
+          src="https://github.com/pinterest/gestalt/assets/96082362/96d7a4c7-da92-41b4-b7d8-f0785c01d471"
         />
       </Box>
       <Box smPadding={2} marginTop={-2}>
