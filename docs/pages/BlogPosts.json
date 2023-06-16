@@ -12,7 +12,7 @@
             "imageColor": "blue-skycicle-100",
             "imageSrc": "https://i.pinimg.com/originals/f2/af/0a/f2af0a8e60daa2e2b1f5ec05373ee9aa.png",
             "imageAltText": "Screenshots of the iOS in-app color and icon browsers.",
-            "content": "We continue to build out the foundation of Gestalt for mobile. A nice step forward is the inclusion of our MVP color and icon browsers in the our iOS pre-release mobile app builds. You can find both browsers in the Product Design Standards section of dev tools."
+            "content": "We continue to build out the foundation of Gestalt for mobile. A nice step forward is the inclusion of our MVP color and icon browsers in the iOS pre-release mobile app builds. You can find both browsers in the Product Design Standards section of dev tools."
           },
           {
             "title": "DefaultLabelProvider improvements",
