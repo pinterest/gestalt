@@ -11,6 +11,11 @@
         "darkValue": "{color.gray.roboflow.400.value}",
         "comment": "Secondary, subtle text color"
       },
+      "disabled": {
+        "value": "{color.gray.roboflow.400.value}",
+        "darkValue": "{color.gray.roboflow.600.value}",
+        "comment": "Disabled text color"
+      },
       "success": {
         "value": "{color.green.matchacado.600.value}",
         "darkValue": "{color.green.matchacado.400.value}",
@@ -60,6 +65,11 @@
           "darkValue": "{color.gray.roboflow.400.value}",
           "comment": "Subtle, secondary color for icons"
         },
+        "disabled": {
+          "value": "{color.gray.roboflow.400.value}",
+          "darkValue": "{color.gray.roboflow.600.value}",
+          "comment": "Disabled color for icons"
+      },
         "success": {
           "value": "{color.green.matchacado.600.value}",
           "darkValue": "{color.green.matchacado.400.value}",

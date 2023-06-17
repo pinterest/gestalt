@@ -236,10 +236,11 @@ export default function ColorUsagePage(): Node {
           title="Standard text colors"
           description={`
           Typography colors are used on text elements such as headings and body.
-          Use the tokens:
-          **$color-text-default** - The default text color, such as headings and body text.
-          **$color-text-subtle** - For secondary, subtle text color, such as additional info or sub-header.
-          **$color-text-shopping** - For text related to shopping products or surfaces.
+          Token uses:
+          **$color-text-default** - Use as the default text color for headings and body text.
+          **$color-text-subtle** - Use for secondary info such helper text or subheadings.
+          **$color-text-disabled** - Use for text inside of disabled UI controls.
+          **$color-text-shopping** - Use for text related to shopping products or surfaces.
 
           `}
         >
@@ -251,6 +252,11 @@ export default function ColorUsagePage(): Node {
             />
             <ColorTile description="Subtle" textColor="inverse" fullTokenName="color-text-subtle" />
             <ColorTile
+              description="Disabled"
+              textColor="default"
+              fullTokenName="color-text-disabled"
+            />
+            <ColorTile
               description="Shopping"
               textColor="inverse"
               fullTokenName="color-text-shopping"
@@ -260,7 +266,7 @@ export default function ColorUsagePage(): Node {
         <MainSection.Subsection
           title="Status text colors"
           description={`
-          Text colors used to indicate status. Each color has a purposeful meaning. Use the tokens:
+          Text colors used to indicate status. Each color has a purposeful meaning. Token uses:
           **$color-text-success** - Use as text color to indicate success.
           **$color-text-warning** - Use as text color to indicate a warning or caution.
           **$color-text-error** - Use as text color to indicate an error.
@@ -303,6 +309,7 @@ export default function ColorUsagePage(): Node {
 
       **$color-text-icon-default** - Use as the default color for icons.
       **$color-text-icon-subtle** - Use as the secondary color for icons.
+      **$color-text-icon-disabled** - Use for icons inside of disabled UI controls.
       **$color-text-icon-info** - Use for info icons.
       **$color-text-icon-recommendation** - Use for recommendation icons.
       **$color-text-icon-success** - Use for success icons.
@@ -321,6 +328,11 @@ export default function ColorUsagePage(): Node {
             description="Subtle"
             textColor="inverse"
             fullTokenName="color-text-icon-subtle"
+          />
+          <ColorTile
+            description="Disabled"
+            textColor="default"
+            fullTokenName="color-text-icon-disabled"
           />
           <ColorTile description="Info" textColor="inverse" fullTokenName="color-text-icon-info" />
           <ColorTile
