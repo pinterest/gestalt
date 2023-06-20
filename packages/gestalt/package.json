@@ -3,7 +3,7 @@
   "version": "115.1.1",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
-  "description": "A set of React UI components which enforce Pinterest’s design language",
+  "description": "A set of React UI components which enforce Pinterest's design language",
   "main": "dist/gestalt.js",
   "types": "dist/index.d.ts",
   "jsnext:main": "dist/gestalt.es.js",
@@ -35,9 +35,8 @@
   ],
   "keywords": [
     "design system",
-    "react",
-    "react component",
     "pinterest",
+    "react",
     "ui library"
   ],
   "repository": {
