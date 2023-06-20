@@ -1,3 +1,9 @@
+## 115.1.0 (Jun 20, 2023)
+
+### Minor
+
+- TagData: Add new Component ([#2963](https://github.com/pinterest/gestalt/pull/2963)) - [Preview link](https://deploy-preview-2963--gestalt.netlify.app?devexample=true)
+
 ## 115.0.4 (Jun 16, 2023)
 
 ### Patch
