@@ -1,3 +1,9 @@
+## 115.1.1 (Jun 20, 2023)
+
+### Patch
+
+- Internal: lint contributions.md ([#3022](https://github.com/pinterest/gestalt/pull/3022)) - [Preview link](https://deploy-preview-3022--gestalt.netlify.app?devexample=true)
+
 ## 115.1.0 (Jun 20, 2023)
 
 ### Minor
