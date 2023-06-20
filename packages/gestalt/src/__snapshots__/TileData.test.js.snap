@@ -8,18 +8,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -41,7 +46,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#003c961A",
@@ -152,18 +157,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -185,7 +195,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#11a69c1A",
@@ -296,18 +306,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -329,7 +344,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#924af71A",
@@ -440,18 +455,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -473,7 +493,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#d177111A",
@@ -584,18 +604,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -617,7 +642,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -728,18 +753,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -761,7 +791,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#ff53831A",
@@ -872,18 +902,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -905,7 +940,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#00ab551A",
@@ -1016,18 +1051,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -1049,7 +1089,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#4003871A",
@@ -1160,18 +1200,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -1193,7 +1238,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#f2681f1A",
@@ -1304,18 +1349,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -1337,7 +1387,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#0050621A",
@@ -1448,18 +1498,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -1481,7 +1536,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#de2c621A",
@@ -1592,18 +1647,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -1625,7 +1685,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#660e001A",
@@ -1737,18 +1797,23 @@ exports[`TileData TileData renders all colors as expected 1`] = `
 
 exports[`TileData TileData renders with tooltip 1`] = `
 <div
-  className="box relative"
+  className="box xsDisplayBlock"
 >
   <div
-    className="box xsDisplayBlock"
+    aria-label="This is a tooltip"
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
-      aria-label="This is a tooltip"
       className="box"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+      style={
+        Object {
+          "maxWidth": 196,
+        }
+      }
     >
       <div
         aria-disabled={false}
@@ -1770,7 +1835,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
         tabIndex={0}
       >
         <div
-          className="tile tileWidth selected"
+          className="baseTile tileWidth selected"
           style={
             Object {
               "backgroundColor": "#0081fe1A",
@@ -1886,18 +1951,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -1919,7 +1989,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -2036,7 +2106,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           checked={true}
                           className="input sizeSm inputEnabled readOnly"
                           disabled={true}
-                          id=""
+                          id="readonly-checkbox-blah-:rg:"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onClick={[Function]}
@@ -2083,18 +2153,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -2116,7 +2191,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -2233,7 +2308,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           checked={true}
                           className="input sizeSm inputEnabled readOnly"
                           disabled={true}
-                          id=""
+                          id="readonly-checkbox-blah-:rh:"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onClick={[Function]}
@@ -2280,18 +2355,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative"
+      className="box xsDisplayBlock"
     >
       <div
-        className="box xsDisplayBlock"
+        aria-label="This is a tooltip"
+        className="box"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <div
-          aria-label="This is a tooltip"
           className="box"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+          style={
+            Object {
+              "maxWidth": 196,
+            }
+          }
         >
           <div
             aria-disabled={false}
@@ -2313,7 +2393,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
             tabIndex={0}
           >
             <div
-              className="tile tileWidth selected"
+              className="baseTile tileWidth selected"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -2430,7 +2510,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           checked={true}
                           className="input sizeSm inputEnabled readOnly"
                           disabled={true}
-                          id=""
+                          id="readonly-checkbox-blah-:ri:"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onClick={[Function]}
@@ -2478,18 +2558,23 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
 
 exports[`TileData TileData title truncates when really long 1`] = `
 <div
-  className="box relative"
+  className="box xsDisplayBlock"
 >
   <div
-    className="box xsDisplayBlock"
+    aria-label="This is a tooltip"
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
-      aria-label="This is a tooltip"
       className="box"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+      style={
+        Object {
+          "maxWidth": 196,
+        }
+      }
     >
       <div
         aria-disabled={false}
@@ -2511,7 +2596,7 @@ exports[`TileData TileData title truncates when really long 1`] = `
         tabIndex={0}
       >
         <div
-          className="tile tileWidth selected"
+          className="baseTile tileWidth selected"
           style={
             Object {
               "backgroundColor": "#0081fe1A",
@@ -2621,7 +2706,12 @@ exports[`TileData TileData title truncates when really long 1`] = `
 
 exports[`TileData Tiledata is disabled 1`] = `
 <div
-  className="box relative"
+  className="box"
+  style={
+    Object {
+      "maxWidth": 196,
+    }
+  }
 >
   <div
     aria-disabled={true}
@@ -2643,7 +2733,7 @@ exports[`TileData Tiledata is disabled 1`] = `
     tabIndex={null}
   >
     <div
-      className="tile tileWidth selected disabled"
+      className="baseTile tileWidth selected disabled"
       style={Object {}}
     >
       <div
@@ -2756,7 +2846,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                   checked={true}
                   className="input sizeSm inputEnabled readOnly"
                   disabled={true}
-                  id=""
+                  id="readonly-checkbox-blah-:re:"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -2800,7 +2890,12 @@ exports[`TileData Tiledata is disabled 1`] = `
 
 exports[`TileData renders 1`] = `
 <div
-  className="box relative"
+  className="box"
+  style={
+    Object {
+      "maxWidth": 196,
+    }
+  }
 >
   <div
     aria-disabled={false}
@@ -2822,7 +2917,7 @@ exports[`TileData renders 1`] = `
     tabIndex={0}
   >
     <div
-      className="tile tileWidth selected"
+      className="baseTile tileWidth selected"
       style={
         Object {
           "backgroundColor": "#0081fe1A",

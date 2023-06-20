@@ -160,6 +160,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Table',
       'Tabs',
       'Tag',
+      'TagData',
       'TapArea',
       'Text',
       'TextArea',

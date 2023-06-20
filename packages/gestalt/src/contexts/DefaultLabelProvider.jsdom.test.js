@@ -73,6 +73,9 @@ describe('useDefaultLabelContext', () => {
             accessibilityRemoveIconLabel: 'Remove tag',
             accessibilityWarningIconLabel: 'Warning',
           },
+          TagData: {
+            accessibilityRemoveIconLabel: 'Remove tag',
+          },
           TextField: {
             accessibilityHidePasswordLabel: 'Hide password',
             accessibilityShowPasswordLabel: 'Show password',

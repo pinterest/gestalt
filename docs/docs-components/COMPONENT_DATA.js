@@ -73,6 +73,7 @@ import Switch from '../graphics/general/Switch.svg';
 import Table from '../graphics/general/Table.svg';
 import Tabs from '../graphics/general/Tabs.svg';
 import Tag from '../graphics/general/Tag.svg';
+import TagData from '../graphics/general/TagData.svg';
 import Text from '../graphics/general/Text.svg';
 import TextArea from '../graphics/general/TextArea.svg';
 import TextField from '../graphics/general/TextField.svg';
@@ -2630,6 +2631,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'partial',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <TagData />,
+    name: 'TagData',
+    aliases: ['Chip', 'Pill', 'Filter', 'Tag'],
+    description:
+      'TagData can be used to select multiple categories to compare with each other in a graph or chart view.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'ready',
       responsive: 'ready',
     },
     android: {

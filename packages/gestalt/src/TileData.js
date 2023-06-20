@@ -1,8 +1,17 @@
 // @flow strict
-import { type Node } from 'react';
-import { type Theme, useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { type Node, useId } from 'react';
+import classnames from 'classnames';
+import Box from './Box.js';
+import InternalCheckbox from './Checkbox/InternalCheckbox.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
-import Tile from './Tile/Tile.js';
+import Flex from './Flex.js';
+import TapArea from './TapArea.js';
+import styles from './TileData.css';
+import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
+import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
+import MaybeTooltip from './utils/MaybeTooltip.js';
+import useInteractiveStates from './utils/useInteractiveStates.js';
 import { type Indexable } from './zIndex.js';
 
 type TooltipProps = {|
@@ -23,7 +32,7 @@ export type TileChangeHandler = ({|
   id?: string,
 |}) => void;
 
-type DataVisualizationColors =
+export type DataVisualizationColors =
   | '01'
   | '02'
   | '03'
@@ -89,25 +98,6 @@ type Props = {|
   value: string,
 |};
 
-/** We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
-const getColorHex = (theme: Theme, vizColor: string) => {
-  const hex = theme[`colorDataVisualization${vizColor}`];
-  if (!hex) throw new Error('Invalid Color Token provided to TileData');
-  return hex;
-};
-
-/**
- * Generates a background shade that's 10% lighter. This is dynamic
- */
-const getBackgroundShade = (theme: Theme, color: DataVisualizationColors) => {
-  // value of the codes are injected
-  const shade = getColorHex(theme, color);
-  // add an alpha channel to the hex, at 10% opacity
-  // https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-  const bgColor = `${shade}1A`;
-  return bgColor;
-};
-
 /**
  * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
  *
@@ -129,27 +119,69 @@ export default function TileData({
   value,
 }: Props): Node {
   const theme = useColorScheme();
+  const borderColor = getDataVisualizationColor(theme, color);
+  const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
+
+  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
+    borderColor,
+    backgroundColor: bgColor,
+  };
+
+  const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+    useInteractiveStates();
+
+  const checkboxId = useId();
+
+  const getClasses = () =>
+    classnames(styles.baseTile, styles.tileWidth, {
+      [styles.selected]: selected,
+      [styles.hovered]: isHovered,
+      [styles.disabled]: disabled,
+    });
+
+  const tileStyle = selected && !disabled ? colorStyles : {};
+
+  const checkBoxStyle = getCheckboxColors(
+    { hovered: isHovered, selected: !!selected, disabled },
+    colorStyles,
+  );
 
   return (
-    <Tile
-      bgColor={getBackgroundShade(theme, color)}
-      borderColor={getColorHex(theme, color)}
-      disabled={disabled}
-      id={id}
-      onTap={onTap}
-      selected={selected}
-      showCheckbox={showCheckbox}
-      tooltip={tooltip}
-    >
-      <InternalDatapoint
-        disabled={disabled}
-        lineClamp={2}
-        minTitleWidth={80}
-        title={title}
-        trend={trend}
-        trendSentiment={trendSentiment}
-        value={value}
-      />
-    </Tile>
+    <MaybeTooltip tooltip={tooltip} disabled={disabled}>
+      <Box maxWidth={196}>
+        <TapArea
+          disabled={disabled}
+          onBlur={handleOnBlur}
+          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          role="button"
+          rounding={4}
+        >
+          <div style={tileStyle} className={getClasses()}>
+            <Flex direction="row" gap={2}>
+              <InternalDatapoint
+                disabled={disabled}
+                lineClamp={2}
+                minTitleWidth={80}
+                title={title}
+                trend={trend}
+                trendSentiment={trendSentiment}
+                value={value}
+              />
+              {showCheckbox && (
+                <InternalCheckbox
+                  id={`readonly-checkbox-blah-${checkboxId}`}
+                  checked={selected}
+                  readOnly
+                  size="sm"
+                  style={checkBoxStyle}
+                />
+              )}
+            </Flex>
+          </div>
+        </TapArea>
+      </Box>
+    </MaybeTooltip>
   );
 }

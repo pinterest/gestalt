@@ -66,6 +66,9 @@ const labels = {
     accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),
     accessibilityWarningIconLabel: myI18nTranslator('Warning'),
   },
+  TagData: {
+    accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),
+  },
   TextField: {
     accessibilityHidePasswordLabel: myI18nTranslator('Hide password'),
     accessibilityShowPasswordLabel: myI18nTranslator('Show password'),
