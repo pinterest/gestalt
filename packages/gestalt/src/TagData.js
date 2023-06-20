@@ -242,6 +242,8 @@ export default function TagData({
           className={getRemoveIconClasses()}
           style={tileStyle}
           type="button"
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
           onClick={(event) => {
             onRemove({ event, id });
           }}
@@ -250,7 +252,7 @@ export default function TagData({
             accessibilityLabel={accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault}
             color={fgColor}
             icon="cancel"
-            size={8}
+            size={10}
           />
         </button>
       )}

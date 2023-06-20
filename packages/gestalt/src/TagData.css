@@ -48,7 +48,7 @@ html:not([dir="rtl"]) .tagWrapperDismiss {
   height: 100%;
   outline: none;
   position: absolute;
-  width: 24px;
+  composes: pointer from "./Cursors.css";
 }
 
 html[dir="rtl"] .dismissButtonPosition {
