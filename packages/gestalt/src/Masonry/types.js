@@ -5,6 +5,7 @@ export type Position = {|
   left: number,
   width: number,
   height: number,
+  column?: number,
 |};
 
 export type NodeData<T> = {|

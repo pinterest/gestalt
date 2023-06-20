@@ -1,4 +1,5 @@
 // @flow strict
+import { he } from 'date-fns/esm/locale';
 import { type Cache } from './Cache.js';
 import Graph from './Graph.js';
 import { type HeightsStoreInterface } from './HeightsStore.js';
@@ -32,7 +33,7 @@ function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOn
   }, []);
 }
 
-function getPositions<T>({
+function getOneColumnItemPositions<T>({
   centerOffset,
   columnWidth,
   columnWidthAndGutter,
@@ -54,9 +55,18 @@ function getPositions<T>({
   positions: $ReadOnlyArray<{| item: T, position: Position |}>,
   heights: $ReadOnlyArray<number>,
 |} {
+  console.log('single column heights', heightsArg);
   const heights = [...heightsArg];
   const positions = items.reduce((positionsSoFar, item) => {
     const height = measurementCache.get(item);
+
+    const cachedPosition = positionCache.get(item);
+    if (cachedPosition) {
+      if (!isNil(cachedPosition.column)) {
+        heights[cachedPosition.column] += cachedPosition.height + gutter;
+      }
+      return [...positionsSoFar, { item, position: cachedPosition }];
+    }
 
     if (!isNil(height)) {
       const heightAndGutter = height + gutter;
@@ -66,10 +76,6 @@ function getPositions<T>({
 
       heights[col] += heightAndGutter;
 
-      const cachedPosition = positionCache.get(item);
-      if (cachedPosition) {
-        return [...positionsSoFar, { item, position: cachedPosition }];
-      }
       return [
         ...positionsSoFar,
         {
@@ -79,6 +85,7 @@ function getPositions<T>({
             left,
             width: columnWidth,
             height,
+            column: col,
           },
         },
       ];
@@ -116,6 +123,20 @@ function getTwoColItemPosition<T>({
     return { heights, position: offscreen(columnWidth) };
   }
 
+  const cachedPosition = positionCache.get(item);
+  if (cachedPosition) {
+    if (!isNil(cachedPosition.column)) {
+      const newColumnHeight =
+        Math.max(heights[cachedPosition.column], heights[cachedPosition.column + 1]) +
+        cachedPosition.height +
+        gutter;
+      heights[cachedPosition.column] = newColumnHeight;
+      heights[cachedPosition.column + 1] = newColumnHeight;
+      console.log('heights with cached position', heights);
+    }
+    return { heights, position: cachedPosition };
+  }
+
   const heightAndGutter = height + gutter;
 
   // Find height deltas for each column as compared to the next column
@@ -124,24 +145,24 @@ function getTwoColItemPosition<T>({
     Math.min(...adjacentColumnHeightDeltas),
   );
   // Deltas can go either way, so find which of the two adjacent columns is higher
-  const leftIsHigher =
+  const leftIsTaller =
     heights[lowestAdjacentColumnHeightDeltaIndex] >
     heights[lowestAdjacentColumnHeightDeltaIndex + 1];
-  const col = leftIsHigher
+  const tallestColumn = leftIsTaller
     ? lowestAdjacentColumnHeightDeltaIndex
     : lowestAdjacentColumnHeightDeltaIndex + 1;
 
-  const top = heights[col];
-  const left = col * columnWidthAndGutter + centerOffset;
+  const top = heights[tallestColumn];
+  const left = lowestAdjacentColumnHeightDeltaIndex * columnWidthAndGutter + centerOffset;
+
+  console.log('heights before', heights);
+  console.log('module height', { height, gutter });
 
   // Increase the heights of both adjacent columns
-  heights[col] += heightAndGutter;
-  heights[leftIsHigher ? col + 1 : col - 1] += heightAndGutter;
+  heights[tallestColumn] += heightAndGutter;
+  heights[leftIsTaller ? tallestColumn + 1 : tallestColumn - 1] = heights[tallestColumn];
 
-  const cachedPosition = positionCache.get(item);
-  if (cachedPosition) {
-    return { heights, position: cachedPosition };
-  }
+  console.log('heights after', heights);
 
   return {
     heights,
@@ -150,6 +171,7 @@ function getTwoColItemPosition<T>({
       left,
       width: columnWidth * 2 + gutter,
       height,
+      column: lowestAdjacentColumnHeightDeltaIndex,
     },
   };
 }
@@ -192,10 +214,11 @@ const defaultLayout = <T>({
       items,
     ): {| heights: $ReadOnlyArray<number>, positions: $ReadOnlyArray<Position> |} => {
       // the total height of each column
-      const heights =
-        heightsCache.getHeights().length > 0
-          ? heightsCache.getHeights()
-          : new Array(columnCount).fill(0);
+      // const heights =
+      //   heightsCache.getHeights().length > 0
+      //     ? heightsCache.getHeights()
+      //     : new Array(columnCount).fill(0);
+      let heights = new Array(columnCount).fill(0);
 
       if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
         return { heights, positions: items.map(() => offscreen(columnWidth)) };
@@ -235,11 +258,12 @@ const defaultLayout = <T>({
 
       if (hasTwoColumnItems) {
         // Get positions and heights for painted items
-        const { positions: paintedItemPositions, heights: paintedItemHeights } = getPositions({
-          items: itemsWithPositions,
-          heights,
-          ...commonGetPositionArgs,
-        });
+        const { positions: paintedItemPositions, heights: paintedItemHeights } =
+          getOneColumnItemPositions({
+            items: itemsWithPositions,
+            heights,
+            ...commonGetPositionArgs,
+          });
 
         // Initialize the graph
         const graph = new Graph();
@@ -272,11 +296,12 @@ const defaultLayout = <T>({
           const heightsSoFar = [...heightsArr];
 
           // Get the positions and heights after adding this item
-          const { positions: updatedPositions, heights: updatedHeights } = getPositions<T>({
-            items: [...itemsSoFar, item],
-            heights: heightsSoFar,
-            ...commonGetPositionArgs,
-          });
+          const { positions: updatedPositions, heights: updatedHeights } =
+            getOneColumnItemPositions<T>({
+              items: [...itemsSoFar, item],
+              heights: heightsSoFar,
+              ...commonGetPositionArgs,
+            });
 
           // Add the new node to the graph
           const paintedItemData = {
@@ -319,9 +344,7 @@ const defaultLayout = <T>({
           });
         });
 
-        const { lowestScore, lowestScoreNode } = graph.findLowestScore(startNodeData);
-        console.log('lowestScore', lowestScore);
-        console.log('lowestScoreNode', lowestScoreNode);
+        const { lowestScoreNode } = graph.findLowestScore(startNodeData);
 
         const { positions: winningPositions } = lowestScoreNode;
 
@@ -329,20 +352,19 @@ const defaultLayout = <T>({
 
         // Insert 2-col item(s)
         const twoColItem = twoColumnItems[0]; // this should always only be one
+        heights = lowestScoreNode.heights;
         const { heights: finalHeights, position: twoColItemPosition } = getTwoColItemPosition<T>({
           item: twoColItem,
-          heights: lowestScoreNode.heights,
+          heights,
           ...commonGetPositionArgs,
         });
 
-        console.log('twoColItemPositions', twoColItemPosition);
         // Combine winning positions and 2-col item position, add to cache
         const finalPositions = [
           ...winningPositions,
           { item: twoColItem, position: twoColItemPosition },
         ];
         finalPositions.forEach(({ item, position }) => {
-          console.log('SETTING FROM GRAPH', item, position);
           positionCache.set(item, position);
         });
 
@@ -352,13 +374,12 @@ const defaultLayout = <T>({
         return { heights: finalHeights, positions: getPositionsOnly(finalPositions) };
       }
 
-      const { heights: finalHeights, positions: itemPositions } = getPositions<T>({
+      const { heights: finalHeights, positions: itemPositions } = getOneColumnItemPositions<T>({
         items,
         heights,
         ...commonGetPositionArgs,
       });
       itemPositions.forEach(({ item, position }) => {
-        console.log('SETTING FROM DEFAULT', item, position);
         positionCache.set(item, position);
       });
       const positionsOnly = getPositionsOnly<T>(itemPositions);
