@@ -1,5 +1,5 @@
 ---
-title: Contributions 
+title: Contributions
 description: Guidelines on how to engage with the Gestalt team, and contribute.
 fullwidth: true
 ---
@@ -10,15 +10,15 @@ You can find all the components available on Gestalt on our [Components page](ht
 
 ## Making a design contribuition
 
-Design system is about collaboration and building blocks! Gestalt offers the elements you need to create a consistent product. If you have an idea to improve Pinterest surfaces by partnering with the Gestalt team. We would love to collaborate with you! Follow the steps below to make a design contribution: 
+Design system is about collaboration and building blocks! Gestalt offers the elements you need to create a consistent product. If you have an idea to improve Pinterest surfaces by partnering with the Gestalt team. We would love to collaborate with you! Follow the steps below to make a design contribution:
 
 1. **Present your idea or suggestion during our Office Hour meetings**
-    [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an office hours slot with your discussion topic! 
+    [Sign up](https://pinch.pinadmin.com/gestaltSignUp) for an office hours slot with your discussion topic!
     Bring your work early-on— What we build into Gestalt comes from the teams across Pinterest, so we’d love to provide guidance and support early and often! The earlier we see the work, the better we're able to plan and the higher the likelihood we'll be able to help. It does not need to be a polished presentation but should have enough detail to help us understand the help you need and provide support.
 2. **Iterate on solutions**
     We love to see more iteration in your design. We ask you to consider all edge cases before presenting your work to us and coming up with explorations and possible solutions.
 3. **Build or follow along**
-   Our team will pair directly with you and the ones who will take on the work and guide the whole process. If the Gestalt team needs to build or modify a component, we will take on the work and follow the same process. As we develop the documentation, Figma files, and code for the updated or new component, we'd love for you to help review and be part of a final check. 
+   Our team will pair directly with you and the ones who will take on the work and guide the whole process. If the Gestalt team needs to build or modify a component, we will take on the work and follow the same process. As we develop the documentation, Figma files, and code for the updated or new component, we'd love for you to help review and be part of a final check.
 
 ### Pair design or consultancy
 
@@ -29,14 +29,14 @@ We love to contribute with product initiatives by placing a dedicated Gestalt de
 - Pair design from a systems perspective, such as creating a new component or reviewing design files
 - Accessibility guidance
 
-
-### Design crits 
+### Design crits
 
 [Get in touch](https://pinch.pinadmin.com/gestaltSignUp) to request a Gestalt designer representative to join and provide insights into your projects. We're always happy to join other design teams' crits and studio sessions and give feedback from a design systems perspective.
 
 ## Making an engineering contribuition
 
 We always appreciate the help and contributions of other engineers across Pinterest, whether it's new variants, simple bug fixes or building out entire components. Before any code changes happen though, be sure to follow the steps below:
+
 1. **Talk to your designer**
    Check in with your designer and make sure the changes have been approved by the Gestalt team, via the [request process](/team_support/component_request). We don’t recommend starting a PR on new functionality — no matter how small — without confirming this, as you may spend time on changes that won’t be approved to merge into Gestalt.
 2. **Technical Design Doc**
