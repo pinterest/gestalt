@@ -347,7 +347,7 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'http://go/metrics_gestalt_percentage',
                 ],
                 [
-                  'Gestalt Components',
+                  'Non-building-block Gestalt Components',
                   '# total non-building-block Gestalt components / (# native DOM elements + # total Gestalt component)',
                   'http://go/metrics_gestalt_highorder_percentage',
                 ],
