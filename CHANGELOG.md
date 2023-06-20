@@ -1,3 +1,9 @@
+## 115.1.2 (Jun 20, 2023)
+
+### Patch
+
+- Internal: update package.json keywords ([#3023](https://github.com/pinterest/gestalt/pull/3023)) - [Preview link](https://deploy-preview-3023--gestalt.netlify.app?devexample=true)
+
 ## 115.1.1 (Jun 20, 2023)
 
 ### Patch
