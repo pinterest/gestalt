@@ -56,25 +56,23 @@ IconButtons use icons instead of text to convey available actions on a screen. S
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D7716%253A18346%26t%3DeuizGQ2zXauZvtfU-1" allowFullScreen></iframe>
 
-
 ## Variants
 
 ### Size
 
-**Size specs—Container**
+#### Size specs: Container
 
 <br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19569%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
-**Size specs—Icon**
+#### Size specs: Icon
 
 <br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D6285%253A19660%26t%3DNPVL09mkgLI1ORlO-1" allowFullScreen></iframe>
 
-
-**Size use cases**
+#### Size use cases
 
 1. **lg** **(44dp)**
 Large is the only size that should be used on Pinner surfaces.
