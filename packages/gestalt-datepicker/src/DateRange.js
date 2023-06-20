@@ -1,6 +1,6 @@
 // @flow strict-local
 import { type Node } from 'react';
-import { Box, Flex, Text, Button, Divider } from 'gestalt';
+import { Box, Button, Divider, Flex, Text } from 'gestalt';
 // import styles from './DateRange.css';
 import InternalDateField from './DateField/InternalDateField.js';
 import InternalDatePicker from './DatePicker/InternalDatePicker.js';
