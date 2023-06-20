@@ -1,8 +1,7 @@
 // @flow strict
-import { he } from 'date-fns/esm/locale';
 import { type Cache } from './Cache.js';
 import Graph from './Graph.js';
-import { type HeightsStoreInterface } from './HeightsStore.js';
+import HeightsStore, { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex.js';
 import { type NodeData, type Position } from './types.js';
 
@@ -38,7 +37,7 @@ function getOneColumnItemPositions<T>({
   columnWidth,
   columnWidthAndGutter,
   gutter,
-  heights: heightsArg,
+  heights,
   items,
   measurementCache,
   positionCache,
@@ -55,15 +54,35 @@ function getOneColumnItemPositions<T>({
   positions: $ReadOnlyArray<{| item: T, position: Position |}>,
   heights: $ReadOnlyArray<number>,
 |} {
-  console.log('single column heights', heightsArg);
-  const heights = [...heightsArg];
+  // const heights = [...heightsArg];
   const positions = items.reduce((positionsSoFar, item) => {
     const height = measurementCache.get(item);
 
     const cachedPosition = positionCache.get(item);
     if (cachedPosition) {
       if (!isNil(cachedPosition.column)) {
-        heights[cachedPosition.column] += cachedPosition.height + gutter;
+        console.log('CACHED single column heights before', { heights: [...heights], height, item });
+
+        const heightAndGutter = cachedPosition.height + gutter;
+
+        if (item.columnSpan === 2) {
+          const newColumnHeight =
+            Math.max(heights[cachedPosition.column], heights[cachedPosition.column + 1]) +
+            heightAndGutter;
+          heights[cachedPosition.column] = newColumnHeight;
+          heights[cachedPosition.column + 1] = newColumnHeight;
+          console.log('TWO COLUMN ITEM', {
+            name: item.name,
+            heights: [...heights],
+            height,
+            cachedPosition,
+            item,
+          });
+        } else {
+          heights[cachedPosition.column] += heightAndGutter;
+        }
+
+        console.log('CACHED single column heights after', { heights: [...heights], height, item });
       }
       return [...positionsSoFar, { item, position: cachedPosition }];
     }
@@ -73,7 +92,6 @@ function getOneColumnItemPositions<T>({
       const col = mindex(heights);
       const top = heights[col];
       const left = col * columnWidthAndGutter + centerOffset;
-
       heights[col] += heightAndGutter;
 
       return [
@@ -102,7 +120,7 @@ function getTwoColItemPosition<T>({
   columnWidth,
   columnWidthAndGutter,
   gutter,
-  heights: heightsArg,
+  heights,
   item,
   measurementCache,
   positionCache,
@@ -116,26 +134,26 @@ function getTwoColItemPosition<T>({
   measurementCache: Cache<T, number>,
   positionCache: Cache<T, Position>,
 |}): {| heights: $ReadOnlyArray<number>, position: Position |} {
-  const heights = [...heightsArg];
+  // const heights = [...heightsArg];
   const height = measurementCache.get(item);
 
   if (isNil(height)) {
     return { heights, position: offscreen(columnWidth) };
   }
 
-  const cachedPosition = positionCache.get(item);
-  if (cachedPosition) {
-    if (!isNil(cachedPosition.column)) {
-      const newColumnHeight =
-        Math.max(heights[cachedPosition.column], heights[cachedPosition.column + 1]) +
-        cachedPosition.height +
-        gutter;
-      heights[cachedPosition.column] = newColumnHeight;
-      heights[cachedPosition.column + 1] = newColumnHeight;
-      console.log('heights with cached position', heights);
-    }
-    return { heights, position: cachedPosition };
-  }
+  // This position will never be cached
+  // const cachedPosition = positionCache.get(item);
+  // if (cachedPosition) {
+  //   if (!isNil(cachedPosition.column)) {
+  //     const newColumnHeight =
+  //       Math.max(heights[cachedPosition.column], heights[cachedPosition.column + 1]) +
+  //       cachedPosition.height +
+  //       gutter;
+  //     heights[cachedPosition.column] = newColumnHeight;
+  //     heights[cachedPosition.column + 1] = newColumnHeight;
+  //   }
+  //   return { heights, position: cachedPosition };
+  // }
 
   const heightAndGutter = height + gutter;
 
@@ -155,14 +173,13 @@ function getTwoColItemPosition<T>({
   const top = heights[tallestColumn];
   const left = lowestAdjacentColumnHeightDeltaIndex * columnWidthAndGutter + centerOffset;
 
-  console.log('heights before', heights);
-  console.log('module height', { height, gutter });
+  console.log('two column: heights before', { name: item.name, heights: [...heights], item });
 
   // Increase the heights of both adjacent columns
   heights[tallestColumn] += heightAndGutter;
   heights[leftIsTaller ? tallestColumn + 1 : tallestColumn - 1] = heights[tallestColumn];
 
-  console.log('heights after', heights);
+  console.log('two column: heights after', { name: item.name, heights: [...heights], item });
 
   return {
     heights,
