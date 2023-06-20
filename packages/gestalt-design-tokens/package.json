@@ -33,9 +33,10 @@
   ],
   "keywords": [
     "design system",
+    "design tokens",
+    "gestalt",
     "pinterest",
-    "ui library",
-    "design tokens"
+    "ui library"
   ],
   "repository": {
     "type": "git",
