@@ -248,12 +248,16 @@ export default function TagData({
             onRemove({ event, id });
           }}
         >
-          <Icon
-            accessibilityLabel={accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault}
-            color={fgColor}
-            icon="cancel"
-            size={10}
-          />
+          <Box display="flex" alignItems="center" items="center" width="100%">
+            <Icon
+              accessibilityLabel={
+                accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+              }
+              color={fgColor}
+              icon="cancel"
+              size={10}
+            />
+          </Box>
         </button>
       )}
     </Box>

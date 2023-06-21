@@ -37,6 +37,7 @@
   height: 100%;
   outline: none;
   position: absolute;
+  width: 24px;
 }
 
 html[dir="rtl"] .dismissButtonPosition {
