@@ -5,7 +5,7 @@ import { DateRange } from 'gestalt-datepicker';
 export default function Example(): Node {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-
+  console.log('here', startDate, endDate);
   return (
     <DateRange
       startDateValue={startDate}
