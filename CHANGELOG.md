@@ -1,3 +1,9 @@
+## 115.1.3 (Jun 21, 2023)
+
+### Patch
+
+- Internal: lint android/iconbutton.md ([#3024](https://github.com/pinterest/gestalt/pull/3024)) - [Preview link](https://deploy-preview-3024--gestalt.netlify.app?devexample=true)
+
 ## 115.1.2 (Jun 20, 2023)
 
 ### Patch
