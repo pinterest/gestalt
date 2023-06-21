@@ -41,11 +41,11 @@ type Props = {|
    * Prop description.
    */
   localeData?: LocaleData,
-  radioGroup: Node,
-  startDateValue: Date,
-  endDateValue: Date,
-  onStartDateChange: ({| value: Date |}) => void,
-  onEndDateChange: ({| value: Date |}) => void,
+  radioGroup?: Node,
+  startDateValue: Date | null,
+  endDateValue: Date | null,
+  onStartDateChange: ({| value: Date | null |}) => void,
+  onEndDateChange: ({| value: Date | null |}) => void,
 |};
 
 /**
