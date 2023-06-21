@@ -1609,19 +1609,29 @@ exports[`TagData renders dismisible button with color background 1`] = `
     }
     type="button"
   >
-    <svg
-      aria-hidden={null}
-      aria-label="Remove tag"
-      className="icon defaultIcon iconBlock"
-      height={10}
-      role="img"
-      viewBox="0 0 24 24"
-      width={10}
+    <div
+      className="box xsDisplayFlex xsItemsCenter"
+      items="center"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
     >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
+      <svg
+        aria-hidden={null}
+        aria-label="Remove tag"
+        className="icon defaultIcon iconBlock"
+        height={10}
+        role="img"
+        viewBox="0 0 24 24"
+        width={10}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
   </button>
 </div>
 `;
@@ -1766,19 +1776,29 @@ exports[`TagData renders dismissable button 1`] = `
     }
     type="button"
   >
-    <svg
-      aria-hidden={null}
-      aria-label="Remove tag"
-      className="icon defaultIcon iconBlock"
-      height={10}
-      role="img"
-      viewBox="0 0 24 24"
-      width={10}
+    <div
+      className="box xsDisplayFlex xsItemsCenter"
+      items="center"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
     >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
+      <svg
+        aria-hidden={null}
+        aria-label="Remove tag"
+        className="icon defaultIcon iconBlock"
+        height={10}
+        role="img"
+        viewBox="0 0 24 24"
+        width={10}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
   </button>
 </div>
 `;
@@ -1890,19 +1910,29 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       style={Object {}}
       type="button"
     >
-      <svg
-        aria-hidden={null}
-        aria-label="Remove tag"
-        className="icon defaultIcon iconBlock"
-        height={10}
-        role="img"
-        viewBox="0 0 24 24"
-        width={10}
+      <div
+        className="box xsDisplayFlex xsItemsCenter"
+        items="center"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
       >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
+        <svg
+          aria-hidden={null}
+          aria-label="Remove tag"
+          className="icon defaultIcon iconBlock"
+          height={10}
+          role="img"
+          viewBox="0 0 24 24"
+          width={10}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
     </button>
   </div>
 </html>
