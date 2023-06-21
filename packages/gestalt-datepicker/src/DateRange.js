@@ -164,7 +164,15 @@ function DateRange({
             />
 
             <Flex.Item alignSelf="end">
-              <Button text="Apply" />
+              <Button
+                text="Apply"
+                disabled={
+                  !!endDateErrorMessage ||
+                  !!startDateErrorMessage ||
+                  !endDateValue ||
+                  !startDateValue
+                }
+              />
             </Flex.Item>
           </Flex>
         </Box>
