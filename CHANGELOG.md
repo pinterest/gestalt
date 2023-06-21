@@ -1,3 +1,9 @@
+## 115.1.4 (Jun 21, 2023)
+
+### Patch
+
+- Docs: add link to UX Writing Cheat Sheet ([#3025](https://github.com/pinterest/gestalt/pull/3025)) - [Preview link](https://deploy-preview-3025--gestalt.netlify.app?devexample=true)
+
 ## 115.1.3 (Jun 21, 2023)
 
 ### Patch
