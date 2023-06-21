@@ -1,3 +1,9 @@
+## 115.2.0 (Jun 21, 2023)
+
+### Minor
+
+- TagData: Fit and Finish on TagData ([#3020](https://github.com/pinterest/gestalt/pull/3020)) - [Preview link](https://deploy-preview-3020--gestalt.netlify.app?devexample=true)
+
 ## 115.1.5 (Jun 21, 2023)
 
 ### Patch
