@@ -242,6 +242,13 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     category: 'Foundations',
     path: '/foundations/content_standards/voice',
   },
+  {
+    svg: <DataVisualization />,
+    name: 'Data visualization',
+    description: 'Guidelines and best practices for creating and using data visualizations',
+    category: 'Foundations',
+    path: '/foundations/data_visualization/overview',
+  },
 
   {
     svg: <DesignTokens />,
@@ -250,13 +257,6 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
       'An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.',
     category: 'Foundations',
     path: '/foundations/design_tokens',
-  },
-  {
-    svg: <DataVisualization />,
-    name: 'Data visualization',
-    description: 'Data visualization',
-    category: 'Foundations',
-    path: '/foundations/data_visualization/overview',
   },
   {
     svg: <Elevation />,

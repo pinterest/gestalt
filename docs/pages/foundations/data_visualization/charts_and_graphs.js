@@ -709,7 +709,7 @@ export default function ChartsandGraphsPage(): Node {
                 name="Desktop Chart Interaction Example"
                 hideEditor
                 hideControls
-                previewHeight={500}
+                previewHeight={528}
               />
             </Flex.Item>
           </Flex>
@@ -727,7 +727,7 @@ export default function ChartsandGraphsPage(): Node {
                 name="Mobile Chart Interaction Example"
                 hideEditor
                 hideControls
-                previewHeight={500}
+                previewHeight={516}
               />
             </Flex.Item>
           </Flex>
@@ -749,7 +749,7 @@ export default function ChartsandGraphsPage(): Node {
                 name="Chart to Table Example"
                 hideEditor
                 hideControls
-                previewHeight={500}
+                previewHeight={508}
               />
             </Flex.Item>
           </Flex>

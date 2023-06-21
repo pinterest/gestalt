@@ -3,6 +3,58 @@
     "year": "2023",
     "digests": [
       {
+        "week": "June 16, 2023",
+        "summary": "iOS in-app Gestalt tools, DefaultLabelProvider improvements, Figma library updates and a bunch of updates to our Figma plugin.",
+        "posts": [
+          {
+            "title": "iOS in-app color and icon browsers",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/f2/af/0a/f2af0a8e60daa2e2b1f5ec05373ee9aa.png",
+            "imageAltText": "Screenshots of the iOS in-app color and icon browsers.",
+            "content": "We continue to build out the foundation of Gestalt for mobile. A nice step forward is the inclusion of our MVP color and icon browsers in the iOS pre-release mobile app builds. You can find both browsers in the Product Design Standards section of dev tools."
+          },
+          {
+            "title": "DefaultLabelProvider improvements",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/34/ad/fc/34adfc319d0e5f8790579da847293340.png",
+            "imageAltText": "Screenshot of DefaultLabelProvider code and example of how it renders.",
+            "content": "We greatly expanded the use of [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider) by adding 26 new strings and updating 7 existing strings. We also cleaned up the Video component API so you no longer have to set up accessibility labels manually for mute, pause, play, and so on."
+          },
+          {
+            "title": "Figma RadioGroup component improvements",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/66/67/45/666745da5f9e73d16324da222d730e2f.png",
+            "imageAltText": "Example of Figma RadioGroup component.",
+            "content": "We continue to refine our Figma libraries with quality-of-life improvements. This week, we fixed up RadioGroup to be simpler and more consistent to use across all platforms."
+          },
+          {
+            "title": "Pinterest Design plugin updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/e7/4a/50/e74a509f6fd77ed1abea3a7101515e27.png",
+            "imageAltText": "Promo picture of the Pinterest Design Figma plugin.",
+            "content": "We've added a ton of improvements to our [Pinterest Design Figma plugin](https://www.figma.com/community/plugin/1215463263194174399). Here's a rundown of the highlights:\n* Added a Re-Run button to the top of the Color Converter module so you don't have to navigate back to run again\n * Improved Color Converter success rate by linting and pre-autofixing some text and fill color styles\n * Now showing Pin title on hover in the Pinsert module Pin grid\n * Added empty search results text to the Pinsert module indicating when search is complete but yielded no results\n* Now using the highest available Pin image resolution for fills\n* Refined the logic for centering and zooming selections when inserting images\n\nMany, many more improvements are coming, so we suggest giving it a go!"
+          }
+        ]
+      },
+      {
+        "week": "June 9, 2023",
+        "summary": "ActionBar component added to Figma libraries.",
+        "posts": [
+          {
+            "title": "Updated ActionBar Figma components",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ca/58/19/ca58194ee5d8344446ab41ad60692e47.png",
+            "imageAltText": "Example of the Figma ActionBar component",
+            "content": "Fresh off the press is our new Figma ActionBar component for Android, iOS and Web! Three things you need to know:\n\n1. It's a “pilot” component, meaning we are still improving this component. Changes might occur in the future; so make sure to keep your files up to date with Gestalt updates, and you will be good to go! This component is only available on Figma at this moment.\n2. ActionBar uses 48 px height elements. We plan to unify our SM Button and LG IconButton size from 44 to 48 in all platforms, to meet accessibility standards and improve the experience for the broadest range of Pinners. We have decided to maintain this height to clarify our long-term direction for this component.\n3."
+          }
+        ]
+      },
+      {
         "week": "June 2, 2023",
         "summary": "Major data visualization updates, significant Android docs improvements and advertising safe zone guidelines.",
         "posts": [
