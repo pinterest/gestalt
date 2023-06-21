@@ -65,6 +65,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
                 code={doChangeBaseColor}
                 name="show one selected tile"
                 hideEditor
+                hideControls
                 previewHeight={200}
               />
             }
@@ -94,6 +95,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
                 code={doUseSameStyle}
                 name="show multiple with checkboxes"
                 hideEditor
+                hideControls
                 previewHeight={200}
               />
             }
@@ -123,6 +125,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
                 code={doUseShortLabels}
                 name="show multiple with checkboxes"
                 hideEditor
+                hideControls
                 previewHeight={200}
               />
             }

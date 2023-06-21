@@ -14,7 +14,7 @@ export default function Example(): Node {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        color="tertiary"
+        color="secondary"
       >
         <TagData text="Small TagData" size="sm" baseColor="secondary" />
       </Box>

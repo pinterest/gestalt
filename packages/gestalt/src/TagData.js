@@ -242,16 +242,22 @@ export default function TagData({
           className={getRemoveIconClasses()}
           style={tileStyle}
           type="button"
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
           onClick={(event) => {
             onRemove({ event, id });
           }}
         >
-          <Icon
-            accessibilityLabel={accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault}
-            color={fgColor}
-            icon="cancel"
-            size={8}
-          />
+          <Box display="flex" alignItems="center" justifyContent="center" width="100%">
+            <Icon
+              accessibilityLabel={
+                accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+              }
+              color={fgColor}
+              icon="cancel"
+              size={10}
+            />
+          </Box>
         </button>
       )}
     </Box>

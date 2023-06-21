@@ -10,6 +10,5 @@ declare module.exports: {|
   +'tagLarge': string,
   +'tagMedium': string,
   +'tagSmall': string,
-  +'tagWrapperDismiss': string,
   +'tagWrapperRounded': string,
 |};
