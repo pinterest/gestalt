@@ -248,7 +248,7 @@ export default function TagData({
             onRemove({ event, id });
           }}
         >
-          <Box display="flex" alignItems="center" items="center" width="100%">
+          <Box display="flex" alignItems="center" justifyContent="center" width="100%">
             <Icon
               accessibilityLabel={
                 accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
