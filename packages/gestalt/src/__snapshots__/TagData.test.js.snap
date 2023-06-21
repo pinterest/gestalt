@@ -1610,8 +1610,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
     type="button"
   >
     <div
-      className="box xsDisplayFlex xsItemsCenter"
-      items="center"
+      className="box justifyCenter xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "width": "100%",
@@ -1777,8 +1776,7 @@ exports[`TagData renders dismissable button 1`] = `
     type="button"
   >
     <div
-      className="box xsDisplayFlex xsItemsCenter"
-      items="center"
+      className="box justifyCenter xsDisplayFlex xsItemsCenter"
       style={
         Object {
           "width": "100%",
@@ -1911,8 +1909,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       type="button"
     >
       <div
-        className="box xsDisplayFlex xsItemsCenter"
-        items="center"
+        className="box justifyCenter xsDisplayFlex xsItemsCenter"
         style={
           Object {
             "width": "100%",
