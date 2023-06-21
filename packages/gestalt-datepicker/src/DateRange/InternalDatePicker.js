@@ -64,51 +64,54 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
 
     return (
       <div className="_gestalt">
-        {label && (
-          <Label htmlFor={id}>
-            <Box marginBottom={2}>
-              <Text size="100">{label}</Text>
-            </Box>
-          </Label>
-        )}
-        <ReactDatePicker
-          calendarClassName={styles['react-datepicker-inline']}
-          dateFormat={format}
-          dayClassName={() => styles['react-datepicker__days']}
-          endDate={rangeEndDate ?? undefined}
-          excludeDates={excludeDates && [...excludeDates]}
-          highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
-          id={id}
-          includeDates={includeDates && [...includeDates]}
-          inline
-          locale={updatedLocale}
-          maxDate={maxDate}
-          minDate={minDate}
-          monthsShown={2}
-          nextMonthButtonLabel={
-            <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
-          }
-          onChange={(value) => {
-            const [startDate, endDate] = value;
-            onChange({ startDate, endDate });
-          }}
-          onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
-          previousMonthButtonLabel={
-            <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
-          }
-          ref={(refElement) => {
-            if (!innerInputRef || !refElement) {
-              return null;
+        {' '}
+        <div className="_gestalt_daterange">
+          {label && (
+            <Label htmlFor={id}>
+              <Box marginBottom={2}>
+                <Text size="100">{label}</Text>
+              </Box>
+            </Label>
+          )}
+          <ReactDatePicker
+            calendarClassName={styles['react-datepicker-inline']}
+            dateFormat={format}
+            dayClassName={() => styles['react-datepicker__days']}
+            endDate={rangeEndDate ?? undefined}
+            excludeDates={excludeDates && [...excludeDates]}
+            highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
+            id={id}
+            includeDates={includeDates && [...includeDates]}
+            inline
+            locale={updatedLocale}
+            maxDate={maxDate}
+            minDate={minDate}
+            monthsShown={2}
+            nextMonthButtonLabel={
+              <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
             }
+            onChange={(value) => {
+              const [startDate, endDate] = value;
+              onChange({ startDate, endDate });
+            }}
+            onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
+            previousMonthButtonLabel={
+              <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
+            }
+            ref={(refElement) => {
+              if (!innerInputRef || !refElement) {
+                return null;
+              }
 
-            innerInputRef.current = refElement.input;
+              innerInputRef.current = refElement.input;
 
-            return null;
-          }}
-          selected={rangeStartDate ?? undefined}
-          selectsRange
-          startDate={rangeStartDate ?? undefined}
-        />
+              return null;
+            }}
+            selected={rangeStartDate ?? undefined}
+            selectsRange
+            startDate={rangeStartDate ?? undefined}
+          />
+        </div>
       </div>
     );
   });

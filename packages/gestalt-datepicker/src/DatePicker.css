@@ -300,6 +300,10 @@ to prevent conflict with another CSS module */
   font-weight: var(--font-weight-normal);
 }
 
+:global ._gestalt ._gestalt_daterange .react-datepicker__month-container:last-child {
+  margin-left: 37px;
+}
+
 :global ._gestalt .react-datepicker__navigation {
   background: none;
   border: none;

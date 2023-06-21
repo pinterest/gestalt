@@ -71,7 +71,7 @@ function DateRange({
       color="default"
       borderStyle="shadow"
       overflow="scroll"
-      width={800}
+      width={888}
       minHeight={425}
     >
       <Flex width="100%">
@@ -95,7 +95,6 @@ function DateRange({
                 <InternalDateField
                   id="datefield-start"
                   onChange={({ value }) => {
-                    console.log(value);
                     if (value?.getTime() || value === null) onStartDateChange({ value });
                   }}
                   value={startDateValue}
@@ -107,12 +106,15 @@ function DateRange({
                 <InternalDateField
                   id="datefield-end"
                   onChange={({ value }) => {
-                    console.log(value);
                     if (value?.getTime() || value === null) onEndDateChange({ value });
                   }}
                   value={endDateValue}
                   minDate={startDateValue}
-                  onError={console.log}
+                  onError={({ errorMessage }) => {
+                    if (errorMessage === 'minDate') {
+                      onEndDateChange({ value: null });
+                    }
+                  }}
                 />
               </Box>
             </Flex>
