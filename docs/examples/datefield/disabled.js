@@ -4,8 +4,8 @@ import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [dateValueDisableFuture, setDateValueDisableFuture] = useState<?Date>(null);
-  const [dateValueDisablePast, setDatealueDisablePast] = useState<?Date>(null);
+  const [dateValueDisableFuture, setDateValueDisableFuture] = useState<Date | null>(null);
+  const [dateValueDisablePast, setDatealueDisablePast] = useState<Date | null>(null);
 
   const [errorTextDisableFuture, setErrorTextDisableFuture] = useState<?string>(null);
   const [errorTextDisablePast, setErrorTextDisablePast] = useState<?string>(null);

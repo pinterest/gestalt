@@ -206,11 +206,11 @@ type InternalDateFieldProps = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onChange: ({| value: ?Date |}) => void,
+  onChange: ({| value: Date | null |}) => void,
   onClearInput?: () => void,
   onError?: ({|
     errorMessage: string,
-    value: ?Date,
+    value: Date | null,
   |}) => void,
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -218,7 +218,7 @@ type InternalDateFieldProps = {|
   |}) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
-  value: ?Date,
+  value: Date | null,
 |};
 
 function InternalDateField({
