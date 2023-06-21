@@ -1,3 +1,9 @@
+## 115.1.5 (Jun 21, 2023)
+
+### Patch
+
+- Docs: adds a new metric statsboards to web/tooling page ([#3021](https://github.com/pinterest/gestalt/pull/3021)) - [Preview link](https://deploy-preview-3021--gestalt.netlify.app?devexample=true)
+
 ## 115.1.4 (Jun 21, 2023)
 
 ### Patch
