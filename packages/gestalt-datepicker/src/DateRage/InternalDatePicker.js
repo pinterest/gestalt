@@ -12,7 +12,9 @@ import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Box, Icon, Label, Text } from 'gestalt';
 import DatePickerTextField from './TextField.js';
 import styles from '../DatePicker.css';
-import { type Props } from '../DatePicker.js';
+import { type Props as DatePickerProps } from '../DatePicker.js';
+
+type Props = {| ...DatePickerProps, inline?: boolean, openToDate?: Date |};
 
 const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
@@ -26,6 +28,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
     id,
     idealDirection = 'down',
     includeDates,
+    inline = false,
     label,
     localeData,
     maxDate,
@@ -33,6 +36,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
     name,
     nextRef,
     onChange,
+    openToDate,
     placeholder,
     rangeEndDate,
     rangeSelector,
@@ -106,7 +110,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         </Label>
       )}
       <ReactDatePicker
-        calendarClassName={styles['react-datepicker']}
+        calendarClassName={inline ? styles['react-datepicker-inline'] : styles['react-datepicker']}
         customInput={
           <DatePickerTextField
             name={name}
@@ -124,6 +128,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
         id={id}
         includeDates={includeDates && [...includeDates]}
+        inline={inline}
         locale={updatedLocale}
         maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
         minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
@@ -137,6 +142,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         }}
         onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
+        openToDate={openToDate}
         placeholderText={placeholder ?? format?.toUpperCase()}
         popperClassName={styles['react-datepicker-popper']}
         popperModifiers={[
