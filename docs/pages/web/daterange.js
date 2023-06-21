@@ -7,6 +7,8 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import disabledFuture from '../../examples/daterange/disabledFuture.js';
+import disabledPast from '../../examples/daterange/disabledPast.js';
 import main from '../../examples/daterange/main.js';
 
 export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
@@ -34,7 +36,27 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Variants" />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Disable future & past"
+          description="DateRange supports disabling future & past dates from being selected."
+        >
+          <MainSection.Card
+            cardSize="md"
+            title="Disable past"
+            sandpackExample={
+              <SandpackExample code={disabledPast} name="past example" previewHeight={500} />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            title="Disable future"
+            sandpackExample={
+              <SandpackExample code={disabledFuture} name="future example" previewHeight={500} />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
     </Page>
   );
 }

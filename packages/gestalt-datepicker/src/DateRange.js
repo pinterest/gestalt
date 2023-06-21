@@ -42,10 +42,22 @@ type Props = {|
    */
   localeData?: LocaleData,
   radioGroup?: Node,
-  startDateValue: Date | null,
   endDateValue: Date | null,
+  endDateErrorMessage?: string | null,
   onStartDateChange: ({| value: Date | null |}) => void,
+  onStartDateError: ({|
+    errorMessage: string,
+    value: Date | null,
+  |}) => void,
   onEndDateChange: ({| value: Date | null |}) => void,
+  onEndDateError: ({|
+    errorMessage: string,
+    value: Date | null,
+  |}) => void,
+  maxDate?: Date,
+  minDate?: Date,
+  startDateValue: Date | null,
+  startDateErrorMessage?: string | null,
 |};
 
 /**
@@ -55,10 +67,16 @@ type Props = {|
  */
 function DateRange({
   radioGroup,
-  startDateValue,
   endDateValue,
+  endDateErrorMessage,
   onStartDateChange,
+  onStartDateError,
   onEndDateChange,
+  onEndDateError,
+  maxDate,
+  minDate,
+  startDateValue,
+  startDateErrorMessage,
 }: Props): Node {
   if (!startDateValue && endDateValue) {
     onEndDateChange({ value: null });
@@ -78,6 +96,7 @@ function DateRange({
         <Box minHeight={300} minWidth={300} color="errorWeak">
           {radioGroup}
         </Box>
+        <Divider />
         <Box padding={2} width="100%">
           <Flex
             alignItems="start"
@@ -87,7 +106,7 @@ function DateRange({
             gap={2}
             direction="column"
           >
-            <Flex gap={3} alignItems="center">
+            <Flex gap={3} alignItems="start">
               <Box
                 dangerouslySetInlineStyle={{ __style: { paddingInlineStart: '8px' } }}
                 width={300}
@@ -97,11 +116,16 @@ function DateRange({
                   onChange={({ value }) => {
                     if (value?.getTime() || value === null) onStartDateChange({ value });
                   }}
+                  onError={onStartDateError}
                   value={startDateValue}
-                  maxDate={endDateValue}
+                  minDate={minDate}
+                  maxDate={maxDate}
+                  errorMessage={startDateErrorMessage}
                 />
               </Box>
-              <Text>—</Text>
+              <Box dangerouslySetInlineStyle={{ __style: { marginTop: '20px' } }}>
+                <Text>—</Text>
+              </Box>
               <Box dangerouslySetInlineStyle={{ __style: { paddingInlineEnd: '8px' } }} width={300}>
                 <InternalDateField
                   id="datefield-end"
@@ -110,11 +134,14 @@ function DateRange({
                   }}
                   value={endDateValue}
                   minDate={startDateValue}
-                  onError={({ errorMessage }) => {
+                  onError={({ errorMessage, value }) => {
+                    onEndDateError({ errorMessage, value });
                     if (errorMessage === 'minDate') {
                       onEndDateChange({ value: null });
                     }
                   }}
+                  maxDate={maxDate}
+                  errorMessage={endDateErrorMessage}
                 />
               </Box>
             </Flex>
@@ -123,17 +150,19 @@ function DateRange({
                 <Divider />
               </Box>
             </Flex.Item>
-            <Flex gap={2}>
-              <InternalDatePicker
-                rangeStartDate={startDateValue}
-                rangeEndDate={endDateValue}
-                id="datepicker-start"
-                onChange={({ startDate, endDate }) => {
-                  onStartDateChange({ value: startDate });
-                  onEndDateChange({ value: endDate });
-                }}
-              />
-            </Flex>
+
+            <InternalDatePicker
+              rangeStartDate={startDateValue}
+              rangeEndDate={endDateValue}
+              id="datepicker-start"
+              onChange={({ startDate, endDate }) => {
+                onStartDateChange({ value: startDate });
+                onEndDateChange({ value: endDate });
+              }}
+              minDate={minDate}
+              maxDate={maxDate}
+            />
+
             <Flex.Item alignSelf="end">
               <Button text="Apply" />
             </Flex.Item>

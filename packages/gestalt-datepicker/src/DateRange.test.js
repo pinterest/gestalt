@@ -10,6 +10,8 @@ describe('DateRange', () => {
         endDateValue={new Date()}
         onStartDateChange={() => {}}
         onEndDateChange={() => {}}
+        onStartDateError={() => {}}
+        onEndDateError={() => {}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -22,6 +24,8 @@ describe('DateRange', () => {
         endDateValue={new Date()}
         onStartDateChange={() => {}}
         onEndDateChange={() => {}}
+        onStartDateError={() => {}}
+        onEndDateError={() => {}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

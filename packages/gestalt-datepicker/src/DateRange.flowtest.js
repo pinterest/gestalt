@@ -7,6 +7,8 @@ const Valid = (
     endDateValue={new Date()}
     onStartDateChange={() => {}}
     onEndDateChange={() => {}}
+    onStartDateError={() => {}}
+    onEndDateError={() => {}}
   />
 );
 
