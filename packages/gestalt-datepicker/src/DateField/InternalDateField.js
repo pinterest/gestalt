@@ -198,8 +198,8 @@ type InternalDateFieldProps = {|
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
   localeData?: ?LocaleData,
-  maxDate?: Date,
-  minDate?: Date,
+  maxDate?: Date | null,
+  minDate?: Date | null,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   name?: string,
   onBlur?: ({|

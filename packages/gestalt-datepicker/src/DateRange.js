@@ -60,6 +60,10 @@ function DateRange({
   onStartDateChange,
   onEndDateChange,
 }: Props): Node {
+  if (!startDateValue && endDateValue) {
+    onEndDateChange({ value: null });
+  }
+
   return (
     <Box
       rounding={4}
@@ -95,6 +99,7 @@ function DateRange({
                     if (value?.getTime() || value === null) onStartDateChange({ value });
                   }}
                   value={startDateValue}
+                  maxDate={endDateValue}
                 />
               </Box>
               <Text>—</Text>
@@ -106,6 +111,8 @@ function DateRange({
                     if (value?.getTime() || value === null) onEndDateChange({ value });
                   }}
                   value={endDateValue}
+                  minDate={startDateValue}
+                  onError={console.log}
                 />
               </Box>
             </Flex>

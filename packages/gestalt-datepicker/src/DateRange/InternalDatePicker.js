@@ -43,7 +43,6 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
     const [format, setFormat] = useState<?string>();
     const [updatedLocale, setUpdatedLocale] = useState<?string>();
     const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
-    console.log('in', rangeStartDate, rangeEndDate);
 
     useEffect(() => {
       setInitRangeHighlight(rangeStartDate || rangeEndDate);
