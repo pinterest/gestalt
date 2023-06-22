@@ -443,9 +443,14 @@ interface DeviceTypeProviderProps {
 interface GlobalEventsHandlerProviderProps {
   children: Node;
   linkHandlers?: {
-    onNavigation: (arg: { href: string; target?: null | 'self' | 'blank' | undefined}) => EventHandlerType | null | void;
+    onNavigation: (arg: {
+      href: string;
+      target?: null | 'self' | 'blank' | undefined;
+    }) => EventHandlerType | null | void;
   };
-  sheetMobileHandlers?: { onOpen?: (() => void) | undefined; onClose?: (() => void) | undefined } | undefined;
+  sheetMobileHandlers?:
+    | { onOpen?: (() => void) | undefined; onClose?: (() => void) | undefined }
+    | undefined;
 }
 
 interface ScrollBoundaryContainerProps {
