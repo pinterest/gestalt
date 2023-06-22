@@ -1,3 +1,21 @@
+## 115.2.0 (Jun 21, 2023)
+
+### Minor
+
+- TagData: Fit and Finish on TagData ([#3020](https://github.com/pinterest/gestalt/pull/3020)) - [Preview link](https://deploy-preview-3020--gestalt.netlify.app?devexample=true)
+
+## 115.1.5 (Jun 21, 2023)
+
+### Patch
+
+- Docs: adds a new metric statsboards to web/tooling page ([#3021](https://github.com/pinterest/gestalt/pull/3021)) - [Preview link](https://deploy-preview-3021--gestalt.netlify.app?devexample=true)
+
+## 115.1.4 (Jun 21, 2023)
+
+### Patch
+
+- Docs: add link to UX Writing Cheat Sheet ([#3025](https://github.com/pinterest/gestalt/pull/3025)) - [Preview link](https://deploy-preview-3025--gestalt.netlify.app?devexample=true)
+
 ## 115.1.3 (Jun 21, 2023)
 
 ### Patch
