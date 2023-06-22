@@ -55,38 +55,41 @@ function getOneColumnItemPositions<T>({
   heights: $ReadOnlyArray<number>,
 |} {
   const heights = [...heightsArg];
-  const positions = items.reduce((positionsSoFar, item) => {
-    const height = measurementCache.get(item);
+  const positions = items.reduce(
+    (positionsSoFar: $ReadOnlyArray<{| item: T, position: Position |}>, item) => {
+      const height = measurementCache.get(item);
 
-    const cachedPosition = positionCache?.get(item);
-    if (cachedPosition) {
-      return [...positionsSoFar, { item, position: cachedPosition }];
-    }
+      const cachedPosition = positionCache?.get(item);
+      if (cachedPosition) {
+        return [...positionsSoFar, { item, position: cachedPosition }];
+      }
 
-    if (!isNil(height)) {
-      const heightAndGutter = height + gutter;
-      const col = mindex(heights);
-      const top = heights[col];
-      const left = col * columnWidthAndGutter + centerOffset;
-      heights[col] += heightAndGutter;
+      if (!isNil(height)) {
+        const heightAndGutter = height + gutter;
+        const col = mindex(heights);
+        const top = heights[col];
+        const left = col * columnWidthAndGutter + centerOffset;
+        heights[col] += heightAndGutter;
 
-      return [
-        ...positionsSoFar,
-        {
-          item,
-          position: {
-            top,
-            left,
-            width: columnWidth,
-            height,
-            column: col,
+        return [
+          ...positionsSoFar,
+          {
+            item,
+            position: {
+              top,
+              left,
+              width: columnWidth,
+              height,
+              column: col,
+            },
           },
-        },
-      ];
-    }
+        ];
+      }
 
-    return positionsSoFar;
-  }, []);
+      return positionsSoFar;
+    },
+    [],
+  );
 
   return { positions, heights };
 }
@@ -181,7 +184,7 @@ const defaultTwoColumnModuleLayout = <T>({
     const heights =
       heightsCache && heightsCache.getHeights().length > 0
         ? heightsCache.getHeights()
-        : new Array(columnCount).fill(0);
+        : new Array<number>(columnCount).fill(0);
 
     if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
       return items.map(() => offscreen(columnWidth));
@@ -229,7 +232,7 @@ const defaultTwoColumnModuleLayout = <T>({
         });
 
       // Initialize the graph
-      const graph = new Graph();
+      const graph = new Graph<T>();
       // Start node will be what's been painted so far
       const startNodeData = {
         id: 'start',
