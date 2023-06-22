@@ -610,7 +610,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
             {_batchPaints ? (
               <MeasureItems
                 baseIndex={itemsWithMeasurements.length}
-                // $FlowFixMe[incompatible-type] UGH
                 getPositions={getPositions}
                 items={itemsToMeasure}
                 measurementStore={measurementStore}
