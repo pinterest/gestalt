@@ -162,7 +162,7 @@ export default class Image extends PureComponent<Props> {
     const isScaledImage = shouldScaleImage(fit);
     const fitStyles = fit === 'cover' || fit === 'contain' ? styles.scaledImg : undefined;
     const imageStyles = classnames(styles.img, fitStyles);
-    const elementTimingValue = elementTiming ? elementTiming : `image-${src}`;
+    const elementTimingValue = elementTiming ? { elementtiming: elementTiming } : {};
 
     return (
       <Box
@@ -189,6 +189,7 @@ export default class Image extends PureComponent<Props> {
           sizes={sizes}
           src={src}
           srcSet={srcSet}
+          {...elementTimingValue}
           {...(isScaledImage ? { style: { objectFit: fit } } : {})}
         />
         {childContent}
