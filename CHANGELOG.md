@@ -1,3 +1,9 @@
+## 115.2.1 (Jun 22, 2023)
+
+### Patch
+
+- Internal: Bump semver from 7.3.4 to 7.5.2 ([#3027](https://github.com/pinterest/gestalt/pull/3027)) - [Preview link](https://deploy-preview-3027--gestalt.netlify.app?devexample=true)
+
 ## 115.2.0 (Jun 21, 2023)
 
 ### Minor
