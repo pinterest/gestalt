@@ -76,7 +76,7 @@
     "react-lazy-hydration": "^0.1.0",
     "react-test-renderer": "^18.1.0",
     "rollup": "^2.45.2",
-    "semver": "^7.3.2",
+    "semver": "^7.5.2",
     "shellcheck": "^1.1.0",
     "shelljs": "^0.8.5",
     "slugify": "^1.4.5",
