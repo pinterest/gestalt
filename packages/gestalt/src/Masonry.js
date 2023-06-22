@@ -12,17 +12,16 @@ import MeasureItems from './Masonry/MeasureItems.js';
 import MeasurementStore from './Masonry/MeasurementStore.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
+import { type Position } from './Masonry/types.js';
 import uniformRowLayout from './Masonry/uniformRowLayout.js';
 
 const RESIZE_DEBOUNCE = 300;
 
 // When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
 // The number of items measured at a time is the number of columns * this multiplier
-const TWO_COL_ITEMS_MEASURE_MULTIPLIER = 1;
+const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
-
-type Position = {| top: number, left: number, width: number, height: number |};
 
 type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
@@ -121,7 +120,6 @@ type State<T> = {|
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
   measurementStore: Cache<T, number>,
-  positionStore: Cache<T, Position>,
   scrollTop: number,
   width: ?number,
 |};
@@ -164,12 +162,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     this.containerHeight = 0;
     this.containerOffset = 0;
-    this.numColumns = props.minCols;
 
     const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
-    const positionStore: Cache<T, Position> = new MeasurementStore();
+    this.positionStore = new MeasurementStore();
     this.heightsStore = new HeightsStore();
 
     this.state = {
@@ -177,7 +174,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       isFetching: false,
       items: props.items,
       measurementStore,
-      positionStore,
       scrollTop: 0,
       width: undefined,
     };
@@ -191,11 +187,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   heightsStore: HeightsStoreInterface;
 
+  positionStore: Cache<T, Position>;
+
   insertAnimationFrame: AnimationFrameID;
 
   measureTimeout: TimeoutID;
-
-  numColumns: number;
 
   scrollContainer: ?ScrollContainer;
 
@@ -253,13 +249,14 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
     const { items } = this.props;
-    const { measurementStore, positionStore } = this.state;
+    const { measurementStore } = this.state;
 
     this.measureContainerAsync();
 
     if (prevState.width != null && this.state.width !== prevState.width) {
       measurementStore.reset();
-      positionStore.reset();
+      this.positionStore.reset();
+      this.heightsStore.reset();
     }
     // calculate whether we still have pending measurements
     const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
@@ -403,7 +400,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       measurementStore.reset();
     }
     this.state.measurementStore.reset();
-    this.state.positionStore.reset();
+    this.positionStore.reset();
+    this.heightsStore.reset();
 
     this.measureContainer();
     this.forceUpdate();
@@ -477,7 +475,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       scrollContainer,
       _batchPaints,
     } = this.props;
-    const { hasPendingMeasurements, measurementStore, positionStore, width } = this.state;
+    const { hasPendingMeasurements, measurementStore, width } = this.state;
+    const { positionStore } = this;
 
     let getPositions;
 
@@ -498,7 +497,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         width,
       });
     } else {
-      const { columnCount, getPositions: getPositionsFunc } = defaultLayout({
+      getPositions = defaultLayout({
         measurementCache: measurementStore,
         positionCache: positionStore,
         columnWidth,
@@ -509,8 +508,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         rawItemCount: items.length,
         width,
       });
-      this.numColumns = columnCount ?? minCols;
-      getPositions = getPositionsFunc;
     }
 
     let gridBody;
@@ -572,9 +569,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       // $FlowFixMe[prop-missing] clearly I don't understand how the `T` type works
       const hasTwoColumnItems = itemsWithoutPositions.some((item) => item.columnSpan === 2);
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-      const itemsToMeasureCount = hasTwoColumnItems
-        ? this.numColumns * TWO_COL_ITEMS_MEASURE_MULTIPLIER
-        : minCols;
+      const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
@@ -594,7 +589,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 item,
                 i,
                 // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
-                this.state.positionStore.get(item) ?? positions[i],
+                positionStore.get(item) ?? positions[i],
               ),
             )}
           </div>

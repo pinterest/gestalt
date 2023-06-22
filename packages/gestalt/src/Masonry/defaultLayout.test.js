@@ -23,7 +23,7 @@ const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
 test('empty', () => {
   const items = [];
   const layout = defaultLayout({
-    cache: stubCache(),
+    measurementCache: stubCache(),
     justify: 'start',
     rawItemCount: items.length,
     width: 486,
@@ -35,7 +35,7 @@ test('one row', () => {
   const measurements = { a: 100, b: 120, c: 80 };
   const items = ['a', 'b', 'c'];
   const layout = defaultLayout({
-    cache: stubCache(measurements),
+    measurementCache: stubCache(measurements),
     justify: 'start',
     rawItemCount: items.length,
     width: 736,
@@ -51,7 +51,7 @@ test('wrapping items', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
-    cache: stubCache(measurements),
+    measurementCache: stubCache(measurements),
     justify: 'start',
     rawItemCount: items.length,
     width: 486,
@@ -68,7 +68,7 @@ test('centers grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
-    cache: stubCache(measurements),
+    measurementCache: stubCache(measurements),
     justify: 'start',
     minCols: 2,
     rawItemCount: items.length,
@@ -86,7 +86,7 @@ test('floors values when centering', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
-    cache: stubCache(measurements),
+    measurementCache: stubCache(measurements),
     justify: 'start',
     rawItemCount: items.length,
     width: 501,
@@ -103,7 +103,7 @@ test('only centers when theres extra space', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
-    cache: stubCache(measurements),
+    measurementCache: stubCache(measurements),
     justify: 'start',
     rawItemCount: items.length,
     width: 200,
@@ -122,7 +122,7 @@ test('justify', () => {
 
   const makeLayout = (justify: 'center' | 'start') =>
     defaultLayout({
-      cache: stubCache(measurements),
+      measurementCache: stubCache(measurements),
       columnWidth: 100,
       gutter: 0,
       justify,

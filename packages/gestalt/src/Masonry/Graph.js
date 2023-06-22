@@ -109,6 +109,7 @@ export default class Graph<T> implements GraphInterface<T> {
         lowestScore = minScore;
         lowestScoreNode = node.data;
       }
+
       edges.forEach((edge) => {
         findLowestScoreRecursive(edge.node);
       });
