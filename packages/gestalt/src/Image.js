@@ -187,7 +187,7 @@ export default class Image extends PureComponent<Props> {
           sizes={sizes}
           src={src}
           srcSet={srcSet}
-          {...(elementTiming ? { elementtiming: elementTiming : {})}
+          {...(elementTiming ? { elementtiming: elementTiming } : {})}
           {...(isScaledImage ? { style: { objectFit: fit } } : {})}
         />
         {childContent}
