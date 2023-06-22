@@ -80,7 +80,6 @@ function getOneColumnItemPositions<T>({
               left,
               width: columnWidth,
               height,
-              column: col,
             },
           },
         ];
@@ -148,7 +147,6 @@ function getTwoColItemPosition<T>({
       left,
       width: columnWidth * 2 + gutter,
       height,
-      column: lowestAdjacentColumnHeightDeltaIndex,
     },
   };
 }
