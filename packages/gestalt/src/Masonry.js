@@ -6,6 +6,7 @@ import FetchItems from './FetchItems.js';
 import throttle, { type ThrottleReturn } from './throttle.js';
 import { type Cache } from './Masonry/Cache.js';
 import defaultLayout from './Masonry/defaultLayout.js';
+import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout.js';
 import fullWidthLayout from './Masonry/fullWidthLayout.js';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore.js';
 import MeasureItems from './Masonry/MeasureItems.js';
@@ -474,6 +475,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       renderItem,
       scrollContainer,
       _batchPaints,
+      _twoColItems,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -496,13 +498,23 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         minCols,
         width,
       });
-    } else {
-      getPositions = defaultLayout({
+    } else if (_twoColItems === true) {
+      getPositions = defaultTwoColumnModuleLayout({
         measurementCache: measurementStore,
         positionCache: positionStore,
         columnWidth,
         gutter,
         heightsCache: this.heightsStore,
+        justify: layout === 'basicCentered' ? 'center' : 'start',
+        minCols,
+        rawItemCount: items.length,
+        width,
+      });
+    } else {
+      getPositions = defaultLayout({
+        cache: measurementStore,
+        columnWidth,
+        gutter,
         justify: layout === 'basicCentered' ? 'center' : 'start',
         minCols,
         rawItemCount: items.length,
@@ -574,8 +586,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      const { positions } = getPositions(itemsWithMeasurements);
-      const { positions: measuringPositions } = getPositions(itemsToMeasure);
+      const positions = getPositions(itemsWithMeasurements);
+      const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))

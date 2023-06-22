@@ -22,11 +22,10 @@ const uniformRowLayout =
     gutter?: number,
     width?: ?number,
     minCols?: number,
-  |}): ((items: $ReadOnlyArray<T>) => {| heights: null, positions: $ReadOnlyArray<Position> |}) =>
-  // eslint-disable-next-line react/function-component-definition
-  (items: $ReadOnlyArray<T>): {| heights: null, positions: $ReadOnlyArray<Position> |} => {
+  |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
+  (items: $ReadOnlyArray<T>): $ReadOnlyArray<Position> => {
     if (width == null) {
-      return { heights: null, positions: items.map(() => offscreen(columnWidth)) };
+      return items.map(() => offscreen(columnWidth));
     }
 
     const columnWidthAndGutter = columnWidth + gutter;
@@ -60,7 +59,7 @@ const uniformRowLayout =
       }
       positions.push(position);
     }
-    return { heights: null, positions };
+    return positions;
   };
 
 export default uniformRowLayout;

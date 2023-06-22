@@ -7,10 +7,7 @@ const layoutNumberToCssDimension = (n: number) => (n !== Infinity ? n : undefine
 
 type Props<T> = {|
   baseIndex: number,
-  getPositions: (items: $ReadOnlyArray<T>) => {|
-    heights: $ReadOnlyArray<number> | null,
-    positions: $ReadOnlyArray<Position>,
-  |},
+  getPositions: (items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>,
   items: $ReadOnlyArray<T>,
   measurementStore: Cache<T, number>,
   renderItem: ({|
@@ -27,7 +24,7 @@ export default function MeasureItems<T>({
   measurementStore,
   renderItem,
 }: Props<T>): Node {
-  const { positions: measuringPositions } = getPositions(items);
+  const measuringPositions = getPositions(items);
   const refs = useMemo(() => new Map(), []);
   // Need a separate variable for use in useLayoutEffect's dependency array
   const refsSize = refs.size;

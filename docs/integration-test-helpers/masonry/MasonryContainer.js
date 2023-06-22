@@ -315,6 +315,7 @@ export default class MasonryContainer extends Component<Props, State> {
       measurementStore,
       noScroll,
       offsetTop,
+      twoColItems,
       virtualBoundsBottom,
       virtualBoundsTop,
       virtualize,
@@ -396,6 +397,7 @@ export default class MasonryContainer extends Component<Props, State> {
         {mountGrid && (
           <MasonryComponent
             _batchPaints={batchPaints}
+            _twoColItems={twoColItems}
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}
