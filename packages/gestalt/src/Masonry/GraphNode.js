@@ -1,5 +1,4 @@
 // @flow strict
-/* eslint-disable flowtype/no-mutable-array */
 import { type NodeData } from './types.js';
 
 type Edge<T> = {|
@@ -10,17 +9,17 @@ type Edge<T> = {|
 
 export interface GraphNodeInterface<T> {
   data: NodeData<T>;
-  edges: Array<Edge<T>>;
+  edges: $ReadOnlyArray<Edge<T>>;
   addEdge(node: GraphNodeInterface<T>, score: number): void;
   removeEdge(node: GraphNodeInterface<T>): GraphNodeInterface<T> | null;
-  getEdges(): Array<Edge<T>>;
+  getEdges(): $ReadOnlyArray<Edge<T>>;
   isEdge(node: GraphNodeInterface<T>): boolean;
 }
 
 export default class GraphNode<T> implements GraphNodeInterface<T> {
   data: NodeData<T>;
 
-  edges: Array<Edge<T>>;
+  edges: $ReadOnlyArray<Edge<T>>;
 
   constructor(data: NodeData<T>) {
     this.data = data;
@@ -28,19 +27,21 @@ export default class GraphNode<T> implements GraphNodeInterface<T> {
   }
 
   addEdge(node: GraphNodeInterface<T>, score: number) {
-    this.edges.push({ node, score });
+    this.edges = [...this.edges, { node, score }];
   }
 
   removeEdge(node: GraphNodeInterface<T>): GraphNodeInterface<T> | null {
     if (this.isEdge(node)) {
       const index = this.edges.map((edge) => edge.node).indexOf(node);
-      this.edges.splice(index, 1);
+      const edgesCopy = [...this.edges];
+      edgesCopy.splice(index, 1);
+      this.edges = edgesCopy;
       return node;
     }
     return null;
   }
 
-  getEdges(): Array<Edge<T>> {
+  getEdges(): $ReadOnlyArray<Edge<T>> {
     return this.edges;
   }
 
@@ -48,4 +49,3 @@ export default class GraphNode<T> implements GraphNodeInterface<T> {
     return this.edges.map((edge) => edge.node).includes(node);
   }
 }
-/* eslint-enable flowtype/no-mutable-array */
