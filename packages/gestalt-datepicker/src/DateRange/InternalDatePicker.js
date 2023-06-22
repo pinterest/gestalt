@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import { Box, Icon, Label, Text } from 'gestalt';
+import { Icon } from 'gestalt';
 import styles from '../DatePicker.css';
 import { type Props } from '../DatePicker.js';
 
@@ -24,7 +24,6 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
       excludeDates,
       id,
       includeDates,
-      label,
       localeData,
       maxDate,
       minDate,
@@ -64,15 +63,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
 
     return (
       <div className="_gestalt">
-        {' '}
         <div className="_gestalt_daterange">
-          {label && (
-            <Label htmlFor={id}>
-              <Box marginBottom={2}>
-                <Text size="100">{label}</Text>
-              </Box>
-            </Label>
-          )}
           <ReactDatePicker
             calendarClassName={styles['react-datepicker-inline']}
             dateFormat={format}

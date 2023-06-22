@@ -1,8 +1,9 @@
 // @flow strict-local
 import { type Node } from 'react';
-import { Box, Button, Divider, Flex, Text } from 'gestalt';
+import { Box, Button, Flex, Text } from 'gestalt';
 // import styles from './DateRange.css';
 import InternalDateField from './DateField/InternalDateField.js';
+import borderStyles from './DateRange.css';
 import InternalDatePicker from './DateRange/InternalDatePicker.js';
 
 type LocaleData = {|
@@ -85,7 +86,6 @@ function DateRange({
   return (
     <Box
       rounding={4}
-      padding={2}
       color="default"
       borderStyle="shadow"
       overflow="scroll"
@@ -93,76 +93,64 @@ function DateRange({
       minHeight={425}
     >
       <Flex width="100%">
-        <Box minHeight={300} minWidth={300} color="errorWeak">
-          {radioGroup}
-        </Box>
-        <Divider />
-        <Box padding={2} width="100%">
-          <Flex
-            alignItems="start"
-            height="100%"
-            justifyContent="center"
-            width="100%"
-            gap={2}
-            direction="column"
-          >
-            <Flex gap={3} alignItems="start">
-              <Box
-                dangerouslySetInlineStyle={{ __style: { paddingInlineStart: '8px' } }}
-                width={300}
-              >
-                <InternalDateField
-                  id="datefield-start"
-                  onChange={({ value }) => {
-                    if (value?.getTime() || value === null) onStartDateChange({ value });
-                  }}
-                  onError={onStartDateError}
-                  value={startDateValue}
-                  minDate={minDate}
-                  maxDate={maxDate}
-                  errorMessage={startDateErrorMessage}
-                />
-              </Box>
-              <Box dangerouslySetInlineStyle={{ __style: { marginTop: '20px' } }}>
-                <Text>—</Text>
-              </Box>
-              <Box dangerouslySetInlineStyle={{ __style: { paddingInlineEnd: '8px' } }} width={300}>
-                <InternalDateField
-                  id="datefield-end"
-                  onChange={({ value }) => {
-                    if (value?.getTime() || value === null) onEndDateChange({ value });
-                  }}
-                  value={endDateValue}
-                  minDate={startDateValue}
-                  onError={({ errorMessage, value }) => {
-                    onEndDateError({ errorMessage, value });
-                    if (errorMessage === 'minDate') {
-                      onEndDateChange({ value: null });
-                    }
-                  }}
-                  maxDate={maxDate}
-                  errorMessage={endDateErrorMessage}
-                />
-              </Box>
-            </Flex>
-            <Flex.Item minWidth="100%">
-              <Box width="100%" padding={2}>
-                <Divider />
-              </Box>
-            </Flex.Item>
-
-            <InternalDatePicker
-              rangeStartDate={startDateValue}
-              rangeEndDate={endDateValue}
-              id="datepicker-start"
-              onChange={({ startDate, endDate }) => {
-                onStartDateChange({ value: startDate });
-                onEndDateChange({ value: endDate });
-              }}
-              minDate={minDate}
-              maxDate={maxDate}
-            />
-
+        <div className={borderStyles.borderRight}>
+          <Box height="100%" width={300} color="errorWeak">
+            {radioGroup}
+          </Box>
+        </div>
+        <Box width="100%">
+          <Flex alignItems="start" justifyContent="center" width="100%" direction="column">
+            <div className={borderStyles.dateFieldSection}>
+              <Flex gap={3}>
+                <Box width={300}>
+                  <InternalDateField
+                    id="datefield-start"
+                    onChange={({ value }) => {
+                      if (value?.getTime() || value === null) onStartDateChange({ value });
+                    }}
+                    onError={onStartDateError}
+                    value={startDateValue}
+                    minDate={minDate}
+                    maxDate={maxDate}
+                    errorMessage={startDateErrorMessage}
+                  />
+                </Box>
+                <Box dangerouslySetInlineStyle={{ __style: { marginTop: '15px' } }}>
+                  <Text>—</Text>
+                </Box>
+                <Box width={300}>
+                  <InternalDateField
+                    id="datefield-end"
+                    onChange={({ value }) => {
+                      if (value?.getTime() || value === null) onEndDateChange({ value });
+                    }}
+                    value={endDateValue}
+                    minDate={startDateValue}
+                    onError={({ errorMessage, value }) => {
+                      onEndDateError({ errorMessage, value });
+                      if (errorMessage === 'minDate') {
+                        onEndDateChange({ value: null });
+                      }
+                    }}
+                    maxDate={maxDate}
+                    errorMessage={endDateErrorMessage}
+                  />
+                </Box>
+              </Flex>
+            </div>
+            <Box minWidth={700}>
+              <InternalDatePicker
+                rangeStartDate={startDateValue}
+                rangeEndDate={endDateValue}
+                id="datepicker-start"
+                onChange={({ startDate, endDate }) => {
+                  onStartDateChange({ value: startDate });
+                  onEndDateChange({ value: endDate });
+                }}
+                minDate={minDate}
+                maxDate={maxDate}
+              />
+            </Box>
             <Flex.Item alignSelf="end">
               <Button
                 text="Apply"

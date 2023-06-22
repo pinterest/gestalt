@@ -247,16 +247,18 @@ function InternalDateField({
     <StyledEngineProvider injectFirst>
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={localeData}>
         <Box>
-          <label
-            className={classnames(styles.label, {
-              [styles.visuallyHidden]: labelDisplay === 'hidden',
-            })}
-            htmlFor={id}
-          >
-            <div className={styles.formLabel}>
-              <Text size="100">{label}</Text>
-            </div>
-          </label>
+          {label ? (
+            <label
+              className={classnames(styles.label, {
+                [styles.visuallyHidden]: labelDisplay === 'hidden',
+              })}
+              htmlFor={id}
+            >
+              <div className={styles.formLabel}>
+                <Text size="100">{label}</Text>
+              </div>
+            </label>
+          ) : null}
           <Box position="relative" display="flex" alignItems="center">
             <MUIDatePicker
               onChange={(dateValue) => onChange({ value: dateValue })}
