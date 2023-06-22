@@ -191,11 +191,11 @@ const defaultTwoColumnModuleLayout = <T>({
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
-    // $FlowFixMe[incompatible-use] clearly I don't understand how the `T` type works
+    // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
     const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan > 1);
     const hasTwoColumnItems = twoColumnItems.length > 0;
     const oneColumnItems = itemsWithoutPositions.filter(
-      // $FlowFixMe[incompatible-type] clearly I don't understand how the `T` type works
+      // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
       (item) => !item.columnSpan || item.columnSpan === 1,
     );
 
@@ -322,8 +322,6 @@ const defaultTwoColumnModuleLayout = <T>({
           : startNodeData;
 
       const { positions: winningPositions } = winningNode;
-
-      // IMPLEMENT PIN LEVELING ON WINNING POSITIONS
 
       // Insert 2-col item(s)
       const twoColItem = twoColumnItems[0]; // this should always only be one

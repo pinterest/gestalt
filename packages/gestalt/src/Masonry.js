@@ -572,14 +572,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsWithMeasurements = items.filter(
-        (item) => item && measurementStore.has(item),
-        // && !positionStore.has(item),
-      );
+      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
       const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
 
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
-      // $FlowFixMe[prop-missing] clearly I don't understand how the `T` type works
+      // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
       const hasTwoColumnItems = itemsWithoutPositions.some((item) => item.columnSpan === 2);
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
