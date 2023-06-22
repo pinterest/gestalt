@@ -1,26 +1,26 @@
 // @flow strict
-import { Children, isValidElement, type Element, type Node, type ElementConfig } from 'react';
-import styles from './Toast.css';
+import { Children, type Element, type ElementConfig, isValidElement, type Node } from 'react';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Link from './Link.js';
-import Text from './Text.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalDismissButton from './shared/InternalDismissButton.js';
+import Text from './Text.js';
+import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction.js';
 import {
-  ToastImageThumbnail,
-  ToastIconThumbnail,
   ToastAvatarThumbnail,
-  ToastTypeThumbnail,
+  ToastIconThumbnail,
+  ToastImageThumbnail,
   ToastMessage,
+  ToastTypeThumbnail,
 } from './Toast/subcomponents.js';
+import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 const DEFAULT_COLORS = {
   containerColor: 'inverse',
@@ -129,7 +129,9 @@ export default function Toast({
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  const isTextNode = typeof text !== 'string' && Children.only(text).type.displayName === 'Text';
+  const isTextNode =
+    typeof text !== 'string' &&
+    Children.only<Element<typeof Text>>(text).type.displayName === 'Text';
 
   if (isTextNode) {
     let textColorOverrideStyles = isDarkMode
@@ -163,7 +165,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.image &&
-          Children.only(thumbnail.image).type.displayName === 'Image' ? (
+          Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
               <ToastImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
@@ -172,7 +174,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.icon &&
-          Children.only(thumbnail.icon).type.displayName === 'Icon' ? (
+          Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
               <ToastIconThumbnail thumbnail={thumbnail.icon} />
             </Flex.Item>
@@ -181,7 +183,7 @@ export default function Toast({
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
           !!thumbnail?.avatar &&
-          Children.only(thumbnail.avatar).type.displayName === 'Avatar' ? (
+          Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
               <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
             </Flex.Item>

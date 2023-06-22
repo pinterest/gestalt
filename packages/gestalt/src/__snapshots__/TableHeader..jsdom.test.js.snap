@@ -20,7 +20,9 @@ exports[`Table.Header renders correctly 1`] = `
         <thead
           class="thead"
         >
-          <tr>
+          <tr
+            class=""
+          >
             <td
               class="td"
             >
@@ -58,7 +60,9 @@ exports[`Table.Header sticky header renders correctly 1`] = `
         <thead
           class="stickyHeader"
         >
-          <tr>
+          <tr
+            class=""
+          >
             <td
               class="td"
             >

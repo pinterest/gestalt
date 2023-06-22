@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, Children } from 'react';
+import { Children, type Node, useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import { CONTENT_MAX_WIDTH_PX } from './AppLayout.js';
 import SearchContent from './SearchContent.js';
@@ -22,7 +22,7 @@ export default function Page({
   hideEditLink = false,
   pageSourceUrl,
 }: Props): Node {
-  const sections = Children.toArray(children);
+  const sections = Children.toArray<Node>(children);
 
   const editPageUrl =
     pageSourceUrl ??

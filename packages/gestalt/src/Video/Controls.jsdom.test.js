@@ -3,18 +3,12 @@ import { fireEvent, render } from '@testing-library/react';
 import VideoControls from './Controls.js';
 
 test('VideoControls handles play events', () => {
-  const mockOnPlay = jest.fn();
+  const mockOnPlay = jest.fn<
+    [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
+    void,
+  >();
   const { getByLabelText } = render(
     <VideoControls
-      accessibilityHideCaptionsLabel="Hide captions"
-      accessibilityShowCaptionsLabel="Show captions"
-      accessibilityMaximizeLabel="Maximize"
-      accessibilityMinimizeLabel="Minimize"
-      accessibilityMuteLabel="Mute"
-      accessibilityPauseLabel="Pause"
-      accessibilityPlayLabel="Play"
-      accessibilityProgressBarLabel="Progress bar"
-      accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
       duration={67.3}
@@ -37,18 +31,12 @@ test('VideoControls handles play events', () => {
 });
 
 test('VideoControls handles pause events', () => {
-  const mockOnPause = jest.fn();
+  const mockOnPause = jest.fn<
+    [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
+    void,
+  >();
   const { getByLabelText } = render(
     <VideoControls
-      accessibilityHideCaptionsLabel="Hide captions"
-      accessibilityShowCaptionsLabel="Show captions"
-      accessibilityMaximizeLabel="Maximize"
-      accessibilityMinimizeLabel="Minimize"
-      accessibilityMuteLabel="Mute"
-      accessibilityPauseLabel="Pause"
-      accessibilityPlayLabel="Play"
-      accessibilityProgressBarLabel="Progress bar"
-      accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
       duration={67.3}
@@ -71,18 +59,12 @@ test('VideoControls handles pause events', () => {
 });
 
 test('VideoControls handles volume events', () => {
-  const mockOnVolumeChange = jest.fn();
+  const mockOnVolumeChange = jest.fn<
+    [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
+    void,
+  >();
   const { getByLabelText } = render(
     <VideoControls
-      accessibilityHideCaptionsLabel="Hide captions"
-      accessibilityShowCaptionsLabel="Show captions"
-      accessibilityMaximizeLabel="Maximize"
-      accessibilityMinimizeLabel="Minimize"
-      accessibilityMuteLabel="Mute"
-      accessibilityPauseLabel="Pause"
-      accessibilityPlayLabel="Play"
-      accessibilityProgressBarLabel="Progress bar"
-      accessibilityUnmuteLabel="Unmute"
       captionsButton={null}
       currentTime={67.3}
       duration={67.3}

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import styles from './ComponentName.css';
 import Box from './Box.js';
+import styles from './ComponentName.css';
 
 type Props = {|
   /**
@@ -11,7 +11,7 @@ type Props = {|
 |};
 
 /**
- * [ComponentName] https://gestalt.pinterest.systems/web/componentname component should be used for ... on the page.
+ * [ComponentName](https://gestalt.pinterest.systems/web/componentname) component should be used for ... on the page.
  * ![ComponentName light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComponentName.spec.mjs-snapshots/ComponentName-chromium-darwin.png)
  * ![ComponentName dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComponentName-dark.spec.mjs-snapshots/ComponentName-dark-chromium-darwin.png)
  */

@@ -21,7 +21,7 @@ const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
 };
 
 test('empty', () => {
-  const items = [];
+  const items: Array<string> = [];
   const layout = defaultLayout({
     cache: stubCache(),
     justify: 'start',

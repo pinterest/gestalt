@@ -84,7 +84,8 @@ describe('useColorScheme', () => {
   });
 
   it('uses theme based on matchMedia when userPreference', () => {
-    let listener = jest.fn();
+    // $FlowFixMe[unclear-type]
+    let listener = jest.fn<[{| matches: boolean |}], any>();
     window.matchMedia = () => ({
       addListener: (cb) => {
         listener = cb;

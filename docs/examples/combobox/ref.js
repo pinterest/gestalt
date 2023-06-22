@@ -1,9 +1,9 @@
 // @flow strict
-import { useRef, type Node } from 'react';
+import { type Node, useRef } from 'react';
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example(): Node {
-  const ref = useRef();
+  const ref = useRef<null | HTMLInputElement>(null);
 
   return (
     <Box padding={2} width="100%" height="100%">

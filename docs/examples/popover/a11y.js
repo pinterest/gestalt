@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node, useRef, useState } from 'react';
 import {
-  Popover,
   Box,
   Button,
   Flex,
+  Image,
   Layer,
-  Text,
+  Mask,
+  Popover,
   SearchField,
   TapArea,
-  Mask,
-  Image,
+  Text,
 } from 'gestalt';
 
 const images = [
@@ -80,7 +80,7 @@ function List({
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
     <Flex alignItems="start" justifyContent="center" height="100%" width="100%">

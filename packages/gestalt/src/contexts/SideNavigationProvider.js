@@ -1,5 +1,5 @@
 // @flow strict
-import { type Context, type Element, type Node, useContext, useState, createContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext, useState } from 'react';
 
 export interface Indexable {
   index(): number;
@@ -10,8 +10,8 @@ type SideNavigationContextType = {|
   setSelectedItemId: (string) => void,
   selectedMobileChildren: Node | null,
   setSelectedMobileChildren: (Node | null) => void,
-  hideActiveChildren: boolean | null,
-  setHideActiveChildren: (boolean | null) => void,
+  hideActiveChildren: boolean,
+  setHideActiveChildren: (boolean) => void,
   dismissButton?: {|
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -38,8 +38,8 @@ const { Provider } = SideNavigationContext;
 
 function SideNavigationProvider({ children, dismissButton }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
-  const [selectedMobileChildren, setSelectedMobileChildren] = useState(null);
-  const [hideActiveChildren, setHideActiveChildren] = useState(false);
+  const [selectedMobileChildren, setSelectedMobileChildren] = useState<Node>(null);
+  const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
 
   const sideNavigationContext = {
     selectedItemId,

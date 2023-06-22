@@ -1,13 +1,13 @@
 // @flow strict
-import { useState, type Node, type ElementProps } from 'react';
+import { type ElementProps, type Node, useState } from 'react';
 import {
   Box,
   Flex,
   Heading,
   Icon,
-  Pog,
   Layer,
   Link,
+  Pog,
   RadioGroup,
   SearchField,
   TapArea,
@@ -15,9 +15,9 @@ import {
   Toast,
   Tooltip,
 } from 'gestalt';
+import iconCategoryData from './ICON_DATA.json';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
-import iconCategoryData from './ICON_DATA.json';
 
 const { icons } = Icon;
 const CATEGORIES = [
@@ -45,7 +45,7 @@ function IconTile({
   iconDescription: string,
   onTap: () => void,
 |}) {
-  const [hovered, setHovered] = useState();
+  const [hovered, setHovered] = useState<?boolean>();
 
   return (
     <Tooltip text={iconDescription} accessibilityLabel={iconDescription} idealDirection="down">
@@ -126,7 +126,7 @@ function iconHasKeyword(iconName?: string, searchTerm: string) {
 }
 
 export default function IconPage(): Node {
-  const [showToastText, setShowToastText] = useState(false);
+  const [showToastText, setShowToastText] = useState<void | string>();
 
   const iconOptions = icons
     .map((name, index) => ({
@@ -140,7 +140,7 @@ export default function IconPage(): Node {
     });
 
   const [suggestedOptions, setSuggestedOptions] = useState(iconOptions);
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState<void | string>();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
   const handleOnChange = ({

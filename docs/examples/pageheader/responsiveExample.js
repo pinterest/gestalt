@@ -1,11 +1,13 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, type Node, useRef, useState } from 'react';
 import { Button, Dropdown, IconButton, PageHeader, Tooltip } from 'gestalt';
 
 export default function SecondaryActionsExample(): Node {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState<
+    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+  >([]);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const handleSelect = ({
     item,
   }: {|
@@ -37,7 +39,7 @@ export default function SecondaryActionsExample(): Node {
       }}
       secondaryAction={{
         component: (
-          <React.Fragment>
+          <Fragment>
             <Tooltip idealDirection="up" text="Board options">
               <IconButton
                 accessibilityControls="page-header-example"
@@ -85,7 +87,7 @@ export default function SecondaryActionsExample(): Node {
                 />
               </Dropdown>
             )}
-          </React.Fragment>
+          </Fragment>
         ),
         dropdownItems: [
           <Dropdown.Item

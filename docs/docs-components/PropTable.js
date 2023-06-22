@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 import { useAppContext } from './appContext.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 import Card from './Card.js';
 import clipboardCopy from './clipboardCopy.js';
 import Markdown from './Markdown.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
 const unifyQuotes = (input: string): string => input.replace(/'/g, '"');
 
@@ -209,6 +209,8 @@ export default function PropTable({
                   ) => {
                     const propNameHasSecondRow = description || responsive;
                     const transformedDefaultValue = transformDefaultValue(defaultValue);
+                    // $FlowFixMe[incompatible-use]
+                    // $FlowFixMe[prop-missing]
                     acc.push(
                       <tr key={name}>
                         <Td shrink border={!propNameHasSecondRow}>
@@ -282,6 +284,8 @@ export default function PropTable({
                     );
 
                     if (propNameHasSecondRow) {
+                      // $FlowFixMe[incompatible-use]
+                      // $FlowFixMe[prop-missing]
                       acc.push(
                         <tr key={`${name}-second-row`}>
                           <Td colspan={1}>

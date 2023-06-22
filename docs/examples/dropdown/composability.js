@@ -1,22 +1,22 @@
 // @flow strict
-import { Fragment, type Node, useState, useRef } from 'react';
+import { Fragment, type Node, useRef, useState } from 'react';
 import {
+  Box,
+  CompositeZIndex,
+  Dropdown,
+  FixedZIndex,
+  Flex,
   IconButton,
   Label,
-  Text,
   Switch,
-  Dropdown,
-  Flex,
-  Box,
-  FixedZIndex,
-  CompositeZIndex,
+  Text,
 } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
   const [switched, setSwitched] = useState(true);
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
     <Fragment>

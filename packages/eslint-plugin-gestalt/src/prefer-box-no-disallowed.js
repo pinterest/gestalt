@@ -3,7 +3,6 @@
  */
 
 // @flow strict
-import { allowedBaseProps } from './no-box-disallowed-props.js';
 import {
   renameTagFixer,
   renameTagWithPropsFixer,
@@ -22,6 +21,7 @@ import {
   isTag,
 } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+import { allowedBaseProps } from './no-box-disallowed-props.js';
 
 const rule: ESLintRule = {
   meta: {

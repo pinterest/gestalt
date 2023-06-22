@@ -1,9 +1,9 @@
 // @flow strict
-import { act, fireEvent, screen, render } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import * as AnimationControllerModule from './animation/AnimationContext.js';
 import { ESCAPE } from './keyCodes.js';
 import OverlayPanel from './OverlayPanel.js';
 import * as useReducedMotionHook from './useReducedMotion.js';
-import * as AnimationControllerModule from './animation/AnimationContext.js';
 
 jest.mock('./useReducedMotion.js');
 
@@ -111,7 +111,7 @@ describe('OverlayPanel', () => {
   // This test was skipped because, despite the logic works fine, the animationState is not being correctly updated in the test in the handleExternalDismiss function. We should try to make it work.
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should trigger onAnimationEnd', async () => {
-    const mockOnAnimationEnd = jest.fn();
+    const mockOnAnimationEnd = jest.fn<$ReadOnlyArray<$FlowFixMe>, mixed>();
     render(
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
@@ -130,7 +130,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from the dismiss button', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -151,7 +151,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from the ESC key', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -172,7 +172,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking outside when closeOnOutsideClick is true', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -195,7 +195,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking on the children content', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     const { getByText } = render(
       <OverlayPanel
@@ -214,7 +214,7 @@ describe('OverlayPanel', () => {
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button = getByText('Submit');
+    const button: HTMLElement = getByText('Submit');
     fireEvent.click(button);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -223,7 +223,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking on the footer content', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     const { getByText } = render(
       <OverlayPanel
@@ -245,7 +245,7 @@ describe('OverlayPanel', () => {
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button = getByText('Submit');
+    const button: HTMLElement = getByText('Submit');
     fireEvent.click(button);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -254,7 +254,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking on the subHeading content', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     const { getByText } = render(
       <OverlayPanel
@@ -277,7 +277,7 @@ describe('OverlayPanel', () => {
       </OverlayPanel>,
     );
     // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button = getByText('Submit');
+    const button: HTMLElement = getByText('Submit');
     fireEvent.click(button);
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
@@ -286,7 +286,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the backdrop click when closeOnOutsideClick is false', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -308,7 +308,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the backdrop click when closeOnOutsideClick and dismissConfirmation are true', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -331,7 +331,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the dismiss button key when closeOnOutsideClick and dismissConfirmation are true', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -354,7 +354,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the ESC keys when closeOnOutsideClick and dismissConfirmation are true', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -380,7 +380,7 @@ describe('OverlayPanel', () => {
   });
 
   it('renders OverlayPanel with confirmation modal', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     const { container } = render(
       <OverlayPanel
@@ -403,7 +403,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should show confirmation when closeOnOutsideClick and dismissConfirmation are true', () => {
-    const mockOnDismiss = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
 
     render(
       <OverlayPanel
@@ -427,7 +427,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('No, go back to the overlay panel.', {
+      screen.getByLabelText('No, go back to the overlay panel', {
         exact: true,
       }),
     ).toBeVisible();
@@ -439,7 +439,7 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByLabelText('Yes, dismiss the overlay panel.', {
+      screen.getByLabelText('Yes, dismiss the overlay panel', {
         exact: true,
       }),
     ).toBeVisible();
@@ -451,15 +451,15 @@ describe('OverlayPanel', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByText('You will lose all of your changes. This cannot be undone.', {
+      screen.getByText('You will lose all of your changes. This cannot be undone', {
         exact: true,
       }),
     ).toBeVisible();
   });
 
   it('should show custom confirmation when closeOnOutsideClick and dismissConfirmation are true', () => {
-    const mockOnDismiss = jest.fn();
-    const mockOnAnimationEnd = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const mockOnAnimationEnd = jest.fn<$ReadOnlyArray<$FlowFixMe>, mixed>();
     useAnimationMock.mockReturnValue({
       animationState: 'unmount',
       handleAnimationEnd: mockOnAnimationEnd,

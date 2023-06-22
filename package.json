@@ -54,9 +54,10 @@
     "eslint-plugin-playwright": "^0.10.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-testing-library": "^5.6.0",
     "eslint-plugin-validate-jsx-nesting": "^0.1.0",
-    "flow-bin": "^0.202.1",
+    "flow-bin": "^0.206.0",
     "flow-remove-types": "^2.184.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "28.0.3",
@@ -83,8 +84,8 @@
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
-    "xml2js": "^0.5.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "xml2js": "^0.5.0"
   },
   "resolutions": {
     "ansi-regex": "5.0.1",

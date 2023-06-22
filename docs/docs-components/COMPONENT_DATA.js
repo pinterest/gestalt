@@ -73,9 +73,11 @@ import Switch from '../graphics/general/Switch.svg';
 import Table from '../graphics/general/Table.svg';
 import Tabs from '../graphics/general/Tabs.svg';
 import Tag from '../graphics/general/Tag.svg';
+import TagData from '../graphics/general/TagData.svg';
 import Text from '../graphics/general/Text.svg';
 import TextArea from '../graphics/general/TextArea.svg';
 import TextField from '../graphics/general/TextField.svg';
+import TileData from '../graphics/general/TileData.svg';
 import Toast from '../graphics/general/Toast.svg';
 import Tooltip from '../graphics/general/Tooltip.svg';
 import Upsell from '../graphics/general/Upsell.svg';
@@ -90,6 +92,7 @@ import TrainingTile from '../graphics/team_support/training.svg';
 import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
+import ProviderHandlers from '../graphics/utilities/provider-global-events-handler.svg';
 import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 
 export type Category =
@@ -239,6 +242,13 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
     category: 'Foundations',
     path: '/foundations/content_standards/voice',
   },
+  {
+    svg: <DataVisualization />,
+    name: 'Data visualization',
+    description: 'Guidelines and best practices for creating and using data visualizations',
+    category: 'Foundations',
+    path: '/foundations/data_visualization/overview',
+  },
 
   {
     svg: <DesignTokens />,
@@ -247,13 +257,6 @@ const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
       'An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.',
     category: 'Foundations',
     path: '/foundations/design_tokens',
-  },
-  {
-    svg: <DataVisualization />,
-    name: 'Data visualization',
-    description: 'Data visualization',
-    category: 'Foundations',
-    path: '/foundations/data_visualization/palette',
   },
   {
     svg: <Elevation />,
@@ -2658,6 +2661,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
+    svg: <TagData />,
+    name: 'TagData',
+    aliases: ['Chip', 'Pill', 'Filter', 'Tag'],
+    description:
+      'TagData can be used to select multiple categories to compare with each other in a graph or chart view.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'ready',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
     svg: <Text />,
     name: 'Text',
     aliases: ['Copy, Subtext, Caption, Footer, Helper text'],
@@ -2801,6 +2854,56 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       badge: null,
       deprecated: false,
       documentation: 'ready',
+      figma: null,
+    },
+  },
+  {
+    svg: <TileData />,
+    name: 'TileData',
+    aliases: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
+    description:
+      'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
+    category: 'Fields and forms',
+    status: {
+      accessible: {
+        summary: 'ready',
+        a11yVisual: 'ready',
+        a11yScreenreader: 'ready',
+        a11yNavigation: 'ready',
+        a11yComprehension: 'ready',
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'ready',
+      responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
       figma: null,
     },
   },
@@ -3948,6 +4051,59 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
       iOS: 'notAvailable',
       figma: 'notAvailable',
       responsive: 'ready',
+    },
+    android: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+    iOS: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: null,
+      deprecated: false,
+      documentation: 'notAvailable',
+      figma: null,
+    },
+  },
+  {
+    svg: <ProviderHandlers />,
+    name: 'GlobalEventsHandlerProvider',
+    aliases: [],
+    previouslyNamed: ['OnLinkNavigationProvider'],
+    path: '/web/utilities/globaleventshandlerprovider',
+    hasDarkBackground: false,
+    description:
+      'React context provider that that allows to share external handlers with consuming components.',
+    category: 'Utilities',
+    status: {
+      accessible: {
+        summary: null,
+        a11yVisual: null,
+        a11yScreenreader: null,
+        a11yNavigation: null,
+        a11yComprehension: null,
+      },
+      badge: 'Pilot',
+      android: 'notAvailable',
+      deprecated: false,
+      documentation: 'ready',
+      iOS: 'notAvailable',
+      figma: 'notAvailable',
+      responsive: 'notAvailable',
     },
     android: {
       accessible: {

@@ -1,5 +1,5 @@
 // @flow strict
-import { forwardRef, type AbstractComponent, type Node, useState } from 'react';
+import { type AbstractComponent, forwardRef, type Node, useState } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import TapArea from './TapArea.js';
@@ -199,7 +199,7 @@ type Props = {|
    */
   bgColor?: BgColor,
   /**
-   * If your app requires client navigation, be sure to use [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
+   * If your app requires client navigation, be sure to use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
    */
   onChange: OnChangeHandler,
   /**

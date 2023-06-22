@@ -1,10 +1,18 @@
 // @flow strict
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Link from './Link.js';
 
 describe('Link', () => {
   test('Link handles onClick callback', () => {
-    const mockOnClick = jest.fn();
+    const mockOnClick = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        |},
+      ],
+      void,
+    >();
     const { getByText } = render(
       <Link href="https://example.com" onClick={mockOnClick}>
         Link

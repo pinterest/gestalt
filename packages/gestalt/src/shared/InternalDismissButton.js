@@ -6,13 +6,13 @@ InternalDismissIconButton aims to replace "dismiss" IconButtons in components th
 
 // @flow strict
 import {
-  type Node,
   type AbstractComponent,
   type ElementConfig,
   forwardRef,
+  type Node,
   useImperativeHandle,
-  useState,
   useRef,
+  useState,
 } from 'react';
 import classnames from 'classnames';
 import styles from '../IconButton.css';
@@ -43,7 +43,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
     }: Props,
     ref,
   ): Node {
-    const innerRef = useRef(null);
+    const innerRef = useRef<HTMLButtonElement | null>(null);
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
     // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()

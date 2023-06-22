@@ -1,26 +1,27 @@
 // @flow strict
 import {
-  Fragment,
+  type AbstractComponent,
   forwardRef,
+  Fragment,
+  type Node,
   useImperativeHandle,
   useRef,
-  type Node,
-  type AbstractComponent,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import styles from './Button.css';
-import focusStyles from './Focus.css';
-import touchableStyles from './TapArea.css';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
+import focusStyles from './Focus.css';
 import Icon, { type IconColor } from './Icon.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
+import touchableStyles from './TapArea.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -152,7 +153,8 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     text,
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
@@ -198,6 +200,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
+    // $FlowFixMe[invalid-computed-prop]
     [styles[colorClass]]: !disabled && !selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,

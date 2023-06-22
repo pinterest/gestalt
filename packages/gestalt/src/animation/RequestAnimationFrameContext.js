@@ -1,18 +1,18 @@
 // @flow strict
 
 import {
-  useRef,
-  useEffect,
-  useContext,
-  useCallback,
-  createContext,
-  useMemo,
   type Context,
+  createContext,
   type Element,
   type Node,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
 } from 'react';
+import { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
 import useReducedMotion from '../useReducedMotion.js';
-import { useAnimation, ANIMATION_STATE } from './AnimationContext.js';
 
 type RequestAnimationFrameProviderProps = {|
   children: Node,
@@ -43,7 +43,7 @@ function getRequestAnimationFrame(callback: () => void): number {
   }
 
   /* the callback routine must itself call requestAnimationFrame() again to animate another frame at the next repaint. requestAnimationFrame() is 1 shot. */
-  let requestId;
+  let requestId: number | null;
   /* update the requestId each time requestAnimationFrame is called */
   requestId = window.requestAnimationFrame(() => {
     requestId = window.requestAnimationFrame(() => {
@@ -83,7 +83,7 @@ export default function RequestAnimationFrameProvider({
 > | null {
   const reducedMotion = useReducedMotion();
   const { animationState, setAnimationState, handleExternalDismiss } = useAnimation();
-  const requestAnimationFrameId = useRef(null);
+  const requestAnimationFrameId = useRef<null | number>(null);
   /*
   Summary to understand what event controls requestAnimationFrame during the lifecycle of the component
     "in" animation

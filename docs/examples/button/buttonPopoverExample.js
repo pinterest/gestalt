@@ -1,10 +1,10 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
+import { type Node, useRef, useState } from 'react';
 import { Box, Button, Popover, Text } from 'gestalt';
 
 export default function ButtonPopoverExample(): Node {
   const [selected, setSelected] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
     <Box padding={8} display="flex" justifyContent="center" width="100%">

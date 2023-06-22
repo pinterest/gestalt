@@ -1,24 +1,25 @@
 // @flow strict
 import {
-  type Node,
   type AbstractComponent,
   forwardRef,
+  type Node,
   useImperativeHandle,
-  useState,
   useRef,
+  useState,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import styles from './IconButton.css';
-import touchableStyles from './TapArea.css';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
 import Pog from './Pog.js';
+import touchableStyles from './TapArea.css';
 import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
 
 type TooltipProps = {|
   accessibilityLabel?: string,
@@ -105,7 +106,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     size = 'lg',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);

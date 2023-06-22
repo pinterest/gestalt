@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node, useRef, useEffect, useState } from 'react';
-import { IconButton, Flex, PopoverEducational } from 'gestalt';
+import { type Node, useEffect, useRef, useState } from 'react';
+import { Flex, IconButton, PopoverEducational } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   useEffect(() => {
     setOpen(true);

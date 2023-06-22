@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example(): Node {
@@ -17,7 +17,7 @@ export default function Example(): Node {
 
   const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: `value${index}` }));
 
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,

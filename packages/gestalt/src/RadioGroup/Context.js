@@ -1,5 +1,5 @@
 // @flow strict
-import { createContext, useContext, type Context } from 'react';
+import { type Context, createContext, useContext } from 'react';
 
 type RadioGroupContextType = {|
   parentName: string,

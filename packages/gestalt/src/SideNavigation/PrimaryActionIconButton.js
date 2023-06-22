@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node, type Element, useRef, useState, useEffect, useId, cloneElement } from 'react';
+import { cloneElement, type Element, type Node, useEffect, useId, useRef, useState } from 'react';
 import Dropdown from '../Dropdown.js';
 import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
-import { FixedZIndex, CompositeZIndex, type Indexable } from '../zIndex.js';
+import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex.js';
 
 type Props = {|
   icon?: 'ellipsis' | 'edit' | 'trash-can',
@@ -41,7 +41,7 @@ function ItemIconButton({
 }: Props): Node {
   const id = useId();
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   const [selected, setSelected] = useState(dropdownItems ? false : undefined);
   const [open, setOpen] = useState(false);

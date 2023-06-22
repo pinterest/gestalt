@@ -9,15 +9,6 @@ export default function Example(): Node {
     <Flex gap={4} direction="column">
       <Box height="100%" margin="auto" borderStyle="shadow">
         <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
-          accessibilityHideCaptionsLabel="Hide captions"
-          accessibilityShowCaptionsLabel="Show captions"
           aspectRatio={1920 / 1016}
           controls
           onPlayError={({ error }) => error && setPlaying(false)}

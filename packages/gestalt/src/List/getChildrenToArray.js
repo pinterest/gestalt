@@ -1,5 +1,5 @@
 // @flow strict
-import { cloneElement, Fragment, Children, type Node } from 'react';
+import { Children, cloneElement, Fragment, type Node } from 'react';
 
 const ALLOWED_CHILDREN_BY_PARENT = {
   List: ['List.Item'],
@@ -17,7 +17,8 @@ const getChildrenToArray = ({
   const navigationChildren = [];
   let recursionLevel = 0;
 
-  const getChildren = ({ nodeChildren }: {| nodeChildren: Node |}) =>
+  const getChildren: ({| nodeChildren: Node |}) => void = ({ nodeChildren }) =>
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid
       if (child?.type === Fragment) {

@@ -10,8 +10,16 @@ describe('Dropdown', () => {
   });
 
   it('renders a menu of 6 items', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     const { baseElement } = render(
@@ -58,8 +66,16 @@ describe('Dropdown', () => {
   });
 
   it('renders a menu of 3 items conditionally', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
     const renderOptions = true;
 
@@ -90,8 +106,16 @@ describe('Dropdown', () => {
   });
 
   it('renders dropdown sections', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(
@@ -143,8 +167,16 @@ describe('Dropdown', () => {
   });
 
   it('renders a custom header', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(
@@ -200,8 +232,16 @@ describe('Dropdown', () => {
   });
 
   it('closes when esc key is pressed', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(
@@ -251,8 +291,16 @@ describe('Dropdown', () => {
   });
 
   it('closes when tab key is pressed', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(
@@ -302,8 +350,16 @@ describe('Dropdown', () => {
   });
 
   it('changes active descendant when arrow keys are pressed', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(
@@ -369,8 +425,16 @@ describe('Dropdown', () => {
   });
 
   it('should call item onSelect when enter key is pressed', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(
@@ -429,9 +493,26 @@ describe('Dropdown', () => {
   });
 
   it('should call link onClick when enter key is pressed', () => {
-    const mockOnDismiss = jest.fn();
-    const onSelectMock = jest.fn();
-    const onClickMock = jest.fn();
+    const mockOnDismiss = jest.fn<[], void>();
+    const onSelectMock = jest.fn<
+      [
+        {|
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: {| label: string, subtext?: string, value: string |},
+        |},
+      ],
+      void,
+    >();
+    const onClickMock = jest.fn<
+      [
+        {|
+          dangerouslyDisableOnNavigation: () => void,
+          event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+          mobileOnDismissStart: () => void,
+        |},
+      ],
+      void,
+    >();
     const element = document.createElement('button');
 
     render(

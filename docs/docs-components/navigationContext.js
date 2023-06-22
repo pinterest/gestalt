@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router';
 import createHydra, { type Hydra } from './createHydra.js';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
@@ -34,7 +34,7 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);
 
-  const { pathname } = useRouter();
+  const { asPath: pathname } = useRouter();
 
   let currentPlatform = null;
 
@@ -47,7 +47,6 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   } else if (pathname.includes('/ios/')) {
     currentPlatform = 'ios';
   }
-
   let currentSiteSection = null;
 
   if (currentPlatform) {
@@ -91,4 +90,4 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   );
 }
 
-export { NavigationContextProvider, NavigationContextConsumer, useNavigationContext };
+export { NavigationContextConsumer, NavigationContextProvider, useNavigationContext };

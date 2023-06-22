@@ -1,5 +1,5 @@
 // @flow strict
-import { createContext, type Context, type Element, type Node, useContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
 export type OnLinkNavigationType = ({|
   href: string,
@@ -12,7 +12,7 @@ type OnLinkNavigationContextType = {| onNavigation: OnLinkNavigationType |};
 
 type Props = {|
   /**
-   *
+   * Context lets a parent component provide data to the entire tree below it. Only components within the OnLinkNavigationProvider tree will be able to subscribe to it.
    */
   children: Node,
   /**
@@ -28,6 +28,8 @@ const { Provider } = OnLinkNavigationContext;
 
 /**
  * [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) is a [React context provider](https://reactjs.org/docs/context.html#contextprovider) to externally control the link behavior of components further down the tree.
+ *
+ * **NOTE** OnLinkNavigationProvider is soon to be deprecated, use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) instead.**NOTE**
  */
 export default function OnLinkNavigationProvider({
   children,

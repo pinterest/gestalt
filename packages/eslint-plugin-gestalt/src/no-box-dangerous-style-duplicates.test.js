@@ -1,5 +1,4 @@
 // @flow strict
-import rule from './no-box-dangerous-style-duplicates.js';
 import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
 import {
   getPathFormatterByRuleName,
@@ -7,6 +6,7 @@ import {
   getTestTypePrepender,
   readTestByPath,
 } from './helpers/testHelpers.js';
+import rule from './no-box-dangerous-style-duplicates.js';
 
 const ruleName = 'no-box-dangerous-style-duplicates';
 const ruleTester = getRuleTester();
@@ -106,7 +106,7 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     [
       invalidBackgroundColorInput,
       invalidBackgroundColorOutput,
-      generateDefaultMessage(`color="white"`),
+      generateDefaultMessage(`color="default"`),
     ],
     [invalidBorderInput, invalidBorderOutput, generateDefaultMessage(`borderStyle="lg"`)],
     [
@@ -118,7 +118,7 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     [invalidBoxShadowInput, invalidBoxShadowOutput, generateDefaultMessage(`borderStyle="shadow"`)],
     [invalidDisplayInput, invalidDisplayOutput, generateDefaultMessage(`display="inlineBlock"`)],
     [invalidFlexInput, invalidFlexOutput, generateDefaultMessage(`flex="grow"`)],
-    [invalidInVariableInput, invalidInVariableOutput, generateDefaultMessage(`color="white"`)],
+    [invalidInVariableInput, invalidInVariableOutput, generateDefaultMessage(`color="default"`)],
     [
       invalidJustifyContentInput,
       invalidJustifyContentOutput,
@@ -142,9 +142,9 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
     [
       invalidMultipleInput,
       invalidMultipleOutput,
-      `${generateDefaultMessage('color="white"') ?? ''}\n${generateDefaultMessage('top') ?? ''}\n${
-        generateDefaultMessage('marginStart={2}') ?? ''
-      }`,
+      `${generateDefaultMessage('color="default"') ?? ''}\n${
+        generateDefaultMessage('top') ?? ''
+      }\n${generateDefaultMessage('marginStart={2}') ?? ''}`,
     ],
     [
       invalidMultipleKeysInput,

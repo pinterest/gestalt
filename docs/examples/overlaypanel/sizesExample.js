@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, useReducer, type Node } from 'react';
+import { Fragment, type Node, useReducer } from 'react';
 import {
   Box,
   Button,
@@ -9,8 +9,8 @@ import {
   Flex,
   Layer,
   Module,
-  RadioButton,
   OverlayPanel,
+  RadioButton,
   Text,
 } from 'gestalt';
 

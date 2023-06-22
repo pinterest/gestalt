@@ -50,20 +50,28 @@ const InvalidWithRenderProps = (
     accessibilityLabel="OverlayPanel"
     footer={
       <OverlayPanel.DismissingElement>
-        {/* $FlowExpectedError[prop-missing] */}
-        {({ onDismiss }) => <footer />}
+        {
+          // $FlowFixMe[prop-missing]
+          ({ onDismiss }) => <footer />
+        }
       </OverlayPanel.DismissingElement>
     }
     heading="OverlayPanel title"
     onDismiss={() => {}}
     subHeading={
-      // $FlowExpectedError[prop-missing]
-      <OverlayPanel.DismissingElement>{({ onDismiss }) => <nav />}</OverlayPanel.DismissingElement>
+      <OverlayPanel.DismissingElement>
+        {
+          // $FlowFixMe[prop-missing]
+          ({ onDismiss }) => <nav />
+        }
+      </OverlayPanel.DismissingElement>
     }
   >
     <OverlayPanel.DismissingElement>
-      {/* $FlowExpectedError[prop-missing] */}
-      {({ onDismiss }) => <section />}
+      {
+        // $FlowFixMe[prop-missing]
+        ({ onDismiss }) => <section />
+      }
     </OverlayPanel.DismissingElement>
   </OverlayPanel>
 );

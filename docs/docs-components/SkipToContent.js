@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useCallback, useEffect, type Node, Fragment } from 'react';
-import { Box, Text, TapArea, Flex } from 'gestalt';
+import { Fragment, type Node, useCallback, useEffect, useState } from 'react';
+import { Box, Flex, TapArea, Text } from 'gestalt';
 import { SKIP_TO_CONTENT_ZINDEX } from './z-indices.js';
 
 /**
@@ -10,9 +10,9 @@ import { SKIP_TO_CONTENT_ZINDEX } from './z-indices.js';
  */
 export default function SkipToContent(): Node {
   const [focused, setFocused] = useState(false);
-  const [mainContent, setMainContent] = useState(null);
+  const [mainContent, setMainContent] = useState<null | HTMLElement>(null);
 
-  const handleTabIndex = useCallback(() => {
+  const handleTabIndex: () => void = useCallback(() => {
     mainContent?.removeAttribute('tabindex');
     mainContent?.removeEventListener('blur', handleTabIndex);
     mainContent?.removeEventListener('focusout', handleTabIndex);

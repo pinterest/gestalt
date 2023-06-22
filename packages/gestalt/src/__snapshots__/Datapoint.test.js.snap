@@ -22,6 +22,20 @@ exports[`Datapoint renders 1`] = `
           className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
         >
           Title
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -39,6 +53,20 @@ exports[`Datapoint renders 1`] = `
           className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
         >
           1M
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -102,6 +130,20 @@ exports[`Datapoint renders a badge 1`] = `
           className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
         >
           Title
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -145,6 +187,20 @@ exports[`Datapoint renders a badge 1`] = `
           className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
         >
           1M
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -208,6 +264,20 @@ exports[`Datapoint renders a tooltip 1`] = `
           className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
         >
           Title
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -276,6 +346,20 @@ exports[`Datapoint renders a tooltip 1`] = `
           className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
         >
           1M
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -339,6 +423,20 @@ exports[`Datapoint renders an accessibility label 1`] = `
           className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
         >
           Title
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -356,6 +454,20 @@ exports[`Datapoint renders an accessibility label 1`] = `
           className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
         >
           1M
+          <div
+            className="box relative"
+            style={
+              Object {
+                "display": "inline",
+              }
+            }
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              ,
+            </div>
+          </div>
         </div>
       </div>
       <div

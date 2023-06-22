@@ -59,6 +59,11 @@ When providing a validation message, make sure the instructions are clear and he
 
 These practices give users of assistive technologies more information about the form, helping them to fill it out.
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="1780" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A23695%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A22444%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 ## Variants
 
@@ -67,28 +72,28 @@ TextArea will expand to fill the width of the parent container by default.
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22670%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A22670%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 ### Helper text
 Whenever you want to provide more information about a form field, you should use helperText.
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22816%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A22816%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 ### Disabled
 TextArea can be disabled to indicate the user is unable to interact with it. Disabled fields do not need to pass contrast requirements, so do not use a disabled TextArea to present information important information to the user.
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A23035%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A23035%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 ### Error
 TextArea can display an error message. Don't use errorMessage to provide feedback on character count errors. See the maximum length variant below for more details.
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A23108%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A23108%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 
 ### Maximum length
 TextArea supports a max length . The max length sets the maximum number of characters allowed to be entered by the user in TextArea.
@@ -106,7 +111,7 @@ The first example shows a TextArea with a max length warning. The second example
 <br/>
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22889%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A22889%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 </Group>
 
 <Group>
@@ -115,6 +120,9 @@ The first example shows a TextArea with a max length warning. The second example
 <br/>
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FTxlMtK2AcYHeTliywyAyU7%2FGestalt-for-Android%3Fnode-id%3D12157%253A22962%26t%3DKJZySMQdq4Hp0RLc-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D12157%253A22962%26t%3DqA042oJ4q4dOukcd-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
+
+## Animation
+Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/motion).

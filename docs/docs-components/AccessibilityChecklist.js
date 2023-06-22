@@ -1,11 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Text, Module, Table } from 'gestalt';
+import { Box, Module, Table, Text } from 'gestalt';
 import COMPONENT_DATA, { type AccessibleStatus } from './COMPONENT_DATA.js';
 import {
-  STATUS_DESCRIPTION,
   COMPONENT_A11Y_STATUS_MESSAGING,
-} from './COMPONENT_STATUS_MESSAGING.js';
+  STATUS_DESCRIPTION,
+} from './data/componentStatusMessaging.js';
 import StatusData from './StatusData.js';
 
 export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({

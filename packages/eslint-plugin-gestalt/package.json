@@ -1,18 +1,20 @@
 {
   "name": "eslint-plugin-gestalt",
-  "version": "111.4.0",
+  "version": "115.1.4",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
-  "description": "ESLint rules for Pinterest’s design language Gestalt",
+  "description": "ESLint rules for Pinterest's design language Gestalt",
   "main": "dist/eslint-plugin-gestalt.js",
   "jsnext:main": "dist/eslint-plugin-gestalt.es.js",
   "module": "dist/eslint-plugin-gestalt.es.js",
   "devDependencies": {
-    "eslint": "7.11.0"
+    "eslint": "8.23.0"
   },
   "keywords": [
     "eslint",
-    "eslintplugin"
+    "eslint plugin",
+    "gestalt",
+    "pinterest"
   ],
   "dependencies": {},
   "scripts": {

@@ -170,7 +170,6 @@ type Icons =
   | 'globe'
   | 'globe-checked'
   | 'gmail'
-  | 'google-plus'
   | 'graph-bar'
   | 'handle'
   | 'hand-pointing'
@@ -300,6 +299,25 @@ type IdealDirectionType = 'up' | 'right' | 'down' | 'left';
 
 type MobileEnterKeyHintType = 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
 
+type DataVisualizationColors =
+  | '01'
+  | '02'
+  | '03'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | '10'
+  | '11'
+  | '12';
+
+type TrendObject = {
+  accessibilityLabel: string;
+  value: number;
+};
+
 interface ActionData {
   accessibilityLabel: string;
   disabled?: boolean;
@@ -328,7 +346,19 @@ interface DefaultLabelProviderProps {
   children: Node;
   labels?:
     | {
+        ActivationCard: {
+          accessibilityDismissButtonLabel: string;
+        };
+        Callout: {
+          accessibilityDismissButtonLabel: string;
+          iconAccessibilityLabelError: string;
+          iconAccessibilityLabelInfo: string;
+          iconAccessibilityLabelRecommendation: string;
+          iconAccessibilityLabelWarning: string;
+          iconAccessibilityLabelSuccess: string;
+        };
         ComboBox: {
+          noResultText: string;
           accessibilityClearButtonLabel: string;
         };
         Link: {
@@ -354,6 +384,20 @@ interface DefaultLabelProviderProps {
           accessibilityGrabberLabel: string;
           accessibilityLabel: string;
         };
+        SideNavigation: {
+          accessibilityDismissButtonLabel: string;
+        };
+        SlimBanner: {
+          accessibilityDismissButtonLabel: string;
+          iconAccessibilityLabelError: string;
+          iconAccessibilityLabelInfo: string;
+          iconAccessibilityLabelRecommendation: string;
+          iconAccessibilityLabelWarning: string;
+          iconAccessibilityLabelSuccess: string;
+        };
+        Spinner: {
+          accessibilityLabel: string;
+        };
         Tag: {
           accessibilityErrorIconLabel: string;
           accessibilityRemoveIconLabel: string;
@@ -362,6 +406,20 @@ interface DefaultLabelProviderProps {
         TextField: {
           accessibilityHidePasswordLabel: string;
           accessibilityShowPasswordLabel: string;
+        };
+        Upsell: {
+          accessibilityDismissButtonLabel: string;
+        };
+        Video: {
+          accessibilityMaximizeLabel: string;
+          accessibilityMinimizeLabel: string;
+          accessibilityMuteLabel: string;
+          accessibilityPauseLabel: string;
+          accessibilityPlayLabel: string;
+          accessibilityProgressLabel: string;
+          accessibilityUnmuteLabel: string;
+          accessibilityHideCaptionsLabel: string;
+          accessibilityShowCaptionsLabel: string;
         };
         HelpButton: {
           tooltipMessage: string;
@@ -392,6 +450,11 @@ interface OnLinkNavigationProviderProps {
     | undefined;
 }
 
+interface GlobalEventsHandlerProviderProps {
+  children: Node;
+  sheetMobileHandlers?: { onOpen?: (() => void) | void; onClose?: (() => void) | void } | void;
+}
+
 interface ScrollBoundaryContainerProps {
   children: Node;
   height?: number | string | undefined;
@@ -409,7 +472,12 @@ interface ActivationCardProps {
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete';
   statusMessage: string;
   title: string;
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   link?:
     | {
         accessibilityLabel: string;
@@ -661,7 +729,12 @@ interface CalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+  | {
+      accessibilityLabel?: string;
+      onDismiss: () => void;
+    }
+  | undefined;
   primaryAction?: ActionData | undefined;
   secondaryAction?: ActionData | undefined;
   title?: string | undefined;
@@ -713,7 +786,7 @@ interface ComboBoxProps {
   id: string;
   label: string;
   options: ComboBoxItemType[];
-  noResultText: string;
+  noResultText?: string;
   accessibilityClearButtonLabel?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
@@ -759,7 +832,7 @@ interface DatapointProps {
   size?: 'md' | 'lg' | undefined;
   tooltipText?: string | undefined;
   tooltipZIndex?: Indexable | undefined;
-  trend?: { accessibilityLabel: string; value: number } | undefined;
+  trend?: TrendObject | undefined;
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
 }
 
@@ -1485,52 +1558,49 @@ interface SheetMobileProps {
   align?: 'start' | 'center' | undefined;
   backIconButton?: {
     accessibilityLabel: string;
-    onClick:
-      | AbstractEventHandler<
-          | React.MouseEvent<HTMLButtonElement>
-          | React.KeyboardEvent<HTMLButtonElement>
-          | React.MouseEvent<HTMLAnchorElement>
-          | React.KeyboardEvent<HTMLAnchorElement>,
-          { onDismissStart: () => void }
-        >
-      | undefined;
-    children?: Node | undefined;
-    closeOnOutsideClick?: boolean | undefined;
-    footer?: Node | undefined;
-    forwardIconButton?: {
-      accessibilityLabel: string;
-      onClick:
-        | AbstractEventHandler<
-            | React.MouseEvent<HTMLButtonElement>
-            | React.KeyboardEvent<HTMLButtonElement>
-            | React.MouseEvent<HTMLAnchorElement>
-            | React.KeyboardEvent<HTMLAnchorElement>,
-            { onDismissStart: () => void }
-          >
-        | undefined;
-      onAnimationEnd?: OnAnimationEndType | undefined;
-      primaryAction?: {
-        accessibilityLabel: string;
-        label: string;
-        onClick: AbstractEventHandler<
-          | React.MouseEvent<HTMLButtonElement>
-          | React.KeyboardEvent<HTMLButtonElement>
-          | React.MouseEvent<HTMLAnchorElement>
-          | React.KeyboardEvent<HTMLAnchorElement>,
-          { onDismissStart: () => void }
-        >;
-        href?: string | undefined;
-        rel?: RelType | undefined;
-        size?: 'sm' | 'md' | 'lg' | undefined;
-        target?: TargetType | undefined;
-      };
-      role?: 'alertdialog' | 'dialog' | undefined;
-      showDismissButton?: boolean | undefined;
-      subHeading?: string | undefined;
-      size?: 'default' | 'full' | 'auto' | undefined;
-      zIndex?: Indexable | undefined;
-    };
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      { onDismissStart: () => void }
+    >;
   };
+  children?: Node | undefined;
+  closeOnOutsideClick?: boolean | undefined;
+  footer?: Node | undefined;
+  forwardIconButton?: {
+    accessibilityLabel: string;
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      { onDismissStart: () => void }
+    >;
+  };
+  onOutsideClick?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
+  onAnimationEnd?: OnAnimationEndType | undefined;
+  primaryAction?: {
+    accessibilityLabel: string;
+    label: string;
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      { onDismissStart: () => void }
+    >;
+    href?: string | undefined;
+    rel?: RelType | undefined;
+    size?: 'sm' | 'md' | 'lg' | undefined;
+    target?: TargetType | undefined;
+  };
+  role?: 'alertdialog' | 'dialog' | undefined;
+  showDismissButton?: boolean | undefined;
+  subHeading?: string | undefined;
+  size?: 'default' | 'full' | 'auto' | undefined;
+  zIndex?: Indexable | undefined;
 }
 
 interface SheetMobileDismissingElementProps {
@@ -1597,7 +1667,12 @@ interface SideNavigationNestedGroupProps {
 
 interface SlimBannerProps {
   message: React.ReactElement<typeof Text> | string;
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   helperLink?: {
     accessibilityLabel: string;
     href: string;
@@ -1647,7 +1722,7 @@ interface SlimBannerProps {
 }
 
 interface SpinnerProps {
-  accessibilityLabel: string;
+  accessibilityLabel?: string;
   show: boolean;
   color?: 'default' | 'subtle' | undefined;
   delay?: boolean | undefined;
@@ -1655,7 +1730,15 @@ interface SpinnerProps {
 }
 
 interface StatusProps {
-  type: 'unstarted' | 'queued' |'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning';
+  type:
+    | 'unstarted'
+    | 'queued'
+    | 'inProgress'
+    | 'halted'
+    | 'ok'
+    | 'problem'
+    | 'canceled'
+    | 'warning';
   accessibilityLabel?: string | undefined;
   subtext?: string | undefined;
   title?: string | undefined;
@@ -1729,6 +1812,8 @@ interface TableSortableHeaderCellProps {
 
 interface TableRowProps {
   children: Node;
+  hoverStyle?: 'gray' | 'none' | undefined;
+  selected?: 'selected' | 'unselected' | undefined;
 }
 
 interface TableRowExpandableProps {
@@ -1736,16 +1821,19 @@ interface TableRowExpandableProps {
   accessibilityExpandLabel: string;
   children: Node;
   expandedContents: Node;
-  id: string;
   expanded?: string | undefined;
-  hoverStyle?: 'none' | 'gray' | undefined;
+  hoverStyle?: 'gray' | 'none' | undefined;
+  id: string;
   onExpand?: BareButtonEventHandlerType | undefined;
+  selected?: 'selected' | 'unselected' | undefined;
 }
 
 interface TableRowDrawerProps {
   children: Node;
   drawerContents: Node;
+  hoverStyle?: 'gray' | 'none' | undefined;
   id: string;
+  selected?: 'selected' | 'unselected' | undefined;
 }
 
 interface TabsProps {
@@ -1916,6 +2004,28 @@ interface TextFieldProps {
   value?: string | undefined;
 }
 
+interface TileDataProps {
+  color?: DataVisualizationColors | undefined;
+  disabled?: boolean | undefined;
+  id?: string | undefined;
+  onTap?:
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
+  selected?: boolean | undefined;
+  showCheckbox?: boolean | undefined;
+  title: string;
+  tooltip?: TooltipProps | undefined;
+  trend?: TrendObject | undefined;
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
+  value: string;
+}
+
 interface ToastProps {
   text: string | React.ReactElement<typeof Text>;
   dissmissButton:
@@ -1965,7 +2075,12 @@ interface TooltipProps {
 interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
   children?: React.ReactElement<typeof Upsell.Form>;
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+  | {
+      accessibilityLabel?: string;
+      onDismiss: () => void;
+    }
+  | undefined;
   imageData?:
     | {
         component: React.ReactElement<typeof Image | typeof Icon>;
@@ -1992,19 +2107,10 @@ interface UpsellFormProps {
 }
 
 interface VideoProps {
-  accessibilityMaximizeLabel: string;
-  accessibilityMinimizeLabel: string;
-  accessibilityMuteLabel: string;
-  accessibilityPauseLabel: string;
-  accessibilityPlayLabel: string;
-  accessibilityProgressBarLabel: string;
-  accessibilityUnmuteLabel: string;
   aspectRatio: number;
   onPlay: AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>>;
   onPlayError: (args: { error: Error }) => void;
   src: string | ReadonlyArray<{ type: 'video/m3u8' | 'video/mp4' | 'video/ogg'; src: string }>;
-  accessibilityHideCaptionsLabel?: string | undefined;
-  accessibilityShowCaptionsLabel?: string | undefined;
   autoplay?: boolean | undefined;
   backgroundColor?: 'black' | 'transparent' | undefined;
   captions?: string | undefined;
@@ -2300,6 +2406,11 @@ export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps
 export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
 
 /**
+ * https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider
+ */
+export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
+
+/**
  * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
  */
 export const OnLinkNavigationProvider: React.FunctionComponent<OnLinkNavigationProviderProps>;
@@ -2498,6 +2609,11 @@ export const TextArea: ReactForwardRef<HTMLTextAreaElement, TextAreaProps>;
  * https://gestalt.pinterest.systems/web/textfield
  */
 export const TextField: ReactForwardRef<HTMLInputElement, TextFieldProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/tiledata
+ */
+export const TileData: React.FunctionComponent<TileDataProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/toast

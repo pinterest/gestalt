@@ -1,8 +1,5 @@
 // @flow strict-local
 import { type Node } from 'react';
-import { StyledEngineProvider } from '@mui/material/styles';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import InternalDateField from './DateField/InternalDateField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
@@ -39,7 +36,7 @@ type LocaleData = {|
   |},
 |};
 
-type Props = {|
+export type Props = {|
   /**
    * Indicate if birthday autocomplete should be available on the input.
    */
@@ -162,31 +159,28 @@ function DateField({
   value,
 }: Props): Node {
   return (
-    <StyledEngineProvider injectFirst>
-      <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={localeData}>
-        <InternalDateField
-          autoComplete={autoComplete}
-          disabled={disabled}
-          disableRange={disableRange}
-          errorMessage={errorMessage}
-          helperText={helperText}
-          id={id}
-          label={label}
-          labelDisplay={labelDisplay}
-          maxDate={maxDate}
-          minDate={minDate}
-          mobileEnterKeyHint={mobileEnterKeyHint}
-          name={name}
-          onBlur={onBlur}
-          onClearInput={onClearInput}
-          onChange={onChange}
-          onError={onError}
-          onFocus={onFocus}
-          readOnly={readOnly}
-          value={value}
-        />
-      </LocalizationProvider>
-    </StyledEngineProvider>
+    <InternalDateField
+      autoComplete={autoComplete}
+      disabled={disabled}
+      disableRange={disableRange}
+      errorMessage={errorMessage}
+      helperText={helperText}
+      id={id}
+      label={label}
+      labelDisplay={labelDisplay}
+      localeData={localeData}
+      maxDate={maxDate}
+      minDate={minDate}
+      mobileEnterKeyHint={mobileEnterKeyHint}
+      name={name}
+      onBlur={onBlur}
+      onClearInput={onClearInput}
+      onChange={onChange}
+      onError={onError}
+      onFocus={onFocus}
+      readOnly={readOnly}
+      value={value}
+    />
   );
 }
 

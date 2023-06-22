@@ -1,27 +1,28 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
+import { type Node, useRef, useState } from 'react';
 import {
-  Flex,
   Box,
   Button,
-  Layer,
   ComboBox,
-  TextField,
-  Heading,
-  RadioGroup,
-  FixedZIndex,
   CompositeZIndex,
+  Dropdown,
+  FixedZIndex,
+  Flex,
+  Heading,
+  Layer,
   Modal,
   OverlayPanel,
-  Dropdown,
+  RadioGroup,
+  TextField,
 } from 'gestalt';
 
 export default function ScrollBoundaryContainerExample(): Node {
   const [showComponent, setShowComponent] = useState(false);
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] =
+    useState<?{| label: string, subtext?: string, value: string |}>(null);
   const [parentComponent, setParentComponent] = useState('modal');
-  const anchorDropdownRef = useRef(null);
+  const anchorDropdownRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const handleSelect = ({
     item,

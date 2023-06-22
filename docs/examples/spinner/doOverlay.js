@@ -16,7 +16,7 @@ function DataTable() {
       </Table.Header>
 
       <Table.Body>
-        {[...new Array(8)].map((_, i) => (
+        {[...new Array<void | Node>(8)].map((_, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <Table.Row key={i}>
             {['$0.00', '0 clicks', '$0.00 CPC', '0', '$0.00'].map((item) => (

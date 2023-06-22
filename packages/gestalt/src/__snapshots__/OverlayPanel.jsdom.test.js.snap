@@ -115,7 +115,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                               <div
                                 class="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                               >
-                                You will lose all of your changes. This cannot be undone.
+                                You will lose all of your changes. This cannot be undone
                               </div>
                             </div>
                           </div>
@@ -131,7 +131,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                             class="FlexItem"
                           >
                             <button
-                              aria-label="No, go back to the overlay panel."
+                              aria-label="No, go back to the overlay panel"
                               class="button hideOutline inline accessibilityOutline parentButton"
                               tabindex="0"
                               type="button"
@@ -151,7 +151,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                             class="FlexItem"
                           >
                             <button
-                              aria-label="Yes, dismiss the overlay panel."
+                              aria-label="Yes, dismiss the overlay panel"
                               class="button hideOutline inline accessibilityOutline parentButton"
                               tabindex="0"
                               type="button"

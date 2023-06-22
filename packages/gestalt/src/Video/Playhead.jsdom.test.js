@@ -3,8 +3,8 @@ import { fireEvent, render } from '@testing-library/react';
 import VideoPlayhead from './Playhead.js';
 
 test('VideoPlayhead handles on mouse down and up events', () => {
-  const mockOnPlayheadDown = jest.fn();
-  const mockOnPlayheadUp = jest.fn();
+  const mockOnPlayheadDown = jest.fn<[SyntheticMouseEvent<HTMLDivElement>], void>();
+  const mockOnPlayheadUp = jest.fn<[SyntheticMouseEvent<HTMLDivElement>], void>();
   const { getByRole } = render(
     <VideoPlayhead
       accessibilityProgressBarLabel="Progress bar"
@@ -31,8 +31,8 @@ test('VideoPlayhead handles on mouse down and up events', () => {
 });
 
 test('VideoPlayhead ends seek when mouse leaves', () => {
-  const mockOnPlayheadDown = jest.fn();
-  const mockOnPlayheadUp = jest.fn();
+  const mockOnPlayheadDown = jest.fn<[SyntheticMouseEvent<HTMLDivElement>], void>();
+  const mockOnPlayheadUp = jest.fn<[SyntheticMouseEvent<HTMLDivElement>], void>();
   const { getByRole } = render(
     <VideoPlayhead
       accessibilityProgressBarLabel="Progress bar"

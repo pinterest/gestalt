@@ -4,7 +4,7 @@ import { Box, Button, Flex, IconButton, Popover, Pulsar, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [showEducation, setShowEducation] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   useEffect(() => {
     setShowEducation(true);

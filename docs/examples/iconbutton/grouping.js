@@ -1,11 +1,12 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { Box, IconButton, Flex, Tooltip, Dropdown, Button } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Box, Button, Dropdown, Flex, IconButton, Tooltip } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const anchorRef = useRef(null);
+  const [selected, setSelected] =
+    useState<?{| label: string, subtext?: string, value: string |}>(null);
+  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
   const onSelect = ({
     item,
   }: {|

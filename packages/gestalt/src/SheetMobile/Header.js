@@ -1,5 +1,6 @@
 // @flow strict
-import { useRef, useEffect, type Node, type ElementConfig, Fragment } from 'react';
+import { type ElementConfig, Fragment, type Node, useEffect, useRef } from 'react';
+import PrimaryAction from './PrimaryAction.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Box from '../Box.js';
 import Button from '../Button.js';
@@ -11,7 +12,6 @@ import Link from '../Link.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
-import PrimaryAction from './PrimaryAction.js';
 
 type OnClickType = ({|
   event:
@@ -60,8 +60,8 @@ export default function Header({
     useDefaultLabelContext('SheetMobile');
   const { onExternalDismiss } = useRequestAnimationFrame();
 
-  const dismissButtonRef = useRef();
-  const grabberRef = useRef();
+  const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const grabberRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showGrabber && dismissButtonRef.current) {

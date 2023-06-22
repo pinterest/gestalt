@@ -39,9 +39,7 @@ const rule: ESLintRule = {
     function getAttribute(node, attributeName: string) {
       return Object.entries(node.attributes).find(
         // eslint-disable-next-line no-unused-vars
-        ([key, value]) =>
-          // $FlowFixMe[incompatible-use]
-          value && value.name && value.name.name === attributeName,
+        ([key, value]) => value && value.name && value.name.name === attributeName,
       );
     }
 

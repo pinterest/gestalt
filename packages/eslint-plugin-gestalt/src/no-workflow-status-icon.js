@@ -4,7 +4,7 @@
  */
 
 // @flow strict
-import { hasImport, isGestaltComponent, hasAttributes } from './helpers/eslintASTHelpers.js';
+import { hasAttributes, hasImport, isGestaltComponent } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const disallowedMatch = [
@@ -41,8 +41,8 @@ const rule: ESLintRule = {
     let gestaltImportNode;
     let componentName = 'Icon';
 
-    // $FlowFixMe[missing-local-annot]
-    const matchValues = (node) => {
+    // $FlowFixMe[unclear-type]
+    const matchValues = (node: any) => {
       const reducedPropValues = node.attributes.reduce((acc, { name, value }) => {
         const newAcc = { ...acc };
         newAcc[name?.name] = value?.value || value?.expression?.value;
@@ -61,8 +61,8 @@ const rule: ESLintRule = {
       return node;
     };
 
-    // $FlowFixMe[missing-local-annot]
-    const importDeclarationFnc = (node) => {
+    // $FlowFixMe[unclear-type]
+    const importDeclarationFnc = (node: any) => {
       if (!node) return;
 
       const isGestaltImportNode = hasImport({ importNode: node, path: 'gestalt' });
@@ -74,8 +74,8 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
-    // $FlowFixMe[missing-local-annot]
-    const jSXOpeningElementFnc = (node) => {
+    // $FlowFixMe[unclear-type]
+    const jSXOpeningElementFnc = (node: any) => {
       // exit if Gestalt is not imported
       if (!gestaltImportNode) return null;
 

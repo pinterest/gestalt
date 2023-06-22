@@ -1,8 +1,8 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
-import { Badge, Box, Column, Flex, Text, Table, Link } from 'gestalt';
+import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
 import COMPONENT_DATA from '../../docs-components/COMPONENT_DATA.js';
-import { STATUS_DESCRIPTION } from '../../docs-components/COMPONENT_STATUS_MESSAGING.js';
+import { STATUS_DESCRIPTION } from '../../docs-components/data/componentStatusMessaging.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import StatusData from '../../docs-components/StatusData.js';

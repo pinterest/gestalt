@@ -9,12 +9,12 @@ import {
   updateGestaltImportFixer,
 } from './helpers/eslintASTFixers.js';
 import {
+  getHtmlTag,
   hasAttributes,
   hasImport,
-  hasUnsupportedAttributes,
   hasSpreadAttributes,
+  hasUnsupportedAttributes,
   isTag,
-  getHtmlTag,
 } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 

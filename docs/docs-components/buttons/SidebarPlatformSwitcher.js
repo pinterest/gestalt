@@ -1,11 +1,11 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { SegmentedControl } from 'gestalt';
 import { useRouter } from 'next/router';
+import { SegmentedControl } from 'gestalt';
+import trackButtonClick from './trackButtonClick.js';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
 import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import { type ComponentPlatformFilteredBy } from '../navigationContext.js';
-import trackButtonClick from './trackButtonClick.js';
 
 type Props = {|
   onClick: (platform: 'web' | 'android' | 'ios') => void,

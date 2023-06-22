@@ -1,9 +1,9 @@
 {
   "name": "gestalt",
-  "version": "111.4.0",
+  "version": "115.1.4",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
-  "description": "A set of React UI components which enforce Pinterest’s design language",
+  "description": "A set of React UI components which enforce Pinterest's design language",
   "main": "dist/gestalt.js",
   "types": "dist/index.d.ts",
   "jsnext:main": "dist/gestalt.es.js",
@@ -26,7 +26,7 @@
     "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
     "postpack": "rm README.md",
     "prepack": "cp ../../README.md .",
-    "watch": "rollup -c rollup.config.js --watch"
+    "watch": "DEVMODE=true rollup -c rollup.config.js --watch"
   },
   "browserslist": [
     "last 2 versions",
@@ -35,9 +35,8 @@
   ],
   "keywords": [
     "design system",
-    "react",
-    "react component",
     "pinterest",
+    "react",
     "ui library"
   ],
   "repository": {

@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import { Text, Table, SlimBanner } from 'gestalt';
+import { SlimBanner, Table, Text } from 'gestalt';
 import COMPONENT_DATA from './COMPONENT_DATA.js';
-import { STATUS_DESCRIPTION, COMPONENT_STATUS_MESSAGING } from './COMPONENT_STATUS_MESSAGING.js';
+import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 import MainSection from './MainSection.js';
 import StatusData from './StatusData.js';
 

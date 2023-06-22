@@ -1,5 +1,5 @@
 // @flow strict
-import { render, fireEvent, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import ModuleExpandableItem from './ExpandableItem.js';
 
 describe('ModuleExpandableItem', () => {
@@ -10,7 +10,7 @@ describe('ModuleExpandableItem', () => {
     title: 'test title',
     summary: ['summary1', 'summary2', 'summary3'],
     isCollapsed: true,
-    onModuleClicked: jest.fn(),
+    onModuleClicked: jest.fn<[boolean], void>(),
     type: 'info',
   };
 

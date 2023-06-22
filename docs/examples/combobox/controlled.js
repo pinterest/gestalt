@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import { Box, ComboBox, Flex, Text } from 'gestalt';
 
 const US_STATES = [
@@ -68,7 +68,11 @@ export default function Example(): Node {
 
   const [suggestedOptions, setSuggestedOptions] = useState(usStatesOptions);
   const [inputValue, setInputValue] = useState(usStatesOptions[5].label);
-  const [selected, setSelected] = useState(usStatesOptions[5]);
+  const [selected, setSelected] = useState<void | {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>(usStatesOptions[5]);
 
   const handleOnChange = ({
     value,

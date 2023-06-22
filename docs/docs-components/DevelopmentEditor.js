@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { Link, Box, Flex, Text, HelpButton } from 'gestalt';
+import { LiveError, LivePreview, LiveProvider } from 'react-live';
+import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
-import { DatePicker, DateField } from 'gestalt-datepicker';
-import { LiveProvider, LiveError, LivePreview } from 'react-live';
+import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import { useAppContext } from './appContext.js';
 import theme from './atomDark.js';
 import ExampleCode from './ExampleCode.js';
@@ -54,7 +54,7 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
     return null;
   }
 
-  const scope = { ...gestalt, DatePicker, DateField };
+  const scope = { ...gestalt, ...gestaltDatepicker };
 
   const codeFileCleaned = code
     ?.toString()
@@ -99,8 +99,18 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
                 <br />
                 <br />
                 To enable/disable the development preview, you can enable it on the site settings
-                dropdown in the page header. If the default preview is enabled and you want to
-                render your local changes in Sandpack append
+                dropdown in the page header.
+                <br />
+                <br />
+                To share a deploy url with this mode enabled, share the nelify url with a
+                <br />
+                <code>?devexample=true</code>
+                <br />
+                appended at the end of the url.
+                <br />
+                <br />
+                If the default preview is enabled and you want to render your local changes in
+                Sandpack append
                 <br />
                 <code>?localFiles=true</code>
                 <br /> after the component name in the URL.{' '}

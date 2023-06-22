@@ -1,12 +1,12 @@
 // @flow strict
-import { useEffect, type Node } from 'react';
-import { ColorSchemeProvider, OnLinkNavigationProvider } from 'gestalt';
+import { type Node, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { AppContextProvider, AppContextConsumer } from './appContext.js';
+import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
+import { AppContextConsumer, AppContextProvider } from './appContext.js';
 import AppLayout from './AppLayout.js';
-import { NavigationContextProvider } from './navigationContext.js';
 import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
 import { LocalFilesProvider } from './contexts/LocalFilesProvider.js';
+import { NavigationContextProvider } from './navigationContext.js';
 
 type Props = {|
   children?: Node,
@@ -67,13 +67,13 @@ export default function App({ children, files }: Props): Node {
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
-              <OnLinkNavigationProvider onNavigation={useOnNavigation}>
+              <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
                 <NavigationContextProvider>
                   <LocalFilesProvider files={files}>
                     <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
                   </LocalFilesProvider>
                 </NavigationContextProvider>
-              </OnLinkNavigationProvider>
+              </GlobalEventsHandlerProvider>
             </ColorSchemeProvider>
           )}
         </AppContextConsumer>

@@ -6,8 +6,8 @@ import resizeWidth from './utils/resizeWidth.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-// $FlowFixMe[missing-local-annot]
-async function getItemColumnMap(gridItems) {
+// $FlowFixMe[unclear-type]
+async function getItemColumnMap(gridItems: any) {
   const itemLeftMap = {};
   for (let i = 0; i < gridItems.length; i += 1) {
     const boundingBox = await gridItems[i].boundingBox();
@@ -89,7 +89,8 @@ test.describe('Masonry: flexible resize', () => {
     for (let i = 0; i < originalColumns.length; i += 1) {
       const originalCol = originalItemMap[originalColumns[i]];
       const newCol = newItemMap[newColumns[i]];
-      originalCol.forEach((item, row) => {
+      // $FlowFixMe[missing-local-annot]
+      originalCol.forEach((item, row: number) => {
         const newItem = newCol[row];
         expect(newItem).not.toBeUndefined();
         expect(item.text).toEqual(newItem.text);

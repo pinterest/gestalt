@@ -74,10 +74,10 @@ type Props = {|
 |};
 
 export default function Toc({ cards }: Props): Node {
-  const [anchors, setAnchors] = useState([]);
-  const [activeState, setActiveState] = useState(null);
-  const clickedRef = useRef(false);
-  const unsetClickedRef = useRef(null);
+  const [anchors, setAnchors] = useState<$ReadOnlyArray<HTMLElement>>([]);
+  const [activeState, setActiveState] = useState<null | string>(null);
+  const clickedRef = useRef<boolean>(false);
+  const unsetClickedRef = useRef<null | TimeoutID>(null);
 
   const findActiveIndex = useCallback(() => {
     // Don't set the active index based on scroll if a link was just clicked

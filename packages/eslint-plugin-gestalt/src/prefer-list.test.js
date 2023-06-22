@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import rule from './prefer-list.js';
 import { parserOptions } from './helpers/testHelpers.js';
+import rule from './prefer-list.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 

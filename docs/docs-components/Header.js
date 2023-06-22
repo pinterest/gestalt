@@ -1,14 +1,14 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useState, useRef, useMemo } from 'react';
-import { Box, Flex, IconButton, Link, Sticky, Tabs, Text } from 'gestalt';
+import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Box, Flex, IconButton, Link, Sticky, Tabs, Text } from 'gestalt';
 import { useAppContext } from './appContext.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 import DocSearch from './DocSearch.js';
 import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
 import GestaltLogo from './GestaltLogo.js';
 import { useNavigationContext } from './navigationContext.js';
-import { PAGE_HEADER_ZINDEX, PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
+import { PAGE_HEADER_POPOVER_ZINDEX, PAGE_HEADER_ZINDEX } from './z-indices.js';
 
 function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
   return [
@@ -29,7 +29,7 @@ function Header() {
   const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
 
-  const searchAnchorRef = useRef(null);
+  const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const mainNavigationTabs = useMemo(
     () => getTabs(componentPlatformFilteredBy),
@@ -63,12 +63,21 @@ function Header() {
   );
 
   useEffect(() => {
-    if (
+    const devModeSetFromUrl = router.query.devexample && router.query.devexample === 'true';
+
+    // do not show switch if set via url
+    if (devModeSetFromUrl) {
+      setShowDevelopmentEditorSwitch(false);
+      return;
+    }
+
+    const isDeployPreviewEnvironment =
       process.env.NODE_ENV === 'production' &&
-      window?.location?.href?.startsWith('https://deploy-preview-')
-    )
+      window?.location?.href?.startsWith('https://deploy-preview-');
+
+    if (isDeployPreviewEnvironment || process.env.NODE_ENV === 'development')
       setShowDevelopmentEditorSwitch(true);
-  }, [setShowDevelopmentEditorSwitch]);
+  }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
 

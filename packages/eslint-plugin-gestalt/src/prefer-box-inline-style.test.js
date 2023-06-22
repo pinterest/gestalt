@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import rule from './prefer-box-inline-style.js';
 import { parserOptions } from './helpers/testHelpers.js';
+import rule from './prefer-box-inline-style.js';
 
 const ruleTester = new RuleTester({ parserOptions });
 
@@ -30,7 +30,7 @@ const getErrorMessage = (string: string) =>
 ruleTester.run('prefer-box', rule, {
   valid: [{ code: validCode }],
   invalid: [
-    [invalidBackgroundColor, '`color="white"`'],
+    [invalidBackgroundColor, '`color="default"`'],
     [invalidBorderRadius, '`rounding="circle"`'],
     [invalidBorder, '`borderStyle="lg"`'],
   ].map(([code, errorMessage]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),

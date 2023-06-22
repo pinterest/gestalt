@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { Flex, Tabs, Label, Text, Switch, Box } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Flex, Label, Switch, Tabs, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [activeIndex, setActiveIndex] = useState(0);

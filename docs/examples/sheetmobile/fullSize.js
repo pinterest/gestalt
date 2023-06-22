@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import {
+  Box,
+  Button,
+  CompositeZIndex,
+  DeviceTypeProvider,
+  FixedZIndex,
   Flex,
   Layer,
   SheetMobile,
-  Box,
   Text,
-  DeviceTypeProvider,
-  Button,
-  FixedZIndex,
-  CompositeZIndex,
 } from 'gestalt';
 
 export default function Example(): Node {
@@ -38,7 +38,12 @@ export default function Example(): Node {
             }
             size="full"
           >
-            <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
+            <Box>
+              {Array(100).map((number, index) => {
+                const key = `example${index}`;
+                return <Text key={key}>Content</Text>;
+              })}
+            </Box>
           </SheetMobile>
         </Layer>
       ) : null}

@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, Children, type Node } from 'react';
+import { Children, Fragment, type Node } from 'react';
 
 const ALLOWED_CHILDREN_MAP = {
   'main': ['SideNavigation.Section', 'SideNavigation.TopItem', 'SideNavigation.Group'],
@@ -17,7 +17,8 @@ const getChildrenToArray = ({
   const navigationChildren = [];
 
   let recursionLevel = 0;
-  const getChildren = ({ nodeChildren }: {| nodeChildren: Node |}) =>
+  const getChildren: ({| nodeChildren: Node |}) => void = ({ nodeChildren }) =>
+    // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.toArray(nodeChildren).forEach((child) => {
       // Detect incorrect subcomponent usage at the main level
       if (filterLevel === 'main' && ALLOWED_CHILDREN_MAP.nested.includes(child.type.displayName)) {

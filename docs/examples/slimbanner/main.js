@@ -4,7 +4,7 @@ import { Box, SlimBanner } from 'gestalt';
 
 export default function ResponsiveExample(): Node {
   return (
-    <Box padding={4} height="100%" display="flex" alignItems="center">
+    <Box padding={8} height="100%" display="flex" alignItems="center">
       <SlimBanner
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',

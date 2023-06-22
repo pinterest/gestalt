@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Image, Box, Flex, Text } from 'gestalt';
+import { Box, Flex, Image, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -25,10 +25,10 @@ import IllMessaging from '../../graphics/illustration/ill-messaging.svg';
 import IllMobileExample from '../../graphics/illustration/ill-mobile-example.svg';
 import IllResize from '../../graphics/illustration/ill-resize.svg';
 import IllSmall from '../../graphics/illustration/ill-small.svg';
+import IllSuccess from '../../graphics/illustration/ill-success.svg';
 import IllSuccessLarge from '../../graphics/illustration/ill-success-lg.svg';
 import IllSuccessMedium1 from '../../graphics/illustration/ill-success-md-1.svg';
 import IllSuccessMedium2 from '../../graphics/illustration/ill-success-md-2.svg';
-import IllSuccess from '../../graphics/illustration/ill-success.svg';
 import IllWebExample from '../../graphics/illustration/ill-web-example.svg';
 import IllWhitespace from '../../graphics/illustration/ill-whitespace.svg';
 

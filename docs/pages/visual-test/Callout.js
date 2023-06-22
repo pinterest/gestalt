@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Callout, Box } from 'gestalt';
+import { Box, Callout, Flex } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (

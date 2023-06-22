@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
-import styles from './Flex.css';
 import { buildStyles } from './boxTransforms.js';
+import styles from './Flex.css';
 
 type Dimension = number | string;
 

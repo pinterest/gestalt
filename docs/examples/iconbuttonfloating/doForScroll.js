@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { IconButtonFloating, Dropdown, Box, Flex, Image, Text } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Box, Dropdown, Flex, IconButtonFloating, Image, Text } from 'gestalt';
 
 const cards = [
   {
@@ -17,7 +17,7 @@ const cards = [
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<null | HTMLElement>(null);
 
   return (
     <Box margin={2}>

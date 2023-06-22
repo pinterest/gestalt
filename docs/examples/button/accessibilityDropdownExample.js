@@ -1,11 +1,15 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { Button, Dropdown, Box } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Box, Button, Dropdown } from 'gestalt';
 
 export default function ActionDropdownExample(): Node {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const anchorRef = useRef(null);
+  const [selected, setSelected] = useState<null | {|
+    label: string,
+    subtext?: string,
+    value: string,
+  |}>(null);
+  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const onSelect = ({
     item,

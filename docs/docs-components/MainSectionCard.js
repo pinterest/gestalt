@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node, useCallback } from 'react';
+import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
-import { DatePicker } from 'gestalt-datepicker';
-import { LiveProvider, LiveError, LivePreview } from 'react-live';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
+import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import theme from './atomDark.js';
+import OpenSandboxButton from './buttons/OpenSandboxButton.js';
 import ExampleCode from './ExampleCode.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
 import Markdown from './Markdown.js';
-import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
 type Props = {|
   cardSize?: 'sm' | 'md' | 'lg',
@@ -57,7 +57,7 @@ function MainSectionCard({
   type = 'info',
 }: Props): Node {
   const code = defaultCode?.trim();
-  const scope = { ...gestalt, DatePicker };
+  const scope = { ...gestalt, ...gestaltDatepicker };
   const borderStyle =
     type !== 'info' ? `3px solid var(--color-background-${TYPE_TO_COLOR[type]}-base)` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;

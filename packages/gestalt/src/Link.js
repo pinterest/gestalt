@@ -1,29 +1,31 @@
 // @flow strict
 import {
+  type AbstractComponent,
+  type Element,
+  type ElementConfig,
   forwardRef,
+  type Node,
+  type Ref,
   useImperativeHandle,
   useRef,
-  type AbstractComponent,
-  type Node,
-  type Element,
-  type Ref,
-  type ElementConfig,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
+import Box from './Box.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import focusStyles from './Focus.css';
+import getRoundingClassName from './getRoundingClassName.js';
+import Icon from './Icon.js';
 import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
-import textStyles from './Typography.css';
-import Box from './Box.js';
-import getRoundingClassName from './getRoundingClassName.js';
-import Icon from './Icon.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
 import Text from './Text.js';
+import textStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 
 const externalLinkIconMap = {
   '100': 12,
@@ -95,7 +97,7 @@ type Props = {|
    */
   onBlur?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
   /**
-   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
@@ -165,7 +167,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   }: Props,
   ref,
 ): Element<'a'> {
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -214,6 +216,15 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
+  // Consumes GlobalEventsHandlerProvider
+  const { linkHandlers } = useGlobalEventsHandlerContext() ?? {
+    linkHandlers: { onNavigation: undefined },
+  };
+
+  const { onNavigation } = linkHandlers ?? { onNavigation: undefined };
+
+  const onNavigationHandler = onNavigation?.({ href, target }) ?? defaultOnNavigation;
+
   const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
     if (onClick && keyPressShouldTriggerTap(event)) {
@@ -249,8 +260,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
             dangerouslyDisableOnNavigation,
           });
         }
-        if (defaultOnNavigation && defaultOnNavigationIsEnabled) {
-          defaultOnNavigation({ event });
+        if (onNavigationHandler && defaultOnNavigationIsEnabled) {
+          onNavigationHandler({ event });
         }
       }}
       onFocus={(event) => {

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { TextArea, Box } from 'gestalt';
+import { Box, TextArea } from 'gestalt';
 
 export default function Screenshot(): Node {
   return (

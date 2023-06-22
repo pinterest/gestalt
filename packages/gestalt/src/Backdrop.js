@@ -1,13 +1,13 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
+import { ANIMATION_STATE, useAnimation } from './animation/AnimationContext.js';
 import styles from './Backdrop.css';
-import { useAnimation, ANIMATION_STATE } from './animation/AnimationContext.js';
 
 type Props = {|
   children?: Node,
   closeOnOutsideClick: boolean,
-  onClick?: (event: MouseEvent) => void,
+  onClick?: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
 |};
 
 function Backdrop({ children, closeOnOutsideClick, onClick }: Props): Node {

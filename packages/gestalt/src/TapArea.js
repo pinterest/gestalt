@@ -1,15 +1,16 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent, useImperativeHandle, useRef } from 'react';
+import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import focusStyles from './Focus.css';
-import styles from './TapArea.css';
+import getAriaLabel from './accessibility/getAriaLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { type AriaCurrent } from './ariaTypes.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import focusStyles from './Focus.css';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import NewTabAccessibilityLabel, { getAriaLabel } from './NewTabAccessibilityLabel.js';
+import InternalLink from './Link/InternalLink.js';
+import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import InternalLink from './Link/InternalLink.js';
 
 type FocusEventHandler = ({|
   event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
@@ -104,7 +105,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     tapStyle = 'none',
   } = props;
 
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -135,6 +136,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
+      // $FlowFixMe[invalid-computed-prop]
       [styles[mouseCursor]]: !disabled,
       [styles.tapCompress]:
         props.role !== 'link' && !disabled && tapStyle === 'compress' && isTapping,

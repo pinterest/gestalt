@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { Flex, AvatarGroup, Avatar, Text, Box, Layer, Popover } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Avatar, AvatarGroup, Box, Flex, Layer, Popover, Text } from 'gestalt';
 
 const collaborators = [
   {
@@ -32,7 +32,7 @@ function List(): Node {
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef();
+  const anchorRef = useRef<null | HTMLDivElement | HTMLAnchorElement>(null);
 
   return (
     <Flex height="100%" width="100%" alignItems="center" justifyContent="center">

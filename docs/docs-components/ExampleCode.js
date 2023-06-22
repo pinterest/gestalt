@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Flex, Text } from 'gestalt';
 import { LiveEditor } from 'react-live';
+import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext.js';
-import clipboardCopy from './clipboardCopy.js';
-import handleCodeSandbox from './handleCodeSandbox.js';
 import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton.js';
 import CopyCodeButton from './buttons/CopyCodeButton.js';
 import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import clipboardCopy from './clipboardCopy.js';
+import handleCodeSandbox from './handleCodeSandbox.js';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 
@@ -40,7 +40,7 @@ export default function ExampleCode({
   const [expanded, setExpanded] = useState(developmentEditor);
   const [showExpandButton, setShowExpandButton] = useState(hideCodePreview);
   const [maxHeight, setMaxHeight] = useState('500px');
-  const codeExampleRef = useRef(null);
+  const codeExampleRef = useRef<null | HTMLDivElement>(null);
   const codeBoxMinHeight = hideCodePreview ? undefined : '152px';
   let containerBoxMaxHeight;
 

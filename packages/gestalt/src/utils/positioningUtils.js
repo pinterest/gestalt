@@ -6,10 +6,10 @@ import {
   type Coordinates,
   type Dimensions,
   type EdgeShift,
-  type PopoverDir,
   type MainDirections,
-  type Window,
   type Offset,
+  type PopoverDir,
+  type Window,
 } from './positioningTypes.js';
 
 // CONSTANTS

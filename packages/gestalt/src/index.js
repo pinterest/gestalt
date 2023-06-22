@@ -13,6 +13,12 @@ import Collage from './Collage.js';
 import Column from './Column.js';
 import ComboBox from './ComboBox.js';
 import Container from './Container.js';
+import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
+import ExperimentProvider from './contexts/ExperimentProvider.js';
+import GlobalEventsHandlerProvider from './contexts/GlobalEventsHandlerProvider.js';
+import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
 import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
@@ -58,10 +64,12 @@ import Switch from './Switch.js';
 import Table from './Table.js';
 import Tabs from './Tabs.js';
 import Tag from './Tag.js';
+import TagData from './TagData.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
 import TextField from './TextField.js';
+import TileData from './TileData.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Upsell from './Upsell.js';
@@ -69,12 +77,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import Video from './Video.js';
 import WashAnimated from './WashAnimated.js';
-import { FixedZIndex, CompositeZIndex } from './zIndex.js';
-import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
-import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
-import ExperimentProvider from './contexts/ExperimentProvider.js';
-import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
+import { CompositeZIndex, FixedZIndex } from './zIndex.js';
 
 export {
   ActivationCard,
@@ -101,6 +104,7 @@ export {
   Fieldset,
   FixedZIndex,
   Flex,
+  GlobalEventsHandlerProvider,
   Heading,
   HelpButton,
   Icon,
@@ -142,16 +146,18 @@ export {
   Table,
   Tabs,
   Tag,
+  TagData,
   TapArea,
   Text,
   TextArea,
   TextField,
+  TileData,
   Toast,
   Tooltip,
   Upsell,
-  Video,
-  WashAnimated,
   useColorScheme,
   useFocusVisible,
   useReducedMotion,
+  Video,
+  WashAnimated,
 };

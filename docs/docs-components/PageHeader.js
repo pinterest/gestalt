@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node, type Element } from 'react';
-import { Badge, Box, Flex, Heading, Text, Link, SlimBanner } from 'gestalt';
+import { type Element, type Node } from 'react';
+import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
+import trackButtonClick from './buttons/trackButtonClick.js';
 import COMPONENT_DATA from './COMPONENT_DATA.js';
 import MainSection from './MainSection.js';
 import Markdown from './Markdown.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 import { SlimBannerExperiment } from './SlimBannerExperiment.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
 
 const buildSourceLinkPath = (componentName: string) => {
   const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
@@ -158,7 +158,7 @@ export default function PageHeader({
           <Flex direction="column" gap={6}>
             <Flex direction="column" gap={1}>
               {description && <Markdown text={description} />}
-              {aliases && (
+              {aliases && aliases.length > 0 && (
                 // using h2 to indicate to Algolia search that this is important, but don't want native browser styling
                 <h2 className="reset">
                   <Text italic>also known as {aliases.join(', ')}</Text>

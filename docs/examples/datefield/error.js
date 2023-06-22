@@ -1,11 +1,11 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [dateValue, setDateValue] = useState(null);
-  const [errorText, setErrorText] = useState(null);
+  const [dateValue, setDateValue] = useState<?Date>(null);
+  const [errorText, setErrorText] = useState<?string>(null);
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">

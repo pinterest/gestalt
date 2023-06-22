@@ -79,7 +79,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             name: 'onClick',
             type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
             description:
-              'Callback fired when the component is clicked, pressed or tapped. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
+              'Callback fired when the component is clicked, pressed or tapped. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
           },
           {
             name: 'padding',
@@ -193,7 +193,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type: 'link',
             required: true,
             description:
-              'Sets link interaction in the component. See the [role](#Role) variant and [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
+              'Sets link interaction in the component. See the [role](#Role) variant and [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
           },
           {
             name: 'target',
@@ -354,7 +354,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
 
 \`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.
 
-IconButtons that act as links can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.`}
+IconButtons that act as links can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.`}
             sandpackExample={<SandpackExample code={roleLink} name="Role link example" />}
           />
           <MainSection.Card
@@ -523,8 +523,8 @@ Button allows users to take actions, and make choices using text labels to expre
 **[Icon](/web/icon)**
 IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt [Icon](/web/icon) library.
 
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
 **[Dropdown](/web/dropdown)**
 It's most common to anchor Dropdown to [Button](/web/button) or IconButton.

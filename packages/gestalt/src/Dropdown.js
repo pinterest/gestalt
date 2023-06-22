@@ -1,19 +1,19 @@
 // @flow strict
-import { Fragment, Children, cloneElement, type Node, useState } from 'react';
+import { Children, cloneElement, Fragment, type Node, useState } from 'react';
+import AnimationProvider from './animation/AnimationContext.js';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import Box from './Box.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { DropdownContextProvider } from './Dropdown/Context.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownLink from './DropdownLink.js';
 import DropdownSection from './DropdownSection.js';
-import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
-import { type Indexable } from './zIndex.js';
-import AnimationProvider from './animation/AnimationContext.js';
-import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { DropdownContextProvider } from './Dropdown/Context.js';
 import PartialPage from './SheetMobile/PartialPage.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
+import { type Indexable } from './zIndex.js';
 
 const KEYS = {
   UP: -1,
@@ -80,7 +80,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
       child.type === Fragment
     ) {
-      const sectionChildrenArray = Children.toArray(subSectionChildren).flat();
+      const sectionChildrenArray = Children.toArray<Node>(subSectionChildren).flat();
 
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
@@ -169,7 +169,7 @@ export default function Dropdown({
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<?number>(isMobile ? undefined : 0);
 
-  const dropdownChildrenArray = Children.toArray(children);
+  const dropdownChildrenArray = Children.toArray<Node>(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;

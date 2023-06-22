@@ -1,20 +1,20 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import {
-  Flex,
   Box,
-  ScrollBoundaryContainer,
-  Text,
-  Tooltip,
-  TapArea,
+  Flex,
   Icon,
   RadioGroup,
+  ScrollBoundaryContainer,
+  TapArea,
+  Text,
+  Tooltip,
 } from 'gestalt';
 
 export default function Example(): Node {
-  const [content, setContent] = useState(null);
-  const [claimed, setClaimed] = useState(null);
-  const [device, setDevice] = useState(null);
+  const [content, setContent] = useState<?string>(null);
+  const [claimed, setClaimed] = useState<?string>(null);
+  const [device, setDevice] = useState<?string>(null);
 
   return (
     <Box padding={4} color="secondary" height="100%">

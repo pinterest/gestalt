@@ -3,6 +3,254 @@
     "year": "2023",
     "digests": [
       {
+        "week": "June 16, 2023",
+        "summary": "iOS in-app Gestalt tools, DefaultLabelProvider improvements, Figma library updates and a bunch of updates to our Figma plugin.",
+        "posts": [
+          {
+            "title": "iOS in-app color and icon browsers",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/f2/af/0a/f2af0a8e60daa2e2b1f5ec05373ee9aa.png",
+            "imageAltText": "Screenshots of the iOS in-app color and icon browsers.",
+            "content": "We continue to build out the foundation of Gestalt for mobile. A nice step forward is the inclusion of our MVP color and icon browsers in the iOS pre-release mobile app builds. You can find both browsers in the Product Design Standards section of dev tools."
+          },
+          {
+            "title": "DefaultLabelProvider improvements",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/34/ad/fc/34adfc319d0e5f8790579da847293340.png",
+            "imageAltText": "Screenshot of DefaultLabelProvider code and example of how it renders.",
+            "content": "We greatly expanded the use of [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider) by adding 26 new strings and updating 7 existing strings. We also cleaned up the Video component API so you no longer have to set up accessibility labels manually for mute, pause, play, and so on."
+          },
+          {
+            "title": "Figma RadioGroup component improvements",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/66/67/45/666745da5f9e73d16324da222d730e2f.png",
+            "imageAltText": "Example of Figma RadioGroup component.",
+            "content": "We continue to refine our Figma libraries with quality-of-life improvements. This week, we fixed up RadioGroup to be simpler and more consistent to use across all platforms."
+          },
+          {
+            "title": "Pinterest Design plugin updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/e7/4a/50/e74a509f6fd77ed1abea3a7101515e27.png",
+            "imageAltText": "Promo picture of the Pinterest Design Figma plugin.",
+            "content": "We've added a ton of improvements to our [Pinterest Design Figma plugin](https://www.figma.com/community/plugin/1215463263194174399). Here's a rundown of the highlights:\n* Added a Re-Run button to the top of the Color Converter module so you don't have to navigate back to run again\n * Improved Color Converter success rate by linting and pre-autofixing some text and fill color styles\n * Now showing Pin title on hover in the Pinsert module Pin grid\n * Added empty search results text to the Pinsert module indicating when search is complete but yielded no results\n* Now using the highest available Pin image resolution for fills\n* Refined the logic for centering and zooming selections when inserting images\n\nMany, many more improvements are coming, so we suggest giving it a go!"
+          }
+        ]
+      },
+      {
+        "week": "June 9, 2023",
+        "summary": "ActionBar component added to Figma libraries.",
+        "posts": [
+          {
+            "title": "Updated ActionBar Figma components",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ca/58/19/ca58194ee5d8344446ab41ad60692e47.png",
+            "imageAltText": "Example of the Figma ActionBar component",
+            "content": "Fresh off the press is our new Figma ActionBar component for Android, iOS and Web! Three things you need to know:\n\n1. It's a “pilot” component, meaning we are still improving this component. Changes might occur in the future; so make sure to keep your files up to date with Gestalt updates, and you will be good to go! This component is only available on Figma at this moment.\n2. ActionBar uses 48 px height elements. We plan to unify our SM Button and LG IconButton size from 44 to 48 in all platforms, to meet accessibility standards and improve the experience for the broadest range of Pinners. We have decided to maintain this height to clarify our long-term direction for this component.\n3."
+          }
+        ]
+      },
+      {
+        "week": "June 2, 2023",
+        "summary": "Major data visualization updates, significant Android docs improvements and advertising safe zone guidelines.",
+        "posts": [
+          {
+            "title": "Data visualization guidelines",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/fd/63/e2/fd63e23c2a4e5a07bd8baf892e6ff7d0.png",
+            "imageAltText": "Illustration of data visualizations.",
+            "content": "We are beyond excited to share the release of our [expanded data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/overview). These guidelines cover [charts and graphs](https://gestalt.pinterest.systems/foundations/data_visualization/charts_and_graphs), [micro-visualizations](https://gestalt.pinterest.systems/foundations/data_visualization/micro_visualizations), [available components](https://gestalt.pinterest.systems/foundations/data_visualization/available_components), [color palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette) and [color usage](https://gestalt.pinterest.systems/foundations/data_visualization/color/usage). This was a major lift by the team and we're stoked it's available."
+          },
+          {
+            "title": "Data visualization Figma components",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/c1/a9/30/c1a93054b517ee01e6d995a02adfd3b2.png",
+            "imageAltText": "Screenshots of Figma bar chart component.",
+            "content": "We're not done on the topic of data visualization. We also added new data viz component to our Figma data viz library! In there you'll find bar charts, line charts, tiles and tags specifically for the purpose of (you guessed it) data visualization. This, along with our guidelines is going to set us up nicely to deliver code-backed React components in H2 of this year."
+          },
+          {
+            "title": "Gobs of Android docs improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/4f/01/86/4f0186872cb58f4312464c53d3c7d64a.png",
+            "imageAltText": "The Android logo.",
+            "content": "Our team has been putting a lot of work expanding our mobile documentation. We recently published a major update so that all our Android component docs now include full design specs (including anatomy, token breakdowns, and variant details). As we continue active development of Android components, these updates should make that process smoother and awesomer."
+          },
+          {
+            "title": "Advertising safe area",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/4d/79/85/4d79855e589e2e7b6126d43704e17f3a.png",
+            "imageAltText": "An example of advertising safe zones added to the Figma Pin component.",
+            "content": "We've begun the introduction of defining advertising safe zones within the Pin component to ensure content is not occluded by UI. These specifications are currently only in our Figma Web Library, but we are actively discussing how we can make these guidelines more available across Pinterest."
+          }
+        ]
+      },
+      {
+        "month": "May",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng May Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from May."
+          },
+          {
+            "title": "TileData",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/f3/ab/a7/f3aba7b207e12d3b61f292da42f5a7d1.png",
+            "imageAltText": "Screenshot of TileData UI",
+            "content": "Introducing our newest component, [TileData](https://gestalt.pinterest.systems/web/tiledata)! TileData enables users to select multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points. We plan to release more data viz components later this year — keep an eye on [our Roadmap page](https://gestalt.pinterest.systems/roadmap) for updates!"
+          },
+          {
+            "title": "TypeScript declarations",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/7d/f9/1f/7df91f42f7244e999e5d38607fd6f123.jpg",
+            "imageAltText": "Decorative TypeScript logo with Seattle skyline",
+            "content": "We now include TypeScript declarations for `gestalt` and `gestalt-datepicker`! Long requested by internal tools folks, this means that you can use Gestalt in TypeScript projects without needing to install any additional packages. We added a `types` field to our `package.json` files, so that TypeScript projects can automatically find the declarations. While we don't have specific plans to migrate to TypeScript yet, this is a big step towards making TypeScript a first-class citizen in Gestalt."
+          },
+          {
+            "title": "Mobile web adaptive components",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/b7/86/51/b786513ca78ffd2a075cb58d300a35d8.png",
+            "imageAltText": "Screenshot of mobile Dropdown UI",
+            "content": "As teased previously, we've started to roll out mobile-specific UI for certain components. Supported components will automatically adapt to the user's device type to show the preferred UI (though this can be overridden when needed). We've started with [Dropdown](https://gestalt.pinterest.systems/web/dropdown) and [Modal](https://gestalt.pinterest.systems/web/modal), and will continue to add more components over time. This means that for most UIs, you can use the same Gestalt components on both web and mobile, and they'll automatically `do the right thing`. This will bring a much more native feel to our mobile experience!"
+          },
+          {
+            "title": "Component updates: Dropdown.Link, Icon, List, OverlayPanel, PageHeader, PopoverEducational, SheetMobile, Status, Table.Row",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/5c/60/6e/5c606efb70e57074a47cbfaa4a398bd7.png",
+            "imageAltText": "Screenshot of Status with `queued` status",
+            "content": "We added a [new lint rule](https://github.com/pinterest/gestalt/tree/master/packages/eslint-plugin-gestalt#gestaltprefer-list) to encourage [List](https://gestalt.pinterest.systems/web/list) usage, which has already been enabled in Pinboard. [Status](https://gestalt.pinterest.systems/web/status) now has a new `queued` status available. [PageHeader](https://gestalt.pinterest.systems/web/pageheader) also now has a full complement of `badge` types available. [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) and related subcomponents gained two new props, `hoverStyle` and `selected`. [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) also got a new prop, `onOutsideClick`. We updated the icon used in [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Link) for external links. [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) and [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) got improved animations, and we fixed a bug with [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational)'s `zIndex` prop. Finally, pour one out (again!) for Google Plus — we finally removed the `google-plus` icon from [our icon library](https://gestalt.pinterest.systems/foundations/iconography/library)."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "content": "We added and updated content for our Android ButtonGroup and TextField pages. We also continue to refactor web component pages using our old code editor to use Sandpack instead — two more this month!"
+          }
+        ]
+      },
+      {
+        "week": "May 26, 2023",
+        "summary": "New TileData component, updates to PageHeader, more Figma library updates and better documentation code examples.",
+        "posts": [
+          {
+            "title": "New TileData component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/c7/f1/11/c7f111ec88907d1021f4dfe7d06cbf1f.png",
+            "imageAltText": "Example of Gestalt's TileData component.",
+            "content": "Say hello [TileData](https://gestalt.pinterest.systems/web/tiledata)! This component is part of our effort to provide greater support for data visualization within Gestalt. TileData is for selecting categories in a graph or chart. And we plan to ship graphs/charts within Gestalt the second half of this year."
+          },
+          {
+            "title": "PageHeader badge update",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/b3/f7/09/b3f709f674fcb5c59ae84a2cdd61452b.png",
+            "imageAltText": "Gestalt PageHeader component with a success badge.",
+            "content": "We've increased the awesomosity of [PageHeader](https://gestalt.pinterest.systems/web/pageheader) by enabling the title badge to be set to different types (like `success`). To see this in action, have a look at the [PageHeader title variant example](https://gestalt.pinterest.systems/web/pageheader#Title)."
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/91/63/a3/9163a3141d6bc10738842aa144e3bbb9.png",
+            "imageAltText": "Gestalt text displayed with line height called out.",
+            "content": "We continue to make Figma library updates by the buckets. Here are the highlights:\n* The line height for Android and iOS text styles were updated to more accurately reflect what’s in code\n * We implemented [simplified component instances](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#simplified) for our iOS and Android components\n * Lastly, we updated our mobile Contextual Menu component to be, well, an actual component. Sorry about that!"
+          },
+          {
+            "title": "Code example updates",
+            "audience": ["Engineering"],
+            "imageColor": "black-cosmicore-900",
+            "imageSrc": "https://i.pinimg.com/originals/02/ed/d1/02edd11bfeaef81b9cea02376e158021.png",
+            "imageAltText": "Screenshot of Gestalt example code.",
+            "content": "Our old documentation code samples have some issues - specifically around selecting text. We're fixing that by migrating our code examples to Sandpack. We just shipped shiny new examples for [Callout](https://gestalt.pinterest.systems/web/callout), which brings us close to 60% of components migrated over. We plan to keep this going by migrating [SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) and [Table](https://gestalt.pinterest.systems/web/table) in the next couple weeks."
+          }
+        ]
+      },
+      {
+        "week": "May 17, 2023",
+        "summary": "Improved search results, new Pin aspect ratios and Android icons in the Gestalt codebase",
+        "posts": [
+          {
+            "title": "Docs search improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/ec/96/ad/ec96adec5575603e00a6189eff6efc84.png",
+            "imageAltText": "A search field with text entered that says, 'It works now'.",
+            "content": "We've dramatically improved the relevance of search results in our documentation. This has admittedly been an issue for some time and has been a frequently shared pain point by folks who use our documentation. We're super excited to say that our search improvements should alleviate a lot of those frustrations. We apologize it took so long to get this fix out, but we're so glad it's landed."
+          },
+          {
+            "title": "Figma Pin component aspect ratios",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/1d/e3/e3/1de3e3ac2ec3075e5623e514d9e2ef38.png",
+            "imageAltText": "Example of the Pin Figma component and list of supported aspect ratios.",
+            "content": "We've added landscape Pin image aspect ratio variants to our Figma Android, iOS and Web libraries. Specifically, 16:9, 3:2 and 4:3. This enables better support for alternative ways Pins are displayed."
+          },
+          {
+            "title": "Gestalt icons added for Android",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/73/83/65/73836529f6a8b91a2b4a2a3e23e76b01.png",
+            "imageAltText": "Thumbs up icon.",
+            "content": "We've added the full Gestalt icon set in Android format to our codebase. This is a _major_ step towards creating a centralized, unified, cross platform icon collection. Doing so will allow us to make macro-level visual iconography improvements across all platforms with near zero operational overhead. This is just the first step, but a big one."
+          }
+        ]
+      },
+      {
+        "week": "May 12, 2023",
+        "summary": "Dropdown updates, smoother animations, new guidelines to help with design file hygiene, more Figma library updates and mobile documentation.",
+        "posts": [
+          {
+            "title": "Dropdown updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/7a/77/45/7a7745342069fdb0dab8134ec86dfc27.png",
+            "imageAltText": "Examples of Dropdown in desktop and mobile web contexts.",
+            "content": "Gestalt's Web Dropdown now is [mWeb adaptive](https://gestalt.pinterest.systems/web/dropdown#Mobile). This is awesome because now using Dropdown will _just work_ in any situation. For desktop, the menu will display as a Popover and on mobile, it'll reveal as a Sheet. This means just one less thing for you to do when building experiences. So make sure to treat yourself to something nice with all the extra time you now have\n\n**Note:** Dropdown mobile adaptation is not set as default yet. We are still improving SheetMobile to support additional functionality. Once the refinements are finished, we'll set mobile adaptation to SheetMobile as default.\n\nWe also switched out the link affordance to our new standard `visit` icon. This will ensure greater visual continuity throughout the product."
+          },
+          {
+            "title": "Animation improvements for Sheet and OverlayPanel",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/f6/22/9c/f6229cdc4b5608650e4f48f144c58e45.png",
+            "imageAltText": "",
+            "content": "We implemented `window.requestAnimationFrame` to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) and [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel) so our browsers can be smarter and more performant managing the animations in these components. This means silkier and smooth-ier in-product transitions."
+          },
+          {
+            "title": "Design hygiene guidelines",
+            "audience": ["Design"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/85/74/1f/85741f88e9f47364c5f6e43f03df78cc.png",
+            "imageAltText": "",
+            "content": "Keeping our design files clean and organized is one of those unspoken, yet absolutely critical things to help maintain focus and flow. We've put together a set of guidelines to help ensure we're all keeping our files clear and tidy. These guidelines include [naming conventions](https://gestalt.pinterest.systems/team_support/design_file_hygiene/naming_convention), [organizing layout](https://gestalt.pinterest.systems/team_support/design_file_hygiene/organizing_layout), [Figma branches](https://gestalt.pinterest.systems/team_support/design_file_hygiene/figma_branches) and last but _definitely not least_, [design handoff](https://gestalt.pinterest.systems/team_support/design_file_hygiene/design_handoff).\n\nWe are really hopeful these guidelines will help everyone's day to day work and would love your feedback on this!"
+          },
+          {
+            "title": "Figma library updates",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/8d/b9/e8/8db9e8f95ffa9cdc4f50d5508b94a869.png",
+            "imageAltText": "",
+            "content": "It seems like every week comes with a bunch of Figma library updates and this week is no exception.\n\n* We are super excited to share that we've implemented [simplified component instances](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties#simplified) in most of the Figma web library components. This update means only editable layers for our components are visible in the layers panel. We started with Web to get your feedback and plan to roll out to all libraries once we hear your feedback. \n\n* We also have a new component on the web Figma library: our trusty List component. Using List will ensure that you're following the standard spacing and bullets used for our React components.\n\n* Lastly, we added disabled variants to the Android and iOS Switch components."
+          },
+          {
+            "title": "ButtonGroup Android docs",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/2a/85/4c/2a854c2a84b0b7b40062dd8839878b02.png",
+            "imageAltText": "",
+            "content": "Lastly, we've added component docs for [Android ButtonGroup](https://gestalt.pinterest.systems/android/buttongroup). This is our first step towards getting this component built and available in the Android codebase."
+          }
+        ]
+      },
+      {
         "week": "May 5, 2023",
         "summary": "Official TypeScript support, mweb-adaptive Dropdowns, TextField Android docs and boatloads of Figma library updates.",
         "posts": [

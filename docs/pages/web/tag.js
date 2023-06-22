@@ -37,7 +37,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             title="When to use"
             description={`
-          - In conjunction with [TextField](/web/textfield#tagsExample), [TextArea](/web/textarea#tagsExample), and [ComboBox](/web/combobox#Tags), or as a standalone element to display selected options.
+          - In conjunction with [TextField](/web/textfield#Tags), [TextArea](/web/textarea#With-tags), and [ComboBox](/web/combobox#Tags), or as a standalone element to display selected options.
         `}
           />
           <MainSection.Card

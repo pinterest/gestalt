@@ -1,12 +1,12 @@
 // @flow strict
 import {
   type Context,
+  createContext,
   type Element,
   type Node,
+  useCallback,
   useContext,
   useState,
-  useCallback,
-  createContext,
 } from 'react';
 
 type ScrollBoundaryContainerContextType = {|
@@ -27,11 +27,13 @@ const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType
 const { Provider } = ScrollBoundaryContainerContext;
 
 function ScrollBoundaryContainerProvider({ children }: Props): Element<typeof Provider> {
-  const [scrollBoundaryContainerRef, setScrollBoundaryContainerRef] = useState(null);
+  const [scrollBoundaryContainerRef, setScrollBoundaryContainerRef] = useState<null | HTMLElement>(
+    null,
+  );
 
   const scrollBoundaryContainerContext = {
     scrollBoundaryContainerRef,
-    addRef: useCallback((ref) => {
+    addRef: useCallback((ref: HTMLElement) => {
       setScrollBoundaryContainerRef(ref);
     }, []),
   };

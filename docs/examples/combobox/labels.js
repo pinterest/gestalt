@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { Box, ComboBox, Heading, Text, Link, Flex } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, ComboBox, Flex, Heading, Link, Text } from 'gestalt';
 
 export default function Example(): Node {
   const CATEGORIES = [
@@ -34,7 +34,7 @@ export default function Example(): Node {
     value: `value${index}`,
   }));
 
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,

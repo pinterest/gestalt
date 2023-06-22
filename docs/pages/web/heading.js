@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Text, Table, SlimBanner } from 'gestalt';
+import { Box, SlimBanner, Table, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docgen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -9,15 +9,33 @@ import Markdown from '../../docs-components/Markdown.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import accessibilityLevelExample from '../../examples/heading/accessibilityLevelExample.js';
+import alignmentExample from '../../examples/heading/alignmentExample.js';
+import clearlyDescribeTheSection from '../../examples/heading/clearlyDescribeTheSection.js';
+import colorsExample from '../../examples/heading/colorsExample.js';
+import dontCenterAlign from '../../examples/heading/dontCenterAlign.js';
+import dontOverlyLongHeadings from '../../examples/heading/dontOverlyLongHeadings.js';
+import dontUseToEmphasizeText from '../../examples/heading/dontUseToEmphasizeText.js';
+import dontUseVagueLanguage from '../../examples/heading/dontUseVagueLanguage.js';
+import groupTextIntoSections from '../../examples/heading/groupTextIntoSections.js';
+import keepHeadingShort from '../../examples/heading/keepHeadingShort.js';
+import mainExample from '../../examples/heading/mainExample.js';
+import overflowAndTruncationExample from '../../examples/heading/overflowAndTruncationExample.js';
+import startAlignHeadings from '../../examples/heading/startAlignHeadings.js';
+import variantsExample from '../../examples/heading/variantsExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode="<Heading size={500}>An H2 Heading example</Heading>"
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample
+          name="Use to help group text and items into sections in a logical order."
+          code={mainExample}
+          layout="column"
+          hideEditor
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -44,27 +62,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Use to help group text and items into sections in a logical order."
-            defaultCode={`
-  <Flex gap={{ column: 2, row: 0 }} direction="column">
-    <Text weight="bold" size="500">(H1) The creator code</Text>
-    <Text size="200">(p) Pinterest is building a positive online space for creators. That’s why we made the Creator Code: A commitment to kindness for everyone on Pinterest. We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
-    <Text weight="bold" size="400">(H2) Be kind</Text>
-    <Text weight="bold" size="300">(H3) Express yourself</Text>
-    <Text size="200">(p) Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: Fashion inspiration to freshen up a wardrobe.</Text>
-  </Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Use to help group text and items into sections in a logical order."
+                code={groupTextIntoSections}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/web/slimbanner), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
-            defaultCode={`
-<Flex gap={{ column: 2, row: 0 }} direction="column">
-  <Text weight="bold" size="500">(H2) The creator code</Text>
-  <Text size="200">(p) Pinterest is building a positive online space for creators. That’s why we made the Creator Code: A commitment to kindness for everyone on Pinterest. We expect everyone to follow these guidelines and lead with kindness when you create new content or interact with other people on Pinterest.</Text>
-  <Text weight="bold" size="600">(H1) Be kind!</Text>
-  <Text size="200">(p) Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: Fashion inspiration to freshen up a wardrobe.</Text>
-  <Text weight="bold" size="300">(H4) Express yourself</Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Use to emphasize text that you want users to read."
+                code={dontUseToEmphasizeText}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -72,21 +91,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Keep headings short and glanceable."
-            defaultCode={`
-  <Flex gap={{ column: 2, row: 0 }} direction="column">
-    <Text weight="bold" size="200">Analytics overview</Text>
-    <Text size="200">Organic and paid metrics changed over the last 30 days. This includes impressions, saves and outbound clicks.</Text>
-  </Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Keep headings short and glanceable."
+                code={keepHeadingShort}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use overly long headings. If headings are dynamically generated (like a 3rd party app name), lineClamp will work after 2 lines, but be mindful of unintended changes in meaning."
-            defaultCode={`
-<Flex gap={{ column: 2, row: 0 }} direction="column">
-  <Text weight="bold" size="200">Analytics overview of organic and paid metrics changed over the past 30 days against the previous 30 days</Text>
-  <Text size="200">This includes impressions, saves and outbound clicks.</Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Use overly long headings."
+                code={dontOverlyLongHeadings}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -94,45 +120,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Clearly describe the section a Heading refers to."
-            defaultCode={`
- <ActivationCard
-    dismissButton={{
-      accessibilityLabel: 'Dismiss card',
-      onDismiss: () => {},
-    }}
-    link={{
-      href: "https://pinterest.com",
-      label:"Claim your website now",
-      accessibilityLabel: ""
-    }}
-    message="Grow distribution and track Pins linked to your website"
-    status="notStarted"
-    statusMessage="Not started"
-    title="Claim your website"
-  />
-  `}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Clearly describe the section a Heading refers to."
+                code={clearlyDescribeTheSection}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use vague language that doesn’t describe the section that a Heading refers to."
-            defaultCode={`
-<ActivationCard
-  dismissButton={{
-    accessibilityLabel: 'Dismiss card',
-    onDismiss: () => {},
-  }}
-  link={{
-    href: "https://pinterest.com",
-    label:"Get started",
-    accessibilityLabel: ""
-  }}
-  message="Grow distribution and track Pins linked to your website"
-  status="notStarted"
-  statusMessage="Not started"
-  title="Claim it!"
-/>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Use vague language that doesn’t describe the section that a Heading refers to."
+                code={dontUseVagueLanguage}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -140,21 +149,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="md"
             type="do"
             description="Start-align headings to make it faster for users to read text from the point where they naturally start reading. The exceptions are headings related to integers in [Table](/web/table)."
-            defaultCode={`
-<Flex gap={{ column: 4, row: 0 }} direction="column">
-  <Text weight="bold" size="500">Start a conversation</Text>
-  <Text size="200">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: Fashion inspiration to freshen up a wardrobe.</Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Do - Start-align headings to make it faster for users to read text from the point where they naturally start reading."
+                code={startAlignHeadings}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Center-align headings as it can make it harder for users with dyslexia who need a consistent stating edge. Paired with left-aligned paragraph text, it can make the typographic structure feel off-center and unbalanced."
-            defaultCode={`
-<Flex gap={{ column: 4, row: 0 }} direction="column">
-  <Text weight="bold" size="500" align="center">Start a conversation</Text>
-  <Text size="200">Great content should highlight you and your ideas. Put your original spin on something and don’t be afraid to let your own perspective shine. For example: Fashion inspiration to freshen up a wardrobe.</Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't - Center-align headings."
+                code={dontCenterAlign}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <SlimBanner
@@ -256,129 +272,40 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex gap={{ column: 4, row: 0 }} direction="column">
-  <Heading size="100">Heading size 100</Heading>
-  <span lang="ja">
-    <Heading size="100">こんにちは</Heading>
-  </span>
-
-  <span>
-    <Heading size="200">Heading size 200</Heading>
-  </span>
-  <span lang="ja">
-    <Heading size="200">こんにちは</Heading>
-  </span>
-
-  <Heading size="300">Heading size 300</Heading>
-  <span lang="ja">
-    <Heading size="300">こんにちは</Heading>
-  </span>
-
-  <Heading size="400">Heading size 400</Heading>
-  <span lang="ja">
-    <Heading size="400">こんにちは</Heading>
-  </span>
-
-  <Heading size="500">Heading size 500</Heading>
-  <span lang="ja">
-    <Heading size="500">こんにちは</Heading>
-  </span>
-
-  <Heading size="600">Heading size 600</Heading>
-  <span lang="ja">
-    <Heading size="600">こんにちは</Heading>
-  </span>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Heading variants"
+                code={variantsExample}
+                layout="column"
+                previewHeight={560}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Color">
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Box color="gray" padding={1}>
-    <Heading color="inverse" size="500">
-      Inverse
-    </Heading>
-  </Box>
-
-  <Heading size="500">
-    Default
-  </Heading>
-
-  <Heading color="subtle" size="500">
-    Subtle
-  </Heading>
-
-  <Heading color="success" size="500">
-    Success
-  </Heading>
-
-  <Heading color="error" size="500">
-    Error
-  </Heading>
-
-  <Heading color="warning" size="500">
-    Warning
-  </Heading>
-
-  <Heading color="shopping" size="500">
-    Shopping
-  </Heading>
-
-  <Box color="primary" padding={1}>
-    <Heading color="light" size="500">
-      Light
-    </Heading>
-  </Box>
-
-  <Box color="infoWeak" padding={1}>
-    <Heading color="dark" size="500">
-      Dark
-    </Heading>
-  </Box>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Colors example"
+                code={colorsExample}
+                layout="column"
+                previewHeight={520}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Overflow & truncation">
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex maxWidth={240} direction="column" gap={{ column: 8, row: 0 }}>
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-    <Text>breakWord (default):</Text>
-    <Box color="secondary" padding={2} rounding={2}>
-      <Heading size="400" overflow="breakWord">
-        This is a long and Supercalifragilisticexpialidocious sentence.
-        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      </Heading>
-    </Box>
-  </Flex>
-
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-    <Text>normal:</Text>
-    <Box color="secondary" padding={2} rounding={2}>
-      <Heading size="400" overflow="normal">
-        This is a long and Supercalifragilisticexpialidocious sentence.
-        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      </Heading>
-    </Box>
-  </Flex>
-
-  <Flex direction="column" gap={{ column: 2, row: 0 }}>
-  <Text>lineClamp:</Text>
-    <Box color="secondary" padding={2} rounding={2}>
-      <Heading size="400" lineClamp={2}>
-        This is a long and Supercalifragilisticexpialidocious sentence.
-        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      </Heading>
-    </Box>
-  </Flex>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Overflow & truncation example"
+                code={overflowAndTruncationExample}
+                layout="column"
+                previewHeight={660}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -387,19 +314,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Heading align="start" size="400">Start-aligned heading (default)</Heading>
-  <Divider />
-  <Heading align="end" size="400">End-aligned heading</Heading>
-  <Divider />
-  <Heading align="center" size="400">Center-aligned heading</Heading>
-  <Divider />
-  <Heading align="forceLeft" size="400">Forced-left-aligned heading</Heading>
-  <Divider />
-  <Heading align="forceRight" size="400">Forced-right-aligned heading</Heading>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample name="Aligment example" code={alignmentExample} layout="column" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -411,19 +328,13 @@ For certain specific situations, it is possible to use Heading without an access
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Heading size="500" accessibilityLevel={2}>
-    Medium heading level 2
-  </Heading>
-  <Heading size="400" accessibilityLevel={3}>
-    Small heading level 3
-  </Heading>
-  <Heading size="400" accessibilityLevel="none">
-    Small heading without a level
-  </Heading>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Accessibility level example"
+                code={accessibilityLevelExample}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

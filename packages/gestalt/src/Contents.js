@@ -2,17 +2,17 @@
 import { Component, type Node } from 'react';
 import classnames from 'classnames';
 import borders from './Borders.css';
+import Caret from './Caret.js';
 import colors from './Colors.css';
 import styles from './Contents.css';
-import Caret from './Caret.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import {
   type CaretOffset,
   type ClientRect,
-  type DerivedState,
-  type PopoverDir,
-  type MainDirections,
   type Coordinates,
+  type DerivedState,
+  type MainDirections,
+  type PopoverDir,
 } from './utils/positioningTypes.js';
 import {
   adjustOffsets,

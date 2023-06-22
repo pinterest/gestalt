@@ -102,7 +102,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Truncate labels in Tabs. If there is not enough horizontal space, allow the Tabs to scroll horizontally."
+            description="Truncate labels in Tabs. If there is not enough horizontal space, allow the Tabs to scroll horizontally on mobile and touch surfaces. For desktop, wrap the group of tabs to multiple lines."
             sandpackExample={
               <SandpackExample
                 code={dontTruncateLabels}
@@ -173,7 +173,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Wrapping"
-          description="Truncate the Button text. In rare instances where Buttons must remain on one line, truncate the text on the secondary Button before truncating on the primary Button."
+          description="Wrapping to multiple lines is available for tight spaces on desktop interfaces where horizontal scrolling is harder and less accessible."
         >
           <MainSection.Card
             cardSize="md"

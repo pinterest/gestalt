@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useState, useEffect, type Element } from 'react';
+import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import IconButton from './IconButton.js';

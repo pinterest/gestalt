@@ -1,11 +1,11 @@
 // @flow strict
-import { forwardRef, type Node, type AbstractComponent, useCallback, useState } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import TapArea, { type OnTapType } from './TapArea.js';
+import { type AbstractComponent, forwardRef, type Node, useCallback, useState } from 'react';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton.js';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar.js';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount.js';
+import Box from './Box.js';
+import Flex from './Flex.js';
+import TapArea, { type OnTapType } from './TapArea.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 
@@ -117,21 +117,24 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       (showCollaboratorsCount ? 1 : 0) +
       (showAddCollaboratorsButton ? 1 : 0);
 
-    const collaboratorStack = displayedCollaborators.map(({ src, name }, index) => (
-      <CollaboratorAvatar
-        hovered={hovered}
-        index={index}
-        // eslint-disable-next-line react/no-array-index-key
-        key={`collaboratorStack-${name}-${index}`}
-        name={name}
-        pileCount={pileCount}
-        size={size}
-        src={src || ''}
-      />
-    ));
+    let collaboratorStack: $ReadOnlyArray<Node> = displayedCollaborators.map(
+      ({ src, name }, index) => (
+        <CollaboratorAvatar
+          hovered={hovered}
+          index={index}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`collaboratorStack-${name}-${index}`}
+          name={name}
+          pileCount={pileCount}
+          size={size}
+          src={src || ''}
+        />
+      ),
+    );
 
     if (showCollaboratorsCount) {
-      collaboratorStack.push(
+      collaboratorStack = [
+        ...collaboratorStack,
         <CollaboratorsCount
           count={collaborators.length - 2}
           showAddCollaboratorsButton={showAddCollaboratorsButton}
@@ -140,18 +143,19 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
           pileCount={pileCount}
           size={size}
         />,
-      );
+      ];
     }
 
     if (showAddCollaboratorsButton) {
-      collaboratorStack.push(
+      collaboratorStack = [
+        ...collaboratorStack,
         <AddCollaboratorsButton
           hovered={hovered}
           key={`collaboratorStack-addButton-${collaborators.length}`}
           pileCount={pileCount}
           size={size}
         />,
-      );
+      ];
     }
 
     const AvatarGroupStack = useCallback(

@@ -1,9 +1,9 @@
 // @flow strict
-import { useState, type Node } from 'react';
+import { type Node, useState } from 'react';
 import { Box, RadioGroup } from 'gestalt';
 
 export default function Example(): Node {
-  const [favorite, setFavorite] = useState();
+  const [favorite, setFavorite] = useState<void | string>();
 
   return (
     <Box width="100%" height="100%" padding={4} display="flex" justifyContent="center">

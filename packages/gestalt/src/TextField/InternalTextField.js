@@ -1,14 +1,16 @@
 // @flow strict
 import {
+  type AbstractComponent,
+  type Element,
+  forwardRef,
+  type Node,
   useImperativeHandle,
   useRef,
-  forwardRef,
-  type Element,
-  type Node,
-  type AbstractComponent,
   useState,
 } from 'react';
 import classnames from 'classnames';
+import styles from './InternalTextField.css';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 import Box from '../Box.js';
 import focusStyles from '../Focus.css';
 import layout from '../Layout.css';
@@ -19,8 +21,6 @@ import FormLabel from '../shared/FormLabel.js';
 import Tag from '../Tag.js';
 import { type MaxLength } from '../TextField.js';
 import typography from '../Typography.css';
-import styles from './InternalTextField.css';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
 
 type Props = {|
   // REQUIRED
@@ -109,7 +109,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
   ref,
 ): Node {
   // ==== REFS ====
-  const innerRef = useRef(null);
+  const innerRef = useRef<null | HTMLInputElement | HTMLDivElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   // $FlowFixMe[incompatible-call]
   useImperativeHandle(ref, () => innerRef.current);

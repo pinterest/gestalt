@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, useRef, useEffect, useState, type Node } from 'react';
+import { Fragment, type Node, useEffect, useRef, useState } from 'react';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Status from '../Status.js';
@@ -12,8 +12,8 @@ type Props = {|
 |};
 
 export default function FormHelperTextCounter({ currentLength, maxLength }: Props): Node {
-  const ref = useRef();
-  const [width, setWidth] = useState(undefined);
+  const ref = useRef<null | HTMLElement>(null);
+  const [width, setWidth] = useState<void | number>(undefined);
 
   useEffect(() => {
     const containerWidth = ref?.current?.getBoundingClientRect().width;
