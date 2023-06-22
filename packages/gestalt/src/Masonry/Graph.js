@@ -71,26 +71,6 @@ export default class Graph<T> implements GraphInterface<T> {
     return [sourceNode, destinationNode];
   }
 
-  prettyPrintGraph(startNode: NodeData<T>): string {
-    const thisGraph = this;
-
-    function prettyPrintNode(node: NodeData<T>, level: number, score?: number): string {
-      const prefix = ' '.repeat(level * 4);
-      const edgeScore = score ? `(edge score: ${score}) - ` : '';
-      const graphNode = thisGraph.nodes.get(node);
-      if (!graphNode) {
-        return '';
-      }
-      let result = `${prefix}${edgeScore}${JSON.stringify(graphNode.data)}\n`;
-      graphNode.edges.forEach((edge) => {
-        result += prettyPrintNode(edge.node.data, level + 1, edge.score);
-      });
-      return result;
-    }
-
-    return prettyPrintNode(startNode, 0);
-  }
-
   findLowestScore(startNode: NodeData<T>): {|
     lowestScore: number | null,
     lowestScoreNode: NodeData<T>,
