@@ -180,7 +180,6 @@ export default class Image extends PureComponent<Props> {
           className={imageStyles}
           crossOrigin={crossOrigin}
           decoding={decoding}
-          elementtiming={elementTimingValue}
           fetchpriority={fetchPriority}
           loading={loading}
           onError={this.handleError}
