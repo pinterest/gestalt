@@ -179,7 +179,6 @@ export default class Image extends PureComponent<Props> {
           className={imageStyles}
           crossOrigin={crossOrigin}
           decoding={decoding}
-          elementtiming={elementTiming}
           fetchpriority={fetchPriority}
           loading={loading}
           onError={this.handleError}
@@ -188,6 +187,7 @@ export default class Image extends PureComponent<Props> {
           sizes={sizes}
           src={src}
           srcSet={srcSet}
+          {...(elementTiming ? { elementtiming: elementTiming : {})}
           {...(isScaledImage ? { style: { objectFit: fit } } : {})}
         />
         {childContent}
