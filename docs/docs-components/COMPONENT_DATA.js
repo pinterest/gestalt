@@ -93,7 +93,6 @@ import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
 import ProviderHandlers from '../graphics/utilities/provider-global-events-handler.svg';
-import ProviderOnLinkNavigation from '../graphics/utilities/provider-on-link-navigation.svg';
 
 export type Category =
   | 'Actions'
@@ -4130,30 +4129,6 @@ const UTILITIES_LIST: $ReadOnlyArray<ListItemType> = [
       deprecated: false,
       documentation: 'notAvailable',
       figma: null,
-    },
-  },
-  {
-    svg: <ProviderOnLinkNavigation />,
-    name: 'OnLinkNavigationProvider',
-    path: '/web/utilities/onlinknavigationprovider',
-    description:
-      'OnLinkNavigationProvider is a React context provider to externally control the link behavior of components further down the tree.',
-    category: 'Utilities',
-    status: {
-      accessible: {
-        summary: 'notAvailable',
-        a11yVisual: 'notAvailable',
-        a11yScreenreader: 'notAvailable',
-        a11yNavigation: 'notAvailable',
-        a11yComprehension: 'notAvailable',
-      },
-      badge: null,
-      android: 'notAvailable',
-      deprecated: false,
-      documentation: 'ready',
-      iOS: 'notAvailable',
-      figma: 'notAvailable',
-      responsive: 'ready',
     },
   },
 ];

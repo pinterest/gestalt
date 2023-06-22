@@ -13,9 +13,6 @@ type OnLinkNavigationType = ({|
 type GlobalEventsHandlerContextType = {|
   sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
   linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
-  buttonHandlers?: {| onNavigation?: OnLinkNavigationType |},
-  iconButtonHandlers?: {| onNavigation?: OnLinkNavigationType |},
-  tapAreaHandlers?: {| onNavigation?: OnLinkNavigationType |},
 |} | void;
 
 type Props = {|

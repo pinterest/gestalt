@@ -15,7 +15,6 @@ import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.j
 import Box from './Box.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
-import { useOnLinkNavigation } from './contexts/OnLinkNavigationProvider.js';
 import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
@@ -212,10 +211,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     },
   );
 
-  // useOnNavigation is only accessible with Gestalt OnLinkNavigationProvider
-  // and when onNavigation prop is passed to it
-  const defaultOnNavigation = useOnLinkNavigation({ href, target });
-
   // Consumes GlobalEventsHandlerProvider
   const { linkHandlers } = useGlobalEventsHandlerContext() ?? {
     linkHandlers: { onNavigation: undefined },
@@ -223,7 +218,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   const { onNavigation } = linkHandlers ?? { onNavigation: undefined };
 
-  const onNavigationHandler = onNavigation?.({ href, target }) ?? defaultOnNavigation;
+  const onNavigationHandler = onNavigation?.({ href, target });
 
   const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
