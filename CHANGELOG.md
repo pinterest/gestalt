@@ -1,3 +1,9 @@
+## 115.2.3 (Jun 23, 2023)
+
+### Patch
+
+- Docs: fix `allowfullscreen` bug ([#3034](https://github.com/pinterest/gestalt/pull/3034)) - [Preview link](https://deploy-preview-3034--gestalt.netlify.app?devexample=true)
+
 ## 115.2.2 (Jun 23, 2023)
 
 ### Patch
