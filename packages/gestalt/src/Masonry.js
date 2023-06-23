@@ -18,8 +18,8 @@ import throttle, { type ThrottleReturn } from './throttle.js';
 
 const RESIZE_DEBOUNCE = 300;
 
-// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-// The number of items measured at a time is the number of columns * this multiplier
+// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
 const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
