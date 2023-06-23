@@ -27,7 +27,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/7f/9f/df/7f9fdf43e349ae86aa52482a82f67f21.png" alt="Two blocks of text with headings used to separate and group them." noPadding/>
     <Do title="Do" />
-    Use to help group text and items in a logical order. 
+    Use to help group text and items in a logical order.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/64/6d/f4/646df434b50cb45370c07e3391c01d26.png" alt="Block of text that uses a large heading to emphasize part of the text." noPadding/>
@@ -127,55 +127,55 @@ Use these tokens for applying size, weight and color styles to Text.
 Used for surface titles and section headings
 <br/>
 
-<iframe style={{border:0}} width="100%" height="546" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76497%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="546" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76497%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ### Body
 
 Used for text that is part of paragraphs or UI controls
 <br/>
 
-<iframe style={{border:0}} width="100%" height="492" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76579%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="492" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76579%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ## Size
 
 These font sizes follow those available through our [Typography scale](https://gestalt.pinterest.systems/foundations/typography/guidelines#Scale)
 <br/>
 
-<iframe style={{border:0}} width="100%" height="906" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20521%253A76933%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="906" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20521%253A76933%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ### Dynamic Type sizes
 
 This is how text scales when people resize text. Our default text sizes correspond to iOS Large sizes. For more info, see [iOS Dynamic Type sizes](https://developer.apple.com/design/human-interface-guidelines/foundations/typography/#specifications)
 <br/>
 
-<iframe style={{border:0}} width="100%" height="436" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20539%253A76626%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="436" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20539%253A76626%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ## Weight
 For emphasizing text in body copy and in sizes below 16pt and below, use `bold`. For titles and headings, use `semibold`.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="477" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76157%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="477" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76157%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ## Alignment
 
 Text can either be start, center or end aligned. Text can be forced to left or right align when aligning integers in tables.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="397" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20555%253A76302%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="397" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20555%253A76302%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ## Colors
 
 You can specify which color you want for your text. Most colors automatically change between light and dark modes, but the `light` and `dark` properties are available when light or dark colors are specifically desired. An example is using the dark mode error color on a dark background in light mode.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76210%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76210%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ##Styles
 
 Text can be italicized for emphasis, or underlined to denote a link.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="270" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76472%26t%3DGzMOAn3V49oVC2MG-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="270" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76472%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
 ## Overflow and truncation
 
@@ -209,7 +209,7 @@ When translated to languages that read from right to left, ensure that paragraph
 <TwoCol>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/6e/b3/25/6eb325c04f70fab9b2dff8ab53c33d07.png" alt="A paragraph in Hebrew that is right-aligned, followed by a paragraph in English that is left-aligned." />
-    <Do title="Do" /> 
+    <Do title="Do" />
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/86/f6/7e/86f67e0d4afb634afb77fcefe6cc04eb.png" alt="Paragraphs in Hebrew and English with the same alignment." noPadding/>
@@ -222,7 +222,7 @@ However, for lists or items in a menu, maintain the alignment of the UI.
 <TwoCol>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/f1/07/0a/f1070a50c9095884f4b4b1d58202ed0d.png" alt="A menu in Arabic and English with all of the items end-aligned." noPadding color="background-secondary-base" />
-    <Do title="Do" /> 
+    <Do title="Do" />
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/8e/23/d6/8e23d689d87fabf3b550d0a35920677c.png" alt="A menu with two Arabic items rignt-aligned and one English item left-aligned." noPadding color="background-secondary-base"/>

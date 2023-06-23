@@ -27,7 +27,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/03/c9/de/03c9dee6dbbf40297f9337d2fc180dc1.png" alt="Two blocks of text with headings used to separate and group them." noPadding/>
     <Do title="Do" />
-    Use to help group text and items in a logical order. 
+    Use to help group text and items in a logical order.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/66/91/22/66912208795b5687e53fb92706c2c348.png" alt="Block of text that uses a large heading to emphasize part of the text." noPadding/>
@@ -117,7 +117,7 @@ Use these tokens for applying size, weight and color styles to Text.
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="939" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20042%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="939" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20042%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Variants
 
@@ -125,48 +125,48 @@ Use these tokens for applying size, weight and color styles to Text.
 Used for surface titles and section headings
 <br/>
 
-<iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20235%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20235%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ### Body
 
 Used for text that is part of paragraphs or UI controls
 <br/>
 
-<iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20276%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="417" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20276%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Size
 
 These font sizes follow those available through our [Typography scale](https://gestalt.pinterest.systems/foundations/typography/guidelines#Scale)
 <br/>
 
-<iframe style={{border:0}} width="100%" height="776" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20317%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="776" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20317%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Weight
 For emphasizing text in body copy and in sizes below 16sp and below, use `bold`. For titles and headings, use `semibold`.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="411" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20481%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="411" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20481%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Alignment
 
 Text can either be start, center or end aligned. Text can be forced to left or right align when aligning integers in tables.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="397" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20507%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="397" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20507%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Colors
 
 You can specify which color you want for your text. Most colors automatically change between light and dark modes, but the `light` and `dark` properties are available when light or dark colors are specifically desired. An example is using the dark mode error color on a dark background in light mode.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20538%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20538%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Styles
 
 Text can be italicized for emphasis, or underlined to denote a link.
 <br/>
 
-<iframe style={{border:0}} width="100%" height="270" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20606%26t%3D852gzGIkINao5ZEY-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="270" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20606%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
 
 ## Overflow and truncation
 
@@ -200,7 +200,7 @@ When translated to languages that read from right to left, ensure that paragraph
 <TwoCol>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/5d/f3/fa/5df3faf738081067c30d7887cf788ebb.png" alt="A paragraph in Hebrew that is right-aligned, followed by a paragraph in English that is left-aligned." />
-    <Do title="Do" /> 
+    <Do title="Do" />
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/3b/1b/28/3b1b28e13386e248272d9189ac9b7c9f.png" alt="Paragraphs in Hebrew and English with the same alignment." noPadding/>
@@ -213,7 +213,7 @@ However, for lists or items in a menu, maintain the alignment of the UI.
 <TwoCol>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/36/f5/b9/36f5b96eb5d5c8101dfbfbc95c33c820.png" alt="A menu in Arabic and English with all of the items end-aligned." noPadding color="background-secondary-base" />
-    <Do title="Do" /> 
+    <Do title="Do" />
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/63/4a/18/634a18c300a82e471fdffeadb52d58f9.png" alt="A menu with two Arabic items rignt-aligned and one English item left-aligned." noPadding color="background-secondary-base"/>
