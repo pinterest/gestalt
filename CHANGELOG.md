@@ -1,3 +1,9 @@
+## 115.2.2 (Jun 23, 2023)
+
+### Patch
+
+- Docs: Reordering Android component items to be alphabetical ([#3030](https://github.com/pinterest/gestalt/pull/3030)) - [Preview link](https://deploy-preview-3030--gestalt.netlify.app?devexample=true)
+
 ## 115.2.1 (Jun 22, 2023)
 
 ### Patch
