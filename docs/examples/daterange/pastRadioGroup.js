@@ -15,25 +15,43 @@ export default function Example(): Node {
         <RadioGroup.RadioButton
           checked={period === '1'}
           id="1"
-          label="Next week"
+          label="Past week"
           name="1"
-          onChange={() => setPeriod('1')}
+          onChange={() => {
+            setEndDate(new Date());
+            const now = new Date();
+            now.setDate(now.getDate() - 1 * 7);
+            setStartDate(now);
+            setPeriod('1');
+          }}
           value="1"
         />
         <RadioGroup.RadioButton
           checked={period === '2'}
           id="2"
-          label="Next 2 weeks"
+          label="Past 2 weeks"
           name="2"
-          onChange={() => setPeriod('2')}
+          onChange={() => {
+            setEndDate(new Date());
+            const now = new Date();
+            now.setDate(now.getDate() - 2 * 7);
+            setStartDate(now);
+            setPeriod('2');
+          }}
           value="2"
         />
         <RadioGroup.RadioButton
           checked={period === '4'}
           id="4"
-          label="Next 4 weeks"
+          label="Past 4 weeks"
           name="4"
-          onChange={() => setPeriod('4')}
+          onChange={() => {
+            setEndDate(new Date());
+            const now = new Date();
+            now.setDate(now.getDate() - 4 * 7);
+            setStartDate(now);
+            setPeriod('4');
+          }}
           value="4"
         />
         <RadioGroup.RadioButton
