@@ -86,8 +86,8 @@ function DateRange({
   }
 
   return (
-    <Box rounding={4} color="default" borderStyle="shadow" overflow="scroll" minHeight={425}>
-      <Flex width="100%">
+    <Box rounding={4} color="default" borderStyle="shadow" minHeight={425} display="inlineBlock">
+      <Flex>
         {radioGroup ? (
           <div className={borderStyles.borderRight}>
             <Box paddingY={4} paddingX={6} width={216}>
@@ -95,8 +95,8 @@ function DateRange({
             </Box>
           </div>
         ) : null}
-        <Box width="100%">
-          <Flex alignItems="start" justifyContent="center" width="100%" direction="column">
+        <Box>
+          <Flex alignItems="start" justifyContent="center" direction="column">
             <div className={borderStyles.dateFieldSection}>
               <Flex gap={3}>
                 <Box width={280}>

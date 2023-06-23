@@ -162,7 +162,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           title="Supporting locales"
           description="Select a locale to see DataRange's selected localer support."
         >
-          <Flex gap={4} direction="column">
+          <Flex gap={4} direction="column" flex="none">
             <SelectList
               id="selectlistexample1"
               label="Country"
