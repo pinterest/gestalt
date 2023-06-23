@@ -6,15 +6,28 @@ fullwidth: true
 
 <ImgContainer src="https://i.pinimg.com/originals/11/90/6b/11906b1575ba50e08d48b8a0bf20e805.png" alt="Example of Card.Header with a highlighted area to show how it is placed and arranged in Card." noPadding color="background-elevation-accent"/>
 
+## Usage guidelines
+
+<TwoCol>
+<Group>
+<Do title="When to use"/>
+- As a required element at the top of Card, to display context, actions and sometimes navigation.
+
+</Group>
+<Group>
+<Dont title="When not to use" />
+- Should not be used on its own without a preview block.
+- Should not be used below a preview block. Card.Header should always sit at the top of Card.
+</Group>
+</TwoCol>
+
 ## Best practices
 
 <TwoCol>
 <Group>
 <Do title="Do"/>
-- Show a navigational arrow or more menu within Card.Header to direct the user to the appropriate additional content.
-- Keep Card content clear and concise. Cards are designed to focus on the imagery. Any content should be short and easily digestible.
-- Include a “follow” button if Card content pertains to a Pinner, company or brand within the product.
-- Keep pre-text and Card.Header text to the defined font size.
+- Show a navigational arrow or more menu within Card.Header to direct the user to the appropriate additional content
+- Include a “follow” button if Card content pertains to a Pinner, company or brand within the product
 </Group>
 
 <Group>
@@ -70,7 +83,7 @@ The image variant of Card.Header can contain a variety of image representations.
 
 ## Dark mode
 
-<iframe style={{border:0}} width="100%" height="312" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76366%26t%3DaliDwdC0C3b2VkAb-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="312" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76366%26t%3DaliDwdC0C3b2VkAb-1" allowFullScreen></iframe>
 
 ## Writing
 

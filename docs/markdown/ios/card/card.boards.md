@@ -52,8 +52,8 @@ Card.Boards is a preview block utilizing the [Gestalt Board and Section Figma co
 
 ## Dark mode
 
-<iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A78570%26t%3DaliDwdC0C3b2VkAb-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A78570%26t%3DaliDwdC0C3b2VkAb-1" allowFullScreen></iframe>
 
 ## Scrolling
 
-<iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D22128%253A76406%26t%3DaliDwdC0C3b2VkAb-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D22128%253A76406%26t%3DaliDwdC0C3b2VkAb-1" allowFullScreen></iframe>
