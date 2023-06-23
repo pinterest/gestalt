@@ -61,7 +61,7 @@ Icon's container dimensions are the same for all icons regardless of the size of
 ### Touch target
 If an icon is interactive, use the built-in 44 x 44px touch target.
 <br />
-<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19297%253A72581%26t%3DD3hNy73JBEb5S9mN-1" allowfullscreen></iframe>
+<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19297%253A72581%26t%3DD3hNy73JBEb5S9mN-1" allowFullScreen></iframe>
 
 ## Variants
 
@@ -112,11 +112,11 @@ Icon colors are semantic—they have a specific meaning and aren't arbitrary. Th
 ### Platform-specific icons
 
 1. **Share**
-On iOS, use the icon-share icon to indicate the ability to share an element. 
+On iOS, use the icon-share icon to indicate the ability to share an element.
 2. **Check**
 Instead of a radio button on iOS, use the check icon.
 3. **Back**
-On iOS, use the chevron icon titled arrow-back to indicate backward movement. 
+On iOS, use the chevron icon titled arrow-back to indicate backward movement.
 
 <ThreeCol>
 <Group>
@@ -144,8 +144,8 @@ arrow-back
 <Group>
 <Do title="Do" />
 - Use a descriptive label to describe the icon
-- Be succinct. Exclude unnecessary words. 
-- Be informative and accurate 
+- Be succinct. Exclude unnecessary words.
+- Be informative and accurate
 - Write in the active voice
 - Avoid technical jargon
 

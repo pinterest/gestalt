@@ -440,19 +440,17 @@ interface DeviceTypeProviderProps {
   deviceType: 'desktop' | 'mobile';
 }
 
-interface OnLinkNavigationProviderProps {
-  children: Node;
-  onNavigation?:
-    | ((args: {
-        href: string;
-        target?: null | 'self' | 'blank' | undefined;
-      }) => EventHandlerType | null | undefined)
-    | undefined;
-}
-
 interface GlobalEventsHandlerProviderProps {
   children: Node;
-  sheetMobileHandlers?: { onOpen?: (() => void) | void; onClose?: (() => void) | void } | void;
+  linkHandlers?: {
+    onNavigation: (arg: {
+      href: string;
+      target?: null | 'self' | 'blank' | undefined;
+    }) => EventHandlerType | null | void;
+  };
+  sheetMobileHandlers?:
+    | { onOpen?: (() => void) | undefined; onClose?: (() => void) | undefined }
+    | undefined;
 }
 
 interface ScrollBoundaryContainerProps {
@@ -730,11 +728,11 @@ interface CalloutProps {
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
   dismissButton?:
-  | {
-      accessibilityLabel?: string;
-      onDismiss: () => void;
-    }
-  | undefined;
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   primaryAction?: ActionData | undefined;
   secondaryAction?: ActionData | undefined;
   title?: string | undefined;
@@ -2076,11 +2074,11 @@ interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
   children?: React.ReactElement<typeof Upsell.Form>;
   dismissButton?:
-  | {
-      accessibilityLabel?: string;
-      onDismiss: () => void;
-    }
-  | undefined;
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   imageData?:
     | {
         component: React.ReactElement<typeof Image | typeof Icon>;
@@ -2409,11 +2407,6 @@ export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
  * https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider
  */
 export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
-
-/**
- * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
- */
-export const OnLinkNavigationProvider: React.FunctionComponent<OnLinkNavigationProviderProps>;
 
 export interface OverlayPanelSubComponents {
   DismissingElement: React.FunctionComponent<OverlayPanelDismissingElementProps>;

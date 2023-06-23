@@ -18,7 +18,6 @@ import DefaultLabelProvider from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import ExperimentProvider from './contexts/ExperimentProvider.js';
 import GlobalEventsHandlerProvider from './contexts/GlobalEventsHandlerProvider.js';
-import OnLinkNavigationProvider from './contexts/OnLinkNavigationProvider.js';
 import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
@@ -122,7 +121,6 @@ export {
   ModalAlert,
   Module,
   NumberField,
-  OnLinkNavigationProvider,
   OverlayPanel,
   PageHeader,
   Pog,

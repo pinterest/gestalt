@@ -28,7 +28,7 @@
     {
       "task": "Card component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Creation of a Card component to support emerging Pinner needs.",
       "link": ""
@@ -116,7 +116,7 @@
     {
       "task": "Cross platform Gestalt engineering adoption metric",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": [],
       "description": "Define and implement a cross platform measurement for Gestalt engineering adoption on the Web platform.",
       "link": ""
