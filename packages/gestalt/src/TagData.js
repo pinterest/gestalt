@@ -44,11 +44,7 @@ export type TileChangeHandler = ({|
 |}) => void;
 
 export type OnRemoveHandler = ({|
-  event:
-    | SyntheticMouseEvent<HTMLDivElement>
-    | SyntheticKeyboardEvent<HTMLDivElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  event: SyntheticMouseEvent<HTMLButtonElement>,
   id?: string,
 |}) => void;
 

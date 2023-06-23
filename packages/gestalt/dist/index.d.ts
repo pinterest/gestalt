@@ -403,6 +403,9 @@ interface DefaultLabelProviderProps {
           accessibilityRemoveIconLabel: string;
           accessibilityWarningIconLabel: string;
         };
+        TagData:{
+          accessibilityRemoveIconLabel: string;
+        };
         TextField: {
           accessibilityHidePasswordLabel: string;
           accessibilityShowPasswordLabel: string;
@@ -1862,6 +1865,29 @@ interface TagProps {
   type?: 'default' | 'error' | 'warning' | undefined;
 }
 
+interface TagDataProps {
+  accessibilityRemoveIconLabel?: string | undefined;
+  baseColor?: 'primary' | 'secondary'
+  color?: DataVisualizationColors,
+  disabled?: boolean,
+  id?: string,
+  onTap?: | AbstractEventHandler<
+  | React.MouseEvent<HTMLDivElement>
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLAnchorElement>
+  | React.KeyboardEvent<HTMLAnchorElement>,
+  { selected: boolean; id?: string | undefined }
+>
+| undefined,
+onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>,
+selected?: boolean,
+size?: 'sm' | 'md' | 'lg',
+showCheckbox?: boolean,
+text: string,
+tooltip?: TooltipProps,
+}
+
+
 interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;
   children: Node;
@@ -2582,6 +2608,11 @@ export const Tabs: React.FunctionComponent<TabsProps>;
  * https://gestalt.pinterest.systems/web/tag
  */
 export const Tag: React.FunctionComponent<TagProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/tagdata
+ */
+export const TagData: React.FunctionComponent<TagDataProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/taparea

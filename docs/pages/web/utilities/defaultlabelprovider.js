@@ -179,6 +179,11 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'label': 'Warning',
     },
     {
+      'component': 'TagData',
+      'prop': 'accessibilityRemoveIconLabel',
+      'label': 'Remove tag',
+    },
+    {
       'component': 'TextField',
       'prop': 'accessibilityHidePasswordLabel',
       'label': 'Hide password',
