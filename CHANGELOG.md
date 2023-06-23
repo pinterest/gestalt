@@ -1,3 +1,9 @@
+## 116.1.2 (Jun 23, 2023)
+
+### Patch
+
+- Docs: copyedit iOS Card pages ([#3032](https://github.com/pinterest/gestalt/pull/3032)) - [Preview link](https://deploy-preview-3032--gestalt.netlify.app?devexample=true)
+
 ## 116.1.1 (Jun 23, 2023)
 
 ### Patch
