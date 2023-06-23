@@ -1,3 +1,9 @@
+## 116.0.0 (Jun 23, 2023)
+
+### Major
+
+- OnLinkNavigationProvider: deprecation of component util ([#3029](https://github.com/pinterest/gestalt/pull/3029)) - [Preview link](https://deploy-preview-3029--gestalt.netlify.app?devexample=true)
+
 ## 115.2.3 (Jun 23, 2023)
 
 ### Patch
