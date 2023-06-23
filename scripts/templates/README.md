@@ -103,3 +103,8 @@ yarn playwright:update-visual-test playwright/visual-test/ComponentName --update
 
 `.github/pr-title-checker-config.json`
 Add your new component name to the regex (alphabetize please!). If you're renaming, replacing, or removing a component, — _and the component also doesn't exist on any other platforms_ — remove that component name from the regex.
+
+## Add Typescript definition(s)
+
+`packages/gestalt/dist/index.d.tx`
+Add a typescript definition of your new component and it's relevant props and type definitions, and also for any other components you may have touched
