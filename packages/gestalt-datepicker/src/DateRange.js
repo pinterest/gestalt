@@ -88,14 +88,7 @@ function DateRange({
       <Flex width="100%">
         {radioGroup ? (
           <div className={borderStyles.borderRight}>
-            <Box
-              height="100%"
-              width={300}
-              color="errorWeak"
-              paddingY={4}
-              paddingX={6}
-              maxWidth={216}
-            >
+            <Box height="100%" width={300} paddingY={4} paddingX={6} maxWidth={216}>
               {radioGroup}
             </Box>
           </div>
