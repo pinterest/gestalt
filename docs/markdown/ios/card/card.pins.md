@@ -56,7 +56,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 ### Anatomy
 
-<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76473%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A79954%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
 ### Variants
 
