@@ -11,7 +11,6 @@ import classnames from 'classnames';
 import { type AriaCurrent } from '../ariaTypes.js';
 import buttonStyles from '../Button.css';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
-import { useOnLinkNavigation } from '../contexts/OnLinkNavigationProvider.js';
 import focusStyles from '../Focus.css';
 import getRoundingClassName, { type Rounding } from '../getRoundingClassName.js';
 import iconButtonStyles from '../IconButton.css';
@@ -179,10 +178,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
   );
 
-  // useOnNavigation is only accessible with Gestalt OnLinkNavigationProvider
-  // and when onNavigation prop is passed to it
-  const defaultOnNavigation = useOnLinkNavigation({ href, target });
-
   // Consumes GlobalEventsHandlerProvider
   const { linkHandlers } = useGlobalEventsHandlerContext() ?? {
     linkHandlers: { onNavigation: undefined },
@@ -190,7 +185,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   const { onNavigation } = linkHandlers ?? { onNavigation: undefined };
 
-  const onNavigationHandler = onNavigation?.({ href, target }) ?? defaultOnNavigation;
+  const onNavigationHandler = onNavigation?.({ href, target });
 
   const handleKeyPress = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     // Check to see if space or enter were pressed
