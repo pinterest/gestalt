@@ -1,3 +1,9 @@
+## 116.0.2 (Jun 23, 2023)
+
+### Patch
+
+- Docs: create new COMPONENT_DATA data structure type for scalability ([#3005](https://github.com/pinterest/gestalt/pull/3005)) - [Preview link](https://deploy-preview-3005--gestalt.netlify.app?devexample=true)
+
 ## 116.0.1 (Jun 23, 2023)
 
 ### Patch
