@@ -1,3 +1,9 @@
+## 116.1.0 (Jun 23, 2023)
+
+### Minor
+
+- Masonry: add experimental support for two-column items ([#2955](https://github.com/pinterest/gestalt/pull/2955)) - [Preview link](https://deploy-preview-2955--gestalt.netlify.app?devexample=true)
+
 ## 116.0.2 (Jun 23, 2023)
 
 ### Patch
