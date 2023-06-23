@@ -67,15 +67,17 @@ type Props = {|
  * ![DateRange dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange-dark.spec.mjs-snapshots/DateRange-dark-chromium-darwin.png)
  */
 function DateRange({
-  radioGroup,
   endDateValue,
   endDateErrorMessage,
+  localeData,
   onStartDateChange,
   onStartDateError,
   onEndDateChange,
   onEndDateError,
   maxDate,
   minDate,
+  radioGroup,
+
   startDateValue,
   startDateErrorMessage,
 }: Props): Node {
@@ -100,6 +102,7 @@ function DateRange({
                 <Box width={280}>
                   <InternalDateField
                     id="datefield-start"
+                    localeData={localeData}
                     onChange={({ value }) => {
                       if (value?.getTime() || value === null) onStartDateChange({ value });
                     }}
@@ -116,6 +119,7 @@ function DateRange({
                 <Box width={280}>
                   <InternalDateField
                     id="datefield-end"
+                    localeData={localeData}
                     onChange={({ value }) => {
                       if (value?.getTime() || value === null) onEndDateChange({ value });
                     }}
@@ -135,6 +139,7 @@ function DateRange({
             </div>
             <Box width={629}>
               <InternalDatePicker
+                localeData={localeData}
                 rangeStartDate={startDateValue}
                 rangeEndDate={endDateValue}
                 id="datepicker-start"
