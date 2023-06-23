@@ -10,7 +10,7 @@ Card.Pins with a fixed preview communicates that the entire preview area is a ta
 
 <ImgContainer src="https://github.com/pinterest/gestalt/assets/96082362/ec0692aa-cc1a-42df-80c9-f0e212100fe4" alt="Example of a Card container with a Card.Pins preview that contains two Card.Pins representations." noPadding color="background-elevation-accent"/>
 
-### Usage guidelines
+### Fixed: Usage guidelines
 
 <TwoCol>
 <Group>
@@ -26,7 +26,7 @@ Card.Pins with a fixed preview communicates that the entire preview area is a ta
 </Group>
 </TwoCol>
 
-### Best practices
+### Fixed: Best practices
 
 <TwoCol>
 <Group>
@@ -43,22 +43,22 @@ Card.Pins with a fixed preview communicates that the entire preview area is a ta
 
 For general specifications, refer to the [MontageGrid & MontageRow documentation](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?node-id=19102%3A71831&t=uAttTYuo18hxKqUw-1).
 
-### Accessibility
+### Fixed: Accessibility
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size, to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
-### Design tokens
+### Fixed: Design tokens
 
 <iframe style={{border:0}} width="100%" height="178" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D33462%253A75994%26mode%3Ddesign%26t%3DIclHzfbakvSzsqp8-1" allowFullScreen></iframe>
 
-### Anatomy
+### Fixed: Anatomy
 
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A79954%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
-### Variants
+### Fixed: Variants
 
 #### 2-up
 
@@ -72,7 +72,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 <iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19826%253A75351%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
-### Dark mode
+### Fixed: Dark mode
 
 <iframe style={{border:0}} width="100%" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76589%26mode%3Ddesign%26t%3DIclHzfbakvSzsqp8-1" allowFullScreen></iframe>
 
@@ -84,7 +84,7 @@ Use scrolling preview when the user goal is best supported by focusing them on o
 
 <ImgContainer src="https://i.pinimg.com/originals/18/43/1e/18431e06763f4b84448cbfc38ea3e8c9.png" alt="Example of a Card container with a scrolling preview." noPadding color="background-elevation-accent"/>
 
-### Usage guidelines
+### Scrolling: Usage guidelines
 
 <TwoCol>
 <Group>
@@ -100,7 +100,7 @@ Use scrolling preview when the user goal is best supported by focusing them on o
 </Group>
 </TwoCol>
 
-### Best practices
+### Scrolling: Best practices
 
 <TwoCol>
 <Group>
@@ -117,22 +117,22 @@ Use scrolling preview when the user goal is best supported by focusing them on o
 </Group>
 </TwoCol>
 
-### Accessibility
+### Scrolling: Accessibility
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size, to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
-### Design tokens
+### Scrolling: Design tokens
 
 <iframe style={{border:0}} width="100%" height="624" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19801%253A75095%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
-### Anatomy
+### Scrolling: Anatomy
 
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76473%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 *1. Image one | 2. Image two | 3. Image three | 4. Image four*
 
-### Dark mode
+### Scrolling: Dark mode
 
 <iframe style={{border:0}} width="100%" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A80068%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
