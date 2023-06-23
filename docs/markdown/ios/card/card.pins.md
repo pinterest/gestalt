@@ -1,11 +1,10 @@
 ---
 title: Card.Pins
-description: The Boards preview block utilizes two of the Board and Section components to present a collection of imagery that typically represents Card.Boards.
+description: Card.Pins is a preview block utilizing two of the Pin and Section components to present a collection of imagery.
 fullwidth: true
 ---
 
-<ImgContainer src="https://github.com/pinterest/gestalt/assets/96082362/ec0692aa-cc1a-42df-80c9-f0e212100fe4" alt="Example of a Card container with a Card.Boards preview that contains two Card.Boards representations." noPadding color="background-elevation-accent"/>
-
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/96082362/ec0692aa-cc1a-42df-80c9-f0e212100fe4" alt="Example of a Card container with a Card.Pins preview that contains two Card.Pins representations." noPadding color="background-elevation-accent"/>
 
 ## Usage guidelines
 
@@ -19,11 +18,12 @@ fullwidth: true
 <Group>
 <Dont title="When not to use" />
 - When each tap target leads to a different destination (ex: different streams)
-- When the goal is to direct Pinners to a landing experience that displays more than one Pin (e.g. a topical Pin feed). 
+- When the goal is to direct Pinners to a landing experience that displays more than one Pin (e.g. a topical Pin feed).
 </Group>
 </TwoCol>
 
 ## Best practices
+
 <TwoCol>
 <Group>
 <Do title="Do"/>
@@ -47,6 +47,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ## Design tokens
+
 <iframe style={{border:0}} width="100%" height="178" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76699%26t%3DaliDwdC0C3b2VkAb-1" allowFullScreen></iframe>
 
 ## Anatomy
@@ -55,10 +56,13 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 *1. Image one / 2. Image two / 3. Image three*
 
 ## Variants
-The Card.Boards preview block utilizes the [Gestalt Board and Section Figma component](http://pinch.pinadmin.com/section-and-board-component-figma-iOS). The Card.Boards preview block accepts all of Board and Sections variants except for CTAs. Optional elements include: lock icon, plus icon, pretext, Card.Boards name, collaborators and subtext.
+
+Card.Pins is a preview block utilizing two of the Pin and Section components to present a collection of imagery. The Card.Pins preview block accepts all of Pin and Sections variants except for CTAs. Optional elements include: lock icon, plus icon, pretext, Card.Pins name, collaborators and subtext.
 
 ## Dark mode
+
 <iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A78570%26t%3DaliDwdC0C3b2VkAb-1" allowfullscreen></iframe>
 
 ## Scrolling
+
 <iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D22128%253A76406%26t%3DaliDwdC0C3b2VkAb-1" allowfullscreen></iframe>
