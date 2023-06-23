@@ -56,7 +56,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 ### Anatomy
 
-<iframe style={{border:0}} width="100%" height="312" src="" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76473%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
 ### Variants
 
@@ -82,6 +82,9 @@ Card.Pins with a scrolling preview communicates that each preview is an individu
 
 Use scrolling preview when the user goal is best supported by focusing them on one Pin at a time.
 
+<ImgContainer src="https://i.pinimg.com/originals/18/43/1e/18431e06763f4b84448cbfc38ea3e8c9.png" alt="Example of a Card container with a scrolling preview." noPadding color="background-elevation-accent"/>
+
+<!-- markdownlint-disable-next-line MD024 -->
 ### Usage guidelines
 
 <TwoCol>
@@ -98,6 +101,7 @@ Use scrolling preview when the user goal is best supported by focusing them on o
 </Group>
 </TwoCol>
 
+<!-- markdownlint-disable-next-line MD024 -->
 ### Best practices
 
 <TwoCol>
@@ -115,6 +119,7 @@ Use scrolling preview when the user goal is best supported by focusing them on o
 </Group>
 </TwoCol>
 
+<!-- markdownlint-disable-next-line MD024 -->
 ### Accessibility
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size, to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
@@ -122,29 +127,18 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
+<!-- markdownlint-disable-next-line MD024 -->
 ### Design tokens
 
-<iframe style={{border:0}} width="100%" height="178" src="" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="624" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19801%253A75095%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
+<!-- markdownlint-disable-next-line MD024 -->
 ### Anatomy
 
-<iframe style={{border:0}} width="100%" height="312" src="" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76473%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 *1. Image one | 2. Image two | 3. Image three | 4. Image four*
 
-### Variants
-
-Card.Pins can flex to different aspect ratios so that the best dimensions can be used to preview different media types. Card.Pins previews can also flex to different sizes to support various levels of visual prominence.
-
-Below are some examples of how different aspect ratios and dimensions can be applied.
-
-#### Aspect ratio 9:16, small previews
-
-<iframe style={{border:0}} width="100%" height="312" src="" allowFullScreen></iframe>
-
-#### Aspect ratio 2:3, large previews
-
-<iframe style={{border:0}} width="100%" height="312" src="" allowFullScreen></iframe>
-
+<!-- markdownlint-disable-next-line MD024 -->
 ### Dark mode
 
-<iframe style={{border:0}} width="100%" height="312" width="800" height="312" src="" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A80068%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
