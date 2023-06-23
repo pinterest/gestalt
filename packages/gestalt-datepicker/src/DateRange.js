@@ -84,25 +84,27 @@ function DateRange({
   }
 
   return (
-    <Box
-      rounding={4}
-      color="default"
-      borderStyle="shadow"
-      overflow="scroll"
-      width={888}
-      minHeight={425}
-    >
+    <Box rounding={4} color="default" borderStyle="shadow" overflow="scroll" minHeight={425}>
       <Flex width="100%">
-        <div className={borderStyles.borderRight}>
-          <Box height="100%" width={300} color="errorWeak">
-            {radioGroup}
-          </Box>
-        </div>
+        {radioGroup ? (
+          <div className={borderStyles.borderRight}>
+            <Box
+              height="100%"
+              width={300}
+              color="errorWeak"
+              paddingY={4}
+              paddingX={6}
+              maxWidth={216}
+            >
+              {radioGroup}
+            </Box>
+          </div>
+        ) : null}
         <Box width="100%">
           <Flex alignItems="start" justifyContent="center" width="100%" direction="column">
             <div className={borderStyles.dateFieldSection}>
               <Flex gap={3}>
-                <Box width={300}>
+                <Box width={280}>
                   <InternalDateField
                     id="datefield-start"
                     onChange={({ value }) => {
@@ -118,7 +120,7 @@ function DateRange({
                 <Box dangerouslySetInlineStyle={{ __style: { marginTop: '15px' } }}>
                   <Text>—</Text>
                 </Box>
-                <Box width={300}>
+                <Box width={280}>
                   <InternalDateField
                     id="datefield-end"
                     onChange={({ value }) => {
@@ -138,7 +140,7 @@ function DateRange({
                 </Box>
               </Flex>
             </div>
-            <Box minWidth={700}>
+            <Box width={629}>
               <InternalDatePicker
                 rangeStartDate={startDateValue}
                 rangeEndDate={endDateValue}
@@ -152,15 +154,17 @@ function DateRange({
               />
             </Box>
             <Flex.Item alignSelf="end">
-              <Button
-                text="Apply"
-                disabled={
-                  !!endDateErrorMessage ||
-                  !!startDateErrorMessage ||
-                  !endDateValue ||
-                  !startDateValue
-                }
-              />
+              <Box marginBottom={4} marginEnd={4}>
+                <Button
+                  text="Apply"
+                  disabled={
+                    !!endDateErrorMessage ||
+                    !!startDateErrorMessage ||
+                    !endDateValue ||
+                    !startDateValue
+                  }
+                />
+              </Box>
             </Flex.Item>
           </Flex>
         </Box>

@@ -1,0 +1,71 @@
+// @flow strict
+import { type Node, useMemo, useState } from 'react';
+import { RadioGroup } from 'gestalt';
+import { DateRange } from 'gestalt-datepicker';
+
+export default function Example(): Node {
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
+  const [startErrorMessage, setStartErrorMessage] = useState<string | null>(null);
+  const [period, setPeriod] = useState<'1' | '2' | '4' | 'custom' | null>(null);
+
+  const radioGroup = useMemo(
+    () => (
+      <RadioGroup legend="Date range" id="past radiogroup example">
+        <RadioGroup.RadioButton
+          checked={period === '1'}
+          id="1"
+          label="Next week"
+          name="1"
+          onChange={() => setPeriod('1')}
+          value="1"
+        />
+        <RadioGroup.RadioButton
+          checked={period === '2'}
+          id="2"
+          label="Next 2 weeks"
+          name="2"
+          onChange={() => setPeriod('2')}
+          value="2"
+        />
+        <RadioGroup.RadioButton
+          checked={period === '4'}
+          id="4"
+          label="Next 4 weeks"
+          name="4"
+          onChange={() => setPeriod('4')}
+          value="4"
+        />
+        <RadioGroup.RadioButton
+          checked={period === 'custom'}
+          id="custom"
+          label="Custom"
+          name="custom"
+          onChange={() => setPeriod('custom')}
+          value="custom"
+        />
+      </RadioGroup>
+    ),
+    [period],
+  );
+
+  return (
+    <DateRange
+      radioGroup={radioGroup}
+      endDateValue={endDate}
+      maxDate={new Date()}
+      onStartDateChange={({ value }) => {
+        setPeriod('custom');
+        setStartDate(value);
+      }}
+      onEndDateChange={({ value }) => {
+        setPeriod('custom');
+        setEndDate(value);
+      }}
+      onStartDateError={({ errorMessage }) => setStartErrorMessage(errorMessage)}
+      onEndDateError={() => {}}
+      startDateErrorMessage={startErrorMessage}
+      startDateValue={startDate}
+    />
+  );
+}

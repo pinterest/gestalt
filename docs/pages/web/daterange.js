@@ -9,7 +9,9 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import disabledFuture from '../../examples/daterange/disabledFuture.js';
 import disabledPast from '../../examples/daterange/disabledPast.js';
+import futureRadiogroup from '../../examples/daterange/futureRadiogroup.js';
 import main from '../../examples/daterange/main.js';
+import pastRadiogroup from '../../examples/daterange/pastRadiogroup.js';
 
 export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -37,6 +39,26 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Variants">
+        <MainSection.Subsection title="With RadioGroup" description="">
+          <MainSection.Card
+            cardSize="md"
+            title="Future selection"
+            sandpackExample={
+              <SandpackExample
+                code={futureRadiogroup}
+                name="future radiogroup"
+                previewHeight={500}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            title="Past selection"
+            sandpackExample={
+              <SandpackExample code={pastRadiogroup} name="past radiogroup" previewHeight={500} />
+            }
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           title="Disable future & past"
           description="DateRange supports disabling future & past dates from being selected."
