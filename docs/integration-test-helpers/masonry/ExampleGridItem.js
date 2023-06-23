@@ -20,6 +20,8 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
     setCounter((prevCounter) => prevCounter + 1);
   }
 
+  const isTwoColItem = data.columnSpan === 2;
+
   return (
     <div
       style={{
@@ -30,11 +32,13 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
         style={{
           height: expanded ? data.height + 100 : data.height,
           border: '1px solid #ff0000',
-          background: data.color,
+          background: isTwoColItem ? 'black' : data.color,
+          color: isTwoColItem ? 'white' : undefined,
         }}
       >
         <div>
           {data.name} • {data.height}px
+          {isTwoColItem ? ` • columnSpan: ${data.columnSpan}` : ''}
         </div>
         <div>Slot Index: {itemIdx}</div>
         <div>

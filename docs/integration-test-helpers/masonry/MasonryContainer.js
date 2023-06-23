@@ -1,5 +1,5 @@
 // @flow strict
-import { Component, createRef, type Element, type Node } from 'react';
+import { Component, createRef, type Element } from 'react';
 import { Masonry } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem.js';
 import getClassicGridServerStyles from './getClassicGridServerStyles.js';
@@ -17,6 +17,8 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js'
 // Note: While most of the behavior of this component is meant to test how
 // Masonry works, MasonryContainer also supports certain SSR functionality such
 // as generating styles that affect pre-hydration Masonry content.
+
+const TWO_COL_MINDEX = 50;
 
 type Props = {|
   // The actual Masonry component to be used (if using an experimental version of Masonry).
@@ -49,6 +51,8 @@ type Props = {|
   pinHeightsSample?: $ReadOnlyArray<number>,
   // If we should position the grid within a scrollContainer besides the window.
   scrollContainer?: boolean,
+  // Insert two-column items into the feed
+  twoColItems?: boolean,
   // If we should virtualize the grid
   virtualize?: boolean,
   // The relative amount in pixel to extend the virtualized viewport top value.
@@ -206,7 +210,7 @@ export default class MasonryContainer extends Component<Props, State> {
     from = 0,
     force = false,
   }) => {
-    const { collage, manualFetch, pinHeightsSample } = this.props;
+    const { collage, manualFetch, pinHeightsSample, twoColItems } = this.props;
 
     if (manualFetch && !force) {
       return;
@@ -231,6 +235,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: from,
             randomNumberSeed: Math.random(),
             pinHeightsSample,
+            twoColItems: twoColItems && from > TWO_COL_MINDEX,
           })
         : generateExampleItems({
             name,
@@ -238,6 +243,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: from,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
+            twoColItems: twoColItems && from > TWO_COL_MINDEX,
           });
 
     this.setState(({ items }) => ({
@@ -246,7 +252,7 @@ export default class MasonryContainer extends Component<Props, State> {
   };
 
   loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'> = (props) => {
-    const { collage, manualFetch, pinHeightsSample } = this.props;
+    const { collage, manualFetch, pinHeightsSample, twoColItems } = this.props;
 
     if (manualFetch) {
       return;
@@ -273,6 +279,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: defaultFrom,
             randomNumberSeed: Math.random(),
             pinHeightsSample,
+            twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
           })
         : generateExampleItems({
             name: undefined,
@@ -280,6 +287,7 @@ export default class MasonryContainer extends Component<Props, State> {
             previousItemCount: defaultFrom,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
+            twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
           });
 
     this.setState(({ items }) => ({
@@ -287,14 +295,12 @@ export default class MasonryContainer extends Component<Props, State> {
     }));
   };
 
-  // $FlowFixMe[unclear-type]
-  renderItem: ({| +data: any, +itemIdx: number, +isMeasuring: boolean |}) => Node = ({
-    data,
-    itemIdx,
-  }) => {
-    const { expanded } = this.state;
-    return <ExampleGridItem expanded={expanded} data={data} itemIdx={itemIdx} />;
-  };
+  renderItem: $ElementType<React$ElementConfig<typeof Masonry>, 'renderItem'> =
+    // $FlowFixMe[missing-local-annot]
+    ({ data, itemIdx }) => {
+      const { expanded } = this.state;
+      return <ExampleGridItem expanded={expanded} data={data} itemIdx={itemIdx} />;
+    };
 
   render(): Element<'div'> {
     const {
@@ -308,6 +314,7 @@ export default class MasonryContainer extends Component<Props, State> {
       measurementStore,
       noScroll,
       offsetTop,
+      twoColItems,
       virtualBoundsBottom,
       virtualBoundsTop,
       virtualize,
@@ -389,6 +396,7 @@ export default class MasonryContainer extends Component<Props, State> {
         {mountGrid && (
           <MasonryComponent
             _batchPaints={batchPaints}
+            _twoColItems={twoColItems}
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}

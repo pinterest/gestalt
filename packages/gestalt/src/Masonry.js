@@ -5,19 +5,24 @@ import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache.js';
 import defaultLayout from './Masonry/defaultLayout.js';
+import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout.js';
 import fullWidthLayout from './Masonry/fullWidthLayout.js';
+import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore.js';
 import MeasureItems from './Masonry/MeasureItems.js';
 import MeasurementStore from './Masonry/MeasurementStore.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
+import { type Position } from './Masonry/types.js';
 import uniformRowLayout from './Masonry/uniformRowLayout.js';
 import throttle, { type ThrottleReturn } from './throttle.js';
 
 const RESIZE_DEBOUNCE = 300;
 
-const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
+// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
+const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
 
-type Position = {| top: number, left: number, width: number, height: number |};
+const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
 type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
@@ -64,12 +69,15 @@ type Props<T> = {|
    */
   minCols: number,
   /**
-   * A function that renders the item to be displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   *
+   * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
    */
   renderItem: ({|
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
+    +heightAdjustment?: number,
   |}) => Node,
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
@@ -94,9 +102,17 @@ type Props<T> = {|
    */
   virtualize?: boolean,
   /**
-   * Experimental prop to batch paints for possible performance improvements. This is an experimental prop and may be removed in the future.
+   * Experimental prop to batch paints for possible performance improvements.
+   *
+   * This is an experimental prop and may be removed in the future.
    */
   _batchPaints?: boolean,
+  /**
+   * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
+   *
+   * This is an experimental prop and may be removed in the future.
+   */
+  _twoColItems?: boolean,
 |};
 
 type State<T> = {|
@@ -118,6 +134,66 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
+
+  static defaultProps: {|
+    columnWidth?: number,
+    layout?: Layout,
+    loadItems?:
+      | false
+      | ((
+          ?{|
+            from: number,
+          |},
+        ) => void | boolean | { ... }),
+    minCols: number,
+    virtualBufferFactor: number,
+    virtualize?: boolean,
+  |} = {
+    columnWidth: 236,
+    minCols: 3,
+    layout: 'basic',
+    loadItems: () => {},
+    virtualBufferFactor: 0.7,
+    virtualize: false,
+  };
+
+  constructor(props: Props<T>) {
+    super(props);
+
+    this.containerHeight = 0;
+    this.containerOffset = 0;
+
+    const measurementStore: Cache<T, number> =
+      props.measurementStore || Masonry.createMeasurementStore();
+
+    this.positionStore = new MeasurementStore();
+    this.heightsStore = new HeightsStore();
+
+    this.state = {
+      hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
+      isFetching: false,
+      items: props.items,
+      measurementStore,
+      scrollTop: 0,
+      width: undefined,
+    };
+  }
+
+  containerHeight: number;
+
+  containerOffset: number;
+
+  gridWrapper: ?HTMLElement;
+
+  heightsStore: HeightsStoreInterface;
+
+  positionStore: Cache<T, Position>;
+
+  insertAnimationFrame: AnimationFrameID;
+
+  measureTimeout: TimeoutID;
+
+  scrollContainer: ?ScrollContainer;
 
   /**
    * Delays resize handling in case the scroll container is still being resized.
@@ -149,58 +225,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.measureContainer();
   }, 0);
 
-  containerHeight: number;
-
-  containerOffset: number;
-
-  gridWrapper: ?HTMLElement;
-
-  insertAnimationFrame: AnimationFrameID;
-
-  measureTimeout: TimeoutID;
-
-  scrollContainer: ?ScrollContainer;
-
-  static defaultProps: {|
-    columnWidth?: number,
-    layout?: Layout,
-    loadItems?:
-      | false
-      | ((
-          ?{|
-            from: number,
-          |},
-        ) => void | boolean | { ... }),
-    minCols: number,
-    virtualBufferFactor: number,
-    virtualize?: boolean,
-  |} = {
-    columnWidth: 236,
-    minCols: 3,
-    layout: 'basic',
-    loadItems: () => {},
-    virtualBufferFactor: 0.7,
-    virtualize: false,
-  };
-
-  constructor(props: Props<T>) {
-    super(props);
-
-    this.containerHeight = 0;
-    this.containerOffset = 0;
-    const measurementStore: Cache<T, number> =
-      props.measurementStore || Masonry.createMeasurementStore();
-
-    this.state = {
-      hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
-      isFetching: false,
-      items: props.items,
-      measurementStore,
-      scrollTop: 0,
-      width: undefined,
-    };
-  }
-
   /**
    * Adds hooks after the component mounts.
    */
@@ -231,6 +255,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     if (prevState.width != null && this.state.width !== prevState.width) {
       measurementStore.reset();
+      this.positionStore.reset();
+      this.heightsStore.reset();
     }
     // calculate whether we still have pending measurements
     const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
@@ -376,6 +402,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       measurementStore.reset();
     }
     this.state.measurementStore.reset();
+    this.positionStore.reset();
+    this.heightsStore.reset();
 
     this.measureContainer();
     this.forceUpdate();
@@ -395,7 +423,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       virtualBufferFactor,
     } = this.props;
     const { top, left, width, height } = position;
-
     let isVisible;
     if (scrollContainer && virtualBufferFactor) {
       const virtualBuffer = this.containerHeight * virtualBufferFactor;
@@ -449,8 +476,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       renderItem,
       scrollContainer,
       _batchPaints,
+      _twoColItems,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
+    const { positionStore } = this;
 
     let getPositions;
 
@@ -468,6 +497,18 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         columnWidth,
         gutter,
         minCols,
+        width,
+      });
+    } else if (_twoColItems === true) {
+      getPositions = defaultTwoColumnModuleLayout({
+        measurementCache: measurementStore,
+        positionCache: positionStore,
+        columnWidth,
+        gutter,
+        heightsCache: this.heightsStore,
+        justify: layout === 'basicCentered' ? 'center' : 'start',
+        minCols,
+        rawItemCount: items.length,
         width,
       });
     } else {
@@ -531,12 +572,20 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsToRender = items.filter((item) => item && measurementStore.has(item));
+      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
+      const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
+
+      const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
+      const hasTwoColumnItems =
+        // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
+        _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
+      // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
+      const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
-        .slice(0, minCols);
+        .slice(0, itemsToMeasureCount);
 
-      const positions = getPositions(itemsToRender);
+      const positions = getPositions(itemsWithMeasurements);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -546,12 +595,19 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
-            {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
+            {itemsWithPositions.map((item, i) =>
+              this.renderMasonryComponent(
+                item,
+                i,
+                // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
+                positionStore.get(item) ?? positions[i],
+              ),
+            )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {_batchPaints ? (
               <MeasureItems
-                baseIndex={itemsToRender.length}
+                baseIndex={itemsWithMeasurements.length}
                 getPositions={getPositions}
                 items={itemsToMeasure}
                 measurementStore={measurementStore}
@@ -562,7 +618,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
                 // we normalize the index here relative to the item list as a whole so that itemIdx is correct
                 // and so that React doesnt reuse the measurement nodes
-                const measurementIndex = itemsToRender.length + i;
+                const measurementIndex = itemsWithMeasurements.length + i;
                 const position = measuringPositions[i];
                 return (
                   <div

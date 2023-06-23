@@ -23,6 +23,7 @@ type Options = ?{|
   offsetTop?: number,
   realisticPinHeights?: boolean,
   scrollContainer?: boolean,
+  twoColItems?: boolean,
   virtualize?: boolean,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
