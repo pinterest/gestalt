@@ -2,7 +2,7 @@
 import { type Element, type Node } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
-import COMPONENT_DATA from './COMPONENT_DATA.js';
+import COMPONENT_DATA from './data/components.js';
 import MainSection from './MainSection.js';
 import Markdown from './Markdown.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';

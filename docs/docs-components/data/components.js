@@ -1,98 +1,78 @@
 // @flow strict
 import { type Element } from 'react';
-import Box from '../graphics/building-blocks/Box.svg';
-import Column from '../graphics/building-blocks/Column.svg';
-import Container from '../graphics/building-blocks/Container.svg';
-import Flex from '../graphics/building-blocks/Flex.svg';
-import Layer from '../graphics/building-blocks/Layer.svg';
-import Letterbox from '../graphics/building-blocks/Letterbox.svg';
-import Mask from '../graphics/building-blocks/Mask.svg';
-import Pog from '../graphics/building-blocks/Pog.svg';
-import Popover from '../graphics/building-blocks/Popover.svg';
-import ScrollBoundaryContainer from '../graphics/building-blocks/ScrollBoundaryContainer.svg';
-import SheetMobile from '../graphics/building-blocks/SheetMobile.svg';
-import Sticky from '../graphics/building-blocks/Sticky.svg';
-import TapArea from '../graphics/building-blocks/TapArea.svg';
-import ZIndexClasses from '../graphics/building-blocks/ZIndexClasses.svg';
-import Accessibility from '../graphics/foundations/accessibility.svg';
-import Animation from '../graphics/foundations/animation.svg';
-import BrandExpression from '../graphics/foundations/brand_expression.svg';
-import Color from '../graphics/foundations/color.svg';
-import Content from '../graphics/foundations/content.svg';
-import DataVisualization from '../graphics/foundations/data_visualization.svg';
-import DesignTokens from '../graphics/foundations/design-tokens.svg';
-import Elevation from '../graphics/foundations/elevation.svg';
-import Forms from '../graphics/foundations/forms.svg';
-import Iconography from '../graphics/foundations/iconography.svg';
-import Illustration from '../graphics/foundations/illustration.svg';
-import Layouts from '../graphics/foundations/layouts.svg';
-import Messaging from '../graphics/foundations/messaging.svg';
-import ScreenSizes from '../graphics/foundations/screen-size.svg';
-import Typography from '../graphics/foundations/typography.svg';
-import ActivationCard from '../graphics/general/ActivationCard.svg';
-import Avatar from '../graphics/general/Avatar.svg';
-import AvatarGroup from '../graphics/general/AvatarGroup.svg';
-import Badge from '../graphics/general/Badge.svg';
-import Button from '../graphics/general/Button.svg';
-import ButtonGroup from '../graphics/general/ButtonGroup.svg';
-import Callout from '../graphics/general/Callout.svg';
-import Checkbox from '../graphics/general/Checkbox.svg';
-import Collage from '../graphics/general/Collage.svg';
-import ComboBox from '../graphics/general/ComboBox.svg';
-import Datapoint from '../graphics/general/Datapoint.svg';
-import DateField from '../graphics/general/DateField.svg';
-import DatePicker from '../graphics/general/DatePicker.svg';
-import Divider from '../graphics/general/Divider.svg';
-import Dropdown from '../graphics/general/Dropdown.svg';
-import Heading from '../graphics/general/Heading.svg';
-import HelpButton from '../graphics/general/HelpButton.svg';
-import Icon from '../graphics/general/Icon.svg';
-import IconButton from '../graphics/general/IconButton.svg';
-import IconButtonFloating from '../graphics/general/IconButtonFloating.svg';
-import Image from '../graphics/general/Image.svg';
-import GestaltLabel from '../graphics/general/Label.svg';
-import GestaltLink from '../graphics/general/Link.svg';
-import List from '../graphics/general/List.svg';
-import Masonry from '../graphics/general/Masonry.svg';
-import Modal from '../graphics/general/Modal.svg';
-import ModalAlert from '../graphics/general/ModalAlert.svg';
-import Module from '../graphics/general/Module.svg';
-import NumberField from '../graphics/general/NumberField.svg';
-import OverlayPanel from '../graphics/general/OverlayPanel.svg';
-import PageHeader from '../graphics/general/PageHeader.svg';
-import Pulsar from '../graphics/general/Pulsar.svg';
-import RadioGroup from '../graphics/general/RadioGroup.svg';
-import SearchField from '../graphics/general/SearchField.svg';
-import SegmentedControl from '../graphics/general/SegmentedControl.svg';
-import SelectList from '../graphics/general/SelectList.svg';
-import SideNavigation from '../graphics/general/SideNavigation.svg';
-import SlimBanner from '../graphics/general/SlimBanner.svg';
-import Spinner from '../graphics/general/Spinner.svg';
-import Status from '../graphics/general/Status.svg';
-import Switch from '../graphics/general/Switch.svg';
-import Table from '../graphics/general/Table.svg';
-import Tabs from '../graphics/general/Tabs.svg';
-import Tag from '../graphics/general/Tag.svg';
-import TagData from '../graphics/general/TagData.svg';
-import Text from '../graphics/general/Text.svg';
-import TextArea from '../graphics/general/TextArea.svg';
-import TextField from '../graphics/general/TextField.svg';
-import TileData from '../graphics/general/TileData.svg';
-import Toast from '../graphics/general/Toast.svg';
-import Tooltip from '../graphics/general/Tooltip.svg';
-import Upsell from '../graphics/general/Upsell.svg';
-import Video from '../graphics/general/Video.svg';
-import WashAnimated from '../graphics/general/WashAnimated.svg';
-import AdvocateTile from '../graphics/team_support/advocate.svg';
-import ComponentRequest from '../graphics/team_support/component-request.svg';
-import ContributionsTile from '../graphics/team_support/contributions.svg';
-import DesignFileHygiene from '../graphics/team_support/design-file-hygiene.svg';
-import GetHelpTile from '../graphics/team_support/get-help.svg';
-import TrainingTile from '../graphics/team_support/training.svg';
-import HookFocusVisible from '../graphics/utilities/hook-focus-visible.svg';
-import HookReducedMotion from '../graphics/utilities/hook-reduced-motion.svg';
-import ProviderColorScheme from '../graphics/utilities/provider-color-scheme.svg';
-import ProviderHandlers from '../graphics/utilities/provider-global-events-handler.svg';
+import Box from '../../graphics/building-blocks/Box.svg';
+import Column from '../../graphics/building-blocks/Column.svg';
+import Container from '../../graphics/building-blocks/Container.svg';
+import Flex from '../../graphics/building-blocks/Flex.svg';
+import Layer from '../../graphics/building-blocks/Layer.svg';
+import Letterbox from '../../graphics/building-blocks/Letterbox.svg';
+import Mask from '../../graphics/building-blocks/Mask.svg';
+import Pog from '../../graphics/building-blocks/Pog.svg';
+import Popover from '../../graphics/building-blocks/Popover.svg';
+import ScrollBoundaryContainer from '../../graphics/building-blocks/ScrollBoundaryContainer.svg';
+import SheetMobile from '../../graphics/building-blocks/SheetMobile.svg';
+import Sticky from '../../graphics/building-blocks/Sticky.svg';
+import TapArea from '../../graphics/building-blocks/TapArea.svg';
+import ZIndexClasses from '../../graphics/building-blocks/ZIndexClasses.svg';
+import Accessibility from '../../graphics/foundations/accessibility.svg';
+import ActivationCard from '../../graphics/general/ActivationCard.svg';
+import Avatar from '../../graphics/general/Avatar.svg';
+import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
+import Badge from '../../graphics/general/Badge.svg';
+import Button from '../../graphics/general/Button.svg';
+import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
+import Callout from '../../graphics/general/Callout.svg';
+import Checkbox from '../../graphics/general/Checkbox.svg';
+import Collage from '../../graphics/general/Collage.svg';
+import ComboBox from '../../graphics/general/ComboBox.svg';
+import Datapoint from '../../graphics/general/Datapoint.svg';
+import DateField from '../../graphics/general/DateField.svg';
+import DatePicker from '../../graphics/general/DatePicker.svg';
+import Divider from '../../graphics/general/Divider.svg';
+import Dropdown from '../../graphics/general/Dropdown.svg';
+import Heading from '../../graphics/general/Heading.svg';
+import HelpButton from '../../graphics/general/HelpButton.svg';
+import Icon from '../../graphics/general/Icon.svg';
+import IconButton from '../../graphics/general/IconButton.svg';
+import IconButtonFloating from '../../graphics/general/IconButtonFloating.svg';
+import Image from '../../graphics/general/Image.svg';
+import GestaltLabel from '../../graphics/general/Label.svg';
+import GestaltLink from '../../graphics/general/Link.svg';
+import List from '../../graphics/general/List.svg';
+import Masonry from '../../graphics/general/Masonry.svg';
+import Modal from '../../graphics/general/Modal.svg';
+import ModalAlert from '../../graphics/general/ModalAlert.svg';
+import Module from '../../graphics/general/Module.svg';
+import NumberField from '../../graphics/general/NumberField.svg';
+import OverlayPanel from '../../graphics/general/OverlayPanel.svg';
+import PageHeader from '../../graphics/general/PageHeader.svg';
+import Pulsar from '../../graphics/general/Pulsar.svg';
+import RadioGroup from '../../graphics/general/RadioGroup.svg';
+import SearchField from '../../graphics/general/SearchField.svg';
+import SegmentedControl from '../../graphics/general/SegmentedControl.svg';
+import SelectList from '../../graphics/general/SelectList.svg';
+import SideNavigation from '../../graphics/general/SideNavigation.svg';
+import SlimBanner from '../../graphics/general/SlimBanner.svg';
+import Spinner from '../../graphics/general/Spinner.svg';
+import Status from '../../graphics/general/Status.svg';
+import Switch from '../../graphics/general/Switch.svg';
+import Table from '../../graphics/general/Table.svg';
+import Tabs from '../../graphics/general/Tabs.svg';
+import Tag from '../../graphics/general/Tag.svg';
+import TagData from '../../graphics/general/TagData.svg';
+import Text from '../../graphics/general/Text.svg';
+import TextArea from '../../graphics/general/TextArea.svg';
+import TextField from '../../graphics/general/TextField.svg';
+import TileData from '../../graphics/general/TileData.svg';
+import Toast from '../../graphics/general/Toast.svg';
+import Tooltip from '../../graphics/general/Tooltip.svg';
+import Upsell from '../../graphics/general/Upsell.svg';
+import Video from '../../graphics/general/Video.svg';
+import WashAnimated from '../../graphics/general/WashAnimated.svg';
+import HookFocusVisible from '../../graphics/utilities/hook-focus-visible.svg';
+import HookReducedMotion from '../../graphics/utilities/hook-reduced-motion.svg';
+import ProviderColorScheme from '../../graphics/utilities/provider-color-scheme.svg';
+import ProviderHandlers from '../../graphics/utilities/provider-global-events-handler.svg';
 
 export type Category =
   | 'Actions'
@@ -153,171 +133,6 @@ export type ListItemType = {|
   |}, // web status
   svg: Element<typeof Accessibility>,
 |};
-
-const TEAM_SUPPORT_LIST: $ReadOnlyArray<ListItemType> = [
-  {
-    svg: <AdvocateTile />,
-    name: 'Be a Gestalt advocate',
-    description:
-      'A dedicated cohort of system advocates to rely on for design partnership, input and knowledge share and support within your team and product area.',
-    category: 'Team support',
-    path: '/team_support/be_a_gestalt_advocate',
-  },
-  {
-    svg: <ComponentRequest />,
-    name: 'Component request',
-    description:
-      'Instructions on how to request new components or updates to an existent component.',
-    category: 'Team support',
-    path: '/team_support/component_request',
-  },
-  {
-    svg: <DesignFileHygiene />,
-    name: 'Design file hygiene',
-    description:
-      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files.',
-    category: 'Team support',
-    path: '/team_support/design_file_hygiene/naming_convention',
-  },
-  {
-    svg: <ContributionsTile />,
-    name: 'Contributions',
-    description: 'Resources, Slack channels, meetings and events.',
-    category: 'Team support',
-    path: '/team_support/contributions',
-  },
-  {
-    svg: <GetHelpTile />,
-    name: 'Get help',
-    description:
-      'Resources on how to engage with the Gestalt team, join office hours, meetings and events.',
-    category: 'Team support',
-    path: '/team_support/get_help',
-  },
-  {
-    svg: <TrainingTile />,
-    name: 'Training',
-    description:
-      'Gestalt design systems specific training to support design workflow and systems mindset.',
-    category: 'Team support',
-    path: '/team_support/training',
-  },
-];
-
-const FOUNDATION_GUIDELINES_LIST: $ReadOnlyArray<ListItemType> = [
-  {
-    svg: <Accessibility />,
-    name: 'Accessibility',
-    description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/accessibility',
-  },
-  {
-    svg: <Animation />,
-    name: 'Animation',
-    description: 'Guidelines for animation in product and implementation options',
-    category: 'Foundations',
-    path: '/foundations/animation/principles',
-  },
-  {
-    svg: <BrandExpression />,
-    name: 'Brand expression',
-    description: 'Guidelines for representing brand moments in product',
-    category: 'Foundations',
-    path: '/foundations/brand_expression/guidelines',
-  },
-  {
-    svg: <Color />,
-    name: 'Color',
-    description: 'Palettes and guidelines for using color across product interfaces and surfaces',
-    category: 'Foundations',
-    path: '/foundations/color/palette',
-  },
-  {
-    svg: <Content />,
-    name: 'Content Standards',
-    description: 'When writing at Pinterest, keep these guiding words in mind',
-    category: 'Foundations',
-    path: '/foundations/content_standards/voice',
-  },
-  {
-    svg: <DataVisualization />,
-    name: 'Data visualization',
-    description: 'Guidelines and best practices for creating and using data visualizations',
-    category: 'Foundations',
-    path: '/foundations/data_visualization/overview',
-  },
-
-  {
-    svg: <DesignTokens />,
-    name: 'Design tokens',
-    description:
-      'An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.',
-    category: 'Foundations',
-    path: '/foundations/design_tokens',
-  },
-  {
-    svg: <Elevation />,
-    name: 'Elevation',
-    description:
-      'How and when to lift UI elements from the base surface via color, borders, shadows and other methods',
-    category: 'Foundations',
-    path: '/foundations/elevation',
-  },
-  {
-    svg: <Forms />,
-    name: 'Forms',
-    description: 'Guidelines for form layout, behavior and usage',
-    category: 'Foundations',
-    path: '/foundations/forms/overview',
-  },
-  {
-    svg: <Iconography />,
-    name: 'Iconography',
-    description: 'Our current icon library, complete with guidelines on using and creating icons',
-    category: 'Foundations',
-    path: '/foundations/iconography/library',
-  },
-  {
-    svg: <Illustration />,
-    name: 'Illustration',
-    description:
-      'How to use illustration for communicating empty, success, error and loading statuses in the product',
-    category: 'Foundations',
-    path: '/foundations/illustration',
-  },
-  {
-    svg: <Layouts />,
-    name: 'Layouts',
-    description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    category: 'Foundations',
-    path: '/foundations/layouts',
-  },
-  {
-    svg: <Messaging />,
-    name: 'Messaging',
-    description:
-      'How to communicate errors, warnings, successes, recommendations and general information on system status.',
-    category: 'Foundations',
-    path: '/foundations/messaging/overview',
-  },
-  {
-    svg: <ScreenSizes />,
-    name: 'Screen sizes',
-    description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
-    category: 'Foundations',
-    path: '/foundations/screen_sizes',
-  },
-  {
-    svg: <Typography />,
-    name: 'Typography',
-    description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    category: 'Foundations',
-    path: '/foundations/typography/guidelines',
-  },
-];
 
 const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
   {
@@ -4138,15 +3953,11 @@ const COMPONENT_DATA_MAP: {|
   generalComponents: $ReadOnlyArray<ListItemType>,
   utilityComponents: $ReadOnlyArray<ListItemType>,
   figmaOnlyComponents: $ReadOnlyArray<ListItemType>,
-  foundations: $ReadOnlyArray<ListItemType>,
-  teamSupport: $ReadOnlyArray<ListItemType>,
 |} = {
   buildingBlockComponents: BUILDING_BLOCKS_LIST,
   generalComponents: GENERAL_COMPONENT_LIST,
   utilityComponents: UTILITIES_LIST,
   figmaOnlyComponents: FIGMA_ONLY_LIST,
-  foundations: FOUNDATION_GUIDELINES_LIST,
-  teamSupport: TEAM_SUPPORT_LIST,
 };
 
 export default COMPONENT_DATA_MAP;

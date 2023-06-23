@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import { Box, Divider, Flex, SlimBanner, Text } from 'gestalt';
-import COMPONENT_DATA, { type ListItemType } from './COMPONENT_DATA.js';
+import COMPONENT_DATA, { type ListItemType } from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 import StatusData from './StatusData.js';
 

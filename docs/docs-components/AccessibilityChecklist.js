@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Module, Table, Text } from 'gestalt';
-import COMPONENT_DATA, { type AccessibleStatus } from './COMPONENT_DATA.js';
+import COMPONENT_DATA, { type AccessibleStatus } from './data/components.js';
 import {
   COMPONENT_A11Y_STATUS_MESSAGING,
   STATUS_DESCRIPTION,
