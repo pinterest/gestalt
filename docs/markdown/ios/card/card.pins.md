@@ -62,15 +62,15 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 #### 2-up
 
-<iframe style={{border:0}} width="100%" height="312" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=19826%3A75261&mode=design&t=IclHzfbakvSzsqp8-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19826%253A75261%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
 #### 3-up (default)
 
-<iframe style={{border:0}} width="100%" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76866%26mode%3Ddesign%26t%3DIclHzfbakvSzsqp8-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19800%253A76866%26mode%3Ddesign%26t%3DIclHzfbakvSzsqp8-1" allowFullScreen></iframe>
 
 #### 4-up
 
-<iframe style={{border:0}} width="100%" height="312" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile[%E2%80%A6]-id%3D19826%253A75351%26mode%3Ddesign%26t%3DIclHzfbakvSzsqp8-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="360" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D19826%253A75351%26mode%3Ddesign%26t%3DmAYek1WBSRRnRvq3-1" allowFullScreen></iframe>
 
 ### Dark mode
 
