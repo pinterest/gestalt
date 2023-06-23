@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableOfContents renders 1`] = `
+<div
+  className="box"
+>
+  <div
+    className="customClass"
+  />
+</div>
+`;
+
+exports[`TableOfContents renders an accessibility label 1`] = `
+<div
+  className="box"
+>
+  <div
+    className="customClass"
+  />
+</div>
+`;
