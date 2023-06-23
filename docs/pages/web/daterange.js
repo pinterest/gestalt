@@ -48,9 +48,9 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import disabledFuture from '../../examples/daterange/disabledFuture.js';
 import disabledPast from '../../examples/daterange/disabledPast.js';
-import futureRadiogroup from '../../examples/daterange/futureRadiogroup.js';
+import futureRadiogroup from '../../examples/daterange/futureRadioGroup.js';
 import main from '../../examples/daterange/main.js';
-import pastRadiogroup from '../../examples/daterange/pastRadiogroup.js';
+import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
 
 const localeMap = {
   'af': { localeData: af, lang: 'Afrikaans' },
