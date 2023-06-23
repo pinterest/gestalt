@@ -3,6 +3,28 @@
     "year": "2023",
     "digests": [
       {
+        "week": "June 23, 2023",
+        "summary": "Big big updates with the addition of the TagData component and Card guidelines.",
+        "posts": [
+          {
+            "title": "New TagData component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/22/21/85/22218570210762f7e7137cf8e38700a3.png",
+            "imageAltText": "Example of TagData component.",
+            "content": "Fresh off the press is our new [TagData component](https://gestalt.pinterest.systems/web/tagdata). TagData enables users to select multiple categories to compare with each other in a graph or chart. This component is going to be a helpful companion to our upcoming data visualization components."
+          },
+          {
+            "title": "New Card component guidelines",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "white-mochimalist-0",
+            "imageSrc": "https://i.pinimg.com/originals/31/69/0c/31690c113ae0176d55d4cde16e285736.png",
+            "imageAltText": "Screenshot of the Card component documentation.",
+            "content": "We wrapped up a big collaboration with the Browse team where we worked to unify the design and content of in-feed modules. This work resulted in finalized Card component/content designs along with [Card component guidelines](https://gestalt.pinterest.systems/ios/card/card) as well as guidelines for [Boards](https://gestalt.pinterest.systems/ios/card/card.boards) and [Pins](https://gestalt.pinterest.systems/ios/card/card.pins) preview blocks.\n\nThis work should enable a more unified and consistent experience when Pinners are presented with in-feed recommendations."
+          }
+        ]
+      },
+      {
         "week": "June 16, 2023",
         "summary": "iOS in-app Gestalt tools, DefaultLabelProvider improvements, Figma library updates and a bunch of updates to our Figma plugin.",
         "posts": [
