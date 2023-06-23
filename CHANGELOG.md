@@ -1,3 +1,9 @@
+## 116.1.1 (Jun 23, 2023)
+
+### Patch
+
+- Docs: Add Value to Default Label Provider Docs ([#3026](https://github.com/pinterest/gestalt/pull/3026)) - [Preview link](https://deploy-preview-3026--gestalt.netlify.app?devexample=true)
+
 ## 116.1.0 (Jun 23, 2023)
 
 ### Minor
