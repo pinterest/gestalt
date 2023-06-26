@@ -22,9 +22,14 @@ import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Avatar">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={mainExample} name="No image source" hideEditor previewHeight={150} />
+        <SandpackExample
+          code={mainExample}
+          name="Main Avatar example"
+          hideEditor
+          previewHeight={150}
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
