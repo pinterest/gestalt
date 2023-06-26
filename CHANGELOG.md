@@ -1,3 +1,9 @@
+## 116.1.3 (Jun 26, 2023)
+
+### Patch
+
+- Internal: upgrade `semver` and add resolution ([#3036](https://github.com/pinterest/gestalt/pull/3036)) - [Preview link](https://deploy-preview-3036--gestalt.netlify.app?devexample=true)
+
 ## 116.1.2 (Jun 23, 2023)
 
 ### Patch
