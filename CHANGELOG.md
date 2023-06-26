@@ -1,3 +1,9 @@
+## 116.1.4 (Jun 26, 2023)
+
+### Patch
+
+- Masonry: fix blank screen bug ([#3039](https://github.com/pinterest/gestalt/pull/3039)) - [Preview link](https://deploy-preview-3039--gestalt.netlify.app?devexample=true)
+
 ## 116.1.3 (Jun 26, 2023)
 
 ### Patch
