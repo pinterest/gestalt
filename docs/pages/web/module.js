@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -527,10 +527,10 @@ function ModuleExample5() {
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docgen = await multipledocgen({ componentName: ['Module', 'ModuleExpandable'] });
+  const docGen = await multipleDocGen(['Module', 'ModuleExpandable']);
 
-  docgen.Module.props.icon = {
-    ...docgen.Module.props.icon,
+  docGen.Module.props.icon = {
+    ...docGen.Module.props.icon,
     flowType: {
       name: 'string',
       raw: 'Icon[icon]',
@@ -538,6 +538,6 @@ export async function getServerSideProps(): Promise<{|
   };
 
   return {
-    props: { generatedDocGen: docgen },
+    props: { generatedDocGen: docGen },
   };
 }

@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Card from '../../docs-components/Card.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
@@ -108,6 +108,6 @@ function zIndexExample() {
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Layer' }) },
+    props: { generatedDocGen: await docGen('Layer') },
   };
 }

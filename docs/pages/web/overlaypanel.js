@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Link, SlimBanner, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -383,10 +383,7 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const generatedDocGen = await multipledocgen({
-    componentName: ['OverlayPanel', 'DismissingElement'],
-  });
   return {
-    props: { generatedDocGen },
+    props: { generatedDocGen: await multipleDocGen(['OverlayPanel', 'DismissingElement']) },
   };
 }

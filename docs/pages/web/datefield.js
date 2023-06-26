@@ -41,7 +41,7 @@ import {
 import { Box, SlimBanner } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 import Combination from '../../docs-components/Combination.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -198,9 +198,7 @@ Use DatePicker if the user is allowed to pick a date from a calendar popup.
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: {
-      generatedDocGen: await docgen({
-        componentName: 'DateField',
-      }),
+      generatedDocGen: await docGen('DateField'),
     },
   };
 }

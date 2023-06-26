@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -491,9 +491,7 @@ Fieldset creates a fieldset and legend for a group of related form items, like [
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docGen = await multipledocgen({
-    componentName: ['List', 'ListItem'],
-  });
+  const docGen = await multipleDocGen(['List', 'ListItem']);
 
   docGen.List.props.children.flowType.raw = '<Element<typeof List.Item>>';
   docGen.ListItem.props.children.flowType.raw = '<Element<typeof List | typeof List.Item>>';

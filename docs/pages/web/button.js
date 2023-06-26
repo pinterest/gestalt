@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -674,6 +674,6 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Button' }) },
+    props: { generatedDocGen: await docGen('Button') },
   };
 }

@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Box, SlimBanner, TapArea, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import Example from '../../docs-components/Example.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -680,6 +680,6 @@ GlobalEventsHandlerProvider allows external link navigation control across all c
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'TapArea' }) },
+    props: { generatedDocGen: await docGen('TapArea') },
   };
 }

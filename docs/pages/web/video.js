@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -363,7 +363,7 @@ function Example () {
 }
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const generatedDocGen = await docgen({ componentName: 'Video' });
+  const generatedDocGen = await docGen('Video');
 
   generatedDocGen.props.ref = {
     required: false,

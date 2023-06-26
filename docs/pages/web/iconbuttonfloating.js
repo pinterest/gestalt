@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -219,7 +219,7 @@ IconButtonFloating is commonly paired with Dropdown to display a menu of options
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const generatedDocGen = await docgen({ componentName: 'IconButtonFloating' });
+  const generatedDocGen = await docGen('IconButtonFloating');
 
   generatedDocGen.props.icon = {
     ...generatedDocGen.props.icon,

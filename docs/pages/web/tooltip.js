@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -799,6 +799,6 @@ Toast provides feedback on an interaction. One example of Toast is the confirmat
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Tooltip' }) },
+    props: { generatedDocGen: await docGen('Tooltip') },
   };
 }

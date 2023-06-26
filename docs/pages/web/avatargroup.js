@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { AvatarGroup } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -306,6 +306,6 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'AvatarGroup' }) },
+    props: { generatedDocGen: await docGen('AvatarGroup') },
   };
 }

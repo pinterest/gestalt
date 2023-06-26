@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -575,20 +575,18 @@ Checkboxes are often used in tables to allow for selecting and editing of multip
 export async function getStaticProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docGen = await multipledocgen({
-    componentName: [
-      'Table',
-      'TableHeader',
-      'TableBody',
-      'TableFooter',
-      'TableCell',
-      'TableHeaderCell',
-      'TableSortableHeaderCell',
-      'TableRow',
-      'TableRowExpandable',
-      'TableRowDrawer',
-    ],
-  });
+  const docGen = await multipleDocGen([
+    'Table',
+    'TableHeader',
+    'TableBody',
+    'TableFooter',
+    'TableCell',
+    'TableHeaderCell',
+    'TableSortableHeaderCell',
+    'TableRow',
+    'TableRowExpandable',
+    'TableRowDrawer',
+  ]);
 
   docGen.Table.props.children.flowType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Body | typeof Table.Footer | typeof Table.Header>>';

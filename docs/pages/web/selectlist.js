@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -622,11 +622,9 @@ If users need the ability to choose between a yes/no option, use Checkbox.
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docgen = await multipledocgen({
-    componentName: ['SelectList', 'SelectListOption', 'SelectListGroup'],
-  });
-
   return {
-    props: { generatedDocGen: docgen },
+    props: {
+      generatedDocGen: await multipleDocGen(['SelectList', 'SelectListOption', 'SelectListGroup']),
+    },
   };
 }

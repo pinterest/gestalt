@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -765,9 +765,7 @@ If the \`message\` text requires more complex style, such as bold text or inline
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const generatedDocGen = await multipledocgen({ componentName: ['Upsell', 'UpsellForm'] });
-
   return {
-    props: { generatedDocGen },
+    props: { generatedDocGen: await multipleDocGen(['Upsell', 'UpsellForm']) },
   };
 }
