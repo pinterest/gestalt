@@ -1,3 +1,9 @@
+## 116.1.5 (Jun 26, 2023)
+
+### Patch
+
+- Avatar: the tiniest of docs nits ([#3040](https://github.com/pinterest/gestalt/pull/3040)) - [Preview link](https://deploy-preview-3040--gestalt.netlify.app?devexample=true)
+
 ## 116.1.4 (Jun 26, 2023)
 
 ### Patch
