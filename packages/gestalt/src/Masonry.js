@@ -574,6 +574,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       // Full layout is possible
       const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
       const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
+      const itemsToRender = _twoColItems ? itemsWithPositions : itemsWithMeasurements;
 
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
@@ -595,7 +596,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
-            {itemsWithPositions.map((item, i) =>
+            {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(
                 item,
                 i,
