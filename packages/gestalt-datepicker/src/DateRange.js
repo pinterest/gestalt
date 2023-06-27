@@ -101,6 +101,8 @@ function DateRange({
               <Flex gap={3}>
                 <Box width={280}>
                   <InternalDateField
+                    autoComplete="off"
+                    mobileEnterKeyHint="enter"
                     id="datefield-start"
                     localeData={localeData}
                     onChange={({ value }) => {
@@ -118,6 +120,8 @@ function DateRange({
                 </Box>
                 <Box width={280}>
                   <InternalDateField
+                    autoComplete="off"
+                    mobileEnterKeyHint="enter"
                     id="datefield-end"
                     localeData={localeData}
                     onChange={({ value }) => {

@@ -10,7 +10,7 @@ export default function Example(): Node {
   return (
     <DateRange
       endDateValue={endDate}
-      maxDate={new Date()}
+      minDate={new Date()}
       onStartDateChange={({ value }) => setStartDate(value)}
       onEndDateChange={({ value }) => setEndDate(value)}
       onStartDateError={({ errorMessage }) => setStartErrorMessage(errorMessage)}

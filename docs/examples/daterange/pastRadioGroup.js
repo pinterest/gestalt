@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node, useMemo, useState } from 'react';
-import { RadioGroup } from 'gestalt';
+import { Flex, RadioGroup } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
 export default function Example(): Node {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [startErrorMessage, setStartErrorMessage] = useState<string | null>(null);
+
   const [period, setPeriod] = useState<'1' | '2' | '4' | 'custom' | null>(null);
 
   const radioGroup = useMemo(
@@ -68,22 +68,22 @@ export default function Example(): Node {
   );
 
   return (
-    <DateRange
-      radioGroup={radioGroup}
-      endDateValue={endDate}
-      maxDate={new Date()}
-      onStartDateChange={({ value }) => {
-        setPeriod('custom');
-        setStartDate(value);
-      }}
-      onEndDateChange={({ value }) => {
-        setPeriod('custom');
-        setEndDate(value);
-      }}
-      onStartDateError={({ errorMessage }) => setStartErrorMessage(errorMessage)}
-      onEndDateError={() => {}}
-      startDateErrorMessage={startErrorMessage}
-      startDateValue={startDate}
-    />
+    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
+      <DateRange
+        radioGroup={radioGroup}
+        endDateValue={endDate}
+        onStartDateChange={({ value }) => {
+          setPeriod('custom');
+          setStartDate(value);
+        }}
+        onEndDateChange={({ value }) => {
+          setPeriod('custom');
+          setEndDate(value);
+        }}
+        onEndDateError={() => {}}
+        onStartDateError={() => {}}
+        startDateValue={startDate}
+      />
+    </Flex>
   );
 }
