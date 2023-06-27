@@ -77,7 +77,7 @@ When text is entered into a search field, the entered text color will change to 
 <ImgContainer src="https://i.pinimg.com/originals/dd/47/af/dd47af8f79e4a51124b921f825c31918.jpg" alt="An example of a search field with text entered and a clear icon." />
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?type=design&node-id=9867%3A21703&t=qA042oJ4q4dOukcd-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D9867%253A21703%26mode%3Ddesign%26t%3D7DILxmTXufpjBBtl-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
 

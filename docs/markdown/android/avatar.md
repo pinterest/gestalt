@@ -51,7 +51,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2Fbranch%2FC7wC6TnM4VTM1qsmtVUVq0%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33387%26t%3D1nM9mzfmuC0Y1RGQ-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33387%26mode%3Ddesign%26t%3D7DILxmTXufpjBBtl-1" allowFullScreen></iframe>
 
 ## Anatomy
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33041%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
