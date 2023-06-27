@@ -62,7 +62,8 @@ Icon's container (.svg viewbox) dimensions are the same for all icons regardless
 ### Touch target
 If an icon is interactive, use the built-in 48dp touch target.
 <br />
-<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19297%253A72581%26t%3DD3hNy73JBEb5S9mN-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8542%253A18337%26mode%3Ddesign%26t%3D7DILxmTXufpjBBtl-1" allowfullscreen></iframe>
+
 ## Variants
 
 ### Size
