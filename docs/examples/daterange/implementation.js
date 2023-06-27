@@ -41,6 +41,7 @@ export default function Example(): Node {
             positionRelativeToAnchor={false}
             onDismiss={() => {}}
             anchor={anchorRef.current}
+            idealDirection="down"
           >
             <DateRange
               endDateValue={endDate}
