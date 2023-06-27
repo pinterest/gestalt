@@ -1,3 +1,9 @@
+## 116.1.6 (Jun 27, 2023)
+
+### Patch
+
+- Internal: simplify docgen API ([#3041](https://github.com/pinterest/gestalt/pull/3041)) - [Preview link](https://deploy-preview-3041--gestalt.netlify.app?devexample=true)
+
 ## 116.1.5 (Jun 26, 2023)
 
 ### Patch
