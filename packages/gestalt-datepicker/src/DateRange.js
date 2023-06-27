@@ -41,22 +41,24 @@ type Props = {|
   /**
    * Prop description.
    */
-  localeData?: LocaleData,
-  radioGroup?: Node,
   endDateValue: Date | null,
   endDateErrorMessage?: string | null,
-  onStartDateChange: ({| value: Date | null |}) => void,
-  onStartDateError: ({|
-    errorMessage: string,
-    value: Date | null,
-  |}) => void,
+  localeData?: LocaleData,
+  maxDate?: Date,
+  minDate?: Date,
   onEndDateChange: ({| value: Date | null |}) => void,
   onEndDateError: ({|
     errorMessage: string,
     value: Date | null,
   |}) => void,
-  maxDate?: Date,
-  minDate?: Date,
+
+  onStartDateChange: ({| value: Date | null |}) => void,
+  onStartDateError: ({|
+    errorMessage: string,
+    value: Date | null,
+  |}) => void,
+  onSubmit: () => void,
+  radioGroup?: Node,
   startDateValue: Date | null,
   startDateErrorMessage?: string | null,
 |};
@@ -70,14 +72,14 @@ function DateRange({
   endDateValue,
   endDateErrorMessage,
   localeData,
-  onStartDateChange,
-  onStartDateError,
-  onEndDateChange,
-  onEndDateError,
   maxDate,
   minDate,
+  onEndDateChange,
+  onEndDateError,
+  onStartDateChange,
+  onStartDateError,
+  onSubmit,
   radioGroup,
-
   startDateValue,
   startDateErrorMessage,
 }: Props): Node {
@@ -165,6 +167,7 @@ function DateRange({
                     !endDateValue ||
                     !startDateValue
                   }
+                  onClick={() => onSubmit()}
                 />
               </Box>
             </Flex.Item>
