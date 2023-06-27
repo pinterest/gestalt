@@ -23,12 +23,30 @@ export type DocGen = {|
   |},
 |};
 
+function addSystemProps(docGenArg: DocGen): DocGen {
+  return {
+    ...docGenArg,
+    props: {
+      ...docGenArg.props,
+      dataTestId: {
+        defaultValue: null,
+        required: false,
+        description:
+          'A string that is used as a data attribute `data-test-id` on the underlying element.',
+        flowType: {
+          name: 'string',
+        },
+      },
+    },
+  };
+}
+
 export type DocType = {|
   generatedDocGen: DocGen,
 |};
 
 export default function docGen(componentName: string): DocGen {
-  return metadata[componentName];
+  return addSystemProps(metadata[componentName]);
 }
 
 export function multipleDocGen(componentNames: $ReadOnlyArray<string>): {|
