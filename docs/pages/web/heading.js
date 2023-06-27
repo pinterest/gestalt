@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, SlimBanner, Table, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Markdown from '../../docs-components/Markdown.js';
@@ -386,6 +386,6 @@ For certain specific situations, it is possible to use Heading without an access
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Heading' }) },
+    props: { generatedDocGen: await docGen('Heading') },
   };
 }

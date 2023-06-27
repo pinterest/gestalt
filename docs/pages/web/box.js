@@ -3,7 +3,7 @@ import React, { type Node } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -536,9 +536,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const generatedDocGen = await docgen({ componentName: 'Box' });
-
   return {
-    props: { generatedDocGen },
+    props: { generatedDocGen: await docGen('Box') },
   };
 }

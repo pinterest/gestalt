@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -888,13 +888,9 @@ function RadioButtonPopoverExample() {
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docGen = await multipledocgen({
-    componentName: ['RadioGroup', 'RadioGroupButton'],
-  });
-
   return {
     props: {
-      generatedDocGen: docGen,
+      generatedDocGen: await multipleDocGen(['RadioGroup', 'RadioGroupButton']),
     },
   };
 }

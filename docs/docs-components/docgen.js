@@ -27,37 +27,31 @@ export type DocType = {|
   generatedDocGen: DocGen,
 |};
 
-export default function docgen({ componentName }: {| componentName: string |}): DocGen {
+export default function docGen(componentName: string): DocGen {
   return metadata[componentName];
 }
 
-export function multipledocgen({
-  componentName,
-}: {|
-  componentName: $ReadOnlyArray<string> | string,
-|}): {|
+export function multipleDocGen(componentNames: $ReadOnlyArray<string>): {|
   [string]: DocGen,
 |} {
-  return Array.isArray(componentName)
-    ? componentName.reduce(
-        (prevValue: { [string]: DocGen }, currentComponentName: string) => ({
-          ...prevValue,
-          [currentComponentName]: docgen({ componentName: currentComponentName }),
-        }),
-        {},
-      )
-    : metadata[componentName];
+  return componentNames.reduce(
+    (prevValue: { [string]: DocGen }, currentComponentName: string) => ({
+      ...prevValue,
+      [currentComponentName]: docGen(currentComponentName),
+    }),
+    {},
+  );
 }
 
-export function overrideTypes(docGen: DocGen, typeOverrides: {| [string]: string |}): DocGen {
+export function overrideTypes(docGenArg: DocGen, typeOverrides: {| [string]: string |}): DocGen {
   Object.keys(typeOverrides).forEach((key) => {
-    if (docGen?.props?.[key]) {
+    if (docGenArg?.props?.[key]) {
       // eslint-disable-next-line no-param-reassign
-      docGen.props[key].flowType = {
+      docGenArg.props[key].flowType = {
         name: 'union',
         raw: typeOverrides[key],
       };
     }
   });
-  return docGen;
+  return docGenArg;
 }

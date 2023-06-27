@@ -42,7 +42,7 @@ import { Box } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -321,9 +321,7 @@ import { it } from 'date-fns/locale';
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: {
-      generatedDocGen: await docgen({
-        componentName: 'DatePicker',
-      }),
+      generatedDocGen: await docGen('DatePicker'),
     },
   };
 }

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -155,8 +155,8 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
       <MainSection
         name="Localization"
         description={`
-        
-      Be sure to localize \`accessibilityRemoveIconLabel\` ,\`tooltip.accessibilityLabel\`, and \`text\` props in TagData.  
+
+      Be sure to localize \`accessibilityRemoveIconLabel\` ,\`tooltip.accessibilityLabel\`, and \`text\` props in TagData.
 
       When the \`text\` of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width. Keep this in mind when selecting wording for TagData. Note that localization can lengthen text by 20 to 30 percent.`}
       />
@@ -164,8 +164,8 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`TagData is available in 3 fixed sizes.
-          - **lg** has height of 48px. Text has a fixed size of 16px. 
-          - **md** has height of 40px. Text has a fixed size of 14px. 
+          - **lg** has height of 48px. Text has a fixed size of 16px.
+          - **md** has height of 40px. Text has a fixed size of 14px.
           - **sm** has height of 32px. Text has a fixed size of 14px.
           `}
           title="Size"
@@ -233,7 +233,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           description={`
     **[Tag](/web/tag)**
     Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#Tags), [TextAreas](https://gestalt.pinterest.systems/web/textarea#With-tags), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
-    
+
     **[TileData](/web/tiledata)**
     TileData is a flexible, visually rich component that can be used as single or multiple selections on should be only used with data visualizations.
   `}
@@ -245,6 +245,6 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'TagData' }) },
+    props: { generatedDocGen: await docGen('TagData') },
   };
 }

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipledocgen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -530,20 +530,16 @@ For pages with a main top nav bar, every SideNav should have a PageHeader to ann
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
-  const docGen = await multipledocgen({
-    componentName: [
-      'SideNavigation',
-      'SideNavigationSection',
-      'SideNavigationTopItem',
-      'SideNavigationNestedItem',
-      'SideNavigationGroup',
-      'SideNavigationNestedGroup',
-    ],
-  });
-
   return {
     props: {
-      generatedDocGen: docGen,
+      generatedDocGen: await multipleDocGen([
+        'SideNavigation',
+        'SideNavigationSection',
+        'SideNavigationTopItem',
+        'SideNavigationNestedItem',
+        'SideNavigationGroup',
+        'SideNavigationNestedGroup',
+      ]),
     },
   };
 }

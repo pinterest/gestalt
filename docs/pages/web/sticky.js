@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -31,7 +31,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const generatedDocGen = await docgen({ componentName: 'Sticky' });
+  const generatedDocGen = await docGen('Sticky');
 
   ['bottom', 'left', 'right', 'top'].forEach((prop) => {
     generatedDocGen.props[prop] = {

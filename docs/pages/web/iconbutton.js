@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { IconButton, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -537,6 +537,6 @@ It's most common to anchor Dropdown to [Button](/web/button) or IconButton.
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'IconButton' }) },
+    props: { generatedDocGen: await docGen('IconButton') },
   };
 }

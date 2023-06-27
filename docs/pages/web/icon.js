@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Icon } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { type DocGen, overrideTypes } from '../../docs-components/docgen.js';
+import docGen, { type DocGen, overrideTypes } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -269,8 +269,8 @@ Use Button to allow users to take an action.
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
-  const docGen = await docgen({ componentName: 'Icon' });
-  const overriddenDocGen = overrideTypes(docGen, {
+  const generatedDocGen = await docGen('Icon');
+  const overriddenDocGen = overrideTypes(generatedDocGen, {
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
   });
 
