@@ -48,6 +48,7 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import disabledFuture from '../../examples/daterange/disabledFuture.js';
 import disabledPast from '../../examples/daterange/disabledPast.js';
+import errorMessaging from '../../examples/daterange/errorMessaging.js';
 import futureRadiogroup from '../../examples/daterange/futureRadioGroup.js';
 import main from '../../examples/daterange/main.js';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
@@ -136,6 +137,17 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             title="Past selection"
             sandpackExample={
               <SandpackExample code={pastRadiogroup} name="past radiogroup" previewHeight={500} />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Error messaging"
+          description="DateRange can communicate input errors to the user. Use `startDateErrorMessage`, `endDateErrorMessage` and `onStartDateChange`, `onEndDateChange` to implement it correctly."
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={errorMessaging} name="error example" previewHeight={500} />
             }
           />
         </MainSection.Subsection>

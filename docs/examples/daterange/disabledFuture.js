@@ -15,7 +15,9 @@ export default function Example(): Node {
       onStartDateChange={({ value }) => setStartDate(value)}
       onEndDateChange={({ value }) => setEndDate(value)}
       onStartDateError={() => {}}
-      onEndDateError={({ errorMessage }) => setEndErrorMessage(errorMessage)}
+      onEndDateError={({ errorMessage }) =>
+        setEndErrorMessage(errorMessage ? 'Please, enter a valid date' : null)
+      }
       startDateValue={startDate}
     />
   );
