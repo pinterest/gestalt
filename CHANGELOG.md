@@ -1,3 +1,9 @@
+## 116.1.7 (Jun 27, 2023)
+
+### Patch
+
+- Docs: Fix Android Figma links ([#3043](https://github.com/pinterest/gestalt/pull/3043)) - [Preview link](https://deploy-preview-3043--gestalt.netlify.app?devexample=true)
+
 ## 116.1.6 (Jun 27, 2023)
 
 ### Patch
