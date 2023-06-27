@@ -6,6 +6,7 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
+import { type SystemProps } from './systemProps.js';
 
 const sizes = {
   xs: 24,
@@ -16,6 +17,7 @@ const sizes = {
 };
 
 type Props = {|
+  ...SystemProps,
   /**
    * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
    */
@@ -50,10 +52,17 @@ type Props = {|
  *
  */
 
-function Avatar(props: Props): Node {
+function Avatar({
+  accessibilityLabel,
+  dataTestId,
+  name,
+  outline,
+  size = 'fit',
+  src,
+  verified,
+}: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
-  const { accessibilityLabel, name, outline, size = 'fit', src, verified } = props;
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
 
@@ -74,7 +83,7 @@ function Avatar(props: Props): Node {
       height={height}
       position="relative"
       rounding="circle"
-      data-test-id="gestalt-avatar-svg"
+      data-test-id={dataTestId ?? 'gestalt-avatar-svg'}
     >
       {src && isImageLoaded ? (
         <Mask rounding="circle" wash>
