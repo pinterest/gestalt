@@ -7,6 +7,10 @@ import {
   type PlatformData,
 } from '../types.js';
 
+/**
+ * Gets all components for a given platform and category, returning an array of just the data for that platform.
+ */
+
 export default function getByCategory(
   componentList: $ReadOnlyArray<ComponentData>,
   options: {| category: ComponentCategory, platform: Platform |},

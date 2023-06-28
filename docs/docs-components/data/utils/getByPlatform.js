@@ -2,7 +2,7 @@
 import { type ComponentData, type Platform, type PlatformData } from '../types.js';
 
 /**
- * This function will get all components for a given platform, returning an array of just the data for that platform.
+ * Gets all components for a given platform, returning an array of just the data for that platform.
  */
 
 export default function getByPlatform(
