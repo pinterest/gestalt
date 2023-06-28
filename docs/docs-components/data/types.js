@@ -27,7 +27,7 @@ type ComponentAccessibility = {|
   summary?: StatusType,
 |};
 
-type ComponentCategory =
+export type ComponentCategory =
   | 'Actions'
   | 'Avatars'
   | 'Building blocks'
@@ -45,6 +45,8 @@ type ComponentCategory =
   | 'Text'
   | 'Utilities';
 
+export type Platform = 'android' | 'figma' | 'ios' | 'web';
+
 type PlatformObjType<T> = {|
   android?: T,
   figma?: T,
@@ -52,18 +54,18 @@ type PlatformObjType<T> = {|
   web?: T,
 |};
 
-export type ComponentData = {|
-  id: string, // This is essentially the internal name
-  name: PlatformObjType<string>,
+export type PlatformData = {|
+  name: string,
   visual: {|
-    svg: PlatformObjType<SVGElement>,
+    svg: SVGElement,
     hasDarkBackground?: boolean,
   |},
-  alias: PlatformObjType<$ReadOnlyArray<string>>,
-  description: PlatformObjType<string>,
-  category: PlatformObjType<$ReadOnlyArray<ComponentCategory>>,
-  status: PlatformObjType<{|
-    accessible: ComponentAccessibility,
+  category: $ReadOnlyArray<ComponentCategory>,
+  path?: string, // This should be eliminated eventually by building the path from the platform, category (if needed), and component name
+  alias?: $ReadOnlyArray<string>,
+  description?: string,
+  status: {|
+    accessible?: ComponentAccessibility,
     badge?: 'New' | 'Pilot' | 'Experimental',
     documentation: StatusType,
     figmaOnly?: boolean,
@@ -71,5 +73,10 @@ export type ComponentData = {|
     mobileAdaptive?: StatusType,
     responsive?: StatusType,
     status: StatusType | 'deprecated',
-  |}>,
+  |},
+|};
+
+export type ComponentData = {|
+  id: string, // This is essentially the internal name
+  platform: PlatformObjType<PlatformData>,
 |};
