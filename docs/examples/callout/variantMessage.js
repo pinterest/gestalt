@@ -23,16 +23,8 @@ export default function ResponsiveExample(): Node {
             </Text>
           }
           primaryAction={{
-            accessibilityLabel: 'Get started: Verified Merchant Program',
-            href: 'https://pinterest.com',
-            label: 'Get started',
-            target: 'blank',
-          }}
-          secondaryAction={{
-            accessibilityLabel: 'Learn more: Verified Merchant Program',
-            href: 'https://pinterest.com',
-            label: 'Learn more',
-            target: 'blank',
+            accessibilityLabel: 'Manually verify tag',
+            label: 'Verify Tag',
           }}
           title="We have not yet detected your tag"
           type="info"
