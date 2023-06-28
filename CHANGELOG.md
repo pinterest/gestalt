@@ -1,3 +1,9 @@
+## 116.1.8 (Jun 28, 2023)
+
+### Patch
+
+- Internal: implement new component data type (w/helpers) ([#3045](https://github.com/pinterest/gestalt/pull/3045)) - [Preview link](https://deploy-preview-3045--gestalt.netlify.app?devexample=true)
+
 ## 116.1.7 (Jun 27, 2023)
 
 ### Patch
