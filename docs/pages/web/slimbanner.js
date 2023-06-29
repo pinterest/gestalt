@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -343,7 +343,7 @@ Due to localization constraints, the contents of \`message\` and \`helperLink\` 
           description={`
 SlimBanners can have a primary action. This action can be a [Link](/web/link), by specifying the \`href\` property, or a [Button](/web/button), when no \`href\` is supplied.
 
-SlimBanner actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+SlimBanner actions with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
 
 For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a button that opens a [Modal](/web/modal) with an application flow. Be sure to localize the labels of the actions.
 
@@ -457,6 +457,6 @@ Tooltip provides helpful information regarding an interactive UI element, typica
 
 export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'SlimBanner' }) },
+    props: { generatedDocGen: await docGen('SlimBanner') },
   };
 }

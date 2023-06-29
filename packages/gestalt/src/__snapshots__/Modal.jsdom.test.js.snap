@@ -150,7 +150,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                 >
                   <button
                     aria-controls=":r0:"
-                    aria-label="Close bottom sheet"
+                    aria-label="Dismiss bottom sheet"
                     class="parentButton"
                     type="button"
                   >

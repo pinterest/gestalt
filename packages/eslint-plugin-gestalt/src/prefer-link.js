@@ -12,8 +12,8 @@ import {
   hasAttributes,
   hasDataAttributes,
   hasImport,
-  hasUnsupportedAttributes,
   hasSpreadAttributes,
+  hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';

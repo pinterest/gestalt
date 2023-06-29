@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Image, Box, Flex, Text, SlimBanner, Heading } from 'gestalt';
+import { Box, Flex, Heading, Image, SlimBanner, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
@@ -709,7 +709,7 @@ export default function ChartsandGraphsPage(): Node {
                 name="Desktop Chart Interaction Example"
                 hideEditor
                 hideControls
-                previewHeight={500}
+                previewHeight={528}
               />
             </Flex.Item>
           </Flex>
@@ -727,7 +727,7 @@ export default function ChartsandGraphsPage(): Node {
                 name="Mobile Chart Interaction Example"
                 hideEditor
                 hideControls
-                previewHeight={500}
+                previewHeight={516}
               />
             </Flex.Item>
           </Flex>
@@ -749,7 +749,7 @@ export default function ChartsandGraphsPage(): Node {
                 name="Chart to Table Example"
                 hideEditor
                 hideControls
-                previewHeight={500}
+                previewHeight={508}
               />
             </Flex.Item>
           </Flex>

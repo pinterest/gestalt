@@ -6,13 +6,13 @@ InternalDismissIconButton aims to replace "dismiss" IconButtons in components th
 
 // @flow strict
 import {
-  type Node,
   type AbstractComponent,
   type ElementConfig,
   forwardRef,
+  type Node,
   useImperativeHandle,
-  useState,
   useRef,
+  useState,
 } from 'react';
 import classnames from 'classnames';
 import styles from '../IconButton.css';

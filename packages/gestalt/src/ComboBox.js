@@ -1,34 +1,34 @@
 // @flow strict
 import {
+  type AbstractComponent,
   cloneElement,
+  type Element,
   forwardRef,
   Fragment,
+  type Node,
+  type Ref,
   useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
   useState,
-  type Ref,
-  type Element,
-  type Node,
-  type AbstractComponent,
 } from 'react';
 import Box from './Box.js';
-import { ESCAPE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
 import Layer from './Layer.js';
 import Popover from './Popover.js';
 import Tag from './Tag.js';
 import Text from './Text.js';
-import { type Indexable } from './zIndex.js';
-import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalTextField from './TextField/InternalTextField.js';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
 import handleContainerScrolling, {
-  KEYS,
   type DirectionOptionType,
+  KEYS,
 } from './utils/keyboardNavigation.js';
+import { type Indexable } from './zIndex.js';
 
 type Size = 'md' | 'lg';
 
@@ -74,7 +74,7 @@ type Props = {|
   /**
    * The text shown when the input value returns no matches.
    */
-  noResultText: string,
+  noResultText?: string,
   /**
    * Callback when you focus outside the component.
    */
@@ -191,8 +191,10 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   }: Props,
   ref,
 ): Node {
-  const { accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault } =
-    useDefaultLabelContext('ComboBox');
+  const {
+    accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault,
+    noResultText: noResultTextDefault,
+  } = useDefaultLabelContext('ComboBox');
 
   // ==== REFS ====
 
@@ -520,7 +522,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
               ) : (
                 <Box width="100%" paddingX={2} paddingY={4}>
                   <Text lineClamp={1} color="subtle">
-                    {noResultText}
+                    {noResultText ?? noResultTextDefault}
                   </Text>
                 </Box>
               )}

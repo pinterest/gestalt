@@ -1,14 +1,14 @@
 // @flow strict
-import { Fragment, type Node, useState, useRef } from 'react';
+import { Fragment, type Node, useRef, useState } from 'react';
 import {
   Avatar,
   Box,
-  IconButton,
-  Dropdown,
-  Flex,
-  Text,
-  FixedZIndex,
   CompositeZIndex,
+  Dropdown,
+  FixedZIndex,
+  Flex,
+  IconButton,
+  Text,
 } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample(): Node {

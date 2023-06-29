@@ -208,6 +208,11 @@ const misc = [
     destination: '/web/overlaypanel',
     permanent: true,
   },
+  {
+    source: '/web/utilities/onlinknavigationprovider',
+    destination: '/web/utilities/globaleventshandlerprovider#Link-handlers',
+    permanent: true,
+  },
 ];
 
 /*::

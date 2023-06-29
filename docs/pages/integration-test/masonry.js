@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
-import { ColorSchemeProvider, Masonry } from 'gestalt';
-import { useRouter } from 'next/router';
 import LazyHydrate from 'react-lazy-hydration';
+import { useRouter } from 'next/router';
+import { ColorSchemeProvider, Masonry } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems.js';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems.js';
 import pinHeights, {
@@ -72,6 +72,7 @@ export default function TestPage({
     offsetTop,
     realisticPinHeights,
     scrollContainer,
+    twoColItems,
     virtualize,
     virtualBoundsTop,
     virtualBoundsBottom,
@@ -115,6 +116,7 @@ export default function TestPage({
           offsetTop={offsetTop}
           pinHeightsSample={realisticPinHeights ? pinHeightsSample : undefined}
           scrollContainer={booleanize(scrollContainer)}
+          twoColItems={booleanize(twoColItems)}
           virtualize={booleanize(virtualize)}
           virtualBoundsTop={virtualBoundsTop}
           virtualBoundsBottom={virtualBoundsBottom}

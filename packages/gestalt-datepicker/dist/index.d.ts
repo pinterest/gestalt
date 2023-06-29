@@ -364,14 +364,14 @@ export interface DatePickerProps {
   minDate?: Date | undefined;
   name?: string | undefined;
   nextRef?: { current: HTMLElement | null } | undefined;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: Date }>;
+  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: Date | null }>;
   placeholder?: string | undefined;
-  rangeEndDate?: Date | undefined;
+  rangeEndDate?: Date | null | undefined;
   rangeSelector?: 'start' | 'end' | undefined;
-  rangeStartDate?: Date | undefined;
+  rangeStartDate?: Date | null | undefined;
   ref?: { current: HTMLElement | null } | undefined;
   selectLists?: ('month' | 'year')[] | undefined;
-  value?: Date | undefined;
+  value?: Date | null | undefined;
 }
 
 export interface DateFieldProps {

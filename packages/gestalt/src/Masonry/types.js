@@ -6,3 +6,9 @@ export type Position = {|
   width: number,
   height: number,
 |};
+
+export type NodeData<T> = {|
+  id: 'start' | T,
+  heights: $ReadOnlyArray<number>,
+  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+|};

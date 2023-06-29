@@ -28,7 +28,7 @@
     {
       "task": "Card component",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Creation of a Card component to support emerging Pinner needs.",
       "link": ""
@@ -116,7 +116,7 @@
     {
       "task": "Cross platform Gestalt engineering adoption metric",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": [],
       "description": "Define and implement a cross platform measurement for Gestalt engineering adoption on the Web platform.",
       "link": ""
@@ -132,7 +132,7 @@
     {
       "task": "Masonry 2-column pin support (experimentation only)",
       "deadline": "",
-      "status": "inProgress",
+      "status": "problem",
       "platforms": ["Web"],
       "description": "Initial experimental attempt to support items spanning two column widths in Masonry.",
       "link": ""
@@ -172,7 +172,7 @@
     {
       "task": "Default labels in Gestalt components",
       "deadline": "",
-      "status": "inProgress",
+      "status": "ok",
       "platforms": ["Web"],
       "description": "Implement all default labels supported in components for faster development and message consistency.",
       "link": ""

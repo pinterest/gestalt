@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -114,6 +114,6 @@ The following example shows the internal ScrollBoundaryContainer in action. The 
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'ScrollBoundaryContainer' }) },
+    props: { generatedDocGen: await docGen('ScrollBoundaryContainer') },
   };
 }

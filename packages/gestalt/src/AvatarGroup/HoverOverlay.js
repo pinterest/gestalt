@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 import classnames from 'classnames';
+import { type Size, SIZE_MAP } from './constants.js';
 import styles from '../AvatarGroup.css';
 import Box from '../Box.js';
 import { FixedZIndex } from '../zIndex.js';
-import { type Size, SIZE_MAP } from './constants.js';
 
 type Props = {|
   children: Node,

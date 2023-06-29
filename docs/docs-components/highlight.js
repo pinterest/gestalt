@@ -1,8 +1,8 @@
 // @flow strict
 
+import 'highlight.js/styles/a11y-light.css';
 import { useEffect, useRef } from 'react';
 import highlightjs from 'highlight.js';
-import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
   children: string | null,

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Icon, Link, Image, List, Text, Table } from 'gestalt';
+import { Box, Button, Flex, Icon, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../../../../docs-components/MainSection.js';
@@ -345,6 +345,11 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'Gestalt Components',
                   '# total Gestalt components / (# native DOM elements + # total Gestalt component); % per site',
                   'http://go/metrics_gestalt_percentage',
+                ],
+                [
+                  'Non-building-block Gestalt Components',
+                  '# total non-building-block Gestalt components / (# native DOM elements + # total Gestalt component)',
+                  'http://go/metrics_gestalt_highorder_percentage',
                 ],
                 [
                   'Gestalt Components: component level',

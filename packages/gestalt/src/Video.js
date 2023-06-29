@@ -1,9 +1,9 @@
 // @flow strict
-import { PureComponent, type Node } from 'react';
+import { type Node, PureComponent } from 'react';
 import classnames from 'classnames';
+import Box from './Box.js';
 import colors from './Colors.css';
 import styles from './Video.css';
-import Box from './Box.js';
 import VideoControls from './Video/Controls.js';
 
 type Source =
@@ -18,45 +18,6 @@ type CrossOrigin = 'anonymous' | 'use-credentials';
 type BackgroundColor = 'black' | 'transparent';
 
 type Props = {|
-  /**
-   * Accessibility label for the button to hide captions if controls are shown.
-   */
-  accessibilityHideCaptionsLabel?: string,
-  /**
-   * Accessibility label for the fullscreen maximize button if controls are shown.
-   */
-  accessibilityMaximizeLabel: string,
-  /**
-   * Accessibility label for the fullscreen minimize button if controls are shown.
-   */
-  accessibilityMinimizeLabel: string,
-  /**
-   * Accessibility label for the mute button if controls are shown.
-   */
-  accessibilityMuteLabel: string,
-  /**
-   * Accessibility label for the pause button if controls are shown.
-   */
-  accessibilityPauseLabel: string,
-  /**
-   * Accessibility label for the play button if controls are shown.
-   */
-  accessibilityPlayLabel: string,
-  /**
-   * Accessibility label for the video progress bar.
-   */
-  accessibilityProgressBarLabel: string,
-  /**
-   * Accessibility label for the button to show captions if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
-   */
-  accessibilityShowCaptionsLabel?: string,
-  /**
-   * Accessibility label for the unmute button if controls are shown. See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
-   */
-  accessibilityUnmuteLabel: string,
-  /**
-   * When set to autoplay, the video will automatically start playing. See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
-   */
   autoplay?: boolean,
   /**
    * Proportional relationship between width and height of the video, calculated as width / height.
@@ -761,15 +722,6 @@ export default class Video extends PureComponent<Props, State> {
         {/* Need to use full path for these props so Flow can infer correct subtype */}
         {this.props.controls && (
           <VideoControls
-            accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
-            accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
-            accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
-            accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
-            accessibilityMuteLabel={this.props.accessibilityMuteLabel}
-            accessibilityPauseLabel={this.props.accessibilityPauseLabel}
-            accessibilityPlayLabel={this.props.accessibilityPlayLabel}
-            accessibilityProgressBarLabel={this.props.accessibilityProgressBarLabel}
-            accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
             captionsButton={captionsButton}
             currentTime={currentTime}
             duration={duration}

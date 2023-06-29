@@ -1,14 +1,15 @@
 // @flow strict
 import {
+  type AbstractComponent,
   forwardRef,
   type Node,
-  type AbstractComponent,
-  useImperativeHandle,
   useEffect,
+  useImperativeHandle,
   useRef,
   useState,
 } from 'react';
 import classnames from 'classnames';
+import styles from './InternalCheckbox.css';
 import Box from '../Box.js';
 import colors from '../Colors.css';
 import focusStyles from '../Focus.css';
@@ -18,7 +19,6 @@ import FormErrorMessage from '../shared/FormErrorMessage.js';
 import FormHelperText from '../shared/FormHelperText.js';
 import Text from '../Text.js';
 import useFocusVisible from '../useFocusVisible.js';
-import styles from './InternalCheckbox.css';
 
 type Props = {|
   checked?: boolean,

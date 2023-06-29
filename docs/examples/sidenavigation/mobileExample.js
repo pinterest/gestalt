@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, SideNavigation, DeviceTypeProvider, Button } from 'gestalt';
+import { Box, Button, DeviceTypeProvider, SideNavigation } from 'gestalt';
 
 export default function Example(): Node {
   const [showNav, setShowNav] = React.useState(false);

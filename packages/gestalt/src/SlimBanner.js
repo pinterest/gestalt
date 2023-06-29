@@ -1,7 +1,8 @@
 // @flow strict
-import { Children, Fragment, type Element, type Node } from 'react';
+import { Children, type Element, Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -10,14 +11,15 @@ import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
 
 type DismissButtonType = {|
-  accessibilityLabel: string,
+  accessibilityLabel?: string,
   onDismiss: () => void,
 |};
 
 function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SlimBanner');
   return (
     <IconButton
-      accessibilityLabel={accessibilityLabel}
+      accessibilityLabel={accessibilityLabel ?? accessibilityDismissButtonLabel}
       icon="cancel"
       iconColor="darkGray"
       onClick={onDismiss}
@@ -129,7 +131,7 @@ type Props = {|
    */
   message: string | Element<typeof Text>,
   /**
-   * Main action for users to take on SlimBanner. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Main action for users to take on SlimBanner. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/slimbanner#Accessibility).
    * See the [Primary action](https://gestalt.pinterest.systems/web/slimbanner#Primary-action) variant to learn more.
@@ -172,7 +174,35 @@ export default function SlimBanner({
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
+  const {
+    iconAccessibilityLabelError,
+    iconAccessibilityLabelInfo,
+    iconAccessibilityLabelRecommendation,
+    iconAccessibilityLabelSuccess,
+    iconAccessibilityLabelWarning,
+  } = useDefaultLabelContext('SlimBanner');
 
+  const getDefaultIconAccessibilityLabel = () => {
+    switch (type) {
+      case 'success':
+      case 'successBare':
+        return iconAccessibilityLabelSuccess;
+      case 'info':
+      case 'infoBare':
+        return iconAccessibilityLabelInfo;
+      case 'recommendation':
+      case 'recommendationBare':
+        return iconAccessibilityLabelRecommendation;
+      case 'warning':
+      case 'warningBare':
+        return iconAccessibilityLabelWarning;
+      case 'error':
+      case 'errorBare':
+        return iconAccessibilityLabelError;
+      default:
+        return '';
+    }
+  };
   // Buttons not allowed on compact SlimBanners
   const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
@@ -195,10 +225,10 @@ export default function SlimBanner({
         flex="grow"
         width="100%"
       >
-        {!isDefault && iconAccessibilityLabel && (
+        {!isDefault && (
           <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
             <Icon
-              accessibilityLabel={iconAccessibilityLabel}
+              accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={iconColor}
               icon={icon}
               size={16}

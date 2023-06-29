@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -134,8 +134,8 @@ export default function ActivationCardPage({
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
       `}
         />
       </MainSection>
@@ -145,6 +145,6 @@ OnLinkNavigationProvider allows external link navigation control across all chil
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'ActivationCard' }) },
+    props: { generatedDocGen: await docGen('ActivationCard') },
   };
 }

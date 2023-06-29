@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Button, Datapoint, Dropdown, PageHeader, OverlayPanel, Text } from 'gestalt';
+import { Button, Datapoint, Dropdown, OverlayPanel, PageHeader, Text } from 'gestalt';
 
 export default function DontOverloadExample(): Node {
   const [open, setOpen] = React.useState(false);

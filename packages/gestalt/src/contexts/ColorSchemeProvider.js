@@ -1,7 +1,7 @@
 // @flow strict
 import {
-  createContext,
   type Context,
+  createContext,
   type Element,
   type Node,
   useContext,

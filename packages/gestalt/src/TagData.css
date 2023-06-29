@@ -1,0 +1,74 @@
+.tagLarge {
+  padding-bottom: 14px;
+  padding-top: 14px;
+}
+
+.tagMedium {
+  composes: paddingY3 from "./boxWhitespace.css";
+}
+
+.tagSmall {
+  composes: paddingY2 from "./boxWhitespace.css";
+}
+
+.tagWrapperRounded {
+  composes: rounding2 from "./Borders.css";
+  border-width: var(--g-border-width-lg);
+}
+
+.hovered {
+  composes: pointer from "./Cursor.css";
+  composes: borderColorLightGray from "./Borders.css";
+}
+
+.disabled {
+  composes: lightGrayBg from "./Colors.css";
+  cursor: default;
+  pointer-events: none;
+}
+
+.dismissButton {
+  composes: pointer from "./Cursor.css";
+
+  /*
+  Since the button is on an already transparent bg, it appears darker. This adjusts the background color to be a tad brighter since it's layered on top.
+  */
+  backdrop-filter: brightness(1.1);
+  height: 100%;
+  outline: none;
+  position: absolute;
+  width: 24px;
+}
+
+html[dir="rtl"] .dismissButtonPosition {
+  left: 0;
+  right: unset;
+  top: 0;
+}
+
+html:not([dir="rtl"]) .dismissButtonPosition {
+  left: unset;
+  right: 0;
+  top: 0;
+}
+
+html[dir="rtl"] .dismissButtonRounding {
+  border-radius: 8px 0 0 8px;
+  border-width: var(--g-border-width-lg) 0 var(--g-border-width-lg)
+    var(--g-border-width-lg);
+}
+
+html:not([dir="rtl"]) .dismissButtonRounding {
+  border-radius: 0 8px 8px 0;
+  border-width: var(--g-border-width-lg) var(--g-border-width-lg)
+    var(--g-border-width-lg) 0;
+}
+
+.dismissHovered {
+  composes: borderColorLightGray from "./Borders.css";
+}
+
+.dismissButton:hover {
+  backdrop-filter: brightness(0.9);
+  background-color: var(--color-border-container);
+}

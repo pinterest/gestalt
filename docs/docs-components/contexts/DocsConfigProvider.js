@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, type Context, type Element, type Node, useContext, createContext } from 'react';
+import { type Context, createContext, type Element, type Node, useContext, useState } from 'react';
 
 type DocsConfigContextType = {|
   isMobile: boolean,

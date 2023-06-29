@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
-import docgen, { type DocGen } from '../../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -56,9 +56,7 @@ The example shows a component with different desktop and mobile UIs.`}
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: {
-      generatedDocGen: await docgen({
-        componentName: 'DeviceTypeProvider',
-      }),
+      generatedDocGen: await docGen('DeviceTypeProvider'),
     },
   };
 }

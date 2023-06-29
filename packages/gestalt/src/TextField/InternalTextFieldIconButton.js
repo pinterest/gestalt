@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node, type ElementConfig, useState } from 'react';
+import { type ElementConfig, type Node, useState } from 'react';
 import classnames from 'classnames';
+import styles from './InternalTextField.css';
 import Box from '../Box.js';
-import { TAB, SPACE, ENTER } from '../keyCodes.js';
+import { ENTER, SPACE, TAB } from '../keyCodes.js';
 import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
-import styles from './InternalTextField.css';
 
 function MaybeTooltip({ children, tooltipText }: {| children: Node, tooltipText: ?string |}) {
   return tooltipText ? (

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useState, useEffect, useRef } from 'react';
+import { type Node, useCallback, useEffect, useRef, useState } from 'react';
 import Box from '../Box.js';
 
 type Props = {|

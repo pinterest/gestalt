@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -90,7 +90,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Link"
-          description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)."
+          description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)."
         >
           <MainSection.Card
             cardSize="sm"
@@ -126,6 +126,6 @@ HelpButton is a more specific component than IconButton. IconButton is preferabl
 
 export async function getServerSideProps(): Promise<{| props: DocsType |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'HelpButton' }) },
+    props: { generatedDocGen: await docGen('HelpButton') },
   };
 }

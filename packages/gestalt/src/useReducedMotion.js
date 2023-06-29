@@ -1,5 +1,5 @@
 // @flow strict
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { addListener, removeListener } from './utils/matchMedia.js';
 
 /**

@@ -1,4 +1,5 @@
 // @flow strict
+import { type DesignOverview } from './types.js';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
 import Animation from '../../graphics/foundations/animation.svg';
 import BrandExpression from '../../graphics/foundations/brand_expression.svg';
@@ -14,7 +15,6 @@ import Layouts from '../../graphics/foundations/layouts.svg';
 import Messaging from '../../graphics/foundations/messaging.svg';
 import ScreenSizes from '../../graphics/foundations/screen-size.svg';
 import Typography from '../../graphics/foundations/typography.svg';
-import { type DesignOverview } from './types.js';
 
 const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
   {

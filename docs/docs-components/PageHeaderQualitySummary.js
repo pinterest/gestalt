@@ -1,9 +1,9 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
-import { Flex, Divider, Box, Text, SlimBanner } from 'gestalt';
-import COMPONENT_DATA, { type ListItemType } from './COMPONENT_DATA.js';
+import { Box, Divider, Flex, SlimBanner, Text } from 'gestalt';
+import COMPONENT_DATA, { type ListItemType } from './data/components.js';
+import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 import StatusData from './StatusData.js';
-import { STATUS_DESCRIPTION, COMPONENT_STATUS_MESSAGING } from './data/componentStatusMessaging.js';
 
 const categories = ['figma', 'responsive', 'iOS', 'android', 'accessible'];
 

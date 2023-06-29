@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -265,7 +265,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description={`
         Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/web/link), by specifying the \`href\` property, or [Buttons](/web/button), when no \`href\` is supplied.
 
-        Callout actions with link interaction can be paired with OnLinkNavigationProvider. See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+        Callout actions with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
 
         For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a Button that opens a [Modal](/web/modal) with an application flow. Be sure to localize the labels of the actions.
 
@@ -324,8 +324,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       **[ActivationCard](/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
 
-      **[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-      OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+      **[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+      GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
     `}
         />
@@ -336,6 +336,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Callout' }) },
+    props: { generatedDocGen: await docGen('Callout') },
   };
 }

@@ -1,17 +1,18 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
-import styles from './Upsell.css';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import styles from './Upsell.css';
 import UpsellForm from './UpsellForm.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
@@ -79,7 +80,7 @@ type Props = {|
    * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
   dismissButton?: {|
-    accessibilityLabel: string,
+    accessibilityLabel?: string,
     onDismiss: () => void,
   |},
   /**
@@ -98,7 +99,7 @@ type Props = {|
    */
   message: string | Element<typeof Text>,
   /**
-   * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.'
+   * Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
    * If no \`href\` is supplied, the action will be a button.
    * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
@@ -119,7 +120,7 @@ type Props = {|
     target?: null | 'self' | 'blank',
   |},
   /**
-   * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.'
+   * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
    * If no \`href\` is supplied, the action will be a button.
    * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
@@ -163,6 +164,7 @@ export default function Upsell({
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('Upsell');
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -290,7 +292,7 @@ export default function Upsell({
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
-            accessibilityLabel={dismissButton.accessibilityLabel}
+            accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}

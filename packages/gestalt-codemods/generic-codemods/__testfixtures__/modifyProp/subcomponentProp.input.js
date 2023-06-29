@@ -1,4 +1,4 @@
-import { Dropdown, Box, Flex } from 'gestalt';
+import { Box, Dropdown, Flex } from 'gestalt';
 
 export default function TestComp() {
   return (

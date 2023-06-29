@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node, useRef, useState } from 'react';
 import {
-  Popover,
   Box,
   Button,
   Flex,
+  Image,
   Layer,
-  Text,
+  Mask,
+  Popover,
   SearchField,
   TapArea,
-  Mask,
-  Image,
+  Text,
 } from 'gestalt';
 
 const images = [

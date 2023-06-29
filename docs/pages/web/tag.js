@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -37,7 +37,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             type="do"
             title="When to use"
             description={`
-          - In conjunction with [TextField](/web/textfield#tagsExample), [TextArea](/web/textarea#tagsExample), and [ComboBox](/web/combobox#Tags), or as a standalone element to display selected options.
+          - In conjunction with [TextField](/web/textfield#Tags), [TextArea](/web/textarea#With-tags), and [ComboBox](/web/combobox#Tags), or as a standalone element to display selected options.
         `}
           />
           <MainSection.Card
@@ -189,6 +189,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Tag' }) },
+    props: { generatedDocGen: await docGen('Tag') },
   };
 }

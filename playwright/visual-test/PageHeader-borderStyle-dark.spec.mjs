@@ -1,5 +1,5 @@
 // @flow strict
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test(`PageHeader visual regression check - borderStyle / dark`, async ({
   page,

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Table, Box, Label, Checkbox, Text } from 'gestalt';
+import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
 function HeaderRow({ id }: {| id: string |}) {
   return (

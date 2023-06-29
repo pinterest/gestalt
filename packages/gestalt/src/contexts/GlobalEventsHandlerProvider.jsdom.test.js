@@ -1,10 +1,10 @@
 // @flow strict
 import { useState } from 'react';
-import { render, screen, act } from '@testing-library/react';
-import SheetMobile from '../SheetMobile.js';
-import * as useReducedMotionHook from '../useReducedMotion.js';
+import { act, render, screen } from '@testing-library/react';
 import DeviceTypeProvider from './DeviceTypeProvider.js';
 import GlobalEventsHandlerProvider from './GlobalEventsHandlerProvider.js';
+import SheetMobile from '../SheetMobile.js';
+import * as useReducedMotionHook from '../useReducedMotion.js';
 
 jest.mock('../useReducedMotion.js');
 
@@ -42,7 +42,7 @@ describe('Dropdown.Item', () => {
 
     expect(onOpen).toHaveBeenCalled();
     act(() => {
-      screen.getByLabelText('Close bottom sheet').click();
+      screen.getByLabelText('Dismiss bottom sheet').click();
     });
 
     expect(onClose).toHaveBeenCalled();

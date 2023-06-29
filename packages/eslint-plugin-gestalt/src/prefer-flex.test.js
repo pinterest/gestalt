@@ -1,11 +1,11 @@
 // @flow strict
-import rule, { errorMessage } from './prefer-flex.js';
 import {
   getPathFormatterByRuleName,
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
 } from './helpers/testHelpers.js';
+import rule, { errorMessage } from './prefer-flex.js';
 
 const ruleName = 'prefer-flex';
 const ruleTester = getRuleTester();

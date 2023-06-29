@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -512,8 +512,8 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
 **[Text](/web/text)**
 Text provides Link with style: size, color, and font.
 
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
 **[Button](/web/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
@@ -529,6 +529,6 @@ These components support link functionality themselves by setting \`role="link"\
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Link' }) },
+    props: { generatedDocGen: await docGen('Link') },
   };
 }

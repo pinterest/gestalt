@@ -1,8 +1,9 @@
 // @flow strict
-import { type Node, useState, useCallback, useEffect, useRef } from 'react';
+import { type Node, useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
-import styles from './Table.css';
 import Box from './Box.js';
+import { TableContextProvider } from './contexts/TableContext.js';
+import styles from './Table.css';
 import TableBody from './TableBody.js';
 import TableCell from './TableCell.js';
 import TableFooter from './TableFooter.js';
@@ -12,7 +13,6 @@ import TableRow from './TableRow.js';
 import TableRowDrawer from './TableRowDrawer.js';
 import TableRowExpandable from './TableRowExpandable.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
-import { TableContextProvider } from './contexts/TableContext.js';
 
 type Props = {|
   /**

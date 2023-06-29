@@ -1,13 +1,13 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
-import styles from './PopoverEducational.css';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
+import InternalPopover from './Popover/InternalPopover.js';
+import styles from './PopoverEducational.css';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import InternalPopover from './Popover/InternalPopover.js';
 
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
@@ -86,7 +86,7 @@ type Props = {|
    */
   onDismiss: () => void,
   /**
-   * Main action for users to take on PopoverEducational. If `href` is supplied, the action will serve as a link. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * Main action for users to take on PopoverEducational. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [accessibility guidelines for Button](https://gestalt.pinterest.systems/web/button#ARIA-attributes).
    * See the [primary action variant](https://gestalt.pinterest.systems/web/popovereducational#Primary-action) to learn more.

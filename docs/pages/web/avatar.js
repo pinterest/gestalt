@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -22,9 +22,14 @@ import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Avatar">
+    <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={mainExample} name="No image source" hideEditor previewHeight={150} />
+        <SandpackExample
+          code={mainExample}
+          name="Main Avatar example"
+          hideEditor
+          previewHeight={150}
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -235,6 +240,6 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Avatar' }) },
+    props: { generatedDocGen: await docGen('Avatar') },
   };
 }

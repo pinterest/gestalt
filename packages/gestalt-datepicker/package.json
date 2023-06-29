@@ -1,9 +1,9 @@
 {
   "name": "gestalt-datepicker",
-  "version": "112.7.3",
+  "version": "116.1.6",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
-  "description": "A React UI datepicker component which enforces Pinterest’s design language",
+  "description": "A React UI datepicker component which enforces Pinterest's design language",
   "main": "dist/gestalt-datepicker.js",
   "types": "dist/index.d.ts",
   "jsnext:main": "dist/gestalt-datepicker.es.js",
@@ -37,12 +37,11 @@
     "not <1%"
   ],
   "keywords": [
+    "datepicker",
     "design system",
-    "react",
-    "react component",
     "pinterest",
-    "ui library",
-    "datepicker"
+    "react",
+    "ui library"
   ],
   "repository": {
     "type": "git",

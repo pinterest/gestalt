@@ -1,21 +1,22 @@
 // @flow strict
-import { useId, type Node } from 'react';
+import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
-import styles from './SideNavigation.css';
 import Box from './Box.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider.js';
+import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
 import Divider from './Divider.js';
 import Flex from './Flex.js';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
+import styles from './SideNavigation.css';
+import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
+import SideNavigationMobile from './SideNavigation/Mobile.js';
 import SideNavigationGroup from './SideNavigationGroup.js';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup.js';
 import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { SideNavigationProvider } from './contexts/SideNavigationProvider.js';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import SideNavigationMobile from './SideNavigation/Mobile.js';
 
 export type Props = {|
   /**
@@ -68,7 +69,7 @@ export default function SideNavigation({
   title,
 }: Props): Node {
   const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
-
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
@@ -77,7 +78,7 @@ export default function SideNavigation({
     return (
       <SideNavigationProvider
         dismissButton={{
-          accessibilityLabel: dismissButton?.accessibilityLabel,
+          accessibilityLabel: dismissButton?.accessibilityLabel ?? accessibilityDismissButtonLabel,
           onDismiss: dismissButton?.onDismiss ?? (() => {}),
           id,
         }}
@@ -87,7 +88,13 @@ export default function SideNavigation({
             accessibilityLabel={accessibilityLabel}
             footer={footer}
             header={header}
-            dismissButton={dismissButton}
+            dismissButton={
+              dismissButton && {
+                onDismiss: dismissButton.onDismiss,
+                accessibilityLabel:
+                  dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+              }
+            }
             showBorder={showBorder}
             title={title}
             id={id}

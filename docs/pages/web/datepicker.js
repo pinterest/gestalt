@@ -25,8 +25,8 @@ import {
   nb,
   nl,
   pl,
-  ptBR,
   pt,
+  ptBR,
   ro,
   ru,
   sk,
@@ -42,7 +42,7 @@ import { Box } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -295,7 +295,7 @@ import { it } from 'date-fns/locale';
         >
           {({ localeDataCode }) => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            const [date, setDate] = useState(new Date());
+            const [date, setDate] = useState<Date | null>(new Date());
 
             return (
               <Box width="100%" height="100%" color="default">
@@ -321,9 +321,7 @@ import { it } from 'date-fns/locale';
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
     props: {
-      generatedDocGen: await docgen({
-        componentName: 'DatePicker',
-      }),
+      generatedDocGen: await docGen('DatePicker'),
     },
   };
 }

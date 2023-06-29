@@ -1,7 +1,7 @@
 // @flow strict
+import LZString from 'lz-string';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import LZString from 'lz-string';
 
 const compress = (object: {|
   files: {|

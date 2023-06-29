@@ -1,19 +1,19 @@
 // @flow strict-local
 import {
+  type AbstractComponent,
+  type Element,
   forwardRef,
   useEffect,
   useImperativeHandle,
-  useState,
   useRef,
-  type Element,
-  type AbstractComponent,
+  useState,
 } from 'react';
-import classnames from 'classnames';
-import { Icon, Box, Label, Text } from 'gestalt';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import classnames from 'classnames';
+import { Box, Icon, Label, Text } from 'gestalt';
+import DatePickerTextField from './TextField.js';
 import styles from '../DatePicker.css';
 import { type Props } from '../DatePicker.js';
-import DatePickerTextField from './TextField.js';
 
 const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
@@ -120,7 +120,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
         dropdownMode="select"
-        endDate={rangeEndDate}
+        endDate={rangeEndDate ?? undefined}
         excludeDates={excludeDates && [...excludeDates]}
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
         id={id}
@@ -167,7 +167,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         showPopperArrow={false}
         showMonthDropdown={selectLists?.includes('month')}
         showYearDropdown={selectLists?.includes('year')}
-        startDate={rangeStartDate}
+        startDate={rangeStartDate ?? undefined}
       />
     </div>
   );

@@ -346,7 +346,19 @@ interface DefaultLabelProviderProps {
   children: Node;
   labels?:
     | {
+        ActivationCard: {
+          accessibilityDismissButtonLabel: string;
+        };
+        Callout: {
+          accessibilityDismissButtonLabel: string;
+          iconAccessibilityLabelError: string;
+          iconAccessibilityLabelInfo: string;
+          iconAccessibilityLabelRecommendation: string;
+          iconAccessibilityLabelWarning: string;
+          iconAccessibilityLabelSuccess: string;
+        };
         ComboBox: {
+          noResultText: string;
           accessibilityClearButtonLabel: string;
         };
         Link: {
@@ -372,14 +384,45 @@ interface DefaultLabelProviderProps {
           accessibilityGrabberLabel: string;
           accessibilityLabel: string;
         };
+        SideNavigation: {
+          accessibilityDismissButtonLabel: string;
+        };
+        SlimBanner: {
+          accessibilityDismissButtonLabel: string;
+          iconAccessibilityLabelError: string;
+          iconAccessibilityLabelInfo: string;
+          iconAccessibilityLabelRecommendation: string;
+          iconAccessibilityLabelWarning: string;
+          iconAccessibilityLabelSuccess: string;
+        };
+        Spinner: {
+          accessibilityLabel: string;
+        };
         Tag: {
           accessibilityErrorIconLabel: string;
           accessibilityRemoveIconLabel: string;
           accessibilityWarningIconLabel: string;
         };
+        TagData:{
+          accessibilityRemoveIconLabel: string;
+        };
         TextField: {
           accessibilityHidePasswordLabel: string;
           accessibilityShowPasswordLabel: string;
+        };
+        Upsell: {
+          accessibilityDismissButtonLabel: string;
+        };
+        Video: {
+          accessibilityMaximizeLabel: string;
+          accessibilityMinimizeLabel: string;
+          accessibilityMuteLabel: string;
+          accessibilityPauseLabel: string;
+          accessibilityPlayLabel: string;
+          accessibilityProgressLabel: string;
+          accessibilityUnmuteLabel: string;
+          accessibilityHideCaptionsLabel: string;
+          accessibilityShowCaptionsLabel: string;
         };
         HelpButton: {
           tooltipMessage: string;
@@ -400,19 +443,17 @@ interface DeviceTypeProviderProps {
   deviceType: 'desktop' | 'mobile';
 }
 
-interface OnLinkNavigationProviderProps {
-  children: Node;
-  onNavigation?:
-    | ((args: {
-        href: string;
-        target?: null | 'self' | 'blank' | undefined;
-      }) => EventHandlerType | null | undefined)
-    | undefined;
-}
-
 interface GlobalEventsHandlerProviderProps {
   children: Node;
-  sheetMobileHandlers?: { onOpen?: (() => void) | void; onClose?: (() => void) | void } | void;
+  linkHandlers?: {
+    onNavigation: (arg: {
+      href: string;
+      target?: null | 'self' | 'blank' | undefined;
+    }) => EventHandlerType | null | void;
+  };
+  sheetMobileHandlers?:
+    | { onOpen?: (() => void) | undefined; onClose?: (() => void) | undefined }
+    | undefined;
 }
 
 interface ScrollBoundaryContainerProps {
@@ -432,7 +473,12 @@ interface ActivationCardProps {
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete';
   statusMessage: string;
   title: string;
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   link?:
     | {
         accessibilityLabel: string;
@@ -684,7 +730,12 @@ interface CalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   primaryAction?: ActionData | undefined;
   secondaryAction?: ActionData | undefined;
   title?: string | undefined;
@@ -736,7 +787,7 @@ interface ComboBoxProps {
   id: string;
   label: string;
   options: ComboBoxItemType[];
-  noResultText: string;
+  noResultText?: string;
   accessibilityClearButtonLabel?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
@@ -1617,7 +1668,12 @@ interface SideNavigationNestedGroupProps {
 
 interface SlimBannerProps {
   message: React.ReactElement<typeof Text> | string;
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   helperLink?: {
     accessibilityLabel: string;
     href: string;
@@ -1667,7 +1723,7 @@ interface SlimBannerProps {
 }
 
 interface SpinnerProps {
-  accessibilityLabel: string;
+  accessibilityLabel?: string;
   show: boolean;
   color?: 'default' | 'subtle' | undefined;
   delay?: boolean | undefined;
@@ -1808,6 +1864,29 @@ interface TagProps {
   disabled?: boolean | undefined;
   type?: 'default' | 'error' | 'warning' | undefined;
 }
+
+interface TagDataProps {
+  accessibilityRemoveIconLabel?: string | undefined;
+  baseColor?: 'primary' | 'secondary'
+  color?: DataVisualizationColors,
+  disabled?: boolean,
+  id?: string,
+  onTap?: | AbstractEventHandler<
+  | React.MouseEvent<HTMLDivElement>
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLAnchorElement>
+  | React.KeyboardEvent<HTMLAnchorElement>,
+  { selected: boolean; id?: string | undefined }
+>
+| undefined,
+onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>,
+selected?: boolean,
+size?: 'sm' | 'md' | 'lg',
+showCheckbox?: boolean,
+text: string,
+tooltip?: TooltipProps,
+}
+
 
 interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;
@@ -2020,7 +2099,12 @@ interface TooltipProps {
 interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
   children?: React.ReactElement<typeof Upsell.Form>;
-  dismissButton?: OnDismissButtonObject | undefined;
+  dismissButton?:
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   imageData?:
     | {
         component: React.ReactElement<typeof Image | typeof Icon>;
@@ -2047,19 +2131,10 @@ interface UpsellFormProps {
 }
 
 interface VideoProps {
-  accessibilityMaximizeLabel: string;
-  accessibilityMinimizeLabel: string;
-  accessibilityMuteLabel: string;
-  accessibilityPauseLabel: string;
-  accessibilityPlayLabel: string;
-  accessibilityProgressBarLabel: string;
-  accessibilityUnmuteLabel: string;
   aspectRatio: number;
   onPlay: AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>>;
   onPlayError: (args: { error: Error }) => void;
   src: string | ReadonlyArray<{ type: 'video/m3u8' | 'video/mp4' | 'video/ogg'; src: string }>;
-  accessibilityHideCaptionsLabel?: string | undefined;
-  accessibilityShowCaptionsLabel?: string | undefined;
   autoplay?: boolean | undefined;
   backgroundColor?: 'black' | 'transparent' | undefined;
   captions?: string | undefined;
@@ -2359,11 +2434,6 @@ export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
  */
 export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
 
-/**
- * https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider
- */
-export const OnLinkNavigationProvider: React.FunctionComponent<OnLinkNavigationProviderProps>;
-
 export interface OverlayPanelSubComponents {
   DismissingElement: React.FunctionComponent<OverlayPanelDismissingElementProps>;
 }
@@ -2538,6 +2608,11 @@ export const Tabs: React.FunctionComponent<TabsProps>;
  * https://gestalt.pinterest.systems/web/tag
  */
 export const Tag: React.FunctionComponent<TagProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/tagdata
+ */
+export const TagData: React.FunctionComponent<TagDataProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/taparea

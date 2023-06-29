@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Text, Box, Table, WashAnimated, Avatar, Link } from 'gestalt';
+import { Avatar, Box, Link, Table, Text, WashAnimated } from 'gestalt';
 
 export default function Example(): Node {
   const [textShown, setTextShown] = useState(false);

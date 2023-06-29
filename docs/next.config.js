@@ -25,7 +25,13 @@ const root /*: string */ = path.join(__dirname, '../');
 
 module.exports = {
   images: {
-    domains: ['paper-attachments.dropbox.com', 'ibb.co', 'codahosted.io', 'i.pinimg.com'],
+    domains: [
+      'paper-attachments.dropbox.com',
+      'ibb.co',
+      'codahosted.io',
+      'i.pinimg.com',
+      'github.com',
+    ],
   },
   reactStrictMode: true,
   redirects: async () /*: RedirectsReturn */ => redirects,

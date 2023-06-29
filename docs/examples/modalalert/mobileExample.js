@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { Layer, ModalAlert, Box, Text, DeviceTypeProvider, Button } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Button, DeviceTypeProvider, Layer, ModalAlert, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [showComponent, setShowComponent] = useState(true);

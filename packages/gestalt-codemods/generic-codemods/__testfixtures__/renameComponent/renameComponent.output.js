@@ -1,4 +1,4 @@
-import { ScrollBoundaryContainer, Box } from 'gestalt';
+import { Box,ScrollBoundaryContainer } from 'gestalt';
 
 export default function TestComp() {
   return (

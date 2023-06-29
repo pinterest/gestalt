@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node, useState } from 'react';
 import {
-  Layer,
-  SheetMobile,
   Box,
-  Text,
+  Button,
+  CompositeZIndex,
+  DeviceTypeProvider,
+  FixedZIndex,
   Flex,
   Icon,
-  DeviceTypeProvider,
-  Button,
-  FixedZIndex,
-  CompositeZIndex,
+  Layer,
+  SheetMobile,
+  Text,
 } from 'gestalt';
 
 export default function Example(): Node {

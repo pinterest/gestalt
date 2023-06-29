@@ -1,16 +1,18 @@
 // @flow strict
 import {
-  type Node,
   type Element,
   type ElementConfig,
+  type Node,
   type Ref,
+  useId,
   useRef,
   useState,
-  useId,
 } from 'react';
-import styles from './HelpButton.css';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
+import styles from './HelpButton.css';
 import Icon from './Icon.js';
 import { ESCAPE, TAB } from './keyCodes.js';
 import Layer from './Layer.js';
@@ -19,9 +21,7 @@ import Popover from './Popover.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import Tooltip from './Tooltip.js';
-import { type Indexable, CompositeZIndex, FixedZIndex } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex.js';
 
 type LinkType = {|
   accessibilityLabel?: string,
@@ -74,7 +74,7 @@ type Props = {|
    * - `text` is the displayed text for the link. See the [link variant](https://gestalt.pinterest.systems/web/helpbutton#With-a-link) for more details.
    * - `target` see the [target Link variant](https://gestalt.pinterest.systems/web/link#Target) to learn more. If not defined the link will open in a new window.
    * - Optionally use `accessibilityLabel` to supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See [ Link's accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
-   * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [OnLinkNavigationProvider](https://gestalt.pinterest.systems/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+   * - Optionally provide an `onClick` callback, which is fired when the link is clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
   link?: LinkType,
   /**

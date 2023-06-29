@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
-import docgen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -122,7 +122,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             required: false,
             description: [
               'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
-              'See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.',
+              'See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
             ],
           },
           {
@@ -662,9 +662,9 @@ Use TapArea to make non-button elements interactive, like an Image. This ensures
 **[Tabs](/web/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
 
-**[OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider)**
-OnLinkNavigationProvider allows external link navigation control across all children components with link behavior.
-See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn more about link navigation.
+**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
+GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
       `}
         />
       </MainSection>
@@ -674,6 +674,6 @@ See [OnLinkNavigationProvider](/web/utilities/onlinknavigationprovider) to learn
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: { generatedDocGen: await docgen({ componentName: 'Button' }) },
+    props: { generatedDocGen: await docGen('Button') },
   };
 }

@@ -4,7 +4,7 @@
  */
 
 // @flow strict
-import { hasImport, isGestaltComponent, hasAttributes } from './helpers/eslintASTHelpers.js';
+import { hasAttributes, hasImport, isGestaltComponent } from './helpers/eslintASTHelpers.js';
 import { type ESLintRule } from './helpers/eslintFlowTypes.js';
 
 const disallowedMatch = [

@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, type Node } from 'react';
-import { Table, Checkbox, Text, Box } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Checkbox, Table, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [selected, setSelectedRow] = useState<$ReadOnlyArray<string>>([]);

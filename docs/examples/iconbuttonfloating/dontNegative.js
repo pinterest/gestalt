@@ -1,6 +1,6 @@
 // @flow strict
-import { useState, useRef, type Node } from 'react';
-import { IconButtonFloating, Dropdown, Flex } from 'gestalt';
+import { type Node, useRef, useState } from 'react';
+import { Dropdown, Flex, IconButtonFloating } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
