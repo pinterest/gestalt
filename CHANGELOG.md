@@ -1,3 +1,9 @@
+## 116.1.9 (Jun 29, 2023)
+
+### Patch
+
+- Docs: update status for several components ([#3047](https://github.com/pinterest/gestalt/pull/3047)) - [Preview link](https://deploy-preview-3047--gestalt.netlify.app?devexample=true)
+
 ## 116.1.8 (Jun 28, 2023)
 
 ### Patch
