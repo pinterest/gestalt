@@ -14,19 +14,23 @@ export default function ResponsiveExample(): Node {
           iconAccessibilityLabel="Info"
           message={
             <Text inline>
-              It may take up to 10 minutes to automatically detect a newly installed tag. If you
-              would like to manually verify your tag, please click the{' '}
+              You have invited{' '}
               <Text inline weight="bold">
-                Verify Tag
+                Leaf Media Agency
               </Text>{' '}
-              button.
+              to your business hierarchy. Once they accept, you will be able to manage their
+              business account.
             </Text>
           }
           primaryAction={{
-            accessibilityLabel: 'Manually verify tag',
-            label: 'Verify Tag',
+            accessibilityLabel: 'Resend invite',
+            label: 'Cancel invite',
           }}
-          title="We have not yet detected your tag"
+          secondaryAction={{
+            accessibilityLabel: 'Cancel invite',
+            label: 'Cancel invite',
+          }}
+          title="You've sent an invite"
           type="info"
         />
       </Box>
