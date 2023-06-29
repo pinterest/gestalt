@@ -24,7 +24,7 @@ export default function ResponsiveExample(): Node {
           }
           primaryAction={{
             accessibilityLabel: 'Resend invite',
-            label: 'Cancel invite',
+            label: 'Resend invite',
           }}
           secondaryAction={{
             accessibilityLabel: 'Cancel invite',
