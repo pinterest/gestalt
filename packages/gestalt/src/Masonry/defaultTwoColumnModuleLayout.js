@@ -110,12 +110,16 @@ function getTwoColItemPosition<T>({
   item: T,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
-|}): {| heights: $ReadOnlyArray<number>, position: Position |} {
+|}): {|
+  additionalWhitespace: number | null,
+  heights: $ReadOnlyArray<number>,
+  position: Position,
+|} {
   const heights = [...heightsArg];
   const height = measurementCache.get(item);
 
   if (isNil(height)) {
-    return { heights, position: offscreen(columnWidth) };
+    return { additionalWhitespace: null, heights, position: offscreen(columnWidth) };
   }
 
   const heightAndGutter = height + gutter;
@@ -141,6 +145,7 @@ function getTwoColItemPosition<T>({
   heights[leftIsTaller ? tallestColumn + 1 : tallestColumn - 1] = heights[tallestColumn];
 
   return {
+    additionalWhitespace: adjacentColumnHeightDeltas[lowestAdjacentColumnHeightDeltaIndex],
     heights,
     position: {
       top,
@@ -156,6 +161,7 @@ const defaultTwoColumnModuleLayout = <T>({
   gutter = 14,
   heightsCache,
   justify,
+  logWhitespace,
   measurementCache,
   minCols = 2,
   positionCache,
@@ -166,6 +172,7 @@ const defaultTwoColumnModuleLayout = <T>({
   gutter?: number,
   heightsCache?: HeightsStoreInterface,
   justify: 'center' | 'start',
+  logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
   minCols?: number,
   positionCache?: Cache<T, Position>,
@@ -325,7 +332,11 @@ const defaultTwoColumnModuleLayout = <T>({
 
       // Insert 2-col item(s)
       const twoColItem = twoColumnItems[0]; // this should always only be one
-      const { heights: finalHeights, position: twoColItemPosition } = getTwoColItemPosition<T>({
+      const {
+        additionalWhitespace,
+        heights: finalHeights,
+        position: twoColItemPosition,
+      } = getTwoColItemPosition<T>({
         item: twoColItem,
         heights: lowestScoreNode.heights,
         ...commonGetPositionArgs,
@@ -336,6 +347,13 @@ const defaultTwoColumnModuleLayout = <T>({
         ...winningPositions,
         { item: twoColItem, position: twoColItemPosition },
       ];
+
+      // Log additional whitespace shown above the 2-col module
+      // This may need to be tweaked or removed if pin leveling is implemented
+      const additionalWhitespaceAboveTwoColModule = additionalWhitespace
+        ? Math.min(additionalWhitespace, startingLowestAdjacentColumnHeightDelta)
+        : startingLowestAdjacentColumnHeightDelta;
+      logWhitespace?.(additionalWhitespaceAboveTwoColModule);
 
       finalPositions.forEach(({ item, position }) => {
         positionCache?.set(item, position);

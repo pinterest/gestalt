@@ -60,6 +60,7 @@ export default function TestPage({
   randomNumberSeeds: $ReadOnlyArray<number>,
 |}): Node {
   const router = useRouter();
+  // These should match playwright/masonry/utils/getServerURL.mjs
   const {
     batchPaints,
     constrained,
@@ -67,6 +68,7 @@ export default function TestPage({
     externalCache,
     finiteLength,
     flexible,
+    logWhitespace,
     manualFetch,
     noScroll,
     offsetTop,
@@ -109,6 +111,7 @@ export default function TestPage({
               ? generateRealisticExampleItems({ name: 'InitialPin', pinHeightsSample })
               : generateExampleItems({ name: 'InitialPin' })
           }
+          logWhitespace={booleanize(logWhitespace)}
           manualFetch={booleanize(manualFetch)}
           MasonryComponent={Masonry}
           measurementStore={measurementStore}
