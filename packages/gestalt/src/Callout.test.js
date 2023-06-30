@@ -1,6 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
 import Callout from './Callout.js';
+import Text from './Text.js';
 
 describe('<Callout />', () => {
   test('Error Callout', () => {
@@ -104,6 +105,39 @@ describe('<Callout />', () => {
         }}
         type="info"
         title="A Title"
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('callout with rich text message', () => {
+    const tree = create(
+      <Callout
+        dismissButton={{
+          accessibilityLabel: 'Dismiss this banner',
+          onDismiss: () => {},
+        }}
+        iconAccessibilityLabel="Info"
+        message={
+          <Text inline>
+            You have invited{' '}
+            <Text inline weight="bold">
+              Leaf Media Agency
+            </Text>{' '}
+            to your business hierarchy. Once they accept, you will be able to manage their business
+            account.
+          </Text>
+        }
+        primaryAction={{
+          accessibilityLabel: 'Resend invite',
+          label: 'Resend invite',
+        }}
+        secondaryAction={{
+          accessibilityLabel: 'Cancel invite',
+          label: 'Cancel invite',
+        }}
+        title="You've sent an invite"
+        type="info"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

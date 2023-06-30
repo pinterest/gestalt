@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -41,9 +41,9 @@ type Props = {|
   /**
    * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *
-   * See [Best Practices](https://gestalt.pinterest.systems/web/callout#Best-practices) for more info.
+   * See the [message variant](https://gestalt.pinterest.systems/web/callout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/callout#Best-practices) for content guidelines.
    */
-  message: string,
+  message: string | Element<typeof Text>,
   /**
    * Main action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
@@ -242,7 +242,13 @@ export default function Callout({
                   </Text>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+              {typeof message === 'string' ? (
+                <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+              ) : null}
+              {typeof message !== 'string' &&
+              Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
+                ? message
+                : null}
             </Box>
           </Box>
         </Box>
