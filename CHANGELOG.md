@@ -1,3 +1,9 @@
+## 117.1.0 (Jun 30, 2023)
+
+### Minor
+
+- Callout: Support Text Type in Callout ([#3044](https://github.com/pinterest/gestalt/pull/3044)) - [Preview link](https://deploy-preview-3044--gestalt.netlify.app?devexample=true)
+
 ## 117.0.0 (Jun 30, 2023)
 
 ### Major
