@@ -3,7 +3,7 @@ import { type Cache } from './Cache.js';
 import Graph from './Graph.js';
 import { type HeightsStoreInterface } from './HeightsStore.js';
 import mindex from './mindex.js';
-import { type NodeData, type Position } from './types.js';
+import { type ItemCache, type NodeData, type Position } from './types.js';
 
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;
@@ -38,28 +38,29 @@ function getOneColumnItemPositions<T>({
   columnWidthAndGutter,
   gutter,
   heights: heightsArg,
+  itemAttributeCache,
   items,
   measurementCache,
-  positionCache,
 }: {|
   centerOffset: number,
   columnWidth: number,
   columnWidthAndGutter: number,
   gutter: number,
   heights: $ReadOnlyArray<number>,
+  itemAttributeCache?: ItemCache<T>,
   items: $ReadOnlyArray<T>,
   measurementCache: Cache<T, number>,
-  positionCache?: Cache<T, Position>,
 |}): {|
   positions: $ReadOnlyArray<{| item: T, position: Position |}>,
   heights: $ReadOnlyArray<number>,
 |} {
   const heights = [...heightsArg];
+  // $FlowFixMe[incompatible-call]
   const positions = items.reduce(
     (positionsSoFar: $ReadOnlyArray<{| item: T, position: Position |}>, item) => {
       const height = measurementCache.get(item);
 
-      const cachedPosition = positionCache?.get(item);
+      const cachedPosition = itemAttributeCache?.getAttribute(item, 'position');
       if (cachedPosition) {
         return [...positionsSoFar, { item, position: cachedPosition }];
       }
@@ -107,9 +108,9 @@ function getTwoColItemPosition<T>({
   columnWidthAndGutter: number,
   gutter: number,
   heights: $ReadOnlyArray<number>,
+  itemAttributeCache?: ItemCache<T>, // This is only here to have the same signature as getOneColumnItemPositions
   item: T,
   measurementCache: Cache<T, number>,
-  positionCache?: Cache<T, Position>,
 |}): {|
   additionalWhitespace: number | null,
   heights: $ReadOnlyArray<number>,
@@ -137,15 +138,17 @@ function getTwoColItemPosition<T>({
     ? lowestAdjacentColumnHeightDeltaIndex
     : lowestAdjacentColumnHeightDeltaIndex + 1;
 
-  const top = heights[tallestColumn];
+  const additionalWhitespace = adjacentColumnHeightDeltas[lowestAdjacentColumnHeightDeltaIndex];
+
+  const top = heights[tallestColumn] - additionalWhitespace / 2;
   const left = lowestAdjacentColumnHeightDeltaIndex * columnWidthAndGutter + centerOffset;
 
   // Increase the heights of both adjacent columns
-  heights[tallestColumn] += heightAndGutter;
+  heights[tallestColumn] += heightAndGutter - additionalWhitespace / 2;
   heights[leftIsTaller ? tallestColumn + 1 : tallestColumn - 1] = heights[tallestColumn];
 
   return {
-    additionalWhitespace: adjacentColumnHeightDeltas[lowestAdjacentColumnHeightDeltaIndex],
+    additionalWhitespace,
     heights,
     position: {
       top,
@@ -160,22 +163,22 @@ const defaultTwoColumnModuleLayout = <T>({
   columnWidth = 236,
   gutter = 14,
   heightsCache,
+  itemAttributeCache,
   justify,
   logWhitespace,
   measurementCache,
   minCols = 2,
-  positionCache,
   rawItemCount,
   width,
 }: {|
   columnWidth?: number,
   gutter?: number,
   heightsCache?: HeightsStoreInterface,
+  itemAttributeCache: ItemCache<T>,
   justify: 'center' | 'start',
   logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
   minCols?: number,
-  positionCache?: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
 |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
@@ -195,8 +198,12 @@ const defaultTwoColumnModuleLayout = <T>({
       return items.map(() => offscreen(columnWidth));
     }
 
-    const itemsWithPositions = items.filter((item) => positionCache?.has(item));
-    const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
+    const itemsWithPositions = items.filter((item) =>
+      itemAttributeCache?.hasAttribute(item, 'position'),
+    );
+    const itemsWithoutPositions = items.filter(
+      (item) => !itemAttributeCache?.hasAttribute(item, 'position'),
+    );
 
     // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
     const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan > 1);
@@ -223,8 +230,8 @@ const defaultTwoColumnModuleLayout = <T>({
       columnWidth,
       columnWidthAndGutter,
       gutter,
+      itemAttributeCache,
       measurementCache,
-      positionCache,
     };
 
     if (hasTwoColumnItems) {
@@ -331,7 +338,7 @@ const defaultTwoColumnModuleLayout = <T>({
       const { positions: winningPositions } = winningNode;
 
       // Insert 2-col item(s)
-      const twoColItem = twoColumnItems[0]; // this should always only be one
+      const twoColItem = twoColumnItems[0]; // this should always only be one (for now)
       const {
         additionalWhitespace,
         heights: finalHeights,
@@ -355,8 +362,163 @@ const defaultTwoColumnModuleLayout = <T>({
         : startingLowestAdjacentColumnHeightDelta;
       logWhitespace?.(additionalWhitespaceAboveTwoColModule);
 
+      // Add height adjustments for the two items above the 2-col module
+      const twoColModuleColLeft = twoColItemPosition.left;
+      const twoColModuleColRight = twoColModuleColLeft + columnWidthAndGutter;
+      // const itemToShrink = items.find((item) => {
+      //   const position = itemAttributeCache?.getAttribute(item, 'position');
+      //   if (!position) {
+      //     return false;
+      //   }
+      //   // $FlowFixMe[prop-missing]
+      //   const { height, left, top } = position;
+      //   const isCorrectColumn = left === twoColModuleColLeft || left === twoColModuleColRight;
+      //   const isAboveTwoColModuleLower = top + height + gutter === twoColItemPosition.top;
+      //   // const isAboveTwoColModuleHigher =
+      //   //   top + height + gutter + additionalWhitespaceAboveTwoColModule === twoColItemPosition.top;
+      //   return isCorrectColumn && isAboveTwoColModuleLower;
+      // });
+      // const itemToGrow = items.find((item) => {
+      //   const position = itemAttributeCache?.getAttribute(item, 'position');
+      //   if (!position) {
+      //     return false;
+      //   }
+      //   // $FlowFixMe[prop-missing]
+      //   const { height, left, top } = position;
+      //   const isCorrectColumn = left === twoColModuleColLeft || left === twoColModuleColRight;
+      //   const isAboveTwoColModuleHigher =
+      //     top + height + gutter + additionalWhitespaceAboveTwoColModule === twoColItemPosition.top;
+      //   return isCorrectColumn && isAboveTwoColModuleHigher;
+      // });
+      // if (itemToShrink) {
+      //   itemAttributeCache?.setAttribute(
+      //     itemToShrink,
+      //     'heightAdjustment',
+      //     -additionalWhitespaceAboveTwoColModule / 2,
+      //   );
+      // }
+      // if (itemToGrow) {
+      //   itemAttributeCache?.setAttribute(
+      //     itemToGrow,
+      //     'heightAdjustment',
+      //     additionalWhitespaceAboveTwoColModule / 2,
+      //   );
+      // }
+
+      const itemsInTargetColumns = items.filter((item) => {
+        const position = itemAttributeCache?.getAttribute(item, 'position');
+        if (!position) {
+          return false;
+        }
+        // $FlowFixMe[prop-missing]
+        const { left } = position;
+        return left === twoColModuleColLeft || left === twoColModuleColRight;
+      });
+      const targetItems = itemsInTargetColumns.filter((item) => {
+        const position = itemAttributeCache?.getAttribute(item, 'position');
+        if (!position) {
+          return false;
+        }
+        // $FlowFixMe[prop-missing]
+        const { top } = position;
+        return top < twoColItemPosition.top;
+      });
+      const leftTargetItems = targetItems.filter((item) => {
+        const position = itemAttributeCache?.getAttribute(item, 'position');
+        if (!position) {
+          return false;
+        }
+        // $FlowFixMe[prop-missing]
+        const { left } = position;
+        return left === twoColModuleColLeft;
+      });
+      const rightTargetItems = targetItems.filter((item) => {
+        const position = itemAttributeCache?.getAttribute(item, 'position');
+        if (!position) {
+          return false;
+        }
+        // $FlowFixMe[prop-missing]
+        const { left } = position;
+        return left === twoColModuleColRight;
+      });
+      const topLeftTargetItem = [...leftTargetItems]
+        .sort((a, b) => {
+          const positionA = itemAttributeCache?.getAttribute(a, 'position');
+          const positionB = itemAttributeCache?.getAttribute(b, 'position');
+          if (!positionA || !positionB) {
+            return 0;
+          }
+          // $FlowFixMe[prop-missing]
+          const { top: topA } = positionA;
+          // $FlowFixMe[prop-missing]
+          const { top: topB } = positionB;
+          return topA - topB;
+        })
+        .reverse()[0];
+      const topRightTargetItem = [...rightTargetItems]
+        .sort((a, b) => {
+          const positionA = itemAttributeCache?.getAttribute(a, 'position');
+          const positionB = itemAttributeCache?.getAttribute(b, 'position');
+          if (!positionA || !positionB) {
+            return 0;
+          }
+          // $FlowFixMe[prop-missing]
+          const { top: topA } = positionA;
+          // $FlowFixMe[prop-missing]
+          const { top: topB } = positionB;
+          return topA - topB;
+        })
+        .reverse()[0];
+
+      // [topLeftTargetItem, topRightTargetItem].forEach((item) => {
+      //   const position = itemAttributeCache?.getAttribute(item, 'position');
+      //   if (!position) {
+      //     return;
+      //   }
+      //   // $FlowFixMe[prop-missing]
+      //   const { top } = position;
+      //   const isTallerItem = top + gutter > twoColItemPosition.top;
+      //   itemAttributeCache?.setAttribute(
+      //     item,
+      //     'heightAdjustment',
+      //     isTallerItem
+      //       ? -additionalWhitespaceAboveTwoColModule / 2
+      //       : additionalWhitespaceAboveTwoColModule / 2,
+      //   );
+      // });
+
+      const sortedTargetItems = [topLeftTargetItem, topRightTargetItem].sort((a, b) => {
+        const positionA = itemAttributeCache?.getAttribute(a, 'position');
+        const positionB = itemAttributeCache?.getAttribute(b, 'position');
+        if (!positionA || !positionB) {
+          return 0;
+        }
+        // $FlowFixMe[prop-missing]
+        const { height: heightA, top: topA } = positionA;
+        // $FlowFixMe[prop-missing]
+        const { height: heightB, top: topB } = positionB;
+        return topA + heightA - (topB + heightB);
+      });
+      const [shorterTargetItem, tallerTargetItem] = sortedTargetItems;
+      itemAttributeCache?.setAttribute(
+        shorterTargetItem,
+        'heightAdjustment',
+        additionalWhitespaceAboveTwoColModule / 2,
+      );
+      itemAttributeCache?.setAttribute(
+        tallerTargetItem,
+        'heightAdjustment',
+        -additionalWhitespaceAboveTwoColModule / 2,
+      );
+
+      console.log(
+        'targetItems',
+        sortedTargetItems,
+        sortedTargetItems.map((item) => itemAttributeCache?.getAttribute(item, 'position')),
+      );
+
       finalPositions.forEach(({ item, position }) => {
-        positionCache?.set(item, position);
+        itemAttributeCache?.setAttribute(item, 'position', position);
       });
       heightsCache?.setHeights(finalHeights);
 
@@ -372,7 +534,7 @@ const defaultTwoColumnModuleLayout = <T>({
       ...commonGetPositionArgs,
     });
     itemPositions.forEach(({ item, position }) => {
-      positionCache?.set(item, position);
+      itemAttributeCache.setAttribute(item, 'position', position);
     });
     heightsCache?.setHeights(finalHeights);
 

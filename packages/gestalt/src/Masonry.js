@@ -8,11 +8,12 @@ import defaultLayout from './Masonry/defaultLayout.js';
 import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout.js';
 import fullWidthLayout from './Masonry/fullWidthLayout.js';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore.js';
+import ItemAttributeStore from './Masonry/ItemAttributeStore.js';
 import MeasureItems from './Masonry/MeasureItems.js';
 import MeasurementStore from './Masonry/MeasurementStore.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
-import { type Position } from './Masonry/types.js';
+import { type ItemCache, type Position } from './Masonry/types.js';
 import uniformRowLayout from './Masonry/uniformRowLayout.js';
 import throttle, { type ThrottleReturn } from './throttle.js';
 
@@ -77,6 +78,7 @@ type Props<T> = {|
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
+    +heightAdjustment?: number,
   |}) => Node,
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
@@ -171,7 +173,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
-    this.positionStore = new MeasurementStore();
+    this.itemAttributeStore = new ItemAttributeStore();
     this.heightsStore = new HeightsStore();
 
     this.state = {
@@ -192,7 +194,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
   heightsStore: HeightsStoreInterface;
 
-  positionStore: Cache<T, Position>;
+  // This should probably include the measurementStore eventually
+  // Though that will break a bunch of assumptions around how we check for item attributes in the cache
+  itemAttributeStore: ItemCache<T>;
 
   insertAnimationFrame: AnimationFrameID;
 
@@ -260,7 +264,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
 
     if (prevState.width != null && this.state.width !== prevState.width) {
       measurementStore.reset();
-      this.positionStore.reset();
+      this.itemAttributeStore.reset();
       this.heightsStore.reset();
     }
     // calculate whether we still have pending measurements
@@ -407,18 +411,19 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       measurementStore.reset();
     }
     this.state.measurementStore.reset();
-    this.positionStore.reset();
+    this.itemAttributeStore.reset();
     this.heightsStore.reset();
 
     this.measureContainer();
     this.forceUpdate();
   }
 
-  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
-    itemData,
-    idx,
-    position,
-  ) => {
+  renderMasonryComponent: ({|
+    heightAdjustment?: number,
+    itemData: T,
+    index: number,
+    position: Position,
+  |}) => Node = ({ heightAdjustment, itemData, index, position }) => {
     const {
       renderItem,
       scrollContainer,
@@ -453,7 +458,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       <div
         className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
         data-grid-item
-        key={`item-${idx}`}
+        key={`item-${index}`}
         role="listitem"
         style={{
           top: 0,
@@ -464,7 +469,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        {renderItem({ data: itemData, heightAdjustment, itemIdx: index, isMeasuring: false })}
       </div>
     );
 
@@ -485,7 +490,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       _logTwoColWhitespace,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
-    const { positionStore } = this;
+    const { itemAttributeStore } = this;
 
     let getPositions;
 
@@ -508,7 +513,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     } else if (_twoColItems === true) {
       getPositions = defaultTwoColumnModuleLayout({
         measurementCache: measurementStore,
-        positionCache: positionStore,
+        itemAttributeCache: itemAttributeStore,
         columnWidth,
         gutter,
         heightsCache: this.heightsStore,
@@ -580,10 +585,14 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     } else {
       // Full layout is possible
       const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
-      const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
+      const itemsWithPositions = items.filter(
+        (item) => item && itemAttributeStore.hasAttribute(item, 'position'),
+      );
       const itemsToRender = _twoColItems ? itemsWithPositions : itemsWithMeasurements;
 
-      const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
+      const itemsWithoutPositions = items.filter(
+        (item) => item && !itemAttributeStore.hasAttribute(item, 'position'),
+      );
       const hasTwoColumnItems =
         // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
         _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
@@ -604,12 +613,15 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
             {itemsToRender.map((item, i) =>
-              this.renderMasonryComponent(
-                item,
-                i,
+              this.renderMasonryComponent({
+                itemData: item,
+                index: i,
                 // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
-                positionStore.get(item) ?? positions[i],
-              ),
+                // $FlowFixMe[incompatible-call]
+                position: itemAttributeStore.getAttribute(item, 'position') ?? positions[i],
+                // $FlowFixMe[incompatible-call]
+                heightAdjustment: itemAttributeStore.getAttribute(item, 'heightAdjustment'),
+              }),
             )}
           </div>
           <div className={styles.Masonry} style={{ width }}>

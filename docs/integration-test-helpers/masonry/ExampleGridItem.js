@@ -5,10 +5,16 @@ type Props = {|
   // $FlowFixMe[unclear-type]
   data: Object,
   expanded: boolean,
+  heightAdjustment?: number,
   itemIdx: number,
 |};
 
-export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props): Element<'div'> {
+export default function ExampleGridItem({
+  data = {},
+  heightAdjustment,
+  itemIdx,
+  expanded,
+}: Props): Element<'div'> {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
@@ -22,6 +28,16 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
 
   const isTwoColItem = data.columnSpan === 2;
 
+  let itemHeight = data.height;
+  if (heightAdjustment) {
+    itemHeight += heightAdjustment;
+  }
+  if (expanded) {
+    itemHeight += 100;
+  }
+
+  const borderHeight = 1;
+
   return (
     <div
       style={{
@@ -30,14 +46,15 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
     >
       <div
         style={{
-          height: expanded ? data.height + 100 : data.height,
-          border: '1px solid #ff0000',
+          height: itemHeight,
+          border: `${borderHeight}px solid ${heightAdjustment ? 'red' : 'black'}`,
           background: isTwoColItem ? 'black' : data.color,
           color: isTwoColItem ? 'white' : undefined,
         }}
       >
         <div>
-          {data.name} • {data.height}px
+          {data.name} • {data.height + borderHeight * 2}px
+          {heightAdjustment ? ` • heightAdjustment: ${heightAdjustment}` : ''}
           {isTwoColItem ? ` • columnSpan: ${data.columnSpan}` : ''}
         </div>
         <div>Slot Index: {itemIdx}</div>

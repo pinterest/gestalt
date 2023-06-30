@@ -299,9 +299,16 @@ export default class MasonryContainer extends Component<Props, State> {
 
   renderItem: $ElementType<React$ElementConfig<typeof Masonry>, 'renderItem'> =
     // $FlowFixMe[missing-local-annot]
-    ({ data, itemIdx }) => {
+    ({ data, itemIdx, heightAdjustment }) => {
       const { expanded } = this.state;
-      return <ExampleGridItem expanded={expanded} data={data} itemIdx={itemIdx} />;
+      return (
+        <ExampleGridItem
+          data={data}
+          expanded={expanded}
+          heightAdjustment={heightAdjustment}
+          itemIdx={itemIdx}
+        />
+      );
     };
 
   render(): Element<'div'> {
