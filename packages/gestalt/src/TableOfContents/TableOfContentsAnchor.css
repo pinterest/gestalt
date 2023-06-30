@@ -1,0 +1,16 @@
+.item {
+  border-radius: 2px 8px 8px 2px;
+  padding-right: 16px;
+}
+
+.itemPadding {
+  padding-left: 12px;
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
+}
+
+.itemNestedPadding {
+  padding-left: 32px;
+  padding-top: 14.5px;
+  padding-bottom: 14.5px;
+}

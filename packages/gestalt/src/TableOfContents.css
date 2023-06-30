@@ -1,3 +1,7 @@
-.customClass {
-  background: rgb(0 0 0 / 0.061);
+.wrapper {
+  border-left: 1px solid var(--color-border-container);
+}
+
+.ul {
+  gap: 4;
 }
