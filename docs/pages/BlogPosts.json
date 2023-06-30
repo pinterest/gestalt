@@ -3,6 +3,20 @@
     "year": "2023",
     "digests": [
       {
+        "week": "June 30, 2023",
+        "summary": "Update on Figma variables support.",
+        "posts": [
+          {
+            "title": "Gestalt + Figma variables update",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/01/1a/4c/011a4c5618822d1ee4647839a09b7822.png",
+            "imageAltText": "Figma variables symbol.",
+            "content": "Figma variables were a hit during Config 2023, and we couldn’t be more excited to test it out on Gestalt’s libraries to improve your workflow by tokenizing design assets and creating semantic experiences!\n\nWe just added color and space variables to our Foundations library, which is being tested. So if you see them around, don’t worry; we will let you know when they are ready to make magic 🔮. Stay tuned for updates!\n\nTip: [Learn more about variables](https://youtu.be/1ONxxlJnvdM)"
+          }
+        ]
+      },
+      {
         "week": "June 23, 2023",
         "summary": "Big big updates with the addition of the TagData component and Card guidelines.",
         "posts": [
