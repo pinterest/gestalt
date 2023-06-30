@@ -41,7 +41,7 @@ type Props = {|
   /**
    * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *
-   * See the [Message variant](https://gestalt.pinterest.systems/web/callout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/callout#Best-practices) for content guidelines.
+   * See the [message variant](https://gestalt.pinterest.systems/web/callout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/callout#Best-practices) for content guidelines.
    */
   message: string | Element<typeof Text>,
   /**
