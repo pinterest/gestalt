@@ -1,3 +1,9 @@
+## 117.0.0 (Jun 30, 2023)
+
+### Major
+
+- Tokens: Update $selected-strong and $selected-weak values ([#3008](https://github.com/pinterest/gestalt/pull/3008)) - [Preview link](https://deploy-preview-3008--gestalt.netlify.app?devexample=true)
+
 ## 116.1.9 (Jun 29, 2023)
 
 ### Patch
