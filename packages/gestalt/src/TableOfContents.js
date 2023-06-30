@@ -51,7 +51,7 @@ export default function TableOfContents({ accessibilityLabel, title, items }: Pr
   );
 
   return (
-    <div aria-label={accessibilityLabel} className={styles.wrapper}>
+    <div role="navigation" aria-label={accessibilityLabel} className={styles.wrapper}>
       <Box paddingX={3}>
         <Heading size="400">{title}</Heading>
       </Box>
