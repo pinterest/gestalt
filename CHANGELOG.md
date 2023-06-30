@@ -1,3 +1,9 @@
+## 117.2.2 (Jun 30, 2023)
+
+### Patch
+
+- Masonry: remove unused `heightAdjustment` field ([#3049](https://github.com/pinterest/gestalt/pull/3049)) - [Preview link](https://deploy-preview-3049--gestalt.netlify.app?devexample=true)
+
 ## 117.2.1 (Jun 30, 2023)
 
 ### Patch
