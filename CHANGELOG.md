@@ -1,3 +1,9 @@
+## 117.2.0 (Jun 30, 2023)
+
+### Minor
+
+- Masonry: add hook to log whitespace above 2-col modules ([#3046](https://github.com/pinterest/gestalt/pull/3046)) - [Preview link](https://deploy-preview-3046--gestalt.netlify.app?devexample=true)
+
 ## 117.1.0 (Jun 30, 2023)
 
 ### Minor
