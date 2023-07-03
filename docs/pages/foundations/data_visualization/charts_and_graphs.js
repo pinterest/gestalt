@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Image, SlimBanner, Text } from 'gestalt';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
@@ -366,7 +367,7 @@ export default function ChartsandGraphsPage(): Node {
         </MainSection.Subsection>
         <MainSection.Subsection title="Labels"> </MainSection.Subsection>
         <Box width="100%" marginBottom={12}>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Heading size="300" accessibilityLevel={4}>
               Values and amounts
             </Heading>
@@ -378,7 +379,7 @@ export default function ChartsandGraphsPage(): Node {
             `}
             />
           </Box>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Heading size="300" accessibilityLevel={4}>
               Categories
             </Heading>
@@ -618,7 +619,7 @@ export default function ChartsandGraphsPage(): Node {
         </Box>
         <MainSection.Subsection title="Empty states"> </MainSection.Subsection>
         <Box width="100%" marginBottom={12}>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Heading size="300" accessibilityLevel={4}>
               No data available
             </Heading>
@@ -645,7 +646,7 @@ export default function ChartsandGraphsPage(): Node {
               src="https://i.pinimg.com/originals/4c/ce/f8/4ccef8004054d120fe4b738df8cdbd2d.png"
             />
           </Box>
-          <Box maxWidth={572} marginTop={10}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={10}>
             <Heading size="300" accessibilityLevel={4}>
               User input needed
             </Heading>
@@ -666,7 +667,7 @@ export default function ChartsandGraphsPage(): Node {
         </Box>
         <MainSection.Subsection title="Full error states"> </MainSection.Subsection>
         <Box width="100%" marginBottom={12}>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Heading size="300" accessibilityLevel={4}>
               No data available
             </Heading>

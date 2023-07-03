@@ -238,13 +238,13 @@
           "darkValue": "{color.gray.roboflow.200.value}",
           "comment": "Background color to indicate selected state, like a selected IconButton"
         },
-        "weak": {
-          "value": "{color.gray.roboflow.700.value}",
-          "comment": "Weak version of the selected background color, used for hover"
-        },
         "strong": {
-          "value": "{color.gray.roboflow.400.value}",
+          "value": "{color.gray.roboflow.700.value}",
           "comment": "Strong version of the selected background color, used for hover"
+        },
+        "weak": {
+          "value": "{color.gray.roboflow.400.value}",
+          "comment": "Weak version of the selected background color, used for hover"
         }
       },
       "inverse": {

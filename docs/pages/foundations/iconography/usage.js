@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Icon, Text } from 'gestalt';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
@@ -83,7 +84,7 @@ When choosing icons, we recommend sticking to a consistent style as much as poss
 
 Get in touch with us if an aesthetic change is needed, and we will evaluate the case.`}
         >
-          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
+          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Flex
               direction="column"
               gap={{
@@ -205,7 +206,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
               </Flex>
             </Flex>
           </Box>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Markdown text="Check out our [Iconography collection](/foundations/iconography/library) to explore all of our available icons." />
           </Box>
         </MainSection.Subsection>
@@ -213,7 +214,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
           title="Size"
           description="Our icons are pixel-snapped for each singular case. Using a size not available in our size scale can cause the proportions to be off-balance and create an unintentional hierarchy within the Pinner experience. Our icons are purposefully designed to scale proportionally. Icons should fit organically in your design and feel balanced and optical aligned. In addition, we must ensure that your users can use your icons without the need for zooming."
         >
-          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
+          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Flex
               gap={{
                 row: 8,
@@ -292,7 +293,7 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
               </Flex>
             </Flex>
           </Box>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Markdown
               text={`
 Icon sizes and guidelines (in px):
@@ -327,7 +328,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           title="Color"
           description="Icons can display all of our [color design tokens](/foundations/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
         >
-          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={572}>
+          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Flex
               gap={{
                 row: 8,
@@ -387,7 +388,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               </Flex>
             </Flex>
           </Box>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Markdown text="Learn how to use colors by checking our [Iconography color guidelines](/foundations/color/usage#Iconography-color)." />
           </Box>
         </MainSection.Subsection>
@@ -450,7 +451,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               </Flex>
             </Box>
           </Flex>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Markdown text="Please [get in touch](/team_support/get_help#Slack-channels) if you need specific iOS and Android icons guidelines." />
           </Box>
         </MainSection.Subsection>
@@ -584,7 +585,7 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               <CreditCards />
             </Flex>
           </Box>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Markdown text="If you need a new logo set as an icon, [reach out to us](/team_support/get_help#Meetings-and-events), and we will direct you." />
           </Box>
         </MainSection.Subsection>

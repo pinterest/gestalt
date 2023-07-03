@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
@@ -186,7 +187,7 @@ We have several React components that use typography as the primary element.
           description="Proper line spacing line height (or leading) is important for readability. If lines of text get too close together, it can be hard to read them; if they are too far apart it can make it difficult to sense a clear hierarchy and group related text blocks. Given that we use system fonts, we rely on percentages on web and system defaults on mobile to ensure blocks are text are still readable for internationalization and dynamic sizing."
         />
         <MainSection.Subsection>
-          <Box maxWidth={572}>
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Heading size="300" accessibilityLevel={4}>
               Web
             </Heading>

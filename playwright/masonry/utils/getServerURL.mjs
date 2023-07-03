@@ -10,6 +10,7 @@ const normalizeValue = (val /*: boolean | number */) => {
   return String(val);
 };
 
+// These are used in docs/pages/integration-test/masonry.js
 /*::
 type Options = ?{|
   batchPaints?: boolean,
@@ -18,6 +19,7 @@ type Options = ?{|
   externalCache?: boolean,
   finiteLength?: boolean,
   flexible?: boolean,
+  logWhitespace?: boolean,
   manualFetch?: boolean,
   noScroll?: boolean,
   offsetTop?: number,

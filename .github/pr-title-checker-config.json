@@ -4,7 +4,13 @@
     "color": ""
   },
   "CHECKS": {
-    "prefixes": ["Docs: ", "Internal: ", "Version bump: ", "ESLint plugin: "],
+    "prefixes": [
+      "Docs: ",
+      "Internal: ",
+      "Version bump: ",
+      "ESLint plugin: ",
+      "Tokens: "
+    ],
     "regexp": "^(?=.*(?:ActivationCard|Avatar|AvatarGroup|Badge|Box|Button|ButtonGroup|Callout|Checkbox|Collage|ColorSchemeProvider|Column|ComboBox|Container|Datapoint|DateField|DatePicker|DefaultLabelProvider|DeviceTypeProvider|Divider|Dropdown|GlobalEventsHandlerProvider|Fieldset|Flex|Heading|HelpButton|Icon|IconButton|IconButtonFloating|Image|Label|Layer|Letterbox|Link|List|Mask|Masonry|Modal|ModalAlert|Module|NumberField|OverlayPanel|PageHeader|Pog|Popover|PopoverEducational|Pulsar|RadioButton|RadioGroup|ScrollBoundaryContainer|SearchField|SegmentedControl|SelectList|Sheet|SheetMobile|SideNavigation|SlimBanner|Spinner|Status|Sticky|Switch|Table|Tabs|Tag|TagData|TapArea|Text|TextArea|TextField|TileData|Toast|Tooltip|Upsell|useFocusVisible|useReducedMotion|Video|WashAnimated|ZIndex-Classes):\\s.*)+",
     "regexpFlags": "",
     "ignoreLabels": []

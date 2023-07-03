@@ -77,7 +77,6 @@ type Props<T> = {|
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
-    +heightAdjustment?: number,
   |}) => Node,
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
@@ -113,6 +112,12 @@ type Props<T> = {|
    * This is an experimental prop and may be removed in the future.
    */
   _twoColItems?: boolean,
+  /**
+   * Experimental prop to log the additional whitespace shown above two-column items.
+   *
+   * This is an experimental prop and may be removed in the future.
+   */
+  _logTwoColWhitespace?: (number) => void,
 |};
 
 type State<T> = {|
@@ -477,6 +482,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       scrollContainer,
       _batchPaints,
       _twoColItems,
+      _logTwoColWhitespace,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -507,6 +513,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         gutter,
         heightsCache: this.heightsStore,
         justify: layout === 'basicCentered' ? 'center' : 'start',
+        logWhitespace: _logTwoColWhitespace,
         minCols,
         rawItemCount: items.length,
         width,

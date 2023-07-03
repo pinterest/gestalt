@@ -38,6 +38,8 @@ type Props = {|
   // The initial data from the server side render.
   // $FlowFixMe[unclear-type]
   initialItems?: $ReadOnlyArray<?Object>,
+  // Whether or not to log whitespace.
+  logWhitespace?: boolean,
   // Whether or not to require tests to trigger fetch completion manually.
   manualFetch?: boolean,
   // External measurement store.
@@ -311,6 +313,7 @@ export default class MasonryContainer extends Component<Props, State> {
       externalCache,
       finiteLength,
       flexible,
+      logWhitespace,
       measurementStore,
       noScroll,
       offsetTop,
@@ -396,6 +399,12 @@ export default class MasonryContainer extends Component<Props, State> {
         {mountGrid && (
           <MasonryComponent
             _batchPaints={batchPaints}
+            _logTwoColWhitespace={
+              logWhitespace
+                ? // eslint-disable-next-line no-console
+                  (whitespace) => console.log('Whitespace above 2-col module:', whitespace)
+                : undefined
+            }
             _twoColItems={twoColItems}
             columnWidth={columnWidth}
             gutterWidth={0}
