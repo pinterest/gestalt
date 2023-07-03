@@ -1,3 +1,9 @@
+## 117.2.6 (Jul 3, 2023)
+
+### Patch
+
+- Docs: switch to use new component data structure ([#3054](https://github.com/pinterest/gestalt/pull/3054)) - [Preview link](https://deploy-preview-3054--gestalt.netlify.app?devexample=true)
+
 ## 117.2.5 (Jul 3, 2023)
 
 ### Patch
