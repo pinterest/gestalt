@@ -8,22 +8,6 @@ import IllustrationSection from './IllustrationSection.js';
 const getIllustrationCardColor = (category: Category, hasDarkBackground?: boolean) => {
   const tealBackgrounds = ['Foundations'];
   const grayBackgrounds = ['Utilities', 'Building blocks'];
-  const greenBackgrounds = [
-    'Actions',
-    'Avatars',
-    'Controls',
-    'Data',
-    'Fields and forms',
-    'Help and guidance',
-    'Indicators',
-    'Loading',
-    'Messaging',
-    'Navigation',
-    'Overlays',
-    'Pins and imagery',
-    'Structure',
-    'Text',
-  ];
 
   if (hasDarkBackground) {
     return 'gray-roboflow-600';
@@ -35,10 +19,6 @@ const getIllustrationCardColor = (category: Category, hasDarkBackground?: boolea
 
   if (grayBackgrounds.includes(category)) {
     return 'gray-roboflow-100';
-  }
-
-  if (greenBackgrounds.includes(category)) {
-    return 'green-matchacado-0';
   }
 
   return 'green-matchacado-0';
