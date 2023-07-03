@@ -245,10 +245,7 @@ export default function Callout({
               {typeof message === 'string' ? (
                 <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
               ) : null}
-              {typeof message !== 'string' &&
-              Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
-                ? message
-                : null}
+              {typeof message !== 'string' && message}
             </Box>
           </Box>
         </Box>
