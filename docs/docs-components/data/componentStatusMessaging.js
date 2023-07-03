@@ -12,7 +12,7 @@ export const STATUS_DESCRIPTION = Object.freeze({
   ready: { title: 'Ready', description: "Available for use. Has been reviewed and QA'd." },
   partial: {
     title: 'Partially ready',
-    description: 'Ready, but may not be available for all platforms.',
+    description: 'Ready, but all features may not be available.',
   },
   notAvailable: { title: 'Not available', description: 'Not currently available or planned.' },
   planned: {
@@ -25,43 +25,36 @@ export const STATUS_DESCRIPTION = Object.freeze({
 
 export const COMPONENT_STATUS_MESSAGING = Object.freeze({
   accessible: { shortTitle: 'A11y', title: 'Accessibility' },
-  figma: {
+  documentation: {
+    title: 'Documentation',
+    ready: 'Component has been documented on web and mobile web.',
+    partial: 'Component has been documented, however some content may be missing.',
+    notAvailable: 'Component does not include documentation for web and mobile web.',
+    planned: 'Component is slotted to be documented on web and mobile web.',
+  },
+  figmaStatus: {
     shortTitle: 'Figma',
     title: 'Figma Library',
-    ready: 'Component is available in Figma across all platforms.',
+    ready: 'Component is available in Figma for web and mobile web.',
     partial: 'Component is live in Figma, however may not be available for all platforms.',
     notAvailable: 'Component is not currently available in Figma.',
     planned: 'Component is slotted to be added to Figma.',
   },
-  android: {
-    title: 'Android',
-    ready: 'Component is available in code for Android.',
+  mobileAdaptive: {
+    shortTitle: 'Adaptive',
+    title: 'Adaptive Web',
+    ready: 'Component uses a mobile-specific UI on mobile web.',
     partial: '',
-    notAvailable: 'Component is not currently available in code for Android.',
-    planned: 'Component is slotted to be built for Android.',
-  },
-  iOS: {
-    title: 'iOS',
-    ready: 'Component is available in code for iOS.',
-    partial: '',
-    notAvailable: 'Component is not currently available in code for iOS.',
-    planned: 'Component is slotted to be built for iOS.',
+    notAvailable: 'Component does not use a mobile-specific UI on mobile web.',
+    planned: 'Component is slotted to be built to adapt to mobile web.',
   },
   responsive: {
-    shortTitle: 'Web',
+    shortTitle: 'Responsive',
     title: 'Responsive Web',
-    ready: 'Component is available in code for web and mobile web.',
+    ready: 'Component responds to changing viewport sizes in web and mobile web.',
     partial: '',
-    notAvailable: 'Component is not currently available in code for web and mobile web.',
-    planned: 'Component is slotted to be built for web and mobile web.',
-  },
-  documentation: {
-    title: 'Documentation',
-    ready: 'Component has been documented across all platforms.',
-    partial:
-      'Component has been documented, however some content may be missing or documentation may not be available for all platforms.',
-    notAvailable: 'Component does not include Gestalt documentation.',
-    planned: 'Component is slotted to be documented across all platforms.',
+    notAvailable: 'Component does not respond to changing viewport sizes in web and mobile web.',
+    planned: 'Component is slotted to be built responsively for web and mobile web.',
   },
 });
 

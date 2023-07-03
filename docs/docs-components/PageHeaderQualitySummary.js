@@ -1,18 +1,22 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import { Box, Divider, Flex, SlimBanner, Text } from 'gestalt';
-import COMPONENT_DATA, { type ListItemType } from './data/components.js';
+import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
+import { type PlatformData } from './data/types.js';
+import getByPlatform from './data/utils/getByPlatform.js';
 import StatusData from './StatusData.js';
 
-const categories = ['figma', 'responsive', 'iOS', 'android', 'accessible'];
+const webComponentData = getByPlatform(componentData, { platform: 'web' });
+
+const categories = ['figmaStatus', 'responsive', 'mobileAdaptive', 'accessible'];
 
 function QualityItem({
   category,
   componentStatusData,
 }: {|
   category: string,
-  componentStatusData: ?ListItemType,
+  componentStatusData: PlatformData,
 |}) {
   const isAccessibility = category === 'accessible';
 
@@ -20,8 +24,8 @@ function QualityItem({
     <Flex gap={2}>
       <Text size="200" weight="bold">
         {`${
-          COMPONENT_STATUS_MESSAGING[category]?.shortTitle ||
-          COMPONENT_STATUS_MESSAGING[category].title
+          COMPONENT_STATUS_MESSAGING[category]?.shortTitle ??
+          COMPONENT_STATUS_MESSAGING[category]?.title
         }: `}
       </Text>
 
@@ -29,13 +33,13 @@ function QualityItem({
         href={isAccessibility ? '#Accessibility' : '#Component-quality-checklist'}
         status={
           (isAccessibility
-            ? componentStatusData?.status?.[category].summary || 'notAvailable'
+            ? componentStatusData?.status?.[category].summary ?? 'notAvailable'
             : componentStatusData?.status?.[category]) ?? 'notAvailable'
         }
         text={
           STATUS_DESCRIPTION[
             isAccessibility
-              ? componentStatusData?.status?.[category].summary || 'notAvailable'
+              ? componentStatusData?.status?.[category].summary ?? 'notAvailable'
               : componentStatusData?.status?.[category] ?? 'notAvailable'
           ].title
         }
@@ -49,13 +53,13 @@ type Props = {|
 |};
 
 export default function PageHeaderQualitySummary({ name }: Props): Node {
-  const componentStatusData = [
-    ...COMPONENT_DATA.buildingBlockComponents,
-    ...COMPONENT_DATA.generalComponents,
-    ...COMPONENT_DATA.utilityComponents,
-  ].find((component) => component.name === name);
+  const componentStatusData = webComponentData.find((component) => component.name === name);
 
-  const isDeprecated = componentStatusData?.status?.deprecated;
+  if (!componentStatusData) {
+    return null;
+  }
+
+  const isDeprecated = componentStatusData?.status === 'deprecated';
 
   if (isDeprecated) {
     return (

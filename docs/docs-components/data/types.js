@@ -19,7 +19,7 @@ type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
  * All components should be in a single list. That list can be filtered by category/platform/etc where needed.
  */
 
-type ComponentAccessibility = {|
+export type ComponentAccessibility = {|
   a11yComprehension?: StatusType,
   a11yNavigation?: StatusType,
   a11yScreenreader?: StatusType,

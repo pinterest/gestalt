@@ -1,25 +1,24 @@
 // @flow strict
 import { type Node } from 'react';
 import { SlimBanner, Table, Text } from 'gestalt';
-import COMPONENT_DATA from './data/components.js';
+import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
+import getByPlatform from './data/utils/getByPlatform.js';
 import MainSection from './MainSection.js';
 import StatusData from './StatusData.js';
+
+const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
 type Props = {|
   component: string,
 |};
 
 export default function QualityChecklist({ component }: Props): Node {
-  const componentData = [
-    ...COMPONENT_DATA.buildingBlockComponents,
-    ...COMPONENT_DATA.generalComponents,
-    ...COMPONENT_DATA.utilityComponents,
-  ].find((cmpName) => cmpName.name === component);
+  const data = webComponentData.find((cmpName) => cmpName.name === component);
 
   return (
     <MainSection name="Component quality checklist">
-      {componentData?.status?.deprecated ? (
+      {data?.status.status === 'deprecated' ? (
         <SlimBanner
           iconAccessibilityLabel="Deprecated component"
           message="Deprecated: This component is no longer supported by Gestalt. "
@@ -42,8 +41,8 @@ export default function QualityChecklist({ component }: Props): Node {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {['figma', 'responsive', 'iOS', 'android'].map((item) => {
-              const componentStatus = componentData?.status?.[item] ?? 'notAvailable';
+            {['figmaStatus', 'responsive'].map((item) => {
+              const componentStatus = data?.status?.[item] ?? 'notAvailable';
               return (
                 <Table.Row key={item}>
                   <Table.Cell>

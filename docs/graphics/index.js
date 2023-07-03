@@ -19,6 +19,6 @@ const illustrations = Object.freeze({
   'tooltip': Tooltip,
 });
 
-export type IllustrationTypes = $Keys<typeof illustrations>;
+export type Illustrations = $Keys<typeof illustrations>;
 
 export default illustrations;
