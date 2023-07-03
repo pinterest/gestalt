@@ -1,8 +1,12 @@
 // @flow strict
 import { Fragment, type Node } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
-import COMPONENT_DATA from '../../docs-components/data/components.js';
-import { STATUS_DESCRIPTION } from '../../docs-components/data/componentStatusMessaging.js';
+import componentData from '../../docs-components/data/components.js';
+import {
+  COMPONENT_STATUS_MESSAGING,
+  STATUS_DESCRIPTION,
+} from '../../docs-components/data/componentStatusMessaging.js';
+import getByPlatform from '../../docs-components/data/utils/getByPlatform.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import StatusData from '../../docs-components/StatusData.js';
@@ -11,17 +15,16 @@ function DeprecatedStatus() {
   return <StatusData text="Deprecated" status="deprecated" />;
 }
 
-export default function ComponentStatus(): Node {
-  const componentSortedList = [
-    ...COMPONENT_DATA.buildingBlockComponents,
-    ...COMPONENT_DATA.generalComponents,
-    ...COMPONENT_DATA.utilityComponents,
-  ].sort(({ name: aName }, { name: bName }) => {
-    if (aName < bName) return -1;
-    if (aName > bName) return 1;
-    return 0;
-  });
+const webComponentData = getByPlatform(componentData, { platform: 'web' });
+const sortedComponentList = [...webComponentData].sort(({ name: aName }, { name: bName }) => {
+  if (aName < bName) return -1;
+  if (aName > bName) return 1;
+  return 0;
+});
 
+const statusFields = ['figmaStatus', 'documentation', 'responsive', 'mobileAdaptive'];
+
+export default function ComponentStatus(): Node {
   return (
     <Page title="Component status" hideSideNav hideEditLink>
       <PageHeader
@@ -29,28 +32,22 @@ export default function ComponentStatus(): Node {
         description="A detailed synopsis of our components and their implementation status."
         type="guidelines"
       />
-      <Flex
-        direction="column"
-        gap={{
-          row: 0,
-          column: 12,
-        }}
-      >
+      <Flex direction="column" gap={12}>
         <Column span={8}>
           <Table accessibilityLabel="Component status legend">
             <colgroup>
-              <col style={{ width: '30%' }} />
-              <col style={{ width: '70%' }} />
+              {['30%', '70%'].map((width) => (
+                <col key={width} style={{ width }} />
+              ))}
             </colgroup>
             <Box display="visuallyHidden">
               <Table.Header>
                 <Table.Row>
-                  <Table.HeaderCell>
-                    <Text>Status</Text>
-                  </Table.HeaderCell>
-                  <Table.HeaderCell>
-                    <Text>Description</Text>
-                  </Table.HeaderCell>
+                  {['Status', 'Description'].map((header) => (
+                    <Table.HeaderCell key={header}>
+                      <Text weight="bold">{header}</Text>
+                    </Table.HeaderCell>
+                  ))}
                 </Table.Row>
               </Table.Header>
             </Box>
@@ -71,49 +68,33 @@ export default function ComponentStatus(): Node {
 
         <Table accessibilityLabel="Component status legend">
           <colgroup>
-            <col style={{ width: '17.5%' }} />
-            <col style={{ width: '16.6%' }} />
-            <col style={{ width: '16.6%' }} />
-            <col style={{ width: '16.6%' }} />
-            <col style={{ width: '16.6%' }} />
-            <col style={{ width: '16.6%' }} />
+            {['17.5%', '16.6%', '16.6%', '16.6%', '16.6%', '16.6%'].map((width) => (
+              <col key={width} style={{ width }} />
+            ))}
           </colgroup>
           <Table.Header>
             <Table.Row>
-              {[
-                'Component',
-                'Figma Library',
-                'Documentation',
-                'Responsive Web',
-                'iOS',
-                'Android',
-              ].map((header) => (
+              <Table.HeaderCell>
+                <Text weight="bold">Component</Text>
+              </Table.HeaderCell>
+              {statusFields.map((header) => (
                 <Table.HeaderCell key={header.replace(' ', '_')}>
-                  <Text weight="bold">{header}</Text>
+                  <Text weight="bold">{COMPONENT_STATUS_MESSAGING[header].title}</Text>
                 </Table.HeaderCell>
               ))}
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {componentSortedList.map((item) => {
-              const {
-                badge,
-                android,
-                deprecated,
-                documentation,
-                iOS,
-                figma,
-                figmaOnly,
-                responsive,
-              } = item.status || {};
+            {sortedComponentList.map(({ name, path, status: statusObj }) => {
+              const { badge, figmaOnly, status } = statusObj;
 
               return (
-                <Table.Row key={item.name}>
+                <Table.Row key={name}>
                   <Table.Cell>
                     <Text size="200" inline>
                       {figmaOnly ? (
                         <Fragment>
-                          {item.name}
+                          {name}
                           {badge ? (
                             <Box display="inlineBlock" marginStart={2}>
                               <Badge type="info" text={badge} />
@@ -123,12 +104,12 @@ export default function ComponentStatus(): Node {
                       ) : (
                         <Link
                           href={
-                            item?.path ??
-                            `/web/${item.name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
+                            path ??
+                            `/web/${name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
                           }
                           display="inlineBlock"
                         >
-                          {item.name}
+                          {name}
                           {badge ? (
                             <Box display="inlineBlock" marginStart={2}>
                               <Badge type="info" text={badge} />
@@ -138,14 +119,14 @@ export default function ComponentStatus(): Node {
                       )}
                     </Text>
                   </Table.Cell>
-                  {[figma, documentation, responsive, iOS, android].map((status) =>
-                    deprecated ? (
-                      <Table.Cell key={status}>
+                  {statusFields.map((item) =>
+                    status === 'deprecated' ? (
+                      <Table.Cell key={item}>
                         <DeprecatedStatus />
                       </Table.Cell>
                     ) : (
-                      <Table.Cell key={status}>
-                        <StatusData status={status || 'notAvailable'} />
+                      <Table.Cell key={item}>
+                        <StatusData status={statusObj[item] ?? 'notAvailable'} />
                       </Table.Cell>
                     ),
                   )}

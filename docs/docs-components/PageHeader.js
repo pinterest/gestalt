@@ -2,11 +2,14 @@
 import { type Element, type Node } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
-import COMPONENT_DATA from './data/components.js';
+import componentData from './data/components.js';
+import getByPlatform from './data/utils/getByPlatform.js';
 import MainSection from './MainSection.js';
 import Markdown from './Markdown.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 import { SlimBannerExperiment } from './SlimBannerExperiment.js';
+
+const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
 const buildSourceLinkPath = (componentName: string) => {
   const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
@@ -17,12 +20,6 @@ const buildSourceLinkUrl = (componentName: string) =>
   ['https://github.com/pinterest/gestalt/blob/master', buildSourceLinkPath(componentName)].join(
     '/',
   );
-
-const componentData = [
-  ...COMPONENT_DATA.buildingBlockComponents,
-  ...COMPONENT_DATA.generalComponents,
-  ...COMPONENT_DATA.utilityComponents,
-];
 
 type Props = {|
   badge?: 'pilot' | 'deprecated' | 'experimental',
@@ -69,8 +66,7 @@ export default function PageHeader({
     sourceLink = sourceLink.replace(/\.js$/, '');
   }
 
-  const { aliases, previouslyNamed } =
-    componentData.find((component) => component.name === name) ?? {};
+  const { alias } = webComponentData.find((component) => component.name === name) ?? {};
 
   const badgeMap = {
     pilot: {
@@ -139,8 +135,8 @@ export default function PageHeader({
                   <Link
                     href={`https://github.com/pinterest/gestalt/releases?q=${name
                       // Remove spaces and dashes
-                      .replaceAll(/[\s-]/g, '')}${previouslyNamed ? ' OR ' : ''}${
-                      previouslyNamed ? previouslyNamed.join(' OR ') : ''
+                      .replaceAll(/[\s-]/g, '')}${alias ? ' OR ' : ''}${
+                      alias ? alias.join(' OR ') : ''
                     }&expanded=true`}
                     onClick={() =>
                       trackButtonClick('View recent changes on GitHub', sourcePathName)
@@ -158,10 +154,10 @@ export default function PageHeader({
           <Flex direction="column" gap={6}>
             <Flex direction="column" gap={1}>
               {description && <Markdown text={description} />}
-              {aliases && aliases.length > 0 && (
+              {alias && alias.length > 0 && (
                 // using h2 to indicate to Algolia search that this is important, but don't want native browser styling
                 <h2 className="reset">
-                  <Text italic>also known as {aliases.join(', ')}</Text>
+                  <Text italic>also known as {alias.join(', ')}</Text>
                 </h2>
               )}
             </Flex>

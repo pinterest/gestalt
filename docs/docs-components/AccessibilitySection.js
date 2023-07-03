@@ -13,7 +13,7 @@ type Props = {|
   name: string,
 |};
 
-function AccessibilityMainSection({
+export default function AccessibilitySection({
   children,
   description,
   hideChecklist = false,
@@ -31,4 +31,3 @@ function AccessibilityMainSection({
     </Card>
   );
 }
-export default AccessibilityMainSection;

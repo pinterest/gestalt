@@ -1,58 +1,72 @@
 // @flow strict
 import { Fragment, type Node, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
-import { type ListItemType } from './data/components.js';
+import componentData from './data/components.js';
+import { type ComponentCategory, type Platform, type PlatformData } from './data/types.js';
+import getByCategory from './data/utils/getByCategory.js';
+import getByPlatform from './data/utils/getByPlatform.js';
+import prettyPrintPlatform from './data/utils/prettyPrintPlatform.js';
 import IllustrationContainer from './IllustrationContainer.js';
-import List from './OverviewList.js';
+import OverviewList from './OverviewList.js';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
 const sortOrders = ['alphabetical', 'categorical'];
 
+const categoryOrder: $ReadOnlyArray<ComponentCategory> = [
+  'Actions',
+  'Avatars',
+  'Controls',
+  'Data',
+  'Fields and forms',
+  'Help and guidance',
+  'Indicators',
+  'Loading',
+  'Messaging',
+  'Navigation',
+  'Overlays',
+  'Pins and imagery',
+  'Structure',
+  'Text',
+  'Building blocks',
+  'Utilities',
+];
+
+const headerCopyByPlatform = {
+  web: 'Gestalt provides an extensive set of React components for use in building larger web experiences and patterns. They include interactive UI components and developer utilities to help with implemention.',
+  ios: 'Gestalt provides a growing set of interactive UI components for use in building larger iOS experiences and patterns.',
+  android:
+    'Gestalt provides a growing set of interactive UI components for use in building larger Android experiences and patterns.',
+};
+
 type Props = {|
-  buildingBlockComponents?: $ReadOnlyArray<ListItemType>,
-  generalComponents: $ReadOnlyArray<ListItemType>,
-  platform: 'Web' | 'Android' | 'iOS',
-  utilityComponents?: $ReadOnlyArray<ListItemType>,
+  platform: Exclude<Platform, 'figma'>,
 |};
 
-export default function Overview({
-  buildingBlockComponents,
-  generalComponents,
-  platform,
-  utilityComponents,
-}: Props): Node {
+export default function Overview({ platform }: Props): Node {
   const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
-  const alphabeticalComponentList = [
-    ...(utilityComponents ?? []),
-    ...(buildingBlockComponents ?? []),
-    ...generalComponents,
-  ];
-
-  // GENERAL_COMPONENT_LIST is an array with component data. Each array item contains the SVG data and other metadata such as the component category. The following reduce method processes the GENERAL_COMPONENT_LIST array into an object grouping and mapping components per category so that we can map per category and pass each category value to <List />.
-  type CategoryMap = { [string]: $ReadOnlyArray<ListItemType> };
-  const GENERAL_COMPONENT_CATEGORY_MAP = generalComponents.reduce(
-    (acc: CategoryMap, cur: ListItemType) => {
-      const newAcc: CategoryMap = { ...acc };
-      if (cur?.category) {
-        newAcc[cur.category] = [...(newAcc[cur.category] ?? []), cur];
-      }
-      return newAcc;
-    },
+  const platformComponentData = getByPlatform(componentData, { platform });
+  const componentsByCategory = categoryOrder.reduce<{| [string]: $ReadOnlyArray<PlatformData> |}>(
+    (acc, cur) => ({
+      ...acc,
+      [`${cur}`]: getByCategory(componentData, { platform, category: cur }),
+    }),
     {},
   );
 
+  const prettyPlatform = prettyPrintPlatform(platform);
+
   return (
-    <Page title={`${platform} component overview`} hideSideNav hideEditLink>
+    <Page title={`${prettyPlatform} component overview`} hideSideNav hideEditLink>
       <Flex direction="column" width="100%">
         <IllustrationContainer justifyContent="start">
           <PageHeader
-            name={`${platform} component overview`}
-            description={`Gestalt provides an extensive set of React components for use in building larger web experiences and patterns. They include interactive UI components and developer utilities to help with implemention.
+            name={`${prettyPlatform} component overview`}
+            description={`${headerCopyByPlatform[platform]}
 
-Not sure which component to use? [Set up time with the Gestalt team.](/team_support/get_help#Slack-channels)`}
+Not sure which component to use? [Reach out to the Gestalt team.](/team_support/get_help#Slack-channels)`}
             type="guidelines"
           />
         </IllustrationContainer>
@@ -70,36 +84,21 @@ Not sure which component to use? [Set up time with the Gestalt team.](/team_supp
         </IllustrationContainer>
 
         {order === 'alphabetical' ? (
-          <List platform={platform} headingLevel={2} array={alphabeticalComponentList} />
+          <OverviewList platform={platform} headingLevel={2} components={platformComponentData} />
         ) : (
           <Fragment>
-            {Object.keys(GENERAL_COMPONENT_CATEGORY_MAP)
-              .sort()
-              .map((category) => (
-                <List
-                  platform={platform}
-                  headingLevel={3}
-                  key={category}
-                  array={GENERAL_COMPONENT_CATEGORY_MAP[category]}
-                  title={category}
-                />
-              ))}
-            {buildingBlockComponents ? (
-              <List
-                platform={platform}
-                headingLevel={3}
-                array={buildingBlockComponents}
-                title="Building blocks"
-              />
-            ) : null}
-            {utilityComponents ? (
-              <List
-                platform={platform}
-                headingLevel={3}
-                array={utilityComponents}
-                title="Utilities"
-              />
-            ) : null}
+            {categoryOrder.map(
+              (category) =>
+                componentsByCategory[category].length > 0 && (
+                  <OverviewList
+                    components={componentsByCategory[category]}
+                    headingLevel={3}
+                    key={category}
+                    platform={platform}
+                    title={category}
+                  />
+                ),
+            )}
           </Fragment>
         )}
       </Flex>

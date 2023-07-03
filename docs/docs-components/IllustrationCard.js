@@ -2,27 +2,27 @@
 import { type Node } from 'react';
 import { Badge, Box, Flex, Heading, TapArea, Text, WashAnimated } from 'gestalt';
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
-import illustrations, { type IllustrationTypes } from '../graphics/index.js';
+import illustrations, { type Illustrations } from '../graphics/index.js';
 
-export type IllustrationCardProps = {|
-  headingLevel: 2 | 3,
-  image: Node | IllustrationTypes,
-  description: string,
-  title: string,
+export type Props = {|
   color: string,
+  description?: string,
+  headingLevel: 2 | 3,
   href: string,
+  image: Node | Illustrations,
   isNew?: boolean,
+  title: string,
 |};
 
-function IllustrationCard({
-  headingLevel,
-  image,
+export default function IllustrationCard({
+  color,
   description,
+  headingLevel,
+  href,
+  image,
   isNew,
   title,
-  color,
-  href,
-}: IllustrationCardProps): Node {
+}: Props): Node {
   // we either render the svg string, or use our lookup table to render the right illustration component
   const Illustration =
     typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;
@@ -77,5 +77,3 @@ function IllustrationCard({
     </TapArea>
   );
 }
-
-export default IllustrationCard;

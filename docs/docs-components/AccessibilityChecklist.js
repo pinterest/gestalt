@@ -1,11 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Module, Table, Text } from 'gestalt';
-import COMPONENT_DATA, { type AccessibleStatus } from './data/components.js';
+import componentData from './data/components.js';
 import {
   COMPONENT_A11Y_STATUS_MESSAGING,
   STATUS_DESCRIPTION,
 } from './data/componentStatusMessaging.js';
+import { type ComponentAccessibility } from './data/types.js';
+import getByPlatform from './data/utils/getByPlatform.js';
 import StatusData from './StatusData.js';
 
 export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({
@@ -19,18 +21,22 @@ type Props = {|
   component: string,
 |};
 
-function QualityTable({ accessibilityData }: {| accessibilityData?: AccessibleStatus |}) {
+function AccessibilityTable({
+  accessibilityData,
+}: {|
+  accessibilityData?: ComponentAccessibility,
+|}) {
   return (
-    <Table accessibilityLabel="Component Quality Checklist">
+    <Table accessibilityLabel="Component Accessibility Checklist">
       <colgroup>
-        <col style={{ width: '20%' }} />
-        <col style={{ width: '20%' }} />
-        <col style={{ width: '60%' }} />
+        {['20%', '20%', '60%'].map((width) => (
+          <col key={width} style={{ width }} />
+        ))}
       </colgroup>
       <Box display="visuallyHidden">
         <Table.Header>
           <Table.Row>
-            {['Quality item', 'Status', 'Status description'].map((header) => (
+            {['Accessibility item', 'Status', 'Status description'].map((header) => (
               <Table.HeaderCell key={header.replace(' ', '_')}>
                 <Text weight="bold">{header}</Text>
               </Table.HeaderCell>
@@ -64,15 +70,12 @@ function QualityTable({ accessibilityData }: {| accessibilityData?: AccessibleSt
   );
 }
 
-export default function QualityChecklist({ component }: Props): Node {
-  const componentData = [
-    ...COMPONENT_DATA.buildingBlockComponents,
-    ...COMPONENT_DATA.generalComponents,
-    ...COMPONENT_DATA.utilityComponents,
-  ].find((cmpName) => cmpName.name === component);
+const webBuildingBlockComponents = getByPlatform(componentData, { platform: 'web' });
 
-  const a11ySummary = componentData?.status?.accessible?.summary;
+export default function AccessibilityChecklist({ component }: Props): Node {
+  const data = webBuildingBlockComponents.find((cmpName) => cmpName.name === component);
 
+  const a11ySummary = data?.status?.accessible?.summary;
   const a11ySummaryNotAvailable = a11ySummary === 'notAvailable';
 
   return (
@@ -88,13 +91,13 @@ export default function QualityChecklist({ component }: Props): Node {
               questions, please reach out to the Gestalt team for more information.
             </Text>
           ) : (
-            <QualityTable accessibilityData={componentData?.status?.accessible} />
+            <AccessibilityTable accessibilityData={data?.status?.accessible} />
           ),
           icon: STATUS_ICON_EQUIVALENCY_MAP[a11ySummary ?? 'notAvailable'],
           iconAccessibilityLabel: 'title icon',
           title: a11ySummaryNotAvailable
             ? 'Accessibility not available'
-            : STATUS_DESCRIPTION[a11ySummary || 'notAvailable'].title,
+            : STATUS_DESCRIPTION[a11ySummary ?? 'notAvailable'].title,
         },
       ]}
     />

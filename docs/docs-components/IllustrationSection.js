@@ -3,33 +3,24 @@ import { type Node } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import IllustrationContainer from './IllustrationContainer.js';
 
-// Matches minWidth in IllustrationCard
 export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 
 type Props = {|
-  title?: string,
   children?: Node,
   grid?: 'auto-fill' | 'auto-fit',
   min?: number,
+  title?: string,
 |};
 
-function IllustrationSection({
+export default function IllustrationSection({
   children,
-  title,
   grid = 'auto-fit',
   min = MIN_SVG_ILLUSTRATION_WIDTH,
+  title,
 }: Props): Node {
   return (
     <IllustrationContainer justifyContent="center">
-      <Flex
-        direction="column"
-        gap={{
-          row: 0,
-          column: 6,
-        }}
-        maxWidth={1200}
-        width="100%"
-      >
+      <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
           <Heading accessibilityLevel={2} size="500">
             {title}
@@ -52,5 +43,3 @@ function IllustrationSection({
     </IllustrationContainer>
   );
 }
-
-export default IllustrationSection;
