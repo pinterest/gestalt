@@ -2,9 +2,9 @@
 import { type Node } from 'react';
 import { Box, Button, Flex, Icon, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts.js';
 import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../../../../docs-components/MainSection.js';
-import { MAX_WIDTH } from '../../../../docs-components/MainSectionSubsection.js';
 import Page from '../../../../docs-components/Page.js';
 import PageHeader from '../../../../docs-components/PageHeader.js';
 
@@ -119,7 +119,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
           title="Playground sandbox"
           description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
         >
-          <Flex maxWidth={MAX_WIDTH} justifyContent="center">
+          <Flex maxWidth={DOCS_COPY_MAX_WIDTH_PX} justifyContent="center">
             <Button
               color="gray"
               target="blank"
@@ -136,7 +136,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
           title="Props documentation on hover in Visual Studio Code"
           description="You can now see component and props documentation on hover in VSCode for certain Gestalt components. Quickly see what a component looks like, its sizes and other props documentation."
         >
-          <Box maxWidth={MAX_WIDTH} display="flex" justifyContent="center">
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} display="flex" justifyContent="center">
             <Box marginBottom={6}>
               <Box as="figure" width={400}>
                 <Image
@@ -163,7 +163,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
           description="Access Gestalt component snippets and documentation right on your VSCode editor. Right at your fingertips!"
         >
           <Text weight="bold">Quick access to Gestalt</Text>
-          <Flex maxWidth={MAX_WIDTH} direction="column" alignItems="center">
+          <Flex maxWidth={DOCS_COPY_MAX_WIDTH_PX} direction="column" alignItems="center">
             <Box marginBottom={6}>
               <Flex direction="column">
                 <Box as="figure" width={400}>
@@ -256,7 +256,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
           description="Visualize and easily identify the Gestalt usage on a page."
         >
           <Flex
-            maxWidth={MAX_WIDTH}
+            maxWidth={DOCS_COPY_MAX_WIDTH_PX}
             gap={{
               row: 0,
               column: 4,
