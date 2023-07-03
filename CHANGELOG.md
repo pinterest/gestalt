@@ -1,3 +1,9 @@
+## 117.2.3 (Jul 3, 2023)
+
+### Patch
+
+- Internal: use const for docs copy max width ([#3051](https://github.com/pinterest/gestalt/pull/3051)) - [Preview link](https://deploy-preview-3051--gestalt.netlify.app?devexample=true)
+
 ## 117.2.2 (Jun 30, 2023)
 
 ### Patch
