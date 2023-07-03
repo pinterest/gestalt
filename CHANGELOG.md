@@ -1,3 +1,9 @@
+## 117.2.4 (Jul 3, 2023)
+
+### Patch
+
+- Internal: upgrade Flow to 0.209.0 ([#3053](https://github.com/pinterest/gestalt/pull/3053)) - [Preview link](https://deploy-preview-3053--gestalt.netlify.app?devexample=true)
+
 ## 117.2.3 (Jul 3, 2023)
 
 ### Patch
