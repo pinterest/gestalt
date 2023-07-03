@@ -4,9 +4,8 @@ import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
 import { copyToClipboard } from './Card.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Markdown from './Markdown.js';
-
-export const MAX_WIDTH = 572;
 
 type Props = {|
   badge?: 'beta' | 'alpha',
@@ -79,7 +78,7 @@ function MainSectionSubsection({
         )}
 
         {description && (
-          <Box maxWidth={MAX_WIDTH} marginTop={title ? 2 : 0} color="default">
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={title ? 2 : 0} color="default">
             <Markdown text={description} />
           </Box>
         )}

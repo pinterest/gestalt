@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
@@ -20,7 +21,7 @@ type Props = {|
 |};
 function ThemeLayout({ heading, children, text }: Props): Node {
   return (
-    <Flex gap={2} direction="column" maxWidth={572}>
+    <Flex gap={2} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
       <Heading size="300">{heading}</Heading>
       <Markdown text={text} />
       {children}
@@ -72,7 +73,7 @@ export default function TypographyPage(): Node {
               />
             </ThemeLayout>
             <Flex gap={2} direction="column" width="100%">
-              <Flex gap={2} direction="column" maxWidth={572}>
+              <Flex gap={2} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
                 <Heading size="300">Transitions</Heading>
                 <Markdown
                   text={`
@@ -140,7 +141,7 @@ export default function TypographyPage(): Node {
         The type of product should help inform what type of animations to use.  While feedback-based animations may be helpful in a business product, celebratory animations may not be. Again, consider if the animation is helping a user finish a task, or distracting them from getting things done efficiently. In a business product where users are intimately familiar with a task they perform multiple times a day, animation may negatively add to the time they spend on a process. Use a celebratory animation for rare moments, like the first time a user successfully creates a campaign, and not for completed tasks that happen frequently.
 `}
       >
-        <Flex gap={8} direction="column" maxWidth={572}>
+        <Flex gap={8} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <SandpackExample
             code={useExample}
             name="When to use Example"

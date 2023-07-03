@@ -6,6 +6,7 @@ import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import theme from './atomDark.js';
 import OpenSandboxButton from './buttons/OpenSandboxButton.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import ExampleCode from './ExampleCode.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
 import Markdown from './Markdown.js';
@@ -109,7 +110,7 @@ function MainSectionCard({
         </Box>
       )}
       {description && (
-        <Box maxWidth={572} marginTop={2} color="default">
+        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={2} color="default">
           <Markdown text={description} />
         </Box>
       )}

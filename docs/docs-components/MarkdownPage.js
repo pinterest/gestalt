@@ -4,11 +4,11 @@ import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, Button, Flex, Icon, Link, List, Text } from 'gestalt';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
 import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 import MainSection from './MainSection.js';
-import { MAX_WIDTH } from './MainSectionSubsection.js';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 
@@ -288,7 +288,7 @@ const components = {
 };
 
 export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
-  const maxWidth = meta.fullwidth ? 'none' : `${MAX_WIDTH}px`;
+  const maxWidth = meta.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (
     <MDXProvider components={components}>

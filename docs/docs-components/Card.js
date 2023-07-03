@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Markdown from './Markdown.js';
 
 type Props = {|
@@ -87,7 +88,7 @@ export default function Card({
       <Box marginStart={-2} marginEnd={-2} display="flex" direction={stacked ? 'column' : 'row'}>
         <Box paddingX={2} column={12} color="default">
           {description && (
-            <Box marginBottom={8} maxWidth={572}>
+            <Box marginBottom={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
               <Markdown text={description} />
             </Box>
           )}

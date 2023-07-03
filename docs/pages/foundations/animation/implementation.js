@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Flex } from 'gestalt';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -31,7 +32,7 @@ export default function AnimationImplementation(): Node {
         name="Lottie"
         description="Lottie has been implemented on mobile and web platforms, and is best used for illustration animations. For more details about using Lottie, view our [internal documentation](http://pinch.pinadmin.com/lottie-details)."
       >
-        <Flex gap={8} direction="column" maxWidth={572}>
+        <Flex gap={8} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <SandpackExample
             code={useExample}
             name="When to use Example"
