@@ -41,7 +41,7 @@ const headerCopyByPlatform = {
 };
 
 type Props = {|
-  platform: $Exclude<Platform, 'figma'>,
+  platform: Exclude<Platform, 'figma'>,
 |};
 
 export default function Overview({ platform }: Props): Node {
