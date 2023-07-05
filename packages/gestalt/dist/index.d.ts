@@ -2580,6 +2580,29 @@ export interface TableSubComponents {
  */
 export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
 
+
+/**
+ * https://gestalt.pinterest.systems/web/tableofcontents
+ */
+export interface TableOfContentsProps {
+  accessibilityLabel?: string,
+  title?: string,
+  items: ReadonlyArray<{
+    label: string,
+    href: string,
+    active?: boolean,
+    onClick?: () => void,
+    nestedItems?: ReadonlyArray<{
+      label: string,
+      href: string,
+      active?: boolean,
+      onClick?: () => void,
+    }>,
+  }>,
+}
+
+export const TableOfContents: React.FunctionComponent<TableOfContentsProps>;
+
 /**
  * https://gestalt.pinterest.systems/web/tabs
  */
