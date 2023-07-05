@@ -13,7 +13,7 @@ export type DesignOverview = {|
   svg: SVGElement,
 |};
 
-type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
+export type StatusType = 'notAvailable' | 'partial' | 'planned' | 'ready';
 
 /**
  * All components should be in a single list. That list can be filtered by category/platform/etc where needed.
@@ -54,6 +54,17 @@ type PlatformObjType<T> = {|
   web?: T,
 |};
 
+export type ComponentStatus = {|
+  accessible?: ComponentAccessibility,
+  badge?: 'New' | 'Pilot' | 'Experimental',
+  documentation: StatusType,
+  figmaOnly?: boolean,
+  figmaStatus?: StatusType,
+  mobileAdaptive?: StatusType,
+  responsive?: StatusType,
+  status: StatusType | 'deprecated',
+|};
+
 export type PlatformData = {|
   name: string,
   visual: {|
@@ -64,16 +75,7 @@ export type PlatformData = {|
   path?: string, // This should be eliminated eventually by building the path from the platform, category (if needed), and component name
   alias?: $ReadOnlyArray<string>,
   description?: string,
-  status: {|
-    accessible?: ComponentAccessibility,
-    badge?: 'New' | 'Pilot' | 'Experimental',
-    documentation: StatusType,
-    figmaOnly?: boolean,
-    figmaStatus?: StatusType,
-    mobileAdaptive?: StatusType,
-    responsive?: StatusType,
-    status: StatusType | 'deprecated',
-  |},
+  status: ComponentStatus,
 |};
 
 export type ComponentData = {|
