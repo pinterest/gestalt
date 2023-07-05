@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box.js';
@@ -8,6 +8,7 @@ import Flex from '../Flex.js';
 import Layout from '../Layout.css';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
+import useInteractiveStates from '../utils/useInteractiveStates.js';
 
 type Props = {|
   label: string,
@@ -24,27 +25,33 @@ export default function TableOfContentsAnchor({
   nested,
   onClick,
 }: Props): Node {
-  const [focused, setFocused] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const hasMarker = active || focused || hovered;
-  const markerColor = active || focused ? 'inverse' : 'tertiary';
+  const {
+    handleOnFocus,
+    handleOnBlur,
+    handleOnMouseEnter,
+    handleOnMouseLeave,
+    isFocused,
+    isHovered,
+  } = useInteractiveStates();
+  const hasMarker = active || isFocused || isHovered;
+  const markerColor = active || isFocused ? 'inverse' : 'tertiary';
 
   return (
     <TapArea
       tapStyle="compress"
       role="link"
       href={href}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      onFocus={handleOnFocus}
+      onBlur={handleOnBlur}
       onTap={onClick}
     >
       <Flex>
         <Box width={4} color={hasMarker ? markerColor : 'default'} rounding="pill" />
         <div
           className={classNames(styles.item, Layout.flexGrow, {
-            [Colors.secondary]: hovered,
+            [Colors.secondary]: isHovered,
             [styles.itemPadding]: !nested,
             [styles.itemNestedPadding]: nested,
           })}
