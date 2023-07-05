@@ -1,3 +1,9 @@
+## 117.2.8 (Jul 5, 2023)
+
+### Patch
+
+- Docs: fix outdated link ([#3058](https://github.com/pinterest/gestalt/pull/3058)) - [Preview link](https://deploy-preview-3058--gestalt.netlify.app?devexample=true)
+
 ## 117.2.7 (Jul 5, 2023)
 
 ### Patch
