@@ -3,20 +3,18 @@ import { Fragment, type Node } from 'react';
 import { Box, Divider, Flex, SlimBanner, Text } from 'gestalt';
 import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
-import { type PlatformData } from './data/types.js';
+import { type StatusType } from './data/types.js';
 import getByPlatform from './data/utils/getByPlatform.js';
 import StatusData from './StatusData.js';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
-const categories = ['figmaStatus', 'responsive', 'mobileAdaptive', 'accessible'];
-
 function QualityItem({
   category,
-  componentStatusData,
+  status,
 }: {|
-  category: string,
-  componentStatusData: PlatformData,
+  category: 'figmaStatus' | 'responsive' | 'mobileAdaptive' | 'accessible',
+  status: ?(StatusType | 'deprecated'),
 |}) {
   const isAccessibility = category === 'accessible';
 
@@ -31,18 +29,8 @@ function QualityItem({
 
       <StatusData
         href={isAccessibility ? '#Accessibility' : '#Component-quality-checklist'}
-        status={
-          (isAccessibility
-            ? componentStatusData?.status?.[category].summary ?? 'notAvailable'
-            : componentStatusData?.status?.[category]) ?? 'notAvailable'
-        }
-        text={
-          STATUS_DESCRIPTION[
-            isAccessibility
-              ? componentStatusData?.status?.[category].summary ?? 'notAvailable'
-              : componentStatusData?.status?.[category] ?? 'notAvailable'
-          ].title
-        }
+        status={status ?? 'notAvailable'}
+        text={STATUS_DESCRIPTION[status ?? 'notAvailable'].title}
       />
     </Flex>
   );
@@ -53,7 +41,7 @@ type Props = {|
 |};
 
 export default function PageHeaderQualitySummary({ name }: Props): Node {
-  const componentStatusData = webComponentData.find((component) => component.name === name);
+  const componentStatusData = webComponentData.find((component) => component.name === name)?.status;
 
   if (!componentStatusData) {
     return null;
@@ -73,9 +61,14 @@ export default function PageHeaderQualitySummary({ name }: Props): Node {
 
   return (
     <Flex gap={4} wrap>
-      {categories.map((item, i, arr) => (
+      {['figmaStatus', 'responsive', 'mobileAdaptive', 'accessible'].map((item, i, arr) => (
         <Flex key={`summary-${item}`}>
-          <QualityItem category={item} componentStatusData={componentStatusData} />
+          <QualityItem
+            category={item}
+            status={
+              item === 'accessible' ? componentStatusData[item]?.summary : componentStatusData[item]
+            }
+          />
           {i < arr.length - 1 && (
             <Fragment>
               {/* This spacer element is dumb but otherwise Divider collapses to 1px height */}

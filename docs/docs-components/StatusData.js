@@ -2,16 +2,15 @@
 import { type Node } from 'react';
 import { Flex, Icon, Link, Status, Text } from 'gestalt';
 import { STATUS_DESCRIPTION, STATUS_EQUIVALENCY_MAP } from './data/componentStatusMessaging.js';
+import { type StatusType } from './data/types.js';
 
-export default function StatusData({
-  status,
-  text,
-  href,
-}: {|
-  status: 'ready' | 'notAvailable' | 'partial' | 'planned' | 'deprecated',
+type Props = {|
+  status: StatusType | 'deprecated',
   text?: string,
   href?: string,
-|}): Node {
+|};
+
+export default function StatusData({ status, text, href }: Props): Node {
   const label = text || STATUS_DESCRIPTION[status].title;
 
   if (!status) return null;
