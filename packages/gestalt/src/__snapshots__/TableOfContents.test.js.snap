@@ -6,7 +6,7 @@ exports[`TableOfContents renders 1`] = `
   role="navigation"
 >
   <div
-    className="box paddingX3"
+    className="box marginBottom3 paddingX3"
   >
     <h3
       className="Heading fontSize400 defaultText alignStart breakWord"
@@ -14,60 +14,56 @@ exports[`TableOfContents renders 1`] = `
       Title
     </h3>
   </div>
-  <div
-    className="box paddingY4"
+  <ul
+    className="flex flexColumn m0 p0"
   >
-    <ul
-      className="ul flex flexColumn m0 p0"
+    <li
+      className="noStyle marginTop1"
     >
-      <li
-        className="noStyle"
+      <a
+        className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
-        <a
-          className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-          href="#"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          rel=""
-          tabIndex={0}
-          target={null}
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="Flex rowGap0 columnGap0 xsDirectionRow"
+            className="box default pill"
+            style={
+              Object {
+                "width": 4,
+              }
+            }
+          />
+          <div
+            className="item flexGrow itemPadding"
           >
             <div
-              className="box default pill"
-              style={
-                Object {
-                  "width": 4,
-                }
-              }
-            />
-            <div
-              className="item flexGrow itemPadding"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
             >
-              <div
-                className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-              >
-                Label
-              </div>
+              Label
             </div>
           </div>
-        </a>
-      </li>
-    </ul>
-  </div>
+        </div>
+      </a>
+    </li>
+  </ul>
 </div>
 `;
 
@@ -78,7 +74,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
   role="navigation"
 >
   <div
-    className="box paddingX3"
+    className="box marginBottom3 paddingX3"
   >
     <h3
       className="Heading fontSize400 defaultText alignStart breakWord"
@@ -86,59 +82,55 @@ exports[`TableOfContents renders an accessibility label 1`] = `
       Title
     </h3>
   </div>
-  <div
-    className="box paddingY4"
+  <ul
+    className="flex flexColumn m0 p0"
   >
-    <ul
-      className="ul flex flexColumn m0 p0"
+    <li
+      className="noStyle marginTop1"
     >
-      <li
-        className="noStyle"
+      <a
+        className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
       >
-        <a
-          className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-          href="#"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          rel=""
-          tabIndex={0}
-          target={null}
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="Flex rowGap0 columnGap0 xsDirectionRow"
+            className="box default pill"
+            style={
+              Object {
+                "width": 4,
+              }
+            }
+          />
+          <div
+            className="item flexGrow itemPadding"
           >
             <div
-              className="box default pill"
-              style={
-                Object {
-                  "width": 4,
-                }
-              }
-            />
-            <div
-              className="item flexGrow itemPadding"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
             >
-              <div
-                className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-              >
-                Label
-              </div>
+              Label
             </div>
           </div>
-        </a>
-      </li>
-    </ul>
-  </div>
+        </div>
+      </a>
+    </li>
+  </ul>
 </div>
 `;

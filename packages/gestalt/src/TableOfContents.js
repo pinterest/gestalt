@@ -43,13 +43,7 @@ type Props = {|
  * ![TableOfContents dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents-dark.spec.mjs-snapshots/TableOfContents-dark-chromium-darwin.png)
  */
 export default function TableOfContents({ accessibilityLabel, title, items }: Props): Node {
-  const ulClassNames = classNames(
-    Layout.flex,
-    Layout.flexColumn,
-    Whitespace.m0,
-    Whitespace.p0,
-    styles.ul,
-  );
+  const ulClassNames = classNames(Layout.flex, Layout.flexColumn, Whitespace.m0, Whitespace.p0);
   const liClassNames = classNames(ListStyles.noStyle, boxWhitespace.marginTop1);
 
   return (
