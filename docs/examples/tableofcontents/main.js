@@ -8,44 +8,34 @@ export default function Example(): Node {
   return (
     <Box padding={8} width="340px">
       <TableOfContents
-        title="Task list"
+        title="Page Contents"
         items={[
           {
-            label: 'Build payload',
-            href: '#1',
-            active: hash === '#1',
+            label: 'Section 1',
+            href: '#section-1',
+            active: hash === '#section-1',
           },
           {
-            label: 'Identify required event types',
-            href: '#2',
-            active: hash === '#2',
+            label: 'Section 2',
+            href: '#section-2',
+            active: hash === '#section-2',
             nestedItems: [
               {
-                label: 'Set up event parameters',
-                href: '#21',
-                active: hash === '#21',
+                label: 'Subsection 1',
+                href: '#subsection-1',
+                active: hash === '#subsection-1',
               },
               {
-                label: 'Set up user_data object',
-                href: '#22',
-                active: hash === '#22',
-              },
-              {
-                label: 'Set up custom_data object',
-                href: '#23',
-                active: hash === '#23',
-              },
-              {
-                label: 'Set up event id',
-                href: '#24',
-                active: hash === '#24',
+                label: 'Subsection 2',
+                href: '#subsection-2',
+                active: hash === '#subsection-2',
               },
             ],
           },
           {
-            label: 'Test API request',
-            href: '#3',
-            active: hash === '#3',
+            label: 'Section 3',
+            href: '#section-3',
+            active: hash === '#section-3',
           },
         ]}
       />

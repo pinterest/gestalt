@@ -2,6 +2,7 @@
 import { type Node } from 'react';
 import classNames from 'classnames';
 import Box from './Box.js';
+import boxWhitespace from './boxWhitespace.css';
 import Heading from './Heading.js';
 import Layout from './Layout.css';
 import ListStyles from './List.css';
@@ -49,6 +50,7 @@ export default function TableOfContents({ accessibilityLabel, title, items }: Pr
     Whitespace.m0,
     Whitespace.p0,
   );
+  const liClassNames = classNames(ListStyles.noStyle, boxWhitespace.marginTop1);
 
   return (
     <div role="navigation" aria-label={accessibilityLabel} className={styles.wrapper}>
@@ -59,13 +61,13 @@ export default function TableOfContents({ accessibilityLabel, title, items }: Pr
       <Box paddingY={4}>
         <ul className={ulClassNames}>
           {items.map(({ nestedItems, ...itemProps }) => (
-            <li key={itemProps.label} className={ListStyles.noStyle}>
+            <li key={itemProps.label} className={liClassNames}>
               <TableOfContentsAnchor {...itemProps} />
 
               {nestedItems ? (
                 <ul className={ulClassNames}>
                   {nestedItems.map((nestedItemProps) => (
-                    <li key={nestedItemProps.label} className={ListStyles.noStyle}>
+                    <li key={nestedItemProps.label} className={liClassNames}>
                       <TableOfContentsAnchor {...nestedItemProps} nested />
                     </li>
                   ))}

@@ -1,7 +1,7 @@
-.wrapper {
+html:not([dir="rtl"]) .wrapper {
   border-left: 1px solid var(--color-border-container);
 }
 
-.ul {
-  gap: 4;
+html[dir="rtl"] .wrapper {
+  border-right: 1px solid var(--color-border-container);
 }

@@ -8,7 +8,9 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway';
 import main from '../../examples/tableofcontents/main.js';
+import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContetnTitle.js';
 
 export default function TableOfContentsPage({
   generatedDocGen,
@@ -52,11 +54,28 @@ export default function TableOfContentsPage({
             cardSize="md"
             type="do"
             description="Position the TableofContents 24–32px away from the main content. Top-align it with the content’s title."
+            sandpackExample={
+              <SandpackExample
+                code={topAlignWithContetnTitle}
+                name="Do - Top-align it with the content’s title"
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Place the TableOfContents really far from the main content making it easy to miss, or hard to move efficiently between it and the content."
+            sandpackExample={
+              <SandpackExample
+                code={dontPlaceFarAway}
+                name="Don't - Place the TableOfContents really far from the main content"
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection>
@@ -71,7 +90,7 @@ export default function TableOfContentsPage({
             description="Place the TableofContents right next to the SideNavigation to differentiate it from link navigation."
           />
         </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
+        <MainSection.Subsection>
           <MainSection.Card
             cardSize="md"
             type="do"

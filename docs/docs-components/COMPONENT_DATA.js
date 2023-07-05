@@ -71,6 +71,7 @@ import Spinner from '../graphics/general/Spinner.svg';
 import Status from '../graphics/general/Status.svg';
 import Switch from '../graphics/general/Switch.svg';
 import Table from '../graphics/general/Table.svg';
+import TableOfContents from '../graphics/general/TableOfContents.svg';
 import Tabs from '../graphics/general/Tabs.svg';
 import Tag from '../graphics/general/Tag.svg';
 import Text from '../graphics/general/Text.svg';
@@ -2563,11 +2564,11 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
     },
   },
   {
-    svg: <Table />,
+    svg: <TableOfContents />,
     name: 'TableOfContents',
     aliases: ['Table of Contents', 'Page Navigation', 'Page Navigator', 'Secondary Nav'],
     description:
-      'TableOfContents component is used to navigate to anchors on a page. It also serves as an outline of a page’s content. TableOfContents is placed on the right side of the page, close to the main content block.',
+      'TableOfContents is used to navigate to anchors on a page. It also serves as an outline of a page’s content.',
     category: 'Navigation',
     status: {
       accessible: {
@@ -2583,7 +2584,7 @@ const GENERAL_COMPONENT_LIST: $ReadOnlyArray<ListItemType> = [
       documentation: 'ready',
       iOS: 'notAvailable',
       figma: 'ready',
-      responsive: 'ready',
+      responsive: 'partial',
     },
     android: {
       accessible: {

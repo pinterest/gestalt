@@ -158,6 +158,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Sticky',
       'Switch',
       'Table',
+      'TableOfContents',
       'Tabs',
       'Tag',
       'TapArea',
