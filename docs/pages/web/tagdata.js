@@ -183,7 +183,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="TagData is available in the colors from our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/palette#12-Color-categorical-palette). Match each TagData's `color` to its respective data line, which will be visible when TagData is selected."
+          description="TagData is available in the colors from our [data visualization color palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette#12-Color-categorical-palette). Match each TagData's `color` to its respective data line, which will be visible when TagData is selected."
           title="Colors"
         >
           <MainSection.Card
