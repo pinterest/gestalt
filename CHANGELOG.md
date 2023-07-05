@@ -1,3 +1,9 @@
+## 117.2.7 (Jul 5, 2023)
+
+### Patch
+
+- Internal: fix PageHeaderQualitySummary bug ([#3057](https://github.com/pinterest/gestalt/pull/3057)) - [Preview link](https://deploy-preview-3057--gestalt.netlify.app?devexample=true)
+
 ## 117.2.6 (Jul 3, 2023)
 
 ### Patch
