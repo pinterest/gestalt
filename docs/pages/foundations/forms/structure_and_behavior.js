@@ -71,7 +71,7 @@ export default function StructureBehaviorPage(): Node {
         <SlimBanner
           type="info"
           iconAccessibilityLabel="Information"
-          message="A local TableofContents component coming soon!"
+          message="A local TableOfContents component coming soon!"
         />
       </MainSection>
       <MainSection name="Hierarchy">

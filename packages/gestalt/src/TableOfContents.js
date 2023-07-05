@@ -18,7 +18,7 @@ type Props = {|
   /**
    * Title for the TableOfContents.
    */
-  title: string,
+  title?: string,
   /**
    * Items of the TableOfContents.
    */
@@ -44,39 +44,39 @@ type Props = {|
  */
 export default function TableOfContents({ accessibilityLabel, title, items }: Props): Node {
   const ulClassNames = classNames(
-    styles.ul,
     Layout.flex,
     Layout.flexColumn,
     Whitespace.m0,
     Whitespace.p0,
+    styles.ul,
   );
   const liClassNames = classNames(ListStyles.noStyle, boxWhitespace.marginTop1);
 
   return (
     <div role="navigation" aria-label={accessibilityLabel} className={styles.wrapper}>
-      <Box paddingX={3}>
-        <Heading size="400">{title}</Heading>
-      </Box>
+      {title ? (
+        <Box paddingX={3} marginBottom={3}>
+          <Heading size="400">{title}</Heading>
+        </Box>
+      ) : null}
 
-      <Box paddingY={4}>
-        <ul className={ulClassNames}>
-          {items.map(({ nestedItems, ...itemProps }) => (
-            <li key={itemProps.label} className={liClassNames}>
-              <TableOfContentsAnchor {...itemProps} />
+      <ul className={ulClassNames}>
+        {items.map(({ nestedItems, ...itemProps }) => (
+          <li key={itemProps.label} className={liClassNames}>
+            <TableOfContentsAnchor {...itemProps} />
 
-              {nestedItems ? (
-                <ul className={ulClassNames}>
-                  {nestedItems.map((nestedItemProps) => (
-                    <li key={nestedItemProps.label} className={liClassNames}>
-                      <TableOfContentsAnchor {...nestedItemProps} nested />
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </Box>
+            {nestedItems ? (
+              <ul className={ulClassNames}>
+                {nestedItems.map((nestedItemProps) => (
+                  <li key={nestedItemProps.label} className={liClassNames}>
+                    <TableOfContentsAnchor {...nestedItemProps} nested />
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

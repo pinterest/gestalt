@@ -8,9 +8,11 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway';
+import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway.js';
 import main from '../../examples/tableofcontents/main.js';
+import nestedItemsExample from '../../examples/tableofcontents/nestedItemsExample.js';
 import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContetnTitle.js';
+import withHeaderExample from '../../examples/tableofcontents/withHeaderExample.js';
 
 export default function TableOfContentsPage({
   generatedDocGen,
@@ -53,7 +55,7 @@ export default function TableOfContentsPage({
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Position the TableofContents 24–32px away from the main content. Top-align it with the content’s title."
+            description="Position the TableOfContents 24–32px away from the main content. Top-align it with the content’s title."
             sandpackExample={
               <SandpackExample
                 code={topAlignWithContetnTitle}
@@ -78,23 +80,21 @@ export default function TableOfContentsPage({
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Place the TableofContents to the right of the main content on a LTR surface and to the left of the main content on an RTL surface."
+            description="Place the TableOfContents to the right of the main content on a LTR surface and to the left of the main content on an RTL surface."
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Place the TableofContents right next to the SideNavigation to differentiate it from link navigation."
+            description="Place the TableOfContents right next to the SideNavigation to differentiate it from link navigation."
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection>
           <MainSection.Card
             cardSize="md"
             type="do"
-            description="Use one TableofContents per page."
+            description="Use one TableOfContents per page."
           />
           <MainSection.Card
             cardSize="md"
@@ -114,10 +114,34 @@ export default function TableOfContentsPage({
         description="Be sure to localize text and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent."
       />
 
-      <MainSection name="Variants" />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Nested directory"
+          description="TableOfContents supports 2 levels of nesting. The first level maps to a section’s heading, which is usually an H3. The second level maps to a section’s subheading, which is usually an H4."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample name="Sticky header & footer example" code={nestedItemsExample} />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="With heading"
+          description="A Heading can be added to TableofContents to be more clear about what is being navigated through."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample name="Sticky header & footer example" code={withHeaderExample} />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection
         name="Writing"
-        description="Items for a TableofContents will be inherited from the headings on the page. For guidelines on writing headlines and titles, [see our Content Standards](https://gestalt.pinterest.systems/foundations/content_standards/voice)"
+        description="Items for a TableOfContents will be inherited from the headings on the page. For guidelines on writing headlines and titles, [see our Content Standards](https://gestalt.pinterest.systems/foundations/content_standards/voice)"
       />
 
       <QualityChecklist component={generatedDocGen?.displayName} />
