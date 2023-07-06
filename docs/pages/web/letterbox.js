@@ -2,91 +2,89 @@
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/letterbox/main.js';
+import variantSquare from '../../examples/letterbox/variantSquare.js';
+import variantSquareHorizontalFrame from '../../examples/letterbox/variantSquareHorizontalFrame.js';
+import variantSquareVerticalFrame from '../../examples/letterbox/variantSquareVerticalFrame.js';
+import variantTall from '../../examples/letterbox/variantTall.js';
+import variantWide from '../../examples/letterbox/variantWide.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Letterbox">
-      <PageHeader name="Letterbox" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="Main Letterbox example" hideEditor previewHeight={250} />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection name="Variants">
-        <Example
-          name="Tall content (564:806)"
-          defaultCode={`
-<Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
-  <Image
-    alt="tall"
-    src="https://i.ibb.co/jVR29XV/stock5.jpg"
-    naturalWidth={564}
-    naturalHeight={806}
-  />
-</Letterbox>
-`}
-        />
-        <Example
-          name="Wide content (564:517)"
-          defaultCode={`
-<Letterbox width={200} height={200} contentAspectRatio={564 / 517}>
-  <Image
-    alt="wide"
-    src="https://i.ibb.co/SB0pXgS/stock4.jpg"
-    naturalWidth={564}
-    naturalHeight={517}
-  />
-</Letterbox>
-`}
-        />
-        <Example
-          name="Square content (1:1)"
-          defaultCode={`
-<Letterbox width={200} height={200} contentAspectRatio={1}>
-  <Image
-    alt="square"
-    src="https://i.ibb.co/FY2MKr5/stock6.jpg"
-    naturalWidth={1}
-    naturalHeight={1}
-  />
-</Letterbox>
-`}
-        />
-        <Example
-          name="Square content (1:1) in a vertical frame"
-          defaultCode={`
-<Letterbox width={200} height={300} contentAspectRatio={1}>
-  <Image
-    alt="square"
-    src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-    naturalWidth={1}
-    naturalHeight={1}
-  />
-</Letterbox>
-`}
-        />
-        <Example
-          name="Square content (1:1) in a horizontal frame"
-          defaultCode={`
-<Letterbox width={300} height={200} contentAspectRatio={1}>
-  <Image
-    alt="square"
-    src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-    naturalWidth={1}
-    naturalHeight={1}
-  />
-</Letterbox>
-`}
-        />
+      <MainSection
+        name="Variants"
+        description={`
+        Much of the math and understanding about Letterbox comes from Vjeaux's [excellent blog post on image resizing](http://blog.vjeux.com/2013/image/css-container-and-cover.html).
+      `}
+      >
+        <MainSection.Subsection title="Tall content (564:806)">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={variantTall} name="Tall Letterbox example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Wide content (564:517)">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={variantWide} name="Wide Letterbox example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Square content (1:1)">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={variantSquare} name="Square Letterbox example" />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Square content (1:1) in a vertical frame">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantSquareVerticalFrame}
+                name="Square in vertical frame Letterbox example"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Square content (1:1) in a horizontal frame">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantSquareHorizontalFrame}
+                name="Square in horizontal frame Letterbox example"
+              />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+          **[Mask](/web/mask)**
+          Mask is used to display content in a specific shape.
+        `}
+        />
+      </MainSection>
     </Page>
   );
 }

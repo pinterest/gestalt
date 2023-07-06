@@ -1,239 +1,152 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import Card from '../../docs-components/Card.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import variantBasic from '../../examples/column/variantBasic.js';
+import variantEqualHeight from '../../examples/column/variantEqualHeight.js';
+import variantGutters from '../../examples/column/variantGutters.js';
+import variantResizingColumns from '../../examples/column/variantResizingColumns.js';
+import variantStackingColumns from '../../examples/column/variantStackingColumns.js';
+import variantThreeColumn from '../../examples/column/variantThreeColumn.js';
+import variantTwoColumn from '../../examples/column/variantTwoColumn.js';
+import variantTwoColumnUnequal from '../../examples/column/variantTwoColumnUnequal.js';
 
 const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 
 export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
-    <Page title="Column">
-      <PageHeader name="Column" description={generatedDocGen?.description} />
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <Card
-        description={`
-    Column is a basic layout component to help you size your UI. A full width is composed
-    of 12 units, each equal to 1/12 of the total width. By setting the \`span\` prop you
-    dictate the percent width an element can occupy.
-  `}
-        name="Static columns"
-      />
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Using the span prop"
+          description="Column is a basic layout component to help you size your UI relative to its container. A full width is composed of 12 units, each equal to 1/12 of the total width of the containing element. By setting the `span` prop you dictate the fractional width an element can occupy."
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantBasic}
+                layout="column"
+                name="Variant - Using the span prop"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-      <Example
-        name="Example: Basic Column Unit"
-        defaultCode={`
-<Box display="flex" direction="row" paddingY={2}>
-  {Array(12).fill().map((_, i) => (
-    <Column span={1} key={i}>
-      <Box color="lightGray" padding={1}>
-        <Box color="white" paddingY={2}>
-          <Text align="center">1</Text>
-        </Box>
-      </Box>
-    </Column>
-  ))}
-</Box>
-`}
-      />
-      <Example
-        name="Example: Three Equal Columns"
-        defaultCode={`
-<Box display="flex" direction="row" paddingY={2}>
-  <Column span={4}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">4</Text>
-      </Box>
-    </Box>
-  </Column>
-  <Column span={4}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">4</Text>
-      </Box>
-    </Box>
-  </Column>
-  <Column span={4}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">4</Text>
-      </Box>
-    </Box>
-  </Column>
-</Box>
-`}
-      />
-      <Example
-        name="Example: Two Equal Columns"
-        defaultCode={`
-<Box display="flex" direction="row" paddingY={2}>
-  <Column span={6}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">6</Text>
-      </Box>
-    </Box>
-  </Column>
-  <Column span={6}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">6</Text>
-      </Box>
-    </Box>
-  </Column>
-</Box>
-`}
-      />
-      <Example
-        name="Example: Two Unequal Columns"
-        defaultCode={`
-<Box display="flex" direction="row" paddingY={2}>
-  <Column span={8}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">8</Text>
-      </Box>
-    </Box>
-  </Column>
-  <Column span={4}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Text align="center">4</Text>
-      </Box>
-    </Box>
-  </Column>
-</Box>
-`}
-      />
-      <Card
-        description={`
-    Column supports setting a span at our 3 responsive breakpoints: sm, md, lg. Each
-    sets the span of the column from that breakpoint and up. If you don't want your
-    column to be responsive, only set the \`span\` prop.
-  `}
-        name="Responsive columns"
-      />
-      <Example
-        name="Example: Stacking Columns"
-        defaultCode={`
-<Box display="flex" direction="row" wrap paddingY={2}>
-  <Column span={12} mdSpan={6}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Box display="block" mdDisplay="none">
-          <Text align="center">12</Text>
-        </Box>
-        <Box display="none" mdDisplay="block">
-          <Text align="center">6</Text>
-        </Box>
-      </Box>
-    </Box>
-  </Column>
-  <Column span={12} mdSpan={6}>
-    <Box color="lightGray" padding={1}>
-      <Box color="white" paddingY={2}>
-        <Box display="block" mdDisplay="none">
-          <Text align="center">12</Text>
-        </Box>
-        <Box display="none" mdDisplay="block">
-          <Text align="center">6</Text>
-        </Box>
-      </Box>
-    </Box>
-  </Column>
-</Box>
-`}
-      />
-      <Example
-        name="Example: Resizing Columns"
-        defaultCode={`
-<Box display="flex" direction="row" wrap paddingY={2}>
-  {Array(4).fill().map((_, i) => (
-    <Column span={6} mdSpan={3} key={i}>
-      <Box color="lightGray" padding={1}>
-        <Box color="white" paddingY={2}>
-          <Box display="block" mdDisplay="none">
-            <Text align="center">6</Text>
-          </Box>
-          <Box display="none" mdDisplay="block">
-            <Text align="center">3</Text>
-          </Box>
-        </Box>
-      </Box>
-    </Column>
-  ))}
-</Box>
-`}
-      />
-      <Example
-        description="Unlike traditional CSS columns, using flex columns makes each column equal height by default."
-        name="Example: Equal height columns"
-        defaultCode={`
-<Box display="flex" direction="row">
-  <Column span={6}>
-    <Box color="darkGray" padding={2}>
-      <Text color="inverse">Tall column</Text>
-      <Box height={200} />
-      <Text color="inverse">With lots of content</Text>
-    </Box>
-  </Column>
+        <MainSection.Subsection title="Three equal columns">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantThreeColumn}
+                layout="column"
+                name="Variant - Three Columns"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-  <Column span={6}>
-    <Box color="gray" height="100%" padding={2}>
-      <Text color="inverse">Short column</Text>
-    </Box>
-  </Column>
-</Box>
-`}
-      />
+        <MainSection.Subsection title="Two equal columns">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantTwoColumn}
+                layout="column"
+                name="Variant - Two equal columns"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-      <Example
-        description="Column gutters can be created through composition and negative margins."
-        name="Example: Gutters"
-        defaultCode={`
-<Box paddingY={2} color="darkGray">
-  <Box paddingX={2} marginBottom={2}>
-    <Text color="inverse">Content</Text>
-  </Box>
-  <Box
-    display="flex"
-    direction="row"
-    paddingY={2}
-    marginStart={-2}
-    marginEnd={-2}
-    color="gray"
-    wrap
-  >
-    <Column span={12}>
-      <Box paddingX={2} marginBottom={2}>
-        <Text color="inverse">Row</Text>
-      </Box>
-    </Column>
-    <Column span={6}>
-      <Box paddingX={2}>
-        <Box color="white"><Text color="dark">Column A</Text></Box>
-      </Box>
-    </Column>
-    <Column span={6}>
-      <Box paddingX={2}>
-        <Box color="white"><Text color="dark">Column B</Text></Box>
-      </Box>
-    </Column>
-  </Box>
-</Box>
-`}
-      />
+        <MainSection.Subsection title="Two unequal columns">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantTwoColumnUnequal}
+                layout="column"
+                name="Variant - Two Unequal Columns"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Using responsive breakpoints"
+          description="Column supports setting a span at our 3 responsive breakpoints: `sm`, `md`, `lg`. Each sets the span of the column from that breakpoint and up. If you don't want your column to be responsive, only set the `span` prop."
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantStackingColumns}
+                layout="column"
+                name="Variant - Stacking Columns"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Resizing Columns">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantResizingColumns}
+                layout="column"
+                name="Variant - Resizing Columns"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Equal height columns"
+          description="Unlike traditional CSS columns, using flex columns makes each column equal height by default."
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantEqualHeight}
+                layout="column"
+                name="Variant - Equal Height Columns"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Gutters"
+          description="Column gutters can be created through composition and negative margins."
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={variantGutters} layout="column" name="Variant - Gutters" />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+          **[Flex](/web/flex)**
+        Flex is a layout component for flexbox layouts, especially when even spacing between elements is desired (see the \`gap\` prop!).
+
+        **[Masonry](/web/masonry)**
+        Masonry creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
+        `}
+        />
+      </MainSection>
     </Page>
   );
 }

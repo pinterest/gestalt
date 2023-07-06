@@ -12,7 +12,7 @@ type Props = {|
    */
   children?: Node,
   /**
-   * Use numbers for pixels: height={100} and strings for percentages: height="100%".
+   * Use numbers for pixels (`height={100}`) and strings for percentages (`height="100%"`).
    */
   height?: number | string,
   /**
@@ -24,7 +24,7 @@ type Props = {|
    */
   wash?: boolean,
   /**
-   * Use numbers for pixels: width={100} and strings for percentages: width="100%".
+   * Use numbers for pixels (`width={100}`) and strings for percentages (`width="100%"`).
    */
   width?: number | string,
   /**
