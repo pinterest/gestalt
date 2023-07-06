@@ -1,3 +1,9 @@
+## 117.3.0 (Jul 6, 2023)
+
+### Minor
+
+- Box: add support for `<p>` in `as` ([#3059](https://github.com/pinterest/gestalt/pull/3059)) - [Preview link](https://deploy-preview-3059--gestalt.netlify.app?devexample=true)
+
 ## 117.2.8 (Jul 5, 2023)
 
 ### Patch
