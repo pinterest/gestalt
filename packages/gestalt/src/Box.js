@@ -133,6 +133,7 @@ type Props = {
     | 'header'
     | 'main'
     | 'nav'
+    | 'p'
     | 'section'
     | 'summary',
   /**

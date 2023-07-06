@@ -25,6 +25,7 @@ export type As =
   | 'header'
   | 'main'
   | 'nav'
+  | 'p'
   | 'section'
   | 'summary';
 export type Bottom = boolean;
