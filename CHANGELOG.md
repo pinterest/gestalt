@@ -1,3 +1,9 @@
+## 117.3.1 (Jul 6, 2023)
+
+### Patch
+
+- Column, Label, Letterbox, Mask: migrate docs examples to Sandpack ([#3060](https://github.com/pinterest/gestalt/pull/3060)) - [Preview link](https://deploy-preview-3060--gestalt.netlify.app?devexample=true)
+
 ## 117.3.0 (Jul 6, 2023)
 
 ### Minor
