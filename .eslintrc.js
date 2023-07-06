@@ -142,6 +142,7 @@ module.exports = {
       'rules': {
         // Allows us to avoid directing the user off our docs site in examples
         'jsx-a11y/anchor-is-valid': OFF,
+        '@next/next/no-img-element': OFF,
       },
     },
     {

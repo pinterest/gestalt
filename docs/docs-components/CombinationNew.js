@@ -4,14 +4,6 @@ import { Box, Flex } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
 import MainSectionCard from './MainSectionCard.js';
 
-type Props = {
-  // $FlowFixMe[unclear-type]
-  children: (props: { [key: string]: any, ... }, index?: number) => Node,
-  hideTitle?: boolean,
-  hasCheckerboard?: boolean,
-  ...
-};
-
 const combinations = (variationsByField: { ... }) => {
   const fieldNames = Object.keys(variationsByField);
 
@@ -51,6 +43,14 @@ const toReactAttribute = (key: string, value: any) => {
     default:
       return `${key}={${JSON.stringify(value)}}`;
   }
+};
+
+type Props = {
+  // $FlowFixMe[unclear-type]
+  children: (props: { [key: string]: any, ... }, index?: number) => Node,
+  hideTitle?: boolean,
+  hasCheckerboard?: boolean,
+  ...
 };
 
 export default function CombinationNew({
