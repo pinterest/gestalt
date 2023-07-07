@@ -1,3 +1,9 @@
+## 117.3.3 (Jul 7, 2023)
+
+### Patch
+
+- Internal: clean up component data types ([#3065](https://github.com/pinterest/gestalt/pull/3065)) - [Preview link](https://deploy-preview-3065--gestalt.netlify.app?devexample=true)
+
 ## 117.3.2 (Jul 7, 2023)
 
 ### Patch
