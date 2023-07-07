@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { type Node } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
 import componentData from '../../docs-components/data/components.js';
 import {
