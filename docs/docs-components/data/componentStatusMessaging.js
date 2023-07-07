@@ -56,6 +56,14 @@ export const COMPONENT_STATUS_MESSAGING = Object.freeze({
     notAvailable: 'Component does not respond to changing viewport sizes in web and mobile web.',
     planned: 'Component is slotted to be built responsively for web and mobile web.',
   },
+  status: {
+    shortTitle: 'Status',
+    title: 'Component Status',
+    ready: 'Component is ready for use.',
+    partial: 'Component is ready for use, however some features may not be available.',
+    notAvailable: 'Component is not currently available.',
+    planned: 'Component is slotted to be built.',
+  },
 });
 
 export const COMPONENT_A11Y_STATUS_MESSAGING = Object.freeze({

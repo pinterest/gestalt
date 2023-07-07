@@ -15,21 +15,21 @@ function DeprecatedStatus() {
   return <StatusData text="Deprecated" status="deprecated" />;
 }
 
-const webComponentData = getByPlatform(componentData, { platform: 'web' });
-const sortedComponentList = [...webComponentData].sort(({ name: aName }, { name: bName }) => {
+const androidComponentData = getByPlatform(componentData, { platform: 'android' });
+const sortedComponentList = [...androidComponentData].sort(({ name: aName }, { name: bName }) => {
   if (aName < bName) return -1;
   if (aName > bName) return 1;
   return 0;
 });
 
-const statusFields = ['figmaStatus', 'documentation', 'responsive', 'mobileAdaptive'];
+const statusFields = ['figmaStatus', 'documentation', 'status'];
 
 export default function ComponentStatus(): Node {
   return (
-    <Page title="Web component status" hideSideNav hideEditLink>
+    <Page title="Android component status" hideSideNav hideEditLink>
       <PageHeader
-        name="Web component status"
-        description="A detailed synopsis of our web components and their implementation status."
+        name="Android component status"
+        description="A detailed synopsis of our Android components and their implementation status."
         type="guidelines"
       />
       <Flex direction="column" gap={12}>
@@ -94,7 +94,8 @@ export default function ComponentStatus(): Node {
                     <Text size="200" inline>
                       <Link
                         href={
-                          path ?? `/web/${name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
+                          path ??
+                          `/android/${name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
                         }
                         display="inlineBlock"
                       >
