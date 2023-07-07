@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { type Node } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
 import componentData from '../../docs-components/data/components.js';
 import {
@@ -86,37 +86,25 @@ export default function ComponentStatus(): Node {
           </Table.Header>
           <Table.Body>
             {sortedComponentList.map(({ name, path, status: statusObj }) => {
-              const { badge, figmaOnly, status } = statusObj;
+              const { badge, status } = statusObj;
 
               return (
                 <Table.Row key={name}>
                   <Table.Cell>
                     <Text size="200" inline>
-                      {figmaOnly ? (
-                        <Fragment>
-                          {name}
-                          {badge ? (
-                            <Box display="inlineBlock" marginStart={2}>
-                              <Badge type="info" text={badge} />
-                            </Box>
-                          ) : null}
-                        </Fragment>
-                      ) : (
-                        <Link
-                          href={
-                            path ??
-                            `/web/${name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
-                          }
-                          display="inlineBlock"
-                        >
-                          {name}
-                          {badge ? (
-                            <Box display="inlineBlock" marginStart={2}>
-                              <Badge type="info" text={badge} />
-                            </Box>
-                          ) : null}
-                        </Link>
-                      )}
+                      <Link
+                        href={
+                          path ?? `/web/${name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
+                        }
+                        display="inlineBlock"
+                      >
+                        {name}
+                        {badge ? (
+                          <Box display="inlineBlock" marginStart={2}>
+                            <Badge type="info" text={badge} />
+                          </Box>
+                        ) : null}
+                      </Link>
                     </Text>
                   </Table.Cell>
                   {statusFields.map((item) =>

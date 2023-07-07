@@ -121,7 +121,6 @@ const mockComponentList: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'notAvailable',
-          figmaOnly: true,
           status: 'ready',
         },
       },
