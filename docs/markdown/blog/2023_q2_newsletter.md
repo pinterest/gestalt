@@ -84,7 +84,7 @@ Gestalt Android components  Gestalt iOS components
 <TwoCol>
 <Group>
 ### SheetMobile
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Pinterest uses sheets extensively throughout its mobile experience. We are excited to now officially support this component in Gestalt Web. The component is still in its pilot phase, so expect more improvements and updates in the quarters to come.
 
@@ -95,7 +95,7 @@ Check out SheetMobile
 
 <Group>
 ### mWeb-adaptive Dropdown
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Related to SheetMobile is our new mWeb-adaptive Dropdown. This new feature enabled a mobile-centric view that displays its contents in SheetMobile on mobile devices and Popover on desktop devices.
 
@@ -108,7 +108,7 @@ Go read about mWeb-adaptive Dropdown
 <TwoCol>
 <Group>
 ### TileData & TagData
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 The Gestalt team is working hard to expand into data visualization support. In that spirit, we created two new components that will support data visualization experiences. 
 
@@ -121,7 +121,7 @@ Go have a look at TagData and TileData
 
 <Group>
 ### Table enhancements
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Gestalt’s Table component needed some love. We made three notable updates to the component in this quarter.
 
