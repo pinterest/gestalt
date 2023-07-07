@@ -1,11 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
-import { type Category } from './data/components.js';
-import { type Platform, type PlatformData } from './data/types.js';
+import { type ComponentCategory, type Platform, type PlatformData } from './data/types.js';
 import IllustrationCard from './IllustrationCard.js';
 import IllustrationSection from './IllustrationSection.js';
 
-const getIllustrationCardColor = (category: Category, hasDarkBackground?: boolean) => {
+const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground?: boolean) => {
   const tealBackgrounds = ['Foundations'];
   const grayBackgrounds = ['Utilities', 'Building blocks'];
 
