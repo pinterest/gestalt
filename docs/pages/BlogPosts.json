@@ -3,6 +3,48 @@
     "year": "2023",
     "digests": [
       {
+        "month": "June",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng June Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from June."
+          },
+          {
+            "title": "TagData",
+            "audience": ["Engineering"],
+            "imageSrc": "https://user-images.githubusercontent.com/12059539/251608042-4a9d3d2e-bdb9-4798-af8d-834499ccbe67.png",
+            "imageAltText": "Screenshot of TagData UI",
+            "content": "Another month, another new data viz component — this time it's [TagData](https://gestalt.pinterest.systems/web/tagdata)! This component enables users to select multiple categories for comparison in a graph or chart."
+          },
+          {
+            "title": "GlobalEventsHandlerProvider",
+            "audience": ["Engineering"],
+            "content": "We also introduced [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider), a new way to share global event handlers. This replaces the previous OnLinkNavigationProvider, but also does so much more. The other use case we currently support handles opening and closing a SheetMobile when Dropdown or Modal are used on a mobile device. We'll expand this in the future to support other use cases as well."
+          },
+          {
+            "title": "Masonry 2-column module prototype",
+            "audience": ["Engineering"],
+            "imageSrc": "https://user-images.githubusercontent.com/12059539/251608039-6afeb027-3e0c-4e86-8612-c577c1ce2c36.png",
+            "imageAltText": "Screenshot of Masonry UI showing 2-column module",
+            "content": "We've been working for a while to support [2-column modules within Masonry](https://github.com/pinterest/gestalt/pull/2955). In June we merged a prototype of that support! We'll continue to iterate on this prototype as we integrate it into Pinboard, and we hope to launch this as an experiment soon."
+          },
+          {
+            "title": "Component updates: Callout, DefaultLabelProvider, SheetMobile",
+            "audience": ["Engineering"],
+            "imageSrc": "https://user-images.githubusercontent.com/12059539/251608037-90f0d0de-49ae-410a-ad9a-7fd2e2ed4193.png",
+            "imageAltText": "Screenshot of Callout with a rich message",
+            "content": "[Callout](https://gestalt.pinterest.systems/web/callout#Message) now supports rich `message` text using our [Text](https://gestalt.pinterest.systems/web/text) component. [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile)'s `onOutsideClick` handler returns the event to match our convention and allow for more precise event handling. And we added a slew of new strings to [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider#Default-strings-provided), reducing the number of required labels on a number of components!"
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "content": "We added a ton of Masonry documentation: an [updated docs page](https://gestalt.pinterest.systems/web/masonry), a [README that explains how Masonry works internally](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md), and [Pinboard-specific implementation details](https://pdocs.pinadmin.com/docs/webapp/masonry) (Pinployees only). We continued our migration to use the more reliable and beautiful Sandpack code editor, with 5 more docs pages converted. Unfortunately that code editor doesn't work with dev changes to components, so we added [a query param](https://github.com/pinterest/gestalt/pull/2992) that we can use when sharing links of dev builds. We revamped our [About Us](https://gestalt.pinterest.systems/get_started/about_us) page. For Android, we added [IconButtonFloating](https://gestalt.pinterest.systems/android/iconbuttonfloating) documentation and updated specs across a number of components. And we greatly expanded our [guidelines for data visualizations](https://gestalt.pinterest.systems/foundations/data_visualization/overview)."
+          }
+        ]
+      },
+      {
         "week": "June 30, 2023",
         "summary": "Update on Figma variables support.",
         "posts": [
