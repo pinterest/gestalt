@@ -1,3 +1,9 @@
+## 117.3.4 (Jul 7, 2023)
+
+### Patch
+
+- Docs: add Component Status pages for iOS and Android ([#3064](https://github.com/pinterest/gestalt/pull/3064)) - [Preview link](https://deploy-preview-3064--gestalt.netlify.app?devexample=true)
+
 ## 117.3.3 (Jul 7, 2023)
 
 ### Patch
