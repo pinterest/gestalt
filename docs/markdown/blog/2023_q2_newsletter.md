@@ -9,49 +9,45 @@ fullwidth: true
 <br />
 We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineering survey results as they’re a window into our goals for the second half of the year. 
 
-### Survey highlights
+### Overall sentiment
 
 <TwoCol>
 <Group>
 #### Design sentiment: 
-
-* Positive responses: 95.2% (-0.2%)  
-* % of responses with highest score: 47.6% (+24.9%)
+<Datapoint size="lg" title="Positive responses" value="95.2%" trendValue={-0.2} trendAccessibilityLabel="Trending down" />
+<Datapoint size="lg" title="Responses with highest score" value="47.6%" trendValue={24.9} trendAccessibilityLabel="Trending up" />
 </Group>
 <Group>
 #### Engineering sentiment (core customers only): 
-
-* Positive responses: 98.1% (+1.9%)
-* % of responses with highest score: 53.9% (-15.9%)
+<Datapoint size="lg" title="Positive responses" value="98.1%" trendValue={1.9} trendAccessibilityLabel="Trending up" />
+<Datapoint size="lg" title="Responses with highest score" value="53.9%" trendValue={-15.9} trendAccessibilityLabel="Trending down" />
 </Group>
 </TwoCol>
+
+### Survey highlights
 <TwoCol>
 <Group>
 #### Overall documentation sentiment:
-
-* Positive responses: 93.3% (+8.1%)
-* % of responses with highest score: 58.4% (+8.9%)
+<Datapoint size="lg" title="Positive responses" value="93.3%" trendValue={8.1} trendAccessibilityLabel="Trending up" />
+<Datapoint size="lg" title="Responses with highest score" value="58.4%" trendValue={8.9} trendAccessibilityLabel="Trending up" />
 </Group>
 <Group>
 #### Figma library ease of use:
-
-* Positive responses: 95.2% (+8.9%)
-* % of responses with highest score: 42.9% (+29.3%)
+<Datapoint size="lg" title="Positive responses" value="95.2%" trendValue={8.9} trendAccessibilityLabel="Trending up" />
+<Datapoint size="lg" title="Responses with highest score" value="42.9%" trendValue={29.3} trendAccessibilityLabel="Trending up" />
 </Group>
 </TwoCol>
 ### Survey lowlights
 <TwoCol>
 <Group>
 #### Engineering awareness of Gestalt updates
-
-* Aware or very aware: 47.8% (+1.9%)
-* % of responses with highest score: 2.9% (-4.5%)
+<Datapoint size="lg" title="Aware or very aware" value="47.8%" trendValue={1.9} trendAccessibilityLabel="Trending up" />
+<Datapoint size="lg" title="Responses with highest score" value="2.9%" trendValue={-4.5} trendAccessibilityLabel="Trending down" />
 </Group>
 <Group>
 #### Gestalt's impact on engineering velocity
-
-* Positive responses: 96.1% (-3.9%)
-* % of responses with highest score: 51.0% (-15.0%)
+<Datapoint size="lg" title="Positive responses" value="96.1%" trendValue={-3.9} trendAccessibilityLabel="Trending down" />
+<Datapoint size="lg" title="Responses with highest score" value="51.0%" trendValue={-15.0} trendAccessibilityLabel="Trending down" />
 </Group>
 </TwoCol>
 
@@ -79,7 +75,7 @@ The Gestalt team partnered with the iOS and Android platform engineering teams t
 
 Gestalt has lagged behind on coverage for Android and iOS code components the progress we’ve made this quarter represents another big step towards full Gestalt support for mobile experience.
 
-Gestalt Android components  Gestalt iOS components
+Check out Gestalt's **[Android](https://gestalt.pinterest.systems/android/overview)** and **[iOS](https://gestalt.pinterest.systems/ios/overview)** components
 
 <TwoCol>
 <Group>
@@ -90,7 +86,7 @@ Pinterest uses sheets extensively throughout its mobile experience. We are excit
 
 This component represents a significant footprint in our mWeb experience and we expect it to dramatically speed up mWeb design/development moving forward.
 
-Check out SheetMobile
+**[Check out SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile)**
 </Group>
 
 <Group>
@@ -101,7 +97,7 @@ Related to SheetMobile is our new mWeb-adaptive Dropdown. This new feature enabl
 
 Our mWeb-adaptive components (currently Modal and Dropdown) should make development much simpler as it removes the need to swap out components based on device type. This should simplify cross-device product development.
 
-Go read about mWeb-adaptive Dropdown
+**[Read about Gestalt's mWeb-adaptive Dropdown](https://gestalt.pinterest.systems/web/dropdown#Mobile)**
 </Group>
 </TwoCol>
 
@@ -116,7 +112,7 @@ TagData enables users to select multiple categories to compare with each other i
 
 These two components will besties with our upcoming data visualization components and should round out our offering in the space.
 
-Go have a look at TagData and TileData
+Go have a look at **[TagData](https://gestalt.pinterest.systems/web/tagdata)** and **[TileData](https://gestalt.pinterest.systems/web/tiledata)**
 </Group>
 
 <Group>
@@ -131,7 +127,7 @@ Gestalt’s Table component needed some love. We made three notable updates to t
 
 These updates represent worthwhile quality-of-life improvements which should help improve the overall experience across business interfaces.
 
-Visit Table
+**[Visit Table](https://gestalt.pinterest.systems/web/table)**
 </Group>
 </TwoCol>
 
@@ -158,7 +154,7 @@ Data visualizations are serious business and there are just so many ways to go a
 
 These guidelines represent the foundation we’ll build our actual components on. Once our data visualization components are shipped, designers and developers should have everything they need to visualize data!
 
-Read Gestalt's data visualization guidelines
+**[Read Gestalt's data visualization guidelines](https://gestalt.pinterest.systems/foundations/data_visualization/overview)**
 </Group>
 <Group>
 ### Card / preview block guidelines
@@ -168,7 +164,7 @@ We wrapped up a big collaboration with the Browse team where we worked to unify 
 
 This work should enable a more unified and consistent experience when Pinners are presented with in-feed recommendations.
 
-Card component and content guidelines
+**[Read our Card component and content guidelines](https://gestalt.pinterest.systems/ios/card/card)**
 </Group>
 
 </TwoCol>
