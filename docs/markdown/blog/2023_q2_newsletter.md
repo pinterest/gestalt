@@ -5,7 +5,7 @@ fullwidth: true
 ---
 
 ## Q2 highlight: Pinterest content standards
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 <br />
 We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineering survey results as they’re a window into our goals for the second half of the year. 
 
@@ -59,13 +59,13 @@ We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineer
 
 It’s important to remember where we started when Gestalt kicked off. The progress we’ve seen in sentiment and usage are staggering—especially when it comes to our customers in Design. While these are laudable numbers, there’s still plenty of ceiling between where we currently are and what our aspirations are. Ideally, we’d see highest sentiment in the 60-70% range, if not higher.
 
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 
 One other notable win has been the the continual increase in usage of our documentation by designers. For context, in H1 2020, we had 5 times the number of designers respond that they never went to our documentation than visited weekly. Now, we have 100% of designers responding that they use our docs at least monthly and over 70% visiting weekly. Our goal remains 80% of designers visiting weekly — we hope to crest that milestone in H2 of this year.
 
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 
 ### What this means
 On the surface there appears to be a correlation between our drop in highest-score engineering sentiment and highest-scores related to how fast it is to build UIs. We’d like to validate if these two scores are in fact related and, if so, what’s causing that. More importantly though, we are aiming for significant gains in engineering awareness. The team is looking into ways we can refine our comms to ensure we’re communicating in the right ways, in the right places at the right cadence. 
@@ -73,7 +73,7 @@ On the surface there appears to be a correlation between our drop in highest-sco
 ## Components and tokens
 
 ### Featured components: Mobile components
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 <br />
 The Gestalt team partnered with the iOS and Android platform engineering teams to support the buildout and certification of 6 new Android Gestalt components ButtonGroup, Icon,  IconButton, IconButtonFloating, SearchField, Text, TextArea and Toast and 1 new iOS component, Icon.
 
@@ -84,7 +84,7 @@ Gestalt Android components  Gestalt iOS components
 <TwoCol>
 <Group>
 ### SheetMobile
-<ImgHero width={525} height={350} src="" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
 <br />
 Pinterest uses sheets extensively throughout its mobile experience. We are excited to now officially support this component in Gestalt Web. The component is still in its pilot phase, so expect more improvements and updates in the quarters to come.
 
@@ -95,7 +95,7 @@ Check out SheetMobile
 
 <Group>
 ### mWeb-adaptive Dropdown
-<ImgHero width={525} height={350} src="" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
 <br />
 Related to SheetMobile is our new mWeb-adaptive Dropdown. This new feature enabled a mobile-centric view that displays its contents in SheetMobile on mobile devices and Popover on desktop devices.
 
@@ -108,7 +108,7 @@ Go read about mWeb-adaptive Dropdown
 <TwoCol>
 <Group>
 ### TileData & TagData
-<ImgHero width={525} height={350} src="" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
 <br />
 The Gestalt team is working hard to expand into data visualization support. In that spirit, we created two new components that will support data visualization experiences. 
 
@@ -121,7 +121,7 @@ Go have a look at TagData and TileData
 
 <Group>
 ### Table enhancements
-<ImgHero width={525} height={350} src="" alt="" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="" />
 <br />
 Gestalt’s Table component needed some love. We made three notable updates to the component in this quarter.
 
@@ -138,7 +138,7 @@ Visit Table
 
 ## Documentation
 ### Documentation experience improvements
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 <br />
 We aim for Gestalt’s documentation to be world class. It’s getting there...
 
@@ -152,7 +152,7 @@ These updates are critical as we aim to make Gestalt’s docs the go to destinat
 <TwoCol>
 <Group>
 ### Data visualization guidelines
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Data visualizations are serious business and there are just so many ways to go astray. In the lead-up of our data visualization components, we’ve publishing guidelines that intend to provide guidance for everything you need to know to visualize data.
 
@@ -162,7 +162,7 @@ Read Gestalt's data visualization guidelines
 </Group>
 <Group>
 ### Card / preview block guidelines
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 We wrapped up a big collaboration with the Browse team where we worked to unify the design and content of in-feed modules. This work resulted in finalized Card component/content designs along with Card component guidelines as well as guidelines for Boards and Pins preview blocks.
 
@@ -178,7 +178,7 @@ Card component and content guidelines
 <TwoCol>
 <Group>
 ### Simplified components
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Our Figma component libraries got some big upgrades through our integration of Figma’s new simplified component instances and exposed nested instances. We’ve activated these features on the majority of components across Android, iOS and Web libraries. 
 
@@ -187,7 +187,7 @@ The updates should mean less drilling in, less fiddling and less hassle when usi
 
 <Group>
 ### New mobile components
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 We shipped three major mobile-specific components to our Figma libraries in Q2:
 
@@ -201,14 +201,14 @@ These components cover core elements of the Pinterest experience (e.g. ActionBar
 <TwoCol>
 <Group>
 ### Data visualization Figma components
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 In the run-up of our goal to deliver data visualization components for Web, we’ve published an initial version those very components in Figma. These components will help designers quickly mock up data viz experiences that will align with our code-backed components when they ship in H2. 
 </Group>
 
 <Group>
 ### Figma Pin component aspect ratios
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 As the Pinterest Pin continues to evolve, so does our Figma Pin component. We added new aspect ratios to the Pin image element. Pins can now have landscape aspect ratios (16:9, 4:3 and 3:2) to go along with our traditional square and portrait formats.
 </Group>
@@ -218,18 +218,18 @@ As the Pinterest Pin continues to evolve, so does our Figma Pin component. We ad
 We have a lot of big goals for H2, but the main theme is refinement. We’re devoting a large portion of our focus on up-leveling what’s currently in the system to be easier to use and higher quality. Our goal is to see increases in comprehension of our guidelines, higher usage of our docs and most critically, greater engineering awareness of Gestalt updates.
 
 ### Even more mobile components
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 <br />
 While refinement is our primary focus, we have one exception which are mobile components. We need to aggressively expand the number of mobile components in H2 with 6 certified Android components and [ARE WE ABSOLUTELY SURE WE’RE CERTIFYING 20 IOS COMPONENTS]?
 
 ### Data visualization components
-<ImgHero width={1050} height={590} src="" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
 <br />
 We had a bit of a false start in H1, but H2 is the half of data visualization components! We plan to ship our initial offering that should cover the main use cases we’re aware of. 
 <TwoCol>
 <Group>
 ### Density themes
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Gestalt's historical focus has been on the consumer experience, but we have spent the past few years continuing to expand our support into every facet of the product. We've built out numerous components to better support business experiences and we plan to give them all an upgrade by supporting density themes. Density theming will enable our components to be light and airy or dense and compact. 
 
@@ -237,7 +237,7 @@ This will make our entire system more custom tailored to the kind of experience 
 </Group>
 <Group>
 ### Documentation refinements
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Our docs site has been and will continue to be a core part of Gestalt. We continue to make big gains in sentiment / usage, but there's still plenty of room for improvement. We heard your feedback and so we'll be focusing on improving the discoverability of components/guidelines, finalizing our refactor of code examples and refine our content to make reading our docs as smooth and enjoyable as possible.
 </Group>
@@ -245,13 +245,13 @@ Our docs site has been and will continue to be a core part of Gestalt. We contin
 <TwoCol>
 <Group>
 ### Improved Figma component discoverability
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Designers, we heard your feedback and we know finding Gestalt Figma library components isn't always the easiest thing to do. We have big plans to improve this experience, if not fix it once and for all. We'll be making a major focus on improving our libraries' ease of use this upcoming half and we have high hopes for what we'll be able to deliver.
 </Group>
 <Group>
 ### Pinterest Design Figma plugin improvements 
-<ImgHero width={525} height={350} src="" alt="TBD" />
+<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
 <br />
 Speaking of high hopes, we think our Pinterest Design Figma plugin can have a monumental impact on Pinterest's design _and engineering_ workflow. We will be shipping numerous improvements and new features to the plugin which should enable designers to work faster and remove much of the busywork from their day-to-day work. 
 </Group>
