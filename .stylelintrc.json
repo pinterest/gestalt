@@ -10,11 +10,12 @@
         "ignoreProperties": ["composes"]
       }
     ],
-    "custom-property-pattern": "g-.+",
+    "custom-property-pattern": "g|color|font|elevation|space|opacity|font-.+",
     "value-keyword-case": [
       "lower",
       {
-        "ignoreProperties": ["composes"]
+        "ignoreProperties": ["composes"],
+        "camelCaseSvgKeywords": true
       }
     ],
     "declaration-block-no-duplicate-properties": [
