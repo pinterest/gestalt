@@ -1,3 +1,9 @@
+## 117.3.6 (Jul 10, 2023)
+
+### Patch
+
+- Internal: Bump stylelint from 14.0.1 to 15.10.1 ([#3067](https://github.com/pinterest/gestalt/pull/3067)) - [Preview link](https://deploy-preview-3067--gestalt.netlify.app?devexample=true)
+
 ## 117.3.5 (Jul 10, 2023)
 
 ### Patch
