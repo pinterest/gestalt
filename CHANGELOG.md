@@ -1,3 +1,9 @@
+## 117.3.5 (Jul 10, 2023)
+
+### Patch
+
+- Internal: Bump tough-cookie from 4.0.0 to 4.1.3 ([#3066](https://github.com/pinterest/gestalt/pull/3066)) - [Preview link](https://deploy-preview-3066--gestalt.netlify.app?devexample=true)
+
 ## 117.3.4 (Jul 7, 2023)
 
 ### Patch
