@@ -856,7 +856,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'lineClamp',
               description:
-                'When `lineClamp` prop is set to 1, Heading truncates incorrectly strings containing long strings of characters.',
+                'When `lineClamp` prop is set to 1, Heading truncates  strings containing long strings of characters incorrectly.',
               codesandboxUrl:
                 'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example.js',
             },
@@ -2152,7 +2152,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'lineClamp',
               description:
-                'When `lineClamp` prop is set to 1, Text truncates incorrectly strings containing long strings of characters.',
+                'When `lineClamp` prop is set to 1, Text truncates strings containing long strings of characters incorrectly.',
               codesandboxUrl:
                 'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example.js',
             },
