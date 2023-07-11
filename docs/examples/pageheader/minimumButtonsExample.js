@@ -1,12 +1,12 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import { Button, Datapoint, Dropdown, OverlayPanel, PageHeader, Text } from 'gestalt';
 
 export default function MinimumButtonsExample(): Node {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <PageHeader
         title="Ads overview"
         helperIconButton={{
@@ -66,6 +66,6 @@ export default function MinimumButtonsExample(): Node {
           <Text>3</Text>
         </OverlayPanel>
       ) : null}
-    </React.Fragment>
+    </Fragment>
   );
 }

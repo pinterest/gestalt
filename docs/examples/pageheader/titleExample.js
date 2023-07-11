@@ -1,11 +1,11 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { Fragment, type Node, useState } from 'react';
 import { Image, OverlayPanel, PageHeader, Text } from 'gestalt';
 
 export default function PageHeaderTitleExample(): Node {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   return (
-    <React.Fragment>
+    <Fragment>
       <PageHeader
         title="Pinterest app"
         badge={{ text: 'New', type: 'info', tooltipText: 'New integration' }}
@@ -38,6 +38,6 @@ export default function PageHeaderTitleExample(): Node {
           <Text>3</Text>
         </OverlayPanel>
       ) : null}
-    </React.Fragment>
+    </Fragment>
   );
 }

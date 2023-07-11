@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import { Button, Dropdown, PageHeader } from 'gestalt';
 
 export default function IncludeImageExample(): Node {
