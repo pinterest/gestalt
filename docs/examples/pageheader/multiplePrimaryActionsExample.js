@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import { type Node } from 'react';
 import {
   Box,
   Button,
@@ -12,65 +12,6 @@ import {
   Table,
   Text,
 } from 'gestalt';
-
-function HeaderRow({ id }: {| id: string |}): Node {
-  return (
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell>
-          <Box display="visuallyHidden">
-            <Label htmlFor={id}>Not all checkboxes are checked</Label>
-          </Box>
-          <Checkbox id={id} onChange={() => {}} indeterminate size="sm" />
-        </Table.HeaderCell>
-        {['Status', 'Audience'].map((title) => (
-          <Table.HeaderCell key={title}>
-            <Text weight="bold">{title}</Text>
-          </Table.HeaderCell>
-        ))}
-      </Table.Row>
-    </Table.Header>
-  );
-}
-
-function BaseRow({
-  id,
-  checked,
-  status,
-  audience,
-}: {|
-  id: string,
-  checked?: boolean,
-  status: string,
-  audience: string,
-|}): Node {
-  return (
-    <Table.Row>
-      <Table.Cell>
-        <Checkbox
-          id={`${id.replace(/ /g, '_').replace(/'/g, '')}_${status
-            .replace(/ /g, '_')
-            .replace(/'/g, '')}`}
-          onChange={() => {}}
-          size="sm"
-          checked={checked}
-        />
-      </Table.Cell>
-      <Table.Cell>
-        <Label
-          htmlFor={`${id.replace(/ /g, '_').replace(/'/g, '')}_${status
-            .replace(/ /g, '_')
-            .replace(/'/g, '')}`}
-        >
-          <Text>{status}</Text>
-        </Label>
-      </Table.Cell>
-      <Table.Cell>
-        <Text>{audience}</Text>
-      </Table.Cell>
-    </Table.Row>
-  );
-}
 
 export default function OnePrimaryActionExample(): Node {
   const tableID = 'Audience table';
@@ -117,10 +58,51 @@ export default function OnePrimaryActionExample(): Node {
                 <col span="1" style={{ width: '10%' }} />
                 <col span="1" style={{ width: '50%' }} />
               </colgroup>
-              <HeaderRow id={tableID} />
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
+                    <Box display="visuallyHidden">
+                      <Label htmlFor={tableID}>Not all checkboxes are checked</Label>
+                    </Box>
+                    <Checkbox id={tableID} onChange={() => {}} indeterminate size="sm" />
+                  </Table.HeaderCell>
+                  {['Status', 'Audience'].map((title) => (
+                    <Table.HeaderCell key={title}>
+                      <Text weight="bold">{title}</Text>
+                    </Table.HeaderCell>
+                  ))}
+                </Table.Row>
+              </Table.Header>
               <Table.Body>
-                <BaseRow id={tableID} checked status="Active" audience="East Coast" />
-                <BaseRow id={tableID} status="Inactive" audience="West Coast" />
+                {[
+                  { checked: true, status: 'Active', audience: 'East Coast' },
+                  { checked: false, status: 'Inactive', audience: 'West Coast' },
+                ].map(({ status, audience, checked }) => (
+                  <Table.Row key={audience}>
+                    <Table.Cell>
+                      <Checkbox
+                        id={`${tableID.replace(/ /g, '_').replace(/'/g, '')}_${status
+                          .replace(/ /g, '_')
+                          .replace(/'/g, '')}`}
+                        onChange={() => {}}
+                        size="sm"
+                        checked={checked}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Label
+                        htmlFor={`${tableID.replace(/ /g, '_').replace(/'/g, '')}_${status
+                          .replace(/ /g, '_')
+                          .replace(/'/g, '')}`}
+                      >
+                        <Text>{status}</Text>
+                      </Label>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Text>{audience}</Text>
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
               </Table.Body>
             </Table>
           </Flex.Item>
