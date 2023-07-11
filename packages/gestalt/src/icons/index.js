@@ -52,6 +52,7 @@ import circleOutline from './circle-outline.svg';
 import clear from './clear.svg';
 import clock from './clock.svg';
 import code from './code.svg';
+import codeChecked from './code-checked.svg';
 import cog from './cog.svg';
 import colorPicker from './color-picker.svg';
 import compass from './compass.svg';
@@ -269,6 +270,7 @@ const icons = Object.freeze({
   clear,
   clock,
   code,
+  'code-checked': codeChecked,
   cog,
   compass,
   compose,

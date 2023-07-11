@@ -159,12 +159,25 @@ function Header() {
         </Box>
       </Box>
       <Flex alignItems="center" justifyContent="end" flex="grow">
+        <Box display="none" mdDisplay="block" flex="grow">
+          <Flex justifyContent="center">
+            <Tabs
+              activeTabIndex={activeTab}
+              onChange={({ activeTabIndex }) => {
+                setActiveTab(activeTabIndex);
+              }}
+              tabs={mainNavigationTabs}
+            />
+          </Flex>
+        </Box>
+
         <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
           <Flex gap={3}>
             <IconButton
               accessibilityLabel={darkModeButtonLabel}
               iconColor="darkGray"
               icon={colorScheme === 'dark' ? 'sun' : 'moon'}
+              size="md"
               onClick={onChangeColorScheme}
               tooltip={{
                 text: darkModeButtonLabel,
@@ -178,8 +191,9 @@ function Header() {
             {showDevelopmentEditorSwitch && (
               <IconButton
                 accessibilityLabel="Toggle dev example mode"
-                iconColor={devExampleMode === 'development' ? 'red' : 'darkGray'}
-                icon="code"
+                iconColor={devExampleMode === 'development' ? 'darkGray' : 'red'}
+                icon={devExampleMode === 'development' ? 'code' : 'code-checked'}
+                size="md"
                 onClick={onChangeDevExampleMode}
                 tooltip={{
                   text: 'Toggle dev example mode',
@@ -190,18 +204,6 @@ function Header() {
                 }}
               />
             )}
-          </Flex>
-        </Box>
-
-        <Box display="none" mdDisplay="block" flex="grow">
-          <Flex justifyContent="center">
-            <Tabs
-              activeTabIndex={activeTab}
-              onChange={({ activeTabIndex }) => {
-                setActiveTab(activeTabIndex);
-              }}
-              tabs={mainNavigationTabs}
-            />
           </Flex>
         </Box>
 
