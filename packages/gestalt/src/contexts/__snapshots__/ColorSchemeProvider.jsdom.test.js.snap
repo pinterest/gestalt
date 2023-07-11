@@ -46,6 +46,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-default: #ffffff;
   --color-text-subtle: #a5a5a5;
   --color-text-success: #39d377;
+  --color-text-disabled: #4a4a4a;
   --color-text-error: #f47171;
   --color-text-warning: #e18d00;
   --color-text-inverse: #111111;
@@ -54,6 +55,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-icon-default: #ffffff;
   --color-text-icon-subtle: #a5a5a5;
   --color-text-icon-success: #39d377;
+  --color-text-icon-disabled: #4a4a4a;
   --color-text-icon-error: #f47171;
   --color-text-icon-warning: #e18d00;
   --color-text-icon-info: #75bfff;
@@ -154,6 +156,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-default: #111111;
   --color-text-subtle: #5f5f5f;
   --color-text-success: #005f3e;
+  --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
@@ -162,6 +165,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #5f5f5f;
   --color-text-icon-success: #005f3e;
+  --color-text-icon-disabled: #a5a5a5;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
@@ -262,6 +266,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-default: #111111;
   --color-text-subtle: #5f5f5f;
   --color-text-success: #005f3e;
+  --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
@@ -270,6 +275,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #5f5f5f;
   --color-text-icon-success: #005f3e;
+  --color-text-icon-disabled: #a5a5a5;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
@@ -370,6 +376,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-default: #111111;
   --color-text-subtle: #5f5f5f;
   --color-text-success: #005f3e;
+  --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
@@ -378,6 +385,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-icon-default: #111111;
   --color-text-icon-subtle: #5f5f5f;
   --color-text-icon-success: #005f3e;
+  --color-text-icon-disabled: #a5a5a5;
   --color-text-icon-error: #cc0000;
   --color-text-icon-warning: #bd5b00;
   --color-text-icon-info: #0074e8;
@@ -479,6 +487,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-default: #ffffff;
   --color-text-subtle: #a5a5a5;
   --color-text-success: #39d377;
+  --color-text-disabled: #4a4a4a;
   --color-text-error: #f47171;
   --color-text-warning: #e18d00;
   --color-text-inverse: #111111;
@@ -487,6 +496,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-icon-default: #ffffff;
   --color-text-icon-subtle: #a5a5a5;
   --color-text-icon-success: #39d377;
+  --color-text-icon-disabled: #4a4a4a;
   --color-text-icon-error: #f47171;
   --color-text-icon-warning: #e18d00;
   --color-text-icon-info: #75bfff;
