@@ -140,7 +140,10 @@ export default function DesignTokensPage(): Node {
                 {tableHeaders(category.name)}
                 <Table.Body>
                   {(tokensToUse: $ReadOnlyArray<Token>)
-                    .filter((token) => token.name.includes(`${category.id}`))
+                    .filter(
+                      (token) =>
+                        token.name.includes(`${category.id}`) && !token.name.includes(`disabled`),
+                    )
                     .map((token: Token) => (
                       <Table.Row key={`token${token.name}`}>
                         <Table.Cell>
