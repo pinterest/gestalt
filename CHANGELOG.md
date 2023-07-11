@@ -1,3 +1,9 @@
+## 117.3.7 (Jul 11, 2023)
+
+### Patch
+
+- Docs: PageHeader example fixes ([#3069](https://github.com/pinterest/gestalt/pull/3069)) - [Preview link](https://deploy-preview-3069--gestalt.netlify.app?devexample=true)
+
 ## 117.3.6 (Jul 10, 2023)
 
 ### Patch
