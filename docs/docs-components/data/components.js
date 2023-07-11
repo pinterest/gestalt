@@ -852,6 +852,15 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'lineClamp',
+              description:
+                'When `lineClamp` prop is set to 1, Text truncates incorrectly strings containing long strings of characters.',
+              codesandboxUrl:
+                'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example.js',
+            },
+          ],
         },
       },
     },
@@ -2139,6 +2148,15 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'lineClamp',
+              description:
+                'When `lineClamp` prop is set to 1, Text truncates incorrectly strings containing long strings of characters.',
+              codesandboxUrl:
+                'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example.js',
+            },
+          ],
         },
       },
       android: {
