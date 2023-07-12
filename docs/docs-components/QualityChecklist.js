@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Link, List, SlimBanner, Table, Text } from 'gestalt';
+import { Link, List, SlimBanner, Status, Table, Text } from 'gestalt';
 import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 import getByPlatform from './data/utils/getByPlatform.js';
@@ -130,14 +130,14 @@ export default function QualityChecklist({ component }: Props): Node {
                   </List>
                 }
               >
-                <Table.Cell colSpan={1}>
+                <Table.Cell>
                   <Text>Issues</Text>
                 </Table.Cell>
-                <Table.Cell colSpan={2}>
-                  <SlimBanner type="warningBare" message="This component has known issues." />
+                <Table.Cell>
+                  <Status type="warning" />
                 </Table.Cell>
                 <Table.Cell>
-                  <Box />
+                  <Text>This component has known issues.</Text>
                 </Table.Cell>
               </Table.RowExpandable>
             ) : null}
