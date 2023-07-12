@@ -1,3 +1,9 @@
+## 117.4.0 (Jul 12, 2023)
+
+### Minor
+
+- Tokens: added undocumented `$color-text-disabled` & `$color-text-icon-disabled` tokens ([#3068](https://github.com/pinterest/gestalt/pull/3068)) - [Preview link](https://deploy-preview-3068--gestalt.netlify.app?devexample=true)
+
 ## 117.3.7 (Jul 11, 2023)
 
 ### Patch
