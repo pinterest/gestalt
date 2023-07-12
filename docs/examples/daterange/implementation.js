@@ -4,6 +4,7 @@ import { Box, Flex, IconButton, Layer, Popover, Status } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
 export default function Example(): Node {
+  const [selectedDates, setSelectedDates] = useState<[Date, Date] | null>(null);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [showComponent, setShowComponent] = useState(true);
@@ -14,13 +15,11 @@ export default function Example(): Node {
       <Box padding={8}>
         <Flex gap={2} alignItems="center">
           <Status
-            type={!showComponent && startDate && endDate ? 'ok' : 'problem'}
-            title={
-              !showComponent && startDate && endDate ? 'Campaign dates selected' : 'Select dates'
-            }
+            type={selectedDates ? 'ok' : 'problem'}
+            title={selectedDates ? 'Campaign dates selected' : 'Select dates'}
             subtext={
-              !showComponent && startDate && endDate
-                ? `${startDate.getMonth()}/${startDate.getDay()}/${startDate.getFullYear()} - ${endDate.getMonth()}/${endDate.getDay()}/${endDate.getFullYear()}`
+              selectedDates
+                ? `${selectedDates[0].getMonth()}/${selectedDates[0].getDay()}/${selectedDates[0].getFullYear()} - ${selectedDates[1].getMonth()}/${selectedDates[1].getDay()}/${selectedDates[1].getFullYear()}`
                 : undefined
             }
           />
@@ -49,9 +48,16 @@ export default function Example(): Node {
               onEndDateError={() => {}}
               onStartDateError={() => {}}
               onStartDateChange={({ value }) => setStartDate(value)}
-              onSubmit={() => setShowComponent(false)}
+              onSubmit={() => {
+                if (startDate && endDate) setSelectedDates([startDate, endDate]);
+                setShowComponent(false);
+              }}
               startDateValue={startDate}
-              onCancel={() => {}}
+              onCancel={() => {
+                setStartDate(null);
+                setEndDate(null);
+                setShowComponent(false);
+              }}
             />
           </Popover>
         </Layer>
