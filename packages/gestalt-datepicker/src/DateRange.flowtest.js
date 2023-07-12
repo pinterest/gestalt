@@ -9,6 +9,8 @@ const Valid = (
     onEndDateChange={() => {}}
     onStartDateError={() => {}}
     onEndDateError={() => {}}
+    onCancel={() => {}}
+    onSubmit={() => {}}
   />
 );
 

@@ -83,6 +83,8 @@ export default function Example(): Node {
         onEndDateError={() => {}}
         onStartDateError={() => {}}
         startDateValue={startDate}
+        onSubmit={() => {}}
+        onCancel={() => {}}
       />
     </Flex>
   );

@@ -19,6 +19,8 @@ export default function Example(): Node {
       onEndDateError={() => {}}
       startDateErrorMessage={startErrorMessage}
       startDateValue={startDate}
+      onSubmit={() => {}}
+      onCancel={() => {}}
     />
   );
 }

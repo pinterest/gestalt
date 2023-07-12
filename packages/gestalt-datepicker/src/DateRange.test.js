@@ -6,26 +6,14 @@ describe('DateRange', () => {
   it('renders', () => {
     const tree = create(
       <DateRange
-        startDateValue={new Date()}
         endDateValue={new Date()}
-        onStartDateChange={() => {}}
+        onCancel={() => {}}
         onEndDateChange={() => {}}
-        onStartDateError={() => {}}
         onEndDateError={() => {}}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('renders an accessibility label', () => {
-    const tree = create(
-      <DateRange
+        onStartDateChange={() => {}}
+        onStartDateError={() => {}}
+        onSubmit={() => {}}
         startDateValue={new Date()}
-        endDateValue={new Date()}
-        onStartDateChange={() => {}}
-        onEndDateChange={() => {}}
-        onStartDateError={() => {}}
-        onEndDateError={() => {}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

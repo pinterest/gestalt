@@ -211,6 +211,8 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               onStartDateError={() => {}}
               onEndDateError={() => {}}
               localeData={locale ? localeMap[locale].localeData : undefined}
+              onSubmit={() => {}}
+              onCancel={() => {}}
             />
           </Flex>
         </MainSection.Subsection>

@@ -27,6 +27,8 @@ export default function Example(): Node {
       }
       startDateValue={startDate}
       startDateErrorMessage={startErrorMessage}
+      onSubmit={() => {}}
+      onCancel={() => {}}
     />
   );
 }

@@ -51,6 +51,7 @@ export default function Example(): Node {
               onStartDateChange={({ value }) => setStartDate(value)}
               onSubmit={() => setShowComponent(false)}
               startDateValue={startDate}
+              onCancel={() => {}}
             />
           </Popover>
         </Layer>

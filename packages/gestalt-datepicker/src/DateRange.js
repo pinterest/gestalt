@@ -1,6 +1,6 @@
 // @flow strict-local
 import { type Node } from 'react';
-import { Box, Button, Flex, Text } from 'gestalt';
+import { Box, Button, Flex, Text, useDefaultLabel } from 'gestalt';
 // import styles from './DateRange.css';
 import InternalDateField from './DateField/InternalDateField.js';
 import borderStyles from './DateRange.css';
@@ -46,12 +46,12 @@ type Props = {|
   localeData?: LocaleData,
   maxDate?: Date,
   minDate?: Date,
+  onCancel: () => void,
   onEndDateChange: ({| value: Date | null |}) => void,
   onEndDateError: ({|
     errorMessage: string,
     value: Date | null,
   |}) => void,
-
   onStartDateChange: ({| value: Date | null |}) => void,
   onStartDateError: ({|
     errorMessage: string,
@@ -74,6 +74,7 @@ function DateRange({
   localeData,
   maxDate,
   minDate,
+  onCancel,
   onEndDateChange,
   onEndDateError,
   onStartDateChange,
@@ -86,6 +87,8 @@ function DateRange({
   if (!startDateValue && endDateValue) {
     onEndDateChange({ value: null });
   }
+
+  const { applyText, cancelText } = useDefaultLabel('DateRange');
 
   return (
     <Box rounding={4} color="default" borderStyle="shadow" minHeight={425} display="inlineBlock">
@@ -158,18 +161,23 @@ function DateRange({
               />
             </Box>
             <Flex.Item alignSelf="end">
-              <Box marginBottom={4} marginEnd={4}>
-                <Button
-                  text="Apply"
-                  disabled={
-                    !!endDateErrorMessage ||
-                    !!startDateErrorMessage ||
-                    !endDateValue ||
-                    !startDateValue
-                  }
-                  onClick={() => onSubmit()}
-                />
-              </Box>
+              <Flex gap={2}>
+                <Box marginBottom={4} marginEnd={4}>
+                  <Button color="transparent" text={cancelText} onClick={() => onCancel()} />
+                </Box>
+                <Box marginBottom={4} marginEnd={4}>
+                  <Button
+                    text={applyText}
+                    disabled={
+                      !!endDateErrorMessage ||
+                      !!startDateErrorMessage ||
+                      !endDateValue ||
+                      !startDateValue
+                    }
+                    onClick={() => onSubmit()}
+                  />
+                </Box>
+              </Flex>
             </Flex.Item>
           </Flex>
         </Box>

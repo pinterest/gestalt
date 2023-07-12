@@ -19,6 +19,8 @@ export default function Example(): Node {
         setEndErrorMessage(errorMessage ? 'Please, enter a valid date' : null)
       }
       startDateValue={startDate}
+      onSubmit={() => {}}
+      onCancel={() => {}}
     />
   );
 }
