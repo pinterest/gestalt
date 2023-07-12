@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Link, List, SlimBanner, Table, Text } from 'gestalt';
+import { Box, Link, List, SlimBanner, Table, Text } from 'gestalt';
 import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 import getByPlatform from './data/utils/getByPlatform.js';
@@ -108,9 +108,10 @@ export default function QualityChecklist({ component }: Props): Node {
                           {internalDocUrl ? (
                             <List.Item
                               text={
-                                <Text>
+                                <Text inline>
                                   <Link
                                     href={internalDocUrl}
+                                    display="inline"
                                     underline="always"
                                     externalLinkIcon="default"
                                     target="blank"
@@ -118,6 +119,7 @@ export default function QualityChecklist({ component }: Props): Node {
                                   >
                                     Document link
                                   </Link>
+                                  <InternalOnlyIconButton />
                                 </Text>
                               }
                             />
