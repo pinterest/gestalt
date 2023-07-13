@@ -856,7 +856,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'Line clamp truncation',
               description:
-                'When "lineClamp" prop is set to 1, Heading truncates  strings containing long strings of characters incorrectly.',
+                'When the "lineClamp" prop is set to 1, text with long strings of characters might be truncated incorrectly.',
               codesandboxUrl:
                 'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example.js',
             },
@@ -1501,7 +1501,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'Incorrect positioning and dimensions',
               description:
-                'Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document below to see if your issue is already documented.',
+                'Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
               internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
             },
           ],
@@ -2160,7 +2160,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'Line clamp truncation',
               description:
-                'When "lineClamp" prop is set to 1, Text truncates strings containing long strings of characters incorrectly.',
+                'When the "lineClamp" prop is set to 1, text with long strings of characters might be truncated incorrectly',
               codesandboxUrl:
                 'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example.js',
             },

@@ -85,7 +85,7 @@ export default function QualityChecklist({ component }: Props): Node {
                             {codesandboxUrl ? (
                               <Text inline>
                                 <Link
-                                  accessibilityLabel={`Codesandbox example:${title} issue`}
+                                  accessibilityLabel={`Example in CodeSandbox :${title} issue`}
                                   href={codesandboxUrl}
                                   underline="always"
                                   externalLinkIcon="default"
@@ -93,7 +93,7 @@ export default function QualityChecklist({ component }: Props): Node {
                                   rel="nofollow"
                                   display="inline"
                                 >
-                                  Codesandbox example
+                                  Example in CodeSandbox
                                 </Link>
                               </Text>
                             ) : null}
