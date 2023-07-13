@@ -41,30 +41,69 @@ type Props = {|
   /**
    * Prop description.
    */
-  endDateValue: Date | null,
   endDateErrorMessage?: string | null,
+  /**
+   * Prop description.
+   */
+  endDateValue: Date | null,
+  /**
+   * Prop description.
+   */
   localeData?: LocaleData,
+  /**
+   * Prop description.
+   */
   maxDate?: Date,
+  /**
+   * Prop description.
+   */
   minDate?: Date,
+  /**
+   * Prop description.
+   */
   onCancel: () => void,
+  /**
+   * Prop description.
+   */
   onEndDateChange: ({| value: Date | null |}) => void,
+  /**
+   * Prop description.
+   */
   onEndDateError: ({|
     errorMessage: string,
     value: Date | null,
   |}) => void,
+  /**
+   * Prop description.
+   */
   onStartDateChange: ({| value: Date | null |}) => void,
+  /**
+   * Prop description.
+   */
   onStartDateError: ({|
     errorMessage: string,
     value: Date | null,
   |}) => void,
+  /**
+   * Prop description.
+   */
   onSubmit: () => void,
+  /**
+   * Prop description.
+   */
   radioGroup?: Node,
+  /**
+   * Prop description.
+   */
   startDateValue: Date | null,
+  /**
+   * Prop description.
+   */
   startDateErrorMessage?: string | null,
 |};
 
 /**
- * [DateRange] https://gestalt.pinterest.systems/web/daterange component should be used for ... on the page.
+ * [DateRange](https://gestalt.pinterest.systems/web/daterange) component should be used for ... on the page.
  * ![DateRange light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange.spec.mjs-snapshots/DateRange-chromium-darwin.png)
  * ![DateRange dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange-dark.spec.mjs-snapshots/DateRange-dark-chromium-darwin.png)
  */

@@ -45,6 +45,7 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
+import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import disabledFuture from '../../examples/daterange/disabledFuture.js';
 import disabledPast from '../../examples/daterange/disabledPast.js';
@@ -217,6 +218,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           </Flex>
         </MainSection.Subsection>
       </MainSection>
+      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }
