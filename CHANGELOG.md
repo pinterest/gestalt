@@ -1,3 +1,9 @@
+## 117.4.1 (Jul 13, 2023)
+
+### Patch
+
+- Docs: Added Issues section for Text, Heading within Component quality checklist ([#3070](https://github.com/pinterest/gestalt/pull/3070)) - [Preview link](https://deploy-preview-3070--gestalt.netlify.app?devexample=true)
+
 ## 117.4.0 (Jul 12, 2023)
 
 ### Minor
