@@ -103,7 +103,8 @@ type Props = {|
 |};
 
 /**
- * [DateRange](https://gestalt.pinterest.systems/web/daterange) component should be used for ... on the page.
+ * [DateRange](https://gestalt.pinterest.systems/web/daterange) component should be used for selecting date ranges.
+ *
  * ![DateRange light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange.spec.mjs-snapshots/DateRange-chromium-darwin.png)
  * ![DateRange dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange-dark.spec.mjs-snapshots/DateRange-dark-chromium-darwin.png)
  */
