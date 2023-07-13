@@ -58,6 +58,12 @@ export type ComponentStatus = {|
   mobileAdaptive?: StatusType,
   responsive?: StatusType,
   status: StatusType | 'deprecated',
+  knownIssues?: $ReadOnlyArray<{|
+    title: string,
+    description: string,
+    codesandboxUrl?: string,
+    internalDocUrl?: string,
+  |}>,
 |};
 
 export type PlatformData = {|
