@@ -3,6 +3,44 @@
     "year": "2023",
     "digests": [
       {
+        "week": "July 7, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Support for Text type in Callout component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": "Callout's `message` prop now supports types of `string` and `Text` to enable rich text (e.g., bold, italic)."
+          },
+          {
+            "title": "Updated $selected-strong and $selected-weak color token values",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": "The color values for $color-background-selected-strong and $color-background-selected-weak were inadvertently inverted according to our color guidelines. We were able to address that issue this week."
+          },
+          {
+            "title": "Box: add support for <p> in as",
+            "audience": ["Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": ""
+          },
+          {
+            "title": "Docs improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "",
+            "imageAltText": "",
+            "content": "* Docs: update status for several components * Sandpack migrations"
+          }
+        ]
+      },
+      {
         "month": "June",
         "summary": "",
         "posts": [
