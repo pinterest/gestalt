@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Link, List, SlimBanner, Status, Table, Text } from 'gestalt';
+import { Flex, Link, SlimBanner, Status, Table, Text } from 'gestalt';
 import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
 import getByPlatform from './data/utils/getByPlatform.js';
@@ -74,60 +74,49 @@ export default function QualityChecklist({ component }: Props): Node {
                 accessibilityCollapseLabel="Collapse"
                 id="known_issues"
                 expandedContents={
-                  <List labelDisplay="hidden" label="Known issues for component" type="unordered">
+                  <Flex direction="column" gap={6}>
                     {data?.status.knownIssues.map(
-                      ({ title, description, codesandboxUrl, internalDocUrl }, idx) => (
-                        <List.Item
-                          key={`${idx + title}`}
-                          text={
-                            <Text inline>
-                              <Text weight="bold" inline>
-                                {title}.{' '}
-                              </Text>
-                              <Text inline>{description}</Text>
+                      ({ title, description, codesandboxUrl, internalDocUrl }) => (
+                        <Flex key={title} gap={1} direction="column">
+                          <Flex gap={2}>
+                            <Text weight="bold" inline>
+                              {title}
                             </Text>
-                          }
-                        >
-                          {codesandboxUrl ? (
-                            <List.Item
-                              text={
-                                <Text>
-                                  <Link
-                                    href={codesandboxUrl}
-                                    underline="always"
-                                    externalLinkIcon="default"
-                                    target="blank"
-                                    rel="nofollow"
-                                  >
-                                    Codesandbox link
-                                  </Link>
-                                </Text>
-                              }
-                            />
-                          ) : null}
-                          {internalDocUrl ? (
-                            <List.Item
-                              text={
-                                <Text inline>
-                                  <Link
-                                    href={internalDocUrl}
-                                    display="inline"
-                                    underline="always"
-                                    externalLinkIcon="default"
-                                    target="blank"
-                                    rel="nofollow"
-                                  >
-                                    Document link
-                                  </Link>
-                                  <InternalOnlyIconButton />
-                                </Text>
-                              }
-                            />
-                          ) : null}
-                        </List.Item>
+                            {codesandboxUrl ? (
+                              <Text inline>
+                                <Link
+                                  href={codesandboxUrl}
+                                  underline="always"
+                                  externalLinkIcon="default"
+                                  target="blank"
+                                  rel="nofollow"
+                                  display="inline"
+                                >
+                                  Codesandbox example
+                                </Link>
+                              </Text>
+                            ) : null}
+                            {internalDocUrl ? (
+                              <Text inline>
+                                <Link
+                                  href={internalDocUrl}
+                                  underline="always"
+                                  externalLinkIcon="default"
+                                  target="blank"
+                                  rel="nofollow"
+                                  display="inline"
+                                >
+                                  Internal document
+                                </Link>
+                                <InternalOnlyIconButton />
+                              </Text>
+                            ) : null}
+                          </Flex>
+                          <Text>{description}</Text>
+                        </Flex>
                       ),
                     )}
-                  </List>
+                  </Flex>
                 }
               >
                 <Table.Cell>
