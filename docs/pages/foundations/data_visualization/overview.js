@@ -112,7 +112,7 @@ export default function GuidelinesPage(): Node {
         <Box width="100%" marginBottom={8} marginTop={-8}>
           <MainSection.Subsection
             description={`
-        People may rely on a product dashboard to analyze and gain insights or to come up with a sales and advertising strategy. Regardless of the intent, the layout should be structured starting with the most significant and ending with the most significant details, depending on the viewer’s role. For example, a campaign manager might see a dashboard as follows:
+        People may rely on a product dashboard to analyze and gain insights or to come up with a sales and advertising strategy. Regardless of the intent, the layout should be structured starting with the most significant and ending with the least significant details, depending on the viewer’s role. For example, a campaign manager might see a dashboard as follows:
         1. Show the significant details first. This is usually done with a chart or graph.
         2. Next, provide scannable details in a table, that can then be drilled into further if needed.
         3. End with secondary background information. Here, we often find a combination of tables, lists and smaller visualizations.
