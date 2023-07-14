@@ -1,7 +1,6 @@
 // @flow strict-local
-import { type Node } from 'react';
-import { Box, Button, Flex, Text, useDefaultLabel } from 'gestalt';
-// import styles from './DateRange.css';
+import { type Element, type Node, useId } from 'react';
+import { Box, Button, Flex, RadioGroup, Text, useDefaultLabel } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 import borderStyles from './DateRange.css';
 import InternalDatePicker from './DateRange/InternalDatePicker.js';
@@ -119,7 +118,7 @@ type Props = {|
   /**
    * An optional RadioGroup to provide preestablished date range options. See the [with RadioGroup variant](https://gestalt.pinterest.systems/web/daterange#With-RadioGroup) to learn more.
    */
-  radioGroup?: Node,
+  radioGroup?: Element<typeof RadioGroup>,
   /**
    * DateRange is a controlled component. `startDateValue` sets the value of the start date.  See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
@@ -157,6 +156,8 @@ function DateRange({
   startDateValue,
   startDateErrorMessage,
 }: Props): Node {
+  const componentId = useId();
+
   if (!startDateValue && endDateValue) {
     onEndDateChange({ value: null });
   }
@@ -181,7 +182,7 @@ function DateRange({
                   <InternalDateField
                     autoComplete="off"
                     mobileEnterKeyHint="enter"
-                    id="datefield-start"
+                    id={`datefield-start-${componentId}`}
                     localeData={localeData}
                     onChange={({ value }) => {
                       if (value?.getTime() || value === null) onStartDateChange({ value });
@@ -202,7 +203,7 @@ function DateRange({
                   <InternalDateField
                     autoComplete="off"
                     mobileEnterKeyHint="enter"
-                    id="datefield-end"
+                    id={`datefield-end-${componentId}`}
                     localeData={localeData}
                     onChange={({ value }) => {
                       if (value?.getTime() || value === null) onEndDateChange({ value });
@@ -225,7 +226,7 @@ function DateRange({
                 localeData={localeData}
                 rangeStartDate={startDateValue}
                 rangeEndDate={endDateValue}
-                id="datepicker-start"
+                id={`datepicker-${componentId}`}
                 onChange={({ startDate, endDate }) => {
                   onStartDateChange({ value: startDate });
                   onEndDateChange({ value: endDate });
