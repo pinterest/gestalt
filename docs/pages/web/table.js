@@ -514,7 +514,8 @@ When Table.RowExpandable is uncontrolled, use the clickable expand/collapse icon
 
         <MainSection.Subsection
           title="Sortable header cells"
-          description="Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column."
+          description={`Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column.  <br/>
+          Depending on the table contents, use the \`align\` property to set the alignment of the header cell and sort icon position.`}
         >
           <MainSection.Card
             cardSize="lg"

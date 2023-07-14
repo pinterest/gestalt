@@ -7,7 +7,7 @@ import TapArea from './TapArea.js';
 
 type Props = {|
   /**
-   * Sets the alignment of the cell content
+   * Sets the alignment of the cell content and reverses the sort icon position.
    */
   align?: 'start' | 'end',
   /**
