@@ -610,7 +610,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-
+  {
+    id: 'Datapoint',
+    platform: {
+      web: {
+        name: 'Datapoint',
+        visual: {
+          svg: <Datapoint />,
+        },
+        description: 'Datapoint displays at-a-glance data for a user to quickly view key metrics',
+        category: ['Indicators'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
   {
     id: 'DateRange',
     platform: {
