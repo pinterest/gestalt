@@ -1,3 +1,9 @@
+## 117.4.2 (Jul 14, 2023)
+
+### Patch
+
+- Docs: cleaned up Android sheet docs ([#3072](https://github.com/pinterest/gestalt/pull/3072)) - [Preview link](https://deploy-preview-3072--gestalt.netlify.app?devexample=true)
+
 ## 117.4.1 (Jul 13, 2023)
 
 ### Patch
