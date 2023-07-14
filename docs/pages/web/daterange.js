@@ -164,7 +164,14 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
       </MainSection>
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="Implementation" description="">
+        <MainSection.Subsection
+          title="Controlled component"
+          description={`
+DateRange is a controlled component. Follow the implementation in the example to implement a controlled DateRange correctly.
+
+When there’s not a date range selected, the call-to-action disables to prevent user errors.
+          `}
+        >
           <MainSection.Card
             cardSize="md"
             sandpackExample={
@@ -176,7 +183,10 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="With RadioGroup" description="">
+        <MainSection.Subsection
+          title="With RadioGroup"
+          description="This variant allow users to select common options of date ranges, so they can select an option without having to navigate through the calendar picker."
+        >
           <MainSection.Card
             cardSize="md"
             title="Future selection"
@@ -199,7 +209,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
 
         <MainSection.Subsection
           title="Error messaging"
-          description="DateRange can communicate input errors to the user. Use `startDateErrorMessage`, `endDateErrorMessage` and `onStartDateChange`, `onEndDateChange` to implement it correctly."
+          description="DateRange can communicate errors when the user selects an invalid date. Use `startDateErrorMessage`, `endDateErrorMessage` and `onStartDateChange`, `onEndDateChange` to implement error messaging correctly."
         >
           <MainSection.Card
             cardSize="md"
@@ -210,7 +220,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Disable future & past"
-          description="DateRange supports disabling future & past dates from being selected."
+          description="DateField supports disabling future and past dates from being selected."
         >
           <MainSection.Card
             cardSize="md"
