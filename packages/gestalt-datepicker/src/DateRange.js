@@ -39,65 +39,65 @@ type LocaleData = {|
 
 type Props = {|
   /**
-   * Prop description.
+   * Customize your error message for the cases the user enters invalid end dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   endDateErrorMessage?: string | null,
   /**
-   * Prop description.
+   * DateRange is a controlled component. `startDateValue` sets the value of the start date.  See the [controlled component example](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   endDateValue: Date | null,
   /**
-   * Prop description.
+   * DateRange accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datefield#localeData) to learn more.
    */
   localeData?: LocaleData,
   /**
-   * Prop description.
+   * Maximal selectable date. Disables any date values after the provided date. See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-future-and-past) to learn more.
    */
   maxDate?: Date,
   /**
-   * Prop description.
+   * Minimal selectable date. Disables any date values before the provided date.  See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-future-and-past) to learn more.
    */
   minDate?: Date,
   /**
-   * Prop description.
+   * Callback triggered when the user clicks the Cancel button to not persist the selected dates. It should close DateRange. See the [controlled component example](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   onCancel: () => void,
   /**
-   * Prop description.
+   * DateField is a controlled component. `onEndDateChange` is the  callback triggered when the end date value changes. Should be used to modify the controlled value. See the [controlled component example](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   onEndDateChange: ({| value: Date | null |}) => void,
   /**
-   * Prop description.
+   * Callback triggered when the end date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onEndDateError: ({|
     errorMessage: string,
     value: Date | null,
   |}) => void,
   /**
-   * Prop description.
+   * DateField is a controlled component. `onStartDateChange` is the  callback triggered when the start date value changes. Should be used to modify the controlled value. See the [controlled component example](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   onStartDateChange: ({| value: Date | null |}) => void,
   /**
-   * Prop description.
+   * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onStartDateError: ({|
     errorMessage: string,
     value: Date | null,
   |}) => void,
   /**
-   * Prop description.
+   * Callback triggered when the user clicks the Apply button to persist the selected dates. It should persist the dates selected and close the DateRange. See the [controlled component example](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   onSubmit: () => void,
   /**
-   * Prop description.
+   * An optional RadioGroup to provide preestablished date range options. See the [with RadioGroup variant](https://gestalt.pinterest.systems/web/daterange#With-RadioGroup) to learn more.
    */
   radioGroup?: Node,
   /**
-   * Prop description.
+   * DateRange is a controlled component. `startDateValue` sets the value of the start date.  See the [controlled component example](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   startDateValue: Date | null,
   /**
-   * Prop description.
+   * Customize your error message for the cases the user enters invalid start dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   startDateErrorMessage?: string | null,
 |};
