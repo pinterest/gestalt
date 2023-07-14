@@ -7,6 +7,10 @@ import TapArea from './TapArea.js';
 
 type Props = {|
   /**
+   * Sets the alignment of the cell content
+   */
+  align?: 'start' | 'end',
+  /**
    * The content of the table cell.
    */
   children: Node,
@@ -59,6 +63,7 @@ type Props = {|
  * Use [Table.SortableHeaderCell](https://gestalt.pinterest.systems/web/table#Table.SortableHeaderCell) to define a header cell with sorting functionality in Table.
  */
 export default function TableSortableHeaderCell({
+  align = 'start',
   children,
   colSpan,
   onSortChange,
@@ -97,7 +102,14 @@ export default function TableSortableHeaderCell({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         >
-          <Box display="flex" alignItems="center">
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent={align}
+            dangerouslySetInlineStyle={{
+              __style: { flexDirection: align === 'end' ? 'row-reverse' : 'row' },
+            }}
+          >
             {children}
             <Box
               marginStart={2}

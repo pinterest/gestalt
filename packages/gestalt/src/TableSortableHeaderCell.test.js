@@ -23,3 +23,14 @@ test('renders correctly when active', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('sortable cell has end align', () => {
+  const tree = renderer
+    .create(
+      <TableSortableHeaderCell align="end" sortOrder="asc" status="active" onSortChange={() => {}}>
+        column name
+      </TableSortableHeaderCell>,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
