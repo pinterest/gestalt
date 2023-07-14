@@ -177,9 +177,6 @@ function DateRange({
                     minDate={startDateValue}
                     onError={({ errorMessage, value }) => {
                       onEndDateError({ errorMessage, value });
-                      if (errorMessage === 'minDate') {
-                        onEndDateChange({ value: null });
-                      }
                     }}
                     maxDate={maxDate}
                     errorMessage={endDateErrorMessage}
