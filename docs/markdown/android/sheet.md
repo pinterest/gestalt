@@ -4,7 +4,7 @@ description: Sheets are bottom-anchored overlays that that allow the user to eas
 fullwidth: true
 ---
 
-<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/11/ab/a3/11aba3afb1a02f7d604d1bf22424b5ec.png" alt="Example of a sheet receding off the view of the image"/>
+<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/fd/6e/db/fd6edb6190b3b20a78ceff1ea7c799c4.png" alt="Example of a sheet receding off the view of the image"/>
 
 ## Usage guidelines
 
@@ -13,7 +13,7 @@ fullwidth: true
     <Do title="When to use" />
       - Performing an optional sub-task within a larger task
       - Presenting help info while maintaining the current page and its context
-      - Requesting minimal amounts of information froma user (1-2 fields only)
+      - Requesting minimal amounts of information from a user (1-2 fields only)
       - Capturing user’s full attention for something important
   </Group>
   <Group>
@@ -33,12 +33,12 @@ fullwidth: true
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/ce/13/94/ce1394f470a86edaeb29978641c7c6e4.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/30/a6/ad/30a6ad96aca8c75257fa114322da9695.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
     Provide a collapse or a close affordance&mdash;multiple if possible. This could include an X, back arrow, grabber or close button.
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/70/95/9b/70959b4f5d631bcbe014135dbeaf661d.png" alt="a partial sheet with a button in the top right corner of the header"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/90/a5/20/90a520154834ee4d9a1eea0b6dd9ed20.png" alt="a partial sheet with a button in the top right corner of the header"/>
     <Dont title="Don't" />
     Include Buttons in the header of Sheet as this can lead to sizing and internationalization problems.
   </Group>
@@ -46,11 +46,11 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/5a/7b/1c/5a7b1c7de2a285aaabfeba183b7ded6c.png" alt="a partial sheet with a grabber to help resize"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/78/09/18/7809189c7e2b229302f9325ca245e5d7.png" alt="a partial sheet with a grabber to help resize"/>
     <Do title="Do" />Utilize a grabber for Partial sheets that are able to be resized.
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/66/b4/aa/66b4aa9ed823011e68c640174f62e2f2.png" alt="a full sheet with rounded corners"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/7e/67/ab/7e67ab782d7cfc7441a7d790ce1c9924.png" alt="a full sheet with rounded corners"/>
     <Dont title="Don't" />
     Round the corners of full sheets. Only Partial and Action sheets should have rounded corners.
   </Group>
@@ -70,12 +70,33 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 <TwoCol>
 <Group>
 <iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A35498%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-**Full sheet**
 </Group>
 
 <Group>
+**Full sheet**
+1. Sheet container
+2. Close icon button
+3. Header/Sheet title
+4. Navigation icon button or button
+5. Composable content area 
+6. Composable footer
+</Group>
+</TwoCol>
+
+<TwoCol>
+<Group>
 <iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A34240%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+</Group>
+<Group>
 **Partial sheet**
+1. Sheet container
+2. Grabber
+3. Close icon button
+4. Header/Sheet title
+5. Navigation icon button or button
+6. Composable content area 
+7. Composable footer
+8. (Optional) Scrim wash
 </Group>
 </TwoCol>
 
@@ -92,12 +113,12 @@ Sheets are available in two sizes.
 
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A35799%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A34025%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 **Partial sheet**
 </Group>
 
 <Group>
-<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A34025%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A35799%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 **Full sheet**
 </Group>
 </TwoCol>
@@ -109,31 +130,40 @@ Sheet footers are optional for both partial and full sheets.
 <TwoCol>
 <Group>
 <iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20848%253A47234%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-**Full sheet**
+**Partial sheet**
 </Group>
 
 <Group>
 <iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19415%253A36388%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-**Partial sheet**
+**Full sheet**
 </Group>
 </TwoCol>
 
+### With wash
+
+The Partial Sheet may be used with an optional background wash. Full sheet does not use a wash.
+<br/>
+<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/69/ae/8d/69ae8db0839d832bbabd09f1265a0ac3.png" alt="Example of a sheet receding off the view of the image"/>
+<br/>
+
 ### Navigation
 
-Sheets can utilize several navigation actions.
+Sheets can utilize several navigation actions. To improve accessibility, it is advised to use at least two different navigation elements per sheet.
 
 1. **Close**
    To close a sheet, use an icon button in the top left corner with the “close” icon.
+
 2. **Back**
-   To return to a previous screen, use an icon button in the top left corner with an “arrow-back” icon.
+   On Android, to return to a previous screen, use an icon button in the top left corner with an “directional-arrow-left” icon.
 
 3. **Button**
-   An inline Button can be used for a variety of purposes, back, close, next, save, etc.
+   An inline Button is available for a variety of purposes, back, close, next, save, etc. However we advise caution when using due to potential localization issues. 
 
 4. **Grabber**
-   A Grabber is a short gray line at the top of the sheet that tells the user that the sheet can be collapsed or expanded.
-5. **Outside click**
-   For the Partial Sheet and Action Sheet the user may be able to tap outside of the sheet to exit.
+   A Grabber is a short gray line at the top of the sheet that tells the user that the sheet can be dragged to either collapse of expand.
+
+5. **Outside tap**
+   For the Partial Sheet, the user may be able to tap outside of the sheet to exit.
 
 ## Color
 <iframe style={{border:0}} width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19400%253A35930%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
@@ -141,7 +171,7 @@ Sheets can utilize several navigation actions.
 ## Localization
 Be sure to localize the header, body content and any footer items. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
-<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/d3/3d/f0/d33df0c4e7fcfa4847785dfd23602e42.png" alt="Example of a sheet receding off the view of the image"/>
+<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/e8/49/65/e849656ad7870ca554554a73723c0b28.png" alt="Example of a sheet receding off the view of the image"/>
 
 ## Animation
 By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
