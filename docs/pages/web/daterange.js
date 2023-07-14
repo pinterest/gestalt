@@ -209,7 +209,11 @@ When there’s not a date range selected, the call-to-action disables to prevent
 
         <MainSection.Subsection
           title="Error messaging"
-          description="DateRange can communicate errors when the user selects an invalid date. Use `startDateErrorMessage`, `endDateErrorMessage` and `onStartDateChange`, `onEndDateChange` to implement error messaging correctly."
+          description={`
+DateRange can communicate errors when the user selects an invalid date. Use \`startDateErrorMessage\`, \`endDateErrorMessage\` and \`onStartDateChange\`, \`onEndDateChange\`. \`onStartDateBlur\`, \`onStartDateFocus\`, \`onEndDateBlur\`, \`onEndDateFocus\` to implement error messaging correctly.
+
+The following implementation shows how to use all required props for error messaging.
+          `}
         >
           <MainSection.Card
             cardSize="md"
