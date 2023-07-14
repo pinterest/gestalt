@@ -1,3 +1,9 @@
+## 117.4.3 (Jul 14, 2023)
+
+### Patch
+
+- Docs: Fix typo in overview ([#3074](https://github.com/pinterest/gestalt/pull/3074)) - [Preview link](https://deploy-preview-3074--gestalt.netlify.app?devexample=true)
+
 ## 117.4.2 (Jul 14, 2023)
 
 ### Patch
