@@ -100,14 +100,14 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        badge="experimental"
+        badge="pilot"
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         slimBanner={
           <SlimBanner
             type="warning"
             iconAccessibilityLabel="Warning message"
-            message="daterange is an experimental component. Expect development and design iteration, breaking API changes or even component deprecation."
+            message="DateRange is an pilot component. Expect development and design iteration and breaking API changes."
           />
         }
       >
