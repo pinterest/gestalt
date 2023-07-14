@@ -262,6 +262,24 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
 
+      <MainSection name="Writing">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description={`
+- Use concise labels to indicate what the date range selection is referring to`}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description={`
+- Add long and complicated labels to the date range picker and to the RadioGroup labels
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
