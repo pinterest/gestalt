@@ -59,7 +59,7 @@ type Props = {|
    */
   minDate?: Date,
   /**
-   * Callback triggered when the user clicks the Cancel button to not persist the selected dates. It should close DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
+   * Callback triggered when the user clicks the Cancel button to not persist the selected dates. It should be used to close DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   onCancel: () => void,
   /**
@@ -85,7 +85,7 @@ type Props = {|
     value: Date | null,
   |}) => void,
   /**
-   * Callback triggered when the user clicks the Apply button to persist the selected dates. It should persist the dates selected and close the DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
+   * Callback triggered when the user clicks the Apply button to persist the selected dates. It should be used to persist the dates selected and close the DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   onSubmit: () => void,
   /**
