@@ -52,8 +52,8 @@ export default function Example(): Node {
             <DateRange
               endDateValue={endDate}
               onEndDateChange={({ value }) => setEndDate(value)}
-              onEndDateError={({ errorMessage, value }) => console.log(errorMessage, value)}
-              onStartDateError={({ errorMessage, value }) => console.log(errorMessage, value)}
+              onEndDateError={() => {}}
+              onStartDateError={() => {}}
               onStartDateChange={({ value }) => setStartDate(value)}
               onSubmit={() => {
                 if (startDate && endDate) setSelectedDates([startDate, endDate]);
