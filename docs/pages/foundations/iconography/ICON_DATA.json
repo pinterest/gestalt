@@ -351,6 +351,12 @@
       "keywords": ["insert", "tag", "developer", "development"]
     },
     {
+      "name": "code-checked",
+      "categories": ["Utility and tools"],
+      "description": "Indicates that a code view is on",
+      "keywords": ["insert", "tag", "developer", "development"]
+    },
+    {
       "name": "cog",
       "categories": ["Utility and tools"],
       "description": "Indicates setting options are available",
