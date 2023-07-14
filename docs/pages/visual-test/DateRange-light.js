@@ -6,7 +6,7 @@ import { DateRange } from 'gestalt-datepicker';
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" padding={1} width={600}>
+      <Box color="default" padding={2} width={675}>
         <DateRange
           startDateValue={null}
           endDateValue={null}
