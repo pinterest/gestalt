@@ -40,7 +40,7 @@ import {
 } from 'date-fns/locale';
 import { Flex, SelectList, SlimBanner } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -121,6 +121,48 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
+      <MainSection name="Usage guidelines">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            type="do"
+            title="When to use"
+            description={`
+- When asking users to select past, present or future date ranges
+- When users can pick between pre-selected date ranges or input a custom date range
+`}
+          />
+          <MainSection.Card
+            type="don't"
+            title="When not to use"
+            description={`
+- When users need to select one specific day. Use [DatePicker](/web/datepicker) instead
+- When users need to input a date value with a numeric keyboard, for example when adding a birthday date. Use [DateField](/datefield) instead
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Best practices">
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            type="do"
+            title="Do"
+            description={`
+- Disable future or past dates according to the use case. If the user would like to see predictions, for example, disable the past.
+- When possible, provide a list of applicable date ranges to facilitate user selection
+`}
+          />
+          <MainSection.Card
+            type="don't"
+            title="Don't"
+            description={`
+- Enable users to select dates in the future or past, if those dates are not a valid input
+- Provide a long of a list of applicable date ranges with confusing labels, to avoid confusing the user. Display concise options and in a logical order.
+`}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection title="Implementation" description="">
           <MainSection.Card
@@ -187,7 +229,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Supporting locales"
-          description="Select a locale to see DataRange's selected localer support."
+          description="Select the correct locale to see DataRange's selected locale support."
         >
           <Flex gap={4} direction="column" flex="none">
             <SelectList
@@ -219,16 +261,26 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
+**[DateField](/web/datefield)**
+DateField is used when the user has to select a date. Compared to DatePicker, DateField has no supporting calendar to select a date, the user must input date values with a numeric keyboard.
+`}
+        />
+        <MainSection.Subsection
+          description={`
+**[DatePicker](/web/datepicker)**
+DatePicker is used when the user has to select a date.  Compared to DateField, DatePicker has a supporting calendar to select a date.`}
+        />
+      </MainSection>
     </Page>
   );
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   return {
-    props: {
-      generatedDocGen: await docgen({
-        componentName: 'DateRange',
-      }),
-    },
+    props: { generatedDocGen: await docGen('DateRange') },
   };
 }

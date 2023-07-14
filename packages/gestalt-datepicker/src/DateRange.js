@@ -103,7 +103,8 @@ type Props = {|
 |};
 
 /**
- * [DateRange](https://gestalt.pinterest.systems/web/daterange) component should be used for selecting date ranges.
+ * [DateRange](https://gestalt.pinterest.systems/web/daterange) enables users to preview and select a range of days by picking dates from a calendar or adding a text input.
+ * DateRange is distributed in its own package and must be installed separately.
  *
  * ![DateRange light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange.spec.mjs-snapshots/DateRange-chromium-darwin.png)
  * ![DateRange dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateRange-dark.spec.mjs-snapshots/DateRange-dark-chromium-darwin.png)
