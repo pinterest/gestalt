@@ -1800,7 +1800,7 @@ interface TableHeaderCellProps {
 }
 
 interface TableSortableHeaderCellProps {
-  align?:'start'|'end';
+  align?: 'start' | 'end';
   children: Node;
   onSortChange: AbstractEventHandler<
     React.MouseEvent<HTMLTableCellElement> | React.KeyboardEvent<HTMLTableCellElement>
