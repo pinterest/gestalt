@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, Flex, IconButton, Link, Sticky, Tabs, Text } from 'gestalt';
+import { Badge, Box, Flex, IconButton, Link, Sticky, Tabs, Text } from 'gestalt';
 import { useAppContext } from './appContext.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import DocSearch from './DocSearch.js';
@@ -80,6 +80,10 @@ function Header() {
   }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
+
+  const devExampleModeButtonLabel = `Toggle dev example mode ${
+    devExampleMode === 'default' ? 'off' : 'on'
+  }`;
 
   const darkModeButtonLabel = `Toggle ${colorScheme === 'dark' ? 'light' : 'dark'} mode`;
   const onChangeColorScheme = () => {
@@ -172,12 +176,42 @@ function Header() {
         </Box>
 
         <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
-          <Flex gap={3}>
+          <Flex alignItems="center" gap={3}>
+            {devExampleMode === 'default' ? (
+              <Badge
+                text="Dev mode"
+                position="middle"
+                type="info"
+                tooltip={{
+                  text: 'You are currently in dev mode, which allows you to see dev-only examplepreviews.',
+                  idealDirection: 'down',
+                  accessibilityLabel: '',
+                  zIndex: PAGE_HEADER_POPOVER_ZINDEX,
+                }}
+              />
+            ) : null}
+            {showDevelopmentEditorSwitch && (
+              <IconButton
+                accessibilityLabel="Toggle dev example mode"
+                icon={devExampleMode === 'development' ? 'code' : 'code-checked'}
+                size="sm"
+                onClick={onChangeDevExampleMode}
+                selected={devExampleMode === 'default'}
+                tooltip={{
+                  text: devExampleModeButtonLabel,
+                  inline: true,
+                  idealDirection: 'down',
+                  accessibilityLabel: '',
+                  zIndex: PAGE_HEADER_POPOVER_ZINDEX,
+                }}
+              />
+            )}
             <IconButton
               accessibilityLabel={darkModeButtonLabel}
               iconColor="darkGray"
               icon={colorScheme === 'dark' ? 'sun' : 'moon'}
-              size="md"
+              selected={colorScheme === 'dark'}
+              size="sm"
               onClick={onChangeColorScheme}
               tooltip={{
                 text: darkModeButtonLabel,
@@ -187,23 +221,6 @@ function Header() {
                 zIndex: PAGE_HEADER_POPOVER_ZINDEX,
               }}
             />
-
-            {showDevelopmentEditorSwitch && (
-              <IconButton
-                accessibilityLabel="Toggle dev example mode"
-                iconColor={devExampleMode === 'development' ? 'darkGray' : 'red'}
-                icon={devExampleMode === 'development' ? 'code' : 'code-checked'}
-                size="md"
-                onClick={onChangeDevExampleMode}
-                tooltip={{
-                  text: 'Toggle dev example mode',
-                  inline: true,
-                  idealDirection: 'down',
-                  accessibilityLabel: '',
-                  zIndex: PAGE_HEADER_POPOVER_ZINDEX,
-                }}
-              />
-            )}
           </Flex>
         </Box>
 
