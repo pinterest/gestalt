@@ -21,21 +21,41 @@ export default function SortableHeaderExample(): Node {
         <Table.Header>
           <Table.Row>
             <Table.SortableHeaderCell
-              onSortChange={() => onSortChange('name')}
-              sortOrder={sortOrder}
-              status={sortCol === 'name' ? 'active' : 'inactive'}
-            >
-              <Text weight="bold">Name</Text>
-            </Table.SortableHeaderCell>
-            <Table.SortableHeaderCell
               onSortChange={() => onSortChange('id')}
               sortOrder={sortOrder}
               status={sortCol === 'id' ? 'active' : 'inactive'}
             >
               <Text weight="bold">Id</Text>
             </Table.SortableHeaderCell>
+            <Table.SortableHeaderCell
+              onSortChange={() => onSortChange('name')}
+              sortOrder={sortOrder}
+              status={sortCol === 'name' ? 'active' : 'inactive'}
+            >
+              <Text weight="bold">Name</Text>
+            </Table.SortableHeaderCell>
+
+            <Table.SortableHeaderCell
+              align="end"
+              onSortChange={() => onSortChange('cost')}
+              sortOrder={sortOrder}
+              status={sortCol === 'cost' ? 'active' : 'inactive'}
+            >
+              <Text weight="bold">Cost</Text>
+            </Table.SortableHeaderCell>
           </Table.Row>
         </Table.Header>
+        <Table.Row>
+          <Table.Cell>
+            <Text>123</Text>
+          </Table.Cell>
+          <Table.Cell>
+            <Text>Snax</Text>
+          </Table.Cell>
+          <Table.Cell>
+            <Text align="end">$50</Text>
+          </Table.Cell>
+        </Table.Row>
       </Table>
     </Box>
   );

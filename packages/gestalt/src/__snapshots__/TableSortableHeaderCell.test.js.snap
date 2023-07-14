@@ -183,7 +183,7 @@ exports[`sortable cell has end align 1`] = `
       >
         column name
         <div
-          className="box marginStart2"
+          className="box marginEnd2"
           style={
             Object {
               "visibility": "visible",
