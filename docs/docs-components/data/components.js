@@ -618,7 +618,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         visual: {
           svg: <Datapoint />,
         },
-        description: 'Datapoint displays at-a-glance data for a user to quickly view key metrics',
+        description: 'Datapoint displays at-a-glance data for a user to quickly view key metrics.',
         category: ['Indicators'],
         status: {
           accessible: {
