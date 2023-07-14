@@ -1,3 +1,9 @@
+## 117.4.4 (Jul 14, 2023)
+
+### Patch
+
+- Docs: Header toggle button placement ([#3071](https://github.com/pinterest/gestalt/pull/3071)) - [Preview link](https://deploy-preview-3071--gestalt.netlify.app?devexample=true)
+
 ## 117.4.3 (Jul 14, 2023)
 
 ### Patch
