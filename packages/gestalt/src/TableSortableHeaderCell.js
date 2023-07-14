@@ -81,11 +81,6 @@ export default function TableSortableHeaderCell({
   const shouldShowIcon = status === 'active' || isHovered || isFocused;
   const visibility = shouldShowIcon ? 'visible' : 'hidden';
 
-  const iconMarginProps = {
-    marginStart: align === 'start' ? 2 : undefined,
-    marginEnd: align === 'end' ? 2 : undefined,
-  };
-
   return (
     <TableHeaderCell
       colSpan={colSpan}
@@ -117,7 +112,8 @@ export default function TableSortableHeaderCell({
           >
             {children}
             <Box
-              {...iconMarginProps}
+              marginStart={align === 'start' ? 2 : undefined}
+              marginEnd={align === 'end' ? 2 : undefined}
               dangerouslySetInlineStyle={{
                 __style: { visibility },
               }}
