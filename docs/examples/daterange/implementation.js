@@ -27,7 +27,14 @@ export default function Example(): Node {
             accessibilityLabel="Open calendar"
             icon="edit"
             selected={showComponent}
-            onClick={() => setShowComponent((value) => !value)}
+            onClick={() => {
+              if (!showComponent && selectedDates) {
+                setStartDate(selectedDates[0]);
+                setEndDate(selectedDates[1]);
+              }
+
+              setShowComponent((value) => !value);
+            }}
             ref={anchorRef}
           />
         </Flex>
