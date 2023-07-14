@@ -82,7 +82,7 @@ function Header() {
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
 
   const devExampleModeButtonLabel = `Toggle dev example mode ${
-    devExampleMode === 'default' ? 'off' : 'on'
+    devExampleMode === 'development' ? 'off' : 'on'
   }`;
 
   const darkModeButtonLabel = `Toggle ${colorScheme === 'dark' ? 'light' : 'dark'} mode`;
@@ -177,7 +177,7 @@ function Header() {
 
         <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
           <Flex alignItems="center" gap={3}>
-            {devExampleMode === 'default' ? (
+            {devExampleMode === 'development' ? (
               <Badge
                 text="Dev mode"
                 position="middle"
@@ -193,10 +193,10 @@ function Header() {
             {showDevelopmentEditorSwitch && (
               <IconButton
                 accessibilityLabel="Toggle dev example mode"
-                icon={devExampleMode === 'development' ? 'code' : 'code-checked'}
+                icon={devExampleMode === 'development' ? 'code-checked' : 'code'}
                 size="sm"
                 onClick={onChangeDevExampleMode}
-                selected={devExampleMode === 'default'}
+                selected={devExampleMode === 'development'}
                 tooltip={{
                   text: devExampleModeButtonLabel,
                   inline: true,
