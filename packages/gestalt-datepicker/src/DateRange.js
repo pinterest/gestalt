@@ -1,11 +1,11 @@
 // @flow strict-local
 import { type Element, type Node, useId } from 'react';
-import { Box, Button, Flex, RadioGroup, Text, useDefaultLabel } from 'gestalt';
+import { Box, Button, ButtonGroup, Flex, RadioGroup, Text, useDefaultLabel } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 import borderStyles from './DateRange.css';
 import InternalDatePicker from './DateRange/InternalDatePicker.js';
 
-type LocaleData = {|
+export type LocaleData = {|
   code?: string,
   formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
@@ -196,7 +196,7 @@ function DateRange({
                     errorMessage={startDateErrorMessage}
                   />
                 </Box>
-                <Box dangerouslySetInlineStyle={{ __style: { marginTop: '15px' } }}>
+                <Box display="flex" height="100%" alignItems="center">
                   <Text>—</Text>
                 </Box>
                 <Box width={280}>
@@ -236,7 +236,7 @@ function DateRange({
               />
             </Box>
             <Flex.Item alignSelf="end">
-              <Flex gap={2}>
+              <ButtonGroup>
                 <Box marginBottom={4} marginEnd={4}>
                   <Button color="transparent" text={cancelText} onClick={() => onCancel()} />
                 </Box>
@@ -252,7 +252,7 @@ function DateRange({
                     onClick={() => onSubmit()}
                   />
                 </Box>
-              </Flex>
+              </ButtonGroup>
             </Flex.Item>
           </Flex>
         </Box>

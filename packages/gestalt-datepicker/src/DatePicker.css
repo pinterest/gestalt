@@ -17,7 +17,7 @@
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  padding: 16px;
+  padding: var(--space-300);
   position: relative;
 }
 
@@ -27,7 +27,7 @@
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  padding: 16px;
+  padding: var(--space-300);
   position: relative;
 }
 
@@ -300,7 +300,10 @@ to prevent conflict with another CSS module */
   font-weight: var(--font-weight-normal);
 }
 
-:global ._gestalt ._gestalt_daterange .react-datepicker__month-container:last-child {
+:global
+  ._gestalt
+  ._gestalt_daterange
+  .react-datepicker__month-container:last-child {
   margin-left: 37px;
 }
 
