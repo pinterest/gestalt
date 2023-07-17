@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { id } from 'date-fns/locale';
+import { DeviceTypeProvider } from 'gestalt';
 import DateRange from './DateRange.js';
 
 function DateFieldWrap({
@@ -44,6 +45,16 @@ function DateFieldWrap({
 describe('DateRange', () => {
   it('renders', () => {
     const { container } = render(<DateFieldWrap />);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders in mobile devices', () => {
+    const { container } = render(
+      <DeviceTypeProvider deviceType="mobile">
+        <DateFieldWrap />
+      </DeviceTypeProvider>,
+    );
 
     expect(container).toMatchSnapshot();
   });
