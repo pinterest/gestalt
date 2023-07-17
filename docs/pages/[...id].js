@@ -7,14 +7,14 @@ We do this so we don't have to define each page, and can just define the pages i
 */
 
 // @flow strict
-import { type Node } from "react";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import remarkBreaks from "remark-breaks";
-import remarkGfm from "remark-gfm";
-import ErrorBoundary from "../docs-components/ErrorBoundary.js";
-import MarkdownPage from "../docs-components/MarkdownPage.js";
-import { getAllMarkdownPosts, getDocByRoute } from "../utils/mdHelper.js";
+import { type Node } from 'react';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import remarkBreaks from 'remark-breaks';
+import remarkGfm from 'remark-gfm';
+import ErrorBoundary from '../docs-components/ErrorBoundary.js';
+import MarkdownPage from '../docs-components/MarkdownPage.js';
+import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper.js';
 
 type MDXRemoteSerializeResult = {|
   compiledSource: string,
@@ -26,7 +26,7 @@ type Props = {|
   content: MDXRemoteSerializeResult,
   meta: {|
     title: string,
-    badge: "pilot" | "deprecated",
+    badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
     component: boolean,
@@ -34,11 +34,7 @@ type Props = {|
   pageSourceUrl: string,
 |};
 
-export default function DocumentPage({
-  content,
-  meta,
-  pageSourceUrl,
-}: Props): Node {
+export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
   return (
     <ErrorBoundary>
       <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
@@ -59,11 +55,11 @@ export async function getStaticProps(context: {|
 |}> {
   const { id } = context.params;
 
-  const pathName = id.join("/");
+  const pathName = id.join('/');
   const { meta, content } = await getDocByRoute(pathName);
 
   const mdxSource = await serialize(content, {
-    mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: "mdx" },
+    mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: 'mdx' },
   });
 
   return {
