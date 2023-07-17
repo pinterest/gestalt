@@ -66,9 +66,7 @@ describe('DateRange', () => {
     );
 
     expect(screen.getByDisplayValue('12 / 16 / 1995')).toBeInTheDocument();
-
     expect(screen.getByDisplayValue('12 / 17 / 1995')).toBeInTheDocument();
-
     expect(screen.getByText('December 1995')).toBeInTheDocument();
     expect(screen.getByText('January 1996')).toBeInTheDocument();
   });
@@ -82,9 +80,7 @@ describe('DateRange', () => {
     );
 
     expect(screen.getAllByPlaceholderText('MM / DD / YYYY')).toHaveLength(2);
-
     expect(screen.getByDisplayValue('12 / 16 / 1995')).toBeInTheDocument();
-
     expect(screen.getByDisplayValue('12 / 17 / 1995')).toBeInTheDocument();
 
     const startSelectedDay = screen.getAllByText('13')[0];
@@ -95,7 +91,6 @@ describe('DateRange', () => {
     });
 
     expect(screen.getByDisplayValue('12 / 13 / 1995')).toBeInTheDocument();
-
     expect(screen.getByDisplayValue('')).toBeInTheDocument();
 
     const endSelectedDay = screen.getAllByText('13')[1];
@@ -106,7 +101,6 @@ describe('DateRange', () => {
     });
 
     expect(screen.getByDisplayValue('12 / 13 / 1995')).toBeInTheDocument();
-
     expect(screen.getByDisplayValue('01 / 13 / 1996')).toBeInTheDocument();
   });
 
@@ -130,7 +124,6 @@ describe('DateRange', () => {
     });
 
     expect(screen.getByDisplayValue('12 / 13 / 1995')).toBeInTheDocument();
-
     expect(screen.getByDisplayValue('')).toBeInTheDocument();
 
     const endSelectedDay = screen.getAllByText('13')[1];
@@ -141,7 +134,6 @@ describe('DateRange', () => {
     });
 
     expect(screen.getByDisplayValue('12 / 13 / 1995')).toBeInTheDocument();
-
     expect(screen.getByDisplayValue('01 / 13 / 1996')).toBeInTheDocument();
   });
 });
