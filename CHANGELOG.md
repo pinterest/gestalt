@@ -1,3 +1,9 @@
+## 117.5.0 (Jul 17, 2023)
+
+### Minor
+
+- Table: Add SortableHeaderCell End align ([#3073](https://github.com/pinterest/gestalt/pull/3073)) - [Preview link](https://deploy-preview-3073--gestalt.netlify.app?devexample=true)
+
 ## 117.4.4 (Jul 14, 2023)
 
 ### Patch
