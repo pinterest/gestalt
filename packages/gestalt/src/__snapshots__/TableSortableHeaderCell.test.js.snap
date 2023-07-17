@@ -35,6 +35,11 @@ exports[`renders correctly when active 1`] = `
     >
       <div
         className="box xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
       >
         column name
         <div
@@ -100,6 +105,11 @@ exports[`renders correctly when inactive 1`] = `
     >
       <div
         className="box xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
       >
         column name
         <div
@@ -114,6 +124,76 @@ exports[`renders correctly when inactive 1`] = `
             aria-hidden={true}
             aria-label=""
             className="icon subtleIcon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</th>
+`;
+
+exports[`sortable cell has end align 1`] = `
+<th
+  className="th"
+  scope="col"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
+>
+  <div
+    className="box xsDisplayInlineBlock"
+  >
+    <div
+      aria-disabled={false}
+      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <div
+        className="box justifyEnd xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "flexDirection": "row-reverse",
+          }
+        }
+      >
+        column name
+        <div
+          className="box marginEnd2"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon defaultIcon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
