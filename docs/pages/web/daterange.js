@@ -279,6 +279,8 @@ The following implementation shows how to use all required props for error messa
         name="Mobile"
         description={`
 DateRange requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+
+On mobile devices, the \`radiogroup\` prop is not shown.
   `}
       >
         <MainSection.Card
