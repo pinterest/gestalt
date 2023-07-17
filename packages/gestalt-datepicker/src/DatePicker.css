@@ -35,7 +35,7 @@
   color: var(--g-colorGray300);
   font-size: var(--font-size-400);
   font-weight: var(--font-weight-bold);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-300);
 }
 
 /* It must be named different than .react-datepicker__day

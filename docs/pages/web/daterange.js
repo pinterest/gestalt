@@ -53,6 +53,7 @@ import errorMessaging from '../../examples/daterange/errorMessaging.js';
 import futureRadiogroup from '../../examples/daterange/futureRadioGroup.js';
 import implementation from '../../examples/daterange/implementation.js';
 import main from '../../examples/daterange/main.js';
+import mobile from '../../examples/daterange/mobile.js';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
 
 const localeMap = {
@@ -273,6 +274,18 @@ The following implementation shows how to use all required props for error messa
             />
           </Flex>
         </MainSection.Subsection>
+      </MainSection>
+      <MainSection
+        name="Mobile"
+        description={`
+DateRange requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+  `}
+      >
+        <MainSection.Card
+          sandpackExample={
+            <SandpackExample code={mobile} name="Mobile example" layout="mobileRow" />
+          }
+        />
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
 

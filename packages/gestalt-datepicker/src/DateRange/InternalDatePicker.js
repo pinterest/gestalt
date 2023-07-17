@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import { Icon } from 'gestalt';
+import { Icon, useDeviceType } from 'gestalt';
 import styles from '../DatePicker.css';
 import { type Props } from '../DatePicker.js';
 
@@ -34,6 +34,9 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
     ref,
   ): Element<'div'> {
     const innerInputRef = useRef<null | HTMLInputElement>(null);
+    const deviceType = useDeviceType();
+    const isMobile = deviceType === 'mobile';
+
     useImperativeHandle(ref, () => innerInputRef.current);
 
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -63,7 +66,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
 
     return (
       <div className="_gestalt">
-        <div className="_gestalt_daterange">
+        <div className={isMobile ? undefined : '_gestalt_daterange'}>
           <ReactDatePicker
             calendarClassName={styles['react-datepicker-inline']}
             dateFormat={format}
@@ -77,7 +80,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
             locale={updatedLocale}
             maxDate={maxDate}
             minDate={minDate}
-            monthsShown={2}
+            monthsShown={isMobile ? 1 : 2}
             nextMonthButtonLabel={
               <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
             }

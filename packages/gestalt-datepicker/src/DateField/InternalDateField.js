@@ -193,6 +193,7 @@ type InternalDateFieldProps = {|
   disabled?: boolean,
   disableRange?: 'disableFuture' | 'disablePast',
   errorMessage?: Node,
+  formatDensity?: 'dense' | 'spacious',
   helperText?: string,
   id: string,
   label?: string,

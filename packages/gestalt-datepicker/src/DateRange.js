@@ -1,9 +1,21 @@
 // @flow strict-local
 import { type Element, type Node, useId } from 'react';
-import { Box, Button, ButtonGroup, Flex, RadioGroup, Text, useDefaultLabel } from 'gestalt';
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Flex,
+  RadioGroup,
+  Text,
+  useDefaultLabel,
+  useDeviceType,
+} from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 import borderStyles from './DateRange.css';
 import InternalDatePicker from './DateRange/InternalDatePicker.js';
+
+const MOBILE_DATEFIELD_WIDTH = 171;
+const DATEFIELD_WIDTH = 280;
 
 type LocaleData = {|
   code?: string,
@@ -157,6 +169,8 @@ function DateRange({
   startDateErrorMessage,
 }: Props): Node {
   const componentId = useId();
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
 
   if (!startDateValue && endDateValue) {
     onEndDateChange({ value: null });
@@ -167,7 +181,7 @@ function DateRange({
   return (
     <Box rounding={4} color="default" borderStyle="shadow" minHeight={425} display="inlineBlock">
       <Flex>
-        {radioGroup ? (
+        {radioGroup && !isMobile ? (
           <div className={borderStyles.borderRight}>
             <Box paddingY={4} paddingX={6} width={216}>
               {radioGroup}
@@ -178,7 +192,7 @@ function DateRange({
           <Flex alignItems="start" justifyContent="center" direction="column">
             <div className={borderStyles.dateFieldSection}>
               <Flex gap={3}>
-                <Box width={280}>
+                <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
                   <InternalDateField
                     autoComplete="off"
                     mobileEnterKeyHint="enter"
@@ -199,10 +213,11 @@ function DateRange({
                 <Box display="flex" height="100%" alignItems="center">
                   <Text>—</Text>
                 </Box>
-                <Box width={280}>
+                <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
                   <InternalDateField
                     autoComplete="off"
                     mobileEnterKeyHint="enter"
+                    formatDensity={isMobile ? 'dense' : undefined}
                     id={`datefield-end-${componentId}`}
                     localeData={localeData}
                     onChange={({ value }) => {
@@ -221,7 +236,11 @@ function DateRange({
                 </Box>
               </Flex>
             </div>
-            <Box width={629}>
+            <Box
+              width={isMobile ? '100%' : 629}
+              display={isMobile ? 'flex' : undefined}
+              justifyContent={isMobile ? 'center' : undefined}
+            >
               <InternalDatePicker
                 localeData={localeData}
                 rangeStartDate={startDateValue}
@@ -235,7 +254,7 @@ function DateRange({
                 maxDate={maxDate}
               />
             </Box>
-            <Flex.Item alignSelf="end">
+            <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
               <ButtonGroup>
                 <Box marginBottom={4} marginEnd={4}>
                   <Button color="transparent" text={cancelText} onClick={() => onCancel()} />
