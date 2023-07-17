@@ -42,13 +42,10 @@ function DateFieldWrap({
 }
 
 describe('DateRange', () => {
-  it('renders correctly with no default dates', () => {
-    render(<DateFieldWrap />);
+  it('renders', () => {
+    const { container } = render(<DateFieldWrap />);
 
-    expect(screen.getAllByPlaceholderText('MM / DD / YYYY')).toHaveLength(2);
-    expect(screen.getAllByDisplayValue('')).toHaveLength(2);
-    expect(screen.getByText('Apply')).toBeInTheDocument();
-    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   it('renders correctly with no default dates with locale', () => {
