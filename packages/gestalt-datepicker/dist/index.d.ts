@@ -501,7 +501,7 @@ export interface DateFieldProps {
  */
 
 /**
- * https://gestalt.pinterest.systems/web/dateranger
+ * https://gestalt.pinterest.systems/web/daterange
  */
 export const DateRange: React.FunctionComponent<DateRangeProps>;
 
