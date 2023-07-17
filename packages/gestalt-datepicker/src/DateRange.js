@@ -5,7 +5,7 @@ import InternalDateField from './DateField/InternalDateField.js';
 import borderStyles from './DateRange.css';
 import InternalDatePicker from './DateRange/InternalDatePicker.js';
 
-export type LocaleData = {|
+type LocaleData = {|
   code?: string,
   formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
