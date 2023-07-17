@@ -47,7 +47,11 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
 export async function getStaticProps(context: {|
   params: {| id: $ReadOnlyArray<string> |},
 |}): Promise<{|
-  props: {| meta: { [key: string]: string }, content: {||}, pageSourceUrl: string |},
+  props: {|
+    meta: { [key: string]: string },
+    content: {||},
+    pageSourceUrl: string,
+  |},
 |}> {
   const { id } = context.params;
 
@@ -62,13 +66,15 @@ export async function getStaticProps(context: {|
     props: {
       meta,
       content: mdxSource,
-      pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/pages/markdown/${pathName}.md`,
+      pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/markdown/${pathName}.md`,
     },
   };
 }
 
 export async function getStaticPaths(): Promise<{|
-  paths: $ReadOnlyArray<{| params: {| id: string | $ReadOnlyArray<string> |} |}>,
+  paths: $ReadOnlyArray<{|
+    params: {| id: string | $ReadOnlyArray<string> |},
+  |}>,
   fallback: boolean,
 |}> {
   // get all the possible paths that exist within ./markdown folder
