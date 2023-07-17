@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Element, type Node, useId } from 'react';
+import { Children, type Element, type Node, useId } from 'react';
 import {
   Box,
   Button,
@@ -181,7 +181,9 @@ function DateRange({
   return (
     <Box rounding={4} color="default" borderStyle="shadow" minHeight={425} display="inlineBlock">
       <Flex>
-        {radioGroup && !isMobile ? (
+        {radioGroup &&
+        Children.only<Element<typeof RadioGroup>>(radioGroup).type.displayName === 'RadioGroup' &&
+        !isMobile ? (
           <div className={borderStyles.borderRight}>
             <Box paddingY={4} paddingX={6} width={216}>
               {radioGroup}
