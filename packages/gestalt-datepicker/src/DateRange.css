@@ -8,5 +8,5 @@ html[dir="rtl"] .borderRight {
 
 .dateFieldSection {
   border-bottom: var(--g-border-width) solid var(--color-border-container);
-  padding: var(--space-300);;
+  padding: var(--space-300);
 }
