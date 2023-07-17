@@ -8,19 +8,19 @@
 }
 
 html:not([dir="rtl"]) .list {
-  padding-left: var(--space-300);
+  padding-left: var(--space-400);
 }
 
 html[dir="rtl"] .list {
-  padding-right: var(--space-300);
+  padding-right: var(--space-400);
 }
 
 html:not([dir="rtl"]) .bulletList:first-child {
-  padding-left: var(--space-500);
+  padding-left: var(--space-800);
 }
 
 html[dir="rtl"] .bulletList:first-child {
-  padding-right: var(--space-500);
+  padding-right: var(--space-800);
 }
 
 .listItem {
