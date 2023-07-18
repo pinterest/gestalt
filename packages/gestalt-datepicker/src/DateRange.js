@@ -219,7 +219,6 @@ function DateRange({
                   <InternalDateField
                     autoComplete="off"
                     mobileEnterKeyHint="enter"
-                    formatDensity={isMobile ? 'dense' : undefined}
                     id={`datefield-end-${componentId}`}
                     localeData={localeData}
                     onChange={({ value }) => {
@@ -259,10 +258,11 @@ function DateRange({
             <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
               <ButtonGroup>
                 <Box marginBottom={4} marginEnd={4}>
-                  <Button color="transparent" text={cancelText} onClick={() => onCancel()} />
+                  <Button color="gray" text={cancelText} onClick={() => onCancel()} />
                 </Box>
                 <Box marginBottom={4} marginEnd={4}>
                   <Button
+                    color="red"
                     text={applyText}
                     disabled={
                       !!endDateErrorMessage ||

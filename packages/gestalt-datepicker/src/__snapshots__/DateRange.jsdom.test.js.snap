@@ -3,39 +3,39 @@
 exports[`DateRange renders 1`] = `
 <div>
   <div
-    class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM rounding4__ho- shadow__ALa xsDisplayInlineBlock__FNs"
+    class="ALa FNs ho- urM zI7 iyn Hsu"
     style="min-height: 425px;"
   >
     <div
-      class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+      class="hs0 un8 C9i TB_"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ justifyCenter__mQ8 xsDirectionColumn__jzS xsItemsStart__qF5"
+          class="jzS mQ8 qF5 un8 C9i TB_"
         >
           <div
             class="dateFieldSection"
           >
             <div
-              class="Flex__un8 rowGap3__LKv columnGap3__U1N xsDirectionRow__hs0"
+              class="hs0 un8 LKv U1N"
             >
               <div
-                class="FlexItem__xuA"
+                class="xuA"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                  class="zI7 iyn Hsu"
                   style="width: 280px;"
                 >
                   <div
-                    class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                    class="zI7 iyn Hsu"
                   >
                     <div
-                      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu relative__XiG xsDisplayFlex__Jea xsItemsCenter__KS5"
+                      class="Jea KS5 XiG zI7 iyn Hsu"
                     >
                       <div
-                        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU relative__XiG rounding4__ho- xsDisplayFlex__Jea"
+                        class="Jea XiG ho- ujU zI7 iyn Hsu"
                       >
                         <input
                           autocomplete="off"
@@ -52,34 +52,34 @@ exports[`DateRange renders 1`] = `
                 </div>
               </div>
               <div
-                class="FlexItem__xuA"
+                class="xuA"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayFlex__Jea xsItemsCenter__KS5"
+                  class="Jea KS5 zI7 iyn Hsu"
                   style="height: 100%;"
                 >
                   <div
-                    class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                    class="tBJ dyH iFc sAJ O2T zDA IZT swG"
                   >
                     —
                   </div>
                 </div>
               </div>
               <div
-                class="FlexItem__xuA"
+                class="xuA"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                  class="zI7 iyn Hsu"
                   style="width: 280px;"
                 >
                   <div
-                    class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                    class="zI7 iyn Hsu"
                   >
                     <div
-                      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu relative__XiG xsDisplayFlex__Jea xsItemsCenter__KS5"
+                      class="Jea KS5 XiG zI7 iyn Hsu"
                     >
                       <div
-                        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU relative__XiG rounding4__ho- xsDisplayFlex__Jea"
+                        class="Jea XiG ho- ujU zI7 iyn Hsu"
                       >
                         <input
                           autocomplete="off"
@@ -98,7 +98,7 @@ exports[`DateRange renders 1`] = `
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+            class="zI7 iyn Hsu"
             style="width: 629px;"
           >
             <div
@@ -125,7 +125,7 @@ exports[`DateRange renders 1`] = `
                         <svg
                           aria-hidden="true"
                           aria-label=""
-                          class="rtlSupport__Hn_ icon__gUZ defaultIcon__R19 iconBlock__U9O block__kVc"
+                          class="Hn_ gUZ R19 U9O kVc"
                           height="16"
                           role="img"
                           viewBox="0 0 24 24"
@@ -148,7 +148,7 @@ exports[`DateRange renders 1`] = `
                         <svg
                           aria-hidden="true"
                           aria-label=""
-                          class="rtlSupport__Hn_ icon__gUZ defaultIcon__R19 iconBlock__U9O block__kVc"
+                          class="Hn_ gUZ R19 U9O kVc"
                           height="16"
                           role="img"
                           viewBox="0 0 24 24"
@@ -1009,27 +1009,27 @@ exports[`DateRange renders 1`] = `
             </div>
           </div>
           <div
-            class="FlexItem__xuA selfEnd__gRy"
+            class="gRy xuA"
           >
             <div
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexWrap__kzZ marginBottomN1__Uex marginEndN1__k1A marginStartN1__F6l marginTopN1__XBe xsDisplayFlex__Jea"
+              class="F6l Jea Uex XBe k1A kzZ zI7 iyn Hsu"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu paddingX1__Shl paddingY1__C9q"
+                class="C9q Shl zI7 iyn Hsu"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom4__RDc marginEnd4__jar"
+                  class="RDc jar zI7 iyn Hsu"
                 >
                   <button
-                    class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY accessibilityOutline__iyn parentButton__oRi paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                    class="RCK Hsu USg adn CCY NTm KhY iyn oRi lnZ wsz YbY"
                     tabindex="0"
                     type="button"
                   >
                     <div
-                      class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY accessibilityOutline__iyn tapTransition__S9z md__Vxj medium__aZc paddingX3__Zr3 paddingY2__hA- transparent__qQ7 transparentBg__YbY enabled__hNT pointer__BG7 childrenDiv__hDj flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 fullWidth__Tbt xsCol12__L4E"
+                      class="RCK Hsu USg adn CCY NTm KhY iyn S9z Vxj aZc Zr3 hA- a_A gpV hNT BG7 hDj _O1 KS5 mQ8 Tbt L4E"
                     >
                       <div
-                        class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ defaultText__O2T alignCenter__tg7 fontWeightSemiBold__H2s"
+                        class="tBJ dyH iFc sAJ O2T tg7 H2s"
                       >
                         Cancel
                       </div>
@@ -1038,21 +1038,21 @@ exports[`DateRange renders 1`] = `
                 </div>
               </div>
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu paddingX1__Shl paddingY1__C9q"
+                class="C9q Shl zI7 iyn Hsu"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom4__RDc marginEnd4__jar"
+                  class="RDc jar zI7 iyn Hsu"
                 >
                   <button
-                    class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY parentButton__oRi paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                    class="RCK Hsu USg adn CCY NTm KhY oRi lnZ wsz YbY"
                     disabled=""
                     type="button"
                   >
                     <div
-                      class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY tapTransition__S9z md__Vxj medium__aZc paddingX3__Zr3 paddingY2__hA- disabled__OWt lightGrayBg__gpV childrenDiv__hDj flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 fullWidth__Tbt xsCol12__L4E"
+                      class="RCK Hsu USg adn CCY NTm KhY S9z Vxj aZc Zr3 hA- OWt gpV hDj _O1 KS5 mQ8 Tbt L4E"
                     >
                       <div
-                        class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ subtleText__EdS alignCenter__tg7 fontWeightSemiBold__H2s"
+                        class="tBJ dyH iFc sAJ EdS tg7 H2s"
                       >
                         Apply
                       </div>
@@ -1072,39 +1072,39 @@ exports[`DateRange renders 1`] = `
 exports[`DateRange renders in mobile devices 1`] = `
 <div>
   <div
-    class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM rounding4__ho- shadow__ALa xsDisplayInlineBlock__FNs"
+    class="ALa FNs ho- urM zI7 iyn Hsu"
     style="min-height: 425px;"
   >
     <div
-      class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+      class="hs0 un8 C9i TB_"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ justifyCenter__mQ8 xsDirectionColumn__jzS xsItemsStart__qF5"
+          class="jzS mQ8 qF5 un8 C9i TB_"
         >
           <div
             class="dateFieldSection"
           >
             <div
-              class="Flex__un8 rowGap3__LKv columnGap3__U1N xsDirectionRow__hs0"
+              class="hs0 un8 LKv U1N"
             >
               <div
-                class="FlexItem__xuA"
+                class="xuA"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                  class="zI7 iyn Hsu"
                   style="width: 171px;"
                 >
                   <div
-                    class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                    class="zI7 iyn Hsu"
                   >
                     <div
-                      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu relative__XiG xsDisplayFlex__Jea xsItemsCenter__KS5"
+                      class="Jea KS5 XiG zI7 iyn Hsu"
                     >
                       <div
-                        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU relative__XiG rounding4__ho- xsDisplayFlex__Jea"
+                        class="Jea XiG ho- ujU zI7 iyn Hsu"
                       >
                         <input
                           autocomplete="off"
@@ -1121,34 +1121,34 @@ exports[`DateRange renders in mobile devices 1`] = `
                 </div>
               </div>
               <div
-                class="FlexItem__xuA"
+                class="xuA"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayFlex__Jea xsItemsCenter__KS5"
+                  class="Jea KS5 zI7 iyn Hsu"
                   style="height: 100%;"
                 >
                   <div
-                    class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                    class="tBJ dyH iFc sAJ O2T zDA IZT swG"
                   >
                     —
                   </div>
                 </div>
               </div>
               <div
-                class="FlexItem__xuA"
+                class="xuA"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                  class="zI7 iyn Hsu"
                   style="width: 171px;"
                 >
                   <div
-                    class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                    class="zI7 iyn Hsu"
                   >
                     <div
-                      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu relative__XiG xsDisplayFlex__Jea xsItemsCenter__KS5"
+                      class="Jea KS5 XiG zI7 iyn Hsu"
                     >
                       <div
-                        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU relative__XiG rounding4__ho- xsDisplayFlex__Jea"
+                        class="Jea XiG ho- ujU zI7 iyn Hsu"
                       >
                         <input
                           autocomplete="off"
@@ -1167,7 +1167,7 @@ exports[`DateRange renders in mobile devices 1`] = `
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu justifyCenter__mQ8 xsDisplayFlex__Jea"
+            class="Jea mQ8 zI7 iyn Hsu"
             style="width: 100%;"
           >
             <div
@@ -1192,7 +1192,7 @@ exports[`DateRange renders in mobile devices 1`] = `
                         <svg
                           aria-hidden="true"
                           aria-label=""
-                          class="rtlSupport__Hn_ icon__gUZ defaultIcon__R19 iconBlock__U9O block__kVc"
+                          class="Hn_ gUZ R19 U9O kVc"
                           height="16"
                           role="img"
                           viewBox="0 0 24 24"
@@ -1215,7 +1215,7 @@ exports[`DateRange renders in mobile devices 1`] = `
                         <svg
                           aria-hidden="true"
                           aria-label=""
-                          class="rtlSupport__Hn_ icon__gUZ defaultIcon__R19 iconBlock__U9O block__kVc"
+                          class="Hn_ gUZ R19 U9O kVc"
                           height="16"
                           role="img"
                           viewBox="0 0 24 24"
@@ -1695,27 +1695,27 @@ exports[`DateRange renders in mobile devices 1`] = `
             </div>
           </div>
           <div
-            class="FlexItem__xuA selfCenter__Z2K"
+            class="Z2K xuA"
           >
             <div
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexWrap__kzZ marginBottomN1__Uex marginEndN1__k1A marginStartN1__F6l marginTopN1__XBe xsDisplayFlex__Jea"
+              class="F6l Jea Uex XBe k1A kzZ zI7 iyn Hsu"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu paddingX1__Shl paddingY1__C9q"
+                class="C9q Shl zI7 iyn Hsu"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom4__RDc marginEnd4__jar"
+                  class="RDc jar zI7 iyn Hsu"
                 >
                   <button
-                    class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY accessibilityOutline__iyn parentButton__oRi paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                    class="RCK Hsu USg adn CCY NTm KhY iyn oRi lnZ wsz YbY"
                     tabindex="0"
                     type="button"
                   >
                     <div
-                      class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY accessibilityOutline__iyn tapTransition__S9z md__Vxj medium__aZc paddingX3__Zr3 paddingY2__hA- transparent__qQ7 transparentBg__YbY enabled__hNT pointer__BG7 childrenDiv__hDj flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 fullWidth__Tbt xsCol12__L4E"
+                      class="RCK Hsu USg adn CCY NTm KhY iyn S9z Vxj aZc Zr3 hA- a_A gpV hNT BG7 hDj _O1 KS5 mQ8 Tbt L4E"
                     >
                       <div
-                        class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ defaultText__O2T alignCenter__tg7 fontWeightSemiBold__H2s"
+                        class="tBJ dyH iFc sAJ O2T tg7 H2s"
                       >
                         Cancel
                       </div>
@@ -1724,21 +1724,21 @@ exports[`DateRange renders in mobile devices 1`] = `
                 </div>
               </div>
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu paddingX1__Shl paddingY1__C9q"
+                class="C9q Shl zI7 iyn Hsu"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom4__RDc marginEnd4__jar"
+                  class="RDc jar zI7 iyn Hsu"
                 >
                   <button
-                    class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY parentButton__oRi paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                    class="RCK Hsu USg adn CCY NTm KhY oRi lnZ wsz YbY"
                     disabled=""
                     type="button"
                   >
                     <div
-                      class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn hideOutline__CCY inline__NTm inlineBlock__KhY tapTransition__S9z md__Vxj medium__aZc paddingX3__Zr3 paddingY2__hA- disabled__OWt lightGrayBg__gpV childrenDiv__hDj flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 fullWidth__Tbt xsCol12__L4E"
+                      class="RCK Hsu USg adn CCY NTm KhY S9z Vxj aZc Zr3 hA- OWt gpV hDj _O1 KS5 mQ8 Tbt L4E"
                     >
                       <div
-                        class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ subtleText__EdS alignCenter__tg7 fontWeightSemiBold__H2s"
+                        class="tBJ dyH iFc sAJ EdS tg7 H2s"
                       >
                         Apply
                       </div>
