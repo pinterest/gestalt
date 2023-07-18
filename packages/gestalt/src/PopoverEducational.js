@@ -180,9 +180,11 @@ export default function PopoverEducational({
             <Box padding={4} tabIndex={0}>
               <Flex direction="column" gap={3}>
                 {textElement}
-                <Flex.Item flex="grow" alignSelf="end">
-                  {primaryAction ? <PrimaryAction {...primaryAction} /> : null}
-                </Flex.Item>
+                {primaryAction ? (
+                  <Flex.Item flex="grow" alignSelf="end">
+                    <PrimaryAction {...primaryAction} />
+                  </Flex.Item>
+                ) : null}
               </Flex>
             </Box>
           ) : null)}
