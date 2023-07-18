@@ -1,3 +1,9 @@
+## 118.0.0 (Jul 18, 2023)
+
+### Major
+
+- Button: fixes ` name` prop documentation and Flow ([#3078](https://github.com/pinterest/gestalt/pull/3078)) - [Preview link](https://deploy-preview-3078--gestalt.netlify.app?devexample=true)
+
 ## 117.5.1 (Jul 17, 2023)
 
 ### Patch
