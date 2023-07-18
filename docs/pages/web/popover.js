@@ -318,7 +318,13 @@ ScrollBoundaryContainer is needed for proper positioning when Popover is anchore
 }
 
 export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+  const generatedDocGen = await docGen('Popover');
+
+  generatedDocGen.props.color.flowType.raw = '"red" | "white" | "darkGray"';
+
   return {
-    props: { generatedDocGen: await docGen('Popover') },
+    props: {
+      generatedDocGen,
+    },
   };
 }
