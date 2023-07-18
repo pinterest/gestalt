@@ -1,3 +1,9 @@
+## 117.5.1 (Jul 17, 2023)
+
+### Patch
+
+- Docs: Page Source Links ([#3076](https://github.com/pinterest/gestalt/pull/3076)) - [Preview link](https://deploy-preview-3076--gestalt.netlify.app?devexample=true)
+
 ## 117.5.0 (Jul 17, 2023)
 
 ### Minor
