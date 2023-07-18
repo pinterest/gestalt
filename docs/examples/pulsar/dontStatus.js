@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, IconButton, Popover, Pulsar, Text } from 'gestalt';
+import { Box, Flex, IconButton, PopoverEducational, Pulsar } from 'gestalt';
 
 export default function Example(): Node {
   const [showEducation, setShowEducation] = useState(false);
@@ -18,29 +18,20 @@ export default function Example(): Node {
         <Box ref={anchorRef} position="absolute" top margin={-5}>
           <Pulsar size={88} />
         </Box>
+
+        {showEducation && (
+          <PopoverEducational
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => {}}
+            message="You have a new message"
+            primaryAction={{
+              text: 'Dismiss',
+              onClick: () => {},
+            }}
+          />
+        )}
       </Box>
-
-      {showEducation && (
-        <Popover
-          anchor={anchorRef.current}
-          color="blue"
-          idealDirection="down"
-          showCaret
-          onDismiss={() => {}}
-          positionRelativeToAnchor={false}
-          size="xs"
-        >
-          <Box paddingX={6} paddingY={2}>
-            <Flex alignItems="center" direction="column" gap={3}>
-              <Text color="inverse" align="center">
-                You have a new message
-              </Text>
-
-              <Button text="Dismiss" onClick={() => {}} />
-            </Flex>
-          </Box>
-        </Popover>
-      )}
     </Flex>
   );
 }

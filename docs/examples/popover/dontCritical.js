@@ -23,7 +23,6 @@ export default function Example(): Node {
             anchor={anchorRef.current}
             color="red"
             idealDirection="down"
-            showCaret
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="xs"

@@ -95,7 +95,7 @@ export default function Popover({
   color = 'white',
   role = 'dialog',
   shouldFocus = true,
-  _deprecatedShowCaret,
+  _deprecatedShowCaret = false,
   size = 'sm',
   __dangerouslySetMaxHeight,
 }: Props): null | Node {

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, Popover, Pulsar, Text } from 'gestalt';
+import { Box, Button, Flex, PopoverEducational, Pulsar } from 'gestalt';
 
 export default function Example(): Node {
   const [showEducation, setShowEducation] = useState(false);
@@ -23,34 +23,22 @@ export default function Example(): Node {
         <Box ref={anchorRef} position="absolute" top marginTop={-9} marginStart={-3}>
           <Pulsar paused={!showEducation} size={110} />
         </Box>
+
+        {showEducation && (
+          <PopoverEducational
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => {}}
+            message="Promote your newly created Pin"
+            primaryAction={{
+              text: 'Got it',
+              onClick: () => {
+                setShowEducation(false);
+              },
+            }}
+          />
+        )}
       </Box>
-
-      {showEducation && (
-        <Popover
-          anchor={anchorRef.current}
-          color="blue"
-          idealDirection="down"
-          showCaret
-          onDismiss={() => {}}
-          positionRelativeToAnchor={false}
-          size="xs"
-        >
-          <Box paddingX={6} paddingY={2}>
-            <Flex alignItems="center" direction="column" gap={3}>
-              <Text color="inverse" align="center">
-                Promote your newly created Pin
-              </Text>
-
-              <Button
-                text="Got it"
-                onClick={() => {
-                  setShowEducation(false);
-                }}
-              />
-            </Flex>
-          </Box>
-        </Popover>
-      )}
     </Flex>
   );
 }
