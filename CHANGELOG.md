@@ -1,3 +1,9 @@
+## 118.0.1 (Jul 18, 2023)
+
+### Patch
+
+- Internal: Bump word-wrap from 1.2.3 to 1.2.4 ([#3080](https://github.com/pinterest/gestalt/pull/3080)) - [Preview link](https://deploy-preview-3080--gestalt.netlify.app?devexample=true)
+
 ## 118.0.0 (Jul 18, 2023)
 
 ### Major
