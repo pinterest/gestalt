@@ -117,6 +117,15 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             ],
           },
           {
+            name: 'name',
+            type: 'string',
+            description: [
+              'The name attribute specifies the name of the <button> element.',
+
+              'The name attribute is used to reference form-data after the form has been submitted.',
+            ],
+          },
+          {
             name: 'onClick',
             type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
