@@ -693,7 +693,6 @@ interface CommonButtonProps {
   disabled?: boolean | undefined;
   fullWidth?: boolean | undefined;
   iconEnd?: Icons | undefined;
-  name?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   tabIndex?: -1 | 0 | undefined;
@@ -707,15 +706,17 @@ interface ButtonLinkProps extends CommonButtonProps {
 }
 
 interface ButtonButtonProps extends CommonButtonProps {
-  role?: 'button' | undefined;
-  type?: 'button' | undefined;
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
+  name?: string | undefined;
   selected?: boolean | undefined;
+  role?: 'button' | undefined;
+  type?: 'button' | undefined;
 }
 
 interface ButtonSubmitProps extends CommonButtonProps {
+  name?: string | undefined;
   role: 'button';
   type: 'submit';
 }
