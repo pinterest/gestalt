@@ -1,3 +1,9 @@
+## 119.0.0 (Jul 19, 2023)
+
+### Major
+
+- Popover: Deprecating showcaret and color=blue ([#3079](https://github.com/pinterest/gestalt/pull/3079)) - [Preview link](https://deploy-preview-3079--gestalt.netlify.app?devexample=true)
+
 ## 118.0.1 (Jul 18, 2023)
 
 ### Patch
