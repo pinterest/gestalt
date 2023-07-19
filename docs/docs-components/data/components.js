@@ -267,7 +267,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         description: 'Badge is a label that indicates status or importance.',
         category: ['Indicators'],
         status: {
-          documentation: 'notAvailable',
+          documentation: 'ready',
           status: 'planned',
         },
       },
