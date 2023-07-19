@@ -44,6 +44,8 @@ const themeToStyles = (size: 'sm' | 'md' | 'lg') => {
     styles[tokenName] = `${val}px`;
   });
 
+  styles['--space-350'] = `${theme[3] + 2}px`;
+
   console.log(styles);
   return styles;
 };
