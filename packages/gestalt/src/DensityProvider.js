@@ -49,7 +49,7 @@ const themeToStyles = (size: 'sm' | 'md' | 'lg') => {
 };
 
 /**
- * [DensityProvider](https://gestalt.pinterest.systems/web/densityprovider) component should be used for ... on the page.
+ * [DensityProvider](https://gestalt.pinterest.systems/web/densityprovider) is an element wrapper that applies a density scale to its children. Putting an unsupported component may result in odd behavior, so take a look at the list of supported components below.
  * ![DensityProvider light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DensityProvider.spec.mjs-snapshots/DensityProvider-chromium-darwin.png)
  * ![DensityProvider dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DensityProvider-dark.spec.mjs-snapshots/DensityProvider-dark-chromium-darwin.png)
  */
