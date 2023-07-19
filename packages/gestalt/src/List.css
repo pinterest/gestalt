@@ -24,59 +24,59 @@ html[dir="rtl"] .bulletList:first-child {
 }
 
 .listItem {
-  margin-bottom: 16px;
-  margin-top: 16px;
+  margin-bottom: var(--space-400);
+  margin-top: var(--space-400);
 }
 
 /* last should precede first for single item lists */
 
 .listItem:last-child {
   margin-bottom: 0;
-  margin-top: 16px;
+  margin-top: var(--space-400);
 }
 
 .listItem:first-child {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-400);
   margin-top: 0;
 }
 
 .listItemCondensed {
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: var(--space-400);
+  margin-top: var(--space-400);
 }
 
 /* last should precede first for single item lists */
 
 .listItemCondensed:last-child {
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: var(--space-400);
 }
 
 .listItemCondensed:first-child {
-  margin-bottom: 8px;
+  margin-bottom: var(--space-400);
   margin-top: 0;
 }
 
 /* last should precede first for single item lists */
 
 .list .list > .listItem:last-child {
-  margin-bottom: 16px;
-  margin-top: 16px;
+  margin-bottom: var(--space-400);
+  margin-top: var(--space-400);
 }
 
 .list .list > .listItem:first-child {
-  margin-bottom: 16px;
-  margin-top: 16px;
+  margin-bottom: var(--space-400);
+  margin-top: var(--space-400);
 }
 
 .list .list > .listItemCondensed:last-child {
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: var(--space-400);
+  margin-top: var(--space-400);
 }
 
 .list .list > .listItemCondensed:first-child {
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: var(--space-400);
+  margin-top: var(--space-400);
 }
 
 .noStyle {
