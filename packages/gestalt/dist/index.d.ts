@@ -1409,14 +1409,14 @@ interface PopoverProps {
   accessibilityDismissButtonLabel?: string | undefined;
   accessibilityLabel?: string | undefined;
   children?: Node | undefined;
-  color?: 'blue' | 'red' | 'white' | 'darkGray' | undefined;
+  color?: 'deprecatedBlue' | 'red' | 'white' | 'darkGray' | undefined;
   id?: string | undefined;
   idealDirection?: FourDirections | undefined;
   onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLElement>>;
   positionRelativeToAnchor?: boolean | undefined;
   role?: 'dialog' | 'listbox' | 'menu' | 'tooltip' | undefined;
   shouldFocus?: boolean | undefined;
-  showCaret?: boolean | undefined;
+  _deprecatedShowCaret?: boolean | undefined;
   showDismissButton?: boolean | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number | undefined;
   __dangerouslySetMaxHeight?: '30vh' | undefined;

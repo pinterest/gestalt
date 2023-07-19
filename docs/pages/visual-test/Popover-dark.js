@@ -22,9 +22,7 @@ export default function Snapshot(): Node {
         {open && (
           <Popover
             anchor={anchorRef.current}
-            color="blue"
             idealDirection="down"
-            showCaret
             onDismiss={() => {}}
             positionRelativeToAnchor
             size="xs"

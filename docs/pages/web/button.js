@@ -26,10 +26,8 @@ import relAndTargetExample from '../../examples/button/relAndTargetExample.js';
 import roleButtonExample from '../../examples/button/roleButtonExample.js';
 import roleLinkExample from '../../examples/button/roleLinkExample.js';
 import selectedStateExample from '../../examples/button/selectedStateExample.js';
-import semiTransparentWhiteButtonExample from '../../examples/button/semiTransparentWhiteButtonExample.js';
 import showFullTextDo from '../../examples/button/showFullTextDo.js';
 import showFullTextDont from '../../examples/button/showFullTextDont.js';
-import whiteButtonExample from '../../examples/button/whiteButtonExample.js';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -465,28 +463,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
   2. Semi-transparent white (Secondary)
       Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
-        >
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={whiteButtonExample}
-                name="White button example."
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={semiTransparentWhiteButtonExample}
-                name="SemiTransparentWhite button example."
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-        </MainSection.Subsection>
+        />
 
         <MainSection.Subsection
           title="Icons"
