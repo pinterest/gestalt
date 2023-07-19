@@ -17,7 +17,7 @@
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  padding: 16px;
+  padding: var(--space-400);
   position: relative;
 }
 
@@ -25,7 +25,7 @@
   color: var(--g-colorGray300);
   font-size: var(--font-size-400);
   font-weight: var(--font-weight-bold);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-400);
 }
 
 /* It must be named different than .react-datepicker__day
@@ -298,7 +298,7 @@ to prevent conflict with another CSS module */
   height: auto;
   outline: none;
   overflow: visible;
-  padding: 8px;
+  padding: var(--space-400);
   position: absolute;
   top: 14px;
   width: auto;
@@ -323,22 +323,22 @@ to prevent conflict with another CSS module */
 }
 
 html[dir="rtl"] :global ._gestalt .react-datepicker__navigation--previous {
-  right: 8px;
+  right: var(--space-400);
 }
 
 html:not([dir="rtl"])
   :global
   ._gestalt
   .react-datepicker__navigation--previous {
-  left: 8px;
+  left: var(--space-400);
 }
 
 html[dir="rtl"] :global ._gestalt .react-datepicker__navigation--next {
-  left: 8px;
+  left: var(--space-400);
 }
 
 html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
-  right: 8px;
+  right: var(--space-400);
 }
 
 :global ._gestalt .react-datepicker__navigation--previous--disabled,

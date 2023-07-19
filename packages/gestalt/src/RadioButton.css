@@ -1,6 +1,6 @@
 :root {
   --g-border-sm: 6px;
-  --g-border-md: 8px;
+  --g-border-md: var(--space-400);
 }
 
 .RadioButton {

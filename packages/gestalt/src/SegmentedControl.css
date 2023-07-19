@@ -16,7 +16,7 @@
   border-radius: 14px;
   flex-basis: 0;
   flex-shrink: 1;
-  padding: 4px 14px;
+  padding: var(--space-200) 14px;
 }
 
 .itemIsNotSelected {
