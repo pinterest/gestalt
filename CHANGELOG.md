@@ -1,3 +1,9 @@
+## 119.0.1 (Jul 19, 2023)
+
+### Patch
+
+- Docs: Added Android Badge docs ([#3083](https://github.com/pinterest/gestalt/pull/3083)) - [Preview link](https://deploy-preview-3083--gestalt.netlify.app?devexample=true)
+
 ## 119.0.0 (Jul 19, 2023)
 
 ### Major
