@@ -28,7 +28,7 @@ export default function Snapshot(): Node {
             size="xs"
           >
             <Box padding={3}>
-              <Text color="light" align="center">
+              <Text color="dark" align="center">
                 Children
               </Text>
             </Box>
