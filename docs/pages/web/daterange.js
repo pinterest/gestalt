@@ -169,7 +169,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           title="Controlled component"
           description={`
 DateRange is a controlled component.
-Use \`endDateValue\`, \`onEndDateChange, \`onEndDateError\`, \`onStartDateError\`, \`onStartDateChange\`, \`onSubmit\`,  \`startDateValue\` and \`onCancel\` to implement it correctly.
+Use \`endDateValue\`,  \`startDateValue\`,  \`onEndDateChange, \`onStartDateChange\`, \`onEndDateError\`, \`onStartDateError\`, \`onSubmit\`and \`onCancel\` to implement it correctly.
 
 Follow the implementation in the example to implement a controlled DateRange correctly.
 
@@ -214,9 +214,11 @@ When there’s not a date range selected, the call-to-action is disabled to prev
         <MainSection.Subsection
           title="Error messaging"
           description={`
-DateRange can communicate errors when the user selects an invalid date. Use \`startDateErrorMessage\`, \`endDateErrorMessage\` and \`onStartDateChange\`, \`onEndDateChange\`. \`onStartDateBlur\`, \`onStartDateFocus\`, \`onEndDateBlur\`, \`onEndDateFocus\` to implement error messaging correctly.
+DateRange can communicate errors when the user selects an invalid date. Use \`startDateErrorMessage\`, \`endDateErrorMessage\`, \`onEndDateError\`, \`onStartDateError\`, \`onStartDateBlur\`, \`onStartDateFocus\`, \`onEndDateBlur\`, \`onEndDateFocus\` to implement error messaging correctly.
 
 The following implementation shows how to use all required props for error messaging.
+
+The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date fields are not pre-populated, leverage \`onStartDateBlur\` and \`onEndDateBlur\` to validate the error state after the date fields lose focus. If the date fields are pre-populated leverage React's useEffect to validate the error state.
           `}
         >
           <MainSection.Card

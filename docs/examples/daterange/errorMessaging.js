@@ -49,14 +49,12 @@ export default function Example(): Node {
       onStartDateChange={({ value }) => setStartDate(value)}
       onEndDateChange={({ value }) => setEndDate(value)}
       onStartDateError={({ errorMessage, value }) => {
-        console.log('start', errorMessage, value);
         if (!errorMessage) {
           setStartErrorMessage(null);
         }
         setCurrentStartErrorMessage([errorMessage, value]);
       }}
       onEndDateError={({ errorMessage, value }) => {
-        console.log('start', errorMessage, value);
         if (!errorMessage) {
           setEndErrorMessage(null);
         }
