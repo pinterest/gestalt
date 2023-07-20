@@ -452,18 +452,18 @@ exports[`DateRange renders 1`] = `
                           <div
                             aria-disabled="false"
                             aria-label="Choose Wednesday, July 19th, 2023"
-                            class="react-datepicker__day react-datepicker__days react-datepicker__day--019 react-datepicker__day--keyboard-selected react-datepicker__day--today"
+                            class="react-datepicker__day react-datepicker__days react-datepicker__day--019"
                             role="button"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             19
                           </div>
                           <div
                             aria-disabled="false"
                             aria-label="Choose Thursday, July 20th, 2023"
-                            class="react-datepicker__day react-datepicker__days react-datepicker__day--020"
+                            class="react-datepicker__day react-datepicker__days react-datepicker__day--020 react-datepicker__day--keyboard-selected react-datepicker__day--today"
                             role="button"
-                            tabindex="-1"
+                            tabindex="0"
                           >
                             20
                           </div>
@@ -1515,18 +1515,18 @@ exports[`DateRange renders in mobile devices 1`] = `
                           <div
                             aria-disabled="false"
                             aria-label="Choose Wednesday, July 19th, 2023"
-                            class="react-datepicker__day react-datepicker__days react-datepicker__day--019 react-datepicker__day--keyboard-selected react-datepicker__day--today"
+                            class="react-datepicker__day react-datepicker__days react-datepicker__day--019"
                             role="button"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             19
                           </div>
                           <div
                             aria-disabled="false"
                             aria-label="Choose Thursday, July 20th, 2023"
-                            class="react-datepicker__day react-datepicker__days react-datepicker__day--020"
+                            class="react-datepicker__day react-datepicker__days react-datepicker__day--020 react-datepicker__day--keyboard-selected react-datepicker__day--today"
                             role="button"
-                            tabindex="-1"
+                            tabindex="0"
                           >
                             20
                           </div>
