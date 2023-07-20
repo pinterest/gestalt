@@ -1,3 +1,9 @@
+## 119.0.2 (Jul 20, 2023)
+
+### Patch
+
+- PopoverEducational: removing flex null spacing ([#3081](https://github.com/pinterest/gestalt/pull/3081)) - [Preview link](https://deploy-preview-3081--gestalt.netlify.app?devexample=true)
+
 ## 119.0.1 (Jul 19, 2023)
 
 ### Patch
