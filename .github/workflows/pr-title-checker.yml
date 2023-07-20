@@ -1,5 +1,8 @@
 name: 'PR Title Checker'
 on:
+  push:
+    tags-ignore:
+      - 'skip-title-checker'
   pull_request_target:
     types:
       - opened
