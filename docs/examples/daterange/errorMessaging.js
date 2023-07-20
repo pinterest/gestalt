@@ -1,9 +1,15 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node, useEffect, useState } from 'react';
 import { DateRange } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [startDate, setStartDate] = useState<Date | null>(null);
+  const date = new Date();
+  const year = date.getFullYear();
+
+  const minDate = new Date(year, 6, 1);
+  const maxDate = new Date(year, 6, 31);
+
+  const [startDate, setStartDate] = useState<Date | null>(new Date(year, 5, 1));
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [currentEndErrorMessage, setCurrentEndErrorMessage] = useState<
     [string | null, Date | null] | null,
@@ -14,11 +20,11 @@ export default function Example(): Node {
   const [endErrorMessage, setEndErrorMessage] = useState<string | null>(null);
   const [startErrorMessage, setStartErrorMessage] = useState<string | null>(null);
 
-  const date = new Date();
-  const year = date.getFullYear();
-
-  const minDate = new Date(year, 6, 1);
-  const maxDate = new Date(year, 6, 31);
+  useEffect(() => {
+    if (currentStartErrorMessage && currentStartErrorMessage[0]) {
+      setStartErrorMessage('Select a valid date in July');
+    }
+  }, [year, currentStartErrorMessage, startDate]);
 
   return (
     <DateRange
@@ -43,12 +49,14 @@ export default function Example(): Node {
       onStartDateChange={({ value }) => setStartDate(value)}
       onEndDateChange={({ value }) => setEndDate(value)}
       onStartDateError={({ errorMessage, value }) => {
+        console.log('start', errorMessage, value);
         if (!errorMessage) {
           setStartErrorMessage(null);
         }
         setCurrentStartErrorMessage([errorMessage, value]);
       }}
       onEndDateError={({ errorMessage, value }) => {
+        console.log('start', errorMessage, value);
         if (!errorMessage) {
           setEndErrorMessage(null);
         }

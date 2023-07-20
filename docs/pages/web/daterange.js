@@ -168,9 +168,12 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
         <MainSection.Subsection
           title="Controlled component"
           description={`
-DateRange is a controlled component. Follow the implementation in the example to implement a controlled DateRange correctly.
+DateRange is a controlled component.
+Use \`endDateValue\`, \`onEndDateChange, \`onEndDateError\`, \`onStartDateError\`, \`onStartDateChange\`, \`onSubmit\`,  \`startDateValue\` and \`onCancel\` to implement it correctly.
 
-When there’s not a date range selected, the call-to-action disables to prevent user errors.
+Follow the implementation in the example to implement a controlled DateRange correctly.
+
+When there’s not a date range selected, the call-to-action is disabled to prevent user errors.
           `}
         >
           <MainSection.Card
@@ -224,8 +227,8 @@ The following implementation shows how to use all required props for error messa
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Disable future & past"
-          description="DateField supports disabling future and past dates from being selected."
+          title="Disable past & future dates"
+          description="DateField supports disabling future and past dates from being selected. Use `minDate` for disabling past dates and `maxDate` for disabling futures dates."
         >
           <MainSection.Card
             cardSize="md"
@@ -244,7 +247,8 @@ The following implementation shows how to use all required props for error messa
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Supporting locales"
-          description="Select the correct locale to see DataRange's selected locale support."
+          description="DateRange supports multiple locales. Use the Dropdown to try out different locales by passing in the `localeData` prop.
+"
         >
           <Flex gap={4} direction="column" flex="none">
             <SelectList

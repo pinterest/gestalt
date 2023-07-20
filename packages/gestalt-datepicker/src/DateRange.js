@@ -62,11 +62,11 @@ type Props = {|
    */
   localeData?: LocaleData,
   /**
-   * Maximal selectable date. Disables any date values after the provided date. See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-future-and-past) to learn more.
+   * Maximal selectable date. Disables any date values after the provided date. See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-past-and-future-dates) to learn more.
    */
   maxDate?: Date,
   /**
-   * Minimal selectable date. Disables any date values before the provided date.  See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-future-and-past) to learn more.
+   * Minimal selectable date. Disables any date values before the provided date.  See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-past-and-future-dates) to learn more.
    */
   minDate?: Date,
   /**
@@ -74,7 +74,7 @@ type Props = {|
    */
   onCancel: () => void,
   /**
-   * Callback triggered when the user blurs the input of the end date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onEndDateBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -99,7 +99,7 @@ type Props = {|
     value: string,
   |}) => void,
   /**
-   * Callback triggered when the user blurs the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onStartDateBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -212,7 +212,8 @@ function DateRange({
                     errorMessage={startDateErrorMessage}
                   />
                 </Box>
-                <Box display="flex" height="100%" alignItems="center">
+                {/* We are not using Flex here because the error message prevents keeping the dash aligned to the form field */}
+                <Box dangerouslySetInlineStyle={{ __style: { marginTop: '15px' } }}>
                   <Text>—</Text>
                 </Box>
                 <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
@@ -256,11 +257,10 @@ function DateRange({
               />
             </Box>
             <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
-              <ButtonGroup>
-                <Box marginBottom={4} marginEnd={4}>
+              <Box marginBottom={4} marginEnd={4}>
+                <ButtonGroup>
                   <Button color="gray" text={cancelText} onClick={() => onCancel()} />
-                </Box>
-                <Box marginBottom={4} marginEnd={4}>
+
                   <Button
                     color="red"
                     text={applyText}
@@ -272,8 +272,8 @@ function DateRange({
                     }
                     onClick={() => onSubmit()}
                   />
-                </Box>
-              </ButtonGroup>
+                </ButtonGroup>
+              </Box>
             </Flex.Item>
           </Flex>
         </Box>
