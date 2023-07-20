@@ -169,7 +169,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           title="Controlled component"
           description={`
 DateRange is a controlled component.
-Use \`endDateValue\`,  \`startDateValue\`,  \`onEndDateChange, \`onStartDateChange\`, \`onEndDateError\`, \`onStartDateError\`, \`onSubmit\`and \`onCancel\` to implement it correctly.
+Use \`endDateValue\`,  \`startDateValue\`,  \`onEndDateChange\`, \`onStartDateChange\`, \`onEndDateError\`, \`onStartDateError\`, \`onSubmit\` and \`onCancel\` to implement it correctly.
 
 Follow the implementation in the example to implement a controlled DateRange correctly.
 
@@ -194,6 +194,7 @@ When there’s not a date range selected, the call-to-action is disabled to prev
           <MainSection.Card
             cardSize="md"
             title="Future selection"
+            description="Use RadioGroup to select pre-established date ranges in the future. For example, activation dates for a new campaign."
             sandpackExample={
               <SandpackExample
                 code={futureRadiogroup}
@@ -205,6 +206,7 @@ When there’s not a date range selected, the call-to-action is disabled to prev
           <MainSection.Card
             cardSize="md"
             title="Past selection"
+            description="Use RadioGroup to select pre-established date ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
               <SandpackExample code={pastRadiogroup} name="past radiogroup" previewHeight={500} />
             }
@@ -235,6 +237,7 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           <MainSection.Card
             cardSize="md"
             title="Disable past"
+            description="Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign."
             sandpackExample={
               <SandpackExample code={disabledPast} name="past example" previewHeight={500} />
             }
@@ -242,6 +245,7 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           <MainSection.Card
             cardSize="md"
             title="Disable future"
+            description="Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
               <SandpackExample code={disabledFuture} name="future example" previewHeight={500} />
             }
@@ -252,21 +256,23 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           description="DateRange supports multiple locales. Use the Dropdown to try out different locales by passing in the `localeData` prop.
 "
         >
-          <Flex gap={4} direction="column" flex="none">
-            <SelectList
-              id="selectlistexample1"
-              label="Country"
-              size="lg"
-              onChange={({ value }) => setLocale(value)}
-            >
-              {Object.keys(localeMap).map((localeKey) => (
-                <SelectList.Option
-                  key={localeKey}
-                  label={localeMap[localeKey].lang}
-                  value={localeKey}
-                />
-              ))}
-            </SelectList>
+          <Flex gap={4} direction="row" wrap>
+            <Flex.Item flex="none">
+              <SelectList
+                id="selectlistexample1"
+                label="Country"
+                size="lg"
+                onChange={({ value }) => setLocale(value)}
+              >
+                {Object.keys(localeMap).map((localeKey) => (
+                  <SelectList.Option
+                    key={localeKey}
+                    label={localeMap[localeKey].lang}
+                    value={localeKey}
+                  />
+                ))}
+              </SelectList>
+            </Flex.Item>
             <DateRange
               startDateValue={new Date()}
               endDateValue={null}
