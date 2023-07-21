@@ -10,7 +10,7 @@ import {
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Box, Icon, Label, Text } from 'gestalt';
-import DatePickerTextField from './TextField.js';
+import DatePickerTextField from './TextInput.js';
 import styles from '../DatePicker.css';
 import { type Props } from '../DatePicker.js';
 
