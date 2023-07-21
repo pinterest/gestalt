@@ -1,3 +1,9 @@
+## 119.1.1 (Jul 21, 2023)
+
+### Patch
+
+- DateRange: Fix example, add snapshot in unit test, fix sandboxes ([#3089](https://github.com/pinterest/gestalt/pull/3089)) - [Preview link](https://deploy-preview-3089--gestalt.netlify.app?devexample=true)
+
 ## 119.1.0 (Jul 21, 2023)
 
 ### Minor
