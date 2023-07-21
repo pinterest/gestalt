@@ -36,7 +36,11 @@ export default function Page({
 
   return (
     <Flex width="100%">
-      <Box flex="grow" maxWidth={hideSideNav ? CONTENT_MAX_WIDTH_PX : DETAIL_PAGE_MAX_WIDTH}>
+      <Box
+        data-test-id="component-page"
+        flex="grow"
+        maxWidth={hideSideNav ? CONTENT_MAX_WIDTH_PX : DETAIL_PAGE_MAX_WIDTH}
+      >
         <SearchContent>
           <Flex
             gap={{
