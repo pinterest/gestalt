@@ -19,7 +19,11 @@ export default function Example(): Node {
             title={selectedDates ? 'Campaign dates selected' : 'Select dates'}
             subtext={
               selectedDates
-                ? `${selectedDates[0].getMonth()}/${selectedDates[0].getDay()}/${selectedDates[0].getFullYear()} - ${selectedDates[1].getMonth()}/${selectedDates[1].getDay()}/${selectedDates[1].getFullYear()}`
+                ? `${
+                    selectedDates[0].getMonth() + 1
+                  }/${selectedDates[0].getDate()}/${selectedDates[0].getFullYear()} - ${
+                    selectedDates[1].getMonth() + 1
+                  }/${selectedDates[1].getDate()}/${selectedDates[1].getFullYear()}`
                 : undefined
             }
           />
