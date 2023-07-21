@@ -1,3 +1,9 @@
+## 119.1.2 (Jul 21, 2023)
+
+### Patch
+
+- Docs: fix in broken TextField page ([#3090](https://github.com/pinterest/gestalt/pull/3090)) - [Preview link](https://deploy-preview-3090--gestalt.netlify.app?devexample=true)
+
 ## 119.1.1 (Jul 21, 2023)
 
 ### Patch
