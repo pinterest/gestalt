@@ -1,3 +1,9 @@
+## 119.0.5 (Jul 21, 2023)
+
+### Patch
+
+- Internal: revert 'skip-title-checker' test PR changes ([#3088](https://github.com/pinterest/gestalt/pull/3088)) - [Preview link](https://deploy-preview-3088--gestalt.netlify.app?devexample=true)
+
 ## 119.0.4 (Jul 21, 2023)
 
 ### Patch
