@@ -10,7 +10,6 @@ export default async function expectAccessiblePage(
 ) {
   const { violations } = await new AxeBuilder({ page })
     .options({ rules })
-    .include('#component-page')
     .exclude('iframe')
     .exclude('.live-editor-pane')
     .exclude('.skip-accessibility-check')
