@@ -1,3 +1,9 @@
+## 119.1.0 (Jul 21, 2023)
+
+### Minor
+
+- DateRange: new component ([#3001](https://github.com/pinterest/gestalt/pull/3001)) - [Preview link](https://deploy-preview-3001--gestalt.netlify.app?devexample=true)
+
 ## 119.0.5 (Jul 21, 2023)
 
 ### Patch
