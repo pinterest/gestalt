@@ -8,7 +8,7 @@ export default function Example(): Node {
   const [endDate, setEndDate] = useState<Date | null>(null);
 
   return (
-    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
         startDateValue={startDate}
         endDateValue={endDate}

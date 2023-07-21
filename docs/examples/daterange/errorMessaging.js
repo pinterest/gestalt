@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useState } from 'react';
+import { Flex } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
 export default function Example(): Node {
@@ -27,43 +28,45 @@ export default function Example(): Node {
   }, [year, currentStartErrorMessage, startDate]);
 
   return (
-    <DateRange
-      endDateValue={endDate}
-      endDateErrorMessage={endErrorMessage}
-      minDate={minDate}
-      maxDate={maxDate}
-      onStartDateBlur={() => {
-        if (currentStartErrorMessage && currentStartErrorMessage[0]) {
-          setStartErrorMessage('Select a valid date in July');
-        } else {
-          setStartErrorMessage(null);
-        }
-      }}
-      onEndDateBlur={() => {
-        if (currentEndErrorMessage && currentEndErrorMessage[0]) {
-          setEndErrorMessage('Select a valid date in July');
-        } else {
-          setEndErrorMessage(null);
-        }
-      }}
-      onStartDateChange={({ value }) => setStartDate(value)}
-      onEndDateChange={({ value }) => setEndDate(value)}
-      onStartDateError={({ errorMessage, value }) => {
-        if (!errorMessage) {
-          setStartErrorMessage(null);
-        }
-        setCurrentStartErrorMessage([errorMessage, value]);
-      }}
-      onEndDateError={({ errorMessage, value }) => {
-        if (!errorMessage) {
-          setEndErrorMessage(null);
-        }
-        setCurrentEndErrorMessage([errorMessage, value]);
-      }}
-      startDateValue={startDate}
-      startDateErrorMessage={startErrorMessage}
-      onSubmit={() => {}}
-      onCancel={() => {}}
-    />
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <DateRange
+        endDateValue={endDate}
+        endDateErrorMessage={endErrorMessage}
+        minDate={minDate}
+        maxDate={maxDate}
+        onStartDateBlur={() => {
+          if (currentStartErrorMessage && currentStartErrorMessage[0]) {
+            setStartErrorMessage('Select a valid date in July');
+          } else {
+            setStartErrorMessage(null);
+          }
+        }}
+        onEndDateBlur={() => {
+          if (currentEndErrorMessage && currentEndErrorMessage[0]) {
+            setEndErrorMessage('Select a valid date in July');
+          } else {
+            setEndErrorMessage(null);
+          }
+        }}
+        onStartDateChange={({ value }) => setStartDate(value)}
+        onEndDateChange={({ value }) => setEndDate(value)}
+        onStartDateError={({ errorMessage, value }) => {
+          if (!errorMessage) {
+            setStartErrorMessage(null);
+          }
+          setCurrentStartErrorMessage([errorMessage, value]);
+        }}
+        onEndDateError={({ errorMessage, value }) => {
+          if (!errorMessage) {
+            setEndErrorMessage(null);
+          }
+          setCurrentEndErrorMessage([errorMessage, value]);
+        }}
+        startDateValue={startDate}
+        startDateErrorMessage={startErrorMessage}
+        onSubmit={() => {}}
+        onCancel={() => {}}
+      />
+    </Flex>
   );
 }
