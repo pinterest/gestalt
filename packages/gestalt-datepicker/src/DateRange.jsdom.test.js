@@ -42,6 +42,17 @@ function DateFieldWrap({
 }
 
 describe('DateRange', () => {
+  it('renders', () => {
+    const { container } = render(
+      <DateFieldWrap
+        initialStartDate={new Date('December 16, 1995 03:24:00')}
+        initialEndDate={new Date('December 17, 1995 03:24:00')}
+        localeData={id}
+      />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it('renders correctly with no default dates with locale', () => {
     render(
       <DateFieldWrap
