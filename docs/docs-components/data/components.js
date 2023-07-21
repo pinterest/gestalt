@@ -27,6 +27,7 @@ import ComboBox from '../../graphics/general/ComboBox.svg';
 import Datapoint from '../../graphics/general/Datapoint.svg';
 import DateField from '../../graphics/general/DateField.svg';
 import DatePicker from '../../graphics/general/DatePicker.svg';
+import DateRange from '../../graphics/general/DateRange.svg';
 import Divider from '../../graphics/general/Divider.svg';
 import Dropdown from '../../graphics/general/Dropdown.svg';
 import Heading from '../../graphics/general/Heading.svg';
@@ -631,6 +632,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'DateRange',
+    platform: {
+      web: {
+        name: 'DateRange',
+        alias: ['Calendar', 'Date time picker', 'Date picker range'],
+        visual: {
+          svg: <DateRange />,
+        },
+        description:
+          'DateRange enables users to preview and select a range of days by picking dates from a calendar or adding a text input.',
+        category: ['Fields and forms'],
+        status: {
+          accessible: {
+            summary: 'partial',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'partial',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'notAvailable',
+          figmaStatus: 'notAvailable',
+          responsive: 'notAvailable',
+          status: 'notAvailable',
         },
       },
     },

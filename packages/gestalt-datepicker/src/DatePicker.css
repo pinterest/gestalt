@@ -17,7 +17,17 @@
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  padding: 16px;
+  padding: var(--space-300);
+  position: relative;
+}
+
+.react-datepicker-inline {
+  background-color: var(--g-colorGray50);
+  border-radius: 16px;
+  color: var(--g-colorGray300);
+  display: inline-block;
+  font-family: var(--font-family-default-latin);
+  padding: var(--space-300);
   position: relative;
 }
 
@@ -25,7 +35,7 @@
   color: var(--g-colorGray300);
   font-size: var(--font-size-400);
   font-weight: var(--font-weight-bold);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-300);
 }
 
 /* It must be named different than .react-datepicker__day
@@ -288,6 +298,13 @@ to prevent conflict with another CSS module */
   float: left;
   font-size: var(--font-size-300);
   font-weight: var(--font-weight-normal);
+}
+
+:global
+  ._gestalt
+  ._gestalt_daterange
+  .react-datepicker__month-container:last-child {
+  margin-left: 37px;
 }
 
 :global ._gestalt .react-datepicker__navigation {

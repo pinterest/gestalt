@@ -9,7 +9,6 @@ import {
   useState,
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import classnames from 'classnames';
 import { Box, Icon, Label, Text } from 'gestalt';
 import DatePickerTextField from './TextField.js';
 import styles from '../DatePicker.css';
@@ -107,7 +106,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         </Label>
       )}
       <ReactDatePicker
-        calendarClassName={classnames(styles['react-datepicker'])}
+        calendarClassName={styles['react-datepicker']}
         customInput={
           <DatePickerTextField
             name={name}
@@ -117,7 +116,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
           />
         }
         dateFormat={format}
-        dayClassName={() => classnames(styles['react-datepicker__days'])}
+        dayClassName={() => styles['react-datepicker__days']}
         disabled={disabled}
         dropdownMode="select"
         endDate={rangeEndDate ?? undefined}
@@ -139,7 +138,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
         placeholderText={placeholder ?? format?.toUpperCase()}
-        popperClassName={classnames(styles['react-datepicker-popper'])}
+        popperClassName={styles['react-datepicker-popper']}
         popperModifiers={[
           {
             name: 'offset',

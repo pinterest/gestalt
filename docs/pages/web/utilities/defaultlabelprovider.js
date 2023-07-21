@@ -59,6 +59,16 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'label': 'Clear input',
     },
     {
+      'component': 'DateRange',
+      'prop': 'applyText',
+      'label': 'Apply',
+    },
+    {
+      'component': 'DateRange',
+      'prop': 'cancelText',
+      'label': 'Cancel',
+    },
+    {
       'component': 'Link',
       'prop': 'accessibilityNewTabLabel',
       'label': 'Opens a new tab',

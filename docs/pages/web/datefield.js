@@ -151,7 +151,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Disable future & past"
+          title="Disable past & future dates"
           description="DateField supports disabling future & past dates from being selected."
         >
           <MainSection.Card

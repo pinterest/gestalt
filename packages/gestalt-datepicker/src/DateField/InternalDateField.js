@@ -100,7 +100,7 @@ const CustomTextField = forwardRef(
           onKeyDown={onKeyDown}
           onMouseUp={onMouseUp}
         />
-        {!disabled && !readOnly ? (
+        {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
           <div className={classnames(styles.actionButtonWrapper)}>
             <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
               <TapArea
@@ -114,7 +114,7 @@ const CustomTextField = forwardRef(
                 }}
                 onMouseEnter={() => setIconFocused(true)}
                 onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState?.passthroughProps?.onClearInput()}
+                onTap={() => ownerState.passthroughProps.onClearInput()}
                 rounding="circle"
                 tapStyle="compress"
               >
@@ -197,20 +197,20 @@ type InternalDateFieldProps = {|
   id: string,
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
-  localeData: ?LocaleData,
-  maxDate?: Date,
-  minDate?: Date,
+  localeData?: ?LocaleData,
+  maxDate?: Date | null,
+  minDate?: Date | null,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onChange: ({| value: ?Date |}) => void,
-  onClearInput: () => void,
+  onChange: ({| value: Date | null |}) => void,
+  onClearInput?: () => void,
   onError?: ({|
     errorMessage: string,
-    value: ?Date,
+    value: Date | null,
   |}) => void,
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -218,7 +218,7 @@ type InternalDateFieldProps = {|
   |}) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
-  value: ?Date,
+  value: Date | null,
 |};
 
 function InternalDateField({
@@ -247,16 +247,18 @@ function InternalDateField({
     <StyledEngineProvider injectFirst>
       <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={localeData}>
         <Box>
-          <label
-            className={classnames(styles.label, {
-              [styles.visuallyHidden]: labelDisplay === 'hidden',
-            })}
-            htmlFor={id}
-          >
-            <div className={styles.formLabel}>
-              <Text size="100">{label}</Text>
-            </div>
-          </label>
+          {label ? (
+            <label
+              className={classnames(styles.label, {
+                [styles.visuallyHidden]: labelDisplay === 'hidden',
+              })}
+              htmlFor={id}
+            >
+              <div className={styles.formLabel}>
+                <Text size="100">{label}</Text>
+              </div>
+            </label>
+          ) : null}
           <Box position="relative" display="flex" alignItems="center">
             <MUIDatePicker
               onChange={(dateValue) => onChange({ value: dateValue })}

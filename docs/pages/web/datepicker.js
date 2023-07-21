@@ -221,7 +221,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           description="DatePicker supports disabling future & past dates as well as an array of selected dates."
         >
           <MainSection.Card
-            title="Disable future & past"
+            title="Disable past & future dates"
             sandpackExample={
               <SandpackExample
                 code={disable}

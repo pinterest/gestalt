@@ -29,6 +29,10 @@ export type DefaultLabelContextType = {|
     noResultText: string,
     accessibilityClearButtonLabel: string,
   |},
+  DateRange: {|
+    cancelText: string,
+    applyText: string,
+  |},
   Link: {|
     accessibilityNewTabLabel: string,
   |},
@@ -118,6 +122,10 @@ export const fallbackLabels: DefaultLabelContextType = {
   ComboBox: {
     noResultText: 'No results',
     accessibilityClearButtonLabel: 'Clear input',
+  },
+  DateRange: {
+    cancelText: 'Cancel',
+    applyText: 'Apply',
   },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
