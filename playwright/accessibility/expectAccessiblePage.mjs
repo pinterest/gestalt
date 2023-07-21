@@ -49,5 +49,7 @@ export default async function expectAccessiblePage(
     );
   }
 
+  expect(page.locator('#component-page')).toBeInViewport();
+
   expect(violations.length).toEqual(0);
 }
