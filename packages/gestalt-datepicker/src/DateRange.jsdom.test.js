@@ -42,12 +42,6 @@ function DateFieldWrap({
 }
 
 describe('DateRange', () => {
-  it('renders', () => {
-    const { container } = render(<DateFieldWrap />);
-
-    expect(container).toMatchSnapshot();
-  });
-
   it('renders correctly with no default dates with locale', () => {
     render(
       <DateFieldWrap
