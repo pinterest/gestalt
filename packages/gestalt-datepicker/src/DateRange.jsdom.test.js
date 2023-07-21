@@ -4,7 +4,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { id } from 'date-fns/locale';
 import DateRange from './DateRange.js';
 
-function DateFieldWrap({
+function DateRangeWrap({
   initialStartDate,
   initialEndDate,
   localeData,
@@ -44,7 +44,7 @@ function DateFieldWrap({
 describe('DateRange', () => {
   it('renders correctly with no default dates with locale', () => {
     render(
-      <DateFieldWrap
+      <DateRangeWrap
         initialStartDate={new Date('December 16, 1995 03:24:00')}
         initialEndDate={new Date('December 17, 1995 03:24:00')}
         localeData={id}
@@ -60,7 +60,7 @@ describe('DateRange', () => {
 
   it('renders correctly with default dates', () => {
     render(
-      <DateFieldWrap
+      <DateRangeWrap
         initialStartDate={new Date('December 16, 1995 03:24:00')}
         initialEndDate={new Date('December 17, 1995 03:24:00')}
       />,
@@ -74,7 +74,7 @@ describe('DateRange', () => {
 
   it('handles new selection', async () => {
     render(
-      <DateFieldWrap
+      <DateRangeWrap
         initialStartDate={new Date('December 16, 1995 03:24:00')}
         initialEndDate={new Date('December 17, 1995 03:24:00')}
       />,
@@ -129,7 +129,7 @@ describe('DateRange', () => {
     const selectedEndDate = new Date('January 13, 1996 03:24:00');
 
     render(
-      <DateFieldWrap
+      <DateRangeWrap
         initialStartDate={initialStartDate}
         initialEndDate={initialEndDate}
         onEndDateChange={onEndDateChangeMock}

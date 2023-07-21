@@ -56,6 +56,8 @@ import main from '../../examples/daterange/main.js';
 import mobile from '../../examples/daterange/mobile.js';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
 
+const PREVIEW_HEIGHT = 600;
+
 const localeMap = {
   'af': { localeData: af, lang: 'Afrikaans' },
   'ar-SA': { localeData: arSA, lang: 'Arabic (Saudi Arabia)' },
@@ -116,7 +118,8 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
-          previewHeight={500}
+          previewHeight={PREVIEW_HEIGHT}
+          layout="column"
         />
       </PageHeader>
 
@@ -182,7 +185,8 @@ When there’s not a date range selected, the call-to-action is disabled to prev
               <SandpackExample
                 code={implementation}
                 name="implementation example"
-                previewHeight={500}
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
               />
             }
           />
@@ -199,7 +203,8 @@ When there’s not a date range selected, the call-to-action is disabled to prev
               <SandpackExample
                 code={futureRadiogroup}
                 name="future radiogroup"
-                previewHeight={500}
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
               />
             }
           />
@@ -208,7 +213,12 @@ When there’s not a date range selected, the call-to-action is disabled to prev
             title="Past selection"
             description="Use RadioGroup to select pre-established date ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
-              <SandpackExample code={pastRadiogroup} name="past radiogroup" previewHeight={500} />
+              <SandpackExample
+                code={pastRadiogroup}
+                name="past radiogroup"
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
+              />
             }
           />
         </MainSection.Subsection>
@@ -226,7 +236,12 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           <MainSection.Card
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={errorMessaging} name="error example" previewHeight={500} />
+              <SandpackExample
+                code={errorMessaging}
+                name="error example"
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
+              />
             }
           />
         </MainSection.Subsection>
@@ -239,7 +254,12 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
             title="Disable past"
             description="Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign."
             sandpackExample={
-              <SandpackExample code={disabledPast} name="past example" previewHeight={500} />
+              <SandpackExample
+                code={disabledPast}
+                name="past example"
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
+              />
             }
           />
           <MainSection.Card
@@ -247,7 +267,12 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
             title="Disable future"
             description="Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
-              <SandpackExample code={disabledFuture} name="future example" previewHeight={500} />
+              <SandpackExample
+                code={disabledFuture}
+                name="future example"
+                previewHeight={PREVIEW_HEIGHT}
+                layout="column"
+              />
             }
           />
         </MainSection.Subsection>

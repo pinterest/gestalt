@@ -68,7 +68,7 @@ export default function Example(): Node {
   );
 
   return (
-    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
         radioGroup={radioGroup}
         endDateValue={endDate}
