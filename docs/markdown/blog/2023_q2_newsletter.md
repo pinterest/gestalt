@@ -74,7 +74,7 @@ On the surface there appears to be a correlation between our drop in highest-sco
 ### Featured components: Mobile components
 <ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/fb/3d/18/fb3d186bbbd5a10ca84efb509451b81e.jpg" alt="Illustration of mobile design system components." />
 <br />
-The Gestalt team partnered with the iOS and Android platform engineering teams to support the buildout and certification of 6 new Android Gestalt components ButtonGroup, Icon,  IconButton, IconButtonFloating, SearchField, Text, TextArea and Toast and 1 new iOS component, Icon.
+The Gestalt team partnered with the iOS and Android platform engineering teams to support the buildout and certification of 6 new Android Gestalt components [ButtonGroup](https://gestalt.pinterest.systems/android/buttongroup), [Icon](https://gestalt.pinterest.systems/android/icon), [IconButton](https://gestalt.pinterest.systems/android/iconbutton), [IconButtonFloating](https://gestalt.pinterest.systems/android/iconbuttonfloating), [SearchField](https://gestalt.pinterest.systems/android/searchfield), [Text](https://gestalt.pinterest.systems/android/text), [TextArea](https://gestalt.pinterest.systems/android/textarea) and [Toast](https://gestalt.pinterest.systems/android/toast) and 1 new iOS component, [Icon](https://gestalt.pinterest.systems/ios/icon).
 
 Gestalt has lagged behind on coverage for Android and iOS code components the progress we’ve made this quarter represents another big step towards full Gestalt support for mobile experience.
 
@@ -96,7 +96,7 @@ This component represents a significant footprint in our mWeb experience and we 
 ### mWeb-adaptive Dropdown
 <ImgHero width={525} height={350} src="https://i.pinimg.com/originals/ee/7d/29/ee7d29c6b3b6064aed4d49df9e414f7b.jpg" alt="An illusteation of the Dropdown component in desktop and mobile versions." />
 <br />
-Related to SheetMobile is our new mWeb-adaptive Dropdown. This new feature enabled a mobile-centric view that displays its contents in SheetMobile on mobile devices and Popover on desktop devices.
+Related to SheetMobile is our new mWeb-adaptive Dropdown. This new feature enabled a mobile-centric view that displays its contents in [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) on mobile devices and [Popover](https://gestalt.pinterest.systems/web/popover) on desktop devices.
 
 Our mWeb-adaptive components (currently Modal and Dropdown) should make development much simpler as it removes the need to swap out components based on device type. This should simplify cross-device product development.
 
@@ -124,9 +124,9 @@ Go have a look at **[TagData](https://gestalt.pinterest.systems/web/tagdata)** a
 <br />
 Gestalt’s Table component needed some love. We made three notable updates to the component in this quarter.
 
-* Table.Row and related subcomponents gained two new props, hoverStyle and selected.
+* [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) and related subcomponents gained two new props, hoverStyle and selected.
 * Headers and footers now have a border, and Table.RowExpanded can be used in a controlled manner using the expanded prop.
-* We also shipped a visual refinement to Table's sticky footer to include a drop shadow for greater visual clarity.
+* We also shipped a visual refinement to [Table's sticky footer](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) to include a drop shadow for greater visual clarity.
 
 These updates represent worthwhile quality-of-life improvements which should help improve the overall experience across business interfaces.
 
@@ -138,7 +138,7 @@ These updates represent worthwhile quality-of-life improvements which should hel
 ### Official TypeScript support
 <ImgHero width={525} height={350} src="https://i.pinimg.com/originals/e2/43/54/e243545276d26e3ecfd3682ffc013f9a.jpg" alt="An illustration of a browser window displaying the TypeScript logo." />
 <br />
-Gestalt now includes TypeScript declarations for `gestalt`` and `gestalt-datepicker`! We added a types field to our package.json files, so that TypeScript projects can automatically find the declarations. While we don't have specific plans to migrate to TypeScript yet, this is a big step towards making TypeScript a first-class citizen in Gestalt.
+Gestalt now includes TypeScript declarations for `gestalt` and `gestalt-datepicker`! We added a types field to our package.json files, so that TypeScript projects can automatically find the declarations. While we don't have specific plans to migrate to TypeScript yet, this is a big step towards making TypeScript a first-class citizen in Gestalt.
 </Group>
 <Group></Group>
 </TwoCol>
@@ -172,7 +172,7 @@ These guidelines represent the foundation we’ll build our actual components on
 ### Card / preview block guidelines
 <ImgHero width={525} height={350} src="https://i.pinimg.com/originals/3a/45/d9/3a45d917d3591a7c9aed51120365a501.jpg" alt="An illustration of Gestalt's Card component." />
 <br />
-We wrapped up a big collaboration with the Browse team where we worked to unify the design and content of in-feed modules. This work resulted in finalized Card component/content designs along with Card component guidelines as well as guidelines for Boards and Pins preview blocks.
+We wrapped up a big collaboration with the Browse team where we worked to unify the design and content of in-feed modules. This work resulted in finalized Card component/content designs along with [Card component guidelines](https://gestalt.pinterest.systems/ios/card/card) as well as guidelines for [Boards](https://gestalt.pinterest.systems/ios/card/card.boards) and [Pins](https://gestalt.pinterest.systems/ios/card/card.pins) preview blocks.
 
 This work should enable a more unified and consistent experience when Pinners are presented with in-feed recommendations.
 
