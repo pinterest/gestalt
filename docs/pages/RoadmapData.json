@@ -1,180 +1,292 @@
 {
-  "year": "2023 H1",
+  "year": "2023 H2",
   "tasks": [
     {
-      "task": "Pinterest content standards",
+      "task": "R&D: AI integration into docs/comms",
       "deadline": "",
-      "status": "ok",
+      "status": "unstarted",
       "platforms": [],
-      "description": "Publish Pinterest's existing content standards within Gestalt's documentation.",
+      "description": "Explore potential applications for AI to augment our team's support and external communications.",
       "link": ""
     },
     {
-      "task": "Gestalt collaboration model",
+      "task": "Improved team communications",
       "deadline": "",
-      "status": "ok",
+      "status": "unstarted",
       "platforms": [],
-      "description": "Add Gestalt's working collaboration model to its documentation as a reference point for cross-functional collaboration.",
+      "description": "Develop new processes to help awareness of Gestalt once they've shipped.",
       "link": ""
     },
     {
-      "task": "Global navigation guidelines",
+      "task": "Design Systems Day 2023",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Create education sessions to up-level design craft skills on all things design systems.",
+      "link": ""
+    },
+    {
+      "task": "Gestalt docs auto-generation of props tables",
       "deadline": "",
       "status": "inProgress",
       "platforms": [],
-      "description": "Release general guidelines and principles for navigation content and display.",
+      "description": "Finalize our migration of component docs to dynamically generate props tables in our documentation.",
       "link": ""
     },
     {
-      "task": "Card component",
+      "task": "Gestalt docs Sandpack code editor migrations",
       "deadline": "",
-      "status": "ok",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Finalize all remaining code samples to render in Sandpack for improved rendering and text selection.",
+      "link": ""
+    },
+    {
+      "task": "Right-to-left content guidelines",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Include official guidelines / best practices on right-to-left content within Gestalt's docs.",
+      "link": ""
+    },
+    {
+      "task": "Notification guidelines refresh",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Implement updates and additions to our notification guidelines (currently known as messaging) to support new use cases and fill in missing topics.",
+      "link": ""
+    },
+    {
+      "task": "Improved Figma component discoverability",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Publish refinements to our Gestalt Figma libraries to make finding the desired component faster and less burdensome.",
+      "link": ""
+    },
+    {
+      "task": "Figma component parity with Web codebase",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Address naming / property gaps in our Figma Web library to better align with our Web component codebase.",
+      "link": ""
+    },
+    {
+      "task": "Integration of variables into Gestalt Figma libraries",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Research and experimentation on the viability of implementing Figma variables into Gestalt's Figma libraries.",
+      "link": ""
+    },
+    {
+      "task": "Data visualization components",
+      "deadline": "",
+      "status": "inProgress",
       "platforms": ["Web"],
-      "description": "Creation of a Card component to support emerging Pinner needs.",
+      "description": "Implementation of Bar and Line chart components in our Web codebase.",
+      "link": ""
+    },
+    {
+      "task": "Density theme",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["Web"],
+      "description": "Implementation of a baseline density theme across a subset of Web components.",
+      "link": ""
+    },
+    {
+      "task": "Animation guidelines improvements",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Provide greater fidelity and detail related to Gestalt's animation guidelines.",
+      "link": ""
+    },
+    {
+      "task": "Popover stability improvements",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Address the root causes related to number web Popover stability issues.",
+      "link": ""
+    },
+    {
+      "task": "Pinterest Design Figma plugin experience improvements",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Improve existing features in our Figma plugin to better support the day-to-day workflow of designers.",
+      "link": ""
+    },
+    {
+      "task": "Pinterest Design Figma plugin linter functionality",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Implement design linting capabilities to detect and fix missing Gestalt styles/variables in design files.",
+      "link": ""
+    },
+    {
+      "task": "Pinterest Design Figma plugin color module",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Provide more in-depth plugin support for creating accessible color combinations with Gestalt's color palette.",
+      "link": ""
+    },
+    {
+      "task": "Gestalt mobile component documentation improvements",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Enhance ouf mobile component documentation to improve clarity while streamlining the creation process.",
+      "link": ""
+    },
+    {
+      "task": "Integration / linking of PyDocs for internal employees",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": [],
+      "description": "Connect Gestalt's external docs with private links to internal documentation to help engineers get to pertinent information faster / easier.",
+      "link": ""
+    },
+    {
+      "task": "Integration of educational content to Gestalt's documentation",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Add all new / existing educational content to Gestalt's documentation to help design and engineering find educational content faster / easier.",
+      "link": ""
+    },
+    {
+      "task": "Implementation of an external Gestalt contribution model",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Build out the infrastructure and processes necessary to support an external contribution process from designers and engineers outside of Gestalt.",
+      "link": ""
+    },
+    {
+      "task": "Support context logging within Gestalt components",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["Web"],
+      "description": "Develop an API that supports logging functionality within Gestalt components.",
+      "link": ""
+    },
+    {
+      "task": "Support data test ids within Gestalt components",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["Web"],
+      "description": "Increment testing support across Gestalt components using data test ids.",
+      "link": ""
+    },
+    {
+      "task": "R&D: Alternative Gestalt usage measurement",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": [],
+      "description": "Explore the possibility to measure usage of Gestalt components through the lens of impressions.",
+      "link": ""
+    },
+    {
+      "task": "Illustration component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["Web"],
+      "description": "Implementation of Gestalt's official illustrations in Web component form.",
       "link": ""
     },
     {
       "task": "SideNavigation component enhancements",
       "deadline": "",
-      "status": "inProgress",
+      "status": "unstarted",
       "platforms": ["Web"],
-      "description": "Provide functional and experiential enhancements to the SideNavigation component to be more compatible with product needs.",
+      "description": "Improvements to the overall component, including: ability to collapse/expand the entire column, ability to collapse/expand sections and potential support for subtext, images and avatars",
       "link": ""
     },
     {
-      "task": "Tile component",
+      "task": "ActionBar component",
       "deadline": "",
-      "status": "ok",
+      "status": "unstarted",
       "platforms": ["Web"],
-      "description": "Creation of a Tile component to support emerging M10n needs.",
+      "description": "Buildout of the new standard Pinterest mobile ActionBar component.",
       "link": ""
     },
     {
-      "task": "DateRange component",
+      "task": "R&D: CSS Container queries within Gestalt Web components",
       "deadline": "",
-      "status": "inProgress",
+      "status": "unstarted",
       "platforms": ["Web"],
-      "description": "Development of a DateRange component to cover input of start/end dates.",
+      "description": "Explore how to leverage CSS container queries for a more responsive Gestalt.",
       "link": ""
     },
     {
-      "task": "Figma tooling to support design workflow",
-      "deadline": "",
-      "status": "ok",
-      "platforms": [],
-      "description": "Ship Figma plugin functionality to enhance designers' day-to-day workflow.",
-      "link": ""
-    },
-    {
-      "task": "Form pattern guidelines",
-      "deadline": "",
-      "status": "ok",
-      "platforms": [],
-      "description": "Development of usage guidelines and best practices for form creation within Gestalt.",
-      "link": ""
-    },
-    {
-      "task": "Gestalt docs feedback affordance",
+      "task": "Mobile Badge component",
       "deadline": "",
       "status": "inProgress",
-      "platforms": [],
-      "description": "Creation of a feedback tool within the docs site to enable more fluid user feedback.",
-      "link": ""
-    },
-    {
-      "task": "Illustration pattern guidelines",
-      "deadline": "",
-      "status": "ok",
-      "platforms": [],
-      "description": "Development of usage guidelines and best practices for utilizing illustrations with Gestalt.",
-      "link": ""
-    },
-    {
-      "task": "Mobile Icon component",
-      "deadline": "",
-      "status": "ok",
-      "platforms": ["Android", "iOS"],
-      "description": "Development of the Icon component for Android and iOS along with respective documentation.",
-      "link": ""
-    },
-    {
-      "task": "Mobile Toast component",
-      "deadline": "",
-      "status": "ok",
       "platforms": ["Android"],
-      "description": "Development of the Toast component for Android along with respective documentation.",
+      "description": "Development of a mobile-specific treatment of the Badge component with respective documentation.",
       "link": ""
     },
     {
-      "task": "Mobile IconButton component",
+      "task": "Mobile Sheet container component",
       "deadline": "",
-      "status": "ok",
+      "status": "unstarted",
       "platforms": ["Android"],
-      "description": "Development of a mobile-specific treatment of the IconButton component along with respective documentation.",
+      "description": "Development of a mobile-specific treatment of the Sheet container component with respective documentation.",
       "link": ""
     },
     {
-      "task": "Cross platform Gestalt engineering adoption metric",
+      "task": "Mobile Sheet header component",
       "deadline": "",
-      "status": "ok",
-      "platforms": [],
-      "description": "Define and implement a cross platform measurement for Gestalt engineering adoption on the Web platform.",
+      "status": "unstarted",
+      "platforms": ["Android"],
+      "description": "Development of a mobile-specific treatment of the Sheet header component with respective documentation.",
       "link": ""
     },
     {
-      "task": "Masonry component integration tests",
+      "task": "Mobile Table component, text only variant",
       "deadline": "",
-      "status": "ok",
-      "platforms": ["Web"],
-      "description": "Increase safety of future Masonry work by establishing a baseline of integration tests.",
+      "status": "unstarted",
+      "platforms": ["Android"],
+      "description": "Development of a mobile-specific treatment of the Table component's text-only variant along with respective documentation.",
       "link": ""
     },
     {
-      "task": "Masonry 2-column pin support (experimentation only)",
+      "task": "Mobile Table component, with image variant",
       "deadline": "",
-      "status": "problem",
-      "platforms": ["Web"],
-      "description": "Initial experimental attempt to support items spanning two column widths in Masonry.",
+      "status": "unstarted",
+      "platforms": ["Android"],
+      "description": "Development of a mobile-specific treatment of the Table component's image/text variant along with respective documentation.",
       "link": ""
     },
     {
-      "task": "Mobile web adaptive Popover component",
+      "task": "Mobile Table component, navigation variant",
       "deadline": "",
-      "status": "problem",
-      "platforms": ["Web"],
-      "description": "Development of a mobile web treatment for the Popover component along with respective documentation.",
+      "status": "unstarted",
+      "platforms": ["Android"],
+      "description": "Development of a mobile-specific treatment of the Table component's navigation variant along with respective documentation.",
       "link": ""
     },
     {
-      "task": "Mobile web adaptive Dropdown component",
+      "task": "Mobile Table component, selection variant",
       "deadline": "",
-      "status": "ok",
-      "platforms": ["Web"],
-      "description": "Development of a mobile web treatment for the Dropdown component along with respective documentation.",
+      "status": "unstarted",
+      "platforms": ["Android"],
+      "description": "Development of a mobile-specific treatment of the Table component's selection variant along with respective documentation.",
       "link": ""
     },
     {
-      "task": "Mobile web adaptive Modal component",
+      "task": "Mobile AvatarGroup component",
       "deadline": "",
-      "status": "ok",
-      "platforms": ["Web"],
-      "description": "Development of a mobile web treatment for the Modal component along with respective documentation.",
-      "link": ""
-    },
-    {
-      "task": "Mobile web Sheet component",
-      "deadline": "",
-      "status": "ok",
-      "platforms": ["Web"],
-      "description": "Development of a mobile web Sheet component along with respective documentation.",
-      "link": ""
-    },
-    {
-      "task": "Default labels in Gestalt components",
-      "deadline": "",
-      "status": "ok",
-      "platforms": ["Web"],
-      "description": "Implement all default labels supported in components for faster development and message consistency.",
+      "status": "unstarted",
+      "platforms": ["Android"],
+      "description": "Development of a mobile-specific treatment of the AvatarGroup component along with respective documentation.",
       "link": ""
     }
   ]
