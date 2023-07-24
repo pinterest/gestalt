@@ -1,3 +1,9 @@
+## 119.1.4 (Jul 24, 2023)
+
+### Patch
+
+- Docs: 2023 H2 roadmap ([#3077](https://github.com/pinterest/gestalt/pull/3077)) - [Preview link](https://deploy-preview-3077--gestalt.netlify.app?devexample=true)
+
 ## 119.1.3 (Jul 24, 2023)
 
 ### Patch
