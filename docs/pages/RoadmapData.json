@@ -174,7 +174,7 @@
       "deadline": "",
       "status": "unstarted",
       "platforms": ["Web"],
-      "description": "Add built-in support for logging within Gestalt components.",
+      "description": "Develop an API that supports logging functionality within Gestalt components.",
       "link": ""
     },
     {
@@ -182,7 +182,7 @@
       "deadline": "",
       "status": "unstarted",
       "platforms": ["Web"],
-      "description": "",
+      "description": "Increment testing support across Gestalt components using data test ids.",
       "link": ""
     },
     {
@@ -222,7 +222,7 @@
       "deadline": "",
       "status": "unstarted",
       "platforms": ["Web"],
-      "description": "",
+      "description": "Explore how to leverage CSS container queries for a more responsive Gestalt.",
       "link": ""
     },
     {
