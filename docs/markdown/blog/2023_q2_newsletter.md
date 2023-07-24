@@ -10,7 +10,7 @@ fullwidth: true
 We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineering survey results as they’re a window into our goals for the second half of the year. 
 
 ### Overall sentiment
-
+It was another good half for sentiment. We saw some healthy gains from design. We saw a noticeable drop in highest sentiment scores from engineers, but still maintained a pretty eye-popping 98% overall approval. 
 <TwoCol>
 <Group>
 #### Design sentiment: 
@@ -25,6 +25,7 @@ We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineer
 </TwoCol>
 
 ### Survey highlights
+Documentation sentiment and Figma library ease of use were two big wins from this half. These touchpoints remain critical for us and we believe there's ample room for continued improvement.
 <TwoCol>
 <Group>
 #### Overall documentation sentiment:
@@ -38,6 +39,7 @@ We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineer
 </Group>
 </TwoCol>
 ### Survey lowlights
+Engineering awareness of Gestalt updates is an area where we need to see significant improvement. Our goal for this year is 60% of engineers being aware of very aware of our updates. We plan to hit this hard in Q3. Velocity was another area that dipped a bit this half. We hit 100% of our core customers giving us a positive velocity score in H2 2022, so we could only go down from there. That said, a 15% drop of highest scores is something we'd like to resolve in the second half of the year.
 <TwoCol>
 <Group>
 #### Engineering awareness of Gestalt updates
