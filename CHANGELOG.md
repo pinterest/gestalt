@@ -1,3 +1,9 @@
+## 119.1.3 (Jul 24, 2023)
+
+### Patch
+
+- Docs: 2023-07-21 weekly update ([#3092](https://github.com/pinterest/gestalt/pull/3092)) - [Preview link](https://deploy-preview-3092--gestalt.netlify.app?devexample=true)
+
 ## 119.1.2 (Jul 21, 2023)
 
 ### Patch
