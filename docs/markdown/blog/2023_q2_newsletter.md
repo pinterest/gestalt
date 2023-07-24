@@ -259,7 +259,7 @@ Our docs site has been and will continue to be a core part of Gestalt. We contin
 Designers, we heard your feedback and we know finding Gestalt Figma library components isn't always the easiest thing to do. We have big plans to improve this experience, if not fix it once and for all. We'll be making a major focus on improving our libraries' ease of use this upcoming half and we have high hopes for what we'll be able to deliver.
 </Group>
 <Group>
-### Pinterest Design Figma plugin improvements 
+### Pinterest Figma plugin improvements 
 <ImgHero width={525} height={350} src="https://i.pinimg.com/originals/1b/26/f4/1b26f4bddb0ae7d7d3b53a546399c233.jpg" alt="The logo of the Pinterest Design Figma plugin." />
 <br />
 Speaking of high hopes, we think our Pinterest Design Figma plugin can have a monumental impact on Pinterest's design _and engineering_ workflow. We will be shipping numerous improvements and new features to the plugin which should enable designers to work faster and remove much of the busywork from their day-to-day work. 
