@@ -3,6 +3,60 @@
     "year": "2023",
     "digests": [
       {
+        "week": "July 21, 2023",
+        "summary": "New/improved components, updated color tokens, docs improvements and Figma plugin feature enhancements.",
+        "posts": [
+          {
+            "title": "New DateRange component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ad/93/c3/ad93c32822c0cd63f2de65ce700aa131.png",
+            "imageAltText": "Example of the DateRange component.",
+            "content": "New and fresh off the press is [DateRange](https://gestalt.pinterest.systems/web/daterange). A component that, you guessed it, allows you to select a date range. DateRange is still in pilot status, meaning expect design/development iterations and breaking API changes.\n\nWe plan to publish the Figma DateRange component in next sprint, so stay tuned."
+          },
+          {
+            "title": "Support for Text type in Callout component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ae/fd/e8/aefde889c998f97dcb9470469ec8ada7.png",
+            "imageAltText": "A Callout with bold and italicized text in its message.",
+            "content": "Callout's `message` prop now supports types of `string` and `Text` to enable rich text (e.g., bold, italic). This enables better emphasis of content with message strings and allows the component to work more consistently with its related [SlimBanner component](https://gestalt.pinterest.systems/web/slimbanner)."
+          },
+          {
+            "title": "End-aligned Table header treatments",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/c5/f8/74/c5f874741f03a558375ecc9a257d80ca.png",
+            "imageAltText": "A table with an end-aligned table header.",
+            "content": "It's been a long-time ask to support end-aligned header treatments and we're excited to say it's now supported. End-aligned headers will be especially helpful for columns displaying numeric values."
+          },
+          {
+            "title": "Updated $selected-strong and $selected-weak color token values",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/22/fa/07/22fa07e4d4a426a9ffd7dbc5726cae6d.png",
+            "imageAltText": "Two color swatches that represent Gestalt's $selected-strong and $selected-weak color token values.",
+            "content": "The color values for $color-background-selected-strong and $color-background-selected-weak were inadvertently inverted according to our color guidelines. We were able to address that issue earlier this month. Apologies for the mixup!"
+          },
+          {
+            "title": "Docs improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/e5/a7/1d/e5a71dd9abfa3f1bc1d1cc2fea1e7c8a.png",
+            "imageAltText": "A screenshot of Gestalt's Android Badge component documentation.",
+            "content": "We have loads of docs updates to share: \n\n * We published [Android Badge documentation](https://gestalt.pinterest.systems/android/badge) in preparation of component buildout.\n* We continue to migrate our code samples to Sandpack, with [Column](https://gestalt.pinterest.systems/web/column), [Label](https://gestalt.pinterest.systems/web/label), [Letterbox](https://gestalt.pinterest.systems/web/letterbox), [Masonry](https://gestalt.pinterest.systems/web/masonry) and [Mask](https://gestalt.pinterest.systems/web/mask) recently converted. \n\n  * Lastly, but not leastly, we overhauled our component status page to now be three pages ([Android](https://gestalt.pinterest.systems/android/component_status), [iOS](https://gestalt.pinterest.systems/ios/component_status) and [Web](https://gestalt.pinterest.systems/web/component_status)). There remains some content updates necessary related to Figma status, but our goal was to publish these new pages with up-to-date code component status for all platforms."
+          },
+          {
+            "title": "New linter functionality in the Pinterest Design Figma plugin",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/12/60/69/1260697d009bbaebcc0520cad8f4e142.png",
+            "imageAltText": "A screenshot of the Pinterest Design Figma plugin's linter feature.",
+            "content": "We shipped a big feature within the [Pinterest Design Figma plugin](https://www.figma.com/community/plugin/1215463263194174399) which helps you clean up your design files so that you're using color / type styles in your designs. This is important because by using Gestalt styles, any updates to color / type tokens will be automatically applied to your designs without having to manually update. Check it out!"
+          }
+        ]
+      },
+      {
         "month": "June",
         "summary": "",
         "posts": [
