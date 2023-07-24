@@ -1,11 +1,11 @@
 ---
 title: Gestalt 2023 Q2 newsletter
-description: TBD
+description: It was another big quarter for the Gestalt team with some big releases shipped and big milestones hit. Here are the major achievements for the quarter.
 fullwidth: true
 ---
 
-## Q2 highlight: Pinterest content standards
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+## Q2 highlight: H1 Gestalt survey results 
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/b1/ef/71/b1ef71194af84a86f9e16ffffabdcbef.jpg" alt="Illustration of a filled-out survey." />
 <br />
 We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineering survey results as they’re a window into our goals for the second half of the year. 
 
@@ -55,13 +55,16 @@ We wanted to kick off our Q2 newsletter with our H1 2023 Design and Web engineer
 
 It’s important to remember where we started when Gestalt kicked off. The progress we’ve seen in sentiment and usage are staggering—especially when it comes to our customers in Design. While these are laudable numbers, there’s still plenty of ceiling between where we currently are and what our aspirations are. Ideally, we’d see highest sentiment in the 60-70% range, if not higher.
 
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+#### Overall engineering sentiment of Gestalt, 2020-2023
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/11/7a/27/117a279423b05654027a4fd1db09f0e4.jpg" alt="A graph of overall engineering sentiment of Gestalt from 2020 to 2023." />
 
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+#### Overall design sentiment of Gestalt, 2020-2023
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/58/ed/1e/58ed1e77b63962675f52649dd678526c.jpg" alt="A graph of overall design sentiment of Gestalt from 2020 to 2023." />
 
 One other notable win has been the the continual increase in usage of our documentation by designers. For context, in H1 2020, we had 5 times the number of designers respond that they never went to our documentation than visited weekly. Now, we have 100% of designers responding that they use our docs at least monthly and over 70% visiting weekly. Our goal remains 80% of designers visiting weekly — we hope to crest that milestone in H2 of this year.
 
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+#### Designers' usage of Gestalt documentation, 2020-2023
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/a1/4e/c5/a14ec55ba4936a6d64e3fc9c2bb637c6.jpg" alt="A graph of designer usage of Gestalt documentation from 2020 to 2023." />
 
 ### What this means
 On the surface there appears to be a correlation between our drop in highest-score engineering sentiment and highest-scores related to how fast it is to build UIs. We’d like to validate if these two scores are in fact related and, if so, what’s causing that. More importantly though, we are aiming for significant gains in engineering awareness. The team is looking into ways we can refine our comms to ensure we’re communicating in the right ways, in the right places at the right cadence. 
@@ -69,7 +72,7 @@ On the surface there appears to be a correlation between our drop in highest-sco
 ## Components and tokens
 
 ### Featured components: Mobile components
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/fb/3d/18/fb3d186bbbd5a10ca84efb509451b81e.jpg" alt="Illustration of mobile design system components." />
 <br />
 The Gestalt team partnered with the iOS and Android platform engineering teams to support the buildout and certification of 6 new Android Gestalt components ButtonGroup, Icon,  IconButton, IconButtonFloating, SearchField, Text, TextArea and Toast and 1 new iOS component, Icon.
 
@@ -80,7 +83,7 @@ Check out Gestalt's **[Android](https://gestalt.pinterest.systems/android/overvi
 <TwoCol>
 <Group>
 ### SheetMobile
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/a7/20/99/a72099f4b0c0a017c39160de26c3c671.jpg" alt="An illustration of the SheetMobile component." />
 <br />
 Pinterest uses sheets extensively throughout its mobile experience. We are excited to now officially support this component in Gestalt Web. The component is still in its pilot phase, so expect more improvements and updates in the quarters to come.
 
@@ -91,7 +94,7 @@ This component represents a significant footprint in our mWeb experience and we 
 
 <Group>
 ### mWeb-adaptive Dropdown
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/ee/7d/29/ee7d29c6b3b6064aed4d49df9e414f7b.jpg" alt="An illusteation of the Dropdown component in desktop and mobile versions." />
 <br />
 Related to SheetMobile is our new mWeb-adaptive Dropdown. This new feature enabled a mobile-centric view that displays its contents in SheetMobile on mobile devices and Popover on desktop devices.
 
@@ -104,7 +107,7 @@ Our mWeb-adaptive components (currently Modal and Dropdown) should make developm
 <TwoCol>
 <Group>
 ### TileData & TagData
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/08/76/c1/0876c1cd4cb5f4b5a9fbd87b32c722dc.jpg" alt="An illustration of TileData and TagData Gestalt components." />
 <br />
 The Gestalt team is working hard to expand into data visualization support. In that spirit, we created two new components that will support data visualization experiences. 
 
@@ -117,7 +120,7 @@ Go have a look at **[TagData](https://gestalt.pinterest.systems/web/tagdata)** a
 
 <Group>
 ### Table enhancements
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/f2/78/b8/f278b85f28dc508d2b29b169d5465b28.jpg" alt="An illustration of Gestalt's Table component." />
 <br />
 Gestalt’s Table component needed some love. We made three notable updates to the component in this quarter.
 
@@ -130,11 +133,20 @@ These updates represent worthwhile quality-of-life improvements which should hel
 **[Visit Table](https://gestalt.pinterest.systems/web/table)**
 </Group>
 </TwoCol>
+<TwoCol>
+<Group>
+### Official TypeScript support
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/e2/43/54/e243545276d26e3ecfd3682ffc013f9a.jpg" alt="An illustration of a browser window displaying the TypeScript logo." />
+<br />
+Gestalt now includes TypeScript declarations for `gestalt`` and `gestalt-datepicker`! We added a types field to our package.json files, so that TypeScript projects can automatically find the declarations. While we don't have specific plans to migrate to TypeScript yet, this is a big step towards making TypeScript a first-class citizen in Gestalt.
+</Group>
+<Group></Group>
+</TwoCol>
 
 
 ## Documentation
 ### Documentation experience improvements
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/f5/d0/39/f5d039508babbdbc9c9238c8246260a2.jpg" alt="An illustration of arrows pointing up and to the right along with a disco ball." />
 <br />
 We aim for Gestalt’s documentation to be world class. It’s getting there...
 
@@ -148,7 +160,7 @@ These updates are critical as we aim to make Gestalt’s docs the go to destinat
 <TwoCol>
 <Group>
 ### Data visualization guidelines
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/42/03/c5/4203c54eb682f8401458a5d8e189bc6e.jpg" alt="An illustration of a bar chart." />
 <br />
 Data visualizations are serious business and there are just so many ways to go astray. In the lead-up of our data visualization components, we’ve publishing guidelines that intend to provide guidance for everything you need to know to visualize data.
 
@@ -158,7 +170,7 @@ These guidelines represent the foundation we’ll build our actual components on
 </Group>
 <Group>
 ### Card / preview block guidelines
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/3a/45/d9/3a45d917d3591a7c9aed51120365a501.jpg" alt="An illustration of Gestalt's Card component." />
 <br />
 We wrapped up a big collaboration with the Browse team where we worked to unify the design and content of in-feed modules. This work resulted in finalized Card component/content designs along with Card component guidelines as well as guidelines for Boards and Pins preview blocks.
 
@@ -166,7 +178,6 @@ This work should enable a more unified and consistent experience when Pinners ar
 
 **[Read our Card component and content guidelines](https://gestalt.pinterest.systems/ios/card/card)**
 </Group>
-
 </TwoCol>
 
 
@@ -174,7 +185,7 @@ This work should enable a more unified and consistent experience when Pinners ar
 <TwoCol>
 <Group>
 ### Simplified components
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/c5/98/ea/c598ea9a28d03f18bc8ebc8d05e624f3.jpg" alt="An illustration of various boxes representing Figma layers pointing to an orderly Figma component." />
 <br />
 Our Figma component libraries got some big upgrades through our integration of Figma’s new simplified component instances and exposed nested instances. We’ve activated these features on the majority of components across Android, iOS and Web libraries. 
 
@@ -183,7 +194,7 @@ The updates should mean less drilling in, less fiddling and less hassle when usi
 
 <Group>
 ### New mobile components
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/dc/ac/62/dcac6297f67155974b8ebbf0efa49fcf.jpg" alt="An illustration of our Card and ActionBar Figma components." />
 <br />
 We shipped three major mobile-specific components to our Figma libraries in Q2:
 
@@ -197,14 +208,14 @@ These components cover core elements of the Pinterest experience (e.g. ActionBar
 <TwoCol>
 <Group>
 ### Data visualization Figma components
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/64/54/1f/64541f9753925918f87c78a2afacbce3.jpg" alt="Illustrations of Gestalt's line and bar chart Figma components." />
 <br />
 In the run-up of our goal to deliver data visualization components for Web, we’ve published an initial version those very components in Figma. These components will help designers quickly mock up data viz experiences that will align with our code-backed components when they ship in H2. 
 </Group>
 
 <Group>
 ### Figma Pin component aspect ratios
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/cc/86/25/cc8625a784a6f8ceee7d0825ec350b41.jpg" alt="An illustration of various pins in a masonry layout." />
 <br />
 As the Pinterest Pin continues to evolve, so does our Figma Pin component. We added new aspect ratios to the Pin image element. Pins can now have landscape aspect ratios (16:9, 4:3 and 3:2) to go along with our traditional square and portrait formats.
 </Group>
@@ -214,18 +225,18 @@ As the Pinterest Pin continues to evolve, so does our Figma Pin component. We ad
 We have a lot of big goals for H2, but the main theme is refinement. We’re devoting a large portion of our focus on up-leveling what’s currently in the system to be easier to use and higher quality. Our goal is to see increases in comprehension of our guidelines, higher usage of our docs and most critically, greater engineering awareness of Gestalt updates.
 
 ### Even more mobile components
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/0e/f2/68/0ef268316ce06da1db9d53fbcb86846f.jpg" alt="An illustration of various mobile UI components." />
 <br />
-While refinement is our primary focus, we have one exception which are mobile components. We need to aggressively expand the number of mobile components in H2 with 6 certified Android components and [ARE WE ABSOLUTELY SURE WE’RE CERTIFYING 20 IOS COMPONENTS]?
+While refinement is our primary focus, we have one exception which are mobile components. We need to aggressively expand the number of mobile components in H2 with 6 certified Android components and 15 iOS components!
 
 ### Data visualization components
-<ImgHero width={1050} height={590} src="https://github.com/pinterest/gestalt/assets/50343812/2fc6d062-7f9f-446f-9939-a3f14e80e816" alt="TBD" />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/38/9e/de/389ede01f82cb87d7586ae7d71df1f89.jpg" alt="An illustration of Gestalt's family of data visualization components." />
 <br />
 We had a bit of a false start in H1, but H2 is the half of data visualization components! We plan to ship our initial offering that should cover the main use cases we’re aware of. 
 <TwoCol>
 <Group>
 ### Density themes
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/2f/b8/f0/2fb8f0468bc6f74c50624a90bd18d52f.jpg" alt="An illustration of a component with different density themes applied." />
 <br />
 Gestalt's historical focus has been on the consumer experience, but we have spent the past few years continuing to expand our support into every facet of the product. We've built out numerous components to better support business experiences and we plan to give them all an upgrade by supporting density themes. Density theming will enable our components to be light and airy or dense and compact. 
 
@@ -233,7 +244,7 @@ This will make our entire system more custom tailored to the kind of experience 
 </Group>
 <Group>
 ### Documentation refinements
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/f8/95/1e/f8951e4bd114ea64500a9079d8ef3dd1.jpg" alt="An illustration of a signpost." />
 <br />
 Our docs site has been and will continue to be a core part of Gestalt. We continue to make big gains in sentiment / usage, but there's still plenty of room for improvement. We heard your feedback and so we'll be focusing on improving the discoverability of components/guidelines, finalizing our refactor of code examples and refine our content to make reading our docs as smooth and enjoyable as possible.
 </Group>
@@ -241,13 +252,13 @@ Our docs site has been and will continue to be a core part of Gestalt. We contin
 <TwoCol>
 <Group>
 ### Improved Figma component discoverability
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/69/e3/26/69e326c95151b759fb28702b0519a850.jpg" alt="An illustration of a magnifying glass looking at a Figma component symbol." />
 <br />
 Designers, we heard your feedback and we know finding Gestalt Figma library components isn't always the easiest thing to do. We have big plans to improve this experience, if not fix it once and for all. We'll be making a major focus on improving our libraries' ease of use this upcoming half and we have high hopes for what we'll be able to deliver.
 </Group>
 <Group>
 ### Pinterest Design Figma plugin improvements 
-<ImgHero width={525} height={350} src="https://github.com/pinterest/gestalt/assets/50343812/c807df8e-aec5-4858-9e79-42ec6972feeb" alt="TBD" />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/1b/26/f4/1b26f4bddb0ae7d7d3b53a546399c233.jpg" alt="The logo of the Pinterest Design Figma plugin." />
 <br />
 Speaking of high hopes, we think our Pinterest Design Figma plugin can have a monumental impact on Pinterest's design _and engineering_ workflow. We will be shipping numerous improvements and new features to the plugin which should enable designers to work faster and remove much of the busywork from their day-to-day work. 
 </Group>
