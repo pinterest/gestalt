@@ -81,7 +81,13 @@ GlobalEventsHandlerProvider shares default logic across components, unidirection
 <Button providerAuxData={{ name: "apply-button", surface: "advertiser-tools"}}>
 ```
 
-Considerations:
+## Documentation
+
+This component will be documented in the [Gestalt Docs under the utilities category, GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) and in [PDocs](https://pdocs.pinadmin.com/docs/webapp/gestalt-providers)
+
+We'll create an ESLint rule to enforce the usage of `providerAuxData` within sections of the site. The ESLint will communicate the PDocs link and how to use the prop.
+
+## Drawbacks
 
 - A limitation to this implementation is that we cannot enforce a specific Flow type shared between `providerAuxData` and the event types in GlobalEventsHandlerProvider. To minimize this, it's encouraged to create an Eslint rule linking to documentation if components need to share `providerAuxData` with GlobalEventsHandlerProvider. If the logic doesn't need to be customized, this can be skipped.
 
@@ -104,14 +110,6 @@ const { sheetMobileHandlers, linkHandlers, buttonHandlers } = useGlobalEventsHan
 ```
 
 See the existing implementation on this [PR](https://github.com/pinternal/pinboard/pull/12301/files)
-
-## Documentation
-
-This component will be documented in the [Gestalt Docs under the utilities category, GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) and in [PDocs](https://pdocs.pinadmin.com/docs/webapp/gestalt-providers)
-
-We'll create an ESLint rule to enforce the usage of `providerAuxData` within sections of the site. The ESLint will communicate the PDocs link and how to use the prop.
-
-## Drawbacks
 
 ## Backwards Compatibility Analysis
 
