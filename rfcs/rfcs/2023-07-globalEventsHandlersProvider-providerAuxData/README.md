@@ -46,6 +46,8 @@ Enabling external logic (such as logging) on interaction event handlers in Gesta
 
 - centralize and document logic passed to the GlobalEventsHandlerProvider via PDocs
 
+- enforce external logic when needed
+
 - escale faster the addition of logic to other composed components: from Buttons to PageHeaders, SideNavigation, etc rather than additional wrappers for each new component and adding more ESLint rules.
 
 - prevent bugs: wrappers with time tend to accumulate bugs and bad practices as they become not owned and engineers keep adding code patches
