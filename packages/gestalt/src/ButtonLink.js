@@ -1,18 +1,11 @@
 // @flow strict
-import {
-  type AbstractComponent,
-  forwardRef,
-  Fragment,
-  type Node,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
-import Icon, { type IconColor } from './Icon.js';
+import Icon from './Icon.js';
 import icons from './icons/index.js';
 import InternalLink from './Link/InternalLink.js';
 import Text from './Text.js';
@@ -35,7 +28,7 @@ const SIZE_NAME_TO_PIXEL = {
 
 type Target = null | 'self' | 'blank';
 
-type BaseButton = {|
+type ButtonType = {|
   accessibilityLabel?: string,
   color?:
     | 'gray'
@@ -52,45 +45,10 @@ type BaseButton = {|
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
   text: string,
-|};
-
-type ButtonType = {|
-  ...BaseButton,
   href: string,
   rel?: 'none' | 'nofollow',
   target?: Target,
 |};
-
-function InternalButtonContent({
-  target,
-  text,
-  textColor,
-  icon,
-  size,
-}: {|
-  target?: Target,
-  text: Node,
-  textColor: IconColor,
-  icon?: $Keys<typeof icons>,
-  size: string,
-|}): Node {
-  return (
-    <Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {text}
-        {icon ? (
-          <Icon
-            accessibilityLabel=""
-            color={textColor}
-            icon={icon}
-            size={SIZE_NAME_TO_PIXEL[size]}
-          />
-        ) : null}
-      </Flex>
-      <NewTabAccessibilityLabel target={target} />
-    </Fragment>
-  );
-}
 
 const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement> = forwardRef<
   ButtonType,
@@ -131,12 +89,6 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
     'inverse' ||
     ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
-
-  const buttonText = (
-    <Text align="center" color={textColor} overflow="normal" weight="bold">
-      {text}
-    </Text>
-  );
   const { href, rel = 'none', target = null } = props;
   const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
 
@@ -156,13 +108,20 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
       target={target}
       wrappedComponent="button"
     >
-      <InternalButtonContent
-        target={target}
-        text={buttonText}
-        textColor={textColor}
-        icon={iconEnd}
-        size={size}
-      />
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        <Text align="center" color={textColor} overflow="normal" weight="bold">
+          {text}
+        </Text>
+        {iconEnd ? (
+          <Icon
+            accessibilityLabel=""
+            color={textColor}
+            icon={iconEnd}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        ) : null}
+      </Flex>
+      <NewTabAccessibilityLabel target={target} />
     </InternalLink>
   );
 });
