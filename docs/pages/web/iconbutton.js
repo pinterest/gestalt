@@ -57,6 +57,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               'Defines a new icon different from the built-in Gestalt icons. See [custom icon](#Custom-icon) variant to learn more.',
           },
           {
+            name: 'dataTestId',
+            type: 'string',
+            required: false,
+            description: [
+              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
+            ],
+          },
+          {
             name: 'disabled',
             type: 'boolean',
             description: 'When disabled, IconButton looks inactive and cannot be interacted with.',
