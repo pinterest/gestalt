@@ -150,12 +150,15 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Button handlers">
+      <MainSection name="Interactive event handlers">
         <MainSection.Subsection title="onClick">
           <MainSection.Card
             cardSize="lg"
-            description={`Pending
-`}
+            description={`
+Gestalt supports passing external logic to interactive event handlers such as \`onClick\`, \`onBlur\` and  \`onChange\`. Many components contain The following components API have event handlers. The following example shows a standard use case.
+
+GlobalEventsHandlerProvider doesn't supports all components' event handlers. They are implemented as needed.
+  `}
             sandpackExample={
               <SandpackExample
                 code={buttonHandlers}
