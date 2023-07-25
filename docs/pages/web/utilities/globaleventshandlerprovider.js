@@ -7,6 +7,7 @@ import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
+import buttonHandlers from '../../../examples/globaleventshandlerprovider/buttonHandlers.js';
 import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutUpsell.js';
 import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation.js';
 import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown.js';
@@ -143,6 +144,23 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
                 code={linkHandlersDropdown}
                 name="Example - Dropdown"
                 layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Button handlers">
+        <MainSection.Subsection title="onClick">
+          <MainSection.Card
+            cardSize="lg"
+            description={`Pending
+`}
+            sandpackExample={
+              <SandpackExample
+                code={buttonHandlers}
+                layout="column"
+                name="GlobalEventsHandlerProvider in Button"
               />
             }
           />
