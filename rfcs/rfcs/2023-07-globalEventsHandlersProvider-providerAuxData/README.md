@@ -73,7 +73,7 @@ This is a hypothetical implementation of GlobalEventsHandlerProvider passing dow
 
 ```
 
-GlobalEventsHandlerProvider shares default logic across components, unidirectionally: parent to child. To make more versatile this API and be able to provide some custom data to the logic, for instance, to be able to log specific data about the component being interacted with, we are adding a new prop \`provider\`
+GlobalEventsHandlerProvider shares default logic across components, unidirectionally: parent to child. To make more versatile this API and be able to provide some custom data to the logic, for instance, to be able to log specific data about the component being interacted with, we are adding a new prop \`providerAuxData\`. Interactive events handlers exposed in GlobalEventsHandlerProvider have all access to the \`providerAuxData\` object.
 
 ```javascript
 <Button providerAuxData={{ name: "apply-button", surface: "advertiser-tools"}}>
@@ -81,8 +81,27 @@ GlobalEventsHandlerProvider shares default logic across components, unidirection
 
 Considerations:
 
-- SheetMobile is built into other components: Dropdown/Popover are adaptive components and, in mobile devices, they replace Popover with SheetMobile. SheetMobile is not accessible/exposed in these cases.
-- Button and other interactive components are built into other components in many case, they not accessible/exposed in these cases.
+- A limitation to this implementation is that we cannot enforce a specific Flow type shared between \`providerAuxData\` and the event types in GlobalEventsHandlerProvider. To minimize this, it's encouraged to create an Eslint rule linking to documentation if components need to share \`providerAuxData\` with GlobalEventsHandlerProvider. If the logic doesn't need to be customized, this can be skipped.
+
+- React Providers overwrite Providers from the same Context that are above in the app tree. GlobalEventsHandlerProvider can be used in differents sections of the code to apply different logic in different site sections. Some of the logic might be global to the whole app.
+
+To prevent duplication of code or overriding logic, we recommend keeping the logic passed to GlobalEventsHandlerProvider in a single custom React hook so it can be reimplemented on each level where GlobalEventsHandlerProvider is implemented easily and consistently.
+
+A custom hook can also be build to receive arguments and provide custom returns.
+
+```javascript
+
+const { sheetMobileHandlers, linkHandlers, buttonHandlers } = useGlobalEventsHandlerProvider()
+
+<GlobalEventsHandlerProvider
+  buttonHandlers={buttonHandlers} sheetMobileHandlers={sheetMobileHandlers} linkHandlers={linkHandlers}
+>
+  {children}
+<GlobalEventsHandlerProvider >
+
+```
+
+See the existing implementation on this [PR](https://github.com/pinternal/pinboard/pull/12301/files)
 
 ## Documentation
 
