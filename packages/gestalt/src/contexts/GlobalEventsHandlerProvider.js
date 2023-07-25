@@ -22,7 +22,7 @@ type Props = {|
    */
   children: Node,
   /**
-   * Handlers consumed by [Button](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
+   * Handlers consumed by [Button](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#onClick).
    */
   buttonHandlers?: {| onClick?: ({ [string]: string | number }) => void |},
   /**
