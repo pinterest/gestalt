@@ -1,10 +1,9 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 
-export default function CJK(): Node {
-  // eslint-disable-next-line react/no-unstable-nested-components
-  function NarrowShell({ text, useKeepAll }: {| text: string, useKeepAll: boolean |}) {
+export default function cjkText(): Node {
+  function NarrowShell({ text, useKeepAll }: {| text: string, useKeepAll?: boolean |}) {
     return (
       <Box width={24} color="dark">
         <Text overflow="normal" size="200" color="inverse">
@@ -84,19 +83,4 @@ export default function CJK(): Node {
       </Flex>
     </Box>
   );
-
-  /*
-  return (
-    <Box width="100%" height="100%" display="flex" direction="column" alignItems="center">
-      <Box padding={2}>
-        <Box rounding={2} padding={2}>
-          <Flex direction="column" gap={8}>
-            <NarrowToolTipShell text={kor} />
-            <NarrowToolTipShell text={eng} />
-            <NarrowToolTipShell useKeepAll text={kor} />
-          </Flex>
-        </Box>
-      </Box>
-    </Box>
-  ) */
 }
