@@ -10,7 +10,7 @@ GlobalEventsHandlerProvider was built in Gestalt to share external handlers with
 
 ## Motivation
 
-Monetization teams at Pinterest (https://ads.pinterest.com/) log and track user interaction in specific interactive components. For instance, Button, Checkbox, Dropdown, IconButton, Link, NumberField, RadioButton, SearchField, SelectList, Switch, TapArea, TextArea, and TextField. One of the use cases for these logs is to extend the insights on experimentation allowing the monetization team to track user flows and increase campaigns optimizations.
+Monetization teams at Pinterest (https://ads.pinterest.com/) log and track user interaction in specific interactive components and events. For instance, Button, Checkbox, Dropdown, IconButton, Link, NumberField, RadioButton, SearchField, SelectList, Switch, TapArea, TextArea, and TextField. One of the use cases for these logs is to extend the insights on experimentation allowing the monetization team to track user flows and increase campaigns optimizations.
 
 For developer velocity, reusability, and consistency, there's a suite of Gestalt components wrapped in additional logic and re-exported with an extended API.
 
@@ -20,15 +20,15 @@ These wrapped Gestalt components are under an Eslint rule that prevent direct co
 
 Gestalt wrappers have a set of problems:
 
-- The wrapper's API extend Gestalt component API. Engineers should be able to go to Gestalt documentation to consult component API and have it match with the code they are working with
+- The wrappers' API extend Gestalt component API. Engineers should be able to go to Gestalt documentation to consult component API and have it match with the code they are working with. There's no way to enforce a matching API between Gestalt and their wrappers.
 
-- Wrappers reduce adoption of other high level components. For example, PageHeader has primary actions. These primary baction buttons cannot be replaced with wrappers. Therefore, PageHeader won't be adopted because their buttons cannot use the wrapper with additional logic. We would have to create a wrapper on PageHeader to add logic to the onClick.
+- Wrappers reduce adoption of other high level components. For example, PageHeader has primary actions. These primary action buttons cannot be replaced with wrappers. Therefore, PageHeader won't be adopted because their buttons cannot use the wrapper with additional logic. We would have to create a wrapper on PageHeader to add logic to the onClick.
 
 - Wrappers mask adoption for Gestalt components.
 
-- Changes in Gestalt componts are harder to propagate to each wrapper API. Wrappers increase maintenance for the Gestalt team and with time wrappers API can end up being substantially different from the Gestalt component they are extending.
+- Changes in Gestalt componts are harder to propagate to each wrapper API. Wrappers increase maintenance for the Gestalt team and with time wrappers' API can end up being substantially different from the Gestalt component they are extending.
 
-- For each wrapper, we need an Eslint rules to avoid direct Gestalt usage. Despite Eslint rules, engineers mstill use them increaseing the usage of disabled comments in imports.
+- For each wrapper, we need an Eslint rules to avoid direct Gestalt usage. Despite Eslint rules, engineers still use them increasing the amount of disabled comments in imports.
 
 See previous [onInteraction proposal](https://paper.dropbox.com/doc/Proposal-New-onInteraction-functionality-in-Gestalt-components--B416h3YCf4BRIgvCtDUTVrKLAg-rOblYZwoXPm1MzHeLbVyx)
 
@@ -75,7 +75,7 @@ This is a hypothetical implementation of GlobalEventsHandlerProvider passing dow
 
 ```
 
-GlobalEventsHandlerProvider shares default logic across components, unidirectionally: parent to child. To make more versatile this API and be able to provide some custom data to the logic, for instance, to be able to log specific data about the component being interacted with, we are adding a new prop \`providerAuxData\`. Interactive events handlers exposed in GlobalEventsHandlerProvider have all access to the \`providerAuxData\` object.
+GlobalEventsHandlerProvider shares default logic across components, unidirectionally: parent to child. To make more versatile this API and be able to provide some custom data to the logic, for instance, to be able to log specific data about the component being interacted with, we are adding a new prop `providerAuxData`. Interactive events handlers exposed in GlobalEventsHandlerProvider have access to the `providerAuxData` object.
 
 ```javascript
 <Button providerAuxData={{ name: "apply-button", surface: "advertiser-tools"}}>
@@ -83,7 +83,7 @@ GlobalEventsHandlerProvider shares default logic across components, unidirection
 
 Considerations:
 
-- A limitation to this implementation is that we cannot enforce a specific Flow type shared between \`providerAuxData\` and the event types in GlobalEventsHandlerProvider. To minimize this, it's encouraged to create an Eslint rule linking to documentation if components need to share \`providerAuxData\` with GlobalEventsHandlerProvider. If the logic doesn't need to be customized, this can be skipped.
+- A limitation to this implementation is that we cannot enforce a specific Flow type shared between `providerAuxData` and the event types in GlobalEventsHandlerProvider. To minimize this, it's encouraged to create an Eslint rule linking to documentation if components need to share `providerAuxData` with GlobalEventsHandlerProvider. If the logic doesn't need to be customized, this can be skipped.
 
 - React Providers overwrite Providers from the same Context that are above in the app tree. GlobalEventsHandlerProvider can be used in differents sections of the code to apply different logic in different site sections. Some of the logic might be global to the whole app.
 
@@ -109,7 +109,7 @@ See the existing implementation on this [PR](https://github.com/pinternal/pinboa
 
 This component will be documented in the [Gestalt Docs under the utilities category, GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider) and in [PDocs](https://pdocs.pinadmin.com/docs/webapp/gestalt-providers)
 
-We'll create an ESLint rule to enforce the usage of \`providerAuxData\` within sections of the site. The ESLint will communicate the PDocs link and how to use the prop.
+We'll create an ESLint rule to enforce the usage of `providerAuxData` within sections of the site. The ESLint will communicate the PDocs link and how to use the prop.
 
 ## Drawbacks
 
