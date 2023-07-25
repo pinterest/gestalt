@@ -61,7 +61,7 @@ export default function Example(): Node {
 
       <DensityProvider size={sizes[selectedIndex]}>
         <Section title="Button">
-          <Button text="Submit" />
+          <Button text="Submit" size="sm" />
         </Section>
 
         <Section title="TextField">
