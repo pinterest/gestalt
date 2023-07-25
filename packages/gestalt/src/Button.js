@@ -8,13 +8,16 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
+import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import styles from './Button.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import Icon, { type IconColor } from './Icon.js';
 import icons from './icons/index.js';
+import InternalLink from './Link/InternalLink.js';
 import touchableStyles from './TapArea.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
@@ -72,18 +75,28 @@ type ButtonType = {|
   accessibilityHaspopup?: boolean,
   selected?: boolean,
   type?: 'button',
+  role?: 'button',
   name?: string,
 |};
 
 type SubmitButtonType = {|
   ...BaseButton,
   type: 'submit',
+  role?: 'button',
   name?: string,
 |};
 
-type unionProps = ButtonType | SubmitButtonType;
+type LinkButtonType = {|
+  ...BaseButton,
+  href: string,
+  rel?: 'none' | 'nofollow',
+  role: 'link',
+  target?: Target,
+|};
 
-type unionRefs = HTMLButtonElement;
+type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
+
+type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 function InternalButtonContent({
   target,
@@ -141,7 +154,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     text,
   } = props;
 
-  const innerRef = useRef<null | HTMLButtonElement>(null);
+  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
@@ -162,6 +175,8 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     width: innerRef?.current?.clientWidth,
   });
 
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -177,8 +192,8 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
   const { isFocusVisible } = useFocusVisible();
 
   const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
-    [styles.inline]: !fullWidth,
-    [styles.block]: fullWidth,
+    [styles.inline]: props.role !== 'link' && !fullWidth,
+    [styles.block]: props.role !== 'link' && fullWidth,
     [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
   });
 
@@ -191,7 +206,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: !disabled && isTapping,
+    [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
   });
 
   const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
@@ -220,6 +235,47 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
           dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
         })
       : undefined;
+
+  const handleLinkClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
+
+  if (props.role === 'link') {
+    const { href, rel = 'none', target = null } = props;
+
+    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+
+    return (
+      <InternalLink
+        accessibilityLabel={ariaLabel}
+        colorClass={colorClass}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        fullWidth={fullWidth}
+        href={href}
+        onClick={handleLinkClick}
+        ref={innerRef}
+        rel={rel}
+        tabIndex={tabIndex}
+        selected={selected}
+        size={size}
+        target={target}
+        wrappedComponent="button"
+      >
+        <InternalButtonContent
+          target={target}
+          text={buttonText}
+          textColor={textColor}
+          icon={iconEnd}
+          size={size}
+        />
+      </InternalLink>
+    );
+  }
 
   if (props.type === 'submit') {
     const { name } = props;
