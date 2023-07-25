@@ -147,6 +147,14 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             ],
           },
           {
+            name: 'providerAuxData',
+            type: '{ [string]: string | number }',
+            required: false,
+            description: [
+              '`providerAuxData` works with [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider). `providerAuxData` is passed as argument to the handlers for interactive events in Button (p.e. onClick) so that the external logic can be customized on each component instance. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider) to learn more',
+            ],
+          },
+          {
             name: 'size',
             type: `'sm' | 'md' | 'lg'`,
             required: false,

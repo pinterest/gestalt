@@ -44,7 +44,7 @@ type Target = null | 'self' | 'blank';
 
 type BaseButton = {|
   accessibilityLabel?: string,
-  auxData?: { [string]: string | number },
+  providerAuxData?: { [string]: string | number },
   color?:
     | 'gray'
     | 'red'
@@ -144,13 +144,13 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
 >(function Button(props: unionProps, ref): Node {
   const {
     accessibilityLabel,
-    auxData,
     color = 'gray',
     dataTestId,
     disabled = false,
     fullWidth = false,
     iconEnd,
     onClick,
+    providerAuxData,
     tabIndex = 0,
     selected = false,
     size = 'md',
@@ -235,7 +235,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   ): void => {
-    handlers?.buttonHandlers?.onClick?.({ ...auxData });
+    handlers?.buttonHandlers?.onClick?.({ ...providerAuxData });
 
     onClick?.({
       event,

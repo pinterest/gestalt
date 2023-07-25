@@ -20,7 +20,7 @@ export default function Example(): Node {
     <GlobalEventsHandlerProvider buttonHandlers={buttonHandlers}>
       <Box padding={2}>
         <Button
-          auxData={{ name: 'form-button', surface: 'campaign-edit' }}
+          providerAuxData={{ name: 'form-button', surface: 'campaign-edit' }}
           color="red"
           text="Apply"
           size="lg"
