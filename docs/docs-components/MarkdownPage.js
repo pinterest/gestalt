@@ -3,7 +3,7 @@ import 'highlight.js/styles/a11y-light.css';
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
-import { Box, Button, Flex, Icon, Link, List, Text } from 'gestalt';
+import { Box, Button, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
@@ -100,6 +100,29 @@ const components = {
       text={children || ''}
       color="gray"
       accessibilityLabel=""
+    />
+  ),
+  Datapoint: ({
+    size,
+    title,
+    value,
+    trendValue,
+    trendSentiment,
+    trendAccessibilityLabel,
+  }: {|
+    size?: 'lg' | 'md',
+    title: string,
+    value: string,
+    trendValue: number,
+    trendSentiment?: 'bad' | 'good' | 'neutral',
+    trendAccessibilityLabel: string,
+  |}) => (
+    <Datapoint
+      size={size}
+      title={title}
+      value={value}
+      trend={{ value: trendValue, accessibilityLabel: trendAccessibilityLabel }}
+      trendSentiment={trendSentiment}
     />
   ),
   PrivateLink: ({

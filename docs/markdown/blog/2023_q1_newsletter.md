@@ -156,7 +156,7 @@ We updated our imagery styles in the Gestalt foundations Figma library to bring 
 <br />
 We have been working with Android and iOS teams to begin the buildout of mobile components for a while now, but Q2 is when you’re really going to see the fruits of our labor. It’s been a long time coming, but in Q2 2023, we will be shipping a number of mobile Gestalt components.
 
-For Android, we plan to work on , ButtonGroup, Icon, IconButton, IconButtonFloating, SearchField,Text, TextArea and Toast. For iOS, we’ll be working on Text and Icon. 
+For Android, we plan to work on ButtonGroup, Icon, IconButton, IconButtonFloating, SearchField,Text, TextArea and Toast. For iOS, we’ll be working on Text and Icon. 
 <TwoCol>
 <Group>
 ### mWeb Sheet component
