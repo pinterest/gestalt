@@ -74,7 +74,7 @@ On the surface there appears to be a correlation between our drop in highest-sco
 ## Components and tokens
 
 ### Featured components: Mobile components
-<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/fb/3d/18/fb3d186bbbd5a10ca84efb509451b81e.jpg" alt="Illustration of mobile design system components." />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/4b/9e/c1/4b9ec16874d4bff7900cbca64643cd11.jpg" alt="Illustration of mobile design system components." />
 <br />
 The Gestalt team partnered with the iOS and Android platform engineering teams to support the buildout and certification of 6 new Android Gestalt components [ButtonGroup](https://gestalt.pinterest.systems/android/buttongroup), [Icon](https://gestalt.pinterest.systems/android/icon), [IconButton](https://gestalt.pinterest.systems/android/iconbutton), [IconButtonFloating](https://gestalt.pinterest.systems/android/iconbuttonfloating), [SearchField](https://gestalt.pinterest.systems/android/searchfield), [Text](https://gestalt.pinterest.systems/android/text), [TextArea](https://gestalt.pinterest.systems/android/textarea) and [Toast](https://gestalt.pinterest.systems/android/toast) and 1 new iOS component, [Icon](https://gestalt.pinterest.systems/ios/icon).
 
@@ -109,7 +109,7 @@ Our mWeb-adaptive components (currently Modal and Dropdown) should make developm
 <TwoCol>
 <Group>
 ### TileData & TagData
-<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/08/76/c1/0876c1cd4cb5f4b5a9fbd87b32c722dc.jpg" alt="An illustration of TileData and TagData Gestalt components." />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/c7/3f/0f/c73f0f68c89528534a86c3206dc9a5b5.jpg" alt="An illustration of TileData and TagData Gestalt components." />
 <br />
 The Gestalt team is working hard to expand into data visualization support. In that spirit, we created two new components that will support data visualization experiences. 
 
@@ -232,7 +232,7 @@ We have a lot of big goals for H2, but the main theme is refinement. We’re dev
 While refinement is our primary focus, we have one exception which are mobile components. We need to aggressively expand the number of mobile components in H2 with 6 certified Android components and 15 iOS components!
 
 ### Data visualization components
-<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/38/9e/de/389ede01f82cb87d7586ae7d71df1f89.jpg" alt="An illustration of Gestalt's family of data visualization components." />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/a0/a8/3f/a0a83fd5dde78c5e3c1f40bdcde663f6.jpg" alt="An illustration of Gestalt's family of data visualization components." />
 <br />
 We had a bit of a false start in H1, but H2 is the half of data visualization components! We plan to ship our initial offering that should cover the main use cases we’re aware of. 
 <TwoCol>
@@ -254,7 +254,7 @@ Our docs site has been and will continue to be a core part of Gestalt. We contin
 <TwoCol>
 <Group>
 ### Improved Figma component discoverability
-<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/69/e3/26/69e326c95151b759fb28702b0519a850.jpg" alt="An illustration of a magnifying glass looking at a Figma component symbol." />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/0c/64/66/0c64663d321165b530574b9fbb7ea7e5.jpg" alt="An illustration of a magnifying glass looking at a Figma component symbol." />
 <br />
 Designers, we heard your feedback and we know finding Gestalt Figma library components isn't always the easiest thing to do. We have big plans to improve this experience, if not fix it once and for all. We'll be making a major focus on improving our libraries' ease of use this upcoming half and we have high hopes for what we'll be able to deliver.
 </Group>
