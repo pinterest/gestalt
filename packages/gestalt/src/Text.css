@@ -1,3 +1,9 @@
 .Text {
   composes: antialiased sansSerif from "./Typography.css";
 }
+
+*:lang(zh) .Text,
+*:lang(ko) .Text,
+*:lang(ja) .Text {
+  word-break: keep-all;
+}
