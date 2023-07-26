@@ -20,6 +20,7 @@ import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
+import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
@@ -379,6 +380,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           status: 'planned',
+        },
+      },
+    },
+  },
+  {
+    id: 'ButtonLink',
+    platform: {
+      web: {
+        name: 'ButtonLink',
+        visual: {
+          svg: <ButtonLink />,
+        },
+        description: 'ButtonLink allow users to use a surface action to link to another page.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'notAvailable',
+          responsive: 'ready',
+          status: 'ready',
         },
       },
     },

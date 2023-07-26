@@ -13,6 +13,7 @@ import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.j
 import styles from './Button.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
 import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import Icon, { type IconColor } from './Icon.js';
@@ -43,6 +44,7 @@ type Target = null | 'self' | 'blank';
 
 type BaseButton = {|
   accessibilityLabel?: string,
+  providerAuxData?: { [string]: string | number },
   color?:
     | 'gray'
     | 'red'
@@ -148,6 +150,7 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     fullWidth = false,
     iconEnd,
     onClick,
+    providerAuxData,
     tabIndex = 0,
     selected = false,
     size = 'md',
@@ -174,6 +177,9 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
+  // Consumes GlobalEventsHandlerProvider
+  const handlers = useGlobalEventsHandlerContext();
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
@@ -228,13 +234,14 @@ const ButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRe
   const handleClick = (
     event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  ) =>
-    onClick
-      ? onClick({
-          event,
-          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
-        })
-      : undefined;
+  ): void => {
+    handlers?.buttonHandlers?.onClick?.({ ...providerAuxData });
+
+    onClick?.({
+      event,
+      dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
+    });
+  };
 
   const handleLinkClick = ({
     event,

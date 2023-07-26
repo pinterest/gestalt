@@ -1,3 +1,15 @@
+## 119.2.0 (Jul 26, 2023)
+
+### Minor
+
+- ButtonLink: new component forked from Button ([#3093](https://github.com/pinterest/gestalt/pull/3093)) - [Preview link](https://deploy-preview-3093--gestalt.netlify.app?devexample=true)
+
+## 119.1.5 (Jul 25, 2023)
+
+### Patch
+
+- Docs: Q2 newsletter addition ([#3061](https://github.com/pinterest/gestalt/pull/3061)) - [Preview link](https://deploy-preview-3061--gestalt.netlify.app?devexample=true)
+
 ## 119.1.4 (Jul 24, 2023)
 
 ### Patch
