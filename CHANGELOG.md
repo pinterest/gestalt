@@ -1,3 +1,9 @@
+## 119.2.1 (Jul 26, 2023)
+
+### Patch
+
+- Docs: Added iOS components to the H2 roadmap ([#3102](https://github.com/pinterest/gestalt/pull/3102)) - [Preview link](https://deploy-preview-3102--gestalt.netlify.app?devexample=true)
+
 ## 119.2.0 (Jul 26, 2023)
 
 ### Minor
