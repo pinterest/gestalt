@@ -29,7 +29,13 @@ const SIZE_NAME_TO_PIXEL = {
 type Target = null | 'self' | 'blank';
 
 type ButtonType = {|
+  /**
+   * Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
+   */
   accessibilityLabel?: string,
+  /**
+   * The background color of Button.
+   */
   color?:
     | 'gray'
     | 'red'
@@ -38,15 +44,45 @@ type ButtonType = {|
     | 'semiTransparentWhite'
     | 'transparentWhiteText'
     | 'white',
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
   dataTestId?: string,
+  /**
+   * Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.
+   */
   disabled?: boolean,
+  /**
+   * An icon displayed after the text to help clarify the usage of Button. See the [icon variant](#Icons) to learn more.
+   */
   iconEnd?: $Keys<typeof icons>,
+  /**
+   * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.
+   */
   fullWidth?: boolean,
+  /**
+   * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.
+   */
   tabIndex?: -1 | 0,
+  /**
+   * sm: 32px, md: 40px, lg: 48px
+   */
   size?: 'sm' | 'md' | 'lg',
+  /**
+   * Text to render inside the Button to convey the function and purpose of the Button.
+   */
   text: string,
+  /**
+   * Specifies a link URL.
+   */
   href: string,
+  /**
+   * Provides hints for SEO. See the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel) to learn more.
+   */
   rel?: 'none' | 'nofollow',
+  /**
+   * Indicates the browsing context where an href will be opened.
+   */
   target?: Target,
 |};
 

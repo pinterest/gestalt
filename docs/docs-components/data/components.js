@@ -384,6 +384,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'ButtonLink',
+    platform: {
+      web: {
+        name: 'ButtonLink',
+        visual: {
+          svg: <Button />,
+        },
+        description: 'ButtonLink allow users to use a surface action to link to another page.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'notAvailable',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'ButtonGroup',
     platform: {
       web: {

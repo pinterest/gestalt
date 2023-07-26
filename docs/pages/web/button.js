@@ -636,6 +636,9 @@ To control focus or position anchored components relative to Button, use \`ref\`
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
+**[ButtonLink](/web/buttonlink)**
+Use ButtonLink when a link is needed instead of an action.
+
 **[ButtonGroup](/web/buttongroup)**
 When displaying multiple Buttons in a layout, use ButtonGroup to ensure consistent spacing and wrapping behavior.
 
