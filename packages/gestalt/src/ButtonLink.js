@@ -65,6 +65,18 @@ type ButtonType = {|
    */
   tabIndex?: -1 | 0,
   /**
+   * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.
+     See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   */
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
+  /**
    * sm: 32px, md: 40px, lg: 48px
    */
   size?: 'sm' | 'md' | 'lg',
@@ -97,6 +109,7 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
     disabled = false,
     fullWidth = false,
     iconEnd,
+    onClick,
     tabIndex = 0,
     size = 'md',
     text,
@@ -128,6 +141,25 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
   const { href, rel = 'none', target = null } = props;
   const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
 
+  const handleClick = (
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  ) =>
+    onClick
+      ? onClick({
+          event,
+          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
+        })
+      : undefined;
+
+  const handleLinkClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
+    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}) => handleClick(event, dangerouslyDisableOnNavigation);
+
   return (
     <InternalLink
       accessibilityLabel={ariaLabel}
@@ -136,6 +168,7 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
       disabled={disabled}
       fullWidth={fullWidth}
       href={href}
+      onClick={handleLinkClick}
       ref={innerRef}
       rel={rel}
       tabIndex={tabIndex}
