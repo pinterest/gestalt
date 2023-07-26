@@ -241,7 +241,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
         aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
         aria-label={accessibilityLabel}
         className={classnames(styles.parentButton)}
-        dataTestId={dataTestId}
+        data-test-id={dataTestId}
         disabled={disabled}
         onBlur={() => {
           handleBlur();
