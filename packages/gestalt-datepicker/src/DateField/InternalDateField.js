@@ -246,7 +246,7 @@ function InternalDateField({
   value,
 }: InternalDateFieldProps): Node {
   let translations;
-  if (localeData) {
+  if (localeData && localeData.code) {
     // turns en-US to enUS
     const split = localeData.code.split('-');
     if (split.length === 1) {
