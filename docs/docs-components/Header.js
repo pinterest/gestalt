@@ -58,32 +58,24 @@ function Header() {
     );
   }, [router.events, router.pathname, mainNavigationTabs]);
 
+  const isDeployPreviewEnvironment =
+    process.env.NODE_ENV === 'production' &&
+    window?.location?.href?.startsWith('https://deploy-preview-');
+
   const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
-    process.env.NODE_ENV === 'development',
+    isDeployPreviewEnvironment || process.env.NODE_ENV === 'development',
   );
 
   useEffect(() => {
     const devModeSetFromUrl = router.query.devexample && router.query.devexample === 'true';
 
-    // do not show switch if set via url
+    // show switch if set via url
     if (devModeSetFromUrl) {
-      setShowDevelopmentEditorSwitch(false);
-      return;
-    }
-
-    const isDeployPreviewEnvironment =
-      process.env.NODE_ENV === 'production' &&
-      window?.location?.href?.startsWith('https://deploy-preview-');
-
-    if (isDeployPreviewEnvironment || process.env.NODE_ENV === 'development')
       setShowDevelopmentEditorSwitch(true);
+    }
   }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
-
-  const devExampleModeButtonLabel = `Toggle dev example mode ${
-    devExampleMode === 'development' ? 'off' : 'on'
-  }`;
 
   const darkModeButtonLabel = `Toggle ${colorScheme === 'dark' ? 'light' : 'dark'} mode`;
   const onChangeColorScheme = () => {
@@ -177,7 +169,7 @@ function Header() {
 
         <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
           <Flex alignItems="center" gap={3}>
-            {devExampleMode === 'development' ? (
+            {showDevelopmentEditorSwitch && devExampleMode === 'development' ? (
               <Badge
                 text="Dev mode"
                 position="middle"
@@ -198,7 +190,9 @@ function Header() {
                 onClick={onChangeDevExampleMode}
                 selected={devExampleMode === 'development'}
                 tooltip={{
-                  text: devExampleModeButtonLabel,
+                  text: `Toggle dev example mode ${
+                    devExampleMode === 'development' ? 'off' : 'on'
+                  }`,
                   inline: true,
                   idealDirection: 'down',
                   accessibilityLabel: '',
