@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
+import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -9,6 +10,7 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/buttonlink/main.js';
+import relAndTargetExample from '../../examples/buttonlink/relAndTargetExample.js';
 
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
@@ -20,6 +22,33 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines" description="See [Button](/web/button)." />
+
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="rel and target"
+          description={`
+These optional props control the behavior of ButtonLink. External links commonly use \`target="_blank"\` to open the link in a new tab or window, and \`rel="nofollow"\` to provide hints for SEO.
+`}
+        >
+          <SlimBanner
+            iconAccessibilityLabel="Localize the default label"
+            message="ButtonLink announces to assistive technologies that the link opens in a new tab. Localize the default label with DefaultLabelProvider."
+            type="recommendationBare"
+            helperLink={{
+              text: 'Learn more',
+              accessibilityLabel: 'Learn more about DefaultLabelProvider',
+              href: '/web/utilities/defaultlabelprovider',
+              onClick: () => {},
+            }}
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={relAndTargetExample} name="Rel and target example." />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 

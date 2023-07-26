@@ -26,9 +26,7 @@ const SIZE_NAME_TO_PIXEL = {
   lg: 12,
 };
 
-type Target = null | 'self' | 'blank';
-
-type ButtonType = {|
+type ButtonProps = {|
   /**
    * Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
    */
@@ -69,11 +67,7 @@ type ButtonType = {|
      See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
   onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
@@ -93,16 +87,19 @@ type ButtonType = {|
    */
   rel?: 'none' | 'nofollow',
   /**
-   * Indicates the browsing context where an href will be opened.
+   * Indicates the browsing context where an href will be opened:
+- 'null' opens the anchor in the same window.
+- 'blank' opens the anchor in a new window.
+- 'self' opens an anchor in the same frame.
    */
-  target?: Target,
+  target?: null | 'self' | 'blank',
 |};
 
-const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement> = forwardRef<
-  ButtonType,
+const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement> = forwardRef<
+  ButtonProps,
   HTMLAnchorElement,
->(function ButtonLink(props: ButtonType, ref): Node {
-  const {
+>(function ButtonLink(
+  {
     accessibilityLabel,
     color = 'gray',
     dataTestId,
@@ -113,8 +110,12 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
     tabIndex = 0,
     size = 'md',
     text,
-  } = props;
-
+    href,
+    rel = 'none',
+    target = null,
+  }: ButtonProps,
+  ref,
+): Node {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -138,27 +139,21 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
     'inverse' ||
     ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
-  const { href, rel = 'none', target = null } = props;
   const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
 
-  const handleClick = (
-    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+  const handleClick = ({
+    event,
+    dangerouslyDisableOnNavigation,
+  }: {|
     dangerouslyDisableOnNavigation: () => void,
-  ) =>
+    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
+  |}) =>
     onClick
       ? onClick({
           event,
           dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
         })
       : undefined;
-
-  const handleLinkClick = ({
-    event,
-    dangerouslyDisableOnNavigation,
-  }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => handleClick(event, dangerouslyDisableOnNavigation);
 
   return (
     <InternalLink
@@ -168,7 +163,7 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonType, HTMLAnchorElement>
       disabled={disabled}
       fullWidth={fullWidth}
       href={href}
-      onClick={handleLinkClick}
+      onClick={handleClick}
       ref={innerRef}
       rel={rel}
       tabIndex={tabIndex}

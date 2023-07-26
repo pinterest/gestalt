@@ -22,9 +22,7 @@ import keepSimpleTextDont from '../../examples/button/keepSimpleTextDont.js';
 import main from '../../examples/button/main.js';
 import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo.js';
 import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont.js';
-import relAndTargetExample from '../../examples/button/relAndTargetExample.js';
 import roleButtonExample from '../../examples/button/roleButtonExample.js';
-import roleLinkExample from '../../examples/button/roleLinkExample.js';
 import selectedStateExample from '../../examples/button/selectedStateExample.js';
 import showFullTextDo from '../../examples/button/showFullTextDo.js';
 import showFullTextDont from '../../examples/button/showFullTextDont.js';
@@ -34,6 +32,15 @@ const PREVIEW_HEIGHT = 300;
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
+      <SlimBanner
+        message={"If you're intend to use the Button for a link, see "}
+        type="info"
+        helperLink={{
+          text: 'ButtonLink',
+          accessibilityLabel: 'Learn more about the ButtonLink component.',
+          href: '/web/ButtonLink',
+        }}
+      />
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
@@ -165,7 +172,10 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             name: 'href',
             type: 'string',
             required: false,
-            description: ['Specifies a link URL. Required with `role="link"` Buttons.'],
+            description: [
+              'Specifies a link URL. Required with `role="link"` Buttons.',
+              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
+            ],
           },
           {
             name: 'ref',
@@ -187,14 +197,20 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             type: `'button' | 'link'`,
             required: false,
             defaultValue: 'button',
-            description: ['Use “link” to indicate Button that is acting as an `<a>` link.'],
+            description: [
+              'Use “link” to indicate Button that is acting as an `<a>` link.',
+              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
+            ],
           },
           {
             name: 'rel',
             type: `'none' | 'nofollow'`,
             required: false,
             defaultValue: 'none',
-            description: 'Optional with link-role Buttons.',
+            description: [
+              'Optional with link-role Buttons.',
+              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
+            ],
           },
           {
             name: 'target',
@@ -203,6 +219,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             defaultValue: 'null',
             description: [
               'Indicates the browsing context where an href will be opened. Optional with `role="link"` Buttons.',
+              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
             ],
           },
         ]}
@@ -508,35 +525,6 @@ If Button is used as a control Button to show/hide a Popover-based component, we
             cardSize="md"
             sandpackExample={
               <SandpackExample code={roleButtonExample} name="Role button example." />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={<SandpackExample code={roleLinkExample} name="Role link example." />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title="rel and target"
-          description={`
-These optional props control the behavior of \`role="link"\` Buttons. External links commonly use \`target="_blank"\` to open the link in a new tab or window, and \`rel="nofollow"\` to provide hints for SEO.
-`}
-        >
-          <SlimBanner
-            iconAccessibilityLabel="Localize the default label"
-            message="Button with link role announces to assistive technologies that the link opens in a new tab. Localize the default label with DefaultLabelProvider."
-            type="recommendationBare"
-            helperLink={{
-              text: 'Learn more',
-              accessibilityLabel: 'Learn more about DefaultLabelProvider',
-              href: '/web/utilities/defaultlabelprovider',
-              onClick: () => {},
-            }}
-          />
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={relAndTargetExample} name="Rel and target example." />
             }
           />
         </MainSection.Subsection>
