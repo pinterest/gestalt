@@ -58,19 +58,19 @@ function Header() {
     );
   }, [router.events, router.pathname, mainNavigationTabs]);
 
-  const isDeployPreviewEnvironment =
-    process.env.NODE_ENV === 'production' &&
-    window?.location?.href?.startsWith('https://deploy-preview-');
-
   const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
-    isDeployPreviewEnvironment || process.env.NODE_ENV === 'development',
+    process.env.NODE_ENV === 'development',
   );
 
   useEffect(() => {
+    const isDeployPreviewEnvironment =
+      process.env.NODE_ENV === 'production' &&
+      window?.location?.href?.startsWith('https://deploy-preview-');
+
     const devModeSetFromUrl = router.query.devexample && router.query.devexample === 'true';
 
-    // show switch if set via url
-    if (devModeSetFromUrl) {
+    // show switch if set via url or is a deployment URL
+    if (devModeSetFromUrl || isDeployPreviewEnvironment) {
       setShowDevelopmentEditorSwitch(true);
     }
   }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
