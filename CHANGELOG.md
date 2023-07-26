@@ -1,3 +1,9 @@
+## 119.2.1-alpha.0 (Jul 26, 2023)
+
+### Prerelease
+
+- Logging a ([#3105](https://github.com/pinterest/gestalt/pull/3105)) - [Preview link](https://deploy-preview-3105--gestalt.netlify.app?devexample=true)
+
 ## 119.2.0 (Jul 26, 2023)
 
 ### Minor
