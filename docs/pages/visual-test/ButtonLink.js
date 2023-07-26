@@ -1,20 +1,20 @@
 // @flow strict
 import { type Node } from 'react';
-import { Button, Flex } from 'gestalt';
+import { Box, ButtonLink } from 'gestalt';
 
-export default function Example(): Node {
+export default function Snapshot(): Node {
   return (
-    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Button
+    <Box padding={1}>
+      <ButtonLink
         accessibilityLabel="Visit Pinterest"
         iconEnd="visit"
         size="lg"
+        color="red"
         text="Visit Pinterest"
-        role="link"
         rel="nofollow"
         target="blank"
         href="#"
       />
-    </Flex>
+    </Box>
   );
 }

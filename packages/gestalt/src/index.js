@@ -7,6 +7,7 @@ import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
 import ButtonGroup from './ButtonGroup.js';
+import ButtonLink from './ButtonLink.js';
 import Callout from './Callout.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
@@ -86,6 +87,7 @@ export {
   Box,
   Button,
   ButtonGroup,
+  ButtonLink,
   Callout,
   Checkbox,
   Collage,
