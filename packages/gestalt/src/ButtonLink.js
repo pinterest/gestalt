@@ -136,7 +136,6 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
   }
   const textColor =
     (disabled && 'subtle') ||
-    'inverse' ||
     ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
   const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });

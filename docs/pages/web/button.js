@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Button, SlimBanner } from 'gestalt';
+import { Button, Link, SlimBanner, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
@@ -33,13 +33,20 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <SlimBanner
-        message={"If you're intend to use the Button for a link, see "}
         type="info"
-        helperLink={{
-          text: 'ButtonLink',
-          accessibilityLabel: 'Learn more about the ButtonLink component.',
-          href: '/web/ButtonLink',
-        }}
+        message={
+          <Text inline>
+            If you intend to use Button as a link, use
+            <Link
+              accessibilityLabel="Learn more about the ButtonLink component."
+              display="inline"
+              href="/web/ButtonLink"
+            >
+              ButtonLink
+            </Link>
+            instead.
+          </Text>
+        }
       />
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
