@@ -169,7 +169,7 @@ function Header() {
 
         <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
           <Flex alignItems="center" gap={3}>
-            {showDevelopmentEditorSwitch && devExampleMode === 'development' ? (
+            {devExampleMode === 'development' ? (
               <Badge
                 text="Dev mode"
                 position="middle"
