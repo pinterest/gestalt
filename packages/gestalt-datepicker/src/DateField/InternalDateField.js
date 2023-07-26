@@ -6,6 +6,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
+import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
 import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
@@ -243,9 +244,28 @@ function InternalDateField({
   readOnly = false,
   value,
 }: InternalDateFieldProps): Node {
+  let translations;
+  if (localeData) {
+    // turns en-US to enUS
+    const split = localeData.code.split('-');
+    if (split.length === 1) {
+      // turns 'es' into 'enES'
+      split.push(split[0].toUpperCase());
+    }
+    const code = split.join('');
+
+    if (locales[code] !== undefined) {
+      translations = locales[code].components.MuiLocalizationProvider.defaultProps.localeText;
+    }
+  }
+
   return (
     <StyledEngineProvider injectFirst>
-      <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={localeData}>
+      <LocalizationProvider
+        dateAdapter={AdapterDateFns}
+        adapterLocale={localeData}
+        localeText={translations}
+      >
         <Box>
           {label ? (
             <label
