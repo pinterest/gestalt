@@ -4,7 +4,7 @@ description: Use Switch for single-cell options that can be turned on and off on
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/90/ad/d390ad2e3fa4c1c8319d7baa7508cb0a.jpg"  alt="Primary example of Switch component" />
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/ef9d1c87-824c-4c91-8858-602e0ea99873"  alt="Primary example of Switch component" />
 
 ## Usage guidelines
 
@@ -24,13 +24,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/2c/19/f6/2c19f61a4901d6f77069c3ed9f266de4.jpg"  alt="Example of Switch with label and subtext" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/56807374-d4da-40e9-b4af-70eba828f45a"  alt="Example of Switch with label and subtext" />
     <Do title="Do" />
     Use a label and subtext to give Switch context when possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d4/ea/4d/d4ea4d12eb9ec8235bd773b363cddc97.jpg"  alt="Example of Switch with truncated text" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/44702165-8617-4a42-a3a6-83ad1077a28c"  alt="Example of Switch with truncated text" />
     <Dont title="Don't" />
     Truncate label text. Instead, allow it to wrap to form another line.
   </Group>
@@ -38,13 +38,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/da/30/95/da309504c6a99dc3b989099a2bfde060.jpg"  alt="Example of disabled Switch" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/06e8d682-c1e9-484c-9557-129f826f9204"  alt="Example of disabled Switch" />
     <Do title="Do" />
     Communicate why a switch is disabled and how to enable it if possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/66/ef/07/66ef0701a9d3d0927c1198d0d8bc9651.jpg"  alt="Example of incorrect switch usage" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/f1ac5536-3e98-436f-8c33-3c36bb42ee93"  alt="Example of incorrect switch usage" />
     <Dont title="Don't" />
     Use checkboxes or radio buttons to replace the functionality of a switch. If the functionality is a binary on or off, use Switch instead.
   </Group>

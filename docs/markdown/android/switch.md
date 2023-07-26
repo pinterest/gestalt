@@ -4,7 +4,7 @@ description: Use Switch for single-cell options that can be turned on and off on
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/9d/ce/b3/9dceb3b2c53cb702f9791bd69d91e7b0.png"  alt="Primary example of Switch component" />
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/686889de-4b10-48cd-b616-5c0ed0dea123"  alt="Primary example of Switch component" />
 
 ## Usage guidelines
 
@@ -24,13 +24,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/2c/19/f6/2c19f61a4901d6f77069c3ed9f266de4.jpg"  alt="Example of Switch with label and subtext" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/5efcffe0-41c9-4c9c-931b-2b434a67fd20"  alt="Example of Switch with label and subtext" />
     <Do title="Do" />
     Use a label and subtext to give Switch context when possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d4/ea/4d/d4ea4d12eb9ec8235bd773b363cddc97.jpg"  alt="Example of Switch with truncated text" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/43668891-f8ca-432e-9057-f10f2539cad5"  alt="Example of Switch with truncated text" />
     <Dont title="Don't" />
     Truncate label text. Instead, allow it to wrap to form another line.
   </Group>
@@ -38,13 +38,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/da/30/95/da309504c6a99dc3b989099a2bfde060.jpg"  alt="Example of disabled Switch" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/bee36706-7151-49d3-a150-8e97e839ec33"  alt="Example of disabled Switch" />
     <Do title="Do" />
     Communicate why a switch is disabled and how to enable it if possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/66/ef/07/66ef0701a9d3d0927c1198d0d8bc9651.jpg"  alt="Example of incorrect switch usage" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/def96af9-e47f-44f1-ac36-f214713e7c94"  alt="Example of incorrect switch usage" />
     <Dont title="Don't" />
     Use checkboxes or radio buttons to replace the functionality of a switch. If the functionality is a binary on or off, use Switch instead.
   </Group>
@@ -55,11 +55,6 @@ fullwidth: true
 Switches should have [Labels](https://gestalt.pinterest.systems/web/label) that can be read by screen readers, and that can be tapped to make it easier for users to select and deselect.
 People use Apple and Android’s accessibility features, such as VoiceOver and TalkBack to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple and Android’s accessibility documentation for more information:
 <TwoCol>
-  <Group>
-    [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
-    [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
-  </Group>
-
   <Group>
     [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
     [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
@@ -148,3 +143,12 @@ Subtext sits below the Switch label and aligns in the direction of the label.
     - Don’t use “you,” “your,” or “my” to describe an action. Instead of “turn on your notifications,” say “turn on notifications.”
   </Group>
 </TwoCol>
+
+## Related
+
+- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup)
+  Use when presenting a user with a list of choices for which there can only be one selection.
+- [Checkbox](https://gestalt.pinterest.systems/ios/checkbox)
+  Used when presenting a user with a list of choices for which there can be multiple selections.
+- [Fieldset](https://gestalt.pinterest.systems/web/fieldset)
+  Used to group a list of related Switches with a legend that describes the list.
