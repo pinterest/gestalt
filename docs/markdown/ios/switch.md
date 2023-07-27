@@ -30,7 +30,7 @@ fullwidth: true
   </Group>
 
   <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/44702165-8617-4a42-a3a6-83ad1077a28c"  alt="Example of Switch with truncated text" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/109b69d7-5c52-4986-ac95-263f9b684d70"  alt="Example of Switch with truncated text" />
     <Dont title="Don't" />
     Truncate label text. Instead, allow it to wrap to form another line.
   </Group>
@@ -44,7 +44,7 @@ fullwidth: true
   </Group>
 
   <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/f1ac5536-3e98-436f-8c33-3c36bb42ee93"  alt="Example of incorrect switch usage" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/64af8d2f-f34d-46fb-8033-b539e4cd17af"  alt="Example of incorrect switch usage" />
     <Dont title="Don't" />
     Use checkboxes or radio buttons to replace the functionality of a switch. If the functionality is a binary on or off, use Switch instead.
   </Group>
