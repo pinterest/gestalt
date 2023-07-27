@@ -1,3 +1,9 @@
+## 119.2.4 (Jul 27, 2023)
+
+### Patch
+
+- Docs: Switch iOS mobile doc clean up ([#3104](https://github.com/pinterest/gestalt/pull/3104)) - [Preview link](https://deploy-preview-3104--gestalt.netlify.app?devexample=true)
+
 ## 119.2.3 (Jul 27, 2023)
 
 ### Patch
