@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box contentCenter xsDisplayFlex"
+      style="height: 24px;"
+    >
+      <div
+        class="box marginEnd2"
+      >
+        <svg
+          aria-label="Needs attention"
+          class="icon errorIcon iconBlock"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        class="box marginTop0 selfCenter"
+      >
+        <div
+          class="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Needs attention
+        </div>
+      </div>
+    </div>
+    <div
+      class="box marginTop6"
+    >
+      <div
+        class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        Tag is unhealthy
+      </div>
+    </div>
+    <div
+      class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+    >
+      <div
+        class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      >
+        Oops! Your tag has errors that need to be fixed
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> Not started ActivationCard 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box contentCenter xsDisplayFlex"
+      style="height: 24px;"
+    >
+      <div
+        class="box marginTop1 selfCenter"
+      >
+        <div
+          class="Text fontSize200 subtleText alignStart breakWord fontWeightSemiBold"
+        >
+          Not started
+        </div>
+      </div>
+    </div>
+    <div
+      class="box marginTop6"
+    >
+      <div
+        class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        Claim your website
+      </div>
+    </div>
+    <div
+      class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+    >
+      <div
+        class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      >
+        Claim your website to unlock new features
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> Pending ActivationCard 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box contentCenter xsDisplayFlex"
+      style="height: 24px;"
+    >
+      <div
+        class="box marginEnd2"
+      >
+        <svg
+          aria-label="Pending"
+          class="icon subtleIcon iconBlock"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        class="box marginTop0 selfCenter"
+      >
+        <div
+          class="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Pending
+        </div>
+      </div>
+    </div>
+    <div
+      class="box marginTop6"
+    >
+      <div
+        class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        Claiming your website
+      </div>
+    </div>
+    <div
+      class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+    >
+      <div
+        class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      >
+        We will notify you via email as soon as your site has been successfully claimed
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> complete ActivationCard 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box xsDisplayFlex"
+    >
+      <div
+        class="box contentCenter xsDisplayFlex"
+      >
+        <div
+          class="box marginEnd4"
+        >
+          <svg
+            aria-label="Complete"
+            class="icon successIcon iconBlock"
+            height="40"
+            role="img"
+            viewBox="0 0 24 24"
+            width="40"
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="box"
+      >
+        <div
+          class="box"
+        >
+          <div
+            class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+          >
+            Nice work
+          </div>
+        </div>
+        <div
+          class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+        >
+          <div
+            class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          >
+            You are all done here
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box contentCenter xsDisplayFlex"
+      style="height: 24px;"
+    >
+      <div
+        class="box marginEnd2"
+      >
+        <svg
+          aria-label="Needs attention"
+          class="icon errorIcon iconBlock"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        class="box marginTop0 selfCenter"
+      >
+        <div
+          class="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Needs attention
+        </div>
+      </div>
+    </div>
+    <div
+      class="box marginTop6"
+    >
+      <div
+        class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        Tag is unhealthy
+      </div>
+    </div>
+    <div
+      class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+    >
+      <div
+        class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      >
+        Oops! Your tag must be healthy to continue.
+      </div>
+    </div>
+    <div
+      class="box"
+    >
+      <div
+        class="box marginEndAuto marginStartAuto marginTop8 paddingX1 pill xsItemsCenter"
+      >
+        <a
+          aria-label="Learn more about tags"
+          class="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
+          href="https://pinterest.com"
+          rel=""
+          tabindex="0"
+        >
+          <div
+            class="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+          >
+            <div
+              class="FlexItem"
+            >
+              <div
+                class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Learn more
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="rtlPos"
+    >
+      <button
+        aria-label="Dismiss card"
+        class="parentButton"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="button tapTransition enabled"
+        >
+          <div
+            class="pog transparent"
+            style="height: 48px; width: 48px;"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label=""
+              class="icon subtleIcon iconBlock"
+              height="16"
+              role="img"
+              viewBox="0 0 24 24"
+              width="16"
+            >
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> message + title + link 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box contentCenter xsDisplayFlex"
+      style="height: 24px;"
+    >
+      <div
+        class="box marginEnd2"
+      >
+        <svg
+          aria-label="Needs attention"
+          class="icon errorIcon iconBlock"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        class="box marginTop0 selfCenter"
+      >
+        <div
+          class="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Needs attention
+        </div>
+      </div>
+    </div>
+    <div
+      class="box marginTop6"
+    >
+      <div
+        class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        Tag is unhealthy
+      </div>
+    </div>
+    <div
+      class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+    >
+      <div
+        class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      >
+        Oops! Your tag must be healthy to continue.
+      </div>
+    </div>
+    <div
+      class="box"
+    >
+      <div
+        class="box marginEndAuto marginStartAuto marginTop8 paddingX1 pill xsItemsCenter"
+      >
+        <a
+          aria-label="Learn more about tags"
+          class="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
+          href="https://pinterest.com"
+          rel=""
+          tabindex="0"
+        >
+          <div
+            class="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+          >
+            <div
+              class="FlexItem"
+            >
+              <div
+                class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              >
+                Learn more
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> message + title 1`] = `
+<div>
+  <div
+    class="box elevationFloating flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+    style="max-width: 400px; height: 100%; width: 100%;"
+  >
+    <div
+      class="box contentCenter xsDisplayFlex"
+      style="height: 24px;"
+    >
+      <div
+        class="box marginEnd2"
+      >
+        <svg
+          aria-label="Needs attention"
+          class="icon errorIcon iconBlock"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        class="box marginTop0 selfCenter"
+      >
+        <div
+          class="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Needs attention
+        </div>
+      </div>
+    </div>
+    <div
+      class="box marginTop6"
+    >
+      <div
+        class="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      >
+        Tag is unhealthy
+      </div>
+    </div>
+    <div
+      class="box contentStart flexGrow marginTop2 xsDirectionColumn"
+    >
+      <div
+        class="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      >
+        Oops! Your tag must be healthy to continue.
+      </div>
+    </div>
+  </div>
+</div>
+`;

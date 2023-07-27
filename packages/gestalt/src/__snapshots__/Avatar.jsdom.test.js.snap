@@ -1,0 +1,412 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar renders an outline 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="box-shadow: 0 0 0 1px #fff; width: 100%;"
+  >
+    <div
+      class="box circle relative secondary"
+      style="padding-bottom: 100%;"
+    >
+      <div
+        class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+      >
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Jenny
+          </title>
+          <text
+            class="antialiased sansSerif fontWeightSemiBold "
+            dy="0.35em"
+            fill="#111"
+            font-size="40px"
+            text-anchor="middle"
+          >
+            J
+          </text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders multi-byte character initial 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 100%;"
+  >
+    <div
+      class="box circle relative secondary"
+      style="padding-bottom: 100%;"
+    >
+      <div
+        class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+      >
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            💩 astral
+          </title>
+          <text
+            class="antialiased sansSerif fontWeightSemiBold "
+            dy="0.35em"
+            fill="#111"
+            font-size="40px"
+            text-anchor="middle"
+          >
+            💩
+          </text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the checkmark on verified default 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 48px; height: 48px;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+    <div
+      class="absolute box"
+      style="width: 25%; height: 25%; min-width: 12px; min-height: 12px; bottom: 4%; right: 4%;"
+    >
+      <div
+        class="box circle default"
+        style="width: 100%; height: 100%;"
+      >
+        <svg
+          aria-hidden="true"
+          aria-label=""
+          class="icon brandPrimaryIcon iconBlock"
+          height="100%"
+          role="img"
+          viewBox="0 0 24 24"
+          width="100%"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - lg 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 64px; height: 64px;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - md 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 48px; height: 48px;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - sm 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 32px; height: 32px;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - xl 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 24px; height: 24px;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - xs 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 24px; height: 24px;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct src 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 100%;"
+  >
+    <div
+      class="Mask circle willChangeTransform"
+    >
+      <div
+        class="box relative"
+        style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+      >
+        <img
+          alt="Strava"
+          class="img"
+          fetchpriority="auto"
+          loading="auto"
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
+      <div
+        class="wash"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the verified icon 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 100%;"
+  >
+    <div
+      class="box circle relative secondary"
+      style="padding-bottom: 100%;"
+    >
+      <div
+        class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+      >
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Jammy
+          </title>
+          <text
+            class="antialiased sansSerif fontWeightSemiBold "
+            dy="0.35em"
+            fill="#111"
+            font-size="40px"
+            text-anchor="middle"
+          >
+            J
+          </text>
+        </svg>
+      </div>
+    </div>
+    <div
+      class="absolute box"
+      style="width: 25%; height: 25%; min-width: 12px; min-height: 12px; bottom: 4%; right: 4%;"
+    >
+      <div
+        class="box circle default"
+        style="width: 100%; height: 100%;"
+      >
+        <svg
+          aria-hidden="true"
+          aria-label=""
+          class="icon brandPrimaryIcon iconBlock"
+          height="100%"
+          role="img"
+          viewBox="0 0 24 24"
+          width="100%"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar renders with an empty name shows default icon 1`] = `
+<div>
+  <div
+    class="box circle relative"
+    data-test-id="gestalt-avatar-svg"
+    style="width: 100%;"
+  >
+    <div
+      class="box circle relative secondary"
+      style="padding-bottom: 100%;"
+    >
+      <div
+        class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+      >
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <text
+            class="antialiased sansSerif fontWeightSemiBold "
+            dy="0.35em"
+            fill="#111"
+            font-size="40px"
+            text-anchor="middle"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

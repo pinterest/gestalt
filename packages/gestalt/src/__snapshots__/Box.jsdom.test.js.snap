@@ -7,9 +7,11 @@ exports[`Box allows auto margin 1`] = `
 `;
 
 exports[`Box allows zero values for whitespace 1`] = `
-<div
-  className="box paddingX0 paddingY0"
-/>
+<div>
+  <div
+    class="box paddingX0 paddingY0"
+  />
+</div>
 `;
 
 exports[`Box correctly sets visually hidden 1`] = `
@@ -30,69 +32,91 @@ exports[`Box dangerouslySetInlineStyle 1`] = `
 `;
 
 exports[`Box has correct *-flex-column classes when display is flexColumn 1`] = `
-<div
-  className="box lgDirectionColumn mdDirectionColumn smDirectionColumn xsDirectionColumn"
-/>
+<div>
+  <div
+    class="box lgDirectionColumn mdDirectionColumn smDirectionColumn xsDirectionColumn"
+  />
+</div>
 `;
 
 exports[`Box has correct *-hide classes when display is false 1`] = `
-<div
-  className="box lgDisplayNone mdDisplayNone smDisplayNone xsDisplayNone"
-/>
+<div>
+  <div
+    class="box lgDisplayNone mdDisplayNone smDisplayNone xsDisplayNone"
+  />
+</div>
 `;
 
 exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] = `
-<div
-  className="box lgDisplayInlineBlock mdDisplayInlineBlock smDisplayInlineBlock xsDisplayInlineBlock"
-/>
+<div>
+  <div
+    class="box lgDisplayInlineBlock mdDisplayInlineBlock smDisplayInlineBlock xsDisplayInlineBlock"
+  />
+</div>
 `;
 
 exports[`Box has correct class when opacity is 0.5 1`] = `
-<div
-  className="box opacity05"
-/>
+<div>
+  <div
+    class="box opacity05"
+  />
+</div>
 `;
 
 exports[`Box has correct class when opacity is 1 1`] = `
-<div
-  className="box opacity1"
-/>
+<div>
+  <div
+    class="box opacity1"
+  />
+</div>
 `;
 
 exports[`Box has correct class when rounding is 1 1`] = `
-<div
-  className="box rounding1"
-/>
+<div>
+  <div
+    class="box rounding1"
+  />
+</div>
 `;
 
 exports[`Box has correct class when rounding is circle 1`] = `
-<div
-  className="box circle"
-/>
+<div>
+  <div
+    class="box circle"
+  />
+</div>
 `;
 
 exports[`Box has correct classes when borderStyle is lg 1`] = `
-<div
-  className="borderColorLightGray box sizeLg solid"
-/>
+<div>
+  <div
+    class="borderColorLightGray box sizeLg solid"
+  />
+</div>
 `;
 
 exports[`Box has correct classes when borderStyle is raisedTopShadow 1`] = `
-<div
-  className="box raisedTop"
-/>
+<div>
+  <div
+    class="box raisedTop"
+  />
+</div>
 `;
 
 exports[`Box has correct classes when borderStyle is shadow 1`] = `
-<div
-  className="box shadow"
-/>
+<div>
+  <div
+    class="box shadow"
+  />
+</div>
 `;
 
 exports[`Box has correct classes when display is flex 1`] = `
-<div
-  className="box"
-/>
+<div>
+  <div
+    class="box"
+  />
+</div>
 `;
 
 exports[`Box has correct marginStart and marginEnd when marginStart and marginEnd are negative 1`] = `
@@ -108,18 +132,18 @@ exports[`Box has correct marginStart and marginEnd when marginStart equals 1 and
 `;
 
 exports[`Box has correct zIndex 1`] = `
-<div
-  className="box"
-  style={
-    Object {
-      "zIndex": 100,
-    }
-  }
-/>
+<div>
+  <div
+    class="box"
+    style="z-index: 100;"
+  />
+</div>
 `;
 
 exports[`Box renders 1`] = `
-<div
-  className="box"
-/>
+<div>
+  <div
+    class="box"
+  />
+</div>
 `;
