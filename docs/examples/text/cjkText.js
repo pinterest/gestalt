@@ -3,16 +3,6 @@ import React, { type Node } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 
 export default function cjkText(): Node {
-  function NarrowShell({ text, useKeepAll }: {| text: string, useKeepAll?: boolean |}) {
-    return (
-      <Box width={24} color="dark">
-        <Text overflow="normal" size="200" color="inverse">
-          {useKeepAll ? <div style={{ wordBreak: 'keep-all' }}>{text}</div> : text}
-        </Text>
-      </Box>
-    );
-  }
-
   const languages = [
     {
       id: 'English',
@@ -33,21 +23,19 @@ export default function cjkText(): Node {
 
   return (
     <Box
-      marginTop={10}
       padding={4}
       width="100%"
       height="100%"
       display="flex"
-      justifyContent="center"
       alignItems="center"
       direction="column"
     >
-      <Flex direction="column" gap={8}>
-        <Box>
-          <Box marginBottom={2}>
+      <Flex direction="row" gap={8}>
+        <Flex gap={2} direction="column">
+          <Box>
             <Text weight="bold">With Keep-All</Text>
           </Box>
-          <Flex direction="row" gap={4}>
+          <Flex direction="column" gap={4}>
             {languages.map(({ id, lang, code }) => (
               <Box key={id}>
                 <Box marginBottom={2}>
@@ -55,31 +43,39 @@ export default function cjkText(): Node {
                 </Box>
                 <div lang={code}>
                   <Box key={id} width={120} color="dark" rounding={2} padding={2}>
-                    <NarrowShell text={lang} />
+                    <Box width={24} color="dark">
+                      <Text overflow="normal" size="200" color="inverse">
+                        {lang}
+                      </Text>
+                    </Box>
                   </Box>
                 </div>
               </Box>
             ))}
           </Flex>
-        </Box>
+        </Flex>
 
-        <Box>
-          <Box marginBottom={2}>
+        <Flex gap={2} direction="column">
+          <Box>
             <Text weight="bold">Without Keep-All</Text>
           </Box>
-          <Flex direction="row" gap={4}>
+          <Flex direction="column" gap={4}>
             {languages.map(({ id, lang }) => (
               <Box key={id}>
                 <Box marginBottom={2}>
                   <Text size="200">{id}</Text>
                 </Box>
-                <Box key={id} width={120} color="dark" rounding={2} padding={2}>
-                  <NarrowShell text={lang} />
+                <Box key={id} width={70} color="dark" rounding={2} padding={2}>
+                  <Box width={24} color="dark">
+                    <Text overflow="normal" size="200" color="inverse">
+                      {lang}
+                    </Text>
+                  </Box>
                 </Box>
               </Box>
             ))}
           </Flex>
-        </Box>
+        </Flex>
       </Flex>
     </Box>
   );

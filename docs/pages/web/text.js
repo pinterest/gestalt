@@ -189,11 +189,17 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         <MainSection.Subsection
           title="Word Breaks and CJK languages"
-          description={`Chinese, Japanese and Korean languages and may not be broken in the middle of a word. This creates text-wrapping issues and tall containers. To avoid this, the Text component uses the CSS property \`word-break:keep-all\` to keep words on CJK languages together when CJK is detected.  
+          description={`Chinese, Japanese and Korean languages may be broken in the middle of a word. This creates text-wrapping issues and tall containers. To avoid this, Text uses the CSS property \`word-break:keep-all\` to keep words on CJK languages together when CJK is detected.  
           <br /> Be sure to consider text overflow, and making sure a container is wide enough to support a CJK term.
           `}
         >
-          <SandpackExample code={cjkText} name="CJK Text" hideEditor hideControls />
+          <SandpackExample
+            previewHeight={550}
+            code={cjkText}
+            name="CJK Text"
+            hideEditor
+            hideControls
+          />
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Variants">
