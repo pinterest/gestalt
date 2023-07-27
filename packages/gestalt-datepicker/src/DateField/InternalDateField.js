@@ -246,6 +246,9 @@ function InternalDateField({
   value,
 }: InternalDateFieldProps): Node {
   let translations;
+
+  // converts date-fns localeData.code (e.g. es-EN) from to the format expected by the MUI Locale (esEN)
+  // https://mui.com/x/react-date-pickers/localization/
   if (localeData && localeData.code) {
     // turns en-US to enUS
     const split = localeData.code.split('-');
