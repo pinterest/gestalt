@@ -1,3 +1,9 @@
+## 119.2.5 (Jul 27, 2023)
+
+### Patch
+
+- Docs: Switch replacing images on the iOS doc ([#3109](https://github.com/pinterest/gestalt/pull/3109)) - [Preview link](https://deploy-preview-3109--gestalt.netlify.app?devexample=true)
+
 ## 119.2.4 (Jul 27, 2023)
 
 ### Patch
