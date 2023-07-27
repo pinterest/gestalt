@@ -454,6 +454,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         visual: {
           svg: <Card />,
         },
+        path: '/ios/card/card',
         alias: ['Entry Card', 'Module', 'Panel', 'Teaser'],
         description:
           'Card is a semi-modular container used to house Card.Header and a variant of the available preview blocks.',
