@@ -1,3 +1,33 @@
+## 119.2.4 (Jul 27, 2023)
+
+### Patch
+
+- Docs: Switch iOS mobile doc clean up ([#3104](https://github.com/pinterest/gestalt/pull/3104)) - [Preview link](https://deploy-preview-3104--gestalt.netlify.app?devexample=true)
+
+## 119.2.3 (Jul 27, 2023)
+
+### Patch
+
+- Docs: New and updated component svgs ([#3108](https://github.com/pinterest/gestalt/pull/3108)) - [Preview link](https://deploy-preview-3108--gestalt.netlify.app?devexample=true)
+
+## 119.2.2 (Jul 27, 2023)
+
+### Patch
+
+- Docs: development mode switch shown when activated from url ([#3107](https://github.com/pinterest/gestalt/pull/3107)) - [Preview link](https://deploy-preview-3107--gestalt.netlify.app?devexample=true)
+
+## 119.2.1 (Jul 26, 2023)
+
+### Patch
+
+- Docs: Added iOS components to the H2 roadmap ([#3102](https://github.com/pinterest/gestalt/pull/3102)) - [Preview link](https://deploy-preview-3102--gestalt.netlify.app?devexample=true)
+
+## 119.2.0 (Jul 26, 2023)
+
+### Minor
+
+- ButtonLink: new component forked from Button ([#3093](https://github.com/pinterest/gestalt/pull/3093)) - [Preview link](https://deploy-preview-3093--gestalt.netlify.app?devexample=true)
+
 ## 119.1.5 (Jul 25, 2023)
 
 ### Patch
