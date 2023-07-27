@@ -160,13 +160,13 @@ export function getPopoverDir({
   const skipNoEdgeCondition =
     isScrollBoundaryContainer && (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
 
-  if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
+  if (idealDirection !== 'forceDown' && !skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
     right = 0;
   }
 
   // LEFT or RIGHT: trigger is too close to the left/right of screen for up & down popovers\
-  if (!skipNoEdgeCondition && (nonLeftEdge || nonRightEdge)) {
+  if (idealDirection !== 'forceDown' && !skipNoEdgeCondition && (nonLeftEdge || nonRightEdge)) {
     up = 0;
     down = 0;
   }
