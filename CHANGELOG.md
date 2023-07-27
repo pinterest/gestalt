@@ -1,3 +1,9 @@
+## 119.2.3 (Jul 27, 2023)
+
+### Patch
+
+- Docs: New and updated component svgs ([#3108](https://github.com/pinterest/gestalt/pull/3108)) - [Preview link](https://deploy-preview-3108--gestalt.netlify.app?devexample=true)
+
 ## 119.2.2 (Jul 27, 2023)
 
 ### Patch
