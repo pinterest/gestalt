@@ -1,3 +1,9 @@
+## 119.2.2 (Jul 27, 2023)
+
+### Patch
+
+- Docs: development mode switch shown when activated from url ([#3107](https://github.com/pinterest/gestalt/pull/3107)) - [Preview link](https://deploy-preview-3107--gestalt.netlify.app?devexample=true)
+
 ## 119.2.1 (Jul 26, 2023)
 
 ### Patch
