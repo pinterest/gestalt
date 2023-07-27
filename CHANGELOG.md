@@ -1,3 +1,9 @@
+## 119.3.0 (Jul 27, 2023)
+
+### Minor
+
+- DateField: Add locale format translations ([#3103](https://github.com/pinterest/gestalt/pull/3103)) - [Preview link](https://deploy-preview-3103--gestalt.netlify.app?devexample=true)
+
 ## 119.2.5 (Jul 27, 2023)
 
 ### Patch
