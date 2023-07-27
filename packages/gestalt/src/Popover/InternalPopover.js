@@ -8,7 +8,6 @@ import InternalDismissButton from '../shared/InternalDismissButton.js';
 
 type Color = 'blue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {|
@@ -19,7 +18,7 @@ type Props = {|
   color?: Color,
   onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   id?: string,
-  idealDirection?: IdealDirection,
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
   role?: Role,

@@ -176,9 +176,16 @@ export function getPopoverDir({
 
   let popoverDir;
 
-  if (idealDirection && spaces[DIR_INDEX_MAP[idealDirection]] > 0) {
+  if (
+    idealDirection &&
+    idealDirection !== 'forceDown' &&
+    spaces[DIR_INDEX_MAP[idealDirection]] > 0
+  ) {
     // user pref
     popoverDir = idealDirection;
+  } else if (idealDirection && idealDirection === 'forceDown') {
+    // user pref
+    popoverDir = 'down';
   } else {
     const noAvailableSpaceCondition = up <= 0 && right <= 0 && down <= 0 && left <= 0;
 
