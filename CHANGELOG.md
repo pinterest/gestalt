@@ -1,3 +1,9 @@
+## 119.4.0 (Jul 28, 2023)
+
+### Minor
+
+- IconButton: support to `data-test-id` ([#3101](https://github.com/pinterest/gestalt/pull/3101)) - [Preview link](https://deploy-preview-3101--gestalt.netlify.app?devexample=true)
+
 ## 119.3.0 (Jul 27, 2023)
 
 ### Minor
