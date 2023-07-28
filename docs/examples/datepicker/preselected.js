@@ -12,7 +12,9 @@ export default function Example(): Node {
         <DatePicker
           id="example-basic"
           label="Select a date"
-          onChange={({ value }) => setDateValue(value)}
+          onChange={({ value }) => {
+            setDateValue(value);
+          }}
           value={dateValue}
         />
       </Box>

@@ -7,6 +7,7 @@ export default function Example(): Node {
   const mapOptions = { '0': ['month'], '1': ['year'], '2': ['year', 'month'] };
   const items = ['Month', 'Year', 'Month & Year'];
   const [itemIndex, setItemIndex] = useState(0);
+  const [dateValue, setDateValue] = useState<Date | null>(new Date(1985, 6, 4));
 
   return (
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
@@ -20,8 +21,8 @@ export default function Example(): Node {
           <DatePicker
             id="selectLists"
             label="Alberto's birth date"
-            onChange={() => {}}
-            value={new Date(1985, 6, 4)}
+            onChange={({ value }) => setDateValue(value)}
+            value={dateValue}
             selectLists={mapOptions[itemIndex.toString()]}
           />
         </Flex>
