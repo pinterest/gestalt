@@ -45,6 +45,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => innerInputRef.current);
 
+  // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
   const [uncontrolledValue, setUncontrolledValue] = useState<?Date>(null);
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the popover pointed at the input correctly
