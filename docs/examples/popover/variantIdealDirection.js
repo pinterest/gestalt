@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, Layer, Popover, ScrollBoundaryContainer, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, Layer, Popover, ScrollBoundaryContainer, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
@@ -31,16 +31,14 @@ export default function Example(): Node {
                 prepared your data source and that you have claimed your website.
               </Text>
             </Box>
-            <Button
+            <ButtonLink
               ref={anchorRef}
               href="#"
               iconEnd="visit"
               onClick={() => setOpen(false)}
-              role="link"
               size="lg"
               target="blank"
-              text="Help"
-            />
+              text="Help" />
           </Flex>
         </Box>
         {open && (
