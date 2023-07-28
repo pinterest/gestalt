@@ -13,6 +13,11 @@ exports[`renders correctly when active 1`] = `
 >
   <div
     className="box xsDisplayInlineBlock"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       aria-disabled={false}
@@ -35,11 +40,6 @@ exports[`renders correctly when active 1`] = `
     >
       <div
         className="box xsDisplayFlex xsItemsCenter"
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
       >
         column name
         <div
@@ -83,6 +83,11 @@ exports[`renders correctly when inactive 1`] = `
 >
   <div
     className="box xsDisplayInlineBlock"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       aria-disabled={false}
@@ -105,11 +110,6 @@ exports[`renders correctly when inactive 1`] = `
     >
       <div
         className="box xsDisplayFlex xsItemsCenter"
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
       >
         column name
         <div
@@ -153,6 +153,11 @@ exports[`sortable cell has end align 1`] = `
 >
   <div
     className="box xsDisplayInlineBlock"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       aria-disabled={false}
@@ -175,13 +180,7 @@ exports[`sortable cell has end align 1`] = `
     >
       <div
         className="box justifyEnd xsDisplayFlex xsItemsCenter"
-        style={
-          Object {
-            "flexDirection": "row-reverse",
-          }
-        }
       >
-        column name
         <div
           className="box marginEnd2"
           style={
@@ -204,6 +203,7 @@ exports[`sortable cell has end align 1`] = `
             />
           </svg>
         </div>
+        column name
       </div>
     </div>
   </div>
