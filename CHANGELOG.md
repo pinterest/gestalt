@@ -1,3 +1,9 @@
+## 119.4.1 (Jul 28, 2023)
+
+### Patch
+
+- Icon: support rtl to "mute" icon ([#3113](https://github.com/pinterest/gestalt/pull/3113)) - [Preview link](https://deploy-preview-3113--gestalt.netlify.app?devexample=true)
+
 ## 119.4.0 (Jul 28, 2023)
 
 ### Minor
