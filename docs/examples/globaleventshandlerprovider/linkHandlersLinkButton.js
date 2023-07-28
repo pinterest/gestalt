@@ -2,7 +2,7 @@
 import { type Node, useCallback, useMemo, useState } from 'react';
 import {
   Box,
-  Button,
+  ButtonLink,
   Divider,
   Flex,
   GlobalEventsHandlerProvider,
@@ -72,7 +72,7 @@ export default function Example(): Node {
               <Link href="#">Visit pinterest.com</Link>
             </Text>
 
-            <Button href="#" role="link" text="Visit pinterest.com" />
+            <ButtonLink href="#" text="Visit pinterest.com" />
 
             <IconButton
               href="#"

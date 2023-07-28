@@ -1,5 +1,5 @@
-import { Button } from 'gestalt';
+import { ButtonLink } from 'gestalt';
 
 export default function TestElement() {
-  return <Button role='link'/>
+  return <ButtonLink />;
 }
