@@ -25,7 +25,7 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
  */
 
 type FourDirections = 'up' | 'right' | 'down' | 'left';
-type FiveDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
+type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
 type TapAreaEventHandlerType = AbstractEventHandler<
   | React.MouseEvent<HTMLDivElement>
@@ -1413,7 +1413,7 @@ interface PopoverProps {
   children?: Node | undefined;
   color?: 'deprecatedBlue' | 'red' | 'white' | 'darkGray' | undefined;
   id?: string | undefined;
-  idealDirection?: FiveDirections | undefined;
+  idealDirection?: PopoverDirections | undefined;
   onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLElement>>;
   positionRelativeToAnchor?: boolean | undefined;
   role?: 'dialog' | 'listbox' | 'menu' | 'tooltip' | undefined;

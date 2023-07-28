@@ -174,7 +174,9 @@ export function getPopoverDir({
   // Choose the main direction for the popover based on available spaces & user preference
   const spaces = [up, right, down, left];
 
-  let popoverDir;
+  if (idealDirection && idealDirection === 'forceDown') {
+    return 'down';
+  }
 
   if (
     idealDirection &&
@@ -182,20 +184,15 @@ export function getPopoverDir({
     spaces[DIR_INDEX_MAP[idealDirection]] > 0
   ) {
     // user pref
-    popoverDir = idealDirection;
-  } else if (idealDirection && idealDirection === 'forceDown') {
-    // user pref
-    popoverDir = 'down';
-  } else {
-    const noAvailableSpaceCondition = up <= 0 && right <= 0 && down <= 0 && left <= 0;
-
-    // Identify best direction of available spaces
-    const max = Math.max(...spaces);
-    // If no direction pref, chose the direction in which there is the most space available
-    popoverDir = noAvailableSpaceCondition ? 'down' : SPACES_INDEX_MAP[spaces.indexOf(max)];
+    return idealDirection;
   }
 
-  return popoverDir;
+  const noAvailableSpaceCondition = up <= 0 && right <= 0 && down <= 0 && left <= 0;
+
+  // Identify best direction of available spaces
+  const max = Math.max(...spaces);
+  // If no direction pref, chose the direction in which there is the most space available
+  return noAvailableSpaceCondition ? 'down' : SPACES_INDEX_MAP[spaces.indexOf(max)];
 }
 
 /**
