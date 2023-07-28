@@ -1,3 +1,15 @@
 .Text {
   composes: antialiased sansSerif from "./Typography.css";
 }
+
+/**
+See keep-all usage for CJK languages. 
+If a language code is specified higher in the parent-tree, then this class is applied 
+https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+**/
+
+*:lang(zh) .Text,
+*:lang(ko) .Text,
+*:lang(ja) .Text {
+  word-break: keep-all;
+}
