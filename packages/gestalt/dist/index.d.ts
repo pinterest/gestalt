@@ -25,6 +25,7 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
  */
 
 type FourDirections = 'up' | 'right' | 'down' | 'left';
+type FiveDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
 type TapAreaEventHandlerType = AbstractEventHandler<
   | React.MouseEvent<HTMLDivElement>
@@ -1012,6 +1013,7 @@ interface CommonIconButtonProps {
     | 'red'
     | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
+  dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
@@ -1411,7 +1413,7 @@ interface PopoverProps {
   children?: Node | undefined;
   color?: 'deprecatedBlue' | 'red' | 'white' | 'darkGray' | undefined;
   id?: string | undefined;
-  idealDirection?: FourDirections | undefined;
+  idealDirection?: FiveDirections | undefined;
   onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLElement>>;
   positionRelativeToAnchor?: boolean | undefined;
   role?: 'dialog' | 'listbox' | 'menu' | 'tooltip' | undefined;
