@@ -73,6 +73,7 @@ const flipOnRtlIconNames = [
   'flipVertical',
   'hand-pointing',
   'link',
+  'mute',
   'reorder-images',
   'send',
   'sound',
