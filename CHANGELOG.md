@@ -1,3 +1,9 @@
+## 119.2.1-alpha.1 (Jul 28, 2023)
+
+### Prerelease
+
+- Text: Add CJK wrapping to Text ([#3095](https://github.com/pinterest/gestalt/pull/3095)) - [Preview link](https://deploy-preview-3095--gestalt.netlify.app?devexample=true)
+
 ## 119.2.1-alpha.0 (Jul 26, 2023)
 
 ### Prerelease
