@@ -1,3 +1,9 @@
+## 120.0.0 (Jul 31, 2023)
+
+### Major
+
+- DatePicker: support controlled/uncontrolled component ([#3115](https://github.com/pinterest/gestalt/pull/3115)) - [Preview link](https://deploy-preview-3115--gestalt.netlify.app?devexample=true)
+
 ## 119.5.0 (Jul 31, 2023)
 
 ### Minor
