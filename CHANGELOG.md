@@ -1,3 +1,9 @@
+## 119.5.0 (Jul 31, 2023)
+
+### Minor
+
+- Popover: add "forceDown" to `idealDirection` ([#3111](https://github.com/pinterest/gestalt/pull/3111)) - [Preview link](https://deploy-preview-3111--gestalt.netlify.app?devexample=true)
+
 ## 119.4.2 (Jul 31, 2023)
 
 ### Patch
