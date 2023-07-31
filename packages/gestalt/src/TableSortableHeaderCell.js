@@ -130,6 +130,7 @@ export default function TableSortableHeaderCell({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         >
+          {/** Ideally, we would reverse the flex with row-reverse, but row-reverse will deviate from the DOM structure causing an accessibility issue in the order things are read */}
           <Box display="flex" alignItems="center" justifyContent={align}>
             {align === 'end' && (
               <SortIcon
