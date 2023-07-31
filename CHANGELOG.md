@@ -1,56 +1,14 @@
-## 119.4.2 (Jul 31, 2023)
+## 119.2.1-alpha.1 (Jul 28, 2023)
 
-### Patch
+### Prerelease
 
-- Table: Headercell take full width ([#3116](https://github.com/pinterest/gestalt/pull/3116)) - [Preview link](https://deploy-preview-3116--gestalt.netlify.app?devexample=true)
+- Text: Add CJK wrapping to Text ([#3095](https://github.com/pinterest/gestalt/pull/3095)) - [Preview link](https://deploy-preview-3095--gestalt.netlify.app?devexample=true)
 
-## 119.4.1 (Jul 28, 2023)
+## 119.2.1-alpha.0 (Jul 26, 2023)
 
-### Patch
+### Prerelease
 
-- Icon: support rtl to "mute" icon ([#3113](https://github.com/pinterest/gestalt/pull/3113)) - [Preview link](https://deploy-preview-3113--gestalt.netlify.app?devexample=true)
-
-## 119.4.0 (Jul 28, 2023)
-
-### Minor
-
-- IconButton: support to `data-test-id` ([#3101](https://github.com/pinterest/gestalt/pull/3101)) - [Preview link](https://deploy-preview-3101--gestalt.netlify.app?devexample=true)
-
-## 119.3.0 (Jul 27, 2023)
-
-### Minor
-
-- DateField: Add locale format translations ([#3103](https://github.com/pinterest/gestalt/pull/3103)) - [Preview link](https://deploy-preview-3103--gestalt.netlify.app?devexample=true)
-
-## 119.2.5 (Jul 27, 2023)
-
-### Patch
-
-- Docs: Switch replacing images on the iOS doc ([#3109](https://github.com/pinterest/gestalt/pull/3109)) - [Preview link](https://deploy-preview-3109--gestalt.netlify.app?devexample=true)
-
-## 119.2.4 (Jul 27, 2023)
-
-### Patch
-
-- Docs: Switch iOS mobile doc clean up ([#3104](https://github.com/pinterest/gestalt/pull/3104)) - [Preview link](https://deploy-preview-3104--gestalt.netlify.app?devexample=true)
-
-## 119.2.3 (Jul 27, 2023)
-
-### Patch
-
-- Docs: New and updated component svgs ([#3108](https://github.com/pinterest/gestalt/pull/3108)) - [Preview link](https://deploy-preview-3108--gestalt.netlify.app?devexample=true)
-
-## 119.2.2 (Jul 27, 2023)
-
-### Patch
-
-- Docs: development mode switch shown when activated from url ([#3107](https://github.com/pinterest/gestalt/pull/3107)) - [Preview link](https://deploy-preview-3107--gestalt.netlify.app?devexample=true)
-
-## 119.2.1 (Jul 26, 2023)
-
-### Patch
-
-- Docs: Added iOS components to the H2 roadmap ([#3102](https://github.com/pinterest/gestalt/pull/3102)) - [Preview link](https://deploy-preview-3102--gestalt.netlify.app?devexample=true)
+- Logging a ([#3105](https://github.com/pinterest/gestalt/pull/3105)) - [Preview link](https://deploy-preview-3105--gestalt.netlify.app?devexample=true)
 
 ## 119.2.0 (Jul 26, 2023)
 
