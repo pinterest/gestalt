@@ -4,7 +4,6 @@ import InternalPopover from './Popover/InternalPopover.js';
 
 type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {|
@@ -39,7 +38,7 @@ type Props = {|
   /**
    * Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/popover#Ideal-direction) variant to learn more.
    */
-  idealDirection?: IdealDirection,
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   /**
    * Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.
    */
