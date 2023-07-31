@@ -59,6 +59,34 @@ type Props = {|
   status: 'active' | 'inactive',
 |};
 
+function SortIcon({
+  align,
+  status,
+  sortOrder,
+  visibility,
+}: {|
+  align: 'start' | 'end',
+  status: 'active' | 'inactive',
+  sortOrder: 'asc' | 'desc',
+  visibility: 'visible' | 'hidden',
+|}) {
+  return (
+    <Box
+      marginStart={align === 'start' ? 2 : undefined}
+      marginEnd={align === 'end' ? 2 : undefined}
+      dangerouslySetInlineStyle={{
+        __style: { visibility },
+      }}
+    >
+      <Icon
+        accessibilityLabel=""
+        icon={status === 'active' && sortOrder === 'asc' ? 'sort-ascending' : 'sort-descending'}
+        color={status === 'active' ? 'default' : 'subtle'}
+      />
+    </Box>
+  );
+}
+
 /**
  * Use [Table.SortableHeaderCell](https://gestalt.pinterest.systems/web/table#Table.SortableHeaderCell) to define a header cell with sorting functionality in Table.
  */
@@ -90,7 +118,7 @@ export default function TableSortableHeaderCell({
       shouldHaveShadow={shouldHaveShadow}
       previousTotalWidth={previousTotalWidth}
     >
-      <Box display="inlineBlock">
+      <Box display="inlineBlock" width="100%">
         <TapArea
           fullWidth={false}
           onTap={(...args) => {
@@ -102,30 +130,25 @@ export default function TableSortableHeaderCell({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         >
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent={align}
-            dangerouslySetInlineStyle={{
-              __style: { flexDirection: align === 'end' ? 'row-reverse' : 'row' },
-            }}
-          >
-            {children}
-            <Box
-              marginStart={align === 'start' ? 2 : undefined}
-              marginEnd={align === 'end' ? 2 : undefined}
-              dangerouslySetInlineStyle={{
-                __style: { visibility },
-              }}
-            >
-              <Icon
-                accessibilityLabel=""
-                icon={
-                  status === 'active' && sortOrder === 'asc' ? 'sort-ascending' : 'sort-descending'
-                }
-                color={status === 'active' ? 'default' : 'subtle'}
+          {/** Ideally, we would reverse the flex with row-reverse, but row-reverse will deviate from the DOM structure causing an accessibility issue in the order things are read */}
+          <Box display="flex" alignItems="center" justifyContent={align}>
+            {align === 'end' && (
+              <SortIcon
+                align={align}
+                status={status}
+                sortOrder={sortOrder}
+                visibility={visibility}
               />
-            </Box>
+            )}
+            {children}
+            {align === 'start' && (
+              <SortIcon
+                align={align}
+                status={status}
+                sortOrder={sortOrder}
+                visibility={visibility}
+              />
+            )}
           </Box>
         </TapArea>
       </Box>
