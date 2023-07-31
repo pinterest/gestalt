@@ -62,6 +62,7 @@ import Status from './Status.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
+import TableOfContents from './TableOfContents.js';
 import Tabs from './Tabs.js';
 import Tag from './Tag.js';
 import TagData from './TagData.js';
@@ -144,6 +145,7 @@ export {
   Sticky,
   Switch,
   Table,
+  TableOfContents,
   Tabs,
   Tag,
   TagData,
