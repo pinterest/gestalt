@@ -1,3 +1,9 @@
+## 119.4.2 (Jul 31, 2023)
+
+### Patch
+
+- Table: Headercell take full width ([#3116](https://github.com/pinterest/gestalt/pull/3116)) - [Preview link](https://deploy-preview-3116--gestalt.netlify.app?devexample=true)
+
 ## 119.4.1 (Jul 28, 2023)
 
 ### Patch
