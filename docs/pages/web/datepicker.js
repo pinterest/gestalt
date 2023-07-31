@@ -98,10 +98,9 @@ const localeMap = {
   'zh-CN': { localeData: zhCN, lang: 'Chinese (Simplified)' },
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
-const PREVIEW_HEIGHT = 420;
-const PREVIEW_HEIGHT_HELPERTEXT = 450;
+const PREVIEW_HEIGHT = 480;
 
-export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DatePicker">
       <PageHeader name="DatePicker" description={generatedDocGen?.description}>
@@ -140,9 +139,20 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <MainSection.Subsection columns={2} title="Controlled component">
+        <MainSection.Subsection
+          columns={2}
+          title="Controlled component"
+          description={`
+DatePicker is a controlled component. Use \`value\`, \`onChange\`, \`onClearInput\` and \`onError\` to implement it correctly.
+
+DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "undefined", it stays uncontrolled.
+        `}
+        >
           <MainSection.Card
             title="Empty input"
+            description={`
+If DatePicker doesn't present pre-selected date values, initialize \`value\` with "null" so the component is controlled.
+`}
             sandpackExample={
               <SandpackExample
                 code={controlled}
@@ -154,6 +164,9 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
           <MainSection.Card
             title="Pre-selected date values"
+            description={`
+If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
+`}
             sandpackExample={
               <SandpackExample
                 code={preselected}
@@ -226,7 +239,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={disable}
                 name="disable variant"
-                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+                previewHeight={PREVIEW_HEIGHT}
                 layout="column"
               />
             }
@@ -237,7 +250,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={disableSelected}
                 name="disable selected variant"
-                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -254,7 +267,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={selectLists}
                 name="selectLists example"
-                previewHeight={PREVIEW_HEIGHT_HELPERTEXT + 100}
+                previewHeight={PREVIEW_HEIGHT + 100}
               />
             }
           />

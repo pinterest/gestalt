@@ -38,25 +38,21 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
     rangeSelector,
     rangeStartDate,
     selectLists,
-    value: dateValue,
+    value: controlledValue,
   }: Props,
   ref,
 ): Element<'div'> {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => innerInputRef.current);
 
-  const [selected, setSelected] = useState<?Date>(dateValue);
+  // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
+  const [uncontrolledValue, setUncontrolledValue] = useState<?Date>(null);
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the popover pointed at the input correctly
   const [, setMonth] = useState<?number>();
   const [format, setFormat] = useState<?string>();
   const [updatedLocale, setUpdatedLocale] = useState<?string>();
   const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
-
-  // TO DO: Ideally this component should be fully controlled using value + onChange, where selected/setSelected are unnecessary.
-  useEffect(() => {
-    setSelected(dateValue);
-  }, [dateValue]);
 
   useEffect(() => {
     if (rangeSelector) {
@@ -131,7 +127,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
           <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
         }
         onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
-          setSelected(value);
+          if (controlledValue === undefined) setUncontrolledValue(value);
           onChange({ event, value });
           updateNextRef(event.type === 'click');
         }}
@@ -160,7 +156,7 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
 
           return null;
         }}
-        selected={selected}
+        selected={controlledValue ?? uncontrolledValue}
         selectsEnd={rangeSelector === 'end'}
         selectsStart={rangeSelector === 'start'}
         showPopperArrow={false}

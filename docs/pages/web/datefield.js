@@ -91,7 +91,7 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
