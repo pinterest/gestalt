@@ -1,3 +1,9 @@
+## 119.4.3-alpha.0 (Jul 31, 2023)
+
+### Prerelease
+
+- Merge branch 'ravi-textarea-emojifont' into alpha
+
 ## 119.4.2 (Jul 31, 2023)
 
 ### Patch
