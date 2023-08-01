@@ -1,3 +1,9 @@
+## 119.4.3-alpha.1 (Aug 1, 2023)
+
+### Prerelease
+
+- Merge branch 'alpha' of https://github.com/pinterest/gestalt into alpha
+
 ## 119.4.3-alpha.0 (Jul 31, 2023)
 
 ### Prerelease
