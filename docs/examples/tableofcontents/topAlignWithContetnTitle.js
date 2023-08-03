@@ -5,6 +5,24 @@ import { Box, Flex, Heading, TableOfContents, Text } from 'gestalt';
 export default function Example(): Node {
   const { hash } = window.location;
 
+  const items = [
+    {
+      label: 'Section 1',
+      href: '#section-1',
+      active: hash === '#section-1',
+    },
+    {
+      label: 'Section 2',
+      href: '#section-2',
+      active: hash === '#section-2',
+    },
+    {
+      label: 'Section 3',
+      href: '#section-3',
+      active: hash === '#section-3',
+    },
+  ];
+
   return (
     <Box padding={8}>
       <Flex justifyContent="between" alignItems="start" gap={8}>
@@ -41,26 +59,11 @@ export default function Example(): Node {
 
         <Box width="200px" position="relative">
           <Box width="200px" height="100%" overflow="auto" /* position="fixed" */ top marginTop={8}>
-            <TableOfContents
-              title="Page Contents"
-              items={[
-                {
-                  label: 'Section 1',
-                  href: '#section-1',
-                  active: hash === '#section-1',
-                },
-                {
-                  label: 'Section 2',
-                  href: '#section-2',
-                  active: hash === '#section-2',
-                },
-                {
-                  label: 'Section 3',
-                  href: '#section-3',
-                  active: hash === '#section-3',
-                },
-              ]}
-            />
+            <TableOfContents title="Page Contents">
+              {items.map((item) => (
+                <TableOfContents.Item key={item.label} {...item} />
+              ))}
+            </TableOfContents>
           </Box>
         </Box>
       </Flex>

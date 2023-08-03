@@ -52,7 +52,12 @@ exports[`TableOfContents renders 1`] = `
             }
           />
           <div
-            className="item flexGrow itemPadding"
+            className="item flexGrow"
+            style={
+              Object {
+                "paddingInlineStart": "12px",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
@@ -120,7 +125,12 @@ exports[`TableOfContents renders an accessibility label 1`] = `
             }
           />
           <div
-            className="item flexGrow itemPadding"
+            className="item flexGrow"
+            style={
+              Object {
+                "paddingInlineStart": "12px",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -148,7 +158,7 @@ exports[`TableOfContents renders nested items 1`] = `
     >
       <a
         className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-        href="#1"
+        href="#"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -178,12 +188,17 @@ exports[`TableOfContents renders nested items 1`] = `
             }
           />
           <div
-            className="item flexGrow itemPadding"
+            className="item flexGrow"
+            style={
+              Object {
+                "paddingInlineStart": "12px",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
             >
-              Item
+              Item 1
             </div>
           </div>
         </div>
@@ -196,53 +211,7 @@ exports[`TableOfContents renders nested items 1`] = `
         >
           <a
             className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-            href="#11"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            tabIndex={0}
-            target={null}
-          >
-            <div
-              className="Flex rowGap0 columnGap0 xsDirectionRow"
-            >
-              <div
-                className="box inverse pill"
-                style={
-                  Object {
-                    "width": 4,
-                  }
-                }
-              />
-              <div
-                className="item flexGrow itemNestedPadding"
-              >
-                <div
-                  className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
-                >
-                  Subitem 1
-                </div>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li
-          className="noStyle marginTop1"
-        >
-          <a
-            className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-            href="#12"
+            href="#"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -272,10 +241,66 @@ exports[`TableOfContents renders nested items 1`] = `
                 }
               />
               <div
-                className="item flexGrow itemNestedPadding"
+                className="item flexGrow"
+                style={
+                  Object {
+                    "paddingInlineStart": "32px",
+                  }
+                }
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+                >
+                  Subitem 1
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li
+          className="noStyle marginTop1"
+        >
+          <a
+            className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+            href="#"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            tabIndex={0}
+            target={null}
+          >
+            <div
+              className="Flex rowGap0 columnGap0 xsDirectionRow"
+            >
+              <div
+                className="box default pill"
+                style={
+                  Object {
+                    "width": 4,
+                  }
+                }
+              />
+              <div
+                className="item flexGrow"
+                style={
+                  Object {
+                    "paddingInlineStart": "32px",
+                  }
+                }
+              >
+                <div
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
                 >
                   Subitem 2
                 </div>
@@ -302,53 +327,7 @@ exports[`TableOfContents renders without title 1`] = `
     >
       <a
         className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-        href="#1"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        rel=""
-        tabIndex={0}
-        target={null}
-      >
-        <div
-          className="Flex rowGap0 columnGap0 xsDirectionRow"
-        >
-          <div
-            className="box inverse pill"
-            style={
-              Object {
-                "width": 4,
-              }
-            }
-          />
-          <div
-            className="item flexGrow itemPadding"
-          >
-            <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
-            >
-              Item 1
-            </div>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li
-      className="noStyle marginTop1"
-    >
-      <a
-        className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
-        href="#2"
+        href="#"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -378,7 +357,63 @@ exports[`TableOfContents renders without title 1`] = `
             }
           />
           <div
-            className="item flexGrow itemPadding"
+            className="item flexGrow"
+            style={
+              Object {
+                "paddingInlineStart": "12px",
+              }
+            }
+          >
+            <div
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            >
+              Item 1
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li
+      className="noStyle marginTop1"
+    >
+      <a
+        className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
+      >
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionRow"
+        >
+          <div
+            className="box default pill"
+            style={
+              Object {
+                "width": 4,
+              }
+            }
+          />
+          <div
+            className="item flexGrow"
+            style={
+              Object {
+                "paddingInlineStart": "12px",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"

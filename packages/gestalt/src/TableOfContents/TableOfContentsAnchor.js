@@ -4,27 +4,38 @@ import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box.js';
 import Colors from '../Colors.css';
+import { useNesting } from '../contexts/NestingProvider.js';
 import Flex from '../Flex.js';
 import Layout from '../Layout.css';
-import TapArea from '../TapArea.js';
+import TapArea, { type OnTapType } from '../TapArea.js';
 import Text from '../Text.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
+
+const NESTING_MARGIN_START_MAP = {
+  '1': '12px',
+  '2': '32px',
+  '3': '52px',
+  '4': '72px',
+  '5': '92px',
+};
+
+const NESTING_TEXT_SIZE_MAP = {
+  '1': '300',
+  '2': '200',
+  '3': '200',
+  '4': '200',
+  '5': '200',
+};
 
 type Props = {|
   label: string,
   href: string,
   active?: boolean,
-  nested?: boolean,
-  onClick?: () => void,
+  onClick?: OnTapType,
 |};
 
-export default function TableOfContentsAnchor({
-  label,
-  active,
-  href,
-  nested,
-  onClick,
-}: Props): Node {
+export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): Node {
+  const { nestedLevel } = useNesting();
   const {
     handleOnFocus,
     handleOnBlur,
@@ -35,6 +46,8 @@ export default function TableOfContentsAnchor({
   } = useInteractiveStates();
   const hasMarker = active || isFocused || isHovered;
   const markerColor = active || isFocused ? 'inverse' : 'tertiary';
+  const nestingPadding = NESTING_MARGIN_START_MAP[nestedLevel];
+  const nestingFontSize = NESTING_TEXT_SIZE_MAP[nestedLevel];
 
   return (
     <TapArea
@@ -52,11 +65,14 @@ export default function TableOfContentsAnchor({
         <div
           className={classNames(styles.item, Layout.flexGrow, {
             [Colors.secondary]: isHovered,
-            [styles.itemPadding]: !nested,
-            [styles.itemNestedPadding]: nested,
           })}
+          style={{
+            paddingInlineStart: nestingPadding,
+          }}
         >
-          <Text weight={active ? 'bold' : 'normal'}>{label}</Text>
+          <Text weight={active ? 'bold' : 'normal'} size={nestingFontSize}>
+            {label}
+          </Text>
         </div>
       </Flex>
     </TapArea>

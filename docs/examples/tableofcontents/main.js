@@ -7,38 +7,22 @@ export default function Example(): Node {
 
   return (
     <Box padding={8} width="340px">
-      <TableOfContents
-        title="Page Contents"
-        items={[
-          {
-            label: 'Section 1',
-            href: '#section-1',
-            active: hash === '#section-1',
-          },
-          {
-            label: 'Section 2',
-            href: '#section-2',
-            active: hash === '#section-2',
-            nestedItems: [
-              {
-                label: 'Subsection 1',
-                href: '#subsection-1',
-                active: hash === '#subsection-1',
-              },
-              {
-                label: 'Subsection 2',
-                href: '#subsection-2',
-                active: hash === '#subsection-2',
-              },
-            ],
-          },
-          {
-            label: 'Section 3',
-            href: '#section-3',
-            active: hash === '#section-3',
-          },
-        ]}
-      />
+      <TableOfContents title="Page Contents">
+        <TableOfContents.Item label="Section 1" href="#section1" active={hash === '#section1'} />
+        <TableOfContents.Item label="Section 2" href="#section2" active={hash === '#section2'}>
+          <TableOfContents.Item
+            label="Subsection 1"
+            href="#subsection1"
+            active={hash === '#subsection1'}
+          />
+          <TableOfContents.Item
+            label="Subsection 2"
+            href="#subsection2"
+            active={hash === '#subsection2'}
+          />
+        </TableOfContents.Item>
+        <TableOfContents.Item label="Section 3" href="#section3" active={hash === '#section3'} />
+      </TableOfContents>
     </Box>
   );
 }

@@ -6,7 +6,7 @@ type NestingContextType = {|
 |};
 
 type Props = {|
-  componentName: 'SideNavigation' | 'List',
+  componentName: 'SideNavigation' | 'List' | 'TableOfContents',
   maxNestedLevels: number,
   children: Node,
 |};

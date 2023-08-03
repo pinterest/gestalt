@@ -5,51 +5,40 @@ import TableOfContents from './TableOfContents.js';
 describe('TableOfContents', () => {
   it('renders', () => {
     const tree = create(
-      <TableOfContents
-        title="Title"
-        items={[{ label: 'Item', href: '#', active: true, onClick: () => {} }]}
-      />,
+      <TableOfContents title="Title">
+        <TableOfContents.Item label="Item" href="#" onClick={() => {}} active />
+      </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders an accessibility label', () => {
     const tree = create(
-      <TableOfContents
-        title="Title"
-        items={[{ label: 'Item', href: '#' }]}
-        accessibilityLabel="Page table of contents"
-      />,
+      <TableOfContents title="Title" accessibilityLabel="Page table of contents">
+        <TableOfContents.Item label="Item" href="#" />
+      </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders without title', () => {
     const tree = create(
-      <TableOfContents
-        items={[
-          { label: 'Item 1', href: '#1', active: true },
-          { label: 'Item 2', href: '#2' },
-        ]}
-      />,
+      <TableOfContents>
+        <TableOfContents.Item label="Item 1" href="#" />
+        <TableOfContents.Item label="Item 2" href="#" />
+      </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders nested items', () => {
     const tree = create(
-      <TableOfContents
-        items={[
-          {
-            label: 'Item',
-            href: '#1',
-            nestedItems: [
-              { label: 'Subitem 1', href: '#11', active: true },
-              { label: 'Subitem 2', href: '#12' },
-            ],
-          },
-        ]}
-      />,
+      <TableOfContents>
+        <TableOfContents.Item label="Item 1" href="#">
+          <TableOfContents.Item label="Subitem 1" href="#" />
+          <TableOfContents.Item label="Subitem 2" href="#" />
+        </TableOfContents.Item>
+      </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

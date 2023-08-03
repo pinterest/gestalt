@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docgen, { type DocGen } from '../../docs-components/docgen.js';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -17,15 +17,18 @@ import withHeaderExample from '../../examples/tableofcontents/withHeaderExample.
 export default function TableOfContentsPage({
   generatedDocGen,
 }: {|
-  generatedDocGen: DocGen,
+  generatedDocGen: {| [string]: DocGen |},
 |}): Node {
   return (
-    <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+    <Page title={generatedDocGen?.TableOfContents.displayName}>
+      <PageHeader
+        name={generatedDocGen?.TableOfContents.displayName}
+        description={generatedDocGen?.TableOfContents.description}
+      >
         <SandpackExample code={main} hideEditor name="Main TableOfContents example" />
       </PageHeader>
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      <GeneratedPropTable generatedDocGen={generatedDocGen.TableOfContents} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -104,8 +107,21 @@ export default function TableOfContentsPage({
         </MainSection.Subsection>
       </MainSection>
 
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen.TableOfContentsItem?.displayName}
+          description={generatedDocGen.TableOfContentsItem?.description}
+        >
+          <GeneratedPropTable
+            name={generatedDocGen.TableOfContentsItem?.displayName}
+            id={generatedDocGen.TableOfContentsItem?.displayName}
+            generatedDocGen={generatedDocGen.TableOfContentsItem}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
+        name={generatedDocGen?.TableOfContents.displayName}
         description="Be sure to include an `accessibilityLabel` for the screen reader for each item in the TableOfContents"
       />
 
@@ -117,7 +133,7 @@ export default function TableOfContentsPage({
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Nested directory"
-          description="TableOfContents supports 2 levels of nesting. The first level maps to a section’s heading, which is usually an H3. The second level maps to a section’s subheading, which is usually an H4."
+          description="TableOfContents supports 5 levels of nesting. The first level maps to a section’s heading, which is usually an H3. The second level maps to a section’s subheading, which is usually an H4."
         >
           <MainSection.Card
             cardSize="lg"
@@ -144,7 +160,7 @@ export default function TableOfContentsPage({
         description="Items for a TableOfContents will be inherited from the headings on the page. For guidelines on writing headlines and titles, [see our Content Standards](https://gestalt.pinterest.systems/foundations/content_standards/voice)"
       />
 
-      <QualityChecklist component={generatedDocGen?.displayName} />
+      <QualityChecklist component={generatedDocGen?.TableOfContents.displayName} />
 
       <MainSection name="Related">
         <MainSection.Subsection
@@ -161,8 +177,10 @@ Tabs may be used navigate between multiple URLs. Tabs are intended as page-level
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{|
+  props: {| generatedDocGen: {| [string]: DocGen |} |},
+|}> {
   return {
-    props: { generatedDocGen: await docgen('TableOfContents') },
+    props: { generatedDocGen: await multipleDocGen(['TableOfContents', 'TableOfContentsItem']) },
   };
 }
