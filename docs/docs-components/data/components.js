@@ -754,13 +754,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             summary: 'ready',
             a11yVisual: 'ready',
             a11yScreenreader: 'ready',
-            a11yNavigation: 'ready',
+            a11yNavigation: 'notAvailable',
             a11yComprehension: 'ready',
           },
           documentation: 'partial',
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'No UTC support',
+              description: 'Documented issues.',
+              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+            },
+          ],
         },
       },
     },
@@ -1610,6 +1617,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'Caret misalignment',
+              description:
+                "PopoverEducational' caret might appear misaligned when positioned below the element of reference.",
+              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
+            },
+            {
+              title: 'Incorrect positioning and dimensions',
+              description:
+                'PopoverEducational is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
+              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
+            },
+          ],
         },
       },
     },
@@ -2477,6 +2498,14 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'Incorrect positioning and dimensions',
+              description:
+                'Tooltip is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
+              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
+            },
+          ],
         },
       },
     },
