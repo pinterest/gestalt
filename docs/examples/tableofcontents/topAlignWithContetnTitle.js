@@ -4,7 +4,6 @@ import { Box, Flex, Heading, TableOfContents, Text } from 'gestalt';
 
 export default function Example(): Node {
   const { hash } = window.location;
-
   const items = [
     {
       label: 'Section 1',
@@ -58,7 +57,7 @@ export default function Example(): Node {
         </Flex>
 
         <Box width="200px" position="relative">
-          <Box width="200px" height="100%" overflow="auto" /* position="fixed" */ top marginTop={8}>
+          <Box width="200px" height="100%" overflow="auto" position="fixed" top marginTop={8}>
             <TableOfContents title="Page Contents">
               {items.map((item) => (
                 <TableOfContents.Item key={item.label} {...item} />
