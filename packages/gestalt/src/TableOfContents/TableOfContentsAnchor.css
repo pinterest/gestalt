@@ -1,7 +1,7 @@
 .item {
   padding-bottom: 12px;
-  padding-top: 12px;
   padding-inline-end: 16px;
+  padding-top: 12px;
 }
 
 html:not([dir="rtl"]) .item {
