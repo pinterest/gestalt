@@ -1621,7 +1621,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'Caret misalignment',
               description:
-                "PopoverEducational' caret might appear misaligned when positioned below the element of reference.",
+                "PopoverEducational's caret might appear misaligned when positioned below the element of reference.",
               internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
             },
             {
