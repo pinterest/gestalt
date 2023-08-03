@@ -42,7 +42,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/43/11/82/431182197790e45b20b164d693593278.png",
             "imageAltText": "Screenshot of the Known issues section within Popover's documentation page",
-            "content": "We added a new section in our component docs section: Known issues. Check the new information under Component quality checklist for [Text](https://gestalt.pinterest.systems/web/text#Component-quality-checklist), [Heading](https://gestalt.pinterest.systems/web/heading#Component-quality-checklist), [Popover](https://gestalt.pinterest.systems/web/popover#Component-quality-checklist), [PopoverEducational]((https://gestalt.pinterest.systems/web/popovereducational#Component-quality-checklist)), [Tooltip](https://gestalt.pinterest.systems/web/tooltip#Component-quality-checklist) or [DatePicker](https://gestalt.pinterest.systems/web/datepicker#Component-quality-checklist)."
+            "content": "We added a new section in our component docs section: Known issues. Check the new information under Component quality checklist for [Text](https://gestalt.pinterest.systems/web/text#Component-quality-checklist), [Heading](https://gestalt.pinterest.systems/web/heading#Component-quality-checklist), [Popover](https://gestalt.pinterest.systems/web/popover#Component-quality-checklist), [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational#Component-quality-checklist), [Tooltip](https://gestalt.pinterest.systems/web/tooltip#Component-quality-checklist) or [DatePicker](https://gestalt.pinterest.systems/web/datepicker#Component-quality-checklist)."
           }
         ]
       },
