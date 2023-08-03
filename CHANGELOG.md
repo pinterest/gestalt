@@ -1,3 +1,9 @@
+## 120.0.1 (Aug 3, 2023)
+
+### Patch
+
+- Docs: adding notes on known issues ([#3119](https://github.com/pinterest/gestalt/pull/3119)) - [Preview link](https://deploy-preview-3119--gestalt.netlify.app?devexample=true)
+
 ## 120.0.0 (Jul 31, 2023)
 
 ### Major
