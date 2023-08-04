@@ -32,6 +32,7 @@ type Props = {|
   onDismiss?: () => void,
   primaryAction: ?{|
     accessibilityLabel: string,
+    dataTestId?: string,
     href?: string,
     label: string,
     onClick: OnClickType,
@@ -152,6 +153,7 @@ export default function Header({
           <Flex.Item flex="shrink">
             <PrimaryAction
               accessibilityLabel={primaryAction.accessibilityLabel}
+              dataTestId={primaryAction.dataTestId}
               href={primaryAction.href}
               rel={primaryAction?.rel}
               target={primaryAction?.target}

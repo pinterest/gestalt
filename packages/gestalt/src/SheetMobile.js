@@ -82,6 +82,7 @@ type Props = {|
    */
   primaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     href?: string,
     label: string,
     onClick: ({|

@@ -54,6 +54,7 @@ type Props = {|
   padding?: 'default' | 'none',
   primaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     href?: string,
     label: string,
     onClick: OnClickType,

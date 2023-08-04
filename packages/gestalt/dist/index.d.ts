@@ -321,7 +321,7 @@ type TrendObject = {
 
 interface ActionData {
   accessibilityLabel: string;
-  dataTestId?: string,
+  dataTestId?: string;
   disabled?: boolean;
   href?: string | undefined;
   label: string;
@@ -1439,7 +1439,7 @@ interface PopoverEducationalProps {
   primaryAction?:
     | {
         accessibilityLabel?: string | undefined;
-        dataTestId?: string,
+        dataTestId?: string;
         href?: string | undefined;
         text: string | undefined;
         onClick?: ButtonEventHandlerType | undefined;
@@ -1592,7 +1592,7 @@ interface SheetMobileProps {
   onAnimationEnd?: OnAnimationEndType | undefined;
   primaryAction?: {
     accessibilityLabel: string;
-    dataTestId?: string,
+    dataTestId?: string;
     label: string;
     onClick: AbstractEventHandler<
       | React.MouseEvent<HTMLButtonElement>
@@ -1699,7 +1699,7 @@ interface SlimBannerProps {
   primaryAction?:
     | {
         accessibilityLabel: string;
-        dataTestId?: string,
+        dataTestId?: string;
         label: string;
         disabled?: boolean | undefined;
         href?: string | undefined;
@@ -2082,7 +2082,7 @@ interface ToastProps {
     | undefined;
   primaryAction?: {
     accessibilityLabel: string;
-    dataTestId?: string,
+    dataTestId?: string;
     label: string;
     href?: string | undefined;
     onClick?: ButtonEventHandlerType | undefined;
@@ -2137,7 +2137,7 @@ interface UpsellProps {
 interface UpsellFormProps {
   children: Node;
   onSubmit: BareButtonEventHandlerType;
-  submitButtonDataTestId?: string,
+  submitButtonDataTestId?: string;
   submitButtonText: string;
   submitButtonAccessibilityLabel: string;
   submitButtonDisabled?: boolean | undefined;
