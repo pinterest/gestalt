@@ -321,6 +321,7 @@ type TrendObject = {
 
 interface ActionData {
   accessibilityLabel: string;
+  dataTestId?: string,
   disabled?: boolean;
   href?: string | undefined;
   label: string;
@@ -404,7 +405,7 @@ interface DefaultLabelProviderProps {
           accessibilityRemoveIconLabel: string;
           accessibilityWarningIconLabel: string;
         };
-        TagData:{
+        TagData: {
           accessibilityRemoveIconLabel: string;
         };
         TextField: {
@@ -483,6 +484,7 @@ interface ActivationCardProps {
   link?:
     | {
         accessibilityLabel: string;
+        dataTestId?: string;
         href: string;
         label: string;
         onClick?: ButtonEventHandlerType | undefined;
@@ -1315,11 +1317,13 @@ interface OverlayPanelProps {
     subtext?: string | undefined;
     primaryAction?: {
       accessibilityLabel?: string | undefined;
+      dataTestId?: string;
       text?: string | undefined;
       onClick?: BareButtonEventHandlerType | undefined;
     };
     secondaryAction?: {
       accessibilityLabel?: string | undefined;
+      dataTestId?: string;
       text?: string | undefined;
       onClick?: BareButtonEventHandlerType | undefined;
     };
@@ -1435,6 +1439,7 @@ interface PopoverEducationalProps {
   primaryAction?:
     | {
         accessibilityLabel?: string | undefined;
+        dataTestId?: string,
         href?: string | undefined;
         text: string | undefined;
         onClick?: ButtonEventHandlerType | undefined;
@@ -1587,6 +1592,7 @@ interface SheetMobileProps {
   onAnimationEnd?: OnAnimationEndType | undefined;
   primaryAction?: {
     accessibilityLabel: string;
+    dataTestId?: string,
     label: string;
     onClick: AbstractEventHandler<
       | React.MouseEvent<HTMLButtonElement>
@@ -1693,6 +1699,7 @@ interface SlimBannerProps {
   primaryAction?:
     | {
         accessibilityLabel: string;
+        dataTestId?: string,
         label: string;
         disabled?: boolean | undefined;
         href?: string | undefined;
@@ -1871,26 +1878,26 @@ interface TagProps {
 
 interface TagDataProps {
   accessibilityRemoveIconLabel?: string | undefined;
-  baseColor?: 'primary' | 'secondary'
-  color?: DataVisualizationColors,
-  disabled?: boolean,
-  id?: string,
-  onTap?: | AbstractEventHandler<
-  | React.MouseEvent<HTMLDivElement>
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>,
-  { selected: boolean; id?: string | undefined }
->
-| undefined,
-onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>,
-selected?: boolean,
-size?: 'sm' | 'md' | 'lg',
-showCheckbox?: boolean,
-text: string,
-tooltip?: TooltipProps,
+  baseColor?: 'primary' | 'secondary';
+  color?: DataVisualizationColors;
+  disabled?: boolean;
+  id?: string;
+  onTap?:
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
+  onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>;
+  selected?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  showCheckbox?: boolean;
+  text: string;
+  tooltip?: TooltipProps;
 }
-
 
 interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;
@@ -2075,6 +2082,7 @@ interface ToastProps {
     | undefined;
   primaryAction?: {
     accessibilityLabel: string;
+    dataTestId?: string,
     label: string;
     href?: string | undefined;
     onClick?: ButtonEventHandlerType | undefined;
@@ -2129,6 +2137,7 @@ interface UpsellProps {
 interface UpsellFormProps {
   children: Node;
   onSubmit: BareButtonEventHandlerType;
+  submitButtonDataTestId?: string,
   submitButtonText: string;
   submitButtonAccessibilityLabel: string;
   submitButtonDisabled?: boolean | undefined;
