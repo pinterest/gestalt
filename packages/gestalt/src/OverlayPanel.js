@@ -45,6 +45,7 @@ type Props = {|
     subtext?: string,
     primaryAction?: {|
       accessibilityLabel?: string,
+      dataTestId?: string,
       text?: string,
       onClick?: ({|
         event:
@@ -56,6 +57,7 @@ type Props = {|
     |},
     secondaryAction?: {|
       accessibilityLabel?: string,
+      dataTestId?: string,
       text?: string,
       onClick?: ({|
         event:

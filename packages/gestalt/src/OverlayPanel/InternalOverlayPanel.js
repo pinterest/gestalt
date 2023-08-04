@@ -39,6 +39,7 @@ type InternalSheetProps = {|
     subtext?: string,
     primaryAction?: {|
       accessibilityLabel?: string,
+      dataTestId?: string,
       text?: string,
       onClick?: ({|
         event:
@@ -50,6 +51,7 @@ type InternalSheetProps = {|
     |},
     secondaryAction?: {|
       accessibilityLabel?: string,
+      dataTestId?: string,
       text?: string,
       onClick?: ({|
         event:
