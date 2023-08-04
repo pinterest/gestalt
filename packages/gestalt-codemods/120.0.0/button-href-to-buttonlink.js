@@ -9,41 +9,24 @@ export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
   let localIdentifierNames;
+  let codeHasChanged = false;
+  const newImports = [];
   const OLD_NAME = 'Button';
   const NEW_NAME = 'ButtonLink';
 
-  src.find(j.ImportDeclaration).forEach((path) => {
+  const imports = src.find(j.ImportDeclaration);
+
+  imports.forEach((path) => {
     const decl = path.node;
     // Not Gestalt, bail
     if (decl.source.value !== 'gestalt') {
-      return null;
+      return;
     }
 
     // Find the local names of Button imports
     localIdentifierNames = decl.specifiers
       .filter((node) => node.imported?.name === 'Button')
       .map((node) => node.local.name);
-
-    const newSpecifiers = [
-      // Rename Button import
-      ...decl.specifiers.map((node) => {
-        if (node.imported?.name === OLD_NAME) {
-          if (!localIdentifierNames === OLD_NAME) {
-            const importCmp = { ...node };
-            importCmp.imported.name = NEW_NAME;
-            return importCmp;
-          }
-          return j.importSpecifier(j.identifier(NEW_NAME));
-        }
-        return node;
-      }),
-    ];
-    // Sort all the imports alphabetically
-    newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
-
-    const newNode = j.importDeclaration(newSpecifiers, j.literal('gestalt'));
-    j(path).replaceWith(newNode);
-    return null;
   });
 
   if (!localIdentifierNames || localIdentifierNames.length === 0) {
@@ -51,13 +34,13 @@ export default function transformer(file, api) {
     return null;
   }
 
-  let hasModifications = false;
-
   const transform = src
     .find(j.JSXElement)
-    .forEach((path) => {
+    .forEach((path, idx, array) => {
       const { node } = path;
+      let elementHasChanged = false;
 
+      // If current element is Button
       if (localIdentifierNames.includes(node.openingElement.name.name)) {
         const attrs = node.openingElement.attributes;
 
@@ -67,18 +50,20 @@ export default function transformer(file, api) {
             const propName = attr?.name?.name;
 
             // Not `role='link'`, bail
+            // TODO: check if attr?.value?.expression?.type is a constant or variable
             if (propName !== 'role' || attr?.value?.value !== 'link') {
               return attr;
             }
 
-            hasModifications = true;
-            // Remove role='link'
+            // Flag as modified and remove role='link'
+            elementHasChanged = true;
+            codeHasChanged = true;
             return null;
           })
           .filter(Boolean);
 
-        // Remove incompatible props if role='button'
-        if (hasModifications) {
+        // Remove incompatible props if role='link'
+        if (elementHasChanged) {
           newAttrs = newAttrs
             .map((attr) => {
               const propName = attr?.name?.name;
@@ -91,10 +76,8 @@ export default function transformer(file, api) {
               return null;
             })
             .filter(Boolean);
-        }
 
-        // Rename Button to ButtonLink
-        if (hasModifications) {
+          // Rename Button to ButtonLink
           if (localIdentifierNames.includes(OLD_NAME)) {
             node.openingElement.name = NEW_NAME;
             if (node.closingElement) {
@@ -103,7 +86,38 @@ export default function transformer(file, api) {
           }
           j(path).replaceWith(node);
           node.openingElement.attributes = newAttrs;
+
+          // Either add a import for Button or ButtonLink
+          newImports.push(j.importSpecifier(j.identifier('ButtonLink')));
+        } else {
+          newImports.push(j.importSpecifier(j.identifier('Button')));
         }
+      }
+
+      if (idx === array.length - 1 && newImports.length > 0) {
+        // Update imports
+        imports.forEach((importPath) => {
+          const decl = importPath.node;
+          // Not Gestalt, bail
+          if (decl.source.value !== 'gestalt') {
+            return;
+          }
+          // Filter out old Button imports
+          let newSpecifiers = decl.specifiers
+            .filter((specifier) => specifier.imported.name !== 'Button')
+            .concat(newImports);
+
+          // Remove duplicates
+          newSpecifiers = newSpecifiers.filter(
+            (newImport, i, a) =>
+              i === a.findIndex((oldImport) => oldImport.imported.name === newImport.imported.name),
+          );
+
+          // Sort all the imports alphabetically and replace old import list with new
+          newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
+          const newNode = j.importDeclaration(newSpecifiers, j.literal('gestalt'));
+          j(importPath).replaceWith(newNode);
+        });
       }
 
       // Not Button, bail
@@ -111,5 +125,5 @@ export default function transformer(file, api) {
     })
     .toSource({ quote: 'single' });
 
-  return hasModifications ? transform : null;
+  return codeHasChanged ? transform : null;
 }
