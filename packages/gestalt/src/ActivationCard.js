@@ -18,6 +18,7 @@ const STATUS_ICONS = {
 
 type LinkData = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   href: string,
   label: string,
   onClick?: ({|
@@ -74,7 +75,7 @@ type Props = {|
 |};
 
 function ActivationCardLink({ data }: {| data: LinkData |}): Node {
-  const { accessibilityLabel, href, label, onClick, rel, target } = data;
+  const { accessibilityLabel, dataTestId, href, label, onClick, rel, target } = data;
 
   return (
     <Box
@@ -87,6 +88,7 @@ function ActivationCardLink({ data }: {| data: LinkData |}): Node {
     >
       <Button
         accessibilityLabel={accessibilityLabel}
+        dataTestId={dataTestId}
         color="gray"
         href={href}
         fullWidth

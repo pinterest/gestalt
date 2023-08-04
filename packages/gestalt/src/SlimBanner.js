@@ -57,6 +57,7 @@ function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperL
 
 type PrimaryActionType = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
   href?: string,
   label: string,
@@ -74,6 +75,7 @@ type PrimaryActionType = {|
 
 function PrimaryAction({
   accessibilityLabel,
+  dataTestId,
   disabled,
   href,
   label,
@@ -85,6 +87,7 @@ function PrimaryAction({
     <Button
       accessibilityLabel={accessibilityLabel}
       color="white"
+      dataTestId={dataTestId}
       disabled={disabled}
       fullWidth
       href={href}
@@ -99,6 +102,7 @@ function PrimaryAction({
     <Button
       accessibilityLabel={accessibilityLabel}
       color="white"
+      dataTestId={dataTestId}
       disabled={disabled}
       fullWidth
       onClick={onClick}

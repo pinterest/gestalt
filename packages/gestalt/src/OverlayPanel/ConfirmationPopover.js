@@ -17,6 +17,7 @@ type Props = {|
   onDismiss: () => void,
   primaryAction?: {|
     accessibilityLabel?: string,
+    dataTestId?: string,
     text?: string,
     onClick?: ({|
       event:
@@ -28,6 +29,7 @@ type Props = {|
   |},
   secondaryAction?: {|
     accessibilityLabel?: string,
+    dataTestId?: string,
     text?: string,
     onClick?: ({|
       event:
@@ -100,6 +102,7 @@ export default function ConfirmationPopover({
                 accessibilityLabel={
                   secondaryAction?.accessibilityLabel ?? secondaryActionTextLabelDefault
                 }
+                dataTestId={secondaryAction?.dataTestId}
                 color="gray"
                 text={secondaryAction?.text ?? secondaryActionTextDefault}
                 onClick={({ event }) => {
@@ -109,6 +112,7 @@ export default function ConfirmationPopover({
               />
               <Button
                 color="red"
+                dataTestId={primaryAction?.dataTestId}
                 accessibilityLabel={
                   primaryAction?.accessibilityLabel ?? primaryActionTextLabelDefault
                 }

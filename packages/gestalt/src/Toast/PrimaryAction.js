@@ -5,6 +5,7 @@ import Link from '../Link.js';
 
 type Props = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   href?: string,
   label: string,
   onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
@@ -15,6 +16,7 @@ type Props = {|
 
 export default function PrimaryAction({
   accessibilityLabel,
+  dataTestId,
   href,
   label,
   onClick,
@@ -26,6 +28,7 @@ export default function PrimaryAction({
     return (
       <Button
         accessibilityLabel={accessibilityLabel}
+        dataTestId={dataTestId}
         href={href}
         rel={rel}
         target={target}

@@ -13,6 +13,7 @@ import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
   href?: string,
   label: string,
@@ -51,6 +52,7 @@ type Props = {|
    */
   primaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     disabled?: boolean,
     href?: string,
     label: string,
@@ -72,6 +74,7 @@ type Props = {|
    */
   secondaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     disabled?: boolean,
     href?: string,
     label: string,
@@ -106,7 +109,7 @@ function CalloutAction({
   type: string,
 |}): Node {
   const color = type === 'primary' ? 'white' : 'transparent';
-  const { accessibilityLabel, disabled, label, onClick, href, rel, target } = data;
+  const { accessibilityLabel, dataTestId, disabled, label, onClick, href, rel, target } = data;
 
   return (
     <Box
@@ -123,6 +126,7 @@ function CalloutAction({
         <Button
           accessibilityLabel={accessibilityLabel}
           color={color}
+          dataTestId={dataTestId}
           disabled={disabled}
           href={href}
           fullWidth
@@ -136,6 +140,7 @@ function CalloutAction({
       ) : (
         <Button
           accessibilityLabel={accessibilityLabel}
+          dataTestId={dataTestId}
           disabled={disabled}
           color={color}
           onClick={onClick}

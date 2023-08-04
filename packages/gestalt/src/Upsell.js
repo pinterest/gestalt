@@ -16,6 +16,7 @@ import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
   href?: string,
   label: string,
@@ -39,12 +40,13 @@ type UpsellActionProps = {|
 
 function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, disabled, href, label, onClick, rel, target } = data;
+  const { accessibilityLabel, disabled, href, label, onClick, rel, target, dataTestId } = data;
 
   const commonProps = {
     accessibilityLabel,
     color,
     disabled,
+    dataTestId,
     fullWidth: true,
     onClick,
     size: 'lg',
@@ -105,6 +107,7 @@ type Props = {|
    */
   primaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     disabled?: boolean,
     href?: string,
     label: string,
@@ -126,6 +129,7 @@ type Props = {|
    */
   secondaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     disabled?: boolean,
     href?: string,
     label: string,

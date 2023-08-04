@@ -74,6 +74,7 @@ type Props = {|
    */
   primaryAction?: {|
     accessibilityLabel: string,
+    dataTestId?: string,
     href?: string,
     label: string,
     onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
@@ -214,6 +215,7 @@ export default function Toast({
               primaryAction?.label ? (
                 <PrimaryAction
                   accessibilityLabel={primaryAction.accessibilityLabel}
+                  dataTestId={primaryAction?.dataTestId}
                   href={primaryAction.href}
                   rel={primaryAction?.rel}
                   size="sm"

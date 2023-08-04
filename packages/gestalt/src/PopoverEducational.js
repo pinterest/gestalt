@@ -14,6 +14,7 @@ type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'tooltip';
 type PrimaryActionType = {|
   accessibilityLabel?: string,
+  dataTestId?: string,
   href?: string,
   text: string,
   onClick?: ({|
@@ -30,6 +31,7 @@ type PrimaryActionType = {|
 
 function PrimaryAction({
   accessibilityLabel,
+  dataTestId,
   href,
   text,
   onClick,
@@ -39,6 +41,7 @@ function PrimaryAction({
   return href ? (
     <Button
       accessibilityLabel={accessibilityLabel}
+      dataTestId={dataTestId}
       color="white"
       fullWidth={false}
       href={href}
@@ -52,6 +55,7 @@ function PrimaryAction({
     <Button
       accessibilityLabel={accessibilityLabel}
       color="white"
+      dataTestId={dataTestId}
       fullWidth={false}
       onClick={onClick}
       role="button"

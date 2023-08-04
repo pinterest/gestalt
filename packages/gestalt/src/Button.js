@@ -51,7 +51,7 @@ type BaseButton = {|
     | 'semiTransparentWhite'
     | 'transparentWhiteText'
     | 'white',
-  dataTestId?: string,
+  dataTestId: string,
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   fullWidth?: boolean,

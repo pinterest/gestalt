@@ -21,6 +21,10 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLButtonElement>,
   |}) => void,
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  submitButtonTextDataTestId?: string,
+  /**
    * Text content of the submit button. Be sure to localize!
    */
   submitButtonText: string,
@@ -41,6 +45,7 @@ export default function UpsellForm({
   children,
   onSubmit,
   submitButtonText,
+  submitButtonTextDataTestId,
   submitButtonAccessibilityLabel,
   submitButtonDisabled,
 }: Props): Node {
@@ -64,6 +69,7 @@ export default function UpsellForm({
           <Button
             accessibilityLabel={submitButtonAccessibilityLabel}
             color="red"
+            dataTestId={submitButtonTextDataTestId}
             disabled={submitButtonDisabled}
             fullWidth={isXsWidth}
             text={submitButtonText}
