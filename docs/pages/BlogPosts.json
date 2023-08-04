@@ -3,6 +3,50 @@
     "year": "2023",
     "digests": [
       {
+        "month": "July",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng July Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from July."
+          },
+          {
+            "title": "DateRange",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/ad/93/c3/ad93c32822c0cd63f2de65ce700aa131.png",
+            "imageAltText": "Screenshot of DateRange UI",
+            "content": "Another month, another new component — this time it's [DateRange](https://gestalt.pinterest.systems/web/daterange)! This component enables users to select a date range in multiple ways: from a calendar, typing the date or choosing from a preselected range with RadioGroup."
+          },
+          {
+            "title": "ButtonLink",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/2b/4a/be/2b4abec7012b7c005bd8a6a510a1703b.png",
+            "imageAltText": "Screenshot of ButtonLinmk UI with text Visit Pinterest and an icon with an upper arrow conveying that it's an external link",
+            "content": "Button, IconButton and TapArea can behave like buttons or links. We are going to start decoupling these two behaviors: Button will be a button and [ButtonLink](https://gestalt.pinterest.systems/web/buttonlinks) will be only a link. Stay tunned to our progress!"
+          },
+          {
+            "title": "Testing id support",
+            "audience": ["Engineering"],
+            "content": "We are working on expanding support to data-test-id in our components. This improvement helps engineers building better tests: faster and more reliable. Check Button's, ButtonLink's, and IconButton's new `dataTestId` prop. Stay tuned, there are more to come!"
+          },
+          {
+            "title": "Component updates: Box, Table, Popover, DateField, DatePicker ",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/f9/65/bb/f965bb322ca9cb1d7f0b62d6db3c64b0.png",
+            "imageAltText": "Screenshot of before and after in DateField showing new support to locale format translations. In Italian, placeholders was DD/MM/YYYY and now is GG/MM/AAAA",
+            "content": "[Box](https://gestalt.pinterest.systems/web/box#Using-'as'-property) now supports `<p>` in `as` prop. [Table.SortableHeaderCell](https://gestalt.pinterest.systems/web/table#Sortable-header-cells) finally supports right aligment correctly. [Popover](https://gestalt.pinterest.systems/web/popover) no longer supports `showcaret` and `blue` in `color`. Use [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational) instead. However, Popover now supports `forceDown` in `idealDirection` for cases where Popover's positioning might cause issues. [DateField](https://gestalt.pinterest.systems/web/datefield#localeData) now supports locale format translations. [DatePicker](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) is finally a fully controlled component."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/43/11/82/431182197790e45b20b164d693593278.png",
+            "imageAltText": "Screenshot of the Known issues section within Popover's documentation page",
+            "content": "We added a new section in our component docs section: Known issues. Check the new information under Component quality checklist for [Text](https://gestalt.pinterest.systems/web/text#Component-quality-checklist), [Heading](https://gestalt.pinterest.systems/web/heading#Component-quality-checklist), [Popover](https://gestalt.pinterest.systems/web/popover#Component-quality-checklist), [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational#Component-quality-checklist), [Tooltip](https://gestalt.pinterest.systems/web/tooltip#Component-quality-checklist) or [DatePicker](https://gestalt.pinterest.systems/web/datepicker#Component-quality-checklist)."
+          }
+        ]
+      },
+      {
         "week": "July 21, 2023",
         "summary": "New/improved components, updated color tokens, docs improvements and Figma plugin feature enhancements.",
         "posts": [
