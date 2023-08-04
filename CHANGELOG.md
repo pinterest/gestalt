@@ -1,3 +1,9 @@
+## 120.0.2 (Aug 4, 2023)
+
+### Patch
+
+- Docs: newsletter July ([#3120](https://github.com/pinterest/gestalt/pull/3120)) - [Preview link](https://deploy-preview-3120--gestalt.netlify.app?devexample=true)
+
 ## 120.0.1 (Aug 3, 2023)
 
 ### Patch
