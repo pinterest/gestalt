@@ -80,7 +80,7 @@ const CustomTextField = forwardRef(
         ? styles.formElementErrored
         : styles.formElementNormal,
     );
-    console.log(locales);
+
     return (
       <Box ref={containerRef} rounding={4} position="relative" display="flex" flex="grow">
         <input
