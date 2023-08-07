@@ -11,12 +11,13 @@ type Props = {|
 |};
 
 export default function TableOfContentsItemList({ children }: Props): Node {
-  const ulClassNames = classNames(Layout.flex, Layout.flexColumn, Whitespace.m0, Whitespace.p0);
   const childrenArray = getChildrenToArray({ children });
 
   return (
     <NestingProvider componentName="TableOfContents" maxNestedLevels={5}>
-      <ul className={ulClassNames}>{childrenArray}</ul>
+      <ul className={classNames(Layout.flex, Layout.flexColumn, Whitespace.m0, Whitespace.p0)}>
+        {childrenArray}
+      </ul>
     </NestingProvider>
   );
 }

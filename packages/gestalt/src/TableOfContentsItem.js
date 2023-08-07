@@ -40,10 +40,8 @@ type Props = {|
  * [TableOfContents.Item](https://gestalt.pinterest.systems/web/tableofcontents#TableOfContents.Item) is a subcomponent of [TableOfContents](https://gestalt.pinterest.systems/web/tableofcontents). Use [TableOfContents.Item](https://gestalt.pinterest.systems/web/tableofcontents#TableOfContents.Item) to redirect the user to a different section of a page.
  */
 export default function TableOfContentsItem(props: Props): Node {
-  const liClassNames = classNames(ListStyles.noStyle, boxWhitespace.marginTop1);
-
   return (
-    <li className={liClassNames}>
+    <li className={classNames(ListStyles.noStyle, boxWhitespace.marginTop1)}>
       <TableOfContentsAnchor
         label={props.label}
         href={props.href}
