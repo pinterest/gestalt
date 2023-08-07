@@ -662,6 +662,18 @@ function MenuButtonExample() {
 }
 `}
         />
+
+        <MainSection.Subsection
+          title="External handlers"
+          description={`TapArea consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when TapArea role="link" is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
+`}
+        />
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

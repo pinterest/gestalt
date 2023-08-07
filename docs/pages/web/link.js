@@ -449,12 +449,11 @@ However, Link's underline style can be overridden at any time using the \`underl
             name="Variants - Target"
           />
         </MainSection.Subsection>
-      </MainSection>
 
-      <MainSection.Subsection
-        title="externalLinkIcon and rel"
-        columns={2}
-        description={`An external link, also called an outbound link, is a link from Pinterest to a different website. External links require specific SEO, visual, and accessibility treatments.
+        <MainSection.Subsection
+          title="externalLinkIcon and rel"
+          columns={2}
+          description={`An external link, also called an outbound link, is a link from Pinterest to a different website. External links require specific SEO, visual, and accessibility treatments.
 
 \`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link. Don't use "nofollow" with urls redirecting to any Pinterest domain or subsite.
 
@@ -465,22 +464,35 @@ As the "visit" icon is a visual/graphic representation, it's hidden to assistive
 
 The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \`externalLinkIcon="default"\` automatically sets the "visit" icon style to match Text's default properties: \`size="300"\` and \`color="default"\` as shown in the first example. However, for different Text treatments, \`externalLinkIcon\` can be used to match custom Text properties as shown in the second example.
       `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample
-              code={variantExternalIcon}
-              layout="column"
-              name="Variant - External Icon"
-            />
-          }
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={variantExternalIcon}
+                layout="column"
+                name="Variant - External Icon"
+              />
+            }
+          />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={variantRel} layout="column" name="Variant - Rel" />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="External handlers"
+          description={`Link consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when Link is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
+`}
         />
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={variantRel} layout="column" name="Variant - Rel" />
-          }
-        />
-      </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>

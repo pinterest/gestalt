@@ -52,6 +52,20 @@ These optional props control the behavior of ButtonLink. External links commonly
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="External handlers"
+          description={`ButtonLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when ButtonLink is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
+`}
+        />
+      </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
       <MainSection name="Related">
         <MainSection.Subsection

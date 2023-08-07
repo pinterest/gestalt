@@ -499,6 +499,17 @@ Follow these guidelines for \`bgColor\`
             sandpackExample={<SandpackExample code={selectedState} name="Selected state example" />}
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title="External handlers"
+          description={`IconButton consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when IconButton role="link" is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
+`}
+        />
       </MainSection>
       <MainSection
         name="Writing"
