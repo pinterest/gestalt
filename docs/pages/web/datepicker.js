@@ -283,11 +283,11 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
         </MainSection.Subsection>
         <MainSection.Subsection
           title="External handlers"
-          description={`DateField consumes external handlers from GlobalEventsHandlerProvider.
+          description={`DatePicker consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider)..
 
 Handlers:
 
-- onMount: executed when DateField mounts for the first time
+- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
 `}
@@ -295,7 +295,9 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onM
       </MainSection>
       <MainSection
         name="Supporting locales"
-        description={`DatePicker supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
+        description={`DatePicker supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
+
+The following locale examples show the different locale format variants.
 
 IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
 

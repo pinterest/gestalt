@@ -276,11 +276,24 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
             }
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          title="External handlers"
+          description={`DateRange consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+`}
+        />
       </MainSection>
 
       <MainSection
         name="Supporting locales"
         description={`DateRange supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
+
+
 
 IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
 
