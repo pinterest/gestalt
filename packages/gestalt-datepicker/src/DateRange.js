@@ -1,5 +1,5 @@
 // @flow strict-local
-import { Children, type Element, type Node, useId } from 'react';
+import { Children, type Element, type Node, useEffect, useId } from 'react';
 import {
   Box,
   Button,
@@ -9,6 +9,7 @@ import {
   Text,
   useDefaultLabel,
   useDeviceType,
+  useGlobalEventsHandler,
 } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 import borderStyles from './DateRange.css';
@@ -171,6 +172,14 @@ function DateRange({
   const componentId = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
+
+  const { dateRangeHandlers } = useGlobalEventsHandler() || {
+    dateRangeHandlers: undefined,
+  };
+
+  useEffect(() => {
+    if (dateRangeHandlers?.onMount) dateRangeHandlers?.onMount();
+  }, [dateRangeHandlers]);
 
   if (!startDateValue && endDateValue) {
     onEndDateChange({ value: null });

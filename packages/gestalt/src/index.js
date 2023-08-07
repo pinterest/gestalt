@@ -18,7 +18,9 @@ import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvi
 import DefaultLabelProvider, { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider, { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import ExperimentProvider from './contexts/ExperimentProvider.js';
-import GlobalEventsHandlerProvider from './contexts/GlobalEventsHandlerProvider.js';
+import GlobalEventsHandlerProvider, {
+  useGlobalEventsHandlerContext,
+} from './contexts/GlobalEventsHandlerProvider.js';
 import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
@@ -159,6 +161,7 @@ export {
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
   useFocusVisible,
+  useGlobalEventsHandlerContext as useGlobalEventsHandler,
   useReducedMotion,
   Video,
   WashAnimated,
