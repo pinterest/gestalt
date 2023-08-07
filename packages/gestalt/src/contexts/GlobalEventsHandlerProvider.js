@@ -11,7 +11,9 @@ type OnLinkNavigationType = ({|
 |}) => void;
 
 type GlobalEventsHandlerContextType = {|
-  datepickerHandlers?: {| onMount?: NoopType |},
+  dateFieldHandlers?: {| onMount?: NoopType |},
+  datePickerHandlers?: {| onMount?: NoopType |},
+  dateRangeHandlers?: {| onMount?: NoopType |},
   sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
   linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
 |} | void;
