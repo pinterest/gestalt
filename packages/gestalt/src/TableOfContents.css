@@ -1,12 +1,12 @@
-.wrapper {
+.container {
   max-width: 320px;
   padding-bottom: 16px;
 }
 
-html:not([dir="rtl"]) .wrapper {
+html:not([dir="rtl"]) .container {
   border-left: 1px solid var(--color-border-container);
 }
 
-html[dir="rtl"] .wrapper {
+html[dir="rtl"] .container {
   border-right: 1px solid var(--color-border-container);
 }

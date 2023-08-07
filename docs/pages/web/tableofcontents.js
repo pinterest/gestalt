@@ -11,7 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway.js';
 import main from '../../examples/tableofcontents/main.js';
 import nestedItemsExample from '../../examples/tableofcontents/nestedItemsExample.js';
-import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContetnTitle.js';
+import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContentTitle.js';
 import withHeaderExample from '../../examples/tableofcontents/withHeaderExample.js';
 
 export default function TableOfContentsPage({
@@ -107,6 +107,11 @@ export default function TableOfContentsPage({
         </MainSection.Subsection>
       </MainSection>
 
+      <AccessibilitySection
+        name={generatedDocGen?.TableOfContents.displayName}
+        description="Be sure to include an `accessibilityLabel` for the screen reader for each item in the TableOfContents"
+      />
+
       <MainSection name="Subcomponents">
         <MainSection.Subsection
           title={generatedDocGen.TableOfContentsItem?.displayName}
@@ -120,11 +125,6 @@ export default function TableOfContentsPage({
         </MainSection.Subsection>
       </MainSection>
 
-      <AccessibilitySection
-        name={generatedDocGen?.TableOfContents.displayName}
-        description="Be sure to include an `accessibilityLabel` for the screen reader for each item in the TableOfContents"
-      />
-
       <MainSection
         name="Localization"
         description="Be sure to localize text and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent."
@@ -133,7 +133,7 @@ export default function TableOfContentsPage({
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Nested directory"
-          description="TableOfContents supports 5 levels of nesting. The first level maps to a section’s heading, which is usually an H3. The second level maps to a section’s subheading, which is usually an H4."
+          description="TableOfContents supports 5 levels of nesting. The first level maps to a section’s heading, which is usually an H2. The second level maps to a section’s subheading, which is usually an H3."
         >
           <MainSection.Card
             cardSize="lg"

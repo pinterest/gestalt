@@ -2,7 +2,7 @@
 
 exports[`TableOfContents renders 1`] = `
 <div
-  className="wrapper"
+  className="container"
   role="navigation"
 >
   <div
@@ -75,7 +75,7 @@ exports[`TableOfContents renders 1`] = `
 exports[`TableOfContents renders an accessibility label 1`] = `
 <div
   aria-label="Page table of contents"
-  className="wrapper"
+  className="container"
   role="navigation"
 >
   <div
@@ -147,7 +147,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
 
 exports[`TableOfContents renders nested items 1`] = `
 <div
-  className="wrapper"
+  className="container"
   role="navigation"
 >
   <ul
@@ -316,7 +316,7 @@ exports[`TableOfContents renders nested items 1`] = `
 
 exports[`TableOfContents renders without title 1`] = `
 <div
-  className="wrapper"
+  className="container"
   role="navigation"
 >
   <ul

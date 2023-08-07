@@ -29,7 +29,7 @@ type Props = {|
  */
 export default function TableOfContents({ accessibilityLabel, title, children }: Props): Node {
   return (
-    <div role="navigation" aria-label={accessibilityLabel} className={styles.wrapper}>
+    <div role="navigation" aria-label={accessibilityLabel} className={styles.container}>
       {title ? (
         <Box paddingX={3} marginBottom={3}>
           <Heading size="400">{title}</Heading>

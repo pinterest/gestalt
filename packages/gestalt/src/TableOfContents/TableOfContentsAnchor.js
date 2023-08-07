@@ -19,14 +19,6 @@ const NESTING_MARGIN_START_MAP = {
   '5': '92px',
 };
 
-const NESTING_TEXT_SIZE_MAP = {
-  '1': '300',
-  '2': '200',
-  '3': '200',
-  '4': '200',
-  '5': '200',
-};
-
 type Props = {|
   label: string,
   href: string,
@@ -47,7 +39,7 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
   const hasMarker = active || isFocused || isHovered;
   const markerColor = active || isFocused ? 'inverse' : 'tertiary';
   const nestingPadding = NESTING_MARGIN_START_MAP[nestedLevel];
-  const nestingFontSize = NESTING_TEXT_SIZE_MAP[nestedLevel];
+  const nestingFontSize = nestedLevel === 1 ? '300' : '200';
 
   return (
     <TapArea
@@ -59,9 +51,10 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
       onFocus={handleOnFocus}
       onBlur={handleOnBlur}
       onTap={onClick}
+      rounding={2}
     >
       <Flex>
-        <Box width={4} color={hasMarker ? markerColor : 'default'} rounding="pill" />
+        <Box minWidth={4} color={hasMarker ? markerColor : 'default'} rounding="pill" />
         <div
           className={classNames(styles.item, Layout.flexGrow, {
             [Colors.secondary]: isHovered,

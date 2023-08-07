@@ -2383,7 +2383,7 @@ export const Letterbox: React.FunctionComponent<LetterboxProps>;
  */
 export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
 
-export interface ListSubCmoponents {
+export interface ListSubComponents {
   Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
 }
 
@@ -2392,7 +2392,7 @@ export interface ListSubCmoponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/list#List.Itemt
  */
-export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubCmoponents;
+export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/mask
@@ -2602,27 +2602,28 @@ export interface TableSubComponents {
 export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
 
 
+interface TableOfContentsItemProps {
+  label: string,
+  href: string,
+  active?: boolean,
+  onClick?: TapAreaEventHandlerType,
+  children?: Node,
+}
+
 /**
  * https://gestalt.pinterest.systems/web/tableofcontents
  */
 export interface TableOfContentsProps {
   accessibilityLabel?: string,
   title?: string,
-  items: ReadonlyArray<{
-    label: string,
-    href: string,
-    active?: boolean,
-    onClick?: () => void,
-    nestedItems?: ReadonlyArray<{
-      label: string,
-      href: string,
-      active?: boolean,
-      onClick?: () => void,
-    }>,
-  }>,
+  children: Node
 }
 
-export const TableOfContents: React.FunctionComponent<TableOfContentsProps>;
+export interface TableOfContentsSubComponents {
+  Item: React.FunctionComponent<React.PropsWithChildren<TableOfContentsItemProps>>;
+}
+
+export const TableOfContents: React.FunctionComponent<TableOfContentsProps> & TableOfContentsSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/tabs
