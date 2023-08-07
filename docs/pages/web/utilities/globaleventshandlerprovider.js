@@ -148,6 +148,20 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Other handlers">
+        <MainSection.Subsection
+          title="onMount"
+          description={`\`onMount\` is only called when the component mounts for the first time.
+
+It's implemented in the following components:
+
+- DateField: \`dateFieldHandlers\`
+- DatePicker: \`datePickerHandlers\`
+- DateRange: \`dateRangeHandlers\`
+
+`}
+        />
+      </MainSection>
     </Page>
   );
 }
