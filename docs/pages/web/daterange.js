@@ -277,6 +277,7 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          badge="experimental"
           title="External handlers"
           description={`DateRange consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 

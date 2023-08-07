@@ -282,6 +282,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
+          badge="experimental"
           title="External handlers"
           description={`DatePicker consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 

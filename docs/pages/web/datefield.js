@@ -162,6 +162,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          badge="experimental"
           title="External handlers"
           description={`DateField consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 

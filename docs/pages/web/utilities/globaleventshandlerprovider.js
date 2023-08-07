@@ -149,6 +149,11 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Other handlers">
+        <SlimBanner
+          iconAccessibilityLabel="Experimental feature"
+          message={`Experimental feature: The "onMount" prop is experimental and might be removed in the future.`}
+          type="warningBare"
+        />
         <MainSection.Subsection
           title="onMount"
           description={`\`onMount\` is only called when the component mounts for the first time.

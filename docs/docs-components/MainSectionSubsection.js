@@ -1,14 +1,14 @@
 // @flow strict
 import { Children, type Node } from 'react';
 import slugify from 'slugify';
-import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
+import { Badge, Box, Flex, Heading } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
 import { copyToClipboard } from './Card.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Markdown from './Markdown.js';
 
 type Props = {|
-  badge?: 'beta' | 'alpha',
+  badge?: 'alpha' | 'experimental',
   children?: Node,
   columns?: 1 | 2,
   description?: string,
@@ -56,16 +56,15 @@ function MainSectionSubsection({
             >
               <Heading size="400">{title}</Heading>
               {badge ? (
-                <Tooltip
-                  inline
-                  text={
-                    badge === 'beta'
-                      ? 'This tool is in beta. We are still working on it! Have feedback? Reach out to us on Slack #gestalt-eng-web!'
-                      : 'This tool is under development. More components will be supported in the future! The team is currently working on it.'
+                <Badge
+                  text={badge === 'experimental' ? 'Experimental' : 'Alpha'}
+                  position="middle"
+                  tooltip={
+                    badge === 'experimental'
+                      ? { text: 'Experimental feature.  It could be removed in the future.' }
+                      : { text: 'Alpha development state.' }
                   }
-                >
-                  <Badge text={badge === 'beta' ? 'Beta' : 'Alpha'} position="middle" />
-                </Tooltip>
+                />
               ) : null}
               <CopyLinkButton
                 name={title}
