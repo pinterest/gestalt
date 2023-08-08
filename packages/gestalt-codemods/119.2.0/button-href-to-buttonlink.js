@@ -3,7 +3,7 @@
  *  <Button role={'link'} selected ... /> to <ButtonLink ... />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/120.0.0/button-href-to-buttonlink.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/119.2.0/button-href-to-buttonlink.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
