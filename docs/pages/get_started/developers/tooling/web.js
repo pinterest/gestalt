@@ -125,7 +125,8 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
               target="blank"
               onClick={() => trackButtonClick('Playground sandbox')}
               text="Create a sandbox snippet"
-              href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js" />
+              href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
+            />
           </Flex>
         </MainSection.Subsection>
       </MainSection>
@@ -242,7 +243,8 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
               target="blank"
               onClick={() => trackButtonClick('Visual Studio Code extension')}
               text="Install the extension"
-              href="https://marketplace.visualstudio.com/items?itemName=pinterest.vscode-gestalt" />
+              href="https://marketplace.visualstudio.com/items?itemName=pinterest.vscode-gestalt"
+            />
           </Flex>
         </MainSection.Subsection>
       </MainSection>

@@ -59,7 +59,8 @@ export default function YearInReviewBanner(): Node {
               href="/year_in_review_2022"
               text="View the recap"
               iconEnd="directional-arrow-right"
-              size="lg" />
+              size="lg"
+            />
           </Flex>
         </Box>
       </TapArea>

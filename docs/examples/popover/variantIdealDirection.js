@@ -38,7 +38,8 @@ export default function Example(): Node {
               onClick={() => setOpen(false)}
               size="lg"
               target="blank"
-              text="Help" />
+              text="Help"
+            />
           </Flex>
         </Box>
         {open && (

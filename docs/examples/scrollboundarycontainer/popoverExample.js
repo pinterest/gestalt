@@ -32,7 +32,8 @@ export default function Example(): Node {
               iconEnd="visit"
               onClick={() => setOpen(false)}
               target="blank"
-              text="Help" />
+              text="Help"
+            />
             {open && (
               <PopoverEducational
                 anchor={anchorRef.current}

@@ -98,7 +98,8 @@ const components = {
       target="blank"
       text={children || ''}
       color="gray"
-      accessibilityLabel="" />
+      accessibilityLabel=""
+    />
   ),
   Datapoint: ({
     size,
