@@ -1,5 +1,5 @@
-import { ButtonLink } from 'gestalt';
+import { Button } from 'gestalt';
 
 export default function TestElement() {
-  return <ButtonLink color="white" iconEnd="arrow-up-right" size="lg" text="Link" />;
+  return <Button color="white" iconEnd="arrow-up-right" size="lg" text="Link" role="link" />;
 }
