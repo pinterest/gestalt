@@ -1,3 +1,9 @@
+## 120.2.0 (Aug 8, 2023)
+
+### Minor
+
+- ButtonLink: Adding custom codemod to implement component ([#3123](https://github.com/pinterest/gestalt/pull/3123)) - [Preview link](https://deploy-preview-3123--gestalt.netlify.app?devexample=true)
+
 ## 120.1.1 (Aug 8, 2023)
 
 ### Patch
