@@ -174,6 +174,11 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'label': 'Loading',
     },
     {
+      'component': 'TableOfContents',
+      'prop': 'accessibilityLabel',
+      'label': 'Table of contents',
+    },
+    {
       'component': 'Tag',
       'prop': 'accessibilityErrorIconLabel',
       'label': 'Error',

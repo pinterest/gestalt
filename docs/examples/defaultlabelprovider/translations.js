@@ -65,6 +65,9 @@ const labels = {
   Spinner: {
     accessibilityLabel: myI18nTranslator('Loading'),
   },
+  TableOfContents: {
+    accessibilityLabel: myI18nTranslator('Table of contents'),
+  },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),
     accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),

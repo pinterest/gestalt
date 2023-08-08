@@ -60,6 +60,7 @@ import Spinner from '../../graphics/general/Spinner.svg';
 import Status from '../../graphics/general/Status.svg';
 import Switch from '../../graphics/general/Switch.svg';
 import Table from '../../graphics/general/Table.svg';
+import TableOfContents from '../../graphics/general/TableOfContents.svg';
 import Tabs from '../../graphics/general/Tabs.svg';
 import Tag from '../../graphics/general/Tag.svg';
 import TagData from '../../graphics/general/TagData.svg';
@@ -2095,6 +2096,36 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           },
           documentation: 'ready',
           figmaStatus: 'partial',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'TableOfContents',
+    platform: {
+      web: {
+        name: 'TableOfContents',
+        visual: {
+          svg: <TableOfContents />,
+        },
+        alias: ['Table of Contents', 'Page Navigation', 'Page Navigator', 'Secondary Nav'],
+        description:
+          'TableOfContents is used to navigate to anchors on a page. It also serves as an outline of a page’s content.',
+        category: ['Navigation'],
+        status: {
+          accessible: {
+            a11yComprehension: 'ready',
+            a11yNavigation: 'ready',
+            a11yScreenreader: 'ready',
+            a11yVisual: 'ready',
+            summary: 'ready',
+          },
+          badge: 'New',
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          mobileAdaptive: 'notAvailable',
           responsive: 'ready',
           status: 'ready',
         },
