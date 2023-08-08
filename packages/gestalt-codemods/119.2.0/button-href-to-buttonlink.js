@@ -25,7 +25,7 @@ export default function transformer(file, api) {
 
     // Find the local names of Button imports
     localIdentifierNames = decl.specifiers
-      .filter((node) => node.imported?.name === 'Button')
+      .filter((node) => node.imported?.name === OLD_NAME)
       .map((node) => node.local.name);
   });
 
@@ -78,11 +78,9 @@ export default function transformer(file, api) {
             .filter(Boolean);
 
           // Rename Button to ButtonLink
-          if (localIdentifierNames.includes(OLD_NAME)) {
-            node.openingElement.name = NEW_NAME;
-            if (node.closingElement) {
-              node.closingElement.name = NEW_NAME;
-            }
+          node.openingElement.name = NEW_NAME;
+          if (node.closingElement) {
+            node.closingElement.name = NEW_NAME;
           }
           j(path).replaceWith(node);
           node.openingElement.attributes = newAttrs;
