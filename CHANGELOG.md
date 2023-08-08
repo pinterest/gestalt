@@ -1,3 +1,9 @@
+## 120.3.0 (Aug 8, 2023)
+
+### Minor
+
+- TableOfContents: New Component ([#3118](https://github.com/pinterest/gestalt/pull/3118)) - [Preview link](https://deploy-preview-3118--gestalt.netlify.app?devexample=true)
+
 ## 120.2.0 (Aug 8, 2023)
 
 ### Minor
