@@ -8,11 +8,11 @@ import TableOfContentsItem from './TableOfContentsItem.js';
 
 type Props = {|
   /**
-   * String that clients such as VoiceOver will read to describe the element.
+   * String that clients such as VoiceOver will read to describe the element. See [accessibility](https://gestalt.pinterest.systems/web/tableofcontents#Accessibility) section to learn more.
    */
   accessibilityLabel?: string,
   /**
-   * Title for the TableOfContents.
+   * Title for the TableOfContents. See the [title variant](https://gestalt.pinterest.systems/web/tableofcontents#With-title) to learn more.
    */
   title?: string,
   /**

@@ -109,7 +109,7 @@ export default function TableOfContentsPage({
 
       <AccessibilitySection
         name={generatedDocGen?.TableOfContents.displayName}
-        description="Be sure to include an `accessibilityLabel` for the screen reader for each item in the TableOfContents"
+        description="The TableOfContents component is critical in navigating the structure of the application and thus has been assigned the 'navigation' role to improve its accessibility. This role ensures that the component is recognized as a 'landmark' by assistive technologies, such as screen readers. Be sure to include an `accessibilityLabel` for the screen reader for TableOfContents. Consider using meaningful labels to enhance the ease of navigation through the application."
       />
 
       <MainSection name="Subcomponents">
@@ -143,8 +143,8 @@ export default function TableOfContentsPage({
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="With heading"
-          description="A Heading can be added to TableofContents to be more clear about what is being navigated through."
+          title="With title"
+          description="A title can be added to TableofContents to be more clear about what is being navigated through."
         >
           <MainSection.Card
             cardSize="lg"
