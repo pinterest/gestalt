@@ -1,3 +1,9 @@
+## 120.1.0 (Aug 8, 2023)
+
+### Minor
+
+- GlobalEventsHandlerProvider, DatePicker, DateRange, DateField: add `onMount` handlers ([#3122](https://github.com/pinterest/gestalt/pull/3122)) - [Preview link](https://deploy-preview-3122--gestalt.netlify.app?devexample=true)
+
 ## 120.0.2 (Aug 4, 2023)
 
 ### Patch
