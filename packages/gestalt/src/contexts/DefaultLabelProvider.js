@@ -70,6 +70,9 @@ export type DefaultLabelContextType = {|
   Spinner: {|
     accessibilityLabel: string,
   |},
+  TableOfContents: {|
+    accessibilityLabel: string,
+  |},
   Tag: {|
     accessibilityErrorIconLabel: string,
     accessibilityRemoveIconLabel: string,
@@ -163,6 +166,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Spinner: {
     accessibilityLabel: 'Loading',
+  },
+  TableOfContents: {
+    accessibilityLabel: 'Table of contents',
   },
   Tag: {
     accessibilityErrorIconLabel: 'Error',
