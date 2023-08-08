@@ -1,3 +1,9 @@
+## 120.1.1 (Aug 8, 2023)
+
+### Patch
+
+- Docs: RFC GlobalEventsHandlerProvider and providerAuxData ([#3124](https://github.com/pinterest/gestalt/pull/3124)) - [Preview link](https://deploy-preview-3124--gestalt.netlify.app?devexample=true)
+
 ## 120.1.0 (Aug 8, 2023)
 
 ### Minor
