@@ -263,6 +263,13 @@ function InternalDateField({
     }
   }
 
+  const A = {
+    fieldYearPlaceholder: (params) => 'A'.repeat(params.digitAmount),
+    fieldMonthPlaceholder: (params) => (params.contentType === 'letter' ? 'MMMM' : 'MM'),
+    fieldDayPlaceholder: () => 'DD',
+  };
+
+  console.log(locales, localeData);
   return (
     <StyledEngineProvider injectFirst>
       <LocalizationProvider
