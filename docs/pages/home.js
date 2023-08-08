@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Heading, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, Heading, Text } from 'gestalt';
 import IllustrationCard from '../docs-components/IllustrationCard.js';
 import IllustrationSection from '../docs-components/IllustrationSection.js';
 import Page from '../docs-components/Page.js';
@@ -34,7 +34,7 @@ export default function HomePage(): Node {
                   they love
                 </Text>
 
-                <Button text="View road map" role="link" href="/roadmap" />
+                <ButtonLink text="View road map" href="/roadmap" />
               </Flex>
               <Box
                 minWidth="60%"

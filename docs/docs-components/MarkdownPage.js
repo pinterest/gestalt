@@ -3,7 +3,7 @@ import 'highlight.js/styles/a11y-light.css';
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
-import { Box, Button, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
+import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Highlighter from './highlight.js';
 import IllustrationCard from './IllustrationCard.js';
@@ -93,8 +93,7 @@ const components = {
     </Box>
   ),
   ActionButton: ({ children, href }: {| href: string, children: string | null |}) => (
-    <Button
-      role="link"
+    <ButtonLink
       href={href}
       target="blank"
       text={children || ''}

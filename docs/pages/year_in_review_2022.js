@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import Link from 'next/link';
 import {
   Box,
-  Button,
+  ButtonLink,
   ColorSchemeProvider,
   CompositeZIndex,
   FixedZIndex,
@@ -670,7 +670,7 @@ export default function YearInReview2022(): Node {
                     and ride this high into 2023 so we can work some serious, high-level design
                     systems magic. Stay tuned, stay frosty, stay excellent—we’ll see you next year!
                   </Text>
-                  <Button role="link" href="/home" text="Head back to Gestalt" />
+                  <ButtonLink href="/home" text="Head back to Gestalt" />
                 </Flex>
                 <Box margin={2} width="300px">
                   <Lottie animationData={Steps} autoplay={!shouldReduceMotion} />
