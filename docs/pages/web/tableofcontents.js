@@ -180,7 +180,14 @@ Tabs may be used navigate between multiple URLs. Tabs are intended as page-level
 export async function getServerSideProps(): Promise<{|
   props: {| generatedDocGen: {| [string]: DocGen |} |},
 |}> {
+  const docGen = await multipleDocGen(['TableOfContents', 'TableOfContentsItem']);
+
+  docGen.TableOfContents.props.children.flowType.raw = '<Element<typeof TableOfContents.Item>>';
+  docGen.TableOfContentsItem.props.children.flowType.raw = '<Element<typeof TableOfContents.Item>>';
+
   return {
-    props: { generatedDocGen: await multipleDocGen(['TableOfContents', 'TableOfContentsItem']) },
+    props: {
+      generatedDocGen: docGen,
+    },
   };
 }

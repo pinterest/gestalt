@@ -18,7 +18,7 @@ type Props = {|
   /**
    * When set to `true`, it displays the item in "active" state.
    */
-  active?: boolean,
+  active: boolean,
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */

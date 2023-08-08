@@ -15,7 +15,7 @@ describe('TableOfContents', () => {
   it('renders an accessibility label', () => {
     const tree = create(
       <TableOfContents title="Title" accessibilityLabel="Page table of contents">
-        <TableOfContents.Item label="Item" href="#" />
+        <TableOfContents.Item label="Item" href="#" active />
       </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -24,8 +24,8 @@ describe('TableOfContents', () => {
   it('renders without title', () => {
     const tree = create(
       <TableOfContents>
-        <TableOfContents.Item label="Item 1" href="#" />
-        <TableOfContents.Item label="Item 2" href="#" />
+        <TableOfContents.Item label="Item 1" href="#" active />
+        <TableOfContents.Item label="Item 2" href="#" active={false} />
       </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,9 +34,9 @@ describe('TableOfContents', () => {
   it('renders nested items', () => {
     const tree = create(
       <TableOfContents>
-        <TableOfContents.Item label="Item 1" href="#">
-          <TableOfContents.Item label="Subitem 1" href="#" />
-          <TableOfContents.Item label="Subitem 2" href="#" />
+        <TableOfContents.Item label="Item 1" href="#" active={false}>
+          <TableOfContents.Item label="Subitem 1" href="#" active />
+          <TableOfContents.Item label="Subitem 2" href="#" active={false} />
         </TableOfContents.Item>
       </TableOfContents>,
     ).toJSON();

@@ -22,7 +22,7 @@ const NESTING_MARGIN_START_MAP = {
 type Props = {|
   label: string,
   href: string,
-  active?: boolean,
+  active: boolean,
   onClick?: OnTapType,
 |};
 

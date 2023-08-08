@@ -117,7 +117,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box default pill"
+            className="box inverse pill"
             style={
               Object {
                 "minWidth": 4,
@@ -133,7 +133,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
             }
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
               Item
             </div>
@@ -233,7 +233,7 @@ exports[`TableOfContents renders nested items 1`] = `
               className="Flex rowGap0 columnGap0 xsDirectionRow"
             >
               <div
-                className="box default pill"
+                className="box inverse pill"
                 style={
                   Object {
                     "minWidth": 4,
@@ -249,7 +249,7 @@ exports[`TableOfContents renders nested items 1`] = `
                 }
               >
                 <div
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+                  className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
                 >
                   Subitem 1
                 </div>
@@ -349,7 +349,7 @@ exports[`TableOfContents renders without title 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box default pill"
+            className="box inverse pill"
             style={
               Object {
                 "minWidth": 4,
@@ -365,7 +365,7 @@ exports[`TableOfContents renders without title 1`] = `
             }
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
             >
               Item 1
             </div>
