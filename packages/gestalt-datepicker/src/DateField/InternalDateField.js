@@ -17,6 +17,27 @@ const ENTER: number = 13;
 const SPACE: number = 32;
 const TAB: number = 9;
 
+const TRANSLATIONS_MAP = {
+  af: ['J', 'MM', 'DD'],
+  bg: ['Г', 'MM', 'ДД'],
+  'cs-CZ': ['R', 'MM', 'DD'],
+  'da-DK': ['Å', 'MM', 'DD'],
+  es: ['A', 'MM', 'DD'],
+  'fi-FI': ['V', 'KK', 'PP'],
+  hr: ['G', 'MM', 'DD'],
+  it: ['A', 'MM', 'DD'],
+  ja: ['0', '00', '00'],
+  'ms-MY': ['T', 'BB', 'HH'],
+  'nb-NO': ['Å', 'MM', 'DD'],
+  nl: ['J', 'MM', 'DD'],
+  'pl-PL': ['R', 'MM', 'DD'],
+  'pt-PT': ['A', 'MM', 'DD'],
+  'sk-SK': ['R', 'MM', 'DD'],
+  'sv-SE': ['Å', 'MM', 'DD'],
+  'th-TH': ['ป', 'ดด', 'วว'],
+  'uk-UA': ['P', 'MM', 'ДД'],
+};
+
 type CustomTextFieldProps = {|
   disabled: boolean,
   InputProps: {| ref: {| current: ?HTMLElement |} |},
@@ -263,13 +284,17 @@ function InternalDateField({
     }
   }
 
-  const A = {
-    fieldYearPlaceholder: (params) => 'A'.repeat(params.digitAmount),
-    fieldMonthPlaceholder: (params) => (params.contentType === 'letter' ? 'MMMM' : 'MM'),
-    fieldDayPlaceholder: () => 'DD',
-  };
+  const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
 
-  console.log(locales, localeData);
+  if (MAPPED_TRANSLATION) {
+    translations = {
+      fieldYearPlaceholder: (params) => MAPPED_TRANSLATION[0].repeat(params.digitAmount),
+      fieldMonthPlaceholder: (params) =>
+        params.contentType === 'letter' ? 'MMMM' : MAPPED_TRANSLATION[1],
+      fieldDayPlaceholder: () => MAPPED_TRANSLATION[2],
+    };
+  }
+
   return (
     <StyledEngineProvider injectFirst>
       <LocalizationProvider
