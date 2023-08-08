@@ -17,6 +17,7 @@ const ENTER: number = 13;
 const SPACE: number = 32;
 const TAB: number = 9;
 
+// We need this map to provide full locale coverage because @mui/x-date-pickers/locales doesn't have all supported locales
 const TRANSLATIONS_MAP = {
   af: ['J', 'MM', 'DD'],
   bg: ['Г', 'MM', 'ДД'],
