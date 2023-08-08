@@ -54,7 +54,6 @@ export default function YearInReviewBanner(): Node {
                 <Text>We’ve done so much this year and can’t wait to share it with you.</Text>
               </Flex>
             </Flex.Item>
-            {/* $FlowExpectedError[incompatible-type] */}
             <ButtonLink
               href="/year_in_review_2022"
               text="View the recap"
