@@ -72,6 +72,9 @@ describe('useDefaultLabelContext', () => {
           Spinner: {
             accessibilityLabel: 'Loading',
           },
+          TableOfContents: {
+            accessibilityLabel: 'Table of contents',
+          },
           Tag: {
             accessibilityErrorIconLabel: 'Error',
             accessibilityRemoveIconLabel: 'Remove tag',
