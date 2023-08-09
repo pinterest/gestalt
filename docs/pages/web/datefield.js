@@ -192,7 +192,7 @@ import { it } from 'date-fns/locale';
           <CombinationNew localeData={Object.keys(localeMap)} cardSize="xs">
             {({ localeData }) => {
               // eslint-disable-next-line react-hooks/rules-of-hooks
-              const [date, setDate] = useState<Date | null>(new Date());
+              const [date, setDate] = useState<Date | null>(null);
 
               return (
                 <DateField
