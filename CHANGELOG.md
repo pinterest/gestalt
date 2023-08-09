@@ -1,3 +1,9 @@
+## 120.3.1 (Aug 9, 2023)
+
+### Patch
+
+- DateField: fix locales in MM/DD/YYYY format, upgraded package, added unit tests ([#3125](https://github.com/pinterest/gestalt/pull/3125)) - [Preview link](https://deploy-preview-3125--gestalt.netlify.app?devexample=true)
+
 ## 120.3.0 (Aug 8, 2023)
 
 ### Minor
