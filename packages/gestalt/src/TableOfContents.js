@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Box from './Box.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Heading from './Heading.js';
 import styles from './TableOfContents.css';
 import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList.js';
@@ -28,8 +29,15 @@ type Props = {|
  * ![TableOfContents dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents-dark.spec.mjs-snapshots/TableOfContents-dark-chromium-darwin.png)
  */
 export default function TableOfContents({ accessibilityLabel, title, children }: Props): Node {
+  const { accessibilityLabel: accessibilityLabelDefault } =
+    useDefaultLabelContext('TableOfContents');
+
   return (
-    <div role="navigation" aria-label={accessibilityLabel} className={styles.container}>
+    <div
+      role="navigation"
+      aria-label={accessibilityLabel ?? accessibilityLabelDefault}
+      className={styles.container}
+    >
       {title ? (
         <Box paddingX={3} marginBottom={3}>
           <Heading size="400">{title}</Heading>
