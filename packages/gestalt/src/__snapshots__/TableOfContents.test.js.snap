@@ -2,6 +2,7 @@
 
 exports[`TableOfContents renders 1`] = `
 <div
+  aria-label="Table of contents"
   className="container"
   role="navigation"
 >
@@ -147,6 +148,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
 
 exports[`TableOfContents renders nested items 1`] = `
 <div
+  aria-label="Table of contents"
   className="container"
   role="navigation"
 >
@@ -316,6 +318,7 @@ exports[`TableOfContents renders nested items 1`] = `
 
 exports[`TableOfContents renders without title 1`] = `
 <div
+  aria-label="Table of contents"
   className="container"
   role="navigation"
 >
