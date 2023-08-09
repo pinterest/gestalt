@@ -9,8 +9,13 @@ const initialDate = new Date(2018, 11, 14);
 function DatePickerWrap({
   errorMessage,
   localeData,
+  readOnly,
+  disabled,
 }: {|
   errorMessage?: string,
+  disabled?: boolean,
+  readOnly?: boolean,
+
   localeData?: { ... },
 |}) {
   const [date, setDate] = useState<Date | null>(initialDate);
@@ -18,6 +23,7 @@ function DatePickerWrap({
   return (
     <DateField
       id="mainExample"
+      disabled={disabled}
       label="Date of birth"
       helperText="Enter your date of birth"
       onError={() => {}}
@@ -28,6 +34,7 @@ function DatePickerWrap({
       // $FlowExpectedError[prop-missing]
       // $FlowExpectedError[incompatible-exact]
       localeData={localeData}
+      readOnly={readOnly}
       name="test"
     />
   );
@@ -59,6 +66,25 @@ describe('DatePicker', () => {
     fireEvent.click(clearButton);
 
     expect(screen.queryByDisplayValue('12 / 14 / 2018')).not.toBeInTheDocument();
+  });
+
+  it('renders correctly disabled', () => {
+    render(<DatePickerWrap disabled />);
+
+    const textfield = screen.getByDisplayValue('12 / 14 / 2018');
+
+    expect(textfield).toBeInTheDocument();
+    expect(textfield).toBeDisabled();
+    expect(screen.queryByLabelText('Clear date')).not.toBeInTheDocument();
+  });
+
+  it('renders correctly readonly', () => {
+    render(<DatePickerWrap readOnly />);
+
+    const textfield = screen.getByDisplayValue('12 / 14 / 2018');
+    expect(textfield).toBeInTheDocument();
+    expect(textfield).not.toBeDisabled();
+    expect(screen.queryByLabelText('Clear date')).not.toBeInTheDocument();
   });
 
   it('renders correctly with MUI supported locale', () => {
