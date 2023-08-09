@@ -212,6 +212,47 @@ type LocaleData = {|
   |},
 |};
 
+const getTranslationsFromMUIJS: (?LocaleData) => ?{|
+  fieldYearPlaceholder: (params: {| digitAmount: number |}) => string,
+  fieldMonthPlaceholder: (params: {| contentType: string |}) => string,
+  fieldDayPlaceholder: () => string,
+|} = (localeData) => {
+  // converts date-fns localeData.code (e.g. es-EN) from to the format expected by the MUI Locale (esEN)
+  // https://mui.com/x/react-date-pickers/localization/
+  if (localeData && localeData.code) {
+    // turns en-US to enUS
+    const split = localeData.code.split('-');
+    if (split.length === 1) {
+      // turns 'es' into 'enES'
+      split.push(split[0].toUpperCase());
+    }
+    const code = split.join('');
+
+    if (locales[code] !== undefined) {
+      return locales[code].components.MuiLocalizationProvider.defaultProps.localeText;
+    }
+  }
+  return undefined;
+};
+
+const getLocalTranslations: (?LocaleData) => ?{|
+  fieldYearPlaceholder: (params: {| digitAmount: number |}) => string,
+  fieldMonthPlaceholder: (params: {| contentType: string |}) => string,
+  fieldDayPlaceholder: () => string,
+|} = (localeData) => {
+  const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
+
+  if (MAPPED_TRANSLATION) {
+    return {
+      fieldYearPlaceholder: (params) => MAPPED_TRANSLATION[0].repeat(params.digitAmount),
+      fieldMonthPlaceholder: (params) =>
+        params.contentType === 'letter' ? 'MMMM' : MAPPED_TRANSLATION[1],
+      fieldDayPlaceholder: () => MAPPED_TRANSLATION[2],
+    };
+  }
+  return undefined;
+};
+
 type InternalDateFieldProps = {|
   autoComplete?: 'bday' | 'off',
   disabled?: boolean,
@@ -267,33 +308,10 @@ function InternalDateField({
   readOnly = false,
   value,
 }: InternalDateFieldProps): Node {
-  let translations;
+  let translations = getTranslationsFromMUIJS(localeData);
 
-  // converts date-fns localeData.code (e.g. es-EN) from to the format expected by the MUI Locale (esEN)
-  // https://mui.com/x/react-date-pickers/localization/
-  if (localeData && localeData.code) {
-    // turns en-US to enUS
-    const split = localeData.code.split('-');
-    if (split.length === 1) {
-      // turns 'es' into 'enES'
-      split.push(split[0].toUpperCase());
-    }
-    const code = split.join('');
-
-    if (locales[code] !== undefined) {
-      translations = locales[code].components.MuiLocalizationProvider.defaultProps.localeText;
-    }
-  }
-
-  const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
-
-  if (MAPPED_TRANSLATION) {
-    translations = {
-      fieldYearPlaceholder: (params) => MAPPED_TRANSLATION[0].repeat(params.digitAmount),
-      fieldMonthPlaceholder: (params) =>
-        params.contentType === 'letter' ? 'MMMM' : MAPPED_TRANSLATION[1],
-      fieldDayPlaceholder: () => MAPPED_TRANSLATION[2],
-    };
+  if (!translations) {
+    translations = getLocalTranslations(localeData);
   }
 
   return (
