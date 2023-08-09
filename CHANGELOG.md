@@ -1,3 +1,9 @@
+## 120.3.2 (Aug 9, 2023)
+
+### Patch
+
+- TableOfContents: Add default label ([#3126](https://github.com/pinterest/gestalt/pull/3126)) - [Preview link](https://deploy-preview-3126--gestalt.netlify.app?devexample=true)
+
 ## 120.3.1 (Aug 9, 2023)
 
 ### Patch
