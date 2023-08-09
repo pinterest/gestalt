@@ -1,6 +1,6 @@
 // @flow strict-local
 import { useState } from 'react';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { af, hu } from 'date-fns/locale';
 import DateField from './DateField.js';
 
