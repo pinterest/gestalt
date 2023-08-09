@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node, useState } from 'react';
 import {
   af,
   arSA,
@@ -38,9 +38,9 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
-import { Box, SlimBanner } from 'gestalt';
+import { SlimBanner } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
-import Combination from '../../docs-components/Combination.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -91,7 +91,7 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -161,32 +161,59 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
+        <MainSection.Subsection
+          badge="experimental"
+          title="External handlers"
+          description={`DateField consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+`}
+        />
       </MainSection>
-      <Combination
-        id="localeData"
+
+      <MainSection
         name="Supporting locales"
-        layout="4column"
-        localeDataCode={Object.keys(localeMap)}
+        description={`DateField supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
+
+IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
+
+~~~jsx
+import { DateField } from 'gestalt-datepicker';
+import { it } from 'date-fns/locale';
+<DateField localeData={it}/>
+~~~
+`}
       >
-        {({ localeDataCode }) => (
-          <Box width="100%" height="100%" color="default">
-            <DateField
-              id={`localeExample:${localeMap[localeDataCode].lang}`}
-              label={localeMap[localeDataCode].lang}
-              onChange={() => {}}
-              onClearInput={() => {}}
-              value={null}
-              name={localeMap[localeDataCode].lang}
-              localeData={localeMap[localeDataCode].localeData}
-            />
-          </Box>
-        )}
-      </Combination>
+        <MainSection.Subsection>
+          <CombinationNew localeData={Object.keys(localeMap)} cardSize="xs">
+            {({ localeData }) => {
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              const [date, setDate] = useState<Date | null>(null);
+
+              return (
+                <DateField
+                  id={`localeExample:${localeMap[localeData].lang}`}
+                  label={localeMap[localeData].lang}
+                  onChange={({ value }) => setDate(value)}
+                  onClearInput={() => setDate(null)}
+                  value={date}
+                  name={localeMap[localeData].lang}
+                  localeData={localeMap[localeData].localeData}
+                />
+              );
+            }}
+          </CombinationNew>
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[DatePicker](/DatePicker)**
+**[DatePicker](/DatePicker)**
 Use DatePicker if the user is allowed to pick a date from a calendar popup.
     `}
         />

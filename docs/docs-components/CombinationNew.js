@@ -50,6 +50,7 @@ type Props = {
   children: (props: { [key: string]: any, ... }, index?: number) => Node,
   hideTitle?: boolean,
   hasCheckerboard?: boolean,
+  cardSize?: 'xs',
   ...
 };
 
@@ -57,6 +58,7 @@ export default function CombinationNew({
   children,
   hideTitle,
   hasCheckerboard,
+  cardSize,
   ...props
 }: Props): Node {
   const CardArray = combinations(props).map((combination, i) => {
@@ -79,7 +81,7 @@ export default function CombinationNew({
     return (
       <MainSectionCard
         key={JSON.stringify(combination)}
-        cardSize="sm"
+        cardSize={cardSize || 'sm'}
         shadeColor={cardShadeColor}
         title={hideTitle ? undefined : combinationTitles}
       >
@@ -91,13 +93,7 @@ export default function CombinationNew({
     );
   });
   return (
-    <Flex
-      wrap
-      gap={{
-        row: 4,
-        column: 0,
-      }}
-    >
+    <Flex wrap gap={4}>
       {CardArray}
     </Flex>
   );

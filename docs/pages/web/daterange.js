@@ -277,10 +277,36 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Supporting locales"
-          description="DateRange supports multiple locales. Use the Dropdown to try out different locales by passing in the `localeData` prop.
-"
-        >
+          badge="experimental"
+          title="External handlers"
+          description={`DateRange consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+`}
+        />
+      </MainSection>
+
+      <MainSection
+        name="Supporting locales"
+        description={`DateRange supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
+
+
+
+IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
+
+~~~jsx
+import { DateRange } from 'gestalt-datepicker';
+import { it } from 'date-fns/locale';
+<DateRange localeData={it}/>
+~~~
+
+Use the Dropdown to try out different locales by passing in the \`localeData\` prop.`}
+      >
+        <MainSection.Subsection>
           <Flex gap={4} direction="row" wrap>
             <Flex.Item flex="none">
               <SelectList
@@ -312,6 +338,7 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
           </Flex>
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection
         name="Mobile"
         description={`

@@ -160,13 +160,15 @@ export function getPopoverDir({
   const skipNoEdgeCondition =
     isScrollBoundaryContainer && (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
 
-  if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
+  const maybeEdgeCondition = idealDirection !== 'forceDown' && !skipNoEdgeCondition;
+
+  if (maybeEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
     right = 0;
   }
 
   // LEFT or RIGHT: trigger is too close to the left/right of screen for up & down popovers\
-  if (!skipNoEdgeCondition && (nonLeftEdge || nonRightEdge)) {
+  if (maybeEdgeCondition && (nonLeftEdge || nonRightEdge)) {
     up = 0;
     down = 0;
   }
@@ -174,21 +176,25 @@ export function getPopoverDir({
   // Choose the main direction for the popover based on available spaces & user preference
   const spaces = [up, right, down, left];
 
-  let popoverDir;
-
-  if (idealDirection && spaces[DIR_INDEX_MAP[idealDirection]] > 0) {
-    // user pref
-    popoverDir = idealDirection;
-  } else {
-    const noAvailableSpaceCondition = up <= 0 && right <= 0 && down <= 0 && left <= 0;
-
-    // Identify best direction of available spaces
-    const max = Math.max(...spaces);
-    // If no direction pref, chose the direction in which there is the most space available
-    popoverDir = noAvailableSpaceCondition ? 'down' : SPACES_INDEX_MAP[spaces.indexOf(max)];
+  if (idealDirection && idealDirection === 'forceDown') {
+    return 'down';
   }
 
-  return popoverDir;
+  if (
+    idealDirection &&
+    idealDirection !== 'forceDown' &&
+    spaces[DIR_INDEX_MAP[idealDirection]] > 0
+  ) {
+    // user pref
+    return idealDirection;
+  }
+
+  const noAvailableSpaceCondition = up <= 0 && right <= 0 && down <= 0 && left <= 0;
+
+  // Identify best direction of available spaces
+  const max = Math.max(...spaces);
+  // If no direction pref, chose the direction in which there is the most space available
+  return noAvailableSpaceCondition ? 'down' : SPACES_INDEX_MAP[spaces.indexOf(max)];
 }
 
 /**

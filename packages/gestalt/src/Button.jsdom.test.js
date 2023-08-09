@@ -136,4 +136,25 @@ describe('Button', () => {
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
   });
+
+  it('renders with data-test-id', () => {
+    const TEST_ID = 'button-test-123';
+    render(
+      <Button
+        dataTestId={TEST_ID}
+        iconEnd="visit"
+        size="lg"
+        text="Visit Pinterest"
+        role="link"
+        rel="nofollow"
+        target="blank"
+        href="#"
+      />,
+    );
+    expect(
+      screen.getByTestId(TEST_ID, {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
 });

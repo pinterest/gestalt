@@ -1,5 +1,6 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node, useEffect } from 'react';
+import { useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
@@ -158,6 +159,14 @@ function DateField({
   readOnly = false,
   value,
 }: Props): Node {
+  const { dateFieldHandlers } = useGlobalEventsHandler() || {
+    dateFieldHandlers: undefined,
+  };
+
+  useEffect(() => {
+    if (dateFieldHandlers?.onMount) dateFieldHandlers?.onMount();
+  }, [dateFieldHandlers]);
+
   return (
     <InternalDateField
       autoComplete={autoComplete}

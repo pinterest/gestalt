@@ -38,10 +38,9 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
-import { Box } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import Combination from '../../docs-components/Combination.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -98,10 +97,9 @@ const localeMap = {
   'zh-CN': { localeData: zhCN, lang: 'Chinese (Simplified)' },
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
-const PREVIEW_HEIGHT = 420;
-const PREVIEW_HEIGHT_HELPERTEXT = 450;
+const PREVIEW_HEIGHT = 480;
 
-export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DatePicker">
       <PageHeader name="DatePicker" description={generatedDocGen?.description}>
@@ -140,9 +138,20 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <MainSection.Subsection columns={2} title="Controlled component">
+        <MainSection.Subsection
+          columns={2}
+          title="Controlled component"
+          description={`
+DatePicker is a controlled component. Use \`value\`, \`onChange\`, \`onClearInput\` and \`onError\` to implement it correctly.
+
+DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "undefined", it stays uncontrolled.
+        `}
+        >
           <MainSection.Card
             title="Empty input"
+            description={`
+If DatePicker doesn't present pre-selected date values, initialize \`value\` with "null" so the component is controlled.
+`}
             sandpackExample={
               <SandpackExample
                 code={controlled}
@@ -154,6 +163,9 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
           <MainSection.Card
             title="Pre-selected date values"
+            description={`
+If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
+`}
             sandpackExample={
               <SandpackExample
                 code={preselected}
@@ -164,7 +176,6 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection columns={2} title="States">
           <MainSection.Card
             title="Disabled"
@@ -190,7 +201,6 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection title="Helper text">
           <MainSection.Card
             sandpackExample={
@@ -202,7 +212,6 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection title="Date range">
           <MainSection.Card
             sandpackExample={
@@ -215,7 +224,6 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection
           title="Disabled dates"
           description="DatePicker supports disabling future & past dates as well as an array of selected dates."
@@ -226,7 +234,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={disable}
                 name="disable variant"
-                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+                previewHeight={PREVIEW_HEIGHT}
                 layout="column"
               />
             }
@@ -237,12 +245,11 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={disableSelected}
                 name="disable selected variant"
-                previewHeight={PREVIEW_HEIGHT_HELPERTEXT}
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection
           columns={2}
           title="Select list"
@@ -254,63 +261,73 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
               <SandpackExample
                 code={selectLists}
                 name="selectLists example"
-                previewHeight={PREVIEW_HEIGHT_HELPERTEXT + 100}
+                previewHeight={PREVIEW_HEIGHT + 100}
               />
             }
           />
         </MainSection.Subsection>
-
-        <Combination
-          id="idealDirection"
-          name="Ideal Direction"
+        <MainSection.Subsection
           description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
-          layout="4column"
-          idealDirection={['down', 'left', 'right', 'up']}
+          title="Ideal Direction"
         >
-          {({ idealDirection }) => (
-            <DatePicker
-              id={`example-idealDirection-${idealDirection}`}
-              label={`Direction ${idealDirection}`}
-              onChange={() => {}}
-              idealDirection={idealDirection}
-            />
-          )}
-        </Combination>
+          <CombinationNew idealDirection={['down', 'left', 'right', 'up']}>
+            {({ idealDirection }) => (
+              <DatePicker
+                id={`example-idealDirection-${idealDirection}`}
+                label={`Direction ${idealDirection}`}
+                onChange={() => {}}
+                idealDirection={idealDirection}
+              />
+            )}
+          </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          badge="experimental"
+          title="External handlers"
+          description={`DatePicker consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
-        <Combination
-          id="localeData"
-          name="Supporting locales"
-          description="
-Adjust the date format to each date-fns locale (https://date-fns.org/v2.14.0/docs/Locale).
+Handlers:
+
+- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+`}
+        />
+      </MainSection>
+      <MainSection
+        name="Supporting locales"
+        description={`DatePicker supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
+
 The following locale examples show the different locale format variants.
+
 IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
+
 ~~~jsx
 import { DatePicker } from 'gestalt-datepicker';
 import { it } from 'date-fns/locale';
 <DatePicker localeData={it}/>
 ~~~
-  "
-          layout="4column"
-          localeDataCode={Object.keys(localeMap)}
-        >
-          {({ localeDataCode }) => {
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const [date, setDate] = useState<Date | null>(new Date());
+`}
+      >
+        <MainSection.Subsection>
+          <CombinationNew localeData={Object.keys(localeMap)} cardSize="xs">
+            {({ localeData }) => {
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              const [date, setDate] = useState<Date | null>(new Date());
 
-            return (
-              <Box width="100%" height="100%" color="default">
+              return (
                 <DatePicker
-                  id={`example-${localeDataCode}`}
-                  label={localeMap[localeDataCode].lang}
+                  id={`example-${localeData}`}
+                  label={localeMap[localeData].lang}
                   onChange={({ value }) => setDate(value)}
                   value={date}
-                  localeData={localeMap[localeDataCode].localeData}
+                  localeData={localeMap[localeData].localeData}
                   selectLists={['month']}
                 />
-              </Box>
-            );
-          }}
-        </Combination>
+              );
+            }}
+          </CombinationNew>
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

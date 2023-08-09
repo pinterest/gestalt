@@ -229,7 +229,7 @@
       "task": "Mobile Badge component",
       "deadline": "",
       "status": "inProgress",
-      "platforms": ["Android"],
+      "platforms": ["Android", "iOS"],
       "description": "Development of a mobile-specific treatment of the Badge component with respective documentation.",
       "link": ""
     },
@@ -287,6 +287,110 @@
       "status": "unstarted",
       "platforms": ["Android"],
       "description": "Development of a mobile-specific treatment of the AvatarGroup component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Text component",
+      "deadline": "",
+      "status": "inProgress",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the AvatarGroup component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Checkbox component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the Checkbox component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Switch component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the Switch component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Avatar component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the Avatar component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Tabs component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the Tabs component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Button component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the Button component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile Toast component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the Toast component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile IconButton component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the IconButton component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile SearchField component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the SearchField component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile TextField component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the TextField component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile TextArea component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the TextArea component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile ButtonGroup component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the ButtonGroup component along with respective documentation.",
+      "link": ""
+    },
+    {
+      "task": "Mobile IconButtonFloating component",
+      "deadline": "",
+      "status": "unstarted",
+      "platforms": ["iOS"],
+      "description": "Development of a mobile-specific treatment of the IconButtonFloating component along with respective documentation.",
       "link": ""
     }
   ]

@@ -1,6 +1,6 @@
 // @flow strict
 
-export type MainDirections = 'up' | 'right' | 'down' | 'left';
+export type MainDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
 export type PopoverDir = ?MainDirections;
 

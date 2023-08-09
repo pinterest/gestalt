@@ -7,6 +7,7 @@ import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
 import ButtonGroup from './ButtonGroup.js';
+import ButtonLink from './ButtonLink.js';
 import Callout from './Callout.js';
 import Checkbox from './Checkbox.js';
 import Collage from './Collage.js';
@@ -17,7 +18,9 @@ import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvi
 import DefaultLabelProvider, { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider, { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import ExperimentProvider from './contexts/ExperimentProvider.js';
-import GlobalEventsHandlerProvider from './contexts/GlobalEventsHandlerProvider.js';
+import GlobalEventsHandlerProvider, {
+  useGlobalEventsHandlerContext,
+} from './contexts/GlobalEventsHandlerProvider.js';
 import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
@@ -61,6 +64,7 @@ import Status from './Status.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
+import TableOfContents from './TableOfContents.js';
 import Tabs from './Tabs.js';
 import Tag from './Tag.js';
 import TagData from './TagData.js';
@@ -86,6 +90,7 @@ export {
   Box,
   Button,
   ButtonGroup,
+  ButtonLink,
   Callout,
   Checkbox,
   Collage,
@@ -142,6 +147,7 @@ export {
   Sticky,
   Switch,
   Table,
+  TableOfContents,
   Tabs,
   Tag,
   TagData,
@@ -157,6 +163,7 @@ export {
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
   useFocusVisible,
+  useGlobalEventsHandlerContext as useGlobalEventsHandler,
   useReducedMotion,
   Video,
   WashAnimated,

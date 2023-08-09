@@ -13,7 +13,7 @@ import Markdown from './Markdown.js';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
 type Props = {|
-  cardSize?: 'sm' | 'md' | 'lg',
+  cardSize?: 'xs' | 'sm' | 'md' | 'lg',
   children?: Node,
   defaultCode?: string,
   description?: string,
@@ -32,6 +32,7 @@ type PreviewCardProps = {|
 |};
 
 const CARD_SIZE_NAME_TO_PIXEL = {
+  xs: 90,
   sm: 236,
   md: 362,
   lg: '100%',
@@ -72,12 +73,12 @@ function MainSectionCard({
     ({ children: cardChildren }: PreviewCardProps) => (
       <Box
         alignItems="center"
-        borderStyle="sm"
+        borderStyle={cardSize === 'xs' ? 'none' : 'sm'}
         color={cardShadeColor}
         display="flex"
-        height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+        height={cardSize === 'xs' ? 80 : CARD_SIZE_NAME_TO_PIXEL[cardSize]}
         justifyContent="center"
-        padding={8}
+        padding={cardSize === 'xs' ? 1 : 8}
         position="relative"
         rounding={2}
       >
@@ -117,11 +118,17 @@ function MainSectionCard({
     </Box>
   );
 
+  let marginBotton = 12;
+  if (marginBottom === 'none') {
+    marginBotton = 0;
+  }
+
+  if (cardSize === 'xs') {
+    marginBotton = 4;
+  }
+
   return (
-    <Box
-      minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      marginBottom={marginBottom === 'none' ? 0 : 12}
-    >
+    <Box minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginBottom={marginBotton}>
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
       {Boolean(children) && <PreviewCard>{children}</PreviewCard>}

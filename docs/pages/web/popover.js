@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={400} />
+        <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={600} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

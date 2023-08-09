@@ -25,6 +25,7 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
  */
 
 type FourDirections = 'up' | 'right' | 'down' | 'left';
+type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
 type TapAreaEventHandlerType = AbstractEventHandler<
   | React.MouseEvent<HTMLDivElement>
@@ -1012,6 +1013,7 @@ interface CommonIconButtonProps {
     | 'red'
     | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
+  dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
@@ -1411,7 +1413,7 @@ interface PopoverProps {
   children?: Node | undefined;
   color?: 'deprecatedBlue' | 'red' | 'white' | 'darkGray' | undefined;
   id?: string | undefined;
-  idealDirection?: FourDirections | undefined;
+  idealDirection?: PopoverDirections | undefined;
   onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLElement>>;
   positionRelativeToAnchor?: boolean | undefined;
   role?: 'dialog' | 'listbox' | 'menu' | 'tooltip' | undefined;
@@ -2383,7 +2385,7 @@ export const Letterbox: React.FunctionComponent<LetterboxProps>;
  */
 export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
 
-export interface ListSubCmoponents {
+export interface ListSubComponents {
   Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
 }
 
@@ -2392,7 +2394,7 @@ export interface ListSubCmoponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/list#List.Itemt
  */
-export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubCmoponents;
+export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/mask
@@ -2600,6 +2602,30 @@ export interface TableSubComponents {
  * https://gestalt.pinterest.systems/web/table#Table.Header
  */
 export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
+
+
+interface TableOfContentsItemProps {
+  label: string,
+  href: string,
+  active?: boolean,
+  onClick?: TapAreaEventHandlerType,
+  children?: Node,
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/tableofcontents
+ */
+export interface TableOfContentsProps {
+  accessibilityLabel?: string,
+  title?: string,
+  children: Node
+}
+
+export interface TableOfContentsSubComponents {
+  Item: React.FunctionComponent<React.PropsWithChildren<TableOfContentsItemProps>>;
+}
+
+export const TableOfContents: React.FunctionComponent<TableOfContentsProps> & TableOfContentsSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/tabs
