@@ -1,3 +1,9 @@
+## 120.5.0 (Aug 11, 2023)
+
+### Minor
+
+- IconButton: add `name` prop ([#3131](https://github.com/pinterest/gestalt/pull/3131)) - [Preview link](https://deploy-preview-3131--gestalt.netlify.app?devexample=true)
+
 ## 120.4.0 (Aug 11, 2023)
 
 ### Minor
