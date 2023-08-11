@@ -6,7 +6,7 @@ export default function Example(): Node {
   const { hash } = window.location;
 
   return (
-    <Box padding={8} width="340px">
+    <Box padding={8} display="flex" justifyContent="center">
       <TableOfContents title="Title">
         <TableOfContents.Item label="Level 1" href="#level-1" active={hash === '#level-1'}>
           <TableOfContents.Item label="Level 2" href="#level-2" active={hash === '#level-2'}>
