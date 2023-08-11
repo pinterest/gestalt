@@ -404,7 +404,7 @@ interface DefaultLabelProviderProps {
           accessibilityRemoveIconLabel: string;
           accessibilityWarningIconLabel: string;
         };
-        TagData:{
+        TagData: {
           accessibilityRemoveIconLabel: string;
         };
         TextField: {
@@ -1040,6 +1040,7 @@ interface IconButtonButtonProps extends CommonIconButtonProps {
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
+  name?: string;
   selected?: boolean | undefined;
 }
 
@@ -1871,26 +1872,26 @@ interface TagProps {
 
 interface TagDataProps {
   accessibilityRemoveIconLabel?: string | undefined;
-  baseColor?: 'primary' | 'secondary'
-  color?: DataVisualizationColors,
-  disabled?: boolean,
-  id?: string,
-  onTap?: | AbstractEventHandler<
-  | React.MouseEvent<HTMLDivElement>
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>,
-  { selected: boolean; id?: string | undefined }
->
-| undefined,
-onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>,
-selected?: boolean,
-size?: 'sm' | 'md' | 'lg',
-showCheckbox?: boolean,
-text: string,
-tooltip?: TooltipProps,
+  baseColor?: 'primary' | 'secondary';
+  color?: DataVisualizationColors;
+  disabled?: boolean;
+  id?: string;
+  onTap?:
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
+  onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>;
+  selected?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  showCheckbox?: boolean;
+  text: string;
+  tooltip?: TooltipProps;
 }
-
 
 interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;

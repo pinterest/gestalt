@@ -64,6 +64,7 @@ type IconButtonType = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityPopupRole?: 'menu' | 'dialog',
+  name?: string,
   role?: 'button',
   selected?: boolean,
   type?: 'submit' | 'button',
@@ -231,6 +232,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
       accessibilityExpanded,
       accessibilityHaspopup,
       accessibilityPopupRole,
+      name,
       selected,
       type,
     } = props;
@@ -243,6 +245,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
         className={classnames(styles.parentButton)}
         data-test-id={dataTestId}
         disabled={disabled}
+        name={name}
         onBlur={() => {
           handleBlur();
           handleOnBlur();
