@@ -1040,6 +1040,7 @@ interface IconButtonButtonProps extends CommonIconButtonProps {
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
+  name?: string;
   selected?: boolean | undefined;
 }
 
