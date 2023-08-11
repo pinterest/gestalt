@@ -6,7 +6,7 @@ export default function Example(): Node {
   const { hash } = window.location;
 
   return (
-    <Box padding={8} width="340px">
+    <Box padding={8} display="flex" justifyContent="center">
       <TableOfContents title="Promotions">
         <TableOfContents.Item
           label="Active coupons"
