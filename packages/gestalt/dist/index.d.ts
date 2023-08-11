@@ -1338,7 +1338,7 @@ interface OverlayPanelDismissingElementProps {
 interface PageHeaderAction {
   component:
     | React.ReactElement<
-        typeof Button | typeof IconButton | typeof Link | typeof Tooltip | typeof Text
+        typeof Button | typeof ButtonLink | typeof IconButton | typeof Link | typeof Tooltip | typeof Text
       >
     | undefined;
   dropdownItems:
@@ -2237,6 +2237,11 @@ export const Box: ReactForwardRef<HTMLDivElement, BoxProps>;
  * https://gestalt.pinterest.systems/web/button
  */
 export const Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/buttonlink
+ */
+export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/buttongroup
