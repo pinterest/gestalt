@@ -1,3 +1,9 @@
+## 120.3.3 (Aug 11, 2023)
+
+### Patch
+
+- Docs: Fix layout of TableOfContents examples ([#3130](https://github.com/pinterest/gestalt/pull/3130)) - [Preview link](https://deploy-preview-3130--gestalt.netlify.app?devexample=true)
+
 ## 120.3.2 (Aug 9, 2023)
 
 ### Patch
