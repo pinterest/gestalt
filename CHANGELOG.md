@@ -1,3 +1,9 @@
+## 120.4.0 (Aug 11, 2023)
+
+### Minor
+
+- ButtonLink: PageHeader fix ([#3129](https://github.com/pinterest/gestalt/pull/3129)) - [Preview link](https://deploy-preview-3129--gestalt.netlify.app?devexample=true)
+
 ## 120.3.3 (Aug 11, 2023)
 
 ### Patch
