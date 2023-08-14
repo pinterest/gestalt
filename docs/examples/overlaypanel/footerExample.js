@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node, useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -7,9 +7,11 @@ import {
   Fieldset,
   FixedZIndex,
   Flex,
+  IconButton,
   Layer,
   Module,
   OverlayPanel,
+  PopoverEducational,
   RadioButton,
   Text,
 } from 'gestalt';
@@ -18,14 +20,33 @@ export default function Example(): Node {
   const [showComponent, setShowComponent] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+  const [open, setOpen] = useState(true);
+  const ref = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setOpen(true);
+  }, []);
 
   const footer = (
     <OverlayPanel.DismissingElement>
       {({ onDismissStart }) => (
-        <Flex alignItems="center" justifyContent="between">
-          <Button color="transparent" text="Delete" />
-          <Button color="red" text="Apply changes" onClick={onDismissStart} />
-        </Flex>
+        <Box>
+          <Flex alignItems="center" justifyContent="between">
+            <IconButton ref={ref} accessibilityLabel="Edit" icon="ellipsis" size="md" selected />
+            <Button color="red" text="Create" onClick={onDismissStart} />
+          </Flex>
+          {open && (
+            <PopoverEducational
+              accessibilityLabel={`Description of new "More ideas" feature`}
+              id="popover-primary-action"
+              idealDirection="up"
+              anchor={ref.current}
+              onDismiss={() => {}}
+              message="More editing options for your ads"
+              primaryAction={{ text: 'Next' }}
+            />
+          )}
+        </Box>
       )}
     </OverlayPanel.DismissingElement>
   );
