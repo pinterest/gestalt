@@ -3,6 +3,60 @@
     "year": "2023",
     "digests": [
       {
+        "week": "August 11, 2023",
+        "summary": "New components and Figma updates, plus a very special announcement",
+        "posts": [
+          {
+            "title": "Generate Tables easily in Figma",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/3a/f7/ce/3af7ce2f057bd15a4f4c8a31aa21a303.png",
+            "imageAltText": "Screenshot of the plug-in that shows how to creat a Table.",
+            "content": "We have added the ability to quickly create a Table in Figma via our [Pinterest Design plug-in](http://pinch.pinadmin.com/pinterest-design-plugin)"
+          },
+          {
+            "title": "Navigation for long pages and forms",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/c8/7d/61/c87d61b371b71bb1ce5f591e85eec195.png",
+            "imageAltText": "Example of the TableofContents component with a task list to navigate through.",
+            "content": "Our [TableofContents](https://gestalt.pinterest.systems/web/tableofcontents) component offers a simple way to jump between sections of a page or a long form. It has been available in Figma for a while, and is now in our codebase and ready to go."
+          },
+          {
+            "title": "Link via a button",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ed/08/9b/ed089b9da654ee4eb2fe3a87fade8d3a.png",
+            "imageAltText": "A primary button with text and a visit link icon.",
+            "content": "Sometimes you want to use a stronger affordance to let people visit a helpful page or something. Now you can with [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink). It allows developers to use a button as a link without going through any extra work."
+          },
+          {
+            "title": "Figma Module component fixes",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/9f/11/03/9f110366d82bad1caba83d9a7d941f79.png",
+            "imageAltText": "A Module with a panel showing that a max width has been added.",
+            "content": "Our Figma component was having issues with text alignment. That has been fixed, and we've also added a max width to be more consistent with code and help with alignment.\n \n[Go to the Figma Module component](http://pinch.pinadmin.com/module)"
+          },
+          {
+            "title": "Figma Popover update",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/89/5f/0a/895f0aa27d1f0cfdcf8d3de769b66b26.png",
+            "imageAltText": "A popover with the caret being cut off by a pair of scissors.",
+            "content": "The caret was removed from the Popover to be consistent with our web codebase. It also means you can now place the popover without having to worry about moving the caret around. Win win!\n \n[Go to the Figma Popover component](http://pinch.pinadmin.com/popover)"
+          },
+          {
+            "title": "Save the Date! October 20 means Design Systems Day!",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/b8/21/86/b8218609b9b2558b5c70230424f749eb.png",
+            "imageAltText": "A calendar icon with the Gestalt logo in the middle of it, surrounded by circle and square ornaments.",
+            "content": "Save the Date! October 20 means Design Systems Day!* \nWe are planning this year's Design Systems Day and can't wait to share all the details. We'll keep you posted as things are in finalized. It's going to be fabulous!"
+          }
+        ]
+      },
+      {
         "month": "July",
         "summary": "",
         "posts": [
