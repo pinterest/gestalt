@@ -11,7 +11,7 @@ function isNotNullish(val: ?number): boolean {
 }
 
 type As = 'span' | 'div';
-type Overflow = 'normal' | 'breakWord' | 'breakAll' | 'noWrap';
+type Overflow = 'normal' | 'breakAll' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
