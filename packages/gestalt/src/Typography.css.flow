@@ -8,6 +8,7 @@ declare module.exports: {|
   +'alignJustify': string,
   +'alignStart': string,
   +'antialiased': string,
+  +'breakAll': string,
   +'breakWord': string,
   +'fontSize100': string,
   +'fontSize200': string,

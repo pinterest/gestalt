@@ -22,6 +22,14 @@ export default function Example(): Node {
           </Text>
         </Box>
 
+        <Text>breakAll:</Text>
+        <Box color="secondary" padding={2} rounding={2}>
+          <Text overflow="breakAll">
+            This is a long and Supercalifragilisticexpialidocious sentence.
+            次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+          </Text>
+        </Box>
+
         <Text>lineClamp:</Text>
         <Box color="secondary" padding={2} rounding={2}>
           <Text lineClamp={2}>
