@@ -49,7 +49,7 @@ exports[`Modal Desktop Modal renders 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
               style="height: 100%;"
             >
               Modal content
