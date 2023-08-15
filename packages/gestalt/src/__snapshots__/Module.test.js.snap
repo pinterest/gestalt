@@ -23,7 +23,7 @@ exports[`Module renders a badge correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -112,7 +112,7 @@ exports[`Module renders a title correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -177,7 +177,7 @@ exports[`Module renders an error correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -226,7 +226,7 @@ exports[`Module renders an icon button correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -351,7 +351,7 @@ exports[`Module renders an icon correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
             style={
               Object {
                 "WebkitLineClamp": 1,

@@ -8,7 +8,7 @@ exports[`Text error adds the error color class 1`] = `
 
 exports[`Text lineClamp should add a title when the children are text only 1`] = `
 <div
-  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
+  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
   style={
     Object {
       "WebkitLineClamp": 1,
@@ -22,7 +22,7 @@ exports[`Text lineClamp should add a title when the children are text only 1`] =
 
 exports[`Text lineClamp should not add a title when the children are objects 1`] = `
 <div
-  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
+  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
   style={
     Object {
       "WebkitLineClamp": 1,

@@ -26,7 +26,7 @@ exports[`Tag clips long strings 1`] = `
       title="The quick brown fox jumps over the lazy dog"
     >
       <span
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
         style={
           Object {
             "WebkitLineClamp": 1,
@@ -90,7 +90,7 @@ exports[`Tag renders 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
         style={
           Object {
             "WebkitLineClamp": 1,
@@ -155,7 +155,7 @@ exports[`Tag renders a disabled tag 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp breakWord"
         style={
           Object {
             "WebkitLineClamp": 1,
@@ -213,7 +213,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp breakWord"
         style={
           Object {
             "WebkitLineClamp": 1,
@@ -291,7 +291,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       title="New"
     >
       <span
-        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp breakWord"
         style={
           Object {
             "WebkitLineClamp": 1,

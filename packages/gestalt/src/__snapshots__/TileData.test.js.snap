@@ -86,7 +86,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -235,7 +235,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -384,7 +384,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -533,7 +533,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -682,7 +682,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -831,7 +831,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -980,7 +980,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1129,7 +1129,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1278,7 +1278,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1427,7 +1427,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1576,7 +1576,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1725,7 +1725,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1875,7 +1875,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                           style={
                             Object {
                               "WebkitLineClamp": 2,
@@ -2029,7 +2029,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -2231,7 +2231,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -2433,7 +2433,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -2636,7 +2636,7 @@ exports[`TileData TileData title truncates when really long 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                           style={
                             Object {
                               "WebkitLineClamp": 2,
@@ -2768,7 +2768,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp breakWord"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -2957,7 +2957,7 @@ exports[`TileData renders 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                       style={
                         Object {
                           "WebkitLineClamp": 2,

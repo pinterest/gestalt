@@ -216,7 +216,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                   role="presentation"
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
                     style={
                       Object {
                         "WebkitLineClamp": 2,
@@ -541,7 +541,7 @@ exports[`SideNavigation renders Sections 1`] = `
                   role="presentation"
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
                     style={
                       Object {
                         "WebkitLineClamp": 2,
@@ -925,7 +925,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                   role="presentation"
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
                     style={
                       Object {
                         "WebkitLineClamp": 2,

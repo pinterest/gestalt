@@ -365,7 +365,7 @@ exports[`TextField TextField with tags 1`] = `
               title="a@pinterest.com"
             >
               <span
-                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                 style={
                   Object {
                     "WebkitLineClamp": 1,
@@ -430,7 +430,7 @@ exports[`TextField TextField with tags 1`] = `
               title="b@pinterest.com"
             >
               <span
-                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                 style={
                   Object {
                     "WebkitLineClamp": 1,
@@ -495,7 +495,7 @@ exports[`TextField TextField with tags 1`] = `
               title="c@pinterest.com"
             >
               <span
-                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp breakWord"
                 style={
                   Object {
                     "WebkitLineClamp": 1,
