@@ -1619,7 +1619,7 @@ interface SideNavigationProps {
   footer?: Node | undefined;
   header?: Node | undefined;
   showBorder?: boolean | undefined;
-  title?: string | undefined;
+  mobileTitle?: string | undefined;
 }
 
 interface SideNavigationSectionProps {
