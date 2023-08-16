@@ -166,7 +166,7 @@ export default function Toc({ cards }: Props): Node {
     [],
   );
 
-  const items: $ReadOnlyArray<ToCItem> = useMemo(() => {
+  const items = useMemo(() => {
     const result: Array<ToCItem> = [];
 
     anchors.reduce((accumulated, anchor, i) => {
