@@ -30,25 +30,30 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
+  /**
+   * Ref that is forwarded to the underlying `li` element.
+   */
+  ref?: HTMLLIElement, // eslint-disable-line react/no-unused-prop-types
 |};
 
 /**
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
  */
-const SideNavigationNestedItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef(
-  function SideNavigationNestedItem({ active, counter, href, label, onClick }: Props, ref): Node {
-    return (
-      <SideNavigationTopItem
-        active={active}
-        counter={counter}
-        href={href}
-        label={label}
-        onClick={onClick}
-        ref={ref}
-      />
-    );
-  },
-);
+const SideNavigationNestedItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef<
+  Props,
+  HTMLLIElement,
+>(function SideNavigationNestedItem({ active, counter, href, label, onClick }: Props, ref): Node {
+  return (
+    <SideNavigationTopItem
+      active={active}
+      counter={counter}
+      href={href}
+      label={label}
+      onClick={onClick}
+      ref={ref}
+    />
+  );
+});
 
 SideNavigationNestedItemWithForwardRef.displayName = 'SideNavigation.NestedItem';
 

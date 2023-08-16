@@ -92,199 +92,204 @@ type Props = {|
     |},
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
   |},
+  /**
+   * Ref that is forwarded to the underlying `li` element.
+   */
+  ref?: HTMLLIElement, // eslint-disable-line react/no-unused-prop-types
 |};
 
 /**
  * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
-const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef(
-  function SideNavigationTopItem(
-    {
-      active,
-      href,
-      badge,
-      counter,
-      icon,
-      label,
-      primaryAction,
-      notificationAccessibilityLabel,
-      onClick,
-    }: Props,
-    ref,
-  ): Node {
-    const { nestedLevel } = useNesting();
+const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef<
+  Props,
+  HTMLLIElement,
+>(function SideNavigationTopItem(
+  {
+    active,
+    href,
+    badge,
+    counter,
+    icon,
+    label,
+    primaryAction,
+    notificationAccessibilityLabel,
+    onClick,
+  }: Props,
+  ref,
+): Node {
+  const { nestedLevel } = useNesting();
 
-    const { setSelectedItemId } = useSideNavigation();
+  const { setSelectedItemId } = useSideNavigation();
 
-    const itemId = useId();
+  const itemId = useId();
 
-    const deviceType = useDeviceType();
+  const deviceType = useDeviceType();
 
-    const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'mobile';
 
-    const isTopLevel = nestedLevel === 0;
+  const isTopLevel = nestedLevel === 0;
 
-    const [compression, setCompression] = useState<'compress' | 'none'>('compress');
+  const [compression, setCompression] = useState<'compress' | 'none'>('compress');
 
-    const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
+  const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
 
-    const [hovered, setHovered] = useState<boolean>(false);
+  const [hovered, setHovered] = useState<boolean>(false);
 
-    const [focused, setFocused] = useState<boolean>(false);
+  const [focused, setFocused] = useState<boolean>(false);
 
-    const [showIconButton, setShowIconButton] = useState<'hide' | 'show'>('hide');
+  const [showIconButton, setShowIconButton] = useState<'hide' | 'show'>('hide');
 
-    let itemColor = active ? 'selected' : undefined;
-    let textColor = active ? 'inverse' : 'default';
-    const counterColor = active ? 'inverse' : 'subtle';
+  let itemColor = active ? 'selected' : undefined;
+  let textColor = active ? 'inverse' : 'default';
+  const counterColor = active ? 'inverse' : 'subtle';
 
-    if (hovered && !active) {
-      itemColor = 'secondary';
-      textColor = 'default';
+  if (hovered && !active) {
+    itemColor = 'secondary';
+    textColor = 'default';
+  }
+
+  const nestingMargin = isMobile
+    ? NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
+    : NESTING_MARGIN_START_MAP[nestedLevel];
+
+  useEffect(() => {
+    if (primaryAction && showIconButton === 'hide' && (hovered || focused)) {
+      setShowIconButton('show');
     }
 
-    const nestingMargin = isMobile
-      ? NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
-      : NESTING_MARGIN_START_MAP[nestedLevel];
+    if (
+      primaryAction &&
+      showIconButton === 'show' &&
+      !hovered &&
+      !focused &&
+      forceIconButton === 'default'
+    ) {
+      setShowIconButton('hide');
+    }
+  }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
 
-    useEffect(() => {
-      if (primaryAction && showIconButton === 'hide' && (hovered || focused)) {
-        setShowIconButton('show');
-      }
-
-      if (
-        primaryAction &&
-        showIconButton === 'show' &&
-        !hovered &&
-        !focused &&
-        forceIconButton === 'default'
-      ) {
-        setShowIconButton('hide');
-      }
-    }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
-
-    return (
-      <li ref={ref} className={classnames(styles.liItem)}>
-        <TapArea
-          accessibilityCurrent={active === 'page' ? active : undefined}
-          href={href}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          role="link"
+  return (
+    <li ref={ref} className={classnames(styles.liItem)}>
+      <TapArea
+        accessibilityCurrent={active === 'page' ? active : undefined}
+        href={href}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        role="link"
+        rounding={2}
+        tapStyle={compression}
+        onTap={({ event, dangerouslyDisableOnNavigation }) => {
+          setSelectedItemId(itemId);
+          onClick?.({ event, dangerouslyDisableOnNavigation });
+        }}
+      >
+        <Box
+          color={itemColor}
+          paddingY={2}
+          minHeight={44}
           rounding={2}
-          tapStyle={compression}
-          onTap={({ event, dangerouslyDisableOnNavigation }) => {
-            setSelectedItemId(itemId);
-            onClick?.({ event, dangerouslyDisableOnNavigation });
+          display="flex"
+          alignItems="center"
+          dangerouslySetInlineStyle={{
+            __style: {
+              paddingInlineStart: nestingMargin,
+              paddingInlineEnd: '16px',
+            },
           }}
         >
-          <Box
-            color={itemColor}
-            paddingY={2}
-            minHeight={44}
-            rounding={2}
-            display="flex"
-            alignItems="center"
-            dangerouslySetInlineStyle={{
-              __style: {
-                paddingInlineStart: nestingMargin,
-                paddingInlineEnd: '16px',
-              },
-            }}
-          >
-            <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
-              {icon ? (
-                <Flex.Item alignSelf="center">
-                  <Box aria-hidden>
-                    {typeof icon === 'string' ? (
-                      <Icon inline icon={icon} accessibilityLabel="" color={textColor} />
-                    ) : (
-                      <Icon
-                        inline
-                        dangerouslySetSvgPath={icon}
-                        accessibilityLabel=""
-                        color={textColor}
-                      />
-                    )}
-                  </Box>
-                </Flex.Item>
-              ) : null}
-              <Flex.Item alignSelf="center" flex="grow">
-                <Text inline color={textColor}>
-                  {label}
-                  {(badge || notificationAccessibilityLabel) && (
-                    <Box marginStart={1} display="inlineBlock" height="100%">
-                      {/* Adds a pause for screen reader users between the text content */}
-                      <Box display="visuallyHidden">{`, `}</Box>
-                      {!notificationAccessibilityLabel && badge ? (
-                        <Badge text={badge.text} type={badge.type} />
-                      ) : null}
-                      {notificationAccessibilityLabel ? (
-                        <Box
-                          aria-label={notificationAccessibilityLabel}
-                          height={8}
-                          width={8}
-                          rounding="circle"
-                          color="primary"
-                          role="status"
-                        />
-                      ) : null}
-                    </Box>
-                  )}
-                </Text>
-              </Flex.Item>
-              {counter && (showIconButton === 'hide' || isMobile) ? (
-                <Flex.Item flex="none" alignSelf="center">
-                  <Box display="visuallyHidden">{`, `}</Box>
-                  {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-                  <Box aria-label={counter.accessibilityLabel} marginEnd={-2}>
-                    <Text align="end" color={counterColor}>
-                      {counter.number}
-                    </Text>
-                  </Box>
-                </Flex.Item>
-              ) : null}
-              {(showIconButton === 'show' || isMobile) && primaryAction ? (
-                <Flex.Item flex="none" alignSelf="center">
-                  {/* This is a workaround to announce the counter as it's replaced on focus */}
-                  {counter ? (
-                    <Box display="visuallyHidden">
-                      {`, `}
-                      <Box aria-label={counter?.accessibilityLabel} />
-                    </Box>
-                  ) : null}
-                  <Box
-                    aria-hidden
-                    dangerouslySetInlineStyle={{
-                      __style: {
-                        marginInline: '14px -14px',
-                      },
-                    }}
-                    rounding="circle"
-                  >
-                    <PrimaryActionIconButton
-                      icon={primaryAction?.icon}
-                      onClick={primaryAction?.onClick}
-                      tooltip={primaryAction.tooltip}
-                      dropdownItems={primaryAction?.dropdownItems}
-                      setCompression={setCompression}
-                      forceIconButton={forceIconButton}
-                      setForceIconButton={setForceIconButton}
-                      setShowIconButton={setShowIconButton}
-                      isItemActive={!!active}
+          <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
+            {icon ? (
+              <Flex.Item alignSelf="center">
+                <Box aria-hidden>
+                  {typeof icon === 'string' ? (
+                    <Icon inline icon={icon} accessibilityLabel="" color={textColor} />
+                  ) : (
+                    <Icon
+                      inline
+                      dangerouslySetSvgPath={icon}
+                      accessibilityLabel=""
+                      color={textColor}
                     />
+                  )}
+                </Box>
+              </Flex.Item>
+            ) : null}
+            <Flex.Item alignSelf="center" flex="grow">
+              <Text inline color={textColor}>
+                {label}
+                {(badge || notificationAccessibilityLabel) && (
+                  <Box marginStart={1} display="inlineBlock" height="100%">
+                    {/* Adds a pause for screen reader users between the text content */}
+                    <Box display="visuallyHidden">{`, `}</Box>
+                    {!notificationAccessibilityLabel && badge ? (
+                      <Badge text={badge.text} type={badge.type} />
+                    ) : null}
+                    {notificationAccessibilityLabel ? (
+                      <Box
+                        aria-label={notificationAccessibilityLabel}
+                        height={8}
+                        width={8}
+                        rounding="circle"
+                        color="primary"
+                        role="status"
+                      />
+                    ) : null}
                   </Box>
-                </Flex.Item>
-              ) : null}
-            </Flex>
-          </Box>
-        </TapArea>
-      </li>
-    );
-  },
-);
+                )}
+              </Text>
+            </Flex.Item>
+            {counter && (showIconButton === 'hide' || isMobile) ? (
+              <Flex.Item flex="none" alignSelf="center">
+                <Box display="visuallyHidden">{`, `}</Box>
+                {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
+                <Box aria-label={counter.accessibilityLabel} marginEnd={-2}>
+                  <Text align="end" color={counterColor}>
+                    {counter.number}
+                  </Text>
+                </Box>
+              </Flex.Item>
+            ) : null}
+            {(showIconButton === 'show' || isMobile) && primaryAction ? (
+              <Flex.Item flex="none" alignSelf="center">
+                {/* This is a workaround to announce the counter as it's replaced on focus */}
+                {counter ? (
+                  <Box display="visuallyHidden">
+                    {`, `}
+                    <Box aria-label={counter?.accessibilityLabel} />
+                  </Box>
+                ) : null}
+                <Box
+                  aria-hidden
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      marginInline: '14px -14px',
+                    },
+                  }}
+                  rounding="circle"
+                >
+                  <PrimaryActionIconButton
+                    icon={primaryAction?.icon}
+                    onClick={primaryAction?.onClick}
+                    tooltip={primaryAction.tooltip}
+                    dropdownItems={primaryAction?.dropdownItems}
+                    setCompression={setCompression}
+                    forceIconButton={forceIconButton}
+                    setForceIconButton={setForceIconButton}
+                    setShowIconButton={setShowIconButton}
+                    isItemActive={!!active}
+                  />
+                </Box>
+              </Flex.Item>
+            ) : null}
+          </Flex>
+        </Box>
+      </TapArea>
+    </li>
+  );
+});
 
 SideNavigationTopItemWithForwardRef.displayName = 'SideNavigation.TopItem';
 
