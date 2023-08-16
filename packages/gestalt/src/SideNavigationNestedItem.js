@@ -51,3 +51,5 @@ const SideNavigationNestedItemWithForwardRef: AbstractComponent<Props, HTMLLIEle
 );
 
 SideNavigationNestedItemWithForwardRef.displayName = 'SideNavigation.NestedItem';
+
+export default SideNavigationNestedItemWithForwardRef;
