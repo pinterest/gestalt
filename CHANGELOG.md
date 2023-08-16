@@ -1,3 +1,9 @@
+## 121.0.0 (Aug 16, 2023)
+
+### Major
+
+- SideNavigation: Rename `title` prop to `mobileTitle` ([#3137](https://github.com/pinterest/gestalt/pull/3137)) - [Preview link](https://deploy-preview-3137--gestalt.netlify.app?devexample=true)
+
 ## 120.5.2 (Aug 16, 2023)
 
 ### Patch
