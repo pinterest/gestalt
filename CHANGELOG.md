@@ -1,3 +1,9 @@
+## 120.5.2 (Aug 16, 2023)
+
+### Patch
+
+- Docs: Use TableOfContents component in ToC ([#3133](https://github.com/pinterest/gestalt/pull/3133)) - [Preview link](https://deploy-preview-3133--gestalt.netlify.app?devexample=true)
+
 ## 120.5.1 (Aug 14, 2023)
 
 ### Patch
