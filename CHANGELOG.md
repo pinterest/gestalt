@@ -1,3 +1,9 @@
+## 121.0.2 (Aug 16, 2023)
+
+### Patch
+
+- Tokens: Move Emoji Fonts Higher ([#3128](https://github.com/pinterest/gestalt/pull/3128)) - [Preview link](https://deploy-preview-3128--gestalt.netlify.app?devexample=true)
+
 ## 121.0.1 (Aug 16, 2023)
 
 ### Patch
