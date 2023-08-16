@@ -72,8 +72,16 @@ function useThrottledOnScroll(callback: null | (() => void), delay: number) {
 type ToCItem = {|
   id: string,
   label: string,
-  // eslint-disable-next-line flowtype/no-mutable-array
-  children: Array<{| id: string, label: string |}>,
+  children: $ReadOnlyArray<{| id: string, label: string |}>,
+|};
+
+type HandleClickParameters = {|
+  hash: string,
+  event:
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
 |};
 
 type Props = {|
@@ -127,14 +135,7 @@ export default function Toc({ cards }: Props): Node {
   // Corresponds to 10 frames at 60 Hz
   useThrottledOnScroll(anchors.length > 0 ? findActiveIndex : null, 166);
 
-  const handleClick = (
-    hash: string,
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  ) => {
+  const handleClick = ({ hash, event }: HandleClickParameters) => {
     // Ignore click for new tab/new window behavior
     if (
       event.defaultPrevented ||
@@ -165,23 +166,31 @@ export default function Toc({ cards }: Props): Node {
     [],
   );
 
-  const items = useMemo(() => {
+  const items: $ReadOnlyArray<ToCItem> = useMemo(() => {
     const result: Array<ToCItem> = [];
 
-    anchors.forEach((anchor) => {
-      if (anchor.getElementsByTagName('h2').length > 0) {
-        result.push({
+    anchors.reduce((accumulated, anchor, i) => {
+      const isParentItem = i === 0 || anchor.getElementsByTagName('h2').length > 0;
+      const lastParentItem = accumulated.at(-1);
+
+      if (isParentItem) {
+        accumulated.push({
           id: anchor.id,
           label: anchor.innerText?.replace('Beta', '') || '',
           children: [],
         });
-      } else {
-        result.at(-1)?.children.push({
-          id: anchor.id,
-          label: anchor.innerText?.replace('Beta', '').replace('Alpha', '') || '',
-        });
+      } else if (lastParentItem) {
+        lastParentItem.children = [
+          ...lastParentItem.children,
+          {
+            id: anchor.id,
+            label: anchor.innerText?.replace('Beta', '').replace('Alpha', '') || '',
+          },
+        ];
       }
-    });
+
+      return accumulated;
+    }, result);
 
     return result;
   }, [anchors]);
@@ -209,7 +218,7 @@ export default function Toc({ cards }: Props): Node {
             label={item.label}
             href={`#${item.id}`}
             active={activeState === item.id}
-            onClick={({ event }) => handleClick(item.id, event)}
+            onClick={({ event }) => handleClick({ hash: item.id, event })}
           >
             {item.children.map((subitem) => (
               <TableOfContents.Item
@@ -217,7 +226,7 @@ export default function Toc({ cards }: Props): Node {
                 label={subitem.label}
                 href={`#${subitem.id}`}
                 active={activeState === subitem.id}
-                onClick={({ event }) => handleClick(subitem.id, event)}
+                onClick={({ event }) => handleClick({ hash: subitem.id, event })}
               />
             ))}
           </TableOfContents.Item>
