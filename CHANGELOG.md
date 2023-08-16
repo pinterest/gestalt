@@ -1,3 +1,9 @@
+## 121.0.1 (Aug 16, 2023)
+
+### Patch
+
+- Text: Add CJK wrapping to Text ([#3127](https://github.com/pinterest/gestalt/pull/3127)) - [Preview link](https://deploy-preview-3127--gestalt.netlify.app?devexample=true)
+
 ## 121.0.0 (Aug 16, 2023)
 
 ### Major
