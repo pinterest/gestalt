@@ -20,7 +20,7 @@ export default function SideNavigationMobile({
   footer,
   header,
   id,
-  title,
+  mobileTitle,
   dismissButton,
   showBorder,
 }: Props): Node {
@@ -53,7 +53,7 @@ export default function SideNavigationMobile({
                   <Flex.Item flex="grow">
                     <Flex height="100%" alignItems="center" justifyContent="start">
                       <Heading size="400" lineClamp={1}>
-                        {title}
+                        {mobileTitle}
                       </Heading>
                     </Flex>
                   </Flex.Item>

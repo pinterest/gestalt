@@ -9,7 +9,7 @@ export default function Example(): Node {
     <DeviceTypeProvider deviceType="mobile">
       <Box position="absolute" top bottom left right id="sidenavigation">
         <SideNavigation
-          title="Advertisement"
+          mobileTitle="Advertisement"
           accessibilityLabel="Mobile device example"
           dismissButton={{
             onDismiss: () => setShowNav(false),
