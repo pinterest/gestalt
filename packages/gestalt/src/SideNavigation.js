@@ -47,7 +47,7 @@ export type Props = {|
   /**
    * Title for mobile navigation.
    */
-  title?: string,
+  mobileTitle?: string,
 |};
 
 /**
@@ -66,7 +66,7 @@ export default function SideNavigation({
   footer,
   header,
   showBorder,
-  title,
+  mobileTitle,
 }: Props): Node {
   const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
@@ -96,7 +96,7 @@ export default function SideNavigation({
               }
             }
             showBorder={showBorder}
-            title={title}
+            mobileTitle={mobileTitle}
             id={id}
           >
             {navigationChildren}

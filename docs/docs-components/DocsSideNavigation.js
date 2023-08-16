@@ -114,7 +114,7 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
     <SideNavigation
       accessibilityLabel="Page navigation"
       header={header}
-      title="Menu"
+      mobileTitle="Menu"
       dismissButton={{
         onDismiss: closeSideNavigation,
         accessibilityLabel: 'Dismiss side navigation',
