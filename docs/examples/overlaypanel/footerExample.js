@@ -22,8 +22,9 @@ export default function Example(): Node {
   const footer = (
     <OverlayPanel.DismissingElement>
       {({ onDismissStart }) => (
-        <Flex alignItems="center" justifyContent="end">
-          <Button color="red" text="Create" onClick={onDismissStart} />
+        <Flex alignItems="center" justifyContent="between">
+          <Button color="transparent" text="Delete" />
+          <Button color="red" text="Apply changes" onClick={onDismissStart} />
         </Flex>
       )}
     </OverlayPanel.DismissingElement>
