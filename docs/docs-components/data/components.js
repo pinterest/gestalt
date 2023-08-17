@@ -768,6 +768,12 @@ const componentData: $ReadOnlyArray<ComponentData> = [
               description: 'Documented issues.',
               internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
             },
+            {
+              title: 'Single month issues',
+              description:
+                "DatePicker doesn't trap focus and close the calendar on blur when the date range is within the same month and there are no previous/next month IconButtons",
+              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+            },
           ],
         },
       },
