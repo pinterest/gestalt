@@ -365,21 +365,6 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'http://go/metrics_gestalt_value',
                 ],
                 [
-                  'Gestalt Extension Components: component level',
-                  '# total Gestalt extension components; # per component',
-                  'http://go/metrics_gestaltExtension_component',
-                ],
-                [
-                  'Gestalt Extension Components: prop level',
-                  '# total Gestalt extension components; # per prop & component',
-                  'http://go/metrics_gestaltExtension_prop',
-                ],
-                [
-                  'Gestalt Extension Components: prop value level',
-                  '# total Gestalt extension components; # per prop value & prop & component',
-                  'http://go/metrics_gestaltExtension_value',
-                ],
-                [
                   'Native DOM Elements: tag level',
                   '# total native DOM elements; # per tag',
                   'http://go/metrics_nativeDom_element',
