@@ -85,7 +85,7 @@ export default function ModuleExpandableItem({
             </Box>
 
             {Boolean(children) && (
-              <Box id={id} padding={1}>
+              <Box id={id} padding={1} display="flex" alignItems="center" maxHeight={24}>
                 <Icon
                   accessibilityLabel={
                     isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
