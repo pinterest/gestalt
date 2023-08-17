@@ -1,3 +1,9 @@
+## 121.1.3 (Aug 17, 2023)
+
+### Patch
+
+- DatePicker: new documented issue ([#3141](https://github.com/pinterest/gestalt/pull/3141)) - [Preview link](https://deploy-preview-3141--gestalt.netlify.app?devexample=true)
+
 ## 121.1.2 (Aug 17, 2023)
 
 ### Patch
