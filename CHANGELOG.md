@@ -1,3 +1,9 @@
+## 121.1.1 (Aug 17, 2023)
+
+### Patch
+
+- Docs: removed outdated stats from table in tooling ([#3139](https://github.com/pinterest/gestalt/pull/3139)) - [Preview link](https://deploy-preview-3139--gestalt.netlify.app?devexample=true)
+
 ## 121.1.0 (Aug 17, 2023)
 
 ### Minor
