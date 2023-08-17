@@ -1,3 +1,9 @@
+## 121.1.4 (Aug 17, 2023)
+
+### Patch
+
+- OverlayPanel: fix PopoverEducational positioning issues in footer ([#3132](https://github.com/pinterest/gestalt/pull/3132)) - [Preview link](https://deploy-preview-3132--gestalt.netlify.app?devexample=true)
+
 ## 121.1.3 (Aug 17, 2023)
 
 ### Patch
