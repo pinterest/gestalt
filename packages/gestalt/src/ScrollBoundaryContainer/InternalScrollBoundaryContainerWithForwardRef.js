@@ -15,6 +15,7 @@ type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto'
 
 type InternalProps = {|
   children?: Node,
+  includesFooter?: boolean,
   height?: Dimension,
   onScroll?: () => void,
   overflow?: ScrollBoundaryContainerOverflow,
@@ -25,7 +26,14 @@ type InternalProps = {|
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.
 const ScrollBoundaryContainerWithForwardRef: AbstractComponent<InternalProps, HTMLElement> =
   forwardRef<InternalProps, HTMLElement>(function ScrollBoundaryContainer(
-    { children, onScroll, padding = 0, height = '100%', overflow = 'auto' }: InternalProps,
+    {
+      children,
+      onScroll,
+      includesFooter,
+      padding = 0,
+      height = '100%',
+      overflow = 'auto',
+    }: InternalProps,
     ref,
   ): Node {
     const { addRef } = useScrollBoundaryContainer();
@@ -41,13 +49,16 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<InternalProps, HT
     }, [addRef]);
     return (
       <Box
-        flex={onScroll ? 'grow' : undefined}
+        display={includesFooter ? 'flex' : undefined}
+        direction={includesFooter ? 'column' : undefined}
+        flex={onScroll || includesFooter ? 'grow' : undefined}
         height={height}
-        overflow={overflow}
+        overflow={includesFooter ? 'visible' : overflow}
         onScroll={onScroll}
         padding={padding}
         position="relative"
         ref={anchorRef}
+        width={includesFooter ? '100%' : undefined}
       >
         {children}
       </Box>

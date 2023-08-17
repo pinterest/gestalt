@@ -6,6 +6,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
   style={
     Object {
       "height": "100%",
+      "width": undefined,
     }
   }
 >
@@ -173,6 +174,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
   style={
     Object {
       "height": "100%",
+      "width": undefined,
     }
   }
 >
@@ -500,6 +502,7 @@ exports[`SideNavigation renders Sections 1`] = `
   style={
     Object {
       "height": "100%",
+      "width": undefined,
     }
   }
 >
@@ -627,6 +630,7 @@ exports[`SideNavigation renders basic Item 1`] = `
   style={
     Object {
       "height": "100%",
+      "width": undefined,
     }
   }
 >
@@ -730,6 +734,7 @@ exports[`SideNavigation renders nested directory 1`] = `
   style={
     Object {
       "height": "100%",
+      "width": undefined,
     }
   }
 >
