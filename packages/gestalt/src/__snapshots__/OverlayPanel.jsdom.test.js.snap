@@ -66,7 +66,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               <section />
@@ -267,7 +267,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               <section />
@@ -371,7 +371,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               <button
@@ -464,7 +464,7 @@ exports[`OverlayPanel should render animation in 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               <section />
@@ -544,7 +544,7 @@ exports[`OverlayPanel should render animation out 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               <section />

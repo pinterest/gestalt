@@ -85,7 +85,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               Modal content
@@ -199,7 +199,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               Modal content
@@ -313,7 +313,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               Modal content
@@ -444,7 +444,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative xsDisplayFlex"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
               style="height: 100%;"
             >
               Modal content
