@@ -1,3 +1,9 @@
+## 121.1.0 (Aug 17, 2023)
+
+### Minor
+
+- SideNavigation: Add `forwardRef` to `SideNavigation.TopItem` and `SideNavigation.NestedItem` ([#3138](https://github.com/pinterest/gestalt/pull/3138)) - [Preview link](https://deploy-preview-3138--gestalt.netlify.app?devexample=true)
+
 ## 121.0.2 (Aug 16, 2023)
 
 ### Patch
