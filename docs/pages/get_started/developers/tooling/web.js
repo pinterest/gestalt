@@ -395,16 +395,6 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'http://go/metrics_nativeDom_value',
                 ],
                 [
-                  'Deprecated Components',
-                  '# total deprecated components; # per component',
-                  'http://go/metrics_deprecated_component',
-                ],
-                [
-                  'Deprecated Components',
-                  '# total deprecated components; # per site',
-                  'http://go/metrics_deprecated_site',
-                ],
-                [
                   'Boxes with dangerouslySetInlineStyle',
                   '# Gestalt Box with dangerouslySetInlineStyle prop / (# total Gestalt Box); % per site',
                   'http://go/metrics_dangerouslySetInlineStyle',
