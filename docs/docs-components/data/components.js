@@ -770,7 +770,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             },
             {
               title:
-                "DatePicker doesn't trap focus and close the calendar on blur when the date range is within the same month and there are no previos/next month IconButtons",
+                "DatePicker doesn't trap focus and close the calendar on blur when the date range is within the same month and there are no previous/next month IconButtons",
               description: 'Documented issues.',
               internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
             },
