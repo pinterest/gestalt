@@ -1,3 +1,9 @@
+## 121.1.5 (Aug 18, 2023)
+
+### Patch
+
+- SideNavigation: Remove Tooltip on dropdown open ([#3134](https://github.com/pinterest/gestalt/pull/3134)) - [Preview link](https://deploy-preview-3134--gestalt.netlify.app?devexample=true)
+
 ## 121.1.4 (Aug 17, 2023)
 
 ### Patch
