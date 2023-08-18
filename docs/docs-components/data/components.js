@@ -2106,6 +2106,21 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+      android: {
+        name: 'Table',
+        visual: {
+          svg: <Table />,
+        },
+        alias: ['Data Table', 'Data Grid'],
+        description:
+          'Table is a set of structured data that is easy for a user to scan, examine, and compare.',
+        category: ['Data'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
     },
   },
   {
