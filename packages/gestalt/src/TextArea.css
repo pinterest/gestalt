@@ -40,7 +40,7 @@
 
 .textAreaWrapper {
   align-content: flex-start;
-  border-radius: 8px;
+  border-radius: var(--rounding-200);
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
