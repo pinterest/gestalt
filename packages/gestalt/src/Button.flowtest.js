@@ -17,7 +17,7 @@ const MissingProp = <Button />;
 
 const IncompatibleLinkProps = (
   // $FlowExpectedError[incompatible-type]
-  <Button text="Next" role="link" onClick={() => {}} />
+  <Button text="Next" role="link" name="d" onClick={() => {}} />
 );
 
 const IncompatibleSubmitProps = (

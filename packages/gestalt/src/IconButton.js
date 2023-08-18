@@ -40,6 +40,7 @@ type BaseIconButton = {|
     | 'white'
     | 'red',
   dangerouslySetSvgPath?: {| __path: string |},
+  dataTestId?: string,
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
   onClick?: ({|
@@ -63,6 +64,7 @@ type IconButtonType = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityPopupRole?: 'menu' | 'dialog',
+  name?: string,
   role?: 'button',
   selected?: boolean,
   type?: 'submit' | 'button',
@@ -96,6 +98,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     accessibilityLabel,
     bgColor,
     dangerouslySetSvgPath,
+    dataTestId,
     disabled,
     icon,
     iconColor,
@@ -203,6 +206,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     buttonComponent = (
       <InternalLink
         accessibilityLabel={ariaLabel}
+        dataTestId={dataTestId}
         disabled={disabled}
         href={href}
         onClick={handleLinkClick}
@@ -228,6 +232,7 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
       accessibilityExpanded,
       accessibilityHaspopup,
       accessibilityPopupRole,
+      name,
       selected,
       type,
     } = props;
@@ -238,7 +243,9 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
         aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
         aria-label={accessibilityLabel}
         className={classnames(styles.parentButton)}
+        data-test-id={dataTestId}
         disabled={disabled}
+        name={name}
         onBlur={() => {
           handleBlur();
           handleOnBlur();

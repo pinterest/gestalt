@@ -2,9 +2,8 @@
 import { type Node } from 'react';
 import InternalPopover from './Popover/InternalPopover.js';
 
-type Color = 'blue' | 'red' | 'white' | 'darkGray';
+type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {|
@@ -39,7 +38,7 @@ type Props = {|
   /**
    * Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/popover#Ideal-direction) variant to learn more.
    */
-  idealDirection?: IdealDirection,
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   /**
    * Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.
    */
@@ -59,7 +58,7 @@ type Props = {|
   /**
    * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
    */
-  showCaret?: boolean,
+  _deprecatedShowCaret?: boolean,
   /**
    * Shows a dismiss button on Popover. See the [dismiss button](https://gestalt.pinterest.systems/web/popover#Dismiss-button) variant to learn more.
    */
@@ -95,7 +94,7 @@ export default function Popover({
   color = 'white',
   role = 'dialog',
   shouldFocus = true,
-  showCaret = false,
+  _deprecatedShowCaret = false,
   size = 'sm',
   __dangerouslySetMaxHeight,
 }: Props): null | Node {
@@ -110,10 +109,10 @@ export default function Popover({
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
-      color={color}
+      color={color === 'deprecatedBlue' ? 'blue' : color}
       role={role}
       shouldFocus={shouldFocus}
-      showCaret={showCaret}
+      showCaret={_deprecatedShowCaret}
       size={size}
       __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
     >

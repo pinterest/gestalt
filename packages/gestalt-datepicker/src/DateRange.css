@@ -1,0 +1,12 @@
+html:not([dir="rtl"]) .borderRight {
+  border-right: var(--g-border-width) solid var(--color-border-container);
+}
+
+html[dir="rtl"] .borderRight {
+  border-left: var(--g-border-width) solid var(--color-border-container);
+}
+
+.dateFieldSection {
+  border-bottom: var(--g-border-width) solid var(--color-border-container);
+  padding: var(--space-300);
+}

@@ -1,5 +1,13 @@
 // @flow strict
-import { type Element, type Node, useEffect, useId, useState } from 'react';
+import {
+  type AbstractComponent,
+  type Element,
+  forwardRef,
+  type Node,
+  useEffect,
+  useId,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -84,22 +92,32 @@ type Props = {|
     |},
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
   |},
+  /**
+   * Ref that is forwarded to the underlying `li` element.
+   */
+  ref?: HTMLLIElement, // eslint-disable-line react/no-unused-prop-types
 |};
 
 /**
  * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
-export default function SideNavigationTopItem({
-  active,
-  href,
-  badge,
-  counter,
-  icon,
-  label,
-  primaryAction,
-  notificationAccessibilityLabel,
-  onClick,
-}: Props): Node {
+const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef<
+  Props,
+  HTMLLIElement,
+>(function SideNavigationTopItem(
+  {
+    active,
+    href,
+    badge,
+    counter,
+    icon,
+    label,
+    primaryAction,
+    notificationAccessibilityLabel,
+    onClick,
+  }: Props,
+  ref,
+): Node {
   const { nestedLevel } = useNesting();
 
   const { setSelectedItemId } = useSideNavigation();
@@ -152,7 +170,7 @@ export default function SideNavigationTopItem({
   }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
 
   return (
-    <li className={classnames(styles.liItem)}>
+    <li ref={ref} className={classnames(styles.liItem)}>
       <TapArea
         accessibilityCurrent={active === 'page' ? active : undefined}
         href={href}
@@ -271,6 +289,8 @@ export default function SideNavigationTopItem({
       </TapArea>
     </li>
   );
-}
+});
 
-SideNavigationTopItem.displayName = 'SideNavigation.TopItem';
+SideNavigationTopItemWithForwardRef.displayName = 'SideNavigation.TopItem';
+
+export default SideNavigationTopItemWithForwardRef;

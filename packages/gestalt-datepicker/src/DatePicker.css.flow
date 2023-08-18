@@ -4,6 +4,7 @@ declare module.exports: {|
   +'calendarIcon': string,
   +'disabled': string,
   +'react-datepicker': string,
+  +'react-datepicker-inline': string,
   +'react-datepicker-popper': string,
   +'react-datepicker__days': string,
 |};

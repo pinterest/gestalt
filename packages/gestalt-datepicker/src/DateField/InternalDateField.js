@@ -6,6 +6,8 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
+// eslint-disable-next-line import/no-namespace
+import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
 import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
@@ -14,6 +16,28 @@ import styles from '../DateField.css';
 const ENTER: number = 13;
 const SPACE: number = 32;
 const TAB: number = 9;
+
+// We need this map to provide full locale coverage because @mui/x-date-pickers/locales doesn't have all supported locales
+const TRANSLATIONS_MAP = {
+  af: ['J', 'MM', 'DD'],
+  bg: ['Г', 'MM', 'ДД'],
+  'cs-CZ': ['R', 'MM', 'DD'],
+  'da-DK': ['Å', 'MM', 'DD'],
+  es: ['A', 'MM', 'DD'],
+  'fi-FI': ['V', 'KK', 'PP'],
+  hr: ['G', 'MM', 'DD'],
+  it: ['A', 'MM', 'DD'],
+  ja: ['0', '00', '00'],
+  'ms-MY': ['T', 'BB', 'HH'],
+  'nb-NO': ['Å', 'MM', 'DD'],
+  nl: ['J', 'MM', 'DD'],
+  'pl-PL': ['R', 'MM', 'DD'],
+  'pt-PT': ['A', 'MM', 'DD'],
+  'sk-SK': ['R', 'MM', 'DD'],
+  'sv-SE': ['Å', 'MM', 'DD'],
+  'th-TH': ['ป', 'ดด', 'วว'],
+  'uk-UA': ['P', 'MM', 'ДД'],
+};
 
 type CustomTextFieldProps = {|
   disabled: boolean,
@@ -100,7 +124,7 @@ const CustomTextField = forwardRef(
           onKeyDown={onKeyDown}
           onMouseUp={onMouseUp}
         />
-        {!disabled && !readOnly ? (
+        {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
           <div className={classnames(styles.actionButtonWrapper)}>
             <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
               <TapArea
@@ -114,7 +138,7 @@ const CustomTextField = forwardRef(
                 }}
                 onMouseEnter={() => setIconFocused(true)}
                 onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState?.passthroughProps?.onClearInput()}
+                onTap={() => ownerState.passthroughProps.onClearInput()}
                 rounding="circle"
                 tapStyle="compress"
               >
@@ -188,6 +212,47 @@ type LocaleData = {|
   |},
 |};
 
+const getTranslationsFromMUIJS: (?LocaleData) => ?{|
+  fieldYearPlaceholder: (params: {| digitAmount: number |}) => string,
+  fieldMonthPlaceholder: (params: {| contentType: string |}) => string,
+  fieldDayPlaceholder: () => string,
+|} = (localeData) => {
+  // converts date-fns localeData.code (e.g. es-EN) from to the format expected by the MUI Locale (esEN)
+  // https://mui.com/x/react-date-pickers/localization/
+  if (localeData && localeData.code) {
+    // turns en-US to enUS
+    const split = localeData.code.split('-');
+    if (split.length === 1) {
+      // turns 'es' into 'enES'
+      split.push(split[0].toUpperCase());
+    }
+    const code = split.join('');
+
+    if (locales[code] !== undefined) {
+      return locales[code].components.MuiLocalizationProvider.defaultProps.localeText;
+    }
+  }
+  return undefined;
+};
+
+const getLocalTranslations: (?LocaleData) => ?{|
+  fieldYearPlaceholder: (params: {| digitAmount: number |}) => string,
+  fieldMonthPlaceholder: (params: {| contentType: string |}) => string,
+  fieldDayPlaceholder: () => string,
+|} = (localeData) => {
+  const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
+
+  if (MAPPED_TRANSLATION) {
+    return {
+      fieldYearPlaceholder: (params) => MAPPED_TRANSLATION[0].repeat(params.digitAmount),
+      fieldMonthPlaceholder: (params) =>
+        params.contentType === 'letter' ? 'MMMM' : MAPPED_TRANSLATION[1],
+      fieldDayPlaceholder: () => MAPPED_TRANSLATION[2],
+    };
+  }
+  return undefined;
+};
+
 type InternalDateFieldProps = {|
   autoComplete?: 'bday' | 'off',
   disabled?: boolean,
@@ -197,20 +262,20 @@ type InternalDateFieldProps = {|
   id: string,
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
-  localeData: ?LocaleData,
-  maxDate?: Date,
-  minDate?: Date,
+  localeData?: ?LocaleData,
+  maxDate?: Date | null,
+  minDate?: Date | null,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   name?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onChange: ({| value: ?Date |}) => void,
-  onClearInput: () => void,
+  onChange: ({| value: Date | null |}) => void,
+  onClearInput?: () => void,
   onError?: ({|
     errorMessage: string,
-    value: ?Date,
+    value: Date | null,
   |}) => void,
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -218,7 +283,7 @@ type InternalDateFieldProps = {|
   |}) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
-  value: ?Date,
+  value: Date | null,
 |};
 
 function InternalDateField({
@@ -243,20 +308,32 @@ function InternalDateField({
   readOnly = false,
   value,
 }: InternalDateFieldProps): Node {
+  let translations = getTranslationsFromMUIJS(localeData);
+
+  if (!translations) {
+    translations = getLocalTranslations(localeData);
+  }
+
   return (
     <StyledEngineProvider injectFirst>
-      <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={localeData}>
+      <LocalizationProvider
+        dateAdapter={AdapterDateFns}
+        adapterLocale={localeData}
+        localeText={translations}
+      >
         <Box>
-          <label
-            className={classnames(styles.label, {
-              [styles.visuallyHidden]: labelDisplay === 'hidden',
-            })}
-            htmlFor={id}
-          >
-            <div className={styles.formLabel}>
-              <Text size="100">{label}</Text>
-            </div>
-          </label>
+          {label ? (
+            <label
+              className={classnames(styles.label, {
+                [styles.visuallyHidden]: labelDisplay === 'hidden',
+              })}
+              htmlFor={id}
+            >
+              <div className={styles.formLabel}>
+                <Text size="100">{label}</Text>
+              </div>
+            </label>
+          ) : null}
           <Box position="relative" display="flex" alignItems="center">
             <MUIDatePicker
               onChange={(dateValue) => onChange({ value: dateValue })}

@@ -10,7 +10,7 @@ const PATHS = {
 };
 
 type Props = {|
-  direction: 'up' | 'right' | 'down' | 'left',
+  direction: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   height: 4 | 12,
   width: 4 | 12,
 |};
@@ -18,7 +18,7 @@ type Props = {|
 export default function Caret(props: Props): Node {
   const { direction, height, width } = props;
 
-  const path = PATHS[direction];
+  const path = PATHS[direction === 'forceDown' ? 'down' : direction];
 
   return (
     <svg height={height} width={width}>

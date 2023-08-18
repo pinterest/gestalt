@@ -16,6 +16,10 @@ const labels = {
     iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
     iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
   },
+  DateRange: {
+    cancelText: myI18nTranslator('Cancel'),
+    applyText: myI18nTranslator('Apply'),
+  },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),
     accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
@@ -60,6 +64,9 @@ const labels = {
   },
   Spinner: {
     accessibilityLabel: myI18nTranslator('Loading'),
+  },
+  TableOfContents: {
+    accessibilityLabel: myI18nTranslator('Table of contents'),
   },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),

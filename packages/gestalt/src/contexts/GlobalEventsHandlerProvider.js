@@ -11,6 +11,9 @@ type OnLinkNavigationType = ({|
 |}) => void;
 
 type GlobalEventsHandlerContextType = {|
+  dateFieldHandlers?: {| onMount?: NoopType |},
+  datePickerHandlers?: {| onMount?: NoopType |},
+  dateRangeHandlers?: {| onMount?: NoopType |},
   sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
   linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
 |} | void;
@@ -21,11 +24,23 @@ type Props = {|
    */
   children: Node,
   /**
+   * Handlers consumed by [DateField](https://gestalt.pinterest.systems/web/datefield).
+   */
+  dateFieldHandlers?: {| onMount?: () => void |},
+  /**
+   * Handlers consumed by [DatePicker](https://gestalt.pinterest.systems/web/datepicker).
+   */
+  datePickerHandlers?: {| onMount?: () => void |},
+  /**
+   * Handlers consumed by [DateRange](https://gestalt.pinterest.systems/web/daterange).
+   */
+  dateRangeHandlers?: {| onMount?: () => void |},
+  /**
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
   sheetMobileHandlers?: {| onOpen?: () => void, onClose?: () => void |},
   /**
-   * Handlers consumed by [Link](https://gestalt.pinterest.systems/web/link#External-handlers).
+   * Handlers consumed by [Link](https://gestalt.pinterest.systems/web/link).
    */
   linkHandlers?: {|
     onNavigation?: ({|
@@ -47,12 +62,18 @@ const { Provider } = GlobalEventsHandlerContext;
  */
 export default function GlobalEventsHandlerProvider({
   children,
+  dateFieldHandlers,
+  datePickerHandlers,
+  dateRangeHandlers,
   sheetMobileHandlers,
   linkHandlers,
 }: Props): Element<typeof Provider> {
   return (
     <Provider
       value={{
+        dateFieldHandlers,
+        datePickerHandlers,
+        dateRangeHandlers,
         sheetMobileHandlers,
         linkHandlers,
       }}

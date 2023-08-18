@@ -22,8 +22,7 @@ export default function Example(): Node {
           <Popover
             anchor={anchorRef.current}
             color="red"
-            idealDirection="down"
-            showCaret
+            idealDirection="forceDown"
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="xs"

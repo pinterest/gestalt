@@ -8,7 +8,6 @@ import Layer from '../../graphics/building-blocks/Layer.svg';
 import Letterbox from '../../graphics/building-blocks/Letterbox.svg';
 import Mask from '../../graphics/building-blocks/Mask.svg';
 import Pog from '../../graphics/building-blocks/Pog.svg';
-import Popover from '../../graphics/building-blocks/Popover.svg';
 import ScrollBoundaryContainer from '../../graphics/building-blocks/ScrollBoundaryContainer.svg';
 import SheetMobile from '../../graphics/building-blocks/SheetMobile.svg';
 import Sticky from '../../graphics/building-blocks/Sticky.svg';
@@ -20,13 +19,16 @@ import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
+import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
+import Card from '../../graphics/general/Card.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
 import Datapoint from '../../graphics/general/Datapoint.svg';
 import DateField from '../../graphics/general/DateField.svg';
 import DatePicker from '../../graphics/general/DatePicker.svg';
+import DateRange from '../../graphics/general/DateRange.svg';
 import Divider from '../../graphics/general/Divider.svg';
 import Dropdown from '../../graphics/general/Dropdown.svg';
 import Heading from '../../graphics/general/Heading.svg';
@@ -45,6 +47,8 @@ import Module from '../../graphics/general/Module.svg';
 import NumberField from '../../graphics/general/NumberField.svg';
 import OverlayPanel from '../../graphics/general/OverlayPanel.svg';
 import PageHeader from '../../graphics/general/PageHeader.svg';
+import Popover from '../../graphics/general/Popover.svg';
+import PopoverEducational from '../../graphics/general/PopoverEducational.svg';
 import Pulsar from '../../graphics/general/Pulsar.svg';
 import RadioGroup from '../../graphics/general/RadioGroup.svg';
 import SearchField from '../../graphics/general/SearchField.svg';
@@ -56,6 +60,7 @@ import Spinner from '../../graphics/general/Spinner.svg';
 import Status from '../../graphics/general/Status.svg';
 import Switch from '../../graphics/general/Switch.svg';
 import Table from '../../graphics/general/Table.svg';
+import TableOfContents from '../../graphics/general/TableOfContents.svg';
 import Tabs from '../../graphics/general/Tabs.svg';
 import Tag from '../../graphics/general/Tag.svg';
 import TagData from '../../graphics/general/TagData.svg';
@@ -68,10 +73,10 @@ import Tooltip from '../../graphics/general/Tooltip.svg';
 import Upsell from '../../graphics/general/Upsell.svg';
 import Video from '../../graphics/general/Video.svg';
 import WashAnimated from '../../graphics/general/WashAnimated.svg';
+import GlobalEventsHandlerProvider from '../../graphics/utilities/GlobalEventsHandlerProvider.svg';
 import HookFocusVisible from '../../graphics/utilities/hook-focus-visible.svg';
 import HookReducedMotion from '../../graphics/utilities/hook-reduced-motion.svg';
 import ProviderColorScheme from '../../graphics/utilities/provider-color-scheme.svg';
-import ProviderHandlers from '../../graphics/utilities/provider-global-events-handler.svg';
 
 const componentData: $ReadOnlyArray<ComponentData> = [
   {
@@ -267,7 +272,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         description: 'Badge is a label that indicates status or importance.',
         category: ['Indicators'],
         status: {
-          documentation: 'notAvailable',
+          documentation: 'ready',
           status: 'planned',
         },
       },
@@ -383,6 +388,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'ButtonLink',
+    platform: {
+      web: {
+        name: 'ButtonLink',
+        visual: {
+          svg: <ButtonLink />,
+        },
+        description: 'ButtonLink allow users to use a surface action to link to another page.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'notAvailable',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'ButtonGroup',
     platform: {
       web: {
@@ -439,6 +470,26 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'Card',
+    platform: {
+      ios: {
+        name: 'Card',
+        visual: {
+          svg: <Card />,
+        },
+        path: '/ios/card/card',
+        alias: ['Entry Card', 'Module', 'Panel', 'Teaser'],
+        description:
+          'Card is a semi-modular container used to house Card.Header and a variant of the available preview blocks.',
+        category: ['Pins and imagery'],
+        status: {
+          documentation: 'ready',
+          status: 'planned',
         },
       },
     },
@@ -636,6 +687,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'DateRange',
+    platform: {
+      web: {
+        name: 'DateRange',
+        alias: ['Calendar', 'Date time picker', 'Date picker range'],
+        visual: {
+          svg: <DateRange />,
+        },
+        description:
+          'DateRange enables users to preview and select a range of days by picking dates from a calendar or adding a text input.',
+        category: ['Fields and forms'],
+        status: {
+          accessible: {
+            summary: 'partial',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'partial',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'notAvailable',
+          figmaStatus: 'notAvailable',
+          responsive: 'notAvailable',
+          status: 'notAvailable',
+        },
+      },
+    },
+  },
+  {
     id: 'DateField',
     platform: {
       web: {
@@ -676,13 +755,26 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             summary: 'ready',
             a11yVisual: 'ready',
             a11yScreenreader: 'ready',
-            a11yNavigation: 'ready',
+            a11yNavigation: 'notAvailable',
             a11yComprehension: 'ready',
           },
           documentation: 'partial',
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'No UTC support',
+              description: 'Documented issues.',
+              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+            },
+            {
+              title: 'Single month issues',
+              description:
+                "DatePicker doesn't trap focus and close the calendar on blur when the date range is within the same month and there are no previous/next month IconButtons",
+              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+            },
+          ],
         },
       },
     },
@@ -813,7 +905,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       web: {
         name: 'GlobalEventsHandlerProvider',
         visual: {
-          svg: <ProviderHandlers />,
+          svg: <GlobalEventsHandlerProvider />,
         },
         alias: ['OnLinkNavigationProvider'],
         path: '/web/utilities/globaleventshandlerprovider',
@@ -1483,7 +1575,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Flyout'],
         description:
           'Popover is a floating view that contains a task related to the content on screen.',
-        category: ['Building blocks'],
+        category: ['Overlays'],
         status: {
           accessible: {
             summary: 'partial',
@@ -1515,7 +1607,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       web: {
         name: 'PopoverEducational',
         visual: {
-          svg: <Popover />,
+          svg: <PopoverEducational />,
         },
         description:
           'PopoverEducational is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.',
@@ -1532,6 +1624,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'Caret misalignment',
+              description:
+                "PopoverEducational's caret might appear misaligned when positioned below the element of reference.",
+              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
+            },
+            {
+              title: 'Incorrect positioning and dimensions',
+              description:
+                'PopoverEducational is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
+              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
+            },
+          ],
         },
       },
     },
@@ -2003,6 +2109,36 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'TableOfContents',
+    platform: {
+      web: {
+        name: 'TableOfContents',
+        visual: {
+          svg: <TableOfContents />,
+        },
+        alias: ['Table of Contents', 'Page Navigation', 'Page Navigator', 'Secondary Nav'],
+        description:
+          'TableOfContents is used to navigate to anchors on a page. It also serves as an outline of a page’s content.',
+        category: ['Navigation'],
+        status: {
+          accessible: {
+            a11yComprehension: 'ready',
+            a11yNavigation: 'ready',
+            a11yScreenreader: 'ready',
+            a11yVisual: 'ready',
+            summary: 'ready',
+          },
+          badge: 'New',
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          mobileAdaptive: 'notAvailable',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'Tabs',
     platform: {
       web: {
@@ -2399,6 +2535,14 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
+          knownIssues: [
+            {
+              title: 'Incorrect positioning and dimensions',
+              description:
+                'Tooltip is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
+              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
+            },
+          ],
         },
       },
     },

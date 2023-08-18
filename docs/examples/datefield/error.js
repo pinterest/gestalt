@@ -4,7 +4,7 @@ import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 
 export default function Example(): Node {
-  const [dateValue, setDateValue] = useState<?Date>(null);
+  const [dateValue, setDateValue] = useState<Date | null>(null);
   const [errorText, setErrorText] = useState<?string>(null);
 
   return (

@@ -3,6 +3,158 @@
     "year": "2023",
     "digests": [
       {
+        "week": "August 11, 2023",
+        "summary": "New components and Figma updates, plus a very special announcement",
+        "posts": [
+          {
+            "title": "Generate Tables easily in Figma",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/3a/f7/ce/3af7ce2f057bd15a4f4c8a31aa21a303.png",
+            "imageAltText": "Screenshot of the plug-in that shows how to creat a Table.",
+            "content": "We have added the ability to quickly create a Table in Figma via our [Pinterest Design plug-in](http://pinch.pinadmin.com/pinterest-design-plugin)"
+          },
+          {
+            "title": "Navigation for long pages and forms",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/c8/7d/61/c87d61b371b71bb1ce5f591e85eec195.png",
+            "imageAltText": "Example of the TableofContents component with a task list to navigate through.",
+            "content": "Our [TableofContents](https://gestalt.pinterest.systems/web/tableofcontents) component offers a simple way to jump between sections of a page or a long form. It has been available in Figma for a while, and is now in our codebase and ready to go."
+          },
+          {
+            "title": "Link via a button",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ed/08/9b/ed089b9da654ee4eb2fe3a87fade8d3a.png",
+            "imageAltText": "A primary button with text and a visit link icon.",
+            "content": "Sometimes you want to use a stronger affordance to let people visit a helpful page or something. Now you can with [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink). It allows developers to use a button as a link without going through any extra work."
+          },
+          {
+            "title": "Figma Module component fixes",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/9f/11/03/9f110366d82bad1caba83d9a7d941f79.png",
+            "imageAltText": "A Module with a panel showing that a max width has been added.",
+            "content": "Our Figma component was having issues with text alignment. That has been fixed, and we've also added a max width to be more consistent with code and help with alignment.\n \n[Go to the Figma Module component](http://pinch.pinadmin.com/module)"
+          },
+          {
+            "title": "Figma Popover update",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/89/5f/0a/895f0aa27d1f0cfdcf8d3de769b66b26.png",
+            "imageAltText": "A popover with the caret being cut off by a pair of scissors.",
+            "content": "The caret was removed from the Popover to be consistent with our web codebase. It also means you can now place the popover without having to worry about moving the caret around. Win win!\n \n[Go to the Figma Popover component](http://pinch.pinadmin.com/popover)"
+          },
+          {
+            "title": "Save the Date! October 20 means Design Systems Day!",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/b8/21/86/b8218609b9b2558b5c70230424f749eb.png",
+            "imageAltText": "A calendar icon with the Gestalt logo in the middle of it, surrounded by circle and square ornaments.",
+            "content": "Save the Date! October 20 means Design Systems Day!* \nWe are planning this year's Design Systems Day and can't wait to share all the details. We'll keep you posted as things are in finalized. It's going to be fabulous!"
+          }
+        ]
+      },
+      {
+        "month": "July",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng July Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from July."
+          },
+          {
+            "title": "DateRange",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/ad/93/c3/ad93c32822c0cd63f2de65ce700aa131.png",
+            "imageAltText": "Screenshot of DateRange UI",
+            "content": "Another month, another new component — this time it's [DateRange](https://gestalt.pinterest.systems/web/daterange)! This component enables users to select a date range in multiple ways: from a calendar, typing the date or choosing from a preselected range with RadioGroup."
+          },
+          {
+            "title": "ButtonLink",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/2b/4a/be/2b4abec7012b7c005bd8a6a510a1703b.png",
+            "imageAltText": "Screenshot of ButtonLinmk UI with text Visit Pinterest and an icon with an upper arrow conveying that it's an external link",
+            "content": "Button, IconButton and TapArea can behave like buttons or links. We are going to start decoupling these two behaviors: Button will be a button and [ButtonLink](https://gestalt.pinterest.systems/web/buttonlinks) will be only a link. Stay tunned to our progress!"
+          },
+          {
+            "title": "Testing id support",
+            "audience": ["Engineering"],
+            "content": "We are working on expanding support to data-test-id in our components. This improvement helps engineers building better tests: faster and more reliable. Check Button's, ButtonLink's, and IconButton's new `dataTestId` prop. Stay tuned, there are more to come!"
+          },
+          {
+            "title": "Component updates: Box, Table, Popover, DateField, DatePicker ",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/f9/65/bb/f965bb322ca9cb1d7f0b62d6db3c64b0.png",
+            "imageAltText": "Screenshot of before and after in DateField showing new support to locale format translations. In Italian, placeholders was DD/MM/YYYY and now is GG/MM/AAAA",
+            "content": "[Box](https://gestalt.pinterest.systems/web/box#Using-'as'-property) now supports `<p>` in `as` prop. [Table.SortableHeaderCell](https://gestalt.pinterest.systems/web/table#Sortable-header-cells) finally supports right aligment correctly. [Popover](https://gestalt.pinterest.systems/web/popover) no longer supports `showcaret` and `blue` in `color`. Use [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational) instead. However, Popover now supports `forceDown` in `idealDirection` for cases where Popover's positioning might cause issues. [DateField](https://gestalt.pinterest.systems/web/datefield#localeData) now supports locale format translations. [DatePicker](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) is finally a fully controlled component."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/43/11/82/431182197790e45b20b164d693593278.png",
+            "imageAltText": "Screenshot of the Known issues section within Popover's documentation page",
+            "content": "We added a new section in our component docs section: Known issues. Check the new information under Component quality checklist for [Text](https://gestalt.pinterest.systems/web/text#Component-quality-checklist), [Heading](https://gestalt.pinterest.systems/web/heading#Component-quality-checklist), [Popover](https://gestalt.pinterest.systems/web/popover#Component-quality-checklist), [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational#Component-quality-checklist), [Tooltip](https://gestalt.pinterest.systems/web/tooltip#Component-quality-checklist) or [DatePicker](https://gestalt.pinterest.systems/web/datepicker#Component-quality-checklist)."
+          }
+        ]
+      },
+      {
+        "week": "July 21, 2023",
+        "summary": "New/improved components, updated color tokens, docs improvements and Figma plugin feature enhancements.",
+        "posts": [
+          {
+            "title": "New DateRange component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ad/93/c3/ad93c32822c0cd63f2de65ce700aa131.png",
+            "imageAltText": "Example of the DateRange component.",
+            "content": "New and fresh off the press is [DateRange](https://gestalt.pinterest.systems/web/daterange). A component that, you guessed it, allows you to select a date range. DateRange is still in pilot status, meaning expect design/development iterations and breaking API changes.\n\nWe plan to publish the Figma DateRange component in next sprint, so stay tuned."
+          },
+          {
+            "title": "Support for Text type in Callout component",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/ae/fd/e8/aefde889c998f97dcb9470469ec8ada7.png",
+            "imageAltText": "A Callout with bold and italicized text in its message.",
+            "content": "Callout's `message` prop now supports types of `string` and `Text` to enable rich text (e.g., bold, italic). This enables better emphasis of content with message strings and allows the component to work more consistently with its related [SlimBanner component](https://gestalt.pinterest.systems/web/slimbanner)."
+          },
+          {
+            "title": "End-aligned Table header treatments",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/c5/f8/74/c5f874741f03a558375ecc9a257d80ca.png",
+            "imageAltText": "A table with an end-aligned table header.",
+            "content": "It's been a long-time ask to support end-aligned header treatments and we're excited to say it's now supported. End-aligned headers will be especially helpful for columns displaying numeric values."
+          },
+          {
+            "title": "Updated $selected-strong and $selected-weak color token values",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/22/fa/07/22fa07e4d4a426a9ffd7dbc5726cae6d.png",
+            "imageAltText": "Two color swatches that represent Gestalt's $selected-strong and $selected-weak color token values.",
+            "content": "The color values for $color-background-selected-strong and $color-background-selected-weak were inadvertently inverted according to our color guidelines. We were able to address that issue earlier this month. Apologies for the mixup!"
+          },
+          {
+            "title": "Docs improvements",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/e5/a7/1d/e5a71dd9abfa3f1bc1d1cc2fea1e7c8a.png",
+            "imageAltText": "A screenshot of Gestalt's Android Badge component documentation.",
+            "content": "We have loads of docs updates to share: \n\n * We published [Android Badge documentation](https://gestalt.pinterest.systems/android/badge) in preparation of component buildout.\n* We continue to migrate our code samples to Sandpack, with [Column](https://gestalt.pinterest.systems/web/column), [Label](https://gestalt.pinterest.systems/web/label), [Letterbox](https://gestalt.pinterest.systems/web/letterbox), [Masonry](https://gestalt.pinterest.systems/web/masonry) and [Mask](https://gestalt.pinterest.systems/web/mask) recently converted. \n\n  * Lastly, but not leastly, we overhauled our component status page to now be three pages ([Android](https://gestalt.pinterest.systems/android/component_status), [iOS](https://gestalt.pinterest.systems/ios/component_status) and [Web](https://gestalt.pinterest.systems/web/component_status)). There remains some content updates necessary related to Figma status, but our goal was to publish these new pages with up-to-date code component status for all platforms."
+          },
+          {
+            "title": "New linter functionality in the Pinterest Design Figma plugin",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/12/60/69/1260697d009bbaebcc0520cad8f4e142.png",
+            "imageAltText": "A screenshot of the Pinterest Design Figma plugin's linter feature.",
+            "content": "We shipped a big feature within the [Pinterest Design Figma plugin](https://www.figma.com/community/plugin/1215463263194174399) which helps you clean up your design files so that you're using color / type styles in your designs. This is important because by using Gestalt styles, any updates to color / type tokens will be automatically applied to your designs without having to manually update. Check it out!"
+          }
+        ]
+      },
+      {
         "month": "June",
         "summary": "",
         "posts": [
@@ -447,12 +599,12 @@
             "content": "Sometimes you just need to see how a component example looks in RTL and/or dark mode. Well, now our component examples have toggles for dark mode and RTL. No more fiddling with site-wide settings!"
           },
           {
-            "title": "New TagData and TableofContents Figma components",
+            "title": "New TagData and TableOfContents Figma components",
             "audience": ["Design"],
             "imageColor": "blue-skycicle-0",
             "imageSrc": "https://i.pinimg.com/originals/d7/c8/3d/d7c83d519a542ba5eb32b8a899161070.png",
             "imageAltText": "Example of the TagData Figma component.",
-            "content": "The M10n component train keeps chugging with the addition of two M10n-centric Figma components. First is TagData which is a Tag component specifically made for the context of data visualizations. You can find this component in our Data viz Figma component library.\n\nThe other component is our new TableofContents, which is used to navigate to anchors on a page. It also serves as an outline of a page’s content. TableofContents is available for use in our Figma Web library."
+            "content": "The M10n component train keeps chugging with the addition of two M10n-centric Figma components. First is TagData which is a Tag component specifically made for the context of data visualizations. You can find this component in our Data viz Figma component library.\n\nThe other component is our new TableOfContents, which is used to navigate to anchors on a page. It also serves as an outline of a page’s content. TableOfContents is available for use in our Figma Web library."
           }
         ]
       },

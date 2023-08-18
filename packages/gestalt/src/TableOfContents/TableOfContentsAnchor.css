@@ -1,0 +1,12 @@
+.item {
+  composes: paddingY3 from "../boxWhitespace.css";
+  padding-inline-end: var(--space-300);
+}
+
+html:not([dir="rtl"]) .item {
+  border-radius: 2px 8px 8px 2px;
+}
+
+html[dir="rtl"] .item {
+  border-radius: 8px 2px 2px 8px;
+}

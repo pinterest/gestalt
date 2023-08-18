@@ -31,6 +31,10 @@ describe('useDefaultLabelContext', () => {
             noResultText: 'No results',
             accessibilityClearButtonLabel: 'Clear input',
           },
+          DateRange: {
+            cancelText: 'Cancel',
+            applyText: 'Apply',
+          },
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
           },
@@ -67,6 +71,9 @@ describe('useDefaultLabelContext', () => {
           },
           Spinner: {
             accessibilityLabel: 'Loading',
+          },
+          TableOfContents: {
+            accessibilityLabel: 'Table of contents',
           },
           Tag: {
             accessibilityErrorIconLabel: 'Error',

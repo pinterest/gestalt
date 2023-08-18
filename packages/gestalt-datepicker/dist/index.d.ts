@@ -2,6 +2,39 @@ import React = require('react');
 
 /**
  * =========================================================
+ * ====================== GESTALT PACKAGE DEPENDENCIES =====================
+ * =========================================================
+ */
+interface RadioGroupRadioButtonProps {
+  id: string;
+  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
+  value: string;
+  checked?: boolean | undefined;
+  disabled?: boolean | undefined;
+  helperText?: string | undefined;
+  image?: Node | undefined;
+  label?: string | undefined;
+  name?: string | undefined;
+  size?: 'sm' | 'md' | undefined;
+}
+
+interface RadioGroupSubComponents {
+  RadioButton: React.FunctionComponent<RadioGroupRadioButtonProps>;
+}
+
+interface RadioGroupProps {
+  id: string;
+  children: Node;
+  legend: string;
+  direction?: 'column' | 'row' | undefined;
+  errorMessage?: string | undefined;
+  legendDisplay?: 'visible' | 'hidden' | undefined;
+}
+
+declare const RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
+
+/**
+ * =========================================================
  * ====================== SHARED UTILS =====================
  * =========================================================
  */
@@ -350,6 +383,53 @@ interface LocaleData {
  * =========================================================
  */
 
+export interface DateRangeProps {
+  endDateErrorMessage?: string | null;
+  endDateValue: Date | null;
+  localeData?: LocaleData;
+  maxDate?: Date;
+  minDate?: Date;
+  onCancel: () => void;
+  onEndDateBlur?: AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        {
+          value: string;
+        }
+      >;
+  onEndDateChange: (arg: { value: Date | null }) => void;
+  onEndDateError: (arg: {
+    errorMessage: string,
+    value: Date | null,
+  }) => void;
+  onEndDateFocus?: AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        {
+          value: string,
+        }
+      >;
+  onStartDateBlur?: AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        {
+          value: string,
+        }
+      >;
+  onStartDateChange: (arg: { value: Date | null }) => void;
+  onStartDateError: (arg: {
+    errorMessage: string,
+    value: Date | null,
+  }) => void;
+  onStartDateFocus?: AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        {
+          value: string,
+        }
+      >;
+  onSubmit: () => void;
+  radioGroup?: React.ReactElement<typeof RadioGroup>;
+  startDateValue: Date | null;
+  startDateErrorMessage?: string | null;
+}
+
 export interface DatePickerProps {
   id: string;
   disabled?: boolean | undefined;
@@ -411,7 +491,7 @@ export interface DateFieldProps {
     | AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>
     | undefined;
   readOnly?: boolean | undefined;
-  value: Date | null | undefined | undefined;
+  value: Date | null | undefined;
 }
 
 /**
@@ -419,6 +499,11 @@ export interface DateFieldProps {
  * ========================= INDEX =========================
  * =========================================================
  */
+
+/**
+ * https://gestalt.pinterest.systems/web/daterange
+ */
+export const DateRange: React.FunctionComponent<DateRangeProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/datepicker

@@ -777,8 +777,13 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
             </div>
           </div>
           <div
-            className="box paddingX1 paddingY1"
+            className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
             id="uniqueTestID"
+            style={
+              Object {
+                "maxHeight": 24,
+              }
+            }
           >
             <svg
               aria-hidden={null}

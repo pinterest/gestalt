@@ -1,0 +1,12 @@
+.container {
+  max-width: 320px;
+  padding-bottom: var(--space-300);
+}
+
+html:not([dir="rtl"]) .container {
+  border-left: 1px solid var(--color-border-container);
+}
+
+html[dir="rtl"] .container {
+  border-right: 1px solid var(--color-border-container);
+}

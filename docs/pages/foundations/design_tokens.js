@@ -71,6 +71,12 @@ const tokenCategories = [
     infoPage: { name: 'Box', path: 'web/box#Opacity' },
   },
   {
+    name: 'Rounding',
+    category: 'rounding',
+    id: 'rounding',
+    infoPage: { name: 'Box', path: 'web/box#Rounding' },
+  },
+  {
     name: 'Spacing',
     category: 'spacing',
     id: 'space',

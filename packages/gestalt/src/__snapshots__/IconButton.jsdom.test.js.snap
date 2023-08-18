@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton renders with disabled state 1`] = `
+<div>
+  <button
+    aria-label="Pinterest"
+    class="parentButton"
+    disabled=""
+    type="button"
+  >
+    <div
+      class="button tapTransition disabled"
+    >
+      <div
+        class="pog transparent"
+        style="height: 48px; width: 48px;"
+      >
+        <svg
+          aria-hidden="true"
+          aria-label=""
+          class="icon defaultIcon iconBlock"
+          height="20"
+          role="img"
+          viewBox="0 0 24 24"
+          width="20"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`IconButton renders with icon 1`] = `
+<div>
+  <button
+    aria-label="Pinterest"
+    class="parentButton"
+    tabindex="0"
+    type="button"
+  >
+    <div
+      class="button tapTransition enabled"
+    >
+      <div
+        class="pog transparent"
+        style="height: 48px; width: 48px;"
+      >
+        <svg
+          aria-hidden="true"
+          aria-label=""
+          class="icon defaultIcon iconBlock"
+          height="20"
+          role="img"
+          viewBox="0 0 24 24"
+          width="20"
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`IconButton renders with svg 1`] = `
+<div>
+  <button
+    aria-label="Pinterest"
+    class="parentButton"
+    tabindex="0"
+    type="button"
+  >
+    <div
+      class="button tapTransition enabled"
+    >
+      <div
+        class="pog transparent"
+        style="height: 48px; width: 48px;"
+      >
+        <svg
+          aria-hidden="true"
+          aria-label=""
+          class="icon defaultIcon iconBlock"
+          height="20"
+          role="img"
+          viewBox="0 0 24 24"
+          width="20"
+        >
+          <path
+            d="M13.00,20.00"
+          />
+        </svg>
+      </div>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`IconButton renders with tooltip 1`] = `
+<div>
+  <div
+    class="box xsDisplayBlock"
+  >
+    <div
+      aria-label="This Pin is private unless you share it with others."
+      class="box"
+    >
+      <button
+        aria-label="Share"
+        class="parentButton"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="button tapTransition enabled"
+        >
+          <div
+            class="pog transparent"
+            style="height: 48px; width: 48px;"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label=""
+              class="icon defaultIcon iconBlock"
+              height="20"
+              role="img"
+              viewBox="0 0 24 24"
+              width="20"
+            >
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
+<div>
+  <div
+    class="box xsDisplayBlock"
+  >
+    <div
+      aria-label=""
+      class="box"
+    >
+      <button
+        aria-label="Share"
+        class="parentButton"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="button tapTransition enabled"
+        >
+          <div
+            class="pog transparent"
+            style="height: 48px; width: 48px;"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label=""
+              class="icon defaultIcon iconBlock"
+              height="20"
+              role="img"
+              viewBox="0 0 24 24"
+              width="20"
+            >
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;

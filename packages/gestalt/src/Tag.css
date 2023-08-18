@@ -6,11 +6,11 @@
 }
 
 html[dir="rtl"] .button {
-  border-radius: 8px 0 0 8px;
+  border-radius: var(--rounding-200) 0 0 var(--rounding-200);
 }
 
 html:not([dir="rtl"]) .button {
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
 }
 
 .secondary {
