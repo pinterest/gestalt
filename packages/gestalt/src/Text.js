@@ -100,11 +100,18 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
   ): Element<As> {
     const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
-    // by default, lineClamp should use breakWord
-    const lineClampStyles = cx({
-      [typography.lineClamp]: isNotNullish(lineClamp),
-      [typography.breakWord]: isNotNullish(lineClamp) && overflow !== 'breakAll',
-    });
+    const getWordBreakStyle = (): string | void => {
+      if (overflow === 'breakAll') {
+        return typography.breakAll;
+      }
+
+      // default to breakWord if lineClamp is set
+      if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
+        return typography.breakWord;
+      }
+
+      return undefined;
+    };
 
     const cs = cx(
       styles.Text,
@@ -116,14 +123,13 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
       align === 'end' && typography.alignEnd,
       align === 'forceLeft' && typography.alignForceLeft,
       align === 'forceRight' && typography.alignForceRight,
-      overflow === 'breakWord' && typography.breakWord,
-      overflow === 'breakAll' && typography.breakAll,
+      getWordBreakStyle(),
       overflow === 'noWrap' && typography.noWrap,
       italic && typography.fontStyleItalic,
       underline && typography.underline,
       weight === 'bold' && typography.fontWeightSemiBold,
       weight === 'normal' && typography.fontWeightNormal,
-      lineClampStyles,
+      isNotNullish(lineClamp) && typography.lineClamp,
     );
 
     const Tag: As = inline ? 'span' : 'div';

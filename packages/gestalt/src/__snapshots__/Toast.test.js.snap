@@ -37,7 +37,7 @@ exports[`<Toast /> Error Toast 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="Text fontSize300 inverseText alignStart breakWord fontWeightSemiBold lineClamp breakWord"
+          className="Text fontSize300 inverseText alignStart breakWord fontWeightSemiBold lineClamp"
           style={
             Object {
               "WebkitLineClamp": 2,
@@ -365,7 +365,7 @@ exports[`<Toast /> Text Only 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="Text fontSize300 inverseText alignStart breakWord fontWeightNormal lineClamp breakWord"
+          className="Text fontSize300 inverseText alignStart breakWord fontWeightNormal lineClamp"
           style={
             Object {
               "WebkitLineClamp": 2,
