@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
+import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import { useAppContext } from './appContext.js';
 import theme from './atomDark.js';
@@ -40,7 +41,7 @@ const reactImports = [
 
 const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');
 
-const importsToRemove = ['gestalt', 'gestalt-datepicker', 'react'];
+const importsToRemove = ['gestalt', 'gestalt-charts', 'gestalt-datepicker', 'react'];
 
 const importsToRemoveRegex = new RegExp(
   `import (.|\n)*(${importsToRemove.map((item) => `'${item}'`).join('|')});`,
@@ -54,7 +55,7 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
     return null;
   }
 
-  const scope = { ...gestalt, ...gestaltDatepicker };
+  const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
 
   const codeFileCleaned = code
     ?.toString()

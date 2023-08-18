@@ -1,6 +1,7 @@
 // @flow strict
 import LZString from 'lz-string';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
+import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 
 const compress = (object: {|
@@ -12,6 +13,7 @@ const compress = (object: {|
       content: {|
         dependencies: {|
           gestalt: string,
+          'gestalt-charts': string,
           'gestalt-datepicker': string,
           react: string,
           'react-dom': string,
@@ -42,6 +44,7 @@ const dedupeArray = <T>(arr: $ReadOnlyArray<T>): $ReadOnlyArray<T> => [...new Se
 
 const handleCodeSandbox = async ({ code, title }: {| code: string, title: string |}) => {
   const gestaltComponents = Object.keys(gestalt);
+  const gestaltChartComponents = Object.keys(gestaltChart);
   const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
 
   const usedComponents = dedupeArray([
@@ -53,6 +56,10 @@ const handleCodeSandbox = async ({ code, title }: {| code: string, title: string
 
   const baseGestaltComponents = gestaltComponents.filter((x) => usedComponents.includes(x));
 
+  const baseGestaltChartComponents = gestaltChartComponents.filter((x) =>
+    usedComponents.includes(x),
+  );
+
   const baseGestaltDatePickerComponents = gestaltDatepickerComponents.filter((x) =>
     usedComponents.includes(x),
   );
@@ -61,6 +68,7 @@ const handleCodeSandbox = async ({ code, title }: {| code: string, title: string
     const imports = [`import "../node_modules/gestalt/dist/gestalt.css"`];
     if (baseGestaltDatePickerComponents.length > 0) {
       imports.push('import "../node_modules/gestalt-datepicker/dist/gestalt-datepicker.css";');
+      imports.push(`import { ${baseGestaltChartComponents.join(', ')} } from "gestalt-charts";`);
       imports.push(
         `import { ${baseGestaltDatePickerComponents.join(', ')} } from "gestalt-datepicker";`,
       );
@@ -83,6 +91,7 @@ const handleCodeSandbox = async ({ code, title }: {| code: string, title: string
             react: 'latest',
             'react-dom': 'latest',
             gestalt: 'latest',
+            'gestalt-charts': 'latest',
             'gestalt-datepicker': 'latest',
           },
           devDependencies: {

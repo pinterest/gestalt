@@ -70,6 +70,7 @@ const getFilesFromDirectory = (directoryPath) => {
   // When adding a new folder/file also add to dev-metadata command in package.json
   const files = [
     ...getFilesFromDirectory('/packages/gestalt/src/'),
+    ...getFilesFromDirectory('/packages/gestalt-charts/src/'),
     ...getFilesFromDirectory('/packages/gestalt-datepicker/src/'),
   ];
 
