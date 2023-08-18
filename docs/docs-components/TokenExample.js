@@ -34,6 +34,19 @@ export function ColorBox({ token }: BaseProps): Node {
   );
 }
 
+export function RoundingBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { 'border-radius': `var(--${token.name})` },
+      }}
+      borderStyle="lg"
+      width={64}
+      height={64}
+    />
+  );
+}
+
 export function SpacingBox({ token }: BaseProps): Node {
   if (token.value.includes('-')) {
     const absoluteDimension = token.value.replace(/^-/, '');
@@ -173,6 +186,8 @@ export function TokenExample({ token, category }: ExampleProps): Node {
     case 'background-color':
     case 'data-visualization':
       return <ColorBox token={token} />;
+    case 'rounding':
+      return <RoundingBox token={token} />;
     case 'spacing':
       return <SpacingBox token={token} />;
     case 'text-color':
