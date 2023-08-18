@@ -4,7 +4,7 @@
   composes: flex from "./Layout.css";
   composes: justifyBetween from "./Layout.css";
   composes: rounding4 from "./Borders.css";
-  padding: 2px;
+  padding: var(--space-100);
   user-select: none;
 }
 
@@ -16,7 +16,7 @@
   border-radius: 14px;
   flex-basis: 0;
   flex-shrink: 1;
-  padding: var(--space-200) 14px;
+  padding: var(--space-200) var(--space-400);
 }
 
 .itemIsNotSelected {
