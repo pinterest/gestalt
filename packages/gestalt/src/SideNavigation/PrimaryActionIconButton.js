@@ -3,7 +3,7 @@ import { cloneElement, type Element, type Node, useEffect, useId, useRef, useSta
 import Dropdown from '../Dropdown.js';
 import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
-import Tooltip from '../Tooltip.js';
+import MaybeTooltip from '../utils/MaybeTooltip.js';
 import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex.js';
 
 type Props = {|
@@ -83,7 +83,10 @@ function ItemIconButton({
     : new FixedZIndex(1);
   const dropdownZIndex = new CompositeZIndex([tooltipZIndex]);
   return (
-    <Tooltip accessibilityLabel="" text={tooltip.text} zIndex={tooltipZIndex}>
+    <MaybeTooltip
+      disabled={open}
+      tooltip={{ text: tooltip.text, accessibilityLabel: '', zIndex: tooltipZIndex }}
+    >
       {/* Interactive elements require an a11yLabel on them or their children. That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
       <TapArea
         accessibilityControls={id}
@@ -155,7 +158,7 @@ function ItemIconButton({
           </Dropdown>
         )}
       </TapArea>
-    </Tooltip>
+    </MaybeTooltip>
   );
 }
 
