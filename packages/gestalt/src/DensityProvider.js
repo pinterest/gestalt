@@ -9,20 +9,21 @@ type Props = {|
   /**
    * Which density to apply to children.
    */
-  size: 'sm' | 'md' | 'lg',
+  size: 'compact' | 'comfortable' | 'spacious',
 |};
 
 // move everything down by 4px, or increment by 4px
-const generateTheme = (size: 'sm' | 'md' | 'lg') => {
+const generateTheme = (size: 'compact' | 'comfortable' | 'spacious') => {
   let baseScale = 4; // 100
 
-  if (size === 'sm') {
+  if (size === 'compact') {
     baseScale = 0;
   }
 
-  if (size === 'lg') {
+  if (size === 'spacious') {
     baseScale = 8;
   }
+
   // generate 16 iterations of the scale
   const scale = Array.from({ length: 16 }, (_, i) => i * 4 + baseScale);
 
@@ -34,7 +35,7 @@ const generateTheme = (size: 'sm' | 'md' | 'lg') => {
 /**
  * Converts spacing tokens to dynamic variables.
  */
-const themeToStyles = (size: 'sm' | 'md' | 'lg') => {
+const themeToStyles = (size: 'compact' | 'comfortable' | 'spacious') => {
   const theme = generateTheme(size);
 
   const styles = {};
@@ -44,9 +45,6 @@ const themeToStyles = (size: 'sm' | 'md' | 'lg') => {
     styles[tokenName] = `${val}px`;
   });
 
-  styles['--space-350'] = `${theme[3] + 2}px`;
-
-  console.log(styles);
   return styles;
 };
 
