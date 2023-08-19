@@ -22,6 +22,7 @@ import GlobalEventsHandlerProvider, {
   useGlobalEventsHandlerContext,
 } from './contexts/GlobalEventsHandlerProvider.js';
 import Datapoint from './Datapoint.js';
+import DensityProvider from './DensityProvider.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
 import Fieldset from './Fieldset.js';
@@ -101,6 +102,7 @@ export {
   Container,
   Datapoint,
   DefaultLabelProvider,
+  DensityProvider,
   DeviceTypeProvider,
   Divider,
   Dropdown,

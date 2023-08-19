@@ -13,22 +13,55 @@ type Props = {|
 |};
 
 // move everything down by 4px, or increment by 4px
-const generateTheme = (size: 'compact' | 'comfortable' | 'spacious') => {
-  let baseScale = 4; // 100
+const generateSpacingTokens = (size: 'compact' | 'comfortable' | 'spacious') => {
+  let modifier = 0;
 
   if (size === 'compact') {
-    baseScale = 0;
+    modifier = -4;
   }
 
   if (size === 'spacious') {
-    baseScale = 8;
+    modifier = 4;
   }
 
-  // generate 16 iterations of the scale
-  const scale = Array.from({ length: 16 }, (_, i) => i * 4 + baseScale);
+  // generate 16 tokens
+  const scale = Array.from({ length: 16 }, (_, i) => i * 4 + modifier);
 
-  // insert a 0 at the start of the scale, so that the first item is 0
-  scale.unshift(0);
+  // compact mode is the only one where the scale starts at 2
+  if (size === 'compact') {
+    scale[1] = 2;
+  }
+
+  // base is always 0
+  scale[0] = 0;
+
+  console.log(scale);
+
+  return scale;
+};
+
+const generateRoundingTokens = (size: 'compact' | 'comfortable' | 'spacious') => {
+  let modifier = 0;
+
+  if (size === 'compact') {
+    modifier = -4;
+  }
+
+  if (size === 'spacious') {
+    modifier = 4;
+  }
+
+  // generate 8 tokens
+  const scale = Array.from({ length: 8 }, (_, i) => i * 4 + modifier);
+
+  // compact mode is the only one where the scale starts at 2
+  if (size === 'compact') {
+    scale[1] = 2;
+  }
+
+  // base is always 0
+  scale[0] = 0;
+
   return scale;
 };
 
@@ -36,12 +69,18 @@ const generateTheme = (size: 'compact' | 'comfortable' | 'spacious') => {
  * Converts spacing tokens to dynamic variables.
  */
 const themeToStyles = (size: 'compact' | 'comfortable' | 'spacious') => {
-  const theme = generateTheme(size);
+  const spacingTheme = generateSpacingTokens(size);
+  const roundingTheme = generateRoundingTokens(size);
 
   const styles = {};
 
-  theme.forEach((val, i) => {
+  spacingTheme.forEach((val, i) => {
     const tokenName = `--space-${i * 100}`;
+    styles[tokenName] = `${val}px`;
+  });
+
+  roundingTheme.forEach((val, i) => {
+    const tokenName = `--rounding-${i * 100}`;
     styles[tokenName] = `${val}px`;
   });
 

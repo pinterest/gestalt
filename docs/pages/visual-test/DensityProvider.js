@@ -84,7 +84,7 @@ export default function Example(): Node {
           <TextField id="example" onChange={() => {}} placeholder="First name" />
         </Section>
 
-        <Section title="Segmented Control" maxWidth={165}>
+        <Section title="Segmented Control" maxWidth={180}>
           <SegmentedControl items={SegmentedControlItems} selectedItemIndex={0} />
         </Section>
 
