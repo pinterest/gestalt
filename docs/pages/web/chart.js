@@ -9,7 +9,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
     </Page>
   );

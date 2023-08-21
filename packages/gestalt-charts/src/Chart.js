@@ -7,7 +7,7 @@ export type Props = {|
 |};
 
 /**
- * [Chart](https://gestalt.pinterest.systems/web/chart) is used when the user has to select a date or date range.
+ * [Chart](https://gestalt.pinterest.systems/web/chart) is UNDER DEVELOPMENT. STAY TUNNED!
  *
  * Chart is distributed in its own package and must be installed separately.
  *
