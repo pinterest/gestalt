@@ -178,6 +178,7 @@ import starHalf from './star-half.svg';
 import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
+import target from './target.svg';
 import terms from './terms.svg';
 import textAlignCenter from './text-align-center.svg';
 import textAlignLeft from './text-align-left.svg';
@@ -411,6 +412,7 @@ const icons = Object.freeze({
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'trash-can': trashCan,
+  target,
   trending,
   twitter,
   'video-advance-10-seconds': videoAdvance10Seconds,
