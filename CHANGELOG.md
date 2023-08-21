@@ -1,3 +1,9 @@
+## 121.1.7 (Aug 21, 2023)
+
+### Patch
+
+- Icon: add target icon and keywords ([#3145](https://github.com/pinterest/gestalt/pull/3145)) - [Preview link](https://deploy-preview-3145--gestalt.netlify.app?devexample=true)
+
 ## 121.1.6 (Aug 21, 2023)
 
 ### Patch
