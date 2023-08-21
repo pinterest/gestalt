@@ -1217,7 +1217,14 @@
       "name": "target",
       "categories": ["Ads and measurement"],
       "description": "Indicates the target audience",
-      "keywords": ["bullseye"]
+      "keywords": [
+        "audience",
+        "audience tracking",
+        "bullseye",
+        "demographics",
+        "engagement",
+        "focus"
+      ]
     },
     {
       "name": "terms",
