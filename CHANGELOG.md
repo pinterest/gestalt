@@ -1,3 +1,9 @@
+## 121.1.6 (Aug 21, 2023)
+
+### Patch
+
+- Component Status: Update components.js ([#3144](https://github.com/pinterest/gestalt/pull/3144)) - [Preview link](https://deploy-preview-3144--gestalt.netlify.app?devexample=true)
+
 ## 121.1.5 (Aug 18, 2023)
 
 ### Patch
