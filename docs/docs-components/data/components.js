@@ -495,6 +495,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'Chart',
+    platform: {
+      web: {
+        name: 'Chart',
+        visual: {
+          svg: <ButtonLink />,
+        },
+        description: 'WIP',
+        category: ['Data'],
+        status: {
+          accessible: {
+            summary: 'notAvailable',
+            a11yVisual: 'notAvailable',
+            a11yScreenreader: 'notAvailable',
+            a11yNavigation: 'notAvailable',
+            a11yComprehension: 'notAvailable',
+          },
+          documentation: 'notAvailable',
+          figmaStatus: 'notAvailable',
+          responsive: 'notAvailable',
+          status: 'notAvailable',
+        },
+      },
+    },
+  },
+  {
     id: 'Checkbox',
     platform: {
       web: {
