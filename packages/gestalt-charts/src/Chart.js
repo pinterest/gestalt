@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow strict
 import { type Node } from 'react';
 import { Text } from 'gestalt';
 

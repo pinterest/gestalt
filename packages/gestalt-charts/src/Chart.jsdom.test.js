@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow strict
 import { render, screen } from '@testing-library/react';
 import Chart from './Chart.js';
 
