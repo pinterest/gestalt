@@ -503,7 +503,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         visual: {
           svg: <Chart />,
         },
-        description: 'WIP',
+        description: 'WIP ',
         category: ['Data'],
         status: {
           accessible: {
