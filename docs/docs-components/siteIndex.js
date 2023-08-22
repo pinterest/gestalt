@@ -113,6 +113,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'ButtonLink',
       'ButtonGroup',
       'Callout',
+      'Chart',
       'Checkbox',
       'Collage',
       'Column',

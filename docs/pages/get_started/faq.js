@@ -105,7 +105,7 @@ $ElementType<React$ElementConfig<typeof ComponentName>, 'propName'>
           <Heading size="400">Does Gestalt have TypeScript support?</Heading>
           <Text>
             Yes. Gestalt officially supports and maintains TypeScript declaration files for our
-            gestalt and gestalt-datepicker packages.
+            gestalt, gestalt-charts, and gestalt-datepicker packages.
           </Text>
         </Flex>
       </Card>
