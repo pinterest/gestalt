@@ -76,7 +76,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Use As Affordance To Input Longer Text"
                 code={useAsAffordanceToInputLongerText}
                 hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -107,7 +106,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Use Label To Clearly Denote What"
                 code={useLabelToClearlyDenoteWhat}
                 hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -138,7 +136,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Use Helper Text To Provide Additional"
                 code={useHelperTextToProvideAdditional}
                 hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -169,7 +166,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                 name="Set The Height Of Using Row To"
                 code={setHeightOfUsingRowTo}
                 hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -246,13 +242,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Default Example 1"
-                code={defaultVariant}
-                hideEditor
-                hideControls
-                layout="column"
-              />
+              <SandpackExample name="Default Example 1" code={defaultVariant} layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -266,8 +256,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Helper Text Example"
                 code={helperTextVariant}
-                hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -283,8 +271,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
               <SandpackExample
                 name="Label Visibility Example"
                 code={labelVisibilityVariant}
-                hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -298,13 +284,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Read-Only Example"
-                code={readOnlyVariant}
-                hideEditor
-                hideControls
-                layout="column"
-              />
+              <SandpackExample name="Read-Only Example" code={readOnlyVariant} layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -316,13 +296,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Disabled Example"
-                code={disabledVariant}
-                hideEditor
-                hideControls
-                layout="column"
-              />
+              <SandpackExample name="Disabled Example" code={disabledVariant} layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -338,8 +312,6 @@ Don't use \`errorMessage\` to provide feedback on character count errors. See th
               <SandpackExample
                 name="Error Message Example"
                 code={errorMessageVariant}
-                hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -361,8 +333,6 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
               <SandpackExample
                 name="Maximum Length Example 1"
                 code={maximumLengthExample1}
-                hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -373,8 +343,6 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
               <SandpackExample
                 name="Maximum Length Example 2"
                 code={maximumLengthExample2}
-                hideEditor
-                hideControls
                 layout="column"
               />
             }
@@ -388,13 +356,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="With A Ref Example"
-                code={withRefExample}
-                hideEditor
-                hideControls
-                layout="column"
-              />
+              <SandpackExample name="With A Ref Example" code={withRefExample} layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -409,13 +371,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="With Tags Example"
-                code={withTagsExample}
-                hideEditor
-                hideControls
-                layout="column"
-              />
+              <SandpackExample name="With Tags Example" code={withTagsExample} layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -427,13 +383,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="With Rows Example"
-                code={withRowsExample}
-                hideEditor
-                hideControls
-                layout="column"
-              />
+              <SandpackExample name="With Rows Example" code={withRowsExample} layout="column" />
             }
           />
         </MainSection.Subsection>

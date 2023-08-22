@@ -1,40 +1,50 @@
 // @flow strict
-import { type Node, useState } from "react";
-import { Tag, Box, TextArea } from "gestalt";
+import { type Node, useRef, useState } from 'react';
+import { Box, Tag, TextArea } from 'gestalt';
 
-const CITIES = ['San Francisco', 'New York']
+type ChangeTagHandler = ({|
+  event: SyntheticInputEvent<HTMLTextAreaElement>,
+  value: string,
+|}) => void;
 
-export default function Example(props) {
+type KeyDownHandler = ({|
+  event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
+  value: string,
+|}) => void;
+
+const CITIES = ['San Francisco', 'New York'];
+
+export default function Example(): Node {
   const [value, setValue] = useState('');
   const [tags, setTags] = useState(CITIES);
 
-  const ref = React.useRef();
+  const ref = useRef<HTMLTextAreaElement | null>(null);
 
-  const onChangeTagManagement = ({ value }) => {
+  const onChangeTagManagement: ChangeTagHandler = (data) => {
     // Create new tags around new lines
-    const tagInput = value.split(/\\n+/);
+    const tagInput = data.value.split(/\\n+/);
     if (tagInput.length > 1) {
       setTags([
         ...tags,
         // Avoid creating a tag on content on the last line, and filter out
         // empty tags
-        ...tagInput.splice(0, tagInput.length - 1).filter(val => val !== ''),
+        ...tagInput.splice(0, tagInput.length - 1).filter((val) => val !== ''),
       ]);
     }
     setValue(tagInput[tagInput.length - 1]);
-  }
+  };
 
-  const onKeyDownTagManagement = ({
+  const onKeyDownTagManagement: KeyDownHandler = ({
     event: {
       keyCode,
-      target: { selectionEnd },
+      currentTarget: { selectionEnd },
     },
   }) => {
     if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
       // Remove tag on backspace if the cursor is at the beginning of the field
       setTags([...tags.slice(0, -1)]);
     }
-  }
+  };
 
   const renderedTags = tags.map((tag, idx) => (
     <Tag
@@ -43,7 +53,7 @@ export default function Example(props) {
         const newTags = [...tags];
         newTags.splice(idx, 1);
         setTags([...newTags]);
-        ref.current.focus();
+        ref.current?.focus();
       }}
       accessibilityRemoveIconLabel={`Remove ${tag} tag`}
       text={tag}
@@ -51,12 +61,8 @@ export default function Example(props) {
   ));
 
   return (
-    <Box
-      padding={8}
-      height="100%"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"><Box width="100%">
+    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+      <Box width="100%">
         <TextArea
           id="cities"
           label="Cities"
@@ -67,6 +73,7 @@ export default function Example(props) {
           tags={renderedTags}
           value={value}
         />
-      </Box></Box>
+      </Box>
+    </Box>
   );
 }

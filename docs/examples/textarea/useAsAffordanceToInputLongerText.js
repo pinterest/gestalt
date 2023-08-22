@@ -1,17 +1,13 @@
 // @flow strict
-import { type Node, useState } from "react";
-import { Box, TextArea } from "gestalt";
+import { type Node, useState } from 'react';
+import { Box, TextArea } from 'gestalt';
 
-export default function Example(props) {
+export default function Example(): Node {
   const [value, setValue] = useState('');
 
   return (
-    <Box
-      padding={8}
-      height="100%"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"><Box width="100%">
+    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+      <Box width="100%">
         <TextArea
           id="best-practices-do-content-length"
           label="Board description"
@@ -21,6 +17,7 @@ export default function Example(props) {
           placeholder="What's your board about?"
           value={value}
         />
-      </Box></Box>
+      </Box>
+    </Box>
   );
 }
