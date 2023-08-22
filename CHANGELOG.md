@@ -1,3 +1,9 @@
+## 122.0.0 (Aug 22, 2023)
+
+### Major
+
+- Internal: move gestalt-charts to end of release list ([#3150](https://github.com/pinterest/gestalt/pull/3150)) - [Preview link](https://deploy-preview-3150--gestalt.netlify.app?devexample=true)
+
 ## 121.2.1 (Aug 22, 2023)
 
 ### Patch
