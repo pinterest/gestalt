@@ -1,3 +1,9 @@
+## 121.1.8 (Aug 22, 2023)
+
+### Patch
+
+- Button: Update Android button docs ([#3148](https://github.com/pinterest/gestalt/pull/3148)) - [Preview link](https://deploy-preview-3148--gestalt.netlify.app?devexample=true)
+
 ## 121.1.7 (Aug 21, 2023)
 
 ### Patch
