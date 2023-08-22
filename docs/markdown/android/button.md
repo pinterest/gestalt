@@ -51,7 +51,7 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 
 1. **lg (60dp)**
    Large should be primarily used on Pinner, business and internal surfaces.
-2. **sm (48dp)**
+2. **sm (44dp)**
    Small should be used sparingly and only in places where the UI is very dense.
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A34077%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
