@@ -19,7 +19,6 @@ packages/gestalt-design-tokens/dist
 
 # the following files as they are maintained by hand
 !packages/gestalt/dist/gestalt.js.flow
-!packages/gestalt/dist/gestalt-charts.js.flow
 !packages/gestalt/dist/gestalt-datepicker.js.flow
 !packages/gestalt/dist/index.d.ts
 !packages/gestalt-charts/dist/index.d.ts
