@@ -22,6 +22,7 @@ import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
+// import Chart from '../../graphics/general/Chart.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
@@ -494,6 +495,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
+  // {
+  //   id: 'Chart',
+  //   platform: {
+  //     web: {
+  //       name: 'Chart',
+  //       visual: {
+  //         svg: <Chart />,
+  //       },
+  //       description: 'WIP ',
+  //       category: ['Data'],
+  //       status: {
+  //         accessible: {
+  //           summary: 'notAvailable',
+  //           a11yVisual: 'notAvailable',
+  //           a11yScreenreader: 'notAvailable',
+  //           a11yNavigation: 'notAvailable',
+  //           a11yComprehension: 'notAvailable',
+  //         },
+  //         documentation: 'notAvailable',
+  //         figmaStatus: 'notAvailable',
+  //         responsive: 'notAvailable',
+  //         status: 'notAvailable',
+  //       },
+  //     },
+  //   },
+  // },
   {
     id: 'Checkbox',
     platform: {

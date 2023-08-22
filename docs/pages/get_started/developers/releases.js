@@ -49,7 +49,7 @@ To run an alpha release, follow these steps:
 - Click on the "Compare & pull request" on Github
 - Instead of <code>base repository:pinterest/gestalt</code> and <code>base: master</code>, select <code>base: alpha</code>
 - Merge your branch. There's no need to set a label or wait for builds to pass as some might fail.
-- On your terminal, check <code>npm view gestalt</code> or <code>npm view gestalt-datepicker</code> to see the latest alpha release
+- On your terminal, check <code>npm view gestalt</code> or <code>npm view gestalt-charts</code> or <code>npm view gestalt-datepicker</code> to see the latest alpha release
 - Visit https://www.npmjs.com/package/gestalt/v/<alpha version>
 - In package.json, replace the Gestalt dependency with the released alpha version
 - Run <code>yarn</code>

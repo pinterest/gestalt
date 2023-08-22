@@ -1,6 +1,7 @@
 // @flow strict
 import '../docs.css';
 import 'gestalt/dist/gestalt.css';
+import 'gestalt-charts/dist/gestalt-charts.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 import { promises as fs } from 'fs';
 import path from 'path';

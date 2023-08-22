@@ -3,6 +3,7 @@ set -euo pipefail
 
 echo "build"
 (cd packages/gestalt && yarn build)
+(cd packages/gestalt-charts && yarn build)
 (cd packages/gestalt-datepicker && yarn build)
 
 echo "eslint"
