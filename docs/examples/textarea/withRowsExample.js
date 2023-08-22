@@ -7,7 +7,7 @@ export default function Example(): Node {
   const [rows, setRows] = useState(2);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box padding={8} height="100%" display="flex" justifyContent="center">
       <Flex direction="column" width="100%" gap={4}>
         <Box width={120}>
           <NumberField
