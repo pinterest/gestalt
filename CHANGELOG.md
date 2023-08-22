@@ -1,3 +1,9 @@
+## 121.2.1 (Aug 22, 2023)
+
+### Patch
+
+- Docs: Migrate TextArea, Pog, Video, Image, Status, Layer examples to Sandpack ([#3147](https://github.com/pinterest/gestalt/pull/3147)) - [Preview link](https://deploy-preview-3147--gestalt.netlify.app?devexample=true)
+
 ## 121.2.0 (Aug 22, 2023)
 
 ### Minor
