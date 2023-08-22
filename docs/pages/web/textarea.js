@@ -25,7 +25,6 @@ import setHeightOfUsingRowTo from '../../examples/textarea/setHeightOfUsingRowTo
 import useAsAffordanceToInputLongerText from '../../examples/textarea/useAsAffordanceToInputLongerText.js';
 import useHelperTextToProvideAdditional from '../../examples/textarea/useHelperTextToProvideAdditional.js';
 import useLabelToClearlyDenoteWhat from '../../examples/textarea/useLabelToClearlyDenoteWhat.js';
-import withRefExample from '../../examples/textarea/withRefExample.js';
 import withRowsExample from '../../examples/textarea/withRowsExample.js';
 import withTagsExample from '../../examples/textarea/withTagsExample.js';
 
@@ -349,18 +348,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="With a ref"
-          description={`
-          A \`TextArea\` with an anchor ref to a Popover component
-        `}
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="With A Ref Example" code={withRefExample} layout="column" />
-            }
-          />
-        </MainSection.Subsection>
+
         <MainSection.Subsection
           title="With tags"
           description={`

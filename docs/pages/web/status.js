@@ -189,9 +189,9 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
       />
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="Text additions">
+        <MainSection.Subsection title="Text additions" columns={2}>
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Status name"
             sandpackExample={
               <SandpackExample
@@ -202,7 +202,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Status subtext"
             sandpackExample={
               <SandpackExample
