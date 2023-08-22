@@ -8,17 +8,17 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import ariaAttributesExample1 from '../../examples/Status/ariaAttributesExample1.js';
-import ariaAttributesExample2 from '../../examples/Status/ariaAttributesExample2.js';
-import dontPlaceFarAwayFromItsSubject from '../../examples/Status/dontPlaceFarAwayFromItsSubject.js';
-import dontUseSubText from '../../examples/Status/dontUseSubText.js';
-import dontUseSVGsOrImages from '../../examples/Status/dontUseSVGsOrImages.js';
-import mainExample from '../../examples/Status/mainExample.js';
-import placeCloseToItsSubject from '../../examples/Status/placeCloseToItsSubject.js';
-import textAdditionsExample1 from '../../examples/Status/textAdditionsExample1.js';
-import textAdditionsExample2 from '../../examples/Status/textAdditionsExample2.js';
-import useTitleWhenItRepresents from '../../examples/Status/useTitleWhenItRepresents.js';
-import useToCommunicateAStepIn from '../../examples/Status/useToCommunicateAStepIn.js';
+import ariaAttributesExample1 from '../../examples/status/ariaAttributesExample1.js';
+import ariaAttributesExample2 from '../../examples/status/ariaAttributesExample2.js';
+import dontPlaceFarAwayFromItsSubject from '../../examples/status/dontPlaceFarAwayFromItsSubject.js';
+import dontUseSubText from '../../examples/status/dontUseSubText.js';
+import dontUseSVGsOrImages from '../../examples/status/dontUseSVGsOrImages.js';
+import mainExample from '../../examples/status/mainExample.js';
+import placeCloseToItsSubject from '../../examples/status/placeCloseToItsSubject.js';
+import textAdditionsExample1 from '../../examples/status/textAdditionsExample1.js';
+import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.js';
+import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
+import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
 
 export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
