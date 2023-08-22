@@ -1,3 +1,9 @@
+## 121.2.0 (Aug 22, 2023)
+
+### Minor
+
+- Masonry: Allow positionStore to be externally managed ([#3146](https://github.com/pinterest/gestalt/pull/3146)) - [Preview link](https://deploy-preview-3146--gestalt.netlify.app?devexample=true)
+
 ## 121.1.8 (Aug 22, 2023)
 
 ### Patch
