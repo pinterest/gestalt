@@ -344,6 +344,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
                 name="Maximum Length Example 2"
                 code={maximumLengthExample2}
                 layout="column"
+                previewHeight={440}
               />
             }
           />
