@@ -173,7 +173,6 @@ export default function SandpackExample({
       files={{
         '/styles.css': {
           code: `@import "gestalt/dist/gestalt.css";
-          @import "gestalt-charts/dist/gestalt-charts.css";
           @import "gestalt-datepicker/dist/gestalt-datepicker.css";
           * { margin: 0; padding: 0;}
           body, html, #root { height: 100%; }`,
@@ -195,7 +194,6 @@ export default function SandpackExample({
                 code: JSON.stringify({
                   name: 'gestalt-charts',
                   main: './dist/gestalt-charts.js',
-                  style: 'dist/gestalt-charts.css',
                 }),
                 hidden: true,
               },
@@ -220,10 +218,6 @@ export default function SandpackExample({
                 hidden: true,
               },
               '/node_modules/gestalt/dist/gestalt.css': {
-                code: files.css,
-                hidden: true,
-              },
-              '/node_modules/gestalt-charts/dist/gestalt-charts.css': {
                 code: files.css,
                 hidden: true,
               },

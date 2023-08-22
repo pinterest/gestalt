@@ -1,4 +1,4 @@
-# Gestalt Chart
+# Gestalt ChartGraph
 
 [![NPM Version](https://img.shields.io/npm/v/gestalt-charts.svg)](https://www.npmjs.com/package/gestalt-charts)
 
@@ -20,9 +20,8 @@ yarn add gestalt-charts
 
 ## Usage
 
-Gestalt Chart exports each component as ES6 modules and a single, precompiled CSS file:
+Gestalt ChartGraph exports each component as ES6 modules and a single, precompiled CSS file:
 
 ```js
-import { chart } from 'gestalt-charts';
-import 'gestalt-charts/dist/gestalt-charts.css';
+import { ChartGraph } from 'gestalt-charts';
 ```
