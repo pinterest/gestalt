@@ -1,9 +1,12 @@
-:root {
-  /* transparent colors */
-  --g-color-focus: rgb(0 132 255 / 0.5);
+:global ._gestalt .recharts-text {
+  color: var(--g-colorGray300);
+  font-family: var(--font-family-default-latin);
+  font-size: var(--font-size-300);
 }
 
-.disabled {
-  cursor: default;
-  opacity: 0.5;
+:global ._gestalt .recharts-legend-item-text {
+  color: var(--g-colorGray300);
+  font-family: var(--font-family-default-latin);
+  font-size: var(--font-size-300);
 }
+

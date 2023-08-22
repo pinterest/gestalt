@@ -1,8 +1,9 @@
-// @flow strict
+// @flow strict-local
 import { render, screen } from '@testing-library/react';
 import Chart from './Chart.js';
 
 function ChartWrap({ id }: {| id: string |}) {
+  // $FlowFixMe[prop-missing]
   return <Chart id={id} />;
 }
 
