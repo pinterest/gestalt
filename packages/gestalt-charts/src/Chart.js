@@ -51,17 +51,18 @@ function Chart({ biaxial, type, data, renderTooltip }: Props): Node {
   const [switched, setSwitched] = useState(false);
 
   // eslint-disable-next-line react/no-unstable-nested-components
-  function CustomTooltip(props) {
+  function CustomTooltip({
+    active,
+    payload,
+    label,
+  }: {|
+    active: boolean,
+    payload: { ... },
+    label: string,
+  |}) {
     return (
       <Box maxWidth={300} padding={4} borderStyle="shadow" color="default" rounding={4}>
-        {renderTooltip({
-          // eslint-disable-next-line react/prop-types
-          active: props?.active,
-          // eslint-disable-next-line react/prop-types
-          payload: props?.payload,
-          // eslint-disable-next-line react/prop-types
-          label: props?.label,
-        })}
+        {renderTooltip({ active, payload, label })}
       </Box>
     );
   }
@@ -87,6 +88,7 @@ function Chart({ biaxial, type, data, renderTooltip }: Props): Node {
               <XAxis dataKey="name" />
               <YAxis yAxisId="left" />
               {biaxial ? <YAxis yAxisId="right" orientation="right" /> : null}
+              {/*  $FlowFixMe[prop-missing]  */}
               <Tooltip content={<CustomTooltip />} />
               <Legend />
               <Line yAxisId="left" dataKey="bar1" stroke={hexColor('01')} />
@@ -152,6 +154,7 @@ function Chart({ biaxial, type, data, renderTooltip }: Props): Node {
               <XAxis dataKey="name" />
               <YAxis yAxisId="left" />
               {biaxial ? <YAxis yAxisId="right" orientation="right" /> : null}
+              {/*  $FlowFixMe[prop-missing]  */}
               <Tooltip content={<CustomTooltip />} />
               <Legend />
               <ReferenceArea

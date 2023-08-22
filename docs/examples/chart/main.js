@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
-import { Text, Button, Flex } from 'gestalt';
-import { Chart } from 'gestalt-datepicker';
+import { type Node, useState } from 'react';
+import { Button, Flex, Text } from 'gestalt';
+import { Chart } from 'gestalt-charts';
 
 export default function Example(): Node {
   const [biaxial, setBiaxial] = useState(false);
@@ -66,7 +66,8 @@ export default function Example(): Node {
         biaxial={biaxial}
         type={type}
         data={data}
-        renderTooltip={({ label, payload }) => (
+        // renderTooltip={({ label, payload }) => (
+        renderTooltip={({ label }) => (
           <Flex direction="column" gap={2}>
             {/* <Text>{JSON.stringify(payload)}</Text> */}
             <Text>{label}</Text>
