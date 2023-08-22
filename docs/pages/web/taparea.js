@@ -310,6 +310,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
                 name="Roles & Compress Behavior Example"
                 code={rolesCompressBehaviorExample}
                 layout="column"
+                previewHeight={400}
               />
             }
           />
