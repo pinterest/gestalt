@@ -1,3 +1,9 @@
+## 122.0.1 (Aug 22, 2023)
+
+### Patch
+
+- Internal: updated github personal token ([#3151](https://github.com/pinterest/gestalt/pull/3151)) - [Preview link](https://deploy-preview-3151--gestalt.netlify.app?devexample=true)
+
 ## 122.0.0 (Aug 22, 2023)
 
 ### Major
