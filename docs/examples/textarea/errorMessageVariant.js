@@ -9,7 +9,7 @@ export default function Example(): Node {
       <Box width="100%">
         <TextArea
           id="witherror"
-          onChange={({ value }) => setValue(value)}
+          onChange={(e) => setValue(e.value)}
           errorMessage={!value ? "This field can't be blank!" : null}
           placeholder="Write something about yourself..."
           label="About me"

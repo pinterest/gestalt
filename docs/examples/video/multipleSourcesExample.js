@@ -2,23 +2,18 @@
 import { type Node, useState } from 'react';
 import { Box, Video } from 'gestalt';
 
-export default function Example() {
+export default function Example(): Node {
   const [playing, setPlaying] = useState(false);
 
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Box width={500}>
         <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
           aspectRatio={426 / 240}
           controls
           playing={playing}
+          onPlay={() => {}}
+          onPlayError={() => {}}
           onControlsPlay={() => setPlaying(true)}
           src={[
             {

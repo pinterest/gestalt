@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-do-height"
           label="Have feedback on this product?"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           placeholder="Tell us about your experience, what you love, or what we could improve."
           helperText="Please don't submit passwords, email addresses, or other sensitive or personal info."

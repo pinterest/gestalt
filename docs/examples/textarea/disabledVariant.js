@@ -10,7 +10,7 @@ export default function Example(): Node {
         <TextArea
           disabled
           id="disabled"
-          onChange={({ value }) => setValue(value)}
+          onChange={(e) => setValue(e.value)}
           placeholder="Write something about yourself..."
           label="About me"
           value={value}

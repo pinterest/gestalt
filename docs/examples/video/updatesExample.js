@@ -41,18 +41,13 @@ export default function Example(): Node {
         </Flex>
         <Box width={300}>
           <Video
-            accessibilityMaximizeLabel="Maximize"
-            accessibilityMinimizeLabel="Minimize"
-            accessibilityMuteLabel="Mute"
-            accessibilityPauseLabel="Pause"
-            accessibilityPlayLabel="Play"
-            accessibilityProgressBarLabel="Progress bar"
-            accessibilityUnmuteLabel="Unmute"
             aspectRatio={540 / 960}
             controls
             onControlsPlay={() => setPlaying(true)}
             onControlsPause={() => setPlaying(false)}
-            onVolumeChange={({ volume }) => setVolume(volume)}
+            onVolumeChange={(e) => setVolume(e.volume)}
+            onPlay={() => {}}
+            onPlayError={() => {}}
             playbackRate={playbackRate}
             playing={playing}
             src={src}

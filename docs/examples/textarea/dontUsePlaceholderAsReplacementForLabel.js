@@ -10,8 +10,8 @@ export default function Example(): Node {
       <Box width="100%">
         <TextArea
           id="best-practices-dont-remove-label"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           placeholder="Tell us your story"
           value={value}

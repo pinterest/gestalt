@@ -9,7 +9,7 @@ export default function Example(): Node {
       <Box width="100%">
         <TextArea
           id="aboutmemore"
-          onChange={({ value }) => setValue(value)}
+          onChange={(e) => setValue(e.value)}
           placeholder="Write something about yourself..."
           helperText="Describe your favorite hobbies, foods, or books."
           label="About me"

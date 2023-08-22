@@ -7,13 +7,6 @@ export default function Example(): Node {
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Box width={300}>
         <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
           aspectRatio={540 / 960}
           controls
           onPlayError={() => {}}

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Flex, IconButton,Label, Switch, Text, Video } from 'gestalt';
+import { Box, Flex, IconButton, Label, Switch, Text, Video } from 'gestalt';
 
 export default function Example(): Node {
   const [showControls, setShowControls] = useState(false);
@@ -22,13 +22,6 @@ export default function Example(): Node {
         </Flex>
         <Box width={300}>
           <Video
-            accessibilityMaximizeLabel="Maximize"
-            accessibilityMinimizeLabel="Minimize"
-            accessibilityMuteLabel="Mute"
-            accessibilityPauseLabel="Pause"
-            accessibilityPlayLabel="Play"
-            accessibilityProgressBarLabel="Progress bar"
-            accessibilityUnmuteLabel="Unmute"
             aspectRatio={540 / 960}
             controls={showControls}
             onPlayError={() => {}}

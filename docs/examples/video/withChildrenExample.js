@@ -1,22 +1,17 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, IconButton,Video } from 'gestalt';
+import { Box, IconButton, Video } from 'gestalt';
 
 export default function Example(): Node {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Box width={300}>
         <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
           aspectRatio={540 / 960}
           controls
           src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
+          onPlay={() => {}}
+          onPlayError={() => {}}
         >
           <Box
             width="100%"

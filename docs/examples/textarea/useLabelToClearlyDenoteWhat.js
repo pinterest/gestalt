@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-do-label"
           label="Tell everyone what this Pin is about"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           value={value}
         />

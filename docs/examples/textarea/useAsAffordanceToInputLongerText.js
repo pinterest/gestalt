@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-do-content-length"
           label="Board description"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           placeholder="What's your board about?"
           value={value}

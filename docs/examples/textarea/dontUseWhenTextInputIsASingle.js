@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-dont-single-line"
           label="Destination URL"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           value={value}
         />

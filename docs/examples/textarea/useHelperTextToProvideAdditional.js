@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-do-helpertext"
           label="Explain what people can see in this Pin"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           helperText="This text will be read aloud by screen readers"
           value={value}

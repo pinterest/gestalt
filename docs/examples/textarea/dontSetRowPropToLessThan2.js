@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-dont-row-height-1"
           label="Send a message"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           rows={1}
           value={value}

@@ -11,8 +11,8 @@ export default function Example(): Node {
         <TextArea
           id="best-practices-dont-placeholder"
           label="Campaign description"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           placeholder="Maximum of 500 characters"
           value={value}
