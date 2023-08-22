@@ -69,6 +69,10 @@ type Props<T> = {|
    */
   minCols: number,
   /**
+   * Masonry internally caches positions using a position store. If `positionStore` is provided, Masonry will use it as its cache and will keep it updated with future positions.
+   */
+  positionStore?: Cache<T, Position>,
+  /**
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    *
    * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
@@ -171,7 +175,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
-    this.positionStore = new MeasurementStore();
+    this.positionStore = props.positionStore || Masonry.createMeasurementStore();
     this.heightsStore = new HeightsStore();
 
     this.state = {
