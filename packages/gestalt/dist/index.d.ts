@@ -1,3 +1,4 @@
+import { ChartGraph } from '../../gestalt-charts/dist/index';
 import React = require('react');
 
 /**
@@ -357,6 +358,11 @@ interface DefaultLabelProviderProps {
           iconAccessibilityLabelRecommendation: string;
           iconAccessibilityLabelWarning: string;
           iconAccessibilityLabelSuccess: string;
+        };
+        ChartGraph: {
+          accessibilityLabelPrefixText: string;
+          defaultViewText: string;
+          accessibleViewText: string;
         };
         ComboBox: {
           noResultText: string;

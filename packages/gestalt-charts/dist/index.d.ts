@@ -49,4 +49,4 @@ export interface ChartProps {
 /**
  * https://gestalt.pinterest.systems/web/daterange
  */
-export const Chart: React.FunctionComponent<ChartProps>;
+export const ChartGraph: React.FunctionComponent<ChartProps>;
