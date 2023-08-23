@@ -17,12 +17,12 @@ import {
   TextArea,
 } from 'gestalt';
 
+/* ======= Z-INDEX  ======= */
+const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
+const SHEET_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
+
 export default function ScrollBoundaryContainerExample(): Node {
   const [showSheet, setShowSheet] = useState(false);
-
-  /* ======= Z-INDEX  ======= */
-  const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
-  const SHEET_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
