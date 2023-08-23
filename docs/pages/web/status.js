@@ -7,19 +7,31 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import ariaAttributesExample1 from '../../examples/status/ariaAttributesExample1.js';
+import ariaAttributesExample2 from '../../examples/status/ariaAttributesExample2.js';
+import dontPlaceFarAwayFromItsSubject from '../../examples/status/dontPlaceFarAwayFromItsSubject.js';
+import dontUseSubText from '../../examples/status/dontUseSubText.js';
+import dontUseSVGsOrImages from '../../examples/status/dontUseSVGsOrImages.js';
+import mainExample from '../../examples/status/mainExample.js';
+import placeCloseToItsSubject from '../../examples/status/placeCloseToItsSubject.js';
+import textAdditionsExample1 from '../../examples/status/textAdditionsExample1.js';
+import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.js';
+import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
+import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
 
-export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function StatusPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Status">
-      <PageHeader
-        name="Status"
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Flex>
-  <Status type='ok' title="OK" subtext="Updated 2 days ago" />
-</Flex>
-`}
-      />
+      <PageHeader name="Status" description={generatedDocGen?.description}>
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          hideEditor
+          previewHeight={200}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -50,17 +62,28 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             cardSize="md"
             type="do"
             description="Use Status to communicate a step in a workflow or the state of an item."
-            defaultCode={`
-<Status type="ok" accessibilityLabel="This item is ok" />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use To Communicate A Step In"
+                code={useToCommunicateAStepIn}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use SVGs or images that resemble the Status’ symbols to denote status."
-            defaultCode={`
-<Icon icon="workflow-status-problem" size="24" accessibilityLabel="This item has an error" />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use SVGs Or Images"
+                code={dontUseSVGsOrImages}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -68,24 +91,28 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             cardSize="md"
             type="do"
             description="Place Status close to its subject to provide context and reference. It can be placed as an inline element or paired side by side as needed."
-            defaultCode={`
-<Flex gap={{ row: 1, column: 0 }} alignItems="center">
-  <Status accessibilityLabel="This item is complete" type="ok" />
-  <Text weight="bold" size="300">Campaign complete</Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Place Close To Its Subject"
+                code={placeCloseToItsSubject}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Place Status far away from its subject. "
-            defaultCode={`
-<Flex gap={{ column: 12, row: 0 }} direction="column" alignItems="center">
-  <Status accessibilityLabel="This item is paused" type="halted" />
-  <Text weight="bold" size="300">Campaign paused</Text>
-</Flex>
-
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Place Far Away From Its Subject"
+                code={dontPlaceFarAwayFromItsSubject}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -93,17 +120,28 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
             cardSize="md"
             type="do"
             description="Use `title` when the status it represents is unique, specific and critical for the user to know."
-            defaultCode={`
-<Status type="inProgress" title="Pending review" />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use Title When It Represents"
+                code={useTitleWhenItRepresents}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use Status' `subText` to display extraneous messaging."
-            defaultCode={`
-<Status type="problem" title="Error" subtext="Please try again" />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use Sub Text"
+                code={dontUseSubText}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -124,21 +162,23 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
         >
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Flex gap={{ column: 0, row: 1 }}>
-  <Status accessibilityLabel="This item has a problem" type="problem" />
-  <Text weight="bold" size="300">Dynamic re-targeting</Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="ARIA Attributes Example 1"
+                code={ariaAttributesExample1}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
-            defaultCode={`
-<Flex alignItems="end" direction="column" gap={{ column: 1, row: 0 }}>
-  <Status title="This item has a problem" type="problem" />
-  <Text align="center" weight="bold">
-    Dynamic re-targeting
-  </Text>
-</Flex>`}
+            sandpackExample={
+              <SandpackExample
+                name="ARIA Attributes Example 2"
+                code={ariaAttributesExample2}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -149,29 +189,28 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
       />
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="Text additions">
+        <MainSection.Subsection title="Text additions" columns={2}>
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Status name"
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Status type='unstarted' title='Unstarted' />
-  <Status type='queued' title='Queued' />
-  <Status type='inProgress' title='In progress' />
-  <Status type='halted' title='Halted' />
-  <Status type='ok' title='OK' />
-  <Status type='canceled' title='Canceled' />
-  <Status type='warning' title='Warning' />
-  <Status type='problem' title='Problem' />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Text Additions Example 1"
+                code={textAdditionsExample1}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Status subtext"
-            defaultCode={`
-<Status type='warning' title='Warning' subtext='Updated 2 days ago' />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Text Additions Example 2"
+                code={textAdditionsExample2}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
