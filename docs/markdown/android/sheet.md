@@ -9,13 +9,13 @@ fullwidth: true
 ## Usage guidelines
 
 <TwoCol>
-  <Group>
+<Group>
     <Do title="When to use" />
 - Performing an optional sub-task within a larger task
 - Providing help while maintaining the current page and it’s context
-- Requesting minimal amounts of information form a user (1-2 fields)
-- Capturing user’s full attention for vital matters
-  </Group>
+- Requesting minimal amounts of information form a user - 1-2 fields
+- Capturing user’s full attention for vital matterss
+</Group>
   <Group>
     <Dont title="When not to use" />
 - Displaying system errors. Consider a callout instead.
@@ -157,12 +157,12 @@ The Sheet footer has a flexible configuration. It accepts many different kinds o
   
 ### Transitions
 
-The Sheet slides up from the bottom as the initial transition. However, transitions between sheets should follow the following patterns.  
+The Sheet slides up from the bottom as the initial transition. However, transitions between sheets should follow the following patterns.
 
-**Same Size** 
+**Same Size**
 If there's a transition between Sheets of the same size, the content transitions in place.
 
-**Different Size** 
+**Different Size**
 If there's a transition between Sheets of different sizes or with a size set to "auto", where height adjusts to content, the initial Sheet will slide down to close and the new Sheet will slide up to open.
 
 ## Color

@@ -9,13 +9,13 @@ fullwidth: true
 ## Usage guidelines
 
 <TwoCol>
-  <Group>
+<Group>
     <Do title="When to use" />
 - Performing an optional sub-task within a larger task
 - Providing help while maintaining the current page and it’s context
-- Requesting minimal amounts of information form a user (1-2 fields)
+- Requesting minimal amounts of information form a user - 1-2 fields
 - Capturing user’s full attention for vital matters
-  </Group>
+</Group>
   <Group>
     <Dont title="When not to use" />
 - Displaying system errors. Consider a callout instead.
