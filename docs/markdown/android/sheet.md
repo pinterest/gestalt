@@ -19,8 +19,8 @@ fullwidth: true
   <Group>
     <Dont title="When not to use" />
 - Displaying system errors. Consider a callout instead.
-      - When it will distract users from their current work stream, unless necessary and intentional.
-      - Avoid using on top of another sheet as this can create usability issues and confusion. View the transitions section for more on interaction logistics.
+- When it will distract users from their current work stream, unless necessary and intentional.
+- Avoid using on top of another sheet as this can create usability issues and confusion. View the transitions section for more on interaction logistics.
   </Group>
 </TwoCol>
 
@@ -171,7 +171,7 @@ If there's a transition between Sheets of different sizes or with a size set to 
 ## Localization
 Be sure to localize the header, body content and any footer items. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
-<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/e8/49/65/e849656ad7870ca554554a73723c0b28.png" alt="Example of a sheet receding off the view of the image"/>
+<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/e8/49/65/e849656ad7870ca554554a73723c0b28.png" alt="Example of a sheet that has been localized. The contents are flipped"/>
 
 ## Animation
 By default, the Sheet animates up from the screen’s bottom when prompted by the user and animates down from the top when the user takes an action to exit. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
