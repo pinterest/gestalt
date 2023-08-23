@@ -16,10 +16,10 @@ export default function Example(): Node {
   return (
     <Box padding={8} height="100%" display="flex" justifyContent="center">
       <Flex width="100%" gap={{ column: 2, row: 0 }} direction="column">
+        <Label htmlFor="video-source">
+          <Text>Video source URL</Text>
+        </Label>
         <Flex width="100%" gap={{ row: 2, column: 0 }} alignItems="center">
-          <Label htmlFor="video-source">
-            <Text>Video source URL</Text>
-          </Label>
           <Flex.Item flex="grow">
             <TextField id="video-source" onChange={({ value }) => setInput(value)} value={input} />
           </Flex.Item>

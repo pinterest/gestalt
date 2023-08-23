@@ -6,7 +6,7 @@ export default function Example(): Node {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       {['rgb(111, 91, 77)', 'black', 'var(--color-background-shopping)'].map((color) => (
-        <Column span={2} key={color}>
+        <Column span={3} key={color}>
           <Image
             alt="example.com"
             color={color}

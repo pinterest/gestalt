@@ -38,7 +38,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             <SandpackExample
               name="Child Content Rendered Outside Example"
               code={childContentRenderedOutsideExample}
-              layout="column"
             />
           }
         />
@@ -55,7 +54,6 @@ The example below shows using a \`FixedZIndex\` for the header zIndex and a \`Co
             <SandpackExample
               name="Stacking Using Z-Index Example"
               code={stackingUsingZIndexExample}
-              layout="column"
             />
           }
         />

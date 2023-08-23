@@ -240,9 +240,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     `}
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Default Example 1" code={defaultVariant} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="Default Example 1" code={defaultVariant} />}
           />
         </MainSection.Subsection>
 
@@ -252,11 +250,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Helper Text Example"
-                code={helperTextVariant}
-                layout="column"
-              />
+              <SandpackExample name="Helper Text Example" code={helperTextVariant} />
             }
           />
         </MainSection.Subsection>
@@ -267,11 +261,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="Label Visibility Example"
-                code={labelVisibilityVariant}
-                layout="column"
-              />
+              <SandpackExample name="Label Visibility Example" code={labelVisibilityVariant} />
             }
           />
         </MainSection.Subsection>
@@ -282,9 +272,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     `}
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Read-Only Example" code={readOnlyVariant} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="Read-Only Example" code={readOnlyVariant} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -294,9 +282,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     `}
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Disabled Example" code={disabledVariant} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="Disabled Example" code={disabledVariant} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -308,11 +294,7 @@ Don't use \`errorMessage\` to provide feedback on character count errors. See th
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Error Message Example"
-                code={errorMessageVariant}
-                layout="column"
-              />
+              <SandpackExample name="Error Message Example" code={errorMessageVariant} />
             }
           />
         </MainSection.Subsection>
@@ -329,11 +311,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
           <MainSection.Card
             cardSize="sm"
             sandpackExample={
-              <SandpackExample
-                name="Maximum Length Example 1"
-                code={maximumLengthExample1}
-                layout="column"
-              />
+              <SandpackExample name="Maximum Length Example 1" code={maximumLengthExample1} />
             }
           />
           <MainSection.Card
@@ -342,7 +320,6 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
               <SandpackExample
                 name="Maximum Length Example 2"
                 code={maximumLengthExample2}
-                layout="column"
                 previewHeight={440}
               />
             }
@@ -359,9 +336,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
     This example showcases the recommended behavior.`}
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="With Tags Example" code={withTagsExample} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="With Tags Example" code={withTagsExample} />}
           />
         </MainSection.Subsection>
 
@@ -371,9 +346,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
           The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit.`}
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="With Rows Example" code={withRowsExample} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="With Rows Example" code={withRowsExample} />}
           />
         </MainSection.Subsection>
       </MainSection>
