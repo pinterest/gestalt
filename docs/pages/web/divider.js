@@ -23,7 +23,13 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          hideEditor
+          previewHeight={200}
+        />
       </PageHeader>
 
       <MainSection name="Usage guidelines">
@@ -173,7 +179,7 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
           description="You can use this component as a vertical divider between two elements. Placing it within a Flex layout with a direction of `row` will shift Divider to a vertical orientation."
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Horizontal"
             sandpackExample={
               <SandpackExample
@@ -184,7 +190,7 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Vertical"
             sandpackExample={
               <SandpackExample

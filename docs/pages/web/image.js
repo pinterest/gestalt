@@ -43,11 +43,7 @@ The color you pass into Image will be used to fill the placeholder that shows up
         <MainSection.Card
           cardSize="lg"
           sandpackExample={
-            <SandpackExample
-              name="Placeholder Color Usage"
-              code={placeholderColorUsage}
-              layout="column"
-            />
+            <SandpackExample name="Placeholder Color Usage" code={placeholderColorUsage} />
           }
         />
       </MainSection>
@@ -59,11 +55,7 @@ The color you pass into Image will be used to fill the placeholder that shows up
         <MainSection.Card
           cardSize="lg"
           sandpackExample={
-            <SandpackExample
-              name="Overlay Content On Image"
-              code={overlayContentOnImage}
-              layout="column"
-            />
+            <SandpackExample name="Overlay Content On Image" code={overlayContentOnImage} />
           }
         />
       </MainSection>
@@ -113,7 +105,6 @@ Notes:
             <SandpackExample
               name="Delay Off-Screen Image Loading"
               code={delayOffScreenImageLoading}
-              layout="column"
               previewHeight={440}
             />
           }
@@ -129,11 +120,7 @@ Sometimes Images are purely presentational. For example, an Image used above an 
         <MainSection.Card
           cardSize="lg"
           sandpackExample={
-            <SandpackExample
-              name="Images For Presentation Only"
-              code={imagesForPresentationOnly}
-              layout="column"
-            />
+            <SandpackExample name="Images For Presentation Only" code={imagesForPresentationOnly} />
           }
         />
       </MainSection>

@@ -39,6 +39,7 @@ export default function DocsPage({
           code={main}
           name={`Main ${generatedDocGen?.SelectList?.displayName} example`}
           previewHeight={150}
+          layout="column"
           hideEditor
         />
       </PageHeader>
@@ -198,7 +199,6 @@ export default function DocsPage({
               <SandpackExample
                 name="Labels with Built-in Features Example"
                 code={labelsWithBuiltInFeaturesExample}
-                layout="column"
               />
             }
           />
@@ -239,7 +239,6 @@ export default function DocsPage({
               <SandpackExample
                 name="CustomLabel Visibility Example"
                 code={customLabelVisibilityExample}
-                layout="column"
               />
             }
           />
@@ -252,11 +251,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="Helper Text Example"
-                code={helperTextExample}
-                layout="column"
-              />
+              <SandpackExample name="Helper Text Example" code={helperTextExample} />
             }
           />
         </MainSection.Subsection>
@@ -271,7 +266,6 @@ export default function DocsPage({
               <SandpackExample
                 name="Controlled Component Example"
                 code={controlledComponentExample}
-                layout="column"
               />
             }
           />
@@ -284,11 +278,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="Error Message Example"
-                code={errorMessageExample}
-                layout="column"
-              />
+              <SandpackExample name="Error Message Example" code={errorMessageExample} />
             }
           />
         </MainSection.Subsection>
@@ -303,7 +293,6 @@ export default function DocsPage({
               <SandpackExample
                 name="Grouping Related Options Example"
                 code={groupingRelatedOptionsExample}
-                layout="column"
               />
             }
           />

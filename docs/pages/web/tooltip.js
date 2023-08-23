@@ -49,7 +49,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           code={mainExample}
           layout="column"
           hideEditor
-          previewHeight={200}
+          previewHeight={160}
         />
       </PageHeader>
 
@@ -220,7 +220,6 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
               <SandpackExample
                 name="Specify Preferred Position Example"
                 code={specifyPreferredPosition}
-                layout="column"
               />
             }
           />
@@ -255,7 +254,6 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
               <SandpackExample
                 name="Display Link at Bottom - Note Deprication"
                 code={displayLinkAtBottom}
-                layout="column"
               />
             }
           />
@@ -269,11 +267,7 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="Specify Z-Index Order Example"
-                code={specifyZIndexOrder}
-                layout="column"
-              />
+              <SandpackExample name="Specify Z-Index Order Example" code={specifyZIndexOrder} />
             }
           />
         </MainSection.Subsection>
@@ -287,7 +281,6 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
               <SandpackExample
                 name="Proper Positioning Within Scrolling Containers"
                 code={properPositioningExample}
-                layout="column"
               />
             }
           />

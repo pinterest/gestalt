@@ -7,8 +7,8 @@ export default function TapAreaRefExample(): Node {
   const [focus, setFocus] = useState(0);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 0, row: 2 }}>
+    <Box padding={4} height="100%" display="flex" alignItems="center" justifyContent="center">
+      <Flex gap={{ column: 4, row: 2 }} direction="column" alignItems="center">
         <Button text="Focus the TapArea" onClick={() => ref.current?.focus()} />
         <TapArea ref={ref} rounding="pill" onFocus={() => setFocus(focus + 1)}>
           <Box borderStyle="sm" padding={2} rounding="pill">

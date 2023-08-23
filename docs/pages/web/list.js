@@ -39,7 +39,13 @@ export default function ListPage({
         name={generatedDocGen?.List.displayName}
         description={generatedDocGen?.List.description}
       >
-        <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          hideEditor
+          previewHeight={200}
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.List} />
@@ -257,6 +263,7 @@ If custom styles are required, such as bold text, a different size, or inline li
 List's \`label\` prop is used for accessibility purposes. See the [accessibility guidelines section](/web/list#Accessibility) for more information.`}
         >
           <MainSection.Card
+            cardSize="lg"
             title="Default label with strings"
             sandpackExample={
               <SandpackExample
@@ -267,6 +274,7 @@ List's \`label\` prop is used for accessibility purposes. See the [accessibility
             }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Custom label with Text"
             sandpackExample={
               <SandpackExample
@@ -277,6 +285,7 @@ List's \`label\` prop is used for accessibility purposes. See the [accessibility
             }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Hidden label"
             sandpackExample={
               <SandpackExample
@@ -302,7 +311,6 @@ When building List, we might want to render different combinations of subcompone
               <SandpackExample
                 name="Subcomponent Composability Example"
                 code={subcomponentComposabilityExample}
-                layout="column"
               />
             }
           />

@@ -281,9 +281,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection name="Variants">
         <MainSection.Subsection title="Basic TapArea">
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Main Example" code={mainExample} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="Main Example" code={mainExample} />}
           />
         </MainSection.Subsection>
 
@@ -294,11 +292,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 TapArea with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
   `}
             sandpackExample={
-              <SandpackExample
-                name="With Link Button Example"
-                code={withLinkButtonExample}
-                layout="column"
-              />
+              <SandpackExample name="With Link Button Example" code={withLinkButtonExample} />
             }
           />
         </MainSection.Subsection>
@@ -319,11 +313,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
         <MainSection.Subsection title="Height & width">
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Height & Width Example"
-                code={heightWidthExample}
-                layout="column"
-              />
+              <SandpackExample name="Height & Width Example" code={heightWidthExample} />
             }
           />
         </MainSection.Subsection>
@@ -332,11 +322,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
           <MainSection.Card
             description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
             sandpackExample={
-              <SandpackExample
-                name="Inline Usage Example"
-                code={inlineUsageExample}
-                layout="column"
-              />
+              <SandpackExample name="Inline Usage Example" code={inlineUsageExample} />
             }
           />
         </MainSection.Subsection>
@@ -392,9 +378,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
 
         <MainSection.Subsection title="Ref">
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Ref Example" code={refExample} layout="column" />
-            }
+            sandpackExample={<SandpackExample name="Ref Example" code={refExample} />}
           />
         </MainSection.Subsection>
 
@@ -404,7 +388,6 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
               <SandpackExample
                 name="Accessibility: Label, Controls, Expanded, & Popup Example"
                 code={accessibilityLabelExample}
-                layout="column"
               />
             }
           />

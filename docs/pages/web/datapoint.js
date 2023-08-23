@@ -26,7 +26,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          hideEditor
+          previewHeight={160}
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -163,14 +169,14 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
       <MainSection name="Variants">
         <MainSection.Subsection columns={2} title="Size">
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Medium"
             sandpackExample={
               <SandpackExample name="Size Example 1" code={sizeExample1} layout="column" />
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Large"
             sandpackExample={
               <SandpackExample name="Size Example 2" code={sizeExample2} layout="column" />
@@ -188,7 +194,6 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
               <SandpackExample
                 name="Display Change In Value Over Time"
                 code={displayChangeInValueOverTime}
-                layout="column"
               />
             }
           />
@@ -204,7 +209,6 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
               <SandpackExample
                 name="Explicit Trend Sentiment Settings"
                 code={explicitTrendSentimentSettings}
-                layout="column"
               />
             }
           />
@@ -220,7 +224,6 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
               <SandpackExample
                 name="Provide Context Detail Framing With Tooltip"
                 code={provideContextDetailFramingWithTooltip}
-                layout="column"
               />
             }
           />
@@ -230,11 +233,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="With A Badge Example"
-                code={withBadgeExample}
-                layout="column"
-              />
+              <SandpackExample name="With A Badge Example" code={withBadgeExample} />
             }
           />
         </MainSection.Subsection>

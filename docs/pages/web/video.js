@@ -85,7 +85,6 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
               <SandpackExample
                 name="Autoplay And Error Detection Example"
                 code={autoplayAndErrorDetectionExample}
-                layout="column"
                 previewHeight={600}
               />
             }
@@ -99,12 +98,7 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="Controls Example"
-                code={controlsExample}
-                layout="column"
-                previewHeight={600}
-              />
+              <SandpackExample name="Controls Example" code={controlsExample} previewHeight={600} />
             }
           />
         </MainSection.Subsection>
@@ -121,7 +115,6 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
               <SandpackExample
                 name="With Children Example"
                 code={withChildrenExample}
-                layout="column"
                 previewHeight={600}
               />
             }
@@ -135,12 +128,7 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                name="Updates Example"
-                code={updatesExample}
-                layout="column"
-                previewHeight={700}
-              />
+              <SandpackExample name="Updates Example" code={updatesExample} previewHeight={700} />
             }
           />
         </MainSection.Subsection>
@@ -155,7 +143,6 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
               <SandpackExample
                 name="Multiple Sources Example"
                 code={multipleSourcesExample}
-                layout="column"
                 previewHeight={400}
               />
             }
