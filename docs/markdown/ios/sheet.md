@@ -137,7 +137,7 @@ Be sure to localize the header, body content and any footer items. Note that loc
 <br/>
 <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/4a/8b/ef/4a8befb30bcb1aabcc5a25e8f4631bf9.png" alt="Example of a sheet that has been localized. The contents are flipped"/>
 
-### Animation
+## Animation
 
 By default, the Sheet animates up from the screen’s bottom when prompted by the user and animates down from the top when the user takes an action to exit. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/foundations/motion/).
 
