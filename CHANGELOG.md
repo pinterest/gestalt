@@ -1,3 +1,9 @@
+## 122.0.2 (Aug 23, 2023)
+
+### Patch
+
+- Internal: fix npm publishing ([#3153](https://github.com/pinterest/gestalt/pull/3153)) - [Preview link](https://deploy-preview-3153--gestalt.netlify.app?devexample=true)
+
 ## 122.0.1 (Aug 22, 2023)
 
 ### Patch
