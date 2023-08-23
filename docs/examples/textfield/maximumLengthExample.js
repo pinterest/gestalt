@@ -12,7 +12,7 @@ export default function TextFieldExample(): Node {
         id="maxLength"
         label="Title"
         helperText="Enter a title that captures the imagination of Pinners"
-        onChange={({ value }) => setValue(value)}
+        onChange={(e) => setValue(e.value)}
         placeholder="Enter your pin title"
         value={value}
         onBlur={() => {}}

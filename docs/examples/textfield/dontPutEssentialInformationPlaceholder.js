@@ -12,8 +12,8 @@ export default function Example(): Node {
           autoComplete="new-password"
           id="best-practices-dont-placeholder"
           label=""
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           placeholder="Password should be at least 20 characters in length"
           type="password"

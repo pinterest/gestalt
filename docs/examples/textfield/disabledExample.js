@@ -11,8 +11,8 @@ export default function Example(): Node {
         disabled
         id="variants-disabled"
         label="New password"
-        onChange={({ value }) => {
-          setValue(value);
+        onChange={(e) => {
+          setValue(e.value);
         }}
         placeholder="6-18 characters"
         value={value}

@@ -13,8 +13,8 @@ export default function Example(): Node {
           helperText="Password should be at least 20 characters in length"
           id="best-practices-do-helper-text"
           label="New password"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           type="password"
           value={value}

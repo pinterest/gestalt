@@ -13,8 +13,8 @@ export default function Example(): Node {
           errorMessage="There is an error"
           id="best-practices-dont-error-message"
           label="Password"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           type="password"
           value={value}

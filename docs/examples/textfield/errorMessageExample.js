@@ -11,8 +11,8 @@ export default function Example(): Node {
         errorMessage={!value ? "This field can't be blank!" : null}
         id="variants-error-message"
         label="New username"
-        onChange={({ value }) => {
-          setValue(value);
+        onChange={(e) => {
+          setValue(e.value);
         }}
         value={value}
       />

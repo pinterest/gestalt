@@ -10,7 +10,7 @@ export default function Example(): Node {
       <TextField
         id="variants-readonly"
         label="Email address"
-        onChange={({ value }) => setValue(value)}
+        onChange={(e) => setValue(e.value)}
         placeholder="Name"
         value={value}
         readOnly

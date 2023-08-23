@@ -12,8 +12,8 @@ export default function Example(): Node {
           autoComplete="username"
           id="best-practices-do-label"
           label="Username"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           type="text"
           value={value}

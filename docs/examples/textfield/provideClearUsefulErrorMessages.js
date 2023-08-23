@@ -13,8 +13,8 @@ export default function Example(): Node {
           errorMessage="Password is too short! You need 20+ characters"
           id="best-practices-do-error-message"
           label="Password"
-          onChange={({ value }) => {
-            setValue(value);
+          onChange={(e) => {
+            setValue(e.value);
           }}
           type="password"
           value={value}
