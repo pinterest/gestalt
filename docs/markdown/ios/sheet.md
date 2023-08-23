@@ -7,21 +7,20 @@ fullwidth: true
 <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/db/25/21/db25219f8faf97e21dab59f02fe55a7d.png" alt="examples of three types of sheets: a Full sheet, a Partial resizable sheet and an Action sheet"/>
 
 ## Usage guidelines
-
 <TwoCol>
 <Group>
 <Do title="When to use" />
 - Performing an optional sub-task within a larger task
-- Providing help while maintaining the current page and it’s context
-- Requesting minimal amounts of information form a user - 1-2 fields
-- Capturing user’s full attention for vital matters
+- Providing help while maintaining the current page and it's context
+- Requesting minimal amounts of information from a user 
+- Capturing user's full attention for vital matters
 </Group>
 
 <Group>
 <Dont title="When not to use" />
-- Displaying system errors. Consider a callout instead.
-- When it will distract users from their current work stream, unless necessary and intentional.
-- Avoid using on top of another sheet as this can create usability issues and confusion. View the transitions section for more on interaction logistics.
+- To display system errors. Use the appropriate messaging component instead.
+- When it will distract users from their current work stream, unless necessary and intentional
+- Avoid using on top of another sheet as this can create usability issues and confusion. View the transitions section for more on interaction logistics. 
 </Group>
 </TwoCol>
 
