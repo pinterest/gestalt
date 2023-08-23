@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box,RadioGroup } from 'gestalt';
+import { Box, RadioGroup } from 'gestalt';
 
 export default function RadioButtonExample(): Node {
   const [favorite, setFavorite] = useState('reading');

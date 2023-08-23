@@ -3,7 +3,7 @@ import { type Node, useState } from 'react';
 import { Box, RadioGroup } from 'gestalt';
 
 export default function RadioButtonExample(): Node {
-  const [favorite, setFavorite] = useState('');
+  const [state, setState] = useState('checked');
 
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
@@ -13,15 +13,15 @@ export default function RadioButtonExample(): Node {
           id="unchecked"
           label="Unchecked"
           name="stateExample"
-          onChange={() => setFavorite('unchecked')}
+          onChange={() => setState('unchecked')}
           value="unchecked"
         />
         <RadioGroup.RadioButton
-          checked
+          checked={state === 'checked'}
           id="checked"
           label="Checked"
           name="stateExample"
-          onChange={() => setFavorite('checked')}
+          onChange={() => setState('checked')}
           value="checked"
         />
         <RadioGroup.RadioButton
@@ -29,7 +29,7 @@ export default function RadioButtonExample(): Node {
           id="uncheckedDisabled"
           label="Unchecked and disabled"
           name="stateExample"
-          onChange={() => setFavorite('uncheckedDisabled')}
+          onChange={() => setState('uncheckedDisabled')}
           value="uncheckedDisabled"
           disabled
         />
@@ -38,7 +38,7 @@ export default function RadioButtonExample(): Node {
           id="checkedDisabled"
           label="Checked and disabled"
           name="stateExample"
-          onChange={() => setFavorite('checkedDisabled')}
+          onChange={() => setState('checkedDisabled')}
           value="checkedDisabled"
           disabled
         />
