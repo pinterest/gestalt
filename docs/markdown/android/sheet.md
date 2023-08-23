@@ -126,9 +126,11 @@ Sheets are available in two sizes.
 **Full sheet**
 </Group>
 </TwoCol>
+<br/>
 
 ### Scrolling
 Both partial and full sheet content can be vertically scrolled when it’s content exceeds the initial viewable height, independent of the rest of the screen’s content.
+<br/>
 
 ### Header
 The Sheet header has a flexible configuration and can utilize several navigation actions. To improve accessibility, it is advised to use at least two different navigation elements per sheet. Below are header elements and navigation options. 
@@ -150,11 +152,13 @@ The Sheet header has a flexible configuration and can utilize several navigation
 
 6. **Grabber**
    A Grabber is a short gray line at the top of the sheet that tells the user that the sheet can be dragged to either collapse of expand.
+<br/>
 
 ### Footer
 
 The Sheet footer has a flexible configuration. It accepts many different kinds of components. However the recommendation is to restrict the number of actions as to not overwhelm the user. 
-  
+<br/>
+
 ### Transitions
 
 The Sheet slides up from the bottom as the initial transition. However, transitions between sheets should follow the following patterns.
