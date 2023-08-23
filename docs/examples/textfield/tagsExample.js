@@ -1,32 +1,29 @@
 // @flow strict
 import { type Node, useRef, useState } from 'react';
-import { Box, Tag, TextArea } from 'gestalt';
+import { Box, Tag, TextField } from 'gestalt';
 
 type ChangeTagHandler = ({|
-  event: SyntheticInputEvent<HTMLTextAreaElement>,
+  event: SyntheticInputEvent<HTMLInputElement>,
   value: string,
 |}) => void;
 
 type KeyDownHandler = ({|
-  event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
+  event: SyntheticKeyboardEvent<HTMLInputElement>,
   value: string,
 |}) => void;
 
-const CITIES = ['San Francisco', 'New York'];
-
 export default function Example(): Node {
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState(CITIES);
-
-  const ref = useRef<HTMLTextAreaElement | null>(null);
+  const [tags, setTags] = useState(['a@pinterest.com', 'b@pinterest.com']);
+  const ref = useRef<HTMLElement | null>(null);
 
   const onChangeTagManagement: ChangeTagHandler = (e) => {
-    // Create new tags around new lines
-    const tagInput = e.value.split(/\\n+/);
+    // Create new tags around spaces, commas, and semicolons.
+    const tagInput = e.value.split(/[\\s,;]+/);
     if (tagInput.length > 1) {
       setTags([
         ...tags,
-        // Avoid creating a tag on content on the last line, and filter out
+        // Avoid creating a tag on content after the separators, and filter out
         // empty tags
         ...tagInput.splice(0, tagInput.length - 1).filter((val) => val !== ''),
       ]);
@@ -43,6 +40,10 @@ export default function Example(): Node {
     if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
       // Remove tag on backspace if the cursor is at the beginning of the field
       setTags([...tags.slice(0, -1)]);
+    } else if (keyCode === 13 /* Enter */ && value.trim() !== '') {
+      // Create a new tag on enter
+      setTags([...tags, value.trim()]);
+      setValue('');
     }
   };
 
@@ -62,14 +63,14 @@ export default function Example(): Node {
 
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box width="100%">
-        <TextArea
-          id="cities"
-          label="Cities"
+      <Box padding={2} color="light">
+        <TextField
+          autoComplete="off"
+          id="variants-tags"
+          label="Emails"
           ref={ref}
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
-          placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
           tags={renderedTags}
           value={value}
         />
