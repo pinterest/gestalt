@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box,Flex, TextField } from 'gestalt';
+import { Box, Flex, TextField } from 'gestalt';
 
 export default function TextFieldExample(): Node {
   const [valueA, setValueA] = useState('Delicious vegan soup');
