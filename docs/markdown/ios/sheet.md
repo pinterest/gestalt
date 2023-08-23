@@ -10,18 +10,19 @@ fullwidth: true
 
 <TwoCol>
 <Group>
-    <Do title="When to use" />
+<Do title="When to use" />
 - Performing an optional sub-task within a larger task
 - Providing help while maintaining the current page and it’s context
 - Requesting minimal amounts of information form a user - 1-2 fields
 - Capturing user’s full attention for vital matters
 </Group>
-  <Group>
-    <Dont title="When not to use" />
+
+<Group>
+<Dont title="When not to use" />
 - Displaying system errors. Consider a callout instead.
 - When it will distract users from their current work stream, unless necessary and intentional.
 - Avoid using on top of another sheet as this can create usability issues and confusion. View the transitions section for more on interaction logistics.
-  </Group>
+</Group>
 </TwoCol>
 
 ## Mobile best practices
