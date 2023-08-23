@@ -1,3 +1,9 @@
+## 122.0.3 (Aug 23, 2023)
+
+### Patch
+
+- Docs: Migrate Tooltip, SelectList, List, TapArea, DataPoint, Divider examples to Sandpack ([#3149](https://github.com/pinterest/gestalt/pull/3149)) - [Preview link](https://deploy-preview-3149--gestalt.netlify.app?devexample=true)
+
 ## 122.0.2 (Aug 23, 2023)
 
 ### Patch
