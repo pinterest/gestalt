@@ -17,6 +17,7 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample.js';
 import counterExample from '../../examples/sidenavigation/counterExample.js';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample.js';
+import footerVariant from '../../examples/sidenavigation/footerVariant.js';
 import headerExample from '../../examples/sidenavigation/headerExample.js';
 import iconsExample from '../../examples/sidenavigation/iconsExample.js';
 import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample.js';
@@ -302,60 +303,7 @@ export default function SideNavigationPage({
           description="Footers allow for filters, additional external links or other UI controls to be included at the bottom of the navigation."
         >
           <MainSection.Card
-            defaultCode={`
-<Box width="100%" height="100%">
-  <Box height="100%" width={280} overflow="scroll">
-    <SideNavigation
-      accessibilityLabel="Footer example"
-      footer={
-        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-          <Text size="300" weight="bold">
-            Filters
-          </Text>
-          <Fieldset legend="Campaign filters" legendDisplay="hidden">
-            <Flex direction="column" gap={{ column: 4, row: 0 }}>
-              <DatePicker
-                id="example-start-date"
-                label="Start"
-                onChange={() => {}}
-                rangeSelector="start"
-                value={new Date()}
-              />
-              <DatePicker
-                id="example-end-date"
-                label="End"
-                onChange={() => {}}
-                rangeSelector="end"
-                value={new Date(+7)}
-              />
-            </Flex>
-          </Fieldset>
-        </Flex>
-      }
-    >
-      <SideNavigation.Section label="Campaigns">
-        {[
-          {
-            label: 'Active',
-            counter: { number: '200', accessibilityLabel: '200 Pins' },
-          },
-          {
-            label: 'Draft',
-            counter: { number: '100', accessibilityLabel: '100 Pins' },
-          },
-        ].map(({ label, counter }, idx) => (
-          <SideNavigation.TopItem
-            key={idx}
-            href="#"
-            label={label}
-            icon="ads-stats"
-            counter={counter}
-          />
-        ))}
-      </SideNavigation.Section>
-    </SideNavigation>
-  </Box>
-</Box>`}
+            sandpackExample={<SandpackExample name="Footer Variant Example" code={footerVariant} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -376,14 +324,15 @@ export default function SideNavigationPage({
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Icons"
-          columns={2}
           description="Icons are used when simple, clear icons help users with scanning the content of a menu. Only supported in SideNavigation.TopItem and SideNavigation.Group."
         >
           <MainSection.Card
+            cardSize="lg"
             title="Gestalt icon"
             sandpackExample={<SandpackExample code={iconsExample} name="Icons example" />}
           />
           <MainSection.Card
+            cardSize="lg"
             title="Custom icon"
             sandpackExample={
               <SandpackExample code={customIconsExample} name="Custom icon example" />
