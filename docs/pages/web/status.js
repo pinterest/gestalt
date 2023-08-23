@@ -20,7 +20,7 @@ import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.j
 import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
 import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
 
-export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function StatusPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Status">
       <PageHeader name="Status" description={generatedDocGen?.description}>
