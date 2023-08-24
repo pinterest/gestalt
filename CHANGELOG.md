@@ -1,3 +1,9 @@
+## 122.0.4 (Aug 24, 2023)
+
+### Patch
+
+- Docs: update ios & android sheet docs ([#3156](https://github.com/pinterest/gestalt/pull/3156)) - [Preview link](https://deploy-preview-3156--gestalt.netlify.app?devexample=true)
+
 ## 122.0.3 (Aug 23, 2023)
 
 ### Patch
