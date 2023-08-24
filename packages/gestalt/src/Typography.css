@@ -75,7 +75,11 @@
 /* overflow */
 
 .breakWord {
-  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.breakAll {
+  word-break: break-all;
 }
 
 .noWrap {
@@ -116,5 +120,4 @@ html[dir="rtl"] .alignStart,
   display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
   max-width: 100%;
   overflow: hidden;
-  word-break: break-word;
 }

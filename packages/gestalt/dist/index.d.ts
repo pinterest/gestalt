@@ -941,7 +941,7 @@ interface HeadingProps {
   color?: BaseTextColorType | undefined;
   id?: string | undefined;
   lineClamp?: number | undefined;
-  overflow?: 'normal' | 'breakWord' | undefined;
+  overflow?: 'normal' | 'breakAll' | 'breakWord' | undefined;
   size?: TextSizeType | undefined;
 }
 
