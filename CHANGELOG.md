@@ -1,3 +1,9 @@
+## 122.2.0 (Aug 24, 2023)
+
+### Minor
+
+- Heading: Add BreakAll support to Header ([#3158](https://github.com/pinterest/gestalt/pull/3158)) - [Preview link](https://deploy-preview-3158--gestalt.netlify.app?devexample=true)
+
 ## 122.1.0 (Aug 24, 2023)
 
 ### Minor
