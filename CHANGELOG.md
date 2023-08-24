@@ -1,3 +1,9 @@
+## 122.1.0 (Aug 24, 2023)
+
+### Minor
+
+- Text: Add breakAll option to Text ([#3136](https://github.com/pinterest/gestalt/pull/3136)) - [Preview link](https://deploy-preview-3136--gestalt.netlify.app?devexample=true)
+
 ## 122.0.4 (Aug 24, 2023)
 
 ### Patch
