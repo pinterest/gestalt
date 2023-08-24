@@ -84,8 +84,9 @@ export default function ModuleExpandableItem({
               )}
             </Box>
 
+            {/* Adding a max height because the line height is 24, and we don't want the icon container to expand */}
             {Boolean(children) && (
-              <Box id={id} padding={1}>
+              <Box id={id} padding={1} display="flex" alignItems="center" maxHeight={24}>
                 <Icon
                   accessibilityLabel={
                     isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel

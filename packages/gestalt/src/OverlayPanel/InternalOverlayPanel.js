@@ -259,23 +259,28 @@ export default function InternalOverlayPanel({
                   </Box>
                 )}
                 <ScrollBoundaryContainerProvider>
-                  <InternalScrollBoundaryContainer
-                    onScroll={updateShadows}
-                    padding={PADDING_BOINTS}
-                    ref={contentRef}
-                  >
-                    {buildDismissableSubcomponent(children)}
+                  <InternalScrollBoundaryContainer includesFooter>
+                    <ScrollBoundaryContainerProvider>
+                      <InternalScrollBoundaryContainer
+                        onScroll={updateShadows}
+                        padding={PADDING_BOINTS}
+                        ref={contentRef}
+                      >
+                        {buildDismissableSubcomponent(children)}
+                      </InternalScrollBoundaryContainer>
+                    </ScrollBoundaryContainerProvider>
+                    {Boolean(footer) && (
+                      <Box
+                        borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
+                        position="relative"
+                        fit
+                      >
+                        <Box padding={PADDING_BOINTS}>{buildDismissableSubcomponent(footer)}</Box>
+                      </Box>
+                    )}
                   </InternalScrollBoundaryContainer>
                 </ScrollBoundaryContainerProvider>
-                {Boolean(footer) && (
-                  <Box
-                    borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
-                    position="relative"
-                    fit
-                  >
-                    <Box padding={PADDING_BOINTS}>{buildDismissableSubcomponent(footer)}</Box>
-                  </Box>
-                )}
+
                 {showPopover && (
                   <ConfirmationPopover
                     anchor={dismissButtonRef.current}

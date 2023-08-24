@@ -7,32 +7,27 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import autoplayAndErrorDetectionExample from '../../examples/video/autoplayAndErrorDetectionExample.js';
+import captionsExample from '../../examples/video/captionsExample.js';
+import controlsExample from '../../examples/video/controlsExample.js';
+import mainExample from '../../examples/video/mainExample.js';
+import multipleSourcesExample from '../../examples/video/multipleSourcesExample.js';
+import updatesExample from '../../examples/video/updatesExample.js';
+import withChildrenExample from '../../examples/video/withChildrenExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Video">
-      <PageHeader
-        name="Video"
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Box width={300}>
-  <Video
-    accessibilityMaximizeLabel="Maximize"
-    accessibilityMinimizeLabel="Minimize"
-    accessibilityMuteLabel="Mute"
-    accessibilityPauseLabel="Pause"
-    accessibilityPlayLabel="Play"
-    accessibilityProgressBarLabel="Progress bar"
-    accessibilityUnmuteLabel="Unmute"
-    aspectRatio={540 / 960}
-    controls
-    onPlayError={() => {}}
-    onPlay={() => {}}
-    src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
-  />
-</Box>
-`}
-      />
+      <PageHeader name="Video" description={generatedDocGen?.description}>
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          previewHeight={600}
+          hideEditor
+        />
+      </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
@@ -47,37 +42,14 @@ The following example uses an excerpt from the [Sintel open movie](https://www.s
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example () {
-  const [playing, setPlaying] = React.useState(false);
-
-  return (
-    <Box width={1000}>
-      <Video
-        accessibilityMaximizeLabel="Maximize"
-        accessibilityMinimizeLabel="Minimize"
-        accessibilityMuteLabel="Mute"
-        accessibilityPauseLabel="Pause"
-        accessibilityPlayLabel="Play"
-        accessibilityProgressBarLabel="Progress bar"
-        accessibilityUnmuteLabel="Unmute"
-        accessibilityHideCaptionsLabel="Hide captions"
-        accessibilityShowCaptionsLabel="Show captions"
-        aspectRatio={1024 / 435}
-        captions="https://iandevlin.github.io/mdn/video-player-with-captions/subtitles/vtt/sintel-en.vtt"
-        controls
-        onPlayError={({ error }) => error && setPlaying(false)}
-        onPlay={({ event }) => setPlaying(true)}
-        onControlsPlay={() => setPlaying(true)}
-        onControlsPause={() => setPlaying(false)}
-        onEnded={() => setPlaying(false)}
-        playing={playing}
-        loop
-        src="https://iandevlin.github.io/mdn/video-player-with-captions/video/sintel-short.mp4"  />
-    </Box>
-  )
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Captions Example"
+                code={captionsExample}
+                layout="column"
+                previewHeight={400}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -109,34 +81,13 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example () {
-  const [playing, setPlaying] = React.useState(false);
-
-  return (
-    <Box width={300}>
-      <Video
-        autoplay
-        accessibilityMaximizeLabel="Maximize"
-        accessibilityMinimizeLabel="Minimize"
-        accessibilityMuteLabel="Mute"
-        accessibilityPauseLabel="Pause"
-        accessibilityPlayLabel="Play"
-        accessibilityProgressBarLabel="Progress bar"
-        accessibilityUnmuteLabel="Unmute"
-        aspectRatio={540 / 960}
-        controls
-        onPlayError={({ error }) => error && setPlaying(false)}
-        onPlay={({ event }) => setPlaying(true)}
-        onControlsPlay={() => setPlaying(true)}
-        onControlsPause={() => setPlaying(false)}
-        onEnded={() => setPlaying(false)}
-        playing={playing}
-        loop
-        src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"  />
-    </Box>
-  )
-}`}
+            sandpackExample={
+              <SandpackExample
+                name="Autoplay And Error Detection Example"
+                code={autoplayAndErrorDetectionExample}
+                previewHeight={600}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -146,58 +97,9 @@ function Example () {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [showControls, setShowControls] = React.useState(false);
-
-  return (
-    <Flex alignItems="center" gap={{ column: 2, row: 0 }} direction="column">
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Box paddingX={2}>
-          <Label htmlFor="video">
-            <Text>Show built-in Video controls</Text>
-          </Label>
-        </Box>
-        <Switch
-          onChange={() => setShowControls((value) => !value)}
-          id="video"
-          switched={showControls}
-        />
-      </Flex>
-      <Box width={300}>
-        <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
-          aspectRatio={540 / 960}
-          controls={showControls}
-          onPlayError={() => {}}
-          onPlay={() => {}}
-          poster="https://i.pinimg.com/videos/thumbnails/originals/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4.0000000.jpg"
-          src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
-        >
-          {!showControls ? (
-            <Box
-              width="100%"
-              height="100%"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              dangerouslySetInlineStyle={{ __style: { backgroundColor: 'rgba(0, 0, 0, 0.3)' } }}
-            >
-              <IconButton accessibilityLabel="Play video" bgColor="white" icon="play" size="lg" />
-            </Box>
-          ) : null}
-        </Video>
-      </Box>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Controls Example" code={controlsExample} previewHeight={600} />
+            }
           />
         </MainSection.Subsection>
 
@@ -209,34 +111,13 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Box width={300}>
-  <Video
-    accessibilityMaximizeLabel="Maximize"
-    accessibilityMinimizeLabel="Minimize"
-    accessibilityMuteLabel="Mute"
-    accessibilityPauseLabel="Pause"
-    accessibilityPlayLabel="Play"
-    accessibilityProgressBarLabel="Progress bar"
-    accessibilityUnmuteLabel="Unmute"
-    aspectRatio={540 / 960}
-    controls
-    src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
-  >
-    <Box width="100%" height="100%"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      dangerouslySetInlineStyle={{__style:{backgroundColor:'rgba(0, 0, 0, 0.3)'}}}>
-        <IconButton
-          accessibilityLabel="Delete video"
-          bgColor="white"
-          icon="trash-can"
-          size="lg" />
-    </Box>
-  </Video>
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="With Children Example"
+                code={withChildrenExample}
+                previewHeight={600}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -246,72 +127,9 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const [input, setInput] = React.useState("https://v.pinimg.com/videos/mc/expMp4/ce/b4/cc/ceb4cc8c4889a86432a65884c147021f_t1.mp4");
-  const [playbackRate, setPlaybackRate] = React.useState(1);
-  const [playing, setPlaying] = React.useState(false);
-  const [src, setSrc] = React.useState("https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4");
-  const [volume, setVolume] = React.useState(1);
-
-  return (
-    <Flex width="100%" gap={{ column: 2, row: 0 }} direction="column">
-      <Flex width="100%" gap={{ row: 2, column: 0 }} alignItems="center">
-        <Label htmlFor="video-source">
-          <Text>Video source URL</Text>
-        </Label>
-        <Flex.Item flex="grow">
-          <TextField
-            id="video-source"
-            onChange={({ value }) => setInput(value)}
-            value={input}
-          />
-        </Flex.Item>
-        <Button
-          text="Submit"
-          color="red"
-          onClick={() => setSrc(input)}
-        />
-      </Flex>
-      <Flex gap={{ column: 0, row: 2 }}>
-        <Button
-          text={volume === 0 ? "Unmute" : "Mute"}
-          onClick={() => setVolume(volume === 0 ? 1 : 0)}
-        />
-        <Button
-          text="Playback x0.5"
-          onClick={() => setPlaybackRate((value) => value >= 1 ? value / 2 : 0.5)}
-        />
-        <Button
-          text="Playback x2"
-          onClick={() => setPlaybackRate((value) => value < 8 ? value * 2 : 16)}
-        />
-      </Flex>
-      <Box width={300}>
-        <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityProgressBarLabel="Progress bar"
-          accessibilityUnmuteLabel="Unmute"
-          aspectRatio={540 / 960}
-          controls
-          onControlsPlay={() => setPlaying(true)}
-          onControlsPause={() => setPlaying(false)}
-          onVolumeChange={({ volume }) => setVolume(volume)}
-          playbackRate={playbackRate}
-          playing={playing}
-          src={src}
-          loop
-          volume={volume}
-        />
-      </Box>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Updates Example" code={updatesExample} previewHeight={700} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -321,39 +139,13 @@ function Example() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example () {
-  const [playing, setPlaying] = React.useState(false);
-
-  return (
-    <Box width={500}>
-      <Video
-        accessibilityMaximizeLabel="Maximize"
-        accessibilityMinimizeLabel="Minimize"
-        accessibilityMuteLabel="Mute"
-        accessibilityPauseLabel="Pause"
-        accessibilityPlayLabel="Play"
-        accessibilityProgressBarLabel="Progress bar"
-        accessibilityUnmuteLabel="Unmute"
-        aspectRatio={426 / 240}
-        controls
-        playing={playing}
-        onControlsPlay={() => setPlaying(true)}
-        src={[
-          {
-            type: "video/mp4",
-            src: "https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
-          },
-          {
-            type: "video/ogg",
-            src: "https://archive.org/download/ElephantsDream/ed_hd.ogv"
-          },
-        ]}
-      />
-    </Box>
-  )
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Multiple Sources Example"
+                code={multipleSourcesExample}
+                previewHeight={400}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

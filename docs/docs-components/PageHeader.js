@@ -1,6 +1,8 @@
 // @flow strict
 import { type Element, type Node } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
+import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
+import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import trackButtonClick from './buttons/trackButtonClick.js';
 import componentData from './data/components.js';
 import getByPlatform from './data/utils/getByPlatform.js';
@@ -11,8 +13,19 @@ import { SlimBannerExperiment } from './SlimBannerExperiment.js';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
+const gestaltChartComponents = Object.keys(gestaltChart);
+const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
+
 const buildSourceLinkPath = (componentName: string) => {
-  const packageName = componentName === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
+  let packageName = 'gestalt';
+
+  if (gestaltChartComponents.includes(componentName)) {
+    packageName = 'gestalt-charts';
+  }
+
+  if (gestaltDatepickerComponents.includes(componentName)) {
+    packageName = 'gestalt-datepicker';
+  }
   return `packages/${packageName}/src/${componentName}.js`;
 };
 

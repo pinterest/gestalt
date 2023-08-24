@@ -22,6 +22,7 @@ import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
+// import Chart from '../../graphics/general/Chart.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
@@ -494,6 +495,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
+  // {
+  //   id: 'Chart',
+  //   platform: {
+  //     web: {
+  //       name: 'Chart',
+  //       visual: {
+  //         svg: <Chart />,
+  //       },
+  //       description: 'WIP ',
+  //       category: ['Data'],
+  //       status: {
+  //         accessible: {
+  //           summary: 'notAvailable',
+  //           a11yVisual: 'notAvailable',
+  //           a11yScreenreader: 'notAvailable',
+  //           a11yNavigation: 'notAvailable',
+  //           a11yComprehension: 'notAvailable',
+  //         },
+  //         documentation: 'notAvailable',
+  //         figmaStatus: 'notAvailable',
+  //         responsive: 'notAvailable',
+  //         status: 'notAvailable',
+  //       },
+  //     },
+  //   },
+  // },
   {
     id: 'Checkbox',
     platform: {
@@ -766,6 +793,12 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'No UTC support',
               description: 'Documented issues.',
+              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+            },
+            {
+              title: 'Single month issues',
+              description:
+                "DatePicker doesn't trap focus and close the calendar on blur when the date range is within the same month and there are no previous/next month IconButtons",
               internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
             },
           ],
@@ -2098,6 +2131,21 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'partial',
           responsive: 'ready',
           status: 'ready',
+        },
+      },
+      android: {
+        name: 'Table',
+        visual: {
+          svg: <Table />,
+        },
+        alias: ['Data Table', 'Data Grid'],
+        description:
+          'Table is a set of structured data that is easy for a user to scan, examine, and compare.',
+        category: ['Data'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },

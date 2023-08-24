@@ -14,6 +14,7 @@ console.log(`Publishing version: ${version}`);
 const packages = [
   'gestalt-design-tokens',
   'gestalt',
+  'gestalt-charts',
   'gestalt-datepicker',
   'eslint-plugin-gestalt',
 ];

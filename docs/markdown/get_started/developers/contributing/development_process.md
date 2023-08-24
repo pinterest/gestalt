@@ -182,6 +182,13 @@ git push -f origin HEAD
 
 - When sharing preview urls, you may have to remind viewers to toggle on development mode from the header menu. This is necessary to see unpublished changes in the code examples. To simplify sharing, you can add a `?devexample=true` parameter to the url to enable the examples by default.
 
+## Create a new package
+
+When should you create a new gestalt- package instead of adding a new component to the existing gestalt?
+
+Gestalt is a lightweight package with only 2 dependencies: "classnames" and "prop-types". By using the minimal amount of dependencies, we can maintain the size of the bundle small. If a new component requires external packages, it's worth isolating it in a single package so that importing Gestalt in our codebase keeps a small bundle.
+
+When adding a new package, follow the steps in this PR: https://github.com/pinterest/gestalt/pull/3143
 
 <details>
   <summary><b>My pull request fails on "Semver / Require Label (pull_request)", how do I fix it?</b></summary>

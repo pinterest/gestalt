@@ -6,6 +6,7 @@ exports[`ScrollBoundaryContainer ScrollBoundaryContainer correctly sets height a
   style={
     Object {
       "height": 200,
+      "width": undefined,
     }
   }
 >
@@ -21,6 +22,7 @@ exports[`ScrollBoundaryContainer renders 1`] = `
   style={
     Object {
       "height": "100%",
+      "width": undefined,
     }
   }
 >

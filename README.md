@@ -10,6 +10,7 @@ The package can be installed via npm:
 
 ```bash
 npm i gestalt --save
+npm i gestalt-charts --save
 npm i gestalt-datepicker --save
 ```
 
@@ -17,6 +18,7 @@ Or via yarn:
 
 ```bash
 yarn add gestalt
+yarn add gestalt-charts
 yarn add gestalt-datepicker
 ```
 
@@ -27,6 +29,8 @@ Gestalt exports each component as ES6 modules and a single, precompiled CSS file
 ```js
 import { Text } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
+import 'gestalt/dist/gestalt-charts.css';
+import 'gestalt/dist/gestalt-datepicker.css';
 ```
 
 That syntax is Webpack specific (and will work with Create React App), but you can use Gestalt anywhere that supports ES6 module bundling and global CSS.

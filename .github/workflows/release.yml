@@ -64,7 +64,7 @@ jobs:
           node-version: 16
       - name: Setup npm
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.ALBERTO_NPM_PERSONAL_TOKEN }}
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
       - name: Install dependencies
         run: yarn install
@@ -90,6 +90,8 @@ jobs:
           cd ../gestalt-datepicker
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
           cd ../eslint-plugin-gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+          cd ../gestalt-charts
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
       - name: Trigger VSCode Gestalt release
         uses: actions/github-script@v5

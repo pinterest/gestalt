@@ -7,6 +7,18 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import exampleWithExternalControl from '../../examples/module/exampleWithExternalControl.js';
+import expandable from '../../examples/module/expandable.js';
+import expandableGroup from '../../examples/module/expandableGroup.js';
+import expandableWithErrorType from '../../examples/module/expandableWithErrorType.js';
+import expandableWithIconBadgeIconButton from '../../examples/module/expandableWithIconBadgeIconButton.js';
+import mainExample from '../../examples/module/mainExample.js';
+import staticVariant from '../../examples/module/staticVariant.js';
+import staticWithBadge from '../../examples/module/staticWithBadge.js';
+import staticWithErrorType from '../../examples/module/staticWithErrorType.js';
+import staticWithIcon from '../../examples/module/staticWithIcon.js';
+import staticWithIconButton from '../../examples/module/staticWithIconButton.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -18,34 +30,9 @@ export default function DocsPage({
       <PageHeader
         name={generatedDocGen.Module?.displayName}
         description={generatedDocGen.Module?.description}
-        defaultCode={`
-      function ModuleExample() {
-        return (
-          <Flex direction="column" width="100%" justifyContent="between" gap={{ column: 2, row: 0 }}>
-            <Module
-              icon="lock"
-              iconAccessibilityLabel="Module Locked - check permission settings"
-              id="ModuleExample - header"
-              title="Title"
-              >
-              <Text size="200">This is example content.</Text>
-            </Module>
-            <Module.Expandable
-            accessibilityExpandLabel="Expand the module"
-            accessibilityCollapseLabel="Collapse the module"
-            id="ModuleExample - header expandable"
-            items={[
-              {
-                children: <Text size="200">Content here</Text>,
-                summary: ['summary'],
-                title: 'Title',
-              }]}>
-          </Module.Expandable>
-          </Flex>
-        );
-      }
-      `}
-      />
+      >
+        <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Module} />
 
@@ -97,21 +84,7 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample() {
-  return (
-    <Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={800} flex="grow">
-      <Module id="ModuleExample - default - 1">
-        <Text size="200">This is example content.</Text>
-      </Module>
-
-      <Module id="ModuleExample - default - 2" title="Title">
-        <Text size="200">This is example content.</Text>
-      </Module>
-    </Flex>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="Static Variant" code={staticVariant} />}
           />
         </MainSection.Subsection>
 
@@ -125,22 +98,7 @@ function ModuleExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample() {
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module
-        icon="lock"
-        iconAccessibilityLabel="Module Locked - check permission settings"
-        id="ModuleExample - icon"
-        title="Title"
-        >
-        <Text size="200">This is example content.</Text>
-      </Module>
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="Static With Icon" code={staticWithIcon} />}
           />
         </MainSection.Subsection>
 
@@ -152,49 +110,9 @@ function ModuleExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample() {
-  const [showPopover, setShowPopover] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module
-        iconButton={
-          <IconButton
-            bgColor="lightGray"
-            icon="question-mark"
-            iconColor="darkGray"
-            accessibilityLabel="Get help"
-            size="xs"
-            onClick={({ event }) => {
-              setShowPopover((currVal) => !currVal);
-            }}
-            ref={anchorRef}
-          />
-        }
-        id="ModuleExample - iconButton"
-        title="Title"
-        >
-        <Text size="200">This is example content.</Text>
-      </Module>
-
-      {showPopover && (
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => setShowPopover(false)}
-          shouldFocus={false}
-          >
-            <Box padding={3}>
-              <Text weight="bold">Help content!</Text>
-            </Box>
-        </Popover>
-      )}
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Static With IconButton" code={staticWithIconButton} />
+            }
           />
         </MainSection.Subsection>
 
@@ -204,28 +122,7 @@ function ModuleExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample() {
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module
-        badge={{ text: 'Beta' }}
-        id="ModuleExample - badge"
-        title="Title"
-        >
-        <Text size="200">This is example content.</Text>
-      </Module>
-      <Module
-        badge={{text: 'Not started', type: 'neutral' }}
-        id="ModuleExample - badge neutral"
-        title="Title"
-        >
-        <Text size="200">This is example content.</Text>
-      </Module>
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="Static With Badge" code={staticWithBadge} />}
           />
         </MainSection.Subsection>
 
@@ -235,34 +132,9 @@ function ModuleExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample() {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module
-        id="ModuleExample - error"
-        title="Personal Info"
-        iconAccessibilityLabel={!value ? "This module contains an error" : null}
-        type={!value ? "error" : "info"}
-      >
-        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-          <Text size="200">This is example content.</Text>
-
-          <TextField
-            errorMessage={!value ? "This field can't be blank!" : null}
-            id="first-name"
-            label="Enter Your Name"
-            onChange={({ value }) => setValue(value)}
-            value={value}
-          />
-        </Flex>
-      </Module>
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Static With Error Type" code={staticWithErrorType} />
+            }
           />
         </MainSection.Subsection>
 
@@ -272,25 +144,7 @@ function ModuleExample() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample1() {
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module.Expandable
-        accessibilityExpandLabel="Expand the module"
-        accessibilityCollapseLabel="Collapse the module"
-        id="ModuleExample - default"
-        items={[
-          {
-            children: <Text size="200">Children1</Text>,
-            summary: ['summary1', 'summary2', 'summary3'],
-            title: 'Title',
-          }]}>
-      </Module.Expandable>
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="Expandable" code={expandable} />}
           />
         </MainSection.Subsection>
 
@@ -300,35 +154,7 @@ function ModuleExample1() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample2() {
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module.Expandable
-        id="ModuleExample2"
-        accessibilityExpandLabel="Expand the module"
-        accessibilityCollapseLabel="Collapse the module"
-        items={[
-          {
-            children: <Text size="200">Children1</Text>,
-            summary: ['summary1'],
-            title: 'Title1',
-          },
-          {
-            children: <Text size="200">Children2</Text>,
-            summary: ['summary2'],
-            title: 'Title2',
-          },
-          {
-            children: <Text size="200">Children3</Text>,
-            summary: ['summary3'],
-            title: 'Title3',
-          }]}>
-      </Module.Expandable>
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="Expandable Group" code={expandableGroup} />}
           />
         </MainSection.Subsection>
 
@@ -344,61 +170,12 @@ function ModuleExample2() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample3() {
-  const [showPopover, setShowPopover] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module.Expandable
-        accessibilityExpandLabel="Expand the module"
-        accessibilityCollapseLabel="Collapse the module"
-        id="ModuleExample3"
-        items={[
-          {
-            children: <Text size="200">Children1</Text>,
-            icon: 'lock',
-            iconAccessibilityLabel: "title icon",
-            title: 'Example with icon',
-          },
-          {
-            badge: { text: 'New' },
-            children: <Text size="200">Children2</Text>,
-            title: 'Example with badge',
-          },
-          {
-            children: <Text size="200">Children3</Text>,
-            iconButton: <IconButton
-              bgColor="lightGray"
-              icon="question-mark"
-              iconColor="darkGray"
-              accessibilityLabel="Get help"
-              size="xs"
-              onClick={({event}) => setShowPopover((currVal) => !currVal)}
-              ref={anchorRef}
-            />,
-            title: 'Example with icon button',
-          }
-        ]}>
-      </Module.Expandable>
-
-      {showPopover && (
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => setShowPopover(false)}
-          shouldFocus={false}
-          >
-            <Box padding={3}>
-              <Text weight="bold">Help content!</Text>
-            </Box>
-        </Popover>
-      )}
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Expandable With Icon, Badge & IconButton"
+                code={expandableWithIconBadgeIconButton}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -408,114 +185,22 @@ function ModuleExample3() {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample4() {
-  const [value, setValue] = React.useState('');
-  const moduleType = !value ? 'error' : 'info';
-  const summaryInfo = !value ? 'Name is missing' : 'Name: ' + value;
-  const iconAccessibilityLabel = !value ? "This module contains an error" : null;
-
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Module.Expandable
-        accessibilityExpandLabel="Expand the module"
-        accessibilityCollapseLabel="Collapse the module"
-        id="ModuleExample4"
-        items={[
-          {
-            children: <Text size="200">
-              <TextField
-                errorMessage={!value ? "This field can't be blank!" : null}
-                id="aboutme"
-                label="Enter Your Name"
-                onChange={({ value }) => setValue(value)}
-                value={value}
-              />
-            </Text>,
-            iconAccessibilityLabel,
-            summary: [summaryInfo],
-            title: 'Personal Info',
-            type: moduleType
-          }]}>
-      </Module.Expandable>
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Expandable With Error Type" code={expandableWithErrorType} />
+            }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Example with external control">
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ModuleExample5() {
-  const [extExpandedId, setExtExpandedId] = React.useState(null);
-  const mapIds = {
-      'first-0': 0,
-      'first-1': 1,
-      'second-0': 0,
-      'second-1': 1,
-  }
-  return (
-    <Box column={12} maxWidth={800} padding={2}>
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Box marginStart={2}>
-            <Text>Step 1</Text>
-          </Box>
-
-          <Module.Expandable
-            accessibilityExpandLabel="Expand the module"
-            accessibilityCollapseLabel="Collapse the module"
-            expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
-            id="ModuleExampleStep1"
-            items={[
-              {
-                title: 'Title1',
-                summary: ['summary1'],
-                children: <Text size="200">Children1</Text>,
-              },
-              {
-                title: 'Title2',
-                summary: ['summary2'],
-                children: <Text size="200">Children2</Text>,
-              },
-            ]}
-            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`first-$\{index}\`: index)}
-          />
-        </Flex>
-
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Box marginStart={2}>
-            <Text>Step 2</Text>
-          </Box>
-
-          <Module.Expandable
-            id="ModuleExampleStep2"
-            accessibilityExpandLabel="Expand the module"
-            accessibilityCollapseLabel="Collapse the module"
-            expandedIndex={extExpandedId && extExpandedId.startsWith('second') && mapIds[extExpandedId]}
-            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`second-$\{index}\`: index)}
-            items={[
-              {
-                title: 'Title1',
-                summary: ['summary1'],
-                children: <Text size="200">Children1</Text>,
-              },
-              {
-                title: 'Title2',
-                summary: ['summary2'],
-                children: <Text size="200">Children2</Text>,
-              },
-            ]}
-          />
-        </Flex>
-      </Flex>
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Example With External Control"
+                code={exampleWithExternalControl}
+                previewHeight={500}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

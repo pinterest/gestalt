@@ -1619,7 +1619,7 @@ interface SideNavigationProps {
   footer?: Node | undefined;
   header?: Node | undefined;
   showBorder?: boolean | undefined;
-  title?: string | undefined;
+  mobileTitle?: string | undefined;
 }
 
 interface SideNavigationSectionProps {
@@ -1642,6 +1642,7 @@ interface SideNavigationTopItemProps {
   notificationAccessibilityLabel?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   primaryAction?: PrimaryActionType | undefined;
+  ref?: HTMLLIElement,
 }
 
 interface SideNavigationNestedItemProps {
@@ -1650,6 +1651,7 @@ interface SideNavigationNestedItemProps {
   active?: 'page' | 'section' | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   onClick?: ButtonEventHandlerType | undefined;
+  ref?: HTMLLIElement,
 }
 
 interface SideNavigationGroupProps {

@@ -8,7 +8,32 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import considerAllFieldsAsRequired from '../../examples/textfield/considerAllFieldsAsRequired.js';
+import disabledExample from '../../examples/textfield/disabledExample.js';
+import dontDisplayGenericErrorMessages from '../../examples/textfield/dontDisplayGenericErrorMessages.js';
+import dontMarkFieldsAsRequired from '../../examples/textfield/dontMarkFieldsAsRequired.js';
+import dontPlaceUnrelatedFieldsSameLine from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine.js';
+import dontPutEssentialInformationPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder.js';
+import dontRemoveLabel from '../../examples/textfield/dontRemoveLabel.js';
+import ensureVisibleLabel from '../../examples/textfield/ensureVisibleLabel.js';
+import errorMessageExample from '../../examples/textfield/errorMessageExample.js';
+import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo.js';
+import labelsExample from '../../examples/textfield/labelsExample.js';
+import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample.js';
 import main from '../../examples/textfield/main.js';
+import maximumLengthExample from '../../examples/textfield/maximumLengthExample.js';
+import maximumLengthExampleSingleLine from '../../examples/textfield/maximumLengthExampleSingleLine.js';
+import mobileExample1 from '../../examples/textfield/mobileExample1.js';
+import mobileExample2 from '../../examples/textfield/mobileExample2.js';
+import mobileExample3 from '../../examples/textfield/mobileExample3.js';
+import mobileExample4 from '../../examples/textfield/mobileExample4.js';
+import onlyPlaceRelatedFieldsSameLine from '../../examples/textfield/onlyPlaceRelatedFieldsSameLine.js';
+import passwordExample from '../../examples/textfield/passwordExample.js';
+import provideClearUsefulErrorMessages from '../../examples/textfield/provideClearUsefulErrorMessages.js';
+import readOnlyExample from '../../examples/textfield/readOnlyExample.js';
+import tagsExample from '../../examples/textfield/tagsExample.js';
+import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover.js';
+import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -19,6 +44,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
           previewHeight={150}
+          layout="column"
         />
       </PageHeader>
 
@@ -50,53 +76,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="sm"
             type="do"
             description="Use helper text for important information. Helper text helps users understand how to complete the text field or to indicate any needed input."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="new-password"
-        helperText="Password should be at least 20 characters in length"
-        id="best-practices-do-helper-text"
-        label="New password"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        type="password"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Use Helper Text for Important Information"
+                code={useHelperTextImportantInformation}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Put essential information in the placeholder text, since it disappears when the user types. The placeholder text is not a replacement for the label."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="new-password"
-        id="best-practices-dont-placeholder"
-        label=""
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Password should be at least 20 characters in length"
-        type="password"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Don’t Put Essential Information in Placeholder"
+                code={dontPutEssentialInformationPlaceholder}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -105,53 +106,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Always ensure the text field has a visible label. The label provides context and supports users when filling in information."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="username"
-        id="best-practices-do-label"
-        label="Username"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        type="text"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Ensure TextField Has a Visible Label"
+                code={ensureVisibleLabel}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Remove the label, as this creates accessibility and usability issues."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <div className="skip-accessibility-check">
-      <Box padding={2} color="white">
-        <TextField
-          autoComplete="username"
-          id="best-practices-dont-label"
-          label=""
-          onChange={({ value }) => {
-            setValue(value);
-          }}
-          type="username"
-          value={value}
-        />
-      </Box>
-    </div>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Do Not Remove the Label"
+                code={dontRemoveLabel}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -160,69 +136,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Only place related fields on the same line."
-            defaultCode={`
-function Example(props) {
-  const [cityValue, setCityValue] = React.useState('');
-  const [stateValue, setStateValue] = React.useState('');
-
-  return (
-    <Flex gap={{ column: 0, row: 4 }}>
-      <TextField
-        id="best-practices-do-related-city"
-        label="City"
-        onChange={({ value }) => {
-          setCityValue(value);
-        }}
-        type="text"
-        value={cityValue}
-      />
-      <TextField
-        id="best-practices-do-related-state"
-        label="State"
-        onChange={({ value }) => {
-          setStateValue(value);
-        }}
-        type="text"
-        value={stateValue}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Only Place Related Fields on the Same Line"
+                code={onlyPlaceRelatedFieldsSameLine}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Place unrelated text fields on the same line, as this can create comprehension issues."
-            defaultCode={`
-function Example(props) {
-  const [passwordValue, setPasswordValue] = React.useState('');
-  const [zipCodeValue, setZipCodeValue] = React.useState('');
-
-  return (
-    <Flex gap={{ column: 0, row: 4 }}>
-      <TextField
-        autoComplete="new-password"
-        id="best-practices-dont-related-password"
-        label="Password"
-        onChange={({ value }) => {
-          setPasswordValue(value);
-        }}
-        type="password"
-        value={passwordValue}
-      />
-      <TextField
-        id="best-practices-dont-related-zip-code"
-        label="ZIP Code"
-        onChange={({ value }) => {
-          setZipCodeValue(value);
-        }}
-        value={zipCodeValue}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Do Not Place Unrelated Text Fields on the Same Line"
+                code={dontPlaceUnrelatedFieldsSameLine}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -231,53 +166,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Provide clear and useful error messages that help the user fix the issue. Error messages should be displayed in a timely manner — typically once the field loses focus or when the form is submitted."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="new-password"
-        errorMessage="Password is too short! You need 20+ characters"
-        id="best-practices-do-error-message"
-        label="Password"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        type="password"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Provide Clear and Useful Error Messages"
+                code={provideClearUsefulErrorMessages}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description={`Display generic error messages, such as "There is an error".`}
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="new-password"
-        errorMessage="There is an error"
-        id="best-practices-dont-error-message"
-        label="Password"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        type="password"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Do Not Display Generic Error Messages"
+                code={dontDisplayGenericErrorMessages}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -286,95 +196,28 @@ function Example(props) {
             cardSize="md"
             type="do"
             description="Consider all text fields as required, unless explicitly noted as optional."
-            defaultCode={`
-function Example(props) {
-  const [name, setName] = React.useState({
-    first: '',
-    middle: '',
-    last: '',
-  });
-
-  return (
-    <Flex direction="column" gap={{ column: 3, row: 0 }}>
-      <TextField
-        id="best-practices-do-required-firstName"
-        label="First name"
-        onChange={({ value }) => {
-          setName((nameFields) => ({ ...nameFields, first: value }));
-        }}
-        type="text"
-        value={name.first}
-      />
-      <TextField
-        id="best-practices-do-required-middleName"
-        label="Middle name (optional)"
-        onChange={({ value }) => {
-          setName((nameFields) => ({ ...nameFields, middle: value }));
-        }}
-        type="text"
-        value={name.middle}
-      />
-      <TextField
-        id="best-practices-do-required-lastName"
-        label="Last name"
-        onChange={({ value }) => {
-          setName((nameFields) => ({ ...nameFields, last: value }));
-        }}
-        type="text"
-        value={name.last}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Consider All TextFields as Required"
+                code={considerAllFieldsAsRequired}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Mark fields as required."
-            defaultCode={`
-function Example(props) {
-  const [name, setName] = React.useState({
-    first: '',
-    second: '',
-    third: '',
-  });
-
-  return (
-    <Flex direction="column" gap={{ column: 3, row: 0 }}>
-      <TextField
-        helperText="* This field is required."
-        id="best-practices-dont-required-firstName"
-        label="First name"
-        onChange={({ value }) => {
-          setName((nameFields) => ({ ...nameFields, first: value }));
-        }}
-        type="text"
-        value={name.first}
-      />
-      <TextField
-        id="best-practices-dont-required-middleName"
-        label="Middle name"
-        onChange={({ value }) => {
-          setName((nameFields) => ({ ...nameFields, middle: value }));
-        }}
-        type="text"
-        value={name.middle}
-      />
-      <TextField
-        helperText="* This field is required."
-        id="best-practices-dont-required-lastName"
-        label="Last name"
-        onChange={({ value }) => {
-          setName((nameFields) => ({ ...nameFields, last: value }));
-        }}
-        type="text"
-        value={name.last}
-      />
-    </Flex>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Do Not Mark Fields as Required"
+                code={dontMarkFieldsAsRequired}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -392,26 +235,7 @@ function Example(props) {
       If TextField is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
         >
           <MainSection.Card
-            defaultCode={`
-<Flex gap={{ column: 0, row: 6 }}>
-  <TextField
-    id="textfieldexampleA11yVisible"
-    onChange={() => {}}
-    label='First name'
-    size='lg'
-  />
-  <Flex gap={{ column: 2, row: 0 }} direction="column">
-    <Text weight="bold" size="300">First name</Text>
-    <TextField
-      id="textfieldexampleA11yHiddenLabel"
-      onChange={() => {}}
-      label='First name'
-      labelDisplay="hidden"
-      size='lg'
-    />
-  </Flex>
-</Flex>
-`}
+            sandpackExample={<SandpackExample name="Labels Example" code={labelsExample} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -459,27 +283,12 @@ function Example(props) {
           `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="new-password"
-        helperText="Password should be at least 20 characters long"
-        id="variants-helper-text"
-        label="Password"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        type="password"
-        value={value}
-      />
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Helper Text to Explain More about Optional Info"
+                code={helperTextExplainOptionalInfo}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -488,18 +297,9 @@ function Example(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex gap={{ column: 2, row: 0 }} direction="column">
-  <Text weight="bold" size="300">First name</Text>
-  <TextField
-    id="textfieldexampleHiddenLabel"
-    onChange={() => {}}
-    label='First name'
-    labelDisplay="hidden"
-    size='lg'
-  />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample name="Label Visibility Example" code={labelVisibilityExample} />
+            }
           />
         </MainSection.Subsection>
 
@@ -508,22 +308,9 @@ function Example(props) {
           description="Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('****maz@pinterest.com');
-
-  return (
-    <TextField
-      id="variants-readonly"
-      label="Email address"
-      onChange={({ value }) => setValue(value)}
-      placeholder="Name"
-      value={value}
-      readOnly
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Read-only Text Field Example" code={readOnlyExample} />
+            }
           />
         </MainSection.Subsection>
 
@@ -532,22 +319,9 @@ function Example(props) {
           description={`TextField with \`type="password"\` shows obfuscated characters by default. An icon button at the end of the field allows the user to toggle password visibility. This creates a more accessible experience by allowing the user to confirm what they have entered before submitting the form.`}
         >
           <MainSection.Card
-            defaultCode={`
-          function Example(props) {
-            const [password, setPassword] = React.useState();
-
-            return (
-              <TextField
-                id="enter-password"
-                label="Account password"
-                onChange={({ value }) => setPassword(value)}
-                placeholder="Password"
-                type="password"
-                value={password}
-              />
-            );
-          }
-          `}
+            sandpackExample={
+              <SandpackExample name="Password Text Field Example" code={passwordExample} />
+            }
           />
         </MainSection.Subsection>
 
@@ -556,24 +330,9 @@ function Example(props) {
           description="`disabled` TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use `readOnly` instead)."
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <TextField
-      disabled
-      id="variants-disabled"
-      label="New password"
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      placeholder="6-18 characters"
-      value={value}
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Disabled Text Field Example" code={disabledExample} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -584,23 +343,9 @@ Don't use \`errorMessage\` to provide feedback on character count errors. See th
           `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <TextField
-      errorMessage={!value ? "This field can't be blank!" : null}
-      id="variants-error-message"
-      label="New username"
-      onChange={({ value }) => {
-        setValue(value);
-      }}
-      value={value}
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Error Message Example" code={errorMessageExample} />
+            }
           />
         </MainSection.Subsection>
 
@@ -615,67 +360,7 @@ function Example(props) {
           `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-  const [tags, setTags] = React.useState(['a@pinterest.com', 'b@pinterest.com']);
-  const ref = React.useRef();
-
-  const onChangeTagManagement = ({ value }) => {
-    // Create new tags around spaces, commas, and semicolons.
-    const tagInput = value.split(/[\\s,;]+/);
-    if (tagInput.length > 1) {
-      setTags([
-        ...tags,
-        // Avoid creating a tag on content after the separators, and filter out
-        // empty tags
-        ...tagInput.splice(0, tagInput.length - 1).filter(val => val !== ''),
-      ]);
-    }
-    setValue(tagInput[tagInput.length - 1]);
-  }
-
-  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
-    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
-      // Remove tag on backspace if the cursor is at the beginning of the field
-      setTags([...tags.slice(0, -1)]);
-    } else if (keyCode === 13 /* Enter */ && value.trim() !== '') {
-      // Create a new tag on enter
-      setTags([...tags, value.trim()]);
-      setValue('');
-    }
-  }
-
-  const renderedTags = tags.map((tag, idx) => (
-    <Tag
-      key={tag}
-      onRemove={() => {
-        const newTags = [...tags];
-        newTags.splice(idx, 1);
-        setTags([...newTags]);
-        ref.current.focus();
-      }}
-      accessibilityRemoveIconLabel={\`Remove \${tag} tag\`}
-      text={tag}
-    />
-  ));
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        autoComplete="off"
-        id="variants-tags"
-        label="Emails"
-        ref={ref}
-        onChange={onChangeTagManagement}
-        onKeyDown={onKeyDownTagManagement}
-        tags={renderedTags}
-        value={value}
-      />
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="Tags Text Field Example" code={tagsExample} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -684,7 +369,7 @@ function Example(props) {
           description={`TextField supports some props to improve the mobile experience. Browsers display virtual keyboard when the user interacts with TextField.  \`enterKeyHint\` and \`inputMode\` allow customizing the virtual keyboard for a better data input.
 
 
-The \`enterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
+The \`mobileEnterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
 
 - "enter": inserting a new line
 - "done": there is nothing more to input and the input editor will be closed
@@ -694,7 +379,7 @@ The \`enterKeyHint\` prop presents to the user a more accurate action label for 
 - "search": taking the user to the results of searching for the text they have typed
 - "send": delivering the text to its target
 
-The \`inputMode\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
+The \`mobileInputMode\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
 
 - "none": No virtual keyboard. For when the page implements its own keyboard input control, for example DatePicker displays the calendar picker.
 - "text": Standard input keyboard for the user's current locale.
@@ -706,81 +391,36 @@ Use \`type\` when TextField needs to capture phone numbers, emails or URLs.
         >
           <MainSection.Card
             title="Text virtual keyboard with 'next'"
-            defaultCode={`
-<Flex gap={2}>
-  <TextField
-    id="enterKeyHint"
-    enterKeyHint="next"
-    label="Text virtual keyboard with 'next'"
-    onChange={() => {}}
-    onBlur={() => {}}
-    onFocus={() => {}}
-  />
-  <Box height={100} width={200}>
-    <Image
-      alt="Image of a screenshot of a virtual keyboard on a mobile screen showing a text virtual keyboard with 'next'"
-      naturalHeight={1}
-      naturalWidth={1}
-      src="https://i.ibb.co/qdMLb8t/IMG-2518.jpg"
-    />
-  </Box>
-</Flex>
-
-`}
+            sandpackExample={
+              <SandpackExample name="Mobile Style Example" code={mobileExample1} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<Flex gap={2}>
-  <TextField
-    id="decimal"
-    inputMode="decimal"
-    label="Decimal virtual keyboard"
-    onChange={() => {}}
-    onBlur={() => {}}
-    onFocus={() => {}}
-  />
-  <Box height={100} width={200}>
-    <Image
-      alt="Image of a screenshot of a virtual keyboard on a mobile screen showing a decimal virtual keyboard"
-      naturalHeight={1}
-      naturalWidth={1}
-      src="https://i.ibb.co/WxYtCdx/IMG-2520.jpg"
-    />
-  </Box>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Mobile Style Example (1)"
+                code={mobileExample2}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<Flex gap={2}>
-  <TextField
-    id="none"
-    inputMode="numeric"
-    label="Numeric virtual keyboard"
-    type="date"
-    onChange={() => {}}
-    onBlur={() => {}}
-    onFocus={() => {}}
-  />
-  <Box height={100} width={200}>
-    <Image
-      alt="Image of a screenshot of a virtual keyboard on a mobile screen showing a numeric virtual keyboard"
-      naturalHeight={1}
-      naturalWidth={1}
-      src="https://i.ibb.co/tpZ9pV8/IMG-2519.jpg"
-    />
-  </Box>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Mobile Style Example (2)"
+                code={mobileExample3}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<DatePicker
-  id="datepicker"
-  label="No virtual keyboard"
-  onChange={() => {}}
-/>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Mobile Style Example (3)"
+                code={mobileExample4}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -795,64 +435,22 @@ When \`maxLength\` is passed to TextField, the component displays a character co
 The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the warning and problem Status.`}
         >
           <MainSection.Card
-            defaultCode={`
-function TextFieldExample() {
-  const [value, setValue] = React.useState('');
-  const characterCount = 20;
-
-  return (
-    <TextField
-      id="maxLength"
-      label="Title"
-      helperText="Enter a title that captures the imagination of Pinners"
-      onChange={({ value }) => setValue(value)}
-      placeholder="Enter your pin title"
-      value={value}
-      onBlur={() => {}}
-      onFocus={() => {}}
-      maxLength={{ characterCount, errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.' }}
-    />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Maximum Length Text Field Example"
+                code={maximumLengthExample}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-            function TextFieldExample() {
-  const [valueA, setValueA] = React.useState('Delicious vegan soup');
-  const [valueB, setValueB] = React.useState('Delicious vegan noodle soup');
-
-  const characterCount = 20;
-  const errorAccessibilityLabel = "Limit reached. You can only use 20 characters in this field.";
-
-  return (
-    <Flex direction="column" gap={12}>
-      <TextField
-        id="maxLengthReached"
-        label="Title"
-        helperText="Enter a title that captures the imagination of Pinners"
-        onChange={({ value }) => setValueA(value)}
-        placeholder="Enter your pin title"
-        value={valueA}
-        onBlur={() => {}}
-        onFocus={() => {}}
-        maxLength={{ characterCount, errorAccessibilityLabel }}
-      />
-      <TextField
-        id="maxLengthExceeded"
-        label="Title"
-        helperText="Enter a title that captures the imagination of Pinners"
-        onChange={({ value }) => setValueB(value)}
-        placeholder="Enter your pin title"
-        value={valueB}
-        onBlur={() => {}}
-        onFocus={() => {}}
-        maxLength={{ characterCount, errorAccessibilityLabel }}
-      />
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Maximum Length Single Line Text Field"
+                code={maximumLengthExampleSingleLine}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -862,44 +460,12 @@ function TextFieldExample() {
           `}
         >
           <MainSection.Card
-            defaultCode={`
-function TextFieldPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-
-  return (
-    <Box padding={2} color="white">
-      <TextField
-        id="variants-refs"
-        label="Focus the TextField to show the Popover"
-        onChange={() => {}}
-        onBlur={() => {
-          setOpen(false);
-        }}
-        onFocus={() => {
-          setOpen(true);
-        }}
-        ref={anchorRef}
-      />
-      {open && (
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="down"
-          onDismiss={() => {
-            setOpen(false);
-          }}
-          shouldFocus={false}
-          size="md"
-        >
-          <Box padding={3}>
-            <Text weight="bold">Example with Popover</Text>
-          </Box>
-        </Popover>
-      )}
-    </Box>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="TextField Ref for Anchoring Popover"
+                code={textFieldRefAnchorPopover}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
