@@ -1967,7 +1967,7 @@ interface TextProps {
   inline?: boolean | undefined;
   italic?: boolean | undefined;
   lineClamp?: number | undefined;
-  overflow?: 'normal' | 'breakWord' | 'noWrap' | undefined;
+  overflow?: 'normal' | 'breakWord' | 'breakAll' | 'noWrap' | undefined;
   size?: TextSizeType | undefined;
   underline?: boolean | undefined;
   weight?: 'bold' | 'normal' | undefined;
