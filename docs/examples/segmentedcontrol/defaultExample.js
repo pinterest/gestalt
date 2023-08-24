@@ -1,27 +1,32 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Icon, SegmentedControl, Text } from 'gestalt';
+import { Box, Flex, Icon, SegmentedControl, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function SegmentedControlExample(): Node {
   const [itemIndex, setItemIndex] = useState(0);
+
   const items = [
     'News',
     'You',
     'Messages',
-    <Icon key="pin-icon" icon="pin" accessibilityLabel="Pin" color="default" />,
+    <Icon key="icon" icon="pin" accessibilityLabel="Pin" color="default" />,
   ];
-  const content = ['News content', 'You content', 'Messages content', 'Pins content'];
-  return (
-    <Box padding={4} height="100%">
-      <SegmentedControl
-        items={items}
-        selectedItemIndex={itemIndex}
-        onChange={({ activeIndex }) => setItemIndex(activeIndex)}
-      />
 
-      <Box borderStyle="sm" marginTop={2} padding={6} rounding={2} height="80%">
-        <Text>{content[itemIndex]}</Text>
-      </Box>
+  const content = ['News content', 'You content', 'Messages content', 'Pins content'];
+
+  return (
+    <Box padding={8} height="100%">
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <SegmentedControl
+          items={items}
+          selectedItemIndex={itemIndex}
+          onChange={({ activeIndex }) => setItemIndex(activeIndex)}
+        />
+
+        <Box borderStyle="shadow" padding={6} rounding={2}>
+          <Text>{content[itemIndex]}</Text>
+        </Box>
+      </Flex>
     </Box>
   );
 }
