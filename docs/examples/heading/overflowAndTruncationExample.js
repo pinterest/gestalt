@@ -27,6 +27,16 @@ export default function Example(): Node {
         </Flex>
 
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Text>breakAll:</Text>
+          <Box color="secondary" padding={2} rounding={2}>
+            <Heading size="400" overflow="breakAll">
+              This is a long and Supercalifragilisticexpialidocious sentence.
+              次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+            </Heading>
+          </Box>
+        </Flex>
+
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>lineClamp:</Text>
           <Box color="secondary" padding={2} rounding={2}>
             <Heading size="400" lineClamp={2}>
