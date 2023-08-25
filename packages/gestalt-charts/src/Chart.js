@@ -16,8 +16,8 @@ import {
 import { Box, Flex, Label, Switch, Text, useColorScheme } from 'gestalt';
 import Bar from './Chart/Bar.js';
 import Line from './Chart/Line.js';
-import Patterns from './Chart/Patterns.js';
 import { type DataVisualizationColors } from './Chart/types.js';
+import usePatterns from './Chart/usePatterns.js';
 
 type Props = {|
   biaxial?: boolean,
@@ -26,6 +26,8 @@ type Props = {|
    * Prop description.
    */
   children: Node,
+  height?: number | string,
+  width?: number | string,
   data: $ReadOnlyArray<{|
     name: string,
     [string]: number,
@@ -53,6 +55,8 @@ function Chart({
   biaxial = false,
   children,
   type = 'bar',
+  height = 400,
+  width = '100%',
   data,
   referenceAreas = [],
   renderTooltip,
@@ -74,16 +78,18 @@ function Chart({
     );
   }
   const ChartType = type === 'line' ? LineChart : BarChart;
-  const [switched, setSwitched] = useState(false);
+  const [decalPattern, setDecalPattern] = useState(false);
   const id = useId();
   const theme = useColorScheme();
   const hexColor = (vizColor: DataVisualizationColors) =>
     theme[`colorDataVisualization${vizColor}`];
+  const patterns = usePatterns();
 
   // $FlowFixMe
   const chartElements = Children.toArray<Node>(children).map((child: any) => {
     const isBar = child.type.name === 'Bar';
     const isLine = child.type.name === 'Line';
+
     if (isBar) {
       return (
         <RechartsBar
@@ -91,7 +97,7 @@ function Chart({
           yAxisId={child.props.yAxis}
           dataKey={child.props.id}
           barSize={20}
-          fill={hexColor(child.props.color)}
+          fill={decalPattern ? `url(#pattern-${child.props.color})` : hexColor(child.props.color)}
         />
       );
     }
@@ -130,12 +136,16 @@ function Chart({
         <Label htmlFor={id}>
           <Text size="200">Decal pattern</Text>
         </Label>
-        <Switch id={id} onChange={() => setSwitched((currVal) => !currVal)} switched={switched} />
+        <Switch
+          id={id}
+          onChange={() => setDecalPattern((currVal) => !currVal)}
+          switched={decalPattern}
+        />
       </Flex>
-      <ResponsiveContainer width="100%" height="100%">
-        <div style={{ width: '100%', height: '100%' }} className="_gestalt">
-          <ChartType accessibilityLayer width={500} height={400} data={data}>
-            <Patterns />
+      <div className="_gestalt">
+        <ResponsiveContainer width={width} height={height}>
+          <ChartType accessibilityLayer data={data}>
+            {patterns}
             <CartesianGrid stroke="#f5f5f5" />
             <XAxis dataKey="name" />
             <YAxis yAxisId="left" />
@@ -146,8 +156,8 @@ function Chart({
             {referenceAreas ? referenceAreasElements : null}
             {chartElements}
           </ChartType>
-        </div>
-      </ResponsiveContainer>
+        </ResponsiveContainer>
+      </div>
     </Flex>
   );
 }

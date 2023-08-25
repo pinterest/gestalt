@@ -9,6 +9,8 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import bar from '../../examples/chart/bar.js';
+import decal from '../../examples/chart/decal.js';
+import dimensions from '../../examples/chart/dimensions.js';
 import line from '../../examples/chart/line.js';
 import referenceArea from '../../examples/chart/referenceArea.js';
 
@@ -42,6 +44,16 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
         <MainSection.Subsection title="ReferenceArea">
           <MainSection.Card
             sandpackExample={<SandpackExample code={referenceArea} name="ReferenceArea" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Dimensions">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={dimensions} name="Dimensions" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Decal patterns">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={decal} name="Decal patterns" />}
           />
         </MainSection.Subsection>
       </MainSection>
