@@ -10,45 +10,45 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      bar1: 2400,
-      bar2: 2400,
-      bar3: 2400,
+      '01': 2400,
+      '02': 2400,
+      '03': 2400,
     },
     {
       name: 'B',
-      bar1: 2400,
-      bar2: 2400,
-      bar3: 2400,
+      '01': 2400,
+      '02': 2400,
+      '03': 2400,
     },
     {
       name: 'C',
-      bar1: 2400,
-      bar2: 9800,
-      bar3: 2400,
+      '01': 2400,
+      '02': 9800,
+      '03': 2400,
     },
     {
       name: 'D',
-      bar1: 2400,
-      bar2: 2400,
-      bar3: 2400,
+      '01': 2400,
+      '02': 2400,
+      '03': 2400,
     },
     {
       name: 'E',
-      bar1: 2400,
-      bar2: 2400,
-      bar3: 2400,
+      '01': 2400,
+      '02': 2400,
+      '03': 2400,
     },
     {
       name: 'F',
-      bar1: 2400,
-      bar2: 2400,
-      bar3: 2400,
+      '01': 2400,
+      '02': 2400,
+      '03': 2400,
     },
     {
       name: 'G',
-      bar1: 2400,
-      bar2: 2400,
-      bar3: 2400,
+      '01': 2400,
+      '02': 2400,
+      '03': 2400,
     },
   ];
 
@@ -73,7 +73,11 @@ export default function Example(): Node {
             <Text>{label}</Text>
           </Flex>
         )}
-      />
+      >
+        <Chart.Bar id="01" color="01" yAxis="left" />
+        <Chart.Bar id="02" color="02" yAxis="left" />
+        <Chart.Bar id="02" color="02" yAxis="left" />
+      </Chart>
     </Flex>
   );
 }

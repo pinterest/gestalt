@@ -1,9 +1,9 @@
 // @flow strict-local
 import { type Node } from 'react';
-import { useHexColor } from './helpers.js';
+import { useHexPalette } from './helpers.js';
 
 export default function Patterns(): Node {
-  const hexColors = useHexColor();
+  const hexColors = useHexPalette();
 
   return (
     <defs>

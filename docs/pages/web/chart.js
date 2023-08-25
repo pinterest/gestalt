@@ -8,14 +8,14 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/chart/main.js';
+import bar from '../../examples/chart/bar.js';
+import line from '../../examples/chart/line.js';
+import referenceArea from '../../examples/chart/referenceArea.js';
 
 export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} hideEditor name="Main Chart example" />
-      </PageHeader>
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -29,7 +29,22 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
 
       <MainSection name="Subcomponents" />
 
-      <MainSection name="Variants" />
+      <MainSection name="Variants">
+        <MainSection.Subsection title="Bar">
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={bar} name="Bar" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Line">
+          <MainSection.Card sandpackExample={<SandpackExample code={line} name="Line" />} />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="ReferenceArea">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={referenceArea} name="ReferenceArea" />}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Writing" />
 
