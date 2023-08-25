@@ -54,7 +54,6 @@ export default function Example(): Node {
       <Chart
         type="line"
         data={data}
-        // renderTooltip={({ label, payload }) => (
         renderTooltip={({ label }) => (
           <Flex direction="column" gap={2}>
             <Text>{label}</Text>

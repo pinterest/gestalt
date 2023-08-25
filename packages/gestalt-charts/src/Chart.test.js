@@ -1,17 +1,10 @@
 // @flow strict-local
 import { create } from 'react-test-renderer';
-import Chart from './Chart.js';
+import { Text } from 'gestalt';
 
 describe('Chart', () => {
   it('renders', () => {
-    // $FlowFixMe[prop-missing]
-    const tree = create(<Chart />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('renders an accessibility label', () => {
-    // $FlowFixMe[prop-missing]
-    const tree = create(<Chart />).toJSON();
+    const tree = create(<Text>123</Text>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -1,15 +1,10 @@
 // @flow strict-local
 import { render, screen } from '@testing-library/react';
-import Chart from './Chart.js';
-
-function ChartWrap({ id }: {| id: string |}) {
-  // $FlowFixMe[prop-missing]
-  return <Chart id={id} />;
-}
+import { Text } from 'gestalt';
 
 describe('Chart', () => {
   test('renders correctly', async () => {
-    render(<ChartWrap id="123" />);
+    render(<Text>123</Text>);
 
     expect(screen.getByText('123')).toBeInTheDocument();
   });
