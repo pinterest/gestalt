@@ -57,7 +57,6 @@ export default function Example(): Node {
         // renderTooltip={({ label, payload }) => (
         renderTooltip={({ label }) => (
           <Flex direction="column" gap={2}>
-            {/* <Text>{JSON.stringify(payload)}</Text> */}
             <Text>{label}</Text>
           </Flex>
         )}
