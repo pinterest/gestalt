@@ -17,6 +17,7 @@ import {
 import { Box, Flex, Label, Switch, Text, useColorScheme } from 'gestalt';
 import Bar from './Chart/Bar.js';
 import Line from './Chart/Line.js';
+import Marker from './Chart/Marker.js';
 import { type DataVisualizationColors } from './Chart/types.js';
 import usePatterns from './Chart/usePatterns.js';
 
@@ -62,6 +63,17 @@ function Chart({
   referenceAreas = [],
   renderTooltip,
 }: Props): Node {
+  const [decalPattern, setDecalPattern] = useState(false);
+
+  const id = useId();
+
+  const theme = useColorScheme();
+
+  const hexColor = (vizColor: DataVisualizationColors) =>
+    theme[`colorDataVisualization${vizColor}`];
+
+  const patterns = usePatterns();
+
   // eslint-disable-next-line react/no-unstable-nested-components
   function CustomTooltip({
     active,
@@ -87,19 +99,12 @@ function Chart({
     ChartType = LineChart;
   }
 
-  const [decalPattern, setDecalPattern] = useState(false);
-
-  const id = useId();
-  const theme = useColorScheme();
-  const hexColor = (vizColor: DataVisualizationColors) =>
-    theme[`colorDataVisualization${vizColor}`];
-  const patterns = usePatterns();
-
   // $FlowFixMe
   const chartElements = Children.toArray<Node>(children).map((child: any) => {
     const isBar = child.type.name === 'Bar';
     const isLine = child.type.name === 'Line';
 
+    // Recharts doesn't recognize wrappers on their components
     if (isBar) {
       return (
         <RechartsBar
@@ -107,6 +112,7 @@ function Chart({
           yAxisId={child.props.yAxis}
           dataKey={child.props.id}
           barSize={20}
+          stackId={child.props.stackedId}
           fill={decalPattern ? `url(#pattern-${child.props.color})` : hexColor(child.props.color)}
         />
       );
@@ -127,6 +133,7 @@ function Chart({
   });
 
   const referenceAreasElements: $ReadOnlyArray<Node> = referenceAreas.map((values) => (
+    // Recharts doesn't recognize wrappers on their components
     <RechartsReferenceArea
       key={values.id}
       isFront={values.isFront}
@@ -174,5 +181,6 @@ function Chart({
 
 Chart.Bar = Bar;
 Chart.Line = Line;
+Chart.Marker = Marker;
 
 export default Chart;

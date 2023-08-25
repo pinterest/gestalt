@@ -7,46 +7,52 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      'bar_1': 50,
-      'line_2': 100,
+      'bar_1': 2400,
+      'bar_2': 2400,
+      'bar_3': 2400,
     },
     {
       name: 'B',
-      'bar_1': 100,
-      'line_2': 200,
+      'bar_1': 2400,
+      'bar_2': 2400,
+      'bar_3': 2400,
     },
     {
       name: 'C',
-      'bar_1': 250,
-      'line_2': 300,
+      'bar_1': 2400,
+      'bar_2': 9800,
+      'bar_3': 2400,
     },
     {
       name: 'D',
-      'bar_1': 300,
-      'line_2': 400,
+      'bar_1': 2400,
+      'bar_2': 2400,
+      'bar_3': 2400,
     },
     {
       name: 'E',
-      'bar_1': 400,
-      'line_2': 500,
+      'bar_1': 2400,
+      'bar_2': 2400,
+      'bar_3': 2400,
     },
     {
       name: 'F',
-      'bar_1': 400,
-      'line_2': 600,
+      'bar_1': 2400,
+      'bar_2': 2400,
+      'bar_3': 2400,
     },
     {
       name: 'G',
-      'bar_1': 400,
-      'line_2': 700,
+      'bar_1': 2400,
+      'bar_2': 2400,
+      'bar_3': 2400,
     },
   ];
 
   return (
     <Flex direction="column" width="100%" height="100%">
       <Chart
-        biaxial
-        type="composed"
+        type="bar"
         data={data}
         // renderTooltip={({ label, payload }) => (
         renderTooltip={({ label }) => (
@@ -57,7 +63,8 @@ export default function Example(): Node {
         )}
       >
         <Chart.Bar id="bar_1" color="01" yAxis="left" />
-        <Chart.Line id="line_2" color="02" yAxis="right" />
+        <Chart.Bar id="bar_2" color="02" yAxis="left" stackedId="A" />
+        <Chart.Bar id="bar_3" color="03" yAxis="left" stackedId="A" />
       </Chart>
     </Flex>
   );

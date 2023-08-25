@@ -15,6 +15,8 @@ import decal from '../../examples/chart/decal.js';
 import dimensions from '../../examples/chart/dimensions.js';
 import line from '../../examples/chart/line.js';
 import referenceArea from '../../examples/chart/referenceArea.js';
+import stackedBar from '../../examples/chart/stackedBar.js';
+import tooltip from '../../examples/chart/tooltip.js';
 
 export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -41,6 +43,12 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
 
+        <MainSection.Subsection title="Stacked">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={stackedBar} name="Stacked" />}
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection title="Line">
           <MainSection.Card sandpackExample={<SandpackExample code={line} name="Line" />} />
         </MainSection.Subsection>
@@ -51,6 +59,10 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
 
         <MainSection.Subsection title="Biaxial">
           <MainSection.Card sandpackExample={<SandpackExample code={biaxial} name="Biaxial" />} />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Tooltip">
+          <MainSection.Card sandpackExample={<SandpackExample code={tooltip} name="Tooltip" />} />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="ReferenceArea">

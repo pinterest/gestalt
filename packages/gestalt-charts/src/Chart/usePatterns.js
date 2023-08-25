@@ -63,7 +63,7 @@ export default function usePatterns(): Node {
         patternUnits="userSpaceOnUse"
         patternTransform="rotate(45)"
       >
-        <polygon points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2" fill={hexColor('07')} />
+        <polygon points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2" fill={hexColor('07')} />{' '}
       </pattern>
 
       <pattern
