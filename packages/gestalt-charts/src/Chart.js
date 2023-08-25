@@ -4,6 +4,7 @@ import {
   Bar as RechartsBar,
   BarChart,
   CartesianGrid,
+  ComposedChart,
   Legend,
   Line as RechartsLine,
   LineChart,
@@ -21,7 +22,7 @@ import usePatterns from './Chart/usePatterns.js';
 
 type Props = {|
   biaxial?: boolean,
-  type: 'line' | 'bar',
+  type: 'composed' | 'line' | 'bar',
   /**
    * Prop description.
    */
@@ -54,7 +55,7 @@ type Props = {|
 function Chart({
   biaxial = false,
   children,
-  type = 'bar',
+  type = 'composed',
   height = 400,
   width = '100%',
   data,
@@ -77,8 +78,17 @@ function Chart({
       </Box>
     );
   }
-  const ChartType = type === 'line' ? LineChart : BarChart;
+
+  let ChartType = ComposedChart;
+  if (type === 'barSize') {
+    ChartType = BarChart;
+  }
+  if (type === 'line') {
+    ChartType = LineChart;
+  }
+
   const [decalPattern, setDecalPattern] = useState(false);
+
   const id = useId();
   const theme = useColorScheme();
   const hexColor = (vizColor: DataVisualizationColors) =>

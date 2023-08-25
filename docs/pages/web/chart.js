@@ -9,6 +9,8 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import bar from '../../examples/chart/bar.js';
+import biaxial from '../../examples/chart/biaxial.js';
+import composed from '../../examples/chart/composed.js';
 import decal from '../../examples/chart/decal.js';
 import dimensions from '../../examples/chart/dimensions.js';
 import line from '../../examples/chart/line.js';
@@ -38,19 +40,31 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
             sandpackExample={<SandpackExample code={bar} name="Bar" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection title="Line">
           <MainSection.Card sandpackExample={<SandpackExample code={line} name="Line" />} />
         </MainSection.Subsection>
+
+        <MainSection.Subsection title="Composed">
+          <MainSection.Card sandpackExample={<SandpackExample code={composed} name="Composed" />} />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Biaxial">
+          <MainSection.Card sandpackExample={<SandpackExample code={biaxial} name="Biaxial" />} />
+        </MainSection.Subsection>
+
         <MainSection.Subsection title="ReferenceArea">
           <MainSection.Card
             sandpackExample={<SandpackExample code={referenceArea} name="ReferenceArea" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection title="Dimensions">
           <MainSection.Card
             sandpackExample={<SandpackExample code={dimensions} name="Dimensions" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection title="Decal patterns">
           <MainSection.Card
             sandpackExample={<SandpackExample code={decal} name="Decal patterns" />}
