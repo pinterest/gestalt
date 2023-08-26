@@ -59,11 +59,12 @@ export default function Example(): Node {
             <Text>{label}</Text>
           </Flex>
         )}
-      >
-        <Chart.Bar id="bar_1" color="01" yAxis="left" />
-        <Chart.Bar id="bar_2" color="02" yAxis="left" />
-        <Chart.Bar id="bar_3" color="03" yAxis="left" />
-      </Chart>
+        elements={[
+          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
+          { type: 'bar', id: 'bar_02', color: '02', yAxis: 'left' },
+          { type: 'bar', id: 'bar_03', color: '03', yAxis: 'left' },
+        ]}
+      />
     </Flex>
   );
 }

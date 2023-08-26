@@ -7,45 +7,45 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      'bar_1': 10000,
-      'line_2': 5000,
-      'bar_3': 2400,
+      'bar_01': 10000,
+      'line_02': 5000,
+      'bar_03': 2400,
     },
     {
       name: 'B',
-      'bar_1': 2400,
-      'line_2': 5000,
-      'bar_3': 2400,
+      'bar_01': 2400,
+      'line_02': 5000,
+      'bar_03': 2400,
     },
     {
       name: 'C',
-      'bar_1': 2400,
-      'line_2': 9800,
-      'bar_3': 2400,
+      'bar_01': 2400,
+      'line_02': 9800,
+      'bar_03': 2400,
     },
     {
       name: 'D',
-      'bar_1': 2400,
-      'line_2': 5000,
-      'bar_3': 2400,
+      'bar_01': 2400,
+      'line_02': 5000,
+      'bar_03': 2400,
     },
     {
       name: 'E',
-      'bar_1': 2400,
-      'line_2': 5000,
-      'bar_3': 2400,
+      'bar_01': 2400,
+      'line_02': 5000,
+      'bar_03': 2400,
     },
     {
       name: 'F',
-      'bar_1': 2400,
-      'line_2': 5000,
-      'bar_3': 2400,
+      'bar_01': 2400,
+      'line_02': 5000,
+      'bar_03': 2400,
     },
     {
       name: 'G',
-      'bar_1': 2400,
-      'line_2': 5000,
-      'bar_3': 2400,
+      'bar_01': 2400,
+      'line_02': 5000,
+      'bar_03': 2400,
     },
   ];
 
@@ -80,11 +80,12 @@ export default function Example(): Node {
           }
           return null;
         }}
-      >
-        <Chart.Bar id="bar_1" color="01" yAxis="left" />
-        <Chart.Bar id="bar_3" color="02" yAxis="left" />
-        <Chart.Line id="line_2" color="03" yAxis="right" />
-      </Chart>
+        elements={[
+          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
+          { type: 'bar', id: 'bar_02', color: '02', yAxis: 'left' },
+          { type: 'line', id: 'line_03', color: '03', yAxis: 'right' },
+        ]}
+      />
     </Flex>
   );
 }

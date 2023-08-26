@@ -15,8 +15,6 @@ import {
   YAxis,
 } from 'recharts';
 import { Box, Flex, Label, Switch, Text, useColorScheme } from 'gestalt';
-import Bar from './Chart/Bar.js';
-import Line from './Chart/Line.js';
 import Marker from './Chart/Marker.js';
 import { type DataVisualizationColors } from './Chart/types.js';
 import usePatterns from './Chart/usePatterns.js';
@@ -125,8 +123,8 @@ function Chart({
 
   // $FlowFixMe
   const chartElements = elements.map((values) => {
-    const isBar = values.type === 'Bar';
-    const isLine = values.type === 'Line';
+    const isBar = values.type === 'bar';
+    const isLine = values.type === 'line';
 
     // Recharts doesn't recognize wrappers on their components
     if (isBar) {
@@ -203,8 +201,6 @@ function Chart({
   );
 }
 
-Chart.Bar = Bar;
-Chart.Line = Line;
 Chart.Marker = Marker;
 
 export default Chart;

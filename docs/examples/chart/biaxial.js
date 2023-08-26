@@ -7,38 +7,38 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      'bar_1': 50,
-      'line_2': 100,
+      'bar_01': 50,
+      'line_02': 100,
     },
     {
       name: 'B',
-      'bar_1': 100,
-      'line_2': 200,
+      'bar_01': 100,
+      'line_02': 200,
     },
     {
       name: 'C',
-      'bar_1': 250,
-      'line_2': 300,
+      'bar_01': 250,
+      'line_02': 300,
     },
     {
       name: 'D',
-      'bar_1': 300,
-      'line_2': 400,
+      'bar_01': 300,
+      'line_02': 400,
     },
     {
       name: 'E',
-      'bar_1': 400,
-      'line_2': 500,
+      'bar_01': 400,
+      'line_02': 500,
     },
     {
       name: 'F',
-      'bar_1': 400,
-      'line_2': 600,
+      'bar_01': 400,
+      'line_02': 600,
     },
     {
       name: 'G',
-      'bar_1': 400,
-      'line_2': 700,
+      'bar_01': 400,
+      'line_02': 700,
     },
   ];
 
@@ -53,10 +53,11 @@ export default function Example(): Node {
             <Text>{label}</Text>
           </Flex>
         )}
-      >
-        <Chart.Bar id="bar_1" color="01" yAxis="left" />
-        <Chart.Line id="line_2" color="02" yAxis="right" />
-      </Chart>
+        elements={[
+          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
+          { type: 'line', id: 'line_02', color: '02', yAxis: 'right' },
+        ]}
+      />
     </Flex>
   );
 }
