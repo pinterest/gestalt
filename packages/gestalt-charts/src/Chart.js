@@ -1,5 +1,5 @@
 // @flow strict-local
-import { Children, type Node, useId, useState } from 'react';
+import { type Node, useId, useState } from 'react';
 import {
   Bar as RechartsBar,
   BarChart,
@@ -26,14 +26,17 @@ type Props = {|
    * Prop description.
    */
   biaxial?: boolean,
+  elements: $ReadOnlyArray<{|
+    type: 'line' | 'bar',
+    yAxis: 'left' | 'right',
+    id: string,
+    color: DataVisualizationColors,
+    stackedId?: string,
+  |}>,
   /**
    * Prop description.
    */
   type: 'composed' | 'line' | 'bar',
-  /**
-   * Prop description.
-   */
-  children: Node,
   /**
    * Prop description.
    */
@@ -76,12 +79,12 @@ type Props = {|
  */
 function Chart({
   biaxial = false,
-  children,
   type = 'composed',
   height = 400,
   width = '100%',
   data,
   referenceAreas = [],
+  elements,
   renderTooltip,
 }: Props): Node {
   const [decalPattern, setDecalPattern] = useState(false);
@@ -121,20 +124,20 @@ function Chart({
   }
 
   // $FlowFixMe
-  const chartElements = Children.toArray<Node>(children).map((child: any) => {
-    const isBar = child.type.name === 'Bar';
-    const isLine = child.type.name === 'Line';
+  const chartElements = elements.map((values) => {
+    const isBar = values.type === 'Bar';
+    const isLine = values.type === 'Line';
 
     // Recharts doesn't recognize wrappers on their components
     if (isBar) {
       return (
         <RechartsBar
-          key={child.props.id}
-          yAxisId={child.props.yAxis}
-          dataKey={child.props.id}
+          key={values.id}
+          yAxisId={values.yAxis}
+          dataKey={values.id}
           barSize={20}
-          stackId={child.props.stackedId}
-          fill={decalPattern ? `url(#pattern-${child.props.color})` : hexColor(child.props.color)}
+          stackId={values.stackedId}
+          fill={decalPattern ? `url(#pattern-${values.color})` : hexColor(values.color)}
         />
       );
     }
@@ -142,10 +145,10 @@ function Chart({
     if (isLine) {
       return (
         <RechartsLine
-          key={child.props.id}
-          yAxisId={child.props.yAxis}
-          dataKey={child.props.id}
-          stroke={hexColor(child.props.color)}
+          key={values.id}
+          yAxisId={values.yAxis}
+          dataKey={values.id}
+          stroke={hexColor(values.color)}
         />
       );
     }

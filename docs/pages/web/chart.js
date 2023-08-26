@@ -17,6 +17,7 @@ import line from '../../examples/chart/line.js';
 import referenceArea from '../../examples/chart/referenceArea.js';
 import stackedBar from '../../examples/chart/stackedBar.js';
 import tooltip from '../../examples/chart/tooltip.js';
+import verticalBar from '../../examples/chart/verticalBar.js';
 
 export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -46,6 +47,12 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
         <MainSection.Subsection title="Stacked">
           <MainSection.Card
             sandpackExample={<SandpackExample code={stackedBar} name="Stacked" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Vertical">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={verticalBar} name="Vertical" />}
           />
         </MainSection.Subsection>
 

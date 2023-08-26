@@ -71,11 +71,12 @@ export default function Example(): Node {
             <Text>{label}</Text>
           </Flex>
         )}
-      >
-        <Chart.Bar id="01" color="01" yAxis="left" />
-        <Chart.Bar id="02" color="02" yAxis="left" />
-        <Chart.Bar id="02" color="02" yAxis="left" />
-      </Chart>
+        elements={[
+          { id: '01', color: '01', yAxis: 'left' },
+          { id: '02', color: '02', yAxis: 'left' },
+          { id: '03', color: '03', yAxis: 'left' },
+        ]}
+      />
     </Flex>
   );
 }
