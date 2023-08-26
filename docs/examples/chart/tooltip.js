@@ -8,44 +8,44 @@ export default function Example(): Node {
     {
       name: 'A',
       'bar_01': 10000,
-      'line_02': 5000,
-      'bar_03': 2400,
+      'line_03': 5000,
+      'bar_02': 2400,
     },
     {
       name: 'B',
       'bar_01': 2400,
-      'line_02': 5000,
-      'bar_03': 2400,
+      'line_03': 5000,
+      'bar_02': 2400,
     },
     {
       name: 'C',
       'bar_01': 2400,
-      'line_02': 9800,
-      'bar_03': 2400,
+      'line_03': 9800,
+      'bar_02': 2400,
     },
     {
       name: 'D',
       'bar_01': 2400,
-      'line_02': 5000,
-      'bar_03': 2400,
+      'line_03': 5000,
+      'bar_02': 2400,
     },
     {
       name: 'E',
       'bar_01': 2400,
-      'line_02': 5000,
-      'bar_03': 2400,
+      'line_03': 5000,
+      'bar_02': 2400,
     },
     {
       name: 'F',
       'bar_01': 2400,
-      'line_02': 5000,
-      'bar_03': 2400,
+      'line_03': 5000,
+      'bar_02': 2400,
     },
     {
       name: 'G',
       'bar_01': 2400,
-      'line_02': 5000,
-      'bar_03': 2400,
+      'line_03': 5000,
+      'bar_02': 2400,
     },
   ];
 
@@ -56,12 +56,12 @@ export default function Example(): Node {
         biaxial
         data={data}
         renderTooltip={({ label, payload, active }) => {
-          if (active && payload) {
+          if (active && payload && payload[0]) {
             return (
               <Flex direction="column">
                 <Text size="400">{label}</Text>
                 <Flex alignItems="center" gap={2}>
-                  <Chart.Marker color={payload[0].fill} />
+                  <Chart.Marker color={payload[0] && payload[0].fill} />
                   <Text>{payload[0].name}: </Text>
                   <Text>{payload[0].value}</Text>
                 </Flex>
