@@ -71,7 +71,7 @@ export default function Example(): Node {
                   <Text>{payload[1].value}</Text>
                 </Flex>
                 <Flex alignItems="center" gap={2}>
-                  <Chart.Marker color={payload[2].fill} />
+                  <Chart.Marker color={payload[2].color} />
                   <Text>{payload[2].name}: </Text>
                   <Text>{payload[2].value}</Text>
                 </Flex>
