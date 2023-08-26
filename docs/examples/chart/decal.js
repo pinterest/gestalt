@@ -63,18 +63,18 @@ export default function Example(): Node {
           </Flex>
         )}
         elements={[
-          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
-          { type: 'bar', id: 'bar_02', color: '02', yAxis: 'left' },
-          { type: 'bar', id: 'bar_03', color: '03', yAxis: 'left' },
-          { type: 'bar', id: 'bar_04', color: '04', yAxis: 'left' },
-          { type: 'bar', id: 'bar_05', color: '05', yAxis: 'left' },
-          { type: 'bar', id: 'bar_06', color: '06', yAxis: 'left' },
-          { type: 'bar', id: 'bar_07', color: '07', yAxis: 'left' },
-          { type: 'bar', id: 'bar_08', color: '08', yAxis: 'left' },
-          { type: 'bar', id: 'bar_09', color: '09', yAxis: 'left' },
-          { type: 'bar', id: 'bar_10', color: '10', yAxis: 'left' },
-          { type: 'bar', id: 'bar_11', color: '11', yAxis: 'left' },
-          { type: 'bar', id: 'bar_12', color: '12', yAxis: 'left' },
+          { type: 'bar', id: 'color_01', color: '01', yAxis: 'left' },
+          { type: 'bar', id: 'color_02', color: '02', yAxis: 'left' },
+          { type: 'bar', id: 'color_03', color: '03', yAxis: 'left' },
+          { type: 'bar', id: 'color_04', color: '04', yAxis: 'left' },
+          { type: 'bar', id: 'color_05', color: '05', yAxis: 'left' },
+          { type: 'bar', id: 'color_06', color: '06', yAxis: 'left' },
+          { type: 'bar', id: 'color_07', color: '07', yAxis: 'left' },
+          { type: 'bar', id: 'color_08', color: '08', yAxis: 'left' },
+          { type: 'bar', id: 'color_09', color: '09', yAxis: 'left' },
+          { type: 'bar', id: 'color_10', color: '10', yAxis: 'left' },
+          { type: 'bar', id: 'color_11', color: '11', yAxis: 'left' },
+          { type: 'bar', id: 'color_12', color: '12', yAxis: 'left' },
         ]}
       />
     </Flex>

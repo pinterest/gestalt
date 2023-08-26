@@ -61,17 +61,17 @@ export default function Example(): Node {
               <Flex direction="column">
                 <Text size="400">{label}</Text>
                 <Flex alignItems="center" gap={2}>
-                  <Chart.Marker color={payload[0].color} />
+                  <Chart.Marker color={payload[0].fill} />
                   <Text>{payload[0].name}: </Text>
                   <Text>{payload[0].value}</Text>
                 </Flex>
                 <Flex alignItems="center" gap={2}>
-                  <Chart.Marker color={payload[1].color} />
+                  <Chart.Marker color={payload[1].fill} />
                   <Text>{payload[1].name}: </Text>
                   <Text>{payload[1].value}</Text>
                 </Flex>
                 <Flex alignItems="center" gap={2}>
-                  <Chart.Marker color={payload[2].color} />
+                  <Chart.Marker color={payload[2].fill} />
                   <Text>{payload[2].name}: </Text>
                   <Text>{payload[2].value}</Text>
                 </Flex>
