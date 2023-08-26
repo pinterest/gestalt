@@ -61,7 +61,7 @@ export default function Example(): Node {
         )}
         elements={[
           { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
-          { type: 'line', id: 'bar_02', color: '02', yAxis: 'left' },
+          { type: 'line', id: 'line_02', color: '02', yAxis: 'left' },
           { type: 'bar', id: 'bar_03', color: '03', yAxis: 'left' },
         ]}
       />
