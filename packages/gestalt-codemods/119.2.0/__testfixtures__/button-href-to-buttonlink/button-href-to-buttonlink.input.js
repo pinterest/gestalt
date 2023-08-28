@@ -10,7 +10,7 @@ export default function TestComp() {
       <Button
         text="ButtonLink"
         accessibilityLabel="This is a new ButtonLink, which work as a Button acting as a link"
-        role="link"
+
         target="blank"
         href="https://www.pinterest.com"
         size="lg" />

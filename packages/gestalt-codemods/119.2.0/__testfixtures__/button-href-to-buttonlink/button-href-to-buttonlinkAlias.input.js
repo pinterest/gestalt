@@ -6,7 +6,7 @@ export default function TestComp() {
       <ButtonAlias
         text="ButtonLink"
         accessibilityLabel="This Button was renamed to ButtonAlias"
-        role="link"
+
         target="blank"
         href="https://www.pinterest.com"
         size="lg" />

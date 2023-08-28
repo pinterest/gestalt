@@ -69,7 +69,7 @@ export default function LayoutsExample(): Node {
           wrap
         >
           <Button text="Cancel" size="lg" />
-          <Button text="Submit" color="red" size="lg" type="submit" />
+          <Button text="Submit" color="red" size="lg" />
         </Flex>
       </Flex>
     </Box>

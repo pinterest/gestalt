@@ -48,13 +48,7 @@ export default function ScrollBoundaryContainerExample(): Node {
                 <Flex gap={{ column: 0, row: 2 }}>
                   <Button text="Cancel" size="lg" onClick={() => setShowSheet(false)} />
 
-                  <Button
-                    text="Done"
-                    color="red"
-                    size="lg"
-                    type="submit"
-                    onClick={() => setShowSheet(false)}
-                  />
+                  <Button text="Done" color="red" size="lg"  onClick={() => setShowSheet(false)} />
                 </Flex>
               </Flex>
             }

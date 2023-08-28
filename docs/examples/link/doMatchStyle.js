@@ -37,7 +37,7 @@ export default function Example(): Node {
           <NumberField placeholder="Age" id="example-age-1" onChange={() => {}} />
         </Flex.Item>
         <Button fullWidth text="Create account" size="md" color="red" />
-        <Button fullWidth text="Log into existing account" size="md" type="submit" />
+        <Button fullWidth text="Log into existing account" size="md"  />
         <Text size="100" align="center">
           By continuing, you agree to Pinterest&lsquo;s{' '}
           <Text size="100" inline>
