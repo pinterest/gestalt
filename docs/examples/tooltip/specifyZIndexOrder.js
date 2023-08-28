@@ -54,13 +54,7 @@ export default function ScrollBoundaryContainerExample(): Node {
                       <Button text="Cancel" size="lg" onClick={() => setShowModal(false)} />
                     </Box>
                     <Box paddingX={1} paddingY={1}>
-                      <Button
-                        text="Save"
-                        color="red"
-                        size="lg"
-                        type="submit"
-                        onClick={() => setShowModal(false)}
-                      />
+                      <Button text="Save" color="red" size="lg"  onClick={() => setShowModal(false)} />
                     </Box>
                   </Box>
                 </Box>

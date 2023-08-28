@@ -9,7 +9,7 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { type AriaCurrent } from '../ariaTypes.js';
-import buttonStyles from '../Button.css';
+import buttonStyles from '../Button/InternalButton.css';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
 import focusStyles from '../Focus.css';
 import getRoundingClassName, { type Rounding } from '../getRoundingClassName.js';

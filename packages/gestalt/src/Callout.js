@@ -3,6 +3,7 @@ import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import styles from './Callout.css';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
@@ -54,14 +55,9 @@ type Props = {|
     disabled?: boolean,
     href?: string,
     label: string,
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
+    onClick?:
+      | $ElementType<React$ElementConfig<typeof Button>, 'onClick'>
+      | $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
   |},
@@ -75,14 +71,9 @@ type Props = {|
     disabled?: boolean,
     href?: string,
     label: string,
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
+    onClick?:
+      | $ElementType<React$ElementConfig<typeof Button>, 'onClick'>
+      | $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
     rel?: 'none' | 'nofollow',
     target?: null | 'self' | 'blank',
   |},
@@ -120,7 +111,7 @@ function CalloutAction({
       smMarginBottom="auto"
     >
       {href ? (
-        <Button
+        <ButtonLink
           accessibilityLabel={accessibilityLabel}
           color={color}
           disabled={disabled}
@@ -128,7 +119,6 @@ function CalloutAction({
           fullWidth
           onClick={onClick}
           rel={rel}
-          role="link"
           size="lg"
           target={target}
           text={label}
@@ -140,7 +130,6 @@ function CalloutAction({
           color={color}
           onClick={onClick}
           fullWidth
-          role="button"
           size="lg"
           text={label}
         />

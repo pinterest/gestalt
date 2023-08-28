@@ -31,6 +31,7 @@ export default function Example(): Node {
             onDismiss={() => {}}
             message="Promote your newly created Pin"
             primaryAction={{
+              role: 'button',
               text: 'Got it',
               onClick: () => {
                 setShowEducation(false);

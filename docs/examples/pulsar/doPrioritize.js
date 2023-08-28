@@ -25,6 +25,7 @@ export default function Example(): Node {
             onDismiss={() => {}}
             message="Want to find more Pins that look like this? Find more ideas with visual search"
             primaryAction={{
+              role: 'button',
               text: 'Dismiss',
               onClick: () => {},
             }}

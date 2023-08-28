@@ -35,6 +35,7 @@ export default function Example(): Node {
             onDismiss={() => {}}
             message="Our 3-step ad creation tool makes setting up an ad even faster"
             primaryAction={{
+              role: 'button',
               text: 'Got it',
               onClick: () => {},
             }}

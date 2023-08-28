@@ -4,10 +4,10 @@ import { Button, Link, SlimBanner, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import PropTable from '../../docs-components/PropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample.js';
@@ -36,7 +36,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
         type="info"
         message={
           <Text inline>
-            If you intend to use Button as a link, use
+            If you intend to use Button as a link, use&nbsp;
             <Link
               accessibilityLabel="Learn more about the ButtonLink component."
               display="inline"
@@ -44,7 +44,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             >
               ButtonLink
             </Link>
-            instead.
+            &nbsp;instead.
           </Text>
         }
       />
@@ -52,185 +52,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
 
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        props={[
-          {
-            name: 'accessibilityLabel',
-            type: 'string',
-            required: false,
-            description: [
-              'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'accessibilityControls',
-            type: 'string',
-            required: false,
-            description: [
-              'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'accessibilityExpanded',
-            type: 'boolean',
-            required: false,
-            description: [
-              'Needed if Button controls the visibility of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'accessibilityHaspopup',
-            type: 'boolean',
-            required: false,
-            description: [
-              'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'color',
-            type: `'gray' | 'red' | 'blue' | 'transparent' |  'semiTransparentWhite' | 'transparentWhiteText' | 'white'`,
-            required: false,
-            defaultValue: 'gray',
-            description: ['The background color of Button.'],
-          },
-          {
-            name: 'dataTestId',
-            type: 'string',
-            required: false,
-            description: [
-              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
-            ],
-          },
-          {
-            name: 'disabled',
-            type: 'boolean',
-            required: false,
-            defaultValue: false,
-            description: [
-              'Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.',
-            ],
-          },
-          {
-            name: 'iconEnd',
-            type: '$Keys<typeof icons>',
-            required: false,
-            description: [
-              'An icon displayed after the text to help clarify the usage of Button. See the [icon variant](#Icons) to learn more.',
-            ],
-          },
-          {
-            name: 'fullWidth',
-            type: 'boolean',
-            required: false,
-            defaultValue: false,
-            description: [
-              'Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.',
-            ],
-          },
-          {
-            name: 'name',
-            type: 'string',
-            description: [
-              'The name attribute specifies the name of the <button> element.',
-
-              'The name attribute is used to reference form-data after the form has been submitted.',
-            ],
-          },
-          {
-            name: 'onClick',
-            type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
-            required: false,
-            description: [
-              'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
-              'See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
-            ],
-          },
-          {
-            name: 'size',
-            type: `'sm' | 'md' | 'lg'`,
-            required: false,
-            defaultValue: 'md',
-            description: ['sm: 32px, md: 40px, lg: 48px'],
-          },
-          {
-            name: 'text',
-            type: 'string',
-            required: true,
-            description: [
-              'Text to render inside the Button to convey the function and purpose of the Button.',
-            ],
-          },
-          {
-            name: 'type',
-            type: `'submit' | 'button'`,
-            required: false,
-            defaultValue: 'button',
-            description: ['Use “submit” if Button is used within or associated with a form.'],
-          },
-          {
-            name: 'selected',
-            type: 'boolean',
-            required: false,
-            defaultValue: false,
-            description: ['Indicates if Button is currently selected.'],
-          },
-          {
-            name: 'href',
-            type: 'string',
-            required: false,
-            description: [
-              'Specifies a link URL. Required with `role="link"` Buttons.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-          {
-            name: 'ref',
-            type: `React.Ref<'button'> | React.Ref<'a'>`,
-            required: false,
-            description: ['A React ref to forward to the underlying element.'],
-          },
-          {
-            name: 'tabIndex',
-            type: `-1 | 0`,
-            required: false,
-            defaultValue: 0,
-            description: [
-              'Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'role',
-            type: `'button' | 'link'`,
-            required: false,
-            defaultValue: 'button',
-            description: [
-              'Use “link” to indicate Button that is acting as an `<a>` link.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-          {
-            name: 'rel',
-            type: `'none' | 'nofollow'`,
-            required: false,
-            defaultValue: 'none',
-            description: [
-              'Optional with link-role Buttons.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-          {
-            name: 'target',
-            type: `null | 'self' | 'blank'`,
-            required: false,
-            defaultValue: 'null',
-            description: [
-              'Indicates the browsing context where an href will be opened. Optional with `role="link"` Buttons.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>

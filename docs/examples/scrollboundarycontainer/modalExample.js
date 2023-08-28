@@ -54,9 +54,8 @@ export default function ScrollBoundaryContainerExample(): Node {
             text="Save"
             color="red"
             size="lg"
-            type="submit"
-            onClick={() => setShowComponent(false)}
-          />
+
+            onClick={() => setShowComponent(false)} />
         </Box>
       </Box>
     </Box>

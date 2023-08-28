@@ -1,20 +1,16 @@
 // @flow strict
 import { type Node } from 'react';
 import Button from '../Button.js';
+import ButtonLink from '../ButtonLink.js';
 
 export type ActionDataType = {|
   accessibilityLabel: string,
   disabled?: boolean,
   href?: string,
   label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  onClick?:
+    | $ElementType<React$ElementConfig<typeof Button>, 'onClick'>
+    | $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
@@ -35,7 +31,7 @@ export default function ModalAlertAction({
   const color = type === 'primary' ? 'red' : 'gray';
 
   return href ? (
-    <Button
+    <ButtonLink
       accessibilityLabel={accessibilityLabel}
       color={color}
       dataTestId={dataTestId}
@@ -45,7 +41,6 @@ export default function ModalAlertAction({
       onClick={onClick}
       iconEnd="visit"
       rel={rel}
-      role="link"
       size="lg"
       target={target}
       text={label}
