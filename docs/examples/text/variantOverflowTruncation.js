@@ -4,7 +4,7 @@ import { Box, Flex, Text } from 'gestalt';
 
 export default function Example(): Node {
   return (
-    <Flex alignItems="center" justifyContent="center" width="100%" height="100%">
+    <Flex justifyContent="center" width="100%" height="100%">
       <Flex direction="column" gap={{ column: 2, row: 0 }} width={200}>
         <Text>breakWord (default):</Text>
         <Box color="secondary" padding={2} rounding={2}>
