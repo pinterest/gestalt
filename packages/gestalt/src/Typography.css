@@ -75,7 +75,8 @@
 /* overflow */
 
 .breakWord {
-  word-break: break-word;
+  /* Use word-wrap internally as a result of existing usage (e.g. Instances of Text can break with word-break. E.g TileData) */
+  word-wrap: break-word;
 }
 
 .breakAll {
