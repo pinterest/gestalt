@@ -9,7 +9,8 @@ import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import bar from '../../examples/chart/bar.js';
-import biaxial from '../../examples/chart/biaxial.js';
+import biaxialX from '../../examples/chart/biaxialX.js';
+import biaxialY from '../../examples/chart/biaxialY.js';
 import composed from '../../examples/chart/composed.js';
 import decal from '../../examples/chart/decal.js';
 import dimensions from '../../examples/chart/dimensions.js';
@@ -65,7 +66,8 @@ export default function ChartPage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Biaxial">
-          <MainSection.Card sandpackExample={<SandpackExample code={biaxial} name="Biaxial" />} />
+          <MainSection.Card sandpackExample={<SandpackExample code={biaxialY} name="Biaxial" />} />
+          <MainSection.Card sandpackExample={<SandpackExample code={biaxialX} name="Biaxial" />} />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Tooltip">

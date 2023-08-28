@@ -56,7 +56,7 @@ export default function Example(): Node {
     <Flex direction="column" width="100%" height="100%">
       <Chart
         xAxisLabel="axis X"
-        yAxisRightLabel="axis Y"
+        yAxisLabel="axis Y"
         type="bar"
         data={data}
         renderTooltip={({ label }) => (
@@ -65,18 +65,18 @@ export default function Example(): Node {
           </Flex>
         )}
         elements={[
-          { type: 'bar', id: 'color_01', color: '01', yAxis: 'left' },
-          { type: 'bar', id: 'color_02', color: '02', yAxis: 'left' },
-          { type: 'bar', id: 'color_03', color: '03', yAxis: 'left' },
-          { type: 'bar', id: 'color_04', color: '04', yAxis: 'left' },
-          { type: 'bar', id: 'color_05', color: '05', yAxis: 'left' },
-          { type: 'bar', id: 'color_06', color: '06', yAxis: 'left' },
-          { type: 'bar', id: 'color_07', color: '07', yAxis: 'left' },
-          { type: 'bar', id: 'color_08', color: '08', yAxis: 'left' },
-          { type: 'bar', id: 'color_09', color: '09', yAxis: 'left' },
-          { type: 'bar', id: 'color_10', color: '10', yAxis: 'left' },
-          { type: 'bar', id: 'color_11', color: '11', yAxis: 'left' },
-          { type: 'bar', id: 'color_12', color: '12', yAxis: 'left' },
+          { type: 'bar', id: 'color_01', color: '01', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_02', color: '02', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_03', color: '03', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_04', color: '04', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_05', color: '05', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_06', color: '06', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_07', color: '07', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_08', color: '08', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_09', color: '09', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_10', color: '10', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_11', color: '11', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'color_12', color: '12', axis: 'yAxisLeft' },
         ]}
       />
     </Flex>

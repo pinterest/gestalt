@@ -53,9 +53,9 @@ export default function Example(): Node {
     <Flex direction="column" width="100%" height="100%">
       <Chart
         xAxisLabel="axis X"
-        yAxisRightLabel="axis Y"
+        yAxisLabel="axis Y"
         type="composed"
-        biaxial
+        biaxial="yAxis"
         data={data}
         renderTooltip={({ label, payload, active }) => {
           if (active && payload && payload[0]) {
@@ -83,9 +83,9 @@ export default function Example(): Node {
           return null;
         }}
         elements={[
-          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
-          { type: 'bar', id: 'bar_02', color: '02', yAxis: 'left' },
-          { type: 'line', id: 'line_03', color: '03', yAxis: 'right' },
+          { type: 'bar', id: 'bar_01', color: '01', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'bar_02', color: '02', axis: 'yAxisLeft' },
+          { type: 'line', id: 'line_03', color: '03', axis: 'yAxisRight' },
         ]}
       />
     </Flex>

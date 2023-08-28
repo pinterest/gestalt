@@ -45,10 +45,9 @@ export default function Example(): Node {
   return (
     <Flex direction="column" width="100%" height="100%">
       <Chart
-        biaxial
+        biaxial="yAxis"
         xAxisLabel="X axis"
-        yAxisLeftLabel="left Y axis"
-        yAxisRightLabel="right X axis"
+        yAxisLabel="Y axis"
         type="composed"
         data={data}
         renderTooltip={({ label }) => (
@@ -57,8 +56,8 @@ export default function Example(): Node {
           </Flex>
         )}
         elements={[
-          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
-          { type: 'line', id: 'line_02', color: '02', yAxis: 'right' },
+          { type: 'bar', id: 'bar_01', color: '01', axis: 'yAxisLeft' },
+          { type: 'line', id: 'line_02', color: '02', axis: 'yAxisRight' },
         ]}
       />
     </Flex>

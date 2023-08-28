@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useId, useState } from 'react';
+import { Fragment, type Node, useId, useState } from 'react';
 import {
   Bar as RechartsBar,
   BarChart,
@@ -20,16 +20,16 @@ import { type DataVisualizationColors } from './Chart/types.js';
 import usePatterns from './Chart/usePatterns.js';
 
 type Props = {|
-  scale?: 'linear' | 'time',
   /**
    * Prop description.
    */
-  biaxial?: boolean,
+  biaxial?: 'yAxis' | 'xAxis',
   /**
    * Prop description.
-   */ elements: $ReadOnlyArray<{|
+   */
+  elements: $ReadOnlyArray<{|
     type: 'line' | 'bar',
-    yAxis?: 'left' | 'right',
+    axis: 'xAxisBottom' | 'xAxisTop' | 'yAxisLeft' | 'yAxisRight',
     id: string,
     color: DataVisualizationColors,
     stackedId?: string,
@@ -37,26 +37,35 @@ type Props = {|
   /**
    * Prop description.
    */
-  yAxisLeftLabel?: string,
+  domain?:
+    | [
+        number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+        number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+      ]
+    | {|
+        xAxisBottom?: [
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+        ],
+        xAxisTop?: [
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+        ],
+
+        yAxisLeft?: [
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+        ],
+
+        yAxisRight?: [
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+          number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+        ],
+      |},
   /**
    * Prop description.
    */
-  yAxisRightLabel: string,
-  /**
-   * Prop description.
-   */
-  xAxisLabel: string,
-  /**
-   * Prop description.
-   */
-  domain?: [
-    number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
-    number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
-  ],
-  /**
-   * Prop description.
-   */
-  type: 'composed' | 'line' | 'bar',
+  type?: 'composed' | 'line' | 'bar',
   /**
    * Prop description.
    */
@@ -94,6 +103,14 @@ type Props = {|
    * Prop description.
    */
   renderTooltip?: ({| active: ?boolean, payload: ?{ ... }, label: ?string |}) => Node,
+  /**
+   * Prop description.
+   */
+  xAxisLabel: string | {| top: string, bottom: string |},
+  /**
+   * Prop description.
+   */
+  yAxisLabel: string | {| left: string, right: string |},
 |};
 
 /**
@@ -102,8 +119,7 @@ type Props = {|
  * ![Chart dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Chart-dark.spec.mjs-snapshots/Chart-dark-chromium-darwin.png)
  */
 function Chart({
-  scale = 'linear',
-  biaxial = false,
+  biaxial,
   domain = [0, 'auto'],
   layout = 'horizontal',
   type = 'composed',
@@ -114,8 +130,7 @@ function Chart({
   elements,
   renderTooltip,
   xAxisLabel,
-  yAxisRightLabel,
-  yAxisLeftLabel,
+  yAxisLabel,
 }: Props): Node {
   const [decalPattern, setDecalPattern] = useState(false);
 
@@ -145,45 +160,52 @@ function Chart({
     );
   }
 
-  const isVertical = type === 'bar' && layout === 'vertical';
-  const isHorizontal = !isVertical;
+  const isBar = type === 'bar';
+  const isLine = type === 'line';
+  const isVertical = layout === 'vertical';
+  const isHorizontal = layout === 'horizontal';
 
   let ChartType = ComposedChart;
-  if (type === 'bar' && isHorizontal) {
+
+  if (isBar) {
     ChartType = BarChart;
   }
-  if (type === 'line') {
+
+  if (isLine) {
     ChartType = LineChart;
   }
 
-  // $FlowFixMe
   const chartElements = elements.map((values) => {
-    const isBar = values.type === 'bar';
-    const isLine = values.type === 'line';
+    const isBarElement = values.type === 'bar';
+    const isLineElement = values.type === 'line';
 
     // Recharts doesn't recognize wrappers on their components
-    if (isBar) {
+    if (isBarElement) {
       return (
         <RechartsBar
+          barSize={20}
+          dataKey={values.id}
+          fill={decalPattern ? `url(#pattern-${values.color})` : hexColor(values.color)}
           isAnimationActive={false}
           key={values.id}
-          {...(isHorizontal ? { yAxisId: values.yAxis } : {})}
-          dataKey={values.id}
-          barSize={20}
           stackId={values.stackedId}
-          fill={decalPattern ? `url(#pattern-${values.color})` : hexColor(values.color)}
+          {...(values.axis.startsWith('xAxis')
+            ? { xAxisId: values.axis.slice(5).toLowerCase() }
+            : { yAxisId: values.axis.slice(5).toLowerCase() })}
         />
       );
     }
 
-    if (isLine) {
+    if (isLineElement) {
       return (
         <RechartsLine
+          dataKey={values.id}
           isAnimationActive={false}
           key={values.id}
-          yAxisId={values.yAxis}
-          dataKey={values.id}
           stroke={hexColor(values.color)}
+          {...(values.axis.startsWith('xAxis')
+            ? { xAxisId: values.axis.slice(5).toLowerCase() }
+            : { yAxisId: values.axis.slice(5).toLowerCase() })}
         />
       );
     }
@@ -237,45 +259,113 @@ function Chart({
             <CartesianGrid stroke="#f5f5f5" />
 
             {isHorizontal ? (
-              <XAxis
-                dataKey="name"
-                type="category"
-                padding="gap"
-                label={{ value: xAxisLabel, position: 'insideBottomLeft', offset: -5 }}
-              />
+              <Fragment>
+                <XAxis
+                  dataKey="name"
+                  label={
+                    xAxisLabel?.bottom || xAxisLabel
+                      ? {
+                          value: xAxisLabel?.bottom ? xAxisLabel?.bottom : xAxisLabel,
+                          position: 'insideBottomLeft',
+                          offset: -5,
+                        }
+                      : undefined
+                  }
+                  orientation="bottom"
+                  scale="auto"
+                  type="category"
+                  xAxisId="bottom"
+                />
+                <YAxis
+                  domain={Array.isArray(domain) ? domain : domain.yAxisLeft}
+                  label={
+                    yAxisLabel?.left || yAxisLabel
+                      ? {
+                          value: yAxisLabel?.left ? yAxisLabel.left : yAxisLabel,
+                          angle: -90,
+                          position: 'insideLeft',
+                        }
+                      : undefined
+                  }
+                  orientation="left"
+                  scale="auto"
+                  type="number"
+                  yAxisId="left"
+                />
+              </Fragment>
             ) : null}
-            {isHorizontal ? (
-              <YAxis
-                yAxisId="left"
-                scale={scale}
-                domain={domain}
-                label={{ value: yAxisRightLabel, angle: -90, position: 'insideLeft' }}
-              />
+            {isVertical ? (
+              <Fragment>
+                <XAxis
+                  domain={Array.isArray(domain) ? domain : domain.xAxisBottom}
+                  label={
+                    xAxisLabel?.bottom || xAxisLabel
+                      ? {
+                          value: xAxisLabel?.bottom ? xAxisLabel.bottom : xAxisLabel,
+                          position: 'insideBottomLeft',
+                          offset: -5,
+                        }
+                      : undefined
+                  }
+                  orientation="bottom"
+                  scale="auto"
+                  type="number"
+                  xAxisId="bottom"
+                />
+                <YAxis
+                  dataKey="name"
+                  label={
+                    yAxisLabel?.left || yAxisLabel
+                      ? {
+                          value: yAxisLabel?.left ? yAxisLabel.left : yAxisLabel,
+                          angle: -90,
+                          position: 'insideLeft',
+                        }
+                      : undefined
+                  }
+                  orientation="left"
+                  scale="band"
+                  type="category"
+                  yAxisId="left"
+                />
+              </Fragment>
             ) : null}
-            {isHorizontal && biaxial ? (
+            {isHorizontal && biaxial === 'yAxis' ? (
               <YAxis
-                yAxisId="right"
+                label={
+                  yAxisLabel?.right || yAxisLabel
+                    ? {
+                        value: yAxisLabel?.right ? yAxisLabel.right : yAxisLabel,
+                        angle: -90,
+                        position: 'insideRight',
+                      }
+                    : undefined
+                }
+                domain={Array.isArray(domain) ? domain : domain.yAxisRight}
                 orientation="right"
-                label={{ value: yAxisLeftLabel, angle: -90, position: 'insideRight' }}
-              />
-            ) : null}
-            {isVertical ? (
-              <XAxis
-                type="number"
-                scale={scale}
-                domain={domain}
-                label={{ value: xAxisLabel, position: 'insideBottomLeft', offset: -5 }}
-              />
-            ) : null}
-            {isVertical ? (
-              <YAxis
-                dataKey="name"
+                scale="auto"
                 type="category"
-                scale="band"
-                padding="gap"
-                label={{ value: yAxisLeftLabel, angle: -90, position: 'insideLeft' }}
+                yAxisId="right"
               />
             ) : null}
+            {isVertical && biaxial === 'xAxis' ? (
+              <XAxis
+                label={
+                  xAxisLabel?.top || yAxisLabel
+                    ? {
+                        value: xAxisLabel?.top ? xAxisLabel?.top : xAxisLabel,
+                        position: 'insideTop',
+                      }
+                    : undefined
+                }
+                domain={Array.isArray(domain) ? domain : domain.xAxisTop}
+                orientation="top"
+                scale="auto"
+                type="number"
+                xAxisId="top"
+              />
+            ) : null}
+
             {/*  $FlowFixMe[prop-missing]  */}
             <Tooltip content={<CustomTooltip />} />
             <Legend

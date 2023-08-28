@@ -53,7 +53,7 @@ export default function Example(): Node {
     <Flex direction="column" width="100%" height="100%">
       <Chart
         xAxisLabel="axis X"
-        yAxisRightLabel="axis Y"
+        yAxisLabel="axis Y"
         type="bar"
         data={data}
         renderTooltip={({ label }) => (
@@ -62,9 +62,9 @@ export default function Example(): Node {
           </Flex>
         )}
         elements={[
-          { type: 'bar', id: 'bar_01', color: '01', yAxis: 'left' },
-          { type: 'bar', id: 'bar_02', color: '02', yAxis: 'left' },
-          { type: 'bar', id: 'bar_03', color: '03', yAxis: 'left' },
+          { type: 'bar', id: 'bar_01', color: '01', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'bar_02', color: '02', axis: 'yAxisLeft' },
+          { type: 'bar', id: 'bar_03', color: '03', axis: 'yAxisLeft' },
         ]}
       />
     </Flex>
