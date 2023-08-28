@@ -46,6 +46,8 @@ export default function Example(): Node {
     <Flex direction="column" width="100%" height="100%">
       <Chart
         biaxial
+        xAxisLabel="axis X"
+        yAxisLabel="axis Y"
         type="composed"
         data={data}
         renderTooltip={({ label }) => (

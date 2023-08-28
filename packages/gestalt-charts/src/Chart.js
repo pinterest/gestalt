@@ -34,6 +34,21 @@ type Props = {|
   /**
    * Prop description.
    */
+  xAxisLabel: string,
+  /**
+   * Prop description.
+   */
+  yAxisLabel: string,
+  /**
+   * Prop description.
+   */
+  domain?: [
+    number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+    number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
+  ],
+  /**
+   * Prop description.
+   */
   type: 'composed' | 'line' | 'bar',
   /**
    * Prop description.
@@ -81,6 +96,7 @@ type Props = {|
  */
 function Chart({
   biaxial = false,
+  domain = [0, 'auto'],
   layout = 'horizontal',
   type = 'composed',
   height = 400,
@@ -89,6 +105,8 @@ function Chart({
   referenceAreas = [],
   elements,
   renderTooltip,
+  xAxisLabel,
+  yAxisLabel,
 }: Props): Node {
   const [decalPattern, setDecalPattern] = useState(false);
 
@@ -111,7 +129,6 @@ function Chart({
     payload: { ... },
     label: string,
   |}) {
-    console.log(payload);
     return (
       <Box maxWidth={300} padding={4} borderStyle="shadow" color="default" rounding={4}>
         {renderTooltip?.({ active, payload, label })}
@@ -195,11 +212,12 @@ function Chart({
           <ChartType
             accessibilityLayer={isHorizontal}
             data={data}
-            layout={isVertical ? 'vertial' : 'horizontal'}
+            layout={isVertical ? 'vertical' : 'horizontal'}
             margin={
               isVertical
                 ? {
                     top: 20,
+                    bottom: 20,
                   }
                 : {}
             }
@@ -207,12 +225,44 @@ function Chart({
             {patterns}
             <CartesianGrid stroke="#f5f5f5" />
 
-            {isHorizontal ? <XAxis dataKey="name" /> : null}
-            {isHorizontal ? <YAxis yAxisId="left" /> : null}
-            {isHorizontal && biaxial ? <YAxis yAxisId="right" orientation="right" /> : null}
-            {isVertical ? <XAxis type="number" /> : null}
-            {isVertical ? <YAxis dataKey="name" type="category" scale="band" /> : null}
-
+            {isHorizontal ? (
+              <XAxis
+                dataKey="name"
+                type="category"
+                padding="gap"
+                label={{ value: xAxisLabel, position: 'insideBottomRight', offset: -10 }}
+              />
+            ) : null}
+            {isHorizontal ? (
+              <YAxis
+                yAxisId="left"
+                domain={domain}
+                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+              />
+            ) : null}
+            {isHorizontal && biaxial ? (
+              <YAxis
+                yAxisId="right"
+                orientation="right"
+                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+              />
+            ) : null}
+            {isVertical ? (
+              <XAxis
+                type="number"
+                domain={domain}
+                label={{ value: xAxisLabel, position: 'insideBottomRight', offset: -10 }}
+              />
+            ) : null}
+            {isVertical ? (
+              <YAxis
+                dataKey="name"
+                type="category"
+                scale="band"
+                padding="gap"
+                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+              />
+            ) : null}
             {/*  $FlowFixMe[prop-missing]  */}
             <Tooltip content={<CustomTooltip />} />
             <Legend />

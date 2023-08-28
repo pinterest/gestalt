@@ -53,6 +53,8 @@ export default function Example(): Node {
     <Flex direction="column" width="100%" height="100%">
       <Chart
         type="composed"
+        xAxisLabel="axis X"
+        yAxisLabel="axis Y"
         data={data}
         renderTooltip={({ label }) => (
           <Flex direction="column" gap={2}>
