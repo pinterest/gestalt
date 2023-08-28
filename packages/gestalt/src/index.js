@@ -5,7 +5,7 @@ import Avatar from './Avatar.js';
 import AvatarGroup from './AvatarGroup.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
-import Button from './Button/Button.js';
+import Button from './Button.js';
 import ButtonGroup from './ButtonGroup.js';
 import ButtonLink from './ButtonLink.js';
 import Callout from './Callout.js';

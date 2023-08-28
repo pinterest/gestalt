@@ -1,7 +1,8 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
 import Box from './Box.js';
-import Button from './Button/Button.js';
+import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import InternalPopover from './Popover/InternalPopover.js';
@@ -12,52 +13,55 @@ import { type Indexable } from './zIndex.js';
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'tooltip';
-type PrimaryActionType = {|
-  accessibilityLabel?: string,
-  href?: string,
-  text: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+type PrimaryActionType =
+  | {|
+      accessibilityLabel?: string,
+      href: string,
+      role: 'link',
+      text: string,
+      onClick?: ({|
+        event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        dangerouslyDisableOnNavigation: () => void,
+      |}) => void,
+      rel?: 'none' | 'nofollow',
+      target?: null | 'self' | 'blank',
+    |}
+  | {|
+      accessibilityLabel?: string,
+      onClick: ({|
+        event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+      |}) => void,
+      role: 'button',
+      text: string,
+    |};
 
-function PrimaryAction({
-  accessibilityLabel,
-  href,
-  text,
-  onClick,
-  rel,
-  target,
-}: PrimaryActionType) {
-  return href ? (
-    <Button
-      accessibilityLabel={accessibilityLabel}
-      color="white"
-      fullWidth={false}
-      href={href}
-      onClick={onClick}
-      rel={rel}
-      role="link"
-      target={target}
-      text={text}
-    />
-  ) : (
-    <Button
-      accessibilityLabel={accessibilityLabel}
-      color="white"
-      fullWidth={false}
-      onClick={onClick}
-      role="button"
-      text={text}
-    />
-  );
+function PrimaryAction(props: PrimaryActionType) {
+  if (props.role === 'link') {
+    return (
+      <ButtonLink
+        accessibilityLabel={props.accessibilityLabel}
+        color="white"
+        fullWidth={false}
+        href={props.href}
+        onClick={props.onClick}
+        rel={props.rel}
+        target={props.target}
+        text={props.text}
+      />
+    );
+  }
+  if (props.role === 'button') {
+    return (
+      <Button
+        accessibilityLabel={props.accessibilityLabel}
+        color="white"
+        fullWidth={false}
+        onClick={({ event }) => props.onClick?.({ event })}
+        type="button"
+        text={props.text}
+      />
+    );
+  }
 }
 
 type Props = {|

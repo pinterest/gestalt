@@ -49,6 +49,7 @@ export default function Example(): Node {
               message="Tap to tag a product to see product details"
               primaryAction={{
                 text: 'Next',
+                role: 'button',
                 onClick: () => {
                   setOpenA(false);
                   setOpenB(true);

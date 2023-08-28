@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import Button from '../Button/Button.js';
+import Button from '../Button.js';
 import ButtonLink from '../ButtonLink.js';
 
 export type ActionDataType = {|

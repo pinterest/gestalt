@@ -2,7 +2,7 @@
 import { Children, type Element, type ElementConfig, isValidElement, type Node } from 'react';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
-import Button from './Button/Button.js';
+import Button from './Button.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';

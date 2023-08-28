@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Box from './Box.js';
-import Button from './Button/Button.js';
+import Button from './Button.js';
 import Flex from './Flex.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 

@@ -8,7 +8,7 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import styles from './Button.css';
+import styles from './InternalButton.css';
 import getAriaLabel from '../accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from '../accessibility/NewTabAccessibilityLabel.js';
 import { useColorScheme } from '../contexts/ColorSchemeProvider.js';
@@ -55,14 +55,6 @@ type BaseButton = {|
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   fullWidth?: boolean,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
   text: string,

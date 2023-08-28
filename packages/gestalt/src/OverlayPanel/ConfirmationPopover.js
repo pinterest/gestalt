@@ -4,7 +4,7 @@ import { type Node, useEffect, useRef } from 'react';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Box from '../Box.js';
-import Button from '../Button/Button.js';
+import Button from '../Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 import Flex from '../Flex.js';
 import { ESCAPE } from '../keyCodes.js';

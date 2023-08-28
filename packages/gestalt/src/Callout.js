@@ -2,7 +2,7 @@
 import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
-import Button from './Button/Button.js';
+import Button from './Button.js';
 import ButtonLink from './ButtonLink.js';
 import styles from './Callout.css';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';

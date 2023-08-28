@@ -1,7 +1,7 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node } from 'react';
-import InternalButton from './InternalButton.js';
-import icons from '../icons/index.js';
+import InternalButton from './Button/InternalButton.js';
+import icons from './icons/index.js';
 
 type Props = {|
   /**
@@ -82,6 +82,10 @@ type Props = {|
    * See the [Accessibility guidelines](https://gestalt.pinterest.systems/foundations/accessibility) to learn more.
    */
   tabIndex?: -1 | 0,
+  /**
+   * sm: 32px, md: 40px, lg: 48px
+   */
+  type?: 'button' | 'submit',
 |};
 
 /**
@@ -111,9 +115,31 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
     selected = false,
     size = 'md',
     tabIndex = 0,
+    type,
   }: Props,
   ref,
 ): null | Node {
+  if (type === 'submit') {
+    return (
+      <InternalButton
+        accessibilityLabel={accessibilityLabel}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        fullWidth={fullWidth}
+        name={name}
+        // $FlowExpectedError[incompatible-type]
+        ref={ref}
+        role="button"
+        type="submit"
+        tabIndex={tabIndex}
+        size={size}
+        text={text}
+        color={color}
+        iconEnd={iconEnd}
+        onClick={onClick}
+      />
+    );
+  }
   return (
     <InternalButton
       accessibilityControls={accessibilityControls}
@@ -126,6 +152,8 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
       name={name}
       // $FlowExpectedError[incompatible-type]
       ref={ref}
+      role="button"
+      type="button"
       tabIndex={tabIndex}
       selected={selected}
       size={size}

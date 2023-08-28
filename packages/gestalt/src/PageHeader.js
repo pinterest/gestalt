@@ -2,7 +2,7 @@
 import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import { type Dimension } from './boxTypes.js';
-import Button from './Button/Button.js';
+import Button from './Button.js';
 import ButtonLink from './ButtonLink.js';
 import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';

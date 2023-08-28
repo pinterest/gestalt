@@ -26,6 +26,7 @@ export default function Example(): Node {
             onDismiss={() => {}}
             message="You have a new message"
             primaryAction={{
+              role: 'button',
               text: 'Dismiss',
               onClick: () => {},
             }}

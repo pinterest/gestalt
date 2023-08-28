@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Button from './Button/Button.js';
+import Button from './Button.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Flex from './Flex.js';
 import Modal from './Modal.js';

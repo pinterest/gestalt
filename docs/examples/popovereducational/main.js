@@ -41,7 +41,7 @@ export default function Example(): Node {
             anchor={anchorRef.current}
             onDismiss={() => {}}
             message="Tap to tag a product or press and hold to see product details"
-            primaryAction={{ text: 'Next' }}
+            primaryAction={{ text: 'Next', role: 'button', onClick: () => {} }}
           />
         )}
       </TapArea>
