@@ -26,7 +26,7 @@ type Props = {|
   biaxial?: boolean,
   elements: $ReadOnlyArray<{|
     type: 'line' | 'bar',
-    yAxis: 'left' | 'right',
+    yAxis?: 'left' | 'right',
     id: string,
     color: DataVisualizationColors,
     stackedId?: string,
@@ -50,6 +50,10 @@ type Props = {|
     name: string,
     [string]: number,
   |}>,
+  /**
+   * Prop description.
+   */
+  layout?: 'horizontal' | 'vertical',
   /**
    * Prop description.
    */
@@ -77,6 +81,7 @@ type Props = {|
  */
 function Chart({
   biaxial = false,
+  layout = 'horizontal',
   type = 'composed',
   height = 400,
   width = '100%',
@@ -106,6 +111,7 @@ function Chart({
     payload: { ... },
     label: string,
   |}) {
+    console.log(payload);
     return (
       <Box maxWidth={300} padding={4} borderStyle="shadow" color="default" rounding={4}>
         {renderTooltip?.({ active, payload, label })}
@@ -113,8 +119,11 @@ function Chart({
     );
   }
 
+  const isVertical = type === 'bar' && layout === 'vertical';
+  const isHorizontal = !isVertical;
+
   let ChartType = ComposedChart;
-  if (type === 'barSize') {
+  if (type === 'bar' && isHorizontal) {
     ChartType = BarChart;
   }
   if (type === 'line') {
@@ -131,7 +140,7 @@ function Chart({
       return (
         <RechartsBar
           key={values.id}
-          yAxisId={values.yAxis}
+          {...(isHorizontal ? { yAxisId: values.yAxis } : {})}
           dataKey={values.id}
           barSize={20}
           stackId={values.stackedId}
@@ -183,12 +192,27 @@ function Chart({
       </Flex>
       <div className="_gestalt">
         <ResponsiveContainer width={width} height={height}>
-          <ChartType accessibilityLayer data={data}>
+          <ChartType
+            accessibilityLayer={isHorizontal}
+            data={data}
+            layout={isVertical ? 'vertial' : 'horizontal'}
+            margin={
+              isVertical
+                ? {
+                    top: 20,
+                  }
+                : {}
+            }
+          >
             {patterns}
             <CartesianGrid stroke="#f5f5f5" />
-            <XAxis dataKey="name" />
-            <YAxis yAxisId="left" />
-            {biaxial ? <YAxis yAxisId="right" orientation="right" /> : null}
+
+            {isHorizontal ? <XAxis dataKey="name" /> : null}
+            {isHorizontal ? <YAxis yAxisId="left" /> : null}
+            {isHorizontal && biaxial ? <YAxis yAxisId="right" orientation="right" /> : null}
+            {isVertical ? <XAxis type="number" /> : null}
+            {isVertical ? <YAxis dataKey="name" type="category" scale="band" /> : null}
+
             {/*  $FlowFixMe[prop-missing]  */}
             <Tooltip content={<CustomTooltip />} />
             <Legend />
