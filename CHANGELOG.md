@@ -1,3 +1,9 @@
+## 122.2.1 (Aug 28, 2023)
+
+### Patch
+
+- Text: Swap word-break property ([#3165](https://github.com/pinterest/gestalt/pull/3165)) - [Preview link](https://deploy-preview-3165--gestalt.netlify.app?devexample=true)
+
 ## 122.2.0 (Aug 24, 2023)
 
 ### Minor
