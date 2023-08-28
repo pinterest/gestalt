@@ -1,7 +1,7 @@
 // @flow strict
 import { Children, type Element, Fragment, type Node } from 'react';
 import Box from './Box.js';
-import Button from './Button.js';
+import Button from './Button/Button.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';

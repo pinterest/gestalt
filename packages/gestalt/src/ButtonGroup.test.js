@@ -1,7 +1,7 @@
 // @flow strict
 
 import { create } from 'react-test-renderer';
-import Button from './Button.js';
+import Button from './Button/Button.js';
 import ButtonGroup from './ButtonGroup.js';
 
 describe('ButtonGroup', () => {

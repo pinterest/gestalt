@@ -16,7 +16,7 @@ import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameCont
 import Backdrop from '../Backdrop.js';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
-import Button from '../Button.js';
+import Button from '../Button/Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
 import focusStyles from '../Focus.css';

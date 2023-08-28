@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
-import Icon from './Icon.js';
+import Icon from '../Icon.js';
 
 describe('<Button />', () => {
   test('Custom color', () => {

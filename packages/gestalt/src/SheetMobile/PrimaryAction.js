@@ -1,6 +1,6 @@
 // @flow strict
 import { type ElementConfig, type Node } from 'react';
-import Button from '../Button.js';
+import Button from '../Button/Button.js';
 import Link from '../Link.js';
 
 type Props = {|

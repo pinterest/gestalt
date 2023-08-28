@@ -3,7 +3,7 @@ import { type ElementConfig, Fragment, type Node, useEffect, useRef } from 'reac
 import PrimaryAction from './PrimaryAction.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Box from '../Box.js';
-import Button from '../Button.js';
+import Button from '../Button/Button.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 import Flex from '../Flex.js';
 import Heading from '../Heading.js';

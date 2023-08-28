@@ -1,7 +1,7 @@
 // @flow strict
 import { Children, type Element, type Node } from 'react';
 import Box from './Box.js';
-import Button from './Button.js';
+import Button from './Button/Button.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import InternalPopover from './Popover/InternalPopover.js';

@@ -3,7 +3,7 @@ import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box.js';
-import Button from './Button.js';
+import Button from './Button/Button.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';

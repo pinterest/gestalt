@@ -3,7 +3,7 @@ import { type ElementConfig, type Node } from 'react';
 import AnimationProvider from './animation/AnimationContext.js';
 import DismissingElement from './animation/DismissingElement.js';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
-import Button from './Button.js';
+import Button from './Button/Button.js';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import Link from './Link.js';
 import FullPage from './SheetMobile/FullPage.js';

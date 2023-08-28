@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Button from './Button.js';
+import Button from './Button/Button.js';
 import Image from './Image.js';
 import Link from './Link.js';
 import Text from './Text.js';
