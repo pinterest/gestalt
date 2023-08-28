@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart renders 1`] = `
+<div
+  className="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex__un8 rowGap2__tkf columnGap2__A6h xsDirectionColumn__jzS"
+  >
+    <div
+      className="FlexItem__xuA"
+    >
+      <div
+        className="Flex__un8 rowGap2__tkf columnGap2__A6h xsDirectionRow__hs0 xsItemsCenter__KS5"
+      >
+        <div
+          className="FlexItem__xuA"
+        >
+          <label
+            className="label__LTD block__kVc pointer__BG7"
+            htmlFor=":r0:"
+          >
+            <div
+              className="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+            >
+              Decal pattern
+            </div>
+          </label>
+        </div>
+        <div
+          className="FlexItem__xuA"
+        >
+          <div
+            className="switch__jPl block__kVc borderBox__Hsu relative__XiG switchWhite__NYx whiteBg__qJc borderColorDarkGray__nG5"
+          >
+            <input
+              checked={false}
+              className="checkbox__sAX absolute__MIw xsCol12__L4E m0__e43 noBorder__adn p0__yQo checkboxEnabled__C8A pointer__BG7"
+              disabled={false}
+              id=":r0:"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              type="checkbox"
+            />
+            <div
+              className="slider__U7Q borderBox__Hsu absolute__MIw whiteBg__qJc circle__INd sliderLeft__RDh sliderDark__GEq borderColorDarkGray__nG5"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="FlexItem__xuA"
+    >
+      <div
+        className="_gestalt"
+      >
+        <div
+          className="recharts-responsive-container"
+          style={
+            Object {
+              "height": 400,
+              "maxHeight": undefined,
+              "minHeight": undefined,
+              "minWidth": 0,
+              "width": "100%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
