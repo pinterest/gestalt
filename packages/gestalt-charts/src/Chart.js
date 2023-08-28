@@ -20,11 +20,14 @@ import { type DataVisualizationColors } from './Chart/types.js';
 import usePatterns from './Chart/usePatterns.js';
 
 type Props = {|
+  scale?: 'linear' | 'time',
   /**
    * Prop description.
    */
   biaxial?: boolean,
-  elements: $ReadOnlyArray<{|
+  /**
+   * Prop description.
+   */ elements: $ReadOnlyArray<{|
     type: 'line' | 'bar',
     yAxis?: 'left' | 'right',
     id: string,
@@ -34,11 +37,15 @@ type Props = {|
   /**
    * Prop description.
    */
-  xAxisLabel: string,
+  yAxisLeftLabel?: string,
   /**
    * Prop description.
    */
-  yAxisLabel: string,
+  yAxisRightLabel: string,
+  /**
+   * Prop description.
+   */
+  xAxisLabel: string,
   /**
    * Prop description.
    */
@@ -95,6 +102,7 @@ type Props = {|
  * ![Chart dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Chart-dark.spec.mjs-snapshots/Chart-dark-chromium-darwin.png)
  */
 function Chart({
+  scale = 'linear',
   biaxial = false,
   domain = [0, 'auto'],
   layout = 'horizontal',
@@ -106,7 +114,8 @@ function Chart({
   elements,
   renderTooltip,
   xAxisLabel,
-  yAxisLabel,
+  yAxisRightLabel,
+  yAxisLeftLabel,
 }: Props): Node {
   const [decalPattern, setDecalPattern] = useState(false);
 
@@ -156,6 +165,7 @@ function Chart({
     if (isBar) {
       return (
         <RechartsBar
+          isAnimationActive={false}
           key={values.id}
           {...(isHorizontal ? { yAxisId: values.yAxis } : {})}
           dataKey={values.id}
@@ -169,6 +179,7 @@ function Chart({
     if (isLine) {
       return (
         <RechartsLine
+          isAnimationActive={false}
           key={values.id}
           yAxisId={values.yAxis}
           dataKey={values.id}
@@ -230,28 +241,30 @@ function Chart({
                 dataKey="name"
                 type="category"
                 padding="gap"
-                label={{ value: xAxisLabel, position: 'insideBottomRight', offset: -10 }}
+                label={{ value: xAxisLabel, position: 'insideBottomLeft', offset: -5 }}
               />
             ) : null}
             {isHorizontal ? (
               <YAxis
                 yAxisId="left"
+                scale={scale}
                 domain={domain}
-                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+                label={{ value: yAxisRightLabel, angle: -90, position: 'insideLeft' }}
               />
             ) : null}
             {isHorizontal && biaxial ? (
               <YAxis
                 yAxisId="right"
                 orientation="right"
-                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+                label={{ value: yAxisLeftLabel, angle: -90, position: 'insideRight' }}
               />
             ) : null}
             {isVertical ? (
               <XAxis
                 type="number"
+                scale={scale}
                 domain={domain}
-                label={{ value: xAxisLabel, position: 'insideBottomRight', offset: -10 }}
+                label={{ value: xAxisLabel, position: 'insideBottomLeft', offset: -5 }}
               />
             ) : null}
             {isVertical ? (
@@ -260,12 +273,17 @@ function Chart({
                 type="category"
                 scale="band"
                 padding="gap"
-                label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+                label={{ value: yAxisLeftLabel, angle: -90, position: 'insideLeft' }}
               />
             ) : null}
             {/*  $FlowFixMe[prop-missing]  */}
             <Tooltip content={<CustomTooltip />} />
-            <Legend />
+            <Legend
+              align="end"
+              iconSize={16}
+              iconType="square"
+              margin={{ top: 50, left: 0, right: 0, bottom: 0 }}
+            />
             {referenceAreas ? referenceAreasElements : null}
             {chartElements}
           </ChartType>

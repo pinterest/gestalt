@@ -46,7 +46,7 @@ export default function Example(): Node {
     <Flex direction="column" width="100%" height="100%">
       <Chart
         xAxisLabel="axis X"
-        yAxisLabel="axis Y"
+        yAxisRightLabel="axis Y"
         layout="vertical"
         type="bar"
         data={data}

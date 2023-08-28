@@ -54,7 +54,7 @@ export default function Example(): Node {
       <Chart
         type="composed"
         xAxisLabel="axis X"
-        yAxisLabel="axis Y"
+        yAxisRightLabel="axis Y"
         data={data}
         renderTooltip={({ label }) => (
           <Flex direction="column" gap={2}>
