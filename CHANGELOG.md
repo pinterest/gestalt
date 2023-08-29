@@ -1,3 +1,9 @@
+## 122.2.2 (Aug 29, 2023)
+
+### Patch
+
+- Icon: updated star icons ([#3169](https://github.com/pinterest/gestalt/pull/3169)) - [Preview link](https://deploy-preview-3169--gestalt.netlify.app?devexample=true)
+
 ## 122.2.1 (Aug 28, 2023)
 
 ### Patch
