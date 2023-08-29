@@ -8,7 +8,6 @@ describe('Button', () => {
     const mockOnClick = jest.fn<
       [
         {|
-          dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
         |},
       ],
