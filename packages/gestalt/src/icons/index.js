@@ -175,6 +175,7 @@ import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
+import starOutline from './star-outline.svg';
 import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
@@ -391,6 +392,7 @@ const icons = Object.freeze({
   sparkle,
   speech,
   'speech-ellipsis': speechEllipsis,
+  'star-outline': starOutline,
   star,
   'star-half': starHalf,
   sun,

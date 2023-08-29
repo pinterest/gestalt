@@ -1178,9 +1178,15 @@
       "keywords": ["chat", "message", "alert"]
     },
     {
+      "name": "star-outline",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates the ability to add to favorites",
+      "keywords": ["favorite", "rating"]
+    },
+    {
       "name": "star",
       "categories": ["Reactions and ratings"],
-      "description": "Indicates the ability to add to favorites, or to represent a review rating",
+      "description": "Indicates that something has been added as a favorite, or to represent a review rating",
       "keywords": ["favorite", "rating", "review"]
     },
     {
