@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box.js';
 import Button from './Button.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -231,12 +232,15 @@ export default function ActivationCard({
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   return (
     <Box
       display="flex"
       flex="grow"
       borderStyle="shadow"
-      color="elevationFloating"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
       rounding={4}
       padding={6}
       maxWidth={400}

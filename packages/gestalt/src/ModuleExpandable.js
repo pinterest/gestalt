@@ -1,6 +1,7 @@
 // @flow strict
 import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Divider from './Divider.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
@@ -65,6 +66,9 @@ export default function ModuleExpandable({
 }: Props): Node {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   useEffect(() => {
     setExpandedId(getExpandedId(expandedIndex));
   }, [expandedIndex, setExpandedId]);
@@ -81,7 +85,7 @@ export default function ModuleExpandable({
   );
 
   return (
-    <Box borderStyle="shadow" color="elevationFloating" rounding={4}>
+    <Box borderStyle="shadow" color={isDarkMode ? 'elevationFloating' : 'default'} rounding={4}>
       {items.map(
         (
           { badge, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
