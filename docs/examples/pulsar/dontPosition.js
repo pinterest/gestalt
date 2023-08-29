@@ -37,6 +37,7 @@ export default function Example(): Node {
             message="Our 3-step ad creation tool makes setting up an ad even faster"
             primaryAction={{
               text: 'Got it',
+              role: 'button',
               onClick: () => {},
             }}
           />

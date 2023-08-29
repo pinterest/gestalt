@@ -32,6 +32,7 @@ export default function Example(): Node {
             message="Choose a goal metric and value that represent success for this campaign"
             primaryAction={{
               text: 'Got it',
+              role: 'button',
               onClick: () => {
                 setShowEducation(false);
               },
