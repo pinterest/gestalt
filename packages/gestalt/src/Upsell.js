@@ -200,7 +200,7 @@ export default function Upsell({
   return (
     <Box
       borderStyle="shadow"
-      color="elevationFloating"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
       display="flex"
       direction="column"
       smDirection="row"
