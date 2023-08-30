@@ -100,17 +100,17 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fd/06/05/fd06051095a0d1c76122ec282ec54bea.jpg"  alt="Example of checked checkbox" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/1e7937fc-8030-443a-bcd8-ef6ce5fceda5"  alt="Example of checked checkbox" />
     **Checked**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/60/60/48/60604885afd2ee2e8b9cad4c1efdbb0a.jpg"  alt="Example of checkbox with an error" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/255076ef-aea0-4f53-b9b8-c3cf2e27e0df"  alt="Example of checkbox with an error" />
     **Error**
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e0/ab/e1/e0abe172b2dfe56166d33b5d8a8175f2.jpg"  alt="Example of checkbox with an indeterminate state" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/3454c729-397e-4f0c-8abe-436b1577a51a"  alt="Example of checkbox with an indeterminate state" />
     **Indeterminate**
   </Group>
 
@@ -121,7 +121,7 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 </ThreeCol>
 
 **With helper text**
-Checkbox supports helper text to provide more detail about an option.
+Checkbox supports helper text to provide more details about an option.
 
 <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/f84e29bc-5c8c-4d31-98b9-8ed4a755a858"  alt="Example of checkbox with helper text" />
 
