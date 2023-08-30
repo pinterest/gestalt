@@ -1,3 +1,9 @@
+## 122.3.4 (Aug 30, 2023)
+
+### Patch
+
+- Icon: Rename ic_star-outlined_gestalt.svg to ic_star-outline_gestalt.svg ([#3177](https://github.com/pinterest/gestalt/pull/3177)) - [Preview link](https://deploy-preview-3177--gestalt.netlify.app?devexample=true)
+
 ## 122.3.3 (Aug 30, 2023)
 
 ### Patch
