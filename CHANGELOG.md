@@ -1,3 +1,9 @@
+## 122.3.1 (Aug 30, 2023)
+
+### Patch
+
+- TableOfContents: Show maker only for active or hovered item ([#3173](https://github.com/pinterest/gestalt/pull/3173)) - [Preview link](https://deploy-preview-3173--gestalt.netlify.app?devexample=true)
+
 ## 122.3.0 (Aug 30, 2023)
 
 ### Minor
