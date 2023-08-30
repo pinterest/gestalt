@@ -1,3 +1,9 @@
+## 122.3.2 (Aug 30, 2023)
+
+### Patch
+
+- Docs: Migrate foundation examples sandpack ([#3175](https://github.com/pinterest/gestalt/pull/3175)) - [Preview link](https://deploy-preview-3175--gestalt.netlify.app?devexample=true)
+
 ## 122.3.1 (Aug 30, 2023)
 
 ### Patch
