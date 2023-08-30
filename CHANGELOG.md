@@ -1,3 +1,9 @@
+## 122.3.3 (Aug 30, 2023)
+
+### Patch
+
+- Docs: Fix ToC overflow ([#3176](https://github.com/pinterest/gestalt/pull/3176)) - [Preview link](https://deploy-preview-3176--gestalt.netlify.app?devexample=true)
+
 ## 122.3.2 (Aug 30, 2023)
 
 ### Patch
