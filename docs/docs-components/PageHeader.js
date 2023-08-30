@@ -6,7 +6,6 @@ import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line 
 import trackButtonClick from './buttons/trackButtonClick.js';
 import componentData from './data/components.js';
 import getByPlatform from './data/utils/getByPlatform.js';
-import MainSection from './MainSection.js';
 import Markdown from './Markdown.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 import { SlimBannerExperiment } from './SlimBannerExperiment.js';
@@ -37,10 +36,6 @@ const buildSourceLinkUrl = (componentName: string) =>
 type Props = {|
   badge?: 'pilot' | 'deprecated' | 'experimental',
   children?: Node,
-  /**
-   * @deprecated : Use `children` instead of `defaultCode`
-   */
-  defaultCode?: string,
   description?: string,
   /**
    * Only use if name !== file name
@@ -52,8 +47,6 @@ type Props = {|
   folderName?: string,
   margin?: 'default' | 'none',
   name: string,
-  shadedCodeExample?: boolean,
-  showCode?: boolean,
   slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
 |};
@@ -61,14 +54,11 @@ type Props = {|
 export default function PageHeader({
   badge,
   children,
-  defaultCode,
   description = '',
   fileName,
   folderName,
   margin = 'default',
   name,
-  shadedCodeExample,
-  showCode = true,
   slimBanner = null,
   type = 'component',
 }: Props): Node {
@@ -98,7 +88,7 @@ export default function PageHeader({
   };
 
   const showMargin = margin === 'default';
-  const addGap = Boolean(defaultCode || children);
+  const addGap = Boolean(children);
 
   return (
     <Box
@@ -176,18 +166,6 @@ export default function PageHeader({
             </Flex>
             {slimBanner}
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
-
-            {defaultCode && (
-              <Box marginTop={2}>
-                <MainSection.Card
-                  cardSize="lg"
-                  defaultCode={defaultCode}
-                  shaded={shadedCodeExample}
-                  showCode={showCode}
-                  hideCodePreview
-                />
-              </Box>
-            )}
 
             {children ? <Box marginTop={2}>{children}</Box> : null}
           </Flex>
