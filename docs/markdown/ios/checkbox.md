@@ -95,7 +95,7 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 
 <ThreeCol spacing="expanded">
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/45/01/9f/45019f108f27c0d3aa9480fcf001b115.jpg"  alt="Example of unchecked checkbox" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/28f2f493-926f-4129-8fc9-ebea9f4d99ac"  alt="Example of unchecked checkbox" />
     **Unchecked**
   </Group>
 
@@ -115,7 +115,7 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/82/50/5c/82505c5eb557f3b85049965ccbe14435.jpg"  alt="Example of checkbox with a disabled state" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/267a3fad-123e-4bd6-8bdf-d273d794611f"  alt="Example of checkbox with a disabled state" />
     **Disabled**
   </Group>
 </ThreeCol>
@@ -123,7 +123,7 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 **With helper text**
 Checkbox supports helper text to provide more detail about an option.
 
-<ImgContainer src="https://i.pinimg.com/originals/dd/12/5a/dd125a30d6fb4cdd8c44c002f363dd56.jpg"  alt="Example of checkbox with helper text" />
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/f84e29bc-5c8c-4d31-98b9-8ed4a755a858"  alt="Example of checkbox with helper text" />
 
 ## Related
 
