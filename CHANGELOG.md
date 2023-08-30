@@ -1,3 +1,9 @@
+## 122.2.3 (Aug 30, 2023)
+
+### Patch
+
+- ComboBox: Fix Bottom Rendering ([#3171](https://github.com/pinterest/gestalt/pull/3171)) - [Preview link](https://deploy-preview-3171--gestalt.netlify.app?devexample=true)
+
 ## 122.2.2 (Aug 29, 2023)
 
 ### Patch
