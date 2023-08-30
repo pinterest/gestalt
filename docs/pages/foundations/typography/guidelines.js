@@ -7,6 +7,17 @@ import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import PrincipleItem from '../../../docs-components/PrincipleItem.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import alignAndSpaceTextForReadability from '../../../examples/typography/alignAndSpaceTextForReadability.js';
+import dontCenterTextWithTightLeading from '../../../examples/typography/dontCenterTextWithTightLeading.js';
+import dontTruncateParagraphText from '../../../examples/typography/dontTruncateParagraphText.js';
+import dontTruncateTextInControls from '../../../examples/typography/dontTruncateTextInControls.js';
+import dontUseFixedSizeLineHeightAndCaps from '../../../examples/typography/dontUseFixedSizeLineHeightAndCaps.js';
+import dontUseSmallSizes from '../../../examples/typography/dontUseSmallSizes.js';
+import truncateForSecondaryText from '../../../examples/typography/truncateForSecondaryText.js';
+import useProperFontSize from '../../../examples/typography/useProperFontSize.js';
+import useStandardsForLanguageTranslation from '../../../examples/typography/useStandardsForLanguageTranslation.js';
+import wrapTextWhenNeeded from '../../../examples/typography/wrapTextWhenNeeded.js';
 import AlignmentCenter from '../../../graphics/typography/alignmentCenter.svg';
 import AlignmentEnd from '../../../graphics/typography/alignmentEnd.svg';
 import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
@@ -644,17 +655,29 @@ Line height is automatically determined by a font’s size. For more info, refer
             cardSize="md"
             type="do"
             description="Use a font size of 14–16px and above for most use cases, especially long-form text. Smaller fonts are ok for less important information, but should be used sparingly. This ensures that content is accessible to all of our customers, including users with low vision."
-            defaultCode={`
-            <Text>We are all here together in freedom, for perhaps the last time! I know, dear; I know that you will always be with me to the end.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use proper font size for most cases"
+                code={useProperFontSize}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use font sizes below 14px for body copy and UI controls, unless the text is very brief and secondary."
-            defaultCode={`
-            <Text size="100">We are all here together in freedom, for perhaps the last time! I know, dear; I know that you will always be with me to the end.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use small sizes for UI and body"
+                code={dontUseSmallSizes}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -705,17 +728,29 @@ Use standards that will make it easier to translate to other languages:
 - Use system fonts and defaults to ensure broad language support.
 - Avoid ALL CAPS for special emphasis. Certain languages, such as Arabic, do not support it.
 `}
-            defaultCode={`
-<Text align="forceRight">نحن جميعًا هنا معًا في حرية . ربما للمرة الأخيرة! انا اعرف يا عزيزي؛ أعلم أنك ستكون دائمًا معي حتى النهاية.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use standards for language translation"
+                code={useStandardsForLanguageTranslation}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Set line height to specific sizes, use fonts that don’t have broad language support, or use ALL CAPS."
-            defaultCode={`
-<Text align="forceRight">نحن جميعًا هنا معًا في حرية ، ربما للمرة الأخيرة! انا اعرف يا عزيزي؛ أعلم أنك ستكون دائمًا معي حتى النهاية□□□□□□□□□□.</Text>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use fixed size line height and caps"
+                code={dontUseFixedSizeLineHeightAndCaps}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -727,36 +762,30 @@ Use standards that will make it easier to translate to other languages:
             cardSize="md"
             type="do"
             description="Align, space and style text so that a user can easily read it and understand what actions to take."
-            defaultCode={`
-<Flex direction="column" gap={4}>
-  <Heading accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
-    <List label="Shopify Marketing permissions" labelDisplay="hidden">
-      <List.Item text="See your account settings"/>
-      <List.Item text="Create new Pins for you"/>
-      <List.Item text="Send messages on behalf of you"/>
-      <List.Item text="Follow things for you"/>
-      <List.Item text="See your secret Pins"/>
-      <List.Item text="See your secret boards"/>
-    </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Align and space text for readability"
+                code={alignAndSpaceTextForReadability}
+                hideControls
+                hideEditor
+                layout="column"
+              />
+            }
           />
 
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
-            defaultCode={`
-<Flex direction="column" gap={4} alignItems="center" >
-  <Heading align="center" accessibilityLevel={4} size="400">Shopify Marketing would like permission to:</Heading>
-  <Text color="subtle">See your account settings</Text>
-  <Text color="subtle">Create new Pins for you</Text>
-  <Text color="subtle">Send messages on behalf of you</Text>
-  <Text color="subtle">Follow things for you</Text>
-  <Text color="subtle"> See your secret Pins</Text>
-  <Text color="subtle">See your secret boards</Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't center text with tight leading"
+                code={dontCenterTextWithTightLeading}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -768,18 +797,30 @@ Use standards that will make it easier to translate to other languages:
             cardSize="md"
             type="do"
             description="Wrap text to multiple lines when a user needs to see the full text to understand what is expected. This is likely to happen when translated to languages with longer line lengths."
-            defaultCode={`
-<Box width={150}><Button color="red" text="Go to the latest updates" /></Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Wrap text when needed"
+                code={wrapTextWhenNeeded}
+                hideControls
+                hideEditor
+                layout="column"
+              />
+            }
           />
 
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Truncate text in UI controls like buttons and menus where it can make it hard for a user to understand what is expected. On touch surfaces, a user won’t have a tooltip on hover."
-            defaultCode={`
-<Box width={100}><Button color="red" text="Go to..." /></Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't truncate text in UI controls"
+                code={dontTruncateTextInControls}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -788,59 +829,30 @@ Use standards that will make it easier to translate to other languages:
             cardSize="md"
             type="do"
             description="Truncate for secondary text that isn’t essential to a user’s comprehension of steps to take. Examples include dynamic data ad IDs in tables, lists of user names, and Pin titles that come from outside sources. Use an ellipsis or a link that indicates there is more content available."
-            defaultCode={`
-<Table accessibilityLabel="Font sizes">
-<Table.Header>
-  <Table.Row>
-    {['Name', 'Rate', 'Tags'].map((item) => (
-      <Table.HeaderCell key={item}>
-        <Text size="200" weight="bold">
-          {item}
-        </Text>
-      </Table.HeaderCell>
-    ))}
-  </Table.Row>
-</Table.Header>
-<Table.Body>
-  <Table.Row>
-    <Table.Cell>
-      <Text size="200" lineClamp={1}>AD-225-DB-RFUYS-2398</Text>
-    </Table.Cell>
-    <Table.Cell>
-      <Text size="200">100</Text>
-    </Table.Cell>
-    <Table.Cell>
-    <Text size="200" inline overflow="noWrap">lifestyle, gaming</Text>
-    <Text inline weight="bold" size="200" ><Link href="#" underline="always">3 more</Link></Text>
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>
-      <Text size="200" lineClamp={1}>AD-225-Dd-224-AKD-290</Text>
-    </Table.Cell>
-    <Table.Cell>
-      <Text size="200">5,000</Text>
-    </Table.Cell>
-    <Table.Cell>
-      <Text size="200" inline overflow="noWrap">bargain, gaming</Text>
-      <Text inline weight="bold" size="200"><Link href="#" underline="always">7 more</Link></Text>
-    </Table.Cell>
-  </Table.Row>
-</Table.Body>
-</Table>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Truncate for non-essential secondary text"
+                code={truncateForSecondaryText}
+                hideControls
+                hideEditor
+                layout="column"
+              />
+            }
           />
 
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Truncate paragraph text, which can be misread and change the original meaning of the text."
-            defaultCode={`
-<Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={250}>
-  <Heading accessibilityLevel={4} size="400">Cheesy chicken sandwich</Heading>
-  <Text lineClamp={3}>An updated twist to a grilled classic. This is a delicious treat, especially if you are a chicken lover. Make sure to try this out!</Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't truncate paragraph text"
+                code={dontTruncateParagraphText}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
