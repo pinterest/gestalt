@@ -4,7 +4,7 @@ description: Checkbox is used for multiple choice selection.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/66/fb/d366fb0a6b4bc150779c149aea472a24.jpg"  alt="Primary example of Checkbox component" />
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/66828b69-1e1b-4c67-86b4-f62a64a0f6f2"  alt="Primary example of Checkbox component" />
 
 ## Usage guidelines
 
@@ -28,13 +28,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/32/33/bb/3233bb3a92c57dd29f2b5f2fd2a417f7.jpg"  alt="Example of correct multi-select use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/0fe0c895-5939-42ca-a215-3d404b3203c1"  alt="Example of correct multi-select use" />
     <Do title="Do" />
     Use checkboxes for multi-selection of related list items
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/1e/14/24/1e14245a26f12cf014028d24b00a6317.jpg"  alt="Example of incorrect single-select use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/a1965e39-13c9-4a27-9038-c66bf16d1f3d"  alt="Example of incorrect single-select use" />
     <Dont title="Don't" />
     Use checkboxes for one selection. Use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) instead.
   </Group>
@@ -42,13 +42,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b2/20/93/b2209377241895d0471bde7340ee85c2.jpg"  alt="Example of correct single checkbox use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/c262c872-9f8f-4684-b430-099c2bc62bdb"  alt="Example of correct single checkbox use" />
     <Do title="Do" />
     Use a single Checkbox in forms where the selection only takes effect after submitting the form
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e7/07/02/e70702e40416c5f4f89e92eca2bbb490.jpg"  alt="Example of incorrect immediate effect use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/21ccdc50-30c1-4f0e-9c9f-b7c1c0e37622"  alt="Example of incorrect immediate effect use" />
     <Dont title="Don't" />
     Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](https://gestalt.pinterest.systems/ios/switch) instead.
   </Group>
