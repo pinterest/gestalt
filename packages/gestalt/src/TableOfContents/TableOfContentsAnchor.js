@@ -28,16 +28,10 @@ type Props = {|
 
 export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): Node {
   const { nestedLevel } = useNesting();
-  const {
-    handleOnFocus,
-    handleOnBlur,
-    handleOnMouseEnter,
-    handleOnMouseLeave,
-    isFocused,
-    isHovered,
-  } = useInteractiveStates();
-  const hasMarker = active || isFocused || isHovered;
-  const markerColor = active || isFocused ? 'inverse' : 'tertiary';
+  const { handleOnFocus, handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+    useInteractiveStates();
+  const hasMarker = active || isHovered;
+  const markerColor = active ? 'inverse' : 'tertiary';
   const nestingPadding = NESTING_MARGIN_START_MAP[nestedLevel];
   const nestingFontSize = nestedLevel === 1 ? '300' : '200';
 
@@ -54,7 +48,7 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
       rounding={2}
     >
       <Flex>
-        <Box minWidth={4} color={hasMarker ? markerColor : 'default'} rounding="pill" />
+        <Box minWidth={4} color={hasMarker ? markerColor : 'transparent'} rounding="pill" />
         <div
           className={classNames(styles.item, Layout.flexGrow, {
             [Colors.secondary]: isHovered,
