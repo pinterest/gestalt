@@ -1,3 +1,9 @@
+## 122.3.0 (Aug 30, 2023)
+
+### Minor
+
+- Upsell: Update default backgrounds for elevationRaised ([#3170](https://github.com/pinterest/gestalt/pull/3170)) - [Preview link](https://deploy-preview-3170--gestalt.netlify.app?devexample=true)
+
 ## 122.2.3 (Aug 30, 2023)
 
 ### Patch
