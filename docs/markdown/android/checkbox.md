@@ -4,7 +4,7 @@ description: Checkbox is used for multiple choice selection.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/4d/3a/2e/4d3a2ebd653d15cc60a37ba2752d6c5e.png" alt="Primary example of Checkbox component" />
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/d7f3a446-8f39-41f5-a9d9-7371bba9830f" alt="Primary example of Checkbox component" />
 
 ## Usage guidelines
 
@@ -28,13 +28,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/32/33/bb/3233bb3a92c57dd29f2b5f2fd2a417f7.jpg" noPadding alt="Example of correct multi-select use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/6dcb81c8-f802-49d0-83b5-bed38c76e249" noPadding alt="Example of correct multi-select use" />
     <Do title="Do" />
     Use checkboxes for multi-selection of related list items
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/1e/14/24/1e14245a26f12cf014028d24b00a6317.jpg" noPadding alt="Example of incorrect single-select use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/df347d70-e6db-4b6c-8ff8-06f3043588c1" noPadding alt="Example of incorrect single-select use" />
     <Dont title="Don't" />
     Use checkboxes for one selection. Use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) instead.
   </Group>
@@ -42,13 +42,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b2/20/93/b2209377241895d0471bde7340ee85c2.jpg" noPadding alt="Example of correct single checkbox use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/bf278946-de9f-4b30-b9b5-72583d534d38" noPadding alt="Example of correct single checkbox use" />
     <Do title="Do" />
     Use a single Checkbox in forms where the selection only takes effect after submitting the form
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e7/07/02/e70702e40416c5f4f89e92eca2bbb490.jpg" noPadding alt="Example of incorrect immediate effect use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/ed0014d3-ada7-45dc-a717-bed0b1e83cfb" noPadding alt="Example of incorrect immediate effect use" />
     <Dont title="Don't" />
     Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](https://gestalt.pinterest.systems/android/switch) instead.
   </Group>
@@ -117,7 +117,7 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
 </TwoCol>
 
 **With helper text**
-Checkbox supports helper text to provide more detail about an option.
+Checkbox supports helper text to provide more details about an option.
  <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20457%253A46696%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 
 ## Writing
