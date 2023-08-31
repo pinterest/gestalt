@@ -1,3 +1,9 @@
+## 122.4.0 (Aug 31, 2023)
+
+### Minor
+
+- TapArea: support to new `dataTestId` prop ([#3179](https://github.com/pinterest/gestalt/pull/3179)) - [Preview link](https://deploy-preview-3179--gestalt.netlify.app?devexample=true)
+
 ## 122.3.5 (Aug 31, 2023)
 
 ### Patch
