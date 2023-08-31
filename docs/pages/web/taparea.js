@@ -83,6 +83,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             href: 'basic-taparea',
           },
           {
+            name: 'dataTestId',
+            type: 'string',
+            required: false,
+            description: [
+              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
+            ],
+          },
+          {
             name: 'disabled',
             type: 'boolean',
             required: false,

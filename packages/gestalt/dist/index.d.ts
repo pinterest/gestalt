@@ -1339,7 +1339,12 @@ interface OverlayPanelDismissingElementProps {
 interface PageHeaderAction {
   component:
     | React.ReactElement<
-        typeof Button | typeof ButtonLink | typeof IconButton | typeof Link | typeof Tooltip | typeof Text
+        | typeof Button
+        | typeof ButtonLink
+        | typeof IconButton
+        | typeof Link
+        | typeof Tooltip
+        | typeof Text
       >
     | undefined;
   dropdownItems:
@@ -1642,7 +1647,7 @@ interface SideNavigationTopItemProps {
   notificationAccessibilityLabel?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   primaryAction?: PrimaryActionType | undefined;
-  ref?: HTMLLIElement,
+  ref?: HTMLLIElement;
 }
 
 interface SideNavigationNestedItemProps {
@@ -1651,7 +1656,7 @@ interface SideNavigationNestedItemProps {
   active?: 'page' | 'section' | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   onClick?: ButtonEventHandlerType | undefined;
-  ref?: HTMLLIElement,
+  ref?: HTMLLIElement;
 }
 
 interface SideNavigationGroupProps {
@@ -1898,6 +1903,7 @@ interface TagDataProps {
 interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;
   children: Node;
+  dataTestId?: string;
   disabled?: boolean | undefined;
   fullHeight?: boolean | undefined;
   fullWidth?: boolean | undefined;
@@ -2611,29 +2617,29 @@ export interface TableSubComponents {
  */
 export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
 
-
 interface TableOfContentsItemProps {
-  label: string,
-  href: string,
-  active?: boolean,
-  onClick?: TapAreaEventHandlerType,
-  children?: Node,
+  label: string;
+  href: string;
+  active?: boolean;
+  onClick?: TapAreaEventHandlerType;
+  children?: Node;
 }
 
 /**
  * https://gestalt.pinterest.systems/web/tableofcontents
  */
 export interface TableOfContentsProps {
-  accessibilityLabel?: string,
-  title?: string,
-  children: Node
+  accessibilityLabel?: string;
+  title?: string;
+  children: Node;
 }
 
 export interface TableOfContentsSubComponents {
   Item: React.FunctionComponent<React.PropsWithChildren<TableOfContentsItemProps>>;
 }
 
-export const TableOfContents: React.FunctionComponent<TableOfContentsProps> & TableOfContentsSubComponents;
+export const TableOfContents: React.FunctionComponent<TableOfContentsProps> &
+  TableOfContentsSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/tabs
