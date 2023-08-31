@@ -36,6 +36,7 @@ export type OnTapType = ({|
 type BaseTapArea = {|
   accessibilityLabel?: string,
   children?: Node,
+  dataTestId?: string,
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
@@ -88,6 +89,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
   const {
     accessibilityLabel,
     children,
+    dataTestId,
     disabled = false,
     fullHeight,
     fullWidth = true,
@@ -236,6 +238,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       <InternalLink
         accessibilityCurrent={accessibilityCurrent}
         accessibilityLabel={ariaLabel}
+        dataTestId={dataTestId}
         disabled={disabled}
         href={href}
         fullHeight={fullHeight}
@@ -278,6 +281,7 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
+      data-test-id={dataTestId}
       className={buttonRoleClasses}
       onClick={handleClick}
       onBlur={(event) => {
