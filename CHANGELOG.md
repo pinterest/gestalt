@@ -1,3 +1,9 @@
+## 122.3.5 (Aug 31, 2023)
+
+### Patch
+
+- Checkbox: iOS/Android update example images ([#3178](https://github.com/pinterest/gestalt/pull/3178)) - [Preview link](https://deploy-preview-3178--gestalt.netlify.app?devexample=true)
+
 ## 122.3.4 (Aug 30, 2023)
 
 ### Patch
