@@ -36,7 +36,7 @@ export type OnTapType = ({|
 type BaseTapArea = {|
   accessibilityLabel?: string,
   children?: Node,
-  dataTestId: string,
+  dataTestId?: string,
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
