@@ -1,3 +1,9 @@
+## 122.4.1 (Sep 1, 2023)
+
+### Patch
+
+- Docs: updated Readme after removing Issues support in github ([#3180](https://github.com/pinterest/gestalt/pull/3180)) - [Preview link](https://deploy-preview-3180--gestalt.netlify.app?devexample=true)
+
 ## 122.4.0 (Aug 31, 2023)
 
 ### Minor
