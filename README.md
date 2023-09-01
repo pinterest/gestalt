@@ -82,19 +82,13 @@ Example PR title: `Avatar: Add outline prop`
 
 Gestalt officiallty supports and maintains Typescript declarations files.
 
-### DefinitelyTyped Installation
+### Issues
 
-Install via npm:
+Gestalt is Pinterest's open-sourced design system. However, Gestalt's web component library is almost exclusively developed by a 5 engineer team within Pinterest, and our primary customers are Pinterest engineers who use Gestalt. The team’s priority is the needs of our internal Pinterest customers.
 
-```bash
-npm i --save @types/gestalt
-```
+We do not have resources to work on features or issues requested only by external developers. We also handle a very large amount of internal support requests, so we do not have the resources to respond to external Github issues.
 
-Or via yarn:
-
-```bash
-yarn add @types/gestalt
-```
+Pinterest is staying open source, as it's a great resource for the design and engineering community, but we don't provide support to external developers.
 
 ### Troubleshooting
 
