@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Icon } from 'gestalt';
+import { Icon, SlimBanner } from 'gestalt';
 import docGen, { type DocGen, type DocType, overrideTypes } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -13,7 +13,23 @@ import main from '../../examples/iconbuttonlink/main.js';
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBanner
+            type="info"
+            iconAccessibilityLabel="Info"
+            message="Complete documentation for IconButtonLink coming soon."
+            helperLink={{
+              text: 'See IconButton documentation page',
+              accessibilityLabel: 'View IconButton documentation page',
+              href: '/web/iconbutton',
+              onClick: () => {},
+            }}
+          />
+        }
+      >
         <SandpackExample code={main} name="Main IconButtonLink example" hideEditor />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
