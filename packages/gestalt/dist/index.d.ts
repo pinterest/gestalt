@@ -1078,7 +1078,7 @@ interface IconButtonLinkCmpProps {
   rel?: RelType | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   tabIndex?: -1 | 0 | undefined;
-  target?: TargetType | undefined
+  target?: TargetType | undefined;
   tooltip?:
     | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
     | undefined;
