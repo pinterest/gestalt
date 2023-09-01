@@ -59,7 +59,7 @@ type ButtonProps = {|
    */
   fullWidth?: boolean,
   /**
-   * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.
+   * Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
    */
   tabIndex?: -1 | 0,
   /**
@@ -95,6 +95,12 @@ type ButtonProps = {|
   target?: null | 'self' | 'blank',
 |};
 
+/**
+ * [ButtonLink](https://gestalt.pinterest.systems/buttonlink) is mainly used as navigational element
+ *
+ * ![Button light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Button.spec.mjs-snapshots/Button-chromium-darwin.png)
+ * ![Button dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Button-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
+ */
 const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement> = forwardRef<
   ButtonProps,
   HTMLAnchorElement,

@@ -31,6 +31,7 @@ import HelpButton from './HelpButton.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import IconButtonFloating from './IconButtonFloating.js';
+import IconButtonLink from './IconButtonLink.js';
 import Image from './Image.js';
 import Label from './Label.js';
 import Layer from './Layer.js';
@@ -69,6 +70,7 @@ import Tabs from './Tabs.js';
 import Tag from './Tag.js';
 import TagData from './TagData.js';
 import TapArea from './TapArea.js';
+import TapAreaLink from './TapAreaLink.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
 import TextField from './TextField.js';
@@ -114,6 +116,7 @@ export {
   Icon,
   IconButton,
   IconButtonFloating,
+  IconButtonLink,
   Image,
   Label,
   Layer,
@@ -152,6 +155,7 @@ export {
   Tag,
   TagData,
   TapArea,
+  TapAreaLink,
   Text,
   TextArea,
   TextField,

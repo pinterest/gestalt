@@ -21,7 +21,23 @@ import withLinkButtonExample from '../../examples/taparea/withLinkButtonExample.
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBanner
+            type="error"
+            iconAccessibilityLabel="Info"
+            message={`TapArea role="link" is soon to be deprecated, use TapAreaLink instead.`}
+            helperLink={{
+              text: 'View TapAreaLink',
+              accessibilityLabel: 'View TapAreaLink documentation page',
+              href: '/web/taparealink',
+              onClick: () => {},
+            }}
+          />
+        }
+      />
 
       <PropTable
         componentName={generatedDocGen?.displayName}

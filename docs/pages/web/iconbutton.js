@@ -29,7 +29,23 @@ import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBanner
+            type="error"
+            iconAccessibilityLabel="Info"
+            message={`IconButton role="link" is soon to be deprecated, use IconButtonLink instead.`}
+            helperLink={{
+              text: 'View IconButtonLink',
+              accessibilityLabel: 'View IconButtonLink documentation page',
+              href: '/web/iconbuttonlink',
+              onClick: () => {},
+            }}
+          />
+        }
+      >
         <SandpackExample code={main} name="Main example" hideEditor />
       </PageHeader>
       <PropTable
