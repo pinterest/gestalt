@@ -197,7 +197,7 @@ describe('OverlayPanel', () => {
   it('should dismiss from clicking on the children content', () => {
     const mockOnDismiss = jest.fn<[], void>();
 
-    const { getByText } = render(
+    render(
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
@@ -213,9 +213,8 @@ describe('OverlayPanel', () => {
         </OverlayPanel.DismissingElement>
       </OverlayPanel>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button: HTMLElement = getByText('Submit');
-    fireEvent.click(button);
+
+    fireEvent.click(screen.getByText('Submit'));
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
 
@@ -225,7 +224,7 @@ describe('OverlayPanel', () => {
   it('should dismiss from clicking on the footer content', () => {
     const mockOnDismiss = jest.fn<[], void>();
 
-    const { getByText } = render(
+    render(
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
@@ -244,9 +243,8 @@ describe('OverlayPanel', () => {
         <section />
       </OverlayPanel>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button: HTMLElement = getByText('Submit');
-    fireEvent.click(button);
+
+    fireEvent.click(screen.getByText('Submit'));
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
 
@@ -256,7 +254,7 @@ describe('OverlayPanel', () => {
   it('should dismiss from clicking on the subHeading content', () => {
     const mockOnDismiss = jest.fn<[], void>();
 
-    const { getByText } = render(
+    render(
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
@@ -276,9 +274,8 @@ describe('OverlayPanel', () => {
         <section />
       </OverlayPanel>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const button: HTMLElement = getByText('Submit');
-    fireEvent.click(button);
+
+    fireEvent.click(screen.getByText('Submit'));
 
     fireEvent.animationEnd(screen.getByRole('dialog'));
 

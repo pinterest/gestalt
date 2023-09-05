@@ -1,10 +1,10 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Callout from './Callout.js';
 
 test('Callout handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn<[], void>();
-  const { getByLabelText } = render(
+  render(
     <Callout
       message="Insert a clever error callout message here"
       dismissButton={{
@@ -15,7 +15,6 @@ test('Callout handles onDismiss callback', () => {
       type="error"
     />,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  getByLabelText('Dismiss banner').click();
+  screen.getByLabelText('Dismiss banner').click();
   expect(mockOnDismiss).toHaveBeenCalled();
 });

@@ -1,5 +1,5 @@
 // @flow strict
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import VideoControls from './Controls.js';
 
 test('VideoControls handles play events', () => {
@@ -7,7 +7,7 @@ test('VideoControls handles play events', () => {
     [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
     void,
   >();
-  const { getByLabelText } = render(
+  render(
     <VideoControls
       captionsButton={null}
       currentTime={67.3}
@@ -25,8 +25,7 @@ test('VideoControls handles play events', () => {
       volume={0}
     />,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  fireEvent.click(getByLabelText('Play'));
+  fireEvent.click(screen.getByLabelText('Play'));
   expect(mockOnPlay).toHaveBeenCalled();
 });
 
@@ -35,7 +34,7 @@ test('VideoControls handles pause events', () => {
     [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
     void,
   >();
-  const { getByLabelText } = render(
+  render(
     <VideoControls
       captionsButton={null}
       currentTime={67.3}
@@ -53,8 +52,7 @@ test('VideoControls handles pause events', () => {
       volume={0}
     />,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  fireEvent.click(getByLabelText('Pause'));
+  fireEvent.click(screen.getByLabelText('Pause'));
   expect(mockOnPause).toHaveBeenCalled();
 });
 
@@ -63,7 +61,7 @@ test('VideoControls handles volume events', () => {
     [SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>],
     void,
   >();
-  const { getByLabelText } = render(
+  render(
     <VideoControls
       captionsButton={null}
       currentTime={67.3}
@@ -81,7 +79,6 @@ test('VideoControls handles volume events', () => {
       volume={0}
     />,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  fireEvent.click(getByLabelText('Unmute'));
+  fireEvent.click(screen.getByLabelText('Unmute'));
   expect(mockOnVolumeChange).toHaveBeenCalled();
 });

@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Box from './Box.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
@@ -15,8 +15,7 @@ describe('ScrollBoundaryContainer', () => {
       </ScrollBoundaryContainer>,
     );
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByTestId('childrenId')).toBeTruthy();
+    expect(screen.getByTestId('childrenId')).toBeTruthy();
   });
 
   it('passes default ScrollBoundaryContainer props through context correctly', () => {

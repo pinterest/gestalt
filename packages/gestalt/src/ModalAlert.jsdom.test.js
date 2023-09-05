@@ -1,5 +1,5 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import ModalAlert from './ModalAlert.js';
 
