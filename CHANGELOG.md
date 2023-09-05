@@ -1,3 +1,9 @@
+## 122.5.0 (Sep 5, 2023)
+
+### Minor
+
+- TapAreaLink, IconButtonLink: new components ([#3181](https://github.com/pinterest/gestalt/pull/3181)) - [Preview link](https://deploy-preview-3181--gestalt.netlify.app?devexample=true)
+
 ## 122.4.1 (Sep 1, 2023)
 
 ### Patch
