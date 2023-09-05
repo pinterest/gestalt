@@ -1,3 +1,9 @@
+## 122.5.2 (Sep 5, 2023)
+
+### Patch
+
+- Video: Support RTL layout in scrubber ([#3183](https://github.com/pinterest/gestalt/pull/3183)) - [Preview link](https://deploy-preview-3183--gestalt.netlify.app?devexample=true)
+
 ## 122.5.1 (Sep 5, 2023)
 
 ### Patch
