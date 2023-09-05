@@ -1,8 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
 import { Text } from 'gestalt';
-// eslint-disable-next-line no-unused-vars
-import style from './Chart.css';
 
 export type Props = {|
   id?: string,
