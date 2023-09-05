@@ -1051,6 +1051,39 @@ interface IconButtonSubmitProps extends CommonIconButtonProps {
 
 type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
 
+interface IconButtonLinkCmpProps {
+  accessibilityLabel: string;
+  bgColor?:
+    | 'transparent'
+    | 'darkGray'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'white'
+    | 'red'
+    | undefined;
+  dangerouslySetSvgPath?: { __path: string } | undefined;
+  dataTestId?: string | undefined;
+  disabled?: boolean | undefined;
+  href: string;
+  icon?: Icons | undefined;
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
+  onClick?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
+  padding?: 1 | 2 | 3 | 4 | 5 | undefined;
+  rel?: RelType | undefined;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  tabIndex?: -1 | 0 | undefined;
+  target?: TargetType | undefined;
+  tooltip?:
+    | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
+    | undefined;
+}
+
 interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
@@ -1966,6 +1999,53 @@ interface TapAreaButtonProps extends CommonTapAreaProps {
 
 type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
 
+interface TapAreaLinkCmpProps {
+  accessibilityCurrent?:
+    | 'page'
+    | 'step'
+    | 'location'
+    | 'date'
+    | 'time'
+    | 'true'
+    | 'false'
+    | 'section';
+  accessibilityLabel?: string | undefined;
+  children: Node;
+  dataTestId?: string;
+  disabled?: boolean | undefined;
+  fullHeight?: boolean | undefined;
+  fullWidth?: boolean | undefined;
+  href: string;
+  mouseCursor?:
+    | 'copy'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut'
+    | undefined;
+  onBlur?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
+  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
+  onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLAnchorElement>> | undefined;
+  onMouseDown?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onMouseUp?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onTap?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
+  rel?: RelType | undefined;
+  rounding?: RoundingType | undefined;
+  tabIndex?: -1 | 0 | undefined;
+  tapStyle?: 'none' | 'compress' | undefined;
+  target?: TargetType | undefined;
+}
+
 interface TextProps {
   align?: TextAlignType | undefined;
   children?: Node | undefined;
@@ -2370,6 +2450,11 @@ export const Icon: React.FunctionComponent<IconProps>;
 export const IconButton: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, IconButtonProps>;
 
 /**
+ * https://gestalt.pinterest.systems/web/iconbuttonlink
+ */
+export const IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkCmpProps>;
+
+/**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
  */
 export const IconButtonFloating: React.FunctionComponent<IconButtonFloatingProps>;
@@ -2660,6 +2745,11 @@ export const TagData: React.FunctionComponent<TagDataProps>;
  * https://gestalt.pinterest.systems/web/taparea
  */
 export const TapArea: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/taparealink
+ */
+export const TapAreaLink: ReactForwardRef<HTMLAnchorElement, TapAreaLinkCmpProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/text
