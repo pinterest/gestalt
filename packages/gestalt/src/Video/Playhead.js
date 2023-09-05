@@ -114,7 +114,6 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
               width={16}
               height={16}
               color="light"
-              // FIXME
               marginStart={-2}
               dangerouslySetInlineStyle={{ __style: { marginTop: -6 } }}
             />
