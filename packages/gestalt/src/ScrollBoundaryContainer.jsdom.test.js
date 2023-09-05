@@ -9,7 +9,7 @@ describe('ScrollBoundaryContainer', () => {
   it('renders successfully', () => {
     const ref = createRef<HTMLElement>();
 
-    const { getByTestId } = render(
+    render(
       <ScrollBoundaryContainer overflow="scroll">
         <Box data-test-id="childrenId" ref={ref} />
       </ScrollBoundaryContainer>,
