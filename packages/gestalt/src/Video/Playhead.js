@@ -32,8 +32,10 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
       const { duration, seek } = this.props;
       const { left, right, width } = this.playhead.getBoundingClientRect();
 
-      const isRTL = window.getComputedStyle(this.playhead).direction === 'rtl';
-      const difference = Math.abs(clientX - (isRTL ? right : left));
+      // As a convention, text direction is defined in `dir` attribute of `html` tag of the document.
+      // The following check is done under the assuption of that convention.
+      const isRTL = document.querySelector('html')?.getAttribute('dir') === 'rtl';
+      const difference = isRTL ? right - clientX : clientX - left;
 
       const percent = Math.max(0, Math.min(difference / width, 1));
       const newTime = percent * duration;
