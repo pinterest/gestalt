@@ -1,12 +1,5 @@
 // @flow strict
-import {
-  type AbstractComponent,
-  forwardRef,
-  type Node,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
@@ -15,6 +8,7 @@ import InternalLink from './Link/InternalLink.js';
 import Pog from './Pog.js';
 import Tooltip from './Tooltip.js';
 import useFocusVisible from './useFocusVisible.js';
+import useInteractiveStates from './utils/useInteractiveStates.js';
 import { type Indexable } from './zIndex.js';
 
 type Props = {|
@@ -134,9 +128,17 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
 
-  const [isActive, setActive] = useState(false);
-  const [isFocused, setFocused] = useState(false);
-  const [isHovered, setHovered] = useState(false);
+  const {
+    handleOnFocus,
+    handleOnBlur,
+    handleOnMouseEnter,
+    handleOnMouseLeave,
+    handleOnMouseDown,
+    handleOnMouseUp,
+    isHovered,
+    isActive,
+    isFocused,
+  } = useInteractiveStates();
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
@@ -154,25 +156,12 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
           dangerouslyDisableOnNavigation,
         });
       }}
-      onBlur={() => {
-        setFocused(false);
-      }}
-      onFocus={() => {
-        setFocused(true);
-      }}
-      onMouseDown={() => {
-        setActive(true);
-      }}
-      onMouseUp={() => {
-        setActive(false);
-      }}
-      onMouseEnter={() => {
-        setHovered(true);
-      }}
-      onMouseLeave={() => {
-        setActive(false);
-        setHovered(false);
-      }}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
+      onMouseDown={handleOnMouseDown}
+      onMouseUp={handleOnMouseUp}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
       ref={innerRef}
       rel={rel}
       tabIndex={tabIndex}
