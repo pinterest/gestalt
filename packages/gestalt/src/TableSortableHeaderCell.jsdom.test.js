@@ -1,5 +1,5 @@
 // @flow strict
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 
 test('mouse click calls onSortChange', () => {
@@ -16,7 +16,7 @@ test('mouse click calls onSortChange', () => {
     ],
     void,
   >();
-  const { getByText } = render(
+  render(
     <table>
       <thead>
         <tr>
@@ -31,8 +31,7 @@ test('mouse click calls onSortChange', () => {
       </thead>
     </table>,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  getByText('column name').click();
+  screen.getByText('column name').click();
   expect(mockOnSortChange).toHaveBeenCalled();
 });
 
@@ -50,7 +49,7 @@ test('keypress calls onSortChange', () => {
     ],
     void,
   >();
-  const { getByText } = render(
+  render(
     <table>
       <thead>
         <tr>
@@ -66,7 +65,6 @@ test('keypress calls onSortChange', () => {
     </table>,
   );
   const mockEvent = { charCode: 32, preventDefault: jest.fn<$ReadOnlyArray<$FlowFixMe>, mixed>() };
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  fireEvent.keyPress(getByText('column name'), mockEvent);
+  fireEvent.keyPress(screen.getByText('column name'), mockEvent);
   expect(mockOnSortChange).toHaveBeenCalled();
 });

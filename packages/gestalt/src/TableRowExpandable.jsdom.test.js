@@ -22,7 +22,7 @@ const mockOnExpand = jest.fn<
 >();
 
 test('TableRowExpandable handles expand contents call', () => {
-  const { getByText } = render(
+  render(
     <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
@@ -39,18 +39,16 @@ test('TableRowExpandable handles expand contents call', () => {
     </Table>,
   );
   expect(() => {
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('Hello');
+    screen.getByText('Hello');
   }).toThrow('Unable to find an element with the text: Hello');
   const button = screen.getByRole('button');
   fireEvent.click(button);
   expect(mockOnExpand).toHaveBeenCalledTimes(0);
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  expect(getByText('Hello')).toBeTruthy();
+  expect(screen.getByText('Hello')).toBeTruthy();
 });
 
 test('TableRowExpandable handles onExpand callback', () => {
-  const { getByText } = render(
+  render(
     <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
@@ -68,12 +66,10 @@ test('TableRowExpandable handles onExpand callback', () => {
     </Table>,
   );
   expect(() => {
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('Hello');
+    screen.getByText('Hello');
   }).toThrow('Unable to find an element with the text: Hello');
   const button = screen.getByRole('button');
   fireEvent.click(button);
   expect(mockOnExpand).toHaveBeenCalled();
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  expect(getByText('Hello')).toBeTruthy();
+  expect(screen.getByText('Hello')).toBeTruthy();
 });
