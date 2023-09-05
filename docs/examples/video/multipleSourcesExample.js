@@ -4,6 +4,7 @@ import { Box, Video } from 'gestalt';
 
 export default function Example(): Node {
   const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState(1);
 
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
@@ -12,9 +13,13 @@ export default function Example(): Node {
           aspectRatio={426 / 240}
           controls
           playing={playing}
-          onPlay={() => {}}
-          onPlayError={() => {}}
+          volume={volume}
+          onPlay={() => setPlaying(true)}
+          onPlayError={({ error }) => error && setPlaying(false)}
           onControlsPlay={() => setPlaying(true)}
+          onControlsPause={() => setPlaying(false)}
+          onEnded={() => setPlaying(false)}
+          onVolumeChange={(e) => setVolume(e.volume)}
           src={[
             {
               type: 'video/mp4',

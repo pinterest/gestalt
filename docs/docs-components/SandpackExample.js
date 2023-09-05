@@ -243,11 +243,14 @@ export default function SandpackExample({
           import { Box, ColorSchemeProvider } from 'gestalt';
           import App from "./App";
 
+          const html = document.querySelector('html');
+          html.setAttribute('dir', '${exampleTextDirection}');
+
           const root = createRoot(document.getElementById("root"));
           root.render(
             <StrictMode>
               <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
-                <Box color="default" height="100%" width="100%" dir="${exampleTextDirection}">
+                <Box color="default" height="100%" width="100%">
                   <App />
                 </Box>
               </ColorSchemeProvider>
