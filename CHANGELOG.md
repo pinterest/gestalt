@@ -1,3 +1,9 @@
+## 122.5.1 (Sep 5, 2023)
+
+### Patch
+
+- Internal: remove all `eslint-disable-next-line testing-library/prefer-screen-queries` disables from unit tests ([#3182](https://github.com/pinterest/gestalt/pull/3182)) - [Preview link](https://deploy-preview-3182--gestalt.netlify.app?devexample=true)
+
 ## 122.5.0 (Sep 5, 2023)
 
 ### Minor
