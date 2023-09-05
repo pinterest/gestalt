@@ -27,7 +27,7 @@ Gestalt icon svg files follow a particular format and use automatic file validat
 
 We override the color in the Gestalt Icon component and Gestalt only uses the \`d\` attribute in the \`path\` tag and the basic attributes for visualizing the raw file in the \`svg\` tag . For consistency and for smaller bundle sizes, we don't include unnecessary attributes in the \`svg\` and \`path\` tags.
 
-All Gestalt SVGs need to be exported from Figma using the Icon Exporter plugin`}
+All Gestalt SVGs need to be exported from Figma using the [Icon Exporter plugin available in our Pinterest Design Figma plugin](/get_started/designers#Private-Figma-plugins)`}
         />
       </MainSection>
       <MainSection name="Brand icons">
