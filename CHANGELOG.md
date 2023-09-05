@@ -1,3 +1,9 @@
+## 122.5.3 (Sep 5, 2023)
+
+### Patch
+
+- Icon: update visual-tests snapshot and updates in Docs ([#3184](https://github.com/pinterest/gestalt/pull/3184)) - [Preview link](https://deploy-preview-3184--gestalt.netlify.app?devexample=true)
+
 ## 122.5.2 (Sep 5, 2023)
 
 ### Patch
