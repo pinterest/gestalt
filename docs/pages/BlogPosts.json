@@ -23,19 +23,19 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/51/ed/b1/51edb1ecef22ebb66ec1846ef86fc6e7.png",
             "imageAltText": "Screenshot of IconButtonLink UI with a visit icon or an arrow to the top-right corner and a tooltip that reads 'Visit Pinterest!'",
-            "content": "Button, IconButton and TapArea can behave like buttons or links. Last month, we added ButtonLink. This month we released [TapAreaLink](https://gestalt.pinterest.systems/web/taparealink) and [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink): these components are only links. Stay tunned, we'll be deprecating `role` prop soon in these components."
+            "content": "Button, IconButton and TapArea can behave like buttons and links. Last month, we added ButtonLink to the library. This month, we just released [TapAreaLink](https://gestalt.pinterest.systems/web/taparealink) and [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink): these components are only links. Stay tunned, we'll be deprecating the `role` prop soon."
           },
           {
             "title": "Testing id support",
             "audience": ["Engineering"],
-            "content": "We are working on expanding support to data-test-id in our components. This improvement helps engineers building better tests: faster and more reliable. Check TapArea's, TapAreaLink's, and IconButtonLink's new `dataTestId` prop. You can also use `name` prop Button and IconButton also now to build (better testing queries)[https://testing-library.com/docs/queries/about/#priority]."
+            "content": "We are working on expanding support to data-test-id in our components. This improvement helps engineers building better tests: faster and more reliable. Check TapArea's, TapAreaLink's, and IconButtonLink's new `dataTestId` prop. You can also use `name` prop Button and IconButton to build (better testing queries)[https://testing-library.com/docs/queries/about/#priority]."
           },
           {
             "title": "Component updates: Text, Heading ",
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/e0/5e/6b/e05e6b9c2831290cb1c6229e0e934edf.png",
             "imageAltText": "Screenshot breakAll in Text where the text string is justified",
-            "content": "[Text](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) and [Heading](https://gestalt.pinterest.systems/web/heading#Overflow-and-truncation) now supports `breakAll` in `overflow` prop."
+            "content": "[Text](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) and [Heading](https://gestalt.pinterest.systems/web/heading#Overflow-and-truncation) now supports `breakAll` in the `overflow` prop."
           },
           {
             "title": "Docs updates",
