@@ -148,6 +148,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
                 hideEditor
                 hideControls
                 name="Use a Tooltip on disabled ButtonLink, as it is not accessible for keyboard and screen reader users."
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
             type="don't"
@@ -172,7 +173,7 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
         <MainSection.Subsection
           title="Icons"
           description={`
-\`iconEnd\` adds an icon after the ButtonLink text. Icons should only be used to visually reinforce a specific function or interaction of the ButtonLink. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on ButtonLink is not accessible to screen readers.
+\`iconEnd\` adds an icon after the ButtonLink text. Icons should only be used to visually reinforce a specific function or interaction of the ButtonLink. Menus and external links are a common use case. The icon \`visit\` is recommended for use with ButtonLink. Note that iconEnd on ButtonLink is not accessible to screen readers.
 `}
         >
           <MainSection.Card
@@ -194,8 +195,6 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
     The typical state of a ButtonLink that represents it can be interacted with and is not in a selected state.
 2. Disabled
 Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
-3. Selected
-  When ButtonLink is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state.
 `}
         >
           <MainSection.Card

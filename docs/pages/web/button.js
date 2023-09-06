@@ -330,6 +330,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
                 hideEditor
                 hideControls
                 name="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
             type="don't"
