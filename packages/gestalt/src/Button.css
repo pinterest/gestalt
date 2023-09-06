@@ -1,65 +1,65 @@
 .button {
-  composes: borderBox minWidth60 from "./Layout.css";
-  composes: noBorder from "./Borders.css";
+  composes: borderBox minWidth60 from "../Layout.css";
+  composes: noBorder from "../Borders.css";
   border-radius: 24px;
 }
 
 .parentButton {
-  composes: paddingX0 from "./boxWhitespace.css";
-  composes: paddingY0 from "./boxWhitespace.css";
-  composes: transparentBg from "./Colors.css";
+  composes: paddingX0 from "../boxWhitespace.css";
+  composes: paddingY0 from "../boxWhitespace.css";
+  composes: transparentBg from "../Colors.css";
 }
 
 .childrenDiv {
-  composes: flex from "./Layout.css";
-  composes: xsItemsCenter from "./Layout.css";
-  composes: justifyCenter from "./Layout.css";
-  composes: fullWidth from "./TapArea.css";
+  composes: flex from "../Layout.css";
+  composes: xsItemsCenter from "../Layout.css";
+  composes: justifyCenter from "../Layout.css";
+  composes: fullWidth from "../TapArea.css";
 }
 
 .sm {
-  composes: small from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
-  composes: paddingY1 from "./boxWhitespace.css";
+  composes: small from "../Layout.css";
+  composes: paddingX3 from "../boxWhitespace.css";
+  composes: paddingY1 from "../boxWhitespace.css";
 }
 
 .md {
-  composes: medium from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
-  composes: paddingY2 from "./boxWhitespace.css";
+  composes: medium from "../Layout.css";
+  composes: paddingX3 from "../boxWhitespace.css";
+  composes: paddingY2 from "../boxWhitespace.css";
 }
 
 .lg {
-  composes: large from "./Layout.css";
-  composes: paddingX4 from "./boxWhitespace.css";
-  composes: paddingY3 from "./boxWhitespace.css";
+  composes: large from "../Layout.css";
+  composes: paddingX4 from "../boxWhitespace.css";
+  composes: paddingY3 from "../boxWhitespace.css";
 }
 
 .block {
-  composes: xsCol12 from "./Column.css";
-  composes: block from "./Layout.css";
+  composes: xsCol12 from "../Column.css";
+  composes: block from "../Layout.css";
 }
 
 .inline {
-  composes: inlineBlock from "./Layout.css";
+  composes: inlineBlock from "../Layout.css";
 }
 
 .enabled {
-  composes: pointer from "./Cursor.css";
+  composes: pointer from "../Cursor.css";
 }
 
 .disabled {
-  composes: lightGrayBg from "./Colors.css";
+  composes: lightGrayBg from "../Colors.css";
   cursor: default;
   pointer-events: none;
 }
 
 .selected {
-  composes: darkGrayBg from "./Colors.css";
+  composes: darkGrayBg from "../Colors.css";
 }
 
 .gray {
-  composes: lightGrayBg from "./Colors.css";
+  composes: lightGrayBg from "../Colors.css";
 }
 
 .gray:hover,
@@ -72,11 +72,11 @@
 }
 
 .red {
-  composes: redBg from "./Colors.css";
+  composes: redBg from "../Colors.css";
 }
 
 .darkModeRed {
-  composes: red0Bg from "./Colors.css";
+  composes: red0Bg from "../Colors.css";
 }
 
 .red:hover,
@@ -92,7 +92,7 @@
 }
 
 .blue {
-  composes: blueBg from "./Colors.css";
+  composes: blueBg from "../Colors.css";
 }
 
 .blue:hover,
@@ -105,7 +105,7 @@
 }
 
 .transparent {
-  composes: transparentBg from "./Colors.css";
+  composes: transparentBg from "../Colors.css";
 }
 
 .transparent:hover,
@@ -118,11 +118,11 @@
 }
 
 .semiTransparentWhite {
-  composes: transparentWhiteBg from "./Colors.css";
+  composes: transparentWhiteBg from "../Colors.css";
 }
 
 .white {
-  composes: whiteBg from "./Colors.css";
+  composes: whiteBg from "../Colors.css";
 }
 
 .semiTransparentWhite:hover,

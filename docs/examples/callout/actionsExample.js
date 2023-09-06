@@ -35,12 +35,14 @@ export default function Example(): Node {
             accessibilityLabel: 'Apply now: verified merchant program',
             label: 'Apply now',
             onClick: toggleModal,
+            role: 'button',
           }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Verified Merchant Program',
             href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Your business account was created!"
           type="info"

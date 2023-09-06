@@ -15,7 +15,11 @@ export default function Example(): Node {
             component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
           }}
           message="Install the Pinterest tag to track your website traffic, conversions and more."
-          primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
+          primaryAction={{
+            label: 'Install now',
+            accessibilityLabel: 'Install Pinterest tag',
+            role: 'button',
+          }}
           title="Measure ad performance"
         />
         <Upsell
@@ -27,7 +31,11 @@ export default function Example(): Node {
             component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
           }}
           message="Install the Pinterest tag to track your website traffic, conversions and more."
-          primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
+          primaryAction={{
+            label: 'Install now',
+            accessibilityLabel: 'Install Pinterest tag',
+            role: 'button',
+          }}
           title="Measure ad performance"
         />
       </Flex>

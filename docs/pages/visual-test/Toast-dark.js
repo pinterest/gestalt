@@ -7,7 +7,7 @@ export default function Snapshot(): Node {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default">
         <Toast
-          primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+          primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg', role: 'button' }}
           text="Home decor"
           thumbnail={{
             image: (

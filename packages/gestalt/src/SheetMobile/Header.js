@@ -150,16 +150,28 @@ export default function Header({
         {primaryAction ? (
           // Allow button text to wrap on mobile
           <Flex.Item flex="shrink">
-            <PrimaryAction
-              accessibilityLabel={primaryAction.accessibilityLabel}
-              href={primaryAction.href}
-              rel={primaryAction?.rel}
-              target={primaryAction?.target}
-              label={primaryAction.label}
-              onClick={({ event }) =>
-                primaryAction?.onClick({ event, onDismissStart: onExternalDismiss })
-              }
-            />
+            {primaryAction.href ? (
+              <PrimaryAction
+                accessibilityLabel={primaryAction.accessibilityLabel}
+                href={primaryAction.href}
+                rel={primaryAction.rel}
+                target={primaryAction?.target}
+                label={primaryAction.label}
+                onClick={({ event }) =>
+                  primaryAction?.onClick({ event, onDismissStart: onExternalDismiss })
+                }
+                role="link"
+              />
+            ) : (
+              <PrimaryAction
+                accessibilityLabel={primaryAction.accessibilityLabel}
+                label={primaryAction.label}
+                onClick={({ event }) =>
+                  primaryAction?.onClick({ event, onDismissStart: onExternalDismiss })
+                }
+                role="button"
+              />
+            )}
           </Flex.Item>
         ) : null}
       </Flex>

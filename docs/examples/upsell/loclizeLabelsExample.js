@@ -13,7 +13,7 @@ export default function Example(): Node {
         primaryAction={{
           label: 'Beanspruche jetzt',
           accessibilityLabel: 'Beanspruche Guthaben jetzt',
-          target: 'blank',
+          role: 'button',
         }}
         title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
       />

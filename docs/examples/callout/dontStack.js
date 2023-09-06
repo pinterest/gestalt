@@ -28,6 +28,7 @@ export default function Example(): Node {
               primaryAction={{
                 accessibilityLabel: 'Claim ads credit now',
                 label: 'Claim now',
+                role: 'button',
               }}
               title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
             />
@@ -41,6 +42,7 @@ export default function Example(): Node {
               primaryAction={{
                 accessibilityLabel: 'Manually verify tag',
                 label: 'Verify Tag',
+                role: 'button',
               }}
               title="We have not yet detected your tag"
               type="info"

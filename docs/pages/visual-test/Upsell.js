@@ -19,6 +19,7 @@ export default function Snapshot(): Node {
           label: 'Send invite',
           accessibilityLabel: 'Invite friend to use ads',
           target: 'blank',
+          role: 'link',
         }}
         title="Give $30, get $60 in ads credit"
       />

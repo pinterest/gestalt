@@ -1,66 +1,56 @@
 // @flow strict
 import { type Node } from 'react';
 import Button from '../Button.js';
+import ButtonLink from '../ButtonLink.js';
 
-export type ActionDataType = {|
+type LinkDataType = {|
+  role: 'link',
   accessibilityLabel: string,
   disabled?: boolean,
   href?: string,
   label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
+type ButtonDataType = {|
+  role: 'button',
+  accessibilityLabel: string,
+  disabled?: boolean,
+  label: string,
+  onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+|};
 
-type Props = {| ...ActionDataType, dataTestId?: string, type: string |};
+type Props = {| ...LinkDataType | ButtonDataType, dataTestId?: string, type: string |};
 
-export default function ModalAlertAction({
-  accessibilityLabel,
-  dataTestId,
-  disabled,
-  label,
-  onClick,
-  href,
-  rel,
-  target,
-  type,
-}: Props): Node {
+export default function ModalAlertAction({ dataTestId, type, ...props }: Props): Node {
   const color = type === 'primary' ? 'red' : 'gray';
 
-  return href ? (
-    <Button
-      accessibilityLabel={accessibilityLabel}
+  return props.role === 'link' ? (
+    <ButtonLink
+      accessibilityLabel={props.accessibilityLabel}
       color={color}
       dataTestId={dataTestId}
-      disabled={disabled}
-      href={href}
+      disabled={props.disabled}
+      href={props.href || ''}
       fullWidth
-      onClick={onClick}
+      onClick={props.onClick}
       iconEnd="visit"
-      rel={rel}
-      role="link"
+      rel={props.rel}
       size="lg"
-      target={target}
-      text={label}
+      target={props.target}
+      text={props.label}
     />
   ) : (
     <Button
-      accessibilityLabel={accessibilityLabel}
+      accessibilityLabel={props.accessibilityLabel}
       dataTestId={dataTestId}
-      disabled={disabled}
+      disabled={props.disabled}
       color={color}
-      onClick={onClick}
+      onClick={props.onClick}
       fullWidth
-      role="button"
       size="lg"
-      text={label}
+      text={props.label}
     />
   );
 }

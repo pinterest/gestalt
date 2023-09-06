@@ -50,6 +50,7 @@ export default function Example(): Node {
                     accessibilityLabel: 'Apply for increasing your daily spend',
                     label: 'Apply',
                     onClick: () => {},
+                    role: 'button',
                   }}
                   dismissButton={{
                     accessibilityLabel: 'Dismiss',

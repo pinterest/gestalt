@@ -19,12 +19,14 @@ export default function Example(): Node {
           href: 'https://pinterest.com',
           label: 'Send invite',
           target: 'blank',
+          role: 'link',
         }}
         secondaryAction={{
           accessibilityLabel: 'Learn more: Ads credit',
           href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
           label: 'Learn more',
           target: 'blank',
+          role: 'link',
         }}
         title="Give $30, get $60 in ads credit"
       />

@@ -2,6 +2,7 @@
 import { Children, type Element, Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
@@ -55,44 +56,37 @@ function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperL
   );
 }
 
-type PrimaryActionType = {|
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href?: string,
-  label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+type PrimaryActionType =
+  | {|
+      role: 'link',
+      accessibilityLabel: string,
+      disabled?: boolean,
+      href?: string,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+      rel?: 'none' | 'nofollow',
+      target?: null | 'self' | 'blank',
+    |}
+  | {|
+      role: 'button',
+      accessibilityLabel: string,
+      disabled?: boolean,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+    |};
 
-function PrimaryAction({
-  accessibilityLabel,
-  disabled,
-  href,
-  label,
-  onClick,
-  rel,
-  target,
-}: PrimaryActionType) {
-  return href ? (
-    <Button
+function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: PrimaryActionType) {
+  return props.role === 'link' ? (
+    <ButtonLink
       accessibilityLabel={accessibilityLabel}
       color="white"
       disabled={disabled}
       fullWidth
-      href={href}
-      onClick={onClick}
-      rel={rel}
-      role="link"
+      href={props.href ?? ''}
+      onClick={props.onClick}
+      rel={props.rel}
       size="sm"
-      target={target}
+      target={props.target}
       text={label}
     />
   ) : (
@@ -101,8 +95,7 @@ function PrimaryAction({
       color="white"
       disabled={disabled}
       fullWidth
-      onClick={onClick}
-      role="button"
+      onClick={props.onClick}
       size="sm"
       text={label}
     />

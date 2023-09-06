@@ -74,11 +74,13 @@ export default function Example(): Node {
                 href: '#',
                 label: 'Get started',
                 accessibilityLabel: 'Get started: verified merchant program',
+                role: 'link',
               }}
               secondaryAction={{
                 href: '#',
                 label: 'Learn more',
                 accessibilityLabel: 'Learn more: verified merchant program',
+                role: 'link',
               }}
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',
@@ -92,6 +94,7 @@ export default function Example(): Node {
                 href: '#',
                 label: 'Send invite',
                 accessibilityLabel: 'Send invite for ads credit',
+                role: 'link',
               }}
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',

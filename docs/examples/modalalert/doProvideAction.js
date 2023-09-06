@@ -29,11 +29,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Update credit card info',
               label: 'Update credit card',
               href: 'https://www.pinterest.com',
+              role: 'link',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel',
               label: 'Cancel',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {}}
           >

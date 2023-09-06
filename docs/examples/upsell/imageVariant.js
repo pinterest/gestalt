@@ -29,6 +29,7 @@ export default function Example(): Node {
           label: 'Visit',
           accessibilityLabel: 'Visit our Stay Safe resources',
           target: 'blank',
+          role: 'link',
         }}
         title="Stay healthy and safe"
       />

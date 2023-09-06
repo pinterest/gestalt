@@ -28,11 +28,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Publish',
               label: 'Publish',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel',
               label: 'Cancel',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {}}
           >

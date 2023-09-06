@@ -3,6 +3,7 @@ import { Children, type Element, type ElementConfig, isValidElement, type Node }
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
@@ -72,15 +73,24 @@ type Props = {|
   /**
    * Adds an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
    */
-  primaryAction?: {|
-    accessibilityLabel: string,
-    href?: string,
-    label: string,
-    onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
-    rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
-    size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
-    target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
-  |},
+  primaryAction?:
+    | {|
+        role: 'link',
+        accessibilityLabel: string,
+        href?: string,
+        label: string,
+        onClick?: $ElementType<ElementConfig<typeof ButtonLink>, 'onClick'>,
+        rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
+        size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
+        target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
+      |}
+    | {|
+        role: 'button',
+        accessibilityLabel: string,
+        label: string,
+        onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+        size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
+      |},
 
   /**
    * Main content of Toast. Content should be [localized](https://gestalt.pinterest.systems/web/toast#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/toast#Text) to learn more.
@@ -211,17 +221,29 @@ export default function Toast({
               {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
               {!_dangerouslySetPrimaryAction &&
               primaryAction?.accessibilityLabel &&
-              primaryAction?.label ? (
-                <PrimaryAction
-                  accessibilityLabel={primaryAction.accessibilityLabel}
-                  href={primaryAction.href}
-                  rel={primaryAction?.rel}
-                  size="sm"
-                  target={primaryAction?.target}
-                  label={primaryAction.label}
-                  onClick={primaryAction.onClick}
-                />
-              ) : null}
+              primaryAction?.label
+                ? (primaryAction.role === 'link' && (
+                    <PrimaryAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      href={primaryAction.href}
+                      rel={primaryAction?.rel}
+                      size="sm"
+                      target={primaryAction?.target}
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      role="link"
+                    />
+                  ),
+                  primaryAction.role === 'button' && (
+                    <PrimaryAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      size="sm"
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      role="button"
+                    />
+                  ))
+                : null}
             </Flex.Item>
           ) : null}
 

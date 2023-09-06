@@ -29,7 +29,12 @@ export default function Example(): Node {
             justifyContent="center"
           >
             <Toast
-              primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+              primaryAction={{
+                accessibilityLabel: 'Test',
+                label: 'Undo',
+                size: 'lg',
+                role: 'button',
+              }}
               text={
                 <Text inline>
                   Saved to{' '}

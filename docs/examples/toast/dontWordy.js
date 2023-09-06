@@ -7,7 +7,11 @@ export default function Example(): Node {
     <Box paddingY={4} width="100%" height="100%">
       <Flex alignItems="end" justifyContent="center" width="100%" height="100%">
         <Toast
-          primaryAction={{ accessibilityLabel: 'Save to a board', label: 'Save to a board' }}
+          primaryAction={{
+            accessibilityLabel: 'Save to a board',
+            label: 'Save to a board',
+            role: 'button',
+          }}
           text={
             <Text inline>
               The pin{' '}
