@@ -96,7 +96,7 @@ type ButtonProps = {|
 |};
 
 /**
- * [ButtonLink](https://gestalt.pinterest.systems/buttonlink) is mainly used as navigational element
+ * [ButtonLink](https://gestalt.pinterest.systems/buttonlink) is mainly used as a navigational element to direct users to a new page or location.
  *
  * ![ButtonLink light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink.spec.mjs-snapshots/ButtonLink-chromium-darwin.png)
  * ![ButtonLink dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink-dark.spec.mjs-snapshots/ButtonLink-dark-chromium-darwin.png)
