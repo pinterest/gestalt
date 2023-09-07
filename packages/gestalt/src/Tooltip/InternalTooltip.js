@@ -120,6 +120,7 @@ export default function InternalTooltip({
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
+        aria-hidden={disabled ? true : undefined}
         aria-label={accessibilityLabel != null ? accessibilityLabel : text}
         ref={childRef}
         onFocus={handleIconMouseEnter}
