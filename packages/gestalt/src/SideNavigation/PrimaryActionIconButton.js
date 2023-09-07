@@ -83,55 +83,55 @@ function ItemIconButton({
     : new FixedZIndex(1);
   const dropdownZIndex = new CompositeZIndex([tooltipZIndex]);
   return (
-    /* Interactive elements require an a11yLabel on them or their children. That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */
-    <TapArea
-      accessibilityControls={id}
-      accessibilityExpanded={open}
-      accessibilityLabel={tooltip?.accessibilityLabel ?? tooltip.text}
-      onMouseEnter={() => {
-        setCompression('none');
-        setHovered(true);
-      }}
-      onMouseLeave={() => {
-        setCompression('compress');
-        setHovered(false);
-      }}
-      onFocus={() => {
-        setFocused(true);
-        setShowIconButton('show');
-      }}
-      onBlur={() => {
-        setFocused(false);
-        // With keyboard navigation, we want to hide IconButton if we keep tabbing without opening Dropdown
-        // However, Dropdown captures focus, therefore, as soon as it opens could hide IconButton and unmount itself, never displaying
-        // We prevent this by disabling this action until Dropdown gets dismissed and unselects IconButton
-        if (typeof selected === 'undefined' || forceIconButton === 'default') {
-          setShowIconButton('hide');
-        }
-      }}
-      onTap={({ event }) => {
-        // We need event.stopPropagation(); so the SideNavigation.TopItem's onClick doesn't get trigger as well
-        event.stopPropagation();
-        // As soon as IconButton gets clicked, we force its display, only if selected === false.
-        // We don't force if selected ===  undefined, which would indicate there's no Dropdown associated, just an action
-        if (selected === false) {
-          setForceIconButton?.('force');
-        }
-
-        if (selected !== undefined) {
-          setSelected((value) => !value);
-          setOpen((value) => !value);
-        }
-
-        onClick?.({ event });
-      }}
-      ref={innerRef}
-      rounding="circle"
-      tapStyle="compress"
+    <MaybeTooltip
+      disabled={open}
+      tooltip={{ text: tooltip.text, accessibilityLabel: '', zIndex: tooltipZIndex }}
     >
-      <MaybeTooltip
-        disabled={open}
-        tooltip={{ text: tooltip.text, accessibilityLabel: '', zIndex: tooltipZIndex }}
+      {/* Interactive elements require an a11yLabel on them or their children. That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
+      <TapArea
+        accessibilityControls={id}
+        accessibilityExpanded={open}
+        accessibilityLabel={tooltip?.accessibilityLabel ?? tooltip.text}
+        onMouseEnter={() => {
+          setCompression('none');
+          setHovered(true);
+        }}
+        onMouseLeave={() => {
+          setCompression('compress');
+          setHovered(false);
+        }}
+        onFocus={() => {
+          setFocused(true);
+          setShowIconButton('show');
+        }}
+        onBlur={() => {
+          setFocused(false);
+          // With keyboard navigation, we want to hide IconButton if we keep tabbing without opening Dropdown
+          // However, Dropdown captures focus, therefore, as soon as it opens could hide IconButton and unmount itself, never displaying
+          // We prevent this by disabling this action until Dropdown gets dismissed and unselects IconButton
+          if (typeof selected === 'undefined' || forceIconButton === 'default') {
+            setShowIconButton('hide');
+          }
+        }}
+        onTap={({ event }) => {
+          // We need event.stopPropagation(); so the SideNavigation.TopItem's onClick doesn't get trigger as well
+          event.stopPropagation();
+          // As soon as IconButton gets clicked, we force its display, only if selected === false.
+          // We don't force if selected ===  undefined, which would indicate there's no Dropdown associated, just an action
+          if (selected === false) {
+            setForceIconButton?.('force');
+          }
+
+          if (selected !== undefined) {
+            setSelected((value) => !value);
+            setOpen((value) => !value);
+          }
+
+          onClick?.({ event });
+        }}
+        ref={innerRef}
+        rounding="circle"
+        tapStyle="compress"
       >
         <Pog
           accessibilityLabel=""
@@ -142,23 +142,23 @@ function ItemIconButton({
           iconColor={iconColor}
           bgColor={bgColor}
         />
-      </MaybeTooltip>
-      {open && (
-        <Dropdown
-          anchor={innerRef.current}
-          id={id}
-          onDismiss={() => {
-            setSelected(false);
-            setOpen(false);
-          }}
-          zIndex={dropdownZIndex}
-        >
-          {dropdownItems?.map((element, idx) =>
-            cloneElement(element, { key: `sidenavigation-dropdown-item-${idx}` }),
-          )}
-        </Dropdown>
-      )}
-    </TapArea>
+        {open && (
+          <Dropdown
+            anchor={innerRef.current}
+            id={id}
+            onDismiss={() => {
+              setSelected(false);
+              setOpen(false);
+            }}
+            zIndex={dropdownZIndex}
+          >
+            {dropdownItems?.map((element, idx) =>
+              cloneElement(element, { key: `sidenavigation-dropdown-item-${idx}` }),
+            )}
+          </Dropdown>
+        )}
+      </TapArea>
+    </MaybeTooltip>
   );
 }
 
