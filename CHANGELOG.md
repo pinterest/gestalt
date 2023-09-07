@@ -1,3 +1,9 @@
+## 122.5.5 (Sep 7, 2023)
+
+### Patch
+
+- Docs: Fix broken link in Get started/Designers section ([#3186](https://github.com/pinterest/gestalt/pull/3186)) - [Preview link](https://deploy-preview-3186--gestalt.netlify.app?devexample=true)
+
 ## 122.5.4 (Sep 6, 2023)
 
 ### Patch
