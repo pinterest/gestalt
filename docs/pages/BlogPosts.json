@@ -15,7 +15,7 @@
             "imageColor": "blue-skycicle-100",
             "imageSrc": "https://github.com/pinterest/gestalt/assets/50343812/e8894a3f-fef7-4395-93a7-3d4a715ff89d",
             "imageAltText": "Examples of the Figma Handoff Kit accessibility annotation components.",
-            "content": "We made *refinements* in our *Handoff Kit library* to bettersupport you! 🙌\n\nWhat changed:\n* Assets are using color variables instead of styles, it will make it easier for you to switch between themes (light and dark mode)\n* New accessibility annotations are available for you (keyboard navigation and error specs), plus, we added a section to explain how to use them\n* *Did you know we have an accessibility checklist component for you?* We recommend you to use it to check if your design meets accessibility standards!\n* Sizes and auto-layout issues were fixed\n\nEnable our [*Handoff Kit library*](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/%5BLibrary%5D-Gestalt-Handoff-Kit?type=design&mode=design&t=742YdaAQSpoMySWA-0) in your files to use it all!"
+            "content": "We made **refinements** in our **Handoff Kit library** to bettersupport you! 🙌\n\nWhat changed:\n* Assets are using color variables instead of styles, it will make it easier for you to switch between themes (light and dark mode)\n* New accessibility annotations are available for you (keyboard navigation and error specs), plus, we added a section to explain how to use them\n* **Did you know we have an accessibility checklist component for you?** We recommend you to use it to check if your design meets accessibility standards!\n* Sizes and auto-layout issues were fixed\n\n**Enable our [Handoff Kit library](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/%5BLibrary%5D-Gestalt-Handoff-Kit?type=design&mode=design&t=742YdaAQSpoMySWA-0) in your files to use it all!**"
           },
           {
             "title": "Toast updates",
@@ -26,7 +26,7 @@
             "imageColor": "blue-skycicle-100",
             "imageSrc": "https://github.com/pinterest/gestalt/assets/50343812/35e17554-8451-4a30-a9a5-86e716558cc9",
             "imageAltText": "Example of the new Toast component design.",
-            "content": "The Toast component for iOS and Android now have the same smaller and slicker design and styling as web. It was also simplified, so a few variants have been deprecated and will be deleted on *09/31/2023*. \n\n*Our ask:* If you notice Toast doesn't show the new design after updating your file, please replace the component. Thank you!"
+            "content": "The Toast component for iOS and Android now have the same smaller and slicker design and styling as web. It was also simplified, so a few variants have been deprecated and will be deleted on *09/31/2023*. \n\n**Our ask:** If you notice Toast doesn't show the new design after updating your file, please replace the component. Thank you!"
           },
           {
             "title": "Icon updates",
