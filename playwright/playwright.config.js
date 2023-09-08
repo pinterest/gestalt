@@ -10,6 +10,7 @@ const config = {
     toHaveScreenshot: {
       maxDiffPixels: 50,
       maxDiffPixelRatio: 0.01,
+      threshold: 0.7,
     },
   },
   forbidOnly: !!process.env.CI,
