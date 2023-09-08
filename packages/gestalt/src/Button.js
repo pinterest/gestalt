@@ -66,7 +66,7 @@ type Props = {|
   name?: string,
 |};
 
-type unionRefs = HTMLButtonElement | HTMLAnchorElement;
+type unionRefs = HTMLButtonElement;
 
 function InternalButtonContent({
   target,
@@ -107,8 +107,8 @@ function InternalButtonContent({
  *
  */
 const ButtonWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<Props, unionRefs>(
-  function Button(props: Props, ref): Node {
-    const {
+  function Button(
+    {
       accessibilityLabel,
       color = 'gray',
       dataTestId,
@@ -121,9 +121,11 @@ const ButtonWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<Pro
       size = 'md',
       text,
       type,
-    } = props;
-
-    const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+      ...props
+    }: Props,
+    ref,
+  ): Node {
+    const innerRef = useRef<null | HTMLButtonElement>(null);
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
     // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
@@ -192,38 +194,38 @@ const ButtonWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<Pro
       </Text>
     );
 
-    if (type === 'submit') {
-      const { name } = props;
+    // if (type === 'submit') {
+    //   const { name } = props;
 
-      return (
-        <button
-          aria-label={accessibilityLabel}
-          className={baseTypeClasses}
-          data-test-id={dataTestId}
-          disabled={disabled}
-          name={name}
-          onBlur={handleBlur}
-          onClick={(event) => onClick?.({ event })}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onTouchCancel={handleTouchCancel}
-          onTouchEnd={handleTouchEnd}
-          onTouchMove={handleTouchMove}
-          onTouchStart={handleTouchStart}
-          ref={innerRef}
-          style={compressStyle || undefined}
-          tabIndex={disabled ? null : tabIndex}
-          type="submit"
-        >
-          <InternalButtonContent
-            text={buttonText}
-            textColor={textColor}
-            icon={iconEnd}
-            size={size}
-          />
-        </button>
-      );
-    }
+    //   return (
+    //     <button
+    //       aria-label={accessibilityLabel}
+    //       className={baseTypeClasses}
+    //       data-test-id={dataTestId}
+    //       disabled={disabled}
+    //       name={name}
+    //       onBlur={handleBlur}
+    //       onClick={(event) => onClick?.({ event })}
+    //       onMouseDown={handleMouseDown}
+    //       onMouseUp={handleMouseUp}
+    //       onTouchCancel={handleTouchCancel}
+    //       onTouchEnd={handleTouchEnd}
+    //       onTouchMove={handleTouchMove}
+    //       onTouchStart={handleTouchStart}
+    //       ref={innerRef}
+    //       style={compressStyle || undefined}
+    //       tabIndex={disabled ? null : tabIndex}
+    //       type="submit"
+    //     >
+    //       <InternalButtonContent
+    //         text={buttonText}
+    //         textColor={textColor}
+    //         icon={iconEnd}
+    //         size={size}
+    //       />
+    //     </button>
+    //   );
+    // }
 
     const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, name } = props;
 
@@ -238,7 +240,7 @@ const ButtonWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<Pro
         disabled={disabled}
         name={name}
         onBlur={handleBlur}
-        onClick={(event) => onClick?.({ event })}
+        onClick={onClick}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onTouchCancel={handleTouchCancel}
@@ -246,8 +248,9 @@ const ButtonWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<Pro
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
         ref={innerRef}
+        style={compressStyle || undefined}
         tabIndex={disabled ? null : tabIndex}
-        type="button"
+        type={type === 'submit' ? 'submit' : 'button'}
       >
         <div className={childrenDivClasses} style={compressStyle || undefined}>
           {iconEnd ? (

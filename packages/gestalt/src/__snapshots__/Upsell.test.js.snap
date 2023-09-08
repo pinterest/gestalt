@@ -163,10 +163,9 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
               >
                 <button
                   aria-label="Submit button"
-                  className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
+                  className="button hideOutline inline accessibilityOutline parentButton"
                   disabled={false}
                   onBlur={[Function]}
-                  onClick={[Function]}
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                   onTouchCancel={[Function]}
@@ -177,16 +176,12 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                   type="submit"
                 >
                   <div
-                    className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                    className="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
                   >
                     <div
-                      className="FlexItem"
+                      className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
                     >
-                      <div
-                        className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
-                      >
-                        Submit
-                      </div>
+                      Submit
                     </div>
                   </div>
                 </button>

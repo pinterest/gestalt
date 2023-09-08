@@ -37,7 +37,12 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '', role: 'button' }}
+        primaryAction={{
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'button',
+          onClick: () => {},
+        }}
         title="A Title"
       />,
     ).toJSON();

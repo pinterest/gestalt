@@ -108,7 +108,6 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
           className="button hideOutline inline accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
-          onClick={[Function]}
           onMouseDown={[Function]}
           onMouseUp={[Function]}
           onTouchCancel={[Function]}

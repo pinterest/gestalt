@@ -20,6 +20,7 @@ export default function Example(): Node {
             label: 'Install now',
             accessibilityLabel: 'Install Pinterest tag now',
             role: 'button',
+            onClick: () => {},
           }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Pinterest tag',
@@ -41,6 +42,7 @@ export default function Example(): Node {
             label: 'Claim now',
             accessibilityLabel: 'Claim ads credit',
             role: 'button',
+            onClick: () => {},
           }}
           title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
         />

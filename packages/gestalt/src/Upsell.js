@@ -17,21 +17,21 @@ import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 export type ActionDataType =
   | {|
-      role: 'link',
       accessibilityLabel: string,
       disabled?: boolean,
-      href?: string,
+      href: string,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
       rel?: 'none' | 'nofollow',
+      role: 'link',
       target?: null | 'self' | 'blank',
     |}
   | {|
-      role: 'button',
       accessibilityLabel: string,
       disabled?: boolean,
       label: string,
-      onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      onClick: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role: 'button',
     |};
 
 type UpsellActionProps = {|

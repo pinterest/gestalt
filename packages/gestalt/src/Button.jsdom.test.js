@@ -13,10 +13,16 @@ describe('Button', () => {
       ],
       void,
     >();
-    const { getByText } = render(<Button text="ButtonText" onClick={mockOnClick} />);
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('ButtonText').click();
+    render(<Button text="ButtonText" onClick={mockOnClick} />);
+    screen.getByText('ButtonText').click();
     expect(mockOnClick).toHaveBeenCalled();
+  });
+
+  it('renders a submit button and forwards a ref to the innermost <button> element', () => {
+    const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
+    render(<Button type="submit" text="test" ref={ref} />);
+    expect(ref.current instanceof HTMLButtonElement).toEqual(true);
+    expect(ref.current?.type).toEqual('submit');
   });
 
   it('renders a default button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {

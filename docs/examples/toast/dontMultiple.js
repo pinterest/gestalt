@@ -22,6 +22,7 @@ export default function Example(): Node {
             accessibilityLabel: 'View new recommendations',
             label: 'View',
             role: 'button',
+            onClick: () => {},
           }}
         />
         <Toast text="Password updated" type="success" />

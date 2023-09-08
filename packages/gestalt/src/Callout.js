@@ -14,21 +14,21 @@ import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 export type ActionDataType =
   | {|
-      role: 'link',
       accessibilityLabel: string,
       disabled?: boolean,
       href: string,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
       rel?: 'none' | 'nofollow',
+      role: 'link',
       target?: null | 'self' | 'blank',
     |}
   | {|
-      role: 'button',
       accessibilityLabel: string,
       disabled?: boolean,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role: 'button',
     |};
 
 type Props = {|
@@ -52,13 +52,47 @@ type Props = {|
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  primaryAction?: ActionDataType,
+  primaryAction?:
+    | {|
+        role: 'link',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        href: string,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+        rel?: 'none' | 'nofollow',
+        target?: null | 'self' | 'blank',
+      |}
+    | {|
+        role: 'button',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      |},
   /**
-   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-   * If no `href` is supplied, the action will be a button.
+   * Secondary action for users to take on Callout. If role='link', the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If role='button', the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  secondaryAction?: ActionDataType,
+  secondaryAction?:
+    | {|
+        role: 'link',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        href: string,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+        rel?: 'none' | 'nofollow',
+        target?: null | 'self' | 'blank',
+      |}
+    | {|
+        role: 'button',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      |},
   /**
    * The category of Callout. See [Variants](https://gestalt.pinterest.systems/web/callout#Variants) to learn more.
    */

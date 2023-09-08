@@ -29,6 +29,7 @@ export default function Example(): Node {
                 accessibilityLabel: 'Claim ads credit now',
                 label: 'Claim now',
                 role: 'button',
+                onClick: () => {},
               }}
               title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
             />

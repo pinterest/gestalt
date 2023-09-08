@@ -25,6 +25,7 @@ export default function Example(): Node {
           label: 'Try again',
           accessibilityLabel: 'Try linking account again',
           role: 'button',
+          onClick: () => {},
         }}
         title="Could not link account"
       />

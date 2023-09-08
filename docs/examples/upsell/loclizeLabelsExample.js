@@ -14,6 +14,7 @@ export default function Example(): Node {
           label: 'Beanspruche jetzt',
           accessibilityLabel: 'Beanspruche Guthaben jetzt',
           role: 'button',
+          onClick: () => {},
         }}
         title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
       />

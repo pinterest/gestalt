@@ -4,24 +4,28 @@ import Button from '../Button.js';
 import ButtonLink from '../ButtonLink.js';
 
 type LinkDataType = {|
-  role: 'link',
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
-  href?: string,
+  href: string,
   label: string,
   onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
   rel?: 'none' | 'nofollow',
+  role: 'link',
   target?: null | 'self' | 'blank',
+  type: string,
 |};
 type ButtonDataType = {|
-  role: 'button',
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
   label: string,
   onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+  role: 'button',
+  type: string,
 |};
 
-type Props = {| ...LinkDataType | ButtonDataType, dataTestId?: string, type: string |};
+type Props = LinkDataType | ButtonDataType;
 
 export default function ModalAlertAction({ dataTestId, type, ...props }: Props): Node {
   const color = type === 'primary' ? 'red' : 'gray';
@@ -32,10 +36,10 @@ export default function ModalAlertAction({ dataTestId, type, ...props }: Props):
       color={color}
       dataTestId={dataTestId}
       disabled={props.disabled}
-      href={props.href || ''}
       fullWidth
-      onClick={props.onClick}
+      href={props.href || ''}
       iconEnd="visit"
+      onClick={props.onClick}
       rel={props.rel}
       size="lg"
       target={props.target}
@@ -44,11 +48,11 @@ export default function ModalAlertAction({ dataTestId, type, ...props }: Props):
   ) : (
     <Button
       accessibilityLabel={props.accessibilityLabel}
+      color={color}
       dataTestId={dataTestId}
       disabled={props.disabled}
-      color={color}
-      onClick={props.onClick}
       fullWidth
+      onClick={props.onClick}
       size="lg"
       text={props.label}
     />

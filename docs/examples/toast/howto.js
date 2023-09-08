@@ -34,6 +34,7 @@ export default function Example(): Node {
                 label: 'Undo',
                 size: 'lg',
                 role: 'button',
+                onClick: () => {},
               }}
               text={
                 <Text inline>

@@ -58,21 +58,21 @@ function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperL
 
 type PrimaryActionType =
   | {|
-      role: 'link',
       accessibilityLabel: string,
       disabled?: boolean,
-      href?: string,
+      href: string,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
       rel?: 'none' | 'nofollow',
+      role: 'link',
       target?: null | 'self' | 'blank',
     |}
   | {|
-      role: 'button',
       accessibilityLabel: string,
       disabled?: boolean,
       label: string,
-      onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      onClick: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role: 'button',
     |};
 
 function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: PrimaryActionType) {
@@ -82,7 +82,7 @@ function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: Primar
       color="white"
       disabled={disabled}
       fullWidth
-      href={props.href ?? ''}
+      href={props.href}
       onClick={props.onClick}
       rel={props.rel}
       size="sm"

@@ -81,6 +81,7 @@ describe('<Toast />', () => {
           label: 'Undo',
           size: 'lg',
           role: 'button',
+          onClick: () => {},
         }}
       />,
     ).toJSON();

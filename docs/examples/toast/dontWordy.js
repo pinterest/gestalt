@@ -11,6 +11,7 @@ export default function Example(): Node {
             accessibilityLabel: 'Save to a board',
             label: 'Save to a board',
             role: 'button',
+            onClick: () => {},
           }}
           text={
             <Text inline>

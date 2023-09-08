@@ -75,20 +75,20 @@ type Props = {|
    */
   primaryAction?:
     | {|
-        role: 'link',
         accessibilityLabel: string,
-        href?: string,
+        href: string,
         label: string,
         onClick?: $ElementType<ElementConfig<typeof ButtonLink>, 'onClick'>,
         rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
+        role: 'link',
         size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
         target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
       |}
     | {|
-        role: 'button',
         accessibilityLabel: string,
         label: string,
-        onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+        onClick: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+        role: 'button',
         size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
       |},
 
@@ -226,21 +226,21 @@ export default function Toast({
                     <PrimaryAction
                       accessibilityLabel={primaryAction.accessibilityLabel}
                       href={primaryAction.href}
-                      rel={primaryAction?.rel}
-                      size="sm"
-                      target={primaryAction?.target}
                       label={primaryAction.label}
                       onClick={primaryAction.onClick}
+                      rel={primaryAction?.rel}
                       role="link"
+                      size="sm"
+                      target={primaryAction?.target}
                     />
                   ),
                   primaryAction.role === 'button' && (
                     <PrimaryAction
                       accessibilityLabel={primaryAction.accessibilityLabel}
-                      size="sm"
                       label={primaryAction.label}
                       onClick={primaryAction.onClick}
                       role="button"
+                      size="sm"
                     />
                   ))
                 : null}

@@ -19,6 +19,7 @@ export default function Example(): Node {
             label: 'Install now',
             accessibilityLabel: 'Install Pinterest tag',
             role: 'button',
+            onClick: () => {},
           }}
           title="Measure ad performance"
         />
@@ -35,6 +36,7 @@ export default function Example(): Node {
             label: 'Install now',
             accessibilityLabel: 'Install Pinterest tag',
             role: 'button',
+            onClick: () => {},
           }}
           title="Measure ad performance"
         />

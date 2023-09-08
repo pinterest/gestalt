@@ -6,20 +6,20 @@ import Link from '../Link.js';
 
 type Props =
   | {|
-      role: 'link',
       accessibilityLabel: string,
-      href?: string,
+      href: string,
       label: string,
       onClick?: $ElementType<ElementConfig<typeof ButtonLink>, 'onClick'>,
       rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
+      role: 'link',
       size?: $ElementType<ElementConfig<typeof ButtonLink>, 'size'>,
       target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
     |}
   | {|
-      role: 'button',
       accessibilityLabel: string,
       label: string,
       onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+      role: 'button',
       size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     |};
 
@@ -33,23 +33,23 @@ export default function PrimaryAction({
     return (
       <ButtonLink
         accessibilityLabel={accessibilityLabel}
+        color="red"
         href={props.href || ''}
+        onClick={props.onClick}
         rel={props.rel}
+        size={size}
         target={props.target}
         text={label}
-        size={size}
-        onClick={props.onClick}
-        color="red"
       />
     );
 
   return (
     <Button
       accessibilityLabel={accessibilityLabel}
-      text={label}
-      size={size}
-      onClick={props.onClick}
       color="red"
+      onClick={props.onClick}
+      size={size}
+      text={label}
     />
   );
 }

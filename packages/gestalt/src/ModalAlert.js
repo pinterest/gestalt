@@ -11,23 +11,23 @@ import ModalAlertHeader from './ModalAlert/Header.js';
 
 export type ActionDataType =
   | {|
-      role: 'link',
       accessibilityLabel: string,
       dataTestId?: string,
       disabled?: boolean,
-      href?: string,
+      href: string,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
       rel?: 'none' | 'nofollow',
+      role: 'link',
       target?: null | 'self' | 'blank',
     |}
   | {|
-      role: 'button',
       accessibilityLabel: string,
       dataTestId?: string,
       disabled?: boolean,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role: 'button',
     |};
 
 type Props = {|

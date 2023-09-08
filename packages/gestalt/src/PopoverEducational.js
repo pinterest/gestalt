@@ -17,14 +17,14 @@ type PrimaryActionType =
   | {|
       accessibilityLabel?: string,
       href: string,
-      role: 'link',
-      text: string,
       onClick?: ({|
         event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
         dangerouslyDisableOnNavigation: () => void,
       |}) => void,
       rel?: 'none' | 'nofollow',
+      role: 'link',
       target?: null | 'self' | 'blank',
+      text: string,
     |}
   | {|
       accessibilityLabel?: string,
