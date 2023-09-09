@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Testing Local Changes..."
-
 echo "build"
 (cd packages/gestalt && yarn build)
 (cd packages/gestalt-charts && yarn build)
@@ -50,7 +48,7 @@ then
 fi
 
 # We're going to run visual locally for now and only when files in the gestalt library are changed
-if  [ -z "${GITHUB_ACTIONS:-}" ] && [ -n "$(git diff  HEAD master -- playwright)" ]; then
+if  [ -z "${GITHUB_ACTIONS:-}" ] && [ -n "$(git diff  HEAD master -- gestalt)" ]; then
   echo "Running playwright tests locally"
   yarn run playwright:visual-test
 fi
