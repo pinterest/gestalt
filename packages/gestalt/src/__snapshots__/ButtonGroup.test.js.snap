@@ -11,6 +11,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       className="button hideOutline inline accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}
@@ -38,6 +39,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       className="button hideOutline inline accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}
@@ -74,6 +76,7 @@ exports[`ButtonGroup Renders the child without container when 1 child is passed 
       className="button hideOutline inline accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onMouseDown={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}

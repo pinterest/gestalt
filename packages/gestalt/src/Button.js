@@ -39,6 +39,9 @@ const SIZE_NAME_TO_PIXEL = {
 type Target = null | 'self' | 'blank';
 
 type Props = {|
+  accessibilityControls?: string,
+  accessibilityExpanded?: boolean,
+  accessibilityHaspopup?: boolean,
   accessibilityLabel?: string,
   color?:
     | 'gray'
@@ -50,20 +53,17 @@ type Props = {|
     | 'white',
   dataTestId?: string,
   disabled?: boolean,
-  iconEnd?: $Keys<typeof icons>,
   fullWidth?: boolean,
-  tabIndex?: -1 | 0,
-  size?: 'sm' | 'md' | 'lg',
-  text: string,
+  iconEnd?: $Keys<typeof icons>,
+  name?: string,
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   |}) => void,
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
   selected?: boolean,
+  size?: 'sm' | 'md' | 'lg',
+  tabIndex?: -1 | 0,
+  text: string,
   type?: 'button' | 'submit',
-  name?: string,
 |};
 
 function InternalButtonContent({
