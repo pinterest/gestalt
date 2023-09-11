@@ -1,3 +1,9 @@
+## 122.5.6 (Sep 11, 2023)
+
+### Patch
+
+- Docs: 9/8 weekly digest ([#3190](https://github.com/pinterest/gestalt/pull/3190)) - [Preview link](https://deploy-preview-3190--gestalt.netlify.app?devexample=true)
+
 ## 122.5.5 (Sep 7, 2023)
 
 ### Patch
