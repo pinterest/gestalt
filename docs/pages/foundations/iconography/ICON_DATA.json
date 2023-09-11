@@ -273,6 +273,12 @@
       "keywords": ["business manager", "business", "company"]
     },
     {
+      "name": "business-hierarchy",
+      "categories": ["Ads and measurement"],
+      "description": "Indicates the business hierarchy in Business access",
+      "keywords": ["org chart", "company"]
+    },
+    {
       "name": "calendar",
       "categories": ["Time", "Toggle"],
       "description": "Indicates date selection",
