@@ -1,3 +1,9 @@
+## 122.5.7 (Sep 11, 2023)
+
+### Patch
+
+- Internal: Re-update playwright snapshots to match master ([#3189](https://github.com/pinterest/gestalt/pull/3189)) - [Preview link](https://deploy-preview-3189--gestalt.netlify.app?devexample=true)
+
 ## 122.5.6 (Sep 11, 2023)
 
 ### Patch
