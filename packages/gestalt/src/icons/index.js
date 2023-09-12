@@ -39,6 +39,7 @@ import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
 import board from './board.svg';
 import briefcase from './briefcase.svg';
+import businessHierarchy from './business-hierarchy.svg';
 import calendar from './calendar.svg';
 import calendarCheck from './calendar-check.svg';
 import camera from './camera.svg';
@@ -258,6 +259,7 @@ const icons = Object.freeze({
   bell,
   board,
   briefcase,
+  'business-hierarchy': businessHierarchy,
   calendar,
   'calendar-check': calendarCheck,
   camera,
