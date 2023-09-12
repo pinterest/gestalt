@@ -1,3 +1,9 @@
+## 122.5.9 (Sep 12, 2023)
+
+### Patch
+
+- Docs: Fix duplicated ToC accessibility label ([#3192](https://github.com/pinterest/gestalt/pull/3192)) - [Preview link](https://deploy-preview-3192--gestalt.netlify.app?devexample=true)
+
 ## 122.5.8 (Sep 12, 2023)
 
 ### Patch
