@@ -1,3 +1,9 @@
+## 122.5.8 (Sep 12, 2023)
+
+### Patch
+
+- Icon: added new icon for busines-hierarchy ([#3191](https://github.com/pinterest/gestalt/pull/3191)) - [Preview link](https://deploy-preview-3191--gestalt.netlify.app?devexample=true)
+
 ## 122.5.7 (Sep 11, 2023)
 
 ### Patch
