@@ -13,7 +13,7 @@ const exludedFiles = [
   '/packages/gestalt/src/useReducedMotion.js',
   '/packages/gestalt/src/useFocusVisible.js',
   '/packages/gestalt/src/zIndex.js',
-].map((a) => path.join(root, a));
+].map((filePath) => path.join(root, filePath));
 
 function logError(message) {
   // eslint-disable-next-line no-console
