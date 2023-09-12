@@ -2,6 +2,7 @@
 import { type Node } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
+import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import theme from './atomDark.js';
 import Card from './Card.js';
@@ -31,7 +32,7 @@ function Example({
   skipContrastCheck = false,
 }: Props): Node {
   const code = defaultCode.trim();
-  const scope = { ...gestalt, ...gestaltDatepicker };
+  const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
 
   return (
     <Card

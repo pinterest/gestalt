@@ -3,6 +3,7 @@ import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import { type Dimension } from './boxTypes.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
@@ -22,7 +23,12 @@ import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 
 export type ActionType = Element<
-  typeof Button | typeof IconButton | typeof Link | typeof Text | typeof Tooltip,
+  | typeof Button
+  | typeof ButtonLink
+  | typeof IconButton
+  | typeof Link
+  | typeof Text
+  | typeof Tooltip,
 >;
 
 type Props = {|

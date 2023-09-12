@@ -5,6 +5,9 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import foundationalComponentsExample from '../../examples/zindex_classes/foundationalComponentsExample.js';
+import layerExample from '../../examples/zindex_classes/layerExample.js';
 
 export default function DocsPage(): Node {
   return (
@@ -288,207 +291,14 @@ The following example sets a z-index in the Layer wrapping [OverlayPanel](/web/o
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ScrollBoundaryContainerExample() {
-  const [showSheet, setShowSheet] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorDropdownRef = React.useRef(null);
-  const handleSelect = ({ item }) => setSelected(item);
-
-  /* ======= Z-INDEX  ======= */
-  const PAGE_HEADER_ZINDEX = new FixedZIndex(10)
-  const SHEET_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX])
-
-  const SearchBoardField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search boards field"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search boards"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  const SelectBoard = () => {
-    const [openPopover, setOpenPopover] = React.useState(false);
-    const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-    const anchorRef = React.useRef();
-
-    const List = ({ title }) => (
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <Text color="default" size="100">
-          { title }
-        </Text>
-        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-          {[
-            ['https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp', 'Fashion', 'Thumbnail image: a white dress with red flowers'],
-            ['https://i.ibb.co/swC1qpp/IMG-0494.jpg', 'Food', 'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice'],
-            ['https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp', 'Home', 'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture'],
-          ].map((data, index) => (
-              <TapArea
-                key={index}
-                onTap={() => {
-                  setSelectedBoard(data[1]);
-                  setOpenPopover(false);
-                }}
-                rounding={2}
-              >
-                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                  <Box height={50} width={50} overflow="hidden" rounding={2}>
-                    <Mask rounding={2}>
-                      <Image
-                        alt={data[2]}
-                        color="rgb(231, 186, 176)"
-                        naturalHeight={50}
-                        naturalWidth={50}
-                        src={data[0]}
-                      />
-                    </Mask>
-                  </Box>
-                  <Text align="center" color="default" weight="bold">
-                    {data[1]}
-                  </Text>
-                </Flex>
-              </TapArea>
-          ))}
-        </Flex>
-      </Flex>
-    );
-
-    return (
-      <React.Fragment>
-          <Flex direction="column" gap={{ column: 2, row: 0 }}>
-            <Text size="100">Board</Text>
-            <Button
-              iconEnd="arrow-down"
-              label="Select Board"
-              onClick={() => setOpenPopover(!openPopover)}
-              text={selectedBoard}
-              ref={anchorRef}
-            />
-          </Flex>
-        {openPopover && (
-          <Layer>
-            <Popover
-              anchor={anchorRef.current}
-              idealDirection="down"
-              onDismiss={() => setOpenPopover(false)}
-              positionRelativeToAnchor={false}
-              size="xl"
-            >
-              <Box width={360}>
-                <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                  <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                    <Text align="center" color="default" weight="bold">
-                      Save to board
-                    </Text>
-                    <SearchBoardField/>
-                  </Flex>
-                </Box>
-                <Box height={300} overflow="scrollY">
-                  <Box marginEnd={4} marginStart={4}>
-                    <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                      <List title="Top choices"/>
-                      <List title="All boards"/>
-                    </Flex>
-                  </Box>
-                </Box>
-              </Box>
-            </Popover>
-          </Layer>
-        )}
-      </React.Fragment>
-    )
-  }
-
-  return (
-    <React.Fragment>
-      <Button
-        text="Edit Pin"
-        onClick={() => setShowSheet(true)}
-        size="lg"
-      />
-      {showSheet && (
-        <Layer zIndex={SHEET_ZINDEX}>
-          <OverlayPanel
-            accessibilityDismissButtonLabel="Close edit Pin overlay panel"
-            accessibilitySheetLabel="Edit your Pin details"
-            heading="Edit Pin"
-            footer={
-                <Flex>
-                  <Flex.Item
-                    flex="grow"
-                  >
-                    <Button
-                      color="white"
-                      text="Delete"
-                      size="lg"
-                      onClick={() => setShowSheet(false)}
-                    />
-                  </Flex.Item>
-                  <Flex gap={{ column: 0, row: 2 }}>
-                    <Button
-                      text="Cancel"
-                      size="lg"
-                      onClick={() => setShowSheet(false)}
-                    />
-                    <Button
-                      text="Done"
-                      color="red"
-                      size="lg"
-                      type="submit"
-                      onClick={() => setShowSheet(false)}
-                    />
-                  </Flex>
-                </Flex>
+            sandpackExample={
+              <SandpackExample
+                name="z-index in foundational components"
+                code={foundationalComponentsExample}
+                previewHeight={400}
+                layout="column"
+              />
             }
-            onDismiss={() => setShowSheet(false)}
-            size="lg"
-          >
-            <Box display="flex" height={400} paddingX={8}>
-              <Flex gap={{ row: 8, column: 0 }} width="100%">
-                <Box width={200} paddingX={2} rounding={4}>
-                  <Mask rounding={4}>
-                    <Image
-                      alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={751}
-                      naturalWidth={564}
-                      src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-                    />
-                  </Mask>
-                </Box>
-                <Flex.Item flex="grow">
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <SelectBoard/>
-                    <TextArea
-                      id="note"
-                      onChange={() => {}}
-                      placeholder="Add note"
-                      label="Note"
-                      value=""
-                    />
-                  </Flex>
-                </Flex.Item>
-              </Flex>
-              </Box>
-          </OverlayPanel>
-        </Layer>
-      )}
-    </React.Fragment>
-  )
-}
-`}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -504,148 +314,14 @@ The following example sets a z-index in the Layer wrapping [Modal](/web/modal) t
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function ScrollBoundaryContainerExample() {
-  const [showModal, setShowModal] = React.useState(false);
-  const [alignText, setAlignText] = React.useState('left')
-
-  /* ======= Z-INDEX  ======= */
-  const PAGE_HEADER_ZINDEX = new FixedZIndex(10)
-  const MODAL_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX])
-
-  return (
-    <>
-      <Box
-        display="flex"
-        justifyContent="center"
-      >
-        <Button
-          accessibilityLabel="Edit this Pin"
-          bgColor="white"
-          onClick={() => setShowModal(true)}
-          text="Open edit modal"
-          size="lg"
-        />
-      </Box>
-      {showModal && (
-        <Layer zIndex={MODAL_ZINDEX}>
-          <Modal
-            accessibilityModalLabel="Edit Pin"
-            heading="Edit"
-            size="lg"
-            onDismiss={() => setShowModal(false)}
-            footer={
-              <Box
-                flex="grow"
-                paddingX={3}
-                paddingY={3}
-              >
-                <Box
-                  justifyContent="end"
-                  marginStart={-1}
-                  marginEnd={-1}
-                  marginTop={-1}
-                  marginBottom={-1}
-                  display="flex"
-                  wrap
-                >
-                  <Box
-                    paddingX={1}
-                    paddingY={1}
-                  >
-                    <Button
-                      text="Cancel"
-                      size="lg"
-                      onClick={() => setShowModal(false)}
-                    />
-                  </Box>
-                  <Box
-                    paddingX={1}
-                    paddingY={1}
-                  >
-                    <Button
-                      text="Save"
-                      color="red"
-                      size="lg"
-                      type="submit"
-                      onClick={() => setShowModal(false)}
-                    />
-                  </Box>
-                </Box>
-              </Box>
+            sandpackExample={
+              <SandpackExample
+                name="z-index in Layer"
+                code={layerExample}
+                previewHeight={400}
+                layout="column"
+              />
             }
-          >
-              <Box
-                column={12}
-                display="flex"
-                justifyContent="center"
-              >
-                <Box column={6} paddingX={4}>
-                  <Image
-                    alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-                    color="rgb(231, 186, 176)"
-                    naturalHeight={751}
-                    naturalWidth={564}
-                    src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-                  >
-                    <Box padding={3}>
-                      <Heading
-                        align={alignText}
-                        color="white"
-                        size="lg"
-                      >
-                        Tropic greens: The taste of Petrol and Porcelain
-                      </Heading>
-                    </Box>
-                  </Image>
-                </Box>
-                <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                  <Heading size="400" weight="bold">Text Overlay</Heading>
-                  <Text size="300">Add text directly onto your Pin</Text>
-                  <Text size="300" weight="bold">Alignment</Text>
-                  <Flex>
-                    <Tooltip text="Align left">
-                      <IconButton
-                        accessibilityLabel="Align left"
-                        bgColor="white"
-                        icon="text-align-left"
-                        iconColor="darkGray"
-                        onClick={() => setAlignText('left')}
-                        size="lg"
-                        selected={alignText === 'left'}
-                      />
-                    </Tooltip>
-                    <Tooltip text="Align center">
-                      <IconButton
-                        accessibilityLabel="Align center"
-                        bgColor="white"
-                        icon="text-align-center"
-                        iconColor="darkGray"
-                        onClick={() => setAlignText('center')}
-                        size="lg"
-                        selected={alignText === 'center'}
-                      />
-                    </Tooltip>
-                    <Tooltip text="Align right">
-                      <IconButton
-                        accessibilityLabel="Align right"
-                        bgColor="white"
-                        icon="text-align-right"
-                        iconColor="darkGray"
-                        onClick={() => setAlignText('right')}
-                        size="lg"
-                        selected={alignText === 'right'}
-                      />
-                    </Tooltip>
-                  </Flex>
-                </Flex>
-            </Box>
-          </Modal>
-        </Layer>
-      )}
-    </>
-  )
-}`}
           />{' '}
         </MainSection.Subsection>
         <MainSection.Subsection

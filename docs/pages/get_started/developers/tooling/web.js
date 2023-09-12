@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Button, Flex, Icon, Image, Link, List, Table, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, Icon, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts.js';
 import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
@@ -120,10 +120,9 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
           description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
         >
           <Flex maxWidth={DOCS_COPY_MAX_WIDTH_PX} justifyContent="center">
-            <Button
+            <ButtonLink
               color="gray"
               target="blank"
-              role="link"
               onClick={() => trackButtonClick('Playground sandbox')}
               text="Create a sandbox snippet"
               href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
@@ -239,11 +238,10 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                 </Text>
               </Box>
             </Flex>
-            <Button
+            <ButtonLink
               color="gray"
               target="blank"
               onClick={() => trackButtonClick('Visual Studio Code extension')}
-              role="link"
               text="Install the extension"
               href="https://marketplace.visualstudio.com/items?itemName=pinterest.vscode-gestalt"
             />
@@ -367,21 +365,6 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'http://go/metrics_gestalt_value',
                 ],
                 [
-                  'Gestalt Extension Components: component level',
-                  '# total Gestalt extension components; # per component',
-                  'http://go/metrics_gestaltExtension_component',
-                ],
-                [
-                  'Gestalt Extension Components: prop level',
-                  '# total Gestalt extension components; # per prop & component',
-                  'http://go/metrics_gestaltExtension_prop',
-                ],
-                [
-                  'Gestalt Extension Components: prop value level',
-                  '# total Gestalt extension components; # per prop value & prop & component',
-                  'http://go/metrics_gestaltExtension_value',
-                ],
-                [
                   'Native DOM Elements: tag level',
                   '# total native DOM elements; # per tag',
                   'http://go/metrics_nativeDom_element',
@@ -395,16 +378,6 @@ The following table lists the currently available metrics to track Gestalt adopt
                   'Native DOM Elements: attribute value level',
                   '# total native DOM elements; # per attribute value & attribute & tag',
                   'http://go/metrics_nativeDom_value',
-                ],
-                [
-                  'Deprecated Components',
-                  '# total deprecated components; # per component',
-                  'http://go/metrics_deprecated_component',
-                ],
-                [
-                  'Deprecated Components',
-                  '# total deprecated components; # per site',
-                  'http://go/metrics_deprecated_site',
                 ],
                 [
                   'Boxes with dangerouslySetInlineStyle',

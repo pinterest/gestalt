@@ -1,6 +1,7 @@
 // @flow strict
 import { type Element, type Node } from 'react';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
@@ -64,8 +65,17 @@ export default function Module({
   title,
   type = 'info',
 }: Props): Node {
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   return (
-    <Box borderStyle="shadow" color="elevationFloating" id={id} padding={6} rounding={4}>
+    <Box
+      borderStyle="shadow"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
+      id={id}
+      padding={6}
+      rounding={4}
+    >
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
         {title && (
           <ModuleTitle

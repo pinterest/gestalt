@@ -1,10 +1,10 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ActivationCard from './ActivationCard.js';
 
 test('ActivationCard handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn<[], void>();
-  const { getByLabelText } = render(
+  render(
     <ActivationCard
       status="pending"
       statusMessage="Pending"
@@ -16,7 +16,6 @@ test('ActivationCard handles onDismiss callback', () => {
       }}
     />,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  getByLabelText('Dismiss card').click();
+  screen.getByLabelText('Dismiss card').click();
   expect(mockOnDismiss).toHaveBeenCalled();
 });

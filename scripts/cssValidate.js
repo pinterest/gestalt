@@ -6,6 +6,7 @@ const postcss = require('postcss');
 const duplicateVariablesDifferentValues = async () => {
   const files = await globby([
     'packages/gestalt/src/**/*.css',
+    'packages/gestalt-charts/src/**/*.css',
     'packages/gestalt-datepicker/src/**/*.css',
   ]);
 

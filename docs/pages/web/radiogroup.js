@@ -7,7 +7,22 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import addingAPopoverExample from '../../examples/radiogroup/addingAPopoverExample.js';
+import directionExample from '../../examples/radiogroup/directionExample.js';
+import dontUseToSelectMultipleItems from '../../examples/radiogroup/dontUseToSelectMultipleItems.js';
+import dontUseToToggleStateOnMobile from '../../examples/radiogroup/dontUseToToggleStateOnMobile.js';
+import dontUseTruncatedText from '../../examples/radiogroup/dontUseTruncatedText.js';
+import keepLabelsAndLegendsClear from '../../examples/radiogroup/keepLabelsAndLegendsClear.js';
+import legendVisibilityExample from '../../examples/radiogroup/legendVisibilityExample.js';
 import main from '../../examples/radiogroup/main.js';
+import sizeExample from '../../examples/radiogroup/sizeExample.js';
+import statesExample from '../../examples/radiogroup/statesExample.js';
+import useToSelectOnlyOneOption from '../../examples/radiogroup/useToSelectOnlyOneOption.js';
+import useWhenNeedClearAnswer from '../../examples/radiogroup/useWhenNeedClearAnswer.js';
+import withAnErrorExample from '../../examples/radiogroup/withAnErrorExample.js';
+import withCustomLabelsExample from '../../examples/radiogroup/withCustomLabelsExample.js';
+import withHelperTextExample from '../../examples/radiogroup/withHelperTextExample.js';
+import withImageExample from '../../examples/radiogroup/withImageExample.js';
 
 export default function DocsPage({
   generatedDocGen,
@@ -73,79 +88,28 @@ export default function DocsPage({
             cardSize="md"
             type="do"
             description="Use RadioGroup to select only one option from a list of 2 or more items."
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState('reading');
-
-  return (
-      <RadioGroup legend="If you had to pick one, which hobby would you pick?" id="bestPracticeDo">
-        <RadioGroup.RadioButton
-          checked={favorite === 'knitting'}
-          id="knitting"
-          label="Knitting"
-          name="hobby"
-          onChange={() => setFavorite('knitting')}
-          value="knitting"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === 'reading'}
-          id="reading"
-          label="Reading"
-          name="hobby"
-          onChange={() => setFavorite('reading')}
-          value="reading"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === 'pottery'}
-          id="pottery"
-          label="Pottery"
-          name="hobby"
-          onChange={() => setFavorite('pottery')}
-          value="pottery"
-        />
-      </RadioGroup>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Use to select only one option"
+                code={useToSelectOnlyOneOption}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use RadioGroup to select multiple items."
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-      <RadioGroup legend="Choose all of your favorite hobbies" id="bestPracticeDont">
-        <RadioGroup.RadioButton
-          checked={false}
-          id="knitting-dont"
-          label="Knitting"
-          name="hobby-dont"
-          onChange={() => setFavorite('knitting')}
-          value="knitting"
-        />
-        <RadioGroup.RadioButton
-          checked={false}
-          id="reading-dont"
-          label="Reading"
-          name="hobby-dont"
-          onChange={() => setFavorite('reading')}
-          value="reading"
-        />
-        <RadioGroup.RadioButton
-          checked={false}
-          id="pottery-dont"
-          label="Pottery"
-          name="hobby-dont"
-          onChange={() => setFavorite('pottery')}
-          value="pottery"
-        />
-      </RadioGroup>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use to select multiple items"
+                code={dontUseToSelectMultipleItems}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -153,77 +117,28 @@ function RadioButtonExample() {
             cardSize="md"
             type="do"
             description="Keep labels and legends clear and brief to avoid too many lines of text that are hard to scan and slow the user down. If clarification is needed, use [IconButtons with Tooltips](/web/iconbutton#With-Tooltip) or `helperText`."
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-      <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
-        <Flex gap={{ row: 2, column: 0 }} alignItems="center" justifyContent="start">
-          <RadioGroup.RadioButton
-            checked={favorite === "daily"}
-            id="daily"
-            name="budget"
-            onChange={() => setFavorite('daily')}
-            value="daily"
-          />
-          <Label htmlFor="daily">
-            <Flex alignItems="center">
-              <Text>Daily</Text>
-              <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
-            </Flex>
-          </Label>
-        </Flex>
-        <Flex gap={{ row: 2, column: 0 }} alignItems="center" justifyContent="start">
-          <RadioGroup.RadioButton
-            checked={favorite === "lifetime"}
-            id="lifetime"
-            name="budget"
-            onChange={() => setFavorite('lifetime')}
-            value="lifetime"
-          />
-          <Label htmlFor="lifetime">
-            <Flex alignItems="center">
-              <Text>Lifetime</Text>
-              <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
-            </Flex>
-          </Label>
-        </Flex>
-      </RadioGroup>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Keep labels and legends clear"
+                code={keepLabelsAndLegendsClear}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use lengthy text that truncates and doesn’t offer clear instructions for how to make a selection."
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-      <RadioGroup legend="Campaign budget" id="bestPracticeLabelsDont">
-        <RadioGroup.RadioButton
-          checked={false}
-          id="daily-dont"
-          label="Daily-Daily spend limit. Choose this option to set a cap for the amount your campaign can spend each day."
-          name="spend-dont"
-          onChange={() => setFavorite('daily')}
-          value="daily"
-        />
-        <RadioGroup.RadioButton
-          checked={false}
-          id="lifetime-dont"
-          label="Lifetime-Lifetime spend limit. Choose this option to seta a cap for the amount your campaign can spend over the course of its lifetime."
-          name="spend-dont"
-          onChange={() => setFavorite('lifetime')}
-          value="lifetime"
-        />
-      </RadioGroup>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use truncated text"
+                code={dontUseTruncatedText}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -231,74 +146,28 @@ function RadioButtonExample() {
             cardSize="md"
             type="do"
             description="Use RadioGroup when you need a clear answer to a binary question that requires form submission."
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-    <Flex gap={{ column: 4, row: 0 }} direction="column">
-      <RadioGroup legend="Feed preference" id="bestPracticeFeedsDo">
-        <RadioGroup.RadioButton
-          checked={favorite === "grid"}
-          id="grid-do"
-          label="Grid"
-          name="feed-do"
-          onChange={() => setFavorite('grid')}
-          value="grid"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === "list"}
-          id="list-do"
-          label="List"
-          name="feed-do"
-          onChange={() => setFavorite('list')}
-          value="list"
-        />
-      </RadioGroup>
-      <Button color="red" text="Submit"/>
-    </Flex>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Use when need clear answer to a binary question"
+                code={useWhenNeedClearAnswer}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use a RadioGroup to turn a state on and off with immediate effect on mobile; use [Switch](/web/switch) instead."
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-    <Flex gap={{ column: 4, row: 0 }} direction="column">
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Text size="400" weight="bold">Auto-renew subscription</Text>
-        <Text size="200">
-          Change will auto-save
-        </Text>
-      </Flex>
-      <RadioGroup direction="row" legend="Auto-renew subscription" legendDisplay="hidden" id="bestPracticeFeedsDont">
-        <RadioGroup.RadioButton
-          checked={false}
-          id="on-dont"
-          label="On"
-          name="feed-dont"
-          onChange={() => setFavorite('on')}
-          value="on"
-        />
-        <RadioGroup.RadioButton
-          checked={false}
-          id="Off-do"
-          label="Off"
-          name="feed-dont"
-          onChange={() => setFavorite('Off')}
-          value="Off"
-        />
-      </RadioGroup>
-      </Flex>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use to toggle state on mobile"
+                code={dontUseToToggleStateOnMobile}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -327,70 +196,7 @@ function RadioButtonExample() {
           description="RadioGroups can be shown in a column or row by specifying the `direction` property."
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-  const [favoriteFood, setFavoriteFood] = React.useState();
-
-  return (
-    <Flex gap={8} wrap>
-      <RadioGroup legend="What is your favorite pet?" id="directionExample-1">
-        <RadioGroup.RadioButton
-          checked={favorite === 'dogs'}
-          id="favoriteDog"
-          label="Dogs"
-          name="favorite"
-          onChange={() => setFavorite('dogs')}
-          value="dogs"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === 'cats'}
-          id="favoriteCat"
-          label="Cats"
-          name="favorite"
-          onChange={() => setFavorite('cats')}
-          value="cats"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === 'plants'}
-          id="favoritePlants"
-          label="Plants"
-          name="favorite"
-          onChange={() => setFavorite('plants')}
-          value="plants"
-        />
-      </RadioGroup>
-
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" direction="row" id="directionExample">
-        <RadioGroup.RadioButton
-          checked={favoriteFood === 'pizza'}
-          id="favoritePizza"
-          label="Pizza"
-          name="favoriteFood"
-          onChange={() => setFavoriteFood('pizza')}
-          value="pizza"
-        />
-        <RadioGroup.RadioButton
-          checked={favoriteFood === 'curry'}
-          id="favoriteCurry"
-          label="Curry"
-          name="favoriteFood"
-          onChange={() => setFavoriteFood('curry')}
-          value="curry"
-        />
-        <RadioGroup.RadioButton
-          checked={favoriteFood === 'sushi'}
-          id="favoriteSushi"
-          label="Sushi"
-          name="favoriteFood"
-          onChange={() => setFavoriteFood('sushi')}
-          value="sushi"
-        />
-      </RadioGroup>
-    </Flex>
-  );
-}
-          `}
+            sandpackExample={<SandpackExample name="Direction example" code={directionExample} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -398,73 +204,7 @@ function RadioButtonExample() {
           description="RadioButtons can be either `sm` (16px) or `md` (24px), which is the default."
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-  const [favoriteFood, setFavoriteFood] = React.useState();
-
-  return (
-    <Flex gap={{ column: 0, row: 8 }}>
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" id="sizeExample">
-        <RadioGroup.RadioButton
-          checked={favorite === 'pizza'}
-          id="favoriteSizePizzaSm"
-          label="Pizza"
-          name="favoriteFoodSm"
-          onChange={() => setFavorite('pizza')}
-          value="pizza"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === 'curry'}
-          id="favoriteSizeCurrySm"
-          label="Curry"
-          name="favoriteFoodSm"
-          onChange={() => setFavorite('curry')}
-          value="curry"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={favorite === 'sushi'}
-          id="favoriteSizeSushiSm"
-          label="Sushi"
-          name="favoriteFoodSm"
-          onChange={() => setFavorite('sushi')}
-          value="sushi"
-          size="sm"
-        />
-      </RadioGroup>
-
-      <RadioGroup legend="What is your favorite snack?" errorMessage="Please select one" id="sizeExampleMd">
-        <RadioGroup.RadioButton
-          checked={favoriteFood === 'pizza'}
-          id="favoriteSizePizza"
-          label="Pizza"
-          name="favoriteFood-size"
-          onChange={() => setFavoriteFood('pizza')}
-          value="pizza"
-        />
-        <RadioGroup.RadioButton
-          checked={favoriteFood === 'curry'}
-          id="favoriteSizeCurry"
-          label="Curry"
-          name="favoriteFood-size"
-          onChange={() => setFavoriteFood('curry')}
-          value="curry"
-        />
-        <RadioGroup.RadioButton
-          checked={favoriteFood === 'sushi'}
-          id="favoriteSizeSushi"
-          label="Sushi"
-          name="favoriteFood-size"
-          onChange={() => setFavoriteFood('sushi')}
-          value="sushi"
-        />
-      </RadioGroup>
-    </Flex>
-  );
-}
-        `}
+            sandpackExample={<SandpackExample name="Size example" code={sizeExample} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -472,50 +212,7 @@ function RadioButtonExample() {
           description="Disabled RadioButtons cannot be accessed by the keyboard and therefore should not contain any necessary info to complete the choice presented."
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [favorite, setFavorite] = React.useState();
-
-  return (
-      <RadioGroup legend="Which state is your favorite?" id="rowExample">
-        <RadioGroup.RadioButton
-          checked={false}
-          id="unchecked"
-          label="Unchecked"
-          name="stateExample"
-          onChange={() => setFavorite('unchecked')}
-          value="unchecked"
-        />
-        <RadioGroup.RadioButton
-          checked={true}
-          id="checked"
-          label="Checked"
-          name="stateExample"
-          onChange={() => setFavorite('checked')}
-          value="checked"
-        />
-        <RadioGroup.RadioButton
-          checked={false}
-          id="uncheckedDisabled"
-          label="Unchecked and disabled"
-          name="stateExample"
-          onChange={() => setFavorite('uncheckedDisabled')}
-          value="uncheckedDisabled"
-          disabled
-        />
-        <RadioGroup.RadioButton
-          checked={true}
-          id="checkedDisabled"
-          label="Checked and disabled"
-          name="stateExample"
-          onChange={() => setFavorite('checkedDisabled')}
-          value="checkedDisabled"
-          disabled
-        />
-      </RadioGroup>
-  );
-}
-        `}
+            sandpackExample={<SandpackExample name="States example" code={statesExample} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -523,43 +220,9 @@ function RadioButtonExample() {
           description="Use `helperText` to provide extra context or information for each option."
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [availability, setAvailability] = React.useState();
-
-  return (
-    <RadioGroup legend="Which time slot works best for you?" id="helperTextExample">
-        <RadioGroup.RadioButton
-          checked={availability === 'monday'}
-          id="monday"
-          label="Monday"
-          helperText="Morning and afternoon"
-          name="Availability"
-          onChange={() => setAvailability('monday')}
-          value="monday"
-        />
-        <RadioGroup.RadioButton
-          checked={availability === 'tuesday'}
-          id="tuesday"
-          label="Tuesday"
-          helperText="Morning, afternoon, and evening"
-          name="Availability"
-          onChange={() => setAvailability('tuesday')}
-          value="tuesday"
-        />
-        <RadioGroup.RadioButton
-          checked={availability === 'wednesday'}
-          id="Wednesday"
-          label="Wednesday"
-          helperText="Evening only"
-          name="Availability"
-          onChange={() => setAvailability('wednesday')}
-          value="wednesday"
-        />
-    </RadioGroup>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample name="With helperText example" code={withHelperTextExample} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -567,47 +230,13 @@ function RadioButtonExample() {
           description="When including images, you can use the `helperText` property to clearly describe the information being presented by the image, or use the image's `alt` text to provide more context."
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [artPreference, setArtPreference] = React.useState();
-
-  return (
-    <RadioGroup legend="Pick a placeholder image" id="imageExample">
-      <RadioGroup.RadioButton
-        checked={artPreference === 'coral'}
-        id="coral"
-        label="Coral"
-        helperText="Botanical art in coral and green"
-        image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
-
-        name="Art Preference"
-        onChange={() => setArtPreference('coral')}
-        value="coral"
-      />
-      <RadioGroup.RadioButton
-        checked={artPreference === 'blue'}
-        id="blue"
-        label="Blue"
-        helperText="Typography and shoe in blue"
-        image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
-        name="Art Preference"
-        onChange={() => setArtPreference('blue')}
-        value="blue"
-      />
-      <RadioGroup.RadioButton
-        checked={artPreference === 'green'}
-        id="green"
-        label="Green"
-        helperText="Abstract art in green"
-        image={<Box height={100} width={80}><Image alt="Abstract art in green" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
-        name="Art Preference"
-        onChange={() => setArtPreference('green')}
-        value="green"
-      />
-    </RadioGroup>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="With image example"
+                code={withImageExample}
+                previewHeight={400}
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -615,43 +244,9 @@ function RadioButtonExample() {
           description="Use `errorMessage` to show an error message below the radio options."
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [availability, setAvailability] = React.useState();
-
-  return (
-    <RadioGroup legend="Which time slot works best for you?" errorMessage="Please select one" id="VariantWithErrorMessage">
-        <RadioGroup.RadioButton
-          checked={availability === 'monday'}
-          id="mondayError"
-          label="Monday"
-          helperText="Morning and afternoon"
-          name="Availability with error"
-          onChange={() => setAvailability('monday')}
-          value="monday"
-        />
-        <RadioGroup.RadioButton
-          checked={availability === 'tuesday'}
-          id="tuesdayError"
-          label="Tuesday"
-          helperText="Morning, afternoon, and evening"
-          name="Availability with error"
-          onChange={() => setAvailability('tuesday')}
-          value="tuesday"
-        />
-        <RadioGroup.RadioButton
-          checked={availability === 'wednesday'}
-          id="WednesdayError"
-          label="Wednesday"
-          helperText="Evening only"
-          name="Availability with error"
-          onChange={() => setAvailability('wednesday')}
-          value="wednesday"
-        />
-    </RadioGroup>
-  );
-}
-          `}
+            sandpackExample={
+              <SandpackExample name="With an error example" code={withAnErrorExample} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -659,46 +254,9 @@ function RadioButtonExample() {
           description="The `label` on RadioGroup.RadioButton can be replaced with a custom [Label](/web/label), as demonstrated below. Ensure the `htmlFor` property matches the `id` on the RadioButton."
         >
           <MainSection.Card
-            defaultCode={`
-        function RadioButtonExample() {
-          const [favorite, setFavorite] = React.useState();
-
-          return (
-              <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
-                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                  <RadioGroup.RadioButton
-                    checked={favorite === "daily"}
-                    id="daily-label-ex-custom"
-                    name="budget-custom-label"
-                    onChange={() => setFavorite('daily')}
-                    value="daily"
-                  />
-                  <Label htmlFor="daily-label-ex-custom">
-                    <Flex alignItems="center">
-                      <Text>Daily</Text>
-                      <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend each day"}}/>
-                    </Flex>
-                  </Label>
-                </Flex>
-                <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                  <RadioGroup.RadioButton
-                    checked={favorite === "lifetime"}
-                    id="lifetime-label-ex-custom"
-                    name="budget-custom-label"
-                    onChange={() => setFavorite('lifetime')}
-                    value="lifetime"
-                  />
-                  <Label htmlFor="lifetime-label-ex-custom">
-                    <Flex alignItems="center">
-                      <Text>Lifetime</Text>
-                      <IconButton size="sm" icon="info-circle" iconColor="gray" accessibilityLabel="info" tooltip={{text: "Sets a cap for the amount your campaign can spend over the course of its lifetime"}}/>
-                    </Flex>
-                  </Label>
-                </Flex>
-              </RadioGroup>
-          );
-        }
-                `}
+            sandpackExample={
+              <SandpackExample name="With custom labels example" code={withCustomLabelsExample} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -710,53 +268,9 @@ function RadioButtonExample() {
         `}
         >
           <MainSection.Card
-            defaultCode={`
-function RadioButtonExample() {
-  const [goal, setGoal] = React.useState();
-
-  return (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Heading size="400">Primary company account goal</Heading>
-        <Text size="200">
-          Choose your primary goal for this account to help us better understand your needs
-          <Text inline size="200" weight="bold">
-            <Link display="inline" target="blank" href="https://www.pinterest.com/">
-              Additional information
-            </Link>
-          </Text>
-        </Text>
-      </Flex>
-      <RadioGroup legend="Primary company account goal" legendDisplay="hidden" id="legendExample">
-        <RadioGroup.RadioButton
-          checked={goal === "sell"}
-          id="sell"
-          label="Sell more products"
-          name="account goals"
-          onChange={() => setGoal('sell')}
-          value="sell"
-        />
-        <RadioGroup.RadioButton
-          checked={goal === "leads"}
-          id="leads"
-          label="Generate more leads for the company"
-          name="account goals"
-          onChange={() => setGoal('leads')}
-          value="leads"
-        />
-        <RadioGroup.RadioButton
-          checked={goal === "interest"}
-          id="interest"
-          label="Create content on Pinterest to attract an audience"
-          name="account goals"
-          onChange={() => setGoal('interest')}
-          value="interest"
-        />
-      </RadioGroup>
-    </Flex>
-  );
-}
-        `}
+            sandpackExample={
+              <SandpackExample name="Legend visibility example" code={legendVisibilityExample} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -766,77 +280,9 @@ function RadioButtonExample() {
   `}
         >
           <MainSection.Card
-            defaultCode={`
-
-function RadioButtonPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [option, setOption] = React.useState(false);
-  const anchorCatRef = React.useRef();
-  const anchorDogRef = React.useRef();
-
-  return (
-    <RadioGroup legend="Tell us about yourself" id="popoverExample">
-      <Box display="inlineBlock" ref={anchorCatRef}>
-        <RadioGroup.RadioButton
-          id="cat"
-          checked={option === "cat"}
-          label="I'm a cat person"
-          onChange={() => {
-            setOpen(true)
-            setOption("cat")}
-          }
-          value="cat"
-        />
-      </Box>
-      <Box display="inlineBlock" ref={anchorDogRef}>
-        <RadioGroup.RadioButton
-          id="dog"
-          checked={option === "dog"}
-          label="I'm a dog person"
-          onChange={() => {
-            setOpen(true)
-            setOption('dog')}
-          }
-          value="dog"
-        />
-      </Box>
-      {open &&
-        <Layer>
-          <Popover
-            anchor={option === "cat" ? anchorCatRef.current  : anchorDogRef.current}
-            idealDirection="right"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            shouldFocus={false}
-            size="md"
-          >
-            <Box padding={3}>
-              <Text
-                color="default"
-              >
-                <Link
-                  href={
-                    option === "cat"
-                      ? "https://www.pinterest.com/search/pins/?q=cats"
-                      : "https://www.pinterest.com/search/pins/?q=dogs"
-                  }
-                  target='blank'
-                  underline="always"
-                >
-                  { option === "cat"
-                      ? "Check out cats on Pinterest!"
-                      : "Check out dogs on Pinterest!"
-                  }
-                </Link>
-              </Text>
-            </Box>
-          </Popover>
-        </Layer>
-      }
-    </RadioGroup>
-  );
-}
-          `}
+            sandpackExample={
+              <SandpackExample name="Adding a popover example" code={addingAPopoverExample} />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

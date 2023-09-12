@@ -1,5 +1,6 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node, useEffect } from 'react';
+import { useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
@@ -99,13 +100,13 @@ export type Props = {|
   /**
    * DateField is a controlled component. `onChange` is the  callback triggered when the value of the input changes. Should be used to modify the controlled value. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
-  onChange: ({| value: ?Date |}) => void,
+  onChange: ({| value: Date | null |}) => void,
   /**
    * Callback triggered when the value entered is invalid. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   onError?: ({|
     errorMessage: string,
-    value: ?Date,
+    value: Date | null,
   |}) => void,
   /**
    * DateField is a controlled component. `onClearInput` is the callback triggered when the user clicks on the "clear" icon button. Should be used to clear the entered dates in the controlled component. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
@@ -125,7 +126,7 @@ export type Props = {|
   /**
    * DateField is a controlled component. `value` sets the current value of the input.  See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
-  value: ?Date,
+  value: Date | null,
 |};
 
 /**
@@ -158,6 +159,14 @@ function DateField({
   readOnly = false,
   value,
 }: Props): Node {
+  const { dateFieldHandlers } = useGlobalEventsHandler() || {
+    dateFieldHandlers: undefined,
+  };
+
+  useEffect(() => {
+    if (dateFieldHandlers?.onMount) dateFieldHandlers?.onMount();
+  }, [dateFieldHandlers]);
+
   return (
     <InternalDateField
       autoComplete={autoComplete}

@@ -25,6 +25,7 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
  */
 
 type FourDirections = 'up' | 'right' | 'down' | 'left';
+type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
 type TapAreaEventHandlerType = AbstractEventHandler<
   | React.MouseEvent<HTMLDivElement>
@@ -403,7 +404,7 @@ interface DefaultLabelProviderProps {
           accessibilityRemoveIconLabel: string;
           accessibilityWarningIconLabel: string;
         };
-        TagData:{
+        TagData: {
           accessibilityRemoveIconLabel: string;
         };
         TextField: {
@@ -693,7 +694,6 @@ interface CommonButtonProps {
   disabled?: boolean | undefined;
   fullWidth?: boolean | undefined;
   iconEnd?: Icons | undefined;
-  name?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   tabIndex?: -1 | 0 | undefined;
@@ -707,15 +707,17 @@ interface ButtonLinkProps extends CommonButtonProps {
 }
 
 interface ButtonButtonProps extends CommonButtonProps {
-  role?: 'button' | undefined;
-  type?: 'button' | undefined;
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
+  name?: string | undefined;
   selected?: boolean | undefined;
+  role?: 'button' | undefined;
+  type?: 'button' | undefined;
 }
 
 interface ButtonSubmitProps extends CommonButtonProps {
+  name?: string | undefined;
   role: 'button';
   type: 'submit';
 }
@@ -939,7 +941,7 @@ interface HeadingProps {
   color?: BaseTextColorType | undefined;
   id?: string | undefined;
   lineClamp?: number | undefined;
-  overflow?: 'normal' | 'breakWord' | undefined;
+  overflow?: 'normal' | 'breakAll' | 'breakWord' | undefined;
   size?: TextSizeType | undefined;
 }
 
@@ -1011,6 +1013,7 @@ interface CommonIconButtonProps {
     | 'red'
     | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
+  dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
@@ -1037,6 +1040,7 @@ interface IconButtonButtonProps extends CommonIconButtonProps {
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
+  name?: string;
   selected?: boolean | undefined;
 }
 
@@ -1046,6 +1050,39 @@ interface IconButtonSubmitProps extends CommonIconButtonProps {
 }
 
 type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
+
+interface IconButtonLinkCmpProps {
+  accessibilityLabel: string;
+  bgColor?:
+    | 'transparent'
+    | 'darkGray'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'white'
+    | 'red'
+    | undefined;
+  dangerouslySetSvgPath?: { __path: string } | undefined;
+  dataTestId?: string | undefined;
+  disabled?: boolean | undefined;
+  href: string;
+  icon?: Icons | undefined;
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
+  onClick?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
+  padding?: 1 | 2 | 3 | 4 | 5 | undefined;
+  rel?: RelType | undefined;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  tabIndex?: -1 | 0 | undefined;
+  target?: TargetType | undefined;
+  tooltip?:
+    | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
+    | undefined;
+}
 
 interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
@@ -1335,7 +1372,12 @@ interface OverlayPanelDismissingElementProps {
 interface PageHeaderAction {
   component:
     | React.ReactElement<
-        typeof Button | typeof IconButton | typeof Link | typeof Tooltip | typeof Text
+        | typeof Button
+        | typeof ButtonLink
+        | typeof IconButton
+        | typeof Link
+        | typeof Tooltip
+        | typeof Text
       >
     | undefined;
   dropdownItems:
@@ -1408,14 +1450,14 @@ interface PopoverProps {
   accessibilityDismissButtonLabel?: string | undefined;
   accessibilityLabel?: string | undefined;
   children?: Node | undefined;
-  color?: 'blue' | 'red' | 'white' | 'darkGray' | undefined;
+  color?: 'deprecatedBlue' | 'red' | 'white' | 'darkGray' | undefined;
   id?: string | undefined;
-  idealDirection?: FourDirections | undefined;
+  idealDirection?: PopoverDirections | undefined;
   onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLElement>>;
   positionRelativeToAnchor?: boolean | undefined;
   role?: 'dialog' | 'listbox' | 'menu' | 'tooltip' | undefined;
   shouldFocus?: boolean | undefined;
-  showCaret?: boolean | undefined;
+  _deprecatedShowCaret?: boolean | undefined;
   showDismissButton?: boolean | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number | undefined;
   __dangerouslySetMaxHeight?: '30vh' | undefined;
@@ -1615,7 +1657,7 @@ interface SideNavigationProps {
   footer?: Node | undefined;
   header?: Node | undefined;
   showBorder?: boolean | undefined;
-  title?: string | undefined;
+  mobileTitle?: string | undefined;
 }
 
 interface SideNavigationSectionProps {
@@ -1638,6 +1680,7 @@ interface SideNavigationTopItemProps {
   notificationAccessibilityLabel?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   primaryAction?: PrimaryActionType | undefined;
+  ref?: HTMLLIElement;
 }
 
 interface SideNavigationNestedItemProps {
@@ -1646,6 +1689,7 @@ interface SideNavigationNestedItemProps {
   active?: 'page' | 'section' | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   onClick?: ButtonEventHandlerType | undefined;
+  ref?: HTMLLIElement;
 }
 
 interface SideNavigationGroupProps {
@@ -1868,30 +1912,31 @@ interface TagProps {
 
 interface TagDataProps {
   accessibilityRemoveIconLabel?: string | undefined;
-  baseColor?: 'primary' | 'secondary'
-  color?: DataVisualizationColors,
-  disabled?: boolean,
-  id?: string,
-  onTap?: | AbstractEventHandler<
-  | React.MouseEvent<HTMLDivElement>
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>,
-  { selected: boolean; id?: string | undefined }
->
-| undefined,
-onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>,
-selected?: boolean,
-size?: 'sm' | 'md' | 'lg',
-showCheckbox?: boolean,
-text: string,
-tooltip?: TooltipProps,
+  baseColor?: 'primary' | 'secondary';
+  color?: DataVisualizationColors;
+  disabled?: boolean;
+  id?: string;
+  onTap?:
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
+  onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>;
+  selected?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  showCheckbox?: boolean;
+  text: string;
+  tooltip?: TooltipProps;
 }
-
 
 interface CommonTapAreaProps {
   accessibilityLabel?: string | undefined;
   children: Node;
+  dataTestId?: string;
   disabled?: boolean | undefined;
   fullHeight?: boolean | undefined;
   fullWidth?: boolean | undefined;
@@ -1954,6 +1999,53 @@ interface TapAreaButtonProps extends CommonTapAreaProps {
 
 type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
 
+interface TapAreaLinkCmpProps {
+  accessibilityCurrent?:
+    | 'page'
+    | 'step'
+    | 'location'
+    | 'date'
+    | 'time'
+    | 'true'
+    | 'false'
+    | 'section';
+  accessibilityLabel?: string | undefined;
+  children: Node;
+  dataTestId?: string;
+  disabled?: boolean | undefined;
+  fullHeight?: boolean | undefined;
+  fullWidth?: boolean | undefined;
+  href: string;
+  mouseCursor?:
+    | 'copy'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut'
+    | undefined;
+  onBlur?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
+  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
+  onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLAnchorElement>> | undefined;
+  onMouseDown?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onMouseUp?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+  onTap?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
+  rel?: RelType | undefined;
+  rounding?: RoundingType | undefined;
+  tabIndex?: -1 | 0 | undefined;
+  tapStyle?: 'none' | 'compress' | undefined;
+  target?: TargetType | undefined;
+}
+
 interface TextProps {
   align?: TextAlignType | undefined;
   children?: Node | undefined;
@@ -1961,7 +2053,7 @@ interface TextProps {
   inline?: boolean | undefined;
   italic?: boolean | undefined;
   lineClamp?: number | undefined;
-  overflow?: 'normal' | 'breakWord' | 'noWrap' | undefined;
+  overflow?: 'normal' | 'breakWord' | 'breakAll' | 'noWrap' | undefined;
   size?: TextSizeType | undefined;
   underline?: boolean | undefined;
   weight?: 'bold' | 'normal' | undefined;
@@ -2236,6 +2328,11 @@ export const Box: ReactForwardRef<HTMLDivElement, BoxProps>;
 export const Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
 
 /**
+ * https://gestalt.pinterest.systems/web/buttonlink
+ */
+export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
+
+/**
  * https://gestalt.pinterest.systems/web/buttongroup
  */
 export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
@@ -2353,6 +2450,11 @@ export const Icon: React.FunctionComponent<IconProps>;
 export const IconButton: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, IconButtonProps>;
 
 /**
+ * https://gestalt.pinterest.systems/web/iconbuttonlink
+ */
+export const IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkCmpProps>;
+
+/**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
  */
 export const IconButtonFloating: React.FunctionComponent<IconButtonFloatingProps>;
@@ -2382,7 +2484,7 @@ export const Letterbox: React.FunctionComponent<LetterboxProps>;
  */
 export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
 
-export interface ListSubCmoponents {
+export interface ListSubComponents {
   Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
 }
 
@@ -2391,7 +2493,7 @@ export interface ListSubCmoponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/list#List.Itemt
  */
-export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubCmoponents;
+export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/mask
@@ -2600,6 +2702,30 @@ export interface TableSubComponents {
  */
 export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
 
+interface TableOfContentsItemProps {
+  label: string;
+  href: string;
+  active?: boolean;
+  onClick?: TapAreaEventHandlerType;
+  children?: Node;
+}
+
+/**
+ * https://gestalt.pinterest.systems/web/tableofcontents
+ */
+export interface TableOfContentsProps {
+  accessibilityLabel?: string;
+  title?: string;
+  children: Node;
+}
+
+export interface TableOfContentsSubComponents {
+  Item: React.FunctionComponent<React.PropsWithChildren<TableOfContentsItemProps>>;
+}
+
+export const TableOfContents: React.FunctionComponent<TableOfContentsProps> &
+  TableOfContentsSubComponents;
+
 /**
  * https://gestalt.pinterest.systems/web/tabs
  */
@@ -2619,6 +2745,11 @@ export const TagData: React.FunctionComponent<TagDataProps>;
  * https://gestalt.pinterest.systems/web/taparea
  */
 export const TapArea: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/taparealink
+ */
+export const TapAreaLink: ReactForwardRef<HTMLAnchorElement, TapAreaLinkCmpProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/text

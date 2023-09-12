@@ -75,7 +75,12 @@
 /* overflow */
 
 .breakWord {
+  /* Use word-wrap internally as a result of existing usage (e.g. Instances of Text can break with word-break. E.g TileData) */
   word-wrap: break-word;
+}
+
+.breakAll {
+  word-break: break-all;
 }
 
 .noWrap {
@@ -116,5 +121,4 @@ html[dir="rtl"] .alignStart,
   display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
   max-width: 100%;
   overflow: hidden;
-  word-break: break-word;
 }

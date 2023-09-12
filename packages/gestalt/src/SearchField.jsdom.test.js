@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import SearchField from './SearchField.js';
 
 describe('<SearchField />', () => {
@@ -64,7 +64,7 @@ describe('<SearchField />', () => {
 
   it('should call onKeyDown callback when keyboard input is entered', () =>
     new Promise((resolve) => {
-      const { getByRole } = render(
+      render(
         <SearchField
           accessibilityLabel="Demo Search Field"
           id="searchField"
@@ -79,7 +79,6 @@ describe('<SearchField />', () => {
           value="Search"
         />,
       );
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      fireEvent.keyDown(getByRole('searchbox'), { key: 'a' });
+      fireEvent.keyDown(screen.getByRole('searchbox'), { key: 'a' });
     }));
 });

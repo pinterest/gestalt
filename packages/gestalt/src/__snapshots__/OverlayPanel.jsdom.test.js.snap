@@ -62,10 +62,15 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
-            style="height: 100%;"
+            class="box flexGrow paddingX0 paddingY0 relative xsDirectionColumn xsDisplayFlex"
+            style="height: 100%; width: 100%;"
           >
-            <section />
+            <div
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              style="height: 100%;"
+            >
+              <section />
+            </div>
           </div>
           <div>
             <div
@@ -258,18 +263,23 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
             <nav />
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
-            style="height: 100%;"
-          >
-            <section />
-          </div>
-          <div
-            class="box fit relative"
+            class="box flexGrow paddingX0 paddingY0 relative xsDirectionColumn xsDisplayFlex"
+            style="height: 100%; width: 100%;"
           >
             <div
-              class="box paddingX6 paddingY6"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              style="height: 100%;"
             >
-              <footer />
+              <section />
+            </div>
+            <div
+              class="box fit relative"
+            >
+              <div
+                class="box paddingX6 paddingY6"
+              >
+                <footer />
+              </div>
             </div>
           </div>
         </div>
@@ -357,22 +367,27 @@ exports[`OverlayPanel should render all props with render props 1`] = `
             />
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
-            style="height: 100%;"
-          >
-            <button
-              type="submit"
-            />
-          </div>
-          <div
-            class="box fit relative"
+            class="box flexGrow paddingX0 paddingY0 relative xsDirectionColumn xsDisplayFlex"
+            style="height: 100%; width: 100%;"
           >
             <div
-              class="box paddingX6 paddingY6"
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              style="height: 100%;"
             >
               <button
                 type="submit"
               />
+            </div>
+            <div
+              class="box fit relative"
+            >
+              <div
+                class="box paddingX6 paddingY6"
+              >
+                <button
+                  type="submit"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -445,10 +460,15 @@ exports[`OverlayPanel should render animation in 1`] = `
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
-            style="height: 100%;"
+            class="box flexGrow paddingX0 paddingY0 relative xsDirectionColumn xsDisplayFlex"
+            style="height: 100%; width: 100%;"
           >
-            <section />
+            <div
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              style="height: 100%;"
+            >
+              <section />
+            </div>
           </div>
         </div>
       </div>
@@ -520,10 +540,15 @@ exports[`OverlayPanel should render animation out 1`] = `
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
-            style="height: 100%;"
+            class="box flexGrow paddingX0 paddingY0 relative xsDirectionColumn xsDisplayFlex"
+            style="height: 100%; width: 100%;"
           >
-            <section />
+            <div
+              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              style="height: 100%;"
+            >
+              <section />
+            </div>
           </div>
         </div>
       </div>

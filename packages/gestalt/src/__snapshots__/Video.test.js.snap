@@ -188,7 +188,7 @@ exports[`Video with children 1`] = `
       className="box flexGrow paddingX2 paddingY2"
     >
       <div
-        className="box flexGrow relative xsDisplayFlex xsItemsCenter"
+        className="box relative"
         style={
           Object {
             "height": 16,
@@ -211,7 +211,7 @@ exports[`Video with children 1`] = `
           tabIndex="-1"
         >
           <div
-            className="absolute box left0 right0 rounding2 secondary"
+            className="absolute box left0 right0 rounding2 secondary xsDisplayFlex"
             style={
               Object {
                 "height": 4,
@@ -227,16 +227,6 @@ exports[`Video with children 1`] = `
                 }
               }
             />
-          </div>
-          <div
-            className="absolute box rounding2"
-            style={
-              Object {
-                "height": 4,
-                "left": "NaN%",
-              }
-            }
-          >
             <div
               className="box circle light marginStartN2"
               style={
@@ -290,7 +280,7 @@ exports[`Video with children 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Unmute"
-          className="icon lightIcon iconBlock"
+          className="rtlSupport icon lightIcon iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"

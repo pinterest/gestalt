@@ -1,7 +1,9 @@
 // @flow strict
 import '../docs.css';
+// import css in the order rollut build them in the dist/
 import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
+import 'gestalt-charts/dist/gestalt-charts.css';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { type Node, useState } from 'react';

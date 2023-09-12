@@ -4,6 +4,65 @@ import { render, screen } from '@testing-library/react';
 import IconButton from './IconButton.js';
 
 describe('IconButton', () => {
+  it('renders with icon', () => {
+    const { container } = render(<IconButton accessibilityLabel="Pinterest" icon="pin" />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders with disabled state', () => {
+    const { container } = render(<IconButton accessibilityLabel="Pinterest" icon="pin" disabled />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders with svg', () => {
+    const { container } = render(
+      <IconButton
+        accessibilityLabel="Pinterest"
+        dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }}
+      />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders with tooltip', () => {
+    const { container } = render(
+      <IconButton
+        accessibilityLabel="Share"
+        icon="share"
+        tooltip={{
+          text: 'This Pin is private unless you share it with others.',
+          idealDirection: 'up',
+        }}
+      />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders with tooltip and no accessibilityLabel', () => {
+    const { container } = render(
+      <IconButton
+        accessibilityLabel="Share"
+        icon="share"
+        tooltip={{
+          text: 'Share',
+          idealDirection: 'up',
+          accessibilityLabel: '',
+        }}
+      />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('renders with data-test-id', () => {
+    const TEST_ID = 'button-test-123';
+    render(<IconButton dataTestId={TEST_ID} accessibilityLabel="Share" icon="share" />);
+    expect(
+      screen.getByTestId(TEST_ID, {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
   it('handles click', () => {
     const mockOnClick = jest.fn<
       [
@@ -18,11 +77,8 @@ describe('IconButton', () => {
       ],
       void,
     >();
-    const { getByRole } = render(
-      <IconButton accessibilityLabel="test" icon="add" onClick={mockOnClick} />,
-    );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByRole('button').click();
+    render(<IconButton accessibilityLabel="test" icon="add" onClick={mockOnClick} />);
+    screen.getByRole('button').click();
     expect(mockOnClick).toHaveBeenCalled();
   });
 

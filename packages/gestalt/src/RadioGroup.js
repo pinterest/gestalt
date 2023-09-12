@@ -42,7 +42,7 @@ type Props = {|
  *  [RadioGroups](https://gestalt.pinterest.systems/web/radiogroup) are used for selecting only 1 item from a list of 2 or more items. If you need multiple selection or have only one option, use [Checkbox](https://gestalt.pinterest.systems/web/checkbox). If you need to provide a binary on/off choice that takes effect immediately, use [Switch](https://gestalt.pinterest.systems/web/switch).
  *
  */
-export default function RadioGroup({
+function RadioGroup({
   children,
   direction = 'column',
   errorMessage,
@@ -64,4 +64,8 @@ export default function RadioGroup({
   );
 }
 
+RadioGroup.displayName = 'RadioGroup';
+
 RadioGroup.RadioButton = RadioGroupButton;
+
+export default RadioGroup;

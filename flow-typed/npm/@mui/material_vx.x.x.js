@@ -17,3 +17,7 @@ declare module '@mui/x-date-pickers/LocalizationProvider' {
 declare module '@mui/x-date-pickers/DateField' {
   declare module.exports: any;
 }
+
+declare module '@mui/x-date-pickers/locales' {
+  declare module.exports: any;
+}

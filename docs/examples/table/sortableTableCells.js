@@ -18,6 +18,11 @@ export default function SortableHeaderExample(): Node {
   return (
     <Box height="100%" display="flex" justifyContent="center" alignItems="center">
       <Table accessibilityLabel="Sortable header cells">
+        <colgroup>
+          <col span="1" style={{ width: '10%' }} />
+          <col span="1" style={{ width: '10%' }} />
+          <col span="1" style={{ width: '80%' }} />
+        </colgroup>
         <Table.Header>
           <Table.Row>
             <Table.SortableHeaderCell

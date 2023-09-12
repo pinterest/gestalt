@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, Layer, Popover, ScrollBoundaryContainer, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, PopoverEducational, ScrollBoundaryContainer, Text } from 'gestalt';
 
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
@@ -26,39 +26,21 @@ export default function Example(): Node {
                 status of your data source submission.
               </Text>
             </Box>
-            <Button
+            <ButtonLink
               ref={anchorRef}
               href="https://help.pinterest.com/en/business/article/data-source-ingestion"
               iconEnd="visit"
               onClick={() => setOpen(false)}
-              role="link"
               target="blank"
               text="Help"
             />
             {open && (
-              <Layer>
-                <Popover
-                  anchor={anchorRef.current}
-                  color="blue"
-                  idealDirection="right"
-                  onDismiss={() => {}}
-                  positionRelativeToAnchor={false}
-                  showCaret
-                  size="xs"
-                >
-                  <Box
-                    padding={3}
-                    display="flex"
-                    alignItems="center"
-                    direction="column"
-                    column={12}
-                  >
-                    <Text color="inverse" align="center">
-                      Need help with something? Check out our Help Center.
-                    </Text>
-                  </Box>
-                </Popover>
-              </Layer>
+              <PopoverEducational
+                anchor={anchorRef.current}
+                idealDirection="right"
+                onDismiss={() => {}}
+                message="Need help with something? Check out our Help Center."
+              />
             )}
           </Flex>
         </Box>

@@ -2,7 +2,7 @@
 
 exports[`Module Expandable renders correctly with multiple items 1`] = `
 <div
-  className="box elevationFloating rounding4 shadow"
+  className="box default rounding4 shadow"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -94,8 +94,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-0"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}
@@ -209,8 +214,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-1"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}
@@ -346,8 +356,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-2"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}
@@ -373,7 +388,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
 
 exports[`Module Expandable renders correctly with one item 1`] = `
 <div
-  className="box elevationFloating rounding4 shadow"
+  className="box default rounding4 shadow"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -495,8 +510,13 @@ exports[`Module Expandable renders correctly with one item 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-0"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}
@@ -522,7 +542,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
 
 exports[`renders correctly with multiple items with expandedId 1`] = `
 <div
-  className="box elevationFloating rounding4 shadow"
+  className="box default rounding4 shadow"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -591,8 +611,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-0"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}
@@ -711,8 +736,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-1"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}
@@ -848,8 +878,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1"
+              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-2"
+              style={
+                Object {
+                  "maxHeight": 24,
+                }
+              }
             >
               <svg
                 aria-hidden={null}

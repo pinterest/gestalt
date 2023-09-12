@@ -55,7 +55,6 @@ type BaseButton = {|
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   fullWidth?: boolean,
-  name?: string,
   onClick?: ({|
     event:
       | SyntheticMouseEvent<HTMLButtonElement>
@@ -77,12 +76,14 @@ type ButtonType = {|
   selected?: boolean,
   type?: 'button',
   role?: 'button',
+  name?: string,
 |};
 
 type SubmitButtonType = {|
   ...BaseButton,
   type: 'submit',
   role?: 'button',
+  name?: string,
 |};
 
 type LinkButtonType = {|

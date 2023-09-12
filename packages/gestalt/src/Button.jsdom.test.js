@@ -18,9 +18,8 @@ describe('Button', () => {
       ],
       void,
     >();
-    const { getByText } = render(<Button text="ButtonText" onClick={mockOnClick} />);
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('ButtonText').click();
+    render(<Button text="ButtonText" onClick={mockOnClick} />);
+    screen.getByText('ButtonText').click();
     expect(mockOnClick).toHaveBeenCalled();
   });
 
@@ -135,5 +134,26 @@ describe('Button', () => {
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
+  });
+
+  it('renders with data-test-id', () => {
+    const TEST_ID = 'button-test-123';
+    render(
+      <Button
+        dataTestId={TEST_ID}
+        iconEnd="visit"
+        size="lg"
+        text="Visit Pinterest"
+        role="link"
+        rel="nofollow"
+        target="blank"
+        href="#"
+      />,
+    );
+    expect(
+      screen.getByTestId(TEST_ID, {
+        exact: true,
+      }),
+    ).toBeVisible();
   });
 });

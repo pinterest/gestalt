@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo "Testing Local Changes..."
+
 echo "build"
 (cd packages/gestalt && yarn build)
+(cd packages/gestalt-charts && yarn build)
 (cd packages/gestalt-datepicker && yarn build)
 
 echo "eslint"
@@ -44,6 +47,12 @@ then
   echo "Following files require changes:"
   git diff -- '*.flow'
   exit 1
+fi
+
+# We're going to run visual locally for now and only when files in the gestalt library are changed
+if  [ -z "${GITHUB_ACTIONS:-}" ] && [ -n "$(git diff  HEAD master -- playwright)" ]; then
+  echo "Running playwright tests locally"
+  yarn run playwright:visual-test
 fi
 
 echo "👌 Looks good to me!"

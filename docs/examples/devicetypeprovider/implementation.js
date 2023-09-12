@@ -28,7 +28,7 @@ export default function Example(): Node {
           >
             <Box height={450} width={280} color="default" id="sidenav">
               <SideNavigation
-                title="Advertisement"
+                mobileTitle="Advertisement"
                 accessibilityLabel="Mobile device example"
                 dismissButton={{
                   onDismiss: () => {},

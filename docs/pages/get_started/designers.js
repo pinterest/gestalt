@@ -49,7 +49,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
 [**The Pinterest Design plugin**](https://www.figma.com/community/plugin/1215463263194174399)
 The Pinterest Design Figma plugin is _the_   design tool to work faster and smarter. You can add Pinterest images directly to designs, export icons in production-ready formats, automatically convert UI to dark mode, reference design system documentation and more!
 
-[**Pinterest Assets**](https://www.figma.com/community/plugin/1001559251745003811/Pinterest-Assets)
+[**Pinterest Assets**](https://www.figma.com/community/plugin/1167574100578966652/Pinterest-Assets)
 Insert Pinterest Brand-approved, royalty-free stock photography from curated collections on our DAM.
 
           `}

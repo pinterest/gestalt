@@ -6,7 +6,7 @@
   "homepage": "https://gestalt.pinterest.systems/",
   "scripts": {
     "dev": "(next dev) & (yarn dev-metadata)",
-    "dev-metadata": "nodemon -w ../packages/gestalt/src -w ../packages/gestalt-datepicker/src --exec 'yarn build-metadata'",
+    "dev-metadata": "nodemon -w ../packages/gestalt/src -w ../packages/gestalt-charts/src -w ../packages/gestalt-datepicker/src --exec 'yarn build-metadata'",
     "build": "yarn build-metadata && next build",
     "build-metadata": "../scripts/generateMetadata.js",
     "start": "next start"
@@ -15,6 +15,7 @@
     "@mdx-js/react": "^2.1.1",
     "date-fns": "^2.16.1",
     "gestalt": ">0.0.0",
+    "gestalt-charts": ">0.0.0",
     "gestalt-datepicker": ">0.0.0",
     "gestalt-design-tokens": ">0.0.0",
     "gray-matter": "^4.0.3",

@@ -4,17 +4,40 @@ import { Box, SlimBanner, TapArea, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import PropTable from '../../docs-components/PropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import accessibilityLabelExample from '../../examples/taparea/accessibilityLabelExample.js';
+import heightWidthExample from '../../examples/taparea/heightWidthExample.js';
+import inlineUsageExample from '../../examples/taparea/inlineUsageExample.js';
+import mainExample from '../../examples/taparea/mainExample.js';
+import refExample from '../../examples/taparea/refExample.js';
+import rolesCompressBehaviorExample from '../../examples/taparea/rolesCompressBehaviorExample.js';
+import withLinkButtonExample from '../../examples/taparea/withLinkButtonExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBanner
+            type="error"
+            iconAccessibilityLabel="Info"
+            message={`TapArea role="link" is soon to be deprecated, use TapAreaLink instead.`}
+            helperLink={{
+              text: 'View TapAreaLink',
+              accessibilityLabel: 'View TapAreaLink documentation page',
+              href: '/web/taparealink',
+              onClick: () => {},
+            }}
+          />
+        }
+      />
 
       <PropTable
         componentName={generatedDocGen?.displayName}
@@ -74,6 +97,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             description:
               'TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.',
             href: 'basic-taparea',
+          },
+          {
+            name: 'dataTestId',
+            type: 'string',
+            required: false,
+            description: [
+              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
+            ],
           },
           {
             name: 'disabled',
@@ -272,245 +303,53 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </MainSection>
 
       <MainSection name="Variants">
-        <Example
-          name="Basic TapArea"
-          id="basic-taparea"
-          defaultCode={`
-function TapAreaExample() {
-  return (
-    <Box rounding={4} borderStyle="sm" width={170}>
-      <TapArea rounding={4}>
-        <Box
-          alignItems="center"
-          direction="column"
-          display="flex"
-          padding={3}
-        >
-          <Avatar
-            name="Alberto"
-            size="xl"
-            src="https://i.ibb.co/NsK2w5y/Alberto.jpg"
-            verified
+        <MainSection.Subsection title="Basic TapArea">
+          <MainSection.Card
+            sandpackExample={<SandpackExample name="Main Example" code={mainExample} />}
           />
-          <Text weight="bold">Alberto's Profile</Text>
-        </Box>
-      </TapArea>
-    </Box>
-  );
-}
-`}
-        />
+        </MainSection.Subsection>
 
-        <Example
-          id="link_buttons"
-          description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
+        <MainSection.Subsection title="TapArea with Link/Button">
+          <MainSection.Card
+            description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
 TapArea with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
   `}
-          name="TapArea with Link/Button"
-          defaultCode={`
-function TapAreaExample() {
-  const [touches, setTouches] = React.useState(0);
+            sandpackExample={
+              <SandpackExample name="With Link Button Example" code={withLinkButtonExample} />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <Box width={200}>
-      <TapArea
-        onTap={() => setTouches(touches + 1)}
-        rounding={2}
-      >
-        <Box color="selected" rounding={4} borderStyle="sm">
-          <Mask rounding={2}>
-            <Image
-              alt="Antelope Canyon"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-            />
-          </Mask>
-          <Box paddingY={2}>
-            <Link
-              href="https://www.pinterest.com/search/pins/?rs=ac&len=2&q=antelope%20canyon%20arizona&eq=Antelope%20Canyon"
-              onClick={({ event }) => event.stopPropagation()}
-              rounding="pill"
-              target="blank"
-            >
-              <Text align="center" color="inverse">Find More on Pinterest</Text>
-            </Link>
-          </Box>
-        </Box>
-      </TapArea>
-      <Box paddingY={2}>
-        <Text color="subtle" align="center">
-          Touched {touches} {touches === 1 ? 'time' : 'times'}
-        </Text>
-      </Box>
-    </Box>
-  );
-}
-`}
-        />
+        <MainSection.Subsection title="Roles & compress behavior">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                name="Roles & Compress Behavior Example"
+                code={rolesCompressBehaviorExample}
+                layout="column"
+                previewHeight={400}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-        <Example
-          name="Roles & compress behavior"
-          id="roles"
-          defaultCode={`
-function Example() {
-  const [disabled, setDisabled] = React.useState(false);
-  const [compressed, setCompressed] = React.useState('compress');
-  const [touches, setTouches] = React.useState(0);
-  const [tabIndex, setTabIndex] = React.useState(false);
+        <MainSection.Subsection title="Height & width">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample name="Height & Width Example" code={heightWidthExample} />
+            }
+          />
+        </MainSection.Subsection>
 
-  return (
-    <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
-      <Flex gap={6} wrap>
-        <Tooltip text="Default TapArea">
-          <TapArea
-            tapStyle={compressed}
-            disabled={disabled}
-            onTap={() => setTouches(touches + 1)}
-            tabIndex={tabIndex ? -1 : 0}
-          >
-            <Box padding={3} column={12} borderStyle="lg" width={200}>
-              <Mask rounding={2}>
-                <Image
-                  alt="Antelope Canyon"
-                  naturalHeight={1}
-                  naturalWidth={1}
-                  src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-                />
-              </Mask>
-              <Text align="center">Touched {touches} {touches === 1 ? 'time' : 'times'}</Text>
-            </Box>
-          </TapArea>
-        </Tooltip>
-        <Tooltip text="Link TapArea">
-          <TapArea
-            tapStyle={compressed}
-            disabled={disabled}
-            role="link"
-            target="blank"
-            href="https://www.pinterest.com"
-            tabIndex={tabIndex ? -1 : 0}
-          >
-            <Box padding={3} column={12} borderStyle="lg" width={200}>
-              <Mask rounding={2}>
-                <Image
-                  alt="Antelope Canyon"
-                  naturalHeight={1}
-                  naturalWidth={1}
-                  src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-                />
-              </Mask>
-              <Text align="center">Visit Pinterest.com</Text>
-            </Box>
-          </TapArea>
-        </Tooltip>
-      </Flex>
-      <Flex gap={{ column: 0, row: 2 }}>
-        <Switch
-          onChange={() => setCompressed(compressed === "compress" ? "none" : "compress")}
-          id="compress-buttons"
-          switched={compressed === "compress" ? true : false }
-        />
-        <Box paddingX={2} flex="grow">
-          <Label htmlFor="compress-buttons">
-            <Text>Compress TapArea</Text>
-          </Label>
-        </Box>
-      </Flex>
-      <Flex gap={{ column: 0, row: 2 }}>
-        <Switch
-          onChange={() => setDisabled(!disabled)}
-          id="disable-buttons"
-          switched={disabled}
-        />
-        <Box paddingX={2} flex="grow">
-          <Label htmlFor="disable-buttons">
-            <Text>Disable TapArea</Text>
-          </Label>
-        </Box>
-      </Flex>
-      <Flex gap={{ column: 0, row: 2 }}>
-        <Switch
-          onChange={() => setTabIndex(!tabIndex)}
-          id="unreachable-buttons"
-          switched={tabIndex}
-        />
-        <Box paddingX={2} flex="grow">
-          <Label htmlFor="unreachable-buttons">
-            <Text>Remove from keyboard navigation with tabIndex</Text>
-          </Label>
-        </Box>
-      </Flex>
-    </Flex>
-  );
-}
-`}
-        />
-
-        <Example
-          name="Height & width"
-          id="fullHeightWidth"
-          defaultCode={`
-<Flex gap={6} wrap maxWidth={500} height={250}>
-  <Box borderStyle="sm" margin={3} width="100%" height="100%">
-    <TapArea fullHeight>
-      <Box height="100%" color="secondary">
-        <Text align="center">
-          Full parent height
-        </Text>
-      </Box>
-    </TapArea>
-  </Box>
-  <Box borderStyle="sm" margin={3} width="100%" height="100%">
-    <TapArea>
-      <Box height="100%" color="secondary">
-        <Text align="center">
-          Child height only
-        </Text>
-      </Box>
-    </TapArea>
-  </Box>
-</Flex>
-`}
-        />
-
-        <Example
-          name="Inline usage"
-          id="inlineUsage"
-          description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
-          defaultCode={`
-<Box color="warningBase" height={250} padding={3} maxWidth={500}>
-  <Flex direction="column" gap={{ column: 6, row: 0 }}>
-    <Flex.Item>
-      <Text color="inverse" inline>Other content</Text>
-      <Box borderStyle="sm" margin={3} column={6}>
-        <TapArea>
-          <Box height="100%" color="secondary">
-            <Text align="center">
-              Default behavior (block)
-            </Text>
-          </Box>
-        </TapArea>
-      </Box>
-    </Flex.Item>
-
-    <Flex.Item>
-      <Text color="inverse" inline>Other content</Text>
-      <Box borderStyle="sm" display="inlineBlock" margin={3} column={6}>
-        <TapArea>
-          <Box height="100%" color="secondary">
-            <Text align="center">
-              Inline behavior
-            </Text>
-          </Box>
-        </TapArea>
-      </Box>
-    </Flex.Item>
-  </Flex>
-</Box>
-`}
-        />
+        <MainSection.Subsection title="Inline usage">
+          <MainSection.Card
+            description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
+            sandpackExample={
+              <SandpackExample name="Inline Usage Example" code={inlineUsageExample} />
+            }
+          />
+        </MainSection.Subsection>
 
         <Combination
           id="mouseCursor"
@@ -561,105 +400,32 @@ function Example() {
           )}
         </Combination>
 
-        <Example
-          id="ref"
-          name="Ref"
-          defaultCode={`
-function TapAreaRefExample() {
-  const ref = React.useRef();
-  const [focus, setFocus] = React.useState(0);
+        <MainSection.Subsection title="Ref">
+          <MainSection.Card
+            sandpackExample={<SandpackExample name="Ref Example" code={refExample} />}
+          />
+        </MainSection.Subsection>
 
-  return (
-    <Flex gap={{ column: 0, row: 2 }}>
-      <Button
-        text="Focus the TapArea"
-        onClick={() => ref.current.focus()}
-      />
-      <TapArea
-        ref={ref}
-        rounding="pill"
-        onFocus={() => setFocus(focus + 1)}
-      >
-        <Box
-          borderStyle="sm"
-          padding={2}
-          rounding="pill"
-        >
-          <Text>TapArea is focused {focus} times</Text>
-        </Box>
-      </TapArea>
-    </Flex>
-  );
-}`}
-        />
+        <MainSection.Subsection title="Accessibility: label, controls, expanded, & popup">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                name="Accessibility: Label, Controls, Expanded, & Popup Example"
+                code={accessibilityLabelExample}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-        <Example
-          name="Accessibility: label, controls, expanded, & popup"
-          id="accessibility"
-          defaultCode={`
-function MenuButtonExample() {
-  const [selected, setSelected] = React.useState(false);
-  const anchorRef = React.useRef();
+        <MainSection.Subsection
+          title="External handlers"
+          description={`TapArea consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
-  return (
-    <React.Fragment>
-        <TapArea
-          accessibilityLabel="Open the options menu"
-          accessibilityControls="menu"
-          accessibilityExpanded={selected}
-          accessibilityHaspopup
-          onTap={() => setSelected(!selected)}
-        >
-          <Box
-            ref={anchorRef}
-            borderStyle="sm"
-            display="inlineBlock"
-            alignItems="center"
-            rounding={1}
-            padding={2}
-          >
-            <Flex gap={{ column: 0, row: 2 }}>
-              <Box height={50} width={50}>
-                <Mask rounding={1}>
-                  <Image
-                    alt="Antelope Canyon"
-                    naturalHeight={1}
-                    naturalWidth={1}
-                    src="https://i.ibb.co/FY2MKr5/stock6.jpg"
-                  />
-                </Mask>
-              </Box>
-              <Text weight="bold" align="center">Menu</Text>
-            </Flex>
-          </Box>
-      </TapArea>
-      {selected && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setSelected(false)}
-            positionRelativeToAnchor={false}
-            size="md"
-          >
-            <Box id="menu" direction="column" display="flex" padding={2}>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 1
-                </Text>
-              </Box>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 2
-                </Text>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when TapArea role="link" is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
 `}
         />
       </MainSection>

@@ -27,15 +27,7 @@ Gestalt icon svg files follow a particular format and use automatic file validat
 
 We override the color in the Gestalt Icon component and Gestalt only uses the \`d\` attribute in the \`path\` tag and the basic attributes for visualizing the raw file in the \`svg\` tag . For consistency and for smaller bundle sizes, we don't include unnecessary attributes in the \`svg\` and \`path\` tags.
 
-We recommend streamlining (removing strokes, transforms, etc.) and optimizing the SVGs to improve performance and the Pinner experience using the tools [svgo](https://github.com/svg/svgo) or [ImageOptim](https://imageoptim.com/mac).
-
-To use svgo, install
-
-\`npm -g install svgo\`
-
-and run
-
-\`svgo -f packages/gestalt/src/icons --config=packages/gestalt/src/icons/svgo.config.js\``}
+All Gestalt SVGs need to be exported from Figma using the [Icon Exporter plugin available in our Pinterest Design Figma plugin](/get_started/designers#Private-Figma-plugins)`}
         />
       </MainSection>
       <MainSection name="Brand icons">

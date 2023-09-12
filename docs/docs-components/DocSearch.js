@@ -6,7 +6,7 @@ import { PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 const INPUT_ID = 'algolia-doc-search';
 
 function SearchBox({ popoverZIndex }: {| popoverZIndex?: CompositeZIndex |}) {
-  // Icon placement is copied directly from SearchField
+  // Icon placement is copied directly from  SearchField
   // Try to maintain consistency w/ SearchField whenever possible
   return (
     <Tooltip inline text="Pro tip: press '/' to quickly access search" zIndex={popoverZIndex}>

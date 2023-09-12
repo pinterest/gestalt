@@ -23,7 +23,7 @@ type OwnProps = {|
   children?: ReactNode,
   onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   id?: ?string,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
   role?: ?Role,

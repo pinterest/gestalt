@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, Popover, Pulsar, Text } from 'gestalt';
+import { Box, Button, Flex, PopoverEducational, Pulsar } from 'gestalt';
 
 export default function Example(): Node {
   const [showEducation, setShowEducation] = useState(false);
@@ -28,29 +28,19 @@ export default function Example(): Node {
         >
           <Pulsar size={30} />
         </Box>
+        {showEducation && (
+          <PopoverEducational
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => {}}
+            message="Our 3-step ad creation tool makes setting up an ad even faster"
+            primaryAction={{
+              text: 'Got it',
+              onClick: () => {},
+            }}
+          />
+        )}
       </Box>
-
-      {showEducation && (
-        <Popover
-          anchor={anchorRef.current}
-          color="blue"
-          idealDirection="down"
-          showCaret
-          onDismiss={() => {}}
-          positionRelativeToAnchor={false}
-          size="sm"
-        >
-          <Box paddingX={6} paddingY={4}>
-            <Flex alignItems="center" direction="column" gap={3}>
-              <Text color="inverse" align="center">
-                Our 3-step ad creation tool makes setting up an ad even faster
-              </Text>
-
-              <Button text="Got it" onClick={() => {}} />
-            </Flex>
-          </Box>
-        </Popover>
-      )}
     </Flex>
   );
 }

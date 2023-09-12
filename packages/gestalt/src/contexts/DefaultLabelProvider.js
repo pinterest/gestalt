@@ -29,6 +29,10 @@ export type DefaultLabelContextType = {|
     noResultText: string,
     accessibilityClearButtonLabel: string,
   |},
+  DateRange: {|
+    cancelText: string,
+    applyText: string,
+  |},
   Link: {|
     accessibilityNewTabLabel: string,
   |},
@@ -64,6 +68,9 @@ export type DefaultLabelContextType = {|
     iconAccessibilityLabelSuccess: string,
   |},
   Spinner: {|
+    accessibilityLabel: string,
+  |},
+  TableOfContents: {|
     accessibilityLabel: string,
   |},
   Tag: {|
@@ -119,6 +126,10 @@ export const fallbackLabels: DefaultLabelContextType = {
     noResultText: 'No results',
     accessibilityClearButtonLabel: 'Clear input',
   },
+  DateRange: {
+    cancelText: 'Cancel',
+    applyText: 'Apply',
+  },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
   },
@@ -155,6 +166,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Spinner: {
     accessibilityLabel: 'Loading',
+  },
+  TableOfContents: {
+    accessibilityLabel: 'Table of contents',
   },
   Tag: {
     accessibilityErrorIconLabel: 'Error',

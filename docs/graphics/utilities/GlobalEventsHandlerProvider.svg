@@ -1,0 +1,33 @@
+<svg width="312" height="180" viewBox="0 0 312 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1535_1920)">
+<rect width="312" height="180" fill="#F1F1F1"/>
+<rect width="50" height="25" transform="translate(131 30)" fill="#767676" fill-opacity="0.5"/>
+<rect x="131" y="30" width="50" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<rect x="181" y="77" width="50" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<rect width="50" height="25" transform="translate(81 77)" fill="#767676" fill-opacity="0.5"/>
+<rect x="81" y="77" width="50" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<rect width="25" height="25" transform="translate(68 125)" fill="#767676" fill-opacity="0.5"/>
+<rect x="68" y="125" width="25" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<rect x="118" y="125" width="25" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<rect width="25" height="25" transform="translate(168 125)" fill="#767676" fill-opacity="0.5"/>
+<rect x="168" y="125" width="25" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<rect x="218" y="125" width="25" height="25" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<path d="M156 58L156 65" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M106 107L106 114" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M206 107L206 114" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M106 65L106 72" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M81 114L81 121" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M181 114L181 121" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M131 114L131 121" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M231 114L231 121" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M206 65L206 72" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M206 65L106 65" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M131 114H81" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+<path d="M231 114H181" stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1535_1920">
+<rect width="312" height="180" fill="white"/>
+</clipPath>
+</defs>
+</svg>

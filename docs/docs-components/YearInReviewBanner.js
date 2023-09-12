@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Lottie from 'lottie-react';
-import { Box, Button, Flex, Heading, TapArea, Text, useReducedMotion } from 'gestalt';
+import { Box, ButtonLink, Flex, Heading, TapArea, Text, useReducedMotion } from 'gestalt';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
@@ -54,10 +54,7 @@ export default function YearInReviewBanner(): Node {
                 <Text>We’ve done so much this year and can’t wait to share it with you.</Text>
               </Flex>
             </Flex.Item>
-            {/* $FlowExpectedError[incompatible-type] */}
-            <Button
-              selected
-              role="link"
+            <ButtonLink
               href="/year_in_review_2022"
               text="View the recap"
               iconEnd="directional-arrow-right"

@@ -20,7 +20,7 @@ const defaultHeadingLevels = {
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
-type Overflow = 'normal' | 'breakWord';
+type Overflow = 'normal' | 'breakWord' | 'breakAll';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
@@ -85,6 +85,19 @@ export default function Heading({
   overflow = 'breakWord',
   size = '600',
 }: Props): Node {
+  const getWordBreakStyle = (): string | void => {
+    if (overflow === 'breakAll') {
+      return typography.breakAll;
+    }
+
+    // default to breakWord if lineClamp is set
+    if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
+      return typography.breakWord;
+    }
+
+    return undefined;
+  };
+
   const cs = cx(
     styles.Heading,
     typography[`fontSize${size}`],
@@ -95,7 +108,7 @@ export default function Heading({
     align === 'end' && typography.alignEnd,
     align === 'forceLeft' && typography.alignForceLeft,
     align === 'forceRight' && typography.alignForceRight,
-    overflow === 'breakWord' && typography.breakWord,
+    getWordBreakStyle(),
     isNotNullish(lineClamp) && typography.lineClamp,
   );
 

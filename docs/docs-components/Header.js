@@ -63,27 +63,19 @@ function Header() {
   );
 
   useEffect(() => {
-    const devModeSetFromUrl = router.query.devexample && router.query.devexample === 'true';
-
-    // do not show switch if set via url
-    if (devModeSetFromUrl) {
-      setShowDevelopmentEditorSwitch(false);
-      return;
-    }
-
     const isDeployPreviewEnvironment =
       process.env.NODE_ENV === 'production' &&
       window?.location?.href?.startsWith('https://deploy-preview-');
 
-    if (isDeployPreviewEnvironment || process.env.NODE_ENV === 'development')
+    const devModeSetFromUrl = router.query.devexample && router.query.devexample === 'true';
+
+    // show switch if set via url or is a deployment URL
+    if (devModeSetFromUrl || isDeployPreviewEnvironment) {
       setShowDevelopmentEditorSwitch(true);
+    }
   }, [setShowDevelopmentEditorSwitch, router.pathname, router.query]);
 
   const { colorScheme, setColorScheme, devExampleMode, setDevExampleMode } = useAppContext();
-
-  const devExampleModeButtonLabel = `Toggle dev example mode ${
-    devExampleMode === 'development' ? 'off' : 'on'
-  }`;
 
   const darkModeButtonLabel = `Toggle ${colorScheme === 'dark' ? 'light' : 'dark'} mode`;
   const onChangeColorScheme = () => {
@@ -183,7 +175,7 @@ function Header() {
                 position="middle"
                 type="info"
                 tooltip={{
-                  text: 'You are currently in dev mode, which allows you to see dev-only examplepreviews.',
+                  text: 'You are currently in dev mode, which allows you to see dev-only example previews.',
                   idealDirection: 'down',
                   accessibilityLabel: '',
                   zIndex: PAGE_HEADER_POPOVER_ZINDEX,
@@ -198,7 +190,9 @@ function Header() {
                 onClick={onChangeDevExampleMode}
                 selected={devExampleMode === 'development'}
                 tooltip={{
-                  text: devExampleModeButtonLabel,
+                  text: `Toggle dev example mode ${
+                    devExampleMode === 'development' ? 'off' : 'on'
+                  }`,
                   inline: true,
                   idealDirection: 'down',
                   accessibilityLabel: '',

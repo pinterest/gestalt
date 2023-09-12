@@ -1,10 +1,10 @@
 ---
 title: Switch
-description: Use Switch for single-cell options that can be turned on and off only. If you have a cell with multiple options that can activated, consider using [Checkbox](https://gestalt.pinterest.systems/ios/checkbox).
+description: Use Switch for single-cell options that can be turned on and off only. If you have a cell with multiple options that can be activated, consider using [Checkbox](https://gestalt.pinterest.systems/ios/checkbox).
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/90/ad/d390ad2e3fa4c1c8319d7baa7508cb0a.jpg"  alt="Primary example of Switch component" />
+<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/ef9d1c87-824c-4c91-8858-602e0ea99873"  alt="Primary example of Switch component" />
 
 ## Usage guidelines
 
@@ -24,13 +24,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/2c/19/f6/2c19f61a4901d6f77069c3ed9f266de4.jpg"  alt="Example of Switch with label and subtext" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/56807374-d4da-40e9-b4af-70eba828f45a"  alt="Example of Switch with label and subtext" />
     <Do title="Do" />
     Use a label and subtext to give Switch context when possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d4/ea/4d/d4ea4d12eb9ec8235bd773b363cddc97.jpg"  alt="Example of Switch with truncated text" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/109b69d7-5c52-4986-ac95-263f9b684d70"  alt="Example of Switch with truncated text" />
     <Dont title="Don't" />
     Truncate label text. Instead, allow it to wrap to form another line.
   </Group>
@@ -38,13 +38,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/da/30/95/da309504c6a99dc3b989099a2bfde060.jpg"  alt="Example of disabled Switch" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/06e8d682-c1e9-484c-9557-129f826f9204"  alt="Example of disabled Switch" />
     <Do title="Do" />
     Communicate why a switch is disabled and how to enable it if possible.
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/66/ef/07/66ef0701a9d3d0927c1198d0d8bc9651.jpg"  alt="Example of incorrect switch usage" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/64af8d2f-f34d-46fb-8033-b539e4cd17af"  alt="Example of incorrect switch usage" />
     <Dont title="Don't" />
     Use checkboxes or radio buttons to replace the functionality of a switch. If the functionality is a binary on or off, use Switch instead.
   </Group>
@@ -53,36 +53,21 @@ fullwidth: true
 ## Accessibility
 
 Switches should have [Labels](https://gestalt.pinterest.systems/web/label) that can be read by screen readers, and that can be tapped to make it easier for users to select and deselect.
-People use Apple and Android’s accessibility features, such as VoiceOver and TalkBack to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple and Android’s accessibility documentation for more information:
+People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. SeeApple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 <TwoCol>
   <Group>
     [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
     [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
   </Group>
-
-  <Group>
-    [Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-    [Accessible development on Android](https://developer.ios.com/guide/topics/ui/accessibility)
-  </Group>
 </TwoCol>
 
-## Writing
+## Design tokens 
 
-<TwoCol>
-  <Group>
-    <Do title="Do" />
-    - Be clear and brief with Switch labels so they can be easily understood.
-    - When possible, use verbs to clarify the action. Something like “set…” or “show…”.
-    - If possible, be clear whether the setting is activated or deactivated.
-    - Use sentence case for labels.
-  </Group>
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36507%253A76927%26mode%3Ddesign%26t%3DkN6nosKVXVj5uIO0-1" allowfullscreen></iframe>
 
-  <Group>
-    <Dont title="Don't" />
-    - Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
-    - Don’t use “you,” “your,” or “my” to describe an action. Instead of “turn on your notifications,” say “turn on notifications.”
-  </Group>
-</TwoCol>
+## Anatomy 
+
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36507%253A76538%26mode%3Ddesign%26t%3DkN6nosKVXVj5uIO0-1" allowfullscreen></iframe>
 
 ## Variants
 
@@ -116,6 +101,48 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/e2/12/af/e212aff2d4ff881e3246bdbe2396a058.jpg"  alt="Example of disabled active state of Switch" />
     **Disabled | Active state**
+  </Group>
+</TwoCol>
+
+### With label
+
+1. **Label left**
+Label sits to the left of the switch
+1. **Label right**
+Label sits to the right of the switch
+
+<TwoCol>
+  <Group>
+   <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36507%253A76767%26mode%3Ddesign%26t%3DkN6nosKVXVj5uIO0-1" allowfullscreen></iframe>
+    **Label left**
+  </Group>
+
+  <Group>
+  <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36507%253A76845%26mode%3Ddesign%26t%3DkN6nosKVXVj5uIO0-1" allowfullscreen></iframe>
+    **Label right**
+  </Group>
+</TwoCol>
+
+### With subtext
+Subtext sits below the Switch label and aligns in the direction of the label.
+<br/>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36507%253A76693%26mode%3Ddesign%26t%3DkN6nosKVXVj5uIO0-1" allowfullscreen></iframe>
+
+## Writing
+
+<TwoCol>
+  <Group>
+    <Do title="Do" />
+    - Be clear and brief with Switch labels so they can be easily understood.
+    - When possible, use verbs to clarify the action. Something like “set…” or “show…”.
+    - If possible, be clear whether the setting is activated or deactivated.
+    - Use sentence case for labels.
+  </Group>
+
+  <Group>
+    <Dont title="Don't" />
+    - Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
+    - Don’t use “you,” “your,” or “my” to describe an action. Instead of “turn on your notifications,” say “turn on notifications.”
   </Group>
 </TwoCol>
 

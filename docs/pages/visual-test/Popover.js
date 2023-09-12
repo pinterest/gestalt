@@ -22,15 +22,13 @@ export default function Snapshot(): Node {
         {open && (
           <Popover
             anchor={anchorRef.current}
-            color="blue"
             idealDirection="down"
-            showCaret
             onDismiss={() => {}}
             positionRelativeToAnchor
             size="xs"
           >
             <Box padding={3}>
-              <Text color="light" align="center">
+              <Text color="dark" align="center">
                 Children
               </Text>
             </Box>
