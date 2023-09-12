@@ -335,7 +335,7 @@ interface ButtonActionData {
   disabled?: boolean;
   label: string;
   onClick?: ButtonEventHandlerType | undefined;
-  role: 'button';
+  role?: 'button';
 }
 
 interface LinkActionData {
@@ -1281,7 +1281,7 @@ interface ModalAlertLinkActionDataType {
   disabled?: boolean | undefined;
   label: string;
   onClick?: ButtonLinkEventHandlerType | undefined;
-  role: 'button';
+  role?: 'button';
 }
 
 interface ModalAlertProps {
@@ -1516,7 +1516,7 @@ interface PopoverEducationalProps {
   | {
     accessibilityLabel?: string | undefined;
     onClick?: ButtonEventHandlerType | undefined;
-    role: 'button';
+    role?: 'button';
     text: string | undefined;
   }
   | {
@@ -1819,7 +1819,7 @@ interface SlimBannerProps {
       | React.KeyboardEvent<HTMLButtonElement>
     >
     | undefined;
-    role: 'button';
+    role?: 'button';
   }
   | undefined;
   type?:
@@ -2246,7 +2246,7 @@ interface ToastProps {
     accessibilityLabel: string;
     label: string;
     onClick: ButtonEventHandlerType | undefined;
-    role: 'button';
+    role?: 'button';
     size?: 'sm' | 'md' | 'lg' | undefined;
   };
   thumbnail?:
