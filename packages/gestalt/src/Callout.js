@@ -28,7 +28,7 @@ export type ActionDataType =
       disabled?: boolean,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-      role: 'button',
+      role?: 'button',
     |};
 
 type Props = {|
@@ -64,7 +64,7 @@ type Props = {|
         target?: null | 'self' | 'blank',
       |}
     | {|
-        role: 'button',
+        role?: 'button',
         accessibilityLabel: string,
         disabled?: boolean,
         label: string,
@@ -72,7 +72,7 @@ type Props = {|
       |},
   /**
    * Secondary action for users to take on Callout. If role='link', the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-   * If role='button', the action will be a button.
+   * If role='button' (or undefined), the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   secondaryAction?:
@@ -87,7 +87,7 @@ type Props = {|
         target?: null | 'self' | 'blank',
       |}
     | {|
-        role: 'button',
+        role?: 'button',
         accessibilityLabel: string,
         disabled?: boolean,
         label: string,

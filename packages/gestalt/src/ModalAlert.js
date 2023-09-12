@@ -27,7 +27,7 @@ export type ActionDataType =
       disabled?: boolean,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-      role: 'button',
+      role?: 'button',
     |};
 
 type Props = {|

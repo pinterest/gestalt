@@ -88,7 +88,7 @@ type Props = {|
         accessibilityLabel: string,
         label: string,
         onClick: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
-        role: 'button',
+        role?: 'button',
         size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
       |},
 
@@ -234,7 +234,7 @@ export default function Toast({
                       target={primaryAction?.target}
                     />
                   ),
-                  primaryAction.role === 'button' && (
+                  primaryAction.role !== 'link' && (
                     <PrimaryAction
                       accessibilityLabel={primaryAction.accessibilityLabel}
                       label={primaryAction.label}

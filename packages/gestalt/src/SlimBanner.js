@@ -72,7 +72,7 @@ type PrimaryActionType =
       disabled?: boolean,
       label: string,
       onClick: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-      role: 'button',
+      role?: 'button',
     |};
 
 function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: PrimaryActionType) {

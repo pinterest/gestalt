@@ -31,7 +31,7 @@ type PrimaryActionType =
       onClick?: ({|
         event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
       |}) => void,
-      role: 'button',
+      role?: 'button',
       text: string,
     |};
 
@@ -50,18 +50,16 @@ function PrimaryAction(props: PrimaryActionType) {
       />
     );
   }
-  if (props.role === 'button') {
-    return (
-      <Button
-        accessibilityLabel={props.accessibilityLabel}
-        color="white"
-        fullWidth={false}
-        onClick={({ event }) => props.onClick?.({ event })}
-        type="button"
-        text={props.text}
-      />
-    );
-  }
+  return (
+    <Button
+      accessibilityLabel={props.accessibilityLabel}
+      color="white"
+      fullWidth={false}
+      onClick={({ event }) => props.onClick?.({ event })}
+      type="button"
+      text={props.text}
+    />
+  );
 }
 
 type Props = {|
