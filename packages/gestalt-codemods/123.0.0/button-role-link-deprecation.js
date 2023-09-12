@@ -14,118 +14,88 @@
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
-  let localIdentifierNames;
   let codeHasChanged = false;
-  const newImports = [];
-  const OLD_NAME = 'Button';
-  const NEW_NAME = 'ButtonLink';
 
   const imports = src.find(j.ImportDeclaration);
 
-  imports.forEach((path) => {
-    const decl = path.node;
-    // Not Gestalt, bail
-    if (decl.source.value !== 'gestalt') {
-      return;
-    }
+  // Store component mappings
+  const componentMappings = {
+    Button: 'Button',
+    Callout: 'Callout',
+    ModalAlert: 'ModalAlert',
+    PopoverEducational: 'PopoverEducational',
+    SlimBanner: 'SlimBanner',
+    Toast: 'Toast',
+    Upsell: 'Upsell',
+  };
 
-    // Find the local names of Button imports
-    localIdentifierNames = decl.specifiers
-      .filter((node) => node.imported?.name === OLD_NAME)
-      .map((node) => node.local.name);
+  imports.forEach((path) => {
+    const importSource = path.value.source.value;
+    const importSpecifiers = path.value.specifiers;
+
+    // Check if the import is being renamed
+    if (importSource && importSpecifiers) {
+      importSpecifiers.forEach((specifier) => {
+        if (specifier.type === 'ImportSpecifier') {
+          const originalName = specifier.imported.name;
+          const renamedName = specifier.local.name;
+          componentMappings[renamedName] = componentMappings[originalName];
+        }
+      });
+    }
   });
 
-  if (!localIdentifierNames || localIdentifierNames.length === 0) {
-    // Not imported, bail
-    return null;
+  // Helper function to update an attribute's value
+  function updateAttribute(attributes, attributeName, newValue) {
+    return attributes.map((attr) => {
+      if (attr.name.name === attributeName) {
+        return j.jsxAttribute(
+          j.jsxIdentifier(attributeName),
+          j.jsxExpressionContainer(j.literal(newValue)),
+        );
+      }
+      codeHasChanged = true;
+      return attr;
+    });
   }
 
   const transform = src
     .find(j.JSXElement)
-    .forEach((path, idx, array) => {
-      const { node } = path;
-      let elementHasChanged = false;
+    .forEach((path) => {
+      const node = path.value;
+      const componentName = node.openingElement.name.name;
 
-      // If current element is Button
-      if (localIdentifierNames.includes(node.openingElement.name.name)) {
-        const attrs = node.openingElement.attributes;
+      // Check if the component is in the mappings
+      if (componentMappings[componentName]) {
+        // Get the mapped component name
+        const mappedComponentName = componentMappings[componentName];
 
-        // Map through existing attributes, removing role='link'
-        let newAttrs = attrs
-          .map((attr) => {
-            const propName = attr?.name?.name;
-
-            // Not `role='link'`, bail
-            // TODO: check if attr?.value?.expression?.type is a constant or variable
-            if (propName !== 'role' || attr?.value?.value !== 'link') {
-              return attr;
-            }
-
-            // Flag as modified and remove role='link'
-            elementHasChanged = true;
-            codeHasChanged = true;
-            return null;
-          })
-          .filter(Boolean);
-
-        // Remove incompatible props if role='link'
-        if (elementHasChanged) {
-          newAttrs = newAttrs
-            .map((attr) => {
-              const propName = attr?.name?.name;
-
-              // Not incompatible prop, bail
-              if (propName !== 'selected') {
-                return attr;
-              }
-              // Remove incompatible prop
-              return null;
-            })
-            .filter(Boolean);
-
-          // Rename Button to ButtonLink
-          node.openingElement.name = NEW_NAME;
-          if (node.closingElement) {
-            node.closingElement.name = NEW_NAME;
-          }
-          j(path).replaceWith(node);
-          node.openingElement.attributes = newAttrs;
-
-          // Either add a import for Button or ButtonLink
-          newImports.push(j.importSpecifier(j.identifier('ButtonLink')));
-        } else {
-          newImports.push(j.importSpecifier(j.identifier('Button')));
+        switch (mappedComponentName) {
+          case 'Button':
+            // Update Button role attribute
+            node.openingElement.attributes = updateAttribute(
+              node.openingElement.attributes,
+              'role',
+              undefined,
+            );
+            break;
+          case 'Callout':
+          case 'ModalAlert':
+          case 'PopoverEducational':
+          case 'SlimBanner':
+          case 'Toast':
+          case 'Upsell':
+            // Update primaryAction attribute
+            node.openingElement.attributes = updateAttribute(
+              node.openingElement.attributes,
+              'primaryAction',
+              { role: 'link', ...node.openingElement.attributes[0].value.expression },
+            );
+            break;
+          default:
+            break;
         }
       }
-
-      if (idx === array.length - 1 && newImports.length > 0) {
-        // Update imports
-        imports.forEach((importPath) => {
-          const decl = importPath.node;
-          // Not Gestalt, bail
-          if (decl.source.value !== 'gestalt') {
-            return;
-          }
-          // Filter out old Button imports
-          let newSpecifiers = decl.specifiers
-            .filter((specifier) => specifier.imported.name !== 'Button')
-            .concat(newImports);
-
-          // Remove duplicates
-          newSpecifiers = newSpecifiers.filter(
-            (newImport, i, a) =>
-              i === a.findIndex((oldImport) => oldImport.imported.name === newImport.imported.name),
-          );
-
-          // Sort all the imports alphabetically and replace old import list with new
-          newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
-          const newNode = j.importDeclaration(newSpecifiers, j.literal('gestalt'));
-          j(importPath).replaceWith(newNode);
-        });
-      }
-
-      // Not Button, bail
-      return null;
     })
     .toSource({ quote: 'single' });
 
