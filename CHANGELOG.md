@@ -1,3 +1,27 @@
+## 122.5.9 (Sep 12, 2023)
+
+### Patch
+
+- Docs: Fix duplicated ToC accessibility label ([#3192](https://github.com/pinterest/gestalt/pull/3192)) - [Preview link](https://deploy-preview-3192--gestalt.netlify.app?devexample=true)
+
+## 122.5.8 (Sep 12, 2023)
+
+### Patch
+
+- Icon: added new icon for busines-hierarchy ([#3191](https://github.com/pinterest/gestalt/pull/3191)) - [Preview link](https://deploy-preview-3191--gestalt.netlify.app?devexample=true)
+
+## 122.5.7 (Sep 11, 2023)
+
+### Patch
+
+- Internal: Re-update playwright snapshots to match master ([#3189](https://github.com/pinterest/gestalt/pull/3189)) - [Preview link](https://deploy-preview-3189--gestalt.netlify.app?devexample=true)
+
+## 122.5.6 (Sep 11, 2023)
+
+### Patch
+
+- Docs: 9/8 weekly digest ([#3190](https://github.com/pinterest/gestalt/pull/3190)) - [Preview link](https://deploy-preview-3190--gestalt.netlify.app?devexample=true)
+
 ## 122.5.5 (Sep 7, 2023)
 
 ### Patch
