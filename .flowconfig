@@ -4,6 +4,7 @@
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
 <PROJECT_ROOT>/scripts/templates/
+<PROJECT_ROOT>/node_modules/.*
 
 [options]
 exact_by_default=true
