@@ -1,3 +1,9 @@
+## 122.5.10 (Sep 13, 2023)
+
+### Patch
+
+- Internal: fix debug statements ([#3193](https://github.com/pinterest/gestalt/pull/3193)) - [Preview link](https://deploy-preview-3193--gestalt.netlify.app?devexample=true)
+
 ## 122.5.9 (Sep 12, 2023)
 
 ### Patch
