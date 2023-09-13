@@ -8,7 +8,7 @@ const reactDocs = import('react-docgen'); // v6 forces to use `import`
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
 
-const exludedFiles = [
+const excludedPaths = [
   '/packages/gestalt/src/contexts/ExperimentProvider.js',
   '/packages/gestalt/src/useReducedMotion.js',
   '/packages/gestalt/src/useFocusVisible.js',
@@ -26,7 +26,7 @@ function logSuccess(message) {
 }
 
 async function docgen(filePath) {
-  if (exludedFiles.includes(filePath)) {
+  if (excludedPaths.includes(filePath)) {
     return null;
   }
 
