@@ -1,11 +1,13 @@
 // @flow strict
 import { type Node } from 'react';
-import { ColorSchemeProvider, SheetMobile } from 'gestalt';
+import { ColorSchemeProvider, DeviceTypeProvider, SheetMobile } from 'gestalt';
 
 export default function Snapshot(): Node {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <SheetMobile heading="test" onDismiss={() => {}} />
+      <DeviceTypeProvider deviceType="mobile">
+        <SheetMobile heading="Heading" subHeading="SubHeading" onDismiss={() => {}} />
+      </DeviceTypeProvider>
     </ColorSchemeProvider>
   );
 }
