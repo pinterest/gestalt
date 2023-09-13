@@ -2709,6 +2709,7 @@ exports[`TileData Tiledata is disabled 1`] = `
   className="box xsDisplayBlock"
 >
   <div
+    aria-hidden={true}
     aria-label="This is a tooltip"
     className="box"
     onBlur={[Function]}
