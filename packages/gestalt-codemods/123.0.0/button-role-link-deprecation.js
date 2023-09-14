@@ -48,38 +48,29 @@ export default function transformer(file, api) {
       const elementName = openingElement.name.name;
 
       return (
-        (componentsToTransform.includes(elementName) ||
-          componentsToTransform.includes(importSpecifierMap[elementName])) &&
-        openingElement.attributes.some(
-          (attr) =>
-            attr.name.name === 'primaryAction' &&
-            attr.value &&
-            attr.value.expression &&
-            attr.value.expression.properties.some(
-              (prop) => prop.key.name === 'href' && prop.value.type !== 'JSXExpressionContainer',
-            ),
-        )
+        componentsToTransform.includes(elementName) ||
+        componentsToTransform.includes(importSpecifierMap[elementName])
       );
     })
     .forEach((path) => {
-      const primaryActionAttribute = path.node.openingElement.attributes.find(
+      const actionAttribute = path.node.openingElement.attributes.find(
         (attr) =>
-          attr.name.name === 'primaryAction' &&
+          (attr.name.name === 'primaryAction' || attr.name.name === 'secondaryAction') &&
           attr.value &&
           attr.value.expression &&
-          attr.value.expression.properties.some(
+          attr.value.expression.properties?.some(
             (prop) => prop.key.name === 'href' && prop.value.type !== 'JSXExpressionContainer',
           ),
       );
 
-      if (primaryActionAttribute) {
+      if (actionAttribute) {
         // Check if 'role' property is already present
-        const roleProperty = primaryActionAttribute.value.expression.properties.find(
+        const roleProperty = actionAttribute.value.expression.properties.find(
           (prop) => prop.key.name === 'role',
         );
 
         if (!roleProperty) {
-          primaryActionAttribute.value.expression.properties.push(
+          actionAttribute.value.expression.properties.push(
             j.property('init', j.identifier('role'), j.literal('link')),
           );
           codeHasChanged = true;
