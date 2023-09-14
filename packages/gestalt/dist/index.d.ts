@@ -2176,7 +2176,7 @@ interface ToastProps {
     | { avatar: React.ReactElement<typeof Avatar> }
     | { icon: React.ReactElement<typeof Icon> }
     | undefined;
-  variant?: 'default' | 'success' | 'error' | 'progress' | undefined;
+  type?: 'default' | 'success' | 'error' | 'progress' | undefined;
 }
 
 interface TooltipProps {
