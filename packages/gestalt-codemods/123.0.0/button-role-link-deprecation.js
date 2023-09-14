@@ -1,6 +1,5 @@
 /*
  * Converts
- *  <Button role='button' /> to <Button />
  *  <Callout primaryAction={{href... /> to <Callout primaryAction={{role={'link'} href... />
  *  <ModalAlert primaryAction={{href... /> to <Callout primaryAction={{role={'link'} href... />
  *  <PopoverEducational primaryAction={{href... /> to <Callout primaryAction={{role={'link'} href... />
