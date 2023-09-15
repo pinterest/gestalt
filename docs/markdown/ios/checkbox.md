@@ -4,7 +4,7 @@ description: Checkbox is used for multiple choice selection.
 fullwidth: true
 ---
 
-<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/66828b69-1e1b-4c67-86b4-f62a64a0f6f2"  alt="Primary example of Checkbox component" />
+<ImgContainer src="https://i.pinimg.com/originals/cd/1d/2b/cd1d2bc72f852c4155f93b75d05cd675.png"  alt="Primary example of Checkbox component" />
 
 ## Usage guidelines
 
@@ -69,6 +69,57 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="980" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A824%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A158%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+
+## Variants
+
+### State
+
+1. **Unchecked [Default]**
+1. **Checked**
+1. **Error**
+1. **Indeterminate**
+1. **Disabled**
+<br/>
+<TwoCol spacing="expanded">
+  <Group>
+  <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A534%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Unchecked**
+  </Group>
+
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A387%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Checked**
+  </Group>
+  </TwoCol>
+  <TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A747%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Error**
+  </Group>
+
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A605%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Indeterminate**
+  </Group>
+  </TwoCol>
+<TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A676%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Disabled**
+  </Group>
+  <Group>
+  </Group>
+</TwoCol>
+
+**With helper text**
+Checkbox supports helper text to provide more detail about an option.
+ <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A460%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+
 ## Writing
 
 <TwoCol>
@@ -82,54 +133,3 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
     - Include lengthy text labels that make it hard for a user to scan a list of choices
   </Group>
 </TwoCol>
-
-## Variants
-
-### State
-
-1. **Unchecked [Default]**
-1. **Checked**
-1. **Error**
-1. **Indeterminate**
-1. **Disabled**
-
-<ThreeCol spacing="expanded">
-  <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/28f2f493-926f-4129-8fc9-ebea9f4d99ac"  alt="Example of unchecked checkbox" />
-    **Unchecked**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/1e7937fc-8030-443a-bcd8-ef6ce5fceda5"  alt="Example of checked checkbox" />
-    **Checked**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/255076ef-aea0-4f53-b9b8-c3cf2e27e0df"  alt="Example of checkbox with an error" />
-    **Error**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/3454c729-397e-4f0c-8abe-436b1577a51a"  alt="Example of checkbox with an indeterminate state" />
-    **Indeterminate**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/267a3fad-123e-4bd6-8bdf-d273d794611f"  alt="Example of checkbox with a disabled state" />
-    **Disabled**
-  </Group>
-</ThreeCol>
-
-**With helper text**
-Checkbox supports helper text to provide more details about an option.
-
-<ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/f84e29bc-5c8c-4d31-98b9-8ed4a755a858"  alt="Example of checkbox with helper text" />
-
-## Related
-
-- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup)
-  Use when presenting a user with a list of choices for which there can only be one selection.
-- [Switch](https://gestalt.pinterest.systems/ios/switch)
-  Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
-- [Fieldset](https://gestalt.pinterest.systems/web/fieldset)
-  Use to group a list of related Checkboxes with a legend that describes the list.
