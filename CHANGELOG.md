@@ -1,3 +1,9 @@
+## 122.5.11 (Sep 15, 2023)
+
+### Patch
+
+- Docs: update checkbox iOS docs - parity with Android ([#3195](https://github.com/pinterest/gestalt/pull/3195)) - [Preview link](https://deploy-preview-3195--gestalt.netlify.app?devexample=true)
+
 ## 122.5.10 (Sep 13, 2023)
 
 ### Patch
