@@ -1,3 +1,9 @@
+## 122.5.13 (Sep 15, 2023)
+
+### Patch
+
+- Docs: Markdown fix for Text component docs ([#3198](https://github.com/pinterest/gestalt/pull/3198)) - [Preview link](https://deploy-preview-3198--gestalt.netlify.app?devexample=true)
+
 ## 122.5.12 (Sep 15, 2023)
 
 ### Patch
