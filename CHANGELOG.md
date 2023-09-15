@@ -1,3 +1,9 @@
+## 122.5.12 (Sep 15, 2023)
+
+### Patch
+
+- Toast: Fix toast prop "variant" to "type" ([#3197](https://github.com/pinterest/gestalt/pull/3197)) - [Preview link](https://deploy-preview-3197--gestalt.netlify.app?devexample=true)
+
 ## 122.5.11 (Sep 15, 2023)
 
 ### Patch
