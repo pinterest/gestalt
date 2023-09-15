@@ -47,37 +47,16 @@ const reducer = (
 };
 
 type Props = {|
-  /**
-   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/web/tooltip#Labels) section.
-   */
   accessibilityLabel?: string,
-  /**
-   * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/web/iconbutton), that triggers Tooltip on hover or focus.
-   */
   children?: Node,
   /**
    * Whether to show the tooltip or not
    */
   disabled?: boolean,
-  /**
-   * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/tooltip#Ideal-direction) variant to learn more.
-   */
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  /**
-   * Properly positions Tooltip relative to an inline element, such as [Icon Button](https://gestalt.pinterest.systems/web/iconbutton) using the inline property. See the [inline](https://gestalt.pinterest.systems/web/tooltip#Inline) variant to learn more.
-   */
   inline?: boolean,
-  /**
-   * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/web/tooltip#Link) variant to learn more.
-   */
   link?: Node,
-  /**
-   * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/web/tooltip#Localization) to learn more.
-   */
   text: string,
-  /**
-   * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/web/tooltip#Z-index) variant to learn more.
-   */
   zIndex?: Indexable,
 |};
 
@@ -86,15 +65,13 @@ export default function InternalTooltip({
   children,
   disabled,
   link,
-  idealDirection = 'down',
+  idealDirection,
   inline,
   text,
   zIndex,
 }: Props): Node {
   const [state, dispatch] = useReducer(reducer, initialState);
-  let { isOpen } = state;
-
-  if (disabled) isOpen = false;
+  const { isOpen } = state;
 
   const childRef = useRef<?HTMLElement>(null);
   const { current: anchor } = childRef;
@@ -102,7 +79,9 @@ export default function InternalTooltip({
   const mouseLeaveDelay = link ? TIMEOUT : 0;
 
   const handleIconMouseEnter = () => {
-    dispatch({ type: 'hoverInIcon' });
+    if (!disabled) {
+      dispatch({ type: 'hoverInIcon' });
+    }
   };
 
   const handleIconMouseLeave = useDebouncedCallback(() => {
@@ -120,8 +99,7 @@ export default function InternalTooltip({
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
-        aria-hidden={disabled ? true : undefined}
-        aria-label={accessibilityLabel != null ? accessibilityLabel : text}
+        aria-label={accessibilityLabel != null && !disabled ? accessibilityLabel : text}
         ref={childRef}
         onFocus={handleIconMouseEnter}
         onBlur={handleIconMouseLeave}
