@@ -1,3 +1,9 @@
+## 122.5.14 (Sep 18, 2023)
+
+### Patch
+
+- Docs: update iOS checkbox header image ([#3200](https://github.com/pinterest/gestalt/pull/3200)) - [Preview link](https://deploy-preview-3200--gestalt.netlify.app?devexample=true)
+
 ## 122.5.13 (Sep 15, 2023)
 
 ### Patch
