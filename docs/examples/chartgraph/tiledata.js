@@ -49,32 +49,35 @@ export default function Example(): Node {
       data={selectedId === '01' ? dataA : dataB}
       initialTicks={3}
       elements={[{ type: 'bar', id: selectedId === '01' ? 'Impressions' : 'Engagement', color }]}
-      tileData={[
-        {
-          id: '01',
-          color: '01',
-          title: 'Impressions',
-          value: '10M',
-          selected: isSelected('01'),
-          onTap: ({ id }) => {
-            // $FlowFixMe[incompatible-call]
-            setSelectedId(id);
+      selectors={{
+        selector: 'TileData',
+        data: [
+          {
+            id: '01',
+            color: '01',
+            title: 'Impressions',
+            value: '10M',
+            selected: isSelected('01'),
+            onTap: ({ id }) => {
+              // $FlowFixMe[incompatible-call]
+              setSelectedId(id);
+            },
+            trend: { value: 29, accessibilityLabel: 'Trending up' },
           },
-          trend: { value: 29, accessibilityLabel: 'Trending up' },
-        },
-        {
-          id: '02',
-          color: '02',
-          title: 'Engagement',
-          value: '2M',
-          selected: isSelected('02'),
-          onTap: ({ id }) => {
-            // $FlowFixMe[incompatible-call]
-            setSelectedId(id);
+          {
+            id: '02',
+            color: '02',
+            title: 'Engagement',
+            value: '2M',
+            selected: isSelected('02'),
+            onTap: ({ id }) => {
+              // $FlowFixMe[incompatible-call]
+              setSelectedId(id);
+            },
+            trend: { value: 29, accessibilityLabel: 'Trending up' },
           },
-          trend: { value: 29, accessibilityLabel: 'Trending up' },
-        },
-      ]}
+        ],
+      }}
     />
   );
 }
