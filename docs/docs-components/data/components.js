@@ -510,11 +510,11 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Data'],
         status: {
           accessible: {
-            summary: 'notAvailable',
-            a11yVisual: 'notAvailable',
+            summary: 'planned',
+            a11yVisual: 'ready',
             a11yScreenreader: 'notAvailable',
             a11yNavigation: 'notAvailable',
-            a11yComprehension: 'notAvailable',
+            a11yComprehension: 'ready',
           },
           documentation: 'notAvailable',
           figmaStatus: 'notAvailable',
