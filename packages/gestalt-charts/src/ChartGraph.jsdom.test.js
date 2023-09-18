@@ -241,11 +241,8 @@ describe('ChartGraph', () => {
         <ChartWrap
           type="line"
           range={{ xAxisBottom: ['auto', 'auto'] }}
-          data={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-            .map((x) => [
-              { name: new Date(2023, x, 1).getTime(), 'value01': 1000, 'value02': 100 },
-              { name: new Date(2023, x, 8).getTime(), 'value01': 1090, 'value02': 200 },
-            ])
+          data={[0, 1, 2, 3, 4, 5]
+            .map((x) => [{ name: new Date(2023, x, 1).getTime(), 'value01': 1000, 'value02': 100 }])
             .flat()}
           elements={[
             { type: 'line', id: 'element_01' },

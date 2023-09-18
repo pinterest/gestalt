@@ -19,6 +19,8 @@ import controlledTimeseries from '../../examples/chartgraph/controlledTimeseries
 import customTooltip from '../../examples/chartgraph/customTooltip.js';
 import decalBars from '../../examples/chartgraph/decalBars.js';
 import decalLines from '../../examples/chartgraph/decalLines.js';
+import doLimit from '../../examples/chartgraph/doLimit.js';
+import dontLimit from '../../examples/chartgraph/dontLimit.js';
 import grouped from '../../examples/chartgraph/grouped.js';
 import labelMap from '../../examples/chartgraph/labelMap.js';
 import layout from '../../examples/chartgraph/layout.js';
@@ -86,7 +88,40 @@ export default function ComponentPage({
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Best practices" />
+      <MainSection
+        name="Best practices"
+        description="These are overall best practices for Chart. For best practices on specific charts, see our [Chart and graph guidelines](/foundations/data_visualization/charts_and_graphs)."
+      >
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Limit the amount of data you show in a graph so that it is readable and easy to follow."
+            sandpackExample={
+              <SandpackExample
+                name="Use To Communicate A Step In"
+                code={doLimit}
+                layout="column"
+                hideEditor
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use SVGs or images that resemble the Status’ symbols to denote status."
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use SVGs Or Images"
+                code={dontLimit}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <AccessibilitySection name={generatedDocGen.ChartGraph?.displayName}>
         <MainSection.Subsection
