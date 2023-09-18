@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { Box, Flex, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
+import { Box, Flex, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
 import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
@@ -145,11 +145,9 @@ type Props = {|
    */
   initialTicks?: 'auto' | 3,
   /**
-   * The formatter function for ticks on time series. It should only be used to set date format on time series ticks.
-   * See the [timeseries variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) and the [tick formatter variant](https://gestalt.pinterest.systems/web/chartgraph#Tick-format) to learn more.
+   * A function for formatting ticks on the axis.
    *
-   * timeseries: When set to "true", ChartGraph presents data points graphed in time order.
-   * See the [timeseries variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) to learn more.
+   * Timeseries require the 'timeseries' key for formatting dates in the axis and tooltip. The 'xAxisBottom' overrides 'timeseries' when are both present.
    */
   tickFormatter?: {|
     timeseries?: (number) => string | number,
@@ -159,22 +157,47 @@ type Props = {|
     yAxisLeft?: (number, number) => string | number,
   |},
   /**
-   * Open slot for TileData. See the [TileData variant](https://gestalt.pinterest.systems/web/chartgraph#TileData) to learn more.
-
+   * Open slot for TagData or TileData. See the [TagData variant](https://gestalt.pinterest.systems/web/chartgraph#TagData) to learn more.
    */
-  tileData?: $ReadOnlyArray<{|
-    color?: $ElementType<React$ElementConfig<typeof TileData>, 'color'>,
-    disabled?: $ElementType<React$ElementConfig<typeof TileData>, 'disabled'>,
-    id?: $ElementType<React$ElementConfig<typeof TileData>, 'id'>,
-    onTap?: $ElementType<React$ElementConfig<typeof TileData>, 'onTap'>,
-    selected?: $ElementType<React$ElementConfig<typeof TileData>, 'selected'>,
-    showCheckbox?: $ElementType<React$ElementConfig<typeof TileData>, 'showCheckbox'>,
-    tooltip?: $ElementType<React$ElementConfig<typeof TileData>, 'tooltip'>,
-    title: $ElementType<React$ElementConfig<typeof TileData>, 'title'>,
-    trend?: $ElementType<React$ElementConfig<typeof TileData>, 'trend'>,
-    trendSentiment?: $ElementType<React$ElementConfig<typeof TileData>, 'trendSentiment'>,
-    value: $ElementType<React$ElementConfig<typeof TileData>, 'value'>,
-  |}>,
+
+  selectors?:
+    | {|
+        selector: 'TileData',
+        data: $ReadOnlyArray<{|
+          color?: $ElementType<React$ElementConfig<typeof TileData>, 'color'>,
+          disabled?: $ElementType<React$ElementConfig<typeof TileData>, 'disabled'>,
+          id?: $ElementType<React$ElementConfig<typeof TileData>, 'id'>,
+          onTap?: $ElementType<React$ElementConfig<typeof TileData>, 'onTap'>,
+          selected?: $ElementType<React$ElementConfig<typeof TileData>, 'selected'>,
+          showCheckbox?: $ElementType<React$ElementConfig<typeof TileData>, 'showCheckbox'>,
+          tooltip?: $ElementType<React$ElementConfig<typeof TileData>, 'tooltip'>,
+          title: $ElementType<React$ElementConfig<typeof TileData>, 'title'>,
+          trend?: $ElementType<React$ElementConfig<typeof TileData>, 'trend'>,
+          trendSentiment?: $ElementType<React$ElementConfig<typeof TileData>, 'trendSentiment'>,
+          value: $ElementType<React$ElementConfig<typeof TileData>, 'value'>,
+        |}>,
+      |}
+    | {|
+        selector: 'TagData',
+        data: $ReadOnlyArray<{|
+          accessibilityRemoveIconLabel?: $ElementType<
+            React$ElementConfig<typeof TagData>,
+            'accessibilityRemoveIconLabel',
+          >,
+          baseColor?: $ElementType<React$ElementConfig<typeof TagData>, 'baseColor'>,
+          color?: $ElementType<React$ElementConfig<typeof TagData>, 'color'>,
+          disabled?: $ElementType<React$ElementConfig<typeof TagData>, 'disabled'>,
+          id?: $ElementType<React$ElementConfig<typeof TagData>, 'id'>,
+          onTap?: $ElementType<React$ElementConfig<typeof TagData>, 'onTap'>,
+          onRemove?: $ElementType<React$ElementConfig<typeof TagData>, 'onRemove'>,
+          selected: $ElementType<React$ElementConfig<typeof TagData>, 'selected'>,
+          showCheckbox?: $ElementType<React$ElementConfig<typeof TagData>, 'showCheckbox'>,
+          size?: $ElementType<React$ElementConfig<typeof TagData>, 'size'>,
+          text: $ElementType<React$ElementConfig<typeof TagData>, 'text'>,
+          tooltip: $ElementType<React$ElementConfig<typeof TagData>, 'tooltip'>,
+        |}>,
+      |},
+
   /**
    * Type of chart.
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
@@ -201,7 +224,7 @@ function ChartGraph({
   onVisualPatternChange,
   stacked,
   tickFormatter,
-  tileData,
+  selectors,
   title,
   type = 'combo',
   referenceAreas = [],
@@ -374,13 +397,14 @@ function ChartGraph({
             visualPatternSelected={visualPatternSelected}
           />
         ) : null}
-        {tileData ? (
+        {selectors && selectors.selector === 'TileData' ? (
           <Box marginBottom={4}>
             <Flex gap={2}>
-              {tileData.map((tile) => (
+              {selectors.data.map((tile) => (
                 <TileData
                   key={tile.id}
                   id={tile.id}
+                  color={tile.color}
                   title={tile.title}
                   value={tile.value}
                   selected={tile.selected}
@@ -390,6 +414,29 @@ function ChartGraph({
                   showCheckbox={tile.showCheckbox}
                   tooltip={tile.tooltip}
                   trendSentiment={tile.trendSentiment}
+                />
+              ))}
+            </Flex>
+          </Box>
+        ) : null}
+        {selectors && selectors.selector === 'TagData' ? (
+          <Box marginBottom={4}>
+            <Flex gap={2}>
+              {selectors.data.map((tag) => (
+                <TagData
+                  key={tag.id}
+                  accessibilityRemoveIconLabel={tag.accessibilityRemoveIconLabel}
+                  baseColor={tag.baseColor}
+                  color={tag.color}
+                  disabled={tag.disabled}
+                  id={tag.id}
+                  onTap={tag.onTap}
+                  onRemove={tag.onRemove}
+                  selected={tag.selected}
+                  showCheckbox={tag.showCheckbox}
+                  size={tag.size}
+                  text={tag.text}
+                  tooltip={tag.tooltip}
                 />
               ))}
             </Flex>
