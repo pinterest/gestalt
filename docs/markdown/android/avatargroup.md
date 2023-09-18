@@ -58,48 +58,29 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 <iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D41337%253A15288%26mode%3Ddesign%26t%3DM5OYpaTIJhXHwkkM-1" allowfullscreen></iframe>
 
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33041%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D41337%253A14850%26mode%3Ddesign%26t%3DEXWl1hZiZiK29gg5-1" allowfullscreen></iframe>
 
 
 
 ## Variants
 
-### Size
+### Sizes
 
-1. **xxl** **(120px)**
-2. **xl** **(60px)**
-3. **lg** **(44px)**
-4. **md** **(32px)**
-5. **sm** **(24px)**
-6. **xs** **(16px)**
+AvatarGroup is available in 4 fixed height sizes, and displays up to 3 user avatars.
+
+1. **XS** (16dp)
+2. **SM** (24dp)
+3. **MD** (32dp)
+4. **LG** (44dp)
 <br/>
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33199%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-Avatar comes in 6 different sizes.
-
-### Without an image
-
-If there is no image source provided for the Avatar, the first character of the name provided will be used as a placeholder.
-1. With image
-2. Without image
-
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D41337%253A15244%26mode%3Ddesign%26t%3DEXWl1hZiZiK29gg5-1" allowfullscreen></iframe>
 <br/>
-<TwoCol>
-  <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33121%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-  </Group>
-  <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20221%253A35222%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-  </Group>
-  </TwoCol>
-
-### Stroke
-The avatar has an optional 1dp border. 
+**LG** (44dp) 
+This size displays up to 3 user avatars + an IconButton if AvatarGroup is interactive and user can add more collaborators. More users, if present, will be displayed as a numerical count. 
 <br/>
-<TwoCol>
-  <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33528%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-  </Group>
-  <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33617%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
-  </Group>
-  </TwoCol>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D43427%253A6368%26mode%3Ddesign%26t%3DEXWl1hZiZiK29gg5-1" allowfullscreen></iframe>
+
+## Related
+
+
+
