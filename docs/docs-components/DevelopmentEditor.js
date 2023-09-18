@@ -37,7 +37,6 @@ const reactImports = [
   'useRef',
   'useId',
   'useState',
-  'version',
 ];
 
 const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');

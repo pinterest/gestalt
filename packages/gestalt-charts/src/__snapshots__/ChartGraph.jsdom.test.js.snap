@@ -7199,1100 +7199,1105 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
 exports[`ChartGraph renders time series chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
-    style="width: 100%; height: 100%;"
+    class="zI7 iyn Hsu"
+    style="width: 300px; height: 300px;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
-      style="width: 100%;"
+      class="jzS un8 C9i TB_"
+      style="width: 100%; height: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
-          style="width: 100%;"
+          class="zI7 iyn Hsu"
+          style="width: 100%; margin-bottom: 20px;"
         >
           <div
-            class="ujU xuA"
+            class="hs0 un8 C9i TB_"
+            style="width: 100%;"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="ujU xuA"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
-              />
-            </div>
-          </div>
-          <div
-            class="oy8 zI7 iyn Hsu"
-          >
-            <div
-              aria-label="Default view mode"
-              class="zI7 iyn Hsu"
-            >
-              <button
-                aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
-                tabindex="0"
-                type="button"
+                class="jzS un8 C9i TB_"
               >
+                <h4
+                  class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                />
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                />
+              </div>
+            </div>
+            <div
+              class="oy8 zI7 iyn Hsu"
+            >
+              <div
+                aria-label="Default view mode"
+                class="zI7 iyn Hsu"
+              >
+                <button
+                  aria-label=""
+                  class="HEm adn yQo lnZ wsz YbY"
+                  tabindex="0"
+                  type="button"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
-                    style="height: 24px; width: 24px;"
+                    class="rYa kVc adn yQo S9z qrs BG7"
                   >
-                    <svg
-                      aria-hidden="true"
-                      aria-label=""
-                      class="gUZ PLa U9O kVc"
-                      height="12"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="12"
+                    <div
+                      class="x8f INd _O1 KS5 mQ8 OGJ YbY"
+                      style="height: 24px; width: 24px;"
                     >
-                      <path
-                        d="M16 11h-3v2.667l2.8 3.733a1 1 0 0 1-1.6 1.2L12 15.667 9.8 18.6a1 1 0 1 1-1.6-1.2l2.8-3.733V11H8a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2zm-4-7a2 2 0 1 1-.001 4.001A2 2 0 0 1 12 4zm0-4C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12s12-5.372 12-12c0-6.627-5.373-12-12-12z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        aria-label=""
+                        class="gUZ PLa U9O kVc"
+                        height="12"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="12"
+                      >
+                        <path
+                          d="M16 11h-3v2.667l2.8 3.733a1 1 0 0 1-1.6 1.2L12 15.667 9.8 18.6a1 1 0 1 1-1.6-1.2l2.8-3.733V11H8a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2zm-4-7a2 2 0 1 1-.001 4.001A2 2 0 0 1 12 4zm0-4C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12s12-5.372 12-12c0-6.627-5.373-12-12-12z"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="_gestalt"
-        style="width: 100%; height: 100%; max-width: 960px;"
-      >
         <div
-          class="recharts-responsive-container"
-          style="width: 800px; height: 800px; min-width: 0;"
+          class="_gestalt"
+          style="width: 100%; height: 100%; max-width: 960px;"
         >
           <div
-            class="recharts-wrapper"
-            role="region"
-            style="position: relative; cursor: default; width: 800px; height: 800px;"
+            class="recharts-responsive-container"
+            style="width: 800px; height: 800px; min-width: 0;"
           >
-            <svg
-              class="recharts-surface"
-              height="800"
-              viewBox="0 0 800 800"
-              width="800"
+            <div
+              class="recharts-wrapper"
+              role="region"
+              style="position: relative; cursor: default; width: 800px; height: 800px;"
             >
-              <title>
-                ChartGraph. test chart
-              </title>
-              <desc />
-              <defs>
-                <clippath
-                  id="recharts64-clip"
-                >
-                  <rect
-                    height="750"
-                    width="730"
-                    x="65"
-                    y="10"
-                  />
-                </clippath>
-              </defs>
-              <defs>
-                <g
-                  id="points-01"
-                >
-                  <circle
-                    r="4"
-                  />
-                </g>
-                <g
-                  id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
-                >
-                  <path
-                    d="M0,0l4,8h-8z"
-                  />
-                </g>
-                <g
-                  id="points-05"
-                >
-                  <path
-                    d="M0,0h8l-4,8z"
-                  />
-                </g>
-                <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-08"
-                >
-                  <rect
-                    height="4"
-                    width="4"
-                  />
-                </g>
-                <g
-                  id="points-09"
-                >
-                  <circle
-                    r="4"
-                  />
-                </g>
-                <g
-                  id="points-10"
-                >
-                  <rect
-                    height="4"
-                    transform="rotate(45)"
-                    width="4"
-                  />
-                </g>
-                <g
-                  id="points-11"
-                >
-                  <path
-                    d="M0,0h8l-4,8z"
-                    transform="rotate(45)"
-                  />
-                </g>
-                <g
-                  id="points-12"
-                >
-                  <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
-                  />
-                </g>
-                <pattern
-                  height="4"
-                  id="pattern-01"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#003c96"
-                    height="4"
-                    width="4"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
-                  height="5"
-                  id="pattern-03"
-                  patternUnits="userSpaceOnUse"
-                  width="5"
-                >
-                  <circle
-                    cx="2"
-                    cy="2"
-                    fill="#924af7"
-                    r="2"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
-                >
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
-                  height="7"
-                  id="pattern-06"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <ellipse
-                    cx="5"
-                    cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
-                  height="8"
-                  id="pattern-09"
-                  patternUnits="userSpaceOnUse"
-                  width="8"
-                  x="0"
-                  y="0"
-                >
-                  <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#f2681f"
-                    height="4"
-                    width="4"
-                    x="4"
-                    y="4"
-                  />
-                </pattern>
-                <pattern
-                  height="7"
-                  id="pattern-10"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <ellipse
-                    cx="5"
-                    cy="3"
-                    fill="#005062"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-11"
-                  patternTransform="rotate(180)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#de2c62"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
-                  height="2"
-                  id="pattern-12"
-                  patternUnits="userSpaceOnUse"
-                  width="2"
-                >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
-                    fill="#660e00"
-                    r="0.5"
-                  />
-                </pattern>
-              </defs>
-              <g
-                class="recharts-cartesian-grid"
+              <svg
+                class="recharts-surface"
+                height="800"
+                viewBox="0 0 800 800"
+                width="800"
               >
-                <g
-                  class="recharts-cartesian-grid-horizontal"
-                >
-                  <line
-                    fill="none"
-                    height="750"
-                    offset="[object Object]"
-                    stroke="var(--color-border-container)"
-                    width="730"
-                    x="65"
-                    x1="65"
-                    x2="795"
-                    y="10"
-                    y1="10"
-                    y2="10"
-                  />
-                  <line
-                    fill="none"
-                    height="750"
-                    offset="[object Object]"
-                    stroke="var(--color-border-container)"
-                    width="730"
-                    x="65"
-                    x1="65"
-                    x2="795"
-                    y="10"
-                    y1="760"
-                    y2="760"
-                  />
-                </g>
-              </g>
-              <g
-                class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
-              >
-                <g
-                  class="recharts-cartesian-axis-ticks"
-                >
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                <title>
+                  ChartGraph. test chart
+                </title>
+                <desc />
+                <defs>
+                  <clippath
+                    id="recharts64-clip"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
+                    <rect
+                      height="750"
                       width="730"
                       x="65"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="65"
-                      >
-                        Jan-01
-                      </tspan>
-                    </text>
+                      y="10"
+                    />
+                  </clippath>
+                </defs>
+                <defs>
+                  <g
+                    id="points-01"
+                  >
+                    <circle
+                      r="4"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-02"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="79.98533724340176"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="79.98533724340176"
-                      >
-                        Jan-08
-                      </tspan>
-                    </text>
+                    <rect
+                      height="8"
+                      transform="rotate(45)"
+                      width="8"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-03"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="131.36363636363637"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="131.36363636363637"
-                      >
-                        Feb-01
-                      </tspan>
-                    </text>
+                    <rect
+                      height="8"
+                      width="8"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-04"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="146.34897360703812"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="146.34897360703812"
-                      >
-                        Feb-08
-                      </tspan>
-                    </text>
+                    <path
+                      d="M0,0l4,8h-8z"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-05"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="191.3049853372434"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="191.3049853372434"
-                      >
-                        Mar-01
-                      </tspan>
-                    </text>
+                    <path
+                      d="M0,0h8l-4,8z"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-06"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="206.29032258064515"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="206.29032258064515"
-                      >
-                        Mar-08
-                      </tspan>
-                    </text>
+                    <circle
+                      r="2"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-07"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="257.5794232649071"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="257.5794232649071"
-                      >
-                        Apr-01
-                      </tspan>
-                    </text>
+                    <rect
+                      height="8"
+                      transform="rotate(45)"
+                      width="8"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-08"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="272.5647605083089"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="272.5647605083089"
-                      >
-                        Apr-08
-                      </tspan>
-                    </text>
+                    <rect
+                      height="4"
+                      width="4"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-09"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="321.8022971652004"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="321.8022971652004"
-                      >
-                        May-01
-                      </tspan>
-                    </text>
+                    <circle
+                      r="4"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-10"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="336.7876344086022"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="336.7876344086022"
-                      >
-                        May-08
-                      </tspan>
-                    </text>
+                    <rect
+                      height="4"
+                      transform="rotate(45)"
+                      width="4"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-11"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="388.1659335288368"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="388.1659335288368"
-                      >
-                        Jun-01
-                      </tspan>
-                    </text>
+                    <path
+                      d="M0,0h8l-4,8z"
+                      transform="rotate(45)"
+                    />
                   </g>
                   <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    id="points-12"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="403.1512707722385"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="403.1512707722385"
-                      >
-                        Jun-08
-                      </tspan>
-                    </text>
+                    <path
+                      d="M0,0l4,8h-8z"
+                      transform="rotate(45)"
+                    />
                   </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                  <pattern
+                    height="4"
+                    id="pattern-01"
+                    patternUnits="userSpaceOnUse"
+                    width="4"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="452.38880742913"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="452.38880742913"
-                      >
-                        Jul-01
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#003c96"
+                      height="4"
+                      width="4"
+                    />
+                  </pattern>
+                  <pattern
+                    height="4"
+                    id="pattern-02"
+                    patternTransform="rotate(45)"
+                    patternUnits="userSpaceOnUse"
+                    width="4"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="467.37414467253177"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="467.37414467253177"
-                      >
-                        Jul-08
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#11a69c"
+                      height="4"
+                      width="2"
+                    />
+                  </pattern>
+                  <pattern
+                    height="5"
+                    id="pattern-03"
+                    patternUnits="userSpaceOnUse"
+                    width="5"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="518.7524437927664"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="518.7524437927664"
-                      >
-                        Aug-01
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <circle
+                      cx="2"
+                      cy="2"
+                      fill="#924af7"
+                      r="2"
+                    />
+                  </pattern>
+                  <pattern
+                    height="10"
+                    id="pattern-04"
+                    patternTransform="rotate(45)"
+                    patternUnits="userSpaceOnUse"
+                    width="10"
+                    x="0"
+                    y="0"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="533.7377810361681"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="533.7377810361681"
-                      >
-                        Aug-08
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#d17711"
+                      height="5"
+                      width="5"
+                      x="0"
+                      y="0"
+                    />
+                    <rect
+                      fill="#d17711"
+                      height="5"
+                      width="5"
+                      x="5"
+                      y="5"
+                    />
+                  </pattern>
+                  <pattern
+                    height="4"
+                    id="pattern-05"
+                    patternTransform="rotate(135)"
+                    patternUnits="userSpaceOnUse"
+                    width="4"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="585.1160801564029"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="585.1160801564029"
-                      >
-                        Sep-01
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#0081fe"
+                      height="4"
+                      width="2"
+                    />
+                  </pattern>
+                  <pattern
+                    height="7"
+                    id="pattern-06"
+                    patternUnits="userSpaceOnUse"
+                    width="10"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="600.1014173998045"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="600.1014173998045"
-                      >
-                        Sep-08
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <ellipse
+                      cx="5"
+                      cy="3"
+                      fill="#ff5383"
+                      rx="5"
+                      ry="3"
+                    />
+                  </pattern>
+                  <pattern
+                    height="10"
+                    id="pattern-07"
+                    patternTransform="rotate(45)"
+                    patternUnits="userSpaceOnUse"
+                    width="10"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="649.338954056696"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="649.338954056696"
-                      >
-                        Oct-01
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <polygon
+                      fill="#00ab55"
+                      points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
+                    />
+                     
+                  </pattern>
+                  <pattern
+                    height="4"
+                    id="pattern-08"
+                    patternTransform="rotate(90)"
+                    patternUnits="userSpaceOnUse"
+                    width="4"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="664.3242913000978"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="664.3242913000978"
-                      >
-                        Oct-08
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#400387"
+                      height="4"
+                      width="2"
+                    />
+                  </pattern>
+                  <pattern
+                    height="8"
+                    id="pattern-09"
+                    patternUnits="userSpaceOnUse"
+                    width="8"
+                    x="0"
+                    y="0"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="715.791788856305"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="715.791788856305"
-                      >
-                        Nov-01
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#f2681f"
+                      height="5"
+                      width="5"
+                      x="0"
+                      y="0"
+                    />
+                    <rect
+                      fill="#f2681f"
+                      height="4"
+                      width="4"
+                      x="4"
+                      y="4"
+                    />
+                  </pattern>
+                  <pattern
+                    height="7"
+                    id="pattern-10"
+                    patternTransform="rotate(90)"
+                    patternUnits="userSpaceOnUse"
+                    width="10"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="730.7771260997067"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="730.7771260997067"
-                      >
-                        Nov-08
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <ellipse
+                      cx="5"
+                      cy="3"
+                      fill="#005062"
+                      rx="5"
+                      ry="3"
+                    />
+                  </pattern>
+                  <pattern
+                    height="4"
+                    id="pattern-11"
+                    patternTransform="rotate(180)"
+                    patternUnits="userSpaceOnUse"
+                    width="4"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
-                      width="730"
-                      x="780.0146627565983"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="780.0146627565983"
-                      >
-                        Dec-01
-                      </tspan>
-                    </text>
-                  </g>
-                  <g
-                    class="recharts-layer recharts-cartesian-axis-tick"
+                    <rect
+                      fill="#de2c62"
+                      height="4"
+                      width="2"
+                    />
+                  </pattern>
+                  <pattern
+                    height="2"
+                    id="pattern-12"
+                    patternUnits="userSpaceOnUse"
+                    width="2"
                   >
-                    <text
-                      class="recharts-text recharts-cartesian-axis-tick-value"
-                      fill="#666"
-                      height="30"
-                      orientation="bottom"
-                      stroke="none"
-                      style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                      text-anchor="middle"
+                    <circle
+                      cx="0.5"
+                      cy="0.5"
+                      fill="#660e00"
+                      r="0.5"
+                    />
+                  </pattern>
+                </defs>
+                <g
+                  class="recharts-cartesian-grid"
+                >
+                  <g
+                    class="recharts-cartesian-grid-horizontal"
+                  >
+                    <line
+                      fill="none"
+                      height="750"
+                      offset="[object Object]"
+                      stroke="var(--color-border-container)"
                       width="730"
-                      x="795"
-                      y="768"
-                    >
-                      <tspan
-                        dy="0.71em"
-                        x="795"
-                      >
-                        Dec-08
-                      </tspan>
-                    </text>
+                      x="65"
+                      x1="65"
+                      x2="795"
+                      y="10"
+                      y1="10"
+                      y2="10"
+                    />
+                    <line
+                      fill="none"
+                      height="750"
+                      offset="[object Object]"
+                      stroke="var(--color-border-container)"
+                      width="730"
+                      x="65"
+                      x1="65"
+                      x2="795"
+                      y="10"
+                      y1="760"
+                      y2="760"
+                    />
                   </g>
                 </g>
-              </g>
-              <g
-                class="recharts-layer recharts-line"
-              >
-                <path
-                  class="recharts-curve recharts-line-curve"
-                  fill="none"
-                  height="750"
-                  stroke="#003c96"
-                  stroke-width="3"
-                  width="730"
-                />
                 <g
-                  class="recharts-layer"
-                />
-              </g>
-              <g
-                class="recharts-layer recharts-line"
-              >
-                <path
-                  class="recharts-curve recharts-line-curve"
-                  fill="none"
-                  height="750"
-                  stroke="#11a69c"
-                  stroke-width="3"
-                  width="730"
-                />
+                  class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+                >
+                  <g
+                    class="recharts-cartesian-axis-ticks"
+                  >
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="65"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="65"
+                        >
+                          Jan-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="79.98533724340176"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="79.98533724340176"
+                        >
+                          Jan-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="131.36363636363637"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="131.36363636363637"
+                        >
+                          Feb-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="146.34897360703812"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="146.34897360703812"
+                        >
+                          Feb-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="191.3049853372434"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="191.3049853372434"
+                        >
+                          Mar-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="206.29032258064515"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="206.29032258064515"
+                        >
+                          Mar-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="257.5794232649071"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="257.5794232649071"
+                        >
+                          Apr-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="272.5647605083089"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="272.5647605083089"
+                        >
+                          Apr-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="321.8022971652004"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="321.8022971652004"
+                        >
+                          May-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="336.7876344086022"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="336.7876344086022"
+                        >
+                          May-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="388.1659335288368"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="388.1659335288368"
+                        >
+                          Jun-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="403.1512707722385"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="403.1512707722385"
+                        >
+                          Jun-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="452.38880742913"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="452.38880742913"
+                        >
+                          Jul-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="467.37414467253177"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="467.37414467253177"
+                        >
+                          Jul-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="518.7524437927664"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="518.7524437927664"
+                        >
+                          Aug-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="533.7377810361681"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="533.7377810361681"
+                        >
+                          Aug-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="585.1160801564029"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="585.1160801564029"
+                        >
+                          Sep-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="600.1014173998045"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="600.1014173998045"
+                        >
+                          Sep-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="649.338954056696"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="649.338954056696"
+                        >
+                          Oct-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="664.3242913000978"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="664.3242913000978"
+                        >
+                          Oct-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="715.791788856305"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="715.791788856305"
+                        >
+                          Nov-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="730.7771260997067"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="730.7771260997067"
+                        >
+                          Nov-08
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="780.0146627565983"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="780.0146627565983"
+                        >
+                          Dec-01
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        orientation="bottom"
+                        stroke="none"
+                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
+                        text-anchor="middle"
+                        width="730"
+                        x="795"
+                        y="768"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="795"
+                        >
+                          Dec-08
+                        </tspan>
+                      </text>
+                    </g>
+                  </g>
+                </g>
                 <g
-                  class="recharts-layer"
-                />
-              </g>
-            </svg>
-            <div
-              class="recharts-legend-wrapper"
-              style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
-            >
+                  class="recharts-layer recharts-line"
+                >
+                  <path
+                    class="recharts-curve recharts-line-curve"
+                    fill="none"
+                    height="750"
+                    stroke="#003c96"
+                    stroke-width="3"
+                    width="730"
+                  />
+                  <g
+                    class="recharts-layer"
+                  />
+                </g>
+                <g
+                  class="recharts-layer recharts-line"
+                >
+                  <path
+                    class="recharts-curve recharts-line-curve"
+                    fill="none"
+                    height="750"
+                    stroke="#11a69c"
+                    stroke-width="3"
+                    width="730"
+                  />
+                  <g
+                    class="recharts-layer"
+                  />
+                </g>
+              </svg>
               <div
-                class="zI7 iyn Hsu"
-                style="width: 100%;"
+                class="recharts-legend-wrapper"
+                style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="zI7 iyn Hsu"
+                  style="width: 100%;"
                 >
                   <div
-                    class="xuA"
+                    class="hs0 kzZ un8 HOt TB_"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="xuA"
                     >
                       <div
-                        class="xuA"
-                      >
-                        <svg
-                          height="16"
-                          width="24"
-                        >
-                          <rect
-                            height="3"
-                            rx="2"
-                            style="fill: #003c96;"
-                            width="24"
-                            y="8"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="xuA"
+                        class="hs0 un8 tkf TB_"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="xuA"
                         >
-                          element_01
+                          <svg
+                            height="16"
+                            width="24"
+                          >
+                            <rect
+                              height="3"
+                              rx="2"
+                              style="fill: #003c96;"
+                              width="24"
+                              y="8"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="xuA"
+                        >
+                          <div
+                            class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          >
+                            element_01
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="xuA"
-                  >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="xuA"
                     >
                       <div
-                        class="xuA"
-                      >
-                        <svg
-                          height="16"
-                          width="24"
-                        >
-                          <rect
-                            height="3"
-                            rx="2"
-                            style="fill: #11a69c;"
-                            width="24"
-                            y="8"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        class="xuA"
+                        class="hs0 un8 tkf TB_"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="xuA"
                         >
-                          element_02
+                          <svg
+                            height="16"
+                            width="24"
+                          >
+                            <rect
+                              height="3"
+                              rx="2"
+                              style="fill: #11a69c;"
+                              width="24"
+                              y="8"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="xuA"
+                        >
+                          <div
+                            class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          >
+                            element_02
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="recharts-tooltip-wrapper"
-              role="dialog"
-              style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px; left: 0px;"
-              tabindex="-1"
-            >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
-                style="max-width: 300px;"
-              />
+                class="recharts-tooltip-wrapper"
+                role="dialog"
+                style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px; left: 0px;"
+                tabindex="-1"
+              >
+                <div
+                  class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                  style="max-width: 300px;"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -154,13 +154,14 @@ type Props = {|
    * See the [timeseries variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) and the [tick formatter variant](https://gestalt.pinterest.systems/web/chartgraph#Tick-format) to learn more.
    */
   tickFormatter?: {|
-    xAxisTop?: (number) => string | number,
-    xAxisBottom?: (number) => string | number,
-    yAxisRight?: (number) => string | number,
-    yAxisLeft?: (number) => string | number,
+    xAxisTop?: (number, number) => string | number,
+    xAxisBottom?: (number, number) => string | number,
+    yAxisRight?: (number, number) => string | number,
+    yAxisLeft?: (number, number) => string | number,
   |},
   /**
-   * Open slot for TileData. STILL MATURING THIS INTEGRATION
+   * Open slot for TileData. See the [TileData variant](https://gestalt.pinterest.systems/web/chartgraph#TileData) to learn more.
+
    */
   tileData?: $ReadOnlyArray<{|
     color?: $ElementType<React$ElementConfig<typeof TileData>, 'color'>,
@@ -183,7 +184,7 @@ type Props = {|
 |};
 
 /**
- * [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph) is used for displaying various types of graphs and data visualizations plotted on an x and y axis. Common visualizations seen in chart are line and bar graphs.”.
+ * [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph) is used for displaying various types of graphs plotted on an x and y axis. It makes it easier to identify and understand patterns over time across different categories, enabling people to make informed decisions quickly.
  * ![ChartGraph light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ChartGraph.spec.mjs-snapshots/ChartGraph-chromium-darwin.png)
  * ![ChartGraph dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ChartGraph-dark.spec.mjs-snapshots/ChartGraph-dark-chromium-darwin.png)
  */
