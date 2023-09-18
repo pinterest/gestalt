@@ -6,9 +6,19 @@ import LegendIcon from './LegendIcon.js';
 export default function useDefaultTooltip({
   isDarkMode,
   labelMap,
+  isTimeSeries,
+  tickFormatter,
 }: {|
   isDarkMode: boolean,
   labelMap: ?{| [string]: string |},
+  tickFormatter?: {|
+    timeseries?: (number) => string | number,
+    xAxisTop?: (number, number) => string | number,
+    xAxisBottom?: (number, number) => string | number,
+    yAxisRight?: (number, number) => string | number,
+    yAxisLeft?: (number, number) => string | number,
+  |},
+  isTimeSeries?: boolean,
 |}): ({|
   active: boolean,
   payload: $ReadOnlyArray<{|
@@ -61,12 +71,15 @@ export default function useDefaultTooltip({
               )}
             </Flex.Item>
             <Text size="100" color="subtle">
-              {(typeof label === 'string' && labelMap?.[label]) || label}
+              {isTimeSeries && typeof label === 'number' && tickFormatter?.timeseries
+                ? tickFormatter.timeseries(label)
+                : null}
+              {!isTimeSeries ? (typeof label === 'string' && labelMap?.[label]) || label : null}
             </Text>
           </Flex>
         ) : null}
       </Box>
     ),
-    [isDarkMode, labelMap],
+    [isDarkMode, labelMap, isTimeSeries, tickFormatter],
   );
 }

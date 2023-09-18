@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Flex, RadioGroup, Text } from 'gestalt';
+import { Flex, RadioGroup } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -60,8 +60,9 @@ export default function Example(): Node {
             id: 'Millenials',
           },
         ]}
-        variant="timeseries"
         tickFormatter={{
+          timeseries: (date) =>
+            `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(date)}`,
           xAxisBottom: (date) =>
             `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
               date,
@@ -70,40 +71,6 @@ export default function Example(): Node {
         range={{
           xAxisBottom: ['auto', 'auto'],
         }}
-        renderTooltip={({ active, label, payload }) =>
-          active && Array.isArray(payload) ? (
-            <Flex direction="column" gap={2}>
-              <Flex.Item>
-                {payload.map(
-                  (payloadData: {|
-                    dataKey: string,
-                    color?: ?string,
-                    fill?: ?string,
-                    isLegend?: boolean,
-                    legendType?: 'line' | 'rect',
-                    name: string,
-                    stroke?: ?string,
-                    strokeDasharray?: ?(string | number),
-                    value: number,
-                  |}) => (
-                    <Flex key={payloadData.name} alignItems="center" gap={2}>
-                      <ChartGraph.LegendIcon payloadData={payloadData} />
-                      <Flex.Item flex="grow">
-                        <Text size="100">{payloadData.name}</Text>
-                      </Flex.Item>
-                      <Text weight="bold" size="200">
-                        {payloadData.value}
-                      </Text>
-                    </Flex>
-                  ),
-                )}
-              </Flex.Item>
-              <Text color="subtle" size="100">
-                {typeof label === 'number' ? new Intl.DateTimeFormat('en-US').format(label) : ''}
-              </Text>
-            </Flex>
-          ) : null
-        }
       />
     </Flex>
   );
