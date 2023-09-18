@@ -32,7 +32,7 @@ export default function Example(): Node {
     },
   ];
 
-  const [selectedId, setSelectedId] = useState<void | '01' | '02'>('01');
+  const [selectedId, setSelectedId] = useState<string>('01');
   const isSelected = (id?: string) => selectedId === id;
 
   const color = selectedId;
@@ -59,8 +59,8 @@ export default function Example(): Node {
             value: '10M',
             selected: isSelected('01'),
             onTap: ({ id }) => {
-              // $FlowFixMe[incompatible-call]
-              setSelectedId(id);
+              const newId: string = id || '';
+              setSelectedId(newId);
             },
             trend: { value: 29, accessibilityLabel: 'Trending up' },
           },
@@ -71,8 +71,8 @@ export default function Example(): Node {
             value: '2M',
             selected: isSelected('02'),
             onTap: ({ id }) => {
-              // $FlowFixMe[incompatible-call]
-              setSelectedId(id);
+              const newId: string = id || '';
+              setSelectedId(newId);
             },
             trend: { value: 29, accessibilityLabel: 'Trending up' },
           },
