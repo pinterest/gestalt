@@ -89,7 +89,9 @@ export default function InternalTooltip({
   }, mouseLeaveDelay);
 
   const handleTextMouseEnter = () => {
-    dispatch({ type: 'hoverInText' });
+    if (!disabled) {
+      dispatch({ type: 'hoverInText' });
+    }
   };
 
   const handleTextMouseLeave = useDebouncedCallback(() => {
