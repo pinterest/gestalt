@@ -8,30 +8,36 @@ export default function Example(): Node {
 
   const data = [
     {
-      name: 'iOS',
-      '18-30': 850000,
-      '30-50': 870000,
-      '50+': 980000,
+      name: 'Quarter 1',
+      'This year': 850000,
+      'Profit': 870000,
+      'Last year': 980000,
     },
     {
-      name: 'Android',
-      '18-30': 800000,
-      '30-50': 690000,
-      '50+': 590000,
+      name: 'Quarter 2',
+      'This year': 800000,
+      'Profit': 690000,
+      'Last year': 590000,
     },
     {
-      name: 'Web',
-      '18-30': 890000,
-      '30-50': 850000,
-      '50+': 950000,
+      name: 'Quarter 3',
+      'This year': 890000,
+      'Profit': 850000,
+      'Last year': 950000,
+    },
+    {
+      name: 'Quarter 4',
+      'This year': 870000,
+      'Profit': 550000,
+      'Last year': 830000,
     },
   ];
 
   return (
     <Flex height="100%" width="100%" direction="column" gap={2}>
       <ChartGraph
-        title="Views by demographics and device"
-        accessibilityLabel="Example of chart with tooltip"
+        title="Product group sales:"
+        accessibilityLabel="Example of combo chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
@@ -72,11 +78,11 @@ export default function Example(): Node {
           ) : null
         }
         elements={[
-          { type: 'bar', id: '18-30' },
-          { type: 'bar', id: '30-50' },
-          { type: 'bar', id: '50+' },
+          { type: 'bar', id: 'This year' },
+          { type: 'bar', id: 'Profit' },
+          { type: 'line', id: 'Last year' },
         ]}
-        type="bar"
+        type="combo"
         tickFormatter={{
           yAxisLeft: (value) => {
             if (value >= 1000000) return `${value / 1000000}m`;

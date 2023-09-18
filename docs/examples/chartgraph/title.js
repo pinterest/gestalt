@@ -1,70 +1,51 @@
 // @flow strict
-import { type Node, useState } from 'react';
-import { Flex, RadioGroup } from 'gestalt';
+import { type Node } from 'react';
+import { Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
-  const [type, setType] = useState('bar');
-
   const data = [
     {
-      name: 'A',
-      'Series_01': 100,
+      name: 'Quarter 1',
+      'Clicks': 850000,
+      'Conversions': 870000,
     },
     {
-      name: 'B',
-      'Series_01': 200,
+      name: 'Quarter 2',
+      'Clicks': 800000,
+      'Conversions': 690000,
     },
     {
-      name: 'C',
-      'Series_01': 300,
+      name: 'Quarter 3',
+      'Clicks': 890000,
+      'Conversions': 850000,
+    },
+    {
+      name: 'Quarter 4',
+      'Clicks': 870000,
+      'Conversions': 550000,
     },
   ];
-
   return (
     <Flex height="100%" width="100%" direction="column" gap={2}>
-      <RadioGroup legend="ChartGraph type" direction="row" id="title">
-        <RadioGroup.RadioButton
-          checked={type === 'bar'}
-          id="title-bar"
-          label="Bar"
-          name="bar"
-          onChange={() => setType('bar')}
-          value="bar"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={type === 'line'}
-          id="title-line"
-          label="Line"
-          name="line"
-          onChange={() => setType('line')}
-          value="line"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={type === 'composed'}
-          id="title-composed"
-          label="Composed"
-          name="composed"
-          onChange={() => setType('composed')}
-          value="composed"
-          size="sm"
-        />
-      </RadioGroup>
       <ChartGraph
         accessibilityLabel="Example of chart with title and description"
         visualPatternSelected="disabled"
         onVisualPatternChange={() => {}}
-        type={type}
-        title="Title"
-        description="Description"
-        legend="none"
+        title="Clicks vs conversions"
+        description="Includes both web and mobile"
+        layout="verticalBiaxial"
         data={data}
         elements={[
           {
-            type: type === 'composed' ? 'bar' : type,
-            id: 'Series_01',
+            type: 'bar',
+            id: 'Clicks',
+            axis: 'left',
+          },
+          {
+            type: 'line',
+            id: 'Conversions',
+            axis: 'right',
           },
         ]}
       />

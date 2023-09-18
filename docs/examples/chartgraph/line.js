@@ -1,33 +1,116 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useState } from 'react';
+import { Flex, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
+  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
+
   const data = [
     {
-      name: 'A',
-      'Series_01': 100,
+      name: new Date(2023, 0, 1).getTime(),
+      'Engagement': 850000,
+      'Saves': 870000,
+      'Impressions': 280000,
+      'Page visits': 5000,
     },
     {
-      name: 'B',
-      'Series_01': 200,
+      name: new Date(2023, 1, 2).getTime(),
+      'Engagement': 800000,
+      'Saves': 690000,
+      'Impressions': 790000,
+      'Page visits': 9000,
     },
     {
-      name: 'C',
-      'Series_01': 300,
+      name: new Date(2023, 2, 3).getTime(),
+      'Engagement': 890000,
+      'Saves': 850000,
+      'Impressions': 250000,
+      'Page visits': 8000,
+    },
+    {
+      name: new Date(2023, 3, 4).getTime(),
+      'Engagement': 870000,
+      'Saves': 550000,
+      'Impressions': 230000,
+      'Page visits': 7000,
+    },
+    {
+      name: new Date(2023, 4, 5).getTime(),
+      'Engagement': 830000,
+      'Saves': 84000,
+      'Impressions': 710000,
+      'Page visits': 3000,
     },
   ];
 
   return (
-    <ChartGraph
-      accessibilityLabel="Example of line chart"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
-      initialTicks={3}
-      type="line"
-      legend="none"
-      data={data}
-      elements={[{ type: 'line', id: 'Series_01' }]}
-    />
+    <Flex height="100%" width="100%" direction="column" gap={2}>
+      <ChartGraph
+        title="Performance over time"
+        accessibilityLabel="Example of line chart"
+        visualPatternSelected={visualPatternSelected}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+        }
+        data={data}
+        range={{
+          xAxisBottom: ['auto', 'auto'],
+        }}
+        renderTooltip={({ active, label, payload }) =>
+          active && Array.isArray(payload) ? (
+            <Flex direction="column" gap={2}>
+              <Flex.Item>
+                {payload.map(
+                  (payloadData: {|
+                    dataKey: string,
+                    color?: ?string,
+                    fill?: ?string,
+                    isLegend?: boolean,
+                    legendType?: 'line' | 'rect',
+                    name: string,
+                    stroke?: ?string,
+                    strokeDasharray?: ?(string | number),
+                    value: number,
+                  |}) => (
+                    <Flex key={payloadData.name} alignItems="center" gap={2}>
+                      <ChartGraph.LegendIcon payloadData={payloadData} />
+                      <Flex.Item flex="grow">
+                        <Text size="100">{payloadData.name}</Text>
+                      </Flex.Item>
+                      <Text weight="bold" size="200">
+                        {payloadData.value}
+                      </Text>
+                    </Flex>
+                  ),
+                )}
+              </Flex.Item>
+              <Text color="subtle" size="100">
+                {typeof label === 'number' ? new Intl.DateTimeFormat('en-US').format(label) : ''}
+              </Text>
+            </Flex>
+          ) : null
+        }
+        elements={[
+          { type: 'line', id: 'Engagement' },
+          { type: 'line', id: 'Saves' },
+          { type: 'line', id: 'Impressions' },
+          { type: 'line', id: 'Page visits' },
+        ]}
+        variant="timeseries"
+        type="line"
+        tickFormatter={{
+          yAxisLeft: (value) => {
+            if (value >= 1000000) return `${value / 1000000}m`;
+            if (value >= 1000) return `${value / 1000}k`;
+            return value;
+          },
+          xAxisBottom: (date) =>
+            `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+              date,
+            )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
+        }}
+      />
+    </Flex>
   );
 }

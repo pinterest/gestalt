@@ -42,12 +42,12 @@ export default function Example(): Node {
           size="sm"
         />
         <RadioGroup.RadioButton
-          checked={type === 'composed'}
-          id="controlledCategorical-composed"
-          label="Composed"
-          name="composed"
-          onChange={() => setType('composed')}
-          value="composed"
+          checked={type === 'combo'}
+          id="controlledCategorical-combo"
+          label="combo"
+          name="combo"
+          onChange={() => setType('combo')}
+          value="combo"
           size="sm"
         />
       </RadioGroup>
@@ -60,9 +60,9 @@ export default function Example(): Node {
         type={type}
         data={data}
         elements={[
-          { type: type === 'composed' ? 'bar' : type, id: 'Users' },
+          { type: type === 'combo' ? 'bar' : type, id: 'Users' },
           {
-            type: type === 'composed' ? 'line' : type,
+            type: type === 'combo' ? 'line' : type,
             id: 'Engagement',
           },
         ]}
