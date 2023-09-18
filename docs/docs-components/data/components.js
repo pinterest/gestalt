@@ -496,32 +496,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-  // {
-  //   id: 'ChartGraph',
-  //   platform: {
-  //     web: {
-  //       name: 'ChartGraph',
-  //       visual: {
-  //         svg: <ChartGraph />,
-  //       },
-  //       description: 'WIP ',
-  //       category: ['Data'],
-  //       status: {
-  //         accessible: {
-  //           summary: 'notAvailable',
-  //           a11yVisual: 'notAvailable',
-  //           a11yScreenreader: 'notAvailable',
-  //           a11yNavigation: 'notAvailable',
-  //           a11yComprehension: 'notAvailable',
-  //         },
-  //         documentation: 'notAvailable',
-  //         figmaStatus: 'notAvailable',
-  //         responsive: 'notAvailable',
-  //         status: 'notAvailable',
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    id: 'ChartGraph',
+    platform: {
+      web: {
+        name: 'ChartGraph',
+        visual: {
+          svg: <svg />,
+        },
+        alias: ['Bar Graph', 'Line Graph', 'Column Graph'],
+        description:
+          'ChartGraph is used for displaying various types of graphs plotted on an x and y axis. ',
+        category: ['Data'],
+        status: {
+          accessible: {
+            summary: 'notAvailable',
+            a11yVisual: 'notAvailable',
+            a11yScreenreader: 'notAvailable',
+            a11yNavigation: 'notAvailable',
+            a11yComprehension: 'notAvailable',
+          },
+          documentation: 'notAvailable',
+          figmaStatus: 'notAvailable',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
   {
     id: 'Checkbox',
     platform: {

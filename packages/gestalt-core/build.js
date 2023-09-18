@@ -59,7 +59,7 @@ const cssModules = (options = {}) => {
 
       // if it's not production, use the minified name + extended name
       const className =
-        process.env.DEVMODE === 'true' ? `${name}__${scopeNames[hash]}` : scopeNames[hash];
+        process.env.DEVMODE === 'false' ? `${name}__${scopeNames[hash]}` : scopeNames[hash];
 
       return className;
     },
