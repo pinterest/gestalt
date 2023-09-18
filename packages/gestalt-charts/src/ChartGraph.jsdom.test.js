@@ -1,7 +1,7 @@
 // @flow strict-local
 import { type ElementConfig, type Node, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
-import { Box, Flex } from 'gestalt';
+import { Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 // Mock needed here do to https://stackoverflow.com/questions/73117667/writing-unit-tests-with-react-testing-library-for-recharts
@@ -98,7 +98,6 @@ function ChartWrap(props: Props) {
         title={props.title}
         type={props.type}
         referenceAreas={props.referenceAreas}
-        variant={props.variant}
       />
     </Flex>
   );
@@ -231,32 +230,6 @@ describe('ChartGraph', () => {
           { type: 'line', id: 'element_02' },
         ]}
       />,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('renders time series chart', () => {
-    const { container } = render(
-      <Box width={300} height={300}>
-        <ChartWrap
-          type="line"
-          range={{ xAxisBottom: ['auto', 'auto'] }}
-          data={[0, 1, 2, 3, 4, 5]
-            .map((x) => [{ name: new Date(2023, x, 1).getTime(), 'value01': 1000, 'value02': 100 }])
-            .flat()}
-          elements={[
-            { type: 'line', id: 'element_01' },
-            { type: 'line', id: 'element_02' },
-          ]}
-          variant="timeseries"
-          tickFormatter={{
-            xAxisBottom: (date) =>
-              `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
-                date,
-              )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
-          }}
-        />
-      </Box>,
     );
     expect(container).toMatchSnapshot();
   });

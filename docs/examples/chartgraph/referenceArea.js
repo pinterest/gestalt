@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Text } from 'gestalt';
+import { Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -55,42 +55,7 @@ export default function Example(): Node {
           yAxisLeft: [0, 1000000],
           xAxisBottom: ['auto', new Date(2023, 0, 10).getTime()],
         }}
-        renderTooltip={({ active, label, payload }) =>
-          active && Array.isArray(payload) ? (
-            <Flex direction="column" gap={2}>
-              <Flex.Item>
-                {payload.map(
-                  (payloadData: {|
-                    dataKey: string,
-                    color?: ?string,
-                    fill?: ?string,
-                    isLegend?: boolean,
-                    legendType?: 'line' | 'rect',
-                    name: string,
-                    stroke?: ?string,
-                    strokeDasharray?: ?(string | number),
-                    value: number,
-                  |}) => (
-                    <Flex key={payloadData.name} alignItems="center" gap={2}>
-                      <ChartGraph.LegendIcon payloadData={payloadData} />
-                      <Flex.Item flex="grow">
-                        <Text size="100">{payloadData.name}</Text>
-                      </Flex.Item>
-                      <Text weight="bold" size="200">
-                        {payloadData.value}
-                      </Text>
-                    </Flex>
-                  ),
-                )}
-              </Flex.Item>
-              <Text color="subtle" size="100">
-                {typeof label === 'number' ? new Intl.DateTimeFormat('en-US').format(label) : ''}
-              </Text>
-            </Flex>
-          ) : null
-        }
         elements={[{ type: 'line', id: 'Impressions' }]}
-        variant="timeseries"
         type="line"
         tickFormatter={{
           yAxisLeft: (value) => {
@@ -98,7 +63,7 @@ export default function Example(): Node {
             if (value >= 1000) return `${value / 1000}k`;
             return value;
           },
-          xAxisBottom: (date) =>
+          timeseries: (date) =>
             `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
               date,
             )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,

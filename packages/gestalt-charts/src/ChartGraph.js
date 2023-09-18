@@ -136,11 +136,6 @@ type Props = {|
    */
   stacked?: boolean,
   /**
-   * When set to "true", ChartGraph presents data points graphed in time order.
-   * See the [timeseries variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) to learn more.
-   */
-  variant?: 'timeseries',
-  /**
    * Title of ChartGraph. Be sure to localize the text.
    * See the [title variant](https://gestalt.pinterest.systems/web/chartgraph#Title-and-description) to learn more.
    */
@@ -152,8 +147,12 @@ type Props = {|
   /**
    * The formatter function for ticks on time series. It should only be used to set date format on time series ticks.
    * See the [timeseries variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) and the [tick formatter variant](https://gestalt.pinterest.systems/web/chartgraph#Tick-format) to learn more.
+   *
+   * timeseries: When set to "true", ChartGraph presents data points graphed in time order.
+   * See the [timeseries variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) to learn more.
    */
   tickFormatter?: {|
+    timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,
     xAxisBottom?: (number, number) => string | number,
     yAxisRight?: (number, number) => string | number,
@@ -207,7 +206,6 @@ function ChartGraph({
   type = 'combo',
   referenceAreas = [],
   renderTooltip = 'auto',
-  variant,
 }: Props): Node {
   // CONTANTS
   const FONT_STYLE_CATEGORIES = {
@@ -262,7 +260,7 @@ function ChartGraph({
   const isBar = type === 'bar';
   const isLine = type === 'line';
   const isComposed = type === 'combo';
-  const isTimeSeries = variant === 'timeseries';
+  const isTimeSeries = tickFormatter?.timeseries !== undefined;
 
   const threeTicksDimension = 3 * TICK_SPACE;
   const fiveTicksDimension = 5 * TICK_SPACE;
@@ -346,7 +344,7 @@ function ChartGraph({
     renderTooltip,
   });
 
-  const defaultTooltip = useDefaultTooltip({ isDarkMode, labelMap });
+  const defaultTooltip = useDefaultTooltip({ isDarkMode, labelMap, tickFormatter, isTimeSeries });
 
   const defaultLegend = useDefaultLegend({
     isHorizontalBiaxial,
@@ -441,7 +439,7 @@ function ChartGraph({
                     style={FONT_STYLE_CATEGORIES}
                     tickFormatter={
                       isTimeSeries
-                        ? tickFormatter?.xAxisBottom
+                        ? tickFormatter?.xAxisBottom || tickFormatter?.timeseries
                         : (value: string) => labelMap?.[value] || value
                     }
                     tickLine={false}
