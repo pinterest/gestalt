@@ -60,7 +60,31 @@ export default function ComponentPage({
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.ChartGraph} />
 
-      <MainSection name="Usage guidelines" />
+      <MainSection
+        name="Usage guidelines"
+        description="These are overall guidelines for using Chart. For guidelines on using specific charts, see our [Chart and graph guidelines](/foundations/data_visualization/charts_and_graphs)."
+      >
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            title="When to use"
+            description={`
+- To compare data sets
+- To show trends, frequency of occurrences and distribution of data across time
+- To visually summarize and explain complex data sets and concepts        `}
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            title="When not to use"
+            description={`
+- To show parts-to-whole. Use a pie or donut chart instead.
+- To visualize a series of stages in a sequence that get smaller over time. Use a funnel chart instead.
+- To show large data sets that are too hard to show in a chart. Use [Table](/web/table) instead.        `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Best practices" />
 

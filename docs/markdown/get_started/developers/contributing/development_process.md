@@ -138,7 +138,7 @@ yarn generate ComponentName
   ```bash
   # Stop Docs build
   # Update all Gestalt packages builds running rollup. Make sure to run after every change in component/snapshot test
-  yarn build
+  yarn build:prod
 
   # Update a specific visual test snapshots with the latest builds
   yarn playwright:update-visual-test playwright/visual-test/<filename>  --update-snapshots
