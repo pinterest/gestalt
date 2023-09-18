@@ -82,5 +82,6 @@ This size displays up to 3 user avatars + an IconButton if AvatarGroup is intera
 
 ## Related
 
-
+- [Avatar](https://gestalt.pinterest.systems/android/avatar)
+  Avatar is the ideal component in cases where only one person or brand needs to be displayed.
 
