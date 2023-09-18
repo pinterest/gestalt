@@ -16,7 +16,7 @@ fullwidth: true
   </Group>
   <Group>
   <Dont title="When not to use" />
-     - To reflect a single person, company or brand within the product. Use [Avatar](/android/avatar). instead
+     - To reflect a single person, company or brand within the product. Use [Avatar](/android/avatar) instead
   </Group>
 </TwoCol>
 
@@ -24,22 +24,22 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8b/79/95/8b79951ed402e8fb952e3e4efb2155e9.png" alt="example of AvatarGroup representing a profile with no image provided"/>
+    <ImgContainer src="https://i.pinimg.com/originals/db/4b/17/db4b176d3b4425caccb5b75a766059a8.png" alt="example of AvatarGroup representing a profile with no image provided"/>
     <Do title="Do" />
     Use the default alternative if no image source is available. This should be the first character of the provided name.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/a8/18/d3/a818d31135277cf02ae50628dc539385.png" alt="example of graphics inside an avatargroup"/>
+    <ImgContainer src="https://i.pinimg.com/originals/3e/24/ae/3e24aed7f11e6af3dae97bf015ea418d.png" alt="example of graphics inside an avatargroup"/>
     <Dont title="Don't" />
     Use alternative icons or graphics.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/17/a4/59/17a45981ccf70a87f89ba42b797340ea.png" alt="avatargroup representing people and organizations"/>
+    <ImgContainer src="https://i.pinimg.com/originals/d9/56/12/d9561207251a0a7c139c2aad2d2be094.png" alt="avatargroup representing people and organizations"/>
     <Do title="Do" />
     Use AvatarGroup when representing a group of people and/or organizations.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/19/4b/9e/194b9e8bb8a1bb48168c0f9a90c0fc5b.png" alt="example of pins inside an avatargroup"/>
+    <ImgContainer src="https://i.pinimg.com/originals/f7/59/ee/f759eefa627b81a35d52ac0031e08b4d.png" alt="example of pins inside an avatargroup"/>
     <Dont title="Don't" />
     Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an image or, if there's sufficient space, a [Card](ios/card/card)
   </Group>
