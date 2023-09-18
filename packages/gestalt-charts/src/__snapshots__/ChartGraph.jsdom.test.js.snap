@@ -7657,35 +7657,12 @@ exports[`ChartGraph renders time series chart 1`] = `
                         style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
                         text-anchor="middle"
                         width="730"
-                        x="79.98533724340176"
+                        x="214.9089152635937"
                         y="768"
                       >
                         <tspan
                           dy="0.71em"
-                          x="79.98533724340176"
-                        >
-                          Jan-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="131.36363636363637"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="131.36363636363637"
+                          x="214.9089152635937"
                         >
                           Feb-01
                         </tspan>
@@ -7703,35 +7680,12 @@ exports[`ChartGraph renders time series chart 1`] = `
                         style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
                         text-anchor="middle"
                         width="730"
-                        x="146.34897360703812"
+                        x="350.31051614683963"
                         y="768"
                       >
                         <tspan
                           dy="0.71em"
-                          x="146.34897360703812"
-                        >
-                          Feb-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="191.3049853372434"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="191.3049853372434"
+                          x="350.31051614683963"
                         >
                           Mar-01
                         </tspan>
@@ -7749,35 +7703,12 @@ exports[`ChartGraph renders time series chart 1`] = `
                         style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
                         text-anchor="middle"
                         width="730"
-                        x="206.29032258064515"
+                        x="500.0179409329285"
                         y="768"
                       >
                         <tspan
                           dy="0.71em"
-                          x="206.29032258064515"
-                        >
-                          Mar-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="257.5794232649071"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="257.5794232649071"
+                          x="500.0179409329285"
                         >
                           Apr-01
                         </tspan>
@@ -7795,359 +7726,14 @@ exports[`ChartGraph renders time series chart 1`] = `
                         style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
                         text-anchor="middle"
                         width="730"
-                        x="272.5647605083089"
+                        x="645.0910847364063"
                         y="768"
                       >
                         <tspan
                           dy="0.71em"
-                          x="272.5647605083089"
-                        >
-                          Apr-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="321.8022971652004"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="321.8022971652004"
+                          x="645.0910847364063"
                         >
                           May-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="336.7876344086022"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="336.7876344086022"
-                        >
-                          May-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="388.1659335288368"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="388.1659335288368"
-                        >
-                          Jun-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="403.1512707722385"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="403.1512707722385"
-                        >
-                          Jun-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="452.38880742913"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="452.38880742913"
-                        >
-                          Jul-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="467.37414467253177"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="467.37414467253177"
-                        >
-                          Jul-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="518.7524437927664"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="518.7524437927664"
-                        >
-                          Aug-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="533.7377810361681"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="533.7377810361681"
-                        >
-                          Aug-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="585.1160801564029"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="585.1160801564029"
-                        >
-                          Sep-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="600.1014173998045"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="600.1014173998045"
-                        >
-                          Sep-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="649.338954056696"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="649.338954056696"
-                        >
-                          Oct-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="664.3242913000978"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="664.3242913000978"
-                        >
-                          Oct-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="715.791788856305"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="715.791788856305"
-                        >
-                          Nov-01
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="730.7771260997067"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="730.7771260997067"
-                        >
-                          Nov-08
-                        </tspan>
-                      </text>
-                    </g>
-                    <g
-                      class="recharts-layer recharts-cartesian-axis-tick"
-                    >
-                      <text
-                        class="recharts-text recharts-cartesian-axis-tick-value"
-                        fill="#666"
-                        height="30"
-                        orientation="bottom"
-                        stroke="none"
-                        style="font-family: var(--font-family-default-latin); font-weight: var(--font-weight-normal);"
-                        text-anchor="middle"
-                        width="730"
-                        x="780.0146627565983"
-                        y="768"
-                      >
-                        <tspan
-                          dy="0.71em"
-                          x="780.0146627565983"
-                        >
-                          Dec-01
                         </tspan>
                       </text>
                     </g>
@@ -8170,7 +7756,7 @@ exports[`ChartGraph renders time series chart 1`] = `
                           dy="0.71em"
                           x="795"
                         >
-                          Dec-08
+                          Jun-01
                         </tspan>
                       </text>
                     </g>
