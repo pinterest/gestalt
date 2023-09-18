@@ -12,14 +12,6 @@ export default function Example(): Node {
     { name: new Date(2023, 1, 2).getTime(), 'Gen Z': 200, 'Millenials': 400 },
     { name: new Date(2023, 1, 3).getTime(), 'Gen Z': 300, 'Millenials': 500 },
     { name: new Date(2023, 1, 4).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 5).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 6).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 7).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 8).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 9).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 10).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 11).getTime(), 'Gen Z': 400, 'Millenials': 600 },
-    // { name: new Date(2023, 1, 12).getTime(), 'Gen Z': 400, 'Millenials': 600 },
   ];
 
   return (
@@ -44,12 +36,12 @@ export default function Example(): Node {
           size="sm"
         />
         <RadioGroup.RadioButton
-          checked={type === 'composed'}
-          id="controlledTimeseries-composed"
-          label="Composed"
-          name="composed"
-          onChange={() => setType('composed')}
-          value="composed"
+          checked={type === 'combo'}
+          id="controlledTimeseries-combo"
+          label="combo"
+          name="combo"
+          onChange={() => setType('combo')}
+          value="combo"
           size="sm"
         />
       </RadioGroup>
@@ -62,9 +54,9 @@ export default function Example(): Node {
         type={type}
         data={data}
         elements={[
-          { type: type === 'composed' ? 'bar' : type, id: 'Gen Z' },
+          { type: type === 'combo' ? 'bar' : type, id: 'Gen Z' },
           {
-            type: type === 'composed' ? 'line' : type,
+            type: type === 'combo' ? 'line' : type,
             id: 'Millenials',
           },
         ]}

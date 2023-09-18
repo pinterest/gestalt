@@ -47,12 +47,12 @@ export default function Example(): Node {
           size="sm"
         />
         <RadioGroup.RadioButton
-          checked={type === 'composed'}
-          id="range-composed"
-          label="Composed"
-          name="composed"
-          onChange={() => setType('composed')}
-          value="composed"
+          checked={type === 'combo'}
+          id="range-combo"
+          label="combo"
+          name="combo"
+          onChange={() => setType('combo')}
+          value="combo"
           size="sm"
         />
       </RadioGroup>
@@ -68,12 +68,12 @@ export default function Example(): Node {
         range={{ yAxisLeft: [0, 100] }}
         elements={[
           {
-            type: type === 'composed' ? 'bar' : type,
+            type: type === 'combo' ? 'bar' : type,
             id: 'Percentage',
             axis: 'left',
           },
           {
-            type: type === 'composed' ? 'line' : type,
+            type: type === 'combo' ? 'line' : type,
             id: 'Absolute',
             axis: 'right',
           },

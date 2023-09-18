@@ -196,10 +196,10 @@ describe('ChartGraph', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('renders composed chart', () => {
+  it('renders combo chart', () => {
     const { container } = render(
       <ChartWrap
-        type="composed"
+        type="combo"
         data={data}
         elements={[
           { type: 'bar', id: 'element_01' },
@@ -213,7 +213,7 @@ describe('ChartGraph', () => {
   it('renders reference area', () => {
     const { container } = render(
       <ChartWrap
-        type="composed"
+        type="combo"
         referenceAreas={[
           {
             id: 'ExampleBD',

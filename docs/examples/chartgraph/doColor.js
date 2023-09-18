@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node } from 'react';
 import { Flex, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
@@ -7,84 +7,24 @@ export default function Example(): Node {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
 
   const data = [
-    {
-      name: new Date(2023, 0, 1).getTime(),
-      'Paid': 1000000,
-      'Organic': 2000000,
-      'Earned': 200000,
-    },
-    {
-      name: new Date(2023, 1, 2).getTime(),
-      'Paid': 2000000,
-      'Organic': 2000000,
-      'Earned': 400000,
-    },
-    {
-      name: new Date(2023, 2, 3).getTime(),
-      'Paid': 3000000,
-      'Organic': 5000000,
-      'Earned': 600000,
-    },
-    {
-      name: new Date(2023, 3, 4).getTime(),
-      'Paid': 2000000,
-      'Organic': 3000000,
-      'Earned': 700000,
-    },
-    {
-      name: new Date(2023, 4, 5).getTime(),
-      'Paid': 4000000,
-      'Organic': 4000000,
-      'Earned': 500000,
-    },
-    {
-      name: new Date(2023, 5, 6).getTime(),
-      'Paid': 1000000,
-      'Organic': 7000000,
-      'Earned': 200000,
-    },
-    {
-      name: new Date(2023, 6, 7).getTime(),
-      'Paid': 5000000,
-      'Organic': 6000000,
-      'Earned': 500000,
-    },
-    {
-      name: new Date(2023, 7, 8).getTime(),
-      'Paid': 6000000,
-      'Organic': 2000000,
-      'Earned': 200000,
-    },
-    {
-      name: new Date(2023, 8, 8).getTime(),
-      'Paid': 4000000,
-      'Organic': 4000000,
-      'Earned': 600000,
-    },
-    {
-      name: new Date(2023, 9, 8).getTime(),
-      'Paid': 10000000,
-      'Organic': 5000000,
-      'Earned': 700000,
-    },
-    {
-      name: new Date(2023, 10, 8).getTime(),
-      'Paid': 4000000,
-      'Organic': 5500000,
-      'Earned': 100000,
-    },
-    {
-      name: new Date(2023, 11, 8).getTime(),
-      'Paid': 3000000,
-      'Organic': 7000000,
-      'Earned': 200000,
-    },
+    { name: new Date(2023, 0, 1).getTime(), 'Paid': 3000, 'Organic': 200, 'Earned': 2050 },
+    { name: new Date(2023, 1, 2).getTime(), 'Paid': 2003, 'Organic': 200, 'Earned': 1060 },
+    { name: new Date(2023, 2, 3).getTime(), 'Paid': 3000, 'Organic': 500, 'Earned': 1050 },
+    { name: new Date(2023, 3, 4).getTime(), 'Paid': 2000, 'Organic': 300, 'Earned': 1070 },
+    { name: new Date(2023, 4, 5).getTime(), 'Paid': 4000, 'Organic': 400, 'Earned': 3050 },
+    { name: new Date(2023, 5, 6).getTime(), 'Paid': 3005, 'Organic': 70, 'Earned': 2080 },
+    { name: new Date(2023, 6, 7).getTime(), 'Paid': 5000, 'Organic': 600, 'Earned': 1050 },
+    { name: new Date(2023, 7, 8).getTime(), 'Paid': 6000, 'Organic': 200, 'Earned': 2040 },
+    { name: new Date(2023, 8, 8).getTime(), 'Paid': 4000, 'Organic': 400, 'Earned': 1050 },
+    { name: new Date(2023, 9, 8).getTime(), 'Paid': 3005, 'Organic': 500, 'Earned': 1080 },
+    { name: new Date(2023, 10, 8).getTime(), 'Paid': 4000, 'Organic': 550, 'Earned': 2050 },
+    { name: new Date(2023, 11, 8).getTime(), 'Paid': 3000, 'Organic': 700, 'Earned': 1050 },
   ];
 
   return (
     <ChartGraph
-      title="Engagement rate"
-      accessibilityLabel="Engagement rate (example)"
+      title="Pin clicks over time"
+      accessibilityLabel="Pin clicks over time (example)"
       visualPatternSelected={visualPatternSelected}
       onVisualPatternChange={() =>
         setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
@@ -100,11 +40,13 @@ export default function Example(): Node {
         { type: 'line', id: 'Paid' },
         { type: 'line', id: 'Organic' },
         { type: 'line', id: 'Earned' },
-        { type: 'line', id: 'Converted' },
       ]}
       tickFormatter={{
+        yAxisLeft: (value) => `${value / 1000}K`,
         xAxisBottom: (date) =>
-          `${new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)}`,
+          `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+            date,
+          )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
       }}
       renderTooltip={({ active, label, payload }) =>
         active && Array.isArray(payload) ? (

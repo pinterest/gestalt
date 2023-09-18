@@ -25,7 +25,7 @@ export default function Example(): Node {
       accessibilityLabel="Clicks compared to conversions (example)"
       visualPatternSelected="disabled"
       onVisualPatternChange={() => {}}
-      type="composed"
+      type="combo"
       range={{
         xAxisBottom: ['auto', 'auto'],
       }}

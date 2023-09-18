@@ -180,7 +180,7 @@ type Props = {|
    * Type of chart.
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
    */
-  type?: 'composed' | 'line' | 'bar',
+  type?: 'combo' | 'line' | 'bar',
 |};
 
 /**
@@ -204,7 +204,7 @@ function ChartGraph({
   tickFormatter,
   tileData,
   title,
-  type = 'composed',
+  type = 'combo',
   referenceAreas = [],
   renderTooltip = 'auto',
   variant,
@@ -261,7 +261,7 @@ function ChartGraph({
 
   const isBar = type === 'bar';
   const isLine = type === 'line';
-  const isComposed = type === 'composed';
+  const isComposed = type === 'combo';
   const isTimeSeries = variant === 'timeseries';
 
   const threeTicksDimension = 3 * TICK_SPACE;
