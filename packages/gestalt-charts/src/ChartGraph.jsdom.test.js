@@ -2,7 +2,7 @@
 import { type ElementConfig, type Node, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import { Flex } from 'gestalt';
-import { ChartGraph } from 'gestalt-charts';
+import ChartGraph from './ChartGraph.js';
 
 // Mock needed here do to https://stackoverflow.com/questions/73117667/writing-unit-tests-with-react-testing-library-for-recharts
 jest.mock('recharts', () => {
