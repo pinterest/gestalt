@@ -26,11 +26,14 @@ export default function usePatterns(): Node {
       </g>
 
       <g id="points-04">
-        <rect width="8" height="8" transform="rotate(45)" />
+        <path
+          d="M36.6629 4.5L44.4605 28.1564L24 42.81L3.53951 28.1564L11.3371 4.5H36.6629Z"
+          transform="scale(0.22)"
+        />
       </g>
 
       <g id="points-05">
-        <rect width="7" height="7" transform="rotate(45)" />
+        <rect width="6" height="6" transform="rotate(45)" />
       </g>
 
       <g id="points-06">
@@ -40,18 +43,32 @@ export default function usePatterns(): Node {
       <g id="points-07">
         <path d="M0,0l4,8h-8z" />
       </g>
+
       <g id="points-08">
-        <rect width="4" height="4" />
+        <path
+          d="M24 3.45525L42 13.741V34.259L24 44.5447L6 34.259V13.741L24 3.45525Z"
+          transform="scale(0.22)"
+        />
       </g>
+
       <g id="points-09">
-        <circle r="4" />
+        <path
+          d="M24 1.5L48 18.6885L38.8328 46.5H9.16718L0 18.6885L24 1.5Z"
+          transform="scale(0.22)"
+        />
       </g>
+
       <g id="points-10">
-        <rect width="4" height="4" transform="rotate(45)" />
+        <rect width="6" height="6" transform="rotate(45)" />
       </g>
+
       <g id="points-11">
-        <path d="M0,0h8l-4,8z" transform="rotate(45)" />
+        <path
+          d="M24 3.45525L42 13.741V34.259L24 44.5447L6 34.259V13.741L24 3.45525Z"
+          transform="scale(0.22)"
+        />
       </g>
+
       <g id="points-12">
         <path d="M0,0h8l-4,8z" />
       </g>
