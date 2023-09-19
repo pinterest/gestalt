@@ -31,7 +31,7 @@ type Props = {|
   layout: 'horizontal' | 'vertical' | 'horizontalBiaxial' | 'verticalBiaxial',
   hexColor: (DataVisualizationColors) => string,
   visualPatternSelected: 'accessible' | 'default' | 'disabled',
-  isHorizontal: boolean,
+  isHorizontalLayout: boolean,
   isBarRounded: boolean,
 |};
 
@@ -41,7 +41,7 @@ export default function renderElements({
   stacked,
   hexColor,
   visualPatternSelected,
-  isHorizontal,
+  isHorizontalLayout,
   isBarRounded,
 }: Props): $ReadOnlyArray<Node> {
   const { length } = elements;
@@ -82,7 +82,7 @@ export default function renderElements({
               }
             />
           )}
-          {...(isHorizontal
+          {...(isHorizontalLayout
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
         />
@@ -118,7 +118,7 @@ export default function renderElements({
           strokeDasharray={strokeDasharray}
           stroke={hexColor(values.color || defaultColor)}
           type={values.precision === 'estimate' ? 'monotone' : undefined}
-          {...(isHorizontal
+          {...(isHorizontalLayout
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
         />

@@ -4,16 +4,16 @@ import { Box, Flex, Text } from 'gestalt';
 import LegendIcon from './LegendIcon.js';
 
 export default function useDefaultLegend({
-  isHorizontalBiaxial,
-  isVerticalBiaxial,
+  isHorizontalBiaxialLayout,
+  isVerticalBiaxialLayout,
   legend,
   height,
   labelMap,
   setLegendHeight,
   referenceAreaSummary,
 }: {|
-  isHorizontalBiaxial: boolean,
-  isVerticalBiaxial: boolean,
+  isHorizontalBiaxialLayout: boolean,
+  isVerticalBiaxialLayout: boolean,
   legend: 'auto' | 'none' | 'complete',
   height: number,
   labelMap: ?{| [string]: string |},
@@ -67,7 +67,7 @@ export default function useDefaultLegend({
 
       const legendItemsArray = [...series, ...referenceAreas];
 
-      if (isHorizontalBiaxial && legend === 'auto') {
+      if (isHorizontalBiaxialLayout && legend === 'auto') {
         return (
           <Box color="transparent" marginBottom={6} width="100%">
             <Flex justifyContent="between">{legendItemsArray.slice(0, 2)}</Flex>
@@ -75,7 +75,7 @@ export default function useDefaultLegend({
         );
       }
 
-      if (isVerticalBiaxial && legend === 'auto') {
+      if (isVerticalBiaxialLayout && legend === 'auto') {
         return (
           <Box
             dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
@@ -107,8 +107,8 @@ export default function useDefaultLegend({
       );
     },
     [
-      isHorizontalBiaxial,
-      isVerticalBiaxial,
+      isHorizontalBiaxialLayout,
+      isVerticalBiaxialLayout,
       height,
       labelMap,
       legend,

@@ -32,10 +32,39 @@ export default function Example(): Node {
     },
   ];
 
-  const [selectedId, setSelectedId] = useState<string>('01');
+  const [selectedId, setSelectedId] = useState<?string>('01');
   const isSelected = (id?: string) => selectedId === id;
 
-  const color = selectedId;
+  const getColor: (string) =>
+    | '01'
+    | '02'
+    | '03'
+    | '04'
+    | '05'
+    | '06'
+    | '07'
+    | '08'
+    | '09'
+    | '10'
+    | '11'
+    | '12' = (value) => {
+    const colorMap = {
+      '01': '01',
+      '02': '02',
+      '03': '03',
+      '04': '04',
+      '05': '05',
+      '06': '06',
+      '07': '07',
+      '08': '08',
+      '09': '09',
+      '10': '10',
+      '11': '11',
+      '12': '12',
+    };
+
+    return colorMap[value];
+  };
 
   return (
     <ChartGraph
@@ -48,7 +77,13 @@ export default function Example(): Node {
       description="Description"
       data={selectedId === '01' ? dataA : dataB}
       initialTicks={3}
-      elements={[{ type: 'bar', id: selectedId === '01' ? 'Impressions' : 'Engagement', color }]}
+      elements={[
+        {
+          type: 'bar',
+          id: selectedId === '01' ? 'Impressions' : 'Engagement',
+          color: getColor(selectedId || '01'),
+        },
+      ]}
       selectors={{
         selector: 'TileData',
         data: [
@@ -58,10 +93,7 @@ export default function Example(): Node {
             title: 'Impressions',
             value: '10M',
             selected: isSelected('01'),
-            onTap: ({ id }) => {
-              const newId: string = id || '';
-              setSelectedId(newId);
-            },
+            onTap: ({ id }) => setSelectedId(id),
             trend: { value: 29, accessibilityLabel: 'Trending up' },
           },
           {
@@ -70,10 +102,7 @@ export default function Example(): Node {
             title: 'Engagement',
             value: '2M',
             selected: isSelected('02'),
-            onTap: ({ id }) => {
-              const newId: string = id || '';
-              setSelectedId(newId);
-            },
+            onTap: ({ id }) => setSelectedId(id),
             trend: { value: 29, accessibilityLabel: 'Trending up' },
           },
         ],

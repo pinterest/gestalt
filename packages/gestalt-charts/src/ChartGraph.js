@@ -13,7 +13,6 @@ import {
 } from 'recharts';
 import { Box, Flex, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
-import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
 import renderElements from './ChartGraph/renderElements.js';
@@ -230,7 +229,7 @@ function ChartGraph({
   referenceAreas = [],
   renderTooltip = 'auto',
 }: Props): Node {
-  // CONTANTS
+  // CONSTANTS
   const FONT_STYLE_CATEGORIES = {
     fontSize: 'var(--font-size-100)',
     fontFamily: 'var(--font-family-default-latin)',
@@ -275,14 +274,14 @@ function ChartGraph({
   // Internally we match Recharts for easier development and comoprehension of Recharts docs
   const layout = LAYOUT_MAP[externalLayout];
 
-  const isVertical = ['vertical', 'verticalBiaxial'].includes(layout);
-  const isHorizontal = ['horizontal', 'horizontalBiaxial'].includes(layout);
-  const isVerticalBiaxial = layout === 'verticalBiaxial';
-  const isHorizontalBiaxial = layout === 'horizontalBiaxial';
+  const isVerticalLayout = ['vertical', 'verticalBiaxial'].includes(layout);
+  const isHorizontalLayout = ['horizontal', 'horizontalBiaxial'].includes(layout);
+  const isVerticalBiaxialLayout = layout === 'verticalBiaxial';
+  const isHorizontalBiaxialLayout = layout === 'horizontalBiaxial';
 
   const isBar = type === 'bar';
   const isLine = type === 'line';
-  const isComposed = type === 'combo';
+  const isCombo = type === 'combo';
   const isTimeSeries = tickFormatter?.timeseries !== undefined;
 
   const threeTicksDimension = 3 * TICK_SPACE;
@@ -295,24 +294,28 @@ function ChartGraph({
   const fixChartDimension = isAboveBreakpoint ? fiveTicksDimension : threeTicksDimension;
 
   const tickCount = isAboveBreakpoint ? 5 : 3;
-  const horizontalMargin = isHorizontalBiaxial ? 20 : 10;
+  const horizontalMargin = isHorizontalBiaxialLayout ? 20 : 10;
   const verticalMargin = 5;
 
   // This is a rough estimate of when bars get to thin to be rounded. It's impossible to calculate from the bar component itself as we cannot  access the ref or use wrappers on Recharts component.
   const individualBarWidthEstimate =
-    (isHorizontal ? chartWidth : chartHeight - legendHeight) / (2 * data.length) / elements.length -
-    (isHorizontal ? horizontalMargin : verticalMargin);
+    (isHorizontalLayout ? chartWidth : chartHeight - legendHeight) /
+      (2 * data.length) /
+      elements.length -
+    (isHorizontalLayout ? horizontalMargin : verticalMargin);
 
   useEffect(() => {
-    const responsiveHeight = isHorizontal ? fixChartDimension + legendHeight : fiveTicksDimension;
+    const responsiveHeight = isHorizontalLayout
+      ? fixChartDimension + legendHeight
+      : fiveTicksDimension;
     setInternalHeight(responsiveHeight);
-  }, [fixChartDimension, legendHeight, fiveTicksDimension, isHorizontal]);
+  }, [fixChartDimension, legendHeight, fiveTicksDimension, isHorizontalLayout]);
 
   // CONDITIONAL VARIABLES
   let legendVerticalAlign = 'bottom';
   let legendAlign = 'left';
 
-  if (isVerticalBiaxial && legend === 'auto') {
+  if (isVerticalBiaxialLayout && legend === 'auto') {
     legendVerticalAlign = 'top';
     legendAlign = 'right';
   }
@@ -334,7 +337,7 @@ function ChartGraph({
         hexColor,
         layout,
         visualPatternSelected,
-        isHorizontal,
+        isHorizontalLayout,
         // Interim true, until we have number
         isBarRounded:
           Math.sign(individualBarWidthEstimate) === -1 ? true : individualBarWidthEstimate > 10,
@@ -345,7 +348,7 @@ function ChartGraph({
       stacked,
       layout,
       visualPatternSelected,
-      isHorizontal,
+      isHorizontalLayout,
       individualBarWidthEstimate,
     ],
   );
@@ -370,8 +373,8 @@ function ChartGraph({
   const defaultTooltip = useDefaultTooltip({ isDarkMode, labelMap, tickFormatter, isTimeSeries });
 
   const defaultLegend = useDefaultLegend({
-    isHorizontalBiaxial,
-    isVerticalBiaxial,
+    isHorizontalBiaxialLayout,
+    isVerticalBiaxialLayout,
     height: chartHeight,
     legend,
     labelMap,
@@ -382,7 +385,7 @@ function ChartGraph({
   return (
     <ChartProvider decal={visualPatternSelected}>
       <Box
-        width={isHorizontal ? '100%' : undefined}
+        width={isHorizontalLayout ? '100%' : undefined}
         display="flex"
         direction="column"
         color="default"
@@ -442,7 +445,7 @@ function ChartGraph({
             </Flex>
           </Box>
         ) : null}
-        <div className="_gestalt" style={{ width: '100%', height: '100%', maxWidth: 960 }}>
+        <Box width="100%" height="100%" maxWidth={960}>
           <ResponsiveContainer
             debounce={150}
             onResize={(width, height) => {
@@ -456,33 +459,33 @@ function ChartGraph({
           >
             <ChartType
               title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
-              {...(isBar || isComposed ? { barCategoryGap: '25%' } : {})}
+              {...(isBar || isCombo ? { barCategoryGap: '25%' } : {})}
               data={data}
-              layout={isVertical ? 'vertical' : 'horizontal'}
+              layout={isVerticalLayout ? 'vertical' : 'horizontal'}
               margin={{
                 top: 10,
                 right: 5,
-                bottom: isVerticalBiaxial && legend === 'auto' ? 20 : 10,
+                bottom: isVerticalBiaxialLayout && legend === 'auto' ? 20 : 10,
                 left: 5,
               }}
             >
               {patterns}
               <CartesianGrid
                 stroke="var(--color-border-container)"
-                horizontal={isVertical ? false : undefined}
-                vertical={isVertical ? undefined : false}
+                horizontal={isVerticalLayout ? false : undefined}
+                vertical={isVerticalLayout ? undefined : false}
               />
-              {isHorizontal ? (
+              {isHorizontalLayout && (
                 <Fragment>
                   <XAxis
                     padding={
-                      isTimeSeries && (isBar || isComposed) ? { left: 100, right: 100 } : undefined
+                      isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined
                     }
                     axisLine={false}
                     dataKey="name"
                     domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
                     orientation="bottom"
-                    {...(isTimeSeries ? { scale: 'time' } : {})}
+                    scale={isTimeSeries ? 'time' : undefined}
                     style={FONT_STYLE_CATEGORIES}
                     tickFormatter={
                       isTimeSeries
@@ -491,7 +494,7 @@ function ChartGraph({
                     }
                     tickLine={false}
                     type={isTimeSeries ? 'number' : 'category'}
-                    // DO NOT SET xAxisId here
+                    // DO NOT SET xAxisId here (it breaks the component, opaque behavior from Recharts)
                   />
                   <YAxis
                     axisLine={false}
@@ -504,8 +507,8 @@ function ChartGraph({
                     tickFormatter={tickFormatter?.yAxisLeft}
                   />
                 </Fragment>
-              ) : null}
-              {isHorizontalBiaxial ? (
+              )}
+              {isHorizontalBiaxialLayout && (
                 <YAxis
                   axisLine={false}
                   domain={Array.isArray(range) ? range : range.yAxisLeft}
@@ -516,8 +519,8 @@ function ChartGraph({
                   yAxisId="right"
                   tickFormatter={tickFormatter?.yAxisRight}
                 />
-              ) : null}
-              {isVertical ? (
+              )}
+              {isVerticalLayout && (
                 <Fragment>
                   <XAxis
                     axisLine={false}
@@ -541,8 +544,8 @@ function ChartGraph({
                     // DO NOT SET yAxisId here
                   />
                 </Fragment>
-              ) : null}
-              {isVerticalBiaxial ? (
+              )}
+              {isVerticalBiaxialLayout && (
                 <XAxis
                   axisLine={false}
                   domain={range}
@@ -554,9 +557,9 @@ function ChartGraph({
                   xAxisId="top"
                   tickFormatter={tickFormatter?.xAxisTop}
                 />
-              ) : null}
+              )}
               {renderTooltip === 'none' ? (
-                <Tooltip isAnimationActive={false} content={<EmptyBox />} />
+                <Tooltip isAnimationActive={false} content={<Box />} />
               ) : (
                 <Tooltip
                   cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
@@ -569,13 +572,13 @@ function ChartGraph({
                 align={legendAlign}
                 iconSize={16}
                 iconType="square"
-                content={legend === 'auto' ? defaultLegend : <EmptyBox />}
+                content={legend === 'auto' ? defaultLegend : <Box />}
               />
-              {referenceAreas ? referenceAreasElements : null}
+              {referenceAreas && referenceAreasElements}
               {chartElements}
             </ChartType>
           </ResponsiveContainer>
-        </div>
+        </Box>
       </Box>
     </ChartProvider>
   );

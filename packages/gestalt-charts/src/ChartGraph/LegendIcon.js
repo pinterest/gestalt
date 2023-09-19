@@ -46,7 +46,7 @@ function LegendIcon({ payloadData }: Props): Node {
   }
 
   const { isLegend } = payloadData;
-
+  console.log(theme);
   const colorMap = Object.entries({
     '01': theme.colorDataVisualization01,
     '02': theme.colorDataVisualization02,
