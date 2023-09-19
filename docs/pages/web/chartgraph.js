@@ -9,6 +9,7 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import PatternBarFill from '../../docs-components/PatternBarFill.js';
+import PatternLineMarker from '../../docs-components/PatternLineMarker.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibility from '../../examples/chartgraph/accessibility.js';
@@ -177,8 +178,9 @@ ChartGraph displays an IconButton in the header section that allows to enable th
             title="Line series markers"
             description="For line graphs, shapes are used to help tell categories apart."
           >
-            <PatternBarFill />
+            <PatternLineMarker />
           </MainSection.Card>
+
           <MainSection.Card
             cardSize="lg"
             title="Line series markers example"
@@ -187,6 +189,7 @@ ChartGraph displays an IconButton in the header section that allows to enable th
             }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="ARIA attributes"
           description={`Charts are presented as images to screen readers. Provide a description using the \`accessibilityLabel\` to provide more context around ChartGraph’s content.
