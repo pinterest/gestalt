@@ -8,18 +8,12 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      'color_01': 100,
-      'color_02': 100,
-      'color_03': 100,
-      'color_04': 100,
-      'color_05': 100,
-      'color_06': 100,
-      'color_07': 100,
-      'color_08': 100,
-      'color_09': 100,
-      'color_10': 100,
-      'color_11': 100,
-      'color_12': 100,
+      'color_01': 90,
+      'color_02': 90,
+      'color_03': 90,
+      'color_04': 90,
+      'color_05': 90,
+      'color_06': 90,
     },
   ];
 
@@ -30,6 +24,7 @@ export default function Example(): Node {
       onVisualPatternChange={() =>
         setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
       }
+      range={[0, 100]}
       type="bar"
       data={data}
       elements={[
@@ -39,12 +34,6 @@ export default function Example(): Node {
         { type: 'bar', id: 'color_04' },
         { type: 'bar', id: 'color_05' },
         { type: 'bar', id: 'color_06' },
-        { type: 'bar', id: 'color_07' },
-        { type: 'bar', id: 'color_08' },
-        { type: 'bar', id: 'color_09' },
-        { type: 'bar', id: 'color_10' },
-        { type: 'bar', id: 'color_11' },
-        { type: 'bar', id: 'color_12' },
       ]}
     />
   );

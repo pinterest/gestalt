@@ -115,11 +115,11 @@ function LegendIcon({ payloadData }: Props): Node {
 
     return (
       <svg height={16} width={dimension}>
-        <rect x={0} style={{ fill: payloadData.stroke }} height={3} width={3} rx={1} y={8} />
-        <rect x={3} style={{ fill: 'transparent' }} height={3} width={2} y={8} />
-        <rect x={5} style={{ fill: payloadData.stroke }} height={3} width={3} rx={1} y={8} />
-        <rect x={8} style={{ fill: 'transparent' }} height={3} width={2} y={8} />
-        <rect x={10} style={{ fill: payloadData.stroke }} height={3} width={3} rx={1} y={8} />
+        <rect x={0} fill={payloadData.stroke} height={3} width={3} rx={1} y={8} />
+        <rect x={3} fill="transparent" height={3} width={2} y={8} />
+        <rect x={5} fill={payloadData.stroke} height={3} width={3} rx={1} y={8} />
+        <rect x={8} fill="transparent" height={3} width={2} y={8} />
+        <rect x={10} fill={payloadData.stroke} height={3} width={3} rx={1} y={8} />
       </svg>
     );
   }

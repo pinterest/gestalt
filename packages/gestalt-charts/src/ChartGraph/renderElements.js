@@ -85,6 +85,7 @@ export default function renderElements({
           {...(isHorizontalLayout
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
+          stroke={hexColor(values.color || defaultColor)}
         />
       );
     }
