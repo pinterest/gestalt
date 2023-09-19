@@ -1,3 +1,9 @@
+## 122.5.15 (Sep 19, 2023)
+
+### Patch
+
+- Masonry: Fix height initialization when reusing cached positions for multi-column pins ([#3201](https://github.com/pinterest/gestalt/pull/3201)) - [Preview link](https://deploy-preview-3201--gestalt.netlify.app?devexample=true)
+
 ## 122.5.14 (Sep 18, 2023)
 
 ### Patch
