@@ -8,6 +8,7 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
+import PatternBarFill from '../../docs-components/PatternBarFill.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibility from '../../examples/chartgraph/accessibility.js';
@@ -162,7 +163,7 @@ ChartGraph provides \`visualPatternSelected\` and \`onVisualPatternChange\` prop
 ChartGraph displays an IconButton in the header section that allows to enable the visual pattern from the component itself.`}
         >
           <MainSection.Card cardSize="lg" title="Bar pattern fills">
-            Main palette / Extended palette
+            <PatternBarFill />
           </MainSection.Card>
           <MainSection.Card
             cardSize="lg"
@@ -176,7 +177,7 @@ ChartGraph displays an IconButton in the header section that allows to enable th
             title="Line series markers"
             description="For line graphs, shapes are used to help tell categories apart."
           >
-            Main palette / Extended palette
+            <PatternBarFill />
           </MainSection.Card>
           <MainSection.Card
             cardSize="lg"
