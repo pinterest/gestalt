@@ -32,6 +32,37 @@ function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOn
   }, []);
 }
 
+function initializeHeightsArray<T>({
+  centerOffset,
+  columnCount,
+  columnWidth,
+  columnWidthAndGutter,
+  gutter,
+  items,
+  positionCache,
+}: {|
+  centerOffset: number,
+  columnCount: number,
+  columnWidth: number,
+  columnWidthAndGutter: number,
+  gutter: number,
+  items: $ReadOnlyArray<T>,
+  positionCache: ?Cache<T, Position>,
+|}): $ReadOnlyArray<number> {
+  const heights = new Array<number>(columnCount).fill(0);
+  items.forEach((item) => {
+    const position = positionCache?.get(item);
+    if (position) {
+      const col = (position.left - centerOffset) / columnWidthAndGutter;
+      heights[col] += position.height + gutter;
+      if (position.width > columnWidth) {
+        heights[col + 1] = position.height + gutter;
+      }
+    }
+  });
+  return heights;
+}
+
 function getOneColumnItemPositions<T>({
   centerOffset,
   columnWidth,
@@ -185,15 +216,33 @@ const defaultTwoColumnModuleLayout = <T>({
     : Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
 
   return (items): $ReadOnlyArray<Position> => {
+    if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
+      return items.map(() => offscreen(columnWidth));
+    }
+
+    const centerOffset =
+      justify === 'center'
+        ? Math.max(
+            Math.floor(
+              (width - (Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter)) / 2,
+            ),
+            0,
+          )
+        : Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
+
     // the total height of each column
     const heights =
       heightsCache && heightsCache.getHeights().length > 0
         ? heightsCache.getHeights()
-        : new Array<number>(columnCount).fill(0);
-
-    if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-      return items.map(() => offscreen(columnWidth));
-    }
+        : initializeHeightsArray({
+            centerOffset,
+            columnCount,
+            columnWidth,
+            columnWidthAndGutter,
+            gutter,
+            items,
+            positionCache,
+          });
 
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
@@ -205,18 +254,6 @@ const defaultTwoColumnModuleLayout = <T>({
       // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
       (item) => !item.columnSpan || item.columnSpan === 1,
     );
-
-    let centerOffset;
-    if (justify === 'center') {
-      const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
-
-      centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
-    } else {
-      centerOffset = Math.max(
-        Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
-        0,
-      );
-    }
 
     const commonGetPositionArgs = {
       centerOffset,
