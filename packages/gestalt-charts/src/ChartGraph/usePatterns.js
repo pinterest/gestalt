@@ -13,10 +13,11 @@ export default function usePatterns(): Node {
 
   return (
     <defs>
+      {/* Line series markers */}
       <g id="points-01">
-        {' '}
         <rect width="8" height="8" />
       </g>
+
       <g id="points-02">
         <path d="M0,0l4,8h-8z" />
       </g>
@@ -73,15 +74,20 @@ export default function usePatterns(): Node {
         <path d="M0,0h8l-4,8z" />
       </g>
 
+      {/* Bar pattern fills */}
+
       <pattern id="pattern-01" width="4" height="4" patternUnits="userSpaceOnUse">
         <rect width="4" height="4" fill={hexColor('01')} />
       </pattern>
+
       <pattern id="pattern-02" width="5" height="5" patternUnits="userSpaceOnUse">
         <circle cx="2" cy="2" r="2" fill={hexColor('02')} />
       </pattern>
+
       <pattern id="pattern-03" width="3" height="3" patternUnits="userSpaceOnUse">
         <rect width="2" height="2" fill={hexColor('03')} />
       </pattern>
+
       <pattern id="pattern-04" width="7" height="7" patternUnits="userSpaceOnUse">
         <circle
           cx="3"
@@ -92,6 +98,7 @@ export default function usePatterns(): Node {
           strokeWidth="1px"
         />
       </pattern>
+
       <pattern id="pattern-05" width="8" height="8" patternUnits="userSpaceOnUse">
         <rect x="0" width="8" height="8" y="0" fill={hexColor('05')} />
         <path
@@ -101,6 +108,7 @@ export default function usePatterns(): Node {
           fill="none"
         />
       </pattern>
+
       <pattern id="pattern-06" width="4" height="4" patternUnits="userSpaceOnUse">
         <rect
           width="4"
@@ -110,6 +118,7 @@ export default function usePatterns(): Node {
           strokeWidth="1px"
         />
       </pattern>
+
       <pattern
         id="pattern-07"
         width="8"
@@ -119,10 +128,12 @@ export default function usePatterns(): Node {
       >
         <path d="M 0 0 L 4 8 L 8 0" stroke={hexColor('07')} strokeWidth="1" fill="none" />
       </pattern>
+
       <pattern id="pattern-08" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
         <rect x="0" width="4" height="4" y="0" fill={hexColor('08')} />
         <rect x="4" width="4" height="4" y="4" fill={hexColor('08')} />
       </pattern>
+
       <pattern
         id="pattern-09"
         width="4"
@@ -132,6 +143,7 @@ export default function usePatterns(): Node {
       >
         <rect width="2" height="4" fill={hexColor('09')} />
       </pattern>
+
       <pattern
         id="pattern-10"
         x="0"
@@ -143,6 +155,7 @@ export default function usePatterns(): Node {
       >
         <rect x="0" width="5" height="5" y="0" fill={hexColor('10')} />
       </pattern>
+
       <pattern
         id="pattern-11"
         width="4"
@@ -152,6 +165,7 @@ export default function usePatterns(): Node {
       >
         <rect width="2" height="4" fill={hexColor('11')} />
       </pattern>
+
       <pattern
         id="pattern-12"
         x="0"
@@ -164,6 +178,7 @@ export default function usePatterns(): Node {
         <rect x="0" width="8" height="8" y="0" fill={hexColor('12')} />
         <rect x="0" width="4" height="4" y="0" fill="var(--color-white-mochimalist-0)" />
       </pattern>
+
       <pattern
         id="pattern-referencearea-01"
         width="4"
