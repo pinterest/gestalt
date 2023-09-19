@@ -1,3 +1,27 @@
+## 122.5.16 (Sep 19, 2023)
+
+### Patch
+
+- Tooltip: Move to Internal Tooltip with a disabled state ([#3187](https://github.com/pinterest/gestalt/pull/3187)) - [Preview link](https://deploy-preview-3187--gestalt.netlify.app?devexample=true)
+
+## 122.5.15 (Sep 19, 2023)
+
+### Patch
+
+- Masonry: Fix height initialization when reusing cached positions for multi-column pins ([#3201](https://github.com/pinterest/gestalt/pull/3201)) - [Preview link](https://deploy-preview-3201--gestalt.netlify.app?devexample=true)
+
+## 122.5.14 (Sep 18, 2023)
+
+### Patch
+
+- Docs: update iOS checkbox header image ([#3200](https://github.com/pinterest/gestalt/pull/3200)) - [Preview link](https://deploy-preview-3200--gestalt.netlify.app?devexample=true)
+
+## 122.5.13 (Sep 15, 2023)
+
+### Patch
+
+- Docs: Markdown fix for Text component docs ([#3198](https://github.com/pinterest/gestalt/pull/3198)) - [Preview link](https://deploy-preview-3198--gestalt.netlify.app?devexample=true)
+
 ## 122.5.12 (Sep 15, 2023)
 
 ### Patch
