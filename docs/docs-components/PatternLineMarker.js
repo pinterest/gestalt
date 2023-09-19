@@ -131,7 +131,7 @@ export default function PatternBarFill(): Node {
                       />
                     </svg>
                   </Box>
-                  <Text size="200">{`Pattern: ${color}`}</Text>{' '}
+                  <Text size="200">{`Marker: ${color}`}</Text>{' '}
                 </Flex>
               ))}
             </Flex>
