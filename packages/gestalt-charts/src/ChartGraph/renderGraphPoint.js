@@ -12,34 +12,40 @@ type Props = {|
 |};
 
 export function GraphPoint(props: Props): Node {
+  // eslint-disable-next-line no-unused-vars
   const { color, cx, cy, active, noReposition = false } = props;
   const hexColor = useHexColor();
+
   const decalDotCoordCorrection = {
-    '01': [0, 0], // circle
-    '02': [0, 6], // rhombus
-    '03': [4, 4], // square
-    '04': [0, 4], // triangle
-    '05': [4, 4], // triangle inverse
-    '06': [0, 0], // circle
-    '07': [0, 6], // rhombus
-    '08': [2, 2], // square
-    '09': [0, 0], // circle
-    '10': [0, 3], // rhombus
-    '11': [2, 4], // triangle inverse
-    '12': [-4, 4], // triangle
+    '01': { coordinate: [4, 4] },
+    '02': { coordinate: [0, 4], fill: 'empty' },
+    '03': { coordinate: [4, 4] },
+    '04': { coordinate: [0, 6], fill: 'empty' },
+    '05': { coordinate: [0, 6] },
+    '06': { coordinate: [4, 4], fill: 'empty' },
+    '07': { coordinate: [0, 4] },
+    '08': { coordinate: [2, 2], fill: 'empty' },
+    '09': { coordinate: [0, 0] },
+    '10': { coordinate: [0, 3], fill: 'empty' },
+    '11': { coordinate: [2, 4] },
+    '12': { coordinate: [4, 4], fill: 'empty' },
   };
 
-  const cxCorrection = noReposition ? 0 : decalDotCoordCorrection[color][0];
-  const cyCorrection = noReposition ? 0 : decalDotCoordCorrection[color][1];
+  const cxCorrection = noReposition ? 0 : decalDotCoordCorrection[color].coordinate[0];
+  const cyCorrection = noReposition ? 0 : decalDotCoordCorrection[color].coordinate[1];
 
   return cy === null ? null : (
     <use
       href={`#points-${color}`}
       x={cx - cxCorrection}
       y={cy - cyCorrection}
-      fill={hexColor(color)}
-      stroke={active ? hexColor(color) : undefined}
-      strokeWidth={active ? '2' : undefined}
+      fill={
+        decalDotCoordCorrection[color].fill === 'empty'
+          ? 'var(--color-white-mochimalist-0)'
+          : hexColor(color)
+      }
+      stroke={hexColor(color)}
+      strokeWidth="1.5"
     />
   );
 }

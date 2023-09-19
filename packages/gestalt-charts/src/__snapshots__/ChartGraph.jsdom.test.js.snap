@@ -3,59 +3,59 @@
 exports[`ChartGraph renders bar chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ exports[`ChartGraph renders bar chart 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -111,55 +111,57 @@ exports[`ChartGraph renders bar chart 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -198,8 +200,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -215,125 +216,110 @@ exports[`ChartGraph renders bar chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -341,18 +327,33 @@ exports[`ChartGraph renders bar chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -369,16 +370,27 @@ exports[`ChartGraph renders bar chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -777,6 +789,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="91.07142857142857"
                       y="385"
@@ -793,6 +806,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="195.35714285714286"
                       y="385"
@@ -809,6 +823,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="299.6428571428571"
                       y="385"
@@ -825,6 +840,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="403.92857142857144"
                       y="385"
@@ -841,6 +857,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="508.2142857142857"
                       y="385"
@@ -857,6 +874,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="612.5"
                       y="385"
@@ -873,6 +891,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="375"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="716.7857142857143"
                       y="385"
@@ -900,6 +919,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="119.07142857142857"
                       y="10"
@@ -916,6 +936,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="223.35714285714283"
                       y="10"
@@ -932,6 +953,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="327.6428571428571"
                       y="10"
@@ -948,6 +970,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="431.92857142857144"
                       y="10"
@@ -964,6 +987,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="536.2142857142858"
                       y="10"
@@ -980,6 +1004,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="640.5"
                       y="10"
@@ -996,6 +1021,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                       height="750"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="744.7857142857143"
                       y="10"
@@ -1012,20 +1038,20 @@ exports[`ChartGraph renders bar chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -1041,10 +1067,10 @@ exports[`ChartGraph renders bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -1052,13 +1078,13 @@ exports[`ChartGraph renders bar chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -1074,10 +1100,10 @@ exports[`ChartGraph renders bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -1094,7 +1120,7 @@ exports[`ChartGraph renders bar chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
@@ -1109,59 +1135,59 @@ exports[`ChartGraph renders bar chart 1`] = `
 exports[`ChartGraph renders bar with pattern chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 y91 BsF"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 selected__y91 darkGrayBg__BsF"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -1179,7 +1205,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -1217,55 +1243,57 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -1304,8 +1332,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -1321,125 +1348,110 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -1447,18 +1459,33 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -1475,16 +1502,27 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -1883,6 +1921,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="91.07142857142857"
                       y="385"
@@ -1899,6 +1938,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="195.35714285714286"
                       y="385"
@@ -1915,6 +1955,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="299.6428571428571"
                       y="385"
@@ -1931,6 +1972,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="403.92857142857144"
                       y="385"
@@ -1947,6 +1989,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="508.2142857142857"
                       y="385"
@@ -1963,6 +2006,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="612.5"
                       y="385"
@@ -1979,6 +2023,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="375"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="716.7857142857143"
                       y="385"
@@ -2006,6 +2051,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="119.07142857142857"
                       y="10"
@@ -2022,6 +2068,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="223.35714285714283"
                       y="10"
@@ -2038,6 +2085,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="327.6428571428571"
                       y="10"
@@ -2054,6 +2102,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="431.92857142857144"
                       y="10"
@@ -2070,6 +2119,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="536.2142857142858"
                       y="10"
@@ -2086,6 +2136,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="640.5"
                       y="10"
@@ -2102,6 +2153,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                       height="750"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="744.7857142857143"
                       y="10"
@@ -2118,20 +2170,20 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -2147,10 +2199,10 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -2158,13 +2210,13 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -2180,10 +2232,10 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -2200,7 +2252,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
@@ -2215,59 +2267,59 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
 exports[`ChartGraph renders combo chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -2285,7 +2337,7 @@ exports[`ChartGraph renders combo chart 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -2323,55 +2375,57 @@ exports[`ChartGraph renders combo chart 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -2410,8 +2464,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -2427,125 +2480,110 @@ exports[`ChartGraph renders combo chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -2553,18 +2591,33 @@ exports[`ChartGraph renders combo chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -2581,16 +2634,27 @@ exports[`ChartGraph renders combo chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -2989,6 +3053,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="91.07142857142857"
                       y="385"
@@ -3005,6 +3070,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="195.35714285714286"
                       y="385"
@@ -3021,6 +3087,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="299.6428571428571"
                       y="385"
@@ -3037,6 +3104,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="403.92857142857144"
                       y="385"
@@ -3053,6 +3121,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="508.2142857142857"
                       y="385"
@@ -3069,6 +3138,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="612.5"
                       y="385"
@@ -3085,6 +3155,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                       height="375"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="716.7857142857143"
                       y="385"
@@ -3117,20 +3188,20 @@ exports[`ChartGraph renders combo chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -3146,10 +3217,10 @@ exports[`ChartGraph renders combo chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -3157,13 +3228,13 @@ exports[`ChartGraph renders combo chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           height="16"
@@ -3179,10 +3250,10 @@ exports[`ChartGraph renders combo chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -3199,7 +3270,7 @@ exports[`ChartGraph renders combo chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
@@ -3214,59 +3285,59 @@ exports[`ChartGraph renders combo chart 1`] = `
 exports[`ChartGraph renders exact & precise line chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -3284,7 +3355,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -3322,55 +3393,57 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -3409,8 +3482,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -3426,125 +3498,110 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -3552,18 +3609,33 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -3580,16 +3652,27 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -4010,20 +4093,20 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           height="16"
@@ -4039,10 +4122,10 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -4050,52 +4133,52 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           height="16"
                           width="24"
                         >
                           <rect
+                            fill="#11a69c"
                             height="3"
                             rx="1"
-                            style="fill: #11a69c;"
                             width="3"
                             x="0"
                             y="8"
                           />
                           <rect
+                            fill="transparent"
                             height="3"
-                            style="fill: transparent;"
                             width="2"
                             x="3"
                             y="8"
                           />
                           <rect
+                            fill="#11a69c"
                             height="3"
                             rx="1"
-                            style="fill: #11a69c;"
                             width="3"
                             x="5"
                             y="8"
                           />
                           <rect
+                            fill="transparent"
                             height="3"
-                            style="fill: transparent;"
                             width="2"
                             x="8"
                             y="8"
                           />
                           <rect
+                            fill="#11a69c"
                             height="3"
                             rx="1"
-                            style="fill: #11a69c;"
                             width="3"
                             x="10"
                             y="8"
@@ -4103,10 +4186,10 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -4123,7 +4206,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
@@ -4138,59 +4221,59 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
 exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 y91 BsF"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 selected__y91 darkGrayBg__BsF"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -4208,7 +4291,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -4246,55 +4329,57 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -4333,8 +4418,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -4350,125 +4434,110 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -4476,18 +4545,33 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -4504,16 +4588,27 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -4917,44 +5012,58 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="65"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="61"
+                    y="381"
                   />
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="186.66666666666669"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="182.66666666666669"
+                    y="381"
                   />
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="308.33333333333337"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="304.33333333333337"
+                    y="381"
                   />
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="430"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="426"
+                    y="381"
                   />
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="551.6666666666667"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="547.6666666666667"
+                    y="381"
                   />
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="673.3333333333334"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="669.3333333333334"
+                    y="381"
                   />
                   <use
                     fill="#003c96"
                     href="#points-01"
-                    x="795"
-                    y="385"
+                    stroke="#003c96"
+                    stroke-width="1.5"
+                    x="791"
+                    y="381"
                   />
                 </g>
               </g>
@@ -4978,46 +5087,60 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   class="recharts-layer recharts-line-dots"
                 >
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="65"
-                    y="4"
+                    y="6"
                   />
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="186.66666666666669"
-                    y="4"
+                    y="6"
                   />
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="308.33333333333337"
-                    y="4"
+                    y="6"
                   />
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="430"
-                    y="4"
+                    y="6"
                   />
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="551.6666666666667"
-                    y="4"
+                    y="6"
                   />
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="673.3333333333334"
-                    y="4"
+                    y="6"
                   />
                   <use
-                    fill="#11a69c"
+                    fill="var(--color-white-mochimalist-0)"
                     href="#points-02"
+                    stroke="#11a69c"
+                    stroke-width="1.5"
                     x="795"
-                    y="4"
+                    y="6"
                   />
                 </g>
               </g>
@@ -5027,20 +5150,20 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           height="14"
@@ -5057,8 +5180,10 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                           <use
                             fill="#003c96"
                             href="#points-01"
-                            x="7"
-                            y="7"
+                            stroke="#003c96"
+                            stroke-width="1.5"
+                            x="3"
+                            y="3"
                           />
                           <rect
                             height="3"
@@ -5070,10 +5195,10 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -5081,13 +5206,13 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           height="14"
@@ -5102,10 +5227,12 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                             y="8"
                           />
                           <use
-                            fill="#11a69c"
+                            fill="var(--color-white-mochimalist-0)"
                             href="#points-02"
+                            stroke="#11a69c"
+                            stroke-width="1.5"
                             x="7"
-                            y="1"
+                            y="3"
                           />
                           <rect
                             height="3"
@@ -5117,10 +5244,10 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -5137,7 +5264,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
@@ -5152,59 +5279,59 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
 exports[`ChartGraph renders reference area 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -5222,7 +5349,7 @@ exports[`ChartGraph renders reference area 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -5260,55 +5387,57 @@ exports[`ChartGraph renders reference area 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -5347,8 +5476,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -5364,125 +5492,110 @@ exports[`ChartGraph renders reference area 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -5490,18 +5603,33 @@ exports[`ChartGraph renders reference area 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -5518,16 +5646,27 @@ exports[`ChartGraph renders reference area 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -5929,6 +6068,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="91.07142857142857"
                       y="385"
@@ -5945,6 +6085,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="195.35714285714286"
                       y="385"
@@ -5961,6 +6102,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="299.6428571428571"
                       y="385"
@@ -5977,6 +6119,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="403.92857142857144"
                       y="385"
@@ -5993,6 +6136,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="508.2142857142857"
                       y="385"
@@ -6009,6 +6153,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="612.5"
                       y="385"
@@ -6025,6 +6170,7 @@ exports[`ChartGraph renders reference area 1`] = `
                       height="375"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="52"
                       x="716.7857142857143"
                       y="385"
@@ -6057,20 +6203,20 @@ exports[`ChartGraph renders reference area 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -6086,10 +6232,10 @@ exports[`ChartGraph renders reference area 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -6097,13 +6243,13 @@ exports[`ChartGraph renders reference area 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           height="16"
@@ -6119,10 +6265,10 @@ exports[`ChartGraph renders reference area 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -6130,13 +6276,13 @@ exports[`ChartGraph renders reference area 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -6152,10 +6298,10 @@ exports[`ChartGraph renders reference area 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           ExampleBD
                         </div>
@@ -6172,7 +6318,7 @@ exports[`ChartGraph renders reference area 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
@@ -6187,59 +6333,59 @@ exports[`ChartGraph renders reference area 1`] = `
 exports[`ChartGraph renders stacked bar chart 1`] = `
 <div>
   <div
-    class="jzS un8 C9i TB_"
+    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
+      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
       style="width: 100%;"
     >
       <div
-        class="kKU zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
         style="width: 100%;"
       >
         <div
-          class="hs0 un8 C9i TB_"
+          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
           style="width: 100%;"
         >
           <div
-            class="ujU xuA"
+            class="FlexItem__xuA flexGrow__ujU"
           >
             <div
-              class="jzS un8 C9i TB_"
+              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
             >
               <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
               />
               <div
-                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
+                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
               />
             </div>
           </div>
           <div
-            class="oy8 zI7 iyn Hsu"
+            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
               aria-label="Default view mode"
-              class="zI7 iyn Hsu"
+              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
                 aria-label=""
-                class="HEm adn yQo lnZ wsz YbY"
+                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="rYa kVc adn yQo S9z qrs BG7"
+                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
                 >
                   <div
-                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
+                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="gUZ PLa U9O kVc"
+                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -6257,7 +6403,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
         </div>
       </div>
       <div
-        class="zI7 iyn Hsu"
+        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -6295,55 +6441,57 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                 <g
                   id="points-01"
                 >
-                  <circle
-                    r="4"
+                   
+                  <rect
+                    height="8"
+                    width="8"
                   />
                 </g>
                 <g
                   id="points-02"
-                >
-                  <rect
-                    height="8"
-                    transform="rotate(45)"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-03"
-                >
-                  <rect
-                    height="8"
-                    width="8"
-                  />
-                </g>
-                <g
-                  id="points-04"
                 >
                   <path
                     d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
-                  id="points-05"
+                  id="points-03"
                 >
                   <path
                     d="M0,0h8l-4,8z"
                   />
                 </g>
                 <g
-                  id="points-06"
-                >
-                  <circle
-                    r="2"
-                  />
-                </g>
-                <g
-                  id="points-07"
+                  id="points-04"
                 >
                   <rect
                     height="8"
                     transform="rotate(45)"
                     width="8"
+                  />
+                </g>
+                <g
+                  id="points-05"
+                >
+                  <rect
+                    height="7"
+                    transform="rotate(45)"
+                    width="7"
+                  />
+                </g>
+                <g
+                  id="points-06"
+                >
+                  <rect
+                    height="8"
+                    width="8"
+                  />
+                </g>
+                <g
+                  id="points-07"
+                >
+                  <path
+                    d="M0,0l4,8h-8z"
                   />
                 </g>
                 <g
@@ -6382,8 +6530,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   id="points-12"
                 >
                   <path
-                    d="M0,0l4,8h-8z"
-                    transform="rotate(45)"
+                    d="M0,0h8l-4,8z"
                   />
                 </g>
                 <pattern
@@ -6399,125 +6546,110 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="4"
-                  id="pattern-02"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#11a69c"
-                    height="4"
-                    width="2"
-                  />
-                </pattern>
-                <pattern
                   height="5"
-                  id="pattern-03"
+                  id="pattern-02"
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
                   <circle
                     cx="2"
                     cy="2"
-                    fill="#924af7"
+                    fill="#11a69c"
                     r="2"
                   />
                 </pattern>
                 <pattern
-                  height="10"
-                  id="pattern-04"
-                  patternTransform="rotate(45)"
+                  height="3"
+                  id="pattern-03"
                   patternUnits="userSpaceOnUse"
-                  width="10"
-                  x="0"
-                  y="0"
+                  width="3"
                 >
                   <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="0"
-                    y="0"
-                  />
-                  <rect
-                    fill="#d17711"
-                    height="5"
-                    width="5"
-                    x="5"
-                    y="5"
-                  />
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-05"
-                  patternTransform="rotate(135)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#0081fe"
-                    height="4"
+                    fill="#924af7"
+                    height="2"
                     width="2"
                   />
                 </pattern>
                 <pattern
                   height="7"
-                  id="pattern-06"
+                  id="pattern-04"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="7"
                 >
-                  <ellipse
-                    cx="5"
+                  <circle
+                    cx="3"
                     cy="3"
-                    fill="#ff5383"
-                    rx="5"
-                    ry="3"
-                  />
-                </pattern>
-                <pattern
-                  height="10"
-                  id="pattern-07"
-                  patternTransform="rotate(45)"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                >
-                  <polygon
-                    fill="#00ab55"
-                    points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"
-                  />
-                   
-                </pattern>
-                <pattern
-                  height="4"
-                  id="pattern-08"
-                  patternTransform="rotate(90)"
-                  patternUnits="userSpaceOnUse"
-                  width="4"
-                >
-                  <rect
-                    fill="#400387"
-                    height="4"
-                    width="2"
+                    fill="var(--color-white-mochimalist-0)"
+                    r="2.5"
+                    stroke="#d17711"
+                    stroke-width="1px"
                   />
                 </pattern>
                 <pattern
                   height="8"
-                  id="pattern-09"
+                  id="pattern-05"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <rect
+                    fill="#0081fe"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="var(--color-white-mochimalist-0)"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-06"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    stroke="#ff5383"
+                    stroke-width="1px"
+                    width="4"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-07"
+                  patternTransform="rotate(90)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                >
+                  <path
+                    d="M 0 0 L 4 8 L 8 0"
+                    fill="none"
+                    stroke="#00ab55"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-08"
                   patternUnits="userSpaceOnUse"
                   width="8"
                   x="0"
                   y="0"
                 >
                   <rect
-                    fill="#f2681f"
-                    height="5"
-                    width="5"
+                    fill="#400387"
+                    height="4"
+                    width="4"
                     x="0"
                     y="0"
                   />
                   <rect
-                    fill="#f2681f"
+                    fill="#400387"
                     height="4"
                     width="4"
                     x="4"
@@ -6525,18 +6657,33 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="7"
-                  id="pattern-10"
+                  height="4"
+                  id="pattern-09"
                   patternTransform="rotate(90)"
                   patternUnits="userSpaceOnUse"
-                  width="10"
+                  width="4"
                 >
-                  <ellipse
-                    cx="5"
-                    cy="3"
+                  <rect
+                    fill="#f2681f"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
+                <pattern
+                  height="8"
+                  id="pattern-10"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  x="0"
+                  y="0"
+                >
+                  <rect
                     fill="#005062"
-                    rx="5"
-                    ry="3"
+                    height="5"
+                    width="5"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -6553,16 +6700,27 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   />
                 </pattern>
                 <pattern
-                  height="2"
+                  height="8"
                   id="pattern-12"
+                  patternTransform="rotate(45)"
                   patternUnits="userSpaceOnUse"
-                  width="2"
+                  width="8"
+                  x="0"
+                  y="0"
                 >
-                  <circle
-                    cx="0.5"
-                    cy="0.5"
+                  <rect
                     fill="#660e00"
-                    r="0.5"
+                    height="8"
+                    width="8"
+                    x="0"
+                    y="0"
+                  />
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                    x="0"
+                    y="0"
                   />
                 </pattern>
                 <pattern
@@ -6961,6 +7119,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="91.07142857142857"
                       y="385"
@@ -6977,6 +7136,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="195.35714285714286"
                       y="385"
@@ -6993,6 +7153,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="299.6428571428571"
                       y="385"
@@ -7009,6 +7170,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="403.92857142857144"
                       y="385"
@@ -7025,6 +7187,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="508.2142857142857"
                       y="385"
@@ -7041,6 +7204,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="612.5"
                       y="385"
@@ -7057,6 +7221,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="375"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#003c96"
                       width="24"
                       x="716.7857142857143"
                       y="385"
@@ -7084,6 +7249,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="A"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="119.07142857142857"
                       y="10"
@@ -7100,6 +7266,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="B"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="223.35714285714283"
                       y="10"
@@ -7116,6 +7283,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="C"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="327.6428571428571"
                       y="10"
@@ -7132,6 +7300,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="D"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="431.92857142857144"
                       y="10"
@@ -7148,6 +7317,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="E"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="536.2142857142858"
                       y="10"
@@ -7164,6 +7334,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="F"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="640.5"
                       y="10"
@@ -7180,6 +7351,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                       height="750"
                       name="G"
                       radius="4,4,0,0"
+                      stroke="#11a69c"
                       width="24"
                       x="744.7857142857143"
                       y="10"
@@ -7196,20 +7368,20 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="hs0 kzZ un8 HOt TB_"
+                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
                 >
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -7225,10 +7397,10 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_01
                         </div>
@@ -7236,13 +7408,13 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="xuA"
+                    class="FlexItem__xuA"
                   >
                     <div
-                      class="hs0 un8 tkf TB_"
+                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
                     >
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -7258,10 +7430,10 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="xuA"
+                        class="FlexItem__xuA"
                       >
                         <div
-                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
+                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
                         >
                           element_02
                         </div>
@@ -7278,7 +7450,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
+                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
                 style="max-width: 300px;"
               />
             </div>
