@@ -154,6 +154,16 @@ export default function usePatterns(): Node {
       <pattern id="pattern-12" width="2" height="2" patternUnits="userSpaceOnUse">
         <circle cx="0.5" cy="0.5" r="0.5" fill={hexColor('12')} />
       </pattern>
+
+      <pattern
+        id="pattern-referencearea-01"
+        width="4"
+        height="4"
+        patternUnits="userSpaceOnUse"
+        patternTransform="rotate(45)"
+      >
+        <rect width="2" height="4" fill="var(--color-border-container)" />
+      </pattern>
     </defs>
   );
 }

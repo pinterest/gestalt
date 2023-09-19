@@ -1,6 +1,6 @@
 // @flow strict-local
 import { type Node } from 'react';
-import { ReferenceArea as RechartsReferenceArea } from 'recharts';
+import { Rectangle, ReferenceArea as RechartsReferenceArea } from 'recharts';
 
 export default function renderReferenceAreas({
   referenceAreas,
@@ -27,6 +27,7 @@ export default function renderReferenceAreas({
       y2={values.y2}
       yAxisId={values.yAxisId}
       strokeOpacity={0.3}
+      shape={(props) => <Rectangle {...props} fill="url(#pattern-referencearea-01)" />}
     />
   ));
 }
