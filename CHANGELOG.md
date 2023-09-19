@@ -1,3 +1,9 @@
+## 122.5.16 (Sep 19, 2023)
+
+### Patch
+
+- Tooltip: Move to Internal Tooltip with a disabled state ([#3187](https://github.com/pinterest/gestalt/pull/3187)) - [Preview link](https://deploy-preview-3187--gestalt.netlify.app?devexample=true)
+
 ## 122.5.15 (Sep 19, 2023)
 
 ### Patch
