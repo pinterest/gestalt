@@ -107,7 +107,7 @@ type Props = {|
    * Displays data about the datasets that are appearing on the chart.
    * See the [legend variant](https://gestalt.pinterest.systems/web/chartgraph#Legend) to learn more.
    */
-  legend?: 'auto' | 'none' | 'complete',
+  legend?: 'auto' | 'none',
   /**
    * Sets non-data visual areas in ChartGraph.
    * See the [reference area variant](https://gestalt.pinterest.systems/web/chartgraph#ReferenceArea) to learn more.
