@@ -381,6 +381,19 @@ exports[`ChartGraph renders bar chart 1`] = `
                     r="0.5"
                   />
                 </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
               </defs>
               <g
                 class="recharts-cartesian-grid"
@@ -1472,6 +1485,19 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                     cy="0.5"
                     fill="#660e00"
                     r="0.5"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
                   />
                 </pattern>
               </defs>
@@ -2567,6 +2593,19 @@ exports[`ChartGraph renders combo chart 1`] = `
                     r="0.5"
                   />
                 </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
               </defs>
               <g
                 class="recharts-cartesian-grid"
@@ -3553,6 +3592,19 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                     r="0.5"
                   />
                 </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
               </defs>
               <g
                 class="recharts-cartesian-grid"
@@ -4462,6 +4514,19 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                     cy="0.5"
                     fill="#660e00"
                     r="0.5"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
                   />
                 </pattern>
               </defs>
@@ -5465,6 +5530,19 @@ exports[`ChartGraph renders reference area 1`] = `
                     r="0.5"
                   />
                 </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
+                  />
+                </pattern>
               </defs>
               <g
                 class="recharts-cartesian-grid"
@@ -5832,6 +5910,9 @@ exports[`ChartGraph renders reference area 1`] = `
                 </g>
               </g>
               <g
+                class="recharts-layer recharts-reference-area"
+              />
+              <g
                 class="recharts-layer recharts-bar"
               >
                 <g
@@ -6065,7 +6146,7 @@ exports[`ChartGraph renders reference area 1`] = `
                           <rect
                             height="16"
                             rx="2"
-                            style="fill: #ccc; fill-opacity: 0.5;"
+                            style="fill: url(#pattern-referencearea-01); stroke-opacity: 0.3;"
                             width="16"
                           />
                         </svg>
@@ -6482,6 +6563,19 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                     cy="0.5"
                     fill="#660e00"
                     r="0.5"
+                  />
+                </pattern>
+                <pattern
+                  height="4"
+                  id="pattern-referencearea-01"
+                  patternTransform="rotate(45)"
+                  patternUnits="userSpaceOnUse"
+                  width="4"
+                >
+                  <rect
+                    fill="var(--color-border-container)"
+                    height="4"
+                    width="2"
                   />
                 </pattern>
               </defs>

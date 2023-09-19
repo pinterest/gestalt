@@ -36,7 +36,7 @@ function LegendIcon({ payloadData }: Props): Node {
     return (
       <svg height={dimension} width={dimension} aria-hidden>
         <rect
-          style={{ fill: '#ccc', fillOpacity: '0.5' }}
+          style={{ fill: 'url(#pattern-referencearea-01)', strokeOpacity: 0.3 }}
           height={dimension}
           width={dimension}
           rx={2}
@@ -46,7 +46,7 @@ function LegendIcon({ payloadData }: Props): Node {
   }
 
   const { isLegend } = payloadData;
-  console.log(theme);
+
   const colorMap = Object.entries({
     '01': theme.colorDataVisualization01,
     '02': theme.colorDataVisualization02,

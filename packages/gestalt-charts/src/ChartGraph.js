@@ -13,6 +13,7 @@ import {
 } from 'recharts';
 import { Box, Flex, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
+import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
 import renderElements from './ChartGraph/renderElements.js';
@@ -559,7 +560,7 @@ function ChartGraph({
                 />
               )}
               {renderTooltip === 'none' ? (
-                <Tooltip isAnimationActive={false} content={<Box />} />
+                <Tooltip isAnimationActive={false} content={<EmptyBox />} />
               ) : (
                 <Tooltip
                   cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
@@ -572,7 +573,7 @@ function ChartGraph({
                 align={legendAlign}
                 iconSize={16}
                 iconType="square"
-                content={legend === 'auto' ? defaultLegend : <Box />}
+                content={legend === 'auto' ? defaultLegend : <EmptyBox />}
               />
               {referenceAreas && referenceAreasElements}
               {chartElements}
