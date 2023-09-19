@@ -31,6 +31,7 @@ export default function useDefaultTooltip({
     fill: ?string,
     legendType?: 'line' | 'rect',
     isLegend?: boolean,
+    strokeWidth?: number,
   |}>,
   label: number | string,
 |}) => Node {
@@ -57,6 +58,7 @@ export default function useDefaultTooltip({
                   fill: ?string,
                   legendType?: 'line' | 'rect',
                   isLegend?: boolean,
+                  strokeWidth?: number,
                 |}) => (
                   <Flex key={payloadData.name} alignItems="center" gap={2}>
                     <LegendIcon payloadData={payloadData} />

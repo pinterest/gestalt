@@ -8,12 +8,12 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      'color_01': 90,
-      'color_02': 90,
-      'color_03': 90,
-      'color_04': 90,
-      'color_05': 90,
-      'color_06': 90,
+      'Color_01': 90,
+      'Color_02': 90,
+      'Color_03': 90,
+      'Color_04': 90,
+      'Color_05': 90,
+      'Color_06': 90,
     },
   ];
 
@@ -28,12 +28,12 @@ export default function Example(): Node {
       type="bar"
       data={data}
       elements={[
-        { type: 'bar', id: 'color_01' },
-        { type: 'bar', id: 'color_02' },
-        { type: 'bar', id: 'color_03' },
-        { type: 'bar', id: 'color_04' },
-        { type: 'bar', id: 'color_05' },
-        { type: 'bar', id: 'color_06' },
+        { type: 'bar', id: 'Color_01' },
+        { type: 'bar', id: 'Color_02' },
+        { type: 'bar', id: 'Color_03' },
+        { type: 'bar', id: 'Color_04' },
+        { type: 'bar', id: 'Color_05' },
+        { type: 'bar', id: 'Color_06' },
       ]}
     />
   );
