@@ -41,7 +41,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/f7/59/ee/f759eefa627b81a35d52ac0031e08b4d.png" alt="example of pins inside an avatargroup"/>
     <Dont title="Don't" />
-    Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an image or, if there's sufficient space, a [Card](ios/card/card)
+    Use AvatarGroup to represent metaphorical ideas, like multiple Boards or trends. Instead, consider an image or, if there's sufficient space, a [Card](ios/card/card).
   </Group>
 </TwoCol>
 
