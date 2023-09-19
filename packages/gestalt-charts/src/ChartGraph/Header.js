@@ -18,12 +18,7 @@ export default function Header({
   const { accessibleViewText, defaultViewText } = useDefaultLabel('ChartGraph');
 
   return (
-    <Box
-      width="100%"
-      dangerouslySetInlineStyle={{
-        __style: { marginBottom: '20px' },
-      }}
-    >
+    <Box width="100%" marginBottom={5}>
       <Flex width="100%">
         <Flex.Item flex="grow">
           <Flex direction="column">
