@@ -20,7 +20,9 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js'
 
 const TWO_COL_MINDEX = 50;
 
-type Props = {|
+type MasonryProps<T> = $PropertyType<Masonry<T>, 'props'>;
+
+type Props<T> = {|
   // The actual Masonry component to be used (if using an experimental version of Masonry).
   MasonryComponent: typeof Masonry,
   // Experimental prop to batch paints of measured items.
@@ -36,21 +38,21 @@ type Props = {|
   // Grid items should have flexible width.
   flexible?: boolean,
   // The initial data from the server side render.
-  // $FlowFixMe[unclear-type]
-  initialItems?: $ReadOnlyArray<?Object>,
+  initialItems?: $PropertyType<MasonryProps<T>, 'items'>,
   // Whether or not to log whitespace.
   logWhitespace?: boolean,
   // Whether or not to require tests to trigger fetch completion manually.
   manualFetch?: boolean,
   // External measurement store.
-  // $FlowFixMe[unclear-type]
-  measurementStore: Object,
+  measurementStore: $PropertyType<MasonryProps<T>, 'measurementStore'>,
   // Prevent scrolling on Masonry
   noScroll?: boolean,
   // Positions the element inside of a relative container, offset from the top.
   offsetTop?: number,
   // An array of realistic pin heights as sampled from actual Pin data.
   pinHeightsSample?: $ReadOnlyArray<number>,
+  // External position store
+  positionStore: $PropertyType<MasonryProps<T>, 'positionStore'>,
   // If we should position the grid within a scrollContainer besides the window.
   scrollContainer?: boolean,
   // Insert two-column items into the feed
@@ -72,7 +74,7 @@ type State = {|
   mounted: boolean,
 |};
 
-export default class MasonryContainer extends Component<Props, State> {
+export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   state: State = {
     expanded: false,
     hasScrollContainer: !!this.props.scrollContainer,
@@ -201,12 +203,6 @@ export default class MasonryContainer extends Component<Props, State> {
     }));
   };
 
-  pushFirstItemDown: () => void = () => {
-    const { measurementStore } = this.props;
-    measurementStore.setItemPosition(measurementStore.getGridCell(0, 0), { top: 100, row: 1 });
-    this.forceUpdate();
-  };
-
   customLoadItems: ({| force: boolean, from?: number, name?: string |}) => void = ({
     name,
     from = 0,
@@ -318,6 +314,7 @@ export default class MasonryContainer extends Component<Props, State> {
       measurementStore,
       noScroll,
       offsetTop,
+      positionStore,
       twoColItems,
       virtualBoundsBottom,
       virtualBoundsTop,
@@ -412,6 +409,7 @@ export default class MasonryContainer extends Component<Props, State> {
             items={items}
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
+            positionStore={externalCache ? positionStore : undefined}
             ref={this.gridRef}
             renderItem={this.renderItem}
             virtualize={virtualize}
@@ -449,11 +447,6 @@ export default class MasonryContainer extends Component<Props, State> {
           <button id="insert-null-items" onClick={this.handleInsertNullItems} type="submit">
             Insert null items
           </button>
-          {externalCache && (
-            <button id="push-first-down" onClick={this.pushFirstItemDown} type="submit">
-              Push first item down
-            </button>
-          )}
           <button id="push-grid-down" onClick={this.handlePushGridDown} type="submit">
             Push grid down
           </button>
