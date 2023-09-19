@@ -1,5 +1,13 @@
 // @flow strict
-import { type Node, useEffect, useReducer, useRef } from 'react';
+import {
+  Children,
+  cloneElement,
+  type Element,
+  type Node,
+  useEffect,
+  useReducer,
+  useRef,
+} from 'react';
 import Box from '../Box.js';
 import Controller from '../Controller.js';
 import Layer from '../Layer.js';
@@ -60,7 +68,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
   link?: Node,
-  text: string,
+  text: string | Element<typeof Text>,
   zIndex?: Indexable,
 |};
 
@@ -137,9 +145,16 @@ export default function InternalTooltip({
               role="tooltip"
               tabIndex={0}
             >
-              <Text color="inverse" size="100">
-                {text}
-              </Text>
+              {typeof text === 'string' && (
+                <Text color="inverse" size="100">
+                  {text}
+                </Text>
+              )}
+
+              {typeof text !== 'string' &&
+                Children.only<Element<typeof Text>>(text).type.displayName === 'Text' &&
+                cloneElement(text, { color: 'inverse', size: '100' })}
+
               {Boolean(link) && <Box marginTop={1}>{link}</Box>}
             </Box>
           </Controller>

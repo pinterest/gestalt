@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Element, type Node, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box.js';
@@ -52,7 +52,7 @@ type TooltipProps = {|
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
+  text: string | Element<typeof Text>,
   zIndex?: Indexable,
 |};
 
