@@ -20,14 +20,14 @@ export function GraphPoint(props: Props): Node {
     '01': { coordinate: [4, 4] },
     '02': { coordinate: [0, 4], fill: 'empty' },
     '03': { coordinate: [4, 4] },
-    '04': { coordinate: [0, 6], fill: 'empty' },
-    '05': { coordinate: [0, 6] },
+    '04': { coordinate: [5.5, 5.5], fill: 'empty', stroke: 'bold' },
+    '05': { coordinate: [0, 4.5] },
     '06': { coordinate: [4, 4], fill: 'empty' },
     '07': { coordinate: [0, 4] },
-    '08': { coordinate: [2, 2], fill: 'empty' },
-    '09': { coordinate: [0, 0] },
-    '10': { coordinate: [0, 3], fill: 'empty' },
-    '11': { coordinate: [2, 4] },
+    '08': { coordinate: [5.5, 5.5], fill: 'empty', stroke: 'bold' },
+    '09': { coordinate: [5.5, 5.5] },
+    '10': { coordinate: [0, 4.5], fill: 'empty' },
+    '11': { coordinate: [5.5, 5.5] },
     '12': { coordinate: [4, 4], fill: 'empty' },
   };
 
@@ -45,7 +45,7 @@ export function GraphPoint(props: Props): Node {
           : hexColor(color)
       }
       stroke={hexColor(color)}
-      strokeWidth="1.5"
+      strokeWidth={decalDotCoordCorrection[color].stroke === 'bold' ? '6' : '1.5'}
     />
   );
 }
