@@ -27,7 +27,6 @@
   composes: right0 from "./Layout.css";
   composes: paddingX2 from "./boxWhitespace.css";
   composes: paddingY2 from "./boxWhitespace.css";
-  z-index: 0;
   background-image: linear-gradient(
     to bottom,
     rgb(181 181 181 / 0),
@@ -35,4 +34,6 @@
     rgb(0 0 0 / 0.5) 66%,
     rgb(0 0 0 / 0.7)
   );
+  /* Workaround for the bug in iOS browsers with rendering transformed SVGs over video */
+  z-index: 0;
 }
