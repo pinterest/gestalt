@@ -35,3 +35,8 @@
     rgb(0 0 0 / 0.7)
   );
 }
+
+/* Workaround for the bug in iOS browsers with rendering transformed SVGs over video */
+html[dir="rtl"] .muteIcon svg {
+  transform: rotateZ(180deg);
+}

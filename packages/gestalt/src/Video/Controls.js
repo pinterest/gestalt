@@ -203,14 +203,16 @@ function VideoControls({
       </Box>
       <Box padding={2}>
         <TapArea onTap={handleVolumeChange} fullWidth={false}>
-          <Icon
-            accessibilityLabel={
-              muted ? defaultAccessibilityUnmuteLabel : defaultAccessibilityMuteLabel
-            }
-            color="light"
-            icon={muted ? 'mute' : 'sound'}
-            size={20}
-          />
+          <div className={styles.muteIcon}>
+            <Icon
+              accessibilityLabel={
+                muted ? defaultAccessibilityUnmuteLabel : defaultAccessibilityMuteLabel
+              }
+              color="light"
+              icon={muted ? 'mute' : 'sound'}
+              size={20}
+            />
+          </div>
         </TapArea>
       </Box>
       {showFullscreenButton && (

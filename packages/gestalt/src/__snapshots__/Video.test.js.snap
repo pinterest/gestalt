@@ -277,19 +277,23 @@ exports[`Video with children 1`] = `
         role="button"
         tabIndex={0}
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Unmute"
-          className="rtlSupport icon lightIcon iconBlock"
-          height={20}
-          role="img"
-          viewBox="0 0 24 24"
-          width={20}
+        <div
+          className="muteIcon"
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Unmute"
+            className="rtlSupport icon lightIcon iconBlock"
+            height={20}
+            role="img"
+            viewBox="0 0 24 24"
+            width={20}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
