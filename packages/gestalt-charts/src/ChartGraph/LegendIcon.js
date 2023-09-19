@@ -13,6 +13,7 @@ type Props = {|
         stroke: ?string,
         value: number,
         strokeDasharray: ?string | number,
+        strokeWidth?: number,
         color: ?string,
         fill: ?string,
         legendType?: 'line' | 'rect',
@@ -29,6 +30,7 @@ function LegendIcon({ payloadData }: Props): Node {
   const theme = useColorScheme();
 
   const { decal: showVisualPattern } = useChartContext();
+  const isAccessible = showVisualPattern === 'accessible';
 
   if (payloadData.referenceArea === 'default') {
     const dimension = 16;
@@ -45,8 +47,6 @@ function LegendIcon({ payloadData }: Props): Node {
     );
   }
 
-  const { isLegend } = payloadData;
-
   const colorMap = Object.entries({
     '01': theme.colorDataVisualization01,
     '02': theme.colorDataVisualization02,
@@ -62,11 +62,11 @@ function LegendIcon({ payloadData }: Props): Node {
     '12': theme.colorDataVisualization12,
   });
 
-  const isLine = payloadData.legendType === 'line' || payloadData.stroke;
-  const isBar = payloadData.legendType === 'rect' || !payloadData.stroke;
+  const isLine = payloadData.legendType === 'line' || !!payloadData.strokeWidth;
+  const isBar = payloadData.legendType === 'rect' || !payloadData.strokeWidth;
 
   if (isBar) {
-    const dimension = isLegend || showVisualPattern ? 16 : 8;
+    const dimension = payloadData.isLegend || isAccessible ? 16 : 8;
 
     return (
       <svg height={dimension} width={dimension} aria-hidden>
@@ -82,7 +82,7 @@ function LegendIcon({ payloadData }: Props): Node {
 
   const isEstimate = payloadData.strokeDasharray === '8 8';
 
-  if (isLine && showVisualPattern === 'accessible') {
+  if (isLine && isAccessible) {
     const colorId = colorMap
       .map(([colorNumber, color]) => {
         if (color === payloadData.stroke) return colorNumber;
@@ -101,7 +101,7 @@ function LegendIcon({ payloadData }: Props): Node {
   }
 
   if (isLine && !isEstimate) {
-    const dimension = isLegend ? 24 : 12;
+    const dimension = payloadData.isLegend ? 24 : 12;
 
     return (
       <svg height={16} width={dimension}>
@@ -111,7 +111,7 @@ function LegendIcon({ payloadData }: Props): Node {
   }
 
   if (isLine && isEstimate) {
-    const dimension = isLegend ? 24 : 12;
+    const dimension = payloadData.isLegend ? 24 : 12;
 
     return (
       <svg height={16} width={dimension}>

@@ -85,6 +85,7 @@ export default function Example(): Node {
                     stroke?: ?string,
                     strokeDasharray?: ?(string | number),
                     value: number,
+                    strokeWidth?: number,
                   |}) => (
                     <Flex key={payloadData.name} alignItems="center" gap={2}>
                       <ChartGraph.LegendIcon payloadData={payloadData} />
