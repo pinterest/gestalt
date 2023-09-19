@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useReducer, useRef } from 'react';
+import { type Node, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box.js';
 import Controller from '../Controller.js';
 import Layer from '../Layer.js';
@@ -14,8 +14,12 @@ const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false };
 
 const reducer = (
   state: {| hoveredIcon: boolean, hoveredText: boolean, isOpen: boolean |},
-  action: {| type: 'hoverInIcon' | 'hoverInText' | 'hoverOutIcon' | 'hoverOutText' |},
+  action: {|
+    type: 'hoverInIcon' | 'hoverInText' | 'hoverOutIcon' | 'hoverOutText',
+    disabled?: boolean,
+  |},
 ) => {
+  if (action.disabled) return { ...state, isOpen: false, hoveredIcon: false };
   switch (action.type) {
     case 'hoverInIcon':
       return {
@@ -78,10 +82,12 @@ export default function InternalTooltip({
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;
 
+  useEffect(() => {
+    dispatch({ type: 'hoverOutIcon', disabled });
+  }, [disabled]);
+
   const handleIconMouseEnter = () => {
-    if (!disabled) {
-      dispatch({ type: 'hoverInIcon' });
-    }
+    dispatch({ type: 'hoverInIcon' });
   };
 
   const handleIconMouseLeave = useDebouncedCallback(() => {
@@ -89,9 +95,7 @@ export default function InternalTooltip({
   }, mouseLeaveDelay);
 
   const handleTextMouseEnter = () => {
-    if (!disabled) {
-      dispatch({ type: 'hoverInText' });
-    }
+    dispatch({ type: 'hoverInText' });
   };
 
   const handleTextMouseLeave = useDebouncedCallback(() => {
