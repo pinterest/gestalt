@@ -27,6 +27,7 @@
   composes: right0 from "./Layout.css";
   composes: paddingX2 from "./boxWhitespace.css";
   composes: paddingY2 from "./boxWhitespace.css";
+  z-index: 0;
   background-image: linear-gradient(
     to bottom,
     rgb(181 181 181 / 0),
