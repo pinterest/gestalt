@@ -11,8 +11,8 @@ exports[`ChartGraph renders bar chart 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -73,7 +73,7 @@ exports[`ChartGraph renders bar chart 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -1104,8 +1104,8 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -1166,7 +1166,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -2197,8 +2197,8 @@ exports[`ChartGraph renders combo chart 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -2259,7 +2259,7 @@ exports[`ChartGraph renders combo chart 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -3183,8 +3183,8 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -3245,7 +3245,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -4094,8 +4094,8 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -4156,7 +4156,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -5095,8 +5095,8 @@ exports[`ChartGraph renders reference area 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -5157,7 +5157,7 @@ exports[`ChartGraph renders reference area 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -6114,8 +6114,8 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
       style="width: 100%;"
     >
       <div
-        class="zI7 iyn Hsu"
-        style="width: 100%; margin-bottom: 20px;"
+        class="kKU zI7 iyn Hsu"
+        style="width: 100%;"
       >
         <div
           class="hs0 un8 C9i TB_"
@@ -6176,7 +6176,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
         </div>
       </div>
       <div
-        class="_gestalt"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
