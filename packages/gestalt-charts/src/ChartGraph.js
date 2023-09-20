@@ -180,7 +180,6 @@ type Props = {|
    *
    * See the [TagData variant](https://gestalt.pinterest.systems/web/chartgraph#TagData) or the [TileData variant](https://gestalt.pinterest.systems/web/chartgraph#TileData) to learn more.
    */
-
   selectors?:
     | {|
         selector: 'TileData',
