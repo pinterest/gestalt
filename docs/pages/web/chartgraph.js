@@ -231,6 +231,17 @@ To localize dates in time series, use the \`tickFormatter.timeseries\` prop. See
 
 Any abbreviations for dates and numerals should also be localized. Note that localization can lengthen text by 20 to 30%.`}
       >
+        <SlimBanner
+          iconAccessibilityLabel="Recommendation"
+          message={`ChartGraph's depends on DefaultLabelProvider for internal text strings. Localize the texts via DefaultLabelProvider.`}
+          type="recommendationBare"
+          helperLink={{
+            text: 'Learn more',
+            accessibilityLabel: 'Learn more about DefaultLabelProvider',
+            href: '/web/utilities/defaultlabelprovider',
+            onClick: () => {},
+          }}
+        />
         <MainSection.Subsection>
           <MainSection.Card
             sandpackExample={<SandpackExample code={labelMap} name="Localization" />}
