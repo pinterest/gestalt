@@ -6,6 +6,11 @@ import { GraphPoint } from './renderGraphPoint.js';
 import { type DataVisualizationColors } from './types.js';
 
 type Props = {|
+  /**
+  Data received from  the `renderTooltip`.
+
+  See the [custom tooltip variant](https://gestalt.pinterest.systems/web/chartgraph#Tooltip) for implementation guidance.
+  */
   payloadData:
     | {|
         dataKey: string,
@@ -23,7 +28,7 @@ type Props = {|
 |};
 
 /**
- * [LegendIcon](https://gestalt.pinterest.systems/web/chartgraph) should only be used within custom tooltips.
+ * [LegendIcon](https://gestalt.pinterest.systems/web/chartgraph) should only be used within custom tooltips. See the [custom tooltip variant](https://gestalt.pinterest.systems/web/chartgraph#Tooltip) for implementation guidance.
  */
 
 function LegendIcon({ payloadData }: Props): Node {

@@ -18,7 +18,6 @@ import barHorizontal from '../../examples/chartgraph/barHorizontal.js';
 import biaxial from '../../examples/chartgraph/biaxial.js';
 import colors from '../../examples/chartgraph/colors.js';
 import combo from '../../examples/chartgraph/combo.js';
-import controlledCategorical from '../../examples/chartgraph/controlledCategorical.js';
 import customTooltip from '../../examples/chartgraph/customTooltip.js';
 import decalBars from '../../examples/chartgraph/decalBars.js';
 import decalLines from '../../examples/chartgraph/decalLines.js';
@@ -228,9 +227,9 @@ An additional button is available to show chart data as a table so that it’s e
 
 To localize data content, use the \`labelMap\` prop. See the example for detailed implementation guidance.
 
-To localize dates in time series, use the \`labelMap\` prop. See the example for detailed implementation guidance.
+To localize dates in time series, use the \`tickFormatter.timeseries\` prop. See the [time series example](#Time-series) for detailed implementation guidance.
 
-Any abbreviations for dates and numerals should also be localized.  Note that localization can lengthen text by 20 to 30%.`}
+Any abbreviations for dates and numerals should also be localized. Note that localization can lengthen text by 20 to 30%.`}
       >
         <MainSection.Subsection>
           <MainSection.Card
@@ -276,13 +275,13 @@ Any abbreviations for dates and numerals should also be localized.  Note that lo
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Stacked bar"
+          title="Stacked bars"
           description="Stacked bar charts break bars into smaller categories so that their relationship to the whole can be seen."
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={stackedBar} name="Stacked bar" layout="column" />
+              <SandpackExample code={stackedBar} name="Stacked bars" layout="column" />
             }
           />
         </MainSection.Subsection>
@@ -415,16 +414,19 @@ Any abbreviations for dates and numerals should also be localized.  Note that lo
           <MainSection.Card sandpackExample={<SandpackExample code={layout} name="Layout" />} />
         </MainSection.Subsection>
 
+        <MainSection.Subsection title="Range">
+          <MainSection.Card sandpackExample={<SandpackExample code={range} name="Range" />} />
+        </MainSection.Subsection>
+
         <MainSection.Subsection title="Responsive">
           <MainSection.Card
             sandpackExample={<SandpackExample code={responsive} name="Responsive" />}
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Time series">
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={timeseries} name="Time series" />}
-          />
+        <MainSection.Subsection title="Selectors">
+          <MainSection.Card sandpackExample={<SandpackExample code={tiledata} name="TileData" />} />
+          <MainSection.Card sandpackExample={<SandpackExample code={tagdata} name="TagData" />} />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Tick format">
@@ -433,13 +435,10 @@ Any abbreviations for dates and numerals should also be localized.  Note that lo
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Range">
-          <MainSection.Card sandpackExample={<SandpackExample code={range} name="Range" />} />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="Selectors">
-          <MainSection.Card sandpackExample={<SandpackExample code={tiledata} name="TileData" />} />
-          <MainSection.Card sandpackExample={<SandpackExample code={tagdata} name="TagData" />} />
+        <MainSection.Subsection title="Time series">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={timeseries} name="Time series" />}
+          />
         </MainSection.Subsection>
       </MainSection>
 
