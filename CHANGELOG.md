@@ -1,3 +1,9 @@
+## 123.0.0 (Sep 20, 2023)
+
+### Major
+
+- Tokens: Density Tokens Update ([#3196](https://github.com/pinterest/gestalt/pull/3196)) - [Preview link](https://deploy-preview-3196--gestalt.netlify.app?devexample=true)
+
 ## 122.5.16 (Sep 19, 2023)
 
 ### Patch
