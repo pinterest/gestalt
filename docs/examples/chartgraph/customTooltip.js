@@ -1,75 +1,40 @@
 // @flow strict
 
 import { type Node, useState } from 'react';
-import { Flex, RadioGroup, Text } from 'gestalt';
+import { Flex, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-  const [type, setType] = useState('bar');
 
   const data = [
     {
-      name: 'A',
-      'Series_01': 100,
-      'Series_02': 200,
-      'Series_03': 300,
+      name: 'USA',
+      '20-30': 100,
+      '40-50': 200,
+      '50-60': 300,
     },
     {
-      name: 'B',
-      'Series_01': 200,
-      'Series_02': 300,
-      'Series_03': 400,
-    },
-    {
-      name: 'C',
-      'Series_01': 300,
-      'Series_02': 400,
-      'Series_03': 500,
+      name: 'Europe',
+      '20-30': 200,
+      '40-50': 300,
+      '50-60': 400,
     },
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
-      <RadioGroup legend="ChartGraph type" direction="row" id="customTooltip">
-        <RadioGroup.RadioButton
-          checked={type === 'bar'}
-          id="customTooltip-bar"
-          label="Bar"
-          name="bar"
-          onChange={() => setType('bar')}
-          value="bar"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={type === 'line'}
-          id="customTooltip-line"
-          label="Line"
-          name="line"
-          onChange={() => setType('line')}
-          value="line"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={type === 'combo'}
-          id="customTooltip-combo"
-          label="combo"
-          name="combo"
-          onChange={() => setType('combo')}
-          value="combo"
-          size="sm"
-        />
-      </RadioGroup>
+    <Flex height="100%" width="100%" direction="column">
       <ChartGraph
+        title="MAU per regions"
         accessibilityLabel="Example of chart with tooltip"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
         }
+        tickFormatter={{ yAxisLeft: (value) => `${value}m` }}
         initialTicks={3}
-        type={type}
+        type="bar"
         data={data}
-        legend="none"
         renderTooltip={({ label, payload, active }) =>
           active && Array.isArray(payload) ? (
             <Flex direction="column" gap={2}>
@@ -107,17 +72,16 @@ export default function Example(): Node {
         }
         elements={[
           {
-            type: type === 'combo' ? 'bar' : type,
-            id: 'Series_01',
+            type: 'bar',
+            id: '20-30',
           },
           {
-            type: type === 'combo' ? 'line' : type,
-            id: 'Series_02',
+            type: 'bar',
+            id: '40-50',
           },
           {
-            type: type === 'combo' ? 'line' : type,
-            id: 'Series_03',
-            precision: 'estimate',
+            type: 'bar',
+            id: '50-60',
           },
         ]}
       />
