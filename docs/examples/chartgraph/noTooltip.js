@@ -1,88 +1,45 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Flex, RadioGroup } from 'gestalt';
+import { Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-  const [type, setType] = useState('bar');
 
   const data = [
     {
-      name: 'A',
-      'Series_01': 100,
-      'Series_02': 200,
-      'Series_03': 300,
+      name: '20-30',
+      'Impressions': 100,
     },
     {
-      name: 'B',
-      'Series_01': 200,
-      'Series_02': 300,
-      'Series_03': 400,
+      name: '30-40',
+      'Impressions': 200,
     },
     {
-      name: 'C',
-      'Series_01': 300,
-      'Series_02': 400,
-      'Series_03': 500,
+      name: '40-50',
+      'Impressions': 300,
     },
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
-      <RadioGroup legend="ChartGraph type" direction="row" id="noTooltip">
-        <RadioGroup.RadioButton
-          checked={type === 'bar'}
-          id="noTooltip-bar"
-          label="Bar"
-          name="bar"
-          onChange={() => setType('bar')}
-          value="bar"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={type === 'line'}
-          id="noTooltip-line"
-          label="Line"
-          name="line"
-          onChange={() => setType('line')}
-          value="line"
-          size="sm"
-        />
-        <RadioGroup.RadioButton
-          checked={type === 'combo'}
-          id="noTooltip-combo"
-          label="combo"
-          name="combo"
-          onChange={() => setType('combo')}
-          value="combo"
-          size="sm"
-        />
-      </RadioGroup>
+    <Flex height="100%" width="100%" direction="column">
       <ChartGraph
+        title="MAU per age range"
+        tickFormatter={{ yAxisLeft: (value) => `${value}m` }}
         accessibilityLabel="Example of chart with tooltip"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
         }
         initialTicks={3}
-        type={type}
+        type="bar"
         legend="none"
         data={data}
         renderTooltip="none"
         elements={[
           {
-            type: type === 'combo' ? 'bar' : type,
-            id: 'Series_01',
-          },
-          {
-            type: type === 'combo' ? 'line' : type,
-            id: 'Series_02',
-          },
-          {
-            type: type === 'combo' ? 'line' : type,
-            id: 'Series_03',
-            precision: 'estimate',
+            type: 'bar',
+            id: 'Impressions',
           },
         ]}
       />
