@@ -19,7 +19,6 @@ import biaxial from '../../examples/chartgraph/biaxial.js';
 import colors from '../../examples/chartgraph/colors.js';
 import combo from '../../examples/chartgraph/combo.js';
 import controlledCategorical from '../../examples/chartgraph/controlledCategorical.js';
-import controlledTimeseries from '../../examples/chartgraph/controlledTimeseries.js';
 import customTooltip from '../../examples/chartgraph/customTooltip.js';
 import decalBars from '../../examples/chartgraph/decalBars.js';
 import decalLines from '../../examples/chartgraph/decalLines.js';
@@ -204,11 +203,34 @@ Don't use \`accessibilityLabel\` to describe the ChartGraph content itself. Weâ€
             sandpackExample={<SandpackExample code={accessibility} name="Accessibility label" />}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Tabular view"
+          description={`
+An additional button is available to show chart data as a table so that itâ€™s easier to
+
+- navigate with a screen reader
+- read data for those who have difficulty processing visual information
+- download data to view in a personâ€™s own tools
+          `}
+        >
+          <SlimBanner
+            type="warningBare"
+            iconAccessibilityLabel="Warning"
+            message="Accessibility feature not available yet."
+          />
+        </MainSection.Subsection>
       </AccessibilitySection>
 
       <MainSection
         name="Localization"
-        description="Be sure to localize text and ARIA attributes. Any abbreviations for dates and numerals should also be localized.  Note that localization can lengthen text by 20 to 30%."
+        description={`Be sure to localize text and ARIA attributes.
+
+To localize data content, use the \`labelMap\` prop. See the example for detailed implementation guidance.
+
+To localize dates in time series, use the \`labelMap\` prop. See the example for detailed implementation guidance.
+
+Any abbreviations for dates and numerals should also be localized.  Note that localization can lengthen text by 20 to 30%.`}
       >
         <MainSection.Subsection>
           <MainSection.Card
@@ -230,23 +252,6 @@ Don't use \`accessibilityLabel\` to describe the ChartGraph content itself. Weâ€
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Variants">
-        <MainSection.Subsection title="Controlled component">
-          <MainSection.Card
-            cardSize="lg"
-            title="Categorical"
-            sandpackExample={
-              <SandpackExample code={controlledCategorical} name="Categorical" layout="column" />
-            }
-          />
-          <MainSection.Card
-            cardSize="lg"
-            title="Time series"
-            sandpackExample={
-              <SandpackExample code={controlledTimeseries} name="Time series" layout="column" />
-            }
-          />
-        </MainSection.Subsection>
-
         <MainSection.Subsection
           title="Bar horizontal"
           description={`Arrange bars in rows that stack from top to bottom when horizontal space and you have longer text labels. Also known as a "horizontal bar chart".`}

@@ -25,6 +25,7 @@ export default function Example(): Node {
       visualPatternSelected="disabled"
       onVisualPatternChange={() => {}}
       type="line"
+      initialTicks={3}
       range={{
         xAxisBottom: ['auto', 'auto'],
       }}

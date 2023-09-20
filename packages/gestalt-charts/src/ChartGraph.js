@@ -398,7 +398,6 @@ function ChartGraph({
             title={title}
             description={description}
             onVisualPatternChange={onVisualPatternChange}
-            visualPatternSelected={visualPatternSelected}
           />
         ) : null}
         {selectors && selectors.selector === 'TileData' ? (

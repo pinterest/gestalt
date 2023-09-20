@@ -1,21 +1,21 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex, Heading, IconButton, Text, useDefaultLabel } from 'gestalt';
+import { useChartContext } from './ChartGraphContext.js';
 
 export default function Header({
   title,
   readyToRender,
   description,
   onVisualPatternChange,
-  visualPatternSelected,
 }: {|
   readyToRender: boolean,
   title?: string,
   description?: string,
   onVisualPatternChange: () => void,
-  visualPatternSelected: ?'accessible' | 'default' | 'disabled',
 |}): Node {
   const { accessibleViewText, defaultViewText } = useDefaultLabel('ChartGraph');
+  const { decal: showVisualPattern } = useChartContext();
 
   return (
     <Box width="100%" marginBottom={5}>
@@ -31,7 +31,7 @@ export default function Header({
             </Text>
           </Flex>
         </Flex.Item>
-        {visualPatternSelected === 'disabled' ? null : (
+        {showVisualPattern === 'disabled' ? null : (
           <IconButton
             accessibilityLabel=""
             dangerouslySetSvgPath={{
@@ -42,10 +42,10 @@ export default function Header({
             iconColor={readyToRender ? 'darkGray' : 'white'}
             bgColor={readyToRender ? undefined : 'transparent'}
             onClick={onVisualPatternChange}
-            selected={visualPatternSelected === 'accessible'}
+            selected={showVisualPattern === 'accessible'}
             size="xs"
             tooltip={{
-              text: visualPatternSelected ? defaultViewText : accessibleViewText,
+              text: showVisualPattern === 'accessible' ? defaultViewText : accessibleViewText,
             }}
           />
         )}
