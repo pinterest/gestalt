@@ -194,7 +194,7 @@ type Props = {|
           showCheckbox?: $ElementType<React$ElementConfig<typeof TagData>, 'showCheckbox'>,
           size?: $ElementType<React$ElementConfig<typeof TagData>, 'size'>,
           text: $ElementType<React$ElementConfig<typeof TagData>, 'text'>,
-          tooltip: $ElementType<React$ElementConfig<typeof TagData>, 'tooltip'>,
+          tooltip?: $ElementType<React$ElementConfig<typeof TagData>, 'tooltip'>,
         |}>,
       |},
 

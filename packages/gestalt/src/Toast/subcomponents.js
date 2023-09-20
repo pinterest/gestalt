@@ -2,6 +2,7 @@
 import {
   cloneElement,
   type Element,
+  type ElementConfig,
   Fragment,
   type Node,
   useCallback,
@@ -32,7 +33,7 @@ export function ToastMessage({
 }: {|
   text: ?string | Element<'span'>,
   textElement: ?string | Element<'span'>,
-  textColor: $ElementType<React$ElementConfig<typeof Text>, 'color'>,
+  textColor: $ElementType<ElementConfig<typeof Text>, 'color'>,
   helperLink?: {|
     text: string,
     accessibilityLabel: string,

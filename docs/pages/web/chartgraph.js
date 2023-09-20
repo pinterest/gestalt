@@ -38,6 +38,7 @@ import range from '../../examples/chartgraph/range.js';
 import referenceArea from '../../examples/chartgraph/referenceArea.js';
 import responsive from '../../examples/chartgraph/responsive.js';
 import stackedBar from '../../examples/chartgraph/stackedBar.js';
+import tagdata from '../../examples/chartgraph/tagdata.js';
 import tickFormatter from '../../examples/chartgraph/tickFormatter.js';
 import tiledata from '../../examples/chartgraph/tiledata.js';
 import timeseries from '../../examples/chartgraph/timeseries.js';
@@ -431,8 +432,9 @@ Don't use \`accessibilityLabel\` to describe the ChartGraph content itself. Weâ€
           <MainSection.Card sandpackExample={<SandpackExample code={range} name="Range" />} />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="TileData">
+        <MainSection.Subsection title="Selectors">
           <MainSection.Card sandpackExample={<SandpackExample code={tiledata} name="TileData" />} />
+          <MainSection.Card sandpackExample={<SandpackExample code={tagdata} name="TagData" />} />
         </MainSection.Subsection>
       </MainSection>
 
