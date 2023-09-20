@@ -104,7 +104,6 @@ export default function Example(): Node {
           'Campaign Spring': 100,
         },
       ]}
-      initialTicks={3}
       elements={elements}
       selectors={{
         selector: 'TagData',
