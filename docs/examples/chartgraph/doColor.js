@@ -28,6 +28,7 @@ export default function Example(): Node {
       onVisualPatternChange={() =>
         setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
       }
+      initialTicks={3}
       type="line"
       range={{
         xAxisBottom: ['auto', 'auto'],

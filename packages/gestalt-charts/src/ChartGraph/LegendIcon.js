@@ -23,7 +23,7 @@ type Props = {|
 |};
 
 /**
- * [LegendIcon](https://gestalt.pinterest.systems/web/chartgraph) component should be used for ....
+ * [LegendIcon](https://gestalt.pinterest.systems/web/chartgraph) should only be used within custom tooltips.
  */
 
 function LegendIcon({ payloadData }: Props): Node {

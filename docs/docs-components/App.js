@@ -38,7 +38,12 @@ export default function App({ children, files }: Props): Node {
       if (target === 'blank') return; // let browser handle "target=_blank"
 
       event.preventDefault();
-      router.push(href);
+      router.push(href).catch((e) => {
+        // workaround for https://github.com/vercel/next.js/issues/37362
+        if (!e.cancelled) {
+          throw e;
+        }
+      });
     };
 
     return onNavigationClick;
