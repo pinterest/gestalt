@@ -1,6 +1,6 @@
 :root {
-  --g-size-sm: 16px;
-  --g-size-md: 24px;
+  --g-size-sm: var(--space-400);
+  --g-size-md: var(--space-600);
 }
 
 .border {
