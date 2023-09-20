@@ -4,7 +4,7 @@ description:  An ActionList is a continuous vertical group of list items that ca
 fullwidth: true
 ---
 
-<ImgContainer padding="standard" src="https://i.pinimg.com/originals/51/e9/79/51e979a6535b9ee0c95acee377fa85c1.png" alt="An example of the Action List component"/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/fa/ed/13/faed13155b1e48a5a7c9d4ec97d07bcd.png" alt="An example of the Action List component"/>
 
 ## Usage guidelines
 
@@ -72,6 +72,8 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 ### Defualt
 
 The default ActionList items do not include a start item and only display text, but they still allow for end items to be displayed.
+<br/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/e4/15/87/e41587c133dd103956b16c8ce4fe8e9e.png" alt="An example of the Action List component"/>
 
 ### Start items
 
@@ -101,7 +103,7 @@ ActionList items can display 3 different start items.
 
 ### End & navigation items
 
-ActionList items can display 3 different start items.
+ActionList items can display a variety of end items.
 
 1. **Button**
   Use to perform a specific action related to an item in the Action List, such as following or unfollowing a user.
@@ -171,4 +173,5 @@ Checkbox, Select, and Switch end items will always appear in-line with the title
 
 ## Localization
 Be sure to localize the ActionList text. Note that localization can lengthen text by 20 to 30 percent.
+<br/>
 <ImgContainer padding="standard" src="https://i.pinimg.com/originals/92/a5/8b/92a58b2f91f0c3bf74c6c3bfb06f19a9.png" alt="An ActionList example reversed to reflect the location."/>
