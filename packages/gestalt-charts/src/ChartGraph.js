@@ -593,7 +593,13 @@ function ChartGraph({
                 align={legendAlign}
                 iconSize={16}
                 iconType="square"
-                content={legend === 'auto' ? defaultLegend : <EmptyBox />}
+                content={
+                  legend === 'auto' || ['verticalBiaxial', 'horizontalBiaxial'].includes(layout) ? (
+                    defaultLegend
+                  ) : (
+                    <EmptyBox />
+                  )
+                }
               />
               {referenceAreas && referenceAreasElements}
               {chartElements}

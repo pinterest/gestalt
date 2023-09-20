@@ -20,7 +20,7 @@ export default function Example(): Node {
     <ChartGraph
       title="Eindrücke"
       description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
-      accessibilityLabel="Example of line chart"
+      accessibilityLabel="Beispiel für ein Liniendiagramm"
       visualPatternSelected="disabled"
       onVisualPatternChange={() => {}}
       type="bar"

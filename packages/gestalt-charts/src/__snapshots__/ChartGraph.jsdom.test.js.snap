@@ -36,7 +36,7 @@ exports[`ChartGraph renders bar chart 1`] = `
             class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
-              aria-label="Default view mode"
+              aria-label="Accessibility view mode"
               class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
@@ -2298,7 +2298,7 @@ exports[`ChartGraph renders combo chart 1`] = `
             class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
-              aria-label="Default view mode"
+              aria-label="Accessibility view mode"
               class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
@@ -3315,7 +3315,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
             class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
-              aria-label="Default view mode"
+              aria-label="Accessibility view mode"
               class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
@@ -5307,7 +5307,7 @@ exports[`ChartGraph renders reference area 1`] = `
             class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
-              aria-label="Default view mode"
+              aria-label="Accessibility view mode"
               class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
@@ -6360,7 +6360,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
             class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
           >
             <div
-              aria-label="Default view mode"
+              aria-label="Accessibility view mode"
               class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
             >
               <button
