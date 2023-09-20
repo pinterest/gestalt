@@ -208,7 +208,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Use `tooltip` to display clarifying information on hover or focus. We recommend using tooltips to provide the user additional context/details. You can also pass in a `Text` element to create rich tooltips for TagData."
+          description="Use `tooltip` to display clarifying information on hover or focus. We recommend using tooltips to provide the user additional context/details. You can also pass in a list of strings to create multi-line tooltips for TagData."
           title="Tooltip"
         >
           <MainSection.Card

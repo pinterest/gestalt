@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, TagData, Text } from 'gestalt';
+import { Flex, TagData } from 'gestalt';
 
 export default function Example(): Node {
   return (
@@ -19,12 +19,7 @@ export default function Example(): Node {
         selected
         onRemove={() => {}}
         tooltip={{
-          text: (
-            <Text>
-              <strong>Monthly Active Users</strong>
-              <p>The total monthly users over the last 30 days</p>
-            </Text>
-          ),
+          text: ['Monthly Active Users', 'The total monthly users over the last 30 days'],
         }}
       />
     </Flex>

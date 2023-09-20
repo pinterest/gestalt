@@ -1,13 +1,5 @@
 // @flow strict
-import {
-  Children,
-  cloneElement,
-  type Element,
-  type Node,
-  useEffect,
-  useReducer,
-  useRef,
-} from 'react';
+import { type Node, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box.js';
 import Controller from '../Controller.js';
 import Layer from '../Layer.js';
@@ -68,7 +60,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
   link?: Node,
-  text: string | Element<typeof Text>,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
 |};
 
@@ -110,6 +102,18 @@ export default function InternalTooltip({
     dispatch({ type: 'hoverOutText' });
   }, mouseLeaveDelay);
 
+  const getTooltipText = () => {
+    if (Array.isArray(text)) {
+      const lines = [];
+      // first and last line should not have a <p> tag, (adds extra padding)
+      text.map((line, idx) =>
+        lines.push(idx === 0 || idx === text.length - 1 ? line : <p>{line}</p>),
+      );
+      return lines;
+    }
+    return text;
+  };
+
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
@@ -145,15 +149,9 @@ export default function InternalTooltip({
               role="tooltip"
               tabIndex={0}
             >
-              {typeof text === 'string' && (
-                <Text color="inverse" size="100">
-                  {text}
-                </Text>
-              )}
-
-              {typeof text !== 'string' &&
-                Children.only<Element<typeof Text>>(text).type.displayName === 'Text' &&
-                cloneElement(text, { color: 'inverse', size: '100' })}
+              <Text color="inverse" size="100">
+                {getTooltipText()}
+              </Text>
 
               {Boolean(link) && <Box marginTop={1}>{link}</Box>}
             </Box>

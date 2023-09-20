@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex, Text, TileData } from 'gestalt';
+import { Flex, TileData } from 'gestalt';
 
 export default function Example(): Node {
   return (
@@ -8,13 +8,11 @@ export default function Example(): Node {
       <TileData tooltip={{ text: 'Weekly Active Users' }} title="WAU" value="1.25M" />{' '}
       <TileData
         tooltip={{
-          text: (
-            <Text>
-              <strong>Monthly Active Users</strong>
-              <p>The total monthly users over the last 30 days</p>
-              <p>MAU has gone up by 10% over the last 30 days</p>
-            </Text>
-          ),
+          text: [
+            'Monthly Active Users',
+            'The total monthly users over the last 30 days',
+            ' MAU has gone up by 10% over the last 30 days',
+          ],
         }}
         title="MAU"
         value="2.25M"

@@ -1,6 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
-import Text from '../Text.js';
+import { type Node } from 'react';
 import InternalTooltip from '../Tooltip/InternalTooltip.js';
 import { type Indexable } from '../zIndex.js';
 
@@ -8,7 +7,7 @@ type TooltipProps = {|
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string | Element<typeof Text>,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
 |};
 

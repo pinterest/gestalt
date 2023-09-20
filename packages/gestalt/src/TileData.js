@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node, useId } from 'react';
+import { type Node, useId } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
@@ -7,7 +7,6 @@ import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import Flex from './Flex.js';
 import TapArea from './TapArea.js';
-import Text from './Text.js';
 import styles from './TileData.css';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
@@ -19,7 +18,7 @@ type TooltipProps = {|
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string | Element<typeof Text>,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
 |};
 
