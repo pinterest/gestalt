@@ -9,11 +9,7 @@ import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex.js';
 type Props = {|
   icon?: 'ellipsis' | 'edit' | 'trash-can',
   onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => void,
   setCompression: ('compress' | 'none') => void,
   forceIconButton: 'force' | 'default',

@@ -29,11 +29,7 @@ type FourDirections = 'up' | 'right' | 'down' | 'left';
 type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
 type TapAreaEventHandlerType = AbstractEventHandler<
-  | React.MouseEvent<HTMLDivElement>
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>,
-  { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+  React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
 >;
 
 type BareButtonEventHandlerType = AbstractEventHandler<
@@ -535,7 +531,15 @@ interface AvatarGroupProps {
   accessibilityHaspopup?: boolean | undefined;
   addCollaborators?: boolean | undefined;
   href?: string | undefined;
-  onClick?: TapAreaEventHandlerType | undefined;
+  onClick?:
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
   role?: 'button' | 'link' | undefined;
   size?: 'xs' | 'sm' | 'md' | 'fit' | undefined;
 }
@@ -1732,10 +1736,8 @@ interface SideNavigationTopItemProps {
   icon?: Icons | { __path: string } | undefined;
   notificationAccessibilityLabel?: string | undefined;
   onClick?: AbstractEventHandler<
-    | React.MouseEvent<HTMLButtonElement>
     | React.MouseEvent<HTMLAnchorElement>
     | React.KeyboardEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLButtonElement>,
     { dangerouslyDisableOnNavigation?: (() => void) | undefined }
   > | undefined;
   primaryAction?: PrimaryActionType | undefined;
@@ -1749,10 +1751,7 @@ interface SideNavigationNestedItemProps {
   counter?: { number: string; accessibilityLabel: string } | undefined;
   onClick?: AbstractEventHandler<
     | React.MouseEvent<HTMLButtonElement>
-    | React.MouseEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLAnchorElement>
     | React.KeyboardEvent<HTMLButtonElement>,
-    { dangerouslyDisableOnNavigation?: (() => void) | undefined }
   > | undefined;
   ref?: HTMLLIElement;
 }
@@ -2010,8 +2009,12 @@ interface TagDataProps {
   tooltip?: TooltipProps;
 }
 
-interface CommonTapAreaProps {
+interface TapAreaProps {
   accessibilityLabel?: string | undefined;
+  accessibilityChecked?: boolean | undefined;
+  accessibilityControls?: string | undefined;
+  accessibilityExpanded?: boolean | undefined;
+  accessibilityHaspopup?: boolean | undefined;
   children: Node;
   dataTestId?: string;
   disabled?: boolean | undefined;
@@ -2048,35 +2051,9 @@ interface CommonTapAreaProps {
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
   tapStyle?: 'none' | 'compress' | undefined;
-}
-
-interface TapAreaLinkProps extends CommonTapAreaProps {
-  role: 'link';
-  href: string;
-  rel?: RelType | undefined;
-  target?: TargetType | undefined;
-  accessibilityCurrent?:
-    | 'page'
-    | 'step'
-    | 'location'
-    | 'date'
-    | 'time'
-    | 'true'
-    | 'false'
-    | 'section';
-}
-
-interface TapAreaButtonProps extends CommonTapAreaProps {
   role?: 'button' | 'switch' | undefined;
-  accessibilityChecked?: boolean | undefined;
-  accessibilityControls?: string | undefined;
-  accessibilityExpanded?: boolean | undefined;
-  accessibilityHaspopup?: boolean | undefined;
 }
-
-type TapAreaProps = TapAreaLinkProps | TapAreaButtonProps;
-
-interface TapAreaLinkCmpProps {
+interface TapAreaLinkProps {
   accessibilityCurrent?:
     | 'page'
     | 'step'
@@ -2828,12 +2805,12 @@ export const TagData: React.FunctionComponent<TagDataProps>;
 /**
  * https://gestalt.pinterest.systems/web/taparea
  */
-export const TapArea: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, TapAreaProps>;
+export const TapArea: ReactForwardRef<HTMLButtonElement, TapAreaProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/taparealink
  */
-export const TapAreaLink: ReactForwardRef<HTMLAnchorElement, TapAreaLinkCmpProps>;
+export const TapAreaLink: ReactForwardRef<HTMLAnchorElement, TapAreaLinkProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/text
