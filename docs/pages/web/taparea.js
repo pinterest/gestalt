@@ -2,13 +2,8 @@
 import { type Node } from 'react';
 import { Box, TapArea } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-<<<<<<< HEAD
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
-=======
-import Combination from '../../docs-components/Combination.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
->>>>>>> 007447aa5 (more)
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
