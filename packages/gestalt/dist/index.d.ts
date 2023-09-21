@@ -1105,10 +1105,9 @@ interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
   icon: Icons;
-  onClick:
-    | AbstractEventHandler<
-        React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-      >;
+  onClick: AbstractEventHandler<
+    React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
+  >;
   tooltip: {
     accessibilityLabel?: string | undefined;
     inline?: boolean | undefined;
