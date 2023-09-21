@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, SlimBanner, TapArea, Text } from 'gestalt';
+import { Box, TapArea } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import Combination from '../../docs-components/Combination.js';
+import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -10,19 +10,19 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibilityLabelExample from '../../examples/taparea/accessibilityLabelExample.js';
-import heightWidthExample from '../../examples/taparea/heightWidthExample.js';
-import inlineUsageExample from '../../examples/taparea/inlineUsageExample.js';
-import mainExample from '../../examples/taparea/mainExample.js';
-import rolesCompressBehaviorExample from '../../examples/taparea/rolesCompressBehaviorExample.js';
-import withLinkButtonExample from '../../examples/taparea/withLinkButtonExample.js';
+import accessibility from '../../examples/taparea/accessibility.js';
+import compressBehavior from '../../examples/taparea/compressBehavior.js';
+import heightWidth from '../../examples/taparea/heightWidth.js';
+import inlineUsage from '../../examples/taparea/inlineUsage.js';
+import main from '../../examples/taparea/main.js';
+import mouseCursor from '../../examples/taparea/mouseCursor.js';
+import withLinkButton from '../../examples/taparea/withLinkButton.js';
 
 export default function DocsPage({ generatedDocGen }: DocType): Node {
-  console.log(generatedDocGen);
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={mainExample} name="TapArea example" hideEditor />
+        <SandpackExample code={main} name="TapArea example" hideEditor />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -31,54 +31,33 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
         <MainSection.Subsection title="ARIA attributes">
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                name="Accessibility: Label, Controls, Expanded, & Popup Example"
-                code={accessibilityLabelExample}
-              />
+              <SandpackExample name="ARIA attributes examples" code={accessibility} />
             }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection name="Localization">
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="TapAreas with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+      <MainSection name="Localization" description="Localize the accessibilityLabel." />
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="Basic TapArea">
-          <MainSection.Card
-            sandpackExample={<SandpackExample name="Main Example" code={mainExample} />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="TapArea with Link/Button">
+        <MainSection.Subsection title="Link/Button within TapArea">
           <MainSection.Card
             description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
 
 TapArea with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
   `}
             sandpackExample={
-              <SandpackExample name="With Link Button Example" code={withLinkButtonExample} />
+              <SandpackExample name="With Link Button Example" code={withLinkButton} />
             }
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Roles & compress behavior">
+        <MainSection.Subsection title="Compress behavior">
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                name="Roles & Compress Behavior Example"
-                code={rolesCompressBehaviorExample}
+                name="Compress Behavior Example"
+                code={compressBehavior}
                 layout="column"
                 previewHeight={400}
               />
@@ -88,78 +67,42 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
 
         <MainSection.Subsection title="Height & width">
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Height & Width Example" code={heightWidthExample} />
-            }
+            sandpackExample={<SandpackExample name="Height & Width Example" code={heightWidth} />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Inline usage">
           <MainSection.Card
             description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
-            sandpackExample={
-              <SandpackExample name="Inline Usage Example" code={inlineUsageExample} />
-            }
+            sandpackExample={<SandpackExample name="Inline Usage Example" code={inlineUsage} />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Mouse cursor">
+          <MainSection.Card
+            sandpackExample={<SandpackExample name="Mouse cursor" code={mouseCursor} />}
           />
         </MainSection.Subsection>
 
-        <Combination
-          id="mouseCursor"
-          name="Mouse cursor"
-          mouseCursor={[
-            'copy',
-            'grab',
-            'grabbing',
-            'move',
-            'noDrop',
-            'pointer',
-            'zoomIn',
-            'zoomOut',
-          ]}
-        >
-          {(props, i) => (
-            <TapArea id={`example-${i}`} {...props}>
-              <Box borderStyle="lg" padding={3} color="default">
-                <Text>{props.mouseCursor}</Text>
-              </Box>
-            </TapArea>
-          )}
-        </Combination>
-
-        <Combination
-          id="rounding"
-          name="Rounding"
-          rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}
-        >
-          {(props, i) => (
-            <TapArea id={`example-${i}`} {...props}>
-              <Box
-                color="default"
-                borderStyle="lg"
-                width={props.rounding === 'pill' ? 120 : 70}
-                height={70}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                {...props}
-              >
-                <Text>{props.rounding}</Text>
-              </Box>
-            </TapArea>
-          )}
-        </Combination>
-
         <MainSection.Subsection
-          title="External handlers"
-          description={`TapArea consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
-
-Handlers:
-
-- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when TapArea role="link" is clicked
-
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
-`}
-        />
+          title="Rounding"
+          description="In ordee to observe TapArea's border radius, focus on each component below navigating with the keyboard. `fullWidth={false}` might be required to wrap to the children component. Make the sure the children components match the rounding as well."
+        >
+          <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
+            {({ rounding }) => (
+              <TapArea rounding={rounding} fullWidth={false}>
+                <Box
+                  borderStyle="lg"
+                  width={rounding === 'pill' ? 120 : 70}
+                  height={70}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  rounding={rounding}
+                />
+              </TapArea>
+            )}
+          </CombinationNew>
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

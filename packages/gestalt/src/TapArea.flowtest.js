@@ -1,7 +1,7 @@
 // @flow strict
 import TapArea from './TapArea.js';
 
-const ValidDefaultTapAreaType = <TapArea />;
+const ValidDefaultTapAreaType = <TapArea>text</TapArea>;
 
 const NonExistingProp = (
   // $FlowExpectedError[prop-missing]
