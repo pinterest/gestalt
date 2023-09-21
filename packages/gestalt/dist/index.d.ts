@@ -27,6 +27,11 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
 type FourDirections = 'up' | 'right' | 'down' | 'left';
 type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
+type TapAreaLinkEventHandlerType = AbstractEventHandler<
+  React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+  { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+>;
+
 type TapAreaEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
 >;
@@ -1850,9 +1855,7 @@ interface TableHeaderCellProps {
 interface TableSortableHeaderCellProps {
   align?: 'start' | 'end';
   children: Node;
-  onSortChange: AbstractEventHandler<
-    React.MouseEvent<HTMLTableCellElement> | React.KeyboardEvent<HTMLTableCellElement>
-  >;
+  onSortChange: TapAreaEventHandlerType;
   sortOrder: 'asc' | 'desc';
   status: 'active' | 'inactive';
   scope?: 'col' | 'row' | 'colgroup' | 'rowgroup' | undefined;
@@ -1889,10 +1892,7 @@ interface TableRowDrawerProps {
 interface TabsProps {
   activeTabIndex: number;
   onChange: AbstractEventHandler<
-    | React.MouseEvent<HTMLDivElement>
-    | React.KeyboardEvent<HTMLDivElement>
-    | React.MouseEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLAnchorElement>,
+    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
     { activeTabIndex: number; dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
   >;
   tabs: ReadonlyArray<{
@@ -2015,12 +2015,7 @@ interface TapAreaLinkProps {
   onMouseUp?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
   onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
   onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
-  onTap?:
-    | AbstractEventHandler<
-        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
-      >
-    | undefined;
+  onTap?: TapAreaLinkEventHandlerType | undefined;
   rel?: RelType | undefined;
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
@@ -2219,16 +2214,8 @@ interface VideoProps {
   disableRemotePlayback?: boolean | undefined;
   loop?: boolean | undefined;
   objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | undefined;
-  onControlsPause?:
-    | AbstractEventHandler<
-        React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>
-      >
-    | undefined;
-  onControlsPlay?:
-    | AbstractEventHandler<
-        React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>
-      >
-    | undefined;
+  onControlsPause?: AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>> | undefined;
+  onControlsPlay?: AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>> | undefined;
   onDurationChange?:
     | AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>, { duration: number }>
     | undefined;
