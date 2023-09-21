@@ -47,7 +47,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
     pages: [
       'Overview',
       'Component status',
-      'ActionList',
       'Avatar',
       'Badge',
       'Button',
@@ -56,6 +55,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Icon',
       'IconButton',
       'IconButtonFloating',
+      'ListAction',
       'SearchField',
       'Sheet',
       'Switch',
@@ -71,7 +71,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
     pages: [
       'Overview',
       'Component status',
-      'ActionList',
+      'ListAction',
       'Avatar',
       'Button',
       {
@@ -81,6 +81,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Checkbox',
       'Icon',
       'IconButton',
+      'ListAction',
       'Sheet',
       'Switch',
       'Tabs',

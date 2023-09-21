@@ -1,10 +1,10 @@
 ---
-title: ActionList
-description:  An ActionList is a continuous vertical group of list items that can include text, icons, images, and actions.
+title: ListAction
+description:  ListAction is a continuous vertical group of list items that can include text, icons, images, and actions.
 fullwidth: true
 ---
 
-<ImgContainer padding="standard" src="https://i.pinimg.com/originals/fa/ed/13/faed13155b1e48a5a7c9d4ec97d07bcd.png" alt="An example of the Action List component"/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/fa/ed/13/faed13155b1e48a5a7c9d4ec97d07bcd.png" alt="An example of the ListAction component"/>
 
 ## Usage guidelines
 
@@ -28,22 +28,22 @@ fullwidth: true
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/83/7d/15/837d15ca2ef97d8fd53beffb49e59d75.png" alt="Example of grouped ActionList items. For example, message settings under the heading - Messages."/>
+    <ImgContainer src="https://i.pinimg.com/originals/83/7d/15/837d15ca2ef97d8fd53beffb49e59d75.png" alt="Example of grouped ListAction items. For example, message settings under the heading - Messages."/>
     <Do title="Do" />
     Group related items together to aid user comprehension and streamline navigation. Consider dividers to break up groups that differ in content.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/46/02/d7/4602d76785e40fd1336c932e872c610f.png" alt="Example of two ActionList items with accompanying icons"/>
+    <ImgContainer src="https://i.pinimg.com/originals/46/02/d7/4602d76785e40fd1336c932e872c610f.png" alt="Example of two ListAction items with accompanying icons"/>
     <Dont title="Don't" />
     Don't overuse icons. Choose icons that are easily recognizable and directly related to the item's content.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/aa/f1/72/aaf172e0437be4f9b94c9689212d5271.png" alt="Two ActionList items with short and clear copy."/>
+    <ImgContainer src="https://i.pinimg.com/originals/aa/f1/72/aaf172e0437be4f9b94c9689212d5271.png" alt="Two ListAction items with short and clear copy."/>
     <Do title="Do" />
     Keep text succinct so row content is easy to scan and comfortable to read.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/7a/68/4b/7a684b1b7c6362a03f4ac75b69c914ad.png" alt="An ActionList item with four lines or complex copy"/>
+    <ImgContainer src="https://i.pinimg.com/originals/7a/68/4b/7a684b1b7c6362a03f4ac75b69c914ad.png" alt="An ListAction item with four lines or complex copy"/>
     <Dont title="Don't" />
     Use more than 3 lines of subtext as it reduces scan-ability and can pose issues with internationalization, spacing, and comprehension.
   </Group>
@@ -51,7 +51,7 @@ fullwidth: true
 
 ## Accessibility
 
-- Make sure the ActionList component includes appropriate list markup, with screen readers announcing the number and content of each item.
+- Make sure the ListAction component includes appropriate list markup, with screen readers announcing the number and content of each item.
 - Ensure that interactive elements in list items, such as checkboxes or buttons, are both focusable and usable.
 - Include descriptive alt text for icons and labels that convey the purpose of each item. 
 
@@ -71,13 +71,13 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 ### Defualt
 
-The default ActionList items do not include a start item and only display text, but they still allow for end items to be displayed.
+The default ListAction items do not include a start item and only display text, but they still allow for end items to be displayed.
 <br/>
 <ImgContainer src="https://i.pinimg.com/originals/1a/4f/2a/1a4f2a0b067c8a28e77be8628c18f534.png" alt="An example of the Action List component"/>
 
 ### Start items
 
-ActionList items can display 3 different start items.
+ListAction items can display 3 different start items.
 
 1. **Avatar**
   Commonly used to represent users, profiles, comments or messages in a list.
@@ -88,22 +88,22 @@ ActionList items can display 3 different start items.
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/48/18/2e/48182e695cf7c4e32ed5694c243af6d9.png" alt="An ActionList item for the user Sarah Smith, inluding her follower count and a follow button."/>
+    <ImgContainer src="https://i.pinimg.com/originals/48/18/2e/48182e695cf7c4e32ed5694c243af6d9.png" alt="An ListAction item for the user Sarah Smith, inluding her follower count and a follow button."/>
     **Avatar**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/3e/ff/88/3eff88ac1697b81ad702f04c38c17314.png" alt="An ActionList item with content about search privacy and a search icon."/>
+    <ImgContainer src="https://i.pinimg.com/originals/3e/ff/88/3eff88ac1697b81ad702f04c38c17314.png" alt="An ListAction item with content about search privacy and a search icon."/>
    **Icon**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/0d/20/a5/0d20a53c81bf2ec60ca5f02c3e3e5bf7.png" alt="An ActionList item for a board with a switch end item."/>
+    <ImgContainer src="https://i.pinimg.com/originals/0d/20/a5/0d20a53c81bf2ec60ca5f02c3e3e5bf7.png" alt="An ListAction item for a board with a switch end item."/>
    **Image**
   </Group>
 </TwoCol>
 
 ### End & navigation items
 
-ActionList items can display a variety of end items.
+ListAction items can display a variety of end items.
 
 1. **Button**
   Use to perform a specific action related to an item in the Action List, such as following or unfollowing a user.
@@ -122,46 +122,46 @@ ActionList items can display a variety of end items.
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/7c/98/c8/7c98c85940868b958f6ac7979500c3bd.png" alt="An ActionList showing users and buttons to follow them."/>
+    <ImgContainer src="https://i.pinimg.com/originals/7c/98/c8/7c98c85940868b958f6ac7979500c3bd.png" alt="An ListAction showing users and buttons to follow them."/>
     **Button**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/3e/85/d6/3e85d6e1e27e946d796fd8c5ca3c182d.png" alt="An ActionList showing interest options and a multiple choice checkbox selection."/>
+    <ImgContainer src="https://i.pinimg.com/originals/3e/85/d6/3e85d6e1e27e946d796fd8c5ca3c182d.png" alt="An ListAction showing interest options and a multiple choice checkbox selection."/>
    **Checkbox**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/87/1b/06/871b06a702d5e8a2d518a025ce010699.png" alt="An ActionList showing a menu of links to further information."/>
+    <ImgContainer src="https://i.pinimg.com/originals/87/1b/06/871b06a702d5e8a2d518a025ce010699.png" alt="An ListAction showing a menu of links to further information."/>
    **Select**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d6/81/c4/d681c4c7af5babf43d803e9833ed72ea.png" alt="An ActionList showing a list of selctable items."/>
+    <ImgContainer src="https://i.pinimg.com/originals/d6/81/c4/d681c4c7af5babf43d803e9833ed72ea.png" alt="An ListAction showing a list of selctable items."/>
    **Switch**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b2/a3/44/b2a344d4f583e04cd286c8b9d14a6d57.png" alt="An ActionList with switches for each item."/>
+    <ImgContainer src="https://i.pinimg.com/originals/b2/a3/44/b2a344d4f583e04cd286c8b9d14a6d57.png" alt="An ListAction with switches for each item."/>
    **Icon Button**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/22/c6/00/22c6002ca3430a1818480b5aaf409029.png" alt="An ActionList with a list of users and their follower count."/>
+    <ImgContainer src="https://i.pinimg.com/originals/22/c6/00/22c6002ca3430a1818480b5aaf409029.png" alt="An ListAction with a list of users and their follower count."/>
    **Text**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fa/88/52/fa88528c967ab1439c2ce4616412cb9b.png" alt="An ActionList with email and password settings links."/>
+    <ImgContainer src="https://i.pinimg.com/originals/fa/88/52/fa88528c967ab1439c2ce4616412cb9b.png" alt="An ListAction with email and password settings links."/>
    **Text + Icon Button**
   </Group>
 </TwoCol>
 
 ### End item placement
 
-Checkbox, Select, and Switch end items will always appear in-line with the title. All other end items will appear centered within the container of the ActionList item. 
+Checkbox, Select, and Switch end items will always appear in-line with the title. All other end items will appear centered within the container of the ListAction item. 
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/1c/c4/23/1cc423920f6cfa5db000f99df527ec4b.png" alt="An ActionList showing users and buttons to follow them."/>
+    <ImgContainer src="https://i.pinimg.com/originals/1c/c4/23/1cc423920f6cfa5db000f99df527ec4b.png" alt="An ListAction showing users and buttons to follow them."/>
     **Checkbox, Select, Switch**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/39/a3/2c/39a32c9159f8a8b1197a777201e6e878.png" alt="An ActionList showing interest options and a multiple choice checkbox selection."/>
+    <ImgContainer src="https://i.pinimg.com/originals/39/a3/2c/39a32c9159f8a8b1197a777201e6e878.png" alt="An ListAction showing interest options and a multiple choice checkbox selection."/>
    **All other end items**
   </Group>
   </TwoCol>
@@ -172,6 +172,6 @@ Checkbox, Select, and Switch end items will always appear in-line with the title
 - For headings use nouns or short phrases with title-style capitalization, and don’t use punctuation. 
 
 ## Localization
-Be sure to localize the ActionList text. Note that localization can lengthen text by 20 to 30 percent.
+Be sure to localize the ListAction text. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
 <ImgContainer padding="standard" src="https://i.pinimg.com/originals/92/a5/8b/92a58b2f91f0c3bf74c6c3bfb06f19a9.png" alt="An ActionList example reversed to reflect the location."/>

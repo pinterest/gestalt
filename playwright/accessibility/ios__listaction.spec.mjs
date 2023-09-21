@@ -2,7 +2,7 @@
 import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
-test('iOS ActionList Accessibility check', async ({ page }) => {
-  await page.goto('/ios/actionlist');
+test('iOS ListAction Accessibility check', async ({ page }) => {
+  await page.goto('/ios/listaction');
   await expectAccessiblePage({ page });
 });
