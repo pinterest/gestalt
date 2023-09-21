@@ -1,3 +1,9 @@
+## 123.0.6 (Sep 21, 2023)
+
+### Patch
+
+- Docs: Add IconButtonLink SVG ([#3212](https://github.com/pinterest/gestalt/pull/3212)) - [Preview link](https://deploy-preview-3212--gestalt.netlify.app?devexample=true)
+
 ## 123.0.5 (Sep 21, 2023)
 
 ### Patch
