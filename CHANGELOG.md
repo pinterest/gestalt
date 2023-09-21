@@ -1,3 +1,9 @@
+## 123.0.1 (Sep 21, 2023)
+
+### Patch
+
+- AvatarGroup: Android docs page ([#3199](https://github.com/pinterest/gestalt/pull/3199)) - [Preview link](https://deploy-preview-3199--gestalt.netlify.app?devexample=true)
+
 ## 123.0.0 (Sep 20, 2023)
 
 ### Major
