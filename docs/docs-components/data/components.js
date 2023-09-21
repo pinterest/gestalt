@@ -37,6 +37,7 @@ import HelpButton from '../../graphics/general/HelpButton.svg';
 import Icon from '../../graphics/general/Icon.svg';
 import IconButton from '../../graphics/general/IconButton.svg';
 import IconButtonFloating from '../../graphics/general/IconButtonFloating.svg';
+import IconButtonLink from '../../graphics/general/IconButtonLink.svg';
 import Image from '../../graphics/general/Image.svg';
 import GestaltLabel from '../../graphics/general/Label.svg';
 import GestaltLink from '../../graphics/general/Link.svg';
@@ -1124,6 +1125,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           documentation: 'ready',
           figmaStatus: 'ready',
           status: 'planned',
+        },
+      },
+    },
+  },
+  {
+    id: 'IconButtonLink',
+    platform: {
+      web: {
+        name: 'IconButtonLink',
+        visual: {
+          svg: <IconButtonLink />,
+        },
+        description: 'IconButton is mainly used as navigational element.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
         },
       },
     },
