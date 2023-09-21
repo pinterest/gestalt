@@ -1053,10 +1053,11 @@ interface IconButtonProps {
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
   name?: string;
-  onClick?: AbstractEventHandler<
-  | React.MouseEvent<HTMLButtonElement>
-  | React.KeyboardEvent<HTMLButtonElement>
-> | undefined;
+  onClick?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
+      >
+    | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
   selected?: boolean | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
@@ -1104,10 +1105,10 @@ interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
   icon: Icons;
-  onClick: AbstractEventHandler<
-  | React.MouseEvent<HTMLButtonElement>
-  | React.KeyboardEvent<HTMLButtonElement>
-> | undefined;
+  onClick:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
+      >;
   tooltip: {
     accessibilityLabel?: string | undefined;
     inline?: boolean | undefined;
