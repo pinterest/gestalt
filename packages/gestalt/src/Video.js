@@ -59,13 +59,13 @@ type Props = {|
    * Callback triggered when playback is played via the video control interface.
    */
   onControlsPlay?: ({|
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+    event: SyntheticEvent<HTMLDivElement>,
   |}) => void,
   /**
    * Callback triggered when playback is paused via the video control interface.
    */
   onControlsPause?: ({|
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+    event: SyntheticEvent<HTMLDivElement>,
   |}) => void,
   /**
    * Callback triggered when the metadata has loaded or changed, indicating a change in duration. See the [MDN Web Docs: durationchange event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event).
@@ -144,7 +144,7 @@ type Props = {|
    * Callback triggered when the audio volume changes via the video control interface. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
   onVolumeChange?: ({|
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+    event: SyntheticEvent<HTMLDivElement>,
     volume: number,
   |}) => void,
   /**
@@ -492,18 +492,14 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when playback of the media starts after having been paused.
-  handleControlsPlay: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
+  handleControlsPlay: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
     const { onControlsPlay } = this.props;
 
     onControlsPlay?.({ event });
   };
 
   // Sent when playback is paused.
-  handleControlsPause: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
+  handleControlsPause: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
     const { onControlsPause } = this.props;
 
     onControlsPause?.({ event });
@@ -624,9 +620,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when the audio volume changes
-  handleVolumeChange: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void = (event) => {
+  handleVolumeChange: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
 
