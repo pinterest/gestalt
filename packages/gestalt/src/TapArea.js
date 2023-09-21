@@ -110,13 +110,10 @@ type Props = {|
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => void,
   /**
-<<<<<<< HEAD
    * Ref that is forwarded to the underlying div element.
    */
   ref?: HTMLDivElement,
   /**
-=======
->>>>>>> 007447aa5 (more)
    * Select 'button' when TapArea acts like regular buttons and 'switch' when the TapArea represents the states "on" and "off."
    */
   role?: 'button' | 'switch',
