@@ -62,11 +62,7 @@ type Props = {|
    * Callback when the user selects an item using the mouse or keyboard.
    */
   onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
