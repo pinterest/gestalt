@@ -34,6 +34,4 @@
     rgb(0 0 0 / 0.5) 66%,
     rgb(0 0 0 / 0.7)
   );
-  /* Workaround for the bug in iOS browsers with rendering transformed SVGs over video */
-  z-index: 0;
 }
