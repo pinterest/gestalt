@@ -11,7 +11,7 @@ import {
   Link,
   Mask,
   RadioGroup,
-  TapArea,
+  TapAreaLink,
   Text,
 } from 'gestalt';
 
@@ -84,7 +84,7 @@ export default function Example(): Node {
             />
 
             <Box width={100}>
-              <TapArea href="#" role="link" rounding={2}>
+              <TapAreaLink href="#" rounding={2}>
                 <Box color="tertiary" rounding={4} borderStyle="sm">
                   <Mask rounding={2}>
                     <Image
@@ -95,7 +95,7 @@ export default function Example(): Node {
                     />
                   </Mask>
                 </Box>
-              </TapArea>
+              </TapAreaLink>
             </Box>
           </Flex>
         </Flex>

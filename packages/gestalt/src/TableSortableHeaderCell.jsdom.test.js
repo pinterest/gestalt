@@ -6,12 +6,7 @@ test('mouse click calls onSortChange', () => {
   const mockOnSortChange = jest.fn<
     [
       {|
-        dangerouslyDisableOnNavigation: () => void,
-        event:
-          | SyntheticMouseEvent<HTMLDivElement>
-          | SyntheticKeyboardEvent<HTMLDivElement>
-          | SyntheticMouseEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
       |},
     ],
     void,
@@ -39,12 +34,7 @@ test('keypress calls onSortChange', () => {
   const mockOnSortChange = jest.fn<
     [
       {|
-        dangerouslyDisableOnNavigation: () => void,
-        event:
-          | SyntheticMouseEvent<HTMLDivElement>
-          | SyntheticKeyboardEvent<HTMLDivElement>
-          | SyntheticMouseEvent<HTMLAnchorElement>
-          | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
       |},
     ],
     void,

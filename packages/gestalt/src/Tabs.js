@@ -2,15 +2,11 @@
 import { type AbstractComponent, forwardRef, type Node, useState } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
-import TapArea from './TapArea.js';
+import TapAreaLink from './TapAreaLink.js';
 import Text from './Text.js';
 
 type OnChangeHandler = ({|
-  event:
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticMouseEvent<HTMLDivElement>
-    | SyntheticKeyboardEvent<HTMLDivElement>,
+  event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   +activeTabIndex: number,
   dangerouslyDisableOnNavigation: () => void,
 |}) => void;
@@ -127,7 +123,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
 
   return (
     <Box id={id} paddingY={3} ref={ref}>
-      <TapArea
+      <TapAreaLink
         accessibilityCurrent={isActive ? 'page' : undefined}
         href={href}
         onBlur={() => setFocused(false)}
@@ -139,7 +135,6 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
           onChange({ activeTabIndex: index, event, dangerouslyDisableOnNavigation });
         }}
-        role="link"
         rounding={TAB_ROUNDING}
         tapStyle={isActive ? 'none' : 'compress'}
       >
@@ -182,7 +177,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
             )}
           </Box>
         </Flex>
-      </TapArea>
+      </TapAreaLink>
     </Box>
   );
 });
