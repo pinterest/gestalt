@@ -1,6 +1,17 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Flex, Image, Label, Mask, Switch, TapArea, Text, Tooltip } from 'gestalt';
+import {
+  Box,
+  Flex,
+  Image,
+  Label,
+  Mask,
+  Switch,
+  TapArea,
+  TapAreaLink,
+  Text,
+  Tooltip,
+} from 'gestalt';
 
 export default function Example(): Node {
   const [disabled, setDisabled] = useState(false);
@@ -35,10 +46,9 @@ export default function Example(): Node {
             </TapArea>
           </Tooltip>
           <Tooltip text="Link TapArea">
-            <TapArea
+            <TapAreaLink
               tapStyle={compressed}
               disabled={disabled}
-              role="link"
               target="blank"
               href="https://www.pinterest.com"
               tabIndex={tabIndex ? -1 : 0}
@@ -54,7 +64,7 @@ export default function Example(): Node {
                 </Mask>
                 <Text align="center">Visit Pinterest.com</Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Tooltip>
         </Flex>
         <Flex gap={{ column: 0, row: 2 }}>

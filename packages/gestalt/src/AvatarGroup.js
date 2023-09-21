@@ -5,7 +5,8 @@ import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar.js';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
-import TapArea, { type OnTapType } from './TapArea.js';
+import TapArea from './TapArea.js';
+import TapAreaLink from './TapAreaLink.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 
@@ -53,7 +54,14 @@ type Props = {|
   /**
    * Callback fired when the component is clicked (pressed and released) with a mouse or keyboard. See the [role](https://gestalt.pinterest.systems/web/avatargroup#Role) variant to learn more and see [TapArea's `onTap`](https://gestalt.pinterest.systems/web/taparea#Props-onTap) for more info about `OnTapType`.
    */
-  onClick?: OnTapType,
+  onClick?: ({|
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  |}) => void,
   /**
    * Forward the ref to the underlying div or anchor element. See the [role](https://gestalt.pinterest.systems/web/avatargroup#Role) variant to learn more.
    */
@@ -173,20 +181,21 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
 
     if (role === 'link' && href) {
       return (
-        <TapArea
+        <TapAreaLink
           accessibilityLabel={accessibilityLabel}
           href={href}
           fullWidth={false}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onTap={onClick}
+          onTap={({ event, dangerouslyDisableOnNavigation }) =>
+            onClick?.({ event, dangerouslyDisableOnNavigation })
+          }
           ref={ref}
-          role="link"
           rounding="pill"
           tapStyle="compress"
         >
           <AvatarGroupStack />
-        </TapArea>
+        </TapAreaLink>
       );
     }
 
@@ -200,7 +209,8 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
           fullWidth={false}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onTap={onClick}
+          // $FlowExpectedError[prop-missing]
+          onTap={({ event }) => onClick({ event })}
           ref={ref}
           rounding="pill"
           tapStyle="compress"
