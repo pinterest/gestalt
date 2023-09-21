@@ -51,7 +51,7 @@ type Props = {|
   /**
    * TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.
    */
-  children?: Node,
+  children: Node,
   /**
    * Available for testing purposes, if needed.
    * Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
@@ -201,8 +201,14 @@ const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardR
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
-      // $FlowFixMe[invalid-computed-prop]
-      [styles[mouseCursor]]: !disabled,
+      [styles.copy]: mouseCursor === 'copy' && !disabled,
+      [styles.grab]: mouseCursor === 'grab' && !disabled,
+      [styles.grabbing]: mouseCursor === 'grabbing' && !disabled,
+      [styles.move]: mouseCursor === 'move' && !disabled,
+      [styles.noDrop]: mouseCursor === 'noDrop' && !disabled,
+      [styles.pointer]: mouseCursor === 'pointer' && !disabled,
+      [styles.zoomIn]: mouseCursor === 'zoomIn' && !disabled,
+      [styles.zoomOut]: mouseCursor === 'zoomOut' && !disabled,
       [styles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
     },
   );

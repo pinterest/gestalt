@@ -59,21 +59,29 @@ describe('TapArea', () => {
 
   it('renders a TapArea with sequential keyboard navigation and forwards a ref to the innermost <a> element', () => {
     const ref = createRef<HTMLDivElement>();
-    render(<TapArea ref={ref} />);
+    render(<TapArea ref={ref}>Text</TapArea>);
     expect(ref.current instanceof HTMLDivElement).toEqual(true);
     expect(ref.current instanceof HTMLDivElement && ref.current?.tabIndex).toEqual(0);
   });
 
   it('renders a disabled TapArea', () => {
     const ref = createRef<HTMLDivElement>();
-    render(<TapArea disabled ref={ref} />);
+    render(
+      <TapArea disabled ref={ref}>
+        Text
+      </TapArea>,
+    );
     expect(ref.current instanceof HTMLDivElement).toEqual(true);
     expect(ref.current instanceof HTMLDivElement && ref.current?.tabIndex).toEqual(-1);
   });
 
   it('renders a TapArea removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLDivElement>();
-    render(<TapArea tabIndex={-1} ref={ref} />);
+    render(
+      <TapArea tabIndex={-1} ref={ref}>
+        Text
+      </TapArea>,
+    );
     expect(ref.current instanceof HTMLDivElement).toEqual(true);
     expect(ref.current instanceof HTMLDivElement && ref.current?.tabIndex).toEqual(-1);
   });
