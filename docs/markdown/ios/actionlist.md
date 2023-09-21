@@ -73,7 +73,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 The default ActionList items do not include a start item and only display text, but they still allow for end items to be displayed.
 <br/>
-<ImgContainer padding="standard" src="https://i.pinimg.com/originals/b5/5f/62/b55f62ff3f210c6f490d5377a35998e4.png" alt="An example of the Action List component"/>
+<ImgContainer src="https://i.pinimg.com/originals/b5/5f/62/b55f62ff3f210c6f490d5377a35998e4.png" alt="An example of the Action List component"/>
 
 ### Start items
 
