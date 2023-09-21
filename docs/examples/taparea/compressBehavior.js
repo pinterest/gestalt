@@ -1,6 +1,17 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Flex, Image, Label, Mask, Switch, TapArea, Text } from 'gestalt';
+import {
+  Box,
+  Flex,
+  Image,
+  Label,
+  Mask,
+  Switch,
+  TapArea,
+  TapAreaLink,
+  Text,
+  Tooltip,
+} from 'gestalt';
 
 export default function Example(): Node {
   const [disabled, setDisabled] = useState(false);
@@ -12,26 +23,49 @@ export default function Example(): Node {
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
         <Flex gap={6} wrap>
-          <TapArea
-            tapStyle={compressed}
-            disabled={disabled}
-            onTap={() => setTouches(touches + 1)}
-            tabIndex={tabIndex ? -1 : 0}
-          >
-            <Box padding={3} column={12} borderStyle="lg" width={200}>
-              <Mask rounding={2}>
-                <Image
-                  alt="Antelope Canyon"
-                  naturalHeight={1}
-                  naturalWidth={1}
-                  src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-                />
-              </Mask>
-              <Text align="center">
-                Touched {touches} {touches === 1 ? 'time' : 'times'}
-              </Text>
-            </Box>
-          </TapArea>
+          <Tooltip text="Default TapArea">
+            <TapArea
+              tapStyle={compressed}
+              disabled={disabled}
+              onTap={() => setTouches(touches + 1)}
+              tabIndex={tabIndex ? -1 : 0}
+            >
+              <Box padding={3} column={12} borderStyle="lg" width={200}>
+                <Mask rounding={2}>
+                  <Image
+                    alt="Antelope Canyon"
+                    naturalHeight={1}
+                    naturalWidth={1}
+                    src="https://i.ibb.co/DwYrGy6/stock14.jpg"
+                  />
+                </Mask>
+                <Text align="center">
+                  Touched {touches} {touches === 1 ? 'time' : 'times'}
+                </Text>
+              </Box>
+            </TapArea>
+          </Tooltip>
+          <Tooltip text="Link TapArea">
+            <TapAreaLink
+              tapStyle={compressed}
+              disabled={disabled}
+              target="blank"
+              href="https://www.pinterest.com"
+              tabIndex={tabIndex ? -1 : 0}
+            >
+              <Box padding={3} column={12} borderStyle="lg" width={200}>
+                <Mask rounding={2}>
+                  <Image
+                    alt="Antelope Canyon"
+                    naturalHeight={1}
+                    naturalWidth={1}
+                    src="https://i.ibb.co/DwYrGy6/stock14.jpg"
+                  />
+                </Mask>
+                <Text align="center">Visit Pinterest.com</Text>
+              </Box>
+            </TapAreaLink>
+          </Tooltip>
         </Flex>
         <Flex gap={{ column: 0, row: 2 }}>
           <Switch
