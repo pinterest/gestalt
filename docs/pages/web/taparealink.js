@@ -78,11 +78,15 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
         >
           <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
             {({ rounding }) => (
+<<<<<<< HEAD
               <TapArea
                 rounding={rounding}
                 fullWidth={false}
                 accessibilityLabel={`rounding: ${rounding}`}
               >
+=======
+              <TapArea rounding={rounding} fullWidth={false}>
+>>>>>>> 5427aa9f3 (more)
                 <Box
                   borderStyle="lg"
                   width={rounding === 'pill' ? 120 : 70}
@@ -97,6 +101,21 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
           </CombinationNew>
         </MainSection.Subsection>
 
+<<<<<<< HEAD
+=======
+        <MainSection.Subsection
+          title="External handlers"
+          description={`TapArea consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when TapArea role="link" is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
+`}
+        />
+
+>>>>>>> 5427aa9f3 (more)
         <MainSection.Subsection
           title="External handlers"
           description={`TapAreaLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
