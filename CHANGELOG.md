@@ -1,3 +1,9 @@
+## 123.0.4 (Sep 21, 2023)
+
+### Patch
+
+- Tooltip: Revert Internal Tooltip move ([#3209](https://github.com/pinterest/gestalt/pull/3209)) - [Preview link](https://deploy-preview-3209--gestalt.netlify.app?devexample=true)
+
 ## 123.0.3 (Sep 21, 2023)
 
 ### Patch
