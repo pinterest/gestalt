@@ -11,7 +11,21 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { Box, Flex, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Flex,
+  Heading,
+  IconButton,
+  Layer,
+  Modal,
+  TagData,
+  Text,
+  TileData,
+  useColorScheme,
+  useDefaultLabel,
+} from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
 import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
@@ -277,6 +291,7 @@ function ChartGraph({
   // STATE
   const [chartHeight, setChartHeight] = useState(0);
   const [chartWidth, setChartWidth] = useState(0);
+  const [showTabularData, setShowTabularData] = useState(false);
 
   // We need to know the legend height, because the ResponsiveContainer includes the legend within the provided height
   const [legendHeight, setLegendHeight] = useState(legend === 'none' ? 0 : 20);
@@ -286,7 +301,8 @@ function ChartGraph({
   const hexColor = useHexColor();
   const patterns = usePatterns();
   const { name: colorSchemeName } = useColorScheme();
-  const { accessibilityLabelPrefixText } = useDefaultLabel('ChartGraph');
+  const { accessibilityLabelPrefixText, accessibilityLabelDismissModal } =
+    useDefaultLabel('ChartGraph');
 
   // ASSERTIONS
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -418,6 +434,8 @@ function ChartGraph({
             title={title}
             description={description}
             onVisualPatternChange={onVisualPatternChange}
+            setShowTabularData={() => setShowTabularData((value) => !value)}
+            showTabularData={showTabularData}
           />
         ) : null}
         {selectors && selectors.selector === 'TileData' ? (
@@ -606,6 +624,41 @@ function ChartGraph({
           </ResponsiveContainer>
         </Box>
       </Box>
+      {showTabularData ? (
+        <Layer>
+          <Modal
+            heading={
+              <Flex justifyContent="between">
+                <Heading size="500" accessibilityLevel={1}>
+                  {title}
+                </Heading>
+                <IconButton
+                  accessibilityLabel={accessibilityLabelDismissModal}
+                  bgColor="white"
+                  icon="cancel"
+                  iconColor="darkGray"
+                  onClick={() => setShowTabularData(false)}
+                  size="sm"
+                />
+              </Flex>
+            }
+            align="start"
+            accessibilityModalLabel="accessibilityLabel"
+            onDismiss={() => setShowTabularData(false)}
+            size="sm"
+            footer={
+              <Flex justifyContent="end">
+                <ButtonGroup>
+                  <Button color="gray" text="Cancel" />
+                  <Button color="red" text="Download as .csv" iconEnd="download" />
+                </ButtonGroup>
+              </Flex>
+            }
+          >
+            <Box>{Array(5).fill(<Text>Content</Text>)}</Box>
+          </Modal>
+        </Layer>
+      ) : null}
     </ChartProvider>
   );
 }

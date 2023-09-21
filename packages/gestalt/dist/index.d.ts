@@ -363,6 +363,8 @@ interface DefaultLabelProviderProps {
           accessibilityLabelPrefixText: string;
           defaultViewText: string;
           accessibleViewText: string;
+          tabularData: string;
+          accessibilityLabelDismissModal: 'Dismiss tabular data modal';
         };
         ComboBox: {
           noResultText: string;

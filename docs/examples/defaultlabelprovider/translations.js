@@ -24,6 +24,8 @@ const labels = {
     accessibilityLabelPrefixText: myI18nTranslator('ChartGraph'),
     defaultViewText: myI18nTranslator('Default view mode'),
     accessibleViewText: myI18nTranslator('Accessibility view mode'),
+    tabularData: myI18nTranslator('Tabular data'),
+    accessibilityLabelDismissModal: myI18nTranslator('Dismiss tabular data modal'),
   },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),
