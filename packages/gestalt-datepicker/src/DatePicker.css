@@ -17,7 +17,7 @@
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  padding: var(--space-400);
+  padding: var(--space-300);
   position: relative;
 }
 
@@ -27,7 +27,7 @@
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: var(--font-family-default-latin);
-  padding: var(--space-400);
+  padding: var(--space-300);
   position: relative;
 }
 
@@ -35,7 +35,7 @@
   color: var(--g-colorGray300);
   font-size: var(--font-size-400);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-400);
+  margin-bottom: var(--space-300);
 }
 
 /* It must be named different than .react-datepicker__day

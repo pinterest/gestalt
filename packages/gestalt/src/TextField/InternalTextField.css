@@ -3,7 +3,7 @@
   composes: Text from "../Text.css";
   composes: fontSize300 from "../Typography.css";
   composes: xsCol12 from "../Column.css";
-  padding: var(--space-200) var(--space-400);
+  padding: var(--space-200) var(--space-300);
 }
 
 .textField::placeholder {
@@ -40,11 +40,11 @@
 }
 
 html:not([dir="rtl"]) .actionButton {
-  padding-right: var(--space-800);
+  padding-right: var(--space-500);
 }
 
 html[dir="rtl"] .actionButton {
-  padding-left: var(--space-800);
+  padding-left: var(--space-500);
 }
 
 .actionButtonContainer {

@@ -8,75 +8,75 @@
 }
 
 html:not([dir="rtl"]) .list {
-  padding-left: var(--space-400);
+  padding-left: var(--space-300);
 }
 
 html[dir="rtl"] .list {
-  padding-right: var(--space-400);
+  padding-right: var(--space-300);
 }
 
 html:not([dir="rtl"]) .bulletList:first-child {
-  padding-left: var(--space-800);
+  padding-left: var(--space-500);
 }
 
 html[dir="rtl"] .bulletList:first-child {
-  padding-right: var(--space-800);
+  padding-right: var(--space-500);
 }
 
 .listItem {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 /* last should precede first for single item lists */
 
 .listItem:last-child {
   margin-bottom: 0;
-  margin-top: var(--space-400);
+  margin-top: 16px;
 }
 
 .listItem:first-child {
-  margin-bottom: var(--space-400);
+  margin-bottom: 16px;
   margin-top: 0;
 }
 
 .listItemCondensed {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 /* last should precede first for single item lists */
 
 .listItemCondensed:last-child {
   margin-bottom: 0;
-  margin-top: var(--space-400);
+  margin-top: 8px;
 }
 
 .listItemCondensed:first-child {
-  margin-bottom: var(--space-400);
+  margin-bottom: 8px;
   margin-top: 0;
 }
 
 /* last should precede first for single item lists */
 
 .list .list > .listItem:last-child {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .list .list > .listItem:first-child {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .list .list > .listItemCondensed:last-child {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .list .list > .listItemCondensed:first-child {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .noStyle {

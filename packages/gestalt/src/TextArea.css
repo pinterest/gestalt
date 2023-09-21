@@ -4,7 +4,7 @@
   composes: fontSize300 from "./Typography.css";
   composes: xsCol12 from "./Column.css";
   line-height: 1.5;
-  padding: var(--space-200) var(--space-400);
+  padding: var(--space-200) var(--space-300);
   resize: none;
 }
 

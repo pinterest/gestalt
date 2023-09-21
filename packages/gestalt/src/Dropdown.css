@@ -3,5 +3,5 @@
 }
 
 .DropdownSection:not(:first-child) {
-  margin-top: var(--space-400);
+  margin-top: 16px;
 }
