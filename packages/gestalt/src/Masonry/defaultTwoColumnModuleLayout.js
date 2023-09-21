@@ -32,6 +32,10 @@ function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOn
   }, []);
 }
 
+function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): number {
+  return columnWidth * 2 + gutter;
+}
+
 function initializeHeightsArray<T>({
   centerOffset,
   columnCount,
@@ -54,9 +58,14 @@ function initializeHeightsArray<T>({
     const position = positionCache?.get(item);
     if (position) {
       const col = (position.left - centerOffset) / columnWidthAndGutter;
-      heights[col] += position.height + gutter;
-      if (position.width > columnWidth) {
-        heights[col + 1] = position.height + gutter;
+      const isTwoColumnModule =
+        position.width === calculateTwoColumnModuleWidth(columnWidth, gutter);
+      const heightToAdd = position.height + gutter;
+      heights[col] += heightToAdd;
+      if (isTwoColumnModule) {
+        // if position width is greater than columnWidth
+        // increment height of the neighboring column as well
+        heights[col + 1] += heightToAdd;
       }
     }
   });
@@ -181,7 +190,7 @@ function getTwoColItemPosition<T>({
     position: {
       top,
       left,
-      width: columnWidth * 2 + gutter,
+      width: calculateTwoColumnModuleWidth(columnWidth, gutter),
       height,
     },
   };
