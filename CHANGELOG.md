@@ -1,3 +1,9 @@
+## 123.0.5 (Sep 21, 2023)
+
+### Patch
+
+- Masonry: Fix bug with height restoration + two column module items ([#3208](https://github.com/pinterest/gestalt/pull/3208)) - [Preview link](https://deploy-preview-3208--gestalt.netlify.app?devexample=true)
+
 ## 123.0.4 (Sep 21, 2023)
 
 ### Patch
