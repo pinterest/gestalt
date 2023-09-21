@@ -1,3 +1,9 @@
+## 123.0.3 (Sep 21, 2023)
+
+### Patch
+
+- Video: Fix flickering video controls on iOS browsers ([#3202](https://github.com/pinterest/gestalt/pull/3202)) - [Preview link](https://deploy-preview-3202--gestalt.netlify.app?devexample=true)
+
 ## 123.0.2 (Sep 21, 2023)
 
 ### Patch
