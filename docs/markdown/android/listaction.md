@@ -4,7 +4,7 @@ description:  ListAction is a continuous vertical group of list items that can i
 fullwidth: true
 ---
 
-<ImgContainer padding="standard" src="https://i.pinimg.com/originals/e5/ec/f9/e5ecf9d44c313cf2ec9d5e299b6a96ad.png" alt="An example of the ListAction component"/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/fa/ed/13/faed13155b1e48a5a7c9d4ec97d07bcd.png" alt="An example of the ListAction component"/>
 
 ## Usage guidelines
 
@@ -28,22 +28,22 @@ fullwidth: true
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/36/fd/80/36fd807eee36dbd71f4f8719b5caf45d.png" alt="Example of grouped ListAction items. For example, message settings under the heading - Messages."/>
+    <ImgContainer src="https://i.pinimg.com/originals/83/7d/15/837d15ca2ef97d8fd53beffb49e59d75.png" alt="Example of grouped ListAction items. For example, message settings under the heading - Messages."/>
     <Do title="Do" />
     Group related items together to aid user comprehension and streamline navigation. Consider dividers to break up groups that differ in content.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cb/69/ce/cb69ceb27234bf62f302a6d0a1c2d0a4.png" alt="Example of two ListAction items with accompanying icons"/>
+    <ImgContainer src="https://i.pinimg.com/originals/46/02/d7/4602d76785e40fd1336c932e872c610f.png" alt="Example of two ListAction items with accompanying icons"/>
     <Dont title="Don't" />
     Don't overuse icons. Choose icons that are easily recognizable and directly related to the item's content.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8a/ea/54/8aea54102b7dcb6666a2df847242c1ab.png" alt="Two ListAction items with short and clear copy."/>
+    <ImgContainer src="https://i.pinimg.com/originals/aa/f1/72/aaf172e0437be4f9b94c9689212d5271.png" alt="Two ListAction items with short and clear copy."/>
     <Do title="Do" />
     Keep text succinct so row content is easy to scan and comfortable to read.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e2/84/ca/e284ca71eccfc7755f11ccaf8c5607fc.png" alt="An ListAction item with four lines or complex copy"/>
+    <ImgContainer src="https://i.pinimg.com/originals/7a/68/4b/7a684b1b7c6362a03f4ac75b69c914ad.png" alt="An ListAction item with four lines or complex copy"/>
     <Dont title="Don't" />
     Use more than 3 lines of subtext as it reduces scan-ability and can pose issues with internationalization, spacing, and comprehension.
   </Group>
@@ -61,10 +61,10 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 [Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D42153%253A4052%26mode%3Ddesign%26t%3Dv622LtavFiMWyuMY-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D44003%253A3915%26mode%3Ddesign%26t%3DKBAAziRKxCsWLU6g-1" allowFullScreen></iframe>
 
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D42153%253A3806%26mode%3Ddesign%26t%3Dv622LtavFiMWyuMY-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D44007%253A1318%26mode%3Ddesign%26t%3DKBAAziRKxCsWLU6g-1" allowFullScreen></iframe>
 
 
 ## Variants
@@ -73,7 +73,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 The default ListAction items do not include a start item and only display text, but they still allow for end items to be displayed.
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/b5/5f/62/b55f62ff3f210c6f490d5377a35998e4.png" alt="An example of the ListAction component"/>
+<ImgContainer src="https://i.pinimg.com/originals/1a/4f/2a/1a4f2a0b067c8a28e77be8628c18f534.png" alt="An example of the Action List component"/>
 
 ### Start items
 
@@ -88,15 +88,15 @@ ListAction items can display 3 different start items.
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b8/b6/e2/b8b6e282681735393b27461b8d995073.png" alt="An ListAction item for the user Sarah Smith, inluding her follower count and a follow button."/>
+    <ImgContainer src="https://i.pinimg.com/originals/48/18/2e/48182e695cf7c4e32ed5694c243af6d9.png" alt="An ListAction item for the user Sarah Smith, inluding her follower count and a follow button."/>
     **Avatar**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/47/7f/12/477f125dbb1652e5dc06220aa020bda9.png" alt="An ListAction item with content about search privacy and a search icon."/>
+    <ImgContainer src="https://i.pinimg.com/originals/3e/ff/88/3eff88ac1697b81ad702f04c38c17314.png" alt="An ListAction item with content about search privacy and a search icon."/>
    **Icon**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d5/b6/c1/d5b6c12a232eba19d8c041235ad1def5.png" alt="An ListAction item for a board with a switch end item."/>
+    <ImgContainer src="https://i.pinimg.com/originals/0d/20/a5/0d20a53c81bf2ec60ca5f02c3e3e5bf7.png" alt="An ListAction item for a board with a switch end item."/>
    **Image**
   </Group>
 </TwoCol>
@@ -122,31 +122,31 @@ ListAction items can display a variety of end items.
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/57/7e/2a/577e2ad2b1a6549a3774490842c49afb.png" alt="An ListAction showing users and buttons to follow them."/>
+    <ImgContainer src="https://i.pinimg.com/originals/7c/98/c8/7c98c85940868b958f6ac7979500c3bd.png" alt="An ListAction showing users and buttons to follow them."/>
     **Button**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fe/24/f3/fe24f3f1950d9d26ebd6cb37c7cf2eb9.png" alt="An ListAction showing interest options and a multiple choice checkbox selection."/>
+    <ImgContainer src="https://i.pinimg.com/originals/3e/85/d6/3e85d6e1e27e946d796fd8c5ca3c182d.png" alt="An ListAction showing interest options and a multiple choice checkbox selection."/>
    **Checkbox**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cd/37/b6/cd37b6844feddfc4223ae5111c547f3e.png" alt="An ListAction showing a menu of links to further information."/>
+    <ImgContainer src="https://i.pinimg.com/originals/87/1b/06/871b06a702d5e8a2d518a025ce010699.png" alt="An ListAction showing a menu of links to further information."/>
    **Select**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/8c/31/a1/8c31a1168b988fe25f490f9142e72fcb.png" alt="An ListAction showing a list of selctable items."/>
+    <ImgContainer src="https://i.pinimg.com/originals/d6/81/c4/d681c4c7af5babf43d803e9833ed72ea.png" alt="An ListAction showing a list of selctable items."/>
    **Switch**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/bd/67/c7/bd67c7f7a242d35914b6b329c4d75c5e.png" alt="An ListAction with switches for each item."/>
+    <ImgContainer src="https://i.pinimg.com/originals/b2/a3/44/b2a344d4f583e04cd286c8b9d14a6d57.png" alt="An ListAction with switches for each item."/>
    **Icon Button**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b0/7d/d0/b07dd00df0efbb3c89bfbd6a939c6141.png" alt="An ListAction with a list of users and their follower count."/>
+    <ImgContainer src="https://i.pinimg.com/originals/22/c6/00/22c6002ca3430a1818480b5aaf409029.png" alt="An ListAction with a list of users and their follower count."/>
    **Text**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/3f/36/48/3f36482efdb18b53cc609c285d43f34b.png" alt="An ListAction with email and password settings links."/>
+    <ImgContainer src="https://i.pinimg.com/originals/fa/88/52/fa88528c967ab1439c2ce4616412cb9b.png" alt="An ListAction with email and password settings links."/>
    **Text + Icon Button**
   </Group>
 </TwoCol>
@@ -157,11 +157,11 @@ Checkbox, Select, and Switch end items will always appear in-line with the title
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/36/d4/38/36d4386b82a0bca68242b62d46fcc189.png" alt="An ListAction showing users and buttons to follow them."/>
+    <ImgContainer src="https://i.pinimg.com/originals/1c/c4/23/1cc423920f6cfa5db000f99df527ec4b.png" alt="An ListAction showing users and buttons to follow them."/>
     **Checkbox, Select, Switch**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/85/ed/23/85ed23a07674f4a48854bdf681c6ad93.png" alt="An ListAction showing interest options and a multiple choice checkbox selection."/>
+    <ImgContainer src="https://i.pinimg.com/originals/39/a3/2c/39a32c9159f8a8b1197a777201e6e878.png" alt="An ListAction showing interest options and a multiple choice checkbox selection."/>
    **All other end items**
   </Group>
   </TwoCol>
@@ -174,4 +174,4 @@ Checkbox, Select, and Switch end items will always appear in-line with the title
 ## Localization
 Be sure to localize the ListAction text. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
-<ImgContainer padding="standard" src="https://i.pinimg.com/originals/92/a5/8b/92a58b2f91f0c3bf74c6c3bfb06f19a9.png" alt="An ActionList example reversed to reflect the location."/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/92/a5/8b/92a58b2f91f0c3bf74c6c3bfb06f19a9.png" alt="A ListAction example reversed to reflect the location."/>

@@ -71,7 +71,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
     pages: [
       'Overview',
       'Component status',
-      'ListAction',
       'Avatar',
       'Button',
       {
