@@ -4,10 +4,10 @@ import { IconButton, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
-import PropTable from '../../docs-components/PropTable.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import aria from '../../examples/iconbutton/aria.js';
@@ -20,8 +20,6 @@ import keyboard from '../../examples/iconbutton/keyboard.js';
 import lowActions from '../../examples/iconbutton/lowActions.js';
 import main from '../../examples/iconbutton/main.js';
 import noGrouping from '../../examples/iconbutton/noGrouping.js';
-import roleButton from '../../examples/iconbutton/roleButton.js';
-import roleLink from '../../examples/iconbutton/roleLink.js';
 import selectedState from '../../examples/iconbutton/selectedState.js';
 import tooltip from '../../examples/iconbutton/tooltip.js';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
@@ -29,211 +27,10 @@ import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        slimBanner={
-          <SlimBanner
-            type="error"
-            iconAccessibilityLabel="Info"
-            message={`IconButton role="link" is soon to be deprecated, use IconButtonLink instead.`}
-            helperLink={{
-              text: 'View IconButtonLink',
-              accessibilityLabel: 'View IconButtonLink documentation page',
-              href: '/web/iconbuttonlink',
-              onClick: () => {},
-            }}
-          />
-        }
-      >
-        <SandpackExample code={main} name="Main example" hideEditor />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample code={main} name="IconButton example" hideEditor />
       </PageHeader>
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        id="IconButton"
-        props={[
-          {
-            name: 'accessibilityLabel',
-            type: 'string',
-            required: true,
-            description:
-              'Label for screen readers to announce IconButton. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
-          },
-          {
-            name: 'bgColor',
-            type: '"transparent" | "darkGray" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red"',
-            defaultValue: 'transparent',
-            description:
-              'Primary colors to apply to the IconButton background. See [background color](#Background-color) variant to learn more.',
-          },
-          {
-            name: 'dangerouslySetSvgPath',
-            type: `{| __path: string |}`,
-            description:
-              'Defines a new icon different from the built-in Gestalt icons. See [custom icon](#Custom-icon) variant to learn more.',
-          },
-          {
-            name: 'dataTestId',
-            type: 'string',
-            required: false,
-            description: [
-              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
-            ],
-          },
-          {
-            name: 'disabled',
-            type: 'boolean',
-            description: 'When disabled, IconButton looks inactive and cannot be interacted with.',
-          },
-          {
-            name: 'iconColor',
-            type: `"darkGray" | "gray" | "red" | "white" | "brandPrimary"`,
-            defaultValue: 'darkGray',
-            description:
-              'Primary color to apply to the [Icon](/web/icon). See [icon color](#Icon-color) variant to learn more.',
-          },
-          {
-            name: 'icon',
-            type: '$Keys<typeof icons>',
-            description:
-              'Icon displayed in IconButton to convey the behavior of the component. Refer to the [iconography](/foundations/iconography/library#Search-icon-library) guidelines regarding the available icon options.',
-          },
-          {
-            name: 'name',
-            type: 'string',
-            description: [
-              'The name attribute specifies the name of the <button> element.',
-
-              'The name attribute is used to reference form-data after the form has been submitted.',
-            ],
-          },
-          {
-            name: 'onClick',
-            type: '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> |}) => void',
-            description:
-              'Callback fired when the component is clicked, pressed or tapped. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
-          },
-          {
-            name: 'padding',
-            type: `1 | 2 | 3 | 4 | 5`,
-            description:
-              'Sets a padding for the IconButton. See the [size](#Size) variant to learn more.',
-          },
-          {
-            name: 'ref',
-            type: `HTMLButtonElement | HTMLAnchorElement`,
-            description:
-              'Forward the ref to the underlying button or anchor element. See the [ARIA attributes guidelines](#ARIA-attributes) to learn more.',
-          },
-          {
-            name: 'role',
-            type: `'button' | 'link'`,
-            defaultValue: 'button',
-            description:
-              'Defines the user interaction in the component. See the [role](#Role) variant to learn more.',
-          },
-          {
-            name: 'size',
-            type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-            defaultValue: 'lg',
-            description:
-              'The maximum height and width of IconButton. See the [size](#Size) variant to learn more.',
-          },
-          {
-            name: 'tabIndex',
-            type: `-1 | 0`,
-            defaultValue: 0,
-            description:
-              'Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.',
-          },
-          {
-            name: 'tooltip',
-            type: `{| text: string, accessibilityLabel?: string, inline?: boolean, idealDirection?: 'up' | 'right' | 'down' | 'left', zIndex?: Indexable, |}`,
-            description: `Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButton. See the [With Tooltip](#With-Tooltip) variant to learn more.`,
-          },
-        ]}
-      />
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        name='Additional role="button"'
-        id="role_button"
-        props={[
-          {
-            name: 'accessibilityControls',
-            type: 'string',
-            description:
-              'Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
-          },
-          {
-            name: 'accessibilityExpanded',
-            type: 'boolean',
-            description:
-              'Indicates that IconButton hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
-          },
-          {
-            name: 'accessibilityHaspopup',
-            type: 'boolean',
-            description:
-              'Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
-          },
-          {
-            name: 'accessibilityPopupRole',
-            type: `'menu' | 'dialog'`,
-            description:
-              'Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.',
-          },
-          {
-            name: 'role',
-            type: 'button',
-            description:
-              'Sets button interaction in the component. See the [role](#Role) variant to learn more.',
-          },
-          {
-            name: 'selected',
-            type: 'boolean',
-            description:
-              'Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more.',
-          },
-          {
-            name: 'type',
-            type: `'submit' | 'button'`,
-            required: false,
-            defaultValue: 'button',
-            description: 'Use "submit" if IconButton is used within or associated with a form.',
-          },
-        ]}
-      />
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        name='Additional role="link"'
-        id="role_link"
-        props={[
-          {
-            name: 'href',
-            type: 'string',
-            required: true,
-            description: 'Specifies a link URL.',
-          },
-          {
-            name: 'rel',
-            type: `'none' | 'nofollow'`,
-            description:
-              'Specifies the relationship between the current document and the linked document. See the [role](#Role) variant to learn more.',
-          },
-          {
-            name: 'role',
-            type: 'link',
-            required: true,
-            description:
-              'Sets link interaction in the component. See the [role](#Role) variant and [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
-          },
-          {
-            name: 'target',
-            type: `null | 'self' | 'blank'`,
-            description: `Define the frame or window to open the anchor defined on \`href\`. See the [role](#Role) variant to learn more.`,
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -370,33 +167,6 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Role"
-          columns={2}
-          description="IconButton can be use for navigation or actions."
-        >
-          <MainSection.Card
-            cardSize="md"
-            title="role = link"
-            description={`If IconButton acts as a link, set \`role = link\` and pass role-specific [props](#role_linkProps).
-
-\`target\` is optional and defines the frame or window to open the anchor defined on href:
-* "null" opens the anchor in the same window.
-* "blank" opens the anchor in a new window. IconButtons announce to assistive technologies that the link opens in a new tab. Localize the default label with [DefaultLabelProvider](/web/utilities/defaultlabelprovider).
-* "self" opens an anchor in the same frame.
-
-\`rel\` is optional. Use "nofollow" for external links to specify to web crawlers not follow the link.
-
-IconButtons that act as links can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.`}
-            sandpackExample={<SandpackExample code={roleLink} name="Role link example" />}
-          />
-          <MainSection.Card
-            cardSize="md"
-            title="role = button"
-            description="If IconButton acts as a button, pass role-specific [props](#role_buttonProps)."
-            sandpackExample={<SandpackExample code={roleButton} name="Role button example" />}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
           title="Size"
           description={`IconButton is available in 5 fixed sizes:
 
@@ -413,7 +183,7 @@ IconButtons that act as links can be paired with GlobalEventsHandlerProvider. Se
 
 Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
         >
-          <CombinationNew size={['xl', 'lg', 'md', 'sm', 'xs']}>
+          <CombinationNew cardSize="xs" size={['xl', 'lg', 'md', 'sm', 'xs']}>
             {({ size }) => (
               <IconButton
                 accessibilityLabel={`Example size ${size}`}
@@ -439,7 +209,10 @@ Follow these guidelines for \`iconColor\`
 
 `}
         >
-          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
+          <CombinationNew
+            cardSize="xs"
+            iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}
+          >
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}
@@ -467,6 +240,7 @@ Follow these guidelines for \`bgColor\`
 `}
         >
           <CombinationNew
+            cardSize="xs"
             bgColor={[
               'red',
               'lightGray',
@@ -523,17 +297,6 @@ Follow these guidelines for \`bgColor\`
             sandpackExample={<SandpackExample code={selectedState} name="Selected state example" />}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="External handlers"
-          description={`IconButton consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
-
-Handlers:
-
-- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when IconButton role="link" is clicked
-
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
-`}
-        />
       </MainSection>
       <MainSection
         name="Writing"

@@ -18,11 +18,29 @@ import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
 
 type Props = {|
+  /**
+   * Label for screen readers to announce IconButton. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
   accessibilityLabel: string,
+  /**
+   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
   accessibilityControls?: string,
+  /**
+   * Indicates that IconButton hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
   accessibilityExpanded?: boolean,
+  /**
+   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
   accessibilityHaspopup?: boolean,
+  /**
+   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
   accessibilityPopupRole?: 'menu' | 'dialog',
+  /**
+   * Primary colors to apply to the IconButton background.
+   */
   bgColor?:
     | 'transparent'
     | 'darkGray'
@@ -31,19 +49,60 @@ type Props = {|
     | 'lightGray'
     | 'white'
     | 'red',
+  /**
+   * Defines a new icon different from the built-in Gestalt icons.
+   */
   dangerouslySetSvgPath?: {| __path: string |},
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
   dataTestId?: string,
+  /**
+   * When disabled, IconButton looks inactive and cannot be interacted with.
+   */
   disabled?: boolean,
+  /**
+   * Icon displayed in IconButton to convey the behavior of the component. Refer to the [iconography](/foundations/iconography/library#Search-icon-library) guidelines regarding the available icon options.
+   */
   icon?: $Keys<typeof icons>,
+  /**
+   * Primary color to apply to the [Icon](/web/icon). See [icon color](#Icon-color) variant to learn more.
+   */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
+  /**
+   * The name attribute specifies the name of the <button> element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
+   */
   name?: string,
+  /**
+   * Callback fired when the component is clicked, pressed or tapped.
+   */
   onClick?: ({|
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   |}) => void,
+  /**
+   * Sets a padding for the IconButton. See the [size](#Size) variant to learn more.
+   */
   padding?: 1 | 2 | 3 | 4 | 5,
+  /**
+   * Ref that is forwarded to the underlying button element.
+   */
+  // eslint-disable-next-line react/no-unused-prop-types
+  ref?: HTMLButtonElement,
+  /**
+   * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more.
+   */
   selected?: boolean,
+  /**
+   * The maximum height and width of IconButton. See the [size](#Size) variant to learn more.
+   */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  /**
+   * Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.
+   */
   tabIndex?: -1 | 0,
+  /**
+   * Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButton.
+   */
   tooltip?: {|
     accessibilityLabel?: string,
     inline?: boolean,
@@ -51,6 +110,9 @@ type Props = {|
     text: string,
     zIndex?: Indexable,
   |},
+  /**
+   * Use "submit" if IconButton is used within or associated with a form.
+   */
   type?: 'submit' | 'button',
 |};
 
