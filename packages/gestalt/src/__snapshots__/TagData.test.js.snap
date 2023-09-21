@@ -1271,114 +1271,101 @@ exports[`TagData renders disabled selected state 1`] = `
   }
 >
   <div
-    className="box xsDisplayBlock"
+    aria-disabled={true}
+    className="hideOutline tapTransition rounding2 fullHeight fullWidth"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="button"
+    tabIndex={null}
   >
     <div
-      aria-label="This is a tooltip"
-      className="box"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+      className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+      style={Object {}}
     >
       <div
-        aria-disabled={true}
-        className="hideOutline tapTransition rounding2 fullHeight fullWidth"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={null}
+        className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
       >
         <div
-          className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
-          style={Object {}}
+          className="box marginEnd1"
         >
           <div
-            className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
-            style={
-              Object {
-                "height": "100%",
-              }
-            }
+            className="box"
           >
             <div
-              className="box marginEnd1"
+              className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
             >
               <div
-                className="box"
+                className="box paddingX1 relative"
               >
+                <input
+                  aria-hidden={true}
+                  aria-invalid="false"
+                  checked={true}
+                  className="input sizeSm inputEnabled readOnly"
+                  disabled={true}
+                  id="readonly-checkbox-:rg:"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="checkbox"
+                />
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                  className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                  style={
+                    Object {
+                      "backgroundColor": "var(--color-gray-roboflow-300)",
+                      "borderColor": "transparent",
+                    }
+                  }
                 >
-                  <div
-                    className="box paddingX1 relative"
+                  <svg
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon inverseIcon iconBlock"
+                    height={8}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={8}
                   >
-                    <input
-                      aria-hidden={true}
-                      aria-invalid="false"
-                      checked={true}
-                      className="input sizeSm inputEnabled readOnly"
-                      disabled={true}
-                      id="readonly-checkbox-:rg:"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      type="checkbox"
+                    <path
+                      d="test-file-stub"
                     />
-                    <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                      style={
-                        Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
-                        }
-                      }
-                    >
-                      <svg
-                        aria-hidden={true}
-                        aria-label=""
-                        className="icon inverseIcon iconBlock"
-                        height={8}
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width={8}
-                      >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                  </svg>
                 </div>
               </div>
             </div>
-            <span
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-              style={
-                Object {
-                  "WebkitLineClamp": 1,
-                }
-              }
-              title="Text Impressions"
-            >
-              Text Impressions
-            </span>
           </div>
         </div>
+        <span
+          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
+          title="Text Impressions"
+        >
+          Text Impressions
+        </span>
       </div>
     </div>
   </div>
@@ -1395,100 +1382,87 @@ exports[`TagData renders disabled unselected state 1`] = `
   }
 >
   <div
-    className="box xsDisplayBlock"
+    aria-disabled={true}
+    className="hideOutline tapTransition rounding2 fullHeight fullWidth"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="button"
+    tabIndex={null}
   >
     <div
-      aria-label="This is a tooltip"
-      className="box"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+      className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+      style={Object {}}
     >
       <div
-        aria-disabled={true}
-        className="hideOutline tapTransition rounding2 fullHeight fullWidth"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={null}
+        className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
       >
         <div
-          className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
-          style={Object {}}
+          className="box marginEnd1"
         >
           <div
-            className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
-            style={
-              Object {
-                "height": "100%",
-              }
-            }
+            className="box"
           >
             <div
-              className="box marginEnd1"
+              className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
             >
               <div
-                className="box"
+                className="box paddingX1 relative"
               >
+                <input
+                  aria-hidden={true}
+                  aria-invalid="false"
+                  checked={false}
+                  className="input sizeSm inputEnabled readOnly"
+                  disabled={true}
+                  id="readonly-checkbox-:rh:"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  type="checkbox"
+                />
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-                >
-                  <div
-                    className="box paddingX1 relative"
-                  >
-                    <input
-                      aria-hidden={true}
-                      aria-invalid="false"
-                      checked={false}
-                      className="input sizeSm inputEnabled readOnly"
-                      disabled={true}
-                      id="readonly-checkbox-:rh:"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      type="checkbox"
-                    />
-                    <div
-                      className="whiteBg border borderRadiusSm sizeSm check"
-                      style={
-                        Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
-                        }
-                      }
-                    />
-                  </div>
-                </div>
+                  className="whiteBg border borderRadiusSm sizeSm check"
+                  style={
+                    Object {
+                      "backgroundColor": "var(--color-gray-roboflow-300)",
+                      "borderColor": "transparent",
+                    }
+                  }
+                />
               </div>
             </div>
-            <span
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-              style={
-                Object {
-                  "WebkitLineClamp": 1,
-                }
-              }
-              title="Text Impressions"
-            >
-              Text Impressions
-            </span>
           </div>
         </div>
+        <span
+          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
+          title="Text Impressions"
+        >
+          Text Impressions
+        </span>
       </div>
     </div>
   </div>
