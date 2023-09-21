@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Box, SlimBanner, TapArea, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import Combination from '../../docs-components/Combination.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -17,11 +17,12 @@ import mainExample from '../../examples/taparea/mainExample.js';
 import rolesCompressBehaviorExample from '../../examples/taparea/rolesCompressBehaviorExample.js';
 import withLinkButtonExample from '../../examples/taparea/withLinkButtonExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: DocType): Node {
+  console.log(generatedDocGen);
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={mainExample} name="Main TapAreaLink example" hideEditor />
+        <SandpackExample code={mainExample} name="TapArea example" hideEditor />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -119,7 +120,6 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
           {(props, i) => (
             <TapArea id={`example-${i}`} {...props}>
               <Box borderStyle="lg" padding={3} color="default">
-                {/* eslint-disable-next-line react/prop-types */}
                 <Text>{props.mouseCursor}</Text>
               </Box>
             </TapArea>
@@ -136,7 +136,6 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
               <Box
                 color="default"
                 borderStyle="lg"
-                // eslint-disable-next-line react/prop-types
                 width={props.rounding === 'pill' ? 120 : 70}
                 height={70}
                 display="flex"
@@ -144,7 +143,6 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
                 justifyContent="center"
                 {...props}
               >
-                {/* eslint-disable-next-line react/prop-types */}
                 <Text>{props.rounding}</Text>
               </Box>
             </TapArea>
