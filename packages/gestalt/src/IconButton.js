@@ -8,12 +8,8 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
 import Pog from './Pog.js';
 import touchableStyles from './TapArea.css';
 import Tooltip from './Tooltip.js';
@@ -21,16 +17,12 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
 
-type TooltipProps = {|
-  accessibilityLabel?: string,
-  inline?: boolean,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
-  zIndex?: Indexable,
-|};
-
-type BaseIconButton = {|
+type Props = {|
   accessibilityLabel: string,
+  accessibilityControls?: string,
+  accessibilityExpanded?: boolean,
+  accessibilityHaspopup?: boolean,
+  accessibilityPopupRole?: 'menu' | 'dialog',
   bgColor?:
     | 'transparent'
     | 'darkGray'
@@ -43,44 +35,24 @@ type BaseIconButton = {|
   dataTestId?: string,
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
-  padding?: 1 | 2 | 3 | 4 | 5,
-  tabIndex?: -1 | 0,
-  tooltip?: TooltipProps,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-|};
-
-type IconButtonType = {|
-  ...BaseIconButton,
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
-  accessibilityPopupRole?: 'menu' | 'dialog',
   name?: string,
-  role?: 'button',
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+  |}) => void,
+  padding?: 1 | 2 | 3 | 4 | 5,
   selected?: boolean,
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  tabIndex?: -1 | 0,
+  tooltip?: {|
+    accessibilityLabel?: string,
+    inline?: boolean,
+    idealDirection?: 'up' | 'right' | 'down' | 'left',
+    text: string,
+    zIndex?: Indexable,
+  |},
   type?: 'submit' | 'button',
 |};
-
-type LinkIconButtonType = {|
-  ...BaseIconButton,
-  href: string,
-  rel?: 'none' | 'nofollow',
-  role: 'link',
-  target?: null | 'self' | 'blank',
-|};
-
-type unionProps = IconButtonType | LinkIconButtonType;
-
-type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
  * [IconButton](https://gestalt.pinterest.systems/web/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
@@ -90,12 +62,19 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
-const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
-  unionProps,
-  unionRefs,
->(function IconButton(props: unionProps, ref): Node {
-  const {
+const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwardRef<
+  Props,
+  HTMLButtonElement,
+>(function IconButton(
+  {
     accessibilityLabel,
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityPopupRole,
+    name,
+    selected,
+    type,
     bgColor,
     dangerouslySetSvgPath,
     dataTestId,
@@ -107,9 +86,10 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     tabIndex = 0,
     tooltip,
     size = 'lg',
-  } = props;
-
-  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  }: Props,
+  ref,
+): Node {
+  const innerRef = useRef<null | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
@@ -133,158 +113,71 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-
   const { isFocusVisible } = useFocusVisible();
 
-  const renderPogComponent = (selected?: boolean): Node => (
-    <Pog
-      active={!disabled && isActive}
-      bgColor={bgColor}
-      dangerouslySetSvgPath={dangerouslySetSvgPath}
-      focused={!disabled && isFocusVisible && isFocused}
-      hovered={!disabled && isHovered}
-      icon={icon}
-      iconColor={iconColor}
-      padding={padding}
-      selected={selected}
-      size={size}
-    />
+  const buttonComponent = (
+    <button
+      aria-controls={accessibilityControls}
+      aria-expanded={accessibilityExpanded}
+      aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
+      aria-label={accessibilityLabel}
+      className={classnames(styles.parentButton)}
+      data-test-id={dataTestId}
+      disabled={disabled}
+      name={name}
+      onBlur={() => {
+        handleBlur();
+        setFocused(false);
+      }}
+      onClick={onClick}
+      onFocus={() => setFocused(true)}
+      onMouseDown={() => {
+        handleMouseDown();
+        setActive(true);
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setActive(false);
+        setHovered(false);
+      }}
+      onMouseUp={() => {
+        handleMouseUp();
+        setActive(false);
+      }}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      ref={innerRef}
+      tabIndex={disabled ? null : tabIndex}
+      // react/button-has-type is very particular about this verbose syntax
+      type={type === 'submit' ? 'submit' : 'button'}
+    >
+      <div
+        className={classnames(styles.button, touchableStyles.tapTransition, {
+          [styles.disabled]: disabled,
+          [styles.enabled]: !disabled,
+          [touchableStyles.tapCompress]: !disabled && isTapping,
+        })}
+        style={compressStyle || undefined}
+      >
+        <Pog
+          active={!disabled && isActive}
+          bgColor={bgColor}
+          dangerouslySetSvgPath={dangerouslySetSvgPath}
+          focused={!disabled && isFocusVisible && isFocused}
+          hovered={!disabled && isHovered}
+          icon={icon}
+          iconColor={iconColor}
+          padding={padding}
+          selected={selected}
+          size={size}
+        />
+      </div>
+    </button>
   );
 
-  const handleClick = (
-    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  ) =>
-    onClick
-      ? onClick({
-          event,
-          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
-        })
-      : undefined;
-
-  const handleLinkClick = ({
-    event,
-    dangerouslyDisableOnNavigation,
-  }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => handleClick(event, dangerouslyDisableOnNavigation);
-
-  const handleOnBlur = () => {
-    setFocused(false);
-  };
-
-  const handleOnFocus = () => {
-    setFocused(true);
-  };
-
-  const handleOnMouseDown = () => {
-    setActive(true);
-  };
-
-  const handleOnMouseUp = () => {
-    setActive(false);
-  };
-
-  const handleOnMouseEnter = () => {
-    setHovered(true);
-  };
-
-  const handleOnMouseLeave = () => {
-    setActive(false);
-    setHovered(false);
-  };
-
-  let buttonComponent = null;
-
-  if (props.role === 'link') {
-    const { href, rel, target } = props;
-
-    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
-
-    buttonComponent = (
-      <InternalLink
-        accessibilityLabel={ariaLabel}
-        dataTestId={dataTestId}
-        disabled={disabled}
-        href={href}
-        onClick={handleLinkClick}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        onMouseDown={handleOnMouseDown}
-        onMouseUp={handleOnMouseUp}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        ref={innerRef}
-        rel={rel}
-        tabIndex={tabIndex}
-        target={target}
-        wrappedComponent="iconButton"
-      >
-        {renderPogComponent()}
-        <NewTabAccessibilityLabel target={target} />
-      </InternalLink>
-    );
-  } else {
-    const {
-      accessibilityControls,
-      accessibilityExpanded,
-      accessibilityHaspopup,
-      accessibilityPopupRole,
-      name,
-      selected,
-      type,
-    } = props;
-    buttonComponent = (
-      <button
-        aria-controls={accessibilityControls}
-        aria-expanded={accessibilityExpanded}
-        aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
-        aria-label={accessibilityLabel}
-        className={classnames(styles.parentButton)}
-        data-test-id={dataTestId}
-        disabled={disabled}
-        name={name}
-        onBlur={() => {
-          handleBlur();
-          handleOnBlur();
-        }}
-        onClick={handleClick}
-        onFocus={handleOnFocus}
-        onMouseDown={() => {
-          handleMouseDown();
-          handleOnMouseDown();
-        }}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        onMouseUp={() => {
-          handleMouseUp();
-          handleOnMouseUp();
-        }}
-        onTouchCancel={handleTouchCancel}
-        onTouchEnd={handleTouchEnd}
-        onTouchMove={handleTouchMove}
-        onTouchStart={handleTouchStart}
-        ref={innerRef}
-        tabIndex={disabled ? null : tabIndex}
-        // react/button-has-type is very particular about this verbose syntax
-        type={type === 'submit' ? 'submit' : 'button'}
-      >
-        <div
-          className={classnames(styles.button, touchableStyles.tapTransition, {
-            [styles.disabled]: disabled,
-            [styles.enabled]: !disabled,
-            [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-          })}
-          style={compressStyle || undefined}
-        >
-          {renderPogComponent(selected)}
-        </div>
-      </button>
-    );
-  }
-  return tooltip?.text ? (
+  return tooltip?.text && !disabled ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}
       inline={tooltip.inline}

@@ -4,6 +4,7 @@ import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
+import IconButtonLink from './IconButtonLink.js';
 import icons from './icons/index.js';
 import ModuleTitle from './Module/Title.js';
 import ModuleExpandable from './ModuleExpandable.js';
@@ -33,7 +34,7 @@ type Props = {|
   /**
    * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`. See the [icon button variant](https://gestalt.pinterest.systems/web/module#Static-IconButton) for more details.
    */
-  iconButton?: Element<typeof IconButton>,
+  iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
   /**
    * Unique id to identify this Module
    */

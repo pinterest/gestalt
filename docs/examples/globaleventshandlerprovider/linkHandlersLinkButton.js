@@ -6,7 +6,7 @@ import {
   Divider,
   Flex,
   GlobalEventsHandlerProvider,
-  IconButton,
+  IconButtonLink,
   Image,
   Link,
   Mask,
@@ -74,12 +74,11 @@ export default function Example(): Node {
 
             <ButtonLink href="#" text="Visit pinterest.com" />
 
-            <IconButton
+            <IconButtonLink
               href="#"
               accessibilityLabel="Link IconButton"
               icon="visit"
               iconColor="darkGray"
-              role="link"
               size="lg"
             />
 

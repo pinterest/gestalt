@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Avatar, Flex, IconButton, Link, Text } from 'gestalt';
+import { Avatar, Flex, IconButtonLink, Link, Text } from 'gestalt';
 
 export default function Example(): Node {
   return (
@@ -18,11 +18,10 @@ export default function Example(): Node {
             James Jones
           </Link>
         </Text>
-        <IconButton
+        <IconButtonLink
           accessibilityLabel="Open the settings page"
           href="https://www.pinterest.com/settings/"
           icon="edit"
-          role="link"
           size="xs"
           tabIndex={-1}
           target="blank"
