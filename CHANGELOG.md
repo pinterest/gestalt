@@ -1,3 +1,9 @@
+## 123.0.2 (Sep 21, 2023)
+
+### Patch
+
+- Docs: Generate component metadata only from library exposed components ([#3194](https://github.com/pinterest/gestalt/pull/3194)) - [Preview link](https://deploy-preview-3194--gestalt.netlify.app?devexample=true)
+
 ## 123.0.1 (Sep 21, 2023)
 
 ### Patch
