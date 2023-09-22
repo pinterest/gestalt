@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useState } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {

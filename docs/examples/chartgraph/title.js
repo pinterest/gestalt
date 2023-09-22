@@ -33,7 +33,7 @@ export default function Example(): Node {
         visualPatternSelected="disabled"
         onVisualPatternChange={() => {}}
         title="Clicks vs conversions"
-        helperButton={
+        helpButton={
           <HelpButton
             accessibilityLabel="Click to learn more this ChartGraph"
             accessibilityPopoverLabel="Expanded information about this ChartGraph"
