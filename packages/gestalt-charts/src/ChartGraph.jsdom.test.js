@@ -1,5 +1,6 @@
 // @flow strict-local
 import { type ElementConfig, type Node, useState } from 'react';
+import { create } from 'react-test-renderer';
 import { act, render, screen } from '@testing-library/react';
 import { Flex, HelpButton } from 'gestalt';
 import ChartGraph from './ChartGraph.js';
@@ -124,7 +125,7 @@ describe('ChartGraph', () => {
   });
 
   it('renders bar chart', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -136,11 +137,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders bar with pattern chart', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -153,11 +154,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders stacked bar chart', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -170,11 +171,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders exact & precise line chart', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -186,11 +187,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders exact & precise with pattern line chart', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -203,11 +204,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders combo chart', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -219,11 +220,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders reference area', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
@@ -246,7 +247,7 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('renders with x/y axis', () => {
