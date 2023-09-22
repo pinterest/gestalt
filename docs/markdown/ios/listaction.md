@@ -11,14 +11,14 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />
-      - To structure your content or display a group of items that may or may not be actionable
-      - Stack items vertically to organize related content, such as settings or options
+      - To structure information or display a group of items that may or may not be actionable
+      - Stack items vertically to organize related information, such as settings or options
       - Showcase key features or services with icons and brief descriptions
   </Group>
   <Group>
   <Dont title="When not to use" />
-     - Not suitable for displaying complex content requiring extensive explanation
-     - Avoid using for long lists of data; it's better for highlighting and navigating
+     - Not suitable for displaying complex information requiring extensive explanation
+     - Avoid using ListAction for long lists of data. It's better for highlighting and navigating
   </Group>
 </TwoCol>
 
@@ -30,30 +30,30 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/36/fd/80/36fd807eee36dbd71f4f8719b5caf45d.png" alt="Example of grouped ListAction items. For example, message settings under the heading - Messages."/>
     <Do title="Do" />
-    Group related items together to aid user comprehension and streamline navigation. Consider dividers to break up groups that differ in content.
+    Group related items together to aid comprehension and streamline navigation. Consider dividers to break up groups that differ in purpose.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/cb/69/ce/cb69ceb27234bf62f302a6d0a1c2d0a4.png" alt="Example of two ListAction items with accompanying icons"/>
     <Dont title="Don't" />
-    Don't overuse icons. Choose icons that are easily recognizable and directly related to the item's content.
+    Don't overuse icons. Pick easily recognizable icons that are directly related to the list item's purpose.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/8a/ea/54/8aea54102b7dcb6666a2df847242c1ab.png" alt="Two ListAction items with short and clear copy."/>
     <Do title="Do" />
-    Keep text succinct so row content is easy to scan and comfortable to read.
+    Keep text succinct so row information is easy to scan and comfortable to read.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/e2/84/ca/e284ca71eccfc7755f11ccaf8c5607fc.png" alt="An ListAction item with four lines or complex copy"/>
     <Dont title="Don't" />
-    Use more than 3 lines of subtext as it reduces scan-ability and can pose issues with internationalization, spacing, and comprehension.
+    Use more than three lines of subtext as it reduces scanability and can pose issues with internationalization, spacing, and comprehension.
   </Group>
 </TwoCol>
 
 ## Accessibility
 
-- Make sure the ListAction component includes appropriate list markup, with screen readers announcing the number and content of each item.
-- Ensure that interactive elements in list items, such as checkboxes or buttons, are both focusable and usable.
-- Include descriptive alt text for icons and labels that convey the purpose of each item. 
+- Make sure the ListAction component includes appropriate list markup, with screen readers announcing the number of items, along with each item.
+- Make sure that interactive elements in list items, such as checkboxes or buttons, are both focusable and usable.
+- Include descriptive alt text for icons and labels that convey the purpose of each item.
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
@@ -71,20 +71,20 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 ### Defualt
 
-The default ListAction items do not include a start item and only display text, but they still allow for end items to be displayed.
+The default ListAction items don't include a start item and only display text, but they still allow for end items to be displayed.
 <br/>
 <ImgContainer src="https://i.pinimg.com/originals/b5/5f/62/b55f62ff3f210c6f490d5377a35998e4.png" alt="An example of the ListAction component"/>
 
 ### Start items
 
-ListAction items can display 3 different start items.
+ListAction items can display three different start items.
 
 1. **Avatar**
   Commonly used to represent users, profiles, comments or messages in a list.
 2. **Icon**
   Using icons can effectively communicate meaning or context, thereby enhancing the visual information conveyed by list items.
 3. **Image**
-  This is usually used when a visual representation is necessary and can also be used to represent a Pin or Board.
+  This is usually used when a visual representation is necessary and can also be used to represent a Pin or board.
 <br/>
 <TwoCol>
   <Group>
@@ -101,24 +101,24 @@ ListAction items can display 3 different start items.
   </Group>
 </TwoCol>
 
-### End & navigation items
+### End and navigation items
 
 ListAction items can display a variety of end items.
 
 1. **Button**
-  Use to perform a specific action related to an item in the Action List, such as following or unfollowing a user.
+  Used to perform a specific action related to an item in the list, such as following or unfollowing a user.
 2. **Checkbox**
-  Allows users to select multiple items within an Action List
+  Allows users to pick multiple items within a list
 3. **Select**
-  Enables users to choose a single option from an Action List
+  Enables users to pick a single option from a list
 4. **Switch**
   Toggles a specific feature on or off. Typically used for binary settings like activating dark mode.
 5. **Icon Button**
-  Represents and action moving the user forward or in regards to that specific Action List item. Typically an arrow moving the user to a new page.
+  Represents an action moving the user forward or about that specific list item. Typically an arrow moving the user to a new page.
 6. **Text**
-  Additional information at the end of the Action List item
+  Additional information at the end of the list item
 7. **Text + Icon Button**
-  Additional information at the end of the Action List item with the addition of a specific icon button action
+  Additional information at the end of the list item with the addition of a specific icon button action
 <br/>
 <TwoCol>
   <Group>
@@ -153,7 +153,7 @@ ListAction items can display a variety of end items.
 
 ### End item placement
 
-Checkbox, Select, and Switch end items will always appear in-line with the title. All other end items will appear centered within the container of the ListAction item. 
+Checkbox, Select, and Switch end items will always appear in line with the title. All other end items will appear centered within the container of the ListAction item.
 <br/>
 <TwoCol>
   <Group>
@@ -168,10 +168,10 @@ Checkbox, Select, and Switch end items will always appear in-line with the title
 
 ## Writing
 - Use short, meaningful labels that succinctly describe the purpose of each item
-- Avoid truncation. If your copy is longer than 3 lines, consider revising the content.
-- For headings use nouns or short phrases with title-style capitalization, and don’t use punctuation. 
+- Avoid truncation. If your copy is longer than three lines, consider revising the text.
+- For headings use nouns or short phrases with title-style capitalization, and don't use punctuation.
 
 ## Localization
-Be sure to localize the ListAction text. Note that localization can lengthen text by 20 to 30 percent.
+Be sure to localize the ListAction text. Note that localization can lengthen text by 20 to 30%.
 <br/>
 <ImgContainer padding="standard" src="https://i.pinimg.com/originals/92/a5/8b/92a58b2f91f0c3bf74c6c3bfb06f19a9.png" alt="A ListAction example reversed to reflect the location."/>
