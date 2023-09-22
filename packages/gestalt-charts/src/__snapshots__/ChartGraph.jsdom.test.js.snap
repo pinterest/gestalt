@@ -3,59 +3,59 @@
 exports[`ChartGraph renders bar chart 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Accessibility view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
+                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ exports[`ChartGraph renders bar chart 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -220,6 +220,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -234,6 +239,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -245,6 +255,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -295,6 +310,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -310,6 +330,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -333,6 +358,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -348,6 +378,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -362,6 +397,11 @@ exports[`ChartGraph renders bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -779,6 +819,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -796,6 +837,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -813,6 +855,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -830,6 +873,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -847,6 +891,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -864,6 +909,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -881,6 +927,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -909,6 +956,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -926,6 +974,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -943,6 +992,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -960,6 +1010,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -977,6 +1028,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -994,6 +1046,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1011,6 +1064,7 @@ exports[`ChartGraph renders bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1037,20 +1091,20 @@ exports[`ChartGraph renders bar chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -1066,10 +1120,10 @@ exports[`ChartGraph renders bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -1077,13 +1131,13 @@ exports[`ChartGraph renders bar chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -1099,10 +1153,10 @@ exports[`ChartGraph renders bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -1119,7 +1173,7 @@ exports[`ChartGraph renders bar chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
@@ -1134,59 +1188,59 @@ exports[`ChartGraph renders bar chart 1`] = `
 exports[`ChartGraph renders bar with pattern chart 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Default view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 selected__y91 darkGrayBg__BsF"
+                    class="x8f INd _O1 KS5 mQ8 y91 BsF"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -1204,7 +1258,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -1351,6 +1405,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -1365,6 +1424,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -1376,6 +1440,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -1426,6 +1495,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -1441,6 +1515,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -1464,6 +1543,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -1479,6 +1563,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -1493,6 +1582,11 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -1910,6 +2004,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1927,6 +2022,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1944,6 +2040,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1961,6 +2058,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1978,6 +2076,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -1995,6 +2094,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2012,6 +2112,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2040,6 +2141,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2057,6 +2159,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2074,6 +2177,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2091,6 +2195,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2108,6 +2213,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2125,6 +2231,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2142,6 +2249,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -2168,20 +2276,20 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -2197,10 +2305,10 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -2208,13 +2316,13 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -2230,10 +2338,10 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -2250,7 +2358,7 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
@@ -2265,59 +2373,59 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
 exports[`ChartGraph renders combo chart 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Accessibility view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
+                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -2335,7 +2443,7 @@ exports[`ChartGraph renders combo chart 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -2482,6 +2590,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -2496,6 +2609,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -2507,6 +2625,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -2557,6 +2680,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -2572,6 +2700,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -2595,6 +2728,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -2610,6 +2748,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -2624,6 +2767,11 @@ exports[`ChartGraph renders combo chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -3041,6 +3189,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3058,6 +3207,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3075,6 +3225,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3092,6 +3243,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3109,6 +3261,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3126,6 +3279,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3143,6 +3297,7 @@ exports[`ChartGraph renders combo chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -3185,20 +3340,20 @@ exports[`ChartGraph renders combo chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -3214,10 +3369,10 @@ exports[`ChartGraph renders combo chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -3225,13 +3380,13 @@ exports[`ChartGraph renders combo chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           height="16"
@@ -3247,10 +3402,10 @@ exports[`ChartGraph renders combo chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -3267,7 +3422,7 @@ exports[`ChartGraph renders combo chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
@@ -3282,59 +3437,59 @@ exports[`ChartGraph renders combo chart 1`] = `
 exports[`ChartGraph renders exact & precise line chart 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Accessibility view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
+                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -3352,7 +3507,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -3499,6 +3654,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -3513,6 +3673,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -3524,6 +3689,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -3574,6 +3744,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -3589,6 +3764,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -3612,6 +3792,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -3627,6 +3812,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -3641,6 +3831,11 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -4089,20 +4284,20 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           height="16"
@@ -4118,10 +4313,10 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -4129,13 +4324,13 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           height="16"
@@ -4182,10 +4377,10 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -4202,7 +4397,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
@@ -4217,59 +4412,59 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
 exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Default view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 selected__y91 darkGrayBg__BsF"
+                    class="x8f INd _O1 KS5 mQ8 y91 BsF"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -4287,7 +4482,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -4434,6 +4629,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -4448,6 +4648,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -4459,6 +4664,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -4509,6 +4719,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -4524,6 +4739,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -4547,6 +4767,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -4562,6 +4787,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -4576,6 +4806,11 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -5003,6 +5238,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                 />
                 <g
                   class="recharts-layer recharts-line-dots"
+                  role="img"
                 >
                   <use
                     fill="#003c96"
@@ -5071,7 +5307,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                   fill="none"
                   height="750"
                   stroke="#11a69c"
-                  stroke-dasharray="7 7"
+                  stroke-dasharray="8 8"
                   stroke-width="2"
                   width="730"
                 />
@@ -5080,6 +5316,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                 />
                 <g
                   class="recharts-layer recharts-line-dots"
+                  role="img"
                 >
                   <use
                     fill="var(--color-white-mochimalist-0)"
@@ -5145,20 +5382,20 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           height="14"
@@ -5190,10 +5427,10 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -5201,13 +5438,13 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           height="14"
@@ -5239,10 +5476,10 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -5259,7 +5496,7 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
@@ -5274,59 +5511,59 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
 exports[`ChartGraph renders reference area 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Accessibility view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
+                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -5344,7 +5581,7 @@ exports[`ChartGraph renders reference area 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -5491,6 +5728,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -5505,6 +5747,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -5516,6 +5763,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -5566,6 +5818,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -5581,6 +5838,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -5604,6 +5866,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -5619,6 +5886,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -5633,6 +5905,11 @@ exports[`ChartGraph renders reference area 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -6053,6 +6330,7 @@ exports[`ChartGraph renders reference area 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6070,6 +6348,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6087,6 +6366,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6104,6 +6384,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6121,6 +6402,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6138,6 +6420,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6155,6 +6438,7 @@ exports[`ChartGraph renders reference area 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -6197,20 +6481,20 @@ exports[`ChartGraph renders reference area 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -6226,10 +6510,10 @@ exports[`ChartGraph renders reference area 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -6237,13 +6521,13 @@ exports[`ChartGraph renders reference area 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           height="16"
@@ -6259,10 +6543,10 @@ exports[`ChartGraph renders reference area 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -6270,13 +6554,13 @@ exports[`ChartGraph renders reference area 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -6292,10 +6576,10 @@ exports[`ChartGraph renders reference area 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           ExampleBD
                         </div>
@@ -6312,7 +6596,7 @@ exports[`ChartGraph renders reference area 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
@@ -6327,59 +6611,59 @@ exports[`ChartGraph renders reference area 1`] = `
 exports[`ChartGraph renders stacked bar chart 1`] = `
 <div>
   <div
-    class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+    class="jzS un8 C9i TB_"
     style="width: 100%; height: 100%;"
   >
     <div
-      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX4__fZz paddingY4__qDf xsDirectionColumn__jzS xsDisplayFlex__Jea"
+      class="Jea fZz jzS qDf urM zI7 iyn Hsu"
       style="width: 100%;"
     >
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom5__kKU"
+        class="kKU zI7 iyn Hsu"
         style="width: 100%;"
       >
         <div
-          class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionRow__hs0"
+          class="hs0 un8 C9i TB_"
           style="width: 100%;"
         >
           <div
-            class="FlexItem__xuA flexGrow__ujU"
+            class="ujU xuA"
           >
             <div
-              class="Flex__un8 rowGap0__C9i columnGap0__TB_ xsDirectionColumn__jzS"
+              class="jzS un8 C9i TB_"
             >
               <h4
-                class="Heading__lH1 antialiased__dyH sansSerif__iFc fontWeightSemiBold__H2s fontSize300__sAJ inverseText__xnr alignStart__zDA breakWord__IZT"
+                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
               />
               <div
-                class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 inverseText__xnr alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
             </div>
           </div>
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu xsDisplayBlock__oy8"
+            class="oy8 zI7 iyn Hsu"
           >
             <div
               aria-label="Accessibility view mode"
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+              class="zI7 iyn Hsu"
             >
               <button
                 aria-label=""
-                class="parentButton__HEm noBorder__adn p0__yQo paddingX0__lnZ paddingY0__wsz transparentBg__YbY"
+                class="HEm adn yQo lnZ wsz YbY"
                 tabindex="0"
                 type="button"
               >
                 <div
-                  class="button__rYa block__kVc noBorder__adn p0__yQo tapTransition__S9z enabled__qrs pointer__BG7"
+                  class="rYa kVc adn yQo S9z qrs BG7"
                 >
                   <div
-                    class="pog__x8f circle__INd flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 transparent__OGJ transparentBg__YbY"
+                    class="x8f INd _O1 KS5 mQ8 OGJ YbY"
                     style="height: 24px; width: 24px;"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon__gUZ inverseIcon__PLa iconBlock__U9O block__kVc"
+                      class="gUZ PLa U9O kVc"
                       height="12"
                       role="img"
                       viewBox="0 0 24 24"
@@ -6397,7 +6681,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
         </div>
       </div>
       <div
-        class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+        class="zI7 iyn Hsu"
         style="width: 100%; height: 100%; max-width: 960px;"
       >
         <div
@@ -6544,6 +6828,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="5"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="5"
+                    width="5"
+                  />
                   <circle
                     cx="2"
                     cy="2"
@@ -6558,6 +6847,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   width="3"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="3"
+                    width="3"
+                  />
+                  <rect
                     fill="#924af7"
                     height="2"
                     width="2"
@@ -6569,6 +6863,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="7"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="7"
+                    width="7"
+                  />
                   <circle
                     cx="3"
                     cy="3"
@@ -6619,6 +6918,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="8"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <path
                     d="M 0 0 L 4 8 L 8 0"
                     fill="none"
@@ -6634,6 +6938,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   x="0"
                   y="0"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
                   <rect
                     fill="#400387"
                     height="4"
@@ -6657,6 +6966,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   width="4"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
+                  <rect
                     fill="#f2681f"
                     height="4"
                     width="2"
@@ -6672,6 +6986,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   y="0"
                 >
                   <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="8"
+                    width="8"
+                  />
+                  <rect
                     fill="#005062"
                     height="5"
                     width="5"
@@ -6686,6 +7005,11 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   patternUnits="userSpaceOnUse"
                   width="4"
                 >
+                  <rect
+                    fill="var(--color-white-mochimalist-0)"
+                    height="4"
+                    width="4"
+                  />
                   <rect
                     fill="#de2c62"
                     height="4"
@@ -7103,6 +7427,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7120,6 +7445,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7137,6 +7463,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7154,6 +7481,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7171,6 +7499,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7188,6 +7517,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7205,6 +7535,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7233,6 +7564,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                 >
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7250,6 +7582,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7267,6 +7600,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7284,6 +7618,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7301,6 +7636,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7318,6 +7654,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7335,6 +7672,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                   </g>
                   <g
                     class="recharts-layer recharts-bar-rectangle"
+                    role="img"
                   >
                     <path
                       class="recharts-rectangle"
@@ -7361,20 +7699,20 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
               style="position: absolute; width: 790px; height: auto; left: 5px; bottom: 10px;"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu"
+                class="zI7 iyn Hsu"
                 style="width: 100%;"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap0__TB_ flexWrap__kzZ xsDirectionRow__hs0"
+                  class="hs0 kzZ un8 HOt TB_"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -7390,10 +7728,10 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_01
                         </div>
@@ -7401,13 +7739,13 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                     </div>
                   </div>
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <div
-                      class="Flex__un8 rowGap2__tkf columnGap0__TB_ xsDirectionRow__hs0"
+                      class="hs0 un8 tkf TB_"
                     >
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <svg
                           aria-hidden="true"
@@ -7423,10 +7761,10 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
                         </svg>
                       </div>
                       <div
-                        class="FlexItem__xuA"
+                        class="xuA"
                       >
                         <div
-                          class="Text__tBJ antialiased__dyH sansSerif__iFc fontSize200__j1A defaultText__O2T alignStart__zDA breakWord__IZT fontWeightNormal__swG"
+                          class="tBJ dyH iFc j1A O2T zDA IZT swG"
                         >
                           element_02
                         </div>
@@ -7443,7 +7781,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
               tabindex="-1"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu default__urM paddingX2__wYR paddingY2__hA- rounding4__ho- shadow__ALa"
+                class="ALa hA- ho- urM wYR zI7 iyn Hsu"
                 style="max-width: 300px;"
               />
             </div>
