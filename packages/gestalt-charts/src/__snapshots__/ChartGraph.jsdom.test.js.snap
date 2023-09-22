@@ -24,9 +24,19 @@ exports[`ChartGraph renders bar chart 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -36,7 +46,7 @@ exports[`ChartGraph renders bar chart 1`] = `
             class="oy8 zI7 iyn Hsu"
           >
             <div
-              aria-label="Accessibility view mode"
+              aria-label="Visual pattern view"
               class="zI7 iyn Hsu"
             >
               <button
@@ -1209,9 +1219,19 @@ exports[`ChartGraph renders bar with pattern chart 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -2394,9 +2414,19 @@ exports[`ChartGraph renders combo chart 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -2406,7 +2436,7 @@ exports[`ChartGraph renders combo chart 1`] = `
             class="oy8 zI7 iyn Hsu"
           >
             <div
-              aria-label="Accessibility view mode"
+              aria-label="Visual pattern view"
               class="zI7 iyn Hsu"
             >
               <button
@@ -3458,9 +3488,19 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -3470,7 +3510,7 @@ exports[`ChartGraph renders exact & precise line chart 1`] = `
             class="oy8 zI7 iyn Hsu"
           >
             <div
-              aria-label="Accessibility view mode"
+              aria-label="Visual pattern view"
               class="zI7 iyn Hsu"
             >
               <button
@@ -4433,9 +4473,19 @@ exports[`ChartGraph renders exact & precise with pattern line chart 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -5532,9 +5582,19 @@ exports[`ChartGraph renders reference area 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -5544,7 +5604,7 @@ exports[`ChartGraph renders reference area 1`] = `
             class="oy8 zI7 iyn Hsu"
           >
             <div
-              aria-label="Accessibility view mode"
+              aria-label="Visual pattern view"
               class="zI7 iyn Hsu"
             >
               <button
@@ -6632,9 +6692,19 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
             <div
               class="jzS un8 C9i TB_"
             >
-              <h4
-                class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
-              />
+              <div
+                class="KS5 hs0 un8 tkf A6h"
+              >
+                <div
+                  class="xuA"
+                >
+                  <h4
+                    class="lH1 dyH iFc H2s sAJ xnr zDA IZT"
+                  >
+                    ChartGraph
+                  </h4>
+                </div>
+              </div>
               <div
                 class="tBJ dyH iFc dR0 xnr zDA IZT swG"
               />
@@ -6644,7 +6714,7 @@ exports[`ChartGraph renders stacked bar chart 1`] = `
             class="oy8 zI7 iyn Hsu"
           >
             <div
-              aria-label="Accessibility view mode"
+              aria-label="Visual pattern view"
               class="zI7 iyn Hsu"
             >
               <button

@@ -1,5 +1,5 @@
 // @flow strict-local
-import { Fragment, type Node, useEffect, useMemo, useState } from 'react';
+import { type Element, Fragment, type Node, useEffect, useMemo, useState } from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { Box, Flex, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
+import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
 import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
@@ -53,6 +53,11 @@ type Props = {|
     type: 'line' | 'bar',
   |}>,
   /**
+   * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
+   */
+
+  helpButton?: Element<typeof HelpButton>,
+  /**
    * Callback fired when the Accessibility IconButton in ChartGraph is clicked. ChartGraph's visual patterns is a controlled feature. `onVisualPatternChange` is used to enable/disable visual patterns in ChartGraph.
    *
    * See the [accessibility guidelines on visual patterns](https://gestalt.pinterest.systems/web/chartgraph#Visual-patterns) to learn more.
@@ -68,7 +73,7 @@ type Props = {|
   /**
    * Description of ChartGraph. Be sure to localize the text.
    *
-   * See the [title variant](https://gestalt.pinterest.systems/web/chartgraph#Title-and-description) to learn more.
+   * See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
   description?: string,
   /**
@@ -152,9 +157,13 @@ type Props = {|
   /**
    * Title of ChartGraph. Be sure to localize the text.
    *
-   * See the [title and description variant](https://gestalt.pinterest.systems/web/chartgraph#Title-and-description) to learn more.
+   * See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
-  title?: string,
+  title: string,
+  /**
+   * Whether the title should be visible or not. If hidden, the title is still available in the tabular data modal.
+   */
+  titleDisplay?: 'visible' | 'hidden',
   /**
    * ChartGraph is responsive. If your ChartGraph's width is below the 576 px breakpoint, ChartGraph will flick and correct the amount of ticks. To prevent that, set initialTicks to 3. ChartGraph above 576 px, don't require this adjusment.
    *
@@ -237,6 +246,7 @@ function ChartGraph({
   description,
   initialTicks = 'auto',
   range = [0, 'auto'],
+  helpButton,
   elements,
   layout: externalLayout = 'vertical',
   labelMap,
@@ -245,6 +255,7 @@ function ChartGraph({
   stacked,
   tickFormatter,
   selectors,
+  titleDisplay = 'visible',
   title,
   type = 'combo',
   referenceAreas = [],
@@ -412,14 +423,16 @@ function ChartGraph({
         color="default"
         padding={4}
       >
-        {visualPatternSelected !== 'disabled' || title ? (
+        {visualPatternSelected === 'disabled' && titleDisplay === 'hidden' ? null : (
           <Header
             readyToRender={chartWidth > 0}
             title={title}
+            titleDisplay={titleDisplay}
             description={description}
             onVisualPatternChange={onVisualPatternChange}
+            helpButton={helpButton}
           />
-        ) : null}
+        )}
         {selectors && selectors.selector === 'TileData' ? (
           <Box marginBottom={4}>
             <Flex gap={2}>

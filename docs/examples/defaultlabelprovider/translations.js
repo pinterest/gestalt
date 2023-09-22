@@ -23,7 +23,7 @@ const labels = {
   ChartGraph: {
     accessibilityLabelPrefixText: myI18nTranslator('ChartGraph'),
     defaultViewText: myI18nTranslator('Default view mode'),
-    accessibleViewText: myI18nTranslator('Accessibility view mode'),
+    accessibleViewText: myI18nTranslator('Visual pattern view'),
   },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),

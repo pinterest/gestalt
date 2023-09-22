@@ -1,6 +1,6 @@
 // @flow strict
-import { type Node } from 'react';
-import { Box, Flex, Heading, IconButton, Text, useDefaultLabel } from 'gestalt';
+import { type Element, type Node } from 'react';
+import { Box, Flex, Heading, HelpButton, IconButton, Text, useDefaultLabel } from 'gestalt';
 import { useChartContext } from './ChartGraphContext.js';
 
 export default function Header({
@@ -8,11 +8,15 @@ export default function Header({
   readyToRender,
   description,
   onVisualPatternChange,
+  helpButton,
+  titleDisplay,
 }: {|
   readyToRender: boolean,
   title?: string,
   description?: string,
   onVisualPatternChange: () => void,
+  helpButton?: Element<typeof HelpButton>,
+  titleDisplay?: 'visible' | 'hidden',
 |}): Node {
   const { accessibleViewText, defaultViewText } = useDefaultLabel('ChartGraph');
   const { decal: showVisualPattern } = useChartContext();
@@ -21,15 +25,20 @@ export default function Header({
     <Box width="100%" marginBottom={5}>
       <Flex width="100%">
         <Flex.Item flex="grow">
-          <Flex direction="column">
-            <Heading color={readyToRender ? 'default' : 'inverse'} size="300">
-              {title}
-            </Heading>
-            {/* We need this hack to tick the eye while chart is not rendered and title/description is repositioning. This prevents from seeing title/description flick. */}
-            <Text color={readyToRender ? 'subtle' : 'inverse'} size="100">
-              {description}
-            </Text>
-          </Flex>
+          {titleDisplay === 'hidden' ? null : (
+            <Flex direction="column">
+              <Flex gap={2} alignItems="center">
+                <Heading color={readyToRender ? 'default' : 'inverse'} size="300">
+                  {title}
+                </Heading>
+                {helpButton || null}
+              </Flex>
+              {/* We need this hack to tick the eye while chart is not rendered and title/description is repositioning. This prevents from seeing title/description flick. */}
+              <Text color={readyToRender ? 'subtle' : 'inverse'} size="100">
+                {description}
+              </Text>
+            </Flex>
+          )}
         </Flex.Item>
         {showVisualPattern === 'disabled' ? null : (
           <IconButton

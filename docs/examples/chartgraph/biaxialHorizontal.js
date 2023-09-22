@@ -57,6 +57,8 @@ export default function Example(): Node {
         />
       </RadioGroup>
       <ChartGraph
+        title="ChartGraph"
+        titleDisplay="hidden"
         accessibilityLabel="Example of horizontal biaxial chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>

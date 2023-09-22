@@ -50,6 +50,8 @@ export default function Example(): Node {
         />
       </RadioGroup>
       <ChartGraph
+        title="ChartGraph"
+        titleDisplay="hidden"
         accessibilityLabel="Example of time series chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>

@@ -145,6 +145,8 @@ export default function Example(): Node {
           }}
         >
           <ChartGraph
+            title="ChartGraph"
+            titleDisplay="hidden"
             accessibilityLabel="Example of chart with decal custom dimension"
             visualPatternSelected={visualPatternSelected}
             onVisualPatternChange={() =>

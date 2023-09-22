@@ -1,7 +1,7 @@
 // @flow strict-local
 import { type ElementConfig, type Node, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
-import { Flex } from 'gestalt';
+import { Flex, HelpButton } from 'gestalt';
 import ChartGraph from './ChartGraph.js';
 
 // Mock needed here do to https://stackoverflow.com/questions/73117667/writing-unit-tests-with-react-testing-library-for-recharts
@@ -86,6 +86,7 @@ function ChartWrap(props: Props) {
         elements={props.elements}
         layout={props.layout}
         legend={props.legend}
+        helpButton={props.helpButton}
         onVisualPatternChange={
           props.onVisualPatternChange ||
           (() =>
@@ -125,6 +126,8 @@ describe('ChartGraph', () => {
   it('renders bar chart', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         data={data}
         elements={[
@@ -139,6 +142,8 @@ describe('ChartGraph', () => {
   it('renders bar with pattern chart', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         visualPatternSelected="visualPattern"
         data={data}
@@ -154,6 +159,8 @@ describe('ChartGraph', () => {
   it('renders stacked bar chart', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         data={data}
         stacked
@@ -169,6 +176,8 @@ describe('ChartGraph', () => {
   it('renders exact & precise line chart', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="line"
         data={data}
         elements={[
@@ -183,6 +192,8 @@ describe('ChartGraph', () => {
   it('renders exact & precise with pattern line chart', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="line"
         visualPatternSelected="visualPattern"
         data={data}
@@ -198,6 +209,8 @@ describe('ChartGraph', () => {
   it('renders combo chart', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="combo"
         data={data}
         elements={[
@@ -212,6 +225,8 @@ describe('ChartGraph', () => {
   it('renders reference area', () => {
     const { container } = render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="combo"
         referenceAreas={[
           {
@@ -237,6 +252,8 @@ describe('ChartGraph', () => {
   it('renders with x/y axis', () => {
     render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         data={data}
         elements={[
@@ -277,13 +294,20 @@ describe('ChartGraph', () => {
     expect(screen.queryAllByText('translated01')[0]).toBeVisible();
   });
 
-  it('renders with title & description', () => {
+  it('renders with full header: title, description, helpbutton, switches', () => {
     render(
       <ChartWrap
         type="bar"
         title="Title"
         description="Description"
         data={data}
+        helpButton={
+          <HelpButton
+            accessibilityLabel="Test label helpbutton"
+            accessibilityPopoverLabel="Test"
+            text="Test"
+          />
+        }
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
@@ -292,11 +316,15 @@ describe('ChartGraph', () => {
     );
     expect(screen.getByText('Title')).toBeVisible();
     expect(screen.getByText('Description')).toBeVisible();
+    expect(screen.getByLabelText('Test label helpbutton')).toBeVisible();
+    expect(screen.getByLabelText('Visual pattern view')).toBeVisible();
   });
 
   it('renders with legend', () => {
     render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         data={data}
         elements={[
@@ -312,6 +340,8 @@ describe('ChartGraph', () => {
   it('renders with no legend', () => {
     render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         legend="none"
         data={data}
@@ -329,6 +359,8 @@ describe('ChartGraph', () => {
     const mockonVisualPatternChange = jest.fn<[], void>();
     render(
       <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
         type="bar"
         legend="none"
         onVisualPatternChange={mockonVisualPatternChange}

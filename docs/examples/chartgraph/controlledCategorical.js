@@ -22,6 +22,8 @@ export default function Example(): Node {
   return (
     <Flex height="100%" width="100%" direction="column" gap={2}>
       <ChartGraph
+        title="ChartGraph"
+        titleDisplay="hidden"
         accessibilityLabel="Example controlled component with bars"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>

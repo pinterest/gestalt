@@ -21,6 +21,8 @@ export default function Example(): Node {
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
+      title="ChartGraph"
+      titleDisplay="hidden"
       visualPatternSelected="disabled"
       onVisualPatternChange={() => {}}
       type="bar"

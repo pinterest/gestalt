@@ -19,6 +19,8 @@ export default function Example(): Node {
 
   return (
     <ChartGraph
+      title="ChartGraph"
+      titleDisplay="hidden"
       accessibilityLabel="Example of chart with decal pattern in bars"
       visualPatternSelected={visualPatternSelected}
       onVisualPatternChange={() =>

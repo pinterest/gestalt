@@ -348,10 +348,17 @@ Props:  \`layout="verticalBiaxial"\`  \`layout="horizontalBiaxial"\`
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Title & description"
-          description={`A title for the graph in case it’s not displayed elsewhere on the screen. An optional description is available if more context is needed.
+          title="Header"
+          description={`ChartGraph's header support a title, description, a HelpButton, and the accessibility features: tabular data and visual patterns switch buttons.
 
-Props:  \`title\`  \`description\`.
+1. Title. A title for the graph in case it’s not displayed elsewhere on the screen.
+2. Description. An optional description is available if more context is needed.
+3. HelpButton
+4. Tabular data switch button. Not available yet.
+4. Visual pattern switch button.
+
+
+Props:  \`title\`  \`description\` \`helpButton\`
 `}
         >
           <MainSection.Card

@@ -107,6 +107,8 @@ export default function Example(): Node {
       </Flex>
 
       <ChartGraph
+        title="ChartGraph"
+        titleDisplay="hidden"
         accessibilityLabel="Example of chart with decal custom dimension"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>

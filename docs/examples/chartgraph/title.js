@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Flex } from 'gestalt';
+import { Flex, HelpButton } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -33,6 +33,18 @@ export default function Example(): Node {
         visualPatternSelected="disabled"
         onVisualPatternChange={() => {}}
         title="Clicks vs conversions"
+        helperButton={
+          <HelpButton
+            accessibilityLabel="Click to learn more this ChartGraph"
+            accessibilityPopoverLabel="Expanded information about this ChartGraph"
+            text="If you want to learn more about Clicks vs conversions, visit our Help center."
+            link={{
+              href: 'https://help.pinterest.com/en/business/article/conversion-insights/',
+              text: 'Read our documentation',
+              accessibilityLabel: 'Visit our Help center',
+            }}
+          />
+        }
         description="Includes both web and mobile"
         layout="verticalBiaxial"
         data={data}

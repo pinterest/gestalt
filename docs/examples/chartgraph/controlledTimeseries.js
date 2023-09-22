@@ -46,6 +46,8 @@ export default function Example(): Node {
         />
       </RadioGroup>
       <ChartGraph
+        title="ChartGraph"
+        titleDisplay="hidden"
         accessibilityLabel="Example controlled component with bars"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>

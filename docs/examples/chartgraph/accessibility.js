@@ -31,6 +31,8 @@ export default function Example(): Node {
         setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
       }
       type="bar"
+      title="ChartGraph"
+      titleDisplay="hidden"
       data={data}
       elements={[
         { type: 'bar', id: 'Series_01' },
