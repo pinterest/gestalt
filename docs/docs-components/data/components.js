@@ -22,7 +22,7 @@ import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
-// import ChartGraph from '../../graphics/general/ChartGraph.svg';
+import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
@@ -502,7 +502,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       web: {
         name: 'ChartGraph',
         visual: {
-          svg: <svg />,
+          svg: <ChartGraph />,
         },
         alias: ['Bar Graph', 'Line Graph', 'Column Graph'],
         description:
