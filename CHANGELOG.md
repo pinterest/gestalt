@@ -1,3 +1,9 @@
+## 123.0.8 (Sep 22, 2023)
+
+### Patch
+
+- Docs: Add ListAction component ([#3205](https://github.com/pinterest/gestalt/pull/3205)) - [Preview link](https://deploy-preview-3205--gestalt.netlify.app?devexample=true)
+
 ## 123.0.7 (Sep 22, 2023)
 
 ### Patch
