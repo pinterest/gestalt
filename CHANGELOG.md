@@ -1,3 +1,9 @@
+## 123.0.7 (Sep 22, 2023)
+
+### Patch
+
+- WashAnimated: Remove space tokens ([#3213](https://github.com/pinterest/gestalt/pull/3213)) - [Preview link](https://deploy-preview-3213--gestalt.netlify.app?devexample=true)
+
 ## 123.0.6 (Sep 21, 2023)
 
 ### Patch
