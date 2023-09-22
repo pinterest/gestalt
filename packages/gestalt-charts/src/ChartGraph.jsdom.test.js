@@ -1,6 +1,5 @@
 // @flow strict-local
 import { type ElementConfig, type Node, useState } from 'react';
-import { create } from 'react-test-renderer';
 import { act, render, screen } from '@testing-library/react';
 import { Flex, HelpButton } from 'gestalt';
 import ChartGraph from './ChartGraph.js';
