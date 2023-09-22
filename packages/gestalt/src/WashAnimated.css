@@ -20,7 +20,7 @@ html[dir="rtl"] .hover {
 @keyframes animate-in {
   to {
     opacity: 1;
-    padding: var(--space-400);
+    padding: 8px;
     transform: translateY(-8px) translateX(-8px);
   }
 }
@@ -28,7 +28,7 @@ html[dir="rtl"] .hover {
 @keyframes animate-in-rtl {
   to {
     opacity: 1;
-    padding: var(--space-400);
+    padding: 8px;
     transform: translateY(-8px) translateX(8px);
   }
 }
