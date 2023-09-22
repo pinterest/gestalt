@@ -70,7 +70,7 @@ type Props = {|
    */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
   /**
-   * The name attribute specifies the name of the <button> element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
+   * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
   name?: string,
   /**
