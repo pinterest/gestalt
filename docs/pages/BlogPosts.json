@@ -20,7 +20,7 @@
             "imageColor": "blue-skycicle-100",
             "imageSrc": "https://i.pinimg.com/originals/4d/3a/aa/4d3aaa0ea9a4cac5fb1588193ed6af17.png",
             "imageAltText": "Example of the new ListAction component.",
-            "content": "We have brand new docs for you. Meet the **ListAction** component!\n\nThe ListAction is a continuous vertical group of list items that can include text, icons, images, and actions.\n\n\n* Go to iOS documentation\n\n\n* Go to Android documentation"
+            "content": "We have brand new docs for you. Meet the **ListAction** component!\n\nThe ListAction is a continuous vertical group of list items that can include text, icons, images, and actions.\n\n\n* Go to [iOS](https://gestalt.pinterest.systems/ios/listaction) documentation\n\n\n* Go to [Android](https://gestalt.pinterest.systems/android/listaction) documentation"
           },
           {
             "title": "New AvatarGroup documentation for Android",
