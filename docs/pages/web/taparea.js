@@ -89,7 +89,11 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
         >
           <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
             {({ rounding }) => (
-              <TapArea rounding={rounding} fullWidth={false}>
+              <TapArea
+                rounding={rounding}
+                fullWidth={false}
+                accessibilityLabel={`rounding: ${rounding}`}
+              >
                 <Box
                   borderStyle="lg"
                   width={rounding === 'pill' ? 120 : 70}
