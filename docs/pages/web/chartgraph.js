@@ -55,8 +55,8 @@ export default function ComponentPage({
         description={generatedDocGen.ChartGraph?.description}
         slimBanner={
           <SlimBanner
-            type="error"
-            iconAccessibilityLabel="Info"
+            type="warning"
+            iconAccessibilityLabel="Warning"
             message="ChartGraph is still under development. The component API, style, and behaviour might change in follow-up releases."
           />
         }
@@ -154,7 +154,7 @@ export default function ComponentPage({
       <AccessibilitySection name={generatedDocGen.ChartGraph?.displayName}>
         <MainSection.Subsection
           title="Visual patterns"
-          description={`Charts use color to represent discrete categories. For people with color blindness or that experience difficulty in telling solid colors apart, the default color palette might be difficult to differentiate for some viewers. However, people with color blindness or other visual impairments may have difficulty telling certain colors apart.
+          description={`Charts use color to represent discrete categories. However, people with color blindness or other visual impairments may have difficulty telling certain colors apart.
 
 Therefore, ChartGraph provides an accessibility view mode where colors in bars and lines are replaced with visual patterns to help in their interpretation. Bar charts use pattern fills and line charts use series markers with different shapes to help distinguish between data points without using color alone. Each pattern fill and time series shape corresponds to one of the colors in our 12-color categorical palette.
 
@@ -266,7 +266,7 @@ Any abbreviations for dates and numerals should also be localized. Note that loc
           title="Bar horizontal"
           description={`Arrange bars in rows that stack from top to bottom when horizontal space and you have longer text labels. Also known as a "horizontal bar chart".
 
-Requires props: \`type="bar"\` (default), \`elements\` should be set to \`type="bar"\` and \`layout="horizontal"\`
+Props: \`type="bar"\` \`elements=[{..., type:'bar'}]\` \`layout="horizontal"\`
 
 `}
         >
@@ -279,9 +279,9 @@ Requires props: \`type="bar"\` (default), \`elements\` should be set to \`type="
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Bar column"
-          description={`In a column chart, bars are ordered horizontally. Use this when you have a small amount of data to compare and the horizontal space to do so. This includes text labels. If text labels are long, use a Row chart instead.
+          description={`In a column chart, bars are ordered horizontally. Use this when you have a small amount of data to compare and the horizontal space to do so. This includes text labels. If text labels are long, use Bar horizontal instead.
 
-Requires props: \`type="bar"\` (default) and \`layout="horizontal"\` (default)
+Props: \`type="bar"\` \`layout="horizontal"\`
           `}
         >
           <MainSection.Card
@@ -296,7 +296,7 @@ Requires props: \`type="bar"\` (default) and \`layout="horizontal"\` (default)
           title="Stacked bars"
           description={`Stacked bar charts break bars into smaller categories so that their relationship to the whole can be seen.
 
-Requires props: \`type="bar"\` (default) and \`stacked={true}\`
+Props: \`type="bar"\` \`stacked={true}\`
 
           `}
         >
@@ -312,7 +312,7 @@ Requires props: \`type="bar"\` (default) and \`stacked={true}\`
           title="Line"
           description={`A line graph plots numeric values for categorical data as a line that shows a progression through time.
 
-Requires props:  \`type="line"\` and \`elements\` should be set to \`type="line"\`
+Props:  \`type="line"\`  \`elements=[{..., type:'line'}]\`
           `}
         >
           <MainSection.Card
@@ -325,7 +325,7 @@ Requires props:  \`type="line"\` and \`elements\` should be set to \`type="line"
           title="Combo"
           description={`This combines a bar graph with a line graph. It is useful to see both categories and a trend or range over time.
 
-Requires props:  \`type="combo"\` and \`elements\` should be set to \`type="line"\` \`type="bar"\`
+Props:  \`type="combo"\` \`elements=[{..., type:'bar' or type:'line'}]\`
           `}
         >
           <MainSection.Card
@@ -336,9 +336,9 @@ Requires props:  \`type="combo"\` and \`elements\` should be set to \`type="line
 
         <MainSection.Subsection
           title="Biaxial"
-          description={`Biaxial graphs show two y-axis. They're used when different amounts need to be displayed per each category represented in the graph.
+          description={`Biaxial graphs show two y-axis. They're used when different amounts need to be displayed per each category.
 
-Requires props:  \`layout="verticalBiaxial"\` (default) or  \`layout="horizontalBiaxial"\`
+Props:  \`layout="verticalBiaxial"\`  \`layout="horizontalBiaxial"\`
 `}
         >
           <MainSection.Card
@@ -351,7 +351,7 @@ Requires props:  \`layout="verticalBiaxial"\` (default) or  \`layout="horizontal
           title="Title & description"
           description={`A title for the graph in case it’s not displayed elsewhere on the screen. An optional description is available if more context is needed.
 
-Requires props:  \`title\` and \`description"\`.
+Props:  \`title\`  \`description\`.
 `}
         >
           <MainSection.Card
@@ -364,7 +364,7 @@ Requires props:  \`title\` and \`description"\`.
           columns={2}
           description={`For showing more precise details on hover.
 
-Requires props:  \`renderTooltip\`
+Props: \`renderTooltip\`
           `}
         >
           <MainSection.Card
@@ -390,7 +390,7 @@ Requires props:  \`renderTooltip\`
           title="Legend"
           description={`Graphs that show more than one category should include a legend to clarify what color or pattern belongs to which category. For single axis charts, a legend isn’t needed when [TagData](/web/tagdata) or [TileData](/web/tiledata) are being used. Legend positions automatically on each layout for easier comprehension.
 
-Requires props: \`legend\`
+Props: \`legend\`
           `}
         >
           <MainSection.Card
@@ -403,7 +403,7 @@ Requires props: \`legend\`
           title="ReferenceArea"
           description={`Use to highlight an area in a graph for extra context. A common example is showing when data isn’t available.
 
-Requires props: \`referenceAreas\`
+Props: \`referenceAreas\`
           `}
         >
           <MainSection.Card
@@ -416,7 +416,7 @@ Requires props: \`referenceAreas\`
           description={`To show exact and accurate data, lines should be rectilinear. When showing trends, forecasts and imprecise data, then lines should be curved to denote that these are just approximations.
 
 
-Requires props: \`elements\` and setting \`precision='estimate'\`
+Props: \`elements=[{..., type:'line', precision='estimate'}]\`
           `}
         >
           <MainSection.Card
@@ -439,8 +439,8 @@ If different graphs need to be compared simultaneously, see example below, color
                     backgroundColor: `var(--g-colorDataVisualization${color})`,
                   },
                 }}
-                height={100}
-                width={100}
+                height={80}
+                width={80}
               />
             )}
           </CombinationNew>
@@ -452,8 +452,8 @@ If different graphs need to be compared simultaneously, see example below, color
                     backgroundColor: `var(--g-colorDataVisualization${color})`,
                   },
                 }}
-                height={100}
-                width={100}
+                height={80}
+                width={80}
               />
             )}
           </CombinationNew>
@@ -472,10 +472,11 @@ Single axis:
 2. horizontal
 
 Dual axis:
+
 3. verticalBiaxial
 4. horizontalBiaxial
 
-Requires props: \`layout\`
+Props: \`layout\`
 
         `}
         >
@@ -486,7 +487,7 @@ Requires props: \`layout\`
           title="Range"
           description={`ChartGraph automatically sets the minimum and maximum axis values. The \`range\` prop allows  adjusting them in case we need broader range values in the axis.
 
-Requires props: \`range\`
+Props: \`range\`
 
         `}
         >
@@ -495,12 +496,11 @@ Requires props: \`range\`
 
         <MainSection.Subsection
           title="Responsive"
-          description={`ChartGraph is a responsive component. ChartGraph's width adjust to the parent container. In order to render properly in requires a parent container with set dimensions.
+          description={`ChartGraph is responsive. ChartGraph's width adjusts to the parent container. In order to render properly, ChartGraph requires a parent container with set dimensions.
 
+For vertical layouts, ChartGraph has a set height based on the amount of ticks (five or three). For horizontal layouts, ChartGraph has a set height.
 
-          For vertical layour, ChartGraph has a set height based on the amount of ticks (five or three). For horizontal layouts, ChartGraph has a set height.
-
-          When ChartGraphs are contained within small containers (under 576 px wide), set \`initialTicks={3}\` to prevent ChartGraph to flicker.
+When ChartGraphs are contained within small containers (under 576px wide), set \`initialTicks={3}\` to prevent ChartGraph to flick.
           `}
         >
           <MainSection.Card
@@ -512,7 +512,7 @@ Requires props: \`range\`
           title="Selectors"
           description={`ChartGraph supports [TileData](/web/tiledata) and [TagData](/web/tagdata). The selection of TileData and TagData controls the data series displayed on ChartGraph.
 
-Requires props: \`selectors\`
+Props: \`selectors\`
           `}
         >
           <MainSection.Card sandpackExample={<SandpackExample code={tiledata} name="TileData" />} />
@@ -523,7 +523,7 @@ Requires props: \`selectors\`
           title="Tick format"
           description={`ChartGraph allows to format the values in the axis' ticks. For example, to translate numeric values to shorter ones (1000 => 1k) or to format dates based on locale.
 
-Requires props: \`tickFormatter\`.
+Props: \`tickFormatter\`.
 
 When localizing dates, use \`tickFormatter.timestamps\` as it traslates the values in the tooltip as well. \`tickFormatter.xAxisBottom\` overrides \`tickFormatter.timeseries\` when both are present, in case tooltip and x axis present different date formats.
 `}
@@ -537,7 +537,7 @@ When localizing dates, use \`tickFormatter.timestamps\` as it traslates the valu
           title="Time series"
           description={`ChartGraph supports timeseries. To enable timeseries, set \`tickFormatter.timeseries\`.
 
-Requires props: \`tickFormatter.timeseries\`.
+Props: \`tickFormatter.timeseries\`.
             `}
         >
           <MainSection.Card

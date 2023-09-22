@@ -3,7 +3,7 @@ import { type Node, useState } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
-  const [visualPatternSelected, setVisualPatternSelected] = useState('accessible');
+  const [visualPatternSelected, setVisualPatternSelected] = useState('visualPattern');
 
   const data = [
     {
@@ -40,7 +40,7 @@ export default function Example(): Node {
       accessibilityLabel="Example of chart with decal pattern in lines"
       visualPatternSelected={visualPatternSelected}
       onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
       }
       type="line"
       tickFormatter={{

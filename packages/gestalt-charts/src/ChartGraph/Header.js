@@ -42,10 +42,10 @@ export default function Header({
             iconColor={readyToRender ? 'darkGray' : 'white'}
             bgColor={readyToRender ? undefined : 'transparent'}
             onClick={onVisualPatternChange}
-            selected={showVisualPattern === 'accessible'}
+            selected={showVisualPattern === 'visualPattern'}
             size="xs"
             tooltip={{
-              text: showVisualPattern === 'accessible' ? defaultViewText : accessibleViewText,
+              text: showVisualPattern === 'visualPattern' ? defaultViewText : accessibleViewText,
             }}
           />
         )}

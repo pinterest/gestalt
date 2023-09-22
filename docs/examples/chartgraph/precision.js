@@ -28,7 +28,7 @@ export default function Example(): Node {
         accessibilityLabel="Example of time series chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         data={data}
         range={{

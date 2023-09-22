@@ -63,7 +63,7 @@ type Props = {|
    *
    * See the [accessibility guidelines on visual patterns](https://gestalt.pinterest.systems/web/chartgraph#Visual-patterns) to learn more.
    */
-  visualPatternSelected: 'disabled' | 'default' | 'accessible',
+  visualPatternSelected: 'disabled' | 'default' | 'visualPattern',
   // OPTIONAL
   /**
    * Description of ChartGraph. Be sure to localize the text.

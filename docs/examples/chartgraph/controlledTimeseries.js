@@ -49,7 +49,7 @@ export default function Example(): Node {
         accessibilityLabel="Example controlled component with bars"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         type={type}
         data={data}

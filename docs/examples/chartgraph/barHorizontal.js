@@ -34,7 +34,7 @@ export default function Example(): Node {
         accessibilityLabel="Example of a vertical bar chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         layout="horizontal"
         data={data}

@@ -2,12 +2,12 @@
 import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
 type TableContextType = {|
-  decal: ?'accessible' | 'default' | 'disabled',
+  decal: ?'visualPattern' | 'default' | 'disabled',
 |};
 
 type Props = {|
   children: Node,
-  decal: ?'accessible' | 'default' | 'disabled',
+  decal: ?'visualPattern' | 'default' | 'disabled',
 |};
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>({

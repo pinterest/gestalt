@@ -47,7 +47,7 @@ export interface ChartGraphProps {
     precision?: 'exact' | 'estimate';
   }>;
   onVisualPatternChange: () => void;
-  visualPatternSelected: 'disabled' | 'default' | 'accessible';
+  visualPatternSelected: 'disabled' | 'default' | 'visualPattern';
   description?: string;
   initialTicks?: 'auto' | 3;
   layout?: 'horizontal' | 'vertical' | 'horizontalBiaxial' | 'verticalBiaxial';

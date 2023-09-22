@@ -41,7 +41,7 @@ export default function Example(): Node {
         accessibilityLabel="Example of line chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         layout="verticalBiaxial"
         data={data}

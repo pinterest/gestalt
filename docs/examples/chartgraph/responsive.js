@@ -42,8 +42,77 @@ export default function Example(): Node {
   ];
 
   return (
-    <Box padding={2}>
-      <Flex direction="column" gap={4}>
+    <Box padding={2} width="100%">
+      <Flex direction="column" gap={5} width="100%">
+        <Flex width="100%" justifyContent="between">
+          <RadioGroup legend="ChartGraph type" direction="row" id="responsive-type">
+            <RadioGroup.RadioButton
+              checked={type === 'bar'}
+              id="responsive-type-bar"
+              label="Bar"
+              name="bar"
+              onChange={() => setType('bar')}
+              value="bar"
+              size="sm"
+            />
+            <RadioGroup.RadioButton
+              checked={type === 'line'}
+              id="responsive-type-line"
+              label="Line"
+              name="line"
+              onChange={() => setType('line')}
+              value="line"
+              size="sm"
+            />
+            <RadioGroup.RadioButton
+              checked={type === 'combo'}
+              id="responsive-type-combo"
+              label="combo"
+              name="combo"
+              onChange={() => setType('combo')}
+              value="combo"
+              size="sm"
+            />
+          </RadioGroup>
+          <RadioGroup legend="Layout" direction="row" id="responsive_layout">
+            <RadioGroup.RadioButton
+              checked={layout === 'horizontal'}
+              id="responsive_layout-horizontal"
+              label="Horizontal"
+              name="horizontal"
+              onChange={() => setLayout('horizontal')}
+              value="horizontal"
+              size="sm"
+            />
+            <RadioGroup.RadioButton
+              checked={layout === 'horizontalBiaxial'}
+              id="responsive_layout-horizontalBiaxial"
+              label="HorizontalBiaxial"
+              name="horizontalBiaxial"
+              onChange={() => setLayout('horizontalBiaxial')}
+              value="horizontalBiaxial"
+              size="sm"
+            />
+            <RadioGroup.RadioButton
+              checked={layout === 'vertical'}
+              id="responsive_layout-vertical"
+              label="Vertical"
+              name="vertical"
+              onChange={() => setLayout('vertical')}
+              value="vertical"
+              size="sm"
+            />
+            <RadioGroup.RadioButton
+              checked={layout === 'verticalBiaxial'}
+              id="responsive_layout-verticalBiaxial"
+              label="VerticalBiaxial"
+              name="verticalBiaxial"
+              onChange={() => setLayout('verticalBiaxial')}
+              value="verticalBiaxial"
+              size="sm"
+            />
+          </RadioGroup>
+        </Flex>
         <Flex alignItems="center" direction="column">
           <Flex>
             <Label htmlFor={labelId}>
@@ -68,110 +137,38 @@ export default function Example(): Node {
             scrollContainerRef.current = el;
           }}
           style={{
-            height: '400px',
+            height: '300px',
             margin: '0 auto',
             outline: '3px solid #ddd',
             overflowY: 'scroll',
             width: `${width}px`,
           }}
         >
-          <Flex height="100%" width="100%" direction="column" gap={2}>
-            <Flex width="100%" justifyContent="between" wrap>
-              <RadioGroup legend="ChartGraph type" direction="row" id="responsive-type">
-                <RadioGroup.RadioButton
-                  checked={type === 'bar'}
-                  id="responsive-type-bar"
-                  label="Bar"
-                  name="bar"
-                  onChange={() => setType('bar')}
-                  value="bar"
-                  size="sm"
-                />
-                <RadioGroup.RadioButton
-                  checked={type === 'line'}
-                  id="responsive-type-line"
-                  label="Line"
-                  name="line"
-                  onChange={() => setType('line')}
-                  value="line"
-                  size="sm"
-                />
-                <RadioGroup.RadioButton
-                  checked={type === 'combo'}
-                  id="responsive-type-combo"
-                  label="combo"
-                  name="combo"
-                  onChange={() => setType('combo')}
-                  value="combo"
-                  size="sm"
-                />
-              </RadioGroup>
-              <RadioGroup legend="Layout" direction="row" id="responsive_layout">
-                <RadioGroup.RadioButton
-                  checked={layout === 'horizontal'}
-                  id="responsive_layout-horizontal"
-                  label="Horizontal"
-                  name="horizontal"
-                  onChange={() => setLayout('horizontal')}
-                  value="horizontal"
-                  size="sm"
-                />
-                <RadioGroup.RadioButton
-                  checked={layout === 'horizontalBiaxial'}
-                  id="responsive_layout-horizontalBiaxial"
-                  label="HorizontalBiaxial"
-                  name="horizontalBiaxial"
-                  onChange={() => setLayout('horizontalBiaxial')}
-                  value="horizontalBiaxial"
-                  size="sm"
-                />
-                <RadioGroup.RadioButton
-                  checked={layout === 'vertical'}
-                  id="responsive_layout-vertical"
-                  label="Vertical"
-                  name="vertical"
-                  onChange={() => setLayout('vertical')}
-                  value="vertical"
-                  size="sm"
-                />
-                <RadioGroup.RadioButton
-                  checked={layout === 'verticalBiaxial'}
-                  id="responsive_layout-verticalBiaxial"
-                  label="VerticalBiaxial"
-                  name="verticalBiaxial"
-                  onChange={() => setLayout('verticalBiaxial')}
-                  value="verticalBiaxial"
-                  size="sm"
-                />
-              </RadioGroup>
-            </Flex>
-
-            <ChartGraph
-              accessibilityLabel="Example of chart with decal custom dimension"
-              visualPatternSelected={visualPatternSelected}
-              onVisualPatternChange={() =>
-                setVisualPatternSelected((value) =>
-                  value === 'default' ? 'accessible' : 'default',
-                )
-              }
-              layout={layout}
-              type={type}
-              legend="none"
-              data={data}
-              elements={[
-                {
-                  type: type === 'combo' ? 'bar' : type,
-                  id: 'Series_01',
-                  axis: axisSeries01,
-                },
-                {
-                  type: type === 'combo' ? 'line' : type,
-                  id: 'Series_02',
-                  axis: axisSeries02,
-                },
-              ]}
-            />
-          </Flex>
+          <ChartGraph
+            accessibilityLabel="Example of chart with decal custom dimension"
+            visualPatternSelected={visualPatternSelected}
+            onVisualPatternChange={() =>
+              setVisualPatternSelected((value) =>
+                value === 'default' ? 'visualPattern' : 'default',
+              )
+            }
+            layout={layout}
+            type={type}
+            legend="none"
+            data={data}
+            elements={[
+              {
+                type: type === 'combo' ? 'bar' : type,
+                id: 'Series_01',
+                axis: axisSeries01,
+              },
+              {
+                type: type === 'combo' ? 'line' : type,
+                id: 'Series_02',
+                axis: axisSeries02,
+              },
+            ]}
+          />
         </div>
       </Flex>
     </Box>

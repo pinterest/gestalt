@@ -30,7 +30,7 @@ export default function Example(): Node {
           accessibilityLabel="Example of line chart color 01"
           visualPatternSelected={visualPatternSelected}
           onVisualPatternChange={() =>
-            setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+            setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
           initialTicks={3}
           type="line"
@@ -45,7 +45,7 @@ export default function Example(): Node {
           accessibilityLabel="Example of line chart color 02"
           visualPatternSelected={visualPatternSelected}
           onVisualPatternChange={() =>
-            setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+            setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
           initialTicks={3}
           type="line"
@@ -62,7 +62,7 @@ export default function Example(): Node {
           accessibilityLabel="Example of line chart color 03"
           visualPatternSelected={visualPatternSelected}
           onVisualPatternChange={() =>
-            setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+            setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
           initialTicks={3}
           type="line"
@@ -77,7 +77,7 @@ export default function Example(): Node {
           accessibilityLabel="Example of line chart color 04"
           visualPatternSelected={visualPatternSelected}
           onVisualPatternChange={() =>
-            setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+            setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
           initialTicks={3}
           type="line"

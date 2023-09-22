@@ -34,7 +34,7 @@ export default function Example(): Node {
         accessibilityLabel="Example of chart with tooltip"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         data={data}
         elements={[

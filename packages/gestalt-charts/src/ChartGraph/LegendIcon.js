@@ -35,7 +35,7 @@ function LegendIcon({ payloadData }: Props): Node {
   const theme = useColorScheme();
 
   const { decal: showVisualPattern } = useChartContext();
-  const isAccessible = showVisualPattern === 'accessible';
+  const isAccessible = showVisualPattern === 'visualPattern';
 
   if (payloadData.referenceArea === 'default') {
     const dimension = 16;

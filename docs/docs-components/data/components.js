@@ -517,7 +517,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             a11yComprehension: 'ready',
           },
           documentation: 'notAvailable',
-          figmaStatus: 'notAvailable',
+          figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
         },

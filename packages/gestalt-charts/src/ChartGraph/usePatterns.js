@@ -81,14 +81,17 @@ export default function usePatterns(): Node {
       </pattern>
 
       <pattern id="pattern-02" width="5" height="5" patternUnits="userSpaceOnUse">
+        <rect width="5" height="5" fill="var(--color-white-mochimalist-0)" />
         <circle cx="2" cy="2" r="2" fill={hexColor('02')} />
       </pattern>
 
       <pattern id="pattern-03" width="3" height="3" patternUnits="userSpaceOnUse">
+        <rect width="3" height="3" fill="var(--color-white-mochimalist-0)" />
         <rect width="2" height="2" fill={hexColor('03')} />
       </pattern>
 
       <pattern id="pattern-04" width="7" height="7" patternUnits="userSpaceOnUse">
+        <rect width="7" height="7" fill="var(--color-white-mochimalist-0)" />
         <circle
           cx="3"
           cy="3"
@@ -126,10 +129,12 @@ export default function usePatterns(): Node {
         patternUnits="userSpaceOnUse"
         patternTransform="rotate(90)"
       >
+        <rect width="8" height="8" fill="var(--color-white-mochimalist-0)" />
         <path d="M 0 0 L 4 8 L 8 0" stroke={hexColor('07')} strokeWidth="1" fill="none" />
       </pattern>
 
       <pattern id="pattern-08" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="8" height="8" fill="var(--color-white-mochimalist-0)" />
         <rect x="0" width="4" height="4" y="0" fill={hexColor('08')} />
         <rect x="4" width="4" height="4" y="4" fill={hexColor('08')} />
       </pattern>
@@ -141,6 +146,7 @@ export default function usePatterns(): Node {
         patternUnits="userSpaceOnUse"
         patternTransform="rotate(90)"
       >
+        <rect width="4" height="4" fill="var(--color-white-mochimalist-0)" />
         <rect width="2" height="4" fill={hexColor('09')} />
       </pattern>
 
@@ -153,6 +159,7 @@ export default function usePatterns(): Node {
         patternUnits="userSpaceOnUse"
         patternTransform="rotate(45)"
       >
+        <rect width="8" height="8" fill="var(--color-white-mochimalist-0)" />
         <rect x="0" width="5" height="5" y="0" fill={hexColor('10')} />
       </pattern>
 
@@ -163,6 +170,7 @@ export default function usePatterns(): Node {
         patternUnits="userSpaceOnUse"
         patternTransform="rotate(180)"
       >
+        <rect width="4" height="4" fill="var(--color-white-mochimalist-0)" />
         <rect width="2" height="4" fill={hexColor('11')} />
       </pattern>
 

@@ -30,7 +30,7 @@ type Props = {|
   |}>,
   layout: 'horizontal' | 'vertical' | 'horizontalBiaxial' | 'verticalBiaxial',
   hexColor: (DataVisualizationColors) => string,
-  visualPatternSelected: 'accessible' | 'default' | 'disabled',
+  visualPatternSelected: 'visualPattern' | 'default' | 'disabled',
   isHorizontalLayout: boolean,
   isBarRounded: boolean,
 |};
@@ -63,7 +63,7 @@ export default function renderElements({
           dataKey={values.id}
           barSize="50%"
           fill={
-            visualPatternSelected === 'accessible'
+            visualPatternSelected === 'visualPattern'
               ? `url(#pattern-${values.color || defaultColor})`
               : hexColor(values.color || defaultColor)
           }
@@ -94,15 +94,11 @@ export default function renderElements({
     if (isLineElement) {
       let strokeDasharray: string | number;
 
-      if (visualPatternSelected === 'accessible' && values.precision !== 'estimate') {
+      if (visualPatternSelected === 'visualPattern' && values.precision !== 'estimate') {
         strokeDasharray = 0; // '0' is necessary to communicate in the payload
       }
-      if (values.precision === 'estimate' && visualPatternSelected !== 'accessible') {
+      if (values.precision === 'estimate') {
         strokeDasharray = '8 8';
-      }
-
-      if (values.precision === 'estimate' && visualPatternSelected === 'accessible') {
-        strokeDasharray = '7 7';
       }
 
       const graphPoint = renderGraphPoint({ color: values.color || defaultColor, active: false });
@@ -111,7 +107,7 @@ export default function renderElements({
         <RechartsLine
           activeDot={false}
           dataKey={values.id}
-          dot={visualPatternSelected === 'accessible' ? graphPoint : false}
+          dot={visualPatternSelected === 'visualPattern' ? graphPoint : false}
           isAnimationActive={false}
           key={values.id}
           legendType="line"

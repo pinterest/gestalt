@@ -25,7 +25,7 @@ export default function Example(): Node {
       accessibilityLabel="Example of chart with stacked bars"
       visualPatternSelected={visualPatternSelected}
       onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
       }
       type="bar"
       legend="none"

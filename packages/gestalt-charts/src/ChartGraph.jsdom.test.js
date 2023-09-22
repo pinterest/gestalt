@@ -68,7 +68,7 @@ const { ResizeObserver } = window;
 type Props = {|
   ...ElementConfig<typeof ChartGraph>,
   accessibilityLabel?: string, // eslint-disable-line react/no-unused-prop-types
-  visualPatternSelected?: ?'accessible' | 'default' | 'disabled',
+  visualPatternSelected?: ?'visualPattern' | 'default' | 'disabled',
   onVisualPatternChange?: () => void,
 |};
 
@@ -90,7 +90,7 @@ function ChartWrap(props: Props) {
           props.onVisualPatternChange ||
           (() =>
             setVisualPatternSelected((value) =>
-              value === 'accessible' ? 'default' : 'accessible',
+              value === 'visualPattern' ? 'default' : 'visualPattern',
             ))
         }
         labelMap={props.labelMap}
@@ -140,7 +140,7 @@ describe('ChartGraph', () => {
     const { container } = render(
       <ChartWrap
         type="bar"
-        visualPatternSelected="accessible"
+        visualPatternSelected="visualPattern"
         data={data}
         elements={[
           { type: 'bar', id: 'element_01' },
@@ -184,7 +184,7 @@ describe('ChartGraph', () => {
     const { container } = render(
       <ChartWrap
         type="line"
-        visualPatternSelected="accessible"
+        visualPatternSelected="visualPattern"
         data={data}
         elements={[
           { type: 'line', id: 'element_01', precision: 'exact' },

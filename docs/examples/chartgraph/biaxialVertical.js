@@ -60,7 +60,7 @@ export default function Example(): Node {
         accessibilityLabel="Example of vertical biaxial chart"
         visualPatternSelected={visualPatternSelected}
         onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         layout="verticalBiaxial"
         type={type}

@@ -26,7 +26,7 @@ export default function Example(): Node {
       accessibilityLabel="Pin clicks over time (example)"
       visualPatternSelected={visualPatternSelected}
       onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'accessible' : 'default'))
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
       }
       initialTicks={3}
       type="line"
