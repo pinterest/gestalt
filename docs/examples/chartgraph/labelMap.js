@@ -3,6 +3,8 @@ import { type Node } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
+  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
+
   const data = [
     {
       name: 'Women',
@@ -20,9 +22,11 @@ export default function Example(): Node {
     <ChartGraph
       title="Eindrücke"
       description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
+      visualPatternSelected={visualPatternSelected}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
       accessibilityLabel="Beispiel für ein Liniendiagramm"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
       type="bar"
       data={data}
       labelMap={{

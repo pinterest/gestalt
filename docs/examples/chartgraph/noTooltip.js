@@ -1,11 +1,9 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node } from 'react';
 import { Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
-  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-
   const data = [
     {
       name: '20-30',
@@ -27,10 +25,8 @@ export default function Example(): Node {
         title="MAU per age range"
         tickFormatter={{ yAxisLeft: (value) => `${value}m` }}
         accessibilityLabel="Example of chart with tooltip"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
+        visualPatternSelected="disabled"
+        onVisualPatternChange={() => {}}
         initialTicks={3}
         type="bar"
         legend="none"

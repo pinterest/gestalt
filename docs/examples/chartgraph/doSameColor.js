@@ -1,8 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node, useState } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
+  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
+
   const data = [
     { name: new Date(2023, 0, 1).getTime(), 'Paid': 3000, 'Organic': 200, 'Earned': 2050 },
     { name: new Date(2023, 1, 2).getTime(), 'Paid': 2003, 'Organic': 200, 'Earned': 1060 },
@@ -22,8 +24,10 @@ export default function Example(): Node {
     <ChartGraph
       title="Pin clicks over time"
       accessibilityLabel="Pin clicks over time (example)"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
+      visualPatternSelected={visualPatternSelected}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
       type="line"
       initialTicks={3}
       range={{

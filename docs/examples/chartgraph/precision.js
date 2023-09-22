@@ -1,11 +1,9 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node } from 'react';
 import { Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
-  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-
   const data = [
     { name: new Date(2023, 0, 1).getTime(), 'Actual data': 1000 },
     { name: new Date(2023, 1, 1).getTime(), 'Actual data': 1567 },
@@ -26,10 +24,8 @@ export default function Example(): Node {
       <ChartGraph
         title="Forecast for 2023"
         accessibilityLabel="Example of time series chart"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
+        visualPatternSelected="disabled"
+        onVisualPatternChange={() => {}}
         data={data}
         range={{
           xAxisBottom: ['auto', 'auto'],

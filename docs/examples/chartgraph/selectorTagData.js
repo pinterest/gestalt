@@ -3,6 +3,8 @@ import { type ElementConfig, type Node, useEffect, useState } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
+  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
+
   const [elements, setElements] = useState<
     $ElementType<ElementConfig<typeof ChartGraph>, 'elements'>,
   >([]);
@@ -79,8 +81,10 @@ export default function Example(): Node {
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
+      visualPatternSelected={visualPatternSelected}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
       type="bar"
       title="Clickthroughs per region"
       legend="none"
