@@ -3,6 +3,36 @@
     "year": "2023",
     "digests": [
       {
+        "week": "September 22, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "ListAction, our newest component 🎉",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/14/11/02/141102f4ef7db84c0638e159a8049751.png",
+            "imageAltText": "Examples of the Figma ListAction component.",
+            "content": "The ListAction component is now available on Figma! You can get it from our [iOS](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=42153%3A2141&mode=design&t=S8yWhcY8h1QKnNUa-1) and [Android](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?type=design&node-id=44003%3A2474&mode=design&t=o8AXWs5UvyUcOy2F-1) libraries 🙌\n\n**Please note**: Table in iOS for Figma is being deprecated. We ask you to kindly update to ListAction."
+          },
+          {
+            "title": "ListAction documentation is now available for you",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/4d/3a/aa/4d3aaa0ea9a4cac5fb1588193ed6af17.png",
+            "imageAltText": "Example of the new ListAction component.",
+            "content": "We have brand new docs for you. Meet the **ListAction** component!\n\nThe ListAction is a continuous vertical group of list items that can include text, icons, images, and actions.\n\n\n* Go to [iOS](https://gestalt.pinterest.systems/ios/listaction) documentation\n\n\n* Go to [Android](https://gestalt.pinterest.systems/android/listaction) documentation"
+          },
+          {
+            "title": "New AvatarGroup documentation for Android",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/e3/a2/45/e3a245352d04a4bea3d9d229485e0afc.png",
+            "imageAltText": "AvatarGroup components examples",
+            "content": "In [this doc](https://gestalt.pinterest.systems/android/avatargroup) you can find AvatarGroup best practices, variants, specs, and more!"
+          }
+        ]
+      },
+      {
         "week": "September 8, 2023",
         "summary": "",
         "posts": [
