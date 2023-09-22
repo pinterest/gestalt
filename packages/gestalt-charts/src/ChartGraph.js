@@ -11,27 +11,14 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Flex,
-  Heading,
-  IconButton,
-  Layer,
-  Modal,
-  TagData,
-  Text,
-  TileData,
-  useColorScheme,
-  useDefaultLabel,
-} from 'gestalt';
+import { Box, Flex, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
 import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
 import renderElements from './ChartGraph/renderElements.js';
 import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
+import TabularData from './ChartGraph/TabularData.js';
 import useCustomTooltip from './ChartGraph/useCustomTooltip.js';
 import useDefaultLegend from './ChartGraph/useDefaultLegend.js';
 import useDefaultTooltip from './ChartGraph/useDefaultTooltip.js';
@@ -301,8 +288,7 @@ function ChartGraph({
   const hexColor = useHexColor();
   const patterns = usePatterns();
   const { name: colorSchemeName } = useColorScheme();
-  const { accessibilityLabelPrefixText, accessibilityLabelDismissModal } =
-    useDefaultLabel('ChartGraph');
+  const { accessibilityLabelPrefixText } = useDefaultLabel('ChartGraph');
 
   // ASSERTIONS
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -428,16 +414,14 @@ function ChartGraph({
         color="default"
         padding={4}
       >
-        {visualPatternSelected !== 'disabled' || title ? (
-          <Header
-            readyToRender={chartWidth > 0}
-            title={title}
-            description={description}
-            onVisualPatternChange={onVisualPatternChange}
-            setShowTabularData={() => setShowTabularData((value) => !value)}
-            showTabularData={showTabularData}
-          />
-        ) : null}
+        <Header
+          readyToRender={chartWidth > 0}
+          title={title}
+          description={description}
+          onVisualPatternChange={onVisualPatternChange}
+          setShowTabularData={() => setShowTabularData((value) => !value)}
+          showTabularData={showTabularData}
+        />
         {selectors && selectors.selector === 'TileData' ? (
           <Box marginBottom={4}>
             <Flex gap={2}>
@@ -625,39 +609,10 @@ function ChartGraph({
         </Box>
       </Box>
       {showTabularData ? (
-        <Layer>
-          <Modal
-            heading={
-              <Flex justifyContent="between">
-                <Heading size="500" accessibilityLevel={1}>
-                  {title}
-                </Heading>
-                <IconButton
-                  accessibilityLabel={accessibilityLabelDismissModal}
-                  bgColor="white"
-                  icon="cancel"
-                  iconColor="darkGray"
-                  onClick={() => setShowTabularData(false)}
-                  size="sm"
-                />
-              </Flex>
-            }
-            align="start"
-            accessibilityModalLabel="accessibilityLabel"
-            onDismiss={() => setShowTabularData(false)}
-            size="sm"
-            footer={
-              <Flex justifyContent="end">
-                <ButtonGroup>
-                  <Button color="gray" text="Cancel" />
-                  <Button color="red" text="Download as .csv" iconEnd="download" />
-                </ButtonGroup>
-              </Flex>
-            }
-          >
-            <Box>{Array(5).fill(<Text>Content</Text>)}</Box>
-          </Modal>
-        </Layer>
+        <TabularData
+          title={title}
+          setShowTabularData={() => setShowTabularData((value) => !value)}
+        />
       ) : null}
     </ChartProvider>
   );
