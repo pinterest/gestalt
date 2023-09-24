@@ -138,6 +138,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Letterbox',
       'Link',
       'List',
+      'ListAction',
       'Mask',
       'Masonry',
       'Modal',
