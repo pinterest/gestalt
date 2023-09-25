@@ -18,6 +18,7 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'Get started with tags',
             target: 'blank',
+            role: 'link',
           }}
           title="Use Tag manager to optimize your advertiser spend"
           type="info"

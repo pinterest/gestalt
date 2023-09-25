@@ -28,11 +28,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Remove item',
               label: 'Yes, remove',
               onClick: () => setShowComponent(false),
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Keep item',
               label: 'No, keep',
               onClick: () => setShowComponent(false),
+              role: 'button',
             }}
             onDismiss={() => setShowComponent(false)}
           >

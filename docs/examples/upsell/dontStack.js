@@ -25,7 +25,12 @@ export default function Example(): Node {
                 component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
               }}
               message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-              primaryAction={{ label: 'Claim now', accessibilityLabel: 'Claim ads credit now' }}
+              primaryAction={{
+                label: 'Claim now',
+                accessibilityLabel: 'Claim ads credit now',
+                role: 'button',
+                onClick: () => {},
+              }}
               title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
             />
             <Upsell
@@ -44,6 +49,7 @@ export default function Example(): Node {
                 href: 'https://pinterest.com',
                 label: 'Send invite',
                 target: 'blank',
+                role: 'link',
               }}
               title="Give $30, get $60 in ads credit"
             />

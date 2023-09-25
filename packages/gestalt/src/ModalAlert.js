@@ -1,5 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
+import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
 import Flex from './Flex.js';
@@ -7,23 +9,26 @@ import Modal from './Modal.js';
 import ModalAlertAction from './ModalAlert/Action.js';
 import ModalAlertHeader from './ModalAlert/Header.js';
 
-export type ActionDataType = {|
-  accessibilityLabel: string,
-  dataTestId?: string,
-  disabled?: boolean,
-  href?: string,
-  label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+export type ActionDataType =
+  | {|
+      accessibilityLabel: string,
+      dataTestId?: string,
+      disabled?: boolean,
+      href: string,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+      rel?: 'none' | 'nofollow',
+      role: 'link',
+      target?: null | 'self' | 'blank',
+    |}
+  | {|
+      accessibilityLabel: string,
+      dataTestId?: string,
+      disabled?: boolean,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role?: 'button',
+    |};
 
 type Props = {|
   /**

@@ -6,7 +6,12 @@ export default function Example(): Node {
   return (
     <Flex justifyContent="center" alignItems="center" width="100%" height="100%">
       <Toast
-        primaryAction={{ accessibilityLabel: 'Edit your Pin', label: 'Edit' }}
+        primaryAction={{
+          accessibilityLabel: 'Edit your Pin',
+          label: 'Edit',
+          role: 'button',
+          onClick: () => {},
+        }}
         thumbnail={{
           image: (
             <Image

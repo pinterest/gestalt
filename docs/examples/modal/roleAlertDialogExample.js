@@ -28,11 +28,13 @@ export default function AlertDialogAccessibilityExample(): Node {
               accessibilityLabel: 'Remove item',
               label: 'Yes, remove',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Keep item',
               label: 'No, keep',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {
               setShowComponent(!showComponent);

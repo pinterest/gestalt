@@ -21,7 +21,12 @@ export default function Example(): Node {
           ),
         }}
         message="There was a problem connecting your account."
-        primaryAction={{ label: 'Try again', accessibilityLabel: 'Try linking account again' }}
+        primaryAction={{
+          label: 'Try again',
+          accessibilityLabel: 'Try linking account again',
+          role: 'button',
+          onClick: () => {},
+        }}
         title="Could not link account"
       />
     </Box>

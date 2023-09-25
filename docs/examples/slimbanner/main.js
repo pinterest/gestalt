@@ -16,6 +16,7 @@ export default function ResponsiveExample(): Node {
           accessibilityLabel: 'Apply for access',
           label: 'Apply for access',
           onClick: () => {},
+          role: 'button',
         }}
         type="info"
       />

@@ -29,6 +29,7 @@ export default function Example(): Node {
               accessibilityLabel: '',
               label: 'Got it',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {}}
           >

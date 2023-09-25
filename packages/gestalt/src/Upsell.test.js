@@ -21,7 +21,12 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         title="A Title"
       />,
     ).toJSON();
@@ -32,7 +37,12 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'button',
+          onClick: () => {},
+        }}
         title="A Title"
       />,
     ).toJSON();
@@ -43,11 +53,17 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         secondaryAction={{
           href: 'pinterest.com/help',
           label: 'Learn more',
           accessibilityLabel: 'Learn more: upsell messages',
+          role: 'link',
         }}
         title="A Title"
       />,
@@ -59,7 +75,12 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -74,7 +95,12 @@ describe('<Upsell />', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},

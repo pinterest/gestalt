@@ -111,7 +111,11 @@ describe('SheetMobile', () => {
           heading="test"
           subHeading="test"
           onDismiss={() => {}}
-          primaryAction={{ accessibilityLabel: 'Next', label: 'Next', onClick: () => {} }}
+          primaryAction={{
+            accessibilityLabel: 'Next',
+            label: 'Next',
+            onClick: () => {},
+          }}
         />
       </DeviceTypeProvider>,
     );

@@ -33,12 +33,14 @@ export default function Example(): Node {
             onClick: () => {
               setShowModal(!showModal);
             },
+            role: 'button',
           }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Verified Merchant Program',
             href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Give $30, get $60 in ads credit"
         />

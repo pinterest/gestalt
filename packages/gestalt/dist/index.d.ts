@@ -42,11 +42,22 @@ type BareButtonEventHandlerType = AbstractEventHandler<
   | React.KeyboardEvent<HTMLButtonElement>
 >;
 
-type ButtonEventHandlerType = AbstractEventHandler<
+type IconButtonEventHandlerType = AbstractEventHandler<
   | React.MouseEvent<HTMLButtonElement>
   | React.MouseEvent<HTMLAnchorElement>
   | React.KeyboardEvent<HTMLAnchorElement>
   | React.KeyboardEvent<HTMLButtonElement>,
+  { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+>;
+
+type ButtonEventHandlerType = AbstractEventHandler<
+  | React.MouseEvent<HTMLButtonElement>
+  | React.KeyboardEvent<HTMLButtonElement>
+>;
+
+type ButtonLinkEventHandlerType = AbstractEventHandler<
+  | React.MouseEvent<HTMLAnchorElement>
+  | React.KeyboardEvent<HTMLAnchorElement>,
   { dangerouslyDisableOnNavigation?: (() => void) | undefined }
 >;
 
@@ -319,13 +330,22 @@ type TrendObject = {
   value: number;
 };
 
-interface ActionData {
+interface ButtonActionData {
   accessibilityLabel: string;
   disabled?: boolean;
-  href?: string | undefined;
   label: string;
   onClick?: ButtonEventHandlerType | undefined;
+  role?: 'button';
+}
+
+interface LinkActionData {
+  accessibilityLabel: string;
+  disabled?: boolean;
+  href: string | undefined;
+  label: string;
+  onClick?: ButtonLinkEventHandlerType | undefined;
   rel?: RelType | undefined;
+  role: 'link';
   target?: TargetType | undefined;
 }
 
@@ -475,21 +495,21 @@ interface ActivationCardProps {
   statusMessage: string;
   title: string;
   dismissButton?:
-    | {
-        accessibilityLabel?: string;
-        onDismiss: () => void;
-      }
-    | undefined;
+  | {
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+  }
+  | undefined;
   link?:
-    | {
-        accessibilityLabel: string;
-        href: string;
-        label: string;
-        onClick?: ButtonEventHandlerType | undefined;
-        rel?: RelType | undefined;
-        target?: TargetType | undefined;
-      }
-    | undefined;
+  | {
+    accessibilityLabel: string;
+    href: string;
+    label: string;
+    onClick?: ButtonLinkEventHandlerType | undefined;
+    rel?: RelType | undefined;
+    target?: TargetType | undefined;
+  }
+  | undefined;
 }
 
 interface AvatarProps {
@@ -678,51 +698,56 @@ interface BoxProps extends BoxPassthroughProps {
   zIndex?: Indexable | undefined;
 }
 
-interface CommonButtonProps {
-  text: string;
+interface ButtonProps {
+  accessibilityControls?: string | undefined;
+  accessibilityExpanded?: boolean | undefined;
+  accessibilityHaspopup?: boolean | undefined;
   accessibilityLabel?: string | undefined;
   color?:
-    | 'gray'
-    | 'red'
-    | 'blue'
-    | 'transparent'
-    | 'semiTransparentWhite'
-    | 'transparentWhiteText'
-    | 'white'
-    | undefined;
+  | 'gray'
+  | 'red'
+  | 'blue'
+  | 'transparent'
+  | 'semiTransparentWhite'
+  | 'transparentWhiteText'
+  | 'white'
+  | undefined;
   dataTestId?: string;
   disabled?: boolean | undefined;
   fullWidth?: boolean | undefined;
   iconEnd?: Icons | undefined;
+  name?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
+  selected?: boolean | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   tabIndex?: -1 | 0 | undefined;
+  text: string;
+  type?: 'button' | 'submit' | undefined;
 }
 
-interface ButtonLinkProps extends CommonButtonProps {
-  role: 'link';
+interface ButtonLinkProps {
+  accessibilityLabel?: string | undefined;
+  color?:
+  | 'gray'
+  | 'red'
+  | 'blue'
+  | 'transparent'
+  | 'semiTransparentWhite'
+  | 'transparentWhiteText'
+  | 'white'
+  | undefined;
+  dataTestId?: string;
+  disabled?: boolean | undefined;
+  iconEnd?: Icons | undefined;
+  fullWidth?: boolean | undefined;
+  tabIndex?: -1 | 0 | undefined;
+  onClick?: ButtonLinkEventHandlerType | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
+  text: string;
   href: string;
   rel?: RelType | undefined;
   target?: TargetType | undefined;
 }
-
-interface ButtonButtonProps extends CommonButtonProps {
-  accessibilityControls?: string | undefined;
-  accessibilityExpanded?: boolean | undefined;
-  accessibilityHaspopup?: boolean | undefined;
-  name?: string | undefined;
-  selected?: boolean | undefined;
-  role?: 'button' | undefined;
-  type?: 'button' | undefined;
-}
-
-interface ButtonSubmitProps extends CommonButtonProps {
-  name?: string | undefined;
-  role: 'button';
-  type: 'submit';
-}
-
-type ButtonProps = ButtonLinkProps | ButtonButtonProps | ButtonSubmitProps;
 
 interface ButtonGroupProps {
   children?: Node | undefined;
@@ -738,8 +763,8 @@ interface CalloutProps {
         onDismiss: () => void;
       }
     | undefined;
-  primaryAction?: ActionData | undefined;
-  secondaryAction?: ActionData | undefined;
+  primaryAction?: ButtonActionData | LinkActionData | undefined;
+  secondaryAction?: ButtonActionData | LinkActionData | undefined;
   title?: string | undefined;
 }
 
@@ -1004,26 +1029,26 @@ interface IconProps {
 interface CommonIconButtonProps {
   accessibilityLabel: string;
   bgColor?:
-    | 'transparent'
-    | 'darkGray'
-    | 'transparentDarkGray'
-    | 'gray'
-    | 'lightGray'
-    | 'white'
-    | 'red'
-    | undefined;
+  | 'transparent'
+  | 'darkGray'
+  | 'transparentDarkGray'
+  | 'gray'
+  | 'lightGray'
+  | 'white'
+  | 'red'
+  | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
   dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
-  onClick?: ButtonEventHandlerType | undefined;
+  onClick?: IconButtonEventHandlerType | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   tabIndex?: -1 | 0 | undefined;
   tooltip?:
-    | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
-    | undefined;
+  | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
+  | undefined;
 }
 
 interface IconButtonLinkProps extends CommonIconButtonProps {
@@ -1088,7 +1113,7 @@ interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
   icon: Icons;
-  onClick: ButtonEventHandlerType;
+  onClick: IconButtonEventHandlerType;
   tooltip: {
     accessibilityLabel?: string | undefined;
     inline?: boolean | undefined;
@@ -1238,15 +1263,25 @@ interface ModalProps {
   subHeading?: string | undefined;
 }
 
-interface ModalAlertActionDataType {
+interface ModalAlertButtonActionDataType {
   accessibilityLabel: string;
-  label: string;
   dataTestId?: string | undefined;
   disabled?: boolean | undefined;
-  href?: string | undefined;
+  href: string | undefined;
+  label: string;
   onClick?: ButtonEventHandlerType | undefined;
   rel?: RelType | undefined;
+  role: 'link';
   target?: TargetType | undefined;
+}
+
+interface ModalAlertLinkActionDataType {
+  accessibilityLabel: string;
+  dataTestId?: string | undefined;
+  disabled?: boolean | undefined;
+  label: string;
+  onClick?: ButtonLinkEventHandlerType | undefined;
+  role?: 'button';
 }
 
 interface ModalAlertProps {
@@ -1254,9 +1289,9 @@ interface ModalAlertProps {
   children: Node;
   heading: string;
   onDismiss: () => void;
-  primaryAction: ModalAlertActionDataType;
+  primaryAction: ModalAlertButtonActionDataType | ModalAlertLinkActionDataType;
   accessibilityDismissButtonLabel?: string | undefined;
-  secondaryAction?: ModalAlertActionDataType | undefined;
+  secondaryAction?: ModalAlertButtonActionDataType | ModalAlertLinkActionDataType | undefined;
   type?: 'default' | 'warning' | 'error' | undefined;
 }
 
@@ -1390,21 +1425,27 @@ interface PageHeaderAction {
 interface PageHeaderProps {
   title: string;
   badge?:
-    | {
-        text: string;
-        tooltipText?: string | undefined;
-      }
-    | undefined;
+  | {
+    text: string;
+    tooltipText?: string | undefined;
+  }
+  | undefined;
   borderStyle?: 'sm' | 'none' | undefined;
   dropdownAccessibilityLabel?: string | undefined;
   helperIconButton?:
-    | {
-        accessibilityLabel: string | undefined;
-        accessibilityControls: string | undefined;
-        accessibilityExpanded: boolean | undefined;
-        onClick: ButtonEventHandlerType;
-      }
-    | undefined;
+  | {
+    accessibilityLabel: string | undefined;
+    accessibilityControls: string | undefined;
+    accessibilityExpanded: boolean | undefined;
+    onClick: AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLButtonElement>,
+      { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+    >;
+  }
+  | undefined;
   helperLink?: {
     accessibilityLabel: string;
     text: string;
@@ -1472,15 +1513,21 @@ interface PopoverEducationalProps {
   idealDirection?: FourDirections | undefined;
   message?: string | React.ReactElement<typeof Text> | undefined;
   primaryAction?:
-    | {
-        accessibilityLabel?: string | undefined;
-        href?: string | undefined;
-        text: string | undefined;
-        onClick?: ButtonEventHandlerType | undefined;
-        rel?: RelType | undefined;
-        target?: TargetType | undefined;
-      }
-    | undefined;
+  | {
+    accessibilityLabel?: string | undefined;
+    onClick?: ButtonEventHandlerType | undefined;
+    role?: 'button';
+    text: string | undefined;
+  }
+  | {
+    accessibilityLabel?: string | undefined;
+    href: string | undefined;
+    onClick?: ButtonLinkEventHandlerType | undefined;
+    rel?: RelType | undefined;
+    role: 'link';
+    target?: TargetType | undefined;
+    text: string | undefined;
+  } | undefined;
   role?: 'dialog' | 'tooltip' | undefined;
   shouldFocus?: boolean | undefined;
   size?: 'sm' | 'flexible' | undefined;
@@ -1585,7 +1632,7 @@ interface SelectListGroupProps {
 
 type PrimaryActionType = {
   icon?: 'ellipsis' | 'edit' | 'trash-can';
-  onClick?: ButtonEventHandlerType | undefined;
+  onClick?: BareButtonEventHandlerType | undefined;
   tooltip: {
     accessibilityLabel?: string | undefined;
     text: string;
@@ -1670,15 +1717,21 @@ interface SideNavigationTopItemProps {
   label: string;
   active?: 'page' | 'section' | undefined;
   badge?:
-    | {
-        text: string;
-        type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | undefined;
-      }
-    | undefined;
+  | {
+    text: string;
+    type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | undefined;
+  }
+  | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   icon?: Icons | { __path: string } | undefined;
   notificationAccessibilityLabel?: string | undefined;
-  onClick?: ButtonEventHandlerType | undefined;
+  onClick?: AbstractEventHandler<
+    | React.MouseEvent<HTMLButtonElement>
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLButtonElement>,
+    { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+  > | undefined;
   primaryAction?: PrimaryActionType | undefined;
   ref?: HTMLLIElement;
 }
@@ -1688,7 +1741,13 @@ interface SideNavigationNestedItemProps {
   label: string;
   active?: 'page' | 'section' | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
-  onClick?: ButtonEventHandlerType | undefined;
+  onClick?: AbstractEventHandler<
+    | React.MouseEvent<HTMLButtonElement>
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLButtonElement>,
+    { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+  > | undefined;
   ref?: HTMLLIElement;
 }
 
@@ -1713,57 +1772,69 @@ interface SideNavigationNestedGroupProps {
 interface SlimBannerProps {
   message: React.ReactElement<typeof Text> | string;
   dismissButton?:
-    | {
-        accessibilityLabel?: string;
-        onDismiss: () => void;
-      }
-    | undefined;
+  | {
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+  }
+  | undefined;
   helperLink?: {
     accessibilityLabel: string;
     href: string;
     text: string;
     target?: TargetType | undefined;
     onClick?:
-      | AbstractEventHandler<
-          React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-          { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-        >
-      | undefined;
+    | AbstractEventHandler<
+      React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+      { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+    >
+    | undefined;
   };
   iconAccessibilityLabel?: string | undefined;
   primaryAction?:
-    | {
-        accessibilityLabel: string;
-        label: string;
-        disabled?: boolean | undefined;
-        href?: string | undefined;
-        onClick?:
-          | AbstractEventHandler<
-              | React.MouseEvent<HTMLButtonElement>
-              | React.MouseEvent<HTMLAnchorElement>
-              | React.MouseEvent<HTMLAnchorElement>
-              | React.MouseEvent<HTMLButtonElement>,
-              {
-                rel?: RelType | undefined;
-                target?: TargetType | undefined;
-              }
-            >
-          | undefined;
+  | {
+    accessibilityLabel: string;
+    label: string;
+    disabled?: boolean | undefined;
+    href: string | undefined;
+    onClick?:
+    | AbstractEventHandler<
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
+      {
+        rel?: RelType | undefined;
+        target?: TargetType | undefined;
       }
+    >
     | undefined;
+    role: 'link';
+  }
+  | {
+    accessibilityLabel: string;
+    label: string;
+    disabled?: boolean | undefined;
+    href?: string | undefined;
+    onClick:
+    | AbstractEventHandler<
+      | React.MouseEvent<HTMLButtonElement>
+      | React.KeyboardEvent<HTMLButtonElement>
+    >
+    | undefined;
+    role?: 'button';
+  }
+  | undefined;
   type?:
-    | 'neutral'
-    | 'error'
-    | 'info'
-    | 'warning'
-    | 'success'
-    | 'recommendation'
-    | 'errorBare'
-    | 'infoBare'
-    | 'warningBare'
-    | 'successBare'
-    | 'recommendationBare'
-    | undefined;
+  | 'neutral'
+  | 'error'
+  | 'info'
+  | 'warning'
+  | 'success'
+  | 'recommendation'
+  | 'errorBare'
+  | 'infoBare'
+  | 'warningBare'
+  | 'successBare'
+  | 'recommendationBare'
+  | undefined;
 }
 
 interface SpinnerProps {
@@ -2165,11 +2236,18 @@ interface ToastProps {
   primaryAction?: {
     accessibilityLabel: string;
     label: string;
-    href?: string | undefined;
+    href: string | undefined;
     onClick?: ButtonEventHandlerType | undefined;
     rel?: RelType | undefined;
+    role: 'link';
     size?: 'sm' | 'md' | 'lg' | undefined;
     target?: TargetType | undefined;
+  } | {
+    accessibilityLabel: string;
+    label: string;
+    onClick: ButtonEventHandlerType | undefined;
+    role?: 'button';
+    size?: 'sm' | 'md' | 'lg' | undefined;
   };
   thumbnail?:
     | { image: React.ReactElement<typeof Image> }
@@ -2210,8 +2288,8 @@ interface UpsellProps {
           | undefined;
       }
     | undefined;
-  primaryAction?: ActionData | undefined;
-  secondaryAction?: ActionData | undefined;
+  primaryAction?: ButtonActionData | LinkActionData | undefined;
+  secondaryAction?: ButtonActionData | LinkActionData | undefined;
   title?: string | undefined;
 }
 

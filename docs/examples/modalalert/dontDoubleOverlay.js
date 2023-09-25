@@ -27,11 +27,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Confirm delete board',
               label: 'Submit',
               onClick: () => setShowComponentA(false),
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'Cancel',
               onClick: () => setShowComponentA(false),
+              role: 'button',
             }}
             onDismiss={() => setShowComponentA(false)}
           >
@@ -53,11 +55,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
               onClick: () => setShowComponentB(false),
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'No, keep',
               onClick: () => setShowComponentB(false),
+              role: 'button',
             }}
             onDismiss={() => {
               setShowComponentB(false);

@@ -18,12 +18,14 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'Loslegen',
             target: 'blank',
+            role: 'link',
           }}
           secondaryAction={{
             accessibilityLabel: 'Erfahren Sie mehr: Verified Merchant Program',
             href: 'https://pinterest.com',
             label: 'Erfahren Sie mehr',
             target: 'blank',
+            role: 'link',
           }}
           title="Ihr Geschäftskonto wurde erstellt!"
           type="info"

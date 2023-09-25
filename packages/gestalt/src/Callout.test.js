@@ -54,7 +54,12 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         type="info"
         title="A Title"
       />,
@@ -67,7 +72,7 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '', role: 'button' }}
         type="info"
         title="A Title"
       />,
@@ -80,11 +85,17 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         secondaryAction={{
           href: 'pinterest.com/help',
           label: 'Learn more',
           accessibilityLabel: 'Learn more: callout messages',
+          role: 'link',
         }}
         type="info"
         title="A Title"
@@ -98,7 +109,12 @@ describe('<Callout />', () => {
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest', accessibilityLabel: '' }}
+        primaryAction={{
+          href: 'pinterest.com',
+          label: 'Visit Pinterest',
+          accessibilityLabel: '',
+          role: 'link',
+        }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -131,10 +147,12 @@ describe('<Callout />', () => {
         primaryAction={{
           accessibilityLabel: 'Resend invite',
           label: 'Resend invite',
+          role: 'button',
         }}
         secondaryAction={{
           accessibilityLabel: 'Cancel invite',
           label: 'Cancel invite',
+          role: 'button',
         }}
         title="You've sent an invite"
         type="info"
