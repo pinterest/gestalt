@@ -34,7 +34,7 @@ type Props = {|
   /**
    * Must be instances of [TagData](https://gestalt.pinterest.systems/web/tagdata) or [TileData](https://gestalt.pinterest.systems/web/tiledata)
    *
-   * See the [TagData variant](https://gestalt.pinterest.systems/web/chartgraph#TagData) or the [TileData variant](https://gestalt.pinterest.systems/web/chartgraph#TileData) to learn more.
+   * See the [selector variant](https://gestalt.pinterest.systems/web/chartgraph#Selectors) to learn more.
    */
   children?:
     | Element<typeof TileData>

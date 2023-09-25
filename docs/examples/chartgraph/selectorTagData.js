@@ -83,6 +83,7 @@ export default function Example(): Node {
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
       visualPatternSelected={visualPatternSelected}
+      initialTicks={3}
       onVisualPatternChange={() =>
         setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
       }

@@ -30,7 +30,6 @@ import layout from '../../examples/chartgraph/layout.js';
 import legend from '../../examples/chartgraph/legend.js';
 import line from '../../examples/chartgraph/line.js';
 import main from '../../examples/chartgraph/main.js';
-import noTooltip from '../../examples/chartgraph/noTooltip.js';
 import precision from '../../examples/chartgraph/precision.js';
 import range from '../../examples/chartgraph/range.js';
 import referenceArea from '../../examples/chartgraph/referenceArea.js';
@@ -48,6 +47,11 @@ export default function ComponentPage({
 }: {|
   generatedDocGen: {| [string]: DocGen |},
 |}): Node {
+  const MEDIUM_HEIGHT = 300;
+  const SMALL_HEIGHT = 250;
+  const LARGE_HEIGHT = 400;
+  const EXTRA_LARGE_HEIGHT = 500;
+
   return (
     <Page title={generatedDocGen.ChartGraph?.displayName}>
       <PageHeader
@@ -61,7 +65,12 @@ export default function ComponentPage({
           />
         }
       >
-        <SandpackExample code={main} name="Main Avatar example" hideEditor previewHeight={150} />
+        <SandpackExample
+          code={main}
+          name="Main Avatar example"
+          hideEditor
+          previewHeight={MEDIUM_HEIGHT}
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.ChartGraph} />
@@ -102,7 +111,13 @@ export default function ComponentPage({
             type="do"
             description="Limit the amount of data you show in a graph so that it is readable and easy to follow."
             sandpackExample={
-              <SandpackExample name="Do Data" code={doLimit} layout="column" hideEditor />
+              <SandpackExample
+                name="Do Data"
+                code={doLimit}
+                layout="column"
+                hideEditor
+                previewHeight={SMALL_HEIGHT}
+              />
             }
           />
           <MainSection.Card
@@ -116,6 +131,7 @@ export default function ComponentPage({
                 layout="column"
                 hideEditor
                 hideControls
+                previewHeight={SMALL_HEIGHT}
               />
             }
           />
@@ -131,6 +147,7 @@ export default function ComponentPage({
                 code={doColor}
                 layout="column"
                 hideEditor
+                previewHeight={SMALL_HEIGHT}
               />
             }
           />
@@ -145,6 +162,7 @@ export default function ComponentPage({
                 layout="column"
                 hideEditor
                 hideControls
+                previewHeight={SMALL_HEIGHT}
               />
             }
           />
@@ -362,7 +380,10 @@ Props:  \`title\`  \`description\` \`helpButton\`
 `}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={title} name="Title & description" />}
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={title} name="Title & description" layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -377,19 +398,16 @@ Props: \`renderTooltip\`
           <MainSection.Card
             cardSize="lg"
             title="Default tooltip"
-            sandpackExample={<SandpackExample code={tooltip} name="Default tooltip" />}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="lg"
-            title="No tooltip"
-            sandpackExample={<SandpackExample code={noTooltip} name="No tooltip" />}
+            sandpackExample={
+              <SandpackExample code={tooltip} name="Default tooltip" layout="column" />
+            }
           />
           <MainSection.Card
             cardSize="lg"
             title="Custom tooltip"
-            sandpackExample={<SandpackExample code={customTooltip} name="Custom tooltip" />}
+            sandpackExample={
+              <SandpackExample code={customTooltip} name="Custom tooltip" layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -402,7 +420,7 @@ Props: \`legend\`
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={legend} name="Legend" />}
+            sandpackExample={<SandpackExample code={legend} name="Legend" layout="column" />}
           />
         </MainSection.Subsection>
 
@@ -414,7 +432,9 @@ Props: \`referenceAreas\`
           `}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={referenceArea} name="ReferenceArea" />}
+            sandpackExample={
+              <SandpackExample code={referenceArea} name="ReferenceArea" layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -427,7 +447,7 @@ Props: \`elements=[{..., type:'line', precision='estimate'}]\`
           `}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={precision} name="Precision" />}
+            sandpackExample={<SandpackExample code={precision} name="Precision" layout="column" />}
           />
         </MainSection.Subsection>
 
@@ -466,7 +486,14 @@ If different graphs need to be compared simultaneously, see example below, color
           </CombinationNew>
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={colors} name="Colors" layout="column" />}
+            sandpackExample={
+              <SandpackExample
+                code={colors}
+                name="Colors"
+                layout="column"
+                previewHeight={EXTRA_LARGE_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -487,7 +514,16 @@ Props: \`layout\`
 
         `}
         >
-          <MainSection.Card sandpackExample={<SandpackExample code={layout} name="Layout" />} />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={layout}
+                name="Layout"
+                layout="column"
+                previewHeight={LARGE_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -498,7 +534,16 @@ Props: \`range\`
 
         `}
         >
-          <MainSection.Card sandpackExample={<SandpackExample code={range} name="Range" />} />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={range}
+                name="Range"
+                layout="column"
+                previewHeight={LARGE_HEIGHT}
+              />
+            }
+          />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -511,15 +556,20 @@ When ChartGraphs are contained within small containers (under 576px wide), set \
           `}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={responsive} name="Responsive" />}
+            sandpackExample={
+              <SandpackExample
+                code={responsive}
+                name="Responsive"
+                layout="column"
+                previewHeight={EXTRA_LARGE_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Selectors"
           description={`ChartGraph supports [TileData](/web/tiledata) and [TagData](/web/tagdata). The selection of TileData and TagData controls the data series displayed on ChartGraph.
-
-Props: \`selectors\`
           `}
         >
           <MainSection.Card sandpackExample={<SandpackExample code={tiledata} name="TileData" />} />
@@ -536,7 +586,9 @@ When localizing dates, use \`tickFormatter.timestamps\` as it traslates the valu
 `}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={tickFormatter} name="Tick format" />}
+            sandpackExample={
+              <SandpackExample code={tickFormatter} name="Tick format" layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -548,7 +600,14 @@ Props: \`tickFormatter.timeseries\`.
             `}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={timeseries} name="Time series" />}
+            sandpackExample={
+              <SandpackExample
+                code={timeseries}
+                name="Time series"
+                layout="column"
+                previewHeight={LARGE_HEIGHT}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
