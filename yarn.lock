@@ -2164,6 +2164,14 @@
   resolved "https://registry.npmjs.org/@bugsnag/safe-json-stringify/-/safe-json-stringify-6.0.0.tgz"
   integrity sha512-htzFO1Zc57S8kgdRK9mLcPVTW1BY2ijfH7Dk2CeZmspTWKdKqSo1iwmqrq2WtRjFlo8aRZYgLX0wFrDXF/9DLA==
 
+"@cnakazawa/watch@^1.0.3":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
+  integrity sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
+  dependencies:
+    exec-sh "^0.3.2"
+    minimist "^1.2.0"
+
 "@codemirror/autocomplete@^6.0.0", "@codemirror/autocomplete@^6.4.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@codemirror/autocomplete/-/autocomplete-6.5.0.tgz#1e6c34b624595bf982e8cb18110ae88fce3d6ebd"
@@ -4954,7 +4962,7 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-anymatch@^3.1.2:
+anymatch@^3.1.1, anymatch@^3.1.2:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-3.1.3.tgz#790c58b19ba1720a84205b57c618d5ad8524973e"
   integrity sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==
@@ -5837,6 +5845,13 @@ capital-case@^1.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
     upper-case-first "^2.0.2"
+
+capture-exit@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/capture-exit/-/capture-exit-2.0.0.tgz#fb953bfaebeb781f62898239dabb426d08a509a4"
+  integrity sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g==
+  dependencies:
+    rsvp "^4.8.4"
 
 cardinal@^2.1.1:
   version "2.1.1"
@@ -8269,6 +8284,11 @@ evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
     md5.js "^1.3.4"
     safe-buffer "^5.1.1"
 
+exec-sh@^0.3.2, exec-sh@^0.3.4:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.6.tgz#ff264f9e325519a60cb5e273692943483cca63bc"
+  integrity sha512-nQn+hI3yp+oD0huYhKwvYI32+JFeq+XkNcD1GAo3Y/MjxsfVGmrrzrnzjWiNY6f+pUCP440fThsFh5gZrRAU/w==
+
 execa@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/execa/-/execa-1.0.0.tgz"
@@ -8295,6 +8315,21 @@ execa@^3.3.0, execa@^3.4.0:
     npm-run-path "^4.0.0"
     onetime "^5.1.0"
     p-finally "^2.0.0"
+    signal-exit "^3.0.2"
+    strip-final-newline "^2.0.0"
+
+execa@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
+  integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
+  dependencies:
+    cross-spawn "^7.0.0"
+    get-stream "^5.0.0"
+    human-signals "^1.1.1"
+    is-stream "^2.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^4.0.0"
+    onetime "^5.1.0"
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
@@ -8605,6 +8640,13 @@ fb-watchman@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/fb-watchman/-/fb-watchman-2.0.1.tgz"
   integrity sha512-DkPJKQeY6kKwmuMretBhr7G6Vodr7bFwDYTXIkfG1gjvNpaxBTQV3PbXg6bR1c1UP4jPOX0jHUbbHANL9vRjVg==
+  dependencies:
+    bser "2.1.1"
+
+fb-watchman@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-2.0.2.tgz#e9524ee6b5c77e9e5001af0f85f3adbb8623255c"
+  integrity sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==
   dependencies:
     bser "2.1.1"
 
@@ -11941,6 +11983,13 @@ make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
+makeerror@1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/makeerror/-/makeerror-1.0.12.tgz#3e5dd2079a82e812e983cc6610c4a2cb0eaa801a"
+  integrity sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg==
+  dependencies:
+    tmpl "1.0.5"
+
 makeerror@1.0.x:
   version "1.0.11"
   resolved "https://registry.npmjs.org/makeerror/-/makeerror-1.0.11.tgz"
@@ -12831,7 +12880,7 @@ minimist-options@4.1.0, minimist-options@^4.0.2:
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
 
-minimist@1.2.6, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
+minimist@1.2.6, minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
@@ -16023,6 +16072,11 @@ rollup@^2.45.2:
   optionalDependencies:
     fsevents "~2.3.1"
 
+rsvp@^4.8.4:
+  version "4.8.5"
+  resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
+  integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
+
 run-async@^2.2.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/run-async/-/run-async-2.4.0.tgz"
@@ -16099,6 +16153,21 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
+sane@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/sane/-/sane-5.0.1.tgz#ae94cb06acf5ad158242ff23f563d8cbe0ec1e4b"
+  integrity sha512-9/0CYoRz0MKKf04OMCO3Qk3RQl1PAwWAhPSQSym4ULiLpTZnrY1JoZU0IEikHu8kdk2HvKT/VwQMq/xFZ8kh1Q==
+  dependencies:
+    "@cnakazawa/watch" "^1.0.3"
+    anymatch "^3.1.1"
+    capture-exit "^2.0.0"
+    exec-sh "^0.3.4"
+    execa "^4.0.0"
+    fb-watchman "^2.0.1"
+    micromatch "^4.0.2"
+    minimist "^1.1.1"
+    walker "~1.0.5"
 
 sax@1.2.1:
   version "1.2.1"
@@ -17361,7 +17430,7 @@ tmp@^0.2.0:
   dependencies:
     rimraf "^3.0.0"
 
-tmpl@1.0.x:
+tmpl@1.0.5, tmpl@1.0.x:
   version "1.0.5"
   resolved "https://registry.npmjs.org/tmpl/-/tmpl-1.0.5.tgz"
   integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
@@ -18257,6 +18326,13 @@ walker@^1.0.7:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
+
+walker@~1.0.5:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.8.tgz#bd498db477afe573dc04185f011d3ab8a8d7653f"
+  integrity sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==
+  dependencies:
+    makeerror "1.0.12"
 
 warning@^4.0.2:
   version "4.0.3"
