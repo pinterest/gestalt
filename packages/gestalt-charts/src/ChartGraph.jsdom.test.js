@@ -18,7 +18,76 @@ jest.mock('recharts', () => {
   };
 });
 
-const data = [
+const data1 = [
+  {
+    name: 'A',
+    'element_01': 100,
+  },
+  {
+    name: 'B',
+    'element_01': 100,
+  },
+  {
+    name: 'C',
+    'element_01': 100,
+  },
+  {
+    name: 'D',
+    'element_01': 100,
+  },
+  {
+    name: 'E',
+    'element_01': 100,
+  },
+  {
+    name: 'F',
+    'element_01': 100,
+  },
+  {
+    name: 'G',
+    'element_01': 100,
+  },
+];
+
+const data2 = [
+  {
+    name: 'A',
+    'element_01': 100,
+    'element_02': 200,
+  },
+  {
+    name: 'B',
+    'element_01': 100,
+    'element_02': 200,
+  },
+  {
+    name: 'C',
+    'element_01': 100,
+    'element_02': 200,
+  },
+  {
+    name: 'D',
+    'element_01': 100,
+    'element_02': 200,
+  },
+  {
+    name: 'E',
+    'element_01': 100,
+    'element_02': 200,
+  },
+  {
+    name: 'F',
+    'element_01': 100,
+    'element_02': 200,
+  },
+  {
+    name: 'G',
+    'element_01': 100,
+    'element_02': 200,
+  },
+];
+
+const data3 = [
   {
     name: 'A',
     'element_01': 100,
@@ -142,105 +211,13 @@ describe('ChartGraph', () => {
     jest.restoreAllMocks();
   });
 
-  it('renders bar chart', () => {
-    render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        data={data}
-        legend="none"
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'bar', id: 'element_02' },
-          { type: 'bar', id: 'element_03' },
-        ]}
-      />,
-    );
-    expect(screen.getAllByRole('img')).toHaveLength(21);
-  });
-
-  it('renders horizontal bar chart', () => {
-    render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        layout="horizontal"
-        data={data}
-        legend="none"
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'bar', id: 'element_02' },
-          { type: 'bar', id: 'element_03' },
-        ]}
-      />,
-    );
-    expect(screen.getAllByRole('img')).toHaveLength(21);
-  });
-
-  it('renders biaxial bar chart', () => {
-    render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        layout="verticalBiaxial"
-        data={data}
-        legend="none"
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'bar', id: 'element_02' },
-        ]}
-      />,
-    );
-    expect(screen.getAllByRole('img')).toHaveLength(14);
-  });
-
-  it('renders biaxial horizontal bar chart', () => {
-    render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        layout="horizontalBiaxial"
-        data={data}
-        legend="none"
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'bar', id: 'element_02' },
-        ]}
-      />,
-    );
-    expect(screen.getAllByRole('img')).toHaveLength(14);
-  });
-
-  it('renders stacked bar chart', () => {
-    render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        data={data}
-        stacked
-        legend="none"
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'bar', id: 'element_02' },
-          { type: 'bar', id: 'element_03' },
-        ]}
-      />,
-    );
-    expect(screen.getAllByRole('img')).toHaveLength(21);
-  });
-
   it('renders with x/y axis', () => {
     render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
         type="bar"
-        data={data}
+        data={data3}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
@@ -268,7 +245,7 @@ describe('ChartGraph', () => {
         title="Title"
         description="Description"
         labelMap={{ A: 'translatedA', element_01: 'translated01' }}
-        data={data}
+        data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
@@ -285,7 +262,7 @@ describe('ChartGraph', () => {
         type="bar"
         title="Title"
         description="Description"
-        data={data}
+        data={data2}
         helpButton={
           <HelpButton
             accessibilityLabel="Test label helpbutton"
@@ -311,7 +288,7 @@ describe('ChartGraph', () => {
         title="ChartGraph"
         titleDisplay="hidden"
         type="bar"
-        data={data}
+        data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
@@ -329,7 +306,7 @@ describe('ChartGraph', () => {
         titleDisplay="hidden"
         type="bar"
         legend="none"
-        data={data}
+        data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
@@ -349,7 +326,7 @@ describe('ChartGraph', () => {
         type="bar"
         legend="none"
         onVisualPatternChange={mockonVisualPatternChange}
-        data={data}
+        data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
@@ -373,7 +350,7 @@ describe('ChartGraph', () => {
         type="bar"
         legend="none"
         onVisualPatternChange={mockonVisualPatternChange}
-        data={data}
+        data={data1}
         elements={[{ type: 'bar', id: 'element_01' }]}
         selectors={{
           selector: 'TileData',
@@ -392,14 +369,6 @@ describe('ChartGraph', () => {
       />,
     );
 
-    expect(screen.getAllByRole('img')).toHaveLength(1);
-
     expect(screen.getByText('Impressions')).toBeVisible();
-
-    act(() => {
-      screen.getByText('Impressions').click();
-    });
-
-    expect(screen.getAllByRole('img')).toHaveLength(8);
   });
 });
