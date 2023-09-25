@@ -2160,21 +2160,6 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
-      android: {
-        name: 'Table',
-        visual: {
-          svg: <Table />,
-        },
-        alias: ['Data Table', 'Data Grid'],
-        description:
-          'Table is a set of structured data that is easy for a user to scan, examine, and compare.',
-        category: ['Data'],
-        status: {
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          status: 'planned',
-        },
-      },
     },
   },
   {
@@ -2267,7 +2252,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Chip', 'Pill', 'Filter Tag'],
         description: 'Tags are objects that hold text and have a delete icon to remove them.',
-        category: ['Data'],
+        category: ['Navigation'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2295,7 +2280,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Chip', 'Pill', 'Filter', 'Tag'],
         description:
           'TagData can be used to select multiple categories to compare with each other in a graph or chart view.',
-        category: ['Fields and forms'],
+        category: ['Data'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2506,7 +2491,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
         description:
           'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
-        category: ['Fields and forms'],
+        category: ['Data'],
         status: {
           accessible: {
             summary: 'ready',
