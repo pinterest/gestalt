@@ -121,7 +121,10 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
     size = 'md',
     text,
     type,
-    ...props
+    name,
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
   }: Props,
   ref,
 ): Node {
@@ -195,8 +198,6 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
   );
 
   if (type === 'submit') {
-    const { name } = props;
-
     return (
       <button
         aria-label={accessibilityLabel}
@@ -221,8 +222,6 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
       </button>
     );
   }
-
-  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, name } = props;
 
   return (
     <button

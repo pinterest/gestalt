@@ -11,7 +11,7 @@ export default function Example(): Node {
         text="Go back"
         size="lg"
         href="https://www.pinterest.com/"
-      />{' '}
+      />
     </Flex>
   );
 }

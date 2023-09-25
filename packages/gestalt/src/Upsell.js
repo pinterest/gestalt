@@ -42,7 +42,7 @@ type UpsellActionProps = {|
 
 function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, disabled, href, label, rel, target } = data;
+  const { accessibilityLabel, disabled, label } = data;
 
   const commonProps = {
     accessibilityLabel,
@@ -68,9 +68,9 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
         <ButtonLink
           {...commonProps}
           onClick={data.onClick}
-          href={href ?? ''}
-          rel={rel}
-          target={target}
+          href={data.href ?? ''}
+          rel={data.rel}
+          target={data.target}
         />
       ) : (
         <Button {...commonProps} onClick={data.onClick} />

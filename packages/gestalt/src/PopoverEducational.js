@@ -55,8 +55,7 @@ function PrimaryAction(props: PrimaryActionType) {
       accessibilityLabel={props.accessibilityLabel}
       color="white"
       fullWidth={false}
-      onClick={({ event }) => props.onClick?.({ event })}
-      type="button"
+      onClick={props.onClick}
       text={props.text}
     />
   );

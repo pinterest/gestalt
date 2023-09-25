@@ -27,15 +27,22 @@ type ButtonDataType = {|
 
 type Props = LinkDataType | ButtonDataType;
 
-export default function ModalAlertAction({ dataTestId, type, ...props }: Props): Node {
+export default function ModalAlertAction({
+  dataTestId,
+  type,
+  accessibilityLabel,
+  disabled,
+  label,
+  ...props
+}: Props): Node {
   const color = type === 'primary' ? 'red' : 'gray';
 
   return props.role === 'link' ? (
     <ButtonLink
-      accessibilityLabel={props.accessibilityLabel}
+      accessibilityLabel={accessibilityLabel}
       color={color}
       dataTestId={dataTestId}
-      disabled={props.disabled}
+      disabled={disabled}
       fullWidth
       href={props.href || ''}
       iconEnd="visit"
@@ -43,18 +50,18 @@ export default function ModalAlertAction({ dataTestId, type, ...props }: Props):
       rel={props.rel}
       size="lg"
       target={props.target}
-      text={props.label}
+      text={label}
     />
   ) : (
     <Button
-      accessibilityLabel={props.accessibilityLabel}
+      accessibilityLabel={accessibilityLabel}
       color={color}
       dataTestId={dataTestId}
-      disabled={props.disabled}
+      disabled={disabled}
       fullWidth
       onClick={props.onClick}
       size="lg"
-      text={props.label}
+      text={label}
     />
   );
 }
