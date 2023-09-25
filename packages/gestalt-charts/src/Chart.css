@@ -1,9 +1,0 @@
-:root {
-  /* transparent colors */
-  --g-color-focus: rgb(0 132 255 / 0.5);
-}
-
-.disabled {
-  cursor: default;
-  opacity: 0.5;
-}

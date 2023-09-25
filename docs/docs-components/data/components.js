@@ -22,7 +22,7 @@ import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
-// import Chart from '../../graphics/general/Chart.svg';
+import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
@@ -496,32 +496,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-  // {
-  //   id: 'Chart',
-  //   platform: {
-  //     web: {
-  //       name: 'Chart',
-  //       visual: {
-  //         svg: <Chart />,
-  //       },
-  //       description: 'WIP ',
-  //       category: ['Data'],
-  //       status: {
-  //         accessible: {
-  //           summary: 'notAvailable',
-  //           a11yVisual: 'notAvailable',
-  //           a11yScreenreader: 'notAvailable',
-  //           a11yNavigation: 'notAvailable',
-  //           a11yComprehension: 'notAvailable',
-  //         },
-  //         documentation: 'notAvailable',
-  //         figmaStatus: 'notAvailable',
-  //         responsive: 'notAvailable',
-  //         status: 'notAvailable',
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    id: 'ChartGraph',
+    platform: {
+      web: {
+        name: 'ChartGraph',
+        visual: {
+          svg: <ChartGraph />,
+        },
+        alias: ['Bar Graph', 'Line Graph', 'Column Graph'],
+        description:
+          'ChartGraph is used for displaying various types of graphs plotted on an x and y axis. ',
+        category: ['Data'],
+        status: {
+          accessible: {
+            summary: 'planned',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'notAvailable',
+            a11yNavigation: 'notAvailable',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'notAvailable',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
   {
     id: 'Checkbox',
     platform: {

@@ -29,7 +29,6 @@ Gestalt exports each component as ES6 modules and a single, precompiled CSS file
 ```js
 import { Text } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
-import 'gestalt/dist/gestalt-charts.css';
 import 'gestalt/dist/gestalt-datepicker.css';
 ```
 

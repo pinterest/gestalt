@@ -27,6 +27,11 @@ describe('useDefaultLabelContext', () => {
             iconAccessibilityLabelWarning: 'Warning',
             iconAccessibilityLabelSuccess: 'Success',
           },
+          ChartGraph: {
+            accessibilityLabelPrefixText: 'ChartGraph',
+            defaultViewText: 'Default view mode',
+            accessibleViewText: 'Visual pattern view',
+          },
           ComboBox: {
             noResultText: 'No results',
             accessibilityClearButtonLabel: 'Clear input',

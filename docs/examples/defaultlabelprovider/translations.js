@@ -20,6 +20,11 @@ const labels = {
     cancelText: myI18nTranslator('Cancel'),
     applyText: myI18nTranslator('Apply'),
   },
+  ChartGraph: {
+    accessibilityLabelPrefixText: myI18nTranslator('ChartGraph'),
+    defaultViewText: myI18nTranslator('Default view mode'),
+    accessibleViewText: myI18nTranslator('Visual pattern view'),
+  },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),
     accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
