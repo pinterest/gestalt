@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
+import { TileData } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -84,29 +85,25 @@ export default function Example(): Node {
           color: getColor(selectedId || '01'),
         },
       ]}
-      selectors={{
-        selector: 'TileData',
-        data: [
-          {
-            id: '01',
-            color: '01',
-            title: 'Impressions',
-            value: '10M',
-            selected: isSelected('01'),
-            onTap: ({ id }) => setSelectedId(id),
-            trend: { value: 29, accessibilityLabel: 'Trending up' },
-          },
-          {
-            id: '02',
-            color: '02',
-            title: 'Engagement',
-            value: '2M',
-            selected: isSelected('02'),
-            onTap: ({ id }) => setSelectedId(id),
-            trend: { value: 29, accessibilityLabel: 'Trending up' },
-          },
-        ],
-      }}
-    />
+    >
+      <TileData
+        id="01"
+        color="01"
+        title="Impressions"
+        value="10M"
+        selected={isSelected('01')}
+        onTap={({ id }) => setSelectedId(id)}
+        trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+      />
+      <TileData
+        id="02"
+        color="02"
+        title="Engagement"
+        value="2M"
+        selected={isSelected('02')}
+        onTap={({ id }) => setSelectedId(id)}
+        trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+      />
+    </ChartGraph>
   );
 }

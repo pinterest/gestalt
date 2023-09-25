@@ -1,5 +1,6 @@
 // @flow strict
 import { type ElementConfig, type Node, useEffect, useState } from 'react';
+import { TagData } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -109,35 +110,31 @@ export default function Example(): Node {
         },
       ]}
       elements={elements}
-      selectors={{
-        selector: 'TagData',
-        data: [
-          {
-            id: 'Campaign Autumn',
-            color: '01',
-            text: 'Campaign Autumn',
-            selected: isSelected('Campaign Autumn'),
-            onTap: ({ id, selected }) => handleSelectors({ id, selected }),
-            showCheckbox: true,
-          },
-          {
-            id: 'Campaign Winter',
-            color: '02',
-            text: 'Campaign Winter',
-            selected: isSelected('Campaign Winter'),
-            onTap: ({ id, selected }) => handleSelectors({ id, selected }),
-            showCheckbox: true,
-          },
-          {
-            id: 'Campaign Spring',
-            color: '03',
-            text: 'Campaign Spring',
-            selected: isSelected('Campaign Spring'),
-            onTap: ({ id, selected }) => handleSelectors({ id, selected }),
-            showCheckbox: true,
-          },
-        ],
-      }}
-    />
+    >
+      <TagData
+        id="Campaign Autumn"
+        color="01"
+        text="Campaign Autumn"
+        selected={isSelected('Campaign Autumn')}
+        onTap={({ id, selected }) => handleSelectors({ id, selected })}
+        showCheckbox
+      />
+      <TagData
+        id="Campaign Winter"
+        color="02"
+        text="Campaign Winter"
+        selected={isSelected('Campaign Winter')}
+        onTap={({ id, selected }) => handleSelectors({ id, selected })}
+        showCheckbox
+      />
+      <TagData
+        id="Campaign Spring"
+        color="03"
+        text="Campaign Spring"
+        selected={isSelected('Campaign Spring')}
+        onTap={({ id, selected }) => handleSelectors({ id, selected })}
+        showCheckbox
+      />
+    </ChartGraph>
   );
 }

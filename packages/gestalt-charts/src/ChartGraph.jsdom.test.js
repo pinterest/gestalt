@@ -1,7 +1,7 @@
 // @flow strict-local
 import { type ElementConfig, type Node, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
-import { Flex, HelpButton } from 'gestalt';
+import { Flex, HelpButton, TileData } from 'gestalt';
 import ChartGraph from './ChartGraph.js';
 
 // Mock needed here do to https://stackoverflow.com/questions/73117667/writing-unit-tests-with-react-testing-library-for-recharts
@@ -153,7 +153,7 @@ function ChartWrap(props: Props) {
         data={props.data}
         description={props.description}
         range={props.range}
-        elements={isSelect || !props.selectors ? props.elements : []}
+        elements={isSelect || !props.children ? props.elements : []}
         layout={props.layout}
         legend={props.legend}
         helpButton={props.helpButton}
@@ -169,25 +169,19 @@ function ChartWrap(props: Props) {
         title={props.title}
         type={props.type}
         referenceAreas={props.referenceAreas}
-        selectors={
-          props.selectors
-            ? {
-                selector: 'TileData',
-                data: [
-                  {
-                    id: '01',
-                    color: '01',
-                    title: 'Impressions',
-                    value: '10M',
-                    selected: isSelect,
-                    onTap: () => setIsSelect((x) => !x),
-                    trend: { value: 29, accessibilityLabel: 'Trending up' },
-                  },
-                ],
-              }
-            : undefined
-        }
-      />
+      >
+        {props.children ? (
+          <TileData
+            id="01"
+            color="01"
+            title="Impressions"
+            value="10M"
+            selected={isSelect}
+            onTap={() => setIsSelect((x) => !x)}
+            trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+          />
+        ) : undefined}
+      </ChartGraph>
     </Flex>
   );
 }
@@ -352,21 +346,17 @@ describe('ChartGraph', () => {
         onVisualPatternChange={mockonVisualPatternChange}
         data={data1}
         elements={[{ type: 'bar', id: 'element_01' }]}
-        selectors={{
-          selector: 'TileData',
-          data: [
-            {
-              id: '01',
-              color: '01',
-              title: 'Impressions',
-              value: '10M',
-              selected: false,
-              onTap: () => {},
-              trend: { value: 29, accessibilityLabel: 'Trending up' },
-            },
-          ],
-        }}
-      />,
+      >
+        <TileData
+          id="01"
+          color="01"
+          title="Impressions"
+          value="10M"
+          selected={false}
+          onTap={() => {}}
+          trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+        />
+      </ChartWrap>,
     );
 
     expect(screen.getByText('Impressions')).toBeVisible();

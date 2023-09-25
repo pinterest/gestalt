@@ -32,6 +32,16 @@ type Props = {|
    */
   accessibilityLabel: string,
   /**
+   * Must be instances of [TagData](https://gestalt.pinterest.systems/web/tagdata) or [TileData](https://gestalt.pinterest.systems/web/tiledata)
+   *
+   * See the [TagData variant](https://gestalt.pinterest.systems/web/chartgraph#TagData) or the [TileData variant](https://gestalt.pinterest.systems/web/chartgraph#TileData) to learn more.
+   */
+  children?:
+    | Element<typeof TileData>
+    | Element<typeof TagData>
+    | $ReadOnlyArray<Element<typeof TileData>>
+    | $ReadOnlyArray<Element<typeof TagData>>,
+  /**
    * The source data, in which each element is an object. Each object must specify a "name" associated to each category (string value) or timestamp (numberic value) in time series charts.
    *
    * The additional key-values represent one or more series of data presented on ChartGraph for each category or timestamp. A sequence of source data objects generate one or more series of data across categories or timestamps.
@@ -185,49 +195,6 @@ type Props = {|
     yAxisLeft?: (number, number) => string | number,
   |},
   /**
-   * Open slot for TagData or TileData.
-   *
-   * See the [TagData variant](https://gestalt.pinterest.systems/web/chartgraph#TagData) or the [TileData variant](https://gestalt.pinterest.systems/web/chartgraph#TileData) to learn more.
-   */
-  selectors?:
-    | {|
-        selector: 'TileData',
-        data: $ReadOnlyArray<{|
-          color?: $ElementType<React$ElementConfig<typeof TileData>, 'color'>,
-          disabled?: $ElementType<React$ElementConfig<typeof TileData>, 'disabled'>,
-          id?: $ElementType<React$ElementConfig<typeof TileData>, 'id'>,
-          onTap?: $ElementType<React$ElementConfig<typeof TileData>, 'onTap'>,
-          selected?: $ElementType<React$ElementConfig<typeof TileData>, 'selected'>,
-          showCheckbox?: $ElementType<React$ElementConfig<typeof TileData>, 'showCheckbox'>,
-          tooltip?: $ElementType<React$ElementConfig<typeof TileData>, 'tooltip'>,
-          title: $ElementType<React$ElementConfig<typeof TileData>, 'title'>,
-          trend?: $ElementType<React$ElementConfig<typeof TileData>, 'trend'>,
-          trendSentiment?: $ElementType<React$ElementConfig<typeof TileData>, 'trendSentiment'>,
-          value: $ElementType<React$ElementConfig<typeof TileData>, 'value'>,
-        |}>,
-      |}
-    | {|
-        selector: 'TagData',
-        data: $ReadOnlyArray<{|
-          accessibilityRemoveIconLabel?: $ElementType<
-            React$ElementConfig<typeof TagData>,
-            'accessibilityRemoveIconLabel',
-          >,
-          baseColor?: $ElementType<React$ElementConfig<typeof TagData>, 'baseColor'>,
-          color?: $ElementType<React$ElementConfig<typeof TagData>, 'color'>,
-          disabled?: $ElementType<React$ElementConfig<typeof TagData>, 'disabled'>,
-          id?: $ElementType<React$ElementConfig<typeof TagData>, 'id'>,
-          onTap?: $ElementType<React$ElementConfig<typeof TagData>, 'onTap'>,
-          onRemove?: $ElementType<React$ElementConfig<typeof TagData>, 'onRemove'>,
-          selected: $ElementType<React$ElementConfig<typeof TagData>, 'selected'>,
-          showCheckbox?: $ElementType<React$ElementConfig<typeof TagData>, 'showCheckbox'>,
-          size?: $ElementType<React$ElementConfig<typeof TagData>, 'size'>,
-          text: $ElementType<React$ElementConfig<typeof TagData>, 'text'>,
-          tooltip?: $ElementType<React$ElementConfig<typeof TagData>, 'tooltip'>,
-        |}>,
-      |},
-
-  /**
    * Type of chart.
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
    */
@@ -254,7 +221,7 @@ function ChartGraph({
   onVisualPatternChange,
   stacked,
   tickFormatter,
-  selectors,
+  children,
   titleDisplay = 'visible',
   title,
   type = 'combo',
@@ -433,51 +400,13 @@ function ChartGraph({
             helpButton={helpButton}
           />
         )}
-        {selectors && selectors.selector === 'TileData' ? (
+
+        {children ? (
           <Box marginBottom={4}>
-            <Flex gap={2}>
-              {selectors.data.map((tile) => (
-                <TileData
-                  key={tile.id}
-                  id={tile.id}
-                  color={tile.color}
-                  title={tile.title}
-                  value={tile.value}
-                  selected={tile.selected}
-                  onTap={tile.onTap}
-                  trend={tile.trend}
-                  disabled={tile.disabled}
-                  showCheckbox={tile.showCheckbox}
-                  tooltip={tile.tooltip}
-                  trendSentiment={tile.trendSentiment}
-                />
-              ))}
-            </Flex>
+            <Flex gap={2}>{children}</Flex>
           </Box>
         ) : null}
-        {selectors && selectors.selector === 'TagData' ? (
-          <Box marginBottom={4}>
-            <Flex gap={2}>
-              {selectors.data.map((tag) => (
-                <TagData
-                  key={tag.id}
-                  accessibilityRemoveIconLabel={tag.accessibilityRemoveIconLabel}
-                  baseColor={tag.baseColor}
-                  color={tag.color}
-                  disabled={tag.disabled}
-                  id={tag.id}
-                  onTap={tag.onTap}
-                  onRemove={tag.onRemove}
-                  selected={tag.selected}
-                  showCheckbox={tag.showCheckbox}
-                  size={tag.size}
-                  text={tag.text}
-                  tooltip={tag.tooltip}
-                />
-              ))}
-            </Flex>
-          </Box>
-        ) : null}
+
         <Box width="100%" height="100%" maxWidth={960}>
           <ResponsiveContainer
             debounce={150}
