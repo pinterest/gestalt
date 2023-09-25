@@ -74,6 +74,7 @@ export default function Example(): Node {
       onVisualPatternChange={() => {}}
       type="bar"
       title="Title"
+      initialTicks={3}
       legend="none"
       description="Description"
       data={selectedId === '01' ? dataA : dataB}
