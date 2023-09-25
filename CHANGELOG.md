@@ -1,3 +1,9 @@
+## 124.1.1 (Sep 25, 2023)
+
+### Patch
+
+- ChartGraph: fix in Docs ([#3216](https://github.com/pinterest/gestalt/pull/3216)) - [Preview link](https://deploy-preview-3216--gestalt.netlify.app?devexample=true)
+
 ## 124.1.0 (Sep 25, 2023)
 
 ### Minor
