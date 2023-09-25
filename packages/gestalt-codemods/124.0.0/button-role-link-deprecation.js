@@ -8,7 +8,7 @@
  *  <Upsell primaryAction={{href... /> to <Callout primaryAction={{role={'link'} href... />
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/123.0.0/button-role-link-deprecation.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/124.0.0/button-role-link-deprecation.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
@@ -52,9 +52,11 @@ export default function transformer(file, api) {
       );
     })
     .forEach((path) => {
-      const actionAttribute = path.node.openingElement.attributes.find(
+      const actionAttributes = path.node.openingElement.attributes.filter(
         (attr) =>
-          (attr.name.name === 'primaryAction' || attr.name.name === 'secondaryAction') &&
+          (attr.name.name === 'primaryAction' ||
+            attr.name.name === 'secondaryAction' ||
+            attr.name.name === 'button') &&
           attr.value &&
           attr.value.expression &&
           attr.value.expression.properties?.some(
@@ -62,7 +64,7 @@ export default function transformer(file, api) {
           ),
       );
 
-      if (actionAttribute) {
+      actionAttributes.forEach((actionAttribute) => {
         // Check if 'role' property is already present
         const roleProperty = actionAttribute.value.expression.properties.find(
           (prop) => prop.key.name === 'role',
@@ -74,7 +76,7 @@ export default function transformer(file, api) {
           );
           codeHasChanged = true;
         }
-      }
+      });
     })
     .toSource({ quote: 'single' });
 
