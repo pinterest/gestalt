@@ -1,3 +1,9 @@
+## 124.0.0 (Sep 25, 2023)
+
+### Major
+
+- Button,Callout,ModalAlert,PopoverEducational,SlimBanner,Toast,Upsell: Button's prop "role" deprecation and related API adjustments ([#3163](https://github.com/pinterest/gestalt/pull/3163)) - [Preview link](https://deploy-preview-3163--gestalt.netlify.app?devexample=true)
+
 ## 123.0.10 (Sep 25, 2023)
 
 ### Patch
