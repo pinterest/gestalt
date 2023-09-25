@@ -1,3 +1,9 @@
+## 124.1.0 (Sep 25, 2023)
+
+### Minor
+
+- Chart: new component for data visualization ([#2995](https://github.com/pinterest/gestalt/pull/2995)) - [Preview link](https://deploy-preview-2995--gestalt.netlify.app?devexample=true)
+
 ## 124.0.0 (Sep 25, 2023)
 
 ### Major
