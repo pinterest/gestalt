@@ -77,7 +77,6 @@ export default function Example(): Node {
       legend="none"
       description="Description"
       data={selectedId === '01' ? dataA : dataB}
-      initialTicks={3}
       elements={[
         {
           type: 'bar',
