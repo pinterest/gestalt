@@ -56,70 +56,70 @@ export default function PatternBarFill(): Node {
                   <Box height={100} width={100}>
                     <svg width="100" height="100" viewBox="-10 -10 20 20">
                       <defs>
-                        <g id={`points-01${idx}`}>
+                        <g id={`points-01-${idx}-${palette.name}`}>
                           <rect width="8" height="8" />
                         </g>
 
-                        <g id={`points-02-${idx}`}>
+                        <g id={`points-02-${idx}-${palette.name}`}>
                           <path d="M0,0l4,8h-8z" />
                         </g>
 
-                        <g id={`points-03-${idx}`}>
+                        <g id={`points-03-${idx}-${palette.name}`}>
                           <path d="M0,0h8l-4,8z" />
                         </g>
 
-                        <g id={`points-04-${idx}`}>
+                        <g id={`points-04-${idx}-${palette.name}`}>
                           <path
                             d="M36.6629 4.5L44.4605 28.1564L24 42.81L3.53951 28.1564L11.3371 4.5H36.6629Z"
                             transform="scale(0.22)"
                           />
                         </g>
 
-                        <g id={`points-05-${idx}`}>
+                        <g id={`points-05-${idx}-${palette.name}`}>
                           <rect width="6" height="6" transform="rotate(45)" />
                         </g>
 
-                        <g id={`points-06-${idx}`}>
+                        <g id={`points-06-${idx}-${palette.name}`}>
                           <rect width="8" height="8" />
                         </g>
 
-                        <g id={`points-07-${idx}`}>
+                        <g id={`points-07-${idx}-${palette.name}`}>
                           <path d="M0,0l4,8h-8z" />
                         </g>
 
-                        <g id={`points-08-${idx}`}>
+                        <g id={`points-08-${idx}-${palette.name}`}>
                           <path
                             d="M24 3.45525L42 13.741V34.259L24 44.5447L6 34.259V13.741L24 3.45525Z"
                             transform="scale(0.22)"
                           />
                         </g>
 
-                        <g id={`points-09-${idx}`}>
+                        <g id={`points-09-${idx}-${palette.name}`}>
                           <path
                             d="M24 1.5L48 18.6885L38.8328 46.5H9.16718L0 18.6885L24 1.5Z"
                             transform="scale(0.22)"
                           />
                         </g>
 
-                        <g id={`points-10-${idx}`}>
+                        <g id={`points-10-${idx}-${palette.name}`}>
                           <rect width="6" height="6" transform="rotate(45)" />
                         </g>
 
-                        <g id={`points-11-${idx}`}>
+                        <g id={`points-11-${idx}-${palette.name}`}>
                           <path
                             d="M24 3.45525L42 13.741V34.259L24 44.5447L6 34.259V13.741L24 3.45525Z"
                             transform="scale(0.22)"
                           />
                         </g>
 
-                        <g id={`points-12-${idx}`}>
+                        <g id={`points-12-${idx}-${palette.name}`}>
                           <path d="M0,0h8l-4,8z" />
                         </g>
                       </defs>
                       <use
                         x={0 - decalDotCoordCorrection[color].coordinate[0]}
                         y={0 - decalDotCoordCorrection[color].coordinate[1]}
-                        href={`#points-${color}-${idx}`}
+                        href={`#points-${color}-${idx}-${palette.name}`}
                         fill={
                           decalDotCoordCorrection[color].fill === 'empty'
                             ? 'var(--color-white-mochimalist-0)'

@@ -43,7 +43,7 @@ export default function PatternBarFill(): Node {
                       <svg height="100" width="100">
                         <defs>
                           <pattern
-                            id={`pattern-01-${idx}`}
+                            id={`pattern-01-${idx}-${palette.name}`}
                             width="4"
                             height="4"
                             patternUnits="userSpaceOnUse"
@@ -51,7 +51,7 @@ export default function PatternBarFill(): Node {
                             <rect width="4" height="4" fill={hexColor('01')} />
                           </pattern>
                           <pattern
-                            id={`pattern-02-${idx}`}
+                            id={`pattern-02-${idx}-${palette.name}`}
                             width="5"
                             height="5"
                             patternUnits="userSpaceOnUse"
@@ -59,7 +59,7 @@ export default function PatternBarFill(): Node {
                             <circle cx="2" cy="2" r="2" fill={hexColor('02')} />
                           </pattern>
                           <pattern
-                            id={`pattern-03-${idx}`}
+                            id={`pattern-03-${idx}-${palette.name}`}
                             width="3"
                             height="3"
                             patternUnits="userSpaceOnUse"
@@ -67,7 +67,7 @@ export default function PatternBarFill(): Node {
                             <rect width="2" height="2" fill={hexColor('03')} />
                           </pattern>
                           <pattern
-                            id={`pattern-04-${idx}`}
+                            id={`pattern-04-${idx}-${palette.name}`}
                             width="7"
                             height="7"
                             patternUnits="userSpaceOnUse"
@@ -82,7 +82,7 @@ export default function PatternBarFill(): Node {
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-05-${idx}`}
+                            id={`pattern-05-${idx}-${palette.name}`}
                             width="8"
                             height="8"
                             patternUnits="userSpaceOnUse"
@@ -96,7 +96,7 @@ export default function PatternBarFill(): Node {
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-06-${idx}`}
+                            id={`pattern-06-${idx}-${palette.name}`}
                             width="4"
                             height="4"
                             patternUnits="userSpaceOnUse"
@@ -110,7 +110,7 @@ export default function PatternBarFill(): Node {
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-07-${idx}`}
+                            id={`pattern-07-${idx}-${palette.name}`}
                             width="8"
                             height="8"
                             patternUnits="userSpaceOnUse"
@@ -124,7 +124,7 @@ export default function PatternBarFill(): Node {
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-08-${idx}`}
+                            id={`pattern-08-${idx}-${palette.name}`}
                             x="0"
                             y="0"
                             width="8"
@@ -135,7 +135,7 @@ export default function PatternBarFill(): Node {
                             <rect x="4" width="4" height="4" y="4" fill={hexColor('08')} />
                           </pattern>
                           <pattern
-                            id={`pattern-09-${idx}`}
+                            id={`pattern-09-${idx}-${palette.name}`}
                             width="4"
                             height="4"
                             patternUnits="userSpaceOnUse"
@@ -144,7 +144,7 @@ export default function PatternBarFill(): Node {
                             <rect width="2" height="4" fill={hexColor('09')} />
                           </pattern>
                           <pattern
-                            id={`pattern-10-${idx}`}
+                            id={`pattern-10-${idx}-${palette.name}`}
                             x="0"
                             y="0"
                             width="8"
@@ -155,7 +155,7 @@ export default function PatternBarFill(): Node {
                             <rect x="0" width="5" height="5" y="0" fill={hexColor('10')} />
                           </pattern>
                           <pattern
-                            id={`pattern-11-${idx}`}
+                            id={`pattern-11-${idx}-${palette.name}`}
                             width="4"
                             height="4"
                             patternUnits="userSpaceOnUse"
@@ -164,7 +164,7 @@ export default function PatternBarFill(): Node {
                             <rect width="2" height="4" fill={hexColor('11')} />
                           </pattern>
                           <pattern
-                            id={`pattern-12-${idx}`}
+                            id={`pattern-12-${idx}-${palette.name}`}
                             x="0"
                             y="0"
                             width="8"
@@ -183,7 +183,7 @@ export default function PatternBarFill(): Node {
                           </pattern>
                         </defs>
                         <rect
-                          style={{ fill: `url(#pattern-${color}-${idx})` }}
+                          style={{ fill: `url(#pattern-${color}-${idx}-${palette.name})` }}
                           x="0"
                           y="0"
                           height="100"
