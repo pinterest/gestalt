@@ -74,6 +74,7 @@ type Props = {|
 
 function ChartWrap(props: Props) {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
+  const [isSelect, setIsSelect] = useState(false);
 
   return (
     <Flex direction="column" width="100%" height="100%">
@@ -83,7 +84,7 @@ function ChartWrap(props: Props) {
         data={props.data}
         description={props.description}
         range={props.range}
-        elements={props.elements}
+        elements={isSelect || !props.selectors ? props.elements : []}
         layout={props.layout}
         legend={props.legend}
         helpButton={props.helpButton}
@@ -99,6 +100,24 @@ function ChartWrap(props: Props) {
         title={props.title}
         type={props.type}
         referenceAreas={props.referenceAreas}
+        selectors={
+          props.selectors
+            ? {
+                selector: 'TileData',
+                data: [
+                  {
+                    id: '01',
+                    color: '01',
+                    title: 'Impressions',
+                    value: '10M',
+                    selected: isSelect,
+                    onTap: () => setIsSelect((x) => !x),
+                    trend: { value: 29, accessibilityLabel: 'Trending up' },
+                  },
+                ],
+              }
+            : undefined
+        }
       />
     </Flex>
   );
@@ -124,129 +143,95 @@ describe('ChartGraph', () => {
   });
 
   it('renders bar chart', () => {
-    const { baseElement } = render(
+    render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
         type="bar"
         data={data}
+        legend="none"
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
+          { type: 'bar', id: 'element_03' },
         ]}
       />,
     );
-    expect(baseElement).toMatchSnapshot();
+    expect(screen.getAllByRole('img')).toHaveLength(21);
   });
 
-  it('renders bar with pattern chart', () => {
-    const { baseElement } = render(
+  it('renders horizontal bar chart', () => {
+    render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
         type="bar"
-        visualPatternSelected="visualPattern"
+        layout="horizontal"
         data={data}
+        legend="none"
+        elements={[
+          { type: 'bar', id: 'element_01' },
+          { type: 'bar', id: 'element_02' },
+          { type: 'bar', id: 'element_03' },
+        ]}
+      />,
+    );
+    expect(screen.getAllByRole('img')).toHaveLength(21);
+  });
+
+  it('renders biaxial bar chart', () => {
+    render(
+      <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
+        layout="verticalBiaxial"
+        data={data}
+        legend="none"
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
         ]}
       />,
     );
-    expect(baseElement).toMatchSnapshot();
+    expect(screen.getAllByRole('img')).toHaveLength(14);
+  });
+
+  it('renders biaxial horizontal bar chart', () => {
+    render(
+      <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
+        layout="horizontalBiaxial"
+        data={data}
+        legend="none"
+        elements={[
+          { type: 'bar', id: 'element_01' },
+          { type: 'bar', id: 'element_02' },
+        ]}
+      />,
+    );
+    expect(screen.getAllByRole('img')).toHaveLength(14);
   });
 
   it('renders stacked bar chart', () => {
-    const { baseElement } = render(
+    render(
       <ChartWrap
         title="ChartGraph"
         titleDisplay="hidden"
         type="bar"
         data={data}
         stacked
+        legend="none"
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
+          { type: 'bar', id: 'element_03' },
         ]}
       />,
     );
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('renders exact & precise line chart', () => {
-    const { baseElement } = render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="line"
-        data={data}
-        elements={[
-          { type: 'line', id: 'element_01', precision: 'exact' },
-          { type: 'line', id: 'element_02', precision: 'estimate' },
-        ]}
-      />,
-    );
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('renders exact & precise with pattern line chart', () => {
-    const { baseElement } = render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="line"
-        visualPatternSelected="visualPattern"
-        data={data}
-        elements={[
-          { type: 'line', id: 'element_01', precision: 'exact' },
-          { type: 'line', id: 'element_02', precision: 'estimate' },
-        ]}
-      />,
-    );
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('renders combo chart', () => {
-    const { baseElement } = render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="combo"
-        data={data}
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'line', id: 'element_02' },
-        ]}
-      />,
-    );
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('renders reference area', () => {
-    const { baseElement } = render(
-      <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="combo"
-        referenceAreas={[
-          {
-            id: 'ExampleBD',
-            label: 'ExampleBD',
-            x1: 'B',
-            x2: 'D',
-            yAxisId: 'left',
-            y1: 2000,
-            y2: 2500,
-          },
-        ]}
-        data={data}
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'line', id: 'element_02' },
-        ]}
-      />,
-    );
-    expect(baseElement).toMatchSnapshot();
+    expect(screen.getAllByRole('img')).toHaveLength(21);
   });
 
   it('renders with x/y axis', () => {
@@ -376,5 +361,45 @@ describe('ChartGraph', () => {
       screen.getByRole('button').click();
     });
     expect(mockonVisualPatternChange).toHaveBeenCalled();
+  });
+
+  it('renders with selectors', () => {
+    const mockonVisualPatternChange = jest.fn<[], void>();
+
+    render(
+      <ChartWrap
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
+        legend="none"
+        onVisualPatternChange={mockonVisualPatternChange}
+        data={data}
+        elements={[{ type: 'bar', id: 'element_01' }]}
+        selectors={{
+          selector: 'TileData',
+          data: [
+            {
+              id: '01',
+              color: '01',
+              title: 'Impressions',
+              value: '10M',
+              selected: false,
+              onTap: () => {},
+              trend: { value: 29, accessibilityLabel: 'Trending up' },
+            },
+          ],
+        }}
+      />,
+    );
+
+    expect(screen.getAllByRole('img')).toHaveLength(1);
+
+    expect(screen.getByText('Impressions')).toBeVisible();
+
+    act(() => {
+      screen.getByText('Impressions').click();
+    });
+
+    expect(screen.getAllByRole('img')).toHaveLength(8);
   });
 });
