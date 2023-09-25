@@ -1,3 +1,9 @@
+## 123.0.10 (Sep 25, 2023)
+
+### Patch
+
+- Docs: Data viz color usage examples updated ([#3215](https://github.com/pinterest/gestalt/pull/3215)) - [Preview link](https://deploy-preview-3215--gestalt.netlify.app?devexample=true)
+
 ## 123.0.9 (Sep 22, 2023)
 
 ### Patch
