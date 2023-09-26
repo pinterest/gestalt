@@ -172,7 +172,7 @@ type Props = {|
    */
   title: string,
   /**
-   * Whether the title should be visible or not. If hidden, the title is still available in the tabular data modal.
+   * Whether the title should be visible or not. If hidden, the title is still available in the tabular representation modal.
    */
   titleDisplay?: 'visible' | 'hidden',
   /**
@@ -554,6 +554,7 @@ function ChartGraph({
       </Box>
       {showTabularData ? (
         <TabularData
+          data={data}
           title={title}
           setShowTabularData={() => setShowTabularData((value) => !value)}
         />

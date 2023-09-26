@@ -12,36 +12,49 @@ import {
   Text,
   useDefaultLabel,
 } from 'gestalt';
+import useTabularData from './useTabularData.js';
 
 export default function TabularData({
   title,
   setShowTabularData,
+  data,
 }: {|
-  title?: string,
+  title: string,
   setShowTabularData: () => void,
+  data: $ReadOnlyArray<{|
+    name: string | number,
+    [string]: number,
+  |}>,
 |}): Node {
-  const { accessibilityLabelDismissModal } = useDefaultLabel('ChartGraph');
+  const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
+
+  const tabularDataTable = useTabularData({ data });
 
   return (
     <Layer>
       <Modal
         heading={
-          <Flex justifyContent="between">
-            <Heading size="500" accessibilityLevel={1}>
-              {title || 'ChartGraph tabular data'}
-            </Heading>
-            <IconButton
-              accessibilityLabel={accessibilityLabelDismissModal}
-              bgColor="white"
-              icon="cancel"
-              iconColor="darkGray"
-              onClick={() => setShowTabularData()}
-              size="sm"
-            />
+          <Flex direction="column">
+            <Flex justifyContent="between">
+              <Heading size="500" accessibilityLevel={1}>
+                {title}
+              </Heading>
+              <IconButton
+                accessibilityLabel={accessibilityLabelDismissModal}
+                bgColor="white"
+                icon="cancel"
+                iconColor="darkGray"
+                onClick={() => setShowTabularData()}
+                size="sm"
+              />
+            </Flex>
+            <Text size="200" color="subtle">
+              {tabularData}
+            </Text>
           </Flex>
         }
         align="start"
-        accessibilityModalLabel="accessibilityLabel"
+        accessibilityModalLabel={tabularData}
         onDismiss={() => setShowTabularData()}
         size="sm"
         footer={
@@ -58,56 +71,23 @@ export default function TabularData({
             <Table.Row>
               <Table.HeaderCell>
                 <Text size="200" weight="bold">
-                  Campaign
+                  Metric series
                 </Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
                 <Text size="200" weight="bold">
-                  Status
+                  x-value
                 </Text>
               </Table.HeaderCell>
               <Table.HeaderCell>
                 <Text size="200" weight="bold">
-                  Date
+                  y-value
                 </Text>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
-          <Table.Body>
-            {[
-              {
-                id: 'row1',
-                campaign: 'Winter',
-                status: 'Draft',
-                date: 'December 25, 2023',
-              },
-              {
-                id: 'row2',
-                campaign: 'Spring',
-                status: 'Active',
-                date: 'April 25, 2023',
-              },
-              {
-                id: 'row3',
-                campaign: 'Fall',
-                status: 'Finished',
-                date: 'October 25, 2022',
-              },
-            ].map(({ id, campaign, status, date }) => (
-              <Table.Row key={id}>
-                <Table.Cell>
-                  <Text size="200">{campaign}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">{status}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text size="200">{date}</Text>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
+          <Table.Body>{tabularDataTable}</Table.Body>
         </Table>
       </Modal>
     </Layer>

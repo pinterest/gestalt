@@ -133,8 +133,8 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityLabelPrefixText: 'ChartGraph',
     defaultViewText: 'Default view mode',
     accessibleViewText: 'Accessibility view mode',
-    tabularData: 'Tabular data',
-    accessibilityLabelDismissModal: 'Dismiss tabular data modal',
+    tabularData: 'Tabular representation',
+    accessibilityLabelDismissModal: 'Dismiss tabular representation modal',
   },
   ComboBox: {
     noResultText: 'No results',
