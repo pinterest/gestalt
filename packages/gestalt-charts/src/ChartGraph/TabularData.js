@@ -14,12 +14,17 @@ import {
 } from 'gestalt';
 import useTabularData from './useTabularData.js';
 
+interface Indexable {
+  index(): number;
+}
+
 export default function TabularData({
   title,
   setShowTabularData,
   data,
   tickFormatter,
   labelMap,
+  modalZIndex,
 }: {|
   title: string,
   setShowTabularData: () => void,
@@ -35,6 +40,7 @@ export default function TabularData({
     yAxisLeft?: (number, number) => string | number,
   |},
   labelMap?: {| [string]: string |},
+  modalZIndex?: Indexable,
 |}): Node {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
@@ -59,7 +65,7 @@ export default function TabularData({
   };
 
   return (
-    <Layer>
+    <Layer zIndex={modalZIndex}>
       <Modal
         heading={
           <Flex direction="column">

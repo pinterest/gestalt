@@ -24,6 +24,10 @@ import useDefaultLegend from './ChartGraph/useDefaultLegend.js';
 import useDefaultTooltip from './ChartGraph/useDefaultTooltip.js';
 import usePatterns, { useHexColor } from './ChartGraph/usePatterns.js';
 
+interface Indexable {
+  index(): number;
+}
+
 type Props = {|
   // REQUIRED
   /**
@@ -200,6 +204,11 @@ type Props = {|
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
    */
   type?: 'combo' | 'line' | 'bar',
+  /**
+   * Type of chart.
+   * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
+   */
+  modalZIndex?: Indexable,
 |};
 
 /**
@@ -219,6 +228,7 @@ function ChartGraph({
   layout: externalLayout = 'vertical',
   labelMap,
   legend = 'auto',
+  modalZIndex,
   onVisualPatternChange,
   stacked,
   tickFormatter,
@@ -559,6 +569,7 @@ function ChartGraph({
           setShowTabularData={() => setShowTabularData((value) => !value)}
           tickFormatter={tickFormatter}
           labelMap={labelMap}
+          modalZIndex={modalZIndex}
         />
       ) : null}
     </ChartProvider>
