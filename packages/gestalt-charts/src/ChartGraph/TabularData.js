@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node, useEffect, useState } from 'react';
 import {
   Button,
   ButtonGroup,
@@ -18,6 +18,7 @@ export default function TabularData({
   title,
   setShowTabularData,
   data,
+  tickFormatter,
 }: {|
   title: string,
   setShowTabularData: () => void,
@@ -25,10 +26,34 @@ export default function TabularData({
     name: string | number,
     [string]: number,
   |}>,
+  tickFormatter?: {|
+    timeseries?: (number) => string | number,
+    xAxisTop?: (number, number) => string | number,
+    xAxisBottom?: (number, number) => string | number,
+    yAxisRight?: (number, number) => string | number,
+    yAxisLeft?: (number, number) => string | number,
+  |},
 |}): Node {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
-  const tabularDataTable = useTabularData({ data });
+  const [sortOrder, setSortOrder] = useState('desc');
+  const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
+
+  const tabularDataTable = useTabularData({
+    data,
+    filterId: sortCol,
+    filterOrder: sortOrder,
+    tickFormatter,
+  });
+
+  const onSortChange = (value: 'series' | 'x' | 'y') => {
+    if (sortCol !== value) {
+      setSortCol(value);
+      setSortOrder('desc');
+    } else {
+      setSortOrder((sortValue) => (sortValue === 'asc' ? 'desc' : 'asc'));
+    }
+  };
 
   return (
     <Layer>
@@ -69,21 +94,33 @@ export default function TabularData({
         <Table accessibilityLabel="Main example table">
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>
+              <Table.SortableHeaderCell
+                onSortChange={() => onSortChange('series')}
+                sortOrder={sortOrder}
+                status={sortCol === 'series' ? 'active' : 'inactive'}
+              >
                 <Text size="200" weight="bold">
                   Metric series
                 </Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
+              </Table.SortableHeaderCell>
+              <Table.SortableHeaderCell
+                onSortChange={() => onSortChange('x')}
+                sortOrder={sortOrder}
+                status={sortCol === 'x' ? 'active' : 'inactive'}
+              >
                 <Text size="200" weight="bold">
                   x-value
                 </Text>
-              </Table.HeaderCell>
-              <Table.HeaderCell>
+              </Table.SortableHeaderCell>
+              <Table.SortableHeaderCell
+                onSortChange={() => onSortChange('y')}
+                sortOrder={sortOrder}
+                status={sortCol === 'y' ? 'active' : 'inactive'}
+              >
                 <Text size="200" weight="bold">
                   y-value
                 </Text>
-              </Table.HeaderCell>
+              </Table.SortableHeaderCell>
             </Table.Row>
           </Table.Header>
 

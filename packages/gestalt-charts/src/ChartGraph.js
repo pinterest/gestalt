@@ -557,6 +557,7 @@ function ChartGraph({
           data={data}
           title={title}
           setShowTabularData={() => setShowTabularData((value) => !value)}
+          tickFormatter={tickFormatter}
         />
       ) : null}
     </ChartProvider>
