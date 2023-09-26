@@ -83,23 +83,25 @@ export default function InternalTooltip({
   const mouseLeaveDelay = link ? TIMEOUT : 0;
 
   useEffect(() => {
-    dispatch({ type: 'hoverOutIcon', disabled });
+    if (disabled === true) {
+      dispatch({ type: 'hoverOutIcon', disabled });
+    }
   }, [disabled]);
 
   const handleIconMouseEnter = () => {
-    dispatch({ type: 'hoverInIcon' });
+    dispatch({ type: 'hoverInIcon', disabled });
   };
 
   const handleIconMouseLeave = useDebouncedCallback(() => {
-    dispatch({ type: 'hoverOutIcon' });
+    dispatch({ type: 'hoverOutIcon', disabled });
   }, mouseLeaveDelay);
 
   const handleTextMouseEnter = () => {
-    dispatch({ type: 'hoverInText' });
+    dispatch({ type: 'hoverInText', disabled });
   };
 
   const handleTextMouseLeave = useDebouncedCallback(() => {
-    dispatch({ type: 'hoverOutText' });
+    dispatch({ type: 'hoverOutText', disabled });
   }, mouseLeaveDelay);
 
   return (
