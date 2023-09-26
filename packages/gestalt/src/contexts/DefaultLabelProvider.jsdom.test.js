@@ -30,7 +30,9 @@ describe('useDefaultLabelContext', () => {
           ChartGraph: {
             accessibilityLabelPrefixText: 'ChartGraph',
             defaultViewText: 'Default view mode',
-            accessibleViewText: 'Visual pattern view',
+            accessibleViewText: 'Accessibility view mode',
+            tabularData: 'Tabular data',
+            accessibilityLabelDismissModal: 'Dismiss tabular data modal',
           },
           ComboBox: {
             noResultText: 'No results',

@@ -18,6 +18,7 @@ import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
 import renderElements from './ChartGraph/renderElements.js';
 import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
+import TabularData from './ChartGraph/TabularData.js';
 import useCustomTooltip from './ChartGraph/useCustomTooltip.js';
 import useDefaultLegend from './ChartGraph/useDefaultLegend.js';
 import useDefaultTooltip from './ChartGraph/useDefaultTooltip.js';
@@ -255,6 +256,7 @@ function ChartGraph({
   // STATE
   const [chartHeight, setChartHeight] = useState(0);
   const [chartWidth, setChartWidth] = useState(0);
+  const [showTabularData, setShowTabularData] = useState(false);
 
   // We need to know the legend height, because the ResponsiveContainer includes the legend within the provided height
   const [legendHeight, setLegendHeight] = useState(legend === 'none' ? 0 : 20);
@@ -398,6 +400,8 @@ function ChartGraph({
             description={description}
             onVisualPatternChange={onVisualPatternChange}
             helpButton={helpButton}
+            setShowTabularData={() => setShowTabularData((value) => !value)}
+            showTabularData={showTabularData}
           />
         )}
 
@@ -548,6 +552,12 @@ function ChartGraph({
           </ResponsiveContainer>
         </Box>
       </Box>
+      {showTabularData ? (
+        <TabularData
+          title={title}
+          setShowTabularData={() => setShowTabularData((value) => !value)}
+        />
+      ) : null}
     </ChartProvider>
   );
 }

@@ -10,6 +10,8 @@ export default function Header({
   onVisualPatternChange,
   helpButton,
   titleDisplay,
+  setShowTabularData,
+  showTabularData,
 }: {|
   readyToRender: boolean,
   title?: string,
@@ -17,8 +19,10 @@ export default function Header({
   onVisualPatternChange: () => void,
   helpButton?: Element<typeof HelpButton>,
   titleDisplay?: 'visible' | 'hidden',
+  setShowTabularData: () => void,
+  showTabularData: boolean,
 |}): Node {
-  const { accessibleViewText, defaultViewText } = useDefaultLabel('ChartGraph');
+  const { accessibleViewText, defaultViewText, tabularData } = useDefaultLabel('ChartGraph');
   const { decal: showVisualPattern } = useChartContext();
 
   return (
@@ -40,6 +44,16 @@ export default function Header({
             </Flex>
           )}
         </Flex.Item>
+        <IconButton
+          accessibilityLabel=""
+          icon="apps"
+          iconColor={readyToRender ? 'darkGray' : 'white'}
+          bgColor={readyToRender ? undefined : 'transparent'}
+          onClick={setShowTabularData}
+          selected={showTabularData}
+          size="xs"
+          tooltip={{ text: tabularData }}
+        />
         {showVisualPattern === 'disabled' ? null : (
           <IconButton
             accessibilityLabel=""
