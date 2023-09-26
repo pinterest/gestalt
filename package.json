@@ -124,7 +124,7 @@
     "lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
     "lint:js": "eslint --max-warnings 0 .",
     "lint:sh": "shellcheck $(find . -type f -iname '*.sh' ! -path '*/node_modules/*' ! -path '*/.git/*')",
-    "remote-link":"./scripts/remote-link.sh",
+    "gestalt:link":"./scripts/link-remote.sh",
     "playwright:test": "npx playwright test playwright/accessibility/ --config=playwright/playwright.config.js",
     "playwright:visual-test": "npx playwright test playwright/visual-test --config=playwright/playwright.config.js",
     "playwright:test-masonry": "npx playwright test --config=playwright/playwright.config.js playwright/masonry/",

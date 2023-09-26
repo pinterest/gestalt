@@ -1,7 +1,4 @@
 #!/bin/bash
-
-all_args=("$@")
-target="$1"
 trap "echo Exited!; exit;" SIGINT SIGTERM
 
 hostname=""
