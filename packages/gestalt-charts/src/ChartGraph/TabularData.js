@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useEffect, useState } from 'react';
+import { type Node, useState } from 'react';
 import {
   Button,
   ButtonGroup,
@@ -19,6 +19,7 @@ export default function TabularData({
   setShowTabularData,
   data,
   tickFormatter,
+  labelMap,
 }: {|
   title: string,
   setShowTabularData: () => void,
@@ -33,6 +34,7 @@ export default function TabularData({
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
   |},
+  labelMap?: {| [string]: string |},
 |}): Node {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
@@ -44,6 +46,7 @@ export default function TabularData({
     filterId: sortCol,
     filterOrder: sortOrder,
     tickFormatter,
+    labelMap,
   });
 
   const onSortChange = (value: 'series' | 'x' | 'y') => {
@@ -85,7 +88,7 @@ export default function TabularData({
         footer={
           <Flex justifyContent="end">
             <ButtonGroup>
-              <Button color="gray" text="Cancel" />
+              <Button color="gray" text="Cancel" onClick={() => setShowTabularData()} />
               <Button color="red" text="Download as .csv" iconEnd="download" />
             </ButtonGroup>
           </Flex>

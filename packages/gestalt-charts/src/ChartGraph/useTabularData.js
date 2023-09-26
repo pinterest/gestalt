@@ -95,6 +95,7 @@ export default function useTabularData({
   filterId,
   filterOrder,
   tickFormatter,
+  labelMap,
 }: {|
   data: $ReadOnlyArray<{|
     name: string | number,
@@ -109,6 +110,7 @@ export default function useTabularData({
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
   |},
+  labelMap?: {| [string]: string |},
 |}): Node {
   const tabularData = data
     .reduce(
@@ -132,7 +134,13 @@ export default function useTabularData({
             if (x[0] === 'name') {
               return {};
             }
-            return { series: x[0], xAxis: name, yAxis: x[1] };
+            return {
+              series: labelMap ? labelMap[x[0]] : x[0],
+              xAxis: labelMap && typeof name === 'string' ? labelMap[name] : name,
+              yAxis: x[1],
+            };
+
+            // return { series: x[0], xAxis: name, yAxis: x[1] };
           })
           .filter((x) => !!x.series);
 
