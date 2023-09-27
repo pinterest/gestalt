@@ -2015,7 +2015,7 @@ interface TapAreaProps {
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
-  children: Node;
+  children?: Node;
   dataTestId?: string;
   disabled?: boolean | undefined;
   fullHeight?: boolean | undefined;
