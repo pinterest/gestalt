@@ -1,3 +1,9 @@
+## 125.0.4 (Sep 27, 2023)
+
+### Patch
+
+- Tooltip: Move to Internal Tooltip ([#3220](https://github.com/pinterest/gestalt/pull/3220)) - [Preview link](https://deploy-preview-3220--gestalt.netlify.app?devexample=true)
+
 ## 125.0.3 (Sep 27, 2023)
 
 ### Patch
