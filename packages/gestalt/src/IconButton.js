@@ -239,7 +239,7 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
     </button>
   );
 
-  return tooltip?.text && !disabled ? (
+  return tooltip?.text ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}
       inline={tooltip.inline}
