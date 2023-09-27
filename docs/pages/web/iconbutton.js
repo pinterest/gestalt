@@ -183,7 +183,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
 
 Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
         >
-          <CombinationNew cardSize="xs" size={['xl', 'lg', 'md', 'sm', 'xs']}>
+          <CombinationNew size={['xl', 'lg', 'md', 'sm', 'xs']}>
             {({ size }) => (
               <IconButton
                 accessibilityLabel={`Example size ${size}`}
@@ -209,10 +209,7 @@ Follow these guidelines for \`iconColor\`
 
 `}
         >
-          <CombinationNew
-            cardSize="xs"
-            iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}
-          >
+          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}
@@ -240,7 +237,6 @@ Follow these guidelines for \`bgColor\`
 `}
         >
           <CombinationNew
-            cardSize="xs"
             bgColor={[
               'red',
               'lightGray',
