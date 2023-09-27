@@ -51,7 +51,7 @@ type Props = {|
   /**
    * TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.
    */
-  children: Node,
+  children?: Node,
   /**
    * Available for testing purposes, if needed.
    * Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
