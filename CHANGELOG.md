@@ -1,3 +1,9 @@
+## 126.0.0 (Sep 27, 2023)
+
+### Major
+
+- IconButton: deprecate `role` prop ([#3210](https://github.com/pinterest/gestalt/pull/3210)) - [Preview link](https://deploy-preview-3210--gestalt.netlify.app?devexample=true)
+
 ## 125.0.4 (Sep 27, 2023)
 
 ### Patch
