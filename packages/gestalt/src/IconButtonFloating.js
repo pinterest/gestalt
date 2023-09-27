@@ -38,12 +38,7 @@ type Props = {|
    * Callback fired when the component is clicked, pressed or tapped.
    */
   onClick: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   |}) => void,
   /**
    * Indicates whether the associated dropdown is open or closed. Not used when IconButtonFloating opens a dialog.
@@ -61,8 +56,6 @@ type Props = {|
   |},
 |};
 
-type unionRefs = HTMLButtonElement | HTMLAnchorElement;
-
 /**
  * [IconButtonFloating](https://gestalt.pinterest.systems/web/iconbuttonfloating) represents the primary or most common action on the screen. As the name suggests, it floats over the content and is always on top of everything on the screen. Similar to [IconButton](https://gestalt.pinterest.systems/web/iconbutton), the floating version uses icons instead of text to convey available actions. However, it is used when the action needs to be visible at all times in a sticky way where content can scroll underneath. IconButtonFloating remains in place on scroll.
  *
@@ -74,9 +67,9 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButtonFloating dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating-dark.spec.mjs-snapshots/IconButtonFloating-dark-chromium-darwin.png)
  *
  */
-const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<
+const IconButtonFloatingWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwardRef<
   Props,
-  unionRefs,
+  HTMLButtonElement,
 >(function IconButtonFloating(
   {
     accessibilityControls,
@@ -105,7 +98,6 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
         icon={icon}
         onClick={onClick}
         ref={ref}
-        role="button"
         selected={selected}
         size="xl"
         tooltip={tooltip}

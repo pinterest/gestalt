@@ -7,7 +7,7 @@ import {
   DeviceTypeProvider,
   FixedZIndex,
   Flex,
-  IconButton,
+  IconButtonLink,
   Layer,
   SheetMobile,
   TextField,
@@ -30,10 +30,9 @@ export default function Example(): Node {
             primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
             footer={
               <Flex justifyContent="between" gap={2}>
-                <IconButton
+                <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
                   icon="share"
-                  role="link"
                   target="blank"
                   href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}
@@ -41,10 +40,9 @@ export default function Example(): Node {
                 <Flex gap={2}>
                   <Button color="gray" text="Secondary" />
                 </Flex>
-                <IconButton
+                <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
                   icon="ellipsis"
-                  role="link"
                   target="blank"
                   href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}

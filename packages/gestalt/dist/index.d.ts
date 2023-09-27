@@ -1041,8 +1041,12 @@ interface IconProps {
   size?: number | string | undefined;
 }
 
-interface CommonIconButtonProps {
+interface IconButtonProps {
   accessibilityLabel: string;
+  accessibilityControls?: string | undefined;
+  accessibilityExpanded?: boolean | undefined;
+  accessibilityHaspopup?: boolean | undefined;
+  accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
   bgColor?:
   | 'transparent'
   | 'darkGray'
@@ -1057,41 +1061,23 @@ interface CommonIconButtonProps {
   disabled?: boolean | undefined;
   icon?: Icons | undefined;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
-  onClick?: IconButtonEventHandlerType | undefined;
+  name?: string;
+  onClick?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
+      >
+    | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
+  selected?: boolean | undefined;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   tabIndex?: -1 | 0 | undefined;
+  type?: 'button' | 'submit' | undefined;
   tooltip?:
   | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
   | undefined;
 }
 
-interface IconButtonLinkProps extends CommonIconButtonProps {
-  role: 'link';
-  href: string;
-  rel?: RelType | undefined;
-  target?: TargetType | undefined;
-}
-
-interface IconButtonButtonProps extends CommonIconButtonProps {
-  role?: 'button' | undefined;
-  type?: 'button' | undefined;
-  accessibilityControls?: string | undefined;
-  accessibilityExpanded?: boolean | undefined;
-  accessibilityHaspopup?: boolean | undefined;
-  accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
-  name?: string;
-  selected?: boolean | undefined;
-}
-
-interface IconButtonSubmitProps extends CommonIconButtonProps {
-  role: 'button' | undefined;
-  type: 'submit';
-}
-
-type IconButtonProps = IconButtonLinkProps | IconButtonButtonProps | IconButtonSubmitProps;
-
-interface IconButtonLinkCmpProps {
+interface IconButtonLinkProps {
   accessibilityLabel: string;
   bgColor?:
     | 'transparent'
@@ -1128,7 +1114,9 @@ interface IconButtonFloatingProps {
   accessibilityPopupRole: 'menu' | 'dialog';
   accessibilityLabel: string;
   icon: Icons;
-  onClick: IconButtonEventHandlerType;
+  onClick: AbstractEventHandler<
+    React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
+  >;
   tooltip: {
     accessibilityLabel?: string | undefined;
     inline?: boolean | undefined;
@@ -1331,7 +1319,7 @@ interface ModuleExpandableProps {
     children?: Node | undefined;
     icon?: Icons | undefined;
     iconAccessibilityLabel?: string | undefined;
-    iconButton?: React.ReactElement<typeof IconButton> | undefined;
+    iconButton?: React.ReactElement<typeof IconButton | typeof IconButtonLink> | undefined;
     summary?: ReadonlyArray<string> | undefined;
     type?: 'info' | 'error' | undefined;
   }>;
@@ -1448,19 +1436,15 @@ interface PageHeaderProps {
   borderStyle?: 'sm' | 'none' | undefined;
   dropdownAccessibilityLabel?: string | undefined;
   helperIconButton?:
-  | {
-    accessibilityLabel: string | undefined;
-    accessibilityControls: string | undefined;
-    accessibilityExpanded: boolean | undefined;
-    onClick: AbstractEventHandler<
-      | React.MouseEvent<HTMLButtonElement>
-      | React.MouseEvent<HTMLAnchorElement>
-      | React.KeyboardEvent<HTMLAnchorElement>
-      | React.KeyboardEvent<HTMLButtonElement>,
-      { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-    >;
-  }
-  | undefined;
+    | {
+        accessibilityLabel: string | undefined;
+        accessibilityControls: string | undefined;
+        accessibilityExpanded: boolean | undefined;
+        onClick: AbstractEventHandler<
+          React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
+        >;
+      }
+    | undefined;
   helperLink?: {
     accessibilityLabel: string;
     text: string;
@@ -2495,12 +2479,12 @@ export const Icon: React.FunctionComponent<IconProps>;
 /**
  * https://gestalt.pinterest.systems/web/iconbutton
  */
-export const IconButton: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, IconButtonProps>;
+export const IconButton: ReactForwardRef<HTMLButtonElement, IconButtonProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonlink
  */
-export const IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkCmpProps>;
+export const IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
