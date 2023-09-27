@@ -1,3 +1,9 @@
+## 126.0.2 (Sep 27, 2023)
+
+### Patch
+
+- IconButton: reenabling tooltip when disabled ([#3226](https://github.com/pinterest/gestalt/pull/3226)) - [Preview link](https://deploy-preview-3226--gestalt.netlify.app?devexample=true)
+
 ## 126.0.1 (Sep 27, 2023)
 
 ### Patch
