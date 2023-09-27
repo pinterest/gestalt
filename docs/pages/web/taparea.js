@@ -12,6 +12,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibility from '../../examples/taparea/accessibility.js';
 import compressBehavior from '../../examples/taparea/compressBehavior.js';
+import fullSpace from '../../examples/taparea/fullSpace.js';
 import heightWidth from '../../examples/taparea/heightWidth.js';
 import inlineUsage from '../../examples/taparea/inlineUsage.js';
 import main from '../../examples/taparea/main.js';
@@ -68,6 +69,13 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
         <MainSection.Subsection title="Height & width">
           <MainSection.Card
             sandpackExample={<SandpackExample name="Height & Width Example" code={heightWidth} />}
+          />
+          <MainSection.Card
+            cardSize="lg"
+            title="Full space with no children"
+            sandpackExample={
+              <SandpackExample name="Full space with no children" code={fullSpace} />
+            }
           />
         </MainSection.Subsection>
 
