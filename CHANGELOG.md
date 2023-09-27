@@ -1,3 +1,9 @@
+## 125.0.0 (Sep 27, 2023)
+
+### Major
+
+- TapArea: deprecate role='link' ([#3211](https://github.com/pinterest/gestalt/pull/3211)) - [Preview link](https://deploy-preview-3211--gestalt.netlify.app?devexample=true)
+
 ## 124.1.1 (Sep 25, 2023)
 
 ### Patch
