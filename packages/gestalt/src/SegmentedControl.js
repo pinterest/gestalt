@@ -27,13 +27,20 @@ type Props = {|
    * Index of element in `items` that is currently selected.
    */
   selectedItemIndex: number,
+  /**
+   * Size of the Segmented Control. Default is `md`.
+   */
+  size?: 'sm' | 'md' | 'lg',
 |};
+
+const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => styles[`${s}`];
 
 function SegmentedControlItem({
   index,
   item,
   isSelected,
   onChange,
+  size,
   width,
 }: {|
   index: number,
@@ -41,13 +48,19 @@ function SegmentedControlItem({
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
+  size: 'sm' | 'md' | 'lg',
 |}) {
   const { isFocusVisible } = useFocusVisible();
-  const cs = classnames(styles.item, focusStyles.hideOutline, {
-    [styles.itemIsNotSelected]: !isSelected,
-    [styles.itemIsSelected]: isSelected,
-    [focusStyles.accessibilityOutline]: isFocusVisible,
-  });
+  const cs = classnames(
+    styles.item,
+    focusStyles.hideOutline,
+    {
+      [styles.itemIsNotSelected]: !isSelected,
+      [styles.itemIsSelected]: isSelected,
+      [focusStyles.accessibilityOutline]: isFocusVisible,
+    },
+    applyDensityStyle(size),
+  );
 
   return (
     <button
@@ -85,10 +98,14 @@ export default function SegmentedControl({
   onChange,
   responsive,
   selectedItemIndex,
+  size,
 }: Props): Node {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
-    <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">
+    <div
+      className={classnames(styles.SegmentedControl, layout.medium, applyDensityStyle(size))}
+      role="tablist"
+    >
       {items.map((item, i) => (
         <SegmentedControlItem
           // eslint-disable-next-line react/no-array-index-key
@@ -97,6 +114,7 @@ export default function SegmentedControl({
           item={item}
           isSelected={i === selectedItemIndex}
           onChange={onChange}
+          size={size}
           width={buttonWidth}
         />
       ))}
