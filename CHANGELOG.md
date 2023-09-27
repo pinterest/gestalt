@@ -1,3 +1,9 @@
+## 125.0.3 (Sep 27, 2023)
+
+### Patch
+
+- List: Update Condensed List Spacing Tokens ([#3221](https://github.com/pinterest/gestalt/pull/3221)) - [Preview link](https://deploy-preview-3221--gestalt.netlify.app?devexample=true)
+
 ## 125.0.2 (Sep 27, 2023)
 
 ### Patch
