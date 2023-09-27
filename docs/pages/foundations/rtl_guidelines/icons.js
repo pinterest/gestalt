@@ -556,25 +556,28 @@ representations of time. In RTL, decide whether to show circular or horizontal d
             <Text size="300">Icons in an audio player don’t need to be flipped.</Text>
           </Box>
           <MainSection.Subsection title="Checkmarks" description="Checkmarks aren't mirrored." />
-          <Box maxHeight={112} marginBottom={3} borderStyle="sm" rounding={4}>
+          <Box maxHeight={200} marginBottom={3} borderStyle="sm" rounding={4}>
             <Mask rounding={4}>
               <Image
                 alt="A success toast in Hebrew with the checkmark icon to the right of the text. The checkmark isn't mirrored."
                 naturalWidth={2688}
-                naturalHeight={366}
+                naturalHeight={336}
                 src="https://i.pinimg.com/originals/e1/53/05/e1530574dc9a4a100c0a77bc4f1e7539.png"
               />
             </Mask>
           </Box>
           <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={6}>
-            <Text size="300">Icons in an audio player don’t need to be flipped.</Text>
+            <Text size="300">
+              In a Toast, for example, the message text is flipped, but the checkmark icon stays the
+              same.
+            </Text>
           </Box>
 
           <MainSection.Subsection
             title="Icons referring to physical objects that don't depict movement"
             description="Physical icons that don’t indicate movement or a direction don’t need to be mirrored. Examples include filter, icons with slashes across them, key and link."
           />
-          <Box maxHeight={142} marginBottom={12} borderStyle="sm" rounding={4}>
+          <Box maxHeight={200} marginBottom={12} borderStyle="sm" rounding={4}>
             <Mask rounding={4}>
               <Image
                 alt="Filter, music, key and link icons that don't need to be flipped."
