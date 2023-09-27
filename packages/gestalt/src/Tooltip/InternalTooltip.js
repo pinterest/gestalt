@@ -19,7 +19,7 @@ const reducer = (
     disabled?: boolean,
   |},
 ) => {
-  if (action.disabled) return { ...state, isOpen: false, hoveredIcon: false };
+  if (action.disabled) return { ...state, isOpen: false, hoveredIcon: false, hoveredText: false };
   switch (action.type) {
     case 'hoverInIcon':
       return {
