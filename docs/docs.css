@@ -1058,7 +1058,7 @@ Default table styling for MDX Pages
   }
 }
 
-.rotateIcon{
+.rotateIcon {
   transform: scale(-1, 1);
   transform-origin: center;
 }
