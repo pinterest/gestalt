@@ -1,3 +1,9 @@
+## 125.0.2 (Sep 27, 2023)
+
+### Patch
+
+- TapArea: full space with no children example in Docs ([#3224](https://github.com/pinterest/gestalt/pull/3224)) - [Preview link](https://deploy-preview-3224--gestalt.netlify.app?devexample=true)
+
 ## 125.0.1 (Sep 27, 2023)
 
 ### Patch
