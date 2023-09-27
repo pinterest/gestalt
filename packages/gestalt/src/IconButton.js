@@ -191,7 +191,7 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
         handleBlur();
         setFocused(false);
       }}
-      onClick={onClick}
+      onClick={(event) => onClick?.({ event })}
       onFocus={() => setFocused(true)}
       onMouseDown={() => {
         handleMouseDown();
