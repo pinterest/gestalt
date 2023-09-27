@@ -41,19 +41,19 @@ html[dir="rtl"] .bulletList:first-child {
 }
 
 .listItemCondensed {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: var(--space-200);
+  margin-top: var(--space-200);
 }
 
 /* last should precede first for single item lists */
 
 .listItemCondensed:last-child {
   margin-bottom: 0;
-  margin-top: var(--space-400);
+  margin-top: var(--space-200);
 }
 
 .listItemCondensed:first-child {
-  margin-bottom: var(--space-400);
+  margin-bottom: var(--space-200);
   margin-top: 0;
 }
 
@@ -70,13 +70,13 @@ html[dir="rtl"] .bulletList:first-child {
 }
 
 .list .list > .listItemCondensed:last-child {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: var(--space-200);
+  margin-top: var(--space-200);
 }
 
 .list .list > .listItemCondensed:first-child {
-  margin-bottom: var(--space-400);
-  margin-top: var(--space-400);
+  margin-bottom: var(--space-200);
+  margin-top: var(--space-200);
 }
 
 .noStyle {
