@@ -4,6 +4,7 @@ import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import trackButtonClick from './buttons/trackButtonClick.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import componentData from './data/components.js';
 import getByPlatform from './data/utils/getByPlatform.js';
 import Markdown from './Markdown.js';
@@ -155,7 +156,7 @@ export default function PageHeader({
           </Flex>
 
           <Flex direction="column" gap={6}>
-            <Flex direction="column" gap={1}>
+            <Flex direction="column" gap={1} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
               {description && <Markdown text={description} />}
               {alias && alias.length > 0 && (
                 // using h2 to indicate to Algolia search that this is important, but don't want native browser styling
