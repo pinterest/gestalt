@@ -71,6 +71,8 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
             sandpackExample={<SandpackExample name="Height & Width Example" code={heightWidth} />}
           />
           <MainSection.Card
+            cardSize="lg"
+            title="Full space with no children"
             sandpackExample={
               <SandpackExample name="Full space with no children" code={fullSpace} />
             }
