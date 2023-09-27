@@ -190,6 +190,13 @@ export default function SandpackExample({
                 }),
                 hidden: true,
               },
+              '/node_modules/gestalt-charts/package.json': {
+                code: JSON.stringify({
+                  name: 'gestalt-charts',
+                  main: './dist/gestalt-charts.js',
+                }),
+                hidden: true,
+              },
               '/node_modules/gestalt-datepicker/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt-datepicker',
@@ -199,6 +206,10 @@ export default function SandpackExample({
                 hidden: true,
               },
               '/node_modules/gestalt/dist/gestalt.js': {
+                code: files.js,
+                hidden: true,
+              },
+              '/node_modules/gestalt-charts/dist/gestalt-charts.js': {
                 code: files.js,
                 hidden: true,
               },
@@ -226,11 +237,14 @@ export default function SandpackExample({
           import { Box, ColorSchemeProvider } from 'gestalt';
           import App from "./App";
 
+          const html = document.querySelector('html');
+          html.setAttribute('dir', '${exampleTextDirection}');
+
           const root = createRoot(document.getElementById("root"));
           root.render(
             <StrictMode>
               <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
-                <Box color="default" height="100%" width="100%" dir="${exampleTextDirection}">
+                <Box color="default" height="100%" width="100%">
                   <App />
                 </Box>
               </ColorSchemeProvider>
@@ -243,7 +257,7 @@ export default function SandpackExample({
         dependencies: {
           ...(files
             ? { classnames: 'latest' }
-            : { gestalt: 'latest', 'gestalt-datepicker': 'latest' }),
+            : { gestalt: 'latest', 'gestalt-charts': 'latest', 'gestalt-datepicker': 'latest' }),
           react: '18.2.0',
           'react-dom': '18.2.0',
         },

@@ -3,6 +3,7 @@ import { type Node, useCallback } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
+import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import theme from './atomDark.js';
 import OpenSandboxButton from './buttons/OpenSandboxButton.js';
@@ -59,7 +60,7 @@ function MainSectionCard({
   type = 'info',
 }: Props): Node {
   const code = defaultCode?.trim();
-  const scope = { ...gestalt, ...gestaltDatepicker };
+  const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
   const borderStyle =
     type !== 'info' ? `3px solid var(--color-background-${TYPE_TO_COLOR[type]}-base)` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;

@@ -17,6 +17,7 @@ export default function ResponsiveExample(): Node {
           accessibilityLabel: 'Learn more about campaign budget optimization',
           label: 'Learn more',
           onClick: () => {},
+          role: 'button',
         }}
       />
     </Box>

@@ -5,7 +5,13 @@ import { Image, Toast } from 'gestalt';
 export default function Snapshot(): Node {
   return (
     <Toast
-      primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+      primaryAction={{
+        accessibilityLabel: 'Test',
+        label: 'Undo',
+        size: 'lg',
+        role: 'button',
+        onClick: () => {},
+      }}
       text="Home decor"
       thumbnail={{
         image: (

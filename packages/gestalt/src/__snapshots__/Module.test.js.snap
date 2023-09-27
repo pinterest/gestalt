@@ -2,7 +2,7 @@
 
 exports[`Module renders a badge correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
@@ -91,7 +91,7 @@ exports[`Module renders a badge correctly 1`] = `
 
 exports[`Module renders a title correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
@@ -134,7 +134,7 @@ exports[`Module renders a title correctly 1`] = `
 
 exports[`Module renders an error correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
@@ -205,7 +205,7 @@ exports[`Module renders an error correctly 1`] = `
 
 exports[`Module renders an icon button correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
@@ -308,7 +308,7 @@ exports[`Module renders an icon button correctly 1`] = `
 
 exports[`Module renders an icon correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
@@ -379,7 +379,7 @@ exports[`Module renders an icon correctly 1`] = `
 
 exports[`Module renders content correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div
@@ -400,7 +400,7 @@ exports[`Module renders content correctly 1`] = `
 
 exports[`Module renders the base correctly 1`] = `
 <div
-  className="box elevationFloating paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX6 paddingY6 rounding4 shadow"
   id="module-test"
 >
   <div

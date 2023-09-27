@@ -1,5 +1,5 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Layer from './Layer.js';
 import { FixedZIndex } from './zIndex.js';
 
@@ -7,26 +7,21 @@ describe('Layer in browser render', () => {
   if (typeof document !== 'undefined') {
     it('appends itself to body on mount', () => {
       const { body } = document;
-      const { getByText } = render(<Layer>content</Layer>);
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      const element = getByText('content');
-      expect(body && body.contains(element)).toBeTruthy();
+      render(<Layer>content</Layer>);
+
+      expect(body && body.contains(screen.getByText('content'))).toBeTruthy();
     });
 
     it('removes itself from body on unmount', () => {
       const { body } = document;
-      const { getByText, unmount } = render(<Layer>content</Layer>);
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      const element = getByText('content');
+      const { unmount } = render(<Layer>content</Layer>);
       unmount();
-      expect(body && body.contains(element)).toBeFalsy();
+      expect(body && body.contains(screen.queryByText('content'))).toBeFalsy();
     });
 
     it('sets the zIndex if it is defined', () => {
-      const { getByText } = render(<Layer zIndex={new FixedZIndex(200)}>content</Layer>);
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      const element = getByText('content');
-      expect(element.style.zIndex).toEqual('200');
+      render(<Layer zIndex={new FixedZIndex(200)}>content</Layer>);
+      expect(screen.getByText('content').style.zIndex).toEqual('200');
     });
   }
 });

@@ -13,13 +13,12 @@ describe('Link', () => {
       ],
       void,
     >();
-    const { getByText } = render(
+    render(
       <Link href="https://example.com" onClick={mockOnClick}>
         Link
       </Link>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('Link').click();
+    screen.getByText('Link').click();
     expect(mockOnClick).toHaveBeenCalled();
   });
 

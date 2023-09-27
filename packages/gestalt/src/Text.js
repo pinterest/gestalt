@@ -11,7 +11,7 @@ function isNotNullish(val: ?number): boolean {
 }
 
 type As = 'span' | 'div';
-type Overflow = 'normal' | 'breakWord' | 'noWrap';
+type Overflow = 'normal' | 'breakAll' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
@@ -100,6 +100,19 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
   ): Element<As> {
     const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
+    const getWordBreakStyle = (): string | void => {
+      if (overflow === 'breakAll') {
+        return typography.breakAll;
+      }
+
+      // default to breakWord if lineClamp is set
+      if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
+        return typography.breakWord;
+      }
+
+      return undefined;
+    };
+
     const cs = cx(
       styles.Text,
       typography[`fontSize${size}`],
@@ -110,7 +123,7 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
       align === 'end' && typography.alignEnd,
       align === 'forceLeft' && typography.alignForceLeft,
       align === 'forceRight' && typography.alignForceRight,
-      overflow === 'breakWord' && typography.breakWord,
+      getWordBreakStyle(),
       overflow === 'noWrap' && typography.noWrap,
       italic && typography.fontStyleItalic,
       underline && typography.underline,

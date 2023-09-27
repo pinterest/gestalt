@@ -2,12 +2,17 @@
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import Example from '../../docs-components/Example.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import completeVariant from '../../examples/activationcard/completeVariant.js';
+import mainExample from '../../examples/activationcard/mainExample.js';
+import needsAttentionVariant from '../../examples/activationcard/needsAttentionVariant.js';
+import notStartedVariant from '../../examples/activationcard/notStartedVariant.js';
+import pendingVariant from '../../examples/activationcard/pendingVariant.js';
 
 export default function ActivationCardPage({
   generatedDocGen,
@@ -16,27 +21,9 @@ export default function ActivationCardPage({
 |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        defaultCode={`
-<ActivationCard
-  dismissButton={{
-    accessibilityLabel: 'Dismiss card',
-    onDismiss: ()=>{},
-  }}
-  link={{
-    href: "https://pinterest.com",
-    label:"Learn more",
-    accessibilityLabel: "Learn more: website claim status"
-  }}
-  message="We will notify you via email as soon as your site has been successfully claimed."
-  status="pending"
-  statusMessage="Pending"
-  title="Claim your website"
-/>
-  `}
-      />
+      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+        <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -63,71 +50,35 @@ export default function ActivationCardPage({
         </MainSection.Subsection>
       </MainSection>
 
-      <Example
-        name="Not started and Pending Cards"
-        defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}>
-  <ActivationCard
-    dismissButton={{
-      accessibilityLabel: 'Dismiss card',
-      onDismiss: () => {},
-    }}
-    link={{
-      href: "https://pinterest.com",
-      label:"Claim your website now",
-      accessibilityLabel: ""
-    }}
-    message="Grow distribution and track Pins linked to your website"
-    status="notStarted"
-    statusMessage="Not started"
-    title="Claim your website"
-  />
-  <ActivationCard
-    dismissButton={{
-      accessibilityLabel: 'Dismiss card',
-      onDismiss: ()=>{},
-    }}
-    link={{
-      href: "https://pinterest.com",
-      label:"Learn more",
-      accessibilityLabel: "Learn more: website claim status"
-    }}
-    message="We will notify you via email as soon as your site has been successfully claimed."
-    status="pending"
-    statusMessage="Pending"
-    title="Claim your website"
-  />
-</Flex>
-  `}
-      />
-      <Example
-        name="Needs attention and Complete Cards"
-        defaultCode={`
-<Flex gap={{ column: 0, row: 2 }}>
-  <ActivationCard
-    dismissButton={{
-      accessibilityLabel: 'Dismiss card',
-      onDismiss: () => {},
-    }}
-    link={{
-      accessibilityLabel: "Learn more about tag health",
-      href: "https://pinterest.com",
-      label: "Learn more"
-    }}
-    message="Oops! Your tag must be healthy to continue."
-    status="needsAttention"
-    statusMessage="Needs attention"
-    title="Tag is unhealthy"
-  />
-  <ActivationCard
-    message="Tag is installed and healthy"
-    status="complete"
-    statusMessage="Completed"
-    title="Nice work"
-  />
-</Flex>
-  `}
-      />
+      <MainSection name="Variants">
+        <MainSection.Subsection title="Not Started">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample name="Not Started Variant" code={notStartedVariant} />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Pending">
+          <MainSection.Card
+            sandpackExample={<SandpackExample name="Pending Variant" code={pendingVariant} />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Needs Attention">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample name="Needs Attention Variant" code={needsAttentionVariant} />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Complete">
+          <MainSection.Card
+            sandpackExample={<SandpackExample name="Complete Variant" code={completeVariant} />}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
 

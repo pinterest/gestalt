@@ -4,7 +4,7 @@ description: Checkbox is used for multiple choice selection.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/d3/66/fb/d366fb0a6b4bc150779c149aea472a24.jpg"  alt="Primary example of Checkbox component" />
+<ImgContainer src="https://i.pinimg.com/originals/f1/22/f0/f122f00c3efc6628de66f351bb38ac73.png"  alt="Primary example of Checkbox component" />
 
 ## Usage guidelines
 
@@ -28,13 +28,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/32/33/bb/3233bb3a92c57dd29f2b5f2fd2a417f7.jpg"  alt="Example of correct multi-select use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/0fe0c895-5939-42ca-a215-3d404b3203c1"  alt="Example of correct multi-select use" />
     <Do title="Do" />
     Use checkboxes for multi-selection of related list items
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/1e/14/24/1e14245a26f12cf014028d24b00a6317.jpg"  alt="Example of incorrect single-select use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/a1965e39-13c9-4a27-9038-c66bf16d1f3d"  alt="Example of incorrect single-select use" />
     <Dont title="Don't" />
     Use checkboxes for one selection. Use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) instead.
   </Group>
@@ -42,13 +42,13 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/b2/20/93/b2209377241895d0471bde7340ee85c2.jpg"  alt="Example of correct single checkbox use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/c262c872-9f8f-4684-b430-099c2bc62bdb"  alt="Example of correct single checkbox use" />
     <Do title="Do" />
     Use a single Checkbox in forms where the selection only takes effect after submitting the form
   </Group>
 
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e7/07/02/e70702e40416c5f4f89e92eca2bbb490.jpg"  alt="Example of incorrect immediate effect use" />
+    <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/21ccdc50-30c1-4f0e-9c9f-b7c1c0e37622"  alt="Example of incorrect immediate effect use" />
     <Dont title="Don't" />
     Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](https://gestalt.pinterest.systems/ios/switch) instead.
   </Group>
@@ -69,6 +69,57 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
   </Group>
 </TwoCol>
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="980" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A824%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+
+## Anatomy
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A158%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+
+## Variants
+
+### State
+
+1. **Unchecked [Default]**
+1. **Checked**
+1. **Error**
+1. **Indeterminate**
+1. **Disabled**
+<br/>
+<TwoCol spacing="expanded">
+  <Group>
+  <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A534%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Unchecked**
+  </Group>
+
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A387%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Checked**
+  </Group>
+  </TwoCol>
+  <TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A747%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Error**
+  </Group>
+
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A605%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Indeterminate**
+  </Group>
+  </TwoCol>
+<TwoCol>
+  <Group>
+    <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A676%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+    **Disabled**
+  </Group>
+  <Group>
+  </Group>
+</TwoCol>
+
+**With helper text**
+Checkbox supports helper text to provide more detail about an option.
+ <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39414%253A460%26mode%3Ddesign%26t%3D3ISDirowUo2HYuLt-1" allowFullScreen></iframe>
+
 ## Writing
 
 <TwoCol>
@@ -82,54 +133,3 @@ People use Apple and Android’s accessibility features, such as VoiceOver and T
     - Include lengthy text labels that make it hard for a user to scan a list of choices
   </Group>
 </TwoCol>
-
-## Variants
-
-### State
-
-1. **Unchecked [Default]**
-1. **Checked**
-1. **Error**
-1. **Indeterminate**
-1. **Disabled**
-
-<ThreeCol spacing="expanded">
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/45/01/9f/45019f108f27c0d3aa9480fcf001b115.jpg"  alt="Example of unchecked checkbox" />
-    **Unchecked**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/fd/06/05/fd06051095a0d1c76122ec282ec54bea.jpg"  alt="Example of checked checkbox" />
-    **Checked**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/60/60/48/60604885afd2ee2e8b9cad4c1efdbb0a.jpg"  alt="Example of checkbox with an error" />
-    **Error**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/e0/ab/e1/e0abe172b2dfe56166d33b5d8a8175f2.jpg"  alt="Example of checkbox with an indeterminate state" />
-    **Indeterminate**
-  </Group>
-
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/82/50/5c/82505c5eb557f3b85049965ccbe14435.jpg"  alt="Example of checkbox with a disabled state" />
-    **Disabled**
-  </Group>
-</ThreeCol>
-
-**With helper text**
-Checkbox supports helper text to provide more detail about an option.
-
-<ImgContainer src="https://i.pinimg.com/originals/dd/12/5a/dd125a30d6fb4cdd8c44c002f363dd56.jpg"  alt="Example of checkbox with helper text" />
-
-## Related
-
-- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup)
-  Use when presenting a user with a list of choices for which there can only be one selection.
-- [Switch](https://gestalt.pinterest.systems/ios/switch)
-  Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
-- [Fieldset](https://gestalt.pinterest.systems/web/fieldset)
-  Use to group a list of related Checkboxes with a legend that describes the list.

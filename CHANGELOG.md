@@ -1,3 +1,327 @@
+## 124.1.1 (Sep 25, 2023)
+
+### Patch
+
+- ChartGraph: fix in Docs ([#3216](https://github.com/pinterest/gestalt/pull/3216)) - [Preview link](https://deploy-preview-3216--gestalt.netlify.app?devexample=true)
+
+## 124.1.0 (Sep 25, 2023)
+
+### Minor
+
+- Chart: new component for data visualization ([#2995](https://github.com/pinterest/gestalt/pull/2995)) - [Preview link](https://deploy-preview-2995--gestalt.netlify.app?devexample=true)
+
+## 124.0.0 (Sep 25, 2023)
+
+### Major
+
+- Button,Callout,ModalAlert,PopoverEducational,SlimBanner,Toast,Upsell: Button's prop "role" deprecation and related API adjustments ([#3163](https://github.com/pinterest/gestalt/pull/3163)) - [Preview link](https://deploy-preview-3163--gestalt.netlify.app?devexample=true)
+
+## 123.0.10 (Sep 25, 2023)
+
+### Patch
+
+- Docs: Data viz color usage examples updated ([#3215](https://github.com/pinterest/gestalt/pull/3215)) - [Preview link](https://deploy-preview-3215--gestalt.netlify.app?devexample=true)
+
+## 123.0.9 (Sep 22, 2023)
+
+### Patch
+
+- Docs: 9/22 weekly digest ([#3214](https://github.com/pinterest/gestalt/pull/3214)) - [Preview link](https://deploy-preview-3214--gestalt.netlify.app?devexample=true)
+
+## 123.0.8 (Sep 22, 2023)
+
+### Patch
+
+- Docs: Add ListAction component ([#3205](https://github.com/pinterest/gestalt/pull/3205)) - [Preview link](https://deploy-preview-3205--gestalt.netlify.app?devexample=true)
+
+## 123.0.7 (Sep 22, 2023)
+
+### Patch
+
+- WashAnimated: Remove space tokens ([#3213](https://github.com/pinterest/gestalt/pull/3213)) - [Preview link](https://deploy-preview-3213--gestalt.netlify.app?devexample=true)
+
+## 123.0.6 (Sep 21, 2023)
+
+### Patch
+
+- Docs: Add IconButtonLink SVG ([#3212](https://github.com/pinterest/gestalt/pull/3212)) - [Preview link](https://deploy-preview-3212--gestalt.netlify.app?devexample=true)
+
+## 123.0.5 (Sep 21, 2023)
+
+### Patch
+
+- Masonry: Fix bug with height restoration + two column module items ([#3208](https://github.com/pinterest/gestalt/pull/3208)) - [Preview link](https://deploy-preview-3208--gestalt.netlify.app?devexample=true)
+
+## 123.0.4 (Sep 21, 2023)
+
+### Patch
+
+- Tooltip: Revert Internal Tooltip move ([#3209](https://github.com/pinterest/gestalt/pull/3209)) - [Preview link](https://deploy-preview-3209--gestalt.netlify.app?devexample=true)
+
+## 123.0.3 (Sep 21, 2023)
+
+### Patch
+
+- Video: Fix flickering video controls on iOS browsers ([#3202](https://github.com/pinterest/gestalt/pull/3202)) - [Preview link](https://deploy-preview-3202--gestalt.netlify.app?devexample=true)
+
+## 123.0.2 (Sep 21, 2023)
+
+### Patch
+
+- Docs: Generate component metadata only from library exposed components ([#3194](https://github.com/pinterest/gestalt/pull/3194)) - [Preview link](https://deploy-preview-3194--gestalt.netlify.app?devexample=true)
+
+## 123.0.1 (Sep 21, 2023)
+
+### Patch
+
+- AvatarGroup: Android docs page ([#3199](https://github.com/pinterest/gestalt/pull/3199)) - [Preview link](https://deploy-preview-3199--gestalt.netlify.app?devexample=true)
+
+## 123.0.0 (Sep 20, 2023)
+
+### Major
+
+- Tokens: Density Tokens Update ([#3196](https://github.com/pinterest/gestalt/pull/3196)) - [Preview link](https://deploy-preview-3196--gestalt.netlify.app?devexample=true)
+
+## 122.5.16 (Sep 19, 2023)
+
+### Patch
+
+- Tooltip: Move to Internal Tooltip with a disabled state ([#3187](https://github.com/pinterest/gestalt/pull/3187)) - [Preview link](https://deploy-preview-3187--gestalt.netlify.app?devexample=true)
+
+## 122.5.15 (Sep 19, 2023)
+
+### Patch
+
+- Masonry: Fix height initialization when reusing cached positions for multi-column pins ([#3201](https://github.com/pinterest/gestalt/pull/3201)) - [Preview link](https://deploy-preview-3201--gestalt.netlify.app?devexample=true)
+
+## 122.5.14 (Sep 18, 2023)
+
+### Patch
+
+- Docs: update iOS checkbox header image ([#3200](https://github.com/pinterest/gestalt/pull/3200)) - [Preview link](https://deploy-preview-3200--gestalt.netlify.app?devexample=true)
+
+## 122.5.13 (Sep 15, 2023)
+
+### Patch
+
+- Docs: Markdown fix for Text component docs ([#3198](https://github.com/pinterest/gestalt/pull/3198)) - [Preview link](https://deploy-preview-3198--gestalt.netlify.app?devexample=true)
+
+## 122.5.12 (Sep 15, 2023)
+
+### Patch
+
+- Toast: Fix toast prop "variant" to "type" ([#3197](https://github.com/pinterest/gestalt/pull/3197)) - [Preview link](https://deploy-preview-3197--gestalt.netlify.app?devexample=true)
+
+## 122.5.11 (Sep 15, 2023)
+
+### Patch
+
+- Docs: update checkbox iOS docs - parity with Android ([#3195](https://github.com/pinterest/gestalt/pull/3195)) - [Preview link](https://deploy-preview-3195--gestalt.netlify.app?devexample=true)
+
+## 122.5.10 (Sep 13, 2023)
+
+### Patch
+
+- Internal: fix debug statements ([#3193](https://github.com/pinterest/gestalt/pull/3193)) - [Preview link](https://deploy-preview-3193--gestalt.netlify.app?devexample=true)
+
+## 122.5.9 (Sep 12, 2023)
+
+### Patch
+
+- Docs: Fix duplicated ToC accessibility label ([#3192](https://github.com/pinterest/gestalt/pull/3192)) - [Preview link](https://deploy-preview-3192--gestalt.netlify.app?devexample=true)
+
+## 122.5.8 (Sep 12, 2023)
+
+### Patch
+
+- Icon: added new icon for busines-hierarchy ([#3191](https://github.com/pinterest/gestalt/pull/3191)) - [Preview link](https://deploy-preview-3191--gestalt.netlify.app?devexample=true)
+
+## 122.5.7 (Sep 11, 2023)
+
+### Patch
+
+- Internal: Re-update playwright snapshots to match master ([#3189](https://github.com/pinterest/gestalt/pull/3189)) - [Preview link](https://deploy-preview-3189--gestalt.netlify.app?devexample=true)
+
+## 122.5.6 (Sep 11, 2023)
+
+### Patch
+
+- Docs: 9/8 weekly digest ([#3190](https://github.com/pinterest/gestalt/pull/3190)) - [Preview link](https://deploy-preview-3190--gestalt.netlify.app?devexample=true)
+
+## 122.5.5 (Sep 7, 2023)
+
+### Patch
+
+- Docs: Fix broken link in Get started/Designers section ([#3186](https://github.com/pinterest/gestalt/pull/3186)) - [Preview link](https://deploy-preview-3186--gestalt.netlify.app?devexample=true)
+
+## 122.5.4 (Sep 6, 2023)
+
+### Patch
+
+- Docs: Newsletter Eng August 2023 ([#3185](https://github.com/pinterest/gestalt/pull/3185)) - [Preview link](https://deploy-preview-3185--gestalt.netlify.app?devexample=true)
+
+## 122.5.3 (Sep 5, 2023)
+
+### Patch
+
+- Icon: update visual-tests snapshot and updates in Docs ([#3184](https://github.com/pinterest/gestalt/pull/3184)) - [Preview link](https://deploy-preview-3184--gestalt.netlify.app?devexample=true)
+
+## 122.5.2 (Sep 5, 2023)
+
+### Patch
+
+- Video: Support RTL layout in scrubber ([#3183](https://github.com/pinterest/gestalt/pull/3183)) - [Preview link](https://deploy-preview-3183--gestalt.netlify.app?devexample=true)
+
+## 122.5.1 (Sep 5, 2023)
+
+### Patch
+
+- Internal: remove all `eslint-disable-next-line testing-library/prefer-screen-queries` disables from unit tests ([#3182](https://github.com/pinterest/gestalt/pull/3182)) - [Preview link](https://deploy-preview-3182--gestalt.netlify.app?devexample=true)
+
+## 122.5.0 (Sep 5, 2023)
+
+### Minor
+
+- TapAreaLink, IconButtonLink: new components ([#3181](https://github.com/pinterest/gestalt/pull/3181)) - [Preview link](https://deploy-preview-3181--gestalt.netlify.app?devexample=true)
+
+## 122.4.1 (Sep 1, 2023)
+
+### Patch
+
+- Docs: updated Readme after removing Issues support in github ([#3180](https://github.com/pinterest/gestalt/pull/3180)) - [Preview link](https://deploy-preview-3180--gestalt.netlify.app?devexample=true)
+
+## 122.4.0 (Aug 31, 2023)
+
+### Minor
+
+- TapArea: support to new `dataTestId` prop ([#3179](https://github.com/pinterest/gestalt/pull/3179)) - [Preview link](https://deploy-preview-3179--gestalt.netlify.app?devexample=true)
+
+## 122.3.5 (Aug 31, 2023)
+
+### Patch
+
+- Checkbox: iOS/Android update example images ([#3178](https://github.com/pinterest/gestalt/pull/3178)) - [Preview link](https://deploy-preview-3178--gestalt.netlify.app?devexample=true)
+
+## 122.3.4 (Aug 30, 2023)
+
+### Patch
+
+- Icon: Rename ic_star-outlined_gestalt.svg to ic_star-outline_gestalt.svg ([#3177](https://github.com/pinterest/gestalt/pull/3177)) - [Preview link](https://deploy-preview-3177--gestalt.netlify.app?devexample=true)
+
+## 122.3.3 (Aug 30, 2023)
+
+### Patch
+
+- Docs: Fix ToC overflow ([#3176](https://github.com/pinterest/gestalt/pull/3176)) - [Preview link](https://deploy-preview-3176--gestalt.netlify.app?devexample=true)
+
+## 122.3.2 (Aug 30, 2023)
+
+### Patch
+
+- Docs: Migrate foundation examples sandpack ([#3175](https://github.com/pinterest/gestalt/pull/3175)) - [Preview link](https://deploy-preview-3175--gestalt.netlify.app?devexample=true)
+
+## 122.3.1 (Aug 30, 2023)
+
+### Patch
+
+- TableOfContents: Show maker only for active or hovered item ([#3173](https://github.com/pinterest/gestalt/pull/3173)) - [Preview link](https://deploy-preview-3173--gestalt.netlify.app?devexample=true)
+
+## 122.3.0 (Aug 30, 2023)
+
+### Minor
+
+- Upsell: Update default backgrounds for elevationRaised ([#3170](https://github.com/pinterest/gestalt/pull/3170)) - [Preview link](https://deploy-preview-3170--gestalt.netlify.app?devexample=true)
+
+## 122.2.3 (Aug 30, 2023)
+
+### Patch
+
+- ComboBox: Fix Bottom Rendering ([#3171](https://github.com/pinterest/gestalt/pull/3171)) - [Preview link](https://deploy-preview-3171--gestalt.netlify.app?devexample=true)
+
+## 122.2.2 (Aug 29, 2023)
+
+### Patch
+
+- Icon: updated star icons ([#3169](https://github.com/pinterest/gestalt/pull/3169)) - [Preview link](https://deploy-preview-3169--gestalt.netlify.app?devexample=true)
+
+## 122.2.1 (Aug 28, 2023)
+
+### Patch
+
+- Text: Swap word-break property ([#3165](https://github.com/pinterest/gestalt/pull/3165)) - [Preview link](https://deploy-preview-3165--gestalt.netlify.app?devexample=true)
+
+## 122.2.0 (Aug 24, 2023)
+
+### Minor
+
+- Heading: Add BreakAll support to Header ([#3158](https://github.com/pinterest/gestalt/pull/3158)) - [Preview link](https://deploy-preview-3158--gestalt.netlify.app?devexample=true)
+
+## 122.1.0 (Aug 24, 2023)
+
+### Minor
+
+- Text: Add breakAll option to Text ([#3136](https://github.com/pinterest/gestalt/pull/3136)) - [Preview link](https://deploy-preview-3136--gestalt.netlify.app?devexample=true)
+
+## 122.0.4 (Aug 24, 2023)
+
+### Patch
+
+- Docs: update ios & android sheet docs ([#3156](https://github.com/pinterest/gestalt/pull/3156)) - [Preview link](https://deploy-preview-3156--gestalt.netlify.app?devexample=true)
+
+## 122.0.3 (Aug 23, 2023)
+
+### Patch
+
+- Docs: Migrate Tooltip, SelectList, List, TapArea, DataPoint, Divider examples to Sandpack ([#3149](https://github.com/pinterest/gestalt/pull/3149)) - [Preview link](https://deploy-preview-3149--gestalt.netlify.app?devexample=true)
+
+## 122.0.2 (Aug 23, 2023)
+
+### Patch
+
+- Internal: fix npm publishing ([#3153](https://github.com/pinterest/gestalt/pull/3153)) - [Preview link](https://deploy-preview-3153--gestalt.netlify.app?devexample=true)
+
+## 122.0.1 (Aug 22, 2023)
+
+### Patch
+
+- Internal: updated github personal token ([#3151](https://github.com/pinterest/gestalt/pull/3151)) - [Preview link](https://deploy-preview-3151--gestalt.netlify.app?devexample=true)
+
+## 122.0.0 (Aug 22, 2023)
+
+### Major
+
+- Internal: move gestalt-charts to end of release list ([#3150](https://github.com/pinterest/gestalt/pull/3150)) - [Preview link](https://deploy-preview-3150--gestalt.netlify.app?devexample=true)
+
+## 121.2.1 (Aug 22, 2023)
+
+### Patch
+
+- Docs: Migrate TextArea, Pog, Video, Image, Status, Layer examples to Sandpack ([#3147](https://github.com/pinterest/gestalt/pull/3147)) - [Preview link](https://deploy-preview-3147--gestalt.netlify.app?devexample=true)
+
+## 121.2.0 (Aug 22, 2023)
+
+### Minor
+
+- Masonry: Allow positionStore to be externally managed ([#3146](https://github.com/pinterest/gestalt/pull/3146)) - [Preview link](https://deploy-preview-3146--gestalt.netlify.app?devexample=true)
+
+## 121.1.8 (Aug 22, 2023)
+
+### Patch
+
+- Button: Update Android button docs ([#3148](https://github.com/pinterest/gestalt/pull/3148)) - [Preview link](https://deploy-preview-3148--gestalt.netlify.app?devexample=true)
+
+## 121.1.7 (Aug 21, 2023)
+
+### Patch
+
+- Icon: add target icon and keywords ([#3145](https://github.com/pinterest/gestalt/pull/3145)) - [Preview link](https://deploy-preview-3145--gestalt.netlify.app?devexample=true)
+
+## 121.1.6 (Aug 21, 2023)
+
+### Patch
+
+- Component Status: Update components.js ([#3144](https://github.com/pinterest/gestalt/pull/3144)) - [Preview link](https://deploy-preview-3144--gestalt.netlify.app?devexample=true)
+
 ## 121.1.5 (Aug 18, 2023)
 
 ### Patch

@@ -13,7 +13,13 @@ import MasonryContainer from '../../integration-test-helpers/masonry/MasonryCont
 // This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
 const REALISTIC_PINS_DATASET_SIZE = 1000;
 
-const measurementStore = Masonry.createMeasurementStore<{ ... }, mixed>();
+type MasonryProps = $PropertyType<Masonry<{ ... }>, 'props'>;
+
+type MeasurementStore = $PropertyType<MasonryProps, 'measurementStore'>;
+type PositionStore = $PropertyType<MasonryProps, 'positionStore'>;
+
+const measurementStore: MeasurementStore = Masonry.createMeasurementStore();
+const positionStore: PositionStore = Masonry.createMeasurementStore();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
 function booleanize(value: string): boolean {
@@ -118,6 +124,7 @@ export default function TestPage({
           noScroll={booleanize(noScroll)}
           offsetTop={offsetTop}
           pinHeightsSample={realisticPinHeights ? pinHeightsSample : undefined}
+          positionStore={positionStore}
           scrollContainer={booleanize(scrollContainer)}
           twoColItems={booleanize(twoColItems)}
           virtualize={booleanize(virtualize)}

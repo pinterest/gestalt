@@ -76,6 +76,7 @@ describe('SlimBanner', () => {
           accessibilityLabel: 'test',
           label: 'test',
           onClick: () => {},
+          role: 'button',
         }}
         dismissButton={{
           accessibilityLabel: 'test',

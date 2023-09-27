@@ -29,11 +29,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Continue to Pin site',
               label: 'Continue to site',
               href: 'https://www.google.com',
+              role: 'link',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel navigation to site',
               label: 'Cancel',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {}}
           >

@@ -318,7 +318,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
         <MainSection.Subsection
           title="EnterKeyHint"
-          description={`The \`enterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
+          description={`The \`mobileEnterKeyHint\` prop presents to the user a more accurate action label for the enter key on virtual keyboards. These are the values for each use case:
 
 - "enter": inserting a new line
 - "done": there is nothing more to input and the input editor will be closed

@@ -7,10 +7,17 @@ import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import PrincipleItem from '../../../docs-components/PrincipleItem.js';
+import SandpackExample from '../../../docs-components/SandpackExample.js';
+import centerAlignWithText from '../../../examples/iconography/centerAlignWithText.js';
+import dontBaselineWithText from '../../../examples/iconography/dontBaselineWithText.js';
+import dontModifyIconDesignSpecs from '../../../examples/iconography/dontModifyIconDesignSpecs.js';
+import dontUseIconsWithoutLabels from '../../../examples/iconography/dontUseIconsWithoutLabels.js';
+import dontUseLowContrastColors from '../../../examples/iconography/dontUseLowContrastColors.js';
+import stickToOurDesignTokens from '../../../examples/iconography/stickToOurDesignTokens.js';
+import useIconsFollowingDesignSpecs from '../../../examples/iconography/useIconsFollowingDesignSpecs.js';
+import useIconsSemantically from '../../../examples/iconography/useIconsSemantically.js';
 import CreditCards from '../../../graphics/iconography/creditCards.svg';
 import Layout from '../../../graphics/iconography/layout.svg';
-import OutlinedPincode from '../../../graphics/iconography/outlinedPincode.svg';
-import ReactionLove from '../../../graphics/iconography/reactionLove.svg';
 
 export default function IconographyPage(): Node {
   return (
@@ -473,20 +480,29 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             cardSize="md"
             type="do"
             description="A11y: Use icons semantically and provide meaningful text whenever it is possible."
-            defaultCode={`
-<Flex gap={{ row: 2, column: 0 }} alignItems="center">
-  <Icon icon="sparkle" accessibilityLabel="sparkle" color="default" size={16} />
-  <Text>Recommendation text</Text>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use icons semantically"
+                code={useIconsSemantically}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use icons without labels for decoration or visual interest."
-            defaultCode={`
-<Icon icon="sparkle" accessibilityLabel="sparkle" color="default" size={16} />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use icons without labels"
+                code={dontUseIconsWithoutLabels}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -495,21 +511,29 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             cardSize="md"
             type="do"
             description="A11y: Stick to our [design tokens](/foundations/color/usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
-            defaultCode={`
-<Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="default" size={24} />
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Stick to our design tokens"
+                code={stickToOurDesignTokens}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use colors that doesn’t pass 3:1 contrast ratio. Ensure the icon color is compliant with the Web Content Accessibility Guidelines [(WCAG) 2.1 AA standard](/foundations/accessibility#Visuals) color contrast ratio."
-            defaultCode={`
-<Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-  <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="light" size={24} />
-</Box>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't use low contrast colors"
+                code={dontUseLowContrastColors}
+                hideEditor
+                layout="column"
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -518,50 +542,60 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
             cardSize="md"
             type="do"
             description="Style: Use our icons following the Gestalt design specs."
-            defaultCode={`
-<Icon icon="pincode" accessibilityLabel="pin code" color="default" size={32} />
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use icons following design specs"
+                code={useIconsFollowingDesignSpecs}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Modify our icon's design specs. Changing an icon shape can make the icon hard to read for Pinners and feel like a different visual language."
-          >
-            <OutlinedPincode />
-          </MainSection.Card>
+            sandpackExample={
+              <SandpackExample
+                name="Don't modify our icon's design specs"
+                code={dontModifyIconDesignSpecs}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             type="do"
             description="Alignment: Center-align icons when they’re next to a text element."
-          >
-            <Flex
-              gap={{
-                row: 1,
-                column: 0,
-              }}
-              alignItems="center"
-            >
-              <ReactionLove />
-              <Text>2.8k</Text>
-            </Flex>
-          </MainSection.Card>
+            sandpackExample={
+              <SandpackExample
+                name="Center-align icons"
+                code={centerAlignWithText}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
+          />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Baseline-align icons to the text element."
-          >
-            <Flex
-              gap={{
-                row: 1,
-                column: 0,
-              }}
-            >
-              <ReactionLove />
-              <Text>2.8k</Text>
-            </Flex>
-          </MainSection.Card>
+            sandpackExample={
+              <SandpackExample
+                name="Don't baseline-align icons"
+                code={dontBaselineWithText}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
+          />
         </MainSection.Subsection>
       </MainSection>
 

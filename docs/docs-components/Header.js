@@ -175,7 +175,7 @@ function Header() {
                 position="middle"
                 type="info"
                 tooltip={{
-                  text: 'You are currently in dev mode, which allows you to see dev-only examplepreviews.',
+                  text: 'You are currently in dev mode, which allows you to see dev-only example previews.',
                   idealDirection: 'down',
                   accessibilityLabel: '',
                   zIndex: PAGE_HEADER_POPOVER_ZINDEX,

@@ -11,7 +11,7 @@ test('PopoverEducational renders', () => {
       onDismiss={jest.fn()}
       size="sm"
       message="text"
-      primaryAction={{ text: 'next' }}
+      primaryAction={{ text: 'next', role: 'button', onClick: () => {} }}
     />,
     {
       createNodeMock: () => true,

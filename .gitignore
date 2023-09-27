@@ -12,14 +12,17 @@ screenshots
 package-lock.json
 
 packages/gestalt/dist/*
+packages/gestalt-charts/dist/*
 packages/gestalt-datepicker/dist/*
 packages/eslint-plugin-gestalt/dist/*
 packages/gestalt-design-tokens/dist
 
 # the following files as they are maintained by hand
 !packages/gestalt/dist/gestalt.js.flow
+!packages/gestalt-charts/dist/gestalt-charts.js.flow
+!packages/gestalt-datepicker/dist/gestalt-datepicker.js.flow
 !packages/gestalt/dist/index.d.ts
-!packages/gestalt/dist/gestalt-datepicker.js.flow
+!packages/gestalt-charts/dist/index.d.ts
 !packages/gestalt-datepicker/dist/index.d.ts
 
 playwright/test-results

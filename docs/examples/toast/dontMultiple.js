@@ -18,7 +18,12 @@ export default function Example(): Node {
             icon: <Icon accessibilityLabel="" icon="lightbulb" />,
           }}
           text="You have new recommendations"
-          primaryAction={{ accessibilityLabel: 'View new recommendations', label: 'View' }}
+          primaryAction={{
+            accessibilityLabel: 'View new recommendations',
+            label: 'View',
+            role: 'button',
+            onClick: () => {},
+          }}
         />
         <Toast text="Password updated" type="success" />
         <Toast

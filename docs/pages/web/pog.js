@@ -8,17 +8,21 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import main from '../../examples/pog/main.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Pog">
-      <PageHeader
-        name="Pog"
-        description={generatedDocGen?.description}
-        defaultCode={`
-<Pog icon="heart" iconColor="red"/>
-`}
-      />
+      <PageHeader name="Pog" description={generatedDocGen?.description}>
+        <SandpackExample
+          name="Main Example"
+          code={main}
+          layout="column"
+          hideEditor
+          previewHeight={200}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

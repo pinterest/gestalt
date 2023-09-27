@@ -8,7 +8,25 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import defaultVariant from '../../examples/textarea/defaultVariant.js';
+import disabledVariant from '../../examples/textarea/disabledVariant.js';
+import dontSetRowPropToLessThan2 from '../../examples/textarea/dontSetRowPropToLessThan2.js';
+import dontUsePlaceholderAsReplacementForLabel from '../../examples/textarea/dontUsePlaceholderAsReplacementForLabel.js';
+import dontUsePlaceholderToProvideAny from '../../examples/textarea/dontUsePlaceholderToProvideAny.js';
+import dontUseWhenTextInputIsASingle from '../../examples/textarea/dontUseWhenTextInputIsASingle.js';
+import errorMessageVariant from '../../examples/textarea/errorMessageVariant.js';
+import helperTextVariant from '../../examples/textarea/helperTextVariant.js';
+import labelVisibilityVariant from '../../examples/textarea/labelVisibilityVariant.js';
 import main from '../../examples/textarea/main.js';
+import maximumLengthExample1 from '../../examples/textarea/maximumLengthExample1.js';
+import maximumLengthExample2 from '../../examples/textarea/maximumLengthExample2.js';
+import readOnlyVariant from '../../examples/textarea/readOnlyVariant.js';
+import setHeightOfUsingRowTo from '../../examples/textarea/setHeightOfUsingRowTo.js';
+import useAsAffordanceToInputLongerText from '../../examples/textarea/useAsAffordanceToInputLongerText.js';
+import useHelperTextToProvideAdditional from '../../examples/textarea/useHelperTextToProvideAdditional.js';
+import useLabelToClearlyDenoteWhat from '../../examples/textarea/useLabelToClearlyDenoteWhat.js';
+import withRowsExample from '../../examples/textarea/withRowsExample.js';
+import withTagsExample from '../../examples/textarea/withTagsExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -52,49 +70,28 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             cardSize="sm"
             type="do"
             description="Use TextArea as an affordance to input longer-form text content — typically anything longer than a brief sentence."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-do-content-length"
-        label="Board description"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="What's your board about?"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Use As Affordance To Input Longer Text"
+                code={useAsAffordanceToInputLongerText}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](/web/textfield) instead."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('https://www.pinterest.com/pin/768145280205600341/');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-dont-single-line"
-        label="Destination URL"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use When Text Input Is A Single"
+                code={dontUseWhenTextInputIsASingle}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -103,47 +100,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Use `label` to clearly denote what information the user should input. Use `placeholder` sparingly as [they can erode usability of form fields](https://www.nngroup.com/articles/form-design-placeholders/)."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-do-label"
-        label="Tell everyone what this Pin is about"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Use Label To Clearly Denote What"
+                code={useLabelToClearlyDenoteWhat}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Use `placeholder` as a replacement for `label`, as this creates accessibility and usability issues."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-dont-remove-label"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Tell us your story"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use Placeholder As Replacement For Label"
+                code={dontUsePlaceholderAsReplacementForLabel}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -152,49 +130,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Use `helperText` to provide additional context that will aid the user in most effectively inputing information."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-do-helpertext"
-        label="Explain what people can see in this Pin"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        helperText="This text will be read aloud by screen readers"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Use Helper Text To Provide Additional"
+                code={useHelperTextToProvideAdditional}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Use `placeholder` to provide any information necessary to filling out the form field. Placeholder text disappears after the user begins entering data and should not contain crucial information."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-dont-placeholder"
-        label="Campaign description"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Maximum of 500 characters"
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use Placeholder To Provide Any"
+                code={dontUsePlaceholderToProvideAny}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -203,51 +160,28 @@ function Example(props) {
             cardSize="sm"
             type="do"
             description="Set the height of TextArea using `row` to ensure that the typical amount of text entered will be visible without needing to scroll."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-do-height"
-        label="Have feedback on this product?"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        placeholder="Tell us about your experience, what you love, or what we could improve."
-        helperText="Please don't submit passwords, email addresses, or other sensitive or personal info."
-        rows={5}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Set The Height Of Using Row To"
+                code={setHeightOfUsingRowTo}
+                hideEditor
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
             cardSize="sm"
             type="don't"
             description="Set the `row` prop to less than 2. Use TextField when expecting only a single line of text."
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('');
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="best-practices-dont-row-height-1"
-        label="Send a message"
-        onChange={({ value }) => {
-          setValue(value);
-        }}
-        rows={1}
-        value={value}
-      />
-    </Box>
-  );
-}
-            `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Set The Row Prop To Less Than 2"
+                code={dontSetRowPropToLessThan2}
+                hideEditor
+                hideControls
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -306,22 +240,7 @@ function Example(props) {
     `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <Box width="100%">
-      <TextArea
-        id="aboutme"
-        onChange={({value}) => setValue(value)}
-        placeholder="Write something about yourself..."
-        label="About me"
-        value={value}
-      />
-    </Box>
-  );
-}
-      `}
+            sandpackExample={<SandpackExample name="Default Example 1" code={defaultVariant} />}
           />
         </MainSection.Subsection>
 
@@ -330,23 +249,9 @@ function Example(props) {
           description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <Box width="100%">
-      <TextArea
-        id="aboutmemore"
-        onChange={({value}) => setValue(value)}
-        placeholder="Write something about yourself..."
-        helperText="Describe your favorite hobbies, foods, or books."
-        label="About me"
-        value={value}
-      />
-    </Box>
-  );
-}
-      `}
+            sandpackExample={
+              <SandpackExample name="Helper Text Example" code={helperTextVariant} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -355,19 +260,9 @@ function Example(props) {
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Flex gap={{ column: 2, row: 0 }} direction="column" width="100%">
-  <Text weight="bold" size="300">About me</Text>
-  <TextArea
-    id="textareaexampleHiddenLabel"
-    placeholder="Write something about yourself..."
-    onChange={() => {}}
-    label='About me'
-    labelDisplay="hidden"
-    size='lg'
-  />
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample name="Label Visibility Example" code={labelVisibilityVariant} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -377,22 +272,7 @@ function Example(props) {
     `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('To keep shopping inspirational and actionable, we set high standards for our Merchants. Your website was not approved due to fuzzy, low quality images.');
-  return (
-    <Box width="100%">
-      <TextArea
-        id="aboutmereadonly"
-        onChange={({value}) => setValue(value)}
-        label="Current errors"
-        value={value}
-        readOnly
-      />
-    </Box>
-  );
-}
-      `}
+            sandpackExample={<SandpackExample name="Read-Only Example" code={readOnlyVariant} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -402,23 +282,7 @@ function Example(props) {
     `}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <Box width="100%">
-      <TextArea
-        disabled
-        id="disabled"
-        onChange={({value}) => setValue(value)}
-        placeholder="Write something about yourself..."
-        label="About me"
-        value={value}
-      />
-    </Box>
-  );
-}
-      `}
+            sandpackExample={<SandpackExample name="Disabled Example" code={disabledVariant} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -429,23 +293,9 @@ TextArea can display an error message. Simply pass in an \`errorMessage\` when t
 Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.`}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <Box width="100%">
-      <TextArea
-        id="witherror"
-        onChange={({value}) => setValue(value)}
-        errorMessage={!value ? "This field can't be blank!" : null}
-        placeholder="Write something about yourself..."
-        label="About me"
-        value={value}
-      />
-    </Box>
-  );
-}
-      `}
+            sandpackExample={
+              <SandpackExample name="Error Message Example" code={errorMessageVariant} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -460,110 +310,22 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
         >
           <MainSection.Card
             cardSize="sm"
-            defaultCode={`
-function TextAreaExample() {
-  const [value, setValue] = React.useState('');
-  const characterCount = 200;
-
-  return (
-    <TextArea
-        id="maxLength"
-        label="Alt text"
-        helperText="Describe your image with detail so visually impaired users can understand your Pin"
-        onChange={({ value }) => setValue(value)}
-        placeholder="Enter the image alt text"
-        value={value}
-        onBlur={() => {}}
-        onFocus={() => {}}
-        rows={4}
-        maxLength={{ characterCount, errorAccessibilityLabel: 'Limit reached. You can only use 200 characters in this field.' }}
-      />
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample name="Maximum Length Example 1" code={maximumLengthExample1} />
+            }
           />
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-            function TextAreaExample() {
-  const [valueA, setValueA] = React.useState('Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes.  The second image shows her with full makeup.');
-  const [valueB, setValueB] = React.useState('Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes, second image shows her with full makeup and says new.');
-
-  const characterCount = 200;
-  const errorAccessibilityLabel = "Limit reached. You can only use 200 characters in this field.";
-
-  return (
-    <Flex direction="column" gap={12}>
-      <TextArea
-        id="maxLengthReached"
-        label="Alt text"
-        helperText="Describe your image with detail so visually impaired users can understand your Pin"
-        onChange={({ value }) => setValueA(value)}
-        placeholder="Enter the image alt text"
-        value={valueA}
-        onBlur={() => {}}
-        onFocus={() => {}}
-        rows={4}
-        maxLength={{ characterCount, errorAccessibilityLabel }}
-      />
-      <TextArea
-        id="maxLengthExceeded"
-        label="Alt text"
-        helperText="Describe your image with detail so visually impaired users can understand your Pin"
-        onChange={({ value }) => setValueB(value)}
-        placeholder="Enter the image alt text"
-        value={valueB}
-        onBlur={() => {}}
-        onFocus={() => {}}
-        rows={4}
-        maxLength={{ characterCount, errorAccessibilityLabel }}
-      />
-    </Flex>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Maximum Length Example 2"
+                code={maximumLengthExample2}
+                previewHeight={440}
+              />
+            }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="With a ref"
-          description={`
-          A \`TextArea\` with an anchor ref to a Popover component
-        `}
-        >
-          <MainSection.Card
-            defaultCode={`
-function TextAreaPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-  return (
-    <Box marginBottom={12} width="100%">
-      <TextArea
-        ref={anchorRef}
-        label="Focus the TextArea to show the Popover"
-        id="my-example"
-        onChange={() => {}}
-        onBlur={() => setOpen(false)}
-        onFocus={() => setOpen(true)}
-      />
-      {open && (
-        <Popover
-          anchor={anchorRef.current}
-          idealDirection="down"
-          onDismiss={() => setOpen(false)}
-          shouldFocus={false}
-          size="md"
-        >
-          <Box padding={3}>
-            <Text weight="bold">Example with Popover</Text>
-          </Box>
-        </Popover>
-      )}
-    </Box>
-  );
-}
-`}
-          />
-        </MainSection.Subsection>
+
         <MainSection.Subsection
           title="With tags"
           description={`
@@ -574,71 +336,7 @@ function TextAreaPopoverExample() {
     This example showcases the recommended behavior.`}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-
-  const CITIES = ['San Francisco', 'New York']
-  const [value, setValue] = React.useState('');
-  const [tags, setTags] = React.useState(CITIES);
-
-  const ref = React.useRef();
-
-  const onChangeTagManagement = ({ value }) => {
-    // Create new tags around new lines
-    const tagInput = value.split(/\\n+/);
-    if (tagInput.length > 1) {
-      setTags([
-        ...tags,
-        // Avoid creating a tag on content on the last line, and filter out
-        // empty tags
-        ...tagInput.splice(0, tagInput.length - 1).filter(val => val !== ''),
-      ]);
-    }
-    setValue(tagInput[tagInput.length - 1]);
-  }
-
-  const onKeyDownTagManagement = ({
-    event: {
-      keyCode,
-      target: { selectionEnd },
-    },
-  }) => {
-    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
-      // Remove tag on backspace if the cursor is at the beginning of the field
-      setTags([...tags.slice(0, -1)]);
-    }
-  }
-
-  const renderedTags = tags.map((tag, idx) => (
-    <Tag
-      key={tag}
-      onRemove={() => {
-        const newTags = [...tags];
-        newTags.splice(idx, 1);
-        setTags([...newTags]);
-        ref.current.focus();
-      }}
-      accessibilityRemoveIconLabel={\`Remove \${tag} tag\`}
-      text={tag}
-    />
-  ));
-
-  return (
-    <Box width="100%">
-      <TextArea
-        id="cities"
-        label="Cities"
-        ref={ref}
-        onChange={onChangeTagManagement}
-        onKeyDown={onKeyDownTagManagement}
-        placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
-        tags={renderedTags}
-        value={value}
-      />
-    </Box>
-  );
-}
-`}
+            sandpackExample={<SandpackExample name="With Tags Example" code={withTagsExample} />}
           />
         </MainSection.Subsection>
 
@@ -648,28 +346,7 @@ function Example(props) {
           The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit.`}
         >
           <MainSection.Card
-            defaultCode={`
-function Example(props) {
-
-const [value, setValue] = React.useState('');
-const [rows, setRows] = React.useState(2);
-
-return (
-  <Flex direction="column" width="100%" gap={4}>
-    <Box width={120}>
-      <NumberField id='numberfield_rows' label="Number of Rows" onChange={({value})=>{setRows(value)}} value={rows}/>
-    </Box>
-    <TextArea
-      label="Rows example"
-      onChange={({value})=>{setValue(value)}}
-      placeholder={"this text area has " + rows + " rows"}
-      value={value}
-      rows={rows}
-    />
-  </Flex>
-);
-}
-`}
+            sandpackExample={<SandpackExample name="With Rows Example" code={withRowsExample} />}
           />
         </MainSection.Subsection>
       </MainSection>

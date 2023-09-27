@@ -30,6 +30,7 @@ export default function Example(): Node {
               primaryAction={{
                 accessibilityLabel: 'Manually verify tag',
                 label: 'Verify Tag',
+                role: 'button',
               }}
               title="We have not yet detected your tag"
               type="info"

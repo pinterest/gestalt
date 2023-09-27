@@ -1,5 +1,5 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import InternalLink from './InternalLink.js';
 
 test('InternalLink handles onClick callback', () => {
@@ -12,7 +12,7 @@ test('InternalLink handles onClick callback', () => {
     ],
     void,
   >();
-  const { getByText } = render(
+  render(
     <InternalLink
       wrappedComponent="button"
       href="https://example.com"
@@ -22,7 +22,6 @@ test('InternalLink handles onClick callback', () => {
       InternalLink
     </InternalLink>,
   );
-  // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-  getByText('InternalLink').click();
+  screen.getByText('InternalLink').click();
   expect(mockOnClick).toHaveBeenCalled();
 });

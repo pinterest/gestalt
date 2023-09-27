@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Checkbox from './Checkbox.js';
 
 const mockOnClick = jest.fn<
@@ -14,14 +14,13 @@ const mockOnChange = jest.fn<
 
 describe('Checkbox', () => {
   it('Checkbox handles click', () => {
-    const { getByLabelText } = render(
+    render(
       <form>
         <label htmlFor="testcheckbox">Label</label>
         <Checkbox size="sm" id="testcheckbox" onChange={mockOnChange} onClick={mockOnClick} />
       </form>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByLabelText('Label').click();
+    screen.getByLabelText('Label').click();
     expect(mockOnClick).toHaveBeenCalled();
     expect(mockOnChange).toHaveBeenCalled();
   });

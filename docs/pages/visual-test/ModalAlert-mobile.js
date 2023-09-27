@@ -14,11 +14,13 @@ export default function Snapshot(): Node {
               accessibilityLabel: 'Confirm delete board',
               label: 'Delete',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'Cancel',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {}}
             accessibilityDismissButtonLabel="test"

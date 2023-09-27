@@ -25,7 +25,7 @@ export default function Snapshot(): Node {
             anchor={anchorRef.current}
             onDismiss={() => {}}
             message="Message"
-            primaryAction={{ text: 'Next' }}
+            primaryAction={{ text: 'Next', role: 'button' }}
           />
         )}
       </Box>

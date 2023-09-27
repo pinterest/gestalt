@@ -41,6 +41,7 @@ export default function Example(): Node {
             accessibilityLabel: 'Increase spend',
             label: 'Increase spend',
             onClick: () => {},
+            role: 'button',
           }}
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',

@@ -170,7 +170,7 @@ You can specify which color you want for your text. Most colors automatically ch
 
 <iframe style={{border:0}} width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D20532%253A76210%26t%3DGzMOAn3V49oVC2MG-1" allowFullScreen></iframe>
 
-##Styles
+## Styles
 
 Text can be italicized for emphasis, or underlined to denote a link.
 <br/>

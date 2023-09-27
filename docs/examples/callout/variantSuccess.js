@@ -18,6 +18,7 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'Get started',
             target: 'blank',
+            role: 'link',
           }}
           title="Your ads are doing great!"
           type="success"

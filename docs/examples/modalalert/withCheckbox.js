@@ -39,11 +39,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Delete page',
               label: 'Delete page',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel, keep page',
               label: 'Cancel',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {}}
           >

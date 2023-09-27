@@ -18,6 +18,7 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Advertise with confidence!"
           type="recommendation"

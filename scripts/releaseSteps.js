@@ -24,6 +24,7 @@ function srcDirectory(item) {
 const packages = [
   'gestalt-design-tokens',
   'gestalt',
+  'gestalt-charts',
   'gestalt-datepicker',
   'eslint-plugin-gestalt',
 ];

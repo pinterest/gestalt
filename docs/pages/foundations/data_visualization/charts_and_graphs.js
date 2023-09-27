@@ -15,13 +15,13 @@ export default function ChartsandGraphsPage(): Node {
   return (
     <Page title="Charts and graphs">
       <PageHeader
-        name="Chart and graph guidelines"
+        name="ChartGraph and graph guidelines"
         type="guidelines"
         description={`Charts and graphs are the most common way that we visualize data on Pinterest. Since all graphs are charts, we just refer to everything as “charts” for simplicity’s sake. Use the following guidelines to create accurate, coherent and responsive charts.
 `}
       />
       <MainSection
-        name="Chart types"
+        name="ChartGraph types"
         description={`
         Currently, we are mainly concerned with looking at categorical data. We do it via the following charts:
         - Bar charts
@@ -31,7 +31,7 @@ export default function ChartsandGraphsPage(): Node {
         `}
       />
       <MainSection
-        name="Chart use cases"
+        name="ChartGraph use cases"
         description={`
         The type of chart you use depends on how you are analyzing and monitoring data. Below are our most common use cases:
         - **Trends:** to see how data changes over time
@@ -40,7 +40,10 @@ export default function ChartsandGraphsPage(): Node {
         - **Connection:** to see the relationship between variables
         `}
       />
-      <MainSection name="Bar charts" badge={{ text: 'Comparison', tooltipText: 'Chart use case' }}>
+      <MainSection
+        name="Bar charts"
+        badge={{ text: 'Comparison', tooltipText: 'ChartGraph use case' }}
+      >
         <Box width="100%" marginBottom={12} marginTop={-6}>
           <MainSection.Subsection
             description={`
@@ -140,7 +143,7 @@ export default function ChartsandGraphsPage(): Node {
 
         <MainSection
           name="Stacked bar charts"
-          badge={{ text: 'Parts-to-whole', tooltipText: 'Chart use case' }}
+          badge={{ text: 'Parts-to-whole', tooltipText: 'ChartGraph use case' }}
         >
           <Box width="100%" marginBottom={12} marginTop={-6}>
             <MainSection.Subsection
@@ -174,7 +177,7 @@ export default function ChartsandGraphsPage(): Node {
         </MainSection>
         <MainSection
           name="Line charts"
-          badge={{ text: 'Trends; Comparison', tooltipText: 'Chart use case' }}
+          badge={{ text: 'Trends; Comparison', tooltipText: 'ChartGraph use case' }}
         >
           <Box width="100%" marginBottom={12} marginTop={-6}>
             <MainSection.Subsection
@@ -204,7 +207,7 @@ export default function ChartsandGraphsPage(): Node {
 
         <MainSection
           name="Donut charts"
-          badge={{ text: 'Parts-to-whole', tooltipText: 'Chart use case' }}
+          badge={{ text: 'Parts-to-whole', tooltipText: 'ChartGraph use case' }}
         >
           <Box width="100%" marginBottom={12} marginTop={-6}>
             <MainSection.Subsection
@@ -239,7 +242,7 @@ export default function ChartsandGraphsPage(): Node {
 
         <MainSection
           name="Funnel charts"
-          badge={{ text: 'Connection', tooltipText: 'Chart use case' }}
+          badge={{ text: 'Connection', tooltipText: 'ChartGraph use case' }}
         >
           <Box width="100%" marginBottom={12} marginTop={-6}>
             <MainSection.Subsection
@@ -707,7 +710,7 @@ export default function ChartsandGraphsPage(): Node {
             <Flex.Item flex="grow">
               <SandpackExample
                 code={desktopgraphExample}
-                name="Desktop Chart Interaction Example"
+                name="Desktop ChartGraph Interaction Example"
                 hideEditor
                 hideControls
                 previewHeight={528}
@@ -725,7 +728,7 @@ export default function ChartsandGraphsPage(): Node {
             <Flex.Item flex="grow">
               <SandpackExample
                 code={mobilegraphExample}
-                name="Mobile Chart Interaction Example"
+                name="Mobile ChartGraph Interaction Example"
                 hideEditor
                 hideControls
                 previewHeight={516}
@@ -747,7 +750,7 @@ export default function ChartsandGraphsPage(): Node {
             <Flex.Item flex="grow">
               <SandpackExample
                 code={graphtotableExample}
-                name="Chart to Table Example"
+                name="ChartGraph to Table Example"
                 hideEditor
                 hideControls
                 previewHeight={508}

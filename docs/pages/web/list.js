@@ -6,6 +6,27 @@ import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import dontUseIfDisplayingFewerThanTwo from '../../examples/list/dontUseIfDisplayingFewerThanTwo.js';
+import dontUseIfWholeItemIsSelectable from '../../examples/list/dontUseIfWholeItemIsSelectable.js';
+import includeLinksIfRelevant from '../../examples/list/includeLinksIfRelevant.js';
+import labelsExample from '../../examples/list/labelsExample.js';
+import labelsExample1 from '../../examples/list/labelsExample1.js';
+import mainExample from '../../examples/list/mainExample.js';
+import nestingExample from '../../examples/list/nestingExample.js';
+import nestingExample1 from '../../examples/list/nestingExample1.js';
+import nestingExample2 from '../../examples/list/nestingExample2.js';
+import nestingExample3 from '../../examples/list/nestingExample3.js';
+import spacingExample from '../../examples/list/spacingExample.js';
+import spacingExample1 from '../../examples/list/spacingExample1.js';
+import subcomponentComposabilityExample from '../../examples/list/subcomponentComposabilityExample.js';
+import textAndLabelExample from '../../examples/list/textAndLabelExample.js';
+import textAndLabelExample1 from '../../examples/list/textAndLabelExample1.js';
+import textAndLabelExample2 from '../../examples/list/textAndLabelExample2.js';
+import typeExample from '../../examples/list/typeExample.js';
+import typeExample1 from '../../examples/list/typeExample1.js';
+import typeExample2 from '../../examples/list/typeExample2.js';
+import useWhenDisplayingMoreThanTwo from '../../examples/list/useWhenDisplayingMoreThanTwo.js';
 
 export default function ListPage({
   generatedDocGen,
@@ -17,14 +38,16 @@ export default function ListPage({
       <PageHeader
         name={generatedDocGen?.List.displayName}
         description={generatedDocGen?.List.description}
-        defaultCode={`
-<List label="This application will be able to" type="unordered">
-  <List.Item text="Access your follows and followers"/>
-  <List.Item text="Create new Pins for you" />
-  <List.Item text="Follow things for you" />
-</List>
-`}
-      />
+      >
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          hideEditor
+          previewHeight={200}
+        />
+      </PageHeader>
+
       <GeneratedPropTable generatedDocGen={generatedDocGen.List} />
 
       <MainSection name="Usage guidelines">
@@ -56,27 +79,28 @@ export default function ListPage({
             cardSize="md"
             type="do"
             description="Use List when you are displaying more than two items or points."
-            defaultCode={`
-<List label="Use the synchronous analytics endpoints if:" type="unordered">
-  <List.Item text="You need data from the last 90 days" />
-  <List.Item text="You want a quick response to load a user facing dashboard/component in real time" />
-  <List.Item text="You want to avoid large report size/unnecessary data being returned" />
-  <List.Item text="You need only basic key metrics for each campaign/ad/etc" />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Use When Displaying More Than Two"
+                code={useWhenDisplayingMoreThanTwo}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use List if you are displaying fewer than two items. Instead, consider how to present the information as plain text on the page."
-            defaultCode={`
-<Flex gap={12} direction="column" gap={4} maxWidth={600}>
-  <Heading accessibilityLevel="none">August 15, 2022</Heading>
-  <List label={<Text weight="bold">Shopping</Text>} type="unordered">
-    <List.Item text="Added new catalog endpoint to list filtered products." />
-  </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use If Displaying Fewer Than Two"
+                code={dontUseIfDisplayingFewerThanTwo}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -84,43 +108,28 @@ export default function ListPage({
             cardSize="md"
             type="do"
             description="Include links if they are relevent to better understanding the context of the list."
-            defaultCode={`
-<Flex gap={12} direction="column" gap={4} maxWidth={600}>
-  <List label="With bulk actions, you can:" type="unordered">
-    <List.Item text={
-      <Text inline>Request an asynchronous bulk report on advertiser entities campaigns, ad groups, product groups, ads, keywords.
-        <Link display="inline" accessibilityLabel="Learn more about async reports" href="#">Learn more</Link>
-      </Text>}
-    />
-    <List.Item text="Create/update ad-related entities" />
-  </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Include Links If Relevant To Understanding Context"
+                code={includeLinksIfRelevant}
+                layout="column"
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="md"
             type="don't"
             description="Use List if the whole list item is selectable. Instead use a navigational component or [FieldSet](/web/fieldset)."
-            defaultCode={`
-<Flex gap={12} direction="column" gap={4} maxWidth={600}>
-  <List label="Need more help?" type="unordered">
-    <List.Item text={
-      <Text>
-        <TapArea onTap={() => {}}>
-          <Box padding={2} rounding={2} color="secondary">Visit our Help Center</Box>
-        </TapArea>
-      </Text>}
-    />
-    <List.Item text={
-      <Text>
-        <TapArea onTap={() => {}}>
-          <Box padding={2} rounding={2}>Request a demo</Box>
-        </TapArea>
-      </Text>}
-    />
-  </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use If Whole Item Is Selectable"
+                code={dontUseIfWholeItemIsSelectable}
+                layout="column"
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -139,29 +148,14 @@ However, if List is labeled by content elsewhere on the page or a more descripti
 The following examples showcase different cases where labels need to be hidden.`}
         >
           <MainSection.Card
-            defaultCode={`
-<Flex gap={4} direction="column">
-  <Heading accessibilityLevel="none" size="500">Asynchronous Analytics Endpoints</Heading>
-  <List labelDisplay="hidden" label="Use the synchronous analytics endpoints if:" type="unordered">
-    <List.Item text="You need data from the last 90 days" />
-    <List.Item text="You want a quick response to load a user facing dashboard/component in real time" />
-    <List.Item text="You want to avoid large report size/unnecessary data being returned" />
-    <List.Item text="You need only basic key metrics for each campaign/ad/etc" />
-  </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample name="Labels Example" code={labelsExample} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<Flex gap={4} direction="column">
-  <Text>The Save button is one of the best ways to get your content onto Pinterest —through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
-  <List labelDisplay="hidden" label="Best practices for Save Button for developers" type="unordered">
-    <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
-    <List.Item text="Use the Save button that’s best for your website" />
-    <List.Item text="Multiple images on a page (like a blog)" />
-  </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample name="Labels Example (1)" code={labelsExample1} layout="column" />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -190,33 +184,19 @@ __3. Ordered__: An ordered list that contains items in a sequential order or pri
         `}
         >
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Bare list</Text>} type="bare">
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample name="Type Example" code={typeExample} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Unordered list</Text>} type="unordered">
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample name="Type Example (1)" code={typeExample1} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Ordered list</Text>} type="ordered">
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-  <List.Item text="List item text" />
-</List>`}
+            sandpackExample={
+              <SandpackExample name="Type Example (2)" code={typeExample2} layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -229,38 +209,14 @@ __2. Condensed__: Space between lines is reduced for all style varients to 8px f
           columns={2}
         >
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Regular spacing</Text>} type="unordered" spacing="regular">
-  <List.Item text="List item text" />
-  <List.Item text="List item text">
-    <List.Item text="List item text">
-        <List.Item text="List item text" />
-        <List.Item text="List item text" />
-        <List.Item text="List item text" />
-    </List.Item>
-    <List.Item text="List item text" />
-    <List.Item text="List item text" />
-  </List.Item>
-  <List.Item text="List item text" />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample name="Spacing Example" code={spacingExample} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Condensed spacing</Text>} type="unordered" spacing="condensed">
-  <List.Item text="List item text" />
-  <List.Item text="List item text">
-    <List.Item text="List item text">
-        <List.Item text="List item text" />
-        <List.Item text="List item text" />
-        <List.Item text="List item text" />
-    </List.Item>
-    <List.Item text="List item text" />
-    <List.Item text="List item text" />
-  </List.Item>
-  <List.Item text="List item text" />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample name="Spacing Example (1)" code={spacingExample1} layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -275,74 +231,24 @@ Unordered and ordered lists can be combined in the same list as well. However, t
           columns={2}
         >
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Bare unordered nested</Text>} type="bare">
-  <List.Item text="List item text">
-    <List.Item text="List item text">
-      <List.Item text="List item text">
-        <List.Item text="List item text">
-          <List.Item text="List item text">
-            <List.Item text="List item text" />
-          </List.Item>
-        </List.Item>
-      </List.Item>
-    </List.Item>
-  </List.Item>
-</List>`}
+            sandpackExample={
+              <SandpackExample name="Nesting Example" code={nestingExample} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Unordered nested</Text>} type="unordered">
-  <List.Item text="List item text">
-    <List.Item text="List item text">
-      <List.Item text="List item text">
-        <List.Item text="List item text">
-          <List.Item text="List item text">
-            <List.Item text="List item text" />
-          </List.Item>
-        </List.Item>
-      </List.Item>
-    </List.Item>
-  </List.Item>
-</List>`}
+            sandpackExample={
+              <SandpackExample name="Nesting Example (1)" code={nestingExample1} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<List label={<Text weight="bold">Ordered nested</Text>} type="ordered">
-  <List.Item text="List item text">
-    <List.Item text="List item text">
-      <List.Item text="List item text">
-        <List.Item text="List item text">
-          <List.Item text="List item text">
-            <List.Item text="List item text" />
-          </List.Item>
-        </List.Item>
-      </List.Item>
-    </List.Item>
-  </List.Item>
-</List>`}
+            sandpackExample={
+              <SandpackExample name="Nesting Example (2)" code={nestingExample2} layout="column" />
+            }
           />
           <MainSection.Card
-            defaultCode={`
-<List spacing="condensed" label={<Text weight="bold">Mixed nested</Text>} type="ordered">
-  <List.Item text="List item text" />
-  <List.Item text="List item text">
-    <List type="unordered">
-      <List.Item text="List item text"/>
-      <List.Item text="List item text">
-          <List.Item text="List item text" />
-          <List.Item text="List item text">
-            <List type="ordered">
-              <List.Item text="List item text" />
-              <List.Item text="List item text" />
-            </List>
-          </List.Item>
-      </List.Item>
-      <List.Item text="List item text" />
-    </List>
-  </List.Item>
-  <List.Item text="List item text" />
-</List>`}
+            sandpackExample={
+              <SandpackExample name="Nesting Example (3)" code={nestingExample3} layout="column" />
+            }
           />
         </MainSection.Subsection>
 
@@ -357,52 +263,37 @@ If custom styles are required, such as bold text, a different size, or inline li
 List's \`label\` prop is used for accessibility purposes. See the [accessibility guidelines section](/web/list#Accessibility) for more information.`}
         >
           <MainSection.Card
+            cardSize="lg"
             title="Default label with strings"
-            defaultCode={`
-<List label="Button settings" type="unordered">
-  <List.Item text="Pin type settings: Pin type settings control what content Pinners can save from your page" />
-  <List.Item text="Button style settings: Button style settings control how your button looks" />
-  <List.Item text="Source settings: Source settings control canonical sources, including descriptions, urls and images" />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Text and Label Example"
+                code={textAndLabelExample}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Custom label with Text"
-            defaultCode={`
-<List label={<Text size="400" weight="bold">Button settings</Text>} type="unordered">
-  <List.Item text={
-    <Text inline>
-      <Text weight="bold" inline>Pin type settings: </Text>
-      Pin type settings control what content Pinners can save from your page
-    </Text>}
-  />
-  <List.Item text={
-    <Text inline>
-      <Text weight="bold" inline>Button style settings: </Text>
-      Button style settings control how your button looks
-    </Text>}
-  />
-  <List.Item text={
-    <Text inline>
-      <Text weight="bold" inline>Source settings: </Text>
-      Source settings control canonical sources, including descriptions, urls and images
-    </Text>}
-  />
-</List>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Text and Label Example (1)"
+                code={textAndLabelExample1}
+                layout="column"
+              />
+            }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Hidden label"
-            defaultCode={`
-<Flex direction="column" gap={4}>
-  <Text>The Save button is one of the best ways to get your content onto Pinterest —through visitors to your site. Make sure your Save button is doing the most for you by following our best practices.</Text>
-  <List labelDisplay="hidden" label="Best practices for Save Button for developers" type="unordered">
-    <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
-    <List.Item text="Use the Save button that’s best for your website" />
-    <List.Item text="Multiple images on a page (like a blog)" />
-  </List>
-</Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Text and Label Example (2)"
+                code={textAndLabelExample2}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -416,32 +307,12 @@ When building List, we might want to render different combinations of subcompone
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example() {
-  const someCondition = true;
-
-  return (
-    <List label="List with conditionals" type="unordered">
-      { someCondition && <List.Item text="List item text z" /> }
-      <List.Item text="List item text 0">
-        { someCondition
-          && <React.Fragment>
-              <List.Item text="List item text 1" />
-              <List.Item text="List item text 2" />
-              <List.Item text="List item text 3" />
-            </React.Fragment>
-          }
-      </List.Item>
-      { someCondition
-        && <React.Fragment>
-            <List.Item text="List item text A" />
-            <List.Item text="List item text B" />
-          </React.Fragment>
-      }
-    </List>
-  )
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Subcomponent Composability Example"
+                code={subcomponentComposabilityExample}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

@@ -3,7 +3,8 @@ import { Fragment, type Node } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box.js';
-import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -21,11 +22,7 @@ type LinkData = {|
   href: string,
   label: string,
   onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   rel?: 'none' | 'nofollow',
@@ -85,14 +82,13 @@ function ActivationCardLink({ data }: {| data: LinkData |}): Node {
       marginStart="auto"
       rounding="pill"
     >
-      <Button
+      <ButtonLink
         accessibilityLabel={accessibilityLabel}
         color="gray"
         href={href}
         fullWidth
         onClick={onClick}
         rel={rel}
-        role="link"
         size="lg"
         text={label}
         target={target}
@@ -231,12 +227,15 @@ export default function ActivationCard({
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   return (
     <Box
       display="flex"
       flex="grow"
       borderStyle="shadow"
-      color="elevationFloating"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
       rounding={4}
       padding={6}
       maxWidth={400}

@@ -28,6 +28,15 @@ or
 ~~~jsx
 yarn add gestalt
 ~~~
+To install the ChartGraph package:
+~~~jsx
+npm i gestalt-charts --save
+~~~
+or
+~~~jsx
+yarn add gestalt-charts
+~~~
+
 To install the DatePicker package:
 ~~~jsx
 npm i gestalt-datepicker --save
@@ -65,6 +74,13 @@ import 'gestalt/dist/gestalt.css';
 ~~~jsx
 import { DatePicker } from 'gestalt-datepicker';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
+~~~
+"
+          />
+          <Markdown
+            text="
+~~~jsx
+import { ChartGraph } from 'gestalt-charts';
 ~~~
 "
           />
