@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Badge, Box, Flex, Heading, TapArea, Text, WashAnimated } from 'gestalt';
+import { Badge, Box, Flex, Heading, TapAreaLink, Text, WashAnimated } from 'gestalt';
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
 import illustrations, { type Illustrations } from '../graphics/index.js';
 
@@ -28,7 +28,7 @@ export default function IllustrationCard({
     typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;
 
   return (
-    <TapArea href={href} role="link" accessibilityLabel={`${title} page`}>
+    <TapAreaLink href={href} accessibilityLabel={`${title} page`}>
       <Box minWidth={MIN_SVG_ILLUSTRATION_WIDTH}>
         <WashAnimated>
           <Flex direction="column" height={320}>
@@ -74,6 +74,6 @@ export default function IllustrationCard({
           </Flex>
         </WashAnimated>
       </Box>
-    </TapArea>
+    </TapAreaLink>
   );
 }

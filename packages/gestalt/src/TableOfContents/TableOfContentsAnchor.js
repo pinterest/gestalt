@@ -7,7 +7,7 @@ import Colors from '../Colors.css';
 import { useNesting } from '../contexts/NestingProvider.js';
 import Flex from '../Flex.js';
 import Layout from '../Layout.css';
-import TapArea, { type OnTapType } from '../TapArea.js';
+import TapAreaLink from '../TapAreaLink.js';
 import Text from '../Text.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
 
@@ -23,7 +23,7 @@ type Props = {|
   label: string,
   href: string,
   active: boolean,
-  onClick?: OnTapType,
+  onClick?: $ElementType<React$ElementConfig<typeof TapAreaLink>, 'onTap'>,
 |};
 
 export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): Node {
@@ -36,9 +36,8 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
   const nestingFontSize = nestedLevel === 1 ? '300' : '200';
 
   return (
-    <TapArea
+    <TapAreaLink
       tapStyle="compress"
-      role="link"
       href={href}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
@@ -62,6 +61,6 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
           </Text>
         </div>
       </Flex>
-    </TapArea>
+    </TapAreaLink>
   );
 }
