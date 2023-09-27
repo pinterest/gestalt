@@ -1,3 +1,9 @@
+## 125.0.1 (Sep 27, 2023)
+
+### Patch
+
+- TapArea: fix in TapArea child Flow type ([#3223](https://github.com/pinterest/gestalt/pull/3223)) - [Preview link](https://deploy-preview-3223--gestalt.netlify.app?devexample=true)
+
 ## 125.0.0 (Sep 27, 2023)
 
 ### Major
