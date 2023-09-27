@@ -2706,88 +2706,132 @@ exports[`TileData TileData title truncates when really long 1`] = `
 
 exports[`TileData Tiledata is disabled 1`] = `
 <div
-  className="box"
-  style={
-    Object {
-      "maxWidth": 196,
-    }
-  }
+  className="box xsDisplayBlock"
 >
   <div
-    aria-disabled={true}
-    className="hideOutline tapTransition rounding4 fullWidth"
+    aria-label="This is a tooltip"
+    className="box"
     onBlur={[Function]}
-    onClick={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyPress={[Function]}
-    onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchCancel={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="button"
-    tabIndex={null}
   >
     <div
-      className="baseTile tileWidth selected disabled"
-      style={Object {}}
+      className="box"
+      style={
+        Object {
+          "maxWidth": 196,
+        }
+      }
     >
       <div
-        className="Flex rowGap2 columnGap2 xsDirectionRow"
+        aria-disabled={true}
+        className="hideOutline tapTransition rounding4 fullWidth"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={null}
       >
         <div
-          className="FlexItem"
+          className="baseTile tileWidth selected disabled"
+          style={Object {}}
         >
           <div
-            className="Flex rowGap0 columnGap1 xsDirectionColumn"
+            className="Flex rowGap2 columnGap2 xsDirectionRow"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
-                style={
-                  Object {
-                    "minHeight": 24,
-                  }
-                }
+                className="Flex rowGap0 columnGap1 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="box"
+                    className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                     style={
                       Object {
-                        "minWidth": 80,
+                        "minHeight": 24,
                       }
                     }
                   >
                     <div
-                      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-                      style={
-                        Object {
-                          "WebkitLineClamp": 2,
-                        }
-                      }
+                      className="FlexItem"
                     >
-                      Text Impressions
                       <div
-                        className="box relative"
+                        className="box"
                         style={
                           Object {
-                            "display": "inline",
+                            "minWidth": 80,
                           }
                         }
                       >
                         <div
-                          className="box xsDisplayVisuallyHidden"
+                          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                          style={
+                            Object {
+                              "WebkitLineClamp": 2,
+                            }
+                          }
                         >
-                          ,
+                          Text Impressions
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                  >
+                    <div
+                      className="FlexItem"
+                    >
+                      <div
+                        className="Text fontSize400 subtleText alignStart breakWord fontWeightSemiBold"
+                      >
+                        1.23M
+                        <div
+                          className="box relative"
+                          style={
+                            Object {
+                              "display": "inline",
+                            }
+                          }
+                        >
+                          <div
+                            className="box xsDisplayVisuallyHidden"
+                          >
+                            ,
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2799,84 +2843,53 @@ exports[`TileData Tiledata is disabled 1`] = `
               className="FlexItem"
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                className="box"
               >
                 <div
-                  className="FlexItem"
+                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
                 >
                   <div
-                    className="Text fontSize400 subtleText alignStart breakWord fontWeightSemiBold"
+                    className="box paddingX1 relative"
                   >
-                    1.23M
+                    <input
+                      aria-hidden={true}
+                      aria-invalid="false"
+                      checked={true}
+                      className="input sizeSm inputEnabled readOnly"
+                      disabled={true}
+                      id="readonly-checkbox-blah-:re:"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      type="checkbox"
+                    />
                     <div
-                      className="box relative"
+                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
-                          "display": "inline",
+                          "backgroundColor": "var(--color-gray-roboflow-300)",
+                          "borderColor": "transparent",
                         }
                       }
                     >
-                      <div
-                        className="box xsDisplayVisuallyHidden"
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="icon inverseIcon iconBlock"
+                        height={8}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={8}
                       >
-                        ,
-                      </div>
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="FlexItem"
-        >
-          <div
-            className="box"
-          >
-            <div
-              className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
-            >
-              <div
-                className="box paddingX1 relative"
-              >
-                <input
-                  aria-hidden={true}
-                  aria-invalid="false"
-                  checked={true}
-                  className="input sizeSm inputEnabled readOnly"
-                  disabled={true}
-                  id="readonly-checkbox-blah-:re:"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  type="checkbox"
-                />
-                <div
-                  className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
-                  style={
-                    Object {
-                      "backgroundColor": "var(--color-gray-roboflow-300)",
-                      "borderColor": "transparent",
-                    }
-                  }
-                >
-                  <svg
-                    aria-hidden={true}
-                    aria-label=""
-                    className="icon inverseIcon iconBlock"
-                    height={8}
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width={8}
-                  >
-                    <path
-                      d="test-file-stub"
-                    />
-                  </svg>
                 </div>
               </div>
             </div>
