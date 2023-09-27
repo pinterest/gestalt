@@ -78,13 +78,13 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="arrow-back" accessibilityLabel="arrow back" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-back"
                         accessibilityLabel="arrow back mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -95,13 +95,13 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="arrow-forward" accessibilityLabel="arrow forward" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-forward"
                         accessibilityLabel="arrow forward mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -116,13 +116,13 @@ Back and forward buttons and arrows are mirrored:
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-circle-back"
                         accessibilityLabel="arrow circle back mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -137,13 +137,13 @@ Back and forward buttons and arrows are mirrored:
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-circle-forward"
                         accessibilityLabel="arrow circle forward mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -154,13 +154,13 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="arrow-start" accessibilityLabel="arrow start" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-start"
                         accessibilityLabel="arrow start mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -171,13 +171,13 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="arrow-end" accessibilityLabel="arrow end" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-end"
                         accessibilityLabel="arrow end mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -192,13 +192,13 @@ Back and forward buttons and arrows are mirrored:
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="arrow-left-curved"
                         accessibilityLabel="arrow left curved mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -213,13 +213,13 @@ Back and forward buttons and arrows are mirrored:
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="directional-arrow-left"
                         accessibilityLabel="directional arrow left mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -234,13 +234,13 @@ Back and forward buttons and arrows are mirrored:
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="directional-arrow-right"
                         accessibilityLabel="directional arrow right mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -251,13 +251,13 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="move-pin" accessibilityLabel="move pin" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="move-pin"
                         accessibilityLabel="move pin mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -272,13 +272,13 @@ Back and forward buttons and arrows are mirrored:
                     />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon
                         icon="reorder-images"
                         accessibilityLabel="reorder images mirrored"
                         color="default"
                       />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -289,9 +289,9 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="send" accessibilityLabel="send" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon icon="send" accessibilityLabel="send mirrored" color="default" />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -302,9 +302,9 @@ Back and forward buttons and arrows are mirrored:
                     <Icon icon="visit" accessibilityLabel="visit" color="default" />
                   </Table.Cell>
                   <Table.Cell>
-                    <html lang="en-us" dir="rtl">
+                    <div className="rotateIcon">
                       <Icon icon="visit" accessibilityLabel="visit mirrored" color="default" />
-                    </html>
+                    </div>
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>
