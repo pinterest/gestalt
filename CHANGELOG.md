@@ -1,3 +1,9 @@
+## 126.0.1 (Sep 27, 2023)
+
+### Patch
+
+- IconButton: onClick fix ([#3225](https://github.com/pinterest/gestalt/pull/3225)) - [Preview link](https://deploy-preview-3225--gestalt.netlify.app?devexample=true)
+
 ## 126.0.0 (Sep 27, 2023)
 
 ### Major
