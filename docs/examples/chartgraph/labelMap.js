@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
+import { DefaultLabelProvider } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -19,26 +20,44 @@ export default function Example(): Node {
   ];
 
   return (
-    <ChartGraph
-      title="Eindrücke"
-      description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
-      visualPatternSelected={visualPatternSelected}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      accessibilityLabel="Beispiel für ein Liniendiagramm"
-      type="bar"
-      data={data}
-      labelMap={{
-        'Women': 'Frauen',
-        'Men': 'Männer',
-        'Users': 'Benutzer',
-        'Clickthroughs': 'Durchklicken',
+    <DefaultLabelProvider
+      // $FlowExpectedError For demostration purposes
+      labels={{
+        ChartGraph: {
+          accessibilityLabelPrefixText: 'ChartGraph',
+          defaultViewText: 'Standard-Ansichtsmodus.',
+          accessibleViewText: 'Ansichtsmodus für Barrierefreiheit.',
+          tabularData: 'Tabellarische Darstellung.',
+          accessibilityLabelDismissModal: 'Tabellendarstellung modal aufheben.',
+          tableSeriesText: 'Reihe.',
+          tableXAxisText: 'x-Achsen-Werte.',
+          tableYAxisText: 'y-Achsen-Werte.',
+          downloadCsvButtonText: 'Als .csv herunterladen.',
+          cancelButtonText: 'Abbrechen.',
+        },
       }}
-      elements={[
-        { type: 'bar', id: 'Users' },
-        { type: 'bar', id: 'Clickthroughs' },
-      ]}
-    />
+    >
+      <ChartGraph
+        title="Eindrücke"
+        description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
+        visualPatternSelected={visualPatternSelected}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        accessibilityLabel="Beispiel für ein Liniendiagramm"
+        type="bar"
+        data={data}
+        labelMap={{
+          'Women': 'Frauen',
+          'Men': 'Männer',
+          'Users': 'Benutzer',
+          'Clickthroughs': 'Durchklicken',
+        }}
+        elements={[
+          { type: 'bar', id: 'Users' },
+          { type: 'bar', id: 'Clickthroughs' },
+        ]}
+      />
+    </DefaultLabelProvider>
   );
 }

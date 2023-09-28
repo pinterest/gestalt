@@ -402,18 +402,16 @@ function ChartGraph({
         color="default"
         padding={4}
       >
-        {visualPatternSelected === 'disabled' && titleDisplay === 'hidden' ? null : (
-          <Header
-            readyToRender={chartWidth > 0}
-            title={title}
-            titleDisplay={titleDisplay}
-            description={description}
-            onVisualPatternChange={onVisualPatternChange}
-            helpButton={helpButton}
-            setShowTabularData={() => setShowTabularData((value) => !value)}
-            showTabularData={showTabularData}
-          />
-        )}
+        <Header
+          readyToRender={chartWidth > 0}
+          title={title}
+          titleDisplay={titleDisplay}
+          description={description}
+          onVisualPatternChange={onVisualPatternChange}
+          helpButton={helpButton}
+          setShowTabularData={() => setShowTabularData((value) => !value)}
+          showTabularData={showTabularData}
+        />
 
         {children ? (
           <Box marginBottom={4}>
