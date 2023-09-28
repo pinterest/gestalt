@@ -1,19 +1,8 @@
 // @flow strict-local
 import { type Node, useState } from 'react';
-import {
-  Button,
-  ButtonGroup,
-  Flex,
-  Heading,
-  IconButton,
-  Layer,
-  Modal,
-  Table,
-  Text,
-  useDefaultLabel,
-  useDeviceType,
-} from 'gestalt';
-import useTabularData from './useTabularData.js';
+import { Button, ButtonGroup, Flex, Layer, Modal, Table, Text, useDefaultLabel } from 'gestalt';
+import TabularDataModalHeader from './TabularDataModalHeader.js';
+import useTabularData, { useBuildCsvData } from './useTabularData.js';
 
 interface Indexable {
   index(): number;
@@ -21,7 +10,7 @@ interface Indexable {
 
 type Props = {|
   title: string,
-  setShowTabularData: () => void,
+  toggleTabularDataModal: () => void,
   data: $ReadOnlyArray<{|
     name: string | number,
     [string]: number,
@@ -38,9 +27,9 @@ type Props = {|
   isHorizontalLayout: boolean,
 |};
 
-export default function TabularData({
+export default function TabularDataModal({
   title,
-  setShowTabularData,
+  toggleTabularDataModal,
   data,
   tickFormatter,
   labelMap,
@@ -48,7 +37,6 @@ export default function TabularData({
   isHorizontalLayout,
 }: Props): Node {
   const {
-    accessibilityLabelDismissModal,
     tabularData,
     tableSeriesText,
     tableXAxisText,
@@ -56,11 +44,11 @@ export default function TabularData({
     downloadCsvButtonText,
     cancelButtonText,
   } = useDefaultLabel('ChartGraph');
-  const deviceType = useDeviceType();
+
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
 
-  const sortedData = useTabularData({
+  const transformedTabularData = useTabularData({
     data,
     filterId: sortCol,
     filterOrder: sortOrder,
@@ -78,47 +66,26 @@ export default function TabularData({
     }
   };
 
-  const csvData = `${tableSeriesText},${isHorizontalLayout ? tableXAxisText : tableYAxisText},${
-    isHorizontalLayout ? tableYAxisText : tableXAxisText
-  }\n${sortedData
-    .map((x) => Object.values(x))
-    .map((e) => e.join(','))
-    .join('\n')}`;
+  const csvData = useBuildCsvData({
+    transformedTabularData,
+    isHorizontalLayout,
+  });
 
   const encodedData = encodeURI(`data:text/csv;charset=utf-8,${csvData}`);
   return (
     <Layer zIndex={modalZIndex}>
       <Modal
         heading={
-          <Flex direction="column">
-            <Flex justifyContent="between">
-              <Heading size="500" accessibilityLevel={1}>
-                {title}
-              </Heading>
-              {deviceType !== 'mobile' ? (
-                <IconButton
-                  accessibilityLabel={accessibilityLabelDismissModal}
-                  bgColor="white"
-                  icon="cancel"
-                  iconColor="darkGray"
-                  onClick={() => setShowTabularData()}
-                  size="sm"
-                />
-              ) : null}
-            </Flex>
-            <Text size="200" color="subtle">
-              {tabularData}
-            </Text>
-          </Flex>
+          <TabularDataModalHeader toggleTabularDataModal={toggleTabularDataModal} title={title} />
         }
         align="start"
         accessibilityModalLabel={tabularData}
-        onDismiss={() => setShowTabularData()}
+        onDismiss={toggleTabularDataModal}
         size="sm"
         footer={
           <Flex justifyContent="end">
             <ButtonGroup>
-              <Button color="gray" text={cancelButtonText} onClick={() => setShowTabularData()} />
+              <Button color="gray" text={cancelButtonText} onClick={toggleTabularDataModal} />
               <a href={encodedData} download={`${title.toLowerCase().replace(' ', '_')}.csv`}>
                 <Button color="red" text={downloadCsvButtonText} iconEnd="download" />
               </a>
@@ -160,7 +127,7 @@ export default function TabularData({
           </Table.Header>
 
           <Table.Body>
-            {sortedData.map(({ series, xAxis, yAxis }) => (
+            {transformedTabularData.map(({ series, xAxis, yAxis }) => (
               <Table.Row key={`id-${series}-${xAxis}-${yAxis}`}>
                 <Table.Cell>
                   <Text>{series}</Text>

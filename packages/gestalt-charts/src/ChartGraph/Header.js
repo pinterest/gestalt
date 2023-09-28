@@ -10,7 +10,7 @@ export default function Header({
   onVisualPatternChange,
   helpButton,
   titleDisplay,
-  setShowTabularData,
+  toggleTabularDataModal,
   showTabularData,
 }: {|
   readyToRender: boolean,
@@ -19,7 +19,7 @@ export default function Header({
   onVisualPatternChange: () => void,
   helpButton?: Element<typeof HelpButton>,
   titleDisplay?: 'visible' | 'hidden',
-  setShowTabularData: () => void,
+  toggleTabularDataModal: () => void,
   showTabularData: boolean,
 |}): Node {
   const { accessibleViewText, defaultViewText, tabularData } = useDefaultLabel('ChartGraph');
@@ -49,7 +49,7 @@ export default function Header({
           icon="apps"
           iconColor={readyToRender ? 'darkGray' : 'white'}
           bgColor={readyToRender ? undefined : 'transparent'}
-          onClick={setShowTabularData}
+          onClick={toggleTabularDataModal}
           selected={showTabularData}
           size="xs"
           tooltip={{ text: tabularData }}

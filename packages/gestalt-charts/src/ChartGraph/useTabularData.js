@@ -1,4 +1,26 @@
 // @flow strict-local
+import { useDefaultLabel } from 'gestalt';
+
+export const useBuildCsvData = ({
+  transformedTabularData,
+  isHorizontalLayout,
+}: {|
+  transformedTabularData: $ReadOnlyArray<{|
+    series: string,
+    xAxis: number | string,
+    yAxis: number,
+  |}>,
+  isHorizontalLayout: boolean,
+|}): string => {
+  const { tableSeriesText, tableXAxisText, tableYAxisText } = useDefaultLabel('ChartGraph');
+
+  return `${tableSeriesText},${isHorizontalLayout ? tableXAxisText : tableYAxisText},${
+    isHorizontalLayout ? tableYAxisText : tableXAxisText
+  }\n${transformedTabularData
+    .map((x) => Object.values(x))
+    .map((e) => e.join(','))
+    .join('\n')}`;
+};
 
 type ElementType = {| series: string, xAxis: string, yAxis: string |};
 
@@ -8,96 +30,32 @@ const getCompareFn = ({
 }: {|
   filterId: null | 'series' | 'x' | 'y',
   filterOrder: 'desc' | 'asc',
-|}) => {
-  if (filterId === 'x' && filterOrder === 'desc') {
-    return function compareXDesc(a: ElementType, b: ElementType) {
-      if (a.xAxis < b.xAxis) {
-        return -1;
-      }
-      if (a.xAxis > b.xAxis) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    };
-  }
+|}) =>
+  function compareXDesc(a: ElementType, b: ElementType) {
+    let aValue = a.xAxis;
+    let bValue = b.xAxis;
 
-  if (filterId === 'x' && filterOrder === 'asc') {
-    return function compareXDesc(a: ElementType, b: ElementType) {
-      if (a.xAxis > b.xAxis) {
-        return -1;
-      }
-      if (a.xAxis < b.xAxis) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    };
-  }
+    if (filterId === 'y') {
+      aValue = a.yAxis;
+      bValue = b.yAxis;
+    }
 
-  if (filterId === 'y' && filterOrder === 'desc') {
-    return function compareXDesc(a: ElementType, b: ElementType) {
-      if (a.yAxis < b.yAxis) {
-        return -1;
-      }
-      if (a.yAxis > b.yAxis) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    };
-  }
+    if (filterId === 'series') {
+      aValue = a.series;
+      bValue = b.series;
+    }
 
-  if (filterId === 'y' && filterOrder === 'asc') {
-    return function compareXDesc(a: ElementType, b: ElementType) {
-      if (a.yAxis > b.yAxis) {
-        return -1;
-      }
-      if (a.yAxis < b.yAxis) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    };
-  }
+    if (filterOrder === 'desc' ? aValue < bValue : aValue > bValue) {
+      return -1;
+    }
+    if (filterOrder === 'desc' ? aValue > bValue : aValue < bValue) {
+      return 1;
+    }
+    // a must be equal to b
+    return 0;
+  };
 
-  if (filterId === 'series' && filterOrder === 'desc') {
-    return function compareXDesc(a: ElementType, b: ElementType) {
-      if (a.series < b.series) {
-        return -1;
-      }
-      if (a.series > b.series) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    };
-  }
-
-  if (filterId === 'series' && filterOrder === 'asc') {
-    return function compareXDesc(a: ElementType, b: ElementType) {
-      if (a.series > b.series) {
-        return -1;
-      }
-      if (a.series < b.series) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    };
-  }
-
-  return () => {};
-};
-
-export default function useTabularData({
-  data,
-  filterId,
-  filterOrder,
-  labelMap,
-  tickFormatter,
-  isHorizontalLayout,
-}: {|
+type Props = ({|
   data: $ReadOnlyArray<{|
     name: string | number,
     [string]: number,
@@ -113,13 +71,22 @@ export default function useTabularData({
   |},
   labelMap?: {| [string]: string |},
   isHorizontalLayout: boolean,
-|}): $ReadOnlyArray<{|
+|}) => $ReadOnlyArray<{|
   series: string,
   xAxis: number | string,
   yAxis: number,
-|}> {
-  const tabularData = data
-    // $FlowFixMe[incompatible-call]
+|}>;
+
+const useTabularData: Props = ({
+  data,
+  filterId,
+  filterOrder,
+  labelMap,
+  tickFormatter,
+  isHorizontalLayout,
+}) => {
+  const transformedTabularData = data
+    // $FlowFixMe[incompatible-call] We can't reconcile this
     .reduce(
       (
         accumulator: $ReadOnlyArray<
@@ -157,9 +124,9 @@ export default function useTabularData({
     )
     .flat();
 
-  const sortedData = tabularData.sort(getCompareFn({ filterId, filterOrder }));
+  const sortedData = transformedTabularData.sort(getCompareFn({ filterId, filterOrder }));
 
-  const translated = sortedData.map((item) => {
+  const localizedData = sortedData.map((item) => {
     const newObj = { ...item };
     if (tickFormatter?.timeseries && isHorizontalLayout) {
       newObj.xAxis = tickFormatter.timeseries(item.xAxis);
@@ -170,5 +137,7 @@ export default function useTabularData({
     return newObj;
   });
 
-  return translated;
-}
+  return localizedData;
+};
+
+export default useTabularData;
