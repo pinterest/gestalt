@@ -1221,7 +1221,7 @@
     },
     {
       "name": "table",
-      "categories": ["Utility and tools"],
+      "categories": ["Ads and measurement"],
       "description": "Indicates tabular representation of data",
       "keywords": ["table", "tabular", "data", "cell", "grid", "row", "column"]
     },
