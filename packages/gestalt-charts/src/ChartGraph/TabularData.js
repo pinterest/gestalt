@@ -65,6 +65,7 @@ export default function TabularData({
     filterOrder: sortOrder,
     tickFormatter,
     labelMap,
+    isHorizontalLayout,
   });
 
   const onSortChange = (value: 'series' | 'x' | 'y') => {
@@ -163,9 +164,7 @@ export default function TabularData({
                   <Text>{series}</Text>
                 </Table.Cell>
                 <Table.Cell>
-                  <Text size="200">
-                    {tickFormatter?.timeseries ? tickFormatter.timeseries(xAxis) : xAxis}
-                  </Text>
+                  <Text size="200">{xAxis}</Text>
                 </Table.Cell>
                 <Table.Cell>
                   <Text size="200">{yAxis}</Text>

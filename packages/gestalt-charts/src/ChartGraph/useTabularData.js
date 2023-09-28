@@ -93,6 +93,8 @@ export default function useTabularData({
   filterId,
   filterOrder,
   labelMap,
+  tickFormatter,
+  isHorizontalLayout,
 }: {|
   data: $ReadOnlyArray<{|
     name: string | number,
@@ -108,6 +110,7 @@ export default function useTabularData({
     yAxisLeft?: (number, number) => string | number,
   |},
   labelMap?: {| [string]: string |},
+  isHorizontalLayout: boolean,
 |}): $ReadOnlyArray<{|
   series: number | string,
   xAxis: number | string,
@@ -152,7 +155,17 @@ export default function useTabularData({
     .flat();
 
   const sortedData = tabularData.sort(getCompareFn({ filterId, filterOrder }));
-  // const translated = tabularData.map(x => {...x, });
 
-  return sortedData;
+  const translated = sortedData.map((item) => {
+    const newObj = { ...item };
+    if (tickFormatter?.timeseries && isHorizontalLayout) {
+      newObj.xAxis = tickFormatter.timeseries(item.xAxis);
+    }
+    if (tickFormatter?.timeseries && !isHorizontalLayout) {
+      newObj.yAxis = tickFormatter.timeseries(item.yAxis);
+    }
+    return newObj;
+  });
+
+  return translated;
 }
