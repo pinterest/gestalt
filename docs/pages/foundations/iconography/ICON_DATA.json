@@ -1220,6 +1220,12 @@
       "keywords": ["reorder", "arrows"]
     },
     {
+      "name": "table",
+      "categories": ["Utility and tools"],
+      "description": "Indicates tabular representation of data",
+      "keywords": ["table", "tabular", "data", "cell", "grid", "row", "column"]
+    },
+    {
       "name": "tag",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to view products and shop",
