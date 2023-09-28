@@ -4,7 +4,7 @@ import { Layer, Modal, useDefaultLabel } from 'gestalt';
 import TabularDataModalFooter from './TabularDataModalFooter.js';
 import TabularDataModalHeading from './TabularDataModalHeading.js';
 import TabularDataModalTable from './TabularDataModalTable.js';
-import useTabularData from './useTabularData.js';
+import useTabularData, { type TransformedTabularDataType } from './useTabularData.js';
 
 interface Indexable {
   index(): number;
@@ -43,7 +43,7 @@ export default function TabularDataModal({
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
   const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
 
-  const transformedTabularData = useTabularData({
+  const transformedTabularData: TransformedTabularDataType = useTabularData({
     data,
     filterId: sortCol,
     filterOrder: sortOrder,

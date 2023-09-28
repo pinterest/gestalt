@@ -1,17 +1,21 @@
 // @flow strict-local
 import { useDefaultLabel } from 'gestalt';
 
-export const useBuildCsvData = ({
+export type TransformedTabularDataType = $ReadOnlyArray<{|
+  series: string,
+  xAxis: number | string,
+  yAxis: number,
+|}>;
+
+type UseBuildCsvDataProps = ({|
+  transformedTabularData: TransformedTabularDataType,
+  isHorizontalLayout: boolean,
+|}) => string;
+
+export const useBuildCsvData: UseBuildCsvDataProps = ({
   transformedTabularData,
   isHorizontalLayout,
-}: {|
-  transformedTabularData: $ReadOnlyArray<{|
-    series: string,
-    xAxis: number | string,
-    yAxis: number,
-  |}>,
-  isHorizontalLayout: boolean,
-|}): string => {
+}) => {
   const { tableSeriesText, tableXAxisText, tableYAxisText } = useDefaultLabel('ChartGraph');
 
   return `${tableSeriesText},${isHorizontalLayout ? tableXAxisText : tableYAxisText},${
@@ -55,7 +59,7 @@ const getCompareFn = ({
     return 0;
   };
 
-type Props = ({|
+type UseTabularDataProps = ({|
   data: $ReadOnlyArray<{|
     name: string | number,
     [string]: number,
@@ -71,13 +75,9 @@ type Props = ({|
   |},
   labelMap?: {| [string]: string |},
   isHorizontalLayout: boolean,
-|}) => $ReadOnlyArray<{|
-  series: string,
-  xAxis: number | string,
-  yAxis: number,
-|}>;
+|}) => TransformedTabularDataType;
 
-const useTabularData: Props = ({
+const useTabularData: UseTabularDataProps = ({
   data,
   filterId,
   filterOrder,
@@ -89,13 +89,7 @@ const useTabularData: Props = ({
     // $FlowFixMe[incompatible-call] We can't reconcile this
     .reduce(
       (
-        accumulator: $ReadOnlyArray<
-          $ReadOnlyArray<{|
-            series?: string,
-            xAxis?: number | string,
-            yAxis?: number,
-          |}>,
-        >,
+        accumulator: $ReadOnlyArray<TransformedTabularDataType>,
         currentValue: {|
           name: string | number,
           [string]: number,
@@ -113,8 +107,6 @@ const useTabularData: Props = ({
               xAxis: labelMap && typeof name === 'string' ? labelMap[name] : name,
               yAxis: x[1],
             };
-
-            // return { series: x[0], xAxis: name, yAxis: x[1] };
           })
           .filter((x) => !!x.series);
 

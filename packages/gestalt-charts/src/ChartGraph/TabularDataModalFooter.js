@@ -1,17 +1,13 @@
 // @flow strict-local
 import { type Node } from 'react';
 import { Button, ButtonGroup, Flex, useDefaultLabel } from 'gestalt';
-import { useBuildCsvData } from './useTabularData.js';
+import { type TransformedTabularDataType, useBuildCsvData } from './useTabularData.js';
 
 type Props = {|
   title: string,
   toggleTabularDataModal: () => void,
   isHorizontalLayout: boolean,
-  transformedTabularData: $ReadOnlyArray<{|
-    series: string,
-    xAxis: number | string,
-    yAxis: number,
-  |}>,
+  transformedTabularData: TransformedTabularDataType,
 |};
 
 export default function TabularDataModalFooter({
