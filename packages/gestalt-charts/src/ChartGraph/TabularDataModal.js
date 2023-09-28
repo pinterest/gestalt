@@ -1,8 +1,9 @@
 // @flow strict-local
 import { type Node, useState } from 'react';
-import { Button, ButtonGroup, Flex, Layer, Modal, Table, Text, useDefaultLabel } from 'gestalt';
-import TabularDataModalHeader from './TabularDataModalHeader.js';
-import useTabularData, { useBuildCsvData } from './useTabularData.js';
+import { Layer, Modal, Table, Text, useDefaultLabel } from 'gestalt';
+import TabularDataModalFooter from './TabularDataModalFooter.js';
+import TabularDataModalHeading from './TabularDataModalHeading.js';
+import useTabularData from './useTabularData.js';
 
 interface Indexable {
   index(): number;
@@ -36,14 +37,8 @@ export default function TabularDataModal({
   modalZIndex,
   isHorizontalLayout,
 }: Props): Node {
-  const {
-    tabularData,
-    tableSeriesText,
-    tableXAxisText,
-    tableYAxisText,
-    downloadCsvButtonText,
-    cancelButtonText,
-  } = useDefaultLabel('ChartGraph');
+  const { tabularData, tableSeriesText, tableXAxisText, tableYAxisText } =
+    useDefaultLabel('ChartGraph');
 
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
@@ -66,31 +61,23 @@ export default function TabularDataModal({
     }
   };
 
-  const csvData = useBuildCsvData({
-    transformedTabularData,
-    isHorizontalLayout,
-  });
-
-  const encodedData = encodeURI(`data:text/csv;charset=utf-8,${csvData}`);
   return (
     <Layer zIndex={modalZIndex}>
       <Modal
         heading={
-          <TabularDataModalHeader toggleTabularDataModal={toggleTabularDataModal} title={title} />
+          <TabularDataModalHeading toggleTabularDataModal={toggleTabularDataModal} title={title} />
         }
         align="start"
         accessibilityModalLabel={tabularData}
         onDismiss={toggleTabularDataModal}
         size="sm"
         footer={
-          <Flex justifyContent="end">
-            <ButtonGroup>
-              <Button color="gray" text={cancelButtonText} onClick={toggleTabularDataModal} />
-              <a href={encodedData} download={`${title.toLowerCase().replace(' ', '_')}.csv`}>
-                <Button color="red" text={downloadCsvButtonText} iconEnd="download" />
-              </a>
-            </ButtonGroup>
-          </Flex>
+          <TabularDataModalFooter
+            title={title}
+            toggleTabularDataModal={toggleTabularDataModal}
+            transformedTabularData={transformedTabularData}
+            isHorizontalLayout={isHorizontalLayout}
+          />
         }
       >
         <Table accessibilityLabel={title}>

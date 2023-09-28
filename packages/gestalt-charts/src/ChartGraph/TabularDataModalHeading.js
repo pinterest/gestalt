@@ -7,7 +7,7 @@ type Props = {|
   toggleTabularDataModal: () => void,
 |};
 
-export default function TabularDataModalHeader({ title, toggleTabularDataModal }: Props): Node {
+export default function TabularDataModalHeading({ title, toggleTabularDataModal }: Props): Node {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
   const deviceType = useDeviceType();
