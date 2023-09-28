@@ -152,6 +152,7 @@ export default function useTabularData({
     .flat();
 
   const sortedData = tabularData.sort(getCompareFn({ filterId, filterOrder }));
+  // const translated = tabularData.map(x => {...x, });
 
   return sortedData;
 }

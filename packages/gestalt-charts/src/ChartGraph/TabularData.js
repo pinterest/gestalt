@@ -46,7 +46,15 @@ export default function TabularData({
   modalZIndex,
   isHorizontalLayout,
 }: Props): Node {
-  const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
+  const {
+    accessibilityLabelDismissModal,
+    tabularData,
+    tableSeriesText,
+    tableXAxisText,
+    tableYAxisText,
+    downloadCsvButtonText,
+    cancelButtonText,
+  } = useDefaultLabel('ChartGraph');
 
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
@@ -68,10 +76,12 @@ export default function TabularData({
     }
   };
 
-  const csvData = sortedData
+  const csvData = `${tableSeriesText},${isHorizontalLayout ? tableXAxisText : tableYAxisText},${
+    isHorizontalLayout ? tableYAxisText : tableXAxisText
+  }\n${sortedData
     .map((x) => Object.values(x))
     .map((e) => e.join(','))
-    .join('\n');
+    .join('\n')}`;
 
   const encodedData = encodeURI(`data:text/csv;charset=utf-8,${csvData}`);
 
@@ -105,9 +115,9 @@ export default function TabularData({
         footer={
           <Flex justifyContent="end">
             <ButtonGroup>
-              <Button color="gray" text="Cancel" onClick={() => setShowTabularData()} />
+              <Button color="gray" text={cancelButtonText} onClick={() => setShowTabularData()} />
               <a href={encodedData} download={`${title.toLowerCase().replace(' ', '_')}.csv`}>
-                <Button color="red" text="Download as .csv" iconEnd="download" />
+                <Button color="red" text={downloadCsvButtonText} iconEnd="download" />
               </a>
             </ButtonGroup>
           </Flex>
@@ -122,7 +132,7 @@ export default function TabularData({
                 status={sortCol === 'series' ? 'active' : 'inactive'}
               >
                 <Text size="200" weight="bold">
-                  Metric series
+                  {tableSeriesText}
                 </Text>
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
@@ -131,7 +141,7 @@ export default function TabularData({
                 status={sortCol === 'x' ? 'active' : 'inactive'}
               >
                 <Text size="200" weight="bold">
-                  {isHorizontalLayout ? 'x - value' : 'y - value'}
+                  {isHorizontalLayout ? tableXAxisText : tableYAxisText}
                 </Text>
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
@@ -140,7 +150,7 @@ export default function TabularData({
                 status={sortCol === 'y' ? 'active' : 'inactive'}
               >
                 <Text size="200" weight="bold">
-                  {isHorizontalLayout ? 'y - value' : 'x - value'}
+                  {isHorizontalLayout ? tableYAxisText : tableXAxisText}
                 </Text>
               </Table.SortableHeaderCell>
             </Table.Row>

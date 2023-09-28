@@ -31,6 +31,11 @@ export type DefaultLabelContextType = {|
     accessibleViewText: string,
     tabularData: string,
     accessibilityLabelDismissModal: string,
+    tableSeriesText: string,
+    tableXAxisText: string,
+    tableYAxisText: string,
+    downloadCsvButtonText: string,
+    cancelButtonText: string,
   |},
   ComboBox: {|
     noResultText: string,
@@ -135,6 +140,11 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibleViewText: 'Accessibility view mode',
     tabularData: 'Tabular representation',
     accessibilityLabelDismissModal: 'Dismiss tabular representation modal',
+    tableSeriesText: 'Series',
+    tableXAxisText: 'x-axis values',
+    tableYAxisText: 'y-axis values',
+    downloadCsvButtonText: 'Download as .csv',
+    cancelButtonText: 'Cancel',
   },
   ComboBox: {
     noResultText: 'No results',

@@ -26,6 +26,11 @@ const labels = {
     accessibleViewText: myI18nTranslator('Accessibility view mode'),
     tabularData: myI18nTranslator('Tabular representation'),
     accessibilityLabelDismissModal: myI18nTranslator('Dismiss tabular representation modal'),
+    tableSeriesText: myI18nTranslator('Series'),
+    tableXAxisText: myI18nTranslator('x-axis values'),
+    tableYAxisText: myI18nTranslator('y-axis values'),
+    downloadCsvButtonText: myI18nTranslator('Download as .csv'),
+    cancelButtonText: myI18nTranslator('Cancel'),
   },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),

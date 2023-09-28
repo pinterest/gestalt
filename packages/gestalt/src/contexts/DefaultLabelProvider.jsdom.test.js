@@ -33,6 +33,11 @@ describe('useDefaultLabelContext', () => {
             accessibleViewText: 'Accessibility view mode',
             tabularData: 'Tabular data',
             accessibilityLabelDismissModal: 'Dismiss tabular data modal',
+            tableSeriesText: 'Series',
+            tableXAxisText: 'x-axis values',
+            tableYAxisText: 'y-axis values',
+            downloadCsvButtonText: 'Download as .csv',
+            cancelButtonText: 'Cancel',
           },
           ComboBox: {
             noResultText: 'No results',
