@@ -222,21 +222,17 @@ Don't use \`accessibilityLabel\` to describe the ChartGraph content itself. We�
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Tabular view"
+          title="Tabular representation"
           description={`
 An additional button is available to show chart data as a table so that it’s easier to
 
 - navigate with a screen reader
 - read data for those who have difficulty processing visual information
 - download data to view in a person’s own tools
+
+The tabular data is also available to download as a .csv file.
           `}
-        >
-          <SlimBanner
-            type="warningBare"
-            iconAccessibilityLabel="Warning"
-            message="Accessibility feature not available yet."
-          />
-        </MainSection.Subsection>
+        />
       </AccessibilitySection>
 
       <MainSection
@@ -582,7 +578,7 @@ When ChartGraphs are contained within small containers (under 576px wide), set \
 
 Props: \`tickFormatter\`.
 
-When localizing dates, use \`tickFormatter.timestamps\` as it traslates the values in the tooltip as well. \`tickFormatter.xAxisBottom\` overrides \`tickFormatter.timeseries\` when both are present, in case tooltip and x axis present different date formats.
+When localizing dates, use \`tickFormatter.timestamps\` as it traslates the values in the tooltip as well. Avoid using comma separators for dates as .csv files use them for cell separation. \`tickFormatter.xAxisBottom\` overrides \`tickFormatter.timeseries\` when both are present, in case tooltip and x axis present different date formats.
 `}
         >
           <MainSection.Card
@@ -594,7 +590,7 @@ When localizing dates, use \`tickFormatter.timestamps\` as it traslates the valu
 
         <MainSection.Subsection
           title="Time series"
-          description={`ChartGraph supports timeseries. To enable timeseries, set \`tickFormatter.timeseries\`.
+          description={`ChartGraph supports timeseries. To enable timeseries, set \`tickFormatter.timeseries\`. Time series charts are only supported in vertical layout.
 
 Props: \`tickFormatter.timeseries\`.
             `}
