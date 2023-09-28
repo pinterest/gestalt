@@ -21,7 +21,7 @@ export default function Example(): Node {
 
   return (
     <DefaultLabelProvider
-      // $FlowExpectedError For demostration purposes
+      // $FlowExpectedError[incompatible-type] For demostration purposes
       labels={{
         ChartGraph: {
           accessibilityLabelPrefixText: 'ChartGraph',

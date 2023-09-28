@@ -114,18 +114,19 @@ export default function useTabularData({
   labelMap?: {| [string]: string |},
   isHorizontalLayout: boolean,
 |}): $ReadOnlyArray<{|
-  series: number | string,
+  series: string,
   xAxis: number | string,
-  yAxis: number | string,
+  yAxis: number,
 |}> {
   const tabularData = data
+    // $FlowFixMe[incompatible-call]
     .reduce(
       (
         accumulator: $ReadOnlyArray<
           $ReadOnlyArray<{|
-            series: number | string,
-            xAxis: number | string,
-            yAxis: number | string,
+            series?: string,
+            xAxis?: number | string,
+            yAxis?: number,
           |}>,
         >,
         currentValue: {|
