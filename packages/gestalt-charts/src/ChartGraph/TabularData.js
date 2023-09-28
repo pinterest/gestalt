@@ -11,6 +11,7 @@ import {
   Table,
   Text,
   useDefaultLabel,
+  useDeviceType,
 } from 'gestalt';
 import useTabularData from './useTabularData.js';
 
@@ -55,7 +56,7 @@ export default function TabularData({
     downloadCsvButtonText,
     cancelButtonText,
   } = useDefaultLabel('ChartGraph');
-
+  const deviceType = useDeviceType();
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
 
@@ -85,7 +86,6 @@ export default function TabularData({
     .join('\n')}`;
 
   const encodedData = encodeURI(`data:text/csv;charset=utf-8,${csvData}`);
-
   return (
     <Layer zIndex={modalZIndex}>
       <Modal
@@ -95,14 +95,16 @@ export default function TabularData({
               <Heading size="500" accessibilityLevel={1}>
                 {title}
               </Heading>
-              <IconButton
-                accessibilityLabel={accessibilityLabelDismissModal}
-                bgColor="white"
-                icon="cancel"
-                iconColor="darkGray"
-                onClick={() => setShowTabularData()}
-                size="sm"
-              />
+              {deviceType !== 'mobile' ? (
+                <IconButton
+                  accessibilityLabel={accessibilityLabelDismissModal}
+                  bgColor="white"
+                  icon="cancel"
+                  iconColor="darkGray"
+                  onClick={() => setShowTabularData()}
+                  size="sm"
+                />
+              ) : null}
             </Flex>
             <Text size="200" color="subtle">
               {tabularData}
