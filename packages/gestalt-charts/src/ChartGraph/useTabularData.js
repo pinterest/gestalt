@@ -1,5 +1,7 @@
 // @flow strict-local
 
+type ElementType = {| series: string, xAxis: string, yAxis: string |};
+
 const getCompareFn = ({
   filterId,
   filterOrder,
@@ -8,7 +10,7 @@ const getCompareFn = ({
   filterOrder: 'desc' | 'asc',
 |}) => {
   if (filterId === 'x' && filterOrder === 'desc') {
-    return function compareXDesc(a, b) {
+    return function compareXDesc(a: ElementType, b: ElementType) {
       if (a.xAxis < b.xAxis) {
         return -1;
       }
@@ -21,7 +23,7 @@ const getCompareFn = ({
   }
 
   if (filterId === 'x' && filterOrder === 'asc') {
-    return function compareXDesc(a, b) {
+    return function compareXDesc(a: ElementType, b: ElementType) {
       if (a.xAxis > b.xAxis) {
         return -1;
       }
@@ -34,7 +36,7 @@ const getCompareFn = ({
   }
 
   if (filterId === 'y' && filterOrder === 'desc') {
-    return function compareXDesc(a, b) {
+    return function compareXDesc(a: ElementType, b: ElementType) {
       if (a.yAxis < b.yAxis) {
         return -1;
       }
@@ -47,7 +49,7 @@ const getCompareFn = ({
   }
 
   if (filterId === 'y' && filterOrder === 'asc') {
-    return function compareXDesc(a, b) {
+    return function compareXDesc(a: ElementType, b: ElementType) {
       if (a.yAxis > b.yAxis) {
         return -1;
       }
@@ -60,7 +62,7 @@ const getCompareFn = ({
   }
 
   if (filterId === 'series' && filterOrder === 'desc') {
-    return function compareXDesc(a, b) {
+    return function compareXDesc(a: ElementType, b: ElementType) {
       if (a.series < b.series) {
         return -1;
       }
@@ -73,7 +75,7 @@ const getCompareFn = ({
   }
 
   if (filterId === 'series' && filterOrder === 'asc') {
-    return function compareXDesc(a, b) {
+    return function compareXDesc(a: ElementType, b: ElementType) {
       if (a.series > b.series) {
         return -1;
       }
