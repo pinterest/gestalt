@@ -1,6 +1,4 @@
 // @flow strict-local
-import { type Node } from 'react';
-import { Table, Text } from 'gestalt';
 
 const getCompareFn = ({
   filterId,
@@ -94,7 +92,6 @@ export default function useTabularData({
   data,
   filterId,
   filterOrder,
-  tickFormatter,
   labelMap,
 }: {|
   data: $ReadOnlyArray<{|
@@ -111,7 +108,11 @@ export default function useTabularData({
     yAxisLeft?: (number, number) => string | number,
   |},
   labelMap?: {| [string]: string |},
-|}): Node {
+|}): $ReadOnlyArray<{|
+  series: number | string,
+  xAxis: number | string,
+  yAxis: number | string,
+|}> {
   const tabularData = data
     .reduce(
       (
@@ -152,19 +153,5 @@ export default function useTabularData({
 
   const sortedData = tabularData.sort(getCompareFn({ filterId, filterOrder }));
 
-  return sortedData.map(({ series, xAxis, yAxis }) => (
-    <Table.Row key={`id-${series}-${xAxis}-${yAxis}`}>
-      <Table.Cell>
-        <Text>{series}</Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text size="200">
-          {tickFormatter?.timeseries ? tickFormatter.timeseries(xAxis) : xAxis}
-        </Text>
-      </Table.Cell>
-      <Table.Cell>
-        <Text size="200">{yAxis}</Text>
-      </Table.Cell>
-    </Table.Row>
-  ));
+  return sortedData;
 }

@@ -18,14 +18,7 @@ interface Indexable {
   index(): number;
 }
 
-export default function TabularData({
-  title,
-  setShowTabularData,
-  data,
-  tickFormatter,
-  labelMap,
-  modalZIndex,
-}: {|
+type Props = {|
   title: string,
   setShowTabularData: () => void,
   data: $ReadOnlyArray<{|
@@ -41,13 +34,24 @@ export default function TabularData({
   |},
   labelMap?: {| [string]: string |},
   modalZIndex?: Indexable,
-|}): Node {
+  isHorizontalLayout: boolean,
+|};
+
+export default function TabularData({
+  title,
+  setShowTabularData,
+  data,
+  tickFormatter,
+  labelMap,
+  modalZIndex,
+  isHorizontalLayout,
+}: Props): Node {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
 
-  const tabularDataTable = useTabularData({
+  const sortedData = useTabularData({
     data,
     filterId: sortCol,
     filterOrder: sortOrder,
@@ -63,6 +67,13 @@ export default function TabularData({
       setSortOrder((sortValue) => (sortValue === 'asc' ? 'desc' : 'asc'));
     }
   };
+
+  const csvData = sortedData
+    .map((x) => Object.values(x))
+    .map((e) => e.join(','))
+    .join('\n');
+
+  const encodedData = encodeURI(`data:text/csv;charset=utf-8,${csvData}`);
 
   return (
     <Layer zIndex={modalZIndex}>
@@ -95,12 +106,14 @@ export default function TabularData({
           <Flex justifyContent="end">
             <ButtonGroup>
               <Button color="gray" text="Cancel" onClick={() => setShowTabularData()} />
-              <Button color="red" text="Download as .csv" iconEnd="download" />
+              <a href={encodedData} download={`${title.toLowerCase().replace(' ', '_')}.csv`}>
+                <Button color="red" text="Download as .csv" iconEnd="download" />
+              </a>
             </ButtonGroup>
           </Flex>
         }
       >
-        <Table accessibilityLabel="Main example table">
+        <Table accessibilityLabel={title}>
           <Table.Header>
             <Table.Row>
               <Table.SortableHeaderCell
@@ -118,7 +131,7 @@ export default function TabularData({
                 status={sortCol === 'x' ? 'active' : 'inactive'}
               >
                 <Text size="200" weight="bold">
-                  x-value
+                  {isHorizontalLayout ? 'x - value' : 'y - value'}
                 </Text>
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
@@ -127,13 +140,29 @@ export default function TabularData({
                 status={sortCol === 'y' ? 'active' : 'inactive'}
               >
                 <Text size="200" weight="bold">
-                  y-value
+                  {isHorizontalLayout ? 'y - value' : 'x - value'}
                 </Text>
               </Table.SortableHeaderCell>
             </Table.Row>
           </Table.Header>
 
-          <Table.Body>{tabularDataTable}</Table.Body>
+          <Table.Body>
+            {sortedData.map(({ series, xAxis, yAxis }) => (
+              <Table.Row key={`id-${series}-${xAxis}-${yAxis}`}>
+                <Table.Cell>
+                  <Text>{series}</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">
+                    {tickFormatter?.timeseries ? tickFormatter.timeseries(xAxis) : xAxis}
+                  </Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text size="200">{yAxis}</Text>
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
         </Table>
       </Modal>
     </Layer>

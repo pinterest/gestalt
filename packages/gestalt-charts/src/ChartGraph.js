@@ -570,6 +570,7 @@ function ChartGraph({
           tickFormatter={tickFormatter}
           labelMap={labelMap}
           modalZIndex={modalZIndex}
+          isHorizontalLayout={isHorizontalLayout}
         />
       ) : null}
     </ChartProvider>

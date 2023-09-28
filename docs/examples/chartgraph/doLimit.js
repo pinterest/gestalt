@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
+import { FixedZIndex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -46,6 +47,7 @@ export default function Example(): Node {
             date,
           )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
       }}
+      modalZIndex={new FixedZIndex(11)}
     />
   );
 }
