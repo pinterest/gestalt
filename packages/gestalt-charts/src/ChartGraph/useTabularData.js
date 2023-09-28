@@ -1,6 +1,10 @@
 // @flow strict-local
 import { useDefaultLabel } from 'gestalt';
 
+export type SortChangeType = 'series' | 'x' | 'y';
+export type FilterIdType = null | SortChangeType;
+export type FilterOrderType = 'desc' | 'asc';
+
 export type TransformedTabularDataType = $ReadOnlyArray<{|
   series: string,
   xAxis: number | string,
@@ -32,8 +36,8 @@ const getCompareFn = ({
   filterId,
   filterOrder,
 }: {|
-  filterId: null | 'series' | 'x' | 'y',
-  filterOrder: 'desc' | 'asc',
+  filterId: FilterIdType,
+  filterOrder: FilterOrderType,
 |}) =>
   function compareXDesc(a: ElementType, b: ElementType) {
     let aValue = a.xAxis;
@@ -64,8 +68,8 @@ type UseTabularDataProps = ({|
     name: string | number,
     [string]: number,
   |}>,
-  filterId: null | 'series' | 'x' | 'y',
-  filterOrder: 'desc' | 'asc',
+  filterId: FilterIdType,
+  filterOrder: FilterOrderType,
   tickFormatter?: {|
     timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,

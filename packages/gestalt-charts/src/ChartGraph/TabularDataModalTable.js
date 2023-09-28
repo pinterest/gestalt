@@ -1,15 +1,20 @@
 // @flow strict-local
 import { type Node } from 'react';
 import { Table, Text, useDefaultLabel } from 'gestalt';
-import { type TransformedTabularDataType } from './useTabularData.js';
+import {
+  type FilterIdType,
+  type FilterOrderType,
+  type SortChangeType,
+  type TransformedTabularDataType,
+} from './useTabularData.js';
 
 type Props = {|
   title: string,
   isHorizontalLayout: boolean,
   transformedTabularData: TransformedTabularDataType,
-  onSortChange: ('series' | 'x' | 'y') => void,
-  sortOrder: 'desc' | 'asc',
-  sortCol: null | 'series' | 'x' | 'y',
+  onSortChange: (SortChangeType) => void,
+  sortOrder: FilterOrderType,
+  sortCol: FilterIdType,
 |};
 
 export default function TabularDataModal({

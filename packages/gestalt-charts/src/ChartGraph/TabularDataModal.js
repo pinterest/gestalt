@@ -4,7 +4,12 @@ import { Layer, Modal, useDefaultLabel } from 'gestalt';
 import TabularDataModalFooter from './TabularDataModalFooter.js';
 import TabularDataModalHeading from './TabularDataModalHeading.js';
 import TabularDataModalTable from './TabularDataModalTable.js';
-import useTabularData, { type TransformedTabularDataType } from './useTabularData.js';
+import useTabularData, {
+  type FilterIdType,
+  type FilterOrderType,
+  type SortChangeType,
+  type TransformedTabularDataType,
+} from './useTabularData.js';
 
 interface Indexable {
   index(): number;
@@ -40,8 +45,8 @@ export default function TabularDataModal({
 }: Props): Node {
   const { tabularData } = useDefaultLabel('ChartGraph');
 
-  const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
-  const [sortCol, setSortCol] = useState<null | 'series' | 'x' | 'y'>(null);
+  const [sortOrder, setSortOrder] = useState<FilterOrderType>('desc');
+  const [sortCol, setSortCol] = useState<FilterIdType>(null);
 
   const transformedTabularData: TransformedTabularDataType = useTabularData({
     data,
@@ -52,7 +57,7 @@ export default function TabularDataModal({
     isHorizontalLayout,
   });
 
-  const onSortChange: ('series' | 'x' | 'y') => void = (value) => {
+  const onSortChange: (SortChangeType) => void = (value) => {
     if (sortCol !== value) {
       setSortCol(value);
       setSortOrder('desc');
