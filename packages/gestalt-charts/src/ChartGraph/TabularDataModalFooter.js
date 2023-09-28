@@ -7,7 +7,11 @@ type Props = {|
   title: string,
   toggleTabularDataModal: () => void,
   isHorizontalLayout: boolean,
-  transformedTabularData: any,
+  transformedTabularData: $ReadOnlyArray<{|
+    series: string,
+    xAxis: number | string,
+    yAxis: number,
+  |}>,
 |};
 
 export default function TabularDataModalFooter({
