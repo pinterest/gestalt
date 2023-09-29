@@ -1930,7 +1930,7 @@ interface TagDataProps {
   size?: 'sm' | 'md' | 'lg';
   showCheckbox?: boolean;
   text: string;
-  tooltip?: TooltipProps;
+  tooltip?: ExtendedTooltipProps;
 }
 
 interface CommonTapAreaProps {
