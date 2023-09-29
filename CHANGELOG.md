@@ -1,3 +1,9 @@
+## 126.1.0 (Sep 29, 2023)
+
+### Minor
+
+- Icon: new "accessibility" and "table" icons ([#3228](https://github.com/pinterest/gestalt/pull/3228)) - [Preview link](https://deploy-preview-3228--gestalt.netlify.app?devexample=true)
+
 ## 126.0.2 (Sep 27, 2023)
 
 ### Patch
