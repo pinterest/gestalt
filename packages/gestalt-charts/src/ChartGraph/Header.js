@@ -57,7 +57,7 @@ export default function Header({
         {showVisualPattern === 'disabled' ? null : (
           <IconButton
             accessibilityLabel=""
-            icon="accessinility"
+            icon="accessibility"
             // We need this hack to tick the eye while chart is not rendered and title/description is repositioning. This prevents from seeing title/description flick.
             iconColor={readyToRender ? 'darkGray' : 'white'}
             bgColor={readyToRender ? undefined : 'transparent'}
