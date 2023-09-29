@@ -1,3 +1,9 @@
+## 126.1.1 (Sep 29, 2023)
+
+### Patch
+
+- Docs: new RTL guidelines ([#3222](https://github.com/pinterest/gestalt/pull/3222)) - [Preview link](https://deploy-preview-3222--gestalt.netlify.app?devexample=true)
+
 ## 126.1.0 (Sep 29, 2023)
 
 ### Minor
