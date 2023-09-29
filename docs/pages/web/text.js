@@ -9,7 +9,6 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import cjkText from '../../examples/text/cjkText.js';
 import doMinimalStyle from '../../examples/text/doMinimalStyle.js';
 import dontCenterAlign from '../../examples/text/dontCenterAlign.js';
 import dontMixStyles from '../../examples/text/dontMixStyles.js';
