@@ -44,7 +44,7 @@ export default function cjkText(): Node {
                 <div lang={code}>
                   <Box key={id} width={120} color="dark" rounding={2} padding={2}>
                     <Box width={24} color="dark">
-                      <Text overflow="normal" size="200" color="inverse">
+                      <Text overflow="keepAll" size="200" color="inverse">
                         {lang}
                       </Text>
                     </Box>

@@ -11,7 +11,7 @@ function isNotNullish(val: ?number): boolean {
 }
 
 type As = 'span' | 'div';
-type Overflow = 'normal' | 'breakAll' | 'breakWord' | 'noWrap';
+type Overflow = 'normal' | 'breakAll' | 'keepAll' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {|
@@ -103,6 +103,10 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
     const getWordBreakStyle = (): string | void => {
       if (overflow === 'breakAll') {
         return typography.breakAll;
+      }
+
+      if (overflow === 'keepAll') {
+        return typography.keepAll;
       }
 
       // default to breakWord if lineClamp is set
