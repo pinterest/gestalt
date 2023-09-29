@@ -186,21 +186,6 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           title="Text-wrapping and hyphenation"
           description="Hyphenation on iOS is turned off by default to avoid incorrect word breaks when strings of text wrap to the next line. This is especially helpful for international languages where an incorrect word break can greatly change the meaning of a word or sentence."
         />
-
-        <MainSection.Subsection
-          title="Word Breaks and CJK languages"
-          description={`Chinese, Japanese and Korean languages may be broken in the middle of a word. This creates text-wrapping issues and tall containers. To avoid this, use \`overflow=keepAll\` to keep words on CJK languages together when CJK is detected.  
-          <br /> Be sure to consider text overflow, and making sure a container is wide enough to support a CJK term.
-          `}
-        >
-          <SandpackExample
-            previewHeight={550}
-            code={cjkText}
-            name="CJK Text"
-            hideEditor
-            hideControls
-          />
-        </MainSection.Subsection>
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection

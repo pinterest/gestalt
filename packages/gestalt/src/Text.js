@@ -105,10 +105,6 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
         return typography.breakAll;
       }
 
-      if (overflow === 'keepAll') {
-        return typography.keepAll;
-      }
-
       // default to breakWord if lineClamp is set
       if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
         return typography.breakWord;

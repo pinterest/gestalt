@@ -83,13 +83,6 @@
   word-break: break-all;
 }
 
-/**
-See keep-all usage for CJK languages. 
-**/
-.keepAll {
-  word-break: keep-all;
-}
-
 .noWrap {
   white-space: nowrap;
 }
