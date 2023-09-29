@@ -53,11 +53,13 @@ export default function Header({
           selected={showTabularData}
           size="xs"
           tooltip={{ text: tabularData }}
+          name="table"
         />
         {showVisualPattern === 'disabled' ? null : (
           <IconButton
             accessibilityLabel=""
             icon="accessibility"
+            name="accessibility"
             // We need this hack to tick the eye while chart is not rendered and title/description is repositioning. This prevents from seeing title/description flick.
             iconColor={readyToRender ? 'darkGray' : 'white'}
             bgColor={readyToRender ? undefined : 'transparent'}

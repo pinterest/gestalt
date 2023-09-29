@@ -30,7 +30,7 @@ describe('useDefaultLabelContext', () => {
           ChartGraph: {
             accessibilityLabelPrefixText: 'ChartGraph',
             defaultViewText: 'Default view mode',
-            accessibleViewText: 'Accessibility view mode',
+            accessibleViewText: 'Visual pattern view',
             tabularData: 'Tabular data',
             accessibilityLabelDismissModal: 'Dismiss tabular data modal',
             tableSeriesText: 'Series',

@@ -23,7 +23,7 @@ const labels = {
   ChartGraph: {
     accessibilityLabelPrefixText: myI18nTranslator('ChartGraph'),
     defaultViewText: myI18nTranslator('Default view mode'),
-    accessibleViewText: myI18nTranslator('Accessibility view mode'),
+    accessibleViewText: myI18nTranslator('Visual pattern view'),
     tabularData: myI18nTranslator('Tabular representation'),
     accessibilityLabelDismissModal: myI18nTranslator('Dismiss tabular representation modal'),
     tableSeriesText: myI18nTranslator('Series'),

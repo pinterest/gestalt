@@ -137,7 +137,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   ChartGraph: {
     accessibilityLabelPrefixText: 'ChartGraph',
     defaultViewText: 'Default view mode',
-    accessibleViewText: 'Accessibility view mode',
+    accessibleViewText: 'Visual pattern view',
     tabularData: 'Tabular representation',
     accessibilityLabelDismissModal: 'Dismiss tabular representation modal',
     tableSeriesText: 'Series',
