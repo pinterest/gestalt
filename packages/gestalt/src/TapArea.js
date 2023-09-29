@@ -1,93 +1,161 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { type AriaCurrent } from './ariaTypes.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import focusStyles from './Focus.css';
 import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
-import InternalLink from './Link/InternalLink.js';
 import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 
-type FocusEventHandler = ({|
-  event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
-|}) => void;
+type FocusEventHandler = ({| event: SyntheticFocusEvent<HTMLDivElement> |}) => void;
 
-type MouseEventHandler = ({|
-  event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
-|}) => void;
+type MouseEventHandler = ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void;
 
-type KeyboardEventHandler = ({|
-  event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-|}) => void;
+type KeyboardEventHandler = ({| event: SyntheticKeyboardEvent<HTMLDivElement> |}) => void;
 
-export type OnTapType = ({|
-  event:
-    | SyntheticMouseEvent<HTMLDivElement>
-    | SyntheticKeyboardEvent<HTMLDivElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  dangerouslyDisableOnNavigation: () => void,
-|}) => void;
-
-type BaseTapArea = {|
+type Props = {|
+  /**
+   * Supply a short, descriptive label for screen-readers to replace TapArea texts that do not provide sufficient context about the button component behavior.
+   *
+   * It populates aria-label.
+   */
   accessibilityLabel?: string,
+  /**
+   *
+   */
+  accessibilityChecked?: boolean,
+  /**
+   * Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.
+   *
+   * Optional with type="button".
+   *
+   * It populates aria-controls.'
+   */
+  accessibilityControls?: string,
+  /**
+   * Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.
+   *
+   * Optional with type="button".
+   *
+   * It populates aria-expanded.
+   */
+  accessibilityExpanded?: boolean,
+  /**
+   * Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog
+   *
+   * Optional with type="button".
+   *
+   * It populates aria-haspopup.
+   */
+  accessibilityHaspopup?: boolean,
+  /**
+   * TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.
+   */
   children?: Node,
+  /**
+   * Available for testing purposes, if needed.
+   * Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string,
+  /**
+   * Set disabled state so TapArea cannot be interacted with and actions are not available.
+   */
   disabled?: boolean,
+  /**
+   * Set the TapArea height to expand to the full height of the parent.
+   */
   fullHeight?: boolean,
+  /**
+   * Set the TapArea width to expand to the full width of the parent.
+   */
   fullWidth?: boolean,
+  /**
+   * Select a mouse cursor type to convey the TapArea expected behavior.
+   */
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
+  /**
+   * Callback fired when a TapArea component loses focus.
+   */
   onBlur?: FocusEventHandler,
+  /**
+   * Callback fired when a TapArea component gets focus via keyboard navigation, mouse click (pressed), or focus method.
+   */
   onFocus?: FocusEventHandler,
+  /**
+   *
+   */
   onKeyDown?: KeyboardEventHandler,
+  /**
+   * Callback fired when a click event begins.
+   */
   onMouseDown?: MouseEventHandler,
+  /**
+   * Callback fired when a click event ends.
+   */
   onMouseUp?: MouseEventHandler,
+  /**
+   * Callback fired when a mouse pointer moves onto a TapArea component.
+   */
   onMouseEnter?: MouseEventHandler,
+  /**
+   * Callback fired when a mouse pointer moves out a TapArea component.
+   */
   onMouseLeave?: MouseEventHandler,
-  onTap?: OnTapType,
-  role?: 'button' | 'link' | 'switch',
+  /**
+   * Callback fired when a TapArea component is clicked (pressed and released) with a mouse or keyboard.
+   *
+   * Required with type="button".
+   */
+  onTap?: ({|
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => void,
+  /**
+   * Ref that is forwarded to the underlying div element.
+   */
+  ref?: HTMLDivElement,
+  /**
+   * Select 'button' when TapArea acts like regular buttons and 'switch' when the TapArea represents the states "on" and "off."
+   */
+  role?: 'button' | 'switch',
+  /**
+   * Sets a border radius for the TapArea. Select a rounding option that aligns with its children.
+   *
+   * Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in boints.
+   */
   rounding?: Rounding,
+  /**
+   * Remove the component from sequential keyboard navigation to improve accessibility. The component is not focusable with keyboard navigation but it can be focused with Javascript or visually by clicking with the mouse.
+   *
+   * The default behaviour for the component is to be focusable in sequential keyboard navigation in the order defined by the document's source order.
+   *
+   * If component is disabled, the component is also unreachable from keyboard navigation.
+   */
   tabIndex?: -1 | 0,
+  /**
+   * Set a compressing behavior when the TapArea is clicked / touched.
+   * - 'none' does not compress TapArea.`
+   * `- 'compress' scales down TapArea.`
+   */
   tapStyle?: 'none' | 'compress',
 |};
-
-type TapAreaType = {|
-  ...BaseTapArea,
-  accessibilityChecked?: boolean,
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
-  role?: 'button' | 'switch',
-|};
-
-type LinkTapAreaType = {|
-  ...BaseTapArea,
-  accessibilityCurrent?: AriaCurrent,
-  href: string,
-  rel?: 'none' | 'nofollow',
-  role: 'link',
-  target?: null | 'self' | 'blank',
-|};
-
-type unionProps = TapAreaType | LinkTapAreaType;
-type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 /**
  * [TapArea](https://gestalt.pinterest.systems/tapArea) allows components to be clickable and touchable in an accessible way
  *
  * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
- *
  */
-const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
-  unionProps,
-  unionRefs,
->(function TapArea(props: unionProps, ref): Node {
-  const {
+const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
+  Props,
+  HTMLDivElement,
+>(function TapArea(
+  {
     accessibilityLabel,
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityChecked,
     children,
+    dataTestId,
     disabled = false,
     fullHeight,
     fullWidth = true,
@@ -101,13 +169,18 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     onMouseLeave,
     onTap,
     tabIndex = 0,
+    role,
     rounding = 0,
     tapStyle = 'none',
-  } = props;
-
-  const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
-
+  }: Props,
+  ref,
+): Node {
+  const innerRef = useRef<null | HTMLDivElement>(null);
+  // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
+  // that renders <TapArea ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
+
+  const { isFocusVisible } = useFocusVisible();
 
   const {
     compressStyle,
@@ -124,10 +197,6 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
     width: innerRef?.current?.clientWidth,
   });
 
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-
-  const { isFocusVisible } = useFocusVisible();
-
   const buttonRoleClasses = classnames(
     focusStyles.hideOutline,
     styles.tapTransition,
@@ -136,140 +205,18 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
-      // $FlowFixMe[invalid-computed-prop]
-      [styles[mouseCursor]]: !disabled,
-      [styles.tapCompress]:
-        props.role !== 'link' && !disabled && tapStyle === 'compress' && isTapping,
+      [styles.copy]: mouseCursor === 'copy' && !disabled,
+      [styles.grab]: mouseCursor === 'grab' && !disabled,
+      [styles.grabbing]: mouseCursor === 'grabbing' && !disabled,
+      [styles.move]: mouseCursor === 'move' && !disabled,
+      [styles.noDrop]: mouseCursor === 'noDrop' && !disabled,
+      [styles.pointer]: mouseCursor === 'pointer' && !disabled,
+      [styles.zoomIn]: mouseCursor === 'zoomIn' && !disabled,
+      [styles.zoomOut]: mouseCursor === 'zoomOut' && !disabled,
+      [styles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
     },
   );
 
-  const handleKeyPress = (
-    event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  ) => {
-    // Check to see if space or enter were pressed
-    if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
-      // Prevent the default action to stop scrolling when space is pressed
-      // TODO: this may be preventing ENTER keypress events coming from Buttons/IconButtons within a TapArea
-      event.preventDefault();
-      onTap({ event, dangerouslyDisableOnNavigation: () => {} });
-    }
-  };
-
-  const handleClick = (
-    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  ) =>
-    !disabled && onTap
-      ? onTap({
-          event,
-          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
-        })
-      : undefined;
-
-  const handleLinkClick = ({
-    event,
-    dangerouslyDisableOnNavigation,
-  }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => handleClick(event, dangerouslyDisableOnNavigation);
-
-  const handleOnBlur = (event: SyntheticFocusEvent<HTMLAnchorElement>) => {
-    if (!disabled && onBlur) {
-      onBlur({ event });
-    }
-  };
-
-  const handleLinkOnBlur = ({ event }: {| event: SyntheticFocusEvent<HTMLAnchorElement> |}) =>
-    handleOnBlur(event);
-
-  const handleOnFocus = (event: SyntheticFocusEvent<HTMLAnchorElement>) => {
-    if (!disabled && onFocus) {
-      onFocus({ event });
-    }
-  };
-
-  const handleLinkOnFocus = ({ event }: {| event: SyntheticFocusEvent<HTMLAnchorElement> |}) =>
-    handleOnFocus(event);
-
-  const handleOnKeyDown = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
-    if (!disabled && onKeyDown) onKeyDown({ event });
-  };
-
-  const handleLinkOnKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLAnchorElement> |}) =>
-    handleOnKeyDown(event);
-
-  const handleOnMouseEnter = (
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  ) => {
-    if (!disabled && onMouseEnter) {
-      onMouseEnter({ event });
-    }
-  };
-
-  const handleLinkOnMouseEnter = ({
-    event,
-  }: {|
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  |}) => handleOnMouseEnter(event);
-
-  const handleOnMouseLeave = (
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  ) => {
-    if (!disabled && onMouseLeave) {
-      onMouseLeave({ event });
-    }
-  };
-
-  const handleLinkOnMouseLeave = ({
-    event,
-  }: {|
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  |}) => handleOnMouseLeave(event);
-
-  if (props.role === 'link') {
-    const { accessibilityCurrent, href, rel = 'none', target = null } = props;
-
-    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
-
-    return (
-      <InternalLink
-        accessibilityCurrent={accessibilityCurrent}
-        accessibilityLabel={ariaLabel}
-        disabled={disabled}
-        href={href}
-        fullHeight={fullHeight}
-        fullWidth={fullWidth}
-        mouseCursor={mouseCursor}
-        onClick={handleLinkClick}
-        onBlur={handleLinkOnBlur}
-        onFocus={handleLinkOnFocus}
-        onKeyDown={handleLinkOnKeyDown}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        onMouseEnter={handleLinkOnMouseEnter}
-        onMouseLeave={handleLinkOnMouseLeave}
-        ref={innerRef}
-        rel={rel}
-        tabIndex={tabIndex}
-        rounding={rounding}
-        tapStyle={tapStyle}
-        target={target}
-        wrappedComponent="tapArea"
-      >
-        {children}
-        <NewTabAccessibilityLabel target={target} />
-      </InternalLink>
-    );
-  }
-
-  const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-    accessibilityChecked,
-    role,
-  } = props;
   return (
     <div
       aria-checked={role === 'switch' ? accessibilityChecked : undefined}
@@ -278,14 +225,23 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
+      data-test-id={dataTestId}
       className={buttonRoleClasses}
-      onClick={handleClick}
+      onClick={(event) => {
+        if (!disabled) onTap?.({ event });
+      }}
       onBlur={(event) => {
-        handleOnBlur(event);
+        if (!disabled) onBlur?.({ event });
         handleBlur();
       }}
-      onKeyDown={handleOnKeyDown}
-      onFocus={handleOnFocus}
+      onKeyDown={(event) => {
+        if (!disabled) onKeyDown?.({ event });
+      }}
+      onFocus={(event) => {
+        if (!disabled) {
+          onFocus?.({ event });
+        }
+      }}
       onMouseDown={(event) => {
         onMouseDown?.({ event });
         handleMouseDown();
@@ -294,9 +250,21 @@ const TapAreaWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardR
         onMouseUp?.({ event });
         handleMouseUp();
       }}
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-      onKeyPress={handleKeyPress}
+      onMouseEnter={(event) => {
+        if (!disabled) onMouseEnter?.({ event });
+      }}
+      onMouseLeave={(event) => {
+        if (!disabled) onMouseLeave?.({ event });
+      }}
+      onKeyPress={(event) => {
+        // Check to see if space or enter were pressed
+        if (!disabled && keyPressShouldTriggerTap(event)) {
+          // Prevent the default action to stop scrolling when space is pressed
+          // TODO: this may be preventing ENTER keypress events coming from Buttons/IconButtons within a TapArea
+          event.preventDefault();
+          onTap?.({ event });
+        }
+      }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}

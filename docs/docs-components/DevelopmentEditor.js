@@ -35,8 +35,8 @@ const reactImports = [
   'useMemo',
   'useReducer',
   'useRef',
+  'useId',
   'useState',
-  'version',
 ];
 
 const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');
@@ -133,7 +133,7 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
           borderStyle="sm"
           color="default"
           display="flex"
-          height={900}
+          height={500}
           width="100%"
           justifyContent="center"
           padding={8}

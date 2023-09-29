@@ -26,11 +26,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'No, keep',
               onClick: () => {},
+              role: 'button',
             }}
           >
             <Box>{Array(100).fill(<Text>Content</Text>)}</Box>

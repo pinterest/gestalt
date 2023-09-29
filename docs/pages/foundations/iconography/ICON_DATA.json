@@ -273,6 +273,12 @@
       "keywords": ["business manager", "business", "company"]
     },
     {
+      "name": "business-hierarchy",
+      "categories": ["Ads and measurement"],
+      "description": "Indicates the business hierarchy in Business access",
+      "keywords": ["org chart", "company"]
+    },
+    {
       "name": "calendar",
       "categories": ["Time", "Toggle"],
       "description": "Indicates date selection",
@@ -1212,6 +1218,12 @@
       "categories": ["Arrows"],
       "description": "Indicates the ability to reorder pages",
       "keywords": ["reorder", "arrows"]
+    },
+    {
+      "name": "table",
+      "categories": ["Ads and measurement"],
+      "description": "Indicates tabular representation of data",
+      "keywords": ["table", "tabular", "data", "cell", "grid", "row", "column"]
     },
     {
       "name": "tag",

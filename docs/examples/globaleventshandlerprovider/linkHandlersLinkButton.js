@@ -6,12 +6,12 @@ import {
   Divider,
   Flex,
   GlobalEventsHandlerProvider,
-  IconButton,
+  IconButtonLink,
   Image,
   Link,
   Mask,
   RadioGroup,
-  TapArea,
+  TapAreaLink,
   Text,
 } from 'gestalt';
 
@@ -74,17 +74,16 @@ export default function Example(): Node {
 
             <ButtonLink href="#" text="Visit pinterest.com" />
 
-            <IconButton
+            <IconButtonLink
               href="#"
               accessibilityLabel="Link IconButton"
               icon="visit"
               iconColor="darkGray"
-              role="link"
               size="lg"
             />
 
             <Box width={100}>
-              <TapArea href="#" role="link" rounding={2}>
+              <TapAreaLink href="#" rounding={2}>
                 <Box color="tertiary" rounding={4} borderStyle="sm">
                   <Mask rounding={2}>
                     <Image
@@ -95,7 +94,7 @@ export default function Example(): Node {
                     />
                   </Mask>
                 </Box>
-              </TapArea>
+              </TapAreaLink>
             </Box>
           </Flex>
         </Flex>

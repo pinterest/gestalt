@@ -22,12 +22,7 @@ type Props = {|
    * Callback fired when the sort button component is clicked.
    */
   onSortChange: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => void,
   /**
    * Private prop required for sticky columns
@@ -121,9 +116,9 @@ export default function TableSortableHeaderCell({
       <Box display="inlineBlock" width="100%">
         <TapArea
           fullWidth={false}
-          onTap={(...args) => {
+          onTap={({ event }) => {
             setFocused(false);
-            onSortChange(...args);
+            onSortChange({ event });
           }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}

@@ -14,6 +14,7 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'Fix tag',
             target: 'blank',
+            role: 'link',
           }}
           title="Pinterest tag needs attention"
           type="error"

@@ -16,6 +16,7 @@ export default function Example(): Node {
           primaryAction={{
             accessibilityLabel: 'Send ads invite',
             label: 'Send invite',
+            role: 'button',
           }}
           title="Give $30, get $60 in ads credit"
           type="info"

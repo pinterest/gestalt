@@ -18,6 +18,7 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'View audiences',
             target: 'blank',
+            role: 'link',
           }}
           title="Unused audiences are going away"
           type="warning"

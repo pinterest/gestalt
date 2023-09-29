@@ -30,9 +30,16 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   seek: (clientX: number) => void = (clientX) => {
     if (this.playhead) {
       const { duration, seek } = this.props;
-      const { left, width } = this.playhead.getBoundingClientRect();
-      const percent = Math.max(0, Math.min((clientX - left) / width, 1));
+      const { left, right, width } = this.playhead.getBoundingClientRect();
+
+      // As a convention, text direction is defined in `dir` attribute of `html` tag of the document.
+      // The following check is done under the assuption of that convention.
+      const isRTL = document.querySelector('html')?.getAttribute('dir') === 'rtl';
+      const difference = isRTL ? right - clientX : clientX - left;
+
+      const percent = Math.max(0, Math.min(difference / width, 1));
       const newTime = percent * duration;
+
       seek(newTime);
     }
   };
@@ -75,8 +82,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   render(): Node {
     const { accessibilityProgressBarLabel, currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
+
     return (
-      <Box position="relative" display="flex" flex="grow" alignItems="center" height={16}>
+      <Box position="relative" height={16}>
         <div
           aria-label={accessibilityProgressBarLabel}
           aria-valuemax={duration}
@@ -93,15 +101,16 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           role="progressbar"
           tabIndex="-1"
         >
-          <Box left right position="absolute" color="secondary" rounding={2} height={4}>
-            <Box color="light" rounding={2} height="100%" width={width} />
-          </Box>
           <Box
+            left
+            right
             position="absolute"
             rounding={2}
             height={4}
-            dangerouslySetInlineStyle={{ __style: { left: width } }}
+            color="secondary"
+            display="flex"
           >
+            <Box color="light" rounding={2} height="100%" width={width} />
             <Box
               rounding="circle"
               width={16}

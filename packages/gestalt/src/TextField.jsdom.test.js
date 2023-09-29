@@ -75,12 +75,11 @@ describe('TextField', () => {
   });
 
   it('renders error message on errorMessage prop change', () => {
-    const { getByText, rerender } = render(
+    const { rerender } = render(
       <TextField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      getByText('Error message');
+      screen.getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
 
     rerender(
@@ -92,12 +91,11 @@ describe('TextField', () => {
         onBlur={jest.fn()}
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Error message')).toBeVisible();
+    expect(screen.getByText('Error message')).toBeVisible();
   });
 
   it('reads the error message on focus', () => {
-    const { getByDisplayValue } = render(
+    render(
       <TextField
         errorMessage="Error message"
         id="test"
@@ -107,10 +105,9 @@ describe('TextField', () => {
         value="TextField Text"
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const input = getByDisplayValue('TextField Text');
-    fireEvent.focus(input);
-    expect(input).toHaveAccessibleDescription('Error message');
+
+    fireEvent.focus(screen.getByDisplayValue('TextField Text'));
+    expect(screen.getByDisplayValue('TextField Text')).toHaveAccessibleDescription('Error message');
   });
 
   it('forwards a ref to <input />', () => {
@@ -134,12 +131,9 @@ describe('TextField', () => {
       [{| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}],
       void,
     >();
-    const { getByDisplayValue } = render(
-      <TextField id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextField Text" />,
-    );
+    render(<TextField id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextField Text" />);
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.blur(getByDisplayValue('TextField Text'));
+    fireEvent.blur(screen.getByDisplayValue('TextField Text'));
     expect(mockBlur).toHaveBeenCalled();
   });
 
@@ -169,12 +163,9 @@ describe('TextField', () => {
       [{| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}],
       void,
     >();
-    const { getByDisplayValue } = render(
-      <TextField id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextField Text" />,
-    );
+    render(<TextField id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextField Text" />);
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.focus(getByDisplayValue('TextField Text'));
+    fireEvent.focus(screen.getByDisplayValue('TextField Text'));
     expect(mockFocus).toHaveBeenCalled();
   });
 
@@ -200,7 +191,7 @@ describe('TextField', () => {
   });
 
   it('shows a label for the text field', () => {
-    const { getByText } = render(
+    render(
       <TextField
         id="test"
         label="Label for the text field"
@@ -208,12 +199,11 @@ describe('TextField', () => {
         value="TextField Text"
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Label for the text field')).toBeVisible();
+    expect(screen.getByText('Label for the text field')).toBeVisible();
   });
 
   it('shows helper text for the text field', () => {
-    const { getByText } = render(
+    render(
       <TextField
         id="test"
         label="Label for the text field"
@@ -222,12 +212,11 @@ describe('TextField', () => {
         value="TextField Text"
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Helper text for the text field')).toBeVisible();
+    expect(screen.getByText('Helper text for the text field')).toBeVisible();
   });
 
   it('hides the helper text for the text field when an error message is shown', () => {
-    const { getByText } = render(
+    render(
       <TextField
         id="test"
         label="Label for the text field"
@@ -238,8 +227,7 @@ describe('TextField', () => {
       />,
     );
     expect(() => {
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      getByText('Helper text for the text field');
+      screen.getByText('Helper text for the text field');
     }).toThrow('Unable to find an element with the text: Helper text for the text field');
   });
 

@@ -53,6 +53,7 @@ export default function Example(): Node {
                   setOpenA(false);
                   setOpenB(true);
                 },
+                role: 'button',
               }}
             />
           )}

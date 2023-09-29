@@ -14,6 +14,7 @@ describe('ModalAlert', () => {
           accessibilityLabel: 'Acknowledge expired card',
           label: 'Got it',
           onClick: () => {},
+          role: 'button',
         }}
       >
         Modal content
@@ -34,6 +35,7 @@ describe('ModalAlert', () => {
           accessibilityLabel: 'Acknowledge expired card',
           label: 'Got it',
           onClick: () => {},
+          role: 'button',
         }}
       >
         Modal content
@@ -54,6 +56,7 @@ describe('ModalAlert', () => {
           accessibilityLabel: 'Acknowledge expired card',
           label: 'Got it',
           onClick: () => {},
+          role: 'button',
         }}
       >
         Modal content
@@ -74,6 +77,7 @@ describe('ModalAlert', () => {
             accessibilityLabel: 'Acknowledge expired card',
             label: 'Got it',
             onClick: () => {},
+            role: 'button',
           }}
         >
           Modal content

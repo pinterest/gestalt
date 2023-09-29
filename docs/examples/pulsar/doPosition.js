@@ -37,6 +37,7 @@ export default function Example(): Node {
             primaryAction={{
               text: 'Got it',
               onClick: () => {},
+              role: 'button',
             }}
           />
         )}

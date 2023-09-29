@@ -16,12 +16,18 @@ export default function Example(): Node {
             component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
           }}
           message="Install the Pinterest tag to track your website traffic, conversions and more."
-          primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag now' }}
+          primaryAction={{
+            label: 'Install now',
+            accessibilityLabel: 'Install Pinterest tag now',
+            role: 'button',
+            onClick: () => {},
+          }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Pinterest tag',
             href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Measure ad performance"
         />
@@ -32,7 +38,12 @@ export default function Example(): Node {
             component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
           }}
           message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-          primaryAction={{ label: 'Claim now', accessibilityLabel: 'Claim ads credit' }}
+          primaryAction={{
+            label: 'Claim now',
+            accessibilityLabel: 'Claim ads credit',
+            role: 'button',
+            onClick: () => {},
+          }}
           title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
         />
       </Flex>

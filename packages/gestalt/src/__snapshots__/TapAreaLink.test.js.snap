@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TapAreaLink renders 1`] = `
+<a
+  className="link noUnderline hideOutline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+  href="#"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="noopener noreferrer nofollow"
+  tabIndex={0}
+  target="_blank"
+>
+  TapAreaLink
+  <div
+    className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <div
+      className="box xsDisplayVisuallyHidden"
+    >
+      ; Opens a new tab
+    </div>
+  </div>
+</a>
+`;
+
+exports[`TapAreaLink renders disabled 1`] = `
+<a
+  className="link noUnderline hideOutline tapTransition rounding0 block fullWidth"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="noopener noreferrer nofollow"
+  tabIndex={null}
+  target="_blank"
+>
+  TapAreaLink
+  <div
+    className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <div
+      className="box xsDisplayVisuallyHidden"
+    >
+      ; Opens a new tab
+    </div>
+  </div>
+</a>
+`;

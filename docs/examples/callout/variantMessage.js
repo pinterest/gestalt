@@ -25,10 +25,12 @@ export default function ResponsiveExample(): Node {
           primaryAction={{
             accessibilityLabel: 'Resend invite',
             label: 'Resend invite',
+            role: 'button',
           }}
           secondaryAction={{
             accessibilityLabel: 'Cancel invite',
             label: 'Cancel invite',
+            role: 'button',
           }}
           title="You've sent an invite"
           type="info"

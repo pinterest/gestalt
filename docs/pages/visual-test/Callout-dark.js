@@ -25,12 +25,14 @@ export default function Snapshot(): Node {
               href: 'https://pinterest.com',
               label: 'Get started',
               target: 'blank',
+              role: 'link',
             }}
             secondaryAction={{
               accessibilityLabel: 'Learn more: Verified Merchant Program',
               href: 'https://pinterest.com',
               label: 'Learn more',
               target: 'blank',
+              role: 'link',
             }}
             title="Your business account was created!"
             type="info"
@@ -43,6 +45,7 @@ export default function Snapshot(): Node {
               href: 'https://pinterest.com',
               label: 'Fix tag',
               target: 'blank',
+              role: 'link',
             }}
             title="Pinterest tag needs attention"
             type="error"

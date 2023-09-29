@@ -197,7 +197,6 @@ export default function Toc({ cards }: Props): Node {
 
   return (
     <Box
-      aria-label="component page"
       // Accounting for the footer height as set in App.js
       dangerouslySetInlineStyle={{ __style: { marginBottom: FOOTER_HEIGHT_PX } }}
       // These margins counter the padding set on the <Box role="main"> in App.js
@@ -209,7 +208,6 @@ export default function Toc({ cards }: Props): Node {
       paddingX={1}
       paddingY={8} // re-apply just the padding we need
       position="fixed"
-      role="navigation"
       width={240}
     >
       <TableOfContents>

@@ -25,6 +25,11 @@ export type DefaultLabelContextType = {|
     iconAccessibilityLabelWarning: string,
     iconAccessibilityLabelSuccess: string,
   |},
+  ChartGraph: {|
+    accessibilityLabelPrefixText: string,
+    defaultViewText: string,
+    accessibleViewText: string,
+  |},
   ComboBox: {|
     noResultText: string,
     accessibilityClearButtonLabel: string,
@@ -121,6 +126,11 @@ export const fallbackLabels: DefaultLabelContextType = {
     iconAccessibilityLabelRecommendation: 'Recommendation',
     iconAccessibilityLabelWarning: 'Warning',
     iconAccessibilityLabelSuccess: 'Success',
+  },
+  ChartGraph: {
+    accessibilityLabelPrefixText: 'ChartGraph',
+    defaultViewText: 'Default view mode',
+    accessibleViewText: 'Visual pattern view',
   },
   ComboBox: {
     noResultText: 'No results',

@@ -47,5 +47,11 @@ then
   exit 1
 fi
 
+# We're going to run visual locally for now and only when files in the gestalt library are changed
+if  [ -z "${GITHUB_ACTIONS:-}" ] && [ -n "$(git diff  HEAD master -- gestalt)" ]; then
+  echo "Running playwright tests locally"
+  yarn run playwright:visual-test
+fi
+
 echo "👌 Looks good to me!"
 echo "📑 Done!"

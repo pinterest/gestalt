@@ -2,10 +2,19 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
-const reactDocs = require('react-docgen');
+
+const reactDocs = import('react-docgen'); // v6 forces to use `import`
 
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
+
+// Files/components that doesn't have data to parse
+const excludedPaths = [
+  '/packages/gestalt/src/contexts/ExperimentProvider.js',
+  '/packages/gestalt/src/useReducedMotion.js',
+  '/packages/gestalt/src/useFocusVisible.js',
+  '/packages/gestalt/src/zIndex.js',
+].map((filePath) => path.join(root, filePath));
 
 function logError(message) {
   // eslint-disable-next-line no-console
@@ -18,8 +27,7 @@ function logSuccess(message) {
 }
 
 async function docgen(filePath) {
-  // Return if file is not supported (no js files and test files)
-  if (!filePath.match(/\.(js)$/i) || filePath.match(/\.(test\.js)$/i)) {
+  if (excludedPaths.includes(filePath)) {
     return null;
   }
 
@@ -27,7 +35,7 @@ async function docgen(filePath) {
 
   // Not all files have data to parse
   try {
-    const parsed = reactDocs.parse(contents);
+    const [parsed] = (await reactDocs).parse(contents);
 
     if (parsed.description) {
       parsed.description = parsed.description
@@ -46,32 +54,55 @@ async function docgen(filePath) {
   }
 }
 
-const getComponentNameFromFile = (file) => file.replace(/^.*[\\/]/, '').replace(/\.js/, '');
+const getComponentNameFromFile = (file) => path.basename(file).replace(/\.js/, '');
 
-// Get files recursively as an array
-const getFilesFromDirectory = (directoryPath) => {
-  const filesInDirectory = fs.readdirSync(path.join(root, directoryPath));
-  const files = filesInDirectory.map((file) => {
-    const filePath = path.join(directoryPath, file);
-    const stats = fs.statSync(path.join(root, filePath));
+/** Analyzes subcomponents of a component in given path and extracts paths they're imported from. */
+function getSubcomponentPaths(componentPath) {
+  const componentName = getComponentNameFromFile(componentPath);
 
-    if (stats.isDirectory()) {
-      return getFilesFromDirectory(filePath);
-    }
+  /** Matches lines that are like `Component.Subcomponent = Subcomponent` */
+  const subcomponentRegExp = new RegExp(
+    `(${componentName}\\.[A-Z]\\w+) = (?<subcomponentName>\\w+)`,
+    'g',
+  );
 
-    return filePath;
-  });
+  const fileContent = fs.readFileSync(path.join(root, componentPath), 'utf-8');
+  const subcomponentNameMatches = fileContent.matchAll(subcomponentRegExp);
+  const subcomponentNames = [...subcomponentNameMatches].map((a) => a.groups.subcomponentName);
 
-  return files.filter((file) => file.length).flat();
-};
+  if (!subcomponentNames.length) return [];
+
+  /** Matches lines that are like `Subcomponent from './path/to/subcomponent';` */
+  const subcomponentPathRegExp = new RegExp(
+    `(${subcomponentNames.join('|')}) from '(?<path>[.\\w\\/-]+)';`,
+    'g',
+  );
+
+  const subcomponentPathMatches = fileContent.matchAll(subcomponentPathRegExp);
+  const subcomponentPaths = [...subcomponentPathMatches].map((match) =>
+    path.join(componentPath, '../', match.groups.path),
+  );
+
+  return subcomponentPaths;
+}
+
+/**
+ * Gets components that are imported in `index.js` of given directory (assuming they're all exported).
+ */
+function getExposedFilesFromDirectory(directoryPath) {
+  const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index.js'), 'utf-8');
+  const importMatches = indexFile.matchAll(/from '(?<path>.+)'/g);
+  const filePaths = [...importMatches].map((match) => path.join(directoryPath, match.groups.path));
+  const subcomponentPaths = filePaths.map(getSubcomponentPaths).flat();
+
+  return [...filePaths, ...subcomponentPaths];
+}
 
 (async function generateComponentsMetadata() {
-  // Specific files that need to be added outside gestalt/src folder.
-  // When adding a new folder/file also add to dev-metadata command in package.json
   const files = [
-    ...getFilesFromDirectory('/packages/gestalt/src/'),
-    ...getFilesFromDirectory('/packages/gestalt-charts/src/'),
-    ...getFilesFromDirectory('/packages/gestalt-datepicker/src/'),
+    ...getExposedFilesFromDirectory('/packages/gestalt/src/'),
+    ...getExposedFilesFromDirectory('/packages/gestalt-charts/src/'),
+    ...getExposedFilesFromDirectory('/packages/gestalt-datepicker/src/'),
   ];
 
   const parsedDataArray = await Promise.all(

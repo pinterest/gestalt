@@ -1,5 +1,5 @@
 // @flow strict
-import { fireEvent, getNodeText, render } from '@testing-library/react';
+import { fireEvent, getNodeText, render, screen } from '@testing-library/react';
 import AnimationProvider, { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
 import * as useReducedMotionHook from '../useReducedMotion.js';
 
@@ -28,54 +28,48 @@ describe('AnimationProvider', () => {
   });
 
   it('should initial render with animationState hidden', () => {
-    const { getByLabelText } = render(
+    render(
       <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual(ANIMATION_STATE.hidden);
+    expect(getNodeText(screen.getByLabelText('animated'))).toEqual(ANIMATION_STATE.hidden);
   });
 
   it('should initial render with animationState null when useReduceMotion() is true', () => {
     useReducedMotionMock.mockReturnValue(true);
 
-    const { getByLabelText } = render(
+    render(
       <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual('');
+    expect(getNodeText(screen.getByLabelText('animated'))).toEqual('');
   });
 
   // This test was skipped because, despite the logic works fine, the animationState is not being correctly updated in the test in the handleExternalDismiss function. We should try to make it work.
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should transition animationState from opening to null', () => {
-    const { getByLabelText } = render(
+    render(
       <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.animationEnd(getByLabelText('animated'));
+    fireEvent.animationEnd(screen.getByLabelText('animated'));
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual('');
+    expect(getNodeText(screen.getByLabelText('animated'))).toEqual('');
   });
 
   it('should transition animationState to closing when onDismissStart() is called', () => {
-    const { getByLabelText } = render(
+    render(
       <AnimationProvider>
         <AnimatedComponent />
       </AnimationProvider>,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.click(getByLabelText('animated'));
+    fireEvent.click(screen.getByLabelText('animated'));
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getNodeText(getByLabelText('animated'))).toEqual(ANIMATION_STATE.animatedClosing);
+    expect(getNodeText(screen.getByLabelText('animated'))).toEqual(ANIMATION_STATE.animatedClosing);
   });
 });

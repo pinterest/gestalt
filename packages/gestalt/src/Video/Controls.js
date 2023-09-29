@@ -13,17 +13,13 @@ type Props = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
-  onCaptionsChange: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void,
+  onCaptionsChange: (event: SyntheticEvent<HTMLDivElement>) => void,
   onFullscreenChange: () => void,
-  onPause: (event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>) => void,
-  onPlay: (event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>) => void,
+  onPause: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onPlay: (event: SyntheticEvent<HTMLDivElement>) => void,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
-  onVolumeChange: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-  ) => void,
+  onVolumeChange: (event: SyntheticEvent<HTMLDivElement>) => void,
   playing: boolean,
   seek: (time: number) => void,
   volume: number,
@@ -57,12 +53,7 @@ function VideoControls({
   const handleFullscreenChange = ({
     event,
   }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => {
     event.stopPropagation();
     onFullscreenChange();
@@ -71,12 +62,7 @@ function VideoControls({
   const handlePlayingChange = ({
     event,
   }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => {
     if (playing) {
       onPause(event);
@@ -88,12 +74,7 @@ function VideoControls({
   const handleCaptionsChange = ({
     event,
   }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => {
     event.stopPropagation();
     onCaptionsChange(event);
@@ -102,12 +83,7 @@ function VideoControls({
   const handleVolumeChange = ({
     event,
   }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
   |}) => {
     onVolumeChange(event);
   };

@@ -20,12 +20,10 @@ export default function Example(): Node {
         </Text>
         <IconButton
           accessibilityLabel="Open the settings page"
-          href="https://www.pinterest.com/settings/"
           icon="edit"
-          role="link"
           size="xs"
           tabIndex={-1}
-          target="blank"
+          onClick={() => {}}
           tooltip={{ text: 'Edit name' }}
         />
       </Flex>

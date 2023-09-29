@@ -22,7 +22,7 @@ import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
-// import Chart from '../../graphics/general/Chart.svg';
+import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
@@ -37,6 +37,7 @@ import HelpButton from '../../graphics/general/HelpButton.svg';
 import Icon from '../../graphics/general/Icon.svg';
 import IconButton from '../../graphics/general/IconButton.svg';
 import IconButtonFloating from '../../graphics/general/IconButtonFloating.svg';
+import IconButtonLink from '../../graphics/general/IconButtonLink.svg';
 import Image from '../../graphics/general/Image.svg';
 import GestaltLabel from '../../graphics/general/Label.svg';
 import GestaltLink from '../../graphics/general/Link.svg';
@@ -495,32 +496,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-  // {
-  //   id: 'Chart',
-  //   platform: {
-  //     web: {
-  //       name: 'Chart',
-  //       visual: {
-  //         svg: <Chart />,
-  //       },
-  //       description: 'WIP ',
-  //       category: ['Data'],
-  //       status: {
-  //         accessible: {
-  //           summary: 'notAvailable',
-  //           a11yVisual: 'notAvailable',
-  //           a11yScreenreader: 'notAvailable',
-  //           a11yNavigation: 'notAvailable',
-  //           a11yComprehension: 'notAvailable',
-  //         },
-  //         documentation: 'notAvailable',
-  //         figmaStatus: 'notAvailable',
-  //         responsive: 'notAvailable',
-  //         status: 'notAvailable',
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    id: 'ChartGraph',
+    platform: {
+      web: {
+        name: 'ChartGraph',
+        visual: {
+          svg: <ChartGraph />,
+        },
+        alias: ['Bar Graph', 'Line Graph', 'Column Graph'],
+        description:
+          'ChartGraph is used for displaying various types of graphs plotted on an x and y axis. ',
+        category: ['Data'],
+        status: {
+          accessible: {
+            summary: 'planned',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'notAvailable',
+            a11yNavigation: 'notAvailable',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'notAvailable',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
   {
     id: 'Checkbox',
     platform: {
@@ -1124,6 +1127,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           documentation: 'ready',
           figmaStatus: 'ready',
           status: 'planned',
+        },
+      },
+    },
+  },
+  {
+    id: 'IconButtonLink',
+    platform: {
+      web: {
+        name: 'IconButtonLink',
+        visual: {
+          svg: <IconButtonLink />,
+        },
+        description: 'IconButton is mainly used as navigational element.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
         },
       },
     },
@@ -2133,21 +2162,6 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
-      android: {
-        name: 'Table',
-        visual: {
-          svg: <Table />,
-        },
-        alias: ['Data Table', 'Data Grid'],
-        description:
-          'Table is a set of structured data that is easy for a user to scan, examine, and compare.',
-        category: ['Data'],
-        status: {
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          status: 'planned',
-        },
-      },
     },
   },
   {
@@ -2240,7 +2254,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Chip', 'Pill', 'Filter Tag'],
         description: 'Tags are objects that hold text and have a delete icon to remove them.',
-        category: ['Data'],
+        category: ['Navigation'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2268,7 +2282,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Chip', 'Pill', 'Filter', 'Tag'],
         description:
           'TagData can be used to select multiple categories to compare with each other in a graph or chart view.',
-        category: ['Fields and forms'],
+        category: ['Data'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2479,7 +2493,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
         description:
           'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
-        category: ['Fields and forms'],
+        category: ['Data'],
         status: {
           accessible: {
             summary: 'ready',

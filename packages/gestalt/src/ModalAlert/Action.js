@@ -1,64 +1,65 @@
 // @flow strict
 import { type Node } from 'react';
 import Button from '../Button.js';
+import ButtonLink from '../ButtonLink.js';
 
-export type ActionDataType = {|
+type LinkDataType = {|
   accessibilityLabel: string,
+  dataTestId?: string,
   disabled?: boolean,
-  href?: string,
+  href: string,
   label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
   rel?: 'none' | 'nofollow',
+  role: 'link',
   target?: null | 'self' | 'blank',
+  type: string,
+|};
+type ButtonDataType = {|
+  accessibilityLabel: string,
+  dataTestId?: string,
+  disabled?: boolean,
+  label: string,
+  onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+  role?: 'button',
+  type: string,
 |};
 
-type Props = {| ...ActionDataType, dataTestId?: string, type: string |};
+type Props = LinkDataType | ButtonDataType;
 
 export default function ModalAlertAction({
-  accessibilityLabel,
   dataTestId,
+  type,
+  accessibilityLabel,
   disabled,
   label,
-  onClick,
-  href,
-  rel,
-  target,
-  type,
+  ...props
 }: Props): Node {
   const color = type === 'primary' ? 'red' : 'gray';
 
-  return href ? (
-    <Button
+  return props.role === 'link' ? (
+    <ButtonLink
       accessibilityLabel={accessibilityLabel}
       color={color}
       dataTestId={dataTestId}
       disabled={disabled}
-      href={href}
       fullWidth
-      onClick={onClick}
+      href={props.href || ''}
       iconEnd="visit"
-      rel={rel}
-      role="link"
+      onClick={props.onClick}
+      rel={props.rel}
       size="lg"
-      target={target}
+      target={props.target}
       text={label}
     />
   ) : (
     <Button
       accessibilityLabel={accessibilityLabel}
+      color={color}
       dataTestId={dataTestId}
       disabled={disabled}
-      color={color}
-      onClick={onClick}
       fullWidth
-      role="button"
+      onClick={props.onClick}
       size="lg"
       text={label}
     />

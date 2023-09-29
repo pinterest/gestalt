@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import Lottie from 'lottie-react';
-import { Box, ButtonLink, Flex, Heading, TapArea, Text, useReducedMotion } from 'gestalt';
+import { Box, ButtonLink, Flex, Heading, TapAreaLink, Text, useReducedMotion } from 'gestalt';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
@@ -11,7 +11,7 @@ export default function YearInReviewBanner(): Node {
 
   return (
     <div role="banner" aria-label="Check out the 2022 Gestalt Recap">
-      <TapArea role="link" href="/year_in_review_2022" accessibilityLabel="2022 Year In Review">
+      <TapAreaLink href="/year_in_review_2022" accessibilityLabel="2022 Year In Review">
         <Box
           color="infoWeak"
           dangerouslySetInlineStyle={{
@@ -62,7 +62,7 @@ export default function YearInReviewBanner(): Node {
             />
           </Flex>
         </Box>
-      </TapArea>
+      </TapAreaLink>
     </div>
   );
 }

@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButtonLink renders 1`] = `
+<a
+  aria-label="test; Opens a new tab"
+  className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+  href="#"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="noopener noreferrer nofollow"
+  tabIndex={0}
+  target="_blank"
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 48,
+        "width": 48,
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="rtlSupport icon defaultIcon iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <div
+      className="box xsDisplayVisuallyHidden"
+    >
+      ; Opens a new tab
+    </div>
+  </div>
+</a>
+`;
+
+exports[`IconButtonLink renders disabled 1`] = `
+<a
+  aria-label="test; Opens a new tab"
+  className="link noUnderline hideOutline tapTransition pill button disabled"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="noopener noreferrer nofollow"
+  tabIndex={null}
+  target="_blank"
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 48,
+        "width": 48,
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="rtlSupport icon defaultIcon iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <div
+      className="box xsDisplayVisuallyHidden"
+    >
+      ; Opens a new tab
+    </div>
+  </div>
+</a>
+`;
+
+exports[`IconButtonLink renders with icon 1`] = `
+<a
+  aria-label="test; Opens a new tab"
+  className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+  href="#"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="noopener noreferrer nofollow"
+  tabIndex={0}
+  target="_blank"
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 48,
+        "width": 48,
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="rtlSupport icon defaultIcon iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <div
+      className="box xsDisplayVisuallyHidden"
+    >
+      ; Opens a new tab
+    </div>
+  </div>
+</a>
+`;
+
+exports[`IconButtonLink renders with svg 1`] = `
+<a
+  aria-label="test; Opens a new tab"
+  className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+  href="#"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="noopener noreferrer nofollow"
+  tabIndex={0}
+  target="_blank"
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 48,
+        "width": 48,
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon defaultIcon iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="M13.00,20.00"
+      />
+    </svg>
+  </div>
+  <div
+    className="box relative"
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <div
+      className="box xsDisplayVisuallyHidden"
+    >
+      ; Opens a new tab
+    </div>
+  </div>
+</a>
+`;
+
+exports[`IconButtonLink renders with tooltip 1`] = `
+<div
+  className="box xsDisplayBlock"
+>
+  <div
+    aria-label=""
+    className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <a
+      aria-label="Share"
+      className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+      href="#"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      rel=""
+      tabIndex={0}
+      target={null}
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon defaultIcon iconBlock"
+          height={20}
+          role="img"
+          viewBox="0 0 24 24"
+          width={20}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </a>
+  </div>
+</div>
+`;

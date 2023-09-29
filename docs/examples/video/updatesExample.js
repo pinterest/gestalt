@@ -46,8 +46,8 @@ export default function Example(): Node {
             onControlsPlay={() => setPlaying(true)}
             onControlsPause={() => setPlaying(false)}
             onVolumeChange={(e) => setVolume(e.volume)}
-            onPlay={() => {}}
-            onPlayError={() => {}}
+            onPlay={() => setPlaying(true)}
+            onPlayError={({ error }) => error && setPlaying(false)}
             playbackRate={playbackRate}
             playing={playing}
             src={src}

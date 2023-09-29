@@ -1,6 +1,7 @@
 // @flow strict
 import threeD from './3d.svg';
 import threeDMove from './3d-move.svg';
+import accessibility from './accessibility.svg';
 import ad from './ad.svg';
 import adGroup from './ad-group.svg';
 import add from './add.svg';
@@ -39,6 +40,7 @@ import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
 import board from './board.svg';
 import briefcase from './briefcase.svg';
+import businessHierarchy from './business-hierarchy.svg';
 import calendar from './calendar.svg';
 import calendarCheck from './calendar-check.svg';
 import camera from './camera.svg';
@@ -178,6 +180,7 @@ import starHalf from './star-half.svg';
 import starOutline from './star-outline.svg';
 import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
+import table from './table.svg';
 import tag from './tag.svg';
 import target from './target.svg';
 import terms from './terms.svg';
@@ -220,6 +223,7 @@ import workflowStatusWarning from './workflow-status-warning.svg';
 const icons = Object.freeze({
   '3D': threeD,
   '3D-move': threeDMove,
+  accessibility,
   ad,
   'ad-group': adGroup,
   add,
@@ -258,6 +262,7 @@ const icons = Object.freeze({
   bell,
   board,
   briefcase,
+  'business-hierarchy': businessHierarchy,
   calendar,
   'calendar-check': calendarCheck,
   camera,
@@ -397,6 +402,7 @@ const icons = Object.freeze({
   'star-half': starHalf,
   sun,
   'switch-account': switchAccount,
+  table,
   tag,
   terms,
   'text-align-left': textAlignLeft,
