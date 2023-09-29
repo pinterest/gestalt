@@ -205,8 +205,7 @@ type Props = {|
    */
   type?: 'combo' | 'line' | 'bar',
   /**
-   * Type of chart.
-   * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
+   * An object representing the zIndex value of the tabular representation modal. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   modalZIndex?: Indexable,
 |};
