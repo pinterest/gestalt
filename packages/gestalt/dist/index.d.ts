@@ -2137,7 +2137,7 @@ interface TileDataProps {
   selected?: boolean | undefined;
   showCheckbox?: boolean | undefined;
   title: string;
-  tooltip?: TooltipProps | undefined;
+  tooltip?: ExtendedTooltipProps | undefined;
   trend?: TrendObject | undefined;
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
   value: string;
@@ -2187,6 +2187,17 @@ interface TooltipProps {
   inline?: boolean | undefined;
   link?: Node | undefined;
   zIndex?: Indexable | undefined;
+}
+
+// Remove 'b'
+type TooltipTemp = Omit<TooltipProps, 'text'>;
+
+interface ExtendedTooltipProps extends TooltipTemp {
+  text: string | string[];
+}
+
+interface ExtendedTooltipProps extends TooltipProps {
+
 }
 
 interface UpsellProps {
