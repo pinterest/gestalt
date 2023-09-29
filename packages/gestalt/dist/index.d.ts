@@ -2196,10 +2196,6 @@ interface ExtendedTooltipProps extends TooltipTemp {
   text: string | string[];
 }
 
-interface ExtendedTooltipProps extends TooltipProps {
-
-}
-
 interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
   children?: React.ReactElement<typeof Upsell.Form>;
