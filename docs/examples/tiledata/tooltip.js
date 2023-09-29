@@ -11,7 +11,7 @@ export default function Example(): Node {
           text: [
             'Monthly Active Users',
             'The total monthly users over the last 30 days',
-            ' MAU has gone up by 10% over the last 30 days',
+            'MAU has gone up by 10% over the last 30 days',
           ],
         }}
         title="MAU"
