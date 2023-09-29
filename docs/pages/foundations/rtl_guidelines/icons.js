@@ -535,7 +535,7 @@ representations of time. In RTL, decide whether to show circular or horizontal d
           description={`
 - Media play buttons and media progress indicator bar
 - Checkmarks
-- Objects referring to physical objects that don’t depict movement
+- Icons referring to physical objects that don’t depict movement
 `}
         >
           <MainSection.Subsection
@@ -548,7 +548,7 @@ representations of time. In RTL, decide whether to show circular or horizontal d
                 alt="An image of a woman playing a guitar and a caption in Arabic below it. Below it is an audio player with the controls still going from left to right."
                 naturalWidth={2688}
                 naturalHeight={1377}
-                src="https://i.pinimg.com/originals/55/94/db/5594dbb4c25fb638f542d2b5bca5a222.png"
+                src="https://i.pinimg.com/originals/4b/63/75/4b637516535859edd459ac1ccec91631.png"
               />
             </Mask>
           </Box>
@@ -629,7 +629,7 @@ representations of time. In RTL, decide whether to show circular or horizontal d
         <MainSection
           name="Using letters and scripts in icons"
           description={`
-In general, we avoid using text in icons so that we don’t have to adapt icons to every language. However, there are times when using a particular script is necessary in an icon. Examples are text-editing UIs that communicate a script-related concept, like font-size choice. Consider creating an adapted version of those icons that'd include a RTL script.
+In general, we avoid using text in icons so that we don’t have to adapt icons to every language. However, there are times when using a particular script is necessary in an icon. Examples are text-editing UIs that communicate a script-related concept, like font-size choice. Consider creating an adapted version of those icons that'd include an RTL script.
 
 Some icons might need to be removed because they don’t apply to a RTL language (for example, icons representing capitalization don't apply to Arabic).
         `}

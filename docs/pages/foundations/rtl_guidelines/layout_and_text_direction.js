@@ -55,7 +55,7 @@ Full paragraphs of text in an untranslated LTR language, however, remain left-al
               alt="Example of bi-directional text in English and Arabic."
               naturalWidth={2688}
               naturalHeight={1827}
-              src="https://i.pinimg.com/originals/20/83/4c/20834c8f2337ea12c3f76934252cf0ba.png"
+              src="https://i.pinimg.com/originals/15/53/e4/1553e4a34711a57892f4a5b44d7524d8.png"
             />
           </Mask>
         </Box>

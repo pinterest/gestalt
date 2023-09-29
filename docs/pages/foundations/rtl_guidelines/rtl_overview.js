@@ -83,7 +83,7 @@ However, there’s a group of languages where the script is written and read fro
             type="do"
             title="What changes"
             description={`
-            - TextField icons are displayed on the opposite side of a field
+            - Form field icons are displayed on the opposite side of a field
             - Navigation buttons are displayed in reverse order
             - Icons that communicate direction, like arrows, are mirrored
             - Paragraph text (if it is translated to a RTL language) is right-aligned, aka “end-aligned”
@@ -127,6 +127,7 @@ Additional external references for engineers and designers:
 - [Material Design (Android)—Bidirectionality](https://m2.material.io/design/usability/bidirectionality.html)
 - [Apple RTL Guidelines](https://developer.apple.com/design/human-interface-guidelines/right-to-left)
 - [Unicode Bidirectional Algorithm](https://unicode.org/reports/tr9/)
+- [Microsoft Right-to-left language support and bidirectional text](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/user-interface/bidirectional-support)
         `}
           />
         </MainSection>

@@ -19,18 +19,11 @@ export default function FormsLayoutOverview(): Node {
           Is the process of transforming source-text from one language into another to maintain the original message and meaning.
 `}
         />
-      </MainSection>
+        <MainSection.Subsection
+          title="Localization (l10n)"
+          description="Is the process of adapting a content’s full meaning to a new region/locale to make it appropriate, easily understandable and comfortable to use for local native language speakers."
+        />
 
-      <MainSection
-        name="Localization (l10n)"
-        description={`
-Is the process of adapting a content’s full meaning to a new region/locale to make it appropriate, easily understandable and comfortable to use for local native language speakers.
-
-A common misconception about creating global products is that we only need translation to get ready for international clients. However, we need to do more because the translation process only changes words from the source to the target language. Global products (including websites, apps and online services) need to be made usable and acceptable for people in their markets.
-
-The consensus for this term is: &#8220;Globalization is the integration of translation, internationalization and localization.&#8221; The previous steps are all important in the quest to develop usable and acceptable global products. Issues will arise if any of these three aren't implemented, particularly if global products are marketed for more than one locale.
-`}
-      >
         <MainSection.Subsection
           title="Internationalization (i18n)"
           description="Is the process of designing and developing software or products that can be adapted to different languages and cultures. Ideally, a product or service is developed so that localization is relatively easy to achieve."

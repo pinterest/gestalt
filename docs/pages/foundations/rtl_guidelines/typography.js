@@ -14,7 +14,7 @@ export default function FormsLayoutOverview(): Node {
         name="Typography"
         type="guidelines"
         description={`
-Another important consideration is typography. RTL scripts require a different typography. The choice of font can also have a significant impact on the readability of RTL content. For example, letters must connect to each other, rather than standing alone as they do in LTR languages. This means that fonts need to be chosen carefully, to make sure that they are appropriate for the language being used.
+Another important consideration is typography. RTL scripts require a different typography. The choice of font can also have a significant impact on the readability of RTL content. For example, letters can connect to each other, rather than standing alone as they do in LTR languages. This means that fonts need to be chosen carefully, to make sure that they are appropriate for the language being used.
 
 Many **scripts**, such as **Arabic**, have special [orthographic](https://en.wikipedia.org/wiki/Orthographic_rules) rules that require certain combinations of letterforms to be combined into special  [ligature forms](https://en.wikipedia.org/wiki/Ligature_(typography).  The rules governing ligature formation in Arabic can be quite complex, requiring special script-shaping technologies.
         `}
@@ -156,7 +156,7 @@ Numbers in RTL scripts are LTR; When enumerating numbers the list of numbers sta
                     alt="A list of right-aligned phone numbers in Arabic. The heading and descriptions of the numbers read from right to left, but the numbers themselves read from left to right."
                     naturalWidth={1107}
                     naturalHeight={888}
-                    src="https://i.pinimg.com/originals/3b/cb/38/3bcb38f373fef9de49d940f7ea4c9734.png"
+                    src="https://i.pinimg.com/originals/57/fa/9c/57fa9c7b1bb55f796712253f151fbeae.png"
                   />
                 </Box>
                 <Flex direction="column" gap={2}>
@@ -217,7 +217,7 @@ For example, Hebrew text uses Western Arabic numerals and Hebrew Numerals, where
                     alt="The numbers 4,5,6 as Eastern digits reading from right to left."
                     naturalWidth={1107}
                     naturalHeight={888}
-                    src="https://i.pinimg.com/originals/9b/c9/bf/9bc9bfc83834bdb40fe07649997ae1b9.png"
+                    src="https://i.pinimg.com/originals/16/0e/e3/160ee3007efad1c437b36dd525f6d19e.png"
                   />
                 </Box>
                 <Flex direction="column" gap={2}>
@@ -276,7 +276,7 @@ How do the rules affect the order of the bidi content?
           description={`
 In all major web browsers, the order of characters in memory (logical) isn't the same as the order in which they are displayed (visual).
 
-The set of rules applied by the browser to produce the correct order at the time of display are described by the Unicode Bidirectional Algorithm, or 'bidi algorithm' for short. The page covers the following principles:
+The set of rules applied by the browser to produce the correct order at the time of display are described by the [Unicode Bidirectional Algorithm](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics), or 'bidi algorithm' for short. The page covers the following principles:
 - Characters and directional typing
 - Directional runs
 - Base direction, a fundamentally important concept
