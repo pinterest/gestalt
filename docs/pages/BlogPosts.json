@@ -28,7 +28,7 @@
           {
             "title": "SterlingTapArea, SterlingButton, SterlingIconButton... (Pinboard repo)",
             "audience": ["Engineering"],
-            "content": "...deprecated! We have deprecated SterlingTapArea, SterlingButton, SterlingIconButton in favor of: `import { TapArea, TapAreaLink, Button, ButtonLink,IconButton, and IconButtonLink } from 'app/packages/gestaltExtensions/adsLoggingExtension';` TADA! That easy! Logging is supported via a new logEventProps prop. Learn more in our [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension)."
+            "content": "...deprecated! We have deprecated SterlingTapArea, SterlingButton, SterlingIconButton in favor of: `import { TapArea, TapAreaLink, Button, ButtonLink,IconButton, and IconButtonLink } from 'app/packages/gestaltExtensions/adsLoggingExtension';` <br/>  TADA! That easy! Logging is supported via a new logEventProps prop. Learn more in our [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension)."
           },
           {
             "title": "Tokens",
