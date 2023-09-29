@@ -77,8 +77,10 @@ export default function StructureBehaviorPage(): Node {
       <MainSection name="Hierarchy">
         <MainSection.Subsection
           title="Form and section titles"
-          description="Titles describe the form at a high level and should be the largest text size in the form hierarchy. We recommend Heading/lg (font size 600). The title can also be followed by subtext if additional context is needed with a recommended text size of Body/lg (font size 300).
-          Section titles describe a group of form fields and controls within the form and should fit within the form hierarchy by being one header size smaller than the heading while remaining larger than form field text sizes. We recommend Heading/md (font size 500) for section headers. Subtext can be added to sections if needed, we recommend Body/lg (font size 300) for subtext."
+          description={`Titles describe the form at a high level and should be the largest text size in the form hierarchy. We recommend Heading/lg (font size 600). The title can also be followed by subtext if additional context is needed with a recommended text size of Body/lg (font size 300).
+
+Section titles describe a group of form fields and controls within the form and should fit within the form hierarchy by being one header size smaller than the heading while remaining larger than form field text sizes. We recommend Heading/md (font size 500) for section headers. Subtext can be added to sections if needed, we recommend Body/lg (font size 300) for subtext."
+          `}
         />
         <MainSection.Subsection title="Recommended text sizes" />
         <Table accessibilityLabel="Recommended text sizes">

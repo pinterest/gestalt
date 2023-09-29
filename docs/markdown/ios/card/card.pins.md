@@ -7,6 +7,7 @@ fullwidth: true
 ## Fixed preview
 
 Card.Pins with a fixed preview communicates that the entire preview area is a tap target. It is used when the goal is to direct Pinners to a single destination (e.g. topical Pin feed) where they can scan a breadth of and/or compare related ideas.
+<br/>
 
 <ImgContainer src="https://github.com/pinterest/gestalt/assets/96082362/ec0692aa-cc1a-42df-80c9-f0e212100fe4" alt="Example of a Card container with a Card.Pins preview that contains two Card.Pins representations." noPadding color="background-elevation-accent"/>
 
@@ -81,6 +82,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 Card.Pins with a scrolling preview communicates that each preview is an individual tap target that all lead to the same destination (e.g. every preview takes you to a specific slot position within a stream).
 
 Use scrolling preview when the user goal is best supported by focusing them on one Pin at a time.
+<br/>
 
 <ImgContainer src="https://i.pinimg.com/originals/18/43/1e/18431e06763f4b84448cbfc38ea3e8c9.png" alt="Example of a Card container with a scrolling preview." noPadding color="background-elevation-accent"/>
 
@@ -94,7 +96,7 @@ Use scrolling preview when the user goal is best supported by focusing them on o
 
 </Group>
 <Group>
-<Dont title="When not to use" />
+<Dont title="When not to use"/>
 - When each tap target leads to a different destination (e.g. different streams)
 - When the goal is to direct Pinners to a landing experience that displays more than one Pin (e.g. a topical Pin feed).
 </Group>

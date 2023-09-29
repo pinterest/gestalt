@@ -243,6 +243,16 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         sectionName: 'Messaging',
         pages: ['Overview', 'Priority and placement', 'Available components'],
       },
+      {
+        sectionName: 'RTL guidelines',
+        pages: [
+          'About international design',
+          'RTL overview',
+          'Layout and text direction',
+          'Icons',
+          'Typography',
+        ],
+      },
       'Screen sizes',
 
       {
