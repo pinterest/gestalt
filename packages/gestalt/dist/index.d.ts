@@ -1726,7 +1726,7 @@ interface SideNavigationTopItemProps {
   notificationAccessibilityLabel?: string | undefined;
   onClick?: AbstractEventHandler<
     | React.MouseEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>,
     { dangerouslyDisableOnNavigation?: (() => void) | undefined }
   > | undefined;
   primaryAction?: PrimaryActionType | undefined;
@@ -1740,7 +1740,7 @@ interface SideNavigationNestedItemProps {
   counter?: { number: string; accessibilityLabel: string } | undefined;
   onClick?: AbstractEventHandler<
     | React.MouseEvent<HTMLButtonElement>
-    | React.KeyboardEvent<HTMLButtonElement>,
+    | React.KeyboardEvent<HTMLButtonElement>
   > | undefined;
   ref?: HTMLLIElement;
 }
@@ -2178,7 +2178,7 @@ interface TileDataProps {
 
 interface ToastProps {
   text: string | React.ReactElement<typeof Text>;
-  dissmissButton:
+  dismissButton:
     | {
         accessibilityLabel?: string | undefined;
         onDismiss: () => void;
