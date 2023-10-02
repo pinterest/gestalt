@@ -1,3 +1,9 @@
+## 126.1.2 (Oct 2, 2023)
+
+### Patch
+
+- Toast, SideNavigation: typo and syntax error ([#3232](https://github.com/pinterest/gestalt/pull/3232)) - [Preview link](https://deploy-preview-3232--gestalt.netlify.app?devexample=true)
+
 ## 126.1.1 (Sep 29, 2023)
 
 ### Patch
