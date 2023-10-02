@@ -1,3 +1,9 @@
+## 127.0.2 (Oct 2, 2023)
+
+### Patch
+
+- Text: Remove-CJK formatting ([#3230](https://github.com/pinterest/gestalt/pull/3230)) - [Preview link](https://deploy-preview-3230--gestalt.netlify.app?devexample=true)
+
 ## 127.0.1 (Oct 2, 2023)
 
 ### Patch
