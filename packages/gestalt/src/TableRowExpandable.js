@@ -33,11 +33,7 @@ type Props = {|
    * Callback fired when the expand button component is clicked.
    */
   onExpand?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
     expanded: boolean,
   |}) => void,
   /**
