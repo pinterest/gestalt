@@ -1936,11 +1936,14 @@ interface TableRowExpandableProps {
   accessibilityExpandLabel: string;
   children: Node;
   expandedContents: Node;
-  expanded?: string | undefined;
-  hoverStyle?: 'gray' | 'none' | undefined;
   id: string;
-  onExpand?: BareButtonEventHandlerType | undefined;
-  selected?: 'selected' | 'unselected' | undefined;
+  expanded?: boolean;
+  hoverStyle?: 'gray' | 'none';
+  onExpand?: AbstractEventHandler<
+    React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
+    { expanded: boolean }
+  >;
+  selected?: 'selected' | 'unselected';
 }
 
 interface TableRowDrawerProps {
