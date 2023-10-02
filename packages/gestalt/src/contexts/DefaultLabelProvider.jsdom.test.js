@@ -31,6 +31,13 @@ describe('useDefaultLabelContext', () => {
             accessibilityLabelPrefixText: 'ChartGraph',
             defaultViewText: 'Default view mode',
             accessibleViewText: 'Visual pattern view',
+            tabularData: 'Tabular data',
+            accessibilityLabelDismissModal: 'Dismiss tabular data modal',
+            tableSeriesText: 'Series',
+            tableXAxisText: 'x-axis values',
+            tableYAxisText: 'y-axis values',
+            downloadCsvButtonText: 'Download as .csv',
+            cancelButtonText: 'Cancel',
           },
           ComboBox: {
             noResultText: 'No results',

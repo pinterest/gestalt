@@ -49,6 +49,51 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'label': 'Success',
     },
     {
+      'component': 'ChartGraph',
+      'prop': 'accessibilityLabelPrefixText',
+      'label': 'ChartGraph',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'defaultViewText',
+      'label': 'Default view mode',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tabularData',
+      'label': 'Tabular representation',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'accessibilityLabelDismissModal',
+      'label': 'Dismiss tabular representation modal',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tableSeriesText',
+      'label': 'Series',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tableXAxisText',
+      'label': 'x-axis values',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tableYAxisText',
+      'label': 'y-axis values',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'downloadCsvButtonText',
+      'label': 'Download as .csv',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'cancelButtonText',
+      'label': 'Cancel',
+    },
+    {
       'component': 'ComboBox',
       'prop': 'noResultText',
       'label': 'No results',

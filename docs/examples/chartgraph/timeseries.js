@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Flex, RadioGroup } from 'gestalt';
+import { FixedZIndex, Flex, RadioGroup } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -42,7 +42,7 @@ export default function Example(): Node {
         <RadioGroup.RadioButton
           checked={type === 'combo'}
           id="timeseries-combo"
-          label="combo"
+          label="Combo"
           name="combo"
           onChange={() => setType('combo')}
           value="combo"
@@ -72,6 +72,7 @@ export default function Example(): Node {
               date,
             )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
+        modalZIndex={new FixedZIndex(11)}
       />
     </Flex>
   );

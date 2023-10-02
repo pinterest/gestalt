@@ -510,10 +510,10 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Data'],
         status: {
           accessible: {
-            summary: 'planned',
+            summary: 'ready',
             a11yVisual: 'ready',
-            a11yScreenreader: 'notAvailable',
-            a11yNavigation: 'notAvailable',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
             a11yComprehension: 'ready',
           },
           documentation: 'notAvailable',

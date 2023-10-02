@@ -36,6 +36,7 @@ export default function Example(): Node {
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
+        type="bar"
         data={data}
         elements={[
           { type: 'bar', id: 'Impressions' },

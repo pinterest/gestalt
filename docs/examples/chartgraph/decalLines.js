@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
+import { FixedZIndex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example(): Node {
@@ -61,6 +62,7 @@ export default function Example(): Node {
         { type: 'line', id: 'Color_05' },
         { type: 'line', id: 'Color_06' },
       ]}
+      modalZIndex={new FixedZIndex(11)}
     />
   );
 }

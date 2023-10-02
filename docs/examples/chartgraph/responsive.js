@@ -67,7 +67,7 @@ export default function Example(): Node {
             <RadioGroup.RadioButton
               checked={type === 'combo'}
               id="responsive-type-combo"
-              label="combo"
+              label="Combo"
               name="combo"
               onChange={() => setType('combo')}
               value="combo"
