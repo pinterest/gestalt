@@ -1,4 +1,5 @@
 // @flow strict-local
+import { useMemo } from 'react';
 import { useDefaultLabel } from 'gestalt';
 
 export type SortChangeType = 'series' | 'x' | 'y';
@@ -22,12 +23,18 @@ export const useBuildCsvData: UseBuildCsvDataProps = ({
 }) => {
   const { tableSeriesText, tableXAxisText, tableYAxisText } = useDefaultLabel('ChartGraph');
 
-  return `${tableSeriesText},${isHorizontalLayout ? tableXAxisText : tableYAxisText},${
-    isHorizontalLayout ? tableYAxisText : tableXAxisText
-  }\n${transformedTabularData
-    .map((x) => Object.values(x))
-    .map((e) => e.join(','))
-    .join('\n')}`;
+  const csvObj = useMemo(
+    () =>
+      `${tableSeriesText},${isHorizontalLayout ? tableXAxisText : tableYAxisText},${
+        isHorizontalLayout ? tableYAxisText : tableXAxisText
+      }\n${transformedTabularData
+        .map((x) => Object.values(x))
+        .map((e) => e.join(','))
+        .join('\n')}`,
+    [tableSeriesText, tableXAxisText, tableYAxisText, transformedTabularData, isHorizontalLayout],
+  );
+
+  return csvObj;
 };
 
 type ElementType = {| series: string, xAxis: string, yAxis: string |};
@@ -89,49 +96,60 @@ const useTabularData: UseTabularDataProps = ({
   tickFormatter,
   isHorizontalLayout,
 }) => {
-  const transformedTabularData = data
-    // $FlowFixMe[incompatible-call] We can't reconcile this
-    .reduce(
-      (
-        accumulator: $ReadOnlyArray<TransformedTabularDataType>,
-        currentValue: {|
-          name: string | number,
-          [string]: number,
-        |},
-      ) => {
-        const { name } = currentValue;
+  const transformedTabularData = useMemo(
+    () =>
+      data
+        // $FlowFixMe[incompatible-call] We can't reconcile this
+        .reduce(
+          (
+            accumulator: $ReadOnlyArray<TransformedTabularDataType>,
+            currentValue: {|
+              name: string | number,
+              [string]: number,
+            |},
+          ) => {
+            const { name } = currentValue;
 
-        const newValues = Object.entries(currentValue)
-          .map((x) => {
-            if (x[0] === 'name') {
-              return {};
-            }
-            return {
-              series: labelMap ? labelMap[x[0]] : x[0],
-              xAxis: labelMap && typeof name === 'string' ? labelMap[name] : name,
-              yAxis: x[1],
-            };
-          })
-          .filter((x) => !!x.series);
+            const newValues = Object.entries(currentValue)
+              .map((x) => {
+                if (x[0] === 'name') {
+                  return {};
+                }
+                return {
+                  series: labelMap ? labelMap[x[0]] : x[0],
+                  xAxis: labelMap && typeof name === 'string' ? labelMap[name] : name,
+                  yAxis: x[1],
+                };
+              })
+              .filter((x) => !!x.series);
 
-        return [...accumulator, newValues];
-      },
-      [],
-    )
-    .flat();
+            return [...accumulator, newValues];
+          },
+          [],
+        )
+        .flat(),
+    [data, labelMap],
+  );
 
-  const sortedData = transformedTabularData.sort(getCompareFn({ filterId, filterOrder }));
+  const sortedData = useMemo(
+    () => transformedTabularData.sort(getCompareFn({ filterId, filterOrder })),
+    [filterId, filterOrder, transformedTabularData],
+  );
 
-  const localizedData = sortedData.map((item) => {
-    const newObj = { ...item };
-    if (tickFormatter?.timeseries && isHorizontalLayout) {
-      newObj.xAxis = tickFormatter.timeseries(item.xAxis);
-    }
-    if (tickFormatter?.timeseries && !isHorizontalLayout) {
-      newObj.yAxis = tickFormatter.timeseries(item.yAxis);
-    }
-    return newObj;
-  });
+  const localizedData = useMemo(
+    () =>
+      sortedData.map((item) => {
+        const newObj = { ...item };
+        if (tickFormatter?.timeseries && isHorizontalLayout) {
+          newObj.xAxis = tickFormatter.timeseries(item.xAxis);
+        }
+        if (tickFormatter?.timeseries && !isHorizontalLayout) {
+          newObj.yAxis = tickFormatter.timeseries(item.yAxis);
+        }
+        return newObj;
+      }),
+    [isHorizontalLayout, sortedData, tickFormatter],
+  );
 
   return localizedData;
 };

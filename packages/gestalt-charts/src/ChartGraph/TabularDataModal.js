@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node, useCallback, useState } from 'react';
 import { Layer, Modal, useDefaultLabel } from 'gestalt';
 import TabularDataModalFooter from './TabularDataModalFooter.js';
 import TabularDataModalHeading from './TabularDataModalHeading.js';
@@ -57,14 +57,17 @@ export default function TabularDataModal({
     isHorizontalLayout,
   });
 
-  const onSortChange: (SortChangeType) => void = (value) => {
-    if (sortCol !== value) {
-      setSortCol(value);
-      setSortOrder('desc');
-    } else {
-      setSortOrder((sortValue) => (sortValue === 'asc' ? 'desc' : 'asc'));
-    }
-  };
+  const onSortChange = useCallback(
+    (value: SortChangeType) => {
+      if (sortCol !== value) {
+        setSortCol(value);
+        setSortOrder('desc');
+      } else {
+        setSortOrder((sortValue) => (sortValue === 'asc' ? 'desc' : 'asc'));
+      }
+    },
+    [sortCol],
+  );
 
   return (
     <Layer zIndex={modalZIndex}>

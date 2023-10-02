@@ -1,5 +1,13 @@
 // @flow strict-local
-import { type Element, Fragment, type Node, useEffect, useMemo, useState } from 'react';
+import {
+  type Element,
+  Fragment,
+  type Node,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -234,7 +242,7 @@ function ChartGraph({
   children,
   titleDisplay = 'visible',
   title,
-  type = 'combo',
+  type = 'bar',
   referenceAreas = [],
   renderTooltip = 'auto',
 }: Props): Node {
@@ -322,8 +330,10 @@ function ChartGraph({
   }, [fixChartDimension, legendHeight, fiveTicksDimension, isHorizontalLayout]);
 
   // HELPERS
-
-  const toggleTabularDataModal: () => void = () => setShowTabularDataModal((value) => !value);
+  const toggleTabularDataModal: () => void = useCallback(
+    () => setShowTabularDataModal((value) => !value),
+    [],
+  );
 
   // CONDITIONAL VARIABLES
   let legendVerticalAlign = 'bottom';
@@ -372,12 +382,16 @@ function ChartGraph({
     [referenceAreas],
   );
 
-  const referenceAreaSummary = referenceAreas
-    ? referenceAreas.map(({ label, style }) => ({
-        label,
-        style,
-      }))
-    : null;
+  const referenceAreaSummary = useMemo(
+    () =>
+      referenceAreas
+        ? referenceAreas.map(({ label, style }) => ({
+            label,
+            style,
+          }))
+        : null,
+    [referenceAreas],
+  );
 
   const customTooltip = useCustomTooltip({
     isDarkMode,
