@@ -1,3 +1,9 @@
+## 127.0.3 (Oct 2, 2023)
+
+### Patch
+
+- Table: fix Flow and TS types for Table.RowExpandable ([#3234](https://github.com/pinterest/gestalt/pull/3234)) - [Preview link](https://deploy-preview-3234--gestalt.netlify.app?devexample=true)
+
 ## 127.0.2 (Oct 2, 2023)
 
 ### Patch
