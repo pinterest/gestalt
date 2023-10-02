@@ -1,3 +1,9 @@
+## 126.1.3 (Oct 2, 2023)
+
+### Patch
+
+- Tokens: Updated dark mode $color-border-container ([#3231](https://github.com/pinterest/gestalt/pull/3231)) - [Preview link](https://deploy-preview-3231--gestalt.netlify.app?devexample=true)
+
 ## 126.1.2 (Oct 2, 2023)
 
 ### Patch
