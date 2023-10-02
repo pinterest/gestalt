@@ -26,11 +26,6 @@
             "content": "[Button](https://gestalt.pinterest.systems/web/button), [IconButton](https://gestalt.pinterest.systems/web/iconbutton) and [TapArea](https://gestalt.pinterest.systems/web/taparea) no longer support link behavior. Instead, use [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink), [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink), and [TapAreaLink](https://gestalt.pinterest.systems/web/taparealink)."
           },
           {
-            "title": "SterlingTapArea, SterlingButton, SterlingIconButton... (Pinboard repo)",
-            "audience": ["Engineering"],
-            "content": "...deprecated! We have deprecated SterlingTapArea, SterlingButton, SterlingIconButton in favor of: <br/> <br/> `import { TapArea, TapAreaLink, Button, ButtonLink,IconButton, and IconButtonLink } from 'app/packages/gestaltExtensions/adsLoggingExtension';` <br/> <br/> TADA! That easy! Logging is supported via a new logEventProps prop. Learn more in our [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension)."
-          },
-          {
             "title": "Tokens",
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/48/01/fc/4801fc8f9d06cd45eb2b126b2362ead6.png",
