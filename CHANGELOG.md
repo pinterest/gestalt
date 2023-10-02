@@ -1,3 +1,9 @@
+## 127.0.0 (Oct 2, 2023)
+
+### Major
+
+- ChartGraph: Tabular representation feature ([#3219](https://github.com/pinterest/gestalt/pull/3219)) - [Preview link](https://deploy-preview-3219--gestalt.netlify.app?devexample=true)
+
 ## 126.1.4 (Oct 2, 2023)
 
 ### Patch
