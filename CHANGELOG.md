@@ -1,3 +1,9 @@
+## 127.0.1 (Oct 2, 2023)
+
+### Patch
+
+- Docs: remove internal section from Sept eng newsletter ([#3233](https://github.com/pinterest/gestalt/pull/3233)) - [Preview link](https://deploy-preview-3233--gestalt.netlify.app?devexample=true)
+
 ## 127.0.0 (Oct 2, 2023)
 
 ### Major
