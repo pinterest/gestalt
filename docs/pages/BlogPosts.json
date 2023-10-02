@@ -3,6 +3,43 @@
     "year": "2023",
     "digests": [
       {
+        "month": "September",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng September Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from September."
+          },
+          {
+            "title": "ChartGraph",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/87/9a/9f/879a9f9e0ca32ade6fa1dec04090dfa5.png",
+            "imageAltText": "Screenshot of ChartGraph UI",
+            "content": "Another month, another new component — this time it's [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph)! This component is used for displaying various types of graphs plotted on an x and y axis."
+          },
+          {
+            "title": "Button/ButtonLink, no more role='link'",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/18/f9/2f/18f92f5427bd5f7d4f27e389c5a74049.png",
+            "imageAltText": "Screenshot of Button and ButtonLink UI'",
+            "content": "[Button](https://gestalt.pinterest.systems/web/button), [IconButton](https://gestalt.pinterest.systems/web/iconbutton) and [TapArea](https://gestalt.pinterest.systems/web/taparea) no longer support link behavior. Instead, use [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink), [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink), and [TapAreaLink](https://gestalt.pinterest.systems/web/taparealink)."
+          },
+          {
+            "title": "SterlingTapArea, SterlingButton, SterlingIconButton... (Pinboard repo)",
+            "audience": ["Engineering"],
+            "content": "...deprecated! We have deprecated SterlingTapArea, SterlingButton, SterlingIconButton in favor of: <br/> <br/> `import { TapArea, TapAreaLink, Button, ButtonLink,IconButton, and IconButtonLink } from 'app/packages/gestaltExtensions/adsLoggingExtension';` <br/> <br/> TADA! That easy! Logging is supported via a new logEventProps prop. Learn more in our [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension)."
+          },
+          {
+            "title": "Tokens",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/48/01/fc/4801fc8f9d06cd45eb2b126b2362ead6.png",
+            "imageAltText": "Screenshot of spacing token UI'",
+            "content": "[Spacing token](https://gestalt.pinterest.systems/foundations/design_tokens#Spacing) values are changing to a new scale. This updates old and also adds new values. In order to maintain consistency with our Figma designs and offer more flexibility in spacing, we're using spacing on a 4pt scale."
+          }
+        ]
+      },
+      {
         "week": "September 22, 2023",
         "summary": "",
         "posts": [
