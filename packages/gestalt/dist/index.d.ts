@@ -2189,7 +2189,6 @@ interface TooltipProps {
   zIndex?: Indexable | undefined;
 }
 
-// Remove 'b'
 type TooltipTemp = Omit<TooltipProps, 'text'>;
 
 interface ExtendedTooltipProps extends TooltipTemp {

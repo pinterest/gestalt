@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useReducer, useRef } from 'react';
+import { Fragment, type Node, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box.js';
 import Controller from '../Controller.js';
 import Layer from '../Layer.js';
@@ -107,7 +107,15 @@ export default function InternalTooltip({
       const lines = [];
       // first and last line should not have a <p> tag, (adds extra padding)
       text.map((line, idx) =>
-        lines.push(idx === 0 || idx === text.length - 1 ? line : <p>{line}</p>),
+        lines.push(
+          text.length === 1 || idx === text.length - 1 ? (
+            line
+          ) : (
+            <Fragment>
+              {line} <br /> <br />
+            </Fragment>
+          ),
+        ),
       );
       return lines;
     }
