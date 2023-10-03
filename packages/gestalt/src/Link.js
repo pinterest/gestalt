@@ -76,6 +76,10 @@ type Props = {|
    */
   children?: Node,
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string,
+  /**
    * Determines how Link is positioned relative to surrounding elements, such as [Text](https://gestalt.pinterest.systems/web/text). See the [inline variant](https://gestalt.pinterest.systems/web/link#Inline) to learn more.
    */
   display?: 'inline' | 'inlineBlock' | 'block',
@@ -151,6 +155,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   {
     accessibilityLabel,
     children,
+    dataTestId,
     display = 'block',
     externalLinkIcon = 'none',
     href,
@@ -234,6 +239,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   return (
     <a
       aria-label={ariaLabel}
+      data-test-id={dataTestId}
       className={className}
       href={href}
       id={id}
