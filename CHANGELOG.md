@@ -1,3 +1,9 @@
+## 127.0.4 (Oct 3, 2023)
+
+### Patch
+
+- Internal: Bump postcss from 8.4.5 to 8.4.31 ([#3236](https://github.com/pinterest/gestalt/pull/3236)) - [Preview link](https://deploy-preview-3236--gestalt.netlify.app?devexample=true)
+
 ## 127.0.3 (Oct 2, 2023)
 
 ### Patch
