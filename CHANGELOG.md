@@ -1,3 +1,9 @@
+## 127.0.5 (Oct 3, 2023)
+
+### Patch
+
+- Internal: Update local test check ([#3227](https://github.com/pinterest/gestalt/pull/3227)) - [Preview link](https://deploy-preview-3227--gestalt.netlify.app?devexample=true)
+
 ## 127.0.4 (Oct 3, 2023)
 
 ### Patch
