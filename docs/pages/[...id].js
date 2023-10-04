@@ -44,7 +44,7 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
   );
 }
 
-export async function getServerSideProps(context: {|
+export async function getStaticProps(context: {|
   params: {| id: $ReadOnlyArray<string> |},
 |}): Promise<{|
   props: {|
