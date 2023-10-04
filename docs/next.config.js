@@ -25,6 +25,13 @@ const redirects = require('./redirects.js');
 const root /*: string */ = path.join(__dirname, '../');
 
 module.exports = {
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !! WE ARE ON FLOW
+    ignoreBuildErrors: true,
+  },
   images: {
     domains: [
       'paper-attachments.dropbox.com',
