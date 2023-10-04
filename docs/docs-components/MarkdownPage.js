@@ -2,7 +2,7 @@
 import 'highlight.js/styles/a11y-light.css';
 import { type Node } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Highlighter from './highlight.js';

@@ -69,7 +69,7 @@ declare module "next/head" {
   declare module.exports: Class<React$Component<any, any>>;
 }
 
-declare module "next/image" {
+declare module "next/legacy/image" {
   declare module.exports: Class<React$Component<any, any>>;
 }
 
