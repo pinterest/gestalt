@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "(next dev) & (yarn dev-metadata)",
     "dev-metadata": "nodemon -w ../packages/gestalt/src -w ../packages/gestalt-charts/src -w ../packages/gestalt-datepicker/src --exec 'yarn build-metadata'",
-    "prebuild": "node ../scripts/prebuild.js",
     "build": "yarn build-metadata && next build",
     "build-metadata": "../scripts/generateMetadata.js",
     "start": "next start"

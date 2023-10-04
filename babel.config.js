@@ -10,6 +10,7 @@ module.exports = {
   presets: [['@babel/preset-env', { modules }], '@babel/react', '@babel/flow'],
   plugins: [
     '@babel/proposal-class-properties',
+    ['styled-jsx/babel', { 'optimizeForSpeed': true }],
     [
       tranformPlugin,
       {
