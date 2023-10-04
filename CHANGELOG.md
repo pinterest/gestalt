@@ -1,3 +1,9 @@
+## 127.1.1 (Oct 4, 2023)
+
+### Patch
+
+- Internal: fix in TS file ([#3239](https://github.com/pinterest/gestalt/pull/3239)) - [Preview link](https://deploy-preview-3239--gestalt.netlify.app?devexample=true)
+
 ## 127.1.0 (Oct 4, 2023)
 
 ### Minor
