@@ -31,7 +31,7 @@ interface RadioGroupProps {
   legendDisplay?: 'visible' | 'hidden' | undefined;
 }
 
-declare const RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
+declare let RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
 
 /**
  * =========================================================
@@ -503,14 +503,14 @@ export interface DateFieldProps {
 /**
  * https://gestalt.pinterest.systems/web/daterange
  */
-export const DateRange: React.FunctionComponent<DateRangeProps>;
+export let DateRange: React.FunctionComponent<DateRangeProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/datepicker
  */
-export const DatePicker: ReactForwardRef<HTMLInputElement, DatePickerProps>;
+export let DatePicker: ReactForwardRef<HTMLInputElement, DatePickerProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/datefield
  */
-export const DateField: React.FunctionComponent<DateFieldProps>;
+export let DateField: React.FunctionComponent<DateFieldProps>;

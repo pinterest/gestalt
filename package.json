@@ -80,6 +80,7 @@
     "shellcheck": "^1.1.0",
     "shelljs": "^0.8.5",
     "slugify": "^1.4.5",
+    "styled-jsx": "^5.1.2",
     "stylelint": "^15.10.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^23.0.0",
