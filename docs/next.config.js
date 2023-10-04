@@ -40,6 +40,9 @@ module.exports = {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
   },
+  experimental: {
+    appDir: true,
+  },
   webpack: (
     config /*: WebpackConfig */,
     options /*: {| dev: boolean, isServer: boolean |} */,
