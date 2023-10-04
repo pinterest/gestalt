@@ -1175,6 +1175,7 @@ interface LetterboxProps {
 interface LinkProps {
   href: string;
   accessibilityLabel?: string | undefined;
+  dataTestId? string | undefined
   children?: Node | undefined;
   display?: 'inline' | 'inlineBlock' | 'block' | undefined;
   externalLinkIcon?:
