@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": true,
-    "skipLibCheck": false,
+    "skipLibCheck": false
   },
   "exclude": [
     "node_modules",

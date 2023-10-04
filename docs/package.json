@@ -31,6 +31,7 @@
     "react-live": "^4.1.5",
     "remark-breaks": "^3.0.2",
     "remark-gfm": "^3.0.1",
+    "styled-jsx": "^5.1.2",
     "ua-parser-js": "^1.0.33"
   },
   "browserslist": [
