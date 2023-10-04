@@ -2344,103 +2344,103 @@ interface WashAnimatedProps {
 /**
  * https://gestalt.pinterest.systems/web/activationcard
  */
-export const ActivationCard: React.FunctionComponent<ActivationCardProps>;
+export let ActivationCard: React.FunctionComponent<ActivationCardProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/avatar
  */
-export const Avatar: React.FunctionComponent<AvatarProps>;
+export let Avatar: React.FunctionComponent<AvatarProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/avatargroup
  */
-export const AvatarGroup: React.FunctionComponent<AvatarGroupProps>;
+export let AvatarGroup: React.FunctionComponent<AvatarGroupProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/badge
  */
-export const Badge: React.FunctionComponent<BadgeProps>;
+export let Badge: React.FunctionComponent<BadgeProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/box
  */
-export const Box: ReactForwardRef<HTMLDivElement, BoxProps>;
+export let Box: ReactForwardRef<HTMLDivElement, BoxProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/button
  */
-export const Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
+export let Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/buttonlink
  */
-export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
+export let ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/buttongroup
  */
-export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
+export let ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/callout
  */
-export const Callout: React.FunctionComponent<CalloutProps>;
+export let Callout: React.FunctionComponent<CalloutProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/checkbox
  */
-export const Checkbox: ReactForwardRef<HTMLInputElement, CheckboxProps>;
+export let Checkbox: ReactForwardRef<HTMLInputElement, CheckboxProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/collage
  */
-export const Collage: React.FunctionComponent<CollageProps>;
+export let Collage: React.FunctionComponent<CollageProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/colorschemeprovider
  */
-export const ColorSchemeProvider: React.FunctionComponent<
+export let ColorSchemeProvider: React.FunctionComponent<
   React.PropsWithChildren<ColorSchemeProviderProps>
 >;
 
 /**
  * https://gestalt.pinterest.systems/web/column
  */
-export const Column: React.FunctionComponent<ColumnProps>;
+export let Column: React.FunctionComponent<ColumnProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/combobox
  */
-export const ComboBox: React.FunctionComponent<ComboBoxProps>;
+export let ComboBox: React.FunctionComponent<ComboBoxProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/container
  */
-export const Container: React.FunctionComponent<ContainerProps>;
+export let Container: React.FunctionComponent<ContainerProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/datapoint
  */
-export const Datapoint: React.FunctionComponent<DatapointProps>;
+export let Datapoint: React.FunctionComponent<DatapointProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/devicetypeprovider
  */
-export const DeviceTypeProvider: React.FunctionComponent<
+export let DeviceTypeProvider: React.FunctionComponent<
   React.PropsWithChildren<DeviceTypeProviderProps>
 >;
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider
  */
-export const DefaultLabelProvider: React.FunctionComponent<
+export let DefaultLabelProvider: React.FunctionComponent<
   React.PropsWithChildren<DefaultLabelProviderProps>
 >;
 
 /**
  * https://gestalt.pinterest.systems/web/divider
  */
-export const Divider: React.FunctionComponent;
+export let Divider: React.FunctionComponent;
 
 export interface DropdownSubComponents {
   Item: React.FunctionComponent<DropdownItemProps>;
@@ -2455,12 +2455,12 @@ export interface DropdownSubComponents {
  * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section
  * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item
  */
-export const Dropdown: React.FunctionComponent<DropdownProps> & DropdownSubComponents;
+export let Dropdown: React.FunctionComponent<DropdownProps> & DropdownSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/fieldset
  */
-export const Fieldset: React.FunctionComponent<FieldsetProps>;
+export let Fieldset: React.FunctionComponent<FieldsetProps>;
 
 export interface FlexSubComponents {
   Item: React.FunctionComponent<FlexItemProps>;
@@ -2471,62 +2471,62 @@ export interface FlexSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/flex#Flex.Item
  */
-export const Flex: React.FunctionComponent<FlexProps> & FlexSubComponents;
+export let Flex: React.FunctionComponent<FlexProps> & FlexSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/heading
  */
-export const Heading: React.FunctionComponent<HeadingProps>;
+export let Heading: React.FunctionComponent<HeadingProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/helpbutton
  */
-export const HelpButton: React.FunctionComponent<HelpButtonProps>;
+export let HelpButton: React.FunctionComponent<HelpButtonProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/icon
  */
-export const Icon: React.FunctionComponent<IconProps>;
+export let Icon: React.FunctionComponent<IconProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbutton
  */
-export const IconButton: ReactForwardRef<HTMLButtonElement, IconButtonProps>;
+export let IconButton: ReactForwardRef<HTMLButtonElement, IconButtonProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonlink
  */
-export const IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkProps>;
+export let IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
  */
-export const IconButtonFloating: React.FunctionComponent<IconButtonFloatingProps>;
+export let IconButtonFloating: React.FunctionComponent<IconButtonFloatingProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/image
  */
-export const Image: React.FunctionComponent<ImageProps>;
+export let Image: React.FunctionComponent<ImageProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/label
  */
-export const Label: React.FunctionComponent<LabelProps>;
+export let Label: React.FunctionComponent<LabelProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/layer
  */
-export const Layer: React.FunctionComponent<LayerProps>;
+export let Layer: React.FunctionComponent<LayerProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/letterbox
  */
-export const Letterbox: React.FunctionComponent<LetterboxProps>;
+export let Letterbox: React.FunctionComponent<LetterboxProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/link
  */
-export const Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
+export let Link: ReactForwardRef<HTMLAnchorElement, LinkProps>;
 
 export interface ListSubComponents {
   Item: React.FunctionComponent<React.PropsWithChildren<ListItemProps>>;
@@ -2537,27 +2537,27 @@ export interface ListSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/list#List.Itemt
  */
-export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubComponents;
+export let List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/mask
  */
-export const Mask: React.FunctionComponent<MaskProps>;
+export let Mask: React.FunctionComponent<MaskProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/masonry
  */
-export const Masonry: React.FunctionComponent<MasonryProps>;
+export let Masonry: React.FunctionComponent<MasonryProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/modal
  */
-export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
+export let Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/modalalert
  */
-export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
+export let ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
 
 export interface ModuleSubComponents {
   Expandable: React.FunctionComponent<ModuleExpandableProps>;
@@ -2568,18 +2568,18 @@ export interface ModuleSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/module#Module.Expandable
  */
-export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps>> &
+export let Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps>> &
   ModuleSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/numberfield
  */
-export const NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
+export let NumberField: ReactForwardRef<HTMLInputElement, NumberFieldProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider
  */
-export const GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
+export let GlobalEventsHandlerProvider: React.FunctionComponent<GlobalEventsHandlerProviderProps>;
 
 export interface OverlayPanelSubComponents {
   DismissingElement: React.FunctionComponent<OverlayPanelDismissingElementProps>;
@@ -2590,38 +2590,38 @@ export interface OverlayPanelSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/overlaypanel#DismissingElement
  */
-export const OverlayPanel: ReactForwardRef<HTMLDivElement, OverlayPanelProps> &
+export let OverlayPanel: ReactForwardRef<HTMLDivElement, OverlayPanelProps> &
   OverlayPanelSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/pageheader
  */
-export const PageHeader: React.FunctionComponent<PageHeaderProps>;
+export let PageHeader: React.FunctionComponent<PageHeaderProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/pog
  */
-export const Pog: React.FunctionComponent<PogProps>;
+export let Pog: React.FunctionComponent<PogProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/popover
  */
-export const Popover: React.FunctionComponent<PopoverProps>;
+export let Popover: React.FunctionComponent<PopoverProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/popovereducational
  */
-export const Popovereducational: React.FunctionComponent<PopoverEducationalProps>;
+export let Popovereducational: React.FunctionComponent<PopoverEducationalProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/pulsar
  */
-export const Pulsar: React.FunctionComponent<PulsarProps>;
+export let Pulsar: React.FunctionComponent<PulsarProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/radiobutton
  */
-export const RadioButton: ReactForwardRef<HTMLInputElement, RadioButtonProps>;
+export let RadioButton: ReactForwardRef<HTMLInputElement, RadioButtonProps>;
 
 export interface RadioGroupSubComponents {
   RadioButton: React.FunctionComponent<RadioGroupRadioButtonProps>;
@@ -2632,22 +2632,22 @@ export interface RadioGroupSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButtonProps
  */
-export const RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
+export let RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/scrollboundarycontainer
  */
-export const ScrollBoundaryContainer: React.FunctionComponent<ScrollBoundaryContainerProps>;
+export let ScrollBoundaryContainer: React.FunctionComponent<ScrollBoundaryContainerProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/searchfield
  */
-export const SearchField: ReactForwardRef<HTMLInputElement, SearchFieldProps>;
+export let SearchField: ReactForwardRef<HTMLInputElement, SearchFieldProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/segmentedcontrol
  */
-export const SegmentedControl: React.FunctionComponent<SegmentedControlProps>;
+export let SegmentedControl: React.FunctionComponent<SegmentedControlProps>;
 
 export interface SelectListSubComponents {
   Option: React.FunctionComponent<SelectListOptionProps>;
@@ -2660,7 +2660,7 @@ export interface SelectListSubComponents {
  * https://gestalt.pinterest.systems/web/selectlist#SelectList.Group
  * https://gestalt.pinterest.systems/web/selectlist#SelectList.Option
  */
-export const SelectList: React.FunctionComponent<SelectListProps> & SelectListSubComponents;
+export let SelectList: React.FunctionComponent<SelectListProps> & SelectListSubComponents;
 
 export interface SheetMobileSubComponents {
   DismissingElement: React.FunctionComponent<SheetMobileDismissingElementProps>;
@@ -2671,7 +2671,7 @@ export interface SheetMobileSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/sheetmobile#DismissingElement
  */
-export const SheetMobile: ReactForwardRef<HTMLDivElement, SheetMobileProps> &
+export let SheetMobile: ReactForwardRef<HTMLDivElement, SheetMobileProps> &
   SheetMobileSubComponents;
 
 export interface SideNavigationSubcomponents {
@@ -2691,33 +2691,33 @@ export interface SideNavigationSubcomponents {
  * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section
  * https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedGroup
  */
-export const SideNavigation: React.FunctionComponent<SideNavigationProps> &
+export let SideNavigation: React.FunctionComponent<SideNavigationProps> &
   SideNavigationSubcomponents;
 
 /**
  * https://gestalt.pinterest.systems/web/slimbanner
  */
-export const SlimBanner: React.FunctionComponent<SlimBannerProps>;
+export let SlimBanner: React.FunctionComponent<SlimBannerProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/spinner
  */
-export const Spinner: React.FunctionComponent<SpinnerProps>;
+export let Spinner: React.FunctionComponent<SpinnerProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/status
  */
-export const Status: React.FunctionComponent<StatusProps>;
+export let Status: React.FunctionComponent<StatusProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/sticky
  */
-export const Sticky: React.FunctionComponent<StickyProps>;
+export let Sticky: React.FunctionComponent<StickyProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/switch
  */
-export const Switch: React.FunctionComponent<SwitchProps>;
+export let Switch: React.FunctionComponent<SwitchProps>;
 
 export interface TableSubComponents {
   Body: React.FunctionComponent<TableBodyProps>;
@@ -2744,7 +2744,7 @@ export interface TableSubComponents {
  * https://gestalt.pinterest.systems/web/table#Table.Body
  * https://gestalt.pinterest.systems/web/table#Table.Header
  */
-export const Table: React.FunctionComponent<TableProps> & TableSubComponents;
+export let Table: React.FunctionComponent<TableProps> & TableSubComponents;
 
 interface TableOfContentsItemProps {
   label: string;
@@ -2767,63 +2767,63 @@ export interface TableOfContentsSubComponents {
   Item: React.FunctionComponent<React.PropsWithChildren<TableOfContentsItemProps>>;
 }
 
-export const TableOfContents: React.FunctionComponent<TableOfContentsProps> &
+export let TableOfContents: React.FunctionComponent<TableOfContentsProps> &
   TableOfContentsSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/tabs
  */
-export const Tabs: React.FunctionComponent<TabsProps>;
+export let Tabs: React.FunctionComponent<TabsProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/tag
  */
-export const Tag: React.FunctionComponent<TagProps>;
+export let Tag: React.FunctionComponent<TagProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/tagdata
  */
-export const TagData: React.FunctionComponent<TagDataProps>;
+export let TagData: React.FunctionComponent<TagDataProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/taparea
  */
-export const TapArea: ReactForwardRef<HTMLButtonElement, TapAreaProps>;
+export let TapArea: ReactForwardRef<HTMLButtonElement, TapAreaProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/taparealink
  */
-export const TapAreaLink: ReactForwardRef<HTMLAnchorElement, TapAreaLinkProps>;
+export let TapAreaLink: ReactForwardRef<HTMLAnchorElement, TapAreaLinkProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/text
  */
-export const Text: ReactForwardRef<HTMLDivElement | HTMLSpanElement, TextProps>;
+export let Text: ReactForwardRef<HTMLDivElement | HTMLSpanElement, TextProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/textarea
  */
-export const TextArea: ReactForwardRef<HTMLTextAreaElement, TextAreaProps>;
+export let TextArea: ReactForwardRef<HTMLTextAreaElement, TextAreaProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/textfield
  */
-export const TextField: ReactForwardRef<HTMLInputElement, TextFieldProps>;
+export let TextField: ReactForwardRef<HTMLInputElement, TextFieldProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/tiledata
  */
-export const TileData: React.FunctionComponent<TileDataProps>;
+export let TileData: React.FunctionComponent<TileDataProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/toast
  */
-export const Toast: React.FunctionComponent<ToastProps>;
+export let Toast: React.FunctionComponent<ToastProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/tooltip
  */
-export const Tooltip: React.FunctionComponent<TooltipProps>;
+export let Tooltip: React.FunctionComponent<TooltipProps>;
 
 export interface UpsellSubComponents {
   Form: React.FunctionComponent<UpsellFormProps>;
@@ -2834,17 +2834,17 @@ export interface UpsellSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/upsell#Upsell.Form
  */
-export const Upsell: React.FunctionComponent<UpsellProps> & UpsellSubComponents;
+export let Upsell: React.FunctionComponent<UpsellProps> & UpsellSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/video
  */
-export const Video: React.FunctionComponent<VideoProps>;
+export let Video: React.FunctionComponent<VideoProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/washanimated
  */
-export const WashAnimated: React.FunctionComponent<WashAnimatedProps>;
+export let WashAnimated: React.FunctionComponent<WashAnimatedProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/zindex_classes#FixedZIndex
