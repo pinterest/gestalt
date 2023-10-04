@@ -227,7 +227,7 @@ export default function ColorSchemeProvider({
   fullDimensions = false,
   id,
 }: Props): Element<typeof ThemeContext.Provider> {
-  const [theme, setTheme] = useState(getTheme(colorScheme));
+  const [theme, setTheme] = useState(getTheme(colorScheme) || lightModeTheme);
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
 
