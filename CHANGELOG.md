@@ -1,3 +1,9 @@
+## 127.1.0 (Oct 4, 2023)
+
+### Minor
+
+- Link: added `dataTestId` prop ([#3237](https://github.com/pinterest/gestalt/pull/3237)) - [Preview link](https://deploy-preview-3237--gestalt.netlify.app?devexample=true)
+
 ## 127.0.5 (Oct 3, 2023)
 
 ### Patch
