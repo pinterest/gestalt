@@ -154,7 +154,7 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
   const generatedDocGen = await docGen('Video');
 
   generatedDocGen.props.ref = {
