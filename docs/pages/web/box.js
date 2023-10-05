@@ -93,7 +93,11 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink
+      >
         <SandpackExample code={main} name="Main example" hideEditor previewHeight={150} />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />

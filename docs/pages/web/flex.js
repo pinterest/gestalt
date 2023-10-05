@@ -30,6 +30,7 @@ export default function DocsPage({
       <PageHeader
         name={generatedDocGen?.Flex?.displayName}
         description={generatedDocGen?.Flex?.description}
+        pdocsLink
       >
         <SandpackExample code={main} name="Main example source" hideEditor previewHeight={150} />
       </PageHeader>
