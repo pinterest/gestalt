@@ -555,10 +555,6 @@ Use TapArea to make non-button elements interactive, like an Image. This ensures
 
 **[Tabs](/web/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
-
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
       `}
         />
       </MainSection>

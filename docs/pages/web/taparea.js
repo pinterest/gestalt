@@ -124,9 +124,6 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
           description={`
 **[TapAreaLink](/web/taparealink)**
 Use TapAreaLink when a link is needed instead of an action.
-
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
       `}
         />
       </MainSection>

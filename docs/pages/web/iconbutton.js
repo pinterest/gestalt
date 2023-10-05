@@ -328,9 +328,6 @@ Button allows users to take actions, and make choices using text labels to expre
 **[Icon](/web/icon)**
 IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt [Icon](/web/icon) library.
 
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
-
 **[Dropdown](/web/dropdown)**
 It's most common to anchor Dropdown to [Button](/web/button) or IconButton.
       `}

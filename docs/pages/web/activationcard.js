@@ -81,15 +81,6 @@ export default function ActivationCardPage({
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
-
-      <MainSection name="Related">
-        <MainSection.Subsection
-          description={`
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
-      `}
-        />
-      </MainSection>
     </Page>
   );
 }

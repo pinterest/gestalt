@@ -524,9 +524,6 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
 **[Text](/web/text)**
 Text provides Link with style: size, color, and font.
 
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
-
 **[Button](/web/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
 
