@@ -32,7 +32,11 @@ const PREVIEW_HEIGHT = 300;
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink
+      >
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
       <PropTable
