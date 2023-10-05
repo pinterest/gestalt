@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -510,6 +511,14 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://w.pinadmin.com/display/EPD/Deep+dive%3A+Layout+components.+Box+vs+Flex',
+            text: 'Technical training: Box vs Flex',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection
