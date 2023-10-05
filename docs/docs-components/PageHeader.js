@@ -51,7 +51,7 @@ type Props = {|
   name: string,
   slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
-  pdocsLink?: string,
+  pdocsLink?: boolean,
 |};
 
 export default function PageHeader({
@@ -60,7 +60,7 @@ export default function PageHeader({
   description = '',
   fileName,
   folderName,
-  pdocsLink,
+  pdocsLink = false,
   margin = 'default',
   name,
   slimBanner = null,
@@ -157,11 +157,10 @@ export default function PageHeader({
                   <Flex alignItems="center" gap={1}>
                     <Text>
                       <Link
-                        href={pdocsLink}
+                        href="#Internal-documentation"
                         onClick={() =>
                           trackButtonClick('Consult PDocs for this component', sourcePathName)
                         }
-                        target="blank"
                         underline="always"
                       >
                         Consult PDocs for this component

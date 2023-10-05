@@ -82,7 +82,7 @@ export default function AccessibilityChecklist({ component }: Props): Node {
     <Module.Expandable
       accessibilityExpandLabel="Expand the module"
       accessibilityCollapseLabel="Collapse the module"
-      id="accessibility-module"
+      id="internal-documentation-module"
       items={[
         {
           children: a11ySummaryNotAvailable ? (

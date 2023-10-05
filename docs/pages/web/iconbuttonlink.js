@@ -16,7 +16,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/link-navigation"
+        pdocsLink
         slimBanner={
           <SlimBanner
             type="info"

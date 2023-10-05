@@ -21,7 +21,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#masonry"
+        pdocsLink
       >
         <SandpackExample
           name="Main Masonry example"

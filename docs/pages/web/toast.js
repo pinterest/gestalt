@@ -37,7 +37,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#toast"
+        pdocsLink
       >
         <SandpackExample code={main} name="Main Toast example" hideEditor />
       </PageHeader>

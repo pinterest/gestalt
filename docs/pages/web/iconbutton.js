@@ -30,7 +30,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension"
+        pdocsLink
       >
         <SandpackExample code={main} name="IconButton example" hideEditor />
       </PageHeader>

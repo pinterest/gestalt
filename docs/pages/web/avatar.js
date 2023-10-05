@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -26,7 +27,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#avatar"
+        pdocsLink
       >
         <SandpackExample
           code={mainExample}
@@ -35,9 +36,7 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           previewHeight={150}
         />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -58,7 +57,6 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best Practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -165,7 +163,6 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           />
         </MainSection.Subsection>
       </MainSection>
-
       <AccessibilitySection
         name={generatedDocGen?.displayName}
         description={`
@@ -227,8 +224,16 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           />
         </MainSection.Subsection>
       </MainSection>
-
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection

@@ -21,11 +21,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
 
   return (
     <Page title="Modal">
-      <PageHeader
-        name="Modal"
-        description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#modal"
-      >
+      <PageHeader name="Modal" description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           code={accessibilityExample}
           name="Modal Main Example"

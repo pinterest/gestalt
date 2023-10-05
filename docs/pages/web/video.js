@@ -19,11 +19,7 @@ import withChildrenExample from '../../examples/video/withChildrenExample.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Video">
-      <PageHeader
-        name="Video"
-        description={generatedDocGen?.description}
-        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#video"
-      >
+      <PageHeader name="Video" description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           name="Main Example"
           code={mainExample}

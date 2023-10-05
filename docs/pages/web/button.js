@@ -4,6 +4,7 @@ import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -538,6 +539,16 @@ To control focus or position anchored components relative to Button, use \`ref\`
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#avatar',
+            text: 'Avatar extension',
+          },
+        ]}
+      />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
