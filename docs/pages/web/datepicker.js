@@ -102,7 +102,11 @@ const PREVIEW_HEIGHT = 480;
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DatePicker">
-      <PageHeader name="DatePicker" description={generatedDocGen?.description}>
+      <PageHeader
+        name="DatePicker"
+        description={generatedDocGen?.description}
+        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#datepicker"
+      >
         <SandpackExample
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}

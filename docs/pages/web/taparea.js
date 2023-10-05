@@ -22,7 +22,11 @@ import withLinkButton from '../../examples/taparea/withLinkButton.js';
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension"
+      >
         <SandpackExample code={main} name="TapArea example" hideEditor />
       </PageHeader>
 

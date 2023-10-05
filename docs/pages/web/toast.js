@@ -34,7 +34,11 @@ import textOnly from '../../examples/toast/textOnly.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#toast"
+      >
         <SandpackExample code={main} name="Main Toast example" hideEditor />
       </PageHeader>
 

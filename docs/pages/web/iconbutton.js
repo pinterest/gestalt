@@ -27,7 +27,11 @@ import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension"
+      >
         <SandpackExample code={main} name="IconButton example" hideEditor />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

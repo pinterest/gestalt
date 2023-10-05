@@ -23,7 +23,11 @@ import verifiedExample from '../../examples/avatar/verifiedExample.js';
 export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink="https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#avatar"
+      >
         <SandpackExample
           code={mainExample}
           name="Main Avatar example"

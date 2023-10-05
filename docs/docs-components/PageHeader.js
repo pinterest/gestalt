@@ -7,6 +7,7 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import componentData from './data/components.js';
 import getByPlatform from './data/utils/getByPlatform.js';
+import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 import Markdown from './Markdown.js';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
 import { SlimBannerExperiment } from './SlimBannerExperiment.js';
@@ -50,6 +51,7 @@ type Props = {|
   name: string,
   slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
+  pdocsLink?: string,
 |};
 
 export default function PageHeader({
@@ -58,6 +60,7 @@ export default function PageHeader({
   description = '',
   fileName,
   folderName,
+  pdocsLink,
   margin = 'default',
   name,
   slimBanner = null,
@@ -134,7 +137,6 @@ export default function PageHeader({
                     View source on GitHub
                   </Link>
                 </Text>
-
                 <Text>
                   <Link
                     href={`https://github.com/pinterest/gestalt/releases?q=${name
@@ -151,6 +153,23 @@ export default function PageHeader({
                     See recent changes on GitHub
                   </Link>
                 </Text>
+                {pdocsLink ? (
+                  <Flex alignItems="center" gap={1}>
+                    <Text>
+                      <Link
+                        href={pdocsLink}
+                        onClick={() =>
+                          trackButtonClick('Consult PDocs for this component', sourcePathName)
+                        }
+                        target="blank"
+                        underline="always"
+                      >
+                        Consult PDocs for this component
+                      </Link>
+                    </Text>
+                    <InternalOnlyIconButton />
+                  </Flex>
+                ) : null}
               </Flex>
             )}
           </Flex>
