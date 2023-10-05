@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import { Icon, SlimBanner } from 'gestalt';
 import docGen, { type DocGen, type DocType, overrideTypes } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -55,6 +56,20 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
         />
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/link-navigation',
+            text: 'Link navigation',
+          },
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

@@ -24,7 +24,13 @@ export default function AccessibilitySection({ items }: Props): Node {
                     key={text}
                     text={
                       <Text>
-                        <Link externalLinkIcon="default" underline="always" href={href}>
+                        <Link
+                          externalLinkIcon="default"
+                          underline="always"
+                          href={href}
+                          target="blank"
+                          rel="nofollow"
+                        >
                           {text}
                         </Link>
                       </Text>

@@ -229,8 +229,8 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
       <InternalDocumentationSection
         items={[
           {
-            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
-            text: 'Ads logging extension',
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#avatar',
+            text: 'Avatar extension',
           },
         ]}
       />

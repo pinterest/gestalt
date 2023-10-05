@@ -549,6 +549,15 @@ To control focus or position anchored components relative to Button, use \`ref\`
         ]}
       />
 
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
