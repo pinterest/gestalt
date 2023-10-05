@@ -30,12 +30,12 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/f5/7f/85/f57f85ccb677cca5372f3419feb4d7f1.png" alt="example with concise tab labels"/>
+    <ImgContainer src="https://i.pinimg.com/originals/9e/e5/49/9ee5499cb0b5822b54f91b00f1f7f44e.png" alt="example with concise tab labels"/>
     <Do title="Do" />
     Keep Tab labels short and concise, one or two words.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/34/48/4f/34484faabaf959cac956ff2e85c8cc48.png" alt="example of only one tab"/>
+    <ImgContainer src="https://i.pinimg.com/originals/52/27/c4/5227c4ccf073fc9815704db24d719209.png" alt="example of only one tab"/>
     <Dont title="Don't" />
     Hide or disable Tabs if that Tab is empty. Additionally, there should always be at least two tabs.
   </Group>

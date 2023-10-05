@@ -73,6 +73,20 @@ Some people may take longer to read toasts than others due to low vision or cogn
 - Brief text of about 10–15 words (including button text): five seconds
 - Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s.  [Source](https://capitalizemytitle.com/reading-time/3000-words/)
 
+## Design tokens
+
+Use these tokens for applying size and color styles to Toast.
+
+<br/>
+
+<iframe style={{border:0}} width="100%" height="772" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D43644%253A1060%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+
+## Anatomy
+
+<br/>
+
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D43644%253A541%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+
 ## Variants
 
 ### Default type
