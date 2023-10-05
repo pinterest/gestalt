@@ -1,51 +1,51 @@
 ---
 title: Tabs
-description: Tabs may be used to navigate between multiple URLs. Tabs are intended as page-level navigation.
+description: Tabs may be used to navigate between multiple URLs. Tabs are intended for page-level navigation.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/8b/cf/19/8bcf1919b6b5f9379a99bfbe8e304d5a.png" width={446} height={44} alt="an example of tabs"/>
+<ImgContainer src="https://i.pinimg.com/originals/28/5e/77/285e77d2e30f2ab48c3e18c464e80f67.png" alt="an example of tabs"/>
 
 ## Usage guidelines
 
 <TwoCol>
   <Group>
     <Do title="When to use" />
-      - To break up a large collection of content into logical, digestible views.
+      - To break up a large collection of information or pages into logical, digestible views.
       - To switch between different, yet related views, such as Updates and Messages.
   </Group>
   <Group>
   <Dont title="When not to use" />
-    - When any UI or content above the Tabs is altered upon selection. Use Link instead. 
-    - To break up content that is not related to each other or is not on the same hierarchical level. 
-    - To filter content. Consider SegmentedControl instead.
+    - Any UI elements above the Tabs are altered upon selection. Use [Link](/web/link) instead. 
+    - To break up chunks of information that aren't related to each other or aren't on the same hierarchical level. 
+    - To filter information. Consider [SegmentedControl](/web/segmentedcontrol) instead.
   </Group>
 </TwoCol>
 
 ## Best practices
 
-- Place Tabs directly above the relevant content. 
-- Avoid using more than 6 Tabs. Consider using a different component like Sheet.
-- Order Tabs by relevance - the first tab should be the most logical starting view.
+- Place Tabs directly above the relevant information.
+- Avoid using more than six Tabs. Consider using a different component like [Sheet](/android/sheet).
+- Order Tabs by relevance—the first tab should be the most logical starting view.
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/f5/7f/85/f57f85ccb677cca5372f3419feb4d7f1.png" width={249} height={44} alt="example with concise tab labels"/>
+    <ImgContainer src="https://i.pinimg.com/originals/9e/e5/49/9ee5499cb0b5822b54f91b00f1f7f44e.png" alt="example with concise tab labels"/>
     <Do title="Do" />
     Keep Tab labels short and concise, one or two words.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/34/48/4f/34484faabaf959cac956ff2e85c8cc48.png" width={82} height={44} alt="example of only one tab"/>
+    <ImgContainer src="https://i.pinimg.com/originals/52/27/c4/5227c4ccf073fc9815704db24d719209.png" alt="example of only one tab"/>
     <Dont title="Don't" />
-    Hide or disable Tabs if that Tab’s content is empty. Additionally, there should always be at least two tabs.
+    Hide or disable Tabs if that Tab is empty. Additionally, there should always be at least two tabs.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/f5/0b/d4/f50bd4fb2fecc191cf462717c828e483.png" alt="example of tabs scrolling horizontally"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/0a/78/0e/0a780ed4af7d051e3cc0858cd6f94c6b.png" alt="example of tabs scrolling horizontally"/>
     <Do title="Do" />
     Allow tabs to scroll horizontally.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/d1/02/d0/d102d035b37609342307de99560cd56a.png" alt="example of tabs with truncated labels"/>
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/f4/92/6a/f4926a15c54ff1d39165a60a78d77bd6.png" alt="example of tabs with truncated labels"/>
     <Dont title="Don't" />
     Truncate tabs to fit within a view.
   </Group>
@@ -58,6 +58,22 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
+## Design tokens
+<iframe style={{border:0}} width="100%" height="1100" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36455%253A76944%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+
+## Anatomy
+<TwoCol>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36455%253A76621%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+**Default tabs**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36455%253A76697%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+**Filled tabs**
+</Group>
+</TwoCol>
+
 ## Variants
 
 ### Alignment
@@ -65,19 +81,17 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 Tabs can be aligned to either the start or end point depending on language direction or centered.
 
 1. **Start or end aligned (Default)**
-Use if you have more than three tabs. Start or end aligned tabs will scroll horizontally if content is long enough to flow out of the frame. 
+Use if you have more than three tabs. Start or end-aligned tabs will scroll horizontally if information is long enough to flow out of the frame.
 2. **Center aligned**
-This variant may be used if you have two or three tabs. Center aligned Tabs should not be used if labels are long or if you have more than three Tabs. The center-aligned style of Tabs is used primarily for navigational Tabs and sits in the header of the screen.
+This variant may be used if you have two or three tabs. Center-aligned Tabs shouldn't be used if labels are long or if you have more than three Tabs. The center-aligned style of Tabs is used primarily for navigational Tabs and sits in the header of the screen.
 
 <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cd/56/43/cd5643de79de5d00f4dff323451fb5d3.png" alt="start aligned tabs"/>
-    
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/14/9f/bb/149fbbdaea9804901a88bbadaa086814.png" alt="start aligned tabs"/>
     **Start or end aligned (Default)**
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/95/07/7b/95077b097278c0d1a69e16397ab268a7.png" alt="center aligned tabs"/>
-   
+    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/a1/6a/d8/a16ad89fc328d3e46411c1fa2682030e.png" alt="center aligned tabs"/>
     **Center aligned**
   </Group>
 </TwoCol>
@@ -86,35 +100,24 @@ This variant may be used if you have two or three tabs. Center aligned Tabs shou
 
 Tabs can be aligned to either the start or end point depending on language direction or centered.
 
-1. **Filled (Default)**
-This is the default tab style. Use the filled style for any Tabs that sit within a screen.
-2. **Underline**
+1. **Underline**
 The underline style of Tabs sits primarily in the header of the screen.
-
+2. **Filled (Default)**
+This is the default tab style. Use the filled style for any Tabs that sit within a screen.
+<br/>
 <TwoCol>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/cd/56/43/cd5643de79de5d00f4dff323451fb5d3.png" alt="filled tabs style"/>
-    
-    **Filled (Default)**
-  </Group>
-  <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/95/07/7b/95077b097278c0d1a69e16397ab268a7.png" alt="underlined tabs style"/>
-    
-    **Underline**
-  </Group>
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36455%253A76775%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+**Default tabs**
+</Group>
+
+<Group>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D36455%253A76855%26mode%3Ddesign%26t%3DcknTIxWUcjXmmy2J-1" allowFullScreen></iframe>
+**Filled tabs**
+</Group>
 </TwoCol>
 
-### Animation
-
-By default, the Tabs content swipes in either from the left or right, depending on the way you are tabbing. Visit Apple’s HIG for more information on [Animation and Motion](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/animation/).
-
-## Related
-
-<ThreeCol>
-  <IllustrationCard
-  title="SegmentedControl"
-  description="SegmentedControl is used to switch between views within a small area of content, such as a Popover."
-  color="teal-spabattical-450"
-  image="segmented-control"
-  />
-</ThreeCol>
+## Localization
+Be sure to localize the tab text. Note that localization can lengthen text by 20 to 30%.
+<br/>
+<ImgContainer src="https://i.pinimg.com/originals/00/a4/ce/00a4cef58fafd51e28808e8a46c4f5b6.png" alt="start aligned tabs"/>
