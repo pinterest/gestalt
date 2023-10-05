@@ -319,6 +319,9 @@ Follow these guidelines for \`bgColor\`
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
+**[IconButtonLink](/web/iconbuttonlink)**
+Use IconButtonLink when a link is needed instead of an action.
+
 **[Button](/web/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
 

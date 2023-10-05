@@ -31,26 +31,9 @@ const PREVIEW_HEIGHT = 300;
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <SlimBanner
-        type="info"
-        message={
-          <Text inline>
-            If you intend to use Button as a link, use&nbsp;
-            <Link
-              accessibilityLabel="Learn more about the ButtonLink component."
-              display="inline"
-              href="/web/ButtonLink"
-            >
-              ButtonLink
-            </Link>
-            &nbsp;instead.
-          </Text>
-        }
-      />
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
-
       <PropTable
         componentName={generatedDocGen?.displayName}
         props={[
@@ -191,7 +174,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
           },
         ]}
       />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -215,7 +197,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -337,7 +318,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
           />
         </MainSection.Subsection>
       </MainSection>
-
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
@@ -357,7 +337,6 @@ If Button is used as a control Button to show/hide a Popover-based component, we
         name="Localization"
         description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information. "
       />
-
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
