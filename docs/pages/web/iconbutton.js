@@ -319,14 +319,14 @@ Follow these guidelines for \`bgColor\`
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
+**[IconButtonLink](/web/iconbuttonlink)**
+Use IconButtonLink when a link is needed instead of an action.
+
 **[Button](/web/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
 
 **[Icon](/web/icon)**
 IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt [Icon](/web/icon) library.
-
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
 **[Dropdown](/web/dropdown)**
 It's most common to anchor Dropdown to [Button](/web/button) or IconButton.

@@ -343,9 +343,6 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
       **[ActivationCard](/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
 
-      **[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-      GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
-
     `}
         />
       </MainSection>
