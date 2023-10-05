@@ -1,3 +1,9 @@
+## 127.1.2 (Oct 5, 2023)
+
+### Patch
+
+- Docs: cleanup ([#3240](https://github.com/pinterest/gestalt/pull/3240)) - [Preview link](https://deploy-preview-3240--gestalt.netlify.app?devexample=true)
+
 ## 127.1.1 (Oct 4, 2023)
 
 ### Patch
