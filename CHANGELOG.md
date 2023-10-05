@@ -1,3 +1,9 @@
+## 127.1.3 (Oct 5, 2023)
+
+### Patch
+
+- Docs: Updates to Toast and Tabs in Android and iOS ([#3242](https://github.com/pinterest/gestalt/pull/3242)) - [Preview link](https://deploy-preview-3242--gestalt.netlify.app?devexample=true)
+
 ## 127.1.2 (Oct 5, 2023)
 
 ### Patch
