@@ -105,7 +105,7 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Implementation in Link, Button, IconButton, TapArea">
+        <MainSection.Subsection title="Implementation in Link, ButtonLink, IconButtonLink, TapAreaLink">
           <MainSection.Card
             title="Examples from start to end: Link, Button, IconButton, TapArea"
             cardSize="lg"
