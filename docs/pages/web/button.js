@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Button, Link, SlimBanner, Text } from 'gestalt';
+import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
