@@ -5,7 +5,7 @@ import Card from './Card.js';
 
 type Props = {| items: $ReadOnlyArray<{| href: string, text: string |}> |};
 
-export default function AccessibilitySection({ items }: Props): Node {
+export default function InternalDocumentationSection({ items }: Props): Node {
   return (
     <Card name="Internal documentation" showHeading>
       <Module.Expandable
