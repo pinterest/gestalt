@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { type Node, useState } from 'react';
 import {
   Box,
   Button,
