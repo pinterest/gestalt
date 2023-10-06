@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -22,7 +23,11 @@ import withLinkButton from '../../examples/taparea/withLinkButton.js';
 export default function DocsPage({ generatedDocGen }: DocType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink
+      >
         <SandpackExample code={main} name="TapArea example" hideEditor />
       </PageHeader>
 
@@ -118,6 +123,15 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection

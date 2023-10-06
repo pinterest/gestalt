@@ -43,6 +43,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -102,7 +103,7 @@ const PREVIEW_HEIGHT = 480;
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="DatePicker">
-      <PageHeader name="DatePicker" description={generatedDocGen?.description}>
+      <PageHeader name="DatePicker" description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}
@@ -331,6 +332,15 @@ import { it } from 'date-fns/locale';
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#datepicker',
+            text: 'Datepicker extension',
+          },
+        ]}
+      />
     </Page>
   );
 }

@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -19,7 +20,7 @@ import withChildrenExample from '../../examples/video/withChildrenExample.js';
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title="Video">
-      <PageHeader name="Video" description={generatedDocGen?.description}>
+      <PageHeader name="Video" description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           name="Main Example"
           code={mainExample}
@@ -150,6 +151,15 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#video',
+            text: 'Video extension',
+          },
+        ]}
+      />
     </Page>
   );
 }

@@ -4,6 +4,7 @@ import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -34,6 +35,7 @@ export default function SheetMobilePage({
         badge="pilot"
         name={generatedDocGen?.SheetMobile.displayName}
         description={generatedDocGen?.SheetMobile.description}
+        pdocsLink
         slimBanner={
           <SlimBanner
             type="warning"
@@ -378,6 +380,15 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#She
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.SheetMobile.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-providers#sheetmobile-handlers-onopen-onclose',
+            text: 'GlobalEventsHandlerProvider: SheetMobile handlers (onOpen, onClose)',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection

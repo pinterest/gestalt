@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import DocsPageHeader from '../../docs-components/PageHeader.js'; // renaming to avoid confusion
@@ -31,6 +32,7 @@ export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: 
       <DocsPageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        pdocsLink
       >
         <SandpackExample
           code={defaultExample}
@@ -399,6 +401,19 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/link-navigation',
+            text: 'Link navigation',
+          },
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection

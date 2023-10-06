@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import { Link, Table, Text } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -405,6 +406,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           </Table.Body>
         </Table>
       </MainSection>
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-providers#defaultlabelprovider',
+            text: 'Gestalt Providers in Pinboard',
+          },
+        ]}
+      />
     </Page>
   );
 }

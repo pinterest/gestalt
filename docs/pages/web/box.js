@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -92,7 +93,11 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
 export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink
+      >
         <SandpackExample code={main} name="Main example" hideEditor previewHeight={150} />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
@@ -510,6 +515,14 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://w.pinadmin.com/display/EPD/Deep+dive%3A+Layout+components.+Box+vs+Flex',
+            text: 'Technical training: Box vs Flex',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection
