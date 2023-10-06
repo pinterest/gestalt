@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { IconButton, SlimBanner } from 'gestalt';
+import { IconButton } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
