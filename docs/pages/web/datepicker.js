@@ -38,12 +38,14 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
+import { Flex, SelectList } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -98,9 +100,13 @@ const localeMap = {
   'zh-CN': { localeData: zhCN, lang: 'Chinese (Simplified)' },
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
+
 const PREVIEW_HEIGHT = 480;
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  const [locale, setLocale] = useState<string | null>('en-US');
+  const [date, setDate] = useState<Date | null>(new Date());
+
   return (
     <Page title="DatePicker">
       <PageHeader name="DatePicker" description={generatedDocGen?.description} pdocsLink>
@@ -137,6 +143,58 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        layout="column"
+        previewHeight={PREVIEW_HEIGHT}
+        noDefaultLabelProvider
+      >
+        <MainSection.Subsection
+          title="Date format locales"
+          description={`DatePicker supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
+
+The following locale examples show the different locale format variants.
+
+Note that locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
+
+~~~jsx
+import { DatePicker } from 'gestalt-datepicker';
+import { it } from 'date-fns/locale';
+<DatePicker localeData={it}/>
+~~~
+
+Use the SelectList to try out different locales by passing in the \`localeData\` prop.
+`}
+        >
+          <Flex gap={4} direction="row" wrap>
+            <Flex.Item flex="none">
+              <SelectList
+                id="selectlistexample1"
+                label="Country"
+                size="lg"
+                onChange={({ value }) => setLocale(value)}
+              >
+                {Object.keys(localeMap).map((localeKey) => (
+                  <SelectList.Option
+                    key={localeKey}
+                    label={localeMap[localeKey].lang}
+                    value={localeKey}
+                  />
+                ))}
+              </SelectList>
+            </Flex.Item>
+            <DatePicker
+              id="locale-example"
+              label={locale ? localeMap[locale].lang : undefined}
+              onChange={({ value }) => setDate(value)}
+              value={date}
+              localeData={locale ? localeMap[locale].localeData : undefined}
+              selectLists={['month']}
+            />
+          </Flex>
+        </MainSection.Subsection>
+      </LocalizationSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -294,41 +352,6 @@ Handlers:
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
 `}
         />
-      </MainSection>
-      <MainSection
-        name="Supporting locales"
-        description={`DatePicker supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
-
-The following locale examples show the different locale format variants.
-
-IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
-
-~~~jsx
-import { DatePicker } from 'gestalt-datepicker';
-import { it } from 'date-fns/locale';
-<DatePicker localeData={it}/>
-~~~
-`}
-      >
-        <MainSection.Subsection>
-          <CombinationNew localeData={Object.keys(localeMap)} cardSize="xs">
-            {({ localeData }) => {
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const [date, setDate] = useState<Date | null>(new Date());
-
-              return (
-                <DatePicker
-                  id={`example-${localeData}`}
-                  label={localeMap[localeData].lang}
-                  onChange={({ value }) => setDate(value)}
-                  value={date}
-                  localeData={localeMap[localeData].localeData}
-                  selectLists={['month']}
-                />
-              );
-            }}
-          </CombinationNew>
-        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

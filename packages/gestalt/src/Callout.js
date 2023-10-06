@@ -40,7 +40,7 @@ type Props = {|
   /**
    * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */
-  iconAccessibilityLabel: string,
+  iconAccessibilityLabel?: string,
   /**
    * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *

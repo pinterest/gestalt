@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -12,6 +13,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibilityExample from '../../examples/modal/accessibilityExample.js';
 import createBoardExample from '../../examples/modal/createBoardExample.js';
 import limitActionsExample from '../../examples/modal/limitActionsExample.js';
+import localizationLabels from '../../examples/modal/localizationLabels.js';
 import mobileExample from '../../examples/modal/mobileExample.js';
 import preventCloseExample from '../../examples/modal/preventCloseExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
@@ -59,6 +61,13 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        previewHeight={PREVIEW_HEIGHT}
+      />
+
       <MainSection name="Best practices">
         <MainSection.Subsection>
           <MainSection.Card
@@ -168,10 +177,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`heading\`, \`subheading\` and \`accessibilityModalLabel\` props, as well as any other text elements within Modal. Note that localization can lengthen text by 20 to 30 percent.`}
-      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Heading"

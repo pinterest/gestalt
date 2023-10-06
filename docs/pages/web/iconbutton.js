@@ -157,19 +157,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`.">
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="IconButtons with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"

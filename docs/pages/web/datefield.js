@@ -38,12 +38,12 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
-import { SlimBanner } from 'gestalt';
+import { Flex, SelectList, SlimBanner } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
-import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -93,6 +93,9 @@ const localeMap = {
 };
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+  const [locale, setLocale] = useState<string | null>('en-US');
+  const [date, setDate] = useState<Date | null>(new Date());
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -116,6 +119,58 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        layout="column"
+        noDefaultLabelProvider
+      >
+        <MainSection.Subsection
+          title="Date format locales"
+          description={`DateField supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
+
+The following locale examples show the different locale format variants.
+
+Note that locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
+
+~~~jsx
+import { DateField } from 'gestalt-datepicker';
+import { it } from 'date-fns/locale';
+<DateField localeData={it}/>
+~~~
+
+Use the SelectList to try out different locales by passing in the \`localeData\` prop.
+`}
+        >
+          <Flex gap={4} direction="row" wrap>
+            <Flex.Item flex="none">
+              <SelectList
+                id="selectlistexample1"
+                label="Country"
+                size="lg"
+                onChange={({ value }) => setLocale(value)}
+              >
+                {Object.keys(localeMap).map((localeKey) => (
+                  <SelectList.Option
+                    key={localeKey}
+                    label={localeMap[localeKey].lang}
+                    value={localeKey}
+                  />
+                ))}
+              </SelectList>
+            </Flex.Item>
+            <DateField
+              id="DateField-example"
+              label={locale ? localeMap[locale].lang : undefined}
+              onChange={({ value }) => setDate(value)}
+              onClearInput={() => setDate(null)}
+              value={date}
+              name={locale ? localeMap[locale].lang : undefined}
+              localeData={locale ? localeMap[locale].localeData : undefined}
+            />
+          </Flex>
+        </MainSection.Subsection>
+      </LocalizationSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -176,6 +231,7 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onM
         />
       </MainSection>
 
+<<<<<<< HEAD
       <MainSection
         name="Supporting locales"
         description={`DateField supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
@@ -220,6 +276,8 @@ import { it } from 'date-fns/locale';
         ]}
       />
 
+=======
+>>>>>>> 2c6fb768b (more)
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
