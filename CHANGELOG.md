@@ -1,3 +1,9 @@
+## 127.1.4 (Oct 6, 2023)
+
+### Patch
+
+- Docs: integrate PDocs in web component docs ([#3241](https://github.com/pinterest/gestalt/pull/3241)) - [Preview link](https://deploy-preview-3241--gestalt.netlify.app?devexample=true)
+
 ## 127.1.3 (Oct 5, 2023)
 
 ### Patch
