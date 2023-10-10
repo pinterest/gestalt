@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, DefaultLabelProvider, Flex, Spinner, useReducedMotion } from 'gestalt';
+import { DefaultLabelProvider, Flex, Spinner, useReducedMotion } from 'gestalt';
 
 export default function Example(): Node {
   const reduced = useReducedMotion();
