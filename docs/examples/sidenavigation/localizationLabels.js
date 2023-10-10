@@ -1,63 +1,56 @@
 // @flow strict
-import { type Node, useState } from 'react';
-import { DefaultLabelProvider } from 'gestalt';
-import { ChartGraph } from 'gestalt-charts';
+import React, { type Node } from 'react';
+import { DefaultLabelProvider, DeviceTypeProvider, SideNavigation } from 'gestalt';
 
 export default function Example(): Node {
-  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-
-  const data = [
-    {
-      name: 'Women',
-      'Users': 100,
-      'Clickthroughs': 200,
-    },
-    {
-      name: 'Men',
-      'Users': 200,
-      'Clickthroughs': 300,
-    },
-  ];
-
   return (
     <DefaultLabelProvider
       // $FlowExpectedError[incompatible-type] For demostration purposes
       labels={{
-        ChartGraph: {
-          accessibilityLabelPrefixText: 'ChartGraph',
-          defaultViewText: 'Standard-Ansichtsmodus.',
-          accessibleViewText: 'Ansichtsmodus für Barrierefreiheit.',
-          tabularData: 'Tabellarische Darstellung.',
-          accessibilityLabelDismissModal: 'Tabellendarstellung modal aufheben.',
-          tableSeriesText: 'Reihe.',
-          tableXAxisText: 'x-Achsen-Werte.',
-          tableYAxisText: 'y-Achsen-Werte.',
-          downloadCsvButtonText: 'Als .csv herunterladen.',
-          cancelButtonText: 'Abbrechen.',
+        SideNavigation: {
+          accessibilityDismissButtonLabel: 'Seitennavigation verwerfen',
         },
       }}
     >
-      <ChartGraph
-        title="Eindrücke"
-        description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        accessibilityLabel="Beispiel für ein Liniendiagramm"
-        type="bar"
-        data={data}
-        labelMap={{
-          'Women': 'Frauen',
-          'Men': 'Männer',
-          'Users': 'Benutzer',
-          'Clickthroughs': 'Durchklicken',
-        }}
-        elements={[
-          { type: 'bar', id: 'Users' },
-          { type: 'bar', id: 'Clickthroughs' },
-        ]}
-      />
+      <DeviceTypeProvider deviceType="mobile">
+        <SideNavigation accessibilityLabel="Beispiel für Lokalisierung">
+          <SideNavigation.TopItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            icon="bell"
+            label="Benachrichtigungen"
+            counter={{ number: '20', accessibilityLabel: 'Sie haben 20 Benachrichtigungen' }}
+            notificationAccessibilityLabel="Du hast neue Benachrichtigungen"
+          />
+          <SideNavigation.TopItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            icon="speech"
+            label="Mitteilungen"
+            counter={{ number: '10', accessibilityLabel: 'Sie haben 10 Nachrichten' }}
+            notificationAccessibilityLabel="Sie haben neue Nachrichten"
+          />
+          <SideNavigation.TopItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            icon="cog"
+            label="Einstellungen"
+          />
+          <SideNavigation.TopItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            icon="lock"
+            label="Geschäftszugriff"
+          />
+          <SideNavigation.TopItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            icon="add-layout"
+            label="Optimieren Sie Ihren Home-Feed"
+            badge={{ text: 'Neu', type: 'info' }}
+          />
+        </SideNavigation>
+      </DeviceTypeProvider>
     </DefaultLabelProvider>
   );
 }

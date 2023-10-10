@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -24,7 +25,7 @@ import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGro
 import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample.js';
 import incorrectIconExample from '../../examples/sidenavigation/incorrectIconExample.js';
 import incorrectLengthExample from '../../examples/sidenavigation/incorrectLengthExample.js';
-import localizationExample from '../../examples/sidenavigation/localizationExample.js';
+import localizationLabels from '../../examples/sidenavigation/localizationLabels.js';
 import mainExample from '../../examples/sidenavigation/mainExample.js';
 import mobileExample from '../../examples/sidenavigation/mobileExample.js';
 import nestedExample from '../../examples/sidenavigation/nestedExample.js';
@@ -211,18 +212,15 @@ export default function SideNavigationPage({
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`
-        Be sure to localize the \`accessibilityLabel\` in SideNavigation and all subcomponents as well. When the text of the SideNav.Item becomes longer than the width of the menu, either intentionally or through localization, will wrap as needed to display the full text. Keep this in mind when selecting wording for your SideNavigation menu items.
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.SideNavigationSection?.displayName}
+        notes={`
+When the text of the SideNav.Item becomes longer than the width of the menu, either intentionally or through localization, will wrap as needed to display the full text. Keep this in mind when selecting wording for your SideNavigation menu items.
+
+Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.
         `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={localizationExample} name="Localization example" />
-          }
-        />
-      </MainSection>
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection

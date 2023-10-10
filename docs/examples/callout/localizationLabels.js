@@ -7,7 +7,7 @@ export default function Example(): Node {
     <DefaultLabelProvider
       // $FlowExpectedError[incompatible-type] For demostration purposes
       labels={{
-        ChartGraph: {
+        Callout: {
           accessibilityDismissButtonLabel: 'Banner entlassen.',
           iconAccessibilityLabelError: 'Fehler.',
           iconAccessibilityLabelInfo: 'Informationen.',
