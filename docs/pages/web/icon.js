@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, overrideTypes } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -155,7 +156,9 @@ If an icon has a visible label that describes what the icon represents, \`access
           description="Ensure that icons use a contrast ratio of 4.5:1 between icon color and background color."
         />
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
+
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Colors"

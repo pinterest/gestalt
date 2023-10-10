@@ -12,6 +12,7 @@ type Props = {|
   previewHeight?: number,
   children?: Node,
   noDefaultLabelProvider?: boolean,
+  noBaseText?: boolean,
 |};
 
 export default function AccessibilitySection({
@@ -22,21 +23,23 @@ export default function AccessibilitySection({
   previewHeight,
   children,
   noDefaultLabelProvider,
+  noBaseText = false,
 }: Props): Node {
   const baseText =
     'Be sure to localize all text strings. Note that localization can lengthen text by 20 to 30 percent.';
-  return (
-    <MainSection
-      name="Localization"
-      description={
-        notes
-          ? `${baseText}
+
+  let description = baseText;
+  if (notes) {
+    description = noBaseText
+      ? notes
+      : `${baseText}
 
 ${notes}
-        `
-          : baseText
-      }
-    >
+        `;
+  }
+
+  return (
+    <MainSection name="Localization" description={description}>
       {!noDefaultLabelProvider ? (
         <SlimBanner
           iconAccessibilityLabel="Recommendation"

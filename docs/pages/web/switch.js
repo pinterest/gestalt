@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -104,10 +105,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
         />
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`label\` and \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes={`Be sure to localize \`label\` and \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="With a label"

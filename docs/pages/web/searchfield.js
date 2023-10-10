@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -173,26 +174,12 @@ export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen:
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection name="Localization">
-        <MainSection.Subsection
-          description={`
-      Be sure to localize the \`accessibilityLabel\`, \`accessibilityClearButtonLabel\`, \`errorMessage\`, \`label\` and \`placeholder\` prop values. Also localize \`value\` for those cases when it can be translated.
-
-      Note that localization can lengthen text by 20 to 30 percent.
-      `}
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                name="Localization example"
-                code={localizationExample}
-                layout="column"
-              />
-            }
-          />
-        </MainSection.Subsection>
-      </MainSection>
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes={`Also localize \`value\` for those cases when it can be translated.`}
+        code={localizationExample}
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection

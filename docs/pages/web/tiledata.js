@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -115,12 +116,10 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
         description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader if you're using the `trend` or `tooltip` props."
       />
 
-      <MainSection
-        name="Localization"
-        description={`
-        Be sure to localize \`title\`, \`value\`, \`trend.accessibilityLabel\`, and \`tooltip.accessibilityLabel\` in TileData.
-
-        When the title of TileData reaches its max width, either intentionally or through localization, the title will wrap as needed to display the full text. Keep this in mind when selecting wording for TileData menu items. Note that localization can lengthen text by 20 to 30 percent. `}
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes="When the title of TileData reaches its max width, either intentionally or through localization, the title will wrap as needed to display the full text. Keep this in mind when selecting wording for TileData menu items."
       />
 
       <MainSection name="Variants">
