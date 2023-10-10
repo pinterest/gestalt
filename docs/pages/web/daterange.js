@@ -338,23 +338,23 @@ Handlers:
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
 `}
         />
-      </MainSection>
 
-      <MainSection
-        name="Mobile"
-        description={`
+        <MainSection.Subsection
+          title="Mobile"
+          description={`
 DateRange requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 On mobile devices, the \`radiogroup\` prop is not shown.
   `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={mobile} name="Mobile example" layout="mobileRow" />
-          }
-        />
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={mobile} name="Mobile example" layout="mobileRow" />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
-      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -372,6 +372,8 @@ On mobile devices, the \`radiogroup\` prop is not shown.
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <InternalDocumentationSection
         items={[

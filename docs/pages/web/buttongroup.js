@@ -20,8 +20,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <AccessibilitySection name={generatedDocGen?.displayName} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -44,6 +42,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection

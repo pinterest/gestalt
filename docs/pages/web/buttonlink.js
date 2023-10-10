@@ -41,10 +41,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection
-        name="Localization"
-        description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating ButtonLink text whenever possible. Refer to the [ButtonLink usage guidelines](#Usage-guidelines) for more information. "
-      />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -162,6 +158,11 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <MainSection
+        name="Localization"
+        description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating ButtonLink text whenever possible. Refer to the [ButtonLink usage guidelines](#Usage-guidelines) for more information. "
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection
