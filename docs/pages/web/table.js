@@ -289,7 +289,7 @@ See the examples below for more details.`}
       </AccessibilitySection>
 
       <LocalizationSection
-        name={generatedDocGen?.displayName}
+        name={generatedDocGen?.TableHeader?.displayName}
         noDefaultLabelProvider
         notes={`Follow our guidelines on concise content and headings to account for localization.
 
