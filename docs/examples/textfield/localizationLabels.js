@@ -1,63 +1,30 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { DefaultLabelProvider } from 'gestalt';
-import { ChartGraph } from 'gestalt-charts';
+import { Box, DefaultLabelProvider, TextField } from 'gestalt';
 
 export default function Example(): Node {
-  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-
-  const data = [
-    {
-      name: 'Women',
-      'Users': 100,
-      'Clickthroughs': 200,
-    },
-    {
-      name: 'Men',
-      'Users': 200,
-      'Clickthroughs': 300,
-    },
-  ];
+  const [password, setPassword] = useState<string>('');
 
   return (
     <DefaultLabelProvider
       // $FlowExpectedError[incompatible-type] For demostration purposes
       labels={{
-        ChartGraph: {
-          accessibilityLabelPrefixText: 'ChartGraph',
-          defaultViewText: 'Standard-Ansichtsmodus.',
-          accessibleViewText: 'Ansichtsmodus für Barrierefreiheit.',
-          tabularData: 'Tabellarische Darstellung.',
-          accessibilityLabelDismissModal: 'Tabellendarstellung modal aufheben.',
-          tableSeriesText: 'Reihe.',
-          tableXAxisText: 'x-Achsen-Werte.',
-          tableYAxisText: 'y-Achsen-Werte.',
-          downloadCsvButtonText: 'Als .csv herunterladen.',
-          cancelButtonText: 'Abbrechen.',
+        TextField: {
+          accessibilityHidePasswordLabel: 'Passwort verstecken',
+          accessibilityShowPasswordLabel: 'Passwort anzeigen',
         },
       }}
     >
-      <ChartGraph
-        title="Eindrücke"
-        description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        accessibilityLabel="Beispiel für ein Liniendiagramm"
-        type="bar"
-        data={data}
-        labelMap={{
-          'Women': 'Frauen',
-          'Men': 'Männer',
-          'Users': 'Benutzer',
-          'Clickthroughs': 'Durchklicken',
-        }}
-        elements={[
-          { type: 'bar', id: 'Users' },
-          { type: 'bar', id: 'Clickthroughs' },
-        ]}
-      />
+      <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+        <TextField
+          id="enter-password"
+          label="Konto-Passwort"
+          onChange={({ value }) => setPassword(value)}
+          placeholder="Kennwort"
+          type="password"
+          value={password}
+        />
+      </Box>
     </DefaultLabelProvider>
   );
 }

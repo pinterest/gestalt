@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -20,6 +21,7 @@ import errorMessageExample from '../../examples/textfield/errorMessageExample.js
 import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo.js';
 import labelsExample from '../../examples/textfield/labelsExample.js';
 import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample.js';
+import localizationLabels from '../../examples/textfield/localizationLabels.js';
 import main from '../../examples/textfield/main.js';
 import maximumLengthExample from '../../examples/textfield/maximumLengthExample.js';
 import maximumLengthExampleSingleLine from '../../examples/textfield/maximumLengthExampleSingleLine.js';
@@ -270,10 +272,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         />
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, \`maxLength\`'s \`errorAccessibilityLabel\` and \`placeholder\`.`}
-      />
+      <LocalizationSection code={localizationLabels} name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection

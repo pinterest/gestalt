@@ -1,63 +1,45 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { DefaultLabelProvider } from 'gestalt';
-import { ChartGraph } from 'gestalt-charts';
+import { Box, DefaultLabelProvider, Video } from 'gestalt';
 
 export default function Example(): Node {
-  const [visualPatternSelected, setVisualPatternSelected] = useState('default');
-
-  const data = [
-    {
-      name: 'Women',
-      'Users': 100,
-      'Clickthroughs': 200,
-    },
-    {
-      name: 'Men',
-      'Users': 200,
-      'Clickthroughs': 300,
-    },
-  ];
+  const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState(1);
 
   return (
     <DefaultLabelProvider
       // $FlowExpectedError[incompatible-type] For demostration purposes
       labels={{
-        ChartGraph: {
-          accessibilityLabelPrefixText: 'ChartGraph',
-          defaultViewText: 'Standard-Ansichtsmodus.',
-          accessibleViewText: 'Ansichtsmodus für Barrierefreiheit.',
-          tabularData: 'Tabellarische Darstellung.',
-          accessibilityLabelDismissModal: 'Tabellendarstellung modal aufheben.',
-          tableSeriesText: 'Reihe.',
-          tableXAxisText: 'x-Achsen-Werte.',
-          tableYAxisText: 'y-Achsen-Werte.',
-          downloadCsvButtonText: 'Als .csv herunterladen.',
-          cancelButtonText: 'Abbrechen.',
+        Video: {
+          accessibilityMaximizeLabel: 'Maximieren',
+          accessibilityMinimizeLabel: 'Minimieren',
+          accessibilityMuteLabel: 'Stummschalten',
+          accessibilityPauseLabel: 'Pause',
+          accessibilityPlayLabel: 'Spielen',
+          accessibilityProgressLabel: 'Video Fortschritt',
+          accessibilityUnmuteLabel: 'Stummschaltung aufheben',
+          accessibilityHideCaptionsLabel: 'Bildunterschriften ausblenden',
+          accessibilityShowCaptionsLabel: 'Bildunterschriften anzeigen',
         },
       }}
     >
-      <ChartGraph
-        title="Eindrücke"
-        description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        accessibilityLabel="Beispiel für ein Liniendiagramm"
-        type="bar"
-        data={data}
-        labelMap={{
-          'Women': 'Frauen',
-          'Men': 'Männer',
-          'Users': 'Benutzer',
-          'Clickthroughs': 'Durchklicken',
-        }}
-        elements={[
-          { type: 'bar', id: 'Users' },
-          { type: 'bar', id: 'Clickthroughs' },
-        ]}
-      />
+      <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+        <Box width={300}>
+          <Video
+            aspectRatio={540 / 960}
+            controls
+            playing={playing}
+            volume={volume}
+            onPlay={() => setPlaying(true)}
+            onPlayError={({ error }) => error && setPlaying(false)}
+            onControlsPlay={() => setPlaying(true)}
+            onControlsPause={() => setPlaying(false)}
+            onEnded={() => setPlaying(false)}
+            onVolumeChange={(e) => setVolume(e.volume)}
+            src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
+          />
+        </Box>
+      </Box>
     </DefaultLabelProvider>
   );
 }
