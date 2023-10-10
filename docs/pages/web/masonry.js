@@ -45,6 +45,18 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           Check out [this README](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md) for more details about how Masonry works. Pinterest employees can also check out [this PDocs page](https://pdocs.pinadmin.com/docs/webapp/masonry-ssr) to learn more about our Masonry SSR optimizations in Pinboard.
           `}
         />
+
+        <MainSection.Subsection
+          title="Why is there too much / too little vertical whitespace between items?"
+          description={`
+          [As mentioned above](/web/masonry#How-Masonry-works), Masonry calculates the height of each item before rendering it. This means that if the height of an item changes after it has been rendered, the items below it will not be repositioned. This can lead to extra whitespace between items if the height of an item decreases, or overlapping items if the height of an item increases.
+
+          To avoid this issue, ensure that your items do not change height after their intial render. Common causes of this issue include:
+          - lazy-loading item content (especially things that increase item height, like Pin footer content)
+          - placeholder images that don't match the size of the final content (this is particularly common with videos)
+          - items that grow/shrink based on user interaction (this requires reflowing the entire grid)
+          `}
+        />
       </MainSection>
 
       <MainSection name="Variants">
@@ -103,20 +115,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             }
           />
         </MainSection.Subsection>
-      </MainSection>
-
-      <MainSection name="FAQ">
-        <MainSection.Subsection
-          title="Why is there too much / too little vertical whitespace between items?"
-          description={`
-          [As mentioned above](/web/masonry#How-Masonry-works), Masonry calculates the height of each item before rendering it. This means that if the height of an item changes after it has been rendered, the items below it will not be repositioned. This can lead to extra whitespace between items if the height of an item decreases, or overlapping items if the height of an item increases.
-
-          To avoid this issue, ensure that your items do not change height after their intial render. Common causes of this issue include:
-          - lazy-loading item content (especially things that increase item height, like Pin footer content)
-          - placeholder images that don't match the size of the final content (this is particularly common with videos)
-          - items that grow/shrink based on user interaction (this requires reflowing the entire grid)
-          `}
-        />
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

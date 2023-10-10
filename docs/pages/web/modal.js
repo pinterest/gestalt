@@ -62,12 +62,6 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
       </MainSection>
 
-      <LocalizationSection
-        code={localizationLabels}
-        name={generatedDocGen?.displayName}
-        previewHeight={PREVIEW_HEIGHT}
-      />
-
       <MainSection name="Best practices">
         <MainSection.Subsection>
           <MainSection.Card
@@ -178,6 +172,12 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
         </MainSection.Subsection>
       </AccessibilitySection>
 
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        previewHeight={PREVIEW_HEIGHT}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Heading"
@@ -252,8 +252,9 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             }
           />
         </MainSection.Subsection>
-        <MainSection
-          name="Mobile"
+
+        <MainSection.Subsection
+          title="Mobile"
           description={`Modal requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
@@ -265,7 +266,7 @@ For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice 
               <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
             }
           />
-        </MainSection>
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

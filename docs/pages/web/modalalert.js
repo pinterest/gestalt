@@ -294,18 +294,17 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-      </MainSection>
-
-      <MainSection
-        name="Mobile"
-        description="ModalAlert is responsive but not adaptive to mobile devices; therefore, it does not require [DeviceTypeProvider](/web/utilities/devicetypeprovider)."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
-          }
-        />
+        <MainSection.Subsection
+          title="Mobile"
+          description="ModalAlert is responsive but not adaptive to mobile devices; therefore, it does not require [DeviceTypeProvider](/web/utilities/devicetypeprovider)."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Writing">
