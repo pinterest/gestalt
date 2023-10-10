@@ -29,7 +29,7 @@ export default function CustomIconButtonPopoverExample(): Node {
             ref={anchorRef}
             selected={open}
             size="lg"
-            text="Menu"
+            text="Menü"
           />
         </Box>
       </Flex>

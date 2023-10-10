@@ -156,7 +156,7 @@ When OverlayPanel opens, focus should be placed on the first interactive element
         name={generatedDocGen?.OverlayPanel.displayName}
         notes={`Note that \`accessibilityDismissButtonLabel\`, \`dismissConfirmation.message\`, \`dismissConfirmation.subtext\`, \`dismissConfirmation.primaryAction.accessibilityLabel\`,
     \`dismissConfirmation.primaryAction.text\`, \`dismissConfirmation.secondaryAction.accessibilityLabel\`,
-    \`dismissConfirmation.secondaryAction.text\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.`}
+    \`dismissConfirmation.secondaryAction.text\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Subcomponents">

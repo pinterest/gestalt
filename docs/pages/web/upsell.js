@@ -209,7 +209,7 @@ export default function DocsPage({
         name={generatedDocGen.Upsell?.displayName}
         layout="column"
         notes={`
-Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.`}
+Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Subcomponents">

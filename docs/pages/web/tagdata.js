@@ -160,7 +160,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
         notes={`
 When the \`text\` of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width.
 
-Note that \`accessibilityRemoveIconLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.`}
+Note that \`accessibilityRemoveIconLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">

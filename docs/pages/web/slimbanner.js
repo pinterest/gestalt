@@ -213,7 +213,7 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
       <LocalizationSection
         code={localizationLabels}
         name={generatedDocGen?.displayName}
-        notes={`Note that \`dismissButton.accessibilityLabel\` and \`iconAccessibilityLabel\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.`}
+        notes={`Note that \`dismissButton.accessibilityLabel\` and \`iconAccessibilityLabel\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">

@@ -52,7 +52,7 @@ export default function ActivationCardPage({
       <LocalizationSection
         code={localizationLabels}
         name={generatedDocGen?.displayName}
-        notes={`Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.`}
+        notes={`Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">

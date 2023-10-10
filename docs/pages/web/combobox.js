@@ -106,7 +106,7 @@ export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: Do
       <LocalizationSection
         code={localizationLabels}
         name={generatedDocGen?.displayName}
-        notes={`Note that \`accessibilityClearButtonLabel\` and \`noResultText\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more  specific.`}
+        notes={`Note that \`accessibilityClearButtonLabel\` and \`noResultText\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">
