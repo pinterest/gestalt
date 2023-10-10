@@ -180,12 +180,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <MainSection
         name="Localization"
         description="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders."
-      >
-        <MainSection.Subsection
-          title="Text-wrapping and hyphenation"
-          description="Hyphenation on iOS is turned off by default to avoid incorrect word breaks when strings of text wrap to the next line. This is especially helpful for international languages where an incorrect word break can greatly change the meaning of a word or sentence."
-        />
-      </MainSection>
+      />
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Alignment"

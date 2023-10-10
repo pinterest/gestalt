@@ -22,9 +22,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Primary Switch example" hideEditor previewHeight={150} />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -46,7 +44,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -92,7 +89,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-
       <AccessibilitySection
         name={generatedDocGen.displayName}
         description={`Switches should have [Labels](https://github.com/Label) that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect. Make sure Label has an \`htmlFor\` prop that matches the \`id\` on the Switch. Test that the Switch and Label are properly connected by clicking or tapping on the label and confirming that it activates the Switch next to it.`}
@@ -108,12 +104,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 `}
         />
       </AccessibilitySection>
-
       <MainSection
         name="Localization"
         description={`Be sure to localize \`label\` and \`subtext\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
       />
-
       <MainSection name="Variants">
         <MainSection.Subsection
           title="With a label"
@@ -136,7 +130,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -160,6 +153,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -180,7 +175,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
     `}
         />
       </MainSection>
-      <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }

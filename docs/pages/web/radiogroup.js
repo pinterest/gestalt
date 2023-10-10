@@ -45,19 +45,6 @@ export default function DocsPage({
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.RadioGroup} />
 
-      <MainSection name="Subcomponents">
-        <MainSection.Subsection
-          title={generatedDocGen?.RadioGroupButton.displayName}
-          description={generatedDocGen?.RadioGroupButton.description}
-        >
-          <GeneratedPropTable
-            name={generatedDocGen?.RadioGroupButton.displayName}
-            id={generatedDocGen?.RadioGroupButton.displayName}
-            generatedDocGen={generatedDocGen.RadioGroupButton}
-          />
-        </MainSection.Subsection>
-      </MainSection>
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -189,6 +176,19 @@ export default function DocsPage({
         name="Localization"
         description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, and \`legend\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
       />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.RadioGroupButton.displayName}
+          description={generatedDocGen?.RadioGroupButton.description}
+        >
+          <GeneratedPropTable
+            name={generatedDocGen?.RadioGroupButton.displayName}
+            id={generatedDocGen?.RadioGroupButton.displayName}
+            generatedDocGen={generatedDocGen.RadioGroupButton}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection

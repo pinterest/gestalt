@@ -48,17 +48,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection name="Variants">
-        <MainSection.Subsection
-          title="Example"
-          description={`
-      Using \`WashAnimated\` is as easy as it can be: simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-    `}
-        >
-          <SandpackExample code={main} name="Variants - Example" previewHeight={325} />
-        </MainSection.Subsection>
-      </MainSection>
-
       <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );

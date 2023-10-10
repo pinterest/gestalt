@@ -406,22 +406,22 @@ When building SideNavigation, we might want to render different combinations of 
             }
           />
         </MainSection.Subsection>
-      </MainSection>
 
-      <MainSection
-        name="Mobile"
-        description={`SideNavigation requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+        <MainSection.Subsection
+          title="Mobile"
+          description={`SideNavigation requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 For mobile, \`title\` and \`dismissButton\` become required props.
 
 Notice that the mobile UI requires logic to hide and show SideNavigation full width. If [Button](/web/button) or [TapArea](/web/taparea) control the visibility of SideNavigation, use \`accessibilityControls\` so that screen reader users can identify the relationship between elements.
   `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
-          }
-        />
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Writing">

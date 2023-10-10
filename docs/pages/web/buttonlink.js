@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -14,6 +15,7 @@ import disabledStateExample from '../../examples/buttonlink/disabledStateExample
 import iconEndExample from '../../examples/buttonlink/iconEndExample.js';
 import iconTooltipToExplainDo from '../../examples/buttonlink/iconTooltipToExplainDo.js';
 import iconTooltipToExplainDont from '../../examples/buttonlink/iconTooltipToExplainDont.js';
+import localizationLabels from '../../examples/buttonlink/localizationLabels.js';
 import main from '../../examples/buttonlink/main.js';
 import placePrimaryButtonDo from '../../examples/buttonlink/placePrimaryButtonDo.js';
 import placePrimaryButtonDont from '../../examples/buttonlink/placePrimaryButtonDont.js';
@@ -159,10 +161,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection
-        name="Localization"
-        description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating ButtonLink text whenever possible. Refer to the [ButtonLink usage guidelines](#Usage-guidelines) for more information. "
-      />
+      <LocalizationSection name={generatedDocGen?.displayName} code={localizationLabels} />
 
       <MainSection name="Variants">
         <MainSection.Subsection

@@ -105,25 +105,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
             }
           />
         </MainSection.Subsection>
-
-        <AccessibilitySection name={generatedDocGen?.displayName}>
-          <MainSection.Subsection
-            title="Icons"
-            description={`
-\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Link”. It should also be localized.
-      `}
-          />
-          <MainSection.Subsection
-            title="Duration"
-            description={`
-Some people may take longer to read toasts than others due to cognitive impairments. Use the guide below to set duration for Toasts:
-
-- Brief text of approximately 10–15 words (including button text): 5s
-- Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s. [Learn more](https://capitalizemytitle.com/reading-time/3000-words/).
-      `}
-          />
-        </AccessibilitySection>
-
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
@@ -182,6 +163,23 @@ Some people may take longer to read toasts than others due to cognitive impairme
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <AccessibilitySection name={generatedDocGen?.displayName}>
+        <MainSection.Subsection
+          title="Duration"
+          description={`
+Some people may take longer to read toasts than others due to cognitive impairments. Use the guide below to set duration for Toasts:
+
+- Brief text of approximately 10–15 words (including button text): 5s
+- Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s. [Learn more](https://capitalizemytitle.com/reading-time/3000-words/).
+
+Toasts should be on screen for a minimum of 5 seconds; this gives most people enough time to read and act. Please note that a separate Toast manager must be implemented in order to handle duration and animation.
+
+Once a toast is triggered, allow for a cooldown period of about 7 seconds before the toast can be triggered again. This will prevent multiple toasts from appearing.
+
+      `}
+        />
+      </AccessibilitySection>
 
       <LocalizationSection
         code={localizationLabels}
@@ -299,15 +297,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
           />
         </MainSection.Subsection>
       </MainSection>
-
-      <MainSection
-        name="Duration and timing"
-        description={`
-Toasts should be on screen for a minimum of 5 seconds; this gives most people enough time to read and act. Please note that a separate Toast manager must be implemented in order to handle duration and animation.
-
-Once a toast is triggered, allow for a cooldown period of about 7 seconds before the toast can be triggered again. This will prevent multiple toasts from appearing.
-`}
-      />
 
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
