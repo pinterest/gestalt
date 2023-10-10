@@ -28,16 +28,14 @@ export default function AccessibilitySection({
   return (
     <MainSection
       name="Localization"
-      {...(!noDefaultLabelProvider
-        ? {
-            description: notes
-              ? `${baseText}
+      description={
+        notes
+          ? `${baseText}
 
 ${notes}
         `
-              : baseText,
-          }
-        : {})}
+          : baseText
+      }
     >
       {!noDefaultLabelProvider ? (
         <SlimBanner

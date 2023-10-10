@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -338,10 +339,13 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 `}
         />
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information. "
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes="Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information"
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
