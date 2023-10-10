@@ -231,42 +231,6 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onM
         />
       </MainSection>
 
-<<<<<<< HEAD
-      <MainSection
-        name="Supporting locales"
-        description={`DateField supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
-
-IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
-
-~~~jsx
-import { DateField } from 'gestalt-datepicker';
-import { it } from 'date-fns/locale';
-<DateField localeData={it}/>
-~~~
-`}
-      >
-        <MainSection.Subsection>
-          <CombinationNew localeData={Object.keys(localeMap)} cardSize="xs">
-            {({ localeData }) => {
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const [date, setDate] = useState<Date | null>(null);
-
-              return (
-                <DateField
-                  id={`localeExample:${localeMap[localeData].lang}`}
-                  label={localeMap[localeData].lang}
-                  onChange={({ value }) => setDate(value)}
-                  onClearInput={() => setDate(null)}
-                  value={date}
-                  name={localeMap[localeData].lang}
-                  localeData={localeMap[localeData].localeData}
-                />
-              );
-            }}
-          </CombinationNew>
-        </MainSection.Subsection>
-      </MainSection>
-
       <InternalDocumentationSection
         items={[
           {
@@ -276,8 +240,6 @@ import { it } from 'date-fns/locale';
         ]}
       />
 
-=======
->>>>>>> 2c6fb768b (more)
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
