@@ -31,11 +31,7 @@ export default function SubheadingExample(): Node {
   }: {|
     +activeTabIndex: number,
     dangerouslyDisableOnNavigation: () => void,
-    event:
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   |}) => {
     event.preventDefault();
     setActiveTabIndex(activeTabIndexLocal);

@@ -3,6 +3,7 @@ import { Children, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
@@ -14,22 +15,24 @@ import styles from './Upsell.css';
 import UpsellForm from './UpsellForm.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
-export type ActionDataType = {|
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href?: string,
-  label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+export type ActionDataType =
+  | {|
+      accessibilityLabel: string,
+      disabled?: boolean,
+      href: string,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+      rel?: 'none' | 'nofollow',
+      role: 'link',
+      target?: null | 'self' | 'blank',
+    |}
+  | {|
+      accessibilityLabel: string,
+      disabled?: boolean,
+      label: string,
+      onClick: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role?: 'button',
+    |};
 
 type UpsellActionProps = {|
   data: ActionDataType,
@@ -39,14 +42,13 @@ type UpsellActionProps = {|
 
 function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, disabled, href, label, onClick, rel, target } = data;
+  const { accessibilityLabel, disabled, label } = data;
 
   const commonProps = {
     accessibilityLabel,
     color,
     disabled,
     fullWidth: true,
-    onClick,
     size: 'lg',
     text: label,
   };
@@ -62,10 +64,16 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
       smMarginTop="auto"
       smMarginBottom="auto"
     >
-      {href ? (
-        <Button {...commonProps} href={href} rel={rel} role="link" target={target} />
+      {data.role === 'link' ? (
+        <ButtonLink
+          {...commonProps}
+          onClick={data.onClick}
+          href={data.href ?? ''}
+          rel={data.rel}
+          target={data.target}
+        />
       ) : (
-        <Button {...commonProps} role="button" />
+        <Button {...commonProps} onClick={data.onClick} />
       )}
     </Box>
   );
@@ -103,43 +111,13 @@ type Props = {|
    * If no \`href\` is supplied, the action will be a button.
    * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
-  primaryAction?: {|
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href?: string,
-    label: string,
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-    rel?: 'none' | 'nofollow',
-    target?: null | 'self' | 'blank',
-  |},
+  primaryAction?: ActionDataType,
   /**
    * Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
    * If no \`href\` is supplied, the action will be a button.
    * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
-  secondaryAction?: {|
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href?: string,
-    label: string,
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-    rel?: 'none' | 'nofollow',
-    target?: null | 'self' | 'blank',
-  |},
+  secondaryAction?: ActionDataType,
   /**
    * Brief title summarizing the Upsell. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization).
    */

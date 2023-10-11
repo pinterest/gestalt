@@ -66,12 +66,7 @@ type Props = {|
     accessibilityControls: string,
     accessibilityExpanded: boolean,
     onClick: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void,
+      event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
     |}) => void,
   |},
   /**

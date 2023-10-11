@@ -52,15 +52,6 @@ test('TapArea supports press style', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Link-role tapArea supports press style', () => {
-  const tree = create(
-    <TapArea role="link" href="http://www.test.com" onTap={() => {}} tapStyle="compress">
-      TapArea
-    </TapArea>,
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 test('accessibilityControls', () => {
   const instance = create(
     <TapArea onTap={() => {}} accessibilityControls="another-element">

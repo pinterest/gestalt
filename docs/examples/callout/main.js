@@ -18,12 +18,14 @@ export default function ResponsiveExample(): Node {
             href: 'https://pinterest.com',
             label: 'Get started',
             target: 'blank',
+            role: 'link',
           }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Verified Merchant Program',
             href: 'https://pinterest.com',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Your business account was created!"
           type="info"

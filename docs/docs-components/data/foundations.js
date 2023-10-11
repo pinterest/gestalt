@@ -13,6 +13,7 @@ import Iconography from '../../graphics/foundations/iconography.svg';
 import Illustration from '../../graphics/foundations/illustration.svg';
 import Layouts from '../../graphics/foundations/layouts.svg';
 import Messaging from '../../graphics/foundations/messaging.svg';
+import RTLGuidelines from '../../graphics/foundations/rtl-guidelines.svg';
 import ScreenSizes from '../../graphics/foundations/screen-size.svg';
 import Typography from '../../graphics/foundations/typography.svg';
 
@@ -101,6 +102,13 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     description:
       'How to communicate errors, warnings, successes, recommendations and general information on system status.',
     path: '/foundations/messaging/overview',
+  },
+  {
+    svg: <RTLGuidelines />,
+    title: 'RTL guidelines',
+    description:
+      'How to display text direction, layout, icons and typography in right-to-left languages for internationalization',
+    path: '/foundations/rtl_guidelines/about_international_design',
   },
   {
     svg: <ScreenSizes />,

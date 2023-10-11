@@ -61,6 +61,7 @@ export function SlimBannerExperiment({
         label: experiments === componentName ? 'Deactivate experiments' : 'Activate experiments',
         onClick: () => setExperiments(experiments === componentName ? '' : componentName),
         href: section,
+        role: 'link',
       }}
     />
   );

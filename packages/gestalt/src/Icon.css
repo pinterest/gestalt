@@ -9,5 +9,11 @@
 }
 
 html[dir="rtl"] .rtlSupport {
-  transform: rotateY(180deg);
+  /*
+  Using `scale` instead of `rotateY`.
+  This is a workaround for the bug in iOS browsers with rendering rotated SVGs over video.
+  Bug repro: https://gist.github.com/diyorbek/945189e3036552d2de34ae955a1605ee
+  */
+  transform: scale(-1, 1);
+  transform-origin: center;
 }

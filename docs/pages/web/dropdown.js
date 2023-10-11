@@ -352,9 +352,6 @@ If users need to select from a short, simple list (without needing sections, sub
 
 **[ComboBox](/web/combobox)**
 If users need the ability to choose an option by typing in an input and filtering a long list of options, use ComboBox.
-
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
           `}
         />
       </MainSection>

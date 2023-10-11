@@ -15,7 +15,12 @@ export default function Example(): Node {
       >
         <Toast
           text="Your account admin rights were successfully saved"
-          primaryAction={{ accessibilityLabel: 'Undo', label: 'Undo' }}
+          primaryAction={{
+            accessibilityLabel: 'Undo',
+            label: 'Undo',
+            role: 'button',
+            onClick: () => {},
+          }}
           thumbnail={{
             image: (
               <Image

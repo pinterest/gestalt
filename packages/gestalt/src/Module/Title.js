@@ -5,6 +5,7 @@ import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Icon from '../Icon.js';
 import IconButton from '../IconButton.js';
+import IconButtonLink from '../IconButtonLink.js';
 import icons from '../icons/index.js';
 import Text from '../Text.js';
 
@@ -17,7 +18,7 @@ export default function ModuleTitle(props: {|
   badge?: BadgeType,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
-  iconButton?: Element<typeof IconButton>,
+  iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
   title: string,
   type?: 'error' | 'info',
 |}): Node {

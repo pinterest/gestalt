@@ -11,6 +11,7 @@ const Valid = (
       accessibilityLabel: 'Acknowledge expired card',
       label: 'Got it',
       onClick: () => {},
+      role: 'button',
     }}
   >
     <Text>Hello</Text>
@@ -33,6 +34,7 @@ const InvalidProp = (
       accessibilityLabel: 'Acknowledge expired card',
       label: 'Got it',
       onClick: () => {},
+      role: 'button',
     }}
   >
     <Text>Hello</Text>

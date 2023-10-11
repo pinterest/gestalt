@@ -35,6 +35,7 @@ export default function Example(): Node {
               onClick: () => {
                 setShowEducation(false);
               },
+              role: 'button',
             }}
           />
         )}

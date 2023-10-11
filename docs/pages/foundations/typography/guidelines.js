@@ -254,14 +254,16 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
         </MainSection.Subsection>
 
         <MainSection.Subsection>
-          <Heading size="300" accessibilityLevel={4}>
-            iOS
-          </Heading>
-          <Markdown
-            text={`
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+            <Heading size="300" accessibilityLevel={4}>
+              iOS
+            </Heading>
+            <Markdown
+              text={`
 iOS leading is automatically determined by a font’s size. Below is a breakdown based on Gestalt’s current font sizes. For more info, refer to Apple’s [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
             `}
-          />
+            />
+          </Box>
           <Table accessibilityLabel="Font weight treatments">
             <Table.Header>
               <Table.Row>
@@ -295,14 +297,16 @@ iOS leading is automatically determined by a font’s size. Below is a breakdown
         </MainSection.Subsection>
 
         <MainSection.Subsection>
-          <Heading size="300" accessibilityLevel={4}>
-            Android
-          </Heading>
-          <Markdown
-            text={`
+          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={6}>
+            <Heading size="300" accessibilityLevel={4}>
+              Android
+            </Heading>
+            <Markdown
+              text={`
 Line height is automatically determined by a font’s size. For more info, refer to [Material Design](https://material.io/design/typography/the-type-system.html#type-scale).
 `}
-          />
+            />
+          </Box>
         </MainSection.Subsection>
 
         <MainSection.Subsection

@@ -7,7 +7,7 @@ import {
   DeviceTypeProvider,
   FixedZIndex,
   Flex,
-  IconButton,
+  IconButtonLink,
   Layer,
   SheetMobile,
   Text,
@@ -27,10 +27,9 @@ export default function Example(): Node {
             onDismiss={() => setShowComponent(false)}
             footer={
               <Flex justifyContent="between" gap={2}>
-                <IconButton
+                <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
                   icon="share"
-                  role="link"
                   target="blank"
                   href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}
@@ -41,10 +40,9 @@ export default function Example(): Node {
                   <Button color="red" text="Primary" />
                 </Flex>
 
-                <IconButton
+                <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
                   icon="ellipsis"
-                  role="link"
                   target="blank"
                   href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}

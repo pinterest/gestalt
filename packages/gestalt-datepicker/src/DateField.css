@@ -33,7 +33,7 @@
   font-size: var(--font-size-300);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  padding: var(--space-200) var(--space-300);
+  padding: var(--space-200) var(--space-400);
   width: calc(12 / var(--g-ncols) * 100%);
 }
 
@@ -116,9 +116,9 @@ html[dir="rtl"] .actionButtonWrapper {
 }
 
 html:not([dir="rtl"]) .actionButton {
-  padding-right: var(--space-500);
+  padding-right: var(--space-800);
 }
 
 html[dir="rtl"] .actionButton {
-  padding-left: var(--space-500);
+  padding-left: var(--space-800);
 }

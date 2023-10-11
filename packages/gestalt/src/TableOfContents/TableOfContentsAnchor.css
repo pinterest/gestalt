@@ -1,6 +1,6 @@
 .item {
   composes: paddingY3 from "../boxWhitespace.css";
-  padding-inline-end: var(--space-300);
+  padding-inline-end: var(--space-400);
 }
 
 html:not([dir="rtl"]) .item {

@@ -7,7 +7,12 @@ export default function Example(): Node {
     <Box paddingY={4} width="100%" height="100%">
       <Flex alignItems="end" justifyContent="center" width="100%" height="100%">
         <Toast
-          primaryAction={{ accessibilityLabel: 'Edit your Pin', label: 'Edit' }}
+          primaryAction={{
+            accessibilityLabel: 'Edit your Pin',
+            label: 'Edit',
+            role: 'button',
+            onClick: () => {},
+          }}
           text="Pin saved to your profile! Next, add it to your board."
           thumbnail={{
             image: (

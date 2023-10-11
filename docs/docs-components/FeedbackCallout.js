@@ -26,6 +26,7 @@ export default function FeedbackCallout({ componentName }: Props): Node {
             accessibilityLabel: 'Give documentation feedback',
             href: link,
             target: 'blank',
+            role: 'link',
           }}
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',
