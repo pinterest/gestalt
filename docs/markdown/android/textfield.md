@@ -168,10 +168,14 @@ Text Field can display a success message below the field. Always include an icon
 ## Colors
 Overview of how the TextField colors look in both themes. 
 <br/>
+<TwoCol>
+<Group>
 ### Light mode
 <iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D13956%253A23239%26mode%3Ddesign%26t%3DABNbx3FawIvCHyPM-1" allowFullScreen></iframe>
+</Group>
 
+<Group>
 ### Dark mode
 <iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D14064%253A23345%26mode%3Ddesign%26t%3DABNbx3FawIvCHyPM-1" allowFullScreen></iframe>
-
-
+</Group>
+</TwoCol>
