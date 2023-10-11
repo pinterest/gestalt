@@ -1,3 +1,9 @@
+## 127.1.7 (Oct 11, 2023)
+
+### Patch
+
+- TagData, TileData: Multi-line Tooltips ([#3204](https://github.com/pinterest/gestalt/pull/3204)) - [Preview link](https://deploy-preview-3204--gestalt.netlify.app?devexample=true)
+
 ## 127.1.6 (Oct 11, 2023)
 
 ### Patch
