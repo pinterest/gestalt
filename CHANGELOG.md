@@ -1,3 +1,9 @@
+## 127.1.5 (Oct 11, 2023)
+
+### Patch
+
+- Docs: TextField - Updated ios & android ([#3249](https://github.com/pinterest/gestalt/pull/3249)) - [Preview link](https://deploy-preview-3249--gestalt.netlify.app?devexample=true)
+
 ## 127.1.4 (Oct 6, 2023)
 
 ### Patch
