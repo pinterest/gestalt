@@ -7,7 +7,7 @@ type TooltipProps = {|
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
 |};
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useReducer, useRef } from 'react';
+import { Fragment, type Node, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box.js';
 import Controller from '../Controller.js';
 import Layer from '../Layer.js';
@@ -60,7 +60,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
   link?: Node,
-  text: string,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
 |};
 
@@ -104,6 +104,25 @@ export default function InternalTooltip({
     dispatch({ type: 'hoverOutText', disabled });
   }, mouseLeaveDelay);
 
+  const getTooltipText = () => {
+    if (Array.isArray(text)) {
+      // first and last line should not have a <p> tag, (adds extra padding)
+      const lines = text.map((line, idx) => {
+        if (typeof line !== 'string') return '';
+
+        return text.length === 1 || idx === text.length - 1 ? (
+          line
+        ) : (
+          <Fragment>
+            {line} <br /> <br />
+          </Fragment>
+        );
+      });
+      return lines;
+    }
+    return text;
+  };
+
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
@@ -140,8 +159,9 @@ export default function InternalTooltip({
               tabIndex={0}
             >
               <Text color="inverse" size="100">
-                {text}
+                {getTooltipText()}
               </Text>
+
               {Boolean(link) && <Box marginTop={1}>{link}</Box>}
             </Box>
           </Controller>
