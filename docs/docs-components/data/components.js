@@ -1349,6 +1349,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -1363,6 +1364,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
