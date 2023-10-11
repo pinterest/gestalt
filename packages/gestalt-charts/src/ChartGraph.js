@@ -1,5 +1,13 @@
 // @flow strict-local
-import { type Element, Fragment, type Node, useEffect, useMemo, useState } from 'react';
+import {
+  type Element,
+  Fragment,
+  type Node,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -18,10 +26,15 @@ import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
 import renderElements from './ChartGraph/renderElements.js';
 import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
+import TabularDataModal from './ChartGraph/TabularDataModal.js';
 import useCustomTooltip from './ChartGraph/useCustomTooltip.js';
 import useDefaultLegend from './ChartGraph/useDefaultLegend.js';
 import useDefaultTooltip from './ChartGraph/useDefaultTooltip.js';
 import usePatterns, { useHexColor } from './ChartGraph/usePatterns.js';
+
+interface Indexable {
+  index(): number;
+}
 
 type Props = {|
   // REQUIRED
@@ -171,7 +184,7 @@ type Props = {|
    */
   title: string,
   /**
-   * Whether the title should be visible or not. If hidden, the title is still available in the tabular data modal.
+   * Whether the title should be visible or not. If hidden, the title is still available in the tabular representation modal.
    */
   titleDisplay?: 'visible' | 'hidden',
   /**
@@ -199,6 +212,10 @@ type Props = {|
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
    */
   type?: 'combo' | 'line' | 'bar',
+  /**
+   * An object representing the zIndex value of the tabular representation modal. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  modalZIndex?: Indexable,
 |};
 
 /**
@@ -218,13 +235,14 @@ function ChartGraph({
   layout: externalLayout = 'vertical',
   labelMap,
   legend = 'auto',
+  modalZIndex,
   onVisualPatternChange,
   stacked,
   tickFormatter,
   children,
   titleDisplay = 'visible',
   title,
-  type = 'combo',
+  type = 'bar',
   referenceAreas = [],
   renderTooltip = 'auto',
 }: Props): Node {
@@ -255,6 +273,7 @@ function ChartGraph({
   // STATE
   const [chartHeight, setChartHeight] = useState(0);
   const [chartWidth, setChartWidth] = useState(0);
+  const [showTabularDataModal, setShowTabularDataModal] = useState(false);
 
   // We need to know the legend height, because the ResponsiveContainer includes the legend within the provided height
   const [legendHeight, setLegendHeight] = useState(legend === 'none' ? 0 : 20);
@@ -310,6 +329,12 @@ function ChartGraph({
     setInternalHeight(responsiveHeight);
   }, [fixChartDimension, legendHeight, fiveTicksDimension, isHorizontalLayout]);
 
+  // HELPERS
+  const toggleTabularDataModal: () => void = useCallback(
+    () => setShowTabularDataModal((value) => !value),
+    [],
+  );
+
   // CONDITIONAL VARIABLES
   let legendVerticalAlign = 'bottom';
   let legendAlign = 'left';
@@ -357,12 +382,16 @@ function ChartGraph({
     [referenceAreas],
   );
 
-  const referenceAreaSummary = referenceAreas
-    ? referenceAreas.map(({ label, style }) => ({
-        label,
-        style,
-      }))
-    : null;
+  const referenceAreaSummary = useMemo(
+    () =>
+      referenceAreas
+        ? referenceAreas.map(({ label, style }) => ({
+            label,
+            style,
+          }))
+        : null,
+    [referenceAreas],
+  );
 
   const customTooltip = useCustomTooltip({
     isDarkMode,
@@ -390,16 +419,16 @@ function ChartGraph({
         color="default"
         padding={4}
       >
-        {visualPatternSelected === 'disabled' && titleDisplay === 'hidden' ? null : (
-          <Header
-            readyToRender={chartWidth > 0}
-            title={title}
-            titleDisplay={titleDisplay}
-            description={description}
-            onVisualPatternChange={onVisualPatternChange}
-            helpButton={helpButton}
-          />
-        )}
+        <Header
+          readyToRender={chartWidth > 0}
+          title={title}
+          titleDisplay={titleDisplay}
+          description={description}
+          onVisualPatternChange={onVisualPatternChange}
+          helpButton={helpButton}
+          toggleTabularDataModal={toggleTabularDataModal}
+          showTabularData={showTabularDataModal}
+        />
 
         {children ? (
           <Box marginBottom={4}>
@@ -548,6 +577,17 @@ function ChartGraph({
           </ResponsiveContainer>
         </Box>
       </Box>
+      {showTabularDataModal ? (
+        <TabularDataModal
+          data={data}
+          title={title}
+          toggleTabularDataModal={toggleTabularDataModal}
+          tickFormatter={tickFormatter}
+          labelMap={labelMap}
+          modalZIndex={modalZIndex}
+          isHorizontalLayout={isHorizontalLayout}
+        />
+      ) : null}
     </ChartProvider>
   );
 }

@@ -8,12 +8,8 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
 import Pog from './Pog.js';
 import touchableStyles from './TapArea.css';
 import Tooltip from './Tooltip.js';
@@ -21,16 +17,30 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
 
-type TooltipProps = {|
-  accessibilityLabel?: string,
-  inline?: boolean,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
-  zIndex?: Indexable,
-|};
-
-type BaseIconButton = {|
+type Props = {|
+  /**
+   * Label for screen readers to announce IconButton. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
   accessibilityLabel: string,
+  /**
+   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityControls?: string,
+  /**
+   * Indicates that IconButton hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityExpanded?: boolean,
+  /**
+   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityHaspopup?: boolean,
+  /**
+   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   */
+  accessibilityPopupRole?: 'menu' | 'dialog',
+  /**
+   * Primary colors to apply to the IconButton background.
+   */
   bgColor?:
     | 'transparent'
     | 'darkGray'
@@ -39,48 +49,72 @@ type BaseIconButton = {|
     | 'lightGray'
     | 'white'
     | 'red',
+  /**
+   * Defines a new icon different from the built-in Gestalt icons.
+   */
   dangerouslySetSvgPath?: {| __path: string |},
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
   dataTestId?: string,
+  /**
+   * When disabled, IconButton looks inactive and cannot be interacted with.
+   */
   disabled?: boolean,
+  /**
+   * Icon displayed in IconButton to convey the behavior of the component. Refer to the [iconography](/foundations/iconography/library#Search-icon-library) guidelines regarding the available icon options.
+   */
   icon?: $Keys<typeof icons>,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  /**
+   * Primary color to apply to the [Icon](/web/icon). See [icon color](#Icon-color) variant to learn more.
+   */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
-  padding?: 1 | 2 | 3 | 4 | 5,
-  tabIndex?: -1 | 0,
-  tooltip?: TooltipProps,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-|};
-
-type IconButtonType = {|
-  ...BaseIconButton,
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
-  accessibilityPopupRole?: 'menu' | 'dialog',
+  /**
+   * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
+   */
   name?: string,
-  role?: 'button',
+  /**
+   * Callback fired when the component is clicked, pressed or tapped.
+   */
+  onClick?: ({|
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+  |}) => void,
+  /**
+   * Sets a padding for the IconButton. See the [size](#Size) variant to learn more.
+   */
+  padding?: 1 | 2 | 3 | 4 | 5,
+  /**
+   * Ref that is forwarded to the underlying button element.
+   */
+  // eslint-disable-next-line react/no-unused-prop-types
+  ref?: HTMLButtonElement,
+  /**
+   * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more.
+   */
   selected?: boolean,
+  /**
+   * The maximum height and width of IconButton. See the [size](#Size) variant to learn more.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  /**
+   * Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.
+   */
+  tabIndex?: -1 | 0,
+  /**
+   * Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButton.
+   */
+  tooltip?: {|
+    accessibilityLabel?: string,
+    inline?: boolean,
+    idealDirection?: 'up' | 'right' | 'down' | 'left',
+    text: string,
+    zIndex?: Indexable,
+  |},
+  /**
+   * Use "submit" if IconButton is used within or associated with a form.
+   */
   type?: 'submit' | 'button',
 |};
-
-type LinkIconButtonType = {|
-  ...BaseIconButton,
-  href: string,
-  rel?: 'none' | 'nofollow',
-  role: 'link',
-  target?: null | 'self' | 'blank',
-|};
-
-type unionProps = IconButtonType | LinkIconButtonType;
-
-type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
 /**
  * [IconButton](https://gestalt.pinterest.systems/web/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.
@@ -90,12 +124,19 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
-const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwardRef<
-  unionProps,
-  unionRefs,
->(function IconButton(props: unionProps, ref): Node {
-  const {
+const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwardRef<
+  Props,
+  HTMLButtonElement,
+>(function IconButton(
+  {
     accessibilityLabel,
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityPopupRole,
+    name,
+    selected,
+    type,
     bgColor,
     dangerouslySetSvgPath,
     dataTestId,
@@ -107,9 +148,10 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
     tabIndex = 0,
     tooltip,
     size = 'lg',
-  } = props;
-
-  const innerRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  }: Props,
+  ref,
+): Node {
+  const innerRef = useRef<null | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => innerRef.current);
@@ -133,157 +175,70 @@ const IconButtonWithForwardRef: AbstractComponent<unionProps, unionRefs> = forwa
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-
   const { isFocusVisible } = useFocusVisible();
 
-  const renderPogComponent = (selected?: boolean): Node => (
-    <Pog
-      active={!disabled && isActive}
-      bgColor={bgColor}
-      dangerouslySetSvgPath={dangerouslySetSvgPath}
-      focused={!disabled && isFocusVisible && isFocused}
-      hovered={!disabled && isHovered}
-      icon={icon}
-      iconColor={iconColor}
-      padding={padding}
-      selected={selected}
-      size={size}
-    />
+  const buttonComponent = (
+    <button
+      aria-controls={accessibilityControls}
+      aria-expanded={accessibilityExpanded}
+      aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
+      aria-label={accessibilityLabel}
+      className={classnames(styles.parentButton)}
+      data-test-id={dataTestId}
+      disabled={disabled}
+      name={name}
+      onBlur={() => {
+        handleBlur();
+        setFocused(false);
+      }}
+      onClick={(event) => onClick?.({ event })}
+      onFocus={() => setFocused(true)}
+      onMouseDown={() => {
+        handleMouseDown();
+        setActive(true);
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => {
+        setActive(false);
+        setHovered(false);
+      }}
+      onMouseUp={() => {
+        handleMouseUp();
+        setActive(false);
+      }}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      ref={innerRef}
+      tabIndex={disabled ? null : tabIndex}
+      // react/button-has-type is very particular about this verbose syntax
+      type={type === 'submit' ? 'submit' : 'button'}
+    >
+      <div
+        className={classnames(styles.button, touchableStyles.tapTransition, {
+          [styles.disabled]: disabled,
+          [styles.enabled]: !disabled,
+          [touchableStyles.tapCompress]: !disabled && isTapping,
+        })}
+        style={compressStyle || undefined}
+      >
+        <Pog
+          active={!disabled && isActive}
+          bgColor={bgColor}
+          dangerouslySetSvgPath={dangerouslySetSvgPath}
+          focused={!disabled && isFocusVisible && isFocused}
+          hovered={!disabled && isHovered}
+          icon={icon}
+          iconColor={iconColor}
+          padding={padding}
+          selected={selected}
+          size={size}
+        />
+      </div>
+    </button>
   );
 
-  const handleClick = (
-    event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  ) =>
-    onClick
-      ? onClick({
-          event,
-          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
-        })
-      : undefined;
-
-  const handleLinkClick = ({
-    event,
-    dangerouslyDisableOnNavigation,
-  }: {|
-    dangerouslyDisableOnNavigation: () => void,
-    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => handleClick(event, dangerouslyDisableOnNavigation);
-
-  const handleOnBlur = () => {
-    setFocused(false);
-  };
-
-  const handleOnFocus = () => {
-    setFocused(true);
-  };
-
-  const handleOnMouseDown = () => {
-    setActive(true);
-  };
-
-  const handleOnMouseUp = () => {
-    setActive(false);
-  };
-
-  const handleOnMouseEnter = () => {
-    setHovered(true);
-  };
-
-  const handleOnMouseLeave = () => {
-    setActive(false);
-    setHovered(false);
-  };
-
-  let buttonComponent = null;
-
-  if (props.role === 'link') {
-    const { href, rel, target } = props;
-
-    const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
-
-    buttonComponent = (
-      <InternalLink
-        accessibilityLabel={ariaLabel}
-        dataTestId={dataTestId}
-        disabled={disabled}
-        href={href}
-        onClick={handleLinkClick}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        onMouseDown={handleOnMouseDown}
-        onMouseUp={handleOnMouseUp}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        ref={innerRef}
-        rel={rel}
-        tabIndex={tabIndex}
-        target={target}
-        wrappedComponent="iconButton"
-      >
-        {renderPogComponent()}
-        <NewTabAccessibilityLabel target={target} />
-      </InternalLink>
-    );
-  } else {
-    const {
-      accessibilityControls,
-      accessibilityExpanded,
-      accessibilityHaspopup,
-      accessibilityPopupRole,
-      name,
-      selected,
-      type,
-    } = props;
-    buttonComponent = (
-      <button
-        aria-controls={accessibilityControls}
-        aria-expanded={accessibilityExpanded}
-        aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
-        aria-label={accessibilityLabel}
-        className={classnames(styles.parentButton)}
-        data-test-id={dataTestId}
-        disabled={disabled}
-        name={name}
-        onBlur={() => {
-          handleBlur();
-          handleOnBlur();
-        }}
-        onClick={handleClick}
-        onFocus={handleOnFocus}
-        onMouseDown={() => {
-          handleMouseDown();
-          handleOnMouseDown();
-        }}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        onMouseUp={() => {
-          handleMouseUp();
-          handleOnMouseUp();
-        }}
-        onTouchCancel={handleTouchCancel}
-        onTouchEnd={handleTouchEnd}
-        onTouchMove={handleTouchMove}
-        onTouchStart={handleTouchStart}
-        ref={innerRef}
-        tabIndex={disabled ? null : tabIndex}
-        // react/button-has-type is very particular about this verbose syntax
-        type={type === 'submit' ? 'submit' : 'button'}
-      >
-        <div
-          className={classnames(styles.button, touchableStyles.tapTransition, {
-            [styles.disabled]: disabled,
-            [styles.enabled]: !disabled,
-            [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
-          })}
-          style={compressStyle || undefined}
-        >
-          {renderPogComponent(selected)}
-        </div>
-      </button>
-    );
-  }
   return tooltip?.text ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}

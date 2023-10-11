@@ -1,6 +1,6 @@
 ---
 title: ListAction
-description:  ListAction is a continuous vertical group of list items that can include text, icons, images, and actions.
+description:  ListAction is a continuous vertical group of list items that can include text, icons, images and actions.
 fullwidth: true
 ---
 

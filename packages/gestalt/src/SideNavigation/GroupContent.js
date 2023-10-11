@@ -55,11 +55,7 @@ export default function SideNavigationGroupContent({
   primaryAction?: {|
     icon?: 'ellipsis' | 'edit' | 'trash-can',
     onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLDivElement>
-        | SyntheticKeyboardEvent<HTMLDivElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
     |}) => void,
     tooltip: {|
       accessibilityLabel?: string,

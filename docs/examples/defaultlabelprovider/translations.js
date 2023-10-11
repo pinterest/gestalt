@@ -24,6 +24,13 @@ const labels = {
     accessibilityLabelPrefixText: myI18nTranslator('ChartGraph'),
     defaultViewText: myI18nTranslator('Default view mode'),
     accessibleViewText: myI18nTranslator('Visual pattern view'),
+    tabularData: myI18nTranslator('Tabular representation'),
+    accessibilityLabelDismissModal: myI18nTranslator('Dismiss tabular representation modal'),
+    tableSeriesText: myI18nTranslator('Series'),
+    tableXAxisText: myI18nTranslator('x-axis values'),
+    tableYAxisText: myI18nTranslator('y-axis values'),
+    downloadCsvButtonText: myI18nTranslator('Download as .csv'),
+    cancelButtonText: myI18nTranslator('Cancel'),
   },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),

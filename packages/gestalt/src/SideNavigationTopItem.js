@@ -20,7 +20,7 @@ import Icon from './Icon.js';
 import icons from './icons/index.js';
 import styles from './SideNavigation.css';
 import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton.js';
-import TapArea from './TapArea.js';
+import TapAreaLink from './TapAreaLink.js';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
 
@@ -62,11 +62,7 @@ type Props = {|
    * Callback when the user selects an item using the mouse or keyboard.
    */
   onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
   /**
@@ -79,11 +75,7 @@ type Props = {|
   primaryAction?: {|
     icon?: 'ellipsis' | 'edit' | 'trash-can',
     onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLDivElement>
-        | SyntheticKeyboardEvent<HTMLDivElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
     |}) => void,
     tooltip: {|
       accessibilityLabel?: string,
@@ -171,14 +163,13 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 
   return (
     <li ref={ref} className={classnames(styles.liItem)}>
-      <TapArea
+      <TapAreaLink
         accessibilityCurrent={active === 'page' ? active : undefined}
         href={href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        role="link"
         rounding={2}
         tapStyle={compression}
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
@@ -286,7 +277,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
             ) : null}
           </Flex>
         </Box>
-      </TapArea>
+      </TapAreaLink>
     </li>
   );
 });

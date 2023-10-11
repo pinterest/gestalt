@@ -43,12 +43,7 @@ type LinkType = {|
 |};
 
 type OnTapType = ({|
-  event:
-    | SyntheticMouseEvent<HTMLDivElement>
-    | SyntheticKeyboardEvent<HTMLDivElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  dangerouslyDisableOnNavigation: () => void,
+  event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
 |}) => void;
 
 type Props = {|
@@ -141,11 +136,7 @@ export default function HelpButton({
     }
   };
 
-  const handleTapAreaKeyDown = ({
-    event,
-  }: {|
-    event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => {
+  const handleTapAreaKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLDivElement> |}) => {
     if (event.keyCode === TAB && open) {
       event.preventDefault();
       textRef.current?.focus();
@@ -161,12 +152,7 @@ export default function HelpButton({
 
   const onHandleTap = (
     ...args: $ReadOnlyArray<{|
-      dangerouslyDisableOnNavigation: () => void,
-      event:
-        | SyntheticMouseEvent<HTMLDivElement>
-        | SyntheticKeyboardEvent<HTMLDivElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
     |}>
   ) => {
     toggleView();

@@ -316,7 +316,7 @@
     "border": {
       "container": {
         "value": "{color.gray.roboflow.300.value}",
-        "darkValue": "{color.gray.roboflow.600.value}",
+        "darkValue": "{color.gray.roboflow.500.value}",
         "comment": "Used to delineate a larger container, like Card or TextArea"
       },
       "default": {

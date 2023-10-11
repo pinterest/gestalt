@@ -9,11 +9,7 @@ describe('<Tabs />', () => {
         {|
           +activeTabIndex: number,
           dangerouslyDisableOnNavigation: () => void,
-          event:
-            | SyntheticMouseEvent<HTMLAnchorElement>
-            | SyntheticKeyboardEvent<HTMLAnchorElement>
-            | SyntheticMouseEvent<HTMLDivElement>
-            | SyntheticKeyboardEvent<HTMLDivElement>,
+          event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
         |},
       ],
       void,

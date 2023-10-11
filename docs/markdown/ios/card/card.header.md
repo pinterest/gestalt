@@ -71,7 +71,7 @@ The default Card.Header includes copy, optional pre-text and an optional timesta
 
 Editorial Card.Header is similar to the default Card.Header. The difference is that editorial Card.Header typography size is increased to draw greater focus.
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/4a/6e/49/4a6e493e6dcf5ab5bc0098e316607432.png" noPadding color="background-elevation-accent" alt="Example of editorial Card.Header with a large headline."/>/>
+<ImgContainer src="https://i.pinimg.com/originals/4a/6e/49/4a6e493e6dcf5ab5bc0098e316607432.png" noPadding color="background-elevation-accent" alt="Example of editorial Card.Header with a large headline."/>
 <br/>
 
 ### With image

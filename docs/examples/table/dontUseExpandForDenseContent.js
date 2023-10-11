@@ -7,7 +7,7 @@ import {
   Datapoint,
   Flex,
   Heading,
-  IconButton,
+  IconButtonLink,
   Image,
   Label,
   Mask,
@@ -195,8 +195,7 @@ function ExpandedContents() {
               id="Ads Overview"
               title="Ads Overview"
               iconButton={
-                <IconButton
-                  role="link"
+                <IconButtonLink
                   href="https://analytics.pinterest.com/"
                   bgColor="lightGray"
                   icon="arrow-up-right"

@@ -43,6 +43,7 @@ import { DateField } from 'gestalt-datepicker';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -209,6 +210,15 @@ import { it } from 'date-fns/locale';
           </CombinationNew>
         </MainSection.Subsection>
       </MainSection>
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#datefield',
+            text: 'DateField extension',
+          },
+        ]}
+      />
 
       <MainSection name="Related">
         <MainSection.Subsection

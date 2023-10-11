@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import { Link, Table, Text } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -47,6 +48,51 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       'component': 'Callout',
       'prop': 'iconAccessibilityLabelSuccess',
       'label': 'Success',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'accessibilityLabelPrefixText',
+      'label': 'ChartGraph',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'defaultViewText',
+      'label': 'Default view mode',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tabularData',
+      'label': 'Tabular representation',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'accessibilityLabelDismissModal',
+      'label': 'Dismiss tabular representation modal',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tableSeriesText',
+      'label': 'Series',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tableXAxisText',
+      'label': 'x-axis values',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'tableYAxisText',
+      'label': 'y-axis values',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'downloadCsvButtonText',
+      'label': 'Download as .csv',
+    },
+    {
+      'component': 'ChartGraph',
+      'prop': 'cancelButtonText',
+      'label': 'Cancel',
     },
     {
       'component': 'ComboBox',
@@ -360,6 +406,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           </Table.Body>
         </Table>
       </MainSection>
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-providers#defaultlabelprovider',
+            text: 'Gestalt Providers in Pinboard',
+          },
+        ]}
+      />
     </Page>
   );
 }

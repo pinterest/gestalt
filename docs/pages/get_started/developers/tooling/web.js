@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, ButtonLink, Flex, Icon, Image, Link, List, Table, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts.js';
 import InternalOnlyIconButton from '../../../../docs-components/InternalOnlyIconButton.js';
@@ -27,14 +27,16 @@ function TableEntry({
             column: 0,
           }}
         >
-          <Link href={href} target="blank" onClick={() => trackButtonClick(metric)}>
-            <Text size="100" underline overflow="noWrap">
+          <Text size="100" underline overflow="noWrap">
+            <Link
+              externalLinkIcon="default"
+              href={href}
+              target="blank"
+              onClick={() => trackButtonClick(metric)}
+            >
               {metric}
-            </Text>
-          </Link>
-          <Box aria-hidden>
-            <Icon accessibilityLabel="" icon="visit" size={12} />
-          </Box>
+            </Link>
+          </Text>
           <InternalOnlyIconButton />
         </Flex>
       </Table.Cell>

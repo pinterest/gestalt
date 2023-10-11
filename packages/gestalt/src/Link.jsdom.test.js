@@ -57,4 +57,20 @@ describe('Link', () => {
 
     expect(screen.getByLabelText('Visit Pinterest; Opens a new tab')).toBeVisible();
   });
+
+  it('renders with data-test-id', () => {
+    const TEST_ID = 'link-test-123';
+    render(
+      <Link
+        accessibilityLabel="Visit Pinterest"
+        href="https://business.pinterest.com/advertise"
+        dataTestId={TEST_ID}
+      />,
+    );
+    expect(
+      screen.getByTestId(TEST_ID, {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
 });

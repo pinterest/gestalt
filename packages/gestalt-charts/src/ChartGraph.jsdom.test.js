@@ -327,9 +327,11 @@ describe('ChartGraph', () => {
         ]}
       />,
     );
-    expect(screen.getByRole('button')).toBeVisible();
+    expect(screen.getByLabelText('Tabular representation')).toBeVisible();
+    expect(screen.getByLabelText('Visual pattern view')).toBeVisible();
+
     act(() => {
-      screen.getByRole('button').click();
+      screen.getAllByRole('button')[1].click();
     });
     expect(mockonVisualPatternChange).toHaveBeenCalled();
   });

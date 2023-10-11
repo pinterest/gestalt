@@ -83,7 +83,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-elevation-accent: #191919;
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
-  --color-border-container: #4a4a4a;
+  --color-border-container: #767676;
   --color-border-default: #cdcdcd;
   --color-border-error: #f47171;
   --color-data-visualization-10: #007A72;
@@ -524,7 +524,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-elevation-accent: #191919;
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
-  --color-border-container: #4a4a4a;
+  --color-border-container: #767676;
   --color-border-default: #cdcdcd;
   --color-border-error: #f47171;
   --color-data-visualization-10: #007A72;

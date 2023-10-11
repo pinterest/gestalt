@@ -368,8 +368,6 @@ If the \`message\` text requires more complex style, such as bold text or inline
       **[Toast](/web/toast)**
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
-      **[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-      GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
       **[ActivationCard](/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
