@@ -109,12 +109,12 @@ These practices give users of assistive technologies more information about the 
 Make sure your keyboards match the function of your form field. For example, asking for a phone number should pull up the phone pad keyboard.
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="1580" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D40427%253A588%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="1400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D40427%253A588%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
 
 ## Anatomy 
 See below how the TextField component is constructed. 
 <br/>
-<iframe style={{border:0}} width="100%" height="562" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D40427%253A338%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D40427%253A338%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
 
 ## Variants
 1. **With helper text**
@@ -172,11 +172,11 @@ Overview of how the TextField colors look in both themes.
 <TwoCol>
 <Group>
 ### Light mode
-<iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D43648%253A6858%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D43648%253A6858%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
 </Group>
 
 <Group>
 ### Dark mode
-<iframe style={{border:0}} width="100%" height="802" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D43648%253A7135%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D43648%253A7135%26mode%3Ddesign%26t%3DMSikh9ZMQIpw3cW1-1" allowFullScreen></iframe>
 </Group>
 </TwoCol>
