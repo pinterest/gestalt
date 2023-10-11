@@ -41,6 +41,7 @@ import Image from '../../graphics/general/Image.svg';
 import GestaltLabel from '../../graphics/general/Label.svg';
 import GestaltLink from '../../graphics/general/Link.svg';
 import List from '../../graphics/general/List.svg';
+import ListAction from '../../graphics/general/ListAction.svg';
 import Masonry from '../../graphics/general/Masonry.svg';
 import Modal from '../../graphics/general/Modal.svg';
 import ModalAlert from '../../graphics/general/ModalAlert.svg';
@@ -212,29 +213,9 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
         category: ['Avatars'],
         status: {
-          documentation: 'notAvailable',
+          documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
-        },
-      },
-      ios: {
-        name: 'AvatarGroup',
-        visual: {
-          svg: <AvatarGroup />,
-        },
-        alias: [
-          'Pinner reps',
-          'Personas',
-          'Facepile',
-          'User Images',
-          'Identification Group',
-          'Identicons',
-        ],
-        description:
-          'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
-        category: ['Avatars'],
-        status: {
-          documentation: 'notAvailable',
-          status: 'notAvailable',
         },
       },
     },
@@ -274,19 +255,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Indicators'],
         status: {
           documentation: 'ready',
-          status: 'planned',
-        },
-      },
-      ios: {
-        name: 'Badge',
-        visual: {
-          svg: <Badge />,
-        },
-        alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
-        description: 'Badge is a label that indicates status or importance.',
-        category: ['Indicators'],
-        status: {
-          documentation: 'notAvailable',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -370,6 +339,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Actions'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -383,6 +353,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Actions'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -442,6 +413,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Actions'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -490,6 +462,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Pins and imagery'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -554,6 +527,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -566,6 +540,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -1332,6 +1307,39 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'ListAction',
+    platform: {
+      android: {
+        name: 'ListAction',
+        visual: {
+          svg: <ListAction />, // THIS IS WRONG
+        },
+        alias: ['Table', 'List', 'List item', 'Menu'],
+        description:
+          'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
+        category: [],
+        status: {
+          documentation: 'ready',
+          status: 'planned',
+        },
+      },
+      ios: {
+        name: 'ListAction',
+        visual: {
+          svg: <ListAction />, // THIS IS WRONG
+        },
+        alias: ['Table', 'List', 'List item', 'Menu'],
+        description:
+        'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
+        category: [],
+        status: {
+          documentation: 'ready',
+          status: 'planned',
+        },
+      },
+    },
+  },
+  {
     id: 'Mask',
     platform: {
       web: {
@@ -1796,7 +1804,22 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
+        },
+      },
+      ios: {
+        name: 'SearchField',
+        visual: {
+          svg: <SearchField />, // THIS IS WRONG
+        },
+        alias: ['Search Box', 'Search Bar'],
+        description: 'SearchField allows users to search for free-form content.',
+        category: ['Fields and forms'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },
@@ -1892,6 +1915,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -1906,6 +1930,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2089,6 +2114,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2102,6 +2128,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2213,6 +2240,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Navigation'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2225,6 +2253,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Navigation'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2356,6 +2385,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Text'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2370,6 +2400,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Text'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2410,6 +2441,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2450,6 +2482,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2463,6 +2496,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2534,6 +2568,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Messaging'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2548,6 +2583,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Messaging'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
