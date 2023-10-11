@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node, useEffect, useRef } from 'react';
-import Controller from './Controller.js';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import Controller from '../Controller.js';
 import Flex from '../Flex.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 
@@ -26,8 +26,6 @@ type Props = {|
   showCaret?: boolean,
   showDismissButton?: boolean,
   size?: Size,
-
-  // eslint-disable-next-line react/no-unused-prop-types
   __dangerouslySetMaxHeight?: '30vh',
 |};
 
@@ -47,6 +45,7 @@ export default function InternalPopover({
   shouldFocus,
   showCaret,
   size = 'sm',
+  __dangerouslySetMaxHeight,
 }: Props): null | Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -77,6 +76,7 @@ export default function InternalPopover({
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
+      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
     >
       {showDismissButton ? (
         <Flex direction="column">
