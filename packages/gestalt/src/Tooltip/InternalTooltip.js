@@ -104,19 +104,18 @@ export default function InternalTooltip({
 
   const getTooltipText = () => {
     if (Array.isArray(text)) {
-      const lines = [];
       // first and last line should not have a <p> tag, (adds extra padding)
-      text.map((line, idx) =>
-        lines.push(
-          text.length === 1 || idx === text.length - 1 ? (
-            line
-          ) : (
-            <Fragment>
-              {line} <br /> <br />
-            </Fragment>
-          ),
-        ),
-      );
+      const lines = text.map((line, idx) => {
+        if (typeof line !== 'string') return '';
+
+        return text.length === 1 || idx === text.length - 1 ? (
+          line
+        ) : (
+          <Fragment>
+            {line} <br /> <br />
+          </Fragment>
+        );
+      });
       return lines;
     }
     return text;
