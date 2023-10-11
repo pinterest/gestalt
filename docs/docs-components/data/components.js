@@ -1346,7 +1346,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Table', 'List', 'List item', 'Menu'],
         description:
           'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
-        category: [],
+        category: ['Structure'],
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
@@ -1361,7 +1361,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Table', 'List', 'List item', 'Menu'],
         description:
         'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
-        category: [],
+        category: ['Structure'],
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
