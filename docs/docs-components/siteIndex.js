@@ -82,6 +82,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Icon',
       'IconButton',
       'ListAction',
+      'SearchField',
       'Sheet',
       'Switch',
       'Tabs',
