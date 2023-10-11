@@ -1,3 +1,9 @@
+## 127.1.6 (Oct 11, 2023)
+
+### Patch
+
+- Docs: SearchField - Update Android and Add iOS ([#3248](https://github.com/pinterest/gestalt/pull/3248)) - [Preview link](https://deploy-preview-3248--gestalt.netlify.app?devexample=true)
+
 ## 127.1.5 (Oct 11, 2023)
 
 ### Patch
