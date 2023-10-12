@@ -3,7 +3,21 @@
   composes: Text from "../Text.css";
   composes: fontSize300 from "../Typography.css";
   composes: xsCol12 from "../Column.css";
-  padding: var(--space-200) var(--space-400);
+}
+
+.textField.sm {
+  padding: var(--space-100) var(--space-200);
+  border-radius: var(--rounding-200);
+}
+
+.textField.md {
+  padding: var(--space-200) var(--space-300);
+  border-radius: var(--rounding-300);
+}
+
+.textField.lg {
+  padding: var(--space-300) var(--space-400);
+  border-radius: var(--rounding-400);
 }
 
 .textField::placeholder {
@@ -36,7 +50,18 @@
 .textFieldWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: var(--space-100);
+}
+
+.sm.textFieldWrapper {
+  padding-bottom: var(--space-0) !important;
+}
+
+.md.textFieldWrapper {
+  padding-bottom: var(--space-100) !important;
+}
+
+.lg.textFieldWrapper {
+  padding-bottom: var(--space-200) !important;
 }
 
 html:not([dir="rtl"]) .actionButton {
