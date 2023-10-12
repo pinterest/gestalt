@@ -1,3 +1,9 @@
+## 127.1.8 (Oct 12, 2023)
+
+### Patch
+
+- Docs: Added & Updated mobile overview & status ([#3250](https://github.com/pinterest/gestalt/pull/3250)) - [Preview link](https://deploy-preview-3250--gestalt.netlify.app?devexample=true)
+
 ## 127.1.7 (Oct 11, 2023)
 
 ### Patch
