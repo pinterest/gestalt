@@ -11,6 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import defaultExample from '../../examples/segmentedcontrol/defaultExample.js';
 import mainExample from '../../examples/segmentedcontrol/mainExample.js';
 import responsiveExample from '../../examples/segmentedcontrol/responsiveExample.js';
+import sizeExample from '../../examples/segmentedcontrol/sizeExample.js';
 
 export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
   return (
@@ -46,22 +47,39 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
-        <MainSection.Card
+        <MainSection.Subsection
           cardSize="lg"
           description="Segmented Control is a naive component, meaning you need to wire any additional behavior when the user clicks on an item.
-
-    If you'd like the tabs to control hiding or showing content, that state should
-    live in a parent component.
-    "
+              If you'd like the tabs to control hiding or showing content, that state should
+              live in a parent component."
           title="Default"
-          sandpackExample={<SandpackExample name="Default Example" code={defaultExample} />}
-        />
-        <MainSection.Card
-          cardSize="lg"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            name="Default Example"
+            sandpackExample={<SandpackExample name="Default Example" code={defaultExample} />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
           description="Segmented Control can have responsive widths where the width of an item is based on its content."
           title="Responsive"
-          sandpackExample={<SandpackExample name="Responsive Example" code={responsiveExample} />}
-        />
+        >
+          <MainSection.Card
+            cardSize="lg"
+            name="Default Example"
+            sandpackExample={<SandpackExample name="Responsive Example" code={responsiveExample} />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Segmented Control can have different sizes. The default size is medium. For a dense variant, use the `sm` size. "
+          title="Sizes"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            name="Default Example"
+            sandpackExample={<SandpackExample name="Responsive Example" code={sizeExample} />}
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

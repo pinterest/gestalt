@@ -89,14 +89,17 @@
 
 /* size */
 
+.sm,
 .small {
   min-height: 32px;
 }
 
+.md,
 .medium {
   min-height: 40px;
 }
 
+.lg,
 .large {
   min-height: 48px;
 }

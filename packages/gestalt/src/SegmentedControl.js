@@ -34,13 +34,14 @@ type Props = {|
 |};
 
 const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => styles[`${s}`];
+const applyDensityLayout = (s: 'sm' | 'md' | 'lg') => layout[`${s}`];
 
 function SegmentedControlItem({
   index,
   item,
   isSelected,
   onChange,
-  size,
+  size = 'md',
   width,
 }: {|
   index: number,
@@ -98,12 +99,16 @@ export default function SegmentedControl({
   onChange,
   responsive,
   selectedItemIndex,
-  size,
+  size = 'md',
 }: Props): Node {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div
-      className={classnames(styles.SegmentedControl, layout.medium, applyDensityStyle(size))}
+      className={classnames(
+        styles.SegmentedControl,
+        applyDensityLayout(size),
+        applyDensityStyle(size),
+      )}
       role="tablist"
     >
       {items.map((item, i) => (
