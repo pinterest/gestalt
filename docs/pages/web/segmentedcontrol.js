@@ -71,13 +71,13 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Segmented Control can have different sizes. The default size is medium. For a dense variant, use the `sm` size. "
+          description="Segmented Control can have different sizes. The default size is medium (40px). Large is 48px. For a dense variant, use the `sm` (32px) size. "
           title="Sizes"
         >
           <MainSection.Card
             cardSize="lg"
             name="Default Example"
-            sandpackExample={<SandpackExample name="Responsive Example" code={sizeExample} />}
+            sandpackExample={<SandpackExample name="Sizes Example" code={sizeExample} />}
           />
         </MainSection.Subsection>
       </MainSection>
