@@ -1,3 +1,21 @@
+## 127.1.7 (Oct 11, 2023)
+
+### Patch
+
+- TagData, TileData: Multi-line Tooltips ([#3204](https://github.com/pinterest/gestalt/pull/3204)) - [Preview link](https://deploy-preview-3204--gestalt.netlify.app?devexample=true)
+
+## 127.1.6 (Oct 11, 2023)
+
+### Patch
+
+- Docs: SearchField - Update Android and Add iOS ([#3248](https://github.com/pinterest/gestalt/pull/3248)) - [Preview link](https://deploy-preview-3248--gestalt.netlify.app?devexample=true)
+
+## 127.1.5 (Oct 11, 2023)
+
+### Patch
+
+- Docs: TextField - Updated ios & android ([#3249](https://github.com/pinterest/gestalt/pull/3249)) - [Preview link](https://deploy-preview-3249--gestalt.netlify.app?devexample=true)
+
 ## 127.1.4 (Oct 6, 2023)
 
 ### Patch

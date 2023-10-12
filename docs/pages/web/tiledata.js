@@ -133,7 +133,7 @@ export default function TileDataPage({ generatedDocGen }: {| generatedDocGen: Do
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Use `tooltip` to display clarifying information on hover/focus. We recommend using tooltips when trying to provide the user additional context/details."
+          description="Use `tooltip` to display clarifying information on hover/focus. We recommend using tooltips when trying to provide the user additional context/details.  You can also pass in a list of strings to create multi-line tooltips for TileData."
           title="Tooltip"
         >
           <MainSection.Card
