@@ -1360,7 +1360,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Table', 'List', 'List item', 'Menu'],
         description:
-        'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
+          'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
         category: ['Structure'],
         status: {
           documentation: 'ready',
