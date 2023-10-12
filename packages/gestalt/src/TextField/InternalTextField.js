@@ -71,6 +71,8 @@ type Props = {
   value?: string,
 };
 
+const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => styles[`${s}`];
+
 const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
@@ -149,10 +151,12 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     {
-      [layout.medium]: !tags && size === 'md',
-      [layout.large]: tags || size === 'lg',
+      [layout.small]: !tags && size === 'sm',
+      [layout.medium]: size === 'md',
+      [layout.large]: size === 'lg',
       [styles.actionButton]: iconButton,
     },
+    applyDensityStyle(size),
     tags
       ? {
           [focusStyles.accessibilityOutlineFocus]: focused,
