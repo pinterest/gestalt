@@ -1,7 +1,6 @@
 // @flow strict
 import { Fragment, type Node, useCallback, useEffect, useState } from 'react';
-import { Box, Flex, TapArea, Text } from 'gestalt';
-import { SKIP_TO_CONTENT_ZINDEX } from './z-indices.js';
+import { Box, FixedZIndex, Flex, TapArea, Text } from 'gestalt';
 
 /**
  * Skip to content allows you to skip directly to the content on the page
@@ -59,7 +58,7 @@ export default function SkipToContent(): Node {
       }}
     >
       {focused ? (
-        <Box position="fixed" width="100%" zIndex={SKIP_TO_CONTENT_ZINDEX}>
+        <Box position="fixed" width="100%" zIndex={new FixedZIndex(12)}>
           {skipText}
         </Box>
       ) : (

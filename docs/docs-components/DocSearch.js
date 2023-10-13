@@ -1,11 +1,10 @@
 // @flow strict
 import { Fragment, type Node, type Ref, useCallback, useEffect, useState } from 'react';
-import { Box, CompositeZIndex, Icon, IconButton, Tooltip } from 'gestalt';
-import { PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
+import { Box, FixedZIndex, Icon, IconButton, Tooltip } from 'gestalt';
 
 const INPUT_ID = 'algolia-doc-search';
 
-function SearchBox({ popoverZIndex }: { popoverZIndex?: CompositeZIndex }) {
+function SearchBox({ popoverZIndex }: { popoverZIndex?: FixedZIndex }) {
   // Icon placement is copied directly from  SearchField
   // Try to maintain consistency w/ SearchField whenever possible
   return (
@@ -152,7 +151,7 @@ export default function DocSearch({
         mdMarginStart={0}
       >
         <Box flex="grow" paddingX={2}>
-          <SearchBox popoverZIndex={PAGE_HEADER_POPOVER_ZINDEX} />
+          <SearchBox popoverZIndex={new FixedZIndex(11)} />
         </Box>
       </Box>
 
@@ -169,7 +168,7 @@ export default function DocSearch({
           size="sm"
           tooltip={{
             text: isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
-            zIndex: PAGE_HEADER_POPOVER_ZINDEX,
+            zIndex: new FixedZIndex(11),
           }}
         />
       </Box>

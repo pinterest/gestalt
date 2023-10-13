@@ -15,7 +15,7 @@ type Props = {
   noBaseText?: boolean,
 };
 
-export default function AccessibilitySection({
+export default function LocalizationSection({
   code,
   name,
   notes,

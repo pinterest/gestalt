@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment, type Node, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, DeviceTypeProvider, Divider, Flex } from 'gestalt';
+import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
 import { useAppContext } from './appContext.js';
 import { DocsConfigProvider, useDocsConfig } from './contexts/DocsConfigProvider.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
@@ -10,7 +10,6 @@ import Header from './Header.js';
 import { useNavigationContext } from './navigationContext.js';
 import ResourcesFooter from './ResourcesFooter.js';
 import SkipToContent from './SkipToContent.js';
-import { ABOVE_PAGE_HEADER_ZINDEX } from './z-indices.js';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
@@ -87,7 +86,7 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
             display="block"
             mdDisplay="none"
             height="100vh"
-            zIndex={ABOVE_PAGE_HEADER_ZINDEX}
+            zIndex={new FixedZIndex(11)}
           >
             <DocsConfigProvider isMobile>
               <DeviceTypeProvider deviceType="mobile">
