@@ -1,5 +1,5 @@
 // @flow strict
-declare module "metadata" {
+declare module 'metadata' {
   declare type Signature = {
     properties?: $ReadOnlyArray<{
       key: string | { name: string },
