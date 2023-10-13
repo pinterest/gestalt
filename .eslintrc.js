@@ -84,6 +84,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': ERROR,
     'react-hooks/rules-of-hooks': ERROR,
     'react/destructuring-assignment': OFF,
+    'react/prefer-exact-props': OFF, // Flow is set to exact_by_default to true in .flowconfig
     'react/jsx-filename-extension': OFF,
     'react/jsx-fragments': [ERROR, 'element'],
     'react/jsx-key': [ERROR, { 'checkFragmentShorthand': true }],
