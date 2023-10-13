@@ -1,3 +1,9 @@
+## 127.1.10 (Oct 13, 2023)
+
+### Patch
+
+- Internal: run `yarn flow-codemod removeExplicitlyExactObjectTypeSyntax` ([#3254](https://github.com/pinterest/gestalt/pull/3254)) - [Preview link](https://deploy-preview-3254--gestalt.netlify.app?devexample=true)
+
 ## 127.1.9 (Oct 13, 2023)
 
 ### Patch
