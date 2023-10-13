@@ -16,6 +16,7 @@ type GlobalEventsHandlerContextType = {|
   dateRangeHandlers?: {| onMount?: NoopType |},
   sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
   linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
+  radioGroupHandlers?: {| onLoad?: NoopType |},
 |} | void;
 
 type Props = {|
@@ -50,6 +51,7 @@ type Props = {|
       +event: SyntheticEvent<>,
     |}) => void,
   |},
+  radioGroupHandlers?: {| onLoad?: () => void |},
 |};
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
@@ -67,6 +69,7 @@ export default function GlobalEventsHandlerProvider({
   dateRangeHandlers,
   sheetMobileHandlers,
   linkHandlers,
+  radioGroupHandlers,
 }: Props): Element<typeof Provider> {
   return (
     <Provider
@@ -76,6 +79,7 @@ export default function GlobalEventsHandlerProvider({
         dateRangeHandlers,
         sheetMobileHandlers,
         linkHandlers,
+        radioGroupHandlers,
       }}
     >
       {children}
