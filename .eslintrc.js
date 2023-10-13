@@ -45,7 +45,7 @@ module.exports = {
     'flowtype/define-flow-type': ERROR,
     'flowtype/no-mutable-array': ERROR,
     'flowtype/no-types-missing-file-annotation': ERROR,
-    'flowtype/require-exact-type': OFF,
+    'flowtype/require-exact-type': OFF, // Flow is set to exact_by_default to true in .flowconfig
     'flowtype/require-valid-file-annotation': [
       ERROR,
       ALWAYS,
