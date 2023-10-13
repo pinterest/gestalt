@@ -14,12 +14,12 @@ const enabledExperiments = {};
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(
     (
-      acc: {|
-        [string]: {|
+      acc: {
+        [string]: {
           anyEnabled: boolean,
           group: string,
-        |},
-      |},
+        },
+      },
       cur: string,
     ) => ({
       ...acc,
@@ -29,7 +29,7 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   );
 }
 
-type Props = {| children: Node |};
+type Props = { children: Node };
 
 export default function DocsExperimentProvider({ children }: Props): Node {
   const { experiments } = useAppContext();

@@ -24,9 +24,9 @@ const EXTENDED_STEPS = [
   { name: '12', lightText: 'light', darkText: 'dark' },
 ];
 
-type ColorCardProps = {|
+type ColorCardProps = {
   colorScheme: 'light' | 'dark',
-|};
+};
 function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
@@ -71,7 +71,7 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
 }
 
 function getColorTiles(
-  colors: $ReadOnlyArray<{| darkText: string, lightText: string, name: string |}>,
+  colors: $ReadOnlyArray<{ darkText: string, lightText: string, name: string }>,
   mode: string = 'light',
 ): Node {
   return (

@@ -3,12 +3,12 @@ import { type Node } from 'react';
 import { type Size, SIZE_MAP } from './constants.js';
 import Box from '../Box.js';
 
-type Props = {|
+type Props = {
   children: Node,
   pileCount: number,
   index: number,
   size: Size,
-|};
+};
 
 // PositioningWrapper provides a width and height for each avatar and positions them correctly in the superposed stack.
 export default function PositioningWrapper({ size, pileCount, index, children }: Props): Node {

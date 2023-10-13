@@ -28,9 +28,9 @@ import useForMarketing from '../../examples/upsell/useForMarketing.js';
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
@@ -370,9 +370,9 @@ If the \`message\` text requires more complex style, such as bold text or inline
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: { generatedDocGen: await multipleDocGen(['Upsell', 'UpsellForm']) },
   };

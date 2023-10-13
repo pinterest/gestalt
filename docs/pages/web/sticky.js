@@ -9,7 +9,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/sticky/main.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -25,7 +25,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('Sticky');
 
   ['bottom', 'left', 'right', 'top'].forEach((prop) => {

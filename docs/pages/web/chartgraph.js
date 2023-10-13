@@ -45,9 +45,9 @@ import tooltip from '../../examples/chartgraph/tooltip.js';
 
 export default function ComponentPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   const MEDIUM_HEIGHT = 300;
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
@@ -631,9 +631,9 @@ Tables show data that's more complex and granular.      `}
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['ChartGraph', 'LegendIcon']),

@@ -14,26 +14,26 @@ import { ESCAPE } from '../keyCodes.js';
 import Link from '../Link.js';
 import sheetMobileStyles from '../SheetMobile.css';
 
-type OnClickType = ({|
+type OnClickType = ({
   event:
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
   onDismissStart: () => void,
-|}) => void;
+}) => void;
 
-type Props = {|
+type Props = {
   accessibilityLabel?: string,
   align: 'start' | 'center',
-  backIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
+  backIconButton?: { accessibilityLabel: string, onClick: OnClickType },
   children?: Node,
   footer?: Node,
-  forwardIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
+  forwardIconButton?: { accessibilityLabel: string, onClick: OnClickType },
   heading?: Node,
   onDismiss: () => void,
   padding?: 'default' | 'none',
-  primaryAction?: {|
+  primaryAction?: {
     accessibilityLabel: string,
     href?: string,
     label: string,
@@ -41,11 +41,11 @@ type Props = {|
     rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
     size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
-  |},
+  },
   role?: 'alertdialog' | 'dialog',
   showDismissButton?: boolean,
   subHeading?: string,
-|};
+};
 
 export default function FullPage({
   accessibilityLabel,
@@ -72,7 +72,10 @@ export default function FullPage({
     sheetMobileHandlers: { onOpen: () => {}, onClose: () => {} },
   };
 
-  const { onClose, onOpen } = sheetMobileHandlers ?? { onOpen: () => {}, onClose: () => {} };
+  const { onClose, onOpen } = sheetMobileHandlers ?? {
+    onOpen: () => {},
+    onClose: () => {},
+  };
   useEffect(() => {
     onOpen?.();
 
@@ -83,7 +86,7 @@ export default function FullPage({
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
-    function handleKeyUp(event: {| keyCode: number |}) {
+    function handleKeyUp(event: { keyCode: number }) {
       if (event.keyCode === ESCAPE) {
         onDismiss();
       }

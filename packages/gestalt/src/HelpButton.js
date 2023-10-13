@@ -23,30 +23,30 @@ import Text from './Text.js';
 import Tooltip from './Tooltip.js';
 import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex.js';
 
-type LinkType = {|
+type LinkType = {
   accessibilityLabel?: string,
   externalLinkIcon?:
     | 'none'
     | 'default'
-    | {|
+    | {
         color: $ElementType<ElementConfig<typeof Icon>, 'color'>,
         size: $ElementType<ElementConfig<typeof Text>, 'size'>,
-      |},
+      },
   href: string,
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   ref?: Ref<'a'>,
   text: string,
   target?: null | 'self' | 'blank',
-|};
+};
 
-type OnTapType = ({|
+type OnTapType = ({
   event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-|}) => void;
+}) => void;
 
-type Props = {|
+type Props = {
   /**
    * Supply a short, descriptive label screen readers. Follow the pattern `Click to learn more about [description]`. See [Accessibility](https://gestalt.pinterest.systems/web/helpbutton#Accessibility) section for guidance.
    */
@@ -84,7 +84,7 @@ type Props = {|
    * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/helpbutton#With-Z-index) for more details.
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) is an affordance that accompanies an element on the screen. It helps describe or provide assistance on how to use the accompanying element.
@@ -110,7 +110,7 @@ export default function HelpButton({
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
-  const handlePopoverKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
+  const handlePopoverKeyDown = ({ event }: { event: SyntheticKeyboardEvent<HTMLElement> }) => {
     // Avoid others KeyDown events to listen this call
     if (innerModalFocus) event.stopPropagation();
 
@@ -136,7 +136,7 @@ export default function HelpButton({
     }
   };
 
-  const handleTapAreaKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLDivElement> |}) => {
+  const handleTapAreaKeyDown = ({ event }: { event: SyntheticKeyboardEvent<HTMLDivElement> }) => {
     if (event.keyCode === TAB && open) {
       event.preventDefault();
       textRef.current?.focus();
@@ -151,9 +151,9 @@ export default function HelpButton({
   };
 
   const onHandleTap = (
-    ...args: $ReadOnlyArray<{|
+    ...args: $ReadOnlyArray<{
       event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-    |}>
+    }>
   ) => {
     toggleView();
     onClick?.(...args);

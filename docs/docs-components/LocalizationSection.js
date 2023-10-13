@@ -4,7 +4,7 @@ import { SlimBanner } from 'gestalt';
 import MainSection from './MainSection.js';
 import SandpackExample from './SandpackExample.js';
 
-type Props = {|
+type Props = {
   notes?: string,
   name: string,
   code?: () => Node,
@@ -13,7 +13,7 @@ type Props = {|
   children?: Node,
   noDefaultLabelProvider?: boolean,
   noBaseText?: boolean,
-|};
+};
 
 export default function AccessibilitySection({
   code,

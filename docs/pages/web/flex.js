@@ -22,9 +22,9 @@ const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader
@@ -172,9 +172,9 @@ export default function DocsPage({
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: { generatedDocGen: await multipleDocGen(['Flex', 'FlexItem']) },
   };

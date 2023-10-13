@@ -5,10 +5,10 @@ import { type DefaultLabelContextType, fallbackLabels } from '../DefaultLabelPro
 const MockContext: Context<?DefaultLabelContextType> =
   createContext<?DefaultLabelContextType>(fallbackLabels);
 
-type Props = {|
+type Props = {
   children: Node,
   labels?: null | DefaultLabelContextType,
-|};
+};
 
 export default function DefaultLabelProvider({ children, labels }: Props): Node {
   return <MockContext.Provider value={labels}>{children}</MockContext.Provider>;

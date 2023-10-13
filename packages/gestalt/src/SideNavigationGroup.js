@@ -14,17 +14,17 @@ import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
 import TapArea from './TapArea.js';
 import { type Indexable } from './zIndex.js';
 
-type IconType = $Keys<typeof icons> | {| __path: string |};
+type IconType = $Keys<typeof icons> | { __path: string };
 type Display = 'expandable' | 'static';
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
-|};
+};
 
-type Counter = {| number: string, accessibilityLabel: string |};
+type Counter = { number: string, accessibilityLabel: string };
 
-export type Props = {|
+export type Props = {
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/sidenavigation#Badge) variant to learn more.
    */
@@ -56,19 +56,19 @@ export type Props = {|
   /**
    * The primary action for each group. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
    */
-  primaryAction?: {|
+  primaryAction?: {
     icon?: 'ellipsis' | 'edit' | 'trash-can',
-    onClick?: ({|
+    onClick?: ({
       event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-    |}) => void,
-    tooltip: {|
+    }) => void,
+    tooltip: {
       accessibilityLabel?: string,
       text: string,
       zIndex?: Indexable,
-    |},
+    },
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
-  |},
-|};
+  },
+};
 
 /**
  * Use [SideNavigation.Group](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Group) to hold SideNavigation.NestedItem and SideNavigation.NestedGroup at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
@@ -104,7 +104,7 @@ export default function SideNavigationGroup({
     filterLevel: 'nested',
   });
 
-  const hasActiveChildCallback = (child: {| props: {| active: 'page' | 'section' |} |}) =>
+  const hasActiveChildCallback = (child: { props: { active: 'page' | 'section' } }) =>
     child?.props?.active && ['page', 'section'].includes(child?.props?.active);
 
   const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);

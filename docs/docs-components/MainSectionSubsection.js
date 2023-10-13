@@ -7,14 +7,14 @@ import { copyToClipboard } from './Card.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Markdown from './Markdown.js';
 
-type Props = {|
+type Props = {
   badge?: 'alpha' | 'experimental',
   children?: Node,
   columns?: 1 | 2,
   description?: string,
   title?: string,
   marginBottom?: 'default' | 'compact',
-|};
+};
 
 function MainSectionSubsection({
   badge,
@@ -62,7 +62,9 @@ function MainSectionSubsection({
                   position="middle"
                   tooltip={
                     badge === 'experimental'
-                      ? { text: 'Experimental feature.  It could be removed in the future.' }
+                      ? {
+                          text: 'Experimental feature.  It could be removed in the future.',
+                        }
                       : { text: 'Alpha development state.' }
                   }
                 />

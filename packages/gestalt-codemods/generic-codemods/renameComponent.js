@@ -27,10 +27,10 @@ import {
   saveToSource,
 } from './utils.js';
 
-type OptionsType = {|
+type OptionsType = {
   componentName: string,
   nextComponentName: string,
-|};
+};
 
 function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
   const { componentName, nextComponentName } = options;

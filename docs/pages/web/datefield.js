@@ -54,9 +54,9 @@ import main from '../../examples/datefield/main.js';
 import states from '../../examples/datefield/states.js';
 
 const localeMap = {
-  'af': { localeData: af, lang: 'Afrikaans' },
+  af: { localeData: af, lang: 'Afrikaans' },
   'ar-SA': { localeData: arSA, lang: 'Arabic (Saudi Arabia)' },
-  'bg': { localeData: bg, lang: 'Bulgarian' },
+  bg: { localeData: bg, lang: 'Bulgarian' },
   'cs-CZ': { localeData: cs, lang: 'Czech' },
   'da-DK': { localeData: da, lang: 'Danish' },
   de: { localeData: de, lang: 'German' },
@@ -68,7 +68,7 @@ const localeMap = {
   fr: { localeData: fr, lang: 'French' },
   he: { localeData: he, lang: 'Hebrew' },
   'hi-IN': { localeData: hi, lang: 'Hindi' },
-  'hr': { localeData: hr, lang: 'Croatian' },
+  hr: { localeData: hr, lang: 'Croatian' },
   'hu-HU': { localeData: hu, lang: 'Hungarian' },
   'id-ID': { localeData: id, lang: 'Indonesian' },
   it: { localeData: it, lang: 'Italian' },
@@ -92,7 +92,7 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   const [locale, setLocale] = useState<string | null>('en-US');
   const [date, setDate] = useState<Date | null>(new Date());
 
@@ -252,7 +252,9 @@ Use DatePicker if the user is allowed to pick a date from a calendar popup.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('DateField'),

@@ -17,7 +17,7 @@ const offscreen = (width: number, height: number = Infinity) => ({
 });
 
 function getPositionsOnly<T>(
-  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+  positions: $ReadOnlyArray<{ item: T, position: Position }>,
 ): $ReadOnlyArray<Position> {
   return positions.map(({ position }) => position);
 }
@@ -44,7 +44,7 @@ function initializeHeightsArray<T>({
   gutter,
   items,
   positionCache,
-}: {|
+}: {
   centerOffset: number,
   columnCount: number,
   columnWidth: number,
@@ -52,7 +52,7 @@ function initializeHeightsArray<T>({
   gutter: number,
   items: $ReadOnlyArray<T>,
   positionCache: ?Cache<T, Position>,
-|}): $ReadOnlyArray<number> {
+}): $ReadOnlyArray<number> {
   const heights = new Array<number>(columnCount).fill(0);
   items.forEach((item) => {
     const position = positionCache?.get(item);
@@ -81,7 +81,7 @@ function getOneColumnItemPositions<T>({
   items,
   measurementCache,
   positionCache,
-}: {|
+}: {
   centerOffset: number,
   columnWidth: number,
   columnWidthAndGutter: number,
@@ -90,13 +90,13 @@ function getOneColumnItemPositions<T>({
   items: $ReadOnlyArray<T>,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
-|}): {|
-  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+}): {
+  positions: $ReadOnlyArray<{ item: T, position: Position }>,
   heights: $ReadOnlyArray<number>,
-|} {
+} {
   const heights = [...heightsArg];
   const positions = items.reduce(
-    (positionsSoFar: $ReadOnlyArray<{| item: T, position: Position |}>, item) => {
+    (positionsSoFar: $ReadOnlyArray<{ item: T, position: Position }>, item) => {
       const height = measurementCache.get(item);
 
       const cachedPosition = positionCache?.get(item);
@@ -141,7 +141,7 @@ function getTwoColItemPosition<T>({
   heights: heightsArg,
   item,
   measurementCache,
-}: {|
+}: {
   centerOffset: number,
   columnWidth: number,
   columnWidthAndGutter: number,
@@ -150,16 +150,20 @@ function getTwoColItemPosition<T>({
   item: T,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
-|}): {|
+}): {
   additionalWhitespace: number | null,
   heights: $ReadOnlyArray<number>,
   position: Position,
-|} {
+} {
   const heights = [...heightsArg];
   const height = measurementCache.get(item);
 
   if (isNil(height)) {
-    return { additionalWhitespace: null, heights, position: offscreen(columnWidth) };
+    return {
+      additionalWhitespace: null,
+      heights,
+      position: offscreen(columnWidth),
+    };
   }
 
   const heightAndGutter = height + gutter;
@@ -207,7 +211,7 @@ const defaultTwoColumnModuleLayout = <T>({
   positionCache,
   rawItemCount,
   width,
-}: {|
+}: {
   columnWidth?: number,
   gutter?: number,
   heightsCache?: HeightsStoreInterface,
@@ -218,7 +222,7 @@ const defaultTwoColumnModuleLayout = <T>({
   positionCache?: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
-|}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
+}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
   const columnWidthAndGutter = columnWidth + gutter;
   const columnCount = isNil(width)
     ? minCols
@@ -306,14 +310,14 @@ const defaultTwoColumnModuleLayout = <T>({
         prevNode,
         heightsArr,
         itemsSoFar = [],
-      }: {|
+      }: {
         item: T,
         i: number,
         arr: $ReadOnlyArray<T>,
         prevNode: NodeData<T>,
         heightsArr: $ReadOnlyArray<number>,
         itemsSoFar?: $ReadOnlyArray<T>,
-      |}) {
+      }) {
         // Copy the heights array so we don't mutate
         const heightsSoFar = [...heightsArr];
 

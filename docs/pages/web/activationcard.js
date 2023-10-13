@@ -16,11 +16,7 @@ import needsAttentionVariant from '../../examples/activationcard/needsAttentionV
 import notStartedVariant from '../../examples/activationcard/notStartedVariant.js';
 import pendingVariant from '../../examples/activationcard/pendingVariant.js';
 
-export default function ActivationCardPage({
-  generatedDocGen,
-}: {|
-  generatedDocGen: DocGen,
-|}): Node {
+export default function ActivationCardPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -89,7 +85,9 @@ export default function ActivationCardPage({
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ActivationCard') },
   };

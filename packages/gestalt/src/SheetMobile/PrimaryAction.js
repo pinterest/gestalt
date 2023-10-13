@@ -5,7 +5,7 @@ import ButtonLink from '../ButtonLink.js';
 import Link from '../Link.js';
 
 type Props =
-  | {|
+  | {
       accessibilityLabel: string,
       href: string,
       label: string,
@@ -14,14 +14,14 @@ type Props =
       role: 'link',
       size?: $ElementType<ElementConfig<typeof ButtonLink>, 'size'>,
       target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
-    |}
-  | {|
+    }
+  | {
       accessibilityLabel: string,
       label: string,
       onClick?: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
       role: 'button',
       size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
-    |};
+    };
 
 export default function PrimaryAction({
   accessibilityLabel,

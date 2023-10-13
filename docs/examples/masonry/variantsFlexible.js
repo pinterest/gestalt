@@ -2,13 +2,13 @@
 import { type Node, useEffect, useId, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
 
-type Pin = {|
+type Pin = {
   color: string,
   height: number,
   name: string,
   src: string,
   width: number,
-|};
+};
 
 function getPins(): Promise<$ReadOnlyArray<Pin>> {
   const pins: $ReadOnlyArray<Pin> = [
@@ -86,7 +86,7 @@ export default function Example(): Node {
     gridRef.current?.handleResize();
   }, [width]);
 
-  const updateWidth = ({ target }: {| target: HTMLInputElement |}) => {
+  const updateWidth = ({ target }: { target: HTMLInputElement }) => {
     setWidth(Number(target.value));
   };
 

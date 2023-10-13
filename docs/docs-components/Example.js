@@ -8,7 +8,7 @@ import theme from './atomDark.js';
 import Card from './Card.js';
 import ExampleCode from './ExampleCode.js';
 
-type Props = {|
+type Props = {
   defaultCode: string,
   description?: string,
   id?: string,
@@ -17,7 +17,7 @@ type Props = {|
   showCode?: boolean,
   skipContrastCheck?: boolean,
   headingSize?: 'sm' | 'md',
-|};
+};
 
 const { Box, Text } = gestalt;
 

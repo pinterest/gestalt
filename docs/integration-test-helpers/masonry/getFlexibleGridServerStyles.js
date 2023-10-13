@@ -9,12 +9,12 @@ export default function getFlexibleGridServerStyles({
   maxItemWidth = 300,
   maxColumns = 16,
   minColumns = 2,
-}: {|
+}: {
   isRTL?: boolean,
   maxItemWidth: number,
   maxColumns: number,
   minColumns: number,
-|}): string {
+}): string {
   let styles = `
 .gridCentered {
   margin-left: auto;

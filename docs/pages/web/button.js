@@ -403,7 +403,12 @@ If Button is used as a control Button to show/hide a Popover-based component, we
         >
           <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
             {({ color }) => {
-              const map = { red: 'Save', blue: 'Shop', gray: 'Visit', transparent: 'Learn more' };
+              const map = {
+                red: 'Save',
+                blue: 'Shop',
+                gray: 'Visit',
+                transparent: 'Learn more',
+              };
               return (
                 <Button
                   accessibilityLabel={`Example width ${color}`}
@@ -585,7 +590,9 @@ Tabs are intended for page-level navigation between multiple URLs.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Button') },
   };

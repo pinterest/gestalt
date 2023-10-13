@@ -12,7 +12,7 @@ import InternalDismissButton from '../shared/InternalDismissButton.js';
 import styles from '../SideNavigation.css';
 import { type Props as SideNavigationProps } from '../SideNavigation.js';
 
-type Props = {| ...SideNavigationProps, id: string |};
+type Props = { ...SideNavigationProps, id: string };
 
 export default function SideNavigationMobile({
   accessibilityLabel,
@@ -26,7 +26,10 @@ export default function SideNavigationMobile({
 }: Props): Node {
   const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
-  const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
+  const navigationChildren = getChildrenToArray({
+    children,
+    filterLevel: 'main',
+  });
 
   const { selectedMobileChildren } = useSideNavigation();
 

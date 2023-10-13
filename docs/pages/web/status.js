@@ -21,7 +21,7 @@ import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.j
 import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
 import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
 
-export default function StatusPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="Status">
       <PageHeader name="Status" description={generatedDocGen?.description}>
@@ -232,7 +232,9 @@ Use Callout to communicate page-level status, such as an error, and to provide a
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Status') },
   };

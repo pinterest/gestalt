@@ -15,7 +15,7 @@ import layoutStyles from '../Layout.css';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
-export type Theme = {|
+export type Theme = {
   name: string,
   colorRed0: string,
   colorRed100: string,
@@ -43,7 +43,7 @@ export type Theme = {|
   blueHovered: string,
   blueActive: string,
   [tokenName: string]: string,
-|};
+};
 
 const lightModeTheme = {
   name: 'lightMode',
@@ -142,7 +142,7 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 /**
  * Appends tokens as injected CSS tokens
  */
-const themeToStyles = (theme: {|
+const themeToStyles = (theme: {
   blueActive: string,
   blueHovered: string,
   colorGray0: string,
@@ -169,7 +169,7 @@ const themeToStyles = (theme: {|
   colorTransparentGray60: string,
   colorTransparentWhite: string,
   name: string,
-|}) => {
+}) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
@@ -199,7 +199,7 @@ const getTheme = (colorScheme: ?ColorScheme) =>
     ? darkModeTheme
     : lightModeTheme;
 
-type Props = {|
+type Props = {
   /**
    * Context lets a parent component provide data to the entire tree below it. Only components within the ColorSchemeProvider tree will be able to subscribe to it.
    */
@@ -216,7 +216,7 @@ type Props = {|
    * An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).
    */
   id?: ?string,
-|};
+};
 
 /**
  * [ColorSchemeProvider](https://gestalt.pinterest.systems/web/utilities/colorschemeprovider) is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode.

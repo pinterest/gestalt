@@ -19,7 +19,7 @@ import primaryAction from '../../examples/popovereducational/primaryAction.js';
 import size from '../../examples/popovereducational/size.js';
 import visibility from '../../examples/popovereducational/visibility.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -216,7 +216,9 @@ Tooltip describes the function of an interactive element, typically [IconButton]
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('PopoverEducational') },
   };

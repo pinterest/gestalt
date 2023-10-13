@@ -13,10 +13,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -69,10 +69,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -109,10 +109,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -170,10 +170,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -235,10 +235,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -294,10 +294,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -353,10 +353,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -428,10 +428,10 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
@@ -496,20 +496,20 @@ describe('Dropdown', () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
-        {|
+        {
           event: SyntheticInputEvent<HTMLInputElement>,
-          item: {| label: string, subtext?: string, value: string |},
-        |},
+          item: { label: string, subtext?: string, value: string },
+        },
       ],
       void,
     >();
     const onClickMock = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
           mobileOnDismissStart: () => void,
-        |},
+        },
       ],
       void,
     >();

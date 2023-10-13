@@ -19,7 +19,7 @@ import variantLayer from '../../examples/popover/variantLayer.js';
 import variantScrollingContainers from '../../examples/popover/variantScrollingContainers.js';
 import variantVisibility from '../../examples/popover/variantVisibility.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -288,7 +288,9 @@ ScrollBoundaryContainer is needed for proper positioning when Popover is anchore
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('Popover');
 
   generatedDocGen.props.color.flowType.raw = '"red" | "white" | "darkGray"';

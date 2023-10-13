@@ -26,7 +26,7 @@ import overflowAndTruncationExample from '../../examples/heading/overflowAndTrun
 import startAlignHeadings from '../../examples/heading/startAlignHeadings.js';
 import variantsExample from '../../examples/heading/variantsExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -391,7 +391,9 @@ For certain specific situations, it is possible to use Heading without an access
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Heading') },
   };

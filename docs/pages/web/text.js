@@ -28,7 +28,7 @@ import variantSizes from '../../examples/text/variantSizes.js';
 import variantStyles from '../../examples/text/variantStyles.js';
 import variantTitle from '../../examples/text/variantTitle.js';
 
-export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -323,7 +323,9 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Text') },
   };

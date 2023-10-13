@@ -7,10 +7,10 @@
  */
 
 type Arguments = $ReadOnlyArray<Event | string | number | boolean | null>;
-export type ThrottleReturn = {|
+export type ThrottleReturn = {
   (...args: Arguments): void,
   clearTimeout: () => void,
-|};
+};
 
 export default function throttle(
   fn: (...args: Arguments) => void,

@@ -22,7 +22,7 @@ import shapeExample from '../../examples/avatar/shapeExample.js';
 import sizingExample from '../../examples/avatar/sizingExample.js';
 import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
-export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -247,7 +247,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Avatar') },
   };

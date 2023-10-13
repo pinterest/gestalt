@@ -15,7 +15,7 @@ const sizes = {
   xl: 120,
 };
 
-type Props = {|
+type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
    */
@@ -40,7 +40,7 @@ type Props = {|
    * Used to indicate if the user is verified.
    */
   verified?: boolean,
-|};
+};
 
 /**
  * [Avatar](https://gestalt.pinterest.systems/web/avatar) is used to represent a user. Every Avatar image has a subtle color wash.

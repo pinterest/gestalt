@@ -29,7 +29,7 @@ import withCheckbox from '../../examples/modalalert/withCheckbox.js';
 
 const PREVIEW_HEIGHT = 450;
 
-export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ModalAlertPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -350,7 +350,9 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ModalAlert') },
   };

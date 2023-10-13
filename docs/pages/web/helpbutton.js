@@ -14,9 +14,9 @@ import main from '../../examples/helpbutton/main.js';
 import withLink from '../../examples/helpbutton/withLink.js';
 import withText from '../../examples/helpbutton/withText.js';
 
-type DocsType = {|
+type DocsType = {
   generatedDocGen: DocGen,
-|};
+};
 
 export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
@@ -124,7 +124,7 @@ HelpButton is a more specific component than IconButton. IconButton is preferabl
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: DocsType |}> {
+export async function getServerSideProps(): Promise<{ props: DocsType }> {
   return {
     props: { generatedDocGen: await docGen('HelpButton') },
   };

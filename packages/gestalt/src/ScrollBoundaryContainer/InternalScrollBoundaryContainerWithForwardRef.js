@@ -13,14 +13,14 @@ import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerP
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
-type InternalProps = {|
+type InternalProps = {
   children?: Node,
   includesFooter?: boolean,
   height?: Dimension,
   onScroll?: () => void,
   overflow?: ScrollBoundaryContainerOverflow,
   padding?: Padding,
-|};
+};
 
 // ScrollBoundaryContainerWithForwardRef is the ScrollBoundaryContainer to be used internally, within components (e. Modal, OverlayPanel).
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.

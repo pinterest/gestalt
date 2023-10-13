@@ -6,9 +6,9 @@ import CopyLinkButton from './buttons/CopyLinkButton.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Markdown from './Markdown.js';
 
-type Props = {|
+type Props = {
   children?: Node,
-  badge?: {| text: string, tooltipText: string |},
+  badge?: { text: string, tooltipText: string },
   description?: string,
   headingSize?: '400' | '500',
   id?: string,
@@ -16,7 +16,7 @@ type Props = {|
   toggle?: Node,
   stacked?: boolean,
   showHeading?: boolean,
-|};
+};
 
 export const copyToClipboard = (hash: string): boolean => {
   if (!navigator.clipboard) {

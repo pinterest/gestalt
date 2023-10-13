@@ -32,13 +32,13 @@ import { type Indexable } from './zIndex.js';
 
 type Size = 'md' | 'lg';
 
-type OptionType = {|
+type OptionType = {
   label: string,
   subtext?: string,
   value: string,
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Label to describe the clear button's purpose.
    */
@@ -78,17 +78,17 @@ type Props = {|
   /**
    * Callback when you focus outside the component.
    */
-  onBlur?: ({|
+  onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback when user types into the control input field.
    */
-  onChange?: ({|
+  onChange?: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback when user clicks on clear button.
    */
@@ -96,36 +96,36 @@ type Props = {|
   /**
    * Callback when you focus on the component.
    */
-  onFocus?: ({|
+  onFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback for key stroke events. See [tags](#Tags) variant to learn more.
    */
-  onKeyDown?: ({|
+  onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback when an item is selected.
    */
-  onSelect?: ({|
+  onSelect?: ({
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: {|
+    item: {
       label: string,
       subtext?: string,
       value: string,
-    |},
-  |}) => void,
+    },
+  }) => void,
   /**
    * The data for each selection option. See [subtext](https://gestalt.pinterest.systems/web/combobox#Subtext) variant to learn more.
    */
-  options: $ReadOnlyArray<{|
+  options: $ReadOnlyArray<{
     label: string,
     subtext?: string,
     value: string,
-  |}>,
+  }>,
   /**
    * Specify a short description that suggests the expected input for the field.
    */
@@ -151,7 +151,7 @@ type Props = {|
    * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [ComboBox](https://gestalt.pinterest.systems/web/combobox) is the combination of a [Textfield](https://gestalt.pinterest.systems/web/textfield) and an associated [Dropdown](https://gestalt.pinterest.systems/web/dropdown) that allows the user to filter a list when selecting an option. ComboBox allows users to type the full option, type part of the option and narrow the results, or select an option from the list.
@@ -256,15 +256,18 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   // ==== EVENT HANDLING: ComboBoxItem ====
 
   const handleSelectItem: (
-    | {| event: SyntheticInputEvent<HTMLInputElement>, item: ComboBoxItemType |}
-    | {| event: SyntheticKeyboardEvent<HTMLElement>, item: OptionType |},
+    | { event: SyntheticInputEvent<HTMLInputElement>, item: ComboBoxItemType }
+    | { event: SyntheticKeyboardEvent<HTMLElement>, item: OptionType },
   ) => void = useCallback(
     ({
       event,
       item,
     }:
-      | {| event: SyntheticInputEvent<HTMLInputElement>, item: ComboBoxItemType |}
-      | {| event: SyntheticKeyboardEvent<HTMLElement>, item: OptionType |}) => {
+      | {
+          event: SyntheticInputEvent<HTMLInputElement>,
+          item: ComboBoxItemType,
+        }
+      | { event: SyntheticKeyboardEvent<HTMLElement>, item: OptionType }) => {
       onSelect?.({ event, item });
       if (isNotControlled) {
         setSelectedItem(item);
@@ -326,7 +329,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   // ==== EVENT HANDLING: Popover ====
 
   const handleKeyDown = useCallback(
-    ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
+    ({ event }: { event: SyntheticKeyboardEvent<HTMLElement> }) => {
       const { keyCode } = event;
 
       if (keyCode === UP_ARROW) {
@@ -352,13 +355,13 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   // ==== EVENT HANDLING: InternalTextField ====
 
   const handleOnBlur = useCallback(
-    ({ event, value }: {| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) =>
+    ({ event, value }: { event: SyntheticFocusEvent<HTMLInputElement>, value: string }) =>
       onBlur?.({ event, value }),
     [onBlur],
   );
 
   const handleOnFocus = useCallback(
-    ({ event, value }: {| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) =>
+    ({ event, value }: { event: SyntheticFocusEvent<HTMLInputElement>, value: string }) =>
       onFocus?.({ event, value }),
     [onFocus],
   );
@@ -366,7 +369,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   const handleSetShowOptionsList = useCallback(() => setShowOptionsList(true), []);
 
   const handleOnChange = useCallback(
-    ({ event, value }: {| event: SyntheticInputEvent<HTMLInputElement>, value: string |}) => {
+    ({ event, value }: { event: SyntheticInputEvent<HTMLInputElement>, value: string }) => {
       setHoveredItemIndex(null);
       if (isNotControlled) {
         setSelectedItem(null);
@@ -390,7 +393,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
   }, [isNotControlled, onClear, options]);
 
   const handleOnKeyDown = useCallback(
-    ({ event, value }: {| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => {
+    ({ event, value }: { event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => {
       if (!showOptionsList && event.keyCode !== TAB) setShowOptionsList(true);
       onKeyDown?.({ event, value });
     },

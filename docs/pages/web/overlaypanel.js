@@ -22,9 +22,9 @@ import subheadingExample from '../../examples/overlaypanel/subHeadingExample.js'
 
 export default function SheetPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   const PREVIEW_HEIGHT = 800;
 
   return (
@@ -353,10 +353,12 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
-    props: { generatedDocGen: await multipleDocGen(['OverlayPanel', 'DismissingElement']) },
+    props: {
+      generatedDocGen: await multipleDocGen(['OverlayPanel', 'DismissingElement']),
+    },
   };
 }

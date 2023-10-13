@@ -48,18 +48,21 @@ const slackChannels = [
 ];
 const engResources = [
   { title: 'Web repository', url: 'https://github.com/pinterest/gestalt' },
-  { title: 'Code sandbox', url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js' },
+  {
+    title: 'Code sandbox',
+    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
+  },
 ];
 
-type LinkListProps = {|
-  items: $ReadOnlyArray<{|
+type LinkListProps = {
+  items: $ReadOnlyArray<{
     title: string,
     url: string,
     a11yLabel?: string,
-  |}>,
+  }>,
   heading: string,
   isInternal?: boolean,
-|};
+};
 function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
   return (
     <Box

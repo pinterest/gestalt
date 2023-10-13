@@ -19,7 +19,7 @@ import variantsOverMedia from '../../examples/badge/variantsOverMedia.js';
 import variantsPositioning from '../../examples/badge/variantsPositioning.js';
 import variantsType from '../../examples/badge/variantsType.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -219,7 +219,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Badge') },
   };

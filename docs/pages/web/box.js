@@ -68,9 +68,9 @@ const ignoredProps = [
   'lgPaddingY',
 ];
 
-type ColorCardProps = {|
+type ColorCardProps = {
   children: Node,
-|};
+};
 function ColorSchemeLayout({ children }: ColorCardProps): Node {
   return (
     <Flex
@@ -91,7 +91,7 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
   );
 }
 
-export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -547,7 +547,9 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Box') },
   };

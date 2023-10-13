@@ -58,14 +58,14 @@ import {
   throwErrorIfSpreadProps,
 } from './utils.js';
 
-type OptionsType = {|
+type OptionsType = {
   component: string,
   subcomponent?: string,
   previousProp?: string,
   nextProp?: string,
   previousValue?: string,
   nextValue?: string,
-|};
+};
 
 function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
   const { component, subcomponent, previousProp, nextProp, previousValue, nextValue } = options;
@@ -120,7 +120,10 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
 
     // In the absence of nextProp & nextValue, we REMOVE prop and values
     if (!nextProp && isNullOrUndefined(nextValue)) {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, previousProp });
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
+        j,
+        previousProp,
+      });
     } else {
       // In the absence of just nextProp, we change the value.
       // In the absence of just nextValue, we rename the prop if both prop and value match.

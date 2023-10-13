@@ -3,12 +3,12 @@ import { type Node } from 'react';
 import Box from './Box.js';
 import styles from './ComponentName.css';
 
-type Props = {|
+type Props = {
   /**
    * Prop description.
    */
   accessibilityLabel?: string,
-|};
+};
 
 /**
  * [ComponentName](https://gestalt.pinterest.systems/web/componentname) component should be used for ... on the page.

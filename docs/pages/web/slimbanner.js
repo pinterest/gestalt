@@ -31,7 +31,7 @@ import variantRecommendation from '../../examples/slimbanner/variantRecommendati
 import variantSuccess from '../../examples/slimbanner/variantSuccess.js';
 import variantWarning from '../../examples/slimbanner/variantWarning.js';
 
-export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function SlimBannerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -458,7 +458,9 @@ Tooltip provides helpful information regarding an interactive UI element, typica
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getStaticProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('SlimBanner') },
   };

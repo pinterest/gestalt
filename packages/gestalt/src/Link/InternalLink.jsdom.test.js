@@ -5,10 +5,10 @@ import InternalLink from './InternalLink.js';
 test('InternalLink handles onClick callback', () => {
   const mockOnClick = jest.fn<
     [
-      {|
+      {
         dangerouslyDisableOnNavigation: () => void,
         event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-      |},
+      },
     ],
     void,
   >();

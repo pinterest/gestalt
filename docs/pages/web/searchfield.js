@@ -22,7 +22,7 @@ import placeAboveContent from '../../examples/searchfield/placeAboveContent.js';
 import sizesExample from '../../examples/searchfield/sizesExample.js';
 import variantsExample from '../../examples/searchfield/variantsExample.js';
 
-export default function SearchFieldPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function SearchFieldPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="SearchField">
       <PageHeader name="SearchField" description={generatedDocGen?.description}>
@@ -237,7 +237,9 @@ TextArea allows for multiline text input, suitable for longer length text. Unles
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('SearchField') },
   };

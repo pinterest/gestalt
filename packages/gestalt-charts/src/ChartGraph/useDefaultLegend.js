@@ -11,17 +11,20 @@ export default function useDefaultLegend({
   labelMap,
   setLegendHeight,
   referenceAreaSummary,
-}: {|
+}: {
   isHorizontalBiaxialLayout: boolean,
   isVerticalBiaxialLayout: boolean,
   legend: 'auto' | 'none' | 'complete',
   height: number,
-  labelMap: ?{| [string]: string |},
+  labelMap: ?{ [string]: string },
   setLegendHeight: (number) => void,
-  referenceAreaSummary: null | $ReadOnlyArray<{| label: string, style?: 'default' |}>,
-|}): ({|
-  payload: $ReadOnlyArray<{|
-    payload: {|
+  referenceAreaSummary: null | $ReadOnlyArray<{
+    label: string,
+    style?: 'default',
+  }>,
+}): ({
+  payload: $ReadOnlyArray<{
+    payload: {
       color: ?string,
       dataKey: string,
       fill: ?string,
@@ -29,16 +32,16 @@ export default function useDefaultLegend({
       stroke: ?string,
       strokeDasharray: ?(string | number),
       value: number,
-    |},
-  |}>,
-|}) => Node {
+    },
+  }>,
+}) => Node {
   return useCallback(
     ({ payload }) => {
       const series = payload.map(
         ({
           payload: payloadData,
-        }: {|
-          payload: {|
+        }: {
+          payload: {
             color: ?string,
             dataKey: string,
             fill: ?string,
@@ -46,8 +49,8 @@ export default function useDefaultLegend({
             stroke: ?string,
             strokeDasharray: ?(string | number),
             value: number,
-          |},
-        |}) => (
+          },
+        }) => (
           <Flex key={payloadData.dataKey} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ ...payloadData, isLegend: true }} />
             <Text size="200">{labelMap?.[payloadData.dataKey] || payloadData.dataKey}</Text>
@@ -58,7 +61,7 @@ export default function useDefaultLegend({
       const referenceAreas =
         // TO DO FIX
         // eslint-disable-next-line no-unused-vars
-        referenceAreaSummary?.map(({ style, label }: {| style?: 'default', label: string |}) => (
+        referenceAreaSummary?.map(({ style, label }: { style?: 'default', label: string }) => (
           <Flex key={label} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ referenceArea: 'default', isLegend: true }} />
             <Text size="200">{label}</Text>

@@ -5,7 +5,7 @@ import { PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
 
 const INPUT_ID = 'algolia-doc-search';
 
-function SearchBox({ popoverZIndex }: {| popoverZIndex?: CompositeZIndex |}) {
+function SearchBox({ popoverZIndex }: { popoverZIndex?: CompositeZIndex }) {
   // Icon placement is copied directly from  SearchField
   // Try to maintain consistency w/ SearchField whenever possible
   return (
@@ -45,11 +45,11 @@ export default function DocSearch({
   anchorRef,
   isMobileSearchExpandedOpen,
   toggleSearchBarOpen,
-}: {|
+}: {
   anchorRef: Ref<typeof IconButton>,
   isMobileSearchExpandedOpen: boolean,
   toggleSearchBarOpen: () => void,
-|}): Node {
+}): Node {
   const [isCompressedUI, setIsCompressedUI] = useState(
     typeof window !== 'undefined' && window.innerWidth < 1312,
   );
@@ -168,8 +168,8 @@ export default function DocSearch({
           ref={anchorRef}
           size="sm"
           tooltip={{
-            'text': isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
-            'zIndex': PAGE_HEADER_POPOVER_ZINDEX,
+            text: isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
+            zIndex: PAGE_HEADER_POPOVER_ZINDEX,
           }}
         />
       </Box>

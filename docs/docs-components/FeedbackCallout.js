@@ -5,9 +5,9 @@ import { Box, Callout } from 'gestalt';
 const BASE_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=';
 
-type Props = {|
+type Props = {
   componentName: string,
-|};
+};
 
 export default function FeedbackCallout({ componentName }: Props): Node {
   const [showCallout, setShowCallout] = useState(true);

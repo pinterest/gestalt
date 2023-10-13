@@ -14,7 +14,7 @@ import main from '../../examples/fieldset/main.js';
 import variantsError from '../../examples/fieldset/variantsError.js';
 import variantsLegend from '../../examples/fieldset/variantsLegend.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -111,7 +111,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Fieldset') },
   };

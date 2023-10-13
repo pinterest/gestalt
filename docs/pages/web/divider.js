@@ -20,7 +20,7 @@ import useFromEdgeToEdge from '../../examples/divider/useFromEdgeToEdge.js';
 import useToSeparateCollections from '../../examples/divider/useToSeparateCollections.js';
 import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceToSeparateGroups.js';
 
-export default function DividerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -213,7 +213,9 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Divider') },
   };

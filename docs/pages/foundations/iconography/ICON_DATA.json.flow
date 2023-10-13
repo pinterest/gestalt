@@ -1,26 +1,26 @@
 // @flow strict
-import { type ElementProps } from 'react';
-import { Icon } from 'gestalt';
+import { type ElementProps } from "react";
+import { Icon } from "gestalt";
 
-declare module.exports: {|
-  +icons: $ReadOnlyArray<{|
-    +name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
+declare module.exports: {
+  +icons: $ReadOnlyArray<{
+    +name: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, "icon">>,
     +categories: $ReadOnlyArray<
-      | 'Add'
-      | 'Ads and measurement'
-      | 'Alignment'
-      | 'Arrows'
-      | 'Media controls'
-      | 'Platform specific'
-      | 'Reactions and ratings'
-      | 'Social'
-      | 'Status'
-      | 'Text'
-      | 'Time'
-      | 'Toggle'
-      | 'Utility and tools'
+      | "Add"
+      | "Ads and measurement"
+      | "Alignment"
+      | "Arrows"
+      | "Media controls"
+      | "Platform specific"
+      | "Reactions and ratings"
+      | "Social"
+      | "Status"
+      | "Text"
+      | "Time"
+      | "Toggle"
+      | "Utility and tools"
     >,
     +description: ?string,
     +keywords: Array<string>,
-  |}>,
-|};
+  }>,
+};

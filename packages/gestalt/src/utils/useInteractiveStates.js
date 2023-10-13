@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react';
  * Returns event handlers that manage state for active, focus and hover states
  * @returns handled states
  */
-const useInteractiveStates = (): ({|
+const useInteractiveStates = (): ({
   handleOnBlur: () => void,
   handleOnFocus: () => void,
   handleOnMouseDown: () => void,
@@ -15,7 +15,7 @@ const useInteractiveStates = (): ({|
   isActive: boolean,
   isFocused: boolean,
   isHovered: boolean,
-|}) => {
+}) => {
   const [isActive, setActive] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);

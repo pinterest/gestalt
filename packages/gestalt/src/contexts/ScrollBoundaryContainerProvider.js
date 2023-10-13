@@ -9,14 +9,14 @@ import {
   useState,
 } from 'react';
 
-type ScrollBoundaryContainerContextType = {|
+type ScrollBoundaryContainerContextType = {
   scrollBoundaryContainerRef: ?HTMLElement,
   addRef: (ref: HTMLElement) => void,
-|};
+};
 
-type Props = {|
+type Props = {
   children: Node,
-|};
+};
 
 const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType> =
   createContext<ScrollBoundaryContainerContextType>({

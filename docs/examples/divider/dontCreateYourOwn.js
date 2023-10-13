@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
 
-function Block({ title, text }: {| title: string, text: $ReadOnlyArray<string> |}) {
+function Block({ title, text }: { title: string, text: $ReadOnlyArray<string> }) {
   return (
     <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">

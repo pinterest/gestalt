@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 
-type Props = {|
+type Props = {
   /**
    * The content of the table cell.
    */
@@ -28,7 +28,7 @@ type Props = {|
    * Private prop required for sticky columns
    */
   previousTotalWidth?: number,
-|};
+};
 
 /**
  * Use [Table.Cell](https://gestalt.pinterest.systems/web/table#Table.Cell) for individual table values.

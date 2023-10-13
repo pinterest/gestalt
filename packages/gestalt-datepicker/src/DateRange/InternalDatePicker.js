@@ -13,10 +13,10 @@ import { Icon, useDeviceType } from 'gestalt';
 import styles from '../DatePicker.css';
 import { type Props } from '../DatePicker.js';
 
-type ModifiedProps = {|
+type ModifiedProps = {
   ...Props,
-  onChange: ({| startDate: Date, endDate: Date |}) => void,
-|};
+  onChange: ({ startDate: Date, endDate: Date }) => void,
+};
 
 const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInputElement> =
   forwardRef<ModifiedProps, HTMLInputElement>(function InternalDatePicker(

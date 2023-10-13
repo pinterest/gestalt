@@ -36,7 +36,7 @@ import variantRel from '../../examples/link/variantRel.js';
 import variantStandaloneLink from '../../examples/link/variantStandaloneLink.js';
 import variantTarget from '../../examples/link/variantTarget.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -525,7 +525,9 @@ These components support link functionality themselves by setting \`role="link"\
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Link') },
   };

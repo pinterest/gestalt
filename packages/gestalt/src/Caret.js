@@ -9,11 +9,11 @@ const PATHS = {
   up: 'M12 0c-.694 0-1.36.278-1.847.773L7.625 3.34c-.807.819-2.188.885-3.084.148a2.098 2.098 0 01-.163-.148L1.853.775A2.6 2.6 0 000 0',
 };
 
-type Props = {|
+type Props = {
   direction: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   height: 4 | 12,
   width: 4 | 12,
-|};
+};
 
 export default function Caret(props: Props): Node {
   const { direction, height, width } = props;

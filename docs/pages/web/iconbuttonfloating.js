@@ -16,7 +16,7 @@ import main from '../../examples/iconbuttonfloating/main.js';
 import variantsA11y from '../../examples/iconbuttonfloating/variantsA11y.js';
 import variantsWithTooltip from '../../examples/iconbuttonfloating/variantsWithTooltip.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -219,7 +219,9 @@ IconButtonFloating is commonly paired with Dropdown to display a menu of options
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('IconButtonFloating');
 
   generatedDocGen.props.icon = {

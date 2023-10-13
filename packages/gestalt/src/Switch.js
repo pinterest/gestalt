@@ -5,7 +5,7 @@ import focusStyles from './Focus.css';
 import styles from './Switch.css';
 import useFocusVisible from './useFocusVisible.js';
 
-type Props = {|
+type Props = {
   /**
    * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/web/switch#Disabled-and-switched-combinations) for more details.
    */
@@ -21,12 +21,12 @@ type Props = {|
   /**
    * Callback triggered when the user interacts with the input.
    */
-  onChange: ({| event: SyntheticInputEvent<>, value: boolean |}) => void,
+  onChange: ({ event: SyntheticInputEvent<>, value: boolean }) => void,
   /**
    * Indicates the current value of the input. See [Switch combinations](https://gestalt.pinterest.systems/web/switch#Disabled-and-switched-combinations) for more details.
    */
   switched?: boolean,
-|};
+};
 
 /**
  * Use [Switch](https://gestalt.pinterest.systems/web/switch) for single cell options that can be turned on and off only. If you have a cell with multiple options that can activated, consider using [Checkbox](https://gestalt.pinterest.systems/web/checkbox).

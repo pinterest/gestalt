@@ -5,16 +5,16 @@ import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 
-type ColorCardProps = {|
+type ColorCardProps = {
   description: string,
   colorScheme: 'light' | 'dark',
   id: string,
   borderStyle?: $ElementType<React$ElementConfig<typeof Box>, 'borderStyle'>,
   color?: 'default' | 'elevationAccent' | 'elevationFloating' | 'elevationRaised',
-  dangerouslySetInlineStyle?: {|
+  dangerouslySetInlineStyle?: {
     __style: { [key: string]: string | number | void },
-  |},
-|};
+  },
+};
 function ColorCard({
   description,
   colorScheme,

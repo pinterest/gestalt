@@ -281,7 +281,9 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ButtonLink') },
   };

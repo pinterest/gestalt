@@ -13,11 +13,11 @@ const TIMEOUT = 100;
 const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false };
 
 const reducer = (
-  state: {| hoveredIcon: boolean, hoveredText: boolean, isOpen: boolean |},
-  action: {|
+  state: { hoveredIcon: boolean, hoveredText: boolean, isOpen: boolean },
+  action: {
     type: 'hoverInIcon' | 'hoverInText' | 'hoverOutIcon' | 'hoverOutText',
     disabled?: boolean,
-  |},
+  },
 ) => {
   if (action.disabled) return { ...state, isOpen: false, hoveredIcon: false, hoveredText: false };
   switch (action.type) {
@@ -50,7 +50,7 @@ const reducer = (
   }
 };
 
-type Props = {|
+type Props = {
   accessibilityLabel?: string,
   children?: Node,
   /**
@@ -62,7 +62,7 @@ type Props = {|
   link?: Node,
   text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
-|};
+};
 
 export default function InternalTooltip({
   accessibilityLabel,

@@ -5,7 +5,7 @@ import styles from './Flex.css';
 
 type Dimension = number | string;
 
-export type Props = {|
+export type Props = {
   /**
    * Allows the default alignment (or the one specified by `align-items`) to be overridden for the individual flex item.
    */
@@ -35,7 +35,7 @@ export type Props = {|
    * Use numbers for pixels: `minWidth={100}` and strings for percentages: `minWidth="100%"`. Can be used to fix overflowing children; see [the example](https://gestalt.pinterest.systems/web/flex#FlexItem-minWidth) to learn more.
    */
   minWidth?: Dimension,
-|};
+};
 
 const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'maxWidth', 'minWidth'];
 

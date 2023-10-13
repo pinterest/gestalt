@@ -11,26 +11,26 @@ import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';
 import Text from '../Text.js';
 
-export type ComboBoxItemType = {|
+export type ComboBoxItemType = {
   label: string,
   subtext?: string,
   value: string,
-|};
+};
 
-type Props = {|
+type Props = {
   id: string,
   index: number,
   isHovered: boolean,
   isSelected: boolean,
   label: string,
-  onSelect?: ({|
+  onSelect?: ({
     item: ComboBoxItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
-  |}) => void,
+  }) => void,
   setHoveredItemIndex: (number) => void,
   subtext?: string,
   value: string,
-|};
+};
 
 const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
@@ -70,7 +70,10 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
           bordersStyles.rounding2,
           boxWhitespaceStyles.paddingX2,
           boxWhitespaceStyles.paddingY2,
-          { [colorStyles.lightGrayBg]: isHovered, [colorStyles.transparentBg]: !isHovered },
+          {
+            [colorStyles.lightGrayBg]: isHovered,
+            [colorStyles.transparentBg]: !isHovered,
+          },
         )}
       >
         <div

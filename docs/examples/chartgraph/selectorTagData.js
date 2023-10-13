@@ -44,7 +44,7 @@ export default function Example(): Node {
     return colorMap[value];
   };
 
-  const handleSelectors = ({ id, selected }: {| id?: string, selected: boolean |}) => {
+  const handleSelectors = ({ id, selected }: { id?: string, selected: boolean }) => {
     if (!selected) {
       setSelectedId((values) => values.filter((idValue) => idValue !== id));
     }

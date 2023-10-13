@@ -27,7 +27,7 @@ import secondaryActionsExample from '../../examples/pageheader/secondaryActionEx
 import subtextExample from '../../examples/pageheader/subtextExample.js';
 import titleExample from '../../examples/pageheader/titleExample.js';
 
-export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function PageHeaderPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader
@@ -417,7 +417,9 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('PageHeader') },
   };

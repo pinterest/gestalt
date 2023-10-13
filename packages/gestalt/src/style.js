@@ -20,10 +20,10 @@ type InlineStyle = { [key: string]: string | number | void, ... };
 
 // TODO: This type should be opaque, however the Babel parser doesn't support
 //       the opaque syntax yet.
-export type Style = {|
+export type Style = {
   className: Set<string>,
   inlineStyle: InlineStyle,
-|};
+};
 
 export const identity = (): Style => ({
   className: new Set(),
@@ -59,7 +59,7 @@ export const mapClassName =
     inlineStyle,
   });
 
-export type ToPropsOutput = {| className: ?string, style: ?InlineStyle |};
+export type ToPropsOutput = { className: ?string, style: ?InlineStyle };
 
 export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
   let sortedClassNames;

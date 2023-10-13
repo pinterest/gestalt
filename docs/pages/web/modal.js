@@ -19,7 +19,7 @@ import preventCloseExample from '../../examples/modal/preventCloseExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
 import sizesExample from '../../examples/modal/sizesExample.js';
 
-export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   const PREVIEW_HEIGHT = 450;
 
   return (
@@ -298,9 +298,9 @@ Toast provides temporary feedback on an interaction. Toasts appear at the bottom
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: DocGen |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('Modal'),

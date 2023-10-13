@@ -5,7 +5,7 @@ import DatePicker from './DatePicker.js';
 
 const initialDate = new Date(2018, 11, 14);
 
-function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: boolean |}) {
+function DatePickerWrap({ showMonthYearDropdown }: { showMonthYearDropdown?: boolean }) {
   const [date, setDate] = useState<Date | null>(initialDate);
 
   return (
@@ -20,7 +20,7 @@ function DatePickerWrap({ showMonthYearDropdown }: {| showMonthYearDropdown?: bo
 
 describe('DatePicker', () => {
   const mockOnChange = jest.fn<
-    [{| event: SyntheticInputEvent<HTMLInputElement>, value: Date | null |}],
+    [{ event: SyntheticInputEvent<HTMLInputElement>, value: Date | null }],
     void,
   >();
 

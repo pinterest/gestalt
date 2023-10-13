@@ -8,9 +8,12 @@ import styles from './SegmentedControl.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type OnChange = ({| event: SyntheticMouseEvent<HTMLButtonElement>, activeIndex: number |}) => void;
+type OnChange = ({
+  event: SyntheticMouseEvent<HTMLButtonElement>,
+  activeIndex: number,
+}) => void;
 
-type Props = {|
+type Props = {
   /**
    * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
    */
@@ -27,7 +30,7 @@ type Props = {|
    * Index of element in `items` that is currently selected.
    */
   selectedItemIndex: number,
-|};
+};
 
 function SegmentedControlItem({
   index,
@@ -35,13 +38,13 @@ function SegmentedControlItem({
   isSelected,
   onChange,
   width,
-}: {|
+}: {
   index: number,
   item: Node,
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
-|}) {
+}) {
   const { isFocusVisible } = useFocusVisible();
   const cs = classnames(styles.item, focusStyles.hideOutline, {
     [styles.itemIsNotSelected]: !isSelected,

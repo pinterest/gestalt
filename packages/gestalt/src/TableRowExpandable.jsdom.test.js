@@ -9,10 +9,10 @@ import Text from './Text.js';
 
 const mockOnExpand = jest.fn<
   [
-    {|
+    {
       event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
       expanded: boolean,
-    |},
+    },
   ],
   void,
 >();

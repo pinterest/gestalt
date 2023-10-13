@@ -438,15 +438,15 @@ export function buildStyles<T: Object>({
   props,
   blocklistProps,
   allowlistProps,
-}: {|
+}: {
   baseStyles: string,
   props: T,
   blocklistProps?: $ReadOnlyArray<string>,
   allowlistProps?: $ReadOnlyArray<string>,
-|}): {|
+}): {
   passthroughProps: T,
   propsStyles: ToPropsOutput,
-|} {
+} {
   // Flow can't reason about the constant nature of Object.keys so we can't use
   // a functional (reduce) style here.
 

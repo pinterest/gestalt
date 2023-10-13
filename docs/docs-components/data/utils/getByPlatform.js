@@ -7,7 +7,7 @@ import { type ComponentData, type Platform, type PlatformData } from '../types.j
 
 export default function getByPlatform(
   componentList: $ReadOnlyArray<ComponentData>,
-  options: {| platform: Platform |},
+  options: { platform: Platform },
 ): $ReadOnlyArray<PlatformData> {
   const { platform } = options;
   return componentList

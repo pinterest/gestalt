@@ -23,7 +23,7 @@ import useFullNumberWithLocaleSeparators from '../../examples/datapoint/useFullN
 import usePositiveTrendSentiment from '../../examples/datapoint/usePositiveTrendSentiment.js';
 import withBadgeExample from '../../examples/datapoint/withBadgeExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -255,7 +255,9 @@ Use Status in instances where information is more categorical or qualitative (su
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Datapoint') },
   };
