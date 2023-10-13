@@ -64,7 +64,7 @@ html[dir="rtl"] .borderLeft {
 /* Border radius */
 
 .circle {
-  border-radius: 50%;
+  border-radius: var(--rounding-circle);
 }
 
 .pill {
@@ -72,7 +72,7 @@ html[dir="rtl"] .borderLeft {
 }
 
 .rounding0 {
-  border-radius: 0;
+  border-radius: var(--rounding-0);
 }
 
 .rounding1 {
