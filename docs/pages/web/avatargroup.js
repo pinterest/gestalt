@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -127,7 +128,9 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           Hitting the Enter or Return key opens a dialog or redirects to a new page (depending on the role) and the user can then add or view collaborators.`}
         />
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize  `accessibilityLabel`." />
+
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Fixed sizes"

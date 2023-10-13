@@ -20,44 +20,48 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection
-        name="Server Rendering"
-        description="
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          title="Server Rendering"
+          description="
     Because creating a portal in Layer depends on DOM manipulation, if document is not present,
     such as in a server rendering environment, the children will not be rendered.
   "
-      />
-      <MainSection
-        description="
+        />
+
+        <MainSection.Subsection
+          description="
     Child content will be rendered outside the DOM hierarchy for easy overlaying. Click to see an example.
   "
-        name="Overlaying Content"
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample
-              name="Child Content Rendered Outside Example"
-              code={childContentRenderedOutsideExample}
-            />
-          }
-        />
-      </MainSection>
+          title="Overlaying Content"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                name="Child Content Rendered Outside Example"
+                code={childContentRenderedOutsideExample}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-      <MainSection
-        name="zIndex"
-        description="
+        <MainSection.Subsection
+          title="zIndex"
+          description="
 The example below shows using a \`FixedZIndex\` for the header zIndex and a \`CompositeZIndex\` to stack the Layer on top of it. Visit our [Z-Index documentation](/web/zindex_classes) for more details on how to use these utility classes.
     "
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample
-              name="Stacking Using Z-Index Example"
-              code={stackingUsingZIndexExample}
-            />
-          }
-        />
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                name="Stacking Using Z-Index Example"
+                code={stackingUsingZIndexExample}
+              />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );

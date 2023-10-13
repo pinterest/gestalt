@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -171,10 +172,9 @@ export default function AvatarPage({ generatedDocGen }: {| generatedDocGen: DocG
           Make sure that the alternative text properly describes the information and function of the avatar image(s). Depending on the situation, it may be helpful to state the collaborator or company name and/or their verification status.
         `}
       />
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize any content in the \`accessibilityLabel\` that isn’t a name.`}
-      />
+
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`

@@ -36,7 +36,7 @@ type Props = {|
    * Accessibility: `accessibilityLabel` populates aria-label.
    */
   dismissButton?: {|
-    accessibilityLabel: string,
+    accessibilityLabel?: string,
     onDismiss: () => void,
   |},
   /**
@@ -97,7 +97,14 @@ function ActivationCardLink({ data }: {| data: LinkData |}): Node {
   );
 }
 
-function CompletedCard({ dismissButton, message, status, statusMessage, title }: Props): Node {
+type CardProps = {|
+  ...Props,
+  dismissButton?: {|
+    accessibilityLabel: string,
+    onDismiss: () => void,
+  |},
+|};
+function CompletedCard({ dismissButton, message, status, statusMessage, title }: CardProps): Node {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -153,7 +160,7 @@ function UncompletedCard({
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: CardProps): Node {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
