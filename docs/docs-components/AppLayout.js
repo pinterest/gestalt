@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment, type Node, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, DeviceTypeProvider, Divider, Flex, FixedZIndex } from 'gestalt';
+import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
 import { useAppContext } from './appContext.js';
 import { DocsConfigProvider, useDocsConfig } from './contexts/DocsConfigProvider.js';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
