@@ -62,7 +62,8 @@ function darkFormat(dictionary) {
   });
 }
 
-function darkFormatWrapper(format: string) {
+// $FlowFixMe[missing-local-annot]
+function darkFormatWrapper(format) {
   // $FlowFixMe[missing-local-annot]
   return (args) => {
     const dictionary = { ...args.dictionary };
