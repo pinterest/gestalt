@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, Flex, Heading, Icon } from 'gestalt';
+import { Box, Flex, Heading } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Markdown from '../../../docs-components/Markdown.js';
@@ -71,9 +71,6 @@ export default function TypographyPage(): Node {
                 hideControls
                 previewHeight={750}
               />
-              <div className="rotateIcon">
-                <Icon icon="mute" accessibilityLabel="" color="darkGray" size={16} />
-              </div>
             </ThemeLayout>
             <Flex gap={2} direction="column" width="100%">
               <Flex gap={2} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
