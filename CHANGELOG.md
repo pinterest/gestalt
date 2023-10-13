@@ -1,3 +1,9 @@
+## 127.1.9 (Oct 13, 2023)
+
+### Patch
+
+- Docs: standardize Localization section in Docs. ([#3243](https://github.com/pinterest/gestalt/pull/3243)) - [Preview link](https://deploy-preview-3243--gestalt.netlify.app?devexample=true)
+
 ## 127.1.8 (Oct 12, 2023)
 
 ### Patch
