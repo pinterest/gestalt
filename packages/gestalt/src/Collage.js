@@ -166,11 +166,7 @@ type Props = {|
   /**
    * Callback to render the collage images.
    */
-  renderImage: ({|
-    width: number,
-    height: number,
-    index: number,
-  |}) => Node,
+  renderImage: ({| width: number, height: number, index: number |}) => Node,
   /**
    * Width of the collage.
    */

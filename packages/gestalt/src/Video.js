@@ -58,22 +58,15 @@ type Props = {|
   /**
    * Callback triggered when playback is played via the video control interface.
    */
-  onControlsPlay?: ({|
-    event: SyntheticEvent<HTMLDivElement>,
-  |}) => void,
+  onControlsPlay?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
   /**
    * Callback triggered when playback is paused via the video control interface.
    */
-  onControlsPause?: ({|
-    event: SyntheticEvent<HTMLDivElement>,
-  |}) => void,
+  onControlsPause?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
   /**
    * Callback triggered when the metadata has loaded or changed, indicating a change in duration. See the [MDN Web Docs: durationchange event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event).
    */
-  onDurationChange?: ({|
-    event: SyntheticEvent<HTMLVideoElement>,
-    duration: number,
-  |}) => void,
+  onDurationChange?: ({| event: SyntheticEvent<HTMLVideoElement>, duration: number |}) => void,
   /**
    * Callback triggered when playback of the video completes. See the [MDN Web Docs: ended event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event).
    */
@@ -143,10 +136,7 @@ type Props = {|
   /**
    * Callback triggered when the audio volume changes via the video control interface. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
-  onVolumeChange?: ({|
-    event: SyntheticEvent<HTMLDivElement>,
-    volume: number,
-  |}) => void,
+  onVolumeChange?: ({| event: SyntheticEvent<HTMLDivElement>, volume: number |}) => void,
   /**
    * Callback triggered when playback has stopped because of a temporary lack of data. See the [MDN Web Docs: waiting event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event).
    */

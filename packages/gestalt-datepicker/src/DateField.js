@@ -93,10 +93,7 @@ export type Props = {|
   /**
    * Callback triggered when the user blurs the input.
    */
-  onBlur?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * DateField is a controlled component. `onChange` is the  callback triggered when the value of the input changes. Should be used to modify the controlled value. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
@@ -104,10 +101,7 @@ export type Props = {|
   /**
    * Callback triggered when the value entered is invalid. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
-  onError?: ({|
-    errorMessage: string,
-    value: Date | null,
-  |}) => void,
+  onError?: ({| errorMessage: string, value: Date | null |}) => void,
   /**
    * DateField is a controlled component. `onClearInput` is the callback triggered when the user clicks on the "clear" icon button. Should be used to clear the entered dates in the controlled component. See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
@@ -115,10 +109,7 @@ export type Props = {|
   /**
    * Callback triggered when the user focuses the input.
    */
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/datefield#States) for more details.
    */

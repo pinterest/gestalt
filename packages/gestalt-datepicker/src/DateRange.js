@@ -77,10 +77,7 @@ type Props = {|
   /**
    * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onEndDateBlur?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onEndDateBlur?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * DateField is a controlled component. `onEndDateChange` is the  callback triggered when the end date value changes. Should be used to modify the controlled value. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
@@ -88,24 +85,15 @@ type Props = {|
   /**
    * Callback triggered when the end date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onEndDateError: ({|
-    errorMessage: string,
-    value: Date | null,
-  |}) => void,
+  onEndDateError: ({| errorMessage: string, value: Date | null |}) => void,
   /**
    * Callback triggered when the user focus on the input of the end date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onEndDateFocus?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onEndDateFocus?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onStartDateBlur?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onStartDateBlur?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * DateField is a controlled component. `onStartDateChange` is the  callback triggered when the start date value changes. Should be used to modify the controlled value. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
@@ -113,17 +101,11 @@ type Props = {|
   /**
    * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onStartDateError: ({|
-    errorMessage: string,
-    value: Date | null,
-  |}) => void,
+  onStartDateError: ({| errorMessage: string, value: Date | null |}) => void,
   /**
    * Callback triggered when the user focus on the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onStartDateFocus?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onStartDateFocus?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Callback triggered when the user clicks the Apply button to persist the selected dates. It should be used to persist the dates selected and close the DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */

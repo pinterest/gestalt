@@ -6,9 +6,7 @@ export type NoopType = () => void;
 type OnLinkNavigationType = ({|
   href: string,
   target?: null | 'self' | 'blank',
-|}) => ?({|
-  +event: SyntheticEvent<>,
-|}) => void;
+|}) => ?({| +event: SyntheticEvent<> |}) => void;
 
 type GlobalEventsHandlerContextType = {|
   dateFieldHandlers?: {| onMount?: NoopType |},
@@ -46,9 +44,7 @@ type Props = {|
     onNavigation?: ({|
       href: string,
       target?: null | 'self' | 'blank',
-    |}) => ?({|
-      +event: SyntheticEvent<>,
-    |}) => void,
+    |}) => ?({| +event: SyntheticEvent<> |}) => void,
   |},
 |};
 

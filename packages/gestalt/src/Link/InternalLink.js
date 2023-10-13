@@ -37,15 +37,9 @@ type Props = {|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
   |}) => void,
-  onBlur?: ({|
-    event: SyntheticFocusEvent<HTMLAnchorElement>,
-  |}) => void,
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLAnchorElement>,
-  |}) => void,
-  onKeyDown?: ({|
-    event: SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => void,
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void,
   onMouseDown?: ({|
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
   |}) => void,

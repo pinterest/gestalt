@@ -10,11 +10,7 @@ type Props<T> = {|
   getPositions: (items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>,
   items: $ReadOnlyArray<T>,
   measurementStore: Cache<T, number>,
-  renderItem: ({|
-    +data: T,
-    +itemIdx: number,
-    +isMeasuring: boolean,
-  |}) => Node,
+  renderItem: ({| +data: T, +itemIdx: number, +isMeasuring: boolean |}) => Node,
 |};
 
 export default function MeasureItems<T>({

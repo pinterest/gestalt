@@ -22,10 +22,13 @@ export default function throttle(
     const now = Date.now();
     if (last !== undefined && now - last < threshhold) {
       clearTimeout(deferTimer);
-      deferTimer = setTimeout(() => {
-        last = now;
-        fn(...args);
-      }, threshhold - (now - (last ?? 0)));
+      deferTimer = setTimeout(
+        () => {
+          last = now;
+          fn(...args);
+        },
+        threshhold - (now - (last ?? 0)),
+      );
     } else {
       last = now;
       fn(...args);

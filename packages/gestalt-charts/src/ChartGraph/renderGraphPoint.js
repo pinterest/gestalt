@@ -50,16 +50,11 @@ export function GraphPoint(props: Props): Node {
   );
 }
 
-const renderGraphPoint: ({| color: DataVisualizationColors, active: boolean |}) => ({
-  cx: number,
-  cy: number,
-  ...
-}) => Node = (props) => {
-  const renderPoint: ({
-    cx: number,
-    cy: number,
-    ...
-  }) => Node = ({ cx, cy }) => (
+const renderGraphPoint: ({|
+  color: DataVisualizationColors,
+  active: boolean,
+|}) => ({ cx: number, cy: number, ... }) => Node = (props) => {
+  const renderPoint: ({ cx: number, cy: number, ... }) => Node = ({ cx, cy }) => (
     <GraphPoint
       key={props.color + cy + cx}
       color={props.color}

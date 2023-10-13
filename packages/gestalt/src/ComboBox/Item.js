@@ -23,10 +23,7 @@ type Props = {|
   isHovered: boolean,
   isSelected: boolean,
   label: string,
-  onSelect?: ({|
-    item: ComboBoxItemType,
-    event: SyntheticInputEvent<HTMLInputElement>,
-  |}) => void,
+  onSelect?: ({| item: ComboBoxItemType, event: SyntheticInputEvent<HTMLInputElement> |}) => void,
   setHoveredItemIndex: (number) => void,
   subtext?: string,
   value: string,

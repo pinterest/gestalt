@@ -2,10 +2,7 @@
 import { type Node, useRef, useState } from 'react';
 import { Box, Tag, TextField } from 'gestalt';
 
-type ChangeTagHandler = ({|
-  event: SyntheticInputEvent<HTMLInputElement>,
-  value: string,
-|}) => void;
+type ChangeTagHandler = ({| event: SyntheticInputEvent<HTMLInputElement>, value: string |}) => void;
 
 type KeyDownHandler = ({|
   event: SyntheticKeyboardEvent<HTMLInputElement>,

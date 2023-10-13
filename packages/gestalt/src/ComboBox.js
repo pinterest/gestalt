@@ -85,10 +85,7 @@ type Props = {|
   /**
    * Callback when user types into the control input field.
    */
-  onChange?: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onChange?: ({| event: SyntheticInputEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Callback when user clicks on clear button.
    */
@@ -96,17 +93,11 @@ type Props = {|
   /**
    * Callback when you focus on the component.
    */
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Callback for key stroke events. See [tags](#Tags) variant to learn more.
    */
-  onKeyDown?: ({|
-    event: SyntheticKeyboardEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Callback when an item is selected.
    */

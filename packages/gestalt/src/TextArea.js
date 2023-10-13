@@ -56,31 +56,19 @@ type Props = {|
   /**
    * Callback triggered when the user blurs the input.!
    */
-  onBlur?: ({|
-    event: SyntheticFocusEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string |}) => void,
   /**
    * Callback triggered when the value of the input changes.
    */
-  onChange: ({|
-    event: SyntheticInputEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
+  onChange: ({| event: SyntheticInputEvent<HTMLTextAreaElement>, value: string |}) => void,
   /**
    * Callback triggered when the user focuses the input.
    */
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string |}) => void,
   /**
    * Callback triggered when the user presses any key while the input is focused.
    */
-  onKeyDown?: ({|
-    event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string |}) => void,
   /**
    * Placeholder text shown the the user has not yet input a value.
    */

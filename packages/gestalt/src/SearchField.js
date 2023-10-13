@@ -46,31 +46,19 @@ type Props = {|
   /**
    *
    */
-  onBlur?: ({|
-    event: SyntheticKeyboardEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onBlur?: ({| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Primary callback to handle keyboard input.
    */
-  onChange: ({|
-    value: string,
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  |}) => void,
+  onChange: ({| value: string, syntheticEvent: SyntheticEvent<HTMLInputElement> |}) => void,
   /**
    *
    */
-  onFocus?: ({|
-    value: string,
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  |}) => void,
+  onFocus?: ({| value: string, syntheticEvent: SyntheticEvent<HTMLInputElement> |}) => void,
   /**
    * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
    */
-  onKeyDown?: ({|
-    event: SyntheticKeyboardEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => void,
   /**
    * Text displayed before the user has entered anything.
    */

@@ -48,9 +48,7 @@ type Props = {|
   heading?: Node,
   onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
   onDismiss: () => void,
-  onOutsideClick?: ({|
-    event: SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
+  onOutsideClick?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
   padding?: 'default' | 'none',
   primaryAction?: {|
     accessibilityLabel: string,

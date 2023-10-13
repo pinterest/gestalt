@@ -58,15 +58,9 @@ type CustomTextFieldProps = {|
       errorMessage: boolean,
       enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
       name: string,
-      onBlur: ({|
-        event: SyntheticFocusEvent<HTMLInputElement>,
-        value: string,
-      |}) => void,
+      onBlur: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
       onClearInput: () => void,
-      onFocus: ({|
-        event: SyntheticFocusEvent<HTMLInputElement>,
-        value: string,
-      |}) => void,
+      onFocus: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
     |},
   |},
 |};
@@ -267,20 +261,11 @@ type InternalDateFieldProps = {|
   minDate?: Date | null,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   name?: string,
-  onBlur?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   onChange: ({| value: Date | null |}) => void,
   onClearInput?: () => void,
-  onError?: ({|
-    errorMessage: string,
-    value: Date | null,
-  |}) => void,
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onError?: ({| errorMessage: string, value: Date | null |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   value: Date | null,

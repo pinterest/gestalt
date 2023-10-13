@@ -40,10 +40,7 @@ type Props = {|
     dangerouslyDisableOnNavigation: () => void,
     mobileOnDismissStart: () => void,
   |}) => void,
-  onSelect?: ({|
-    item: OptionItemType,
-    event: SyntheticInputEvent<HTMLInputElement>,
-  |}) => void,
+  onSelect?: ({| item: OptionItemType, event: SyntheticInputEvent<HTMLInputElement> |}) => void,
   option: OptionItemType,
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
   setHoveredItemIndex: (number) => void,

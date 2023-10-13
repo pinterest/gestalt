@@ -25,10 +25,7 @@ import typography from '../Typography.css';
 type Props = {|
   // REQUIRED
   id: string,
-  onChange: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, value: string |}) => void,
   // OPTIONAL
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
@@ -46,22 +43,10 @@ type Props = {|
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   name?: string,
-  onBlur?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
-  onClick?: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
-  onKeyDown?: ({|
-    event: SyntheticKeyboardEvent<HTMLInputElement>,
-    value: string,
-  |}) => void,
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
+  onClick?: ({| event: SyntheticInputEvent<HTMLInputElement>, value: string |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => void,
   placeholder?: string,
   readOnly?: boolean,
   size?: 'md' | 'lg',

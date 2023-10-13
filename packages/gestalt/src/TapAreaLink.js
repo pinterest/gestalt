@@ -5,17 +5,11 @@ import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.j
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalLink from './Link/InternalLink.js';
 
-type FocusEventHandler = ({|
-  event: SyntheticFocusEvent<HTMLAnchorElement>,
-|}) => void;
+type FocusEventHandler = ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void;
 
-type MouseEventHandler = ({|
-  event: SyntheticMouseEvent<HTMLAnchorElement>,
-|}) => void;
+type MouseEventHandler = ({| event: SyntheticMouseEvent<HTMLAnchorElement> |}) => void;
 
-type KeyboardEventHandler = ({|
-  event: SyntheticKeyboardEvent<HTMLAnchorElement>,
-|}) => void;
+type KeyboardEventHandler = ({| event: SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void;
 
 type Props = {|
   /**

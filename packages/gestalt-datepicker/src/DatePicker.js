@@ -104,10 +104,7 @@ export type Props = {|
   /**
    * Callback triggered when the user selects a date.
    */
-  onChange: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    value: Date | null,
-  |}) => void,
+  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, value: Date | null |}) => void,
   /**
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */

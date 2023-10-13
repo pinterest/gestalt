@@ -1,12 +1,11 @@
 // @flow strict
 
-/*::
 type WebpackConfig = {|
   watchOptions: {| poll: number | false |},
   module: {|
-    rules: $ReadOnlyArray<{test: RegExp, use: string}>
+    rules: $ReadOnlyArray<{ test: RegExp, use: string }>,
   |},
-  resolve: {fallback: { fs: false, path: false }}
+  resolve: { fallback: { fs: false, path: false } },
 |};
 
 type RedirectsReturn = Promise<
@@ -15,13 +14,11 @@ type RedirectsReturn = Promise<
     destination: string,
     permanent: boolean,
   |}>,
->
-*/
-
+>;
 const path = require('path');
 const redirects = require('./redirects.js');
 
-const root /*: string */ = path.join(__dirname, '../');
+const root: string = path.join(__dirname, '../');
 
 module.exports = {
   images: {
@@ -34,15 +31,12 @@ module.exports = {
     ],
   },
   reactStrictMode: true,
-  redirects: async () /*: RedirectsReturn */ => redirects,
+  redirects: async (): RedirectsReturn => redirects,
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
   },
-  webpack: (
-    config /*: WebpackConfig */,
-    { dev } /*: {| dev: boolean |} */,
-  ) /*: WebpackConfig */ => ({
+  webpack: (config: WebpackConfig, { dev }: {| dev: boolean |}): WebpackConfig => ({
     ...config,
     resolve: {
       ...config.resolve,

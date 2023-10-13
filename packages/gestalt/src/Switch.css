@@ -13,7 +13,8 @@
   border-width: var(--g-switch-border);
   flex-shrink: 0;
   height: var(--g-switch-height);
-  transition: background-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975),
+  transition:
+    background-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975),
     border-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975);
   width: var(--g-switch-width);
 }

@@ -9,9 +9,7 @@ import {
 /** =================  HELPERS =================
  */
 
-type GetPropertiesFromVariableType = ({|
-  variableNode: GenericNode,
-|}) => GenericType;
+type GetPropertiesFromVariableType = ({| variableNode: GenericNode |}) => GenericType;
 
 /** This function returns the properties from a variable in scope
 Example 1:
@@ -32,9 +30,7 @@ const getInlineDefinedStyles: GetInlineDefinedStylesType = ({ attributeNode }) =
   return propertyNode?.key?.name === '__style' ? propertyNode?.value.properties : null;
 };
 
-type GetOpeningElementType = ({|
-  elementNode: GenericNode,
-|}) => GenericNode;
+type GetOpeningElementType = ({| elementNode: GenericNode |}) => GenericNode;
 
 /** This function returns the opening element independently of the node passed
 
@@ -43,9 +39,7 @@ type GetOpeningElementType = ({|
 const getOpeningElement: GetOpeningElementType = ({ elementNode }) =>
   elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode?.openingElement;
 
-type GetClosingElementType = ({|
-  elementNode: GenericNode,
-|}) => GenericNode;
+type GetClosingElementType = ({| elementNode: GenericNode |}) => GenericNode;
 
 /** This function returns the closing element independently of the node passed
 
@@ -56,9 +50,7 @@ const getClosingElement: GetClosingElementType = ({ elementNode }) =>
     ? elementNode.closingElement
     : elementNode?.parent?.closingElement;
 
-type GetVariableDefinedStylesType = ({|
-  variableNode: GenericNode,
-|}) => ?GenericNode;
+type GetVariableDefinedStylesType = ({| variableNode: GenericNode |}) => ?GenericNode;
 
 /** This function returns the style defined a varianle and passed to Box's dangerouslySetInlineStyle
 Example 1: Return the property color from variable a
@@ -70,10 +62,7 @@ const getVariableDefinedStyles: GetVariableDefinedStylesType = ({ variableNode }
   return propertyNode?.key?.name === '__style' ? propertyNode?.value?.properties : null;
 };
 
-type GetNodeFromPropNameType = ({|
-  elementNode: GenericNode,
-  propName: string,
-|}) => GenericNode;
+type GetNodeFromPropNameType = ({| elementNode: GenericNode, propName: string |}) => GenericNode;
 
 /** This function returns the attribute node within a component node (elementNode) if names (propName) match.
  */
@@ -125,9 +114,7 @@ const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = ({
     : null;
 };
 
-type BuildLiteralValueStringType = ({|
-  value: string | number,
-|}) => string;
+type BuildLiteralValueStringType = ({| value: string | number |}) => string;
 
 /** This function returns a string of literal value formatted as a prop value.
 Example 1:
@@ -185,9 +172,7 @@ const buildProps: RetrieveKeyValuesFromPropsType = ({
   return propSorting ? propsArray.sort().join(' ') : propsArray.join(' ');
 };
 
-type BuildPropsFromKeyValuesType = ({|
-  keyValues: $ReadOnlyArray<KeyValuesType>,
-|}) => string;
+type BuildPropsFromKeyValuesType = ({| keyValues: $ReadOnlyArray<KeyValuesType> |}) => string;
 /** This function returns key/values formatted as component props.
 Example 1:
 { key: "color", value: "red", isValueTypeLiteral: true } >> color="red"
@@ -289,9 +274,9 @@ const hasImport: HasImportType = ({ importNode, path }) => {
   return importName === path;
 };
 
-type GetNamedImportsComponentsType = ({| importNode: GenericNode |}) => ?$ReadOnlyArray<
-  $ReadOnlyArray<string>,
->;
+type GetNamedImportsComponentsType = ({|
+  importNode: GenericNode,
+|}) => ?$ReadOnlyArray<$ReadOnlyArray<string>>;
 /** This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
  */
 const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {

@@ -11,11 +11,7 @@ export default function useCustomTooltip({
     | 'auto'
     | 'none'
     | (({| active: ?boolean, payload: ?{ ... }, label: string | number |}) => Node),
-|}): ({|
-  active: ?boolean,
-  payload: ?{ ... },
-  label: string | number,
-|}) => Node {
+|}): ({| active: ?boolean, payload: ?{ ... }, label: string | number |}) => Node {
   return useCallback(
     ({
       active,

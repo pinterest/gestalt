@@ -215,15 +215,12 @@ const misc = [
   },
 ];
 
-/*::
 type Redirects = $ReadOnlyArray<{|
-    source: string,
-    destination: string,
-    permanent: boolean,
-  |}>
-*/
-
-const redirects /*: Redirects */ = [
+  source: string,
+  destination: string,
+  permanent: boolean,
+|}>;
+const redirects: Redirects = [
   ...color,
   ...foundations,
   ...getStarted,

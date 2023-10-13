@@ -868,13 +868,15 @@ Default table styling for MDX Pages
 /* Year in review animations */
 
 .introAsterisk {
-  animation: fly-in-right 1s ease-out 0s forwards,
+  animation:
+    fly-in-right 1s ease-out 0s forwards,
     spin-counter-clockwise 2s ease-in-out 1s forwards 2;
   opacity: 0;
 }
 
 .introHalfDonut {
-  animation: fly-in-right 1s ease-out 0s forwards,
+  animation:
+    fly-in-right 1s ease-out 0s forwards,
     rock 2s ease-in-out 1s forwards 2;
   opacity: 0;
 }

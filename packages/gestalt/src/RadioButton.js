@@ -37,10 +37,7 @@ type Props = {|
   /**
    * Callback triggered when the user interacts with the input.
    */
-  onChange: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    checked: boolean,
-  |}) => void,
+  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
   /**
    * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/web/radiobutton#ref) for more details.
    */
