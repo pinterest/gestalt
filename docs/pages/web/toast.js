@@ -34,7 +34,7 @@ import richMessage from '../../examples/toast/richMessage.js';
 import success from '../../examples/toast/success.js';
 import textOnly from '../../examples/toast/textOnly.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -355,7 +355,9 @@ If  confirmation toast's text with more complex style is required, such as bold 
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Toast') },
   };

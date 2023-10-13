@@ -26,7 +26,7 @@ import selectedState from '../../examples/iconbutton/selectedState.js';
 import tooltip from '../../examples/iconbutton/tooltip.js';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -339,7 +339,9 @@ It's most common to anchor Dropdown to [Button](/web/button) or IconButton.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('IconButton') },
   };

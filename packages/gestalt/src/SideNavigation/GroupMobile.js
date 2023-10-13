@@ -15,7 +15,7 @@ import { type Props } from '../SideNavigationGroup.js';
 import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem.js';
 import TapArea from '../TapArea.js';
 
-type SideNavigationGroupMobileProps = {| ...Props, hasActiveChild: boolean |};
+type SideNavigationGroupMobileProps = { ...Props, hasActiveChild: boolean };
 
 export default function SideNavigationGroupMobile({
   children,

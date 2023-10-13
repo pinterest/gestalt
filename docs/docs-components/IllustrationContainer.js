@@ -2,10 +2,10 @@
 import { type Node } from 'react';
 import { Box } from 'gestalt';
 
-type Props = {|
+type Props = {
   children?: Node,
   justifyContent?: 'center' | 'start',
-|};
+};
 
 function IllustrationContainer({ children, justifyContent = 'center' }: Props): Node {
   return (

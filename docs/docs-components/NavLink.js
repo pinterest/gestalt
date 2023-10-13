@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import { Box, Link, Text } from 'gestalt';
 import { useNavigationContext } from './navigationContext.js';
 
-type Props = {|
+type Props = {
   href: string,
   children: Node,
-|};
+};
 
 export default function NavLink({ children, href }: Props): Node {
   const { setIsSidebarOpen } = useNavigationContext();

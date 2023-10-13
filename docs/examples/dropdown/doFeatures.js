@@ -6,11 +6,11 @@ export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<null | {|
+  const [selected, setSelected] = useState<null | {
     label: string,
     subtext?: string,
     value: string,
-  |}>(null);
+  }>(null);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const onSelect: $ElementType<React$ElementConfig<typeof Dropdown.Item>, 'onSelect'> = ({
     item,
@@ -47,14 +47,20 @@ export default function CustomIconButtonPopoverExample(): Node {
           />
           <Dropdown.Item
             onSelect={onSelect}
-            option={{ value: 'item 2', label: 'Item 2 with a really long, detailed, complex name' }}
+            option={{
+              value: 'item 2',
+              label: 'Item 2 with a really long, detailed, complex name',
+            }}
             selected={selected}
           />
           <Dropdown.Link
             href="#"
             onClick={({ event }) => event.preventDefault()}
             isExternal
-            option={{ value: 'item 3', label: 'Item 3 with a really long, detailed, complex name' }}
+            option={{
+              value: 'item 3',
+              label: 'Item 3 with a really long, detailed, complex name',
+            }}
           />
           <Dropdown.Item
             badge={{ text: 'New' }}
@@ -67,7 +73,10 @@ export default function CustomIconButtonPopoverExample(): Node {
             onClick={({ event }) => event.preventDefault()}
             href="#"
             isExternal
-            option={{ value: 'item 5', label: 'Item 5 with a really long, detailed name' }}
+            option={{
+              value: 'item 5',
+              label: 'Item 5 with a really long, detailed name',
+            }}
           />
           <Dropdown.Link
             href="#"

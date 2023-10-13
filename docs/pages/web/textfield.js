@@ -37,7 +37,7 @@ import tagsExample from '../../examples/textfield/tagsExample.js';
 import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover.js';
 import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -489,7 +489,9 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('TextField') },
   };

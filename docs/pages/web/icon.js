@@ -21,7 +21,7 @@ import main from '../../examples/icon/main.js';
 
 const HEIGHT = 150;
 
-export default function IconPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function IconPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -271,7 +271,9 @@ Use Button to allow users to take an action.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('Icon');
   const overriddenDocGen = overrideTypes(generatedDocGen, {
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),

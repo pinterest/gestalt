@@ -6,10 +6,10 @@ describe('Link', () => {
   test('Link handles onClick callback', () => {
     const mockOnClick = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();

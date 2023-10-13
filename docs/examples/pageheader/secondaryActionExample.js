@@ -5,15 +5,15 @@ import { Button, Divider, Dropdown, Flex, IconButton, PageHeader, Tooltip } from
 export default function SecondaryActionsExample(): Node {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
-    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+    $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,
   >([]);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (selected.some((selectedItem) => selectedItem.value === item.value)) {
       setSelected((selectedLocal) =>
         selectedLocal.filter((selectedItem) => selectedItem.value !== item.value),
@@ -33,7 +33,10 @@ export default function SecondaryActionsExample(): Node {
           dropdownItems: [
             <Dropdown.Item
               key="create-product-group"
-              option={{ value: 'Create product group', label: 'Create product group' }}
+              option={{
+                value: 'Create product group',
+                label: 'Create product group',
+              }}
               onSelect={() => {}}
             />,
           ],
@@ -59,7 +62,10 @@ export default function SecondaryActionsExample(): Node {
           dropdownItems: [
             <Dropdown.Item
               key="create-new-report"
-              option={{ value: 'Create new report', label: 'Create new report' }}
+              option={{
+                value: 'Create new report',
+                label: 'Create new report',
+              }}
               onSelect={() => {}}
             />,
           ],
@@ -125,7 +131,10 @@ export default function SecondaryActionsExample(): Node {
             <Dropdown.Link
               key="visit-help-center"
               href=""
-              option={{ value: 'Visit help center', label: 'Visit help center' }}
+              option={{
+                value: 'Visit help center',
+                label: 'Visit help center',
+              }}
               isExternal
             />,
             <Dropdown.Item

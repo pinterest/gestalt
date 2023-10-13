@@ -5,16 +5,16 @@ import { Dropdown, Flex, IconButton } from 'gestalt';
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
-    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+    $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,
   >([]);
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const onSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (selected.some(({ value }) => value === item.value)) {
       setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));
     } else {

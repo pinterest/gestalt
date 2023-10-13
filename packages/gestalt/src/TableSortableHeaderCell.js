@@ -5,7 +5,7 @@ import Icon from './Icon.js';
 import TableHeaderCell from './TableHeaderCell.js';
 import TapArea from './TapArea.js';
 
-type Props = {|
+type Props = {
   /**
    * Sets the alignment of the cell content and reverses the sort icon position.
    */
@@ -21,9 +21,9 @@ type Props = {|
   /**
    * Callback fired when the sort button component is clicked.
    */
-  onSortChange: ({|
+  onSortChange: ({
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   /**
    * Private prop required for sticky columns
    */
@@ -52,19 +52,19 @@ type Props = {|
    * Disables the sorting functionality for a column.
    */
   status: 'active' | 'inactive',
-|};
+};
 
 function SortIcon({
   align,
   status,
   sortOrder,
   visibility,
-}: {|
+}: {
   align: 'start' | 'end',
   status: 'active' | 'inactive',
   sortOrder: 'asc' | 'desc',
   visibility: 'visible' | 'hidden',
-|}) {
+}) {
   return (
     <Box
       marginStart={align === 'start' ? 2 : undefined}

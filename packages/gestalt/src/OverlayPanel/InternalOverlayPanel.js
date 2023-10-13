@@ -23,46 +23,46 @@ import { FixedZIndex } from '../zIndex.js';
 
 export const PADDING_BOINTS = 6;
 
-type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
+type NodeOrRenderProp = Node | (({ onDismissStart: () => void }) => Node);
 
-type InternalSheetProps = {|
+type InternalSheetProps = {
   accessibilityDismissButtonLabel?: string,
   accessibilityLabel: string,
   children: NodeOrRenderProp,
   closeOnOutsideClick: boolean,
   footer: NodeOrRenderProp,
   heading?: string,
-  onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
+  onAnimationEnd: ?({ animationState: 'in' | 'out' }) => void,
   onDismiss: () => void,
-  dismissConfirmation?: {|
+  dismissConfirmation?: {
     message?: string,
     subtext?: string,
-    primaryAction?: {|
+    primaryAction?: {
       accessibilityLabel?: string,
       text?: string,
-      onClick?: ({|
+      onClick?: ({
         event:
           | SyntheticMouseEvent<HTMLButtonElement>
           | SyntheticMouseEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
-    |},
-    secondaryAction?: {|
+      }) => void,
+    },
+    secondaryAction?: {
       accessibilityLabel?: string,
       text?: string,
-      onClick?: ({|
+      onClick?: ({
         event:
           | SyntheticMouseEvent<HTMLButtonElement>
           | SyntheticMouseEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
-    |},
-  |},
+      }) => void,
+    },
+  },
   size: 'sm' | 'md' | 'lg',
   subHeading: NodeOrRenderProp,
-|};
+};
 
 const SIZE_WIDTH_MAP = {
   sm: 540,
@@ -103,7 +103,7 @@ export default function InternalOverlayPanel({
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
   function buildDismissableSubcomponent(
-    component: Node | (({| onDismissStart: () => void |}) => Node),
+    component: Node | (({ onDismissStart: () => void }) => Node),
   ) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })

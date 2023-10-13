@@ -1,14 +1,14 @@
 // @flow strict
 
-declare module.exports: {|
+declare module.exports: {
   +v: string,
-  +meta: {|
+  +meta: {
     +g: string,
     +a: string,
     +k: string,
     +d: string,
     +tc: string,
-  |},
+  },
   +fr: number,
   +ip: number,
   +op: number,
@@ -16,112 +16,112 @@ declare module.exports: {|
   +h: number,
   +nm: string,
   +ddd: number,
-  +assets: $ReadOnlyArray<{|
+  +assets: $ReadOnlyArray<{
     +id: string,
     +w: number,
     +h: number,
     +u: string,
     +p: string,
     +e: number,
-  |}>,
-  +layers: $ReadOnlyArray<{|
+  }>,
+  +layers: $ReadOnlyArray<{
     +ddd: number,
     +ind: number,
     +ty: number,
     +nm: string,
     +sr: number,
-    +ks: {|
-      +o: {|
+    +ks: {
+      +o: {
         +a: number,
         +k:
           | number
-          | $ReadOnlyArray<{|
-              +i: ?{|
+          | $ReadOnlyArray<{
+              +i: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
-              +o: ?{|
+              },
+              +o: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
+              },
               +t: number,
               +s: $ReadOnlyArray<number>,
-            |}>,
+            }>,
         +ix: number,
-      |},
-      +r: {|
+      },
+      +r: {
         +a: number,
         +k:
-          | $ReadOnlyArray<{|
-              +i: ?{|
+          | $ReadOnlyArray<{
+              +i: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
-              +o: ?{|
+              },
+              +o: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
+              },
               +t: number,
               +s: $ReadOnlyArray<number>,
-            |}>
+            }>
           | number
-          | $ReadOnlyArray<{|
-              +i: ?{|
+          | $ReadOnlyArray<{
+              +i: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
-              +o: ?{|
+              },
+              +o: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
+              },
               +t: number,
               +s: $ReadOnlyArray<number>,
-            |}>
-          | $ReadOnlyArray<{|
-              +i: ?{|
+            }>
+          | $ReadOnlyArray<{
+              +i: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
-              +o: ?{|
+              },
+              +o: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
+              },
               +t: number,
               +s: $ReadOnlyArray<number>,
-            |}>,
+            }>,
         +ix: number,
-      |},
-      +p: {|
+      },
+      +p: {
         +a: number,
         +k:
-          | $ReadOnlyArray<{|
-              +i: ?{|
+          | $ReadOnlyArray<{
+              +i: ?{
                 +x: number,
                 +y: number,
-              |},
-              +o: ?{|
+              },
+              +o: ?{
                 +x: number,
                 +y: number,
-              |},
+              },
               +t: number,
               +s: $ReadOnlyArray<number>,
               +to: ?$ReadOnlyArray<number>,
               +ti: ?$ReadOnlyArray<number>,
-            |}>
+            }>
           | $ReadOnlyArray<number>,
         +ix: number,
-      |},
-      +a: {|
+      },
+      +a: {
         +a: number,
         +k: $ReadOnlyArray<number>,
         +ix: number,
-      |},
-      +s: {|
+      },
+      +s: {
         +a: number,
         +k: $ReadOnlyArray<number>,
         +ix: number,
-      |},
-    |},
+      },
+    },
     +ao: number,
     +ip: number,
     +op: number,
@@ -130,75 +130,75 @@ declare module.exports: {|
     +parent: ?number,
     +refId: ?string,
     +shapes:
-      | ?$ReadOnlyArray<{|
+      | ?$ReadOnlyArray<{
           +ty: string,
-          +it: $ReadOnlyArray<{|
+          +it: $ReadOnlyArray<{
             +ind: ?number,
             +ty: string,
             +ix: ?number,
-            +ks: ?{|
+            +ks: ?{
               +a: number,
-              +k: {|
+              +k: {
                 +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +c: boolean,
-              |},
+              },
               +ix: number,
-            |},
+            },
             +nm: string,
             +mn: ?string,
             +hd: ?boolean,
-            +c: ?{|
+            +c: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +o: ?{|
+            },
+            +o: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +w: ?{|
+            },
+            +w: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
+            },
             +lc: ?number,
             +lj: ?number,
             +ml: ?number,
             +bm: ?number,
-            +p: ?{|
+            +p: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +a: ?{|
+            },
+            +a: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +s: ?{|
+            },
+            +s: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +r: ?{|
+            },
+            +r: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sk: ?{|
+            },
+            +sk: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sa: ?{|
+            },
+            +sa: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-          |}>,
+            },
+          }>,
           +nm: string,
           +np: number,
           +cix: number,
@@ -206,76 +206,76 @@ declare module.exports: {|
           +ix: number,
           +mn: string,
           +hd: boolean,
-        |}>
-      | $ReadOnlyArray<{|
+        }>
+      | $ReadOnlyArray<{
           +ty: string,
-          +it: $ReadOnlyArray<{|
+          +it: $ReadOnlyArray<{
             +ind: ?number,
             +ty: string,
             +ix: ?number,
-            +ks: ?{|
+            +ks: ?{
               +a: number,
-              +k: {|
+              +k: {
                 +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +c: boolean,
-              |},
+              },
               +ix: number,
-            |},
+            },
             +nm: string,
             +mn: ?string,
             +hd: ?boolean,
-            +c: ?{|
+            +c: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +o: ?{|
+            },
+            +o: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +w: ?{|
+            },
+            +w: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
+            },
             +lc: ?number,
             +lj: ?number,
             +ml: ?number,
             +bm: ?number,
-            +p: ?{|
+            +p: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +a: ?{|
+            },
+            +a: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +s: ?{|
+            },
+            +s: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +r: ?{|
+            },
+            +r: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sk: ?{|
+            },
+            +sk: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sa: ?{|
+            },
+            +sa: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-          |}>,
+            },
+          }>,
           +nm: string,
           +np: number,
           +cix: number,
@@ -283,78 +283,78 @@ declare module.exports: {|
           +ix: number,
           +mn: string,
           +hd: boolean,
-        |}>
-      | $ReadOnlyArray<{|
+        }>
+      | $ReadOnlyArray<{
           +ty: string,
-          +it: $ReadOnlyArray<{|
+          +it: $ReadOnlyArray<{
             +ind: ?number,
             +ty: string,
             +ix: ?number,
-            +ks: ?{|
+            +ks: ?{
               +a: number,
-              +k: {|
+              +k: {
                 +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +c: boolean,
-              |},
+              },
               +ix: number,
-            |},
+            },
             +nm: string,
             +mn: ?string,
             +hd: ?boolean,
-            +c: ?{|
+            +c: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +o: ?{|
+            },
+            +o: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +w: ?{|
+            },
+            +w: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
+            },
             +lc: ?number,
             +lj: ?number,
             +ml: ?number,
             +bm: ?number,
             +r:
               | ?number
-              | {|
+              | {
                   +a: number,
                   +k: number,
                   +ix: number,
-                |},
-            +p: ?{|
+                },
+            +p: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +a: ?{|
+            },
+            +a: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +s: ?{|
+            },
+            +s: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +sk: ?{|
+            },
+            +sk: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sa: ?{|
+            },
+            +sa: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-          |}>,
+            },
+          }>,
           +nm: string,
           +np: number,
           +cix: number,
@@ -362,76 +362,76 @@ declare module.exports: {|
           +ix: number,
           +mn: string,
           +hd: boolean,
-        |}>
-      | $ReadOnlyArray<{|
+        }>
+      | $ReadOnlyArray<{
           +ty: string,
-          +it: ?$ReadOnlyArray<{|
+          +it: ?$ReadOnlyArray<{
             +ind: ?number,
             +ty: string,
             +ix: ?number,
-            +ks: ?{|
+            +ks: ?{
               +a: number,
-              +k: {|
+              +k: {
                 +i: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +o: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +v: $ReadOnlyArray<$ReadOnlyArray<number>>,
                 +c: boolean,
-              |},
+              },
               +ix: number,
-            |},
+            },
             +nm: string,
             +mn: ?string,
             +hd: ?boolean,
-            +c: ?{|
+            +c: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +o: ?{|
+            },
+            +o: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +w: ?{|
+            },
+            +w: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
+            },
             +lc: ?number,
             +lj: ?number,
             +ml: ?number,
             +bm: ?number,
-            +p: ?{|
+            +p: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +a: ?{|
+            },
+            +a: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +s: ?{|
+            },
+            +s: ?{
               +a: number,
               +k: $ReadOnlyArray<number>,
               +ix: number,
-            |},
-            +r: ?{|
+            },
+            +r: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sk: ?{|
+            },
+            +sk: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-            +sa: ?{|
+            },
+            +sa: ?{
               +a: number,
               +k: number,
               +ix: number,
-            |},
-          |}>,
+            },
+          }>,
           +nm: string,
           +np: ?number,
           +cix: ?number,
@@ -439,34 +439,34 @@ declare module.exports: {|
           +ix: number,
           +mn: string,
           +hd: boolean,
-          +s: ?{|
+          +s: ?{
             +a: number,
             +k: number,
             +ix: number,
-          |},
-          +e: ?{|
+          },
+          +e: ?{
             +a: number,
-            +k: $ReadOnlyArray<{|
-              +i: ?{|
+            +k: $ReadOnlyArray<{
+              +i: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
-              +o: ?{|
+              },
+              +o: ?{
                 +x: $ReadOnlyArray<number>,
                 +y: $ReadOnlyArray<number>,
-              |},
+              },
               +t: number,
               +s: $ReadOnlyArray<number>,
-            |}>,
+            }>,
             +ix: number,
-          |},
-          +o: ?{|
+          },
+          +o: ?{
             +a: number,
             +k: number,
             +ix: number,
-          |},
+          },
           +m: ?number,
-        |}>,
-  |}>,
+        }>,
+  }>,
   +markers: $ReadOnlyArray<mixed>,
-|};
+};

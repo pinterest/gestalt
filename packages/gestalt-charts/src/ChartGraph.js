@@ -36,7 +36,7 @@ interface Indexable {
   index(): number;
 }
 
-type Props = {|
+type Props = {
   // REQUIRED
   /**
    * Label to provide more context around ChartGraph’s content.
@@ -59,22 +59,22 @@ type Props = {|
    *
    * The additional key-values represent one or more series of data presented on ChartGraph for each category or timestamp. A sequence of source data objects generate one or more series of data across categories or timestamps.
    */
-  data: $ReadOnlyArray<{|
+  data: $ReadOnlyArray<{
     name: string | number,
     [string]: number,
-  |}>,
+  }>,
   /**
    * The series elements, bars or lines, of the ChartGraph.
    *
    * See the [combo variants](https://gestalt.pinterest.systems/web/chartgraph#Layout), [color variant](https://gestalt.pinterest.systems/web/chartgraph#Combo), [layout](https://gestalt.pinterest.systems/web/chartgraph#Layout), [color variant](https://gestalt.pinterest.systems/web/chartgraph#Color), [precision in line graphs variant](https://gestalt.pinterest.systems/web/chartgraph#Precision-in-line-graphs) to learn more about configuring bars and lines.
    */
-  elements: $ReadOnlyArray<{|
+  elements: $ReadOnlyArray<{
     axis?: 'left' | 'right' | 'bottom' | 'top',
     color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12',
     id: string,
     precision?: 'exact' | 'estimate',
     type: 'line' | 'bar',
-  |}>,
+  }>,
   /**
    * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
@@ -109,7 +109,7 @@ type Props = {|
         number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
         number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
       ]
-    | {|
+    | {
         xAxisBottom?: [
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
@@ -128,13 +128,13 @@ type Props = {|
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
         ],
-      |},
+      },
   /**
    * Replaces the labels from `data` in default tooltips, legends, and axis. Use for lacalization.
    *
    * See the [localizations section](https://gestalt.pinterest.systems/web/chartgraph#Localization) to learn more.
    */
-  labelMap?: {| [string]: string |},
+  labelMap?: { [string]: string },
   /**
    * Sets the horizontal or vertical layout of bars and lines and the single or double axis in the chart.
    *
@@ -152,7 +152,7 @@ type Props = {|
    *
    * See the [reference area variant](https://gestalt.pinterest.systems/web/chartgraph#ReferenceArea) to learn more.
    */
-  referenceAreas?: $ReadOnlyArray<{|
+  referenceAreas?: $ReadOnlyArray<{
     id: string,
     label: string,
     x1: string | number,
@@ -161,7 +161,7 @@ type Props = {|
     y2: string | number,
     yAxisId: string,
     style?: 'default',
-  |}>,
+  }>,
   /**
    * Displays data about the datasets on hover over each data point.
    *
@@ -170,7 +170,11 @@ type Props = {|
   renderTooltip?:
     | 'auto'
     | 'none'
-    | (({| active: ?boolean, payload: ?{ ... }, label: string | number |}) => Node),
+    | (({
+        active: ?boolean,
+        payload: ?{ ... },
+        label: string | number,
+      }) => Node),
   /**
    * When set to "true", bars are stacked.
    *
@@ -200,13 +204,13 @@ type Props = {|
    *
    * See the [tick format variant](https://gestalt.pinterest.systems/web/chartgraph#Tick-format) and [time series variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) to learn more
    */
-  tickFormatter?: {|
+  tickFormatter?: {
     timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,
     xAxisBottom?: (number, number) => string | number,
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
-  |},
+  },
   /**
    * Type of chart.
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
@@ -216,7 +220,7 @@ type Props = {|
    * An object representing the zIndex value of the tabular representation modal. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   modalZIndex?: Indexable,
-|};
+};
 
 /**
  * [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph) is used for displaying various types of graphs plotted on an x and y axis. It makes it easier to identify and understand patterns over time across different categories, enabling people to make informed decisions quickly.
@@ -264,10 +268,10 @@ function ChartGraph({
   const TICK_SPACE = 48;
 
   const LAYOUT_MAP = {
-    'horizontal': 'vertical',
-    'vertical': 'horizontal',
-    'horizontalBiaxial': 'verticalBiaxial',
-    'verticalBiaxial': 'horizontalBiaxial',
+    horizontal: 'vertical',
+    vertical: 'horizontal',
+    horizontalBiaxial: 'verticalBiaxial',
+    verticalBiaxial: 'horizontalBiaxial',
   };
 
   // STATE
@@ -398,7 +402,12 @@ function ChartGraph({
     renderTooltip,
   });
 
-  const defaultTooltip = useDefaultTooltip({ isDarkMode, labelMap, tickFormatter, isTimeSeries });
+  const defaultTooltip = useDefaultTooltip({
+    isDarkMode,
+    labelMap,
+    tickFormatter,
+    isTimeSeries,
+  });
 
   const defaultLegend = useDefaultLegend({
     isHorizontalBiaxialLayout,

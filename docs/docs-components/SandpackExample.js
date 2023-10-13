@@ -22,7 +22,7 @@ const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
 const MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT = 667;
 
-async function copyCode({ code }: {| code: ?string |}) {
+async function copyCode({ code }: { code: ?string }) {
   try {
     await clipboardCopy(code ?? '');
   } catch (error) {
@@ -41,7 +41,7 @@ function SandpackContainer({
   previewHeight,
   toggleExampleColorScheme,
   toggleExampleTextDirection,
-}: {|
+}: {
   exampleColorScheme: 'light' | 'dark',
   exampleTextDirection: 'ltr' | 'rtl',
   hideControls?: boolean,
@@ -51,7 +51,7 @@ function SandpackContainer({
   previewHeight?: number,
   toggleExampleColorScheme: () => void,
   toggleExampleTextDirection: () => void,
-|}) {
+}) {
   const [editorShown, setEditorShown] = useState(!hideEditor);
   const { sandpack } = useSandpack();
 
@@ -147,14 +147,14 @@ export default function SandpackExample({
   previewHeight,
   hideControls,
   hideEditor,
-}: {|
+}: {
   code: ?string | (() => Node),
   layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
   name: string,
   previewHeight?: number,
   hideControls?: boolean,
   hideEditor?: boolean,
-|}): Node {
+}): Node {
   const { files } = useLocalFiles();
   const { colorScheme, devExampleMode, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
@@ -257,7 +257,11 @@ export default function SandpackExample({
         dependencies: {
           ...(files
             ? { classnames: 'latest' }
-            : { gestalt: 'latest', 'gestalt-charts': 'latest', 'gestalt-datepicker': 'latest' }),
+            : {
+                gestalt: 'latest',
+                'gestalt-charts': 'latest',
+                'gestalt-datepicker': 'latest',
+              }),
           react: '18.2.0',
           'react-dom': '18.2.0',
         },

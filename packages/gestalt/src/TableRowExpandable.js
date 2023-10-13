@@ -8,7 +8,7 @@ import styles from './Table.css';
 import getChildrenCount from './Table/getChildrenCount.js';
 import TableCell from './TableCell.js';
 
-type Props = {|
+type Props = {
   /**
    * Supply a short, descriptive label for screen-readers as a text alternative to the expand button.
    */
@@ -32,10 +32,10 @@ type Props = {|
   /**
    * Callback fired when the expand button component is clicked.
    */
-  onExpand?: ({|
+  onExpand?: ({
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
     expanded: boolean,
-  |}) => void,
+  }) => void,
   /**
    * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
@@ -48,7 +48,7 @@ type Props = {|
    * Indicates if Table.RowExpandable is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
   selected?: 'selected' | 'unselected',
-|};
+};
 
 /**
  * Use [Table.RowExpandable](https://gestalt.pinterest.systems/web/table#Table.RowExpandable) to define a row that expands and collapses additional content.
@@ -94,7 +94,11 @@ export default function TableRowExpandable({
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
     // $FlowFixMe[incompatible-exact]
     // $FlowFixMe[incompatible-type]
-    return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
+    return cloneElement(child, {
+      shouldBeSticky,
+      previousTotalWidth,
+      shouldHaveShadow,
+    });
   };
 
   const rowStyle = classnames({

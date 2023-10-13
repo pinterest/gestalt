@@ -30,9 +30,9 @@ import truncation from '../../examples/dropdown/truncation.js';
 
 export default function ComponentPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
@@ -352,9 +352,9 @@ If users need the ability to choose an option by typing in an input and filterin
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen([
     'Dropdown',
     'DropdownItem',

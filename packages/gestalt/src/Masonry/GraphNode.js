@@ -1,11 +1,11 @@
 // @flow strict
 import { type NodeData } from './types.js';
 
-type Edge<T> = {|
+type Edge<T> = {
   score: number,
   // eslint-disable-next-line no-use-before-define
   node: GraphNodeInterface<T>,
-|};
+};
 
 export interface GraphNodeInterface<T> {
   data: NodeData<T>;

@@ -19,21 +19,21 @@ const colorMap = {
   '11': '12',
 };
 
-type Props = {|
+type Props = {
   stacked: ?boolean,
-  elements: $ReadOnlyArray<{|
+  elements: $ReadOnlyArray<{
     type: 'line' | 'bar',
     axis?: 'left' | 'right' | 'bottom' | 'top',
     id: string,
     color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12',
     precision?: 'exact' | 'estimate',
-  |}>,
+  }>,
   layout: 'horizontal' | 'vertical' | 'horizontalBiaxial' | 'verticalBiaxial',
   hexColor: (DataVisualizationColors) => string,
   visualPatternSelected: 'visualPattern' | 'default' | 'disabled',
   isHorizontalLayout: boolean,
   isBarRounded: boolean,
-|};
+};
 
 export default function renderElements({
   elements = [],
@@ -101,7 +101,10 @@ export default function renderElements({
         strokeDasharray = '8 8';
       }
 
-      const graphPoint = renderGraphPoint({ color: values.color || defaultColor, active: false });
+      const graphPoint = renderGraphPoint({
+        color: values.color || defaultColor,
+        active: false,
+      });
 
       return (
         <RechartsLine

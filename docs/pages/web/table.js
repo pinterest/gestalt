@@ -36,9 +36,9 @@ import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable.
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
@@ -574,9 +574,9 @@ Checkboxes are often used in tables to allow for selecting and editing of multip
   );
 }
 
-export async function getStaticProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getStaticProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen([
     'Table',
     'TableHeader',

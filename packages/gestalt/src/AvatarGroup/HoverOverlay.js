@@ -6,11 +6,11 @@ import styles from '../AvatarGroup.css';
 import Box from '../Box.js';
 import { FixedZIndex } from '../zIndex.js';
 
-type Props = {|
+type Props = {
   children: Node,
   hovered: boolean,
   size: Size,
-|};
+};
 
 // HoverOverlay adds a pseudo-element on hover so that avatars get covered in a darker wash individually.
 

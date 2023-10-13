@@ -71,10 +71,10 @@ export default class Graph<T> implements GraphInterface<T> {
     return [sourceNode, destinationNode];
   }
 
-  findLowestScore(startNode: NodeData<T>): {|
+  findLowestScore(startNode: NodeData<T>): {
     lowestScore: number | null,
     lowestScoreNode: NodeData<T>,
-  |} {
+  } {
     let lowestScore = null;
     let lowestScoreNode = startNode;
 

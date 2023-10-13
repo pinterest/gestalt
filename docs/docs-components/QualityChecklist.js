@@ -10,9 +10,9 @@ import StatusData from './StatusData.js';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
-type Props = {|
+type Props = {
   component: string,
-|};
+};
 
 export default function QualityChecklist({ component }: Props): Node {
   const data = webComponentData.find((cmpName) => cmpName.name === component);

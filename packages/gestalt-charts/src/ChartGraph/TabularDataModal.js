@@ -15,24 +15,24 @@ interface Indexable {
   index(): number;
 }
 
-type Props = {|
+type Props = {
   title: string,
   toggleTabularDataModal: () => void,
-  data: $ReadOnlyArray<{|
+  data: $ReadOnlyArray<{
     name: string | number,
     [string]: number,
-  |}>,
-  tickFormatter?: {|
+  }>,
+  tickFormatter?: {
     timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,
     xAxisBottom?: (number, number) => string | number,
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
-  |},
-  labelMap?: {| [string]: string |},
+  },
+  labelMap?: { [string]: string },
   modalZIndex?: Indexable,
   isHorizontalLayout: boolean,
-|};
+};
 
 export default function TabularDataModal({
   title,

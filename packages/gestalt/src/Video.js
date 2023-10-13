@@ -8,16 +8,16 @@ import VideoControls from './Video/Controls.js';
 
 type Source =
   | string
-  | $ReadOnlyArray<{|
+  | $ReadOnlyArray<{
       type: 'video/m3u8' | 'video/mp4' | 'video/ogg',
       src: string,
-    |}>;
+    }>;
 
 type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 type CrossOrigin = 'anonymous' | 'use-credentials';
 type BackgroundColor = 'black' | 'transparent';
 
-type Props = {|
+type Props = {
   autoplay?: boolean,
   /**
    * Proportional relationship between width and height of the video, calculated as width / height.
@@ -58,99 +58,105 @@ type Props = {|
   /**
    * Callback triggered when playback is played via the video control interface.
    */
-  onControlsPlay?: ({|
+  onControlsPlay?: ({
     event: SyntheticEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when playback is paused via the video control interface.
    */
-  onControlsPause?: ({|
+  onControlsPause?: ({
     event: SyntheticEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the metadata has loaded or changed, indicating a change in duration. See the [MDN Web Docs: durationchange event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event).
    */
-  onDurationChange?: ({|
+  onDurationChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when playback of the video completes. See the [MDN Web Docs: ended event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event).
    */
-  onEnded?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onEnded?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when an error occurs. See the [MDN Web Docs: onerror](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/onerror).
    */
-  onError?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onError?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
 
   /**
    * Callback triggered when playback is paused. See the [MDN Web Docs: pause event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause_event).
    */
-  onPause?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onPause?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
 
   /**
    * Callback triggered when `pause` is changed from "true" to "false" or `autoplay`. See the [MDN Web Docs: play event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event) and the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
-  onPlay: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onPlay: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when a [play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)'s Promise is [rejected](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play#exceptions). See the [autoplay and error detection variant](https://gestalt.pinterest.systems/web/video#Autoplay-and-error-detection) to learn more.
    */
-  onPlayError: ({| error: Error |}) => void,
+  onPlayError: ({ error: Error }) => void,
   /**
    * Callback triggered when the video full-screen status changes. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
-  onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
+  onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
   /**
    * Callback triggered when progress happens on downloading the media. See the [MDN Web Docs: progress event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/progress_event).
    */
-  onLoadedChange?: ({| event: SyntheticEvent<HTMLVideoElement>, loaded: number |}) => void,
+  onLoadedChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    loaded: number,
+  }) => void,
   /**
    * Callback triggered when the media has started to load.
    */
-  onLoadStart?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onLoadStart?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered after playback is first started, and whenever it is restarted. See the [MDN Web Docs: playing event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playing_event).
    */
-  onPlaying?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onPlaying?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when mousedown event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
-  onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onPlayheadDown?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   /**
    * Callback triggered when mouseup event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
-  onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onPlayheadUp?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   /**
    * Callback triggered when enough data is available that the media can be played. See the [MDN Web Docs: canplay event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplay_event).
    */
-  onReady?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when a seek operation completes from the playhead. See the [MDN Web Docs: seeked event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeked_event).
    */
-  onSeek?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when a seek operation begins. See the [MDN Web Docs: seeking event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeking_event).
    */
-  onSeeking?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onSeeking?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when trying to fetch data but the data is unexpectedly not forthcoming. See the [MDN Web Docs: stalled event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event).
    */
-  onStalled?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onStalled?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Callback triggered when the time indicated by the element's currentTime attribute has changed. See the [MDN Web Docs: timeupdate event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/timeupdate_event).
    */
-  onTimeChange?: ({| event: SyntheticEvent<HTMLVideoElement>, time: number |}) => void,
+  onTimeChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    time: number,
+  }) => void,
   /**
    * Callback triggered when the audio volume changes via the video control interface. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
-  onVolumeChange?: ({|
+  onVolumeChange?: ({
     event: SyntheticEvent<HTMLDivElement>,
     volume: number,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when playback has stopped because of a temporary lack of data. See the [MDN Web Docs: waiting event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event).
    */
-  onWaiting?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onWaiting?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   /**
    * Specifies the speed at which the video plays: 1 for normal. See the [video updates variant](https://gestalt.pinterest.systems/web/video#Video-updates) to learn more.
    */
@@ -183,14 +189,14 @@ type Props = {|
    * Specifies the volume of the video audio: 0 for muted, 1 for max. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
   volume: number,
-|};
+};
 
-type State = {|
+type State = {
   currentTime: number,
   duration: number,
   fullscreen: boolean,
   captionsButton: 'enabled' | 'disabled' | null,
-|};
+};
 
 // For more information on fullscreen and vendor prefixes see
 // https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
@@ -294,7 +300,7 @@ export default class Video extends PureComponent<Props, State> {
 
   player: ?HTMLDivElement;
 
-  static defaultProps: {|
+  static defaultProps: {
     startTime: number,
     disableRemotePlayback: boolean,
     backgroundColor: BackgroundColor,
@@ -302,7 +308,7 @@ export default class Video extends PureComponent<Props, State> {
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
-  |} = {
+  } = {
     startTime: 0,
     disableRemotePlayback: false,
     // eslint-disable-next-line react/default-props-match-prop-types
@@ -677,9 +683,9 @@ export default class Video extends PureComponent<Props, State> {
         <video
           autoPlay={autoplay}
           className={styles.video}
-          {...({ crossOrigin: crossOriginPolicy }: {|
+          {...({ crossOrigin: crossOriginPolicy }: {
             crossOrigin?: CrossOrigin,
-          |})}
+          })}
           disableRemotePlayback={disableRemotePlayback}
           loop={loop}
           muted={volume === 0}

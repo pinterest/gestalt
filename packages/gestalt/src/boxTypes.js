@@ -6,9 +6,9 @@ FLOW TYPES
 
 */
 
-export type DangerouslySetInlineStyle = {|
+export type DangerouslySetInlineStyle = {
   __style: { [key: string]: string | number | void },
-|};
+};
 
 export type AlignContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch';
 export type AlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';

@@ -6,10 +6,10 @@ import Status from '../Status.js';
 import Text from '../Text.js';
 import { type MaxLength } from '../TextField.js';
 
-type Props = {|
+type Props = {
   maxLength: MaxLength,
   currentLength?: number,
-|};
+};
 
 export default function FormHelperTextCounter({ currentLength, maxLength }: Props): Node {
   const ref = useRef<null | HTMLElement>(null);

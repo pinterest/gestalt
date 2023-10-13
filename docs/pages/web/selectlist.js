@@ -26,9 +26,9 @@ import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.SelectList?.displayName}>
       <PageHeader
@@ -322,9 +322,9 @@ If users need the ability to choose between a yes/no option, use Checkbox.
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['SelectList', 'SelectListOption', 'SelectListGroup']),

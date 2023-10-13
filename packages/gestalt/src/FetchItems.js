@@ -13,14 +13,14 @@
 // @flow strict
 import { useEffect } from 'react';
 
-type Props = {|
+type Props = {
   containerHeight: number,
   fetchMore?: () => void,
   isAtEnd?: boolean,
   isFetching: boolean,
   scrollHeight: number,
   scrollTop: number,
-|};
+};
 
 export default function FetchItems({
   containerHeight,

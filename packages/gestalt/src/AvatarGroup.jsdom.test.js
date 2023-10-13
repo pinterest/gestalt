@@ -17,7 +17,7 @@ describe('AvatarGroup', () => {
     role,
     size = 'md',
     avatarRef,
-  }: {|
+  }: {
     addCollaborators?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'addCollaborators'>,
     collaborators: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'collaborators'>,
     href?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'href'>,
@@ -25,7 +25,7 @@ describe('AvatarGroup', () => {
     role?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'role'>,
     size?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'size'>,
     avatarRef?: $ElementType<React$ElementConfig<typeof AvatarGroup>, 'ref'>,
-  |}) =>
+  }) =>
     render(
       size === 'fit' ? (
         <Box width={200}>
@@ -174,14 +174,14 @@ describe('AvatarGroup', () => {
   it('should render clickable TapArea with button role and ref', () => {
     const onClickMock = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event:
             | SyntheticMouseEvent<HTMLDivElement>
             | SyntheticKeyboardEvent<HTMLDivElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -206,14 +206,14 @@ describe('AvatarGroup', () => {
   it('should render clickable TapArea with link role and ref', () => {
     const onClickMock = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event:
             | SyntheticMouseEvent<HTMLDivElement>
             | SyntheticKeyboardEvent<HTMLDivElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -239,14 +239,14 @@ describe('AvatarGroup', () => {
   it('should not call onClick when clicked on display-only role', () => {
     const onClickMock = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event:
             | SyntheticMouseEvent<HTMLDivElement>
             | SyntheticKeyboardEvent<HTMLDivElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();

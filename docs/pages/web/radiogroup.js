@@ -27,9 +27,9 @@ import withImageExample from '../../examples/radiogroup/withImageExample.js';
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.RadioGroup?.displayName}>
       <PageHeader
@@ -334,9 +334,9 @@ export default function DocsPage({
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['RadioGroup', 'RadioGroupButton']),

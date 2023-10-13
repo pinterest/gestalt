@@ -5,7 +5,7 @@ import { type Theme } from '../../contexts/ColorSchemeProvider.js';
 export default function getDataVisualizationColor(
   theme: Theme,
   vizColor: string,
-  opts?: {| lighten?: boolean |},
+  opts?: { lighten?: boolean },
 ): string {
   const hex = theme[`colorDataVisualization${vizColor}`];
   if (!hex) throw new Error('Invalid Color Token provided to TileData');

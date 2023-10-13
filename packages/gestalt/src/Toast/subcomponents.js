@@ -30,21 +30,21 @@ export function ToastMessage({
   helperLink,
   textColor,
   type,
-}: {|
+}: {
   text: ?string | Element<'span'>,
   textElement: ?string | Element<'span'>,
   textColor: $ElementType<ElementConfig<typeof Text>, 'color'>,
-  helperLink?: {|
+  helperLink?: {
     text: string,
     accessibilityLabel: string,
     href: string,
-    onClick?: ({|
+    onClick?: ({
       event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
       dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-  |},
+    }) => void,
+  },
   type: 'default' | 'success' | 'error' | 'progress',
-|}): Node {
+}): Node {
   const isError = type === 'error';
   const textRef = useRef<null | HTMLElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
@@ -125,7 +125,7 @@ export function ToastMessage({
   );
 }
 
-export function ToastImageThumbnail({ thumbnail }: {| thumbnail: Element<typeof Image> |}): Node {
+export function ToastImageThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }): Node {
   return (
     <Box aria-hidden>
       <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
@@ -135,19 +135,19 @@ export function ToastImageThumbnail({ thumbnail }: {| thumbnail: Element<typeof 
   );
 }
 
-export function ToastIconThumbnail({ thumbnail }: {| thumbnail: Element<typeof Icon> |}): Node {
+export function ToastIconThumbnail({ thumbnail }: { thumbnail: Element<typeof Icon> }): Node {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON, color: 'inverse' })}</Box>;
 }
 
-export function ToastAvatarThumbnail({ thumbnail }: {| thumbnail: Element<typeof Avatar> |}): Node {
+export function ToastAvatarThumbnail({ thumbnail }: { thumbnail: Element<typeof Avatar> }): Node {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
 }
 
 export function ToastTypeThumbnail({
   type,
-}: {|
+}: {
   type: 'default' | 'success' | 'error' | 'progress',
-|}): Node {
+}): Node {
   const { name: colorSchemeName } = useColorScheme();
   const {
     accessibilityIconSuccessLabel,

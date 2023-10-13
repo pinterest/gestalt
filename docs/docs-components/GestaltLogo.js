@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node } from 'react';
 
-type Props = {|
+type Props = {
   height?: number,
   width?: number,
-|};
+};
 
 export default function GestaltLogo({ height, width }: Props): Node {
   return (

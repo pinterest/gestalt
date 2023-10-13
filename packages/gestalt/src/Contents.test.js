@@ -27,7 +27,7 @@ const fixedOffset = {
   y: 0,
 };
 
-const centerTriggerRect = (props: {| bottom?: number, top?: number |} = Object.freeze({})) => ({
+const centerTriggerRect = (props: { bottom?: number, top?: number } = Object.freeze({})) => ({
   bottom: props.bottom ?? 470,
   height: 40,
   left: 700,
@@ -36,9 +36,7 @@ const centerTriggerRect = (props: {| bottom?: number, top?: number |} = Object.f
   width: 40,
 });
 
-const upperMiddleTriggerRect = (
-  props: {| left?: number, right?: number |} = Object.freeze({}),
-) => ({
+const upperMiddleTriggerRect = (props: { left?: number, right?: number } = Object.freeze({})) => ({
   bottom: 40,
   height: 40,
   left: props.left ?? 700,
@@ -49,14 +47,14 @@ const upperMiddleTriggerRect = (
 
 // between BORDER_RADIUS & CARET_HEIGHT away from the edge of the screen
 const upperLeftTriggerRect = (
-  props: {|
+  props: {
     bottom?: number,
     height?: number,
     left?: number,
     right?: number,
     top?: number,
     width?: number,
-  |} = Object.freeze({}),
+  } = Object.freeze({}),
 ) => ({
   bottom: props.bottom ?? 50,
   height: props.height ?? 40,
@@ -73,7 +71,12 @@ describe('Contents', () => {
     it('Chooses the main direction as idealDirection when it fits on screen', () => {
       const triggerRect = centerTriggerRect();
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getPopoverDir({ popoverSize, idealDirection, triggerRect, windowSize });
+        const mainDir = getPopoverDir({
+          popoverSize,
+          idealDirection,
+          triggerRect,
+          windowSize,
+        });
         expect(mainDir).toEqual(idealDirection);
       });
     });
@@ -81,7 +84,12 @@ describe('Contents', () => {
     it('Opens down when the trigger is too close to the top of screen', () => {
       const triggerRect = centerTriggerRect({ bottom: 40, top: 0 });
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getPopoverDir({ popoverSize, idealDirection, triggerRect, windowSize });
+        const mainDir = getPopoverDir({
+          popoverSize,
+          idealDirection,
+          triggerRect,
+          windowSize,
+        });
         expect(mainDir).toEqual('down');
       });
     });
@@ -92,14 +100,24 @@ describe('Contents', () => {
         top: windowSize.height - 40,
       });
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getPopoverDir({ popoverSize, idealDirection, triggerRect, windowSize });
+        const mainDir = getPopoverDir({
+          popoverSize,
+          idealDirection,
+          triggerRect,
+          windowSize,
+        });
         expect(mainDir).toEqual('up');
       });
     });
 
     it('Chooses the direction in which there is the most space if idealDirection is not given', () => {
       const triggerRect = upperMiddleTriggerRect({ left: 40, right: 80 });
-      const mainDir = getPopoverDir({ popoverSize, idealDirection: null, triggerRect, windowSize });
+      const mainDir = getPopoverDir({
+        popoverSize,
+        idealDirection: null,
+        triggerRect,
+        windowSize,
+      });
       expect(mainDir).toEqual('down');
     });
 
@@ -142,7 +160,12 @@ describe('Contents', () => {
     it('Chooses the middle as sub direction when it fits on the screen', () => {
       const triggerRect = centerTriggerRect();
       idealDirections.forEach((popoverDir) => {
-        const subDir = getCaretDir({ popoverSize, popoverDir, triggerRect, windowSize });
+        const subDir = getCaretDir({
+          popoverSize,
+          popoverDir,
+          triggerRect,
+          windowSize,
+        });
         expect(subDir).toEqual('middle');
       });
     });

@@ -25,7 +25,7 @@ import main from '../../examples/tagdata/main.js';
 import sizes from '../../examples/tagdata/sizes.js';
 import tooltip from '../../examples/tagdata/tooltip.js';
 
-export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function TagDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -245,7 +245,9 @@ Note that \`accessibilityRemoveIconLabel\` is optional as DefaultLabelProvider p
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getStaticProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('TagData') },
   };

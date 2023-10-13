@@ -21,7 +21,7 @@ import roleButton from '../../examples/avatarGroup/roleButton.js';
 import roleLink from '../../examples/avatarGroup/roleLink.js';
 import sizing from '../../examples/avatarGroup/sizing.js';
 
-export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -307,7 +307,9 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('AvatarGroup') },
   };

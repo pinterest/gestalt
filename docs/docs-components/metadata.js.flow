@@ -1,9 +1,9 @@
 // @flow strict
 declare module 'metadata' {
-  declare type Signature = {|
-    properties?: $ReadOnlyArray<{|
-      key: string | {| name: string |},
-      value: {|
+  declare type Signature = {
+    properties?: $ReadOnlyArray<{
+      key: string | { name: string },
+      value: {
         name: string,
         required: boolean,
         raw?: string,
@@ -15,13 +15,13 @@ declare module 'metadata' {
           value?: string,
           ...
         }>,
-      |},
-    |}>,
+      },
+    }>,
     arguments?: $ReadOnlyArray<{ name: string, ... }>,
     return?: { name: string, ... },
-  |};
+  };
 
-  declare type Elements = {|
+  declare type Elements = {
     name: string,
     value?: string,
     raw?: string,
@@ -29,21 +29,21 @@ declare module 'metadata' {
     signature?: Signature,
     nullable?: boolean,
     elements?: $ReadOnlyArray<Elements>,
-  |};
+  };
 
-  declare module.exports: {|
+  declare module.exports: {
     description: string,
     displayName: string,
     methods: $ReadOnlyArray<?{ name?: string, description?: string, ... }>,
-    props?: {|
-      [key: string]: {|
-        defaultValue?: ?{|
+    props?: {
+      [key: string]: {
+        defaultValue?: ?{
           value: string,
           computed: boolean,
-        |},
+        },
         required: boolean,
         description: string,
-        flowType: {|
+        flowType: {
           raw?: string,
           nullable?: boolean,
           name: string,
@@ -51,9 +51,9 @@ declare module 'metadata' {
           signature?: Signature,
           type?: string,
           value?: string,
-        |},
-      |},
-    |},
+        },
+      },
+    },
     composes?: $ReadOnlyArray<?string>,
-  |};
+  };
 }

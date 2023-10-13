@@ -11,7 +11,7 @@ import typography from '../Typography.css';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
-type ResponsiveFitSizeBoxProps = {| children: Node, outline: boolean |};
+type ResponsiveFitSizeBoxProps = { children: Node, outline: boolean };
 
 function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps): Node {
   const { colorGray0 } = useColorScheme();
@@ -45,7 +45,7 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
   );
 }
 
-type Props = {|
+type Props = {
   children?: string | number,
   fontSize?: string,
   outline?: boolean,
@@ -53,7 +53,7 @@ type Props = {|
   title?: string,
   translate?: 'translateX10',
   content?: 'text' | 'icon',
-|};
+};
 
 export default function AvatarFoundation({
   children,

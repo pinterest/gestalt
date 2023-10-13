@@ -13,7 +13,7 @@ import handleCodeSandbox from './handleCodeSandbox.js';
 import Markdown from './Markdown.js';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
 
-type Props = {|
+type Props = {
   cardSize?: 'xs' | 'sm' | 'md' | 'lg',
   children?: Node,
   defaultCode?: string,
@@ -26,11 +26,11 @@ type Props = {|
   title?: string | $ReadOnlyArray<string>,
   type?: 'do' | "don't" | 'info',
   marginBottom?: 'default' | 'none',
-|};
+};
 
-type PreviewCardProps = {|
+type PreviewCardProps = {
   children?: Node,
-|};
+};
 
 const CARD_SIZE_NAME_TO_PIXEL = {
   xs: 90,

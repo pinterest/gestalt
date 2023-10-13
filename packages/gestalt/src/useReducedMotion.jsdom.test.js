@@ -15,13 +15,13 @@ describe('useReducedMotion', () => {
       // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
-        {|
+        {
           addEventListener: JestMockFn<$ReadOnlyArray<$FlowFixMe>, mixed>,
           matches: boolean,
           media: $FlowFixMe,
           onchange: null,
           removeEventListener: JestMockFn<$ReadOnlyArray<$FlowFixMe>, mixed>,
-        |},
+        },
       >()
       .mockImplementation((query) => ({
         ...mediaqueryDefaults,
@@ -38,13 +38,13 @@ describe('useReducedMotion', () => {
       // $FlowFixMe[underconstrained-implicit-instantiation]
       .fn<
         _,
-        {|
+        {
           addEventListener: JestMockFn<$ReadOnlyArray<$FlowFixMe>, mixed>,
           matches: boolean,
           media: $FlowFixMe,
           onchange: null,
           removeEventListener: JestMockFn<$ReadOnlyArray<$FlowFixMe>, mixed>,
-        |},
+        },
       >()
       .mockImplementation((query) => ({
         ...mediaqueryDefaults,

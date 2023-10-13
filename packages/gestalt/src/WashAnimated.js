@@ -8,7 +8,7 @@ function isNil(val: ?boolean) {
   return val === undefined || val === null;
 }
 
-type Props = {|
+type Props = {
   /**
    * Used to force the "active" hover state visually.
    */
@@ -24,12 +24,12 @@ type Props = {|
   /**
    * Optional callback fired when the user hovers over from WashAnimated.
    */
-  onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   /**
    * Optional callback fired when the user hovers off WashAnimated.
    */
-  onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
-|};
+  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+};
 
 /**
  * [WashAnimated](https://gestalt.pinterest.systems/web/washanimated) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.

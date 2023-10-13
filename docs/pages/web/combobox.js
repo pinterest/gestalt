@@ -23,7 +23,7 @@ import uncontrolled from '../../examples/combobox/uncontrolled.js';
 
 const PREVIEW_HEIGHT = 320;
 
-export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -234,7 +234,9 @@ Use Fieldset to group related form items.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ComboBox') },
   };

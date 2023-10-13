@@ -8,14 +8,14 @@ import {
   type TransformedTabularDataType,
 } from './useTabularData.js';
 
-type Props = {|
+type Props = {
   title: string,
   isHorizontalLayout: boolean,
   transformedTabularData: TransformedTabularDataType,
   onSortChange: (SortChangeType) => void,
   sortOrder: FilterOrderType,
   sortCol: FilterIdType,
-|};
+};
 
 export default function TabularDataModal({
   title,

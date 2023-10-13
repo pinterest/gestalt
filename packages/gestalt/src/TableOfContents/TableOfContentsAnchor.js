@@ -19,12 +19,12 @@ const NESTING_MARGIN_START_MAP = {
   '5': '92px',
 };
 
-type Props = {|
+type Props = {
   label: string,
   href: string,
   active: boolean,
   onClick?: $ElementType<React$ElementConfig<typeof TapAreaLink>, 'onTap'>,
-|};
+};
 
 export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): Node {
   const { nestedLevel } = useNesting();

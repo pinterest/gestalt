@@ -11,7 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import childContentRenderedOutsideExample from '../../examples/layer/childContentRenderedOutsideExample.js';
 import stackingUsingZIndexExample from '../../examples/layer/stackingUsingZIndexExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="Layer">
       <PageHeader name="Layer" description={generatedDocGen?.description} />
@@ -67,7 +67,9 @@ The example below shows using a \`FixedZIndex\` for the header zIndex and a \`Co
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Layer') },
   };

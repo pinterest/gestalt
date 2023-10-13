@@ -16,7 +16,7 @@ import App from '../docs-components/App.js';
 import { DocsConfigProvider } from '../docs-components/contexts/DocsConfigProvider.js';
 import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider.js';
 
-function Providers({ children, isMobile }: {| children: Node, isMobile: boolean |}): Node {
+function Providers({ children, isMobile }: { children: Node, isMobile: boolean }): Node {
   const [isMobileDevice] = useState(isMobile);
 
   return (

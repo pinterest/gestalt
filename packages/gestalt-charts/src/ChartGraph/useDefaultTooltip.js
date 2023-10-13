@@ -8,20 +8,20 @@ export default function useDefaultTooltip({
   labelMap,
   isTimeSeries,
   tickFormatter,
-}: {|
+}: {
   isDarkMode: boolean,
-  labelMap: ?{| [string]: string |},
-  tickFormatter?: {|
+  labelMap: ?{ [string]: string },
+  tickFormatter?: {
     timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,
     xAxisBottom?: (number, number) => string | number,
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
-  |},
+  },
   isTimeSeries?: boolean,
-|}): ({|
+}): ({
   active: boolean,
-  payload: $ReadOnlyArray<{|
+  payload: $ReadOnlyArray<{
     dataKey: string,
     name: string,
     stroke: ?string,
@@ -32,9 +32,9 @@ export default function useDefaultTooltip({
     legendType?: 'line' | 'rect',
     isLegend?: boolean,
     strokeWidth?: number,
-  |}>,
+  }>,
   label: number | string,
-|}) => Node {
+}) => Node {
   return useCallback(
     ({ active, payload, label }) => (
       <Box
@@ -48,7 +48,7 @@ export default function useDefaultTooltip({
           <Flex direction="column" gap={2}>
             <Flex.Item>
               {payload.map(
-                (payloadData: {|
+                (payloadData: {
                   dataKey: string,
                   name: string,
                   stroke: ?string,
@@ -59,7 +59,7 @@ export default function useDefaultTooltip({
                   legendType?: 'line' | 'rect',
                   isLegend?: boolean,
                   strokeWidth?: number,
-                |}) => (
+                }) => (
                   <Flex key={payloadData.name} alignItems="center" gap={2}>
                     <LegendIcon payloadData={payloadData} />
                     <Flex.Item flex="grow">

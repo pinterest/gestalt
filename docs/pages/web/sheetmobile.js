@@ -28,9 +28,9 @@ import withPrimaryActionHeader from '../../examples/sheetmobile/withPrimaryActio
 
 export default function SheetMobilePage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.SheetMobile.displayName}>
       <PageHeader
@@ -396,9 +396,9 @@ OverlayPanels are surfaces that allow users to view optional information or comp
   );
 }
 
-export async function getStaticProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getStaticProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['SheetMobile', 'DismissingElement']),

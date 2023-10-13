@@ -20,7 +20,7 @@ import indicator from '../../examples/tabs/indicator.js';
 import mainExample from '../../examples/tabs/mainExample.js';
 import wrapping from '../../examples/tabs/wrapping.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen.displayName} description={generatedDocGen.description}>
@@ -238,7 +238,9 @@ SegmentedControl is used to switch between views within a small area of content,
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Tabs') },
   };

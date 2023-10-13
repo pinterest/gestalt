@@ -68,18 +68,18 @@ export default function Example(): Node {
 
   const [suggestedOptions, setSuggestedOptions] = useState(usStatesOptions);
   const [inputValue, setInputValue] = useState(usStatesOptions[5].label);
-  const [selected, setSelected] = useState<void | {|
+  const [selected, setSelected] = useState<void | {
     label: string,
     subtext?: string,
     value: string,
-  |}>(usStatesOptions[5]);
+  }>(usStatesOptions[5]);
 
   const handleOnChange = ({
     value,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setSelected();
     if (value) {
       setInputValue(value);
@@ -95,10 +95,10 @@ export default function Example(): Node {
 
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     setInputValue(item.label);
     setSuggestedOptions(usStatesOptions);
     setSelected(item);

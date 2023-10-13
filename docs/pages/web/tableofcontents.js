@@ -18,9 +18,9 @@ import withHeaderExample from '../../examples/tableofcontents/withHeaderExample.
 
 export default function TableOfContentsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.TableOfContents.displayName}>
       <PageHeader
@@ -179,9 +179,9 @@ Tabs may be used navigate between multiple URLs. Tabs are intended as page-level
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen(['TableOfContents', 'TableOfContentsItem']);
 
   docGen.TableOfContents.props.children.flowType.raw = '<Element<typeof TableOfContents.Item>>';

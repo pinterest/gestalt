@@ -21,16 +21,16 @@ import touchableStyles from '../TapArea.css';
 import useFocusVisible from '../useFocusVisible.js';
 import useTapFeedback from '../useTapFeedback.js';
 
-type Props = {|
+type Props = {
   accessibilityLabel: string,
   accessibilityControls?: string,
   iconColor?: $ElementType<ElementConfig<typeof Pog>, 'iconColor'>,
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-  |}) => void,
+  }) => void,
 
   size?: $ElementType<ElementConfig<typeof Pog>, 'size'>,
-|};
+};
 
 const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> =
   forwardRef<Props, HTMLButtonElement>(function IconButton(

@@ -4,8 +4,8 @@ import { Rectangle, ReferenceArea as RechartsReferenceArea } from 'recharts';
 
 export default function renderReferenceAreas({
   referenceAreas,
-}: {|
-  referenceAreas: $ReadOnlyArray<{|
+}: {
+  referenceAreas: $ReadOnlyArray<{
     id: string,
     label: string,
     x1: string | number,
@@ -14,8 +14,8 @@ export default function renderReferenceAreas({
     y2: string | number,
     yAxisId: string,
     style?: 'default',
-  |}>,
-|}): $ReadOnlyArray<Node> {
+  }>,
+}): $ReadOnlyArray<Node> {
   return referenceAreas.map((values) => (
     // Recharts doesn't recognize wrappers on their components, therefore, needs to be build within ChartGraph
     <RechartsReferenceArea

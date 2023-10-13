@@ -12,13 +12,7 @@ import Mask from '../Mask.js';
 import { type ActionType } from '../PageHeader.js';
 import Text from '../Text.js';
 
-export function PageHeaderTitle({
-  marginTop,
-  title,
-}: {|
-  marginTop: ?number,
-  title: string,
-|}): Node {
+export function PageHeaderTitle({ marginTop, title }: { marginTop: ?number, title: string }): Node {
   return (
     <Fragment>
       <Box display="block" smDisplay="none">
@@ -29,7 +23,9 @@ export function PageHeaderTitle({
       <Box
         display="none"
         smDisplay="block"
-        dangerouslySetInlineStyle={{ __style: marginTop ? { marginTop: `${marginTop}px` } : {} }}
+        dangerouslySetInlineStyle={{
+          __style: marginTop ? { marginTop: `${marginTop}px` } : {},
+        }}
       >
         <Heading size="500" lineClamp={1} accessibilityLevel={1}>
           {title}
@@ -39,7 +35,7 @@ export function PageHeaderTitle({
   );
 }
 
-export function PageHeaderThumbnail({ thumbnail }: {| thumbnail: Element<typeof Image> |}): Node {
+export function PageHeaderThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }): Node {
   return (
     <Box display="none" smDisplay="block" aria-hidden>
       <Mask height={48} rounding={2} width={48}>
@@ -53,11 +49,11 @@ export function PageHeaderBadge({
   badgeText,
   badgeTooltipText,
   type = 'info',
-}: {|
+}: {
   badgeText: string,
   badgeTooltipText?: string,
   type?: TypeOptions,
-|}): Node {
+}): Node {
   return badgeTooltipText ? (
     <Badge
       text={badgeText}
@@ -79,14 +75,14 @@ export function PageHeaderHelperIconButton({
   accessibilityControls,
   accessibilityExpanded,
   onClick,
-}: {|
+}: {
   accessibilityLabel: string,
   accessibilityControls: string,
   accessibilityExpanded: boolean,
-  onClick: ({|
+  onClick: ({
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-  |}) => void,
-|}): Node {
+  }) => void,
+}): Node {
   return (
     <IconButton
       accessibilityControls={accessibilityControls}
@@ -105,18 +101,18 @@ export function PageHeaderHelperIconButton({
 export function PageHeaderSubtext({
   subtext,
   helperLink,
-}: {|
+}: {
   subtext: string,
-  helperLink?: {|
+  helperLink?: {
     text: string,
     accessibilityLabel: string,
     href: string,
-    onClick?: ({|
+    onClick?: ({
       event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
       dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-  |},
-|}): Node {
+    }) => void,
+  },
+}): Node {
   return (
     <Box display="none" smDisplay="block">
       <Text inline>
@@ -146,17 +142,17 @@ export function PageHeaderActionBlock({
   primaryAction,
   secondaryAction,
   dropdownAccessibilityLabel = '',
-}: {|
-  primaryAction?: {|
+}: {
+  primaryAction?: {
     component: ActionType,
     dropdownItems: $ReadOnlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>,
-  |},
-  secondaryAction?: {|
+  },
+  secondaryAction?: {
     component: ActionType,
     dropdownItems: $ReadOnlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>,
-  |},
+  },
   dropdownAccessibilityLabel?: string,
-|}): Node {
+}): Node {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
@@ -211,7 +207,7 @@ export function PageHeaderActionBlock({
   );
 }
 
-export function PageHeaderItemsBlock({ items }: {| items: $ReadOnlyArray<Node> |}): Node {
+export function PageHeaderItemsBlock({ items }: { items: $ReadOnlyArray<Node> }): Node {
   return (
     <Box display="none" mdDisplay="block" overflow="hidden">
       <Flex gap={{ column: 0, row: 6 }}>

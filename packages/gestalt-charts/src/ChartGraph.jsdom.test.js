@@ -10,7 +10,7 @@ jest.mock('recharts', () => {
   const OriginalModule = jest.requireActual<any>('recharts');
   return {
     ...OriginalModule,
-    ResponsiveContainer: ({ children }: {| children: Node |}) => (
+    ResponsiveContainer: ({ children }: { children: Node }) => (
       <OriginalModule.ResponsiveContainer width={800} height={800}>
         {children}
       </OriginalModule.ResponsiveContainer>
@@ -21,125 +21,125 @@ jest.mock('recharts', () => {
 const data1 = [
   {
     name: 'A',
-    'element_01': 100,
+    element_01: 100,
   },
   {
     name: 'B',
-    'element_01': 100,
+    element_01: 100,
   },
   {
     name: 'C',
-    'element_01': 100,
+    element_01: 100,
   },
   {
     name: 'D',
-    'element_01': 100,
+    element_01: 100,
   },
   {
     name: 'E',
-    'element_01': 100,
+    element_01: 100,
   },
   {
     name: 'F',
-    'element_01': 100,
+    element_01: 100,
   },
   {
     name: 'G',
-    'element_01': 100,
+    element_01: 100,
   },
 ];
 
 const data2 = [
   {
     name: 'A',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
   {
     name: 'B',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
   {
     name: 'C',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
   {
     name: 'D',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
   {
     name: 'E',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
   {
     name: 'F',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
   {
     name: 'G',
-    'element_01': 100,
-    'element_02': 200,
+    element_01: 100,
+    element_02: 200,
   },
 ];
 
 const data3 = [
   {
     name: 'A',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
   {
     name: 'B',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
   {
     name: 'C',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
   {
     name: 'D',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
   {
     name: 'E',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
   {
     name: 'F',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
   {
     name: 'G',
-    'element_01': 100,
-    'element_02': 200,
-    'element_03': 300,
+    element_01: 100,
+    element_02: 200,
+    element_03: 300,
   },
 ];
 
 const { ResizeObserver } = window;
 
-type Props = {|
+type Props = {
   ...ElementConfig<typeof ChartGraph>,
   accessibilityLabel?: string, // eslint-disable-line react/no-unused-prop-types
   visualPatternSelected?: ?'visualPattern' | 'default' | 'disabled',
   onVisualPatternChange?: () => void,
-|};
+};
 
 function ChartWrap(props: Props) {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');

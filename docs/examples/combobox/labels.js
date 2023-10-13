@@ -38,10 +38,10 @@ export default function Example(): Node {
 
   const handleOnBlur = ({
     value,
-  }: {|
+  }: {
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     if (value !== '' && !CATEGORIES.includes(value))
       setErrorMessage('Please, select a valid option');
   };

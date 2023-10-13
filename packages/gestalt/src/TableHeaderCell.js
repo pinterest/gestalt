@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 
-type Props = {|
+type Props = {
   /**
    * The content of the table cell.
    */
@@ -32,7 +32,7 @@ type Props = {|
    * Private prop required for sticky columns
    */
   shouldHaveShadow?: boolean,
-|};
+};
 
 /**
  * Use [Table.HeaderCell](https://gestalt.pinterest.systems/web/table#Table.HeaderCell) to define a header cell in Table.

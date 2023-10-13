@@ -1,8 +1,8 @@
 // @flow strict
-type LookupMapProp = {| [string | number]: string |};
+type LookupMapProp = { [string | number]: string };
 
 const colorMap = {
-  'white': `color="default"`,
+  white: `color="default"`,
   '#fff': `color="default"`,
   '#ffffff': `color="default"`,
   '#0074e8': `color="infoBase|shopping|education"`,
@@ -17,7 +17,7 @@ const colorMap = {
   '#e9e9e9': `color="secondary"`,
   '#767676': `color="tertiary"`,
   '#111111': `color="selected|inverse"`,
-  'transparent': `color="transparent"`,
+  transparent: `color="transparent"`,
   'rgba(51,: 51,51,.8)': `color="transparentDarkGray"`,
   '#e2e2e2': `color="lightWash"`,
   '#dadada': `color="darkWash"`,
@@ -43,7 +43,7 @@ const flexMap = {
   '0 0 auto': 'none',
 };
 
-type KebabToCamelCaseType = ({| attribute: string |}) => string;
+type KebabToCamelCaseType = ({ attribute: string }) => string;
 
 export const kebabToCamelCase: KebabToCamelCaseType = ({ attribute }) =>
   attribute.replace(/-([a-z])/gi, (s, group1) => group1.toUpperCase());
@@ -143,7 +143,7 @@ export const validateBoxShadow = (value: string): ?string => {
   return rgbaMatch && pixelsMatch ? 'borderStyle="shadow"' : undefined;
 };
 
-type DimensionFormattingType = ({| keyName: string, value: string |}) => ?string;
+type DimensionFormattingType = ({ keyName: string, value: string }) => ?string;
 
 export const dimensionFormatting: DimensionFormattingType = ({ keyName, value }) => {
   if (typeof value === 'number') return `${keyName ?? ''}={${value}}`;

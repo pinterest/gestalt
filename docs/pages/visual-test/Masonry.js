@@ -15,7 +15,7 @@ const dataObject = [
   { height: 60, name: 'Pin 10' },
 ];
 
-function GridComponent({ data }: {| data: {| height: number, name: string |} |}): Node {
+function GridComponent({ data }: { data: { height: number, name: string } }): Node {
   return (
     <Box height={data.height} width={50} color="successBase">
       <Text>{data.name}</Text>

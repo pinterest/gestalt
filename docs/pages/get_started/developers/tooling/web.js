@@ -12,11 +12,11 @@ function TableEntry({
   metric,
   description,
   href,
-}: {|
+}: {
   metric: string,
   description: string,
   href: string,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>

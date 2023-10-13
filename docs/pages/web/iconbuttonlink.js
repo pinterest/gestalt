@@ -89,7 +89,9 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('IconButtonLink');
   const overriddenDocGen = overrideTypes(generatedDocGen, {
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),

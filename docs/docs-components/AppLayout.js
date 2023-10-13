@@ -17,10 +17,10 @@ const HEADER_HEIGHT_PX = 75;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = ['/year_in_review_2022', 'integration-test'];
 
-type Props = {|
+type Props = {
   children?: Node,
   colorScheme?: 'light' | 'dark',
-|};
+};
 
 export default function AppLayout({ children, colorScheme }: Props): Node {
   const { isMobile } = useDocsConfig();
@@ -62,7 +62,13 @@ export default function AppLayout({ children, colorScheme }: Props): Node {
           {/* The <div> element has a child <button> element that allows keyboard interaction */}
           {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <div
-            style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
             onClick={(event) => {
               if (event.target === event.currentTarget) setIsSidebarOpen(false);
             }}

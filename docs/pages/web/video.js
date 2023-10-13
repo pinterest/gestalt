@@ -19,7 +19,7 @@ import multipleSourcesExample from '../../examples/video/multipleSourcesExample.
 import updatesExample from '../../examples/video/updatesExample.js';
 import withChildrenExample from '../../examples/video/withChildrenExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="Video">
       <PageHeader name="Video" description={generatedDocGen?.description} pdocsLink>
@@ -165,7 +165,9 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getStaticProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('Video');
 
   generatedDocGen.props.ref = {

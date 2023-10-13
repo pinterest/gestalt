@@ -36,9 +36,9 @@ import subcomponent from '../../examples/sidenavigation/subcomponent.js';
 
 export default function SideNavigationPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen.SideNavigation?.displayName ?? ''}>
       <PageHeader
@@ -474,9 +474,9 @@ For pages with a main top nav bar, every SideNav should have a PageHeader to ann
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen([

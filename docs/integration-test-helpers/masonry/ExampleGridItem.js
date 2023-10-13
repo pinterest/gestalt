@@ -1,12 +1,12 @@
 // @flow strict
 import { type Element, useEffect, useState } from 'react';
 
-type Props = {|
+type Props = {
   // $FlowFixMe[unclear-type]
   data: Object,
   expanded: boolean,
   itemIdx: number,
-|};
+};
 
 export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props): Element<'div'> {
   const [counter, setCounter] = useState<number>(0);

@@ -41,9 +41,9 @@ const DO_NOT_PAIR_COLORS = [
   [6, 11],
 ];
 
-type ColorCardProps = {|
+type ColorCardProps = {
   count: number,
-|};
+};
 
 function PaletteGenerator({ count }: ColorCardProps): Node {
   return [...Array(count)].map((step, idx) => {
@@ -61,10 +61,10 @@ function PaletteGenerator({ count }: ColorCardProps): Node {
   });
 }
 
-type PairSetProps = {|
+type PairSetProps = {
   color1: number,
   color2: number,
-|};
+};
 
 function DoNotPairSet({ color1, color2 }: PairSetProps): Node {
   const firstColor = color1 < 10 ? `0${color1}` : `${color1}`;
