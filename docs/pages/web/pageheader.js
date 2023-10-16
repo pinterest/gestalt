@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import DocsPageHeader from '../../docs-components/PageHeader.js'; // renaming to avoid confusion
@@ -26,7 +27,7 @@ import secondaryActionsExample from '../../examples/pageheader/secondaryActionEx
 import subtextExample from '../../examples/pageheader/subtextExample.js';
 import titleExample from '../../examples/pageheader/titleExample.js';
 
-export default function PageHeaderPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function PageHeaderPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader
@@ -219,24 +220,13 @@ Follow the accessibility guidelines for any other Gestalt component passed to \`
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`badge\`, \`dropdownAccessibilityLabel\`, \`helperIconButton\`, \`helperLink\`, \`title\`, \`subtext\`, as well as any \`primaryAction\`, \`secondaryAction\` and \`item\` components used within PageHeader.
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        code={localizationExample}
+        layout="column"
+      />
 
-Be brief with text in all components to account for languages with longer words.`}
-      >
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample
-              code={localizationExample}
-              layout="column"
-              name="PageHeader localization example"
-              previewHeight={85}
-            />
-          }
-        />
-      </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Title"
@@ -427,7 +417,9 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('PageHeader') },
   };

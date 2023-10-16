@@ -18,7 +18,7 @@ export function isComponentsActiveSection(pathname: string): boolean {
   return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
 }
 
-export default function DocsSideNavigation({ showBorder }: {| showBorder?: boolean |}): Node {
+export default function DocsSideNavigation({ showBorder }: { showBorder?: boolean }): Node {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
   const { isMobile } = useDocsConfig();
@@ -106,7 +106,9 @@ export default function DocsSideNavigation({ showBorder }: {| showBorder?: boole
     selectedTab,
   ]);
 
-  const sectionItemsForSideNav = useGetSideNavItems({ sectionInfo: activeSection });
+  const sectionItemsForSideNav = useGetSideNavItems({
+    sectionInfo: activeSection,
+  });
 
   const closeSideNavigation = () => setIsSidebarOpen(false);
 

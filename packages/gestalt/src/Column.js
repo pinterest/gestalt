@@ -5,7 +5,7 @@ import styles from './Column.css';
 
 type Columns = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type ColumnProps = {|
+type ColumnProps = {
   /**
    * The content to be laid out.
    */
@@ -28,7 +28,7 @@ type ColumnProps = {|
    * The number of units in a 12-unit width that this element will occupy in lg and larger viewports.
    */
   lgSpan?: Columns,
-|};
+};
 
 /**
  * Use [Column](https://gestalt.pinterest.systems/web/column) to implement a 12-column system.

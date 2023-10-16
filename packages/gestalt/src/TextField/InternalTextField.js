@@ -22,13 +22,13 @@ import Tag from '../Tag.js';
 import { type MaxLength } from '../TextField.js';
 import typography from '../Typography.css';
 
-type Props = {|
+type Props = {
   // REQUIRED
   id: string,
-  onChange: ({|
+  onChange: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   // OPTIONAL
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
@@ -46,22 +46,22 @@ type Props = {|
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric',
   name?: string,
-  onBlur?: ({|
+  onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
-  onClick?: ({|
+  }) => void,
+  onClick?: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
-  onFocus?: ({|
+  }) => void,
+  onFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
-  onKeyDown?: ({|
+  }) => void,
+  onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   placeholder?: string,
   readOnly?: boolean,
   size?: 'md' | 'lg',
@@ -69,7 +69,7 @@ type Props = {|
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   value?: string,
-|};
+};
 
 const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

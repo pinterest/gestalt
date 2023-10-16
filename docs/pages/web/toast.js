@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -24,6 +25,7 @@ import helperLink from '../../examples/toast/helperLink.js';
 import howTo from '../../examples/toast/howto.js';
 import icon from '../../examples/toast/icon.js';
 import image from '../../examples/toast/image.js';
+import localizationLabels from '../../examples/toast/localizationLabels.js';
 import main from '../../examples/toast/main.js';
 import message from '../../examples/toast/message.js';
 import primaryAction from '../../examples/toast/primaryAction.js';
@@ -32,7 +34,7 @@ import richMessage from '../../examples/toast/richMessage.js';
 import success from '../../examples/toast/success.js';
 import textOnly from '../../examples/toast/textOnly.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -73,29 +75,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
-      <AccessibilitySection name={generatedDocGen?.displayName}>
-        <MainSection.Subsection
-          title="Icons"
-          description={`
-\`iconAccessibilityLabel\` requires a short, descriptive label for screen readers. This label should communicate the intent of the icon, such as "Success", “Error”, “Link”. It should also be localized.
-      `}
-        />
-        <MainSection.Subsection
-          title="Duration"
-          description={`
-Some people may take longer to read toasts than others due to cognitive impairments. Use the guide below to set duration for Toasts:
-
-- Brief text of approximately 10–15 words (including button text): 5s
-- Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s. [Learn more](https://capitalizemytitle.com/reading-time/3000-words/).
-      `}
-        />
-      </AccessibilitySection>
-
-      <MainSection
-        name="Localization"
-        description={`Remember to localize \`text\` and any string within \`primaryAction\`, \`helperLink\` or \`dismissButton\`.`}
-      />
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -126,7 +105,6 @@ Some people may take longer to read toasts than others due to cognitive impairme
             }
           />
         </MainSection.Subsection>
-
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             type="do"
@@ -185,6 +163,31 @@ Some people may take longer to read toasts than others due to cognitive impairme
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <AccessibilitySection name={generatedDocGen?.displayName}>
+        <MainSection.Subsection
+          title="Duration"
+          description={`
+Some people may take longer to read toasts than others due to cognitive impairments. Use the guide below to set duration for Toasts:
+
+- Brief text of approximately 10–15 words (including button text): 5s
+- Longer than 15 words: Slow readers can read about 125–200 words per minute. Base your duration on the slowest number. For example, a toast with 20 words should be set to 10s. [Learn more](https://capitalizemytitle.com/reading-time/3000-words/).
+
+Toasts should be on screen for a minimum of 5 seconds; this gives most people enough time to read and act. Please note that a separate Toast manager must be implemented in order to handle duration and animation.
+
+Once a toast is triggered, allow for a cooldown period of about 7 seconds before the toast can be triggered again. This will prevent multiple toasts from appearing.
+
+      `}
+        />
+      </AccessibilitySection>
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`
+Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description="Toasts should be displayed in the center of the viewport, opposite the main navbar (e.g. at the top of the viewport on mobile, bottom of the viewport on desktop). Though not implemented here, Toasts are meant to be ephemeral and disappear after a few seconds."
@@ -295,15 +298,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection
-        name="Duration and timing"
-        description={`
-Toasts should be on screen for a minimum of 5 seconds; this gives most people enough time to read and act. Please note that a separate Toast manager must be implemented in order to handle duration and animation.
-
-Once a toast is triggered, allow for a cooldown period of about 7 seconds before the toast can be triggered again. This will prevent multiple toasts from appearing.
-`}
-      />
-
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -361,7 +355,9 @@ Once a toast is triggered, allow for a cooldown period of about 7 seconds before
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Toast') },
   };

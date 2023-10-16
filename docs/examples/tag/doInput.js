@@ -8,10 +8,10 @@ export default function Example(): Node {
 
   const handleChange = ({
     value,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setCurrentValue(value);
   };
 

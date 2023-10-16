@@ -5,11 +5,11 @@ import HoverOverlay from './HoverOverlay.js';
 import PositioningWrapper from './PositioningWrapper.js';
 import AvatarFoundation from '../Avatar/Foundation.js';
 
-type Props = {|
+type Props = {
   ...BaseStackType,
   showAddCollaboratorsButton: boolean,
   count: number,
-|};
+};
 
 export default function AvatarGroupCollaboratorsCount({
   showAddCollaboratorsButton,

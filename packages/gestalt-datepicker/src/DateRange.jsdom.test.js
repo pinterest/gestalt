@@ -10,13 +10,13 @@ function DateRangeWrap({
   localeData,
   onEndDateChange,
   onStartDateChange,
-}: {|
+}: {
   initialStartDate?: Date,
   initialEndDate?: Date,
   localeData?: $ElementType<React$ElementConfig<typeof DateRange>, 'localeData'>,
   onEndDateChange?: $ElementType<React$ElementConfig<typeof DateRange>, 'onEndDateChange'>,
   onStartDateChange?: $ElementType<React$ElementConfig<typeof DateRange>, 'onStartDateChange'>,
-|}) {
+}) {
   const [startDate, setStartDate] = useState<Date | null>(initialStartDate ?? null);
   const [endDate, setEndDate] = useState<Date | null>(initialEndDate ?? null);
 
@@ -108,17 +108,17 @@ describe('DateRange', () => {
   it('handles events correctly', async () => {
     const onEndDateChangeMock = jest.fn<
       [
-        {|
+        {
           value: Date | null,
-        |},
+        },
       ],
       void,
     >();
     const onStartDateChangeMock = jest.fn<
       [
-        {|
+        {
           value: Date | null,
-        |},
+        },
       ],
       void,
     >();

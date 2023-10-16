@@ -50,16 +50,16 @@ const pins = [
 export default function Example(): Node {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
-    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+    $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,
   >([]);
   const anchorRef = useRef<null | HTMLElement>(null);
 
   const onSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (selected.some(({ value }) => value === item.value)) {
       setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));
     } else {
@@ -94,7 +94,9 @@ export default function Example(): Node {
         bottom
         ref={anchorRef}
         marginBottom={2}
-        dangerouslySetInlineStyle={{ __style: { left: '50%', transform: 'translate(-50%)' } }}
+        dangerouslySetInlineStyle={{
+          __style: { left: '50%', transform: 'translate(-50%)' },
+        }}
       >
         <IconButtonFloating
           accessibilityControls="sections-dropdown-example"

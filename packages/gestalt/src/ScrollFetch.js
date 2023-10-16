@@ -5,7 +5,7 @@ import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils.js';
 import throttle, { type ThrottleReturn } from './throttle.js';
 
-type Props = {|
+type Props = {
   /**
    * The scroll container to use. Defaults to window.
    */
@@ -14,13 +14,13 @@ type Props = {|
   isFetching: boolean,
   fetchMore?: () => void,
   renderHeight?: () => number,
-|};
+};
 
-type State = {|
+type State = {
   containerHeight: number,
   scrollHeight: number,
   scrollTop: number,
-|};
+};
 
 export default class ScrollFetch extends PureComponent<Props, State> {
   /**
@@ -30,7 +30,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
     this.setState(this.getScrollState());
   });
 
-  static defaultProps: {| container?: HTMLElement |} = {
+  static defaultProps: { container?: HTMLElement } = {
     container: typeof window !== 'undefined' ? window : undefined,
   };
 
@@ -75,7 +75,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
     return getScrollHeight(container);
   };
 
-  getScrollState(): null | {| scrollHeight: number, scrollTop: number |} {
+  getScrollState(): null | { scrollHeight: number, scrollTop: number } {
     const { container, renderHeight } = this.props;
     if (!container) {
       return null;

@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -12,7 +13,7 @@ import controlled from '../../examples/combobox/controlled.js';
 import error from '../../examples/combobox/error.js';
 import helperText from '../../examples/combobox/helperText.js';
 import labels from '../../examples/combobox/labels.js';
-import localization from '../../examples/combobox/localization.js';
+import localizationLabels from '../../examples/combobox/localizationLabels.js';
 import main from '../../examples/combobox/main.js';
 import programmatic from '../../examples/combobox/programmatic.js';
 import ref from '../../examples/combobox/ref.js';
@@ -22,7 +23,7 @@ import uncontrolled from '../../examples/combobox/uncontrolled.js';
 
 const PREVIEW_HEIGHT = 320;
 
-export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -33,9 +34,7 @@ export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: Do
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -56,6 +55,7 @@ export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: Do
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -102,21 +102,13 @@ export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: Do
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`helperText\`, \`errorMessage\`, \`noResultText\`, \`label\`, \`placeholder\`,  and \`accessibilityClearButtonLabel\` props. \`options\` and \`value\` should be localized for those cases that can be translated. Note that localization can lengthen text by 20 to 30 percent.`}
-      >
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample
-              code={localization}
-              name="Localization example"
-              previewHeight={PREVIEW_HEIGHT}
-            />
-          }
-        />
-      </MainSection>
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`accessibilityClearButtonLabel\` and \`noResultText\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description="ComboBox can be used as a controlled or an uncontrolled component. An uncontrolled ComboBox stores its own state internally and updates it based on the user input. On the other side, a controlled ComboBox's state is managed by a parent component. The parent component's state passes new values through props to the controlled component which notifies changes through event callbacks."
@@ -224,7 +216,6 @@ export default function ComboBoxPage({ generatedDocGen }: {| generatedDocGen: Do
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
-
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -243,7 +234,9 @@ Use Fieldset to group related form items.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ComboBox') },
   };

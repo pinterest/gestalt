@@ -42,20 +42,20 @@
 import { type Node } from 'react';
 import layoutStyles from '../Layout.css';
 
-type Props = {|
-  Item?: ({| idx: number |}) => Node,
-  layout: $ReadOnlyArray<{|
+type Props = {
+  Item?: ({ idx: number }) => Node,
+  layout: $ReadOnlyArray<{
     top: number,
     left: number,
     width: number,
     height: number,
-  |}>,
-  renderItem?: ({| idx: number |}) => Node,
+  }>,
+  renderItem?: ({ idx: number }) => Node,
   viewportTop?: number,
   viewportLeft?: number,
   viewportWidth?: number,
   viewportHeight?: number,
-|};
+};
 
 export default function Collection(props: Props): Node {
   const { Item, layout = [], renderItem, viewportTop = 0, viewportLeft = 0 } = props;
@@ -71,13 +71,13 @@ export default function Collection(props: Props): Node {
   // layer.
   const items = layout.reduce(
     (
-      acc: $ReadOnlyArray<{|
+      acc: $ReadOnlyArray<{
         height: number,
         idx: number,
         left: number,
         top: number,
         width: number,
-      |}>,
+      }>,
       position,
       idx,
     ) => {

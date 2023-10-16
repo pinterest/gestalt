@@ -27,21 +27,21 @@ export type AnimationStateType =
   | 'unmount'
   | 'hidden';
 
-type AnimationType = {|
+type AnimationType = {
   animationState: AnimationStateType,
   setAnimationState: (AnimationStateType) => void,
-|};
+};
 
-type UseAnimationType = {|
+type UseAnimationType = {
   animationState: AnimationStateType,
   setAnimationState: (AnimationStateType) => void,
   handleAnimationEnd: () => void,
   handleExternalDismiss: () => void,
-|};
+};
 
-type AnimationProviderProps = {|
+type AnimationProviderProps = {
   children: Node,
-|};
+};
 
 // CONTEXT
 const initialState = {

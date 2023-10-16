@@ -5,11 +5,11 @@ import Flex from './Flex.js';
 import TapAreaLink from './TapAreaLink.js';
 import Text from './Text.js';
 
-type OnChangeHandler = ({|
+type OnChangeHandler = ({
   event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   +activeTabIndex: number,
   dangerouslyDisableOnNavigation: () => void,
-|}) => void;
+}) => void;
 
 function Dot() {
   return (
@@ -42,7 +42,7 @@ function Underline() {
 
 const COUNT_HEIGHT_PX = 16;
 
-function Count({ count }: {| count: number |}) {
+function Count({ count }: { count: number }) {
   const displayCount = count < 100 ? `${count}` : '99+';
 
   return (
@@ -70,21 +70,21 @@ function Count({ count }: {| count: number |}) {
   );
 }
 
-type TabType = {|
+type TabType = {
   href: string,
   id?: string,
   indicator?: 'dot' | number,
   text: Node,
-|};
+};
 type BgColor = 'default' | 'transparent';
 
-type TabProps = {|
+type TabProps = {
   ...TabType,
   bgColor: BgColor,
   index: number,
   isActive: boolean,
   onChange: OnChangeHandler,
-|};
+};
 
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 2;
@@ -133,7 +133,11 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
-          onChange({ activeTabIndex: index, event, dangerouslyDisableOnNavigation });
+          onChange({
+            activeTabIndex: index,
+            event,
+            dangerouslyDisableOnNavigation,
+          });
         }}
         rounding={TAB_ROUNDING}
         tapStyle={isActive ? 'none' : 'compress'}
@@ -167,7 +171,9 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
 
             {isActive && (
               <Box
-                dangerouslySetInlineStyle={{ __style: { bottom: -UNDERLINE_HEIGHT } }}
+                dangerouslySetInlineStyle={{
+                  __style: { bottom: -UNDERLINE_HEIGHT },
+                }}
                 position="absolute"
                 // 4px/boint, padding on left and right
                 width={`calc(100% - ${TAB_INNER_PADDING * 4 * 2}px)`}
@@ -184,7 +190,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
 
 TabWithForwardRef.displayName = 'Tab';
 
-type Props = {|
+type Props = {
   /**
    * The index of the active tab.
    */
@@ -200,18 +206,18 @@ type Props = {|
   /**
    * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
    */
-  tabs: $ReadOnlyArray<{|
+  tabs: $ReadOnlyArray<{
     href: string,
     id?: string,
     indicator?: 'dot' | number,
-    ref?: {| current: ?HTMLElement |},
+    ref?: { current: ?HTMLElement },
     text: Node,
-  |}>,
+  }>,
   /**
    * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
    */
   wrap?: boolean,
-|};
+};
 
 /**
  * [Tabs](https://gestalt.pinterest.systems/web/tabs) may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels of content, please use [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol).

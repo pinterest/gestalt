@@ -3,13 +3,13 @@ import { type Node } from 'react';
 import { type DataVisualizationColors } from './types.js';
 import { useHexColor } from './usePatterns.js';
 
-type Props = {|
+type Props = {
   noReposition?: boolean,
   active: boolean,
   color: DataVisualizationColors,
   cx: number,
   cy: number,
-|};
+};
 
 export function GraphPoint(props: Props): Node {
   // eslint-disable-next-line no-unused-vars
@@ -50,7 +50,10 @@ export function GraphPoint(props: Props): Node {
   );
 }
 
-const renderGraphPoint: ({| color: DataVisualizationColors, active: boolean |}) => ({
+const renderGraphPoint: ({
+  color: DataVisualizationColors,
+  active: boolean,
+}) => ({
   cx: number,
   cy: number,
   ...

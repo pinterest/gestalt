@@ -6,23 +6,23 @@ import TapArea from '../TapArea.js';
 import MaybeTooltip from '../utils/MaybeTooltip.js';
 import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex.js';
 
-type Props = {|
+type Props = {
   icon?: 'ellipsis' | 'edit' | 'trash-can',
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   setCompression: ('compress' | 'none') => void,
   forceIconButton: 'force' | 'default',
   setForceIconButton: ('force' | 'default') => void,
   setShowIconButton: ('show' | 'hide') => void,
   isItemActive: boolean,
-  tooltip: {|
+  tooltip: {
     accessibilityLabel?: string,
     text: string,
     zIndex?: Indexable,
-  |},
+  },
   dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
-|};
+};
 
 function ItemIconButton({
   icon = 'ellipsis',
@@ -81,7 +81,11 @@ function ItemIconButton({
   return (
     <MaybeTooltip
       disabled={open}
-      tooltip={{ text: tooltip.text, accessibilityLabel: '', zIndex: tooltipZIndex }}
+      tooltip={{
+        text: tooltip.text,
+        accessibilityLabel: '',
+        zIndex: tooltipZIndex,
+      }}
     >
       {/* Interactive elements require an a11yLabel on them or their children. That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
       <TapArea
@@ -149,7 +153,9 @@ function ItemIconButton({
             zIndex={dropdownZIndex}
           >
             {dropdownItems?.map((element, idx) =>
-              cloneElement(element, { key: `sidenavigation-dropdown-item-${idx}` }),
+              cloneElement(element, {
+                key: `sidenavigation-dropdown-item-${idx}`,
+              }),
             )}
           </Dropdown>
         )}

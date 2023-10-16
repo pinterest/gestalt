@@ -33,20 +33,20 @@ const externalLinkIconMap = {
   '400': 20,
   '500': 28,
   '600': 36,
-  'sm': 12,
-  'md': 14,
-  'lg': 16,
+  sm: 12,
+  md: 14,
+  lg: 16,
 };
 
 type ExternalLinkIcon =
   | 'none'
   | 'default'
-  | {|
+  | {
       color: $ElementType<ElementConfig<typeof Icon>, 'color'>,
       size: $ElementType<ElementConfig<typeof Text>, 'size'>,
-    |};
+    };
 
-function ExternalIcon({ externalLinkIcon }: {| externalLinkIcon: ExternalLinkIcon |}): Node {
+function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }): Node {
   return externalLinkIcon === 'none' ? null : (
     <Box aria-hidden display="inlineBlock" marginStart={1}>
       <Icon
@@ -66,7 +66,7 @@ function ExternalIcon({ externalLinkIcon }: {| externalLinkIcon: ExternalLinkIco
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
-type Props = {|
+type Props = {
   /**
    * Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like "Click Here", or "Read More" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text. It populates `aria-label`. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/link#Accessibility) for more information.
    */
@@ -98,18 +98,18 @@ type Props = {|
   /**
    * Callback triggered when when the element loses focus.
    */
-  onBlur?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
+  onBlur?: ({ event: SyntheticFocusEvent<HTMLAnchorElement> }) => void,
   /**
    * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the element gains focus.
    */
-  onFocus?: ({| event: SyntheticFocusEvent<HTMLAnchorElement> |}) => void,
+  onFocus?: ({ event: SyntheticFocusEvent<HTMLAnchorElement> }) => void,
   /**
    * Ref that is forwarded to the underlying anchor element.
    */
@@ -139,7 +139,7 @@ See the [target variant](https://gestalt.pinterest.systems/web/link#Target) to l
    * When `underline` is supplied, we override the underline style internally managed by the component. See the [underline variant](https://gestalt.pinterest.systems/web/link#Underline) to learn more.
    */
   underline?: 'auto' | 'none' | 'always' | 'hover',
-|};
+};
 
 /**
  * [Link](https://gestalt.pinterest.systems/web/link) is mainly used as navigational element and usually appear within or directly following a paragraph or sentence.
@@ -234,7 +234,11 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     }
   };
 
-  const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+  const ariaLabel = getAriaLabel({
+    target,
+    accessibilityLabel,
+    accessibilityNewTabLabel,
+  });
 
   return (
     <a

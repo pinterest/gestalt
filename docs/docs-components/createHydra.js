@@ -32,11 +32,11 @@ https://kentcdodds.com/blog/how-to-use-react-context-effectively */
 
 import { type Context, createContext, type Node, useContext } from 'react';
 
-export type Hydra<ContextType> = {|
+export type Hydra<ContextType> = {
   Provider: $PropertyType<Context<ContextType | void>, 'Provider'>,
-  Consumer: ({| children: (ContextType) => Node |}) => Node,
+  Consumer: ({ children: (ContextType) => Node }) => Node,
   useHook: () => ContextType,
-|};
+};
 
 function formatDisplayName(
   displayName: string,

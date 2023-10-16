@@ -65,7 +65,7 @@ describe('ComboBox', () => {
     selectedOption,
     size,
     tags,
-  }: {|
+  }: {
     accessibilityClearButtonLabel?: $ElementType<
       React$ElementConfig<typeof ComboBox>,
       'accessibilityClearButtonLabel',
@@ -88,7 +88,7 @@ describe('ComboBox', () => {
     selectedOption?: $ElementType<React$ElementConfig<typeof ComboBox>, 'selectedOption'>,
     size?: $ElementType<React$ElementConfig<typeof ComboBox>, 'size'>,
     tags?: $ElementType<React$ElementConfig<typeof ComboBox>, 'tags'>,
-  |}) =>
+  }) =>
     render(
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}

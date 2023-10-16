@@ -15,16 +15,19 @@ export default function Example(): Node {
     'zie / zem',
   ];
 
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: `value${index}` }));
+  const options = PRONOUNS.map((pronoun, index) => ({
+    label: pronoun,
+    value: `value${index}`,
+  }));
 
   const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,
-  }: {|
+  }: {
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     if (value !== '' && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
   };
 

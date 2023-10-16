@@ -26,10 +26,10 @@ import {
 const initialize = ({
   api,
   fileInfo,
-}: {|
+}: {
   api: ApiType,
   fileInfo: FileType,
-|}): { j: JSCodeShift, src: Collection } => {
+}): { j: JSCodeShift, src: Collection } => {
   const j = api.jscodeshift;
   const src = j(fileInfo.source);
   return { j, src };
@@ -48,11 +48,11 @@ const getComponentIdentifierByName = ({
   j,
   gestaltImportCollection,
   componentName,
-}: {|
+}: {
   j: JSCodeShift,
   gestaltImportCollection: Collection,
   componentName: string,
-|}): Collection =>
+}): Collection =>
   gestaltImportCollection.find(j.ImportSpecifier, {
     imported: {
       type: 'Identifier',
@@ -63,7 +63,7 @@ const getComponentIdentifierByName = ({
 /**
  * getGestaltImport: Returns a collection containing the Gestalt import declaration node-path
  */
-const getGestaltImport = ({ src, j }: {| src: Collection, j: JSCodeShift |}): Collection =>
+const getGestaltImport = ({ src, j }: { src: Collection, j: JSCodeShift }): Collection =>
   src.find(j.ImportDeclaration, {
     source: {
       type: 'Literal',
@@ -91,19 +91,24 @@ const filterJSXByTargetLocalName = ({
   j,
   targetLocalName,
   subcomponent,
-}: {|
+}: {
   src: Collection,
   j: JSCodeShift,
   targetLocalName: ?string,
   subcomponent?: ?string,
-|}): Collection =>
+}): Collection =>
   subcomponent
     ? src.find(j.JSXElement, {
         openingElement: {
-          name: { object: { name: targetLocalName }, property: { name: subcomponent } },
+          name: {
+            object: { name: targetLocalName },
+            property: { name: subcomponent },
+          },
         },
       })
-    : src.find(j.JSXElement, { openingElement: { name: { name: targetLocalName } } });
+    : src.find(j.JSXElement, {
+        openingElement: { name: { name: targetLocalName } },
+      });
 
 /**
  * checkComponentName: Checks if the name of the opening element of the parent node of the attribute node, which is the JSX element itself matches the componenent and subcomponent names.
@@ -277,12 +282,20 @@ const buildReplaceWithModifiedAttributes = ({
 
     // In the presence of just nextProp, we change the value if there's a match.
     if (!nextProp && !isNullOrUndefined(nextValue)) {
-      newNode = buildAttributeFromValue({ j, prop: previousProp, value: nextValue });
+      newNode = buildAttributeFromValue({
+        j,
+        prop: previousProp,
+        value: nextValue,
+      });
     }
 
     // In the presence of both nextProp and nextValue, we change both nextProp and nextValue if there's a match.
     if (nextProp && !isNullOrUndefined(nextValue)) {
-      newNode = buildAttributeFromValue({ j, prop: nextProp, value: nextValue });
+      newNode = buildAttributeFromValue({
+        j,
+        prop: nextProp,
+        value: nextValue,
+      });
     }
 
     return newNode;
@@ -344,7 +357,7 @@ const throwErrorMessageWithNodesData = ({
 /**
  * saveToSource: Saves the changes in the file  if the src object contains the 'modified: true' key-value
  */
-const saveToSource = ({ src }: {| src: Collection |}): string | null =>
+const saveToSource = ({ src }: { src: Collection }): string | null =>
   src.modified ? src.toSource({ quote: 'double' }) : null;
 
 export {

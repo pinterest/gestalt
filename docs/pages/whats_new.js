@@ -15,14 +15,14 @@ const badges = {
   Engineering: <Badge key="engineering" type="success" text="Engineering" />,
 };
 
-export type Post = {|
+export type Post = {
   +title: string,
   +audience: $ReadOnlyArray<'Design' | 'Engineering'>,
   +imageSrc: string,
   +imageAltText: string,
   +content: string,
   imageColor?: string,
-|};
+};
 
 function PostLayout({ audience, content, imageAltText, imageSrc, title, imageColor }: Post): Node {
   return (

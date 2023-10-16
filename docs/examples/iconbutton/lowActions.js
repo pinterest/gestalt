@@ -13,7 +13,7 @@ import {
   TextField,
 } from 'gestalt';
 
-function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}): Node {
+function ModalWithHeading({ onDismiss }: { onDismiss: () => void }): Node {
   return (
     <Modal
       accessibilityModalLabel="Edit board"

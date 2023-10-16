@@ -30,9 +30,9 @@ import useWhenDisplayingMoreThanTwo from '../../examples/list/useWhenDisplayingM
 
 export default function ListPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.List.displayName}>
       <PageHeader
@@ -359,9 +359,9 @@ Fieldset creates a fieldset and legend for a group of related form items, like [
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen(['List', 'ListItem']);
 
   docGen.List.props.children.flowType.raw = '<Element<typeof List.Item>>';

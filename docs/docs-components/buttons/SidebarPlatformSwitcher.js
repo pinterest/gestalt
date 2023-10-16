@@ -7,19 +7,19 @@ import AndroidLogo from '../../graphics/home-page/android-logo.svg';
 import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import { type ComponentPlatformFilteredBy } from '../navigationContext.js';
 
-type Props = {|
+type Props = {
   onClick: (platform: 'web' | 'android' | 'ios') => void,
   componentPlatformFilteredBy: ComponentPlatformFilteredBy,
-|};
+};
 
 export default function SidebarPlatformSwitcher({
   onClick,
   componentPlatformFilteredBy,
 }: Props): Node {
   const PLATFORM_TO_INDEX_MAP = {
-    'web': 0,
-    'ios': 1,
-    'android': 2,
+    web: 0,
+    ios: 1,
+    android: 2,
   };
   const router = useRouter();
 
@@ -33,10 +33,10 @@ export default function SidebarPlatformSwitcher({
   // Updates both the cookie and the state that tracks the selected platform
   const onSelect = ({
     activeIndex,
-  }: {|
+  }: {
     activeIndex: number,
     event: SyntheticMouseEvent<HTMLButtonElement>,
-  |}) => {
+  }) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,
     );

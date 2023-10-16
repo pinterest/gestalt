@@ -2,12 +2,12 @@
 import { Children, type Node } from 'react';
 import Box from './Box.js';
 
-type Props = {|
+type Props = {
   /**
    * One or more Buttons and/or IconButtons.
    */
   children?: Node,
-|};
+};
 
 /**
  * [ButtonGroup](https://gestalt.pinterest.systems/web/buttongroup) is used to display a series of buttons.

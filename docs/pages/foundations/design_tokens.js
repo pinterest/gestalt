@@ -9,13 +9,13 @@ import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import { TokenExample } from '../../docs-components/TokenExample.js';
 
-export type Token = {|
+export type Token = {
   name: string,
   value: string,
   darkValue?: string,
   comment?: string,
   category: string,
-|};
+};
 
 const tokenCategories = [
   {

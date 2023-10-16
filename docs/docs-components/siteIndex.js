@@ -1,9 +1,9 @@
 // @flow strict
 
-export type siteIndexType = {|
+export type siteIndexType = {
   sectionName: string,
   pages: $ReadOnlyArray<string | siteIndexType>,
-|};
+};
 
 // siteIndex is the source of truth for the side navigation menu.
 // siteIndex establishes the sidebar hierarchical menu order:
@@ -82,6 +82,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Icon',
       'IconButton',
       'ListAction',
+      'SearchField',
       'Sheet',
       'Switch',
       'Tabs',

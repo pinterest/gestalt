@@ -31,7 +31,7 @@ describe('<SelectList />', () => {
 
   it('handles errorMessage prop change', () => {
     const handleChange = jest.fn<
-      [{| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}],
+      [{ event: SyntheticInputEvent<HTMLSelectElement>, value: string }],
       void,
     >();
     const { rerender } = render(

@@ -56,10 +56,10 @@ function SearchBoardField() {
 function List({
   handleImageTap,
   title,
-}: {|
+}: {
   handleImageTap: (imageTitle: string) => void,
   title: string,
-|}) {
+}) {
   return (
     <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">

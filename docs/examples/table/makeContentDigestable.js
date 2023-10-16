@@ -23,12 +23,12 @@ function BaseRow({
   subtext,
   total,
   lineClamp,
-}: {|
+}: {
   name: string,
   subtext: string,
   total: string,
   lineClamp?: number,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>

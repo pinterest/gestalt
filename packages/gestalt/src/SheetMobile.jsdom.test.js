@@ -135,14 +135,14 @@ describe('SheetMobile', () => {
     const mockOnClick = jest.fn<[], void>();
     const mockOnClickPrimaryAction = jest.fn<
       [
-        {|
+        {
           event:
             | SyntheticMouseEvent<HTMLButtonElement>
             | SyntheticKeyboardEvent<HTMLButtonElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
           onDismissStart: () => void,
-        |},
+        },
       ],
       void,
     >();
@@ -182,14 +182,14 @@ describe('SheetMobile', () => {
     const mockOnClick = jest.fn<[], void>();
     const mockOnClickPrimaryAction = jest.fn<
       [
-        {|
+        {
           event:
             | SyntheticMouseEvent<HTMLButtonElement>
             | SyntheticKeyboardEvent<HTMLButtonElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
           onDismissStart: () => void,
-        |},
+        },
       ],
       void,
     >();

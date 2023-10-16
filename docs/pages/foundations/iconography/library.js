@@ -40,11 +40,11 @@ function IconTile({
   iconName,
   iconDescription = 'Description coming soon',
   onTap,
-}: {|
+}: {
   iconName: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
   iconDescription: string,
   onTap: () => void,
-|}) {
+}) {
   const [hovered, setHovered] = useState<?boolean>();
 
   return (
@@ -90,7 +90,9 @@ function IconTile({
             bottom
             right
             display={hovered ? 'block' : 'none'}
-            dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+            dangerouslySetInlineStyle={{
+              __style: { bottom: '8px', right: '8px' },
+            }}
           >
             <Pog
               icon="copy-to-clipboard"
@@ -145,10 +147,10 @@ export default function IconPage(): Node {
 
   const handleOnChange = ({
     value,
-  }: {|
+  }: {
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setInputValue(value);
     setSuggestedOptions(
       value

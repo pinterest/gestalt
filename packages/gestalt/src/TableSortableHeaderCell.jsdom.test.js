@@ -5,9 +5,9 @@ import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 test('mouse click calls onSortChange', () => {
   const mockOnSortChange = jest.fn<
     [
-      {|
+      {
         event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-      |},
+      },
     ],
     void,
   >();
@@ -33,9 +33,9 @@ test('mouse click calls onSortChange', () => {
 test('keypress calls onSortChange', () => {
   const mockOnSortChange = jest.fn<
     [
-      {|
+      {
         event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-      |},
+      },
     ],
     void,
   >();
@@ -54,7 +54,10 @@ test('keypress calls onSortChange', () => {
       </thead>
     </table>,
   );
-  const mockEvent = { charCode: 32, preventDefault: jest.fn<$ReadOnlyArray<$FlowFixMe>, mixed>() };
+  const mockEvent = {
+    charCode: 32,
+    preventDefault: jest.fn<$ReadOnlyArray<$FlowFixMe>, mixed>(),
+  };
   fireEvent.keyPress(screen.getByText('column name'), mockEvent);
   expect(mockOnSortChange).toHaveBeenCalled();
 });

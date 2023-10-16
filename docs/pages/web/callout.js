@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -13,7 +14,7 @@ import actionsExample from '../../examples/callout/actionsExample.js';
 import dismissibleExample from '../../examples/callout/dismissibleExample.js';
 import dontStack from '../../examples/callout/dontStack.js';
 import dontUseForMarketing from '../../examples/callout/dontUseForMarketing.js';
-import localizationExample from '../../examples/callout/localizationExample.js';
+import localizationLabels from '../../examples/callout/localizationLabels.js';
 import main from '../../examples/callout/main.js';
 import placeAtTop from '../../examples/callout/placeAtTop.js';
 import productMessages from '../../examples/callout/productMessages.js';
@@ -24,7 +25,7 @@ import variantRecommendation from '../../examples/callout/variantRecommendation.
 import variantSuccess from '../../examples/callout/variantSuccess.js';
 import variantWarning from '../../examples/callout/variantWarning.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -154,25 +155,11 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
-      >
-        <MainSection.Subsection>
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                name="Callout localization"
-                code={localizationExample}
-                layout="column"
-                // hideEditor
-                previewHeight={380}
-              />
-            }
-          />
-        </MainSection.Subsection>
-      </MainSection>
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`dismissButton.accessibilityLabel\` and \`iconAccessibilityLabel\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -350,7 +337,9 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Callout') },
   };

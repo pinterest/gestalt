@@ -26,9 +26,9 @@ import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.SelectList?.displayName}>
       <PageHeader
@@ -45,29 +45,6 @@ export default function DocsPage({
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen?.SelectList} />
-      <MainSection name="Subcomponents">
-        <MainSection.Subsection
-          title={generatedDocGen?.SelectListOption?.displayName}
-          description={generatedDocGen?.SelectListOption?.description}
-        >
-          <GeneratedPropTable
-            generatedDocGen={generatedDocGen.SelectListOption}
-            id="SelectList.Option"
-            name="SelectList.Option"
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title={generatedDocGen?.SelectListGroup?.displayName}
-          description={generatedDocGen?.SelectListGroup?.description}
-        >
-          <GeneratedPropTable
-            generatedDocGen={generatedDocGen.SelectListGroup}
-            id="SelectList.Group"
-            name="SelectList.Group"
-          />
-        </MainSection.Subsection>
-      </MainSection>
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -204,6 +181,31 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </AccessibilitySection>
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.SelectListOption?.displayName}
+          description={generatedDocGen?.SelectListOption?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.SelectListOption}
+            id="SelectList.Option"
+            name="SelectList.Option"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title={generatedDocGen?.SelectListGroup?.displayName}
+          description={generatedDocGen?.SelectListGroup?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen.SelectListGroup}
+            id="SelectList.Group"
+            name="SelectList.Group"
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection title="Size" columns={2}>
           <MainSection.Card
@@ -320,9 +322,9 @@ If users need the ability to choose between a yes/no option, use Checkbox.
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['SelectList', 'SelectListOption', 'SelectListGroup']),

@@ -162,10 +162,10 @@ describe('HelpButton', () => {
   it('renders a link spying the link trigger', () => {
     const spy = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -174,7 +174,11 @@ describe('HelpButton', () => {
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
         text="Good test"
-        link={{ href: 'https://www.pinterest.com', text: 'Good test', onClick: spy }}
+        link={{
+          href: 'https://www.pinterest.com',
+          text: 'Good test',
+          onClick: spy,
+        }}
       />,
     );
 

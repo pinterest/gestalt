@@ -13,24 +13,24 @@ import InternalDismissButton from '../shared/InternalDismissButton.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 
-type OnClickType = ({|
+type OnClickType = ({
   event:
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
   onDismissStart: () => void,
-|}) => void;
+}) => void;
 
-type Props = {|
+type Props = {
   accessibilityLabel?: string,
   align: 'start' | 'center',
-  backIconButton: ?{| accessibilityLabel: string, onClick: OnClickType |},
-  forwardIconButton: ?{| accessibilityLabel: string, onClick: OnClickType |},
+  backIconButton: ?{ accessibilityLabel: string, onClick: OnClickType },
+  forwardIconButton: ?{ accessibilityLabel: string, onClick: OnClickType },
   heading: Node,
   id: string,
   onDismiss?: () => void,
-  primaryAction: ?{|
+  primaryAction: ?{
     accessibilityLabel: string,
     href?: string,
     label: string,
@@ -38,11 +38,11 @@ type Props = {|
     rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
     size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
-  |},
+  },
   showDismissButton: ?boolean,
   showGrabber?: boolean,
   subHeading: ?string,
-|};
+};
 
 export default function Header({
   backIconButton,
@@ -99,7 +99,10 @@ export default function Header({
               iconColor="darkGray"
               size="lg"
               onClick={({ event }) =>
-                backIconButton?.onClick({ event, onDismissStart: onExternalDismiss })
+                backIconButton?.onClick({
+                  event,
+                  onDismissStart: onExternalDismiss,
+                })
               }
             />
           </Flex.Item>
@@ -142,7 +145,10 @@ export default function Header({
               iconColor="darkGray"
               size="lg"
               onClick={({ event }) =>
-                forwardIconButton?.onClick({ event, onDismissStart: onExternalDismiss })
+                forwardIconButton?.onClick({
+                  event,
+                  onDismissStart: onExternalDismiss,
+                })
               }
             />
           </Flex.Item>
@@ -158,7 +164,10 @@ export default function Header({
                 target={primaryAction?.target}
                 label={primaryAction.label}
                 onClick={({ event }) =>
-                  primaryAction?.onClick({ event, onDismissStart: onExternalDismiss })
+                  primaryAction?.onClick({
+                    event,
+                    onDismissStart: onExternalDismiss,
+                  })
                 }
                 role="link"
               />
@@ -167,7 +176,10 @@ export default function Header({
                 accessibilityLabel={primaryAction.accessibilityLabel}
                 label={primaryAction.label}
                 onClick={({ event }) =>
-                  primaryAction?.onClick({ event, onDismissStart: onExternalDismiss })
+                  primaryAction?.onClick({
+                    event,
+                    onDismissStart: onExternalDismiss,
+                  })
                 }
                 role="button"
               />

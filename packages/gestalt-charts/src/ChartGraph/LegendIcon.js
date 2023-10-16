@@ -5,14 +5,14 @@ import { useChartContext } from './ChartGraphContext.js';
 import { GraphPoint } from './renderGraphPoint.js';
 import { type DataVisualizationColors } from './types.js';
 
-type Props = {|
+type Props = {
   /**
   Data received from  the `renderTooltip`.
 
   See the [custom tooltip variant](https://gestalt.pinterest.systems/web/chartgraph#Tooltip) for implementation guidance.
   */
   payloadData:
-    | {|
+    | {
         dataKey: string,
         name: string,
         stroke: ?string,
@@ -23,9 +23,9 @@ type Props = {|
         fill: ?string,
         legendType?: 'line' | 'rect',
         isLegend?: boolean,
-      |}
-    | {| referenceArea: 'default', isLegend?: boolean |},
-|};
+      }
+    | { referenceArea: 'default', isLegend?: boolean },
+};
 
 /**
  * [LegendIcon](https://gestalt.pinterest.systems/web/chartgraph) should only be used within custom tooltips. See the [custom tooltip variant](https://gestalt.pinterest.systems/web/chartgraph#Tooltip) for implementation guidance.

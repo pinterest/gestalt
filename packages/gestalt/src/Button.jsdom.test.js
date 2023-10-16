@@ -7,9 +7,9 @@ describe('Button', () => {
   it('handles click', () => {
     const mockOnClick = jest.fn<
       [
-        {|
+        {
           event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-        |},
+        },
       ],
       void,
     >();

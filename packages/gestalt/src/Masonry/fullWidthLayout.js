@@ -9,13 +9,13 @@ const fullWidthLayout = <T>({
   minCols = 2,
   idealColumnWidth = 240,
   width,
-}: {|
+}: {
   gutter?: number,
   cache: Cache<T, number>,
   minCols?: number,
   idealColumnWidth?: number,
   width?: ?number,
-|}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
+}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
   if (width == null) {
     return (items) =>
       items.map(() => ({

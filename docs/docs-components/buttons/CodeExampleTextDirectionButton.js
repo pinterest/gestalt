@@ -3,10 +3,10 @@ import { type Node } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
-type Props = {|
+type Props = {
   currentTextDirection: 'ltr' | 'rtl',
   onClick: () => void,
-|};
+};
 
 export default function CodeExampleTextDirectionButton({
   currentTextDirection,

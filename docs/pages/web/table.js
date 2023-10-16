@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -35,9 +36,9 @@ import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable.
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
@@ -237,15 +238,7 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`text\` and \`accessibilityLabel\`.
 
-Note that localization can lengthen text by 20 to 30 percent; follow our guidelines on concise content and headings to account for localization.
-
-Wrap important table content instead of truncating. Use truncation only for secondary content, and include a tooltip to show the full text on hover.
-`}
-      />
       <AccessibilitySection name={generatedDocGen.Table?.displayName}>
         <MainSection.Subsection
           title="Labels"
@@ -294,6 +287,14 @@ See the examples below for more details.`}
           />
         </MainSection.Subsection>
       </AccessibilitySection>
+
+      <LocalizationSection
+        name={generatedDocGen?.TableHeader?.displayName}
+        noDefaultLabelProvider
+        notes={`Follow our guidelines on concise content and headings to account for localization.
+
+        Wrap important table content instead of truncating. Use truncation only for secondary content, and include a tooltip to show the full text on hover.`}
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -573,9 +574,9 @@ Checkboxes are often used in tables to allow for selecting and editing of multip
   );
 }
 
-export async function getStaticProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen([
     'Table',
     'TableHeader',

@@ -7,10 +7,10 @@ describe('ButtonLink', () => {
   it('handles click', () => {
     const mockOnClick = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();

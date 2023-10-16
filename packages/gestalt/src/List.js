@@ -6,7 +6,7 @@ import Text from './Text.js';
 
 type ListType = 'bare' | 'ordered' | 'unordered';
 
-type Props = {|
+type Props = {
   /**
    * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#List.Item).
    */
@@ -27,7 +27,7 @@ type Props = {|
    * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
    */
   type?: ListType,
-|};
+};
 
 /**
  * [List](https://gestalt.pinterest.systems/web/list) allows users to view individual, but related, text items grouped together.

@@ -8,7 +8,7 @@ import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 import styles from '../Video.css';
 
-type Props = {|
+type Props = {
   captionsButton: 'enabled' | 'disabled' | null,
   currentTime: number,
   duration: number,
@@ -23,7 +23,7 @@ type Props = {|
   playing: boolean,
   seek: (time: number) => void,
   volume: number,
-|};
+};
 
 const timeToString = (time?: number) => {
   const rounded = Math.floor(time || 0);
@@ -52,18 +52,18 @@ function VideoControls({
 }: Props): Node {
   const handleFullscreenChange = ({
     event,
-  }: {|
+  }: {
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  }) => {
     event.stopPropagation();
     onFullscreenChange();
   };
 
   const handlePlayingChange = ({
     event,
-  }: {|
+  }: {
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  }) => {
     if (playing) {
       onPause(event);
     } else {
@@ -73,18 +73,18 @@ function VideoControls({
 
   const handleCaptionsChange = ({
     event,
-  }: {|
+  }: {
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  }) => {
     event.stopPropagation();
     onCaptionsChange(event);
   };
 
   const handleVolumeChange = ({
     event,
-  }: {|
+  }: {
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  }) => {
     onVolumeChange(event);
   };
 

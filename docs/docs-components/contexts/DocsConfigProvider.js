@@ -1,14 +1,14 @@
 // @flow strict
 import { type Context, createContext, type Element, type Node, useContext, useState } from 'react';
 
-type DocsConfigContextType = {|
+type DocsConfigContextType = {
   isMobile: boolean,
-|};
+};
 
-type Props = {|
+type Props = {
   children: Node,
   isMobile: boolean,
-|};
+};
 
 const DocsConfigContext: Context<DocsConfigContextType> = createContext<DocsConfigContextType>({
   isMobile: false,

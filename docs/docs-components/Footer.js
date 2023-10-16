@@ -3,11 +3,11 @@ import { type Node } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
-const links: $ReadOnlyArray<{|
+const links: $ReadOnlyArray<{
   external: boolean,
   title: string,
   url: string,
-|}> = [
+}> = [
   {
     title: 'Careers',
     url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',

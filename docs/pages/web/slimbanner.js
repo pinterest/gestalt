@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -15,6 +16,7 @@ import dontCombineWithCallout from '../../examples/slimbanner/dontCombineWithCal
 import dontUseAsCallout from '../../examples/slimbanner/dontUseAsCallout.js';
 import dontUseAsToast from '../../examples/slimbanner/dontUseAsToast.js';
 import dontUseForDenseInterfaces from '../../examples/slimbanner/dontUseForDenseInterfaces.js';
+import localizationLabels from '../../examples/slimbanner/localizationLabels.js';
 import main from '../../examples/slimbanner/main.js';
 import messagePropExample from '../../examples/slimbanner/messagePropExample.js';
 import oneSlimBannerPerSection from '../../examples/slimbanner/oneSlimBannerPerSection.js';
@@ -29,7 +31,7 @@ import variantRecommendation from '../../examples/slimbanner/variantRecommendati
 import variantSuccess from '../../examples/slimbanner/variantSuccess.js';
 import variantWarning from '../../examples/slimbanner/variantWarning.js';
 
-export default function SlimBannerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function SlimBannerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -208,11 +210,12 @@ Combine SlimBanners with other components like [Callouts](/web/callout) or [Upse
         />
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Remember to localize \`message\`, \`helperLink\` and \`iconAccessibilityLabel\`.
-`}
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`dismissButton.accessibilityLabel\` and \`iconAccessibilityLabel\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`Neutral SlimBanners are intended for Pinner interfaces where Pins and Boards take precedent or where we want to limit the use of color in the design.
@@ -455,7 +458,7 @@ Tooltip provides helpful information regarding an interactive UI element, typica
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{ props: { generatedDocGen: DocGen } }> {
   return {
     props: { generatedDocGen: await docGen('SlimBanner') },
   };

@@ -33,7 +33,7 @@ type DataVisualizationColors =
   | '11'
   | '12';
 
-export type TileChangeHandler = ({|
+export type TileChangeHandler = ({
   event:
     | SyntheticMouseEvent<HTMLDivElement>
     | SyntheticKeyboardEvent<HTMLDivElement>
@@ -41,22 +41,22 @@ export type TileChangeHandler = ({|
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
   selected: boolean,
   id?: string,
-|}) => void;
+}) => void;
 
-export type OnRemoveHandler = ({|
+export type OnRemoveHandler = ({
   event: SyntheticMouseEvent<HTMLButtonElement>,
   id?: string,
-|}) => void;
+}) => void;
 
-type TooltipProps = {|
+type TooltipProps = {
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
-|};
+};
 
-export type Props = {|
+export type Props = {
   /**
    * If your app uses [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider), a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
@@ -105,12 +105,12 @@ export type Props = {|
    * Adds a tooltip on hover/focus of TagData. See the [with tooltip variant](https://gestalt.pinterest.systems/web/tagdata#tooltip) to learn more.
    */
   tooltip?: TooltipProps,
-|};
+};
 
 const sizes = {
-  'sm': { fontSize: '200' },
-  'md': { fontSize: '200' },
-  'lg': { fontSize: '300' },
+  sm: { fontSize: '200' },
+  md: { fontSize: '200' },
+  lg: { fontSize: '300' },
 };
 
 /**
@@ -141,7 +141,7 @@ export default function TagData({
   const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
   const fgColor = disabled ? 'subtle' : 'default';
 
-  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
+  const colorStyles: { borderColor?: string, backgroundColor?: string } = {
     borderColor,
     backgroundColor: bgColor,
   };

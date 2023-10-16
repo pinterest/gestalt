@@ -6,12 +6,12 @@ import Flex from '../Flex.js';
 import Text from '../Text.js';
 import { type MaxLength } from '../TextField.js';
 
-type Props = {|
+type Props = {
   id?: string,
   text: ?string,
   maxLength?: ?MaxLength,
   currentLength?: number,
-|};
+};
 
 export default function FormHelperText({ id, currentLength, text, maxLength }: Props): Node {
   return (

@@ -9,15 +9,15 @@ const ALLOWED_CHILDREN_BY_PARENT = {
 const getChildrenToArray = ({
   children,
   filterLevel,
-}: {|
+}: {
   children: Node,
   filterLevel: 'List' | 'ListItem',
   // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
-|}): $ReadOnlyArray<any> => {
+}): $ReadOnlyArray<any> => {
   const navigationChildren = [];
   let recursionLevel = 0;
 
-  const getChildren: ({| nodeChildren: Node |}) => void = ({ nodeChildren }) =>
+  const getChildren: ({ nodeChildren: Node }) => void = ({ nodeChildren }) =>
     // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid

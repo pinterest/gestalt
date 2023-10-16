@@ -1,3 +1,57 @@
+## 127.1.13 (Oct 16, 2023)
+
+### Patch
+
+- Internal: Bump undici from 5.19.1 to 5.26.3 ([#3258](https://github.com/pinterest/gestalt/pull/3258)) - [Preview link](https://deploy-preview-3258--gestalt.netlify.app?devexample=true)
+
+## 127.1.12 (Oct 13, 2023)
+
+### Patch
+
+- Internal: update Flow from v0.210.2 to v0.216.1 ([#3256](https://github.com/pinterest/gestalt/pull/3256)) - [Preview link](https://deploy-preview-3256--gestalt.netlify.app?devexample=true)
+
+## 127.1.11 (Oct 13, 2023)
+
+### Patch
+
+- Docs: small fixes ([#3252](https://github.com/pinterest/gestalt/pull/3252)) - [Preview link](https://deploy-preview-3252--gestalt.netlify.app?devexample=true)
+
+## 127.1.10 (Oct 13, 2023)
+
+### Patch
+
+- Internal: run `yarn flow-codemod removeExplicitlyExactObjectTypeSyntax` ([#3254](https://github.com/pinterest/gestalt/pull/3254)) - [Preview link](https://deploy-preview-3254--gestalt.netlify.app?devexample=true)
+
+## 127.1.9 (Oct 13, 2023)
+
+### Patch
+
+- Docs: standardize Localization section in Docs. ([#3243](https://github.com/pinterest/gestalt/pull/3243)) - [Preview link](https://deploy-preview-3243--gestalt.netlify.app?devexample=true)
+
+## 127.1.8 (Oct 12, 2023)
+
+### Patch
+
+- Docs: Added & Updated mobile overview & status ([#3250](https://github.com/pinterest/gestalt/pull/3250)) - [Preview link](https://deploy-preview-3250--gestalt.netlify.app?devexample=true)
+
+## 127.1.7 (Oct 11, 2023)
+
+### Patch
+
+- TagData, TileData: Multi-line Tooltips ([#3204](https://github.com/pinterest/gestalt/pull/3204)) - [Preview link](https://deploy-preview-3204--gestalt.netlify.app?devexample=true)
+
+## 127.1.6 (Oct 11, 2023)
+
+### Patch
+
+- Docs: SearchField - Update Android and Add iOS ([#3248](https://github.com/pinterest/gestalt/pull/3248)) - [Preview link](https://deploy-preview-3248--gestalt.netlify.app?devexample=true)
+
+## 127.1.5 (Oct 11, 2023)
+
+### Patch
+
+- Docs: TextField - Updated ios & android ([#3249](https://github.com/pinterest/gestalt/pull/3249)) - [Preview link](https://deploy-preview-3249--gestalt.netlify.app?devexample=true)
+
 ## 127.1.4 (Oct 6, 2023)
 
 ### Patch

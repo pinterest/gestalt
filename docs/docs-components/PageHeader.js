@@ -35,7 +35,7 @@ const buildSourceLinkUrl = (componentName: string) =>
     '/',
   );
 
-type Props = {|
+type Props = {
   badge?: 'pilot' | 'deprecated' | 'experimental',
   children?: Node,
   description?: string,
@@ -52,7 +52,7 @@ type Props = {|
   slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
   pdocsLink?: boolean,
-|};
+};
 
 export default function PageHeader({
   badge,

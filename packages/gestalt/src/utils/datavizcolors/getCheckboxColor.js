@@ -1,12 +1,12 @@
 // @flow strict
 
-type ColorStyles = {| borderColor?: string, backgroundColor?: string |};
+type ColorStyles = { borderColor?: string, backgroundColor?: string };
 
-export type InteractionStates = {|
+export type InteractionStates = {
   disabled: boolean,
   hovered: boolean,
   selected: boolean,
-|};
+};
 
 /**
  *
@@ -15,7 +15,7 @@ export type InteractionStates = {|
 export default function getCheckboxColor(
   state: InteractionStates,
   colorStyles: ColorStyles,
-  opts?: {| showByDefault?: boolean |},
+  opts?: { showByDefault?: boolean },
 ): ColorStyles {
   const defaultBackgroundColor = 'transparent';
   const defaultBorderColor = 'transparent';
@@ -48,5 +48,8 @@ export default function getCheckboxColor(
     };
   }
 
-  return { backgroundColor: defaultBackgroundColor, borderColor: defaultBorderColor };
+  return {
+    backgroundColor: defaultBackgroundColor,
+    borderColor: defaultBorderColor,
+  };
 }
