@@ -1,3 +1,9 @@
+## 127.1.14 (Oct 16, 2023)
+
+### Patch
+
+- Internal: Bump @babel/traverse from 7.9.5 to 7.23.2 ([#3259](https://github.com/pinterest/gestalt/pull/3259)) - [Preview link](https://deploy-preview-3259--gestalt.netlify.app?devexample=true)
+
 ## 127.1.13 (Oct 16, 2023)
 
 ### Patch
