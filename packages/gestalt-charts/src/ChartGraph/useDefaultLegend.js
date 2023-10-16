@@ -6,7 +6,6 @@ import LegendIcon from './LegendIcon.js';
 export default function useDefaultLegend({
   isHorizontalBiaxialLayout,
   isVerticalBiaxialLayout,
-  legend,
   height,
   labelMap,
   setLegendHeight,
@@ -14,7 +13,6 @@ export default function useDefaultLegend({
 }: {
   isHorizontalBiaxialLayout: boolean,
   isVerticalBiaxialLayout: boolean,
-  legend: 'auto' | 'none' | 'complete',
   height: number,
   labelMap: ?{ [string]: string },
   setLegendHeight: (number) => void,
@@ -70,7 +68,7 @@ export default function useDefaultLegend({
 
       const legendItemsArray = [...series, ...referenceAreas];
 
-      if (isHorizontalBiaxialLayout && legend === 'auto') {
+      if (isHorizontalBiaxialLayout) {
         return (
           <Box color="transparent" marginBottom={6} width="100%">
             <Flex justifyContent="between">{legendItemsArray.slice(0, 2)}</Flex>
@@ -78,7 +76,7 @@ export default function useDefaultLegend({
         );
       }
 
-      if (isVerticalBiaxialLayout && legend === 'auto') {
+      if (isVerticalBiaxialLayout) {
         return (
           <Box
             dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
@@ -114,7 +112,6 @@ export default function useDefaultLegend({
       isVerticalBiaxialLayout,
       height,
       labelMap,
-      legend,
       setLegendHeight,
       referenceAreaSummary,
     ],

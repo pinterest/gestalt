@@ -47,8 +47,8 @@ export default function Example(): Node {
         data={data}
         range={{ xAxisBottom: ['auto', 'auto'] }}
         elements={[
-          { type: 'line', id: 'Spend' },
-          { type: 'line', id: 'Total ROAS (Checkout)' },
+          { type: 'line', id: 'Spend', axis: 'left' },
+          { type: 'line', id: 'Total ROAS (Checkout)', axis: 'right' },
         ]}
         type="line"
         tickFormatter={{

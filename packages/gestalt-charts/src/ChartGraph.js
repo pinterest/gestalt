@@ -1,13 +1,5 @@
 // @flow strict-local
-import {
-  type Element,
-  Fragment,
-  type Node,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { type Element, type Node, useCallback, useEffect, useMemo, useState } from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -16,14 +8,13 @@ import {
   LineChart,
   ResponsiveContainer,
   Tooltip,
-  XAxis,
-  YAxis,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
 import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
+import renderAxis from './ChartGraph/renderAxis.js';
 import renderElements from './ChartGraph/renderElements.js';
 import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
 import TabularDataModal from './ChartGraph/TabularDataModal.js';
@@ -251,18 +242,6 @@ function ChartGraph({
   renderTooltip = 'auto',
 }: Props): Node {
   // CONSTANTS
-  const FONT_STYLE_CATEGORIES = {
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
-  };
-
-  const FONT_STYLE_VALUES = {
-    color: 'var(--color-text-subtle)',
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
-  };
 
   const SMALL_BREAKPOINT = 576;
   const TICK_SPACE = 48;
@@ -386,6 +365,36 @@ function ChartGraph({
     [referenceAreas],
   );
 
+  const axisElements = useMemo(
+    () =>
+      renderAxis({
+        isHorizontalLayout,
+        isHorizontalBiaxialLayout,
+        isVerticalLayout,
+        isTimeSeries,
+        isVerticalBiaxialLayout,
+        isBar,
+        isCombo,
+        range,
+        tickFormatter,
+        labelMap,
+        tickCount,
+      }),
+    [
+      isHorizontalLayout,
+      isHorizontalBiaxialLayout,
+      isVerticalLayout,
+      isTimeSeries,
+      isVerticalBiaxialLayout,
+      isBar,
+      isCombo,
+      range,
+      tickFormatter,
+      labelMap,
+      tickCount,
+    ],
+  );
+
   const referenceAreaSummary = useMemo(
     () =>
       referenceAreas
@@ -413,7 +422,6 @@ function ChartGraph({
     isHorizontalBiaxialLayout,
     isVerticalBiaxialLayout,
     height: chartHeight,
-    legend,
     labelMap,
     setLegendHeight,
     referenceAreaSummary,
@@ -444,147 +452,69 @@ function ChartGraph({
             <Flex gap={2}>{children}</Flex>
           </Box>
         ) : null}
-
-        <Box width="100%" height="100%" maxWidth={960}>
-          <ResponsiveContainer
-            debounce={150}
-            onResize={(width, height) => {
-              setChartHeight(height);
-              setChartWidth(width);
-            }}
-            minWidth="100%"
-            width="100%"
-            minHeight={internalHeight}
-            height={internalHeight}
-          >
-            <ChartType
-              title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
-              {...(isBar || isCombo ? { barCategoryGap: '25%' } : {})}
-              data={data}
-              layout={isVerticalLayout ? 'vertical' : 'horizontal'}
-              margin={{
-                top: 10,
-                right: 5,
-                bottom: isVerticalBiaxialLayout && legend === 'auto' ? 20 : 10,
-                left: 5,
+        <div style={{ direction: 'ltr' }}>
+          <Box width="100%" height="100%" maxWidth={960}>
+            <ResponsiveContainer
+              debounce={150}
+              onResize={(width, height) => {
+                setChartHeight(height);
+                setChartWidth(width);
               }}
+              minWidth="100%"
+              width="100%"
+              minHeight={internalHeight}
+              height={internalHeight}
             >
-              {patterns}
-              <CartesianGrid
-                stroke="var(--color-border-container)"
-                horizontal={isVerticalLayout ? false : undefined}
-                vertical={isVerticalLayout ? undefined : false}
-              />
-              {isHorizontalLayout && (
-                <Fragment>
-                  <XAxis
-                    padding={
-                      isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined
-                    }
-                    axisLine={false}
-                    dataKey="name"
-                    domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
-                    orientation="bottom"
-                    scale={isTimeSeries ? 'time' : undefined}
-                    style={FONT_STYLE_CATEGORIES}
-                    tickFormatter={
-                      isTimeSeries
-                        ? tickFormatter?.xAxisBottom || tickFormatter?.timeseries
-                        : (value: string) => labelMap?.[value] || value
-                    }
-                    tickLine={false}
-                    type={isTimeSeries ? 'number' : 'category'}
-                    // DO NOT SET xAxisId here (it breaks the component, opaque behavior from Recharts)
-                  />
-                  <YAxis
-                    axisLine={false}
-                    domain={Array.isArray(range) ? range : range.yAxisLeft}
-                    orientation="left"
-                    style={FONT_STYLE_VALUES}
-                    tickLine={false}
-                    tickCount={tickCount}
-                    yAxisId="left"
-                    tickFormatter={tickFormatter?.yAxisLeft}
-                  />
-                </Fragment>
-              )}
-              {isHorizontalBiaxialLayout && (
-                <YAxis
-                  axisLine={false}
-                  domain={Array.isArray(range) ? range : range.yAxisLeft}
-                  orientation="right"
-                  style={FONT_STYLE_VALUES}
-                  tickLine={false}
-                  tickCount={tickCount}
-                  yAxisId="right"
-                  tickFormatter={tickFormatter?.yAxisRight}
+              <ChartType
+                title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
+                {...(isBar || isCombo ? { barCategoryGap: '25%' } : {})}
+                data={data}
+                layout={isVerticalLayout ? 'vertical' : 'horizontal'}
+                margin={{
+                  top: 10,
+                  right: 5,
+                  bottom: isVerticalBiaxialLayout && legend === 'auto' ? 20 : 10,
+                  left: 5,
+                }}
+              >
+                {/* Patterns cannot be moved into a Patterns subcomponent as Recharts doesn't recognize the wrapper component */}
+                {patterns}
+                <CartesianGrid
+                  stroke="var(--color-border-container)"
+                  horizontal={isVerticalLayout ? false : undefined}
+                  vertical={isVerticalLayout ? undefined : false}
                 />
-              )}
-              {isVerticalLayout && (
-                <Fragment>
-                  <XAxis
-                    axisLine={false}
-                    domain={range}
-                    type="number"
-                    orientation="bottom"
-                    style={FONT_STYLE_VALUES}
-                    tickLine={false}
-                    tickCount={tickCount}
-                    xAxisId="bottom"
-                    tickFormatter={tickFormatter?.xAxisBottom}
+                {/* Axis cannot be moved into an Axis subcomponent as Recharts doesn't recognize the wrapper component */}
+                {axisElements}
+                {renderTooltip === 'none' ? (
+                  <Tooltip isAnimationActive={false} content={<EmptyBox />} />
+                ) : (
+                  <Tooltip
+                    cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
+                    isAnimationActive={false}
+                    content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
                   />
-                  <YAxis
-                    axisLine={false}
-                    dataKey="name"
-                    type="category"
-                    style={FONT_STYLE_CATEGORIES}
-                    tickLine={false}
-                    orientation="left"
-                    tickFormatter={(value: string) => labelMap?.[value] || value}
-                    // DO NOT SET yAxisId here
-                  />
-                </Fragment>
-              )}
-              {isVerticalBiaxialLayout && (
-                <XAxis
-                  axisLine={false}
-                  domain={range}
-                  orientation="top"
-                  style={FONT_STYLE_VALUES}
-                  tickLine={false}
-                  tickCount={tickCount}
-                  type="number"
-                  xAxisId="top"
-                  tickFormatter={tickFormatter?.xAxisTop}
+                )}
+                <Legend
+                  verticalAlign={legendVerticalAlign}
+                  align={legendAlign}
+                  iconSize={16}
+                  iconType="square"
+                  content={
+                    legend === 'auto' ||
+                    ['verticalBiaxial', 'horizontalBiaxial'].includes(layout) ? (
+                      defaultLegend
+                    ) : (
+                      <EmptyBox />
+                    )
+                  }
                 />
-              )}
-              {renderTooltip === 'none' ? (
-                <Tooltip isAnimationActive={false} content={<EmptyBox />} />
-              ) : (
-                <Tooltip
-                  cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
-                  isAnimationActive={false}
-                  content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
-                />
-              )}
-              <Legend
-                verticalAlign={legendVerticalAlign}
-                align={legendAlign}
-                iconSize={16}
-                iconType="square"
-                content={
-                  legend === 'auto' || ['verticalBiaxial', 'horizontalBiaxial'].includes(layout) ? (
-                    defaultLegend
-                  ) : (
-                    <EmptyBox />
-                  )
-                }
-              />
-              {referenceAreas && referenceAreasElements}
-              {chartElements}
-            </ChartType>
-          </ResponsiveContainer>
-        </Box>
+                {referenceAreas && referenceAreasElements}
+                {chartElements}
+              </ChartType>
+            </ResponsiveContainer>
+          </Box>
+        </div>
       </Box>
       {showTabularDataModal ? (
         <TabularDataModal
