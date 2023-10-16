@@ -1,3 +1,9 @@
+## 127.1.13 (Oct 16, 2023)
+
+### Patch
+
+- Internal: Bump undici from 5.19.1 to 5.26.3 ([#3258](https://github.com/pinterest/gestalt/pull/3258)) - [Preview link](https://deploy-preview-3258--gestalt.netlify.app?devexample=true)
+
 ## 127.1.12 (Oct 13, 2023)
 
 ### Patch
