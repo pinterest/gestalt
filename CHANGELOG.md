@@ -1,3 +1,9 @@
+## 127.2.0 (Oct 16, 2023)
+
+### Minor
+
+- Tokens: Add space tokens ([#3257](https://github.com/pinterest/gestalt/pull/3257)) - [Preview link](https://deploy-preview-3257--gestalt.netlify.app?devexample=true)
+
 ## 127.1.14 (Oct 16, 2023)
 
 ### Patch
