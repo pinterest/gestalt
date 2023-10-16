@@ -32,7 +32,7 @@ The components are responsive and also include settings for those with colorblin
 <TwoCol>
 <Group>
 ### ButtonLink
-<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/37/e6/d2/37e6d2626f3d6d69d08676d78aea5c08.png" alt="An illustration of a button on a page with a Visit icon next to the label signifying that it is a link." />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/58/f2/d5/58f2d55de641a773ea50dbcaa26517a3.png" alt="An illustration of a button on a page with a Visit icon next to the label signifying that it is a link." />
 <br />
 We’ve made it easier for developers to use a button as a link by providing a component that handles that out-of-the-box instead of having to use TapArea, or modify our Button component.
 
@@ -52,7 +52,7 @@ More data density for complex experiences for Enterprise and Internal Tools cust
 <TwoCol>
 <Group>
 ### TableofContents
-<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/c6/03/7d/c6037d42428485f152c7a54602afa9e1.png" alt="An illustration showing content on a page with TableofContents next to it." />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/50/2e/3f/502e3fafcc8b933638b0a2f58593db27.png" alt="An illustration showing content on a page with TableofContents next to it." />
 <br />
 This component allows you to easily navigate a long page or form. You can see it in action on this page over to the right!
 
@@ -92,7 +92,7 @@ Tabs are used to navigate between URLs. They're intended as page-level navigatio
 <TwoCol>
 <Group>
 ### Toast
-<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/f2/2b/b8/f22bb8e87865c5a45fdaf910cd20f836.png" alt="An illustration shown a toast at the bottom of a mobile screen." />
+<ImgHero width={525} height={350} src="https://i.pinimg.com/originals/27/00/35/270035cd6766a6ecc9bf54acc89776b9.png" alt="An illustration shown a toast at the bottom of a mobile screen." />
 <br />
 Our Toasts are slimmed down to allow for quick, useful messages without taking up too much space.
 
@@ -171,7 +171,7 @@ Our annual internal mini-conference is back on October 20!  Take a break from th
 Our Android UI has veered away from standard platform conventions over the years, but we are working hard to bring it in line with what most Android users are familiar with. Get ready for more Android-aligned patterns and components in Q4!
 
 ### Figma variables
-<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/02/39/ea/0239ea92b22f4db2a74aa4f1ccd9e95f.png" alt="An illustration of Figma variables being applied to 3 phone screens." />
+<ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/f8/c8/c8/f8c8c8304ce17a92db71651127d031b8.png" alt="An illustration of Figma variables being applied to 3 phone screens." />
 <br />
 We have already added variables to our Figma library, but in Q4 we plan to make the full transition to variables. This will be a huge gain for design efficiency as variables make it easy to switch between modes and spacing themes. We should be done by the end of the year—this will include both Figma and Figma plug-in updates.
 
