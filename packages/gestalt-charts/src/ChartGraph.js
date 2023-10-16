@@ -322,7 +322,7 @@ function ChartGraph({
   let legendVerticalAlign = 'bottom';
   let legendAlign = 'left';
 
-  if (isVerticalBiaxialLayout && legend === 'auto') {
+  if (isVerticalBiaxialLayout) {
     legendVerticalAlign = 'top';
     legendAlign = 'right';
   }
@@ -473,7 +473,7 @@ function ChartGraph({
                 margin={{
                   top: 10,
                   right: 5,
-                  bottom: isVerticalBiaxialLayout && legend === 'auto' ? 20 : 10,
+                  bottom: isVerticalBiaxialLayout ? 20 : 10,
                   left: 5,
                 }}
               >
@@ -501,8 +501,7 @@ function ChartGraph({
                   iconSize={16}
                   iconType="square"
                   content={
-                    legend === 'auto' ||
-                    ['verticalBiaxial', 'horizontalBiaxial'].includes(layout) ? (
+                    legend === 'auto' || isVerticalBiaxialLayout || isHorizontalLayout ? (
                       defaultLegend
                     ) : (
                       <EmptyBox />

@@ -43,12 +43,13 @@ export default function Example(): Node {
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
-        layout="verticalBiaxial"
+        layout="horizontalBiaxial"
+        legend="none"
         data={data}
         range={{ xAxisBottom: ['auto', 'auto'] }}
         elements={[
-          { type: 'line', id: 'Spend', axis: 'left' },
-          { type: 'line', id: 'Total ROAS (Checkout)', axis: 'right' },
+          { type: 'line', id: 'Spend', axis: 'top' },
+          { type: 'line', id: 'Total ROAS (Checkout)', axis: 'bottom' },
         ]}
         type="line"
         tickFormatter={{
