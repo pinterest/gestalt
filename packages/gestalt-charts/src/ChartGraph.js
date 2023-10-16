@@ -501,7 +501,7 @@ function ChartGraph({
                   iconSize={16}
                   iconType="square"
                   content={
-                    legend === 'auto' || isVerticalBiaxialLayout || isHorizontalLayout ? (
+                    legend === 'auto' || isVerticalBiaxialLayout || isHorizontalBiaxialLayout ? (
                       defaultLegend
                     ) : (
                       <EmptyBox />
