@@ -1,3 +1,9 @@
+## 127.3.1 (Oct 17, 2023)
+
+### Patch
+
+- Docs: Q3 Newsletter ([#3261](https://github.com/pinterest/gestalt/pull/3261)) - [Preview link](https://deploy-preview-3261--gestalt.netlify.app?devexample=true)
+
 ## 127.3.0 (Oct 17, 2023)
 
 ### Minor
