@@ -1,3 +1,9 @@
+## 127.3.2 (Oct 17, 2023)
+
+### Patch
+
+- Docs: Update README.md with email ([#3246](https://github.com/pinterest/gestalt/pull/3246)) - [Preview link](https://deploy-preview-3246--gestalt.netlify.app?devexample=true)
+
 ## 127.3.1 (Oct 17, 2023)
 
 ### Patch
