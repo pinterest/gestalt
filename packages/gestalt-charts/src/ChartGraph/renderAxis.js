@@ -97,7 +97,7 @@ export default function renderAxis({
           <YAxis
             axisLine={false}
             domain={Array.isArray(range) ? range : range?.yAxisLeft}
-            orientation="left"
+            orientation={isRtl ? 'right' : 'left'}
             style={FONT_STYLE_VALUES}
             tickLine={false}
             tickCount={tickCount}
@@ -110,7 +110,7 @@ export default function renderAxis({
         <YAxis
           axisLine={false}
           domain={Array.isArray(range) ? range : range?.yAxisLeft}
-          orientation="right"
+          orientation={isRtl ? 'left' : 'right'}
           style={FONT_STYLE_VALUES}
           tickLine={false}
           tickCount={tickCount}
