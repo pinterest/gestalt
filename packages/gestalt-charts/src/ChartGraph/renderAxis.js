@@ -138,7 +138,7 @@ export default function renderAxis({
             type="category"
             style={FONT_STYLE_CATEGORIES}
             tickLine={false}
-            orientation="left"
+            orientation={isRtl ? 'right' : 'left'}
             tickFormatter={(value: string) => labelMap?.[value] || value}
             // DO NOT SET yAxisId here
           />
