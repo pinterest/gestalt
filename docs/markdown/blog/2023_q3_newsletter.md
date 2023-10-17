@@ -170,7 +170,7 @@ Our annual internal mini-conference is back on October 20!  Take a break from th
 <br />
 Our Android UI has veered away from standard platform conventions over the years, but we are working hard to bring it in line with what most Android users are familiar with. Get ready for more Android-aligned patterns and components in Q4!
 
-### Figma variables
+### Figma variables migration
 <ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/f8/c8/c8/f8c8c8304ce17a92db71651127d031b8.png" alt="An illustration of Figma variables being applied to 3 phone screens." />
 <br />
 We have already added variables to our Figma library, but in Q4 we plan to make the full transition to variables. This will be a huge gain for design efficiency as variables make it easy to switch between modes and spacing themes. We should be done by the end of the year—this will include both Figma and Figma plug-in updates.
