@@ -264,7 +264,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
   },
   {
     sectionName: 'Blog',
-    pages: ['2023 Q2 Newsletter', '2023 Q1 Newsletter'],
+    pages: ['2023 Q3 Newsletter', '2023 Q2 Newsletter', '2023 Q1 Newsletter'],
   },
   {
     sectionName: 'Team support',
