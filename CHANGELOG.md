@@ -1,3 +1,9 @@
+## 127.3.0 (Oct 17, 2023)
+
+### Minor
+
+- ChartGraph: support to RTL ([#3263](https://github.com/pinterest/gestalt/pull/3263)) - [Preview link](https://deploy-preview-3263--gestalt.netlify.app?devexample=true)
+
 ## 127.2.0 (Oct 16, 2023)
 
 ### Minor
