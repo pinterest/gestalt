@@ -6,7 +6,7 @@ import LegendIcon from './LegendIcon.js';
 export default function useDefaultLegend({
   isHorizontalBiaxialLayout,
   isVerticalBiaxialLayout,
-  legend,
+  isRtl,
   height,
   labelMap,
   setLegendHeight,
@@ -14,7 +14,7 @@ export default function useDefaultLegend({
 }: {
   isHorizontalBiaxialLayout: boolean,
   isVerticalBiaxialLayout: boolean,
-  legend: 'auto' | 'none' | 'complete',
+  isRtl: boolean,
   height: number,
   labelMap: ?{ [string]: string },
   setLegendHeight: (number) => void,
@@ -70,51 +70,57 @@ export default function useDefaultLegend({
 
       const legendItemsArray = [...series, ...referenceAreas];
 
-      if (isHorizontalBiaxialLayout && legend === 'auto') {
+      if (isHorizontalBiaxialLayout) {
         return (
-          <Box color="transparent" marginBottom={6} width="100%">
-            <Flex justifyContent="between">{legendItemsArray.slice(0, 2)}</Flex>
-          </Box>
+          <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
+            <Box color="transparent" marginBottom={6} width="100%">
+              <Flex justifyContent="between">{legendItemsArray.slice(0, 2)}</Flex>
+            </Box>
+          </div>
         );
       }
 
-      if (isVerticalBiaxialLayout && legend === 'auto') {
+      if (isVerticalBiaxialLayout) {
         return (
-          <Box
-            dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
-            color="transparent"
-            position="absolute"
-            height={height}
-            display="flex"
-            alignContent="end"
-          >
-            <Flex direction="column" justifyContent="between">
-              {legendItemsArray.slice(0, 2)}
-            </Flex>
-          </Box>
+          <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
+            <Box
+              dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
+              color="transparent"
+              position="absolute"
+              height={height}
+              display="flex"
+              alignContent="end"
+            >
+              <Flex direction="column" justifyContent="between">
+                {legendItemsArray.slice(0, 2)}
+              </Flex>
+            </Box>
+          </div>
         );
       }
 
       return (
-        <Box
-          color="transparent"
-          width="100%"
-          ref={(ref) => {
-            if (ref) setLegendHeight(ref.getBoundingClientRect().height);
-          }}
-        >
-          <Flex gap={{ row: 4, column: 0 }} wrap>
-            {legendItemsArray}
-          </Flex>
-        </Box>
+        <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
+          <Box
+            color="transparent"
+            width="100%"
+            ref={(ref) => {
+              if (ref) setLegendHeight(ref.getBoundingClientRect().height);
+            }}
+          >
+            <Flex gap={{ row: 4, column: 0 }} wrap>
+              {legendItemsArray}
+            </Flex>
+          </Box>
+        </div>
       );
     },
     [
       isHorizontalBiaxialLayout,
       isVerticalBiaxialLayout,
+      isRtl,
       height,
       labelMap,
-      legend,
       setLegendHeight,
       referenceAreaSummary,
     ],
