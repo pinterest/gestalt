@@ -4,7 +4,7 @@ description: The Gestalt Team is spending the second half of 2023 refining, clea
 fullwidth: true
 ---
 
-## Q2 highlight: RTL guidelines 
+## Q3 highlight: RTL guidelines 
 <ImgHero width={1050} height={590} src="https://i.pinimg.com/originals/a8/64/02/a864028b1abd18cdc2794e44fadd7b97.png" alt="Illustration showing 3 screens with content flowing from right to left." />
 <br />
 In partnership with our Internationalization Team, we published the first version of guidelines for using and formatting right-to-left (RTL) and bi-directional (BIDI) languages in products. This includes:
