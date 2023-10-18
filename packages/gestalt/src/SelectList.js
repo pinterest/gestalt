@@ -26,6 +26,10 @@ type Props = {
    */
   errorMessage?: string,
   /**
+   * Takes the fullWidth of the container, by default selectList will only take the width of the select element
+   */
+  fullWidth?: boolean,
+  /**
    * Used to provide more information about the form field. Be sure to localize the text. See the [helper text](https://gestalt.pinterest.systems/web/selectlist#Helper-text) variant to learn more.
    */
   helperText?: string,
@@ -77,6 +81,7 @@ function SelectList({
   children,
   disabled = false,
   errorMessage,
+  fullWidth,
   helperText,
   id,
   label,
@@ -116,7 +121,7 @@ function SelectList({
   }
 
   return (
-    <Box>
+    <Box width={fullWidth ? '100%' : undefined}>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       <Box
         color={disabled ? 'secondary' : 'default'}

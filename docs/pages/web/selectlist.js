@@ -14,6 +14,7 @@ import dontMixDropdownAndItemListInGroup from '../../examples/selectlist/dontMix
 import dontUseIfAdditionalFeaturesNeeded from '../../examples/selectlist/dontUseIfAdditionalFeaturesNeeded.js';
 import dontUseIfLessThanFourItems from '../../examples/selectlist/dontUseIfLessThanFourItems.js';
 import errorMessageExample from '../../examples/selectlist/errorMessageExample.js';
+import fullWidthExample from '../../examples/selectlist/fullWidthExample.js';
 import groupingRelatedOptionsExample from '../../examples/selectlist/groupingRelatedOptionsExample.js';
 import helperTextExample from '../../examples/selectlist/helperTextExample.js';
 import labelsWithBuiltInFeaturesExample from '../../examples/selectlist/labelsWithBuiltInFeaturesExample.js';
@@ -254,6 +255,18 @@ export default function DocsPage({
             cardSize="lg"
             sandpackExample={
               <SandpackExample name="Helper Text Example" code={helperTextExample} />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Full Width"
+          description={`Use \`fullWidth\` to take up the entire space of a container. By default, SelectList only takes the width of the longest select option.`}
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample name="Full Size Example" code={fullWidthExample} layout="column" />
             }
           />
         </MainSection.Subsection>
