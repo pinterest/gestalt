@@ -1,3 +1,9 @@
+## 127.3.3 (Oct 18, 2023)
+
+### Patch
+
+- Icon: New conversion and speech icons ([#3264](https://github.com/pinterest/gestalt/pull/3264)) - [Preview link](https://deploy-preview-3264--gestalt.netlify.app?devexample=true)
+
 ## 127.3.2 (Oct 17, 2023)
 
 ### Patch
