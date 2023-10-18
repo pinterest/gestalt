@@ -4,7 +4,7 @@
     {
       "type": "shell",
       "osx": {
-        "command": "yarn start",
+        "command": "yarn start"
       },
       "problemMatcher": [],
       "label": "Run yarn start on startup",
