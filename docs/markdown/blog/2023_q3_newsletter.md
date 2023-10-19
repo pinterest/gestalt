@@ -25,7 +25,7 @@ With a large amount of people who speak an RTL and BIDI language using digital p
 <br />
 Hot off the heels of our data visualization guidelines, we created our first data visualization component for web: ChartGraph. The component solves for commonly-used graphs that are plotted on an x and y axis, like line graphs, bar graphs and combo graphs. ‌Advertisers, merchants and creators who want a visual way to interpret and act on data can do so via charts that can be consistent across surfaces since it’s one component built on one charting library.
 
-The components are responsive and also include settings for those with colorblindness or other visual impairments. A tabular view of graph data is coming next for those who either have difficulty navigating charts with assistive devices, prefer to read data in tabular format, or want to download the data as a table to interpret using their own tools. This also means that our data visualization guidelines can be updated using real examples. Look for that update in Q4!
+The components are responsive and also include settings for those with color blindness or other visual impairments. A tabular view of graph data is coming next for those who either have difficulty navigating charts with assistive devices, prefer to read data in tabular format, or want to download the data as a table to interpret using their own tools. This also means that our data visualization guidelines can be updated using real examples. Look for that update in Q4!
 
 **[Check out the ChartGraph component](https://gestalt.pinterest.systems/web/chartgraph)**
 
@@ -138,7 +138,7 @@ We continued to work on parity between light and dark modes by adding washes to 
 ## Pinterest Design Plugin
 We’ve been hard at work continuing to improve the Pinterest design plugin. This Q3, we focused on Figma variables and a table generator.
 
-**[Check out our design plugin](pinch.pinadmin.com/pinterest-design-plugin)**
+**[Check out our design plugin](http://pinch.pinadmin.com/pinterest-design-plugin)**
 
 <TwoCol>
 <Group>
