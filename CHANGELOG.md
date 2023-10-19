@@ -1,3 +1,9 @@
+## 127.3.7 (Oct 19, 2023)
+
+### Patch
+
+- IconButton: iOS/Android documentation cleanup ([#3266](https://github.com/pinterest/gestalt/pull/3266)) - [Preview link](https://deploy-preview-3266--gestalt.netlify.app?devexample=true)
+
 ## 127.3.6 (Oct 19, 2023)
 
 ### Patch
