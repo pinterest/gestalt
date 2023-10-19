@@ -1,3 +1,9 @@
+## 127.3.6 (Oct 19, 2023)
+
+### Patch
+
+- Tokens: Added $color-background-neutral ([#3270](https://github.com/pinterest/gestalt/pull/3270)) - [Preview link](https://deploy-preview-3270--gestalt.netlify.app?devexample=true)
+
 ## 127.3.5 (Oct 19, 2023)
 
 ### Patch
