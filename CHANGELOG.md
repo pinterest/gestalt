@@ -1,3 +1,9 @@
+## 127.5.0 (Oct 20, 2023)
+
+### Minor
+
+- DateField: add `size` prop to match input field pattern and fix border color ([#3271](https://github.com/pinterest/gestalt/pull/3271)) - [Preview link](https://deploy-preview-3271--gestalt.netlify.app?devexample=true)
+
 ## 127.4.0 (Oct 20, 2023)
 
 ### Minor
