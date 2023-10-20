@@ -16,7 +16,7 @@
 }
 
 .toast {
-  border-radius: 16px;
+  border-radius: var(--rounding-400);
   margin-left: 32px;
   margin-right: 32px;
 
@@ -26,7 +26,7 @@
 
 @media (--g-sm) {
   .toast {
-    border-radius: 16px;
+    border-radius: var(--rounding-400);
     display: inline-block;
     margin-left: 32px;
     margin-right: 32px;
