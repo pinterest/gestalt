@@ -124,6 +124,10 @@ export type Props = {
    */
   readOnly?: boolean,
   /**
+   * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
+   */
+  size?: 'md' | 'lg',
+  /**
    * DateField is a controlled component. `value` sets the current value of the input.  See the [controlled component example](https://gestalt.pinterest.systems/web/datefield#Controlled-component) to learn more.
    */
   value: Date | null,
@@ -157,6 +161,7 @@ function DateField({
   onError,
   onFocus,
   readOnly = false,
+  size = 'lg',
   value,
 }: Props): Node {
   const { dateFieldHandlers } = useGlobalEventsHandler() || {
@@ -188,6 +193,7 @@ function DateField({
       onError={onError}
       onFocus={onFocus}
       readOnly={readOnly}
+      size={size}
       value={value}
     />
   );
