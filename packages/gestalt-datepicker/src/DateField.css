@@ -59,7 +59,6 @@
   outline: 0;
 }
 
-
 .formElementNormal {
   border-color: var(--color-border-container);
 }
@@ -98,7 +97,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 
 .layoutMedium {
   min-height: 40px;
