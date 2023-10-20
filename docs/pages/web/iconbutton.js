@@ -270,11 +270,13 @@ Follow these guidelines for \`bgColor\`
           description="IconButton accepts both Gestalt [Icons](/web/icon) and custom icons, as shown in the second example. For custom icons, follow our [custom SVG icons](/foundations/iconography/library#Custom-SVG-icons) guidelines."
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
+            title="Built-in icon"
             sandpackExample={<SandpackExample code={gestaltIcon} name="Gestalt icon example" />}
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
+            title="Custom SVG icon"
             sandpackExample={<SandpackExample code={customIcon} name="Custom icon example" />}
           />
         </MainSection.Subsection>

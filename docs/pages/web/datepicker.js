@@ -204,13 +204,15 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
 DatePicker is a controlled component. Use \`value\`, \`onChange\`, \`onClearInput\` and \`onError\` to implement it correctly.
 
 DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "undefined", it stays uncontrolled.
+
+1. Empty input. If DatePicker doesn't present pre-selected date values, initialize \`value\` with "null" so the component is controlled.\
+
+2. Pre-selected date values. If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
         `}
         >
           <MainSection.Card
             title="Empty input"
-            description={`
-If DatePicker doesn't present pre-selected date values, initialize \`value\` with "null" so the component is controlled.
-`}
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={controlled}
@@ -221,9 +223,9 @@ If DatePicker doesn't present pre-selected date values, initialize \`value\` wit
             }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Pre-selected date values"
             description={`
-If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
 `}
             sandpackExample={
               <SandpackExample
@@ -235,9 +237,17 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection columns={2} title="States">
+        <MainSection.Subsection
+          columns={2}
+          title="States"
+          description={`
+1. Disabled
+2. Error. Display an error message. Error message overrides the helper text.
+        `}
+        >
           <MainSection.Card
             title="Disabled"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={disabled}
@@ -249,7 +259,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
           />
           <MainSection.Card
             title="Error"
-            description="Display an error message. Error message overrides the helper text."
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={error}
@@ -288,6 +298,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
           description="DatePicker supports disabling future & past dates as well as an array of selected dates."
         >
           <MainSection.Card
+            cardSize="lg"
             title="Disable past & future dates"
             sandpackExample={
               <SandpackExample
@@ -299,6 +310,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
             }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Disable selected dates"
             sandpackExample={
               <SandpackExample

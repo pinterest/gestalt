@@ -279,16 +279,26 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
         >
           <MainSection.Card
             title={'role="button"'}
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={roleButton} name="Role button" previewHeight={200} />
+              <SandpackExample
+                code={roleButton}
+                name="Role button"
+                previewHeight={200}
+                layout="column"
+              />
             }
           />
           <MainSection.Card
             title={'role="link"'}
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={roleLink} name="Role Link" previewHeight={200} />
+              <SandpackExample
+                code={roleLink}
+                name="Role Link"
+                previewHeight={200}
+                layout="column"
+              />
             }
           />
         </MainSection.Subsection>

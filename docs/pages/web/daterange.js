@@ -297,12 +297,14 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Disable past & future dates"
-          description="DateField supports disabling future and past dates from being selected. Use `minDate` for disabling past dates and `maxDate` for disabling futures dates."
+          description={`DateField supports disabling future and past dates from being selected. Use \`minDate\` for disabling past dates and \`maxDate\` for disabling futures dates.
+ 1. Disable past. Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign.
+ 2. Disable future. Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns.
+        `}
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Disable past"
-            description="Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign."
             sandpackExample={
               <SandpackExample
                 code={disabledPast}
@@ -313,9 +315,8 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Disable future"
-            description="Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
               <SandpackExample
                 code={disabledFuture}

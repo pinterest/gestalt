@@ -52,7 +52,7 @@ export default function Example(): Node {
     <Box padding={2}>
       <Flex direction="column" gap={4}>
         <Heading size="500">
-          Discover this week`&apos;`s top searched trends across all categories
+          Discover this week&apos;s top searched trends across all categories
         </Heading>
         <Text inline>
           Wanna learn how trends work?
