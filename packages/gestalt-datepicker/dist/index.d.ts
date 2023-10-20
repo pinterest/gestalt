@@ -491,6 +491,7 @@ export interface DateFieldProps {
     | AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>
     | undefined;
   readOnly?: boolean | undefined;
+  size?: 'md' | 'lg';
   value: Date | null | undefined;
 }
 
