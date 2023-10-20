@@ -1,3 +1,9 @@
+## 127.4.0 (Oct 20, 2023)
+
+### Minor
+
+- Tokens: Move to Border radius tokens ([#3251](https://github.com/pinterest/gestalt/pull/3251)) - [Preview link](https://deploy-preview-3251--gestalt.netlify.app?devexample=true)
+
 ## 127.3.7 (Oct 19, 2023)
 
 ### Patch
