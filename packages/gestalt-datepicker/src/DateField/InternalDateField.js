@@ -67,6 +67,7 @@ type CustomTextFieldProps = {
         event: SyntheticFocusEvent<HTMLInputElement>,
         value: string,
       }) => void,
+      size: 'md' | 'lg',
     },
   },
 };
@@ -96,7 +97,7 @@ const CustomTextField = forwardRef(
       styles.formElementBase,
       styles.typographyTruncate,
       styles.actionButton,
-      styles.layoutLarge,
+      ownerState?.passthroughProps?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
       disabled ? styles.formElementDisabled : styles.formElementEnabled,
       ownerState?.passthroughProps?.errorMessage && !focused
         ? styles.formElementErrored
@@ -283,6 +284,7 @@ type InternalDateFieldProps = {
   }) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  size?: 'md' | 'lg',
   value: Date | null,
 };
 
@@ -306,6 +308,7 @@ function InternalDateField({
   onError,
   onFocus,
   readOnly = false,
+  size,
   value,
 }: InternalDateFieldProps): Node {
   let translations = getTranslationsFromMUIJS(localeData);
@@ -357,6 +360,7 @@ function InternalDateField({
                 onBlur,
                 onFocus,
                 onClearInput,
+                size,
               }}
               viewRenderers={null}
             />
